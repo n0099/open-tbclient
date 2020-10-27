@@ -16,7 +16,7 @@ import org.json.JSONObject;
 /* loaded from: classes19.dex */
 public abstract class a implements u {
     private static final boolean DEBUG = AppConfig.isDebug();
-    protected ad nEh = new ad();
+    protected ad ogJ = new ad();
 
     public abstract ab a(String str, byte[] bArr, Map<String, String> map) throws IOException;
 
@@ -27,20 +27,20 @@ public abstract class a implements u {
 
     public boolean a(String str, JSONObject jSONObject, boolean z) {
         String str2;
-        boolean dTT = this.nEh.dTT();
-        if (dTT) {
+        boolean dZL = this.ogJ.dZL();
+        if (dZL) {
             str2 = "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox?action=zubc";
         } else {
             str2 = str + "/ztbox?action=zubc";
         }
         String processUrl = com.baidu.d.c.b.uV().processUrl(str2);
-        if (dTT && !TextUtils.isEmpty(processUrl)) {
+        if (dZL && !TextUtils.isEmpty(processUrl)) {
             processUrl = UrlUtil.addParam(processUrl, ETAG.KEY_DEBUG, "1");
         }
         if (z) {
             processUrl = UrlUtil.addParam(processUrl, "reallog", "1");
         }
-        if (g.dTF().isBeta()) {
+        if (g.dZx().isBeta()) {
             processUrl = UrlUtil.addParam(processUrl, "beta", "1");
         }
         HashMap hashMap = new HashMap(2);
@@ -70,11 +70,11 @@ public abstract class a implements u {
                     if (!DEBUG) {
                         JSONObject jSONObject2 = new JSONObject();
                         try {
-                            String eq = eq(jSONObject);
+                            String ex = ex(jSONObject);
                             jSONObject2.put("type", "sendFail");
                             jSONObject2.put("error_no", i);
-                            if (!TextUtils.isEmpty(eq)) {
-                                jSONObject2.put("md5", eq);
+                            if (!TextUtils.isEmpty(ex)) {
+                                jSONObject2.put("md5", ex);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -97,7 +97,7 @@ public abstract class a implements u {
         }
     }
 
-    protected String eq(JSONObject jSONObject) {
+    protected String ex(JSONObject jSONObject) {
         if (jSONObject == null || !jSONObject.has("metadata")) {
             return "";
         }

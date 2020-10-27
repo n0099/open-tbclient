@@ -8,8 +8,8 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class e {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected JSONObject dlN;
-    protected JSONObject dlO;
+    protected JSONObject dup;
+    protected JSONObject duq;
     public String mAppId;
     public String mFrom = "swan";
     public String mPage;
@@ -34,16 +34,16 @@ public class e {
             }
             jSONObject.put("source", this.mSource);
             if (!TextUtils.isEmpty(this.mPage)) {
-                this.mPage = com.baidu.swan.apps.statistic.g.st(this.mPage);
+                this.mPage = com.baidu.swan.apps.statistic.g.sM(this.mPage);
                 jSONObject.put("page", this.mPage);
             }
-            if (this.dlN == null) {
-                this.dlN = new JSONObject();
+            if (this.dup == null) {
+                this.dup = new JSONObject();
             }
             if (!TextUtils.isEmpty(this.mAppId)) {
-                this.dlN.put("appid", this.mAppId);
+                this.dup.put("appid", this.mAppId);
             }
-            jSONObject.put("ext", this.dlN);
+            jSONObject.put("ext", this.dup);
             return jSONObject;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -53,16 +53,16 @@ public class e {
         }
     }
 
-    public void bX(JSONObject jSONObject) {
+    public void ca(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.dlN == null) {
-                this.dlN = new JSONObject();
+            if (this.dup == null) {
+                this.dup = new JSONObject();
             }
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 try {
-                    this.dlN.put(next, jSONObject.opt(next));
+                    this.dup.put(next, jSONObject.opt(next));
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -72,10 +72,10 @@ public class e {
         }
     }
 
-    public void sF(String str) {
+    public void sY(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                bX(new JSONObject(str));
+                ca(new JSONObject(str));
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -84,20 +84,20 @@ public class e {
         }
     }
 
-    public void bY(JSONObject jSONObject) {
+    public void cb(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.dlN == null) {
-                this.dlN = new JSONObject();
+            if (this.dup == null) {
+                this.dup = new JSONObject();
             }
-            this.dlO = this.dlN.optJSONObject("extlog");
-            if (this.dlO == null) {
-                this.dlO = new JSONObject();
+            this.duq = this.dup.optJSONObject("extlog");
+            if (this.duq == null) {
+                this.duq = new JSONObject();
             }
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 try {
-                    this.dlO.put(next, jSONObject.opt(next));
+                    this.duq.put(next, jSONObject.opt(next));
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -105,7 +105,7 @@ public class e {
                 }
             }
             try {
-                this.dlN.put("extlog", this.dlO);
+                this.dup.put("extlog", this.duq);
             } catch (JSONException e2) {
                 if (DEBUG) {
                     e2.printStackTrace();
@@ -115,11 +115,11 @@ public class e {
     }
 
     public void u(@NonNull String str, Object obj) {
-        if (this.dlN == null) {
-            this.dlN = new JSONObject();
+        if (this.dup == null) {
+            this.dup = new JSONObject();
         }
         try {
-            this.dlN.put(str, obj);
+            this.dup.put(str, obj);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -127,12 +127,12 @@ public class e {
         }
     }
 
-    public JSONObject aGb() {
-        if (this.dlN == null) {
+    public JSONObject aHV() {
+        if (this.dup == null) {
             return null;
         }
         try {
-            return new JSONObject(this.dlN.toString());
+            return new JSONObject(this.dup.toString());
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();

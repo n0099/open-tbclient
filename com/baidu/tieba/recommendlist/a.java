@@ -21,11 +21,10 @@ import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.widget.listview.AbsDelegateAdapter;
 import com.baidu.live.adp.widget.listview.IAdapterData;
-import com.baidu.live.data.u;
+import com.baidu.live.data.w;
 import com.baidu.live.liveroom.g.b;
 import com.baidu.live.liveroom.g.d;
 import com.baidu.live.sdk.a;
-import com.baidu.live.t.c;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.ListUtils;
@@ -33,28 +32,31 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.core.view.AlaListViewPullView;
 import com.baidu.live.tbadk.core.view.LoadMoreFooter;
 import com.baidu.live.tbadk.core.view.TbListCommonPullView;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.live.tbadk.ubc.UbcStatisticItem;
 import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.live.tbadk.widget.CommonEmptyView;
+import com.baidu.live.u.c;
 import com.baidu.tieba.recommendlist.adapter.RecommendPagerAdapter;
 import com.baidu.tieba.recommendlist.data.e;
 import com.baidu.tieba.recommendlist.model.b;
 import com.baidu.tieba.recommendlist.view.AlaRecommendLiveListView;
 import com.baidu.tieba.recommendlist.view.RecommendViewPager;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class a implements View.OnClickListener, b, d, com.baidu.live.t.a {
-    private View aEB;
-    private ViewGroup bBk;
-    private CommonEmptyView bwB;
+public class a implements View.OnClickListener, b, d, com.baidu.live.u.a {
+    private View aEJ;
+    private ViewGroup bEg;
+    private CommonEmptyView byP;
     private int cardWidth;
-    private float cif;
-    private com.baidu.live.t.b gGq;
-    private LoadMoreFooter gqW;
-    private TbListCommonPullView hiJ;
-    private float lAK;
+    private float cqF;
+    private LoadMoreFooter gBa;
+    private com.baidu.live.u.b gSf;
+    private TbListCommonPullView huF;
+    private float lNh;
     private ValueAnimator mAnimator;
     private Context mContext;
     private float mDownX;
@@ -63,186 +65,188 @@ public class a implements View.OnClickListener, b, d, com.baidu.live.t.a {
     private int mShowType;
     private TbPageContext mTbPageContext;
     private int mTouchSlop;
-    private ViewGroup miM;
-    private RecommendViewPager miN;
-    private AlaRecommendLiveListView miO;
-    private View miP;
-    private int miQ;
-    private float miR;
-    private List<AbsDelegateAdapter> miS;
-    private c miT;
-    private final int miU = 100;
-    private com.baidu.tieba.recommendlist.model.b miV;
-    private TextView miW;
-    private boolean miX;
-    private u miY;
-    private LinearLayout miZ;
-    private View mja;
-    private View mjb;
+    private ViewGroup mvj;
+    private RecommendViewPager mvk;
+    private AlaRecommendLiveListView mvl;
+    private View mvm;
+    private int mvn;
+    private float mvo;
+    private List<AbsDelegateAdapter> mvp;
+    private c mvq;
+    private final int mvr = 100;
+    private int mvs;
+    private com.baidu.tieba.recommendlist.model.b mvt;
+    private TextView mvu;
+    private boolean mvv;
+    private w mvw;
+    private LinearLayout mvx;
+    private View mvy;
+    private View mvz;
 
     public a(TbPageContext tbPageContext) {
         if (tbPageContext != null) {
             this.mContext = tbPageContext.getPageActivity();
             this.mTbPageContext = tbPageContext;
             this.mScreenWidth = BdUtilHelper.getEquipmentWidth(this.mContext);
-            this.miQ = this.mScreenWidth;
-            dwe();
+            this.mvn = this.mScreenWidth;
+            dzl();
             this.mTouchSlop = ViewConfiguration.get(this.mContext).getScaledTouchSlop();
-            if (com.baidu.live.c.AZ().getBoolean("ala_recommend_live_first_show", true)) {
+            if (com.baidu.live.d.AZ().getBoolean("ala_recommend_live_first_show", true)) {
                 this.mShowType = 1;
             }
         }
     }
 
-    @Override // com.baidu.live.t.a
+    @Override // com.baidu.live.u.a
     public void a(c cVar) {
-        this.miT = cVar;
+        this.mvq = cVar;
     }
 
-    @Override // com.baidu.live.t.a
-    public void p(u uVar) {
-        this.miY = uVar;
+    @Override // com.baidu.live.u.a
+    public void o(w wVar) {
+        this.mvw = wVar;
     }
 
-    @Override // com.baidu.live.t.a
+    @Override // com.baidu.live.u.a
     public void D(int i, int i2) {
         this.mOrientation = i2;
         if (i2 == 2) {
-            this.miP.setVisibility(8);
+            this.mvm.setVisibility(8);
             if (isOpen()) {
                 onClose();
                 return;
             }
             return;
         }
-        this.miP.setVisibility(0);
+        this.mvm.setVisibility(0);
     }
 
-    @Override // com.baidu.live.t.a
-    public d Om() {
+    @Override // com.baidu.live.u.a
+    public d OK() {
         return this;
     }
 
-    @Override // com.baidu.live.t.a
-    public b On() {
+    @Override // com.baidu.live.u.a
+    public b OL() {
         return this;
     }
 
-    @Override // com.baidu.live.t.a
-    public void a(com.baidu.live.t.b bVar) {
-        this.gGq = bVar;
+    @Override // com.baidu.live.u.a
+    public void a(com.baidu.live.u.b bVar) {
+        this.gSf = bVar;
     }
 
-    @Override // com.baidu.live.t.a
+    @Override // com.baidu.live.u.a
     public void a(ViewGroup viewGroup, ViewGroup viewGroup2) {
         if (viewGroup != null) {
-            this.bBk = viewGroup;
-            this.miM = viewGroup2;
-            dwf();
-            dwd();
-            if (!this.miX && com.baidu.live.x.a.OS().blo != null && this.mShowType != 1) {
-                long j = com.baidu.live.c.AZ().getLong("ala_recommend_live_last_show", 0L);
+            this.bEg = viewGroup;
+            this.mvj = viewGroup2;
+            dzm();
+            dzk();
+            if (!this.mvv && com.baidu.live.z.a.Pq().bmJ != null && this.mShowType != 1) {
+                long j = com.baidu.live.d.AZ().getLong("ala_recommend_live_last_show", 0L);
                 long currentTimeMillis = System.currentTimeMillis();
-                int i = com.baidu.live.x.a.OS().blo.aLR;
-                if (j != 0 && ((float) (currentTimeMillis - j)) / 8.64E7f > i) {
+                int Pv = com.baidu.live.z.a.Pq().Pv();
+                if (j != 0 && ((float) (currentTimeMillis - j)) / 8.64E7f > Pv) {
                     this.mShowType = 2;
                 }
             }
-            HI(0);
+            this.mvs = com.baidu.live.z.a.Pq().Py();
+            Ib(0);
         }
     }
 
-    @Override // com.baidu.live.t.a
-    public void CN() {
+    @Override // com.baidu.live.u.a
+    public void CT() {
         if (this.mAnimator != null && this.mAnimator.isRunning()) {
             this.mAnimator.cancel();
             this.mAnimator = null;
         }
-        if (this.bBk != null) {
-            this.bBk.removeView(this.miN);
-            this.bBk.removeView(this.mja);
+        if (this.bEg != null) {
+            this.bEg.removeView(this.mvk);
+            this.bEg.removeView(this.mvy);
         }
-        this.miT = null;
-        if (this.miX) {
-            com.baidu.live.c.AZ().putLong("ala_recommend_live_last_show", System.currentTimeMillis());
+        this.mvq = null;
+        if (this.mvv) {
+            com.baidu.live.d.AZ().putLong("ala_recommend_live_last_show", System.currentTimeMillis());
         }
-        this.miY = null;
-        if (this.miV != null) {
-            this.miV.reset();
+        this.mvw = null;
+        if (this.mvt != null) {
+            this.mvt.reset();
         }
     }
 
-    @Override // com.baidu.live.t.a
+    @Override // com.baidu.live.u.a
     public void onDestroy() {
-        CN();
-        if (this.miV != null) {
-            this.miV.onDestroy();
+        CT();
+        if (this.mvt != null) {
+            this.mvt.onDestroy();
         }
     }
 
-    private void dwd() {
-        if (this.aEB == null) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.miQ, -1);
-            this.aEB = LayoutInflater.from(this.mContext).inflate(a.h.ala_recommend_live_content_layout, (ViewGroup) null);
-            this.aEB.setLayoutParams(layoutParams);
+    private void dzk() {
+        if (this.aEJ == null) {
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.mvn, -1);
+            this.aEJ = LayoutInflater.from(this.mContext).inflate(a.h.ala_recommend_live_content_layout, (ViewGroup) null);
+            this.aEJ.setLayoutParams(layoutParams);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
-                this.aEB.findViewById(a.g.right_layout).setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
+                this.aEJ.findViewById(a.g.right_layout).setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
             }
-            this.mjb = this.aEB.findViewById(a.g.block_view);
-            this.mjb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recommendlist.a.1
+            this.mvz = this.aEJ.findViewById(a.g.block_view);
+            this.mvz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recommendlist.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     a.this.onClose();
                 }
             });
-            this.miZ = (LinearLayout) this.aEB.findViewById(a.g.listView_layout);
-            this.miO = (AlaRecommendLiveListView) this.aEB.findViewById(a.g.recommendLiveListView);
-            this.hiJ = new AlaListViewPullView(this.mContext);
-            this.gqW = new LoadMoreFooter(this.mContext);
-            this.gqW.setBackgroundColor(this.mContext.getResources().getColor(a.d.sdk_transparent));
-            this.gqW.setFooterHeight(this.cardWidth / 2);
-            this.gqW.createView();
-            Le();
-            this.miO.addAdapters(this.miS);
-            this.miO.setPullRefresh(this.hiJ);
-            this.hiJ.setListPullRefreshListener(new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.recommendlist.a.2
+            this.mvx = (LinearLayout) this.aEJ.findViewById(a.g.listView_layout);
+            this.mvl = (AlaRecommendLiveListView) this.aEJ.findViewById(a.g.recommendLiveListView);
+            this.huF = new AlaListViewPullView(this.mContext);
+            this.gBa = new LoadMoreFooter(this.mContext);
+            this.gBa.setBackgroundColor(this.mContext.getResources().getColor(a.d.sdk_transparent));
+            this.gBa.setFooterHeight(this.cardWidth / 2);
+            this.gBa.createView();
+            Ly();
+            this.mvl.addAdapters(this.mvp);
+            this.mvl.setPullRefresh(this.huF);
+            this.huF.setListPullRefreshListener(new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.recommendlist.a.2
                 @Override // com.baidu.live.tbadk.core.view.TbListCommonPullView.ListPullRefreshListener
                 public void onListPullRefresh(boolean z) {
-                    a.this.HI(0);
+                    a.this.Ib(0);
                     if (!z) {
-                        UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "your_recommend", "pushfresh"));
+                        UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.LIVE_RECOMMEND, "pushfresh"));
                     }
                 }
             });
-            this.miO.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.recommendlist.a.3
+            this.mvl.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.recommendlist.a.3
                 @Override // android.widget.AbsListView.OnScrollListener
                 public void onScrollStateChanged(AbsListView absListView, int i) {
                 }
 
                 @Override // android.widget.AbsListView.OnScrollListener
                 public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-                    if (!a.this.gqW.isLoading() && a.this.miV != null && a.this.miV.hasMore && i + i2 > i3 - 2) {
-                        a.this.bJV();
-                        a.this.HI(1);
+                    if (!a.this.gBa.isLoading() && a.this.mvt != null && a.this.mvt.hasMore && i + i2 > i3 - 2) {
+                        a.this.bMx();
+                        a.this.Ib(1);
                     }
                 }
             });
         }
-        if (this.mja == null) {
-            this.mja = new View(this.mContext);
-            this.mja.setBackgroundColor(this.mContext.getResources().getColor(a.d.sdk_black_alpha65));
-            this.mja.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            this.mja.setAlpha(0.0f);
+        if (this.mvy == null) {
+            this.mvy = new View(this.mContext);
+            this.mvy.setBackgroundColor(this.mContext.getResources().getColor(a.d.sdk_black_alpha65));
+            this.mvy.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            this.mvy.setAlpha(0.0f);
         }
-        this.bBk.addView(this.mja);
-        if (this.miN == null) {
-            this.miN = new RecommendViewPager(this.mTbPageContext.getPageActivity());
-            this.miN.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            this.miN.addOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.recommendlist.a.4
+        this.bEg.addView(this.mvy);
+        if (this.mvk == null) {
+            this.mvk = new RecommendViewPager(this.mTbPageContext.getPageActivity());
+            this.mvk.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            this.mvk.addOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.recommendlist.a.4
                 @Override // android.support.v4.view.ViewPager.OnPageChangeListener
                 public void onPageScrolled(int i, float f, int i2) {
                     if (a.this.isOpen() && i == 0) {
-                        a.this.mja.setAlpha(f);
+                        a.this.mvy.setAlpha(f);
                     }
                 }
 
@@ -252,9 +256,9 @@ public class a implements View.OnClickListener, b, d, com.baidu.live.t.a {
 
                 @Override // android.support.v4.view.ViewPager.OnPageChangeListener
                 public void onPageScrollStateChanged(int i) {
-                    if (i == 0 && a.this.miN != null) {
-                        if (a.this.miN.getCurrentItem() != 0) {
-                            a.this.dwh();
+                    if (i == 0 && a.this.mvk != null) {
+                        if (a.this.mvk.getCurrentItem() != 0) {
+                            a.this.dzo();
                         } else {
                             a.this.close();
                         }
@@ -265,20 +269,20 @@ public class a implements View.OnClickListener, b, d, com.baidu.live.t.a {
             Space space = new Space(this.mTbPageContext.getPageActivity());
             space.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             arrayList.add(space);
-            arrayList.add(this.aEB);
-            this.miN.setAdapter(new RecommendPagerAdapter(arrayList));
-            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(this.miQ, -1);
+            arrayList.add(this.aEJ);
+            this.mvk.setAdapter(new RecommendPagerAdapter(arrayList));
+            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(this.mvn, -1);
             layoutParams2.gravity = 5;
-            layoutParams2.rightMargin = -this.miQ;
-            this.miN.setLayoutParams(layoutParams2);
+            layoutParams2.rightMargin = -this.mvn;
+            this.mvk.setLayoutParams(layoutParams2);
         }
-        this.bBk.addView(this.miN);
-        this.miN.setCurrentItem(1, false);
-        if (this.miV == null) {
-            this.miV = new com.baidu.tieba.recommendlist.model.b(this.mTbPageContext);
-            this.miV.a(new b.a() { // from class: com.baidu.tieba.recommendlist.a.5
+        this.bEg.addView(this.mvk);
+        this.mvk.setCurrentItem(1, false);
+        if (this.mvt == null) {
+            this.mvt = new com.baidu.tieba.recommendlist.model.b(this.mTbPageContext);
+            this.mvt.a(new b.a() { // from class: com.baidu.tieba.recommendlist.a.5
                 @Override // com.baidu.tieba.recommendlist.model.b.a
-                public void s(List<IAdapterData> list, int i) {
+                public void t(List<IAdapterData> list, int i) {
                     a.this.r(list, i);
                 }
 
@@ -290,33 +294,35 @@ public class a implements View.OnClickListener, b, d, com.baidu.live.t.a {
         }
     }
 
-    private void dwe() {
-        this.cardWidth = ((((this.miQ - this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds80)) - this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds40)) - this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds20)) - this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds4)) / 2;
+    private void dzl() {
+        this.cardWidth = ((((this.mvn - this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds80)) - this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds40)) - this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds20)) - this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds4)) / 2;
         if (this.cardWidth <= 0) {
             this.cardWidth = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds340);
         }
     }
 
-    private void Le() {
-        if (this.miS == null) {
-            this.miS = new ArrayList();
-            this.miS.add(new com.baidu.tieba.recommendlist.adapter.d(this.mContext, e.mjF));
-            this.miS.add(new com.baidu.tieba.recommendlist.adapter.b(this.mContext, com.baidu.tieba.recommendlist.data.b.mjA));
-            this.miS.add(new com.baidu.tieba.recommendlist.adapter.c(this.mContext, com.baidu.tieba.recommendlist.data.c.mjC, this.cardWidth));
+    private void Ly() {
+        if (this.mvp == null) {
+            this.mvp = new ArrayList();
+            this.mvp.add(new com.baidu.tieba.recommendlist.adapter.d(this.mContext, e.mwf));
+            this.mvp.add(new com.baidu.tieba.recommendlist.adapter.b(this.mContext, com.baidu.tieba.recommendlist.data.b.mwa));
+            this.mvp.add(new com.baidu.tieba.recommendlist.adapter.c(this.mContext, com.baidu.tieba.recommendlist.data.c.mwc, this.cardWidth));
         }
     }
 
-    private void dwf() {
-        this.miP = LayoutInflater.from(this.mContext).inflate(a.h.ala_recommend_live_header_entrance, (ViewGroup) null);
+    private void dzm() {
+        this.mvm = LayoutInflater.from(this.mContext).inflate(a.h.ala_recommend_live_header_entrance, (ViewGroup) null);
+        this.mvm.setId(a.g.ala_sdk_recommend_more_id);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds44));
         layoutParams.topMargin = this.mContext.getResources().getDimensionPixelOffset(a.e.sdk_ds16);
         layoutParams.addRule(11);
-        layoutParams.addRule(3, a.g.ala_liveroom_hostheader);
-        this.miP.setLayoutParams(layoutParams);
-        if (this.miM != null) {
-            this.miM.addView(this.miP);
+        layoutParams.addRule(3, a.g.ala_head_line_entry_id);
+        this.mvm.setLayoutParams(layoutParams);
+        if (this.mvj != null) {
+            this.mvj.addView(this.mvm);
         }
-        this.miP.setOnClickListener(this);
+        ((TextView) this.mvm.findViewById(a.g.tv_recommend_entrance)).setText(com.baidu.live.z.a.Pq().Pw());
+        this.mvm.setOnClickListener(this);
     }
 
     @Override // com.baidu.live.liveroom.g.d
@@ -334,25 +340,25 @@ public class a implements View.OnClickListener, b, d, com.baidu.live.t.a {
         switch (motionEvent.getAction()) {
             case 0:
                 this.mDownX = motionEvent.getX(i);
-                this.cif = motionEvent.getY(i);
-                this.lAK = this.mDownX;
-                this.miR = this.cif;
+                this.cqF = motionEvent.getY(i);
+                this.lNh = this.mDownX;
+                this.mvo = this.cqF;
                 break;
             case 1:
                 float x = motionEvent.getX(i);
                 float y = motionEvent.getY(i);
                 float f = this.mDownX - x;
-                float f2 = this.cif - y;
-                if (Math.abs(f) < this.mTouchSlop && Math.abs(f2) < this.mTouchSlop && x > 0.0f && x < this.mScreenWidth - this.miQ) {
+                float f2 = this.cqF - y;
+                if (Math.abs(f) < this.mTouchSlop && Math.abs(f2) < this.mTouchSlop && x > 0.0f && x < this.mScreenWidth - this.mvn) {
                     onClose();
                     return true;
                 }
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.miN.getLayoutParams();
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mvk.getLayoutParams();
                 if (f > this.mTouchSlop) {
-                    wk(true);
-                    dwg();
+                    wB(true);
+                    dzn();
                     return true;
-                } else if (layoutParams.rightMargin > (-this.miQ)) {
+                } else if (layoutParams.rightMargin > (-this.mvn)) {
                     onClose();
                     return true;
                 }
@@ -360,30 +366,30 @@ public class a implements View.OnClickListener, b, d, com.baidu.live.t.a {
             case 2:
                 float x2 = motionEvent.getX(i);
                 float y2 = motionEvent.getY(i);
-                float f3 = this.lAK - x2;
-                float f4 = this.miR - y2;
-                this.lAK = x2;
-                this.miR = y2;
-                FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.miN.getLayoutParams();
+                float f3 = this.lNh - x2;
+                float f4 = this.mvo - y2;
+                this.lNh = x2;
+                this.mvo = y2;
+                FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.mvk.getLayoutParams();
                 if (f3 > 0.0f) {
                     int i2 = (int) (layoutParams2.rightMargin + f3);
                     if (i2 <= 0) {
                         layoutParams2.rightMargin = i2;
-                        this.miN.setLayoutParams(layoutParams2);
-                        this.mja.setAlpha(1.0f - Math.abs((i2 * 1.0f) / this.miQ));
+                        this.mvk.setLayoutParams(layoutParams2);
+                        this.mvy.setAlpha(1.0f - Math.abs((i2 * 1.0f) / this.mvn));
                     }
                     return true;
                 } else if (f3 <= 0.0f) {
                     int i3 = (int) (layoutParams2.rightMargin + f3);
-                    if (i3 >= (-this.miQ)) {
+                    if (i3 >= (-this.mvn)) {
                         layoutParams2.rightMargin = i3;
-                        this.miN.setLayoutParams(layoutParams2);
-                        this.mja.setAlpha(1.0f - Math.abs((i3 * 1.0f) / this.miQ));
+                        this.mvk.setLayoutParams(layoutParams2);
+                        this.mvy.setAlpha(1.0f - Math.abs((i3 * 1.0f) / this.mvn));
                         return true;
-                    } else if (i3 < (-this.miQ)) {
-                        layoutParams2.rightMargin = -this.miQ;
-                        this.miN.setLayoutParams(layoutParams2);
-                        this.mja.setAlpha(1.0f - Math.abs((i3 * 1.0f) / this.miQ));
+                    } else if (i3 < (-this.mvn)) {
+                        layoutParams2.rightMargin = -this.mvn;
+                        this.mvk.setLayoutParams(layoutParams2);
+                        this.mvy.setAlpha(1.0f - Math.abs((i3 * 1.0f) / this.mvn));
                         return false;
                     }
                 }
@@ -396,115 +402,116 @@ public class a implements View.OnClickListener, b, d, com.baidu.live.t.a {
     }
 
     private boolean ac(MotionEvent motionEvent) {
-        if (motionEvent == null || this.mOrientation == 2 || this.gGq == null) {
+        if (motionEvent == null || this.mOrientation == 2 || this.gSf == null) {
             return false;
         }
-        return this.gGq.Oo();
+        return this.gSf.OM();
     }
 
-    private void dwg() {
+    private void dzn() {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "left_slide"));
     }
 
-    public void wk(boolean z) {
+    public void wB(boolean z) {
         if ((this.mAnimator == null || !this.mAnimator.isRunning()) && UtilHelper.getRealScreenOrientation(this.mContext) != 2) {
-            wl(true);
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.miN.getLayoutParams();
+            wC(true);
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mvk.getLayoutParams();
             if (layoutParams.rightMargin < 0) {
                 int i = layoutParams.rightMargin;
-                ab(i, 0, (int) (100.0f * ((Math.abs(0 - i) * 1.0f) / this.miQ)));
+                ac(i, 0, (int) (100.0f * ((Math.abs(0 - i) * 1.0f) / this.mvn)));
             }
-            if (this.miT != null) {
-                this.miT.co(true);
+            if (this.mvq != null) {
+                this.mvq.cq(true);
             }
-            if (!this.miX) {
-                this.miX = true;
+            if (!this.mvv) {
+                this.mvv = true;
             }
-            this.miO.completePullRefresh();
+            this.mvl.completePullRefresh();
             if (z) {
-                HI(0);
+                Ib(0);
             }
-            UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1429, "access", "your_recommend", ""));
+            UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1429, "access", UbcStatConstant.Page.LIVE_RECOMMEND, ""));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void HI(int i) {
+    public void Ib(int i) {
         if (!BdNetTypeUtil.isNetWorkAvailable()) {
             b(CommonEmptyView.ImgType.NO_NET);
             return;
         }
         hideNoDataView();
         long j = 0;
-        if (this.miY != null && this.miY.mLiveInfo != null) {
-            j = this.miY.mLiveInfo.live_id;
+        if (this.mvw != null && this.mvw.mLiveInfo != null) {
+            j = this.mvw.mLiveInfo.live_id;
         }
-        this.miV.t(j, i);
+        this.mvt.d(j, i, this.mvs);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void r(List<IAdapterData> list, int i) {
-        if (this.miV.hasMore) {
-            bOc();
+        if (this.mvt.hasMore) {
+            bQH();
         } else if (i == 1) {
-            bOc();
+            bQH();
         }
         if (ListUtils.isEmpty(list)) {
             b(CommonEmptyView.ImgType.NO_DATA);
             return;
         }
         hideNoDataView();
-        this.miO.setData(list);
-        if (this.miS != null) {
-            for (AbsDelegateAdapter absDelegateAdapter : this.miS) {
+        this.mvl.setData(list);
+        if (this.mvp != null) {
+            for (AbsDelegateAdapter absDelegateAdapter : this.mvp) {
                 if (absDelegateAdapter instanceof com.baidu.tieba.recommendlist.adapter.c) {
-                    ((com.baidu.tieba.recommendlist.adapter.c) absDelegateAdapter).g(this.miY);
+                    ((com.baidu.tieba.recommendlist.adapter.c) absDelegateAdapter).setAlaLiveShowData(this.mvw);
                 } else if (absDelegateAdapter instanceof com.baidu.tieba.recommendlist.adapter.b) {
-                    ((com.baidu.tieba.recommendlist.adapter.b) absDelegateAdapter).g(this.miY);
+                    ((com.baidu.tieba.recommendlist.adapter.b) absDelegateAdapter).setAlaLiveShowData(this.mvw);
                 }
             }
         }
         if ((this.mShowType == 1 || this.mShowType == 2) && UtilHelper.getRealScreenOrientation(this.mContext) != 2) {
             if (this.mShowType == 1) {
-                com.baidu.live.c.AZ().putBoolean("ala_recommend_live_first_show", false);
+                com.baidu.live.d.AZ().putBoolean("ala_recommend_live_first_show", false);
             } else {
-                com.baidu.live.c.AZ().putLong("ala_recommend_live_last_show", System.currentTimeMillis());
+                com.baidu.live.d.AZ().putLong("ala_recommend_live_last_show", System.currentTimeMillis());
             }
             this.mShowType = 0;
         }
-        this.miO.completePullRefresh();
+        this.mvl.completePullRefresh();
+        s(list, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(CommonEmptyView.ImgType imgType) {
         int i;
-        if (this.miV != null && !this.miV.bxE()) {
+        if (this.mvt != null && !this.mvt.bzx()) {
             if (imgType == CommonEmptyView.ImgType.NO_NET || imgType == CommonEmptyView.ImgType.SERVER_ERROR) {
                 BdUtilHelper.showToast(this.mContext, a.i.recommend_live_net_weak);
             }
-            this.miO.completePullRefresh();
+            this.mvl.completePullRefresh();
             return;
         }
-        if (this.bwB == null) {
-            this.bwB = new CommonEmptyView(this.mContext);
-            ImageView imageView = (ImageView) this.bwB.findViewById(a.g.sdk_cev_img);
+        if (this.byP == null) {
+            this.byP = new CommonEmptyView(this.mContext);
+            ImageView imageView = (ImageView) this.byP.findViewById(a.g.sdk_cev_img);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) imageView.getLayoutParams();
             layoutParams.width = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds180);
             layoutParams.height = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds180);
             imageView.setLayoutParams(layoutParams);
-            ((TextView) this.bwB.findViewById(a.g.sdk_cev_title)).setTextSize(0, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_fontsize24));
-            this.miW = (TextView) this.bwB.findViewById(a.g.sdk_cev_refresh_btn);
-            this.miW.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_fontsize22));
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.miW.getLayoutParams();
+            ((TextView) this.byP.findViewById(a.g.sdk_cev_title)).setTextSize(0, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_fontsize24));
+            this.mvu = (TextView) this.byP.findViewById(a.g.sdk_cev_refresh_btn);
+            this.mvu.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_fontsize22));
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.mvu.getLayoutParams();
             layoutParams2.width = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds152);
             layoutParams2.height = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds54);
             layoutParams2.topMargin = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds30);
-            this.miW.setLayoutParams(layoutParams2);
-            if (this.miZ != null) {
-                this.bwB.addToParent(this.miZ);
+            this.mvu.setLayoutParams(layoutParams2);
+            if (this.mvx != null) {
+                this.byP.addToParent(this.mvx);
             }
         }
-        this.bwB.reset();
+        this.byP.reset();
         switch (imgType) {
             case NO_NET:
                 i = a.i.recommend_live_no_net;
@@ -516,89 +523,90 @@ public class a implements View.OnClickListener, b, d, com.baidu.live.t.a {
                 i = a.i.recommend_live_no_data;
                 break;
         }
-        this.bwB.setTitle(i);
-        this.bwB.setRefreshButton(this.mContext.getResources().getString(a.i.recommend_live_refresh), new View.OnClickListener() { // from class: com.baidu.tieba.recommendlist.a.6
+        this.byP.setTitle(i);
+        this.byP.setRefreshButton(this.mContext.getResources().getString(a.i.recommend_live_refresh), new View.OnClickListener() { // from class: com.baidu.tieba.recommendlist.a.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 a.this.hideNoDataView();
-                a.this.miO.startPullRefresh();
+                a.this.mvl.startPullRefresh();
             }
         });
-        this.bwB.setup(imgType, CommonEmptyView.StyleType.DARK);
+        this.byP.setup(imgType, CommonEmptyView.StyleType.DARK);
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isTieba() || TbadkCoreApplication.getInst().isYinbo()) {
-            this.miW.setBackgroundResource(a.f.ala_recommend_live_empty_refresh_btn_selector);
+            this.mvu.setBackgroundResource(a.f.ala_recommend_live_empty_refresh_btn_selector);
         }
-        this.bwB.setVisibility(0);
-        this.miO.completePullRefresh();
+        this.byP.setVisibility(0);
+        this.mvl.completePullRefresh();
+        this.mvl.setData(new ArrayList());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideNoDataView() {
-        if (this.bwB != null) {
-            this.bwB.setVisibility(8);
+        if (this.byP != null) {
+            this.byP.setVisibility(8);
         }
     }
 
-    @Override // com.baidu.live.t.a
+    @Override // com.baidu.live.u.a
     public void close() {
         if (this.mAnimator != null && this.mAnimator.isRunning()) {
             this.mAnimator.cancel();
         }
-        if (this.miT != null) {
-            this.miT.co(false);
+        if (this.mvq != null) {
+            this.mvq.cq(false);
         }
-        wl(false);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.miN.getLayoutParams();
-        layoutParams.rightMargin = -this.miQ;
-        this.miN.setLayoutParams(layoutParams);
-        this.miN.setCurrentItem(1, false);
-        this.mja.setAlpha(0.0f);
+        wC(false);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mvk.getLayoutParams();
+        layoutParams.rightMargin = -this.mvn;
+        this.mvk.setLayoutParams(layoutParams);
+        this.mvk.setCurrentItem(1, false);
+        this.mvy.setAlpha(0.0f);
     }
 
-    @Override // com.baidu.live.t.a
+    @Override // com.baidu.live.u.a
     public boolean isOpen() {
-        return ((FrameLayout.LayoutParams) this.miN.getLayoutParams()).rightMargin > (-this.miQ);
+        return ((FrameLayout.LayoutParams) this.mvk.getLayoutParams()).rightMargin > (-this.mvn);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dwh() {
-        float abs = 1.0f - Math.abs((((FrameLayout.LayoutParams) this.miN.getLayoutParams()).rightMargin * 1.0f) / this.miQ);
+    public void dzo() {
+        float abs = 1.0f - Math.abs((((FrameLayout.LayoutParams) this.mvk.getLayoutParams()).rightMargin * 1.0f) / this.mvn);
         if (abs < 0.0f) {
             abs = 0.0f;
         } else if (abs > 1.0f) {
             abs = 1.0f;
         }
-        this.mja.setAlpha(abs);
+        this.mvy.setAlpha(abs);
     }
 
-    @Override // com.baidu.live.t.a
+    @Override // com.baidu.live.u.a
     public void onClose() {
         if (this.mAnimator == null || !this.mAnimator.isRunning()) {
-            wl(false);
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.miN.getLayoutParams();
-            if (layoutParams.rightMargin > (-this.miQ)) {
+            wC(false);
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mvk.getLayoutParams();
+            if (layoutParams.rightMargin > (-this.mvn)) {
                 int i = layoutParams.rightMargin;
-                int i2 = -this.miQ;
-                ab(i, i2, (int) (100.0f * ((Math.abs(i2 - i) * 1.0f) / this.miQ)));
+                int i2 = -this.mvn;
+                ac(i, i2, (int) (100.0f * ((Math.abs(i2 - i) * 1.0f) / this.mvn)));
             }
-            if (this.miT != null) {
-                this.miT.co(false);
+            if (this.mvq != null) {
+                this.mvq.cq(false);
             }
-            this.miO.completePullRefresh();
+            this.mvl.completePullRefresh();
         }
     }
 
-    private void ab(final int i, final int i2, int i3) {
+    private void ac(final int i, final int i2, int i3) {
         final int i4 = i2 - i;
         this.mAnimator = ValueAnimator.ofInt(i, i2).setDuration(i3);
         this.mAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.recommendlist.a.7
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float animatedFraction = valueAnimator.getAnimatedFraction();
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) a.this.miN.getLayoutParams();
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) a.this.mvk.getLayoutParams();
                 layoutParams.rightMargin = ((int) (animatedFraction * i4)) + i;
-                a.this.mja.setAlpha(1.0f - Math.abs((layoutParams.rightMargin * 1.0f) / a.this.miQ));
-                a.this.miN.setLayoutParams(layoutParams);
+                a.this.mvy.setAlpha(1.0f - Math.abs((layoutParams.rightMargin * 1.0f) / a.this.mvn));
+                a.this.mvk.setLayoutParams(layoutParams);
             }
         });
         this.mAnimator.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.recommendlist.a.8
@@ -608,9 +616,9 @@ public class a implements View.OnClickListener, b, d, com.baidu.live.t.a {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                a.this.miN.setCurrentItem(1, false);
+                a.this.mvk.setCurrentItem(1, false);
                 if (i2 == 0) {
-                    a.this.mja.setAlpha(1.0f);
+                    a.this.mvy.setAlpha(1.0f);
                 }
             }
 
@@ -627,9 +635,9 @@ public class a implements View.OnClickListener, b, d, com.baidu.live.t.a {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.miP) {
+        if (view == this.mvm) {
             UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "recommend_icon"));
-            wk(true);
+            wB(true);
         }
     }
 
@@ -642,29 +650,81 @@ public class a implements View.OnClickListener, b, d, com.baidu.live.t.a {
     }
 
     @Override // com.baidu.live.liveroom.g.b
-    public boolean Ng() {
+    public boolean NA() {
         return false;
     }
 
-    public void bOc() {
-        if (this.gqW != null) {
-            this.gqW.endLoadData();
-            this.miO.setNextPage(null);
+    public void bQH() {
+        if (this.gBa != null) {
+            this.gBa.endLoadData();
+            this.mvl.setNextPage(null);
         }
     }
 
-    public void bJV() {
-        if (this.gqW != null) {
-            if (this.gqW.getView().getParent() == null) {
-                this.miO.setNextPage(this.gqW);
+    public void bMx() {
+        if (this.gBa != null) {
+            if (this.gBa.getView().getParent() == null) {
+                this.mvl.setNextPage(this.gBa);
             }
-            this.gqW.showLoadView();
+            this.gBa.showLoadView();
         }
     }
 
-    private void wl(boolean z) {
+    private void wC(boolean z) {
         if (this.mContext != null && (this.mContext instanceof Activity)) {
             UtilHelper.changeStatusBarIconAndTextColor(z, (Activity) this.mContext);
         }
+    }
+
+    private void s(List<IAdapterData> list, int i) {
+        boolean z;
+        boolean z2;
+        if (i == 0 && !ListUtils.isEmpty(list)) {
+            Iterator<IAdapterData> it = list.iterator();
+            boolean z3 = false;
+            boolean z4 = false;
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                IAdapterData next = it.next();
+                if (next instanceof e) {
+                    int i2 = ((e) next).type;
+                    if (i2 == 0) {
+                        if (z3) {
+                            z4 = true;
+                            break;
+                        }
+                        z = z3;
+                        z2 = true;
+                        z4 = z2;
+                        z3 = z;
+                    } else if (1 == i2) {
+                        if (z4) {
+                            z3 = true;
+                            break;
+                        }
+                        z = true;
+                        z2 = z4;
+                        z4 = z2;
+                        z3 = z;
+                    }
+                }
+                z = z3;
+                z2 = z4;
+                z4 = z2;
+                z3 = z;
+            }
+            if (z4) {
+                Ry("followtab_show");
+            }
+            if (z3) {
+                Ry("hottab_show");
+            }
+        }
+    }
+
+    private void Ry(String str) {
+        UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", UbcStatConstant.Page.LIVE_RECOMMEND, str));
     }
 }

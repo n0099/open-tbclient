@@ -6,9 +6,9 @@ import com.baidu.live.tbadk.core.data.AlaUserInfoData;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    public int aNd;
-    public int aNe;
-    public AlaUserInfoData gyU;
+    public int aNI;
+    public int aNJ;
+    public AlaUserInfoData gKI;
     public String intro;
     private int isFriend;
     public String liveId;
@@ -35,12 +35,12 @@ public class a {
             this.liveId = jSONObject.optString("live_id");
             this.intro = jSONObject.optString("intro");
             this.live_status = jSONObject.optInt("live_status");
-            this.aNd = jSONObject.optInt("live_id");
+            this.aNI = jSONObject.optInt("live_id");
             this.isFriend = jSONObject.optInt("is_friend");
-            this.aNe = jSONObject.optInt("has_concerned");
+            this.aNJ = jSONObject.optInt("has_concerned");
             if (jSONObject.optJSONObject("ala_info") != null) {
-                this.gyU = new AlaUserInfoData();
-                this.gyU.parserJson(jSONObject.optJSONObject("ala_info"));
+                this.gKI = new AlaUserInfoData();
+                this.gKI.parserJson(jSONObject.optJSONObject("ala_info"));
             }
         }
     }
@@ -49,7 +49,7 @@ public class a {
         return TextUtils.isEmpty(this.name_show) ? this.userName : this.name_show;
     }
 
-    public boolean bQd() {
-        return this.aNe != 0;
+    public boolean bTa() {
+        return this.aNJ != 0;
     }
 }

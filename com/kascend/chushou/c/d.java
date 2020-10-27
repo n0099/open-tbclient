@@ -8,7 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class d {
-    public static ParserRet et(JSONObject jSONObject) {
+    public static ParserRet eB(JSONObject jSONObject) {
         String str;
         Exception e;
         int i = -1;
@@ -29,7 +29,7 @@ public class d {
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                         JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                         if (optJSONObject != null) {
-                            arrayList.add(a.ev(optJSONObject));
+                            arrayList.add(a.eD(optJSONObject));
                         }
                     }
                 }
@@ -51,7 +51,7 @@ public class d {
         return parserRet2;
     }
 
-    public static ParserRet ex(JSONObject jSONObject) {
+    public static ParserRet eF(JSONObject jSONObject) {
         String str;
         Exception e;
         JSONObject jSONObject2;
@@ -63,7 +63,7 @@ public class d {
             if (i == 0) {
                 try {
                     if (jSONObject.has("data") && (jSONObject2 = jSONObject.getJSONObject("data").getJSONObject("advert")) != null) {
-                        listItem = a.ev(jSONObject2);
+                        listItem = a.eD(jSONObject2);
                     }
                 } catch (Exception e2) {
                     e = e2;
@@ -86,7 +86,7 @@ public class d {
         return parserRet2;
     }
 
-    public static ParserRet ey(JSONObject jSONObject) {
+    public static ParserRet eG(JSONObject jSONObject) {
         ArrayList<PannelItem> ac;
         int optInt = jSONObject.optInt("code", -1);
         String optString = jSONObject.optString("message", "");

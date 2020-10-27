@@ -1,106 +1,59 @@
 package com.baidu.live.data;
 
-import com.baidu.live.adp.BdUniqueId;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class e implements Cloneable {
-    private String from;
-    private String mInLive;
-    private boolean mIsAttention;
-    private BdUniqueId mPageId;
-    private String mPortrait;
-    private String mUserId;
-    private String metaKey;
+public class e {
+    public String aGX;
+    public String aGY;
+    public long aGZ;
+    public String cuid;
+    public int level;
+    public String mCustomRoomId;
+    public List<AlaLiveMarkInfoData> mLiveMarkInfo;
+    public String mPortrait;
+    public int mPos;
+    public String mRoomId;
+    public int mSex;
+    public String mUserName;
+    public String uk;
 
-    public e() {
-        this.mInLive = "0";
-        this.from = "";
-    }
-
-    public e(String str, String str2, boolean z, BdUniqueId bdUniqueId) {
-        this(str, str2, "0", z, bdUniqueId);
-    }
-
-    public e(String str, String str2, String str3, boolean z, BdUniqueId bdUniqueId) {
-        this.mInLive = "0";
-        this.from = "";
-        this.mPortrait = str;
-        this.mUserId = str2;
-        this.mIsAttention = z;
-        this.mInLive = str3;
-        this.mPageId = bdUniqueId;
-    }
-
-    public e(String str, String str2, String str3, String str4, boolean z, BdUniqueId bdUniqueId) {
-        this.mInLive = "0";
-        this.from = "";
-        this.mPortrait = str;
-        this.mUserId = str2;
-        this.metaKey = str3;
-        this.mIsAttention = z;
-        this.mInLive = str4;
-        this.mPageId = bdUniqueId;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: DD */
-    public e clone() {
-        try {
-            return (e) super.clone();
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-            return null;
+    public void parseJson(JSONObject jSONObject) {
+        int i = 0;
+        this.mRoomId = jSONObject.optString("room_id", "");
+        this.mCustomRoomId = jSONObject.optString(UbcStatConstant.KEY_CUSTOM_ROOM_ID, "");
+        this.aGX = jSONObject.optString("apply_user_id", "");
+        this.uk = jSONObject.optString("uk", "");
+        this.mUserName = jSONObject.optString("user_nickname", "");
+        this.mPortrait = jSONObject.optString("portrait", "");
+        this.mSex = jSONObject.optInt("sex", 0);
+        this.mPos = jSONObject.optInt("pos", 0);
+        this.level = jSONObject.optInt("level", 0);
+        this.cuid = jSONObject.optString("cuid", "");
+        this.aGY = jSONObject.optString("client_version", "0");
+        this.aGZ = jSONObject.optLong("app_id", 0L);
+        JSONArray optJSONArray = jSONObject.optJSONArray("live_mark_info");
+        if (optJSONArray != null && optJSONArray.length() > 0) {
+            this.mLiveMarkInfo = new ArrayList();
+            while (true) {
+                int i2 = i;
+                if (i2 < optJSONArray.length()) {
+                    try {
+                        AlaLiveMarkInfoData alaLiveMarkInfoData = new AlaLiveMarkInfoData();
+                        alaLiveMarkInfoData.parseJson((JSONObject) optJSONArray.get(i2));
+                        this.mLiveMarkInfo.add(alaLiveMarkInfoData);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    i = i2 + 1;
+                } else {
+                    return;
+                }
+            }
         }
-    }
-
-    public String getPortrait() {
-        return this.mPortrait;
-    }
-
-    public void setPortrait(String str) {
-        this.mPortrait = str;
-    }
-
-    public String getUserId() {
-        return this.mUserId;
-    }
-
-    public void setUserId(String str) {
-        this.mUserId = str;
-    }
-
-    public boolean isAttention() {
-        return this.mIsAttention;
-    }
-
-    public void setIsAttention(boolean z) {
-        this.mIsAttention = z;
-    }
-
-    public String getInLive() {
-        return this.mInLive;
-    }
-
-    public void setInLive(String str) {
-        this.mInLive = str;
-    }
-
-    public BdUniqueId DE() {
-        return this.mPageId;
-    }
-
-    public void setPageId(BdUniqueId bdUniqueId) {
-        this.mPageId = bdUniqueId;
-    }
-
-    public void setFrom(String str) {
-        this.from = str;
-    }
-
-    public String getFrom() {
-        return this.from;
-    }
-
-    public String DF() {
-        return this.metaKey;
     }
 }

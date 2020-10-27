@@ -5,19 +5,19 @@ import com.baidu.adp.widget.ListView.q;
 import com.baidu.tieba.card.data.l;
 /* loaded from: classes22.dex */
 public class e implements q {
-    public String aHf;
-    public String jeF;
-    public boolean jeG;
-    public a[] jeH = new a[3];
+    public String aHs;
+    public String jrd;
+    public boolean jre;
+    public a[] jrf = new a[3];
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return l.hJe;
+        return l.hVB;
     }
 
-    public String cDq() {
+    public String cGx() {
         StringBuilder sb = new StringBuilder();
-        for (a aVar : this.jeH) {
+        for (a aVar : this.jrf) {
             sb.append(aVar.getForumId()).append(',');
         }
         sb.delete(sb.length() - 1, sb.length());
@@ -27,35 +27,35 @@ public class e implements q {
     /* loaded from: classes22.dex */
     public static class a implements q {
         private long forumId;
-        private String hUD;
-        private String iHR;
-        private long iKL;
-        private String jeI;
-        private int jeJ;
-        private int jeK;
-        private boolean jeL;
+        private String iUn;
+        private long iXh;
+        private String ihd;
+        private String jrg;
+        private int jrh;
+        private int jri;
+        private boolean jrj;
         private String slogan;
 
         @Override // com.baidu.adp.widget.ListView.q
         public BdUniqueId getType() {
-            return l.hJe;
+            return l.hVB;
         }
 
-        public String cDr() {
-            return this.iHR;
+        public String cGy() {
+            return this.iUn;
         }
 
-        public a KP(String str) {
-            this.iHR = str;
+        public a Ln(String str) {
+            this.iUn = str;
             return this;
         }
 
-        public String cDs() {
-            return this.jeI;
+        public String cGz() {
+            return this.jrg;
         }
 
-        public a KQ(String str) {
-            this.jeI = str;
+        public a Lo(String str) {
+            this.jrg = str;
             return this;
         }
 
@@ -63,44 +63,44 @@ public class e implements q {
             return this.slogan;
         }
 
-        public a KR(String str) {
+        public a Lp(String str) {
             this.slogan = str;
             return this;
         }
 
-        public String cDt() {
-            return this.hUD;
+        public String cGA() {
+            return this.ihd;
         }
 
-        public a KS(String str) {
-            this.hUD = str;
+        public a Lq(String str) {
+            this.ihd = str;
             return this;
         }
 
-        public int cDu() {
-            return this.jeJ;
+        public int cGB() {
+            return this.jrh;
         }
 
-        public a AG(int i) {
-            this.jeJ = i;
+        public a AZ(int i) {
+            this.jrh = i;
             return this;
         }
 
-        public int cDv() {
-            return this.jeK;
+        public int cGC() {
+            return this.jri;
         }
 
-        public a AH(int i) {
-            this.jeK = i;
+        public a Ba(int i) {
+            this.jri = i;
             return this;
         }
 
-        public boolean cDw() {
-            return this.jeL;
+        public boolean cGD() {
+            return this.jrj;
         }
 
-        public a qo(boolean z) {
-            this.jeL = z;
+        public a qG(boolean z) {
+            this.jrj = z;
             return this;
         }
 
@@ -108,7 +108,7 @@ public class e implements q {
             return this.forumId;
         }
 
-        public a e(Long l) {
+        public a f(Long l) {
             if (l == null) {
                 this.forumId = 0L;
             } else {
@@ -117,12 +117,12 @@ public class e implements q {
             return this;
         }
 
-        public long clC() {
-            return this.iKL;
+        public long coJ() {
+            return this.iXh;
         }
 
-        public a ft(long j) {
-            this.iKL = j;
+        public a fu(long j) {
+            this.iXh = j;
             return this;
         }
     }

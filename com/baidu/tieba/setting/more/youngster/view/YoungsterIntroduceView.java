@@ -17,13 +17,13 @@ import com.baidu.tbadk.core.view.commonBtn.a;
 import com.baidu.tieba.R;
 /* loaded from: classes26.dex */
 public class YoungsterIntroduceView extends LinearLayout implements View.OnClickListener {
+    private ImageView mDE;
+    private TextView mDF;
+    private TextView mDG;
+    private TextView mDH;
+    private TextView mDI;
+    private TBSpecificationBtn mDJ;
     private int mFrom;
-    private ImageView mqZ;
-    private TextView mra;
-    private TextView mrb;
-    private TextView mrc;
-    private TextView mrd;
-    private TBSpecificationBtn mre;
 
     public YoungsterIntroduceView(Context context) {
         this(context, null);
@@ -40,25 +40,25 @@ public class YoungsterIntroduceView extends LinearLayout implements View.OnClick
 
     private void init() {
         inflate(getContext(), R.layout.youngster_introduce, this);
-        this.mqZ = (ImageView) findViewById(R.id.img_youngster_introduce);
-        this.mra = (TextView) findViewById(R.id.txt_youngster_introduce_title);
-        this.mrb = (TextView) findViewById(R.id.txt_youngster_introduce_content1);
-        this.mrc = (TextView) findViewById(R.id.txt_youngster_introduce_content2);
-        this.mrd = (TextView) findViewById(R.id.txt_youngster_introduce_content3);
-        this.mre = (TBSpecificationBtn) findViewById(R.id.btn_youngster_open);
-        this.mre.setConfig(new a());
-        this.mre.setText(getContext().getString(R.string.youngster_settings_open_title));
-        this.mre.setOnClickListener(this);
+        this.mDE = (ImageView) findViewById(R.id.img_youngster_introduce);
+        this.mDF = (TextView) findViewById(R.id.txt_youngster_introduce_title);
+        this.mDG = (TextView) findViewById(R.id.txt_youngster_introduce_content1);
+        this.mDH = (TextView) findViewById(R.id.txt_youngster_introduce_content2);
+        this.mDI = (TextView) findViewById(R.id.txt_youngster_introduce_content3);
+        this.mDJ = (TBSpecificationBtn) findViewById(R.id.btn_youngster_open);
+        this.mDJ.setConfig(new a());
+        this.mDJ.setText(getContext().getString(R.string.youngster_settings_open_title));
+        this.mDJ.setOnClickListener(this);
         onChangeSkinType();
     }
 
     public void onChangeSkinType() {
-        this.mqZ.setImageDrawable(WebPManager.a(R.drawable.pic_mask_qingshaonian, WebPManager.ResourceStateType.NORMAL));
-        ap.setViewTextColor(this.mra, R.color.cp_cont_b);
-        ap.setViewTextColor(this.mrb, R.color.cp_cont_j);
-        ap.setViewTextColor(this.mrc, R.color.cp_cont_j);
-        ap.setViewTextColor(this.mrd, R.color.cp_cont_j);
-        this.mre.bok();
+        this.mDE.setImageDrawable(WebPManager.a(R.drawable.pic_mask_qingshaonian, WebPManager.ResourceStateType.NORMAL));
+        ap.setViewTextColor(this.mDF, R.color.cp_cont_b);
+        ap.setViewTextColor(this.mDG, R.color.cp_cont_j);
+        ap.setViewTextColor(this.mDH, R.color.cp_cont_j);
+        ap.setViewTextColor(this.mDI, R.color.cp_cont_j);
+        this.mDJ.bqd();
     }
 
     public void setFrom(int i) {
@@ -67,7 +67,7 @@ public class YoungsterIntroduceView extends LinearLayout implements View.OnClick
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.mre) {
+        if (view == this.mDJ) {
             YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(getContext());
             youngsterPasswordActivityConfig.setYoungsterPasswordPageType(1);
             youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(this.mFrom);

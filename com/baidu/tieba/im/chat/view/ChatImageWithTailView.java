@@ -9,10 +9,10 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ChatImageWithTailView extends LinearLayout {
-    private TbImageView eHi;
-    private ChatClipImageItemView jHC;
-    private LinearLayout jHD;
-    private TextView jHE;
+    private TbImageView ePE;
+    private ChatClipImageItemView jUb;
+    private LinearLayout jUc;
+    private TextView jUd;
 
     public ChatImageWithTailView(Context context) {
         super(context);
@@ -26,49 +26,49 @@ public class ChatImageWithTailView extends LinearLayout {
 
     public void initUI(Context context) {
         LayoutInflater.from(context).inflate(R.layout.chat_image_with_tail_item, this);
-        this.jHC = (ChatClipImageItemView) findViewById(R.id.img_msgitem_image_new);
-        this.jHC.setContentDescription(getContext().getString(R.string.editor_image));
-        this.jHC.setDefaultResource(R.drawable.pic_image_h_not);
-        this.jHD = (LinearLayout) findViewById(R.id.small_tail);
-        this.eHi = (TbImageView) findViewById(R.id.tail_icon);
-        this.eHi.setDefaultResource(R.drawable.tb_launcher_icon);
-        this.eHi.setAutoChangeStyle(false);
-        this.jHE = (TextView) findViewById(R.id.tail_game_from);
+        this.jUb = (ChatClipImageItemView) findViewById(R.id.img_msgitem_image_new);
+        this.jUb.setContentDescription(getContext().getString(R.string.editor_image));
+        this.jUb.setDefaultResource(R.drawable.pic_image_h_not);
+        this.jUc = (LinearLayout) findViewById(R.id.small_tail);
+        this.ePE = (TbImageView) findViewById(R.id.tail_icon);
+        this.ePE.setDefaultResource(R.drawable.tb_launcher_icon);
+        this.ePE.setAutoChangeStyle(false);
+        this.jUd = (TextView) findViewById(R.id.tail_game_from);
     }
 
     public ChatClipImageItemView getImage() {
-        return this.jHC;
+        return this.jUb;
     }
 
     public void setImage(ChatClipImageItemView chatClipImageItemView) {
-        this.jHC = chatClipImageItemView;
+        this.jUb = chatClipImageItemView;
     }
 
     public LinearLayout getTail() {
-        return this.jHD;
+        return this.jUc;
     }
 
     public void setTail(LinearLayout linearLayout) {
-        this.jHD = linearLayout;
+        this.jUc = linearLayout;
     }
 
     public TbImageView getIcon() {
-        return this.eHi;
+        return this.ePE;
     }
 
     public void setIcon(TbImageView tbImageView) {
-        this.eHi = tbImageView;
+        this.ePE = tbImageView;
     }
 
     public TextView getFromSource() {
-        return this.jHE;
+        return this.jUd;
     }
 
     public void setFromSource(TextView textView) {
-        this.jHE = textView;
+        this.jUd = textView;
     }
 
     public void setIsSupportNight(boolean z) {
-        this.eHi.setAutoChangeStyle(z);
+        this.ePE.setAutoChangeStyle(z);
     }
 }

@@ -22,28 +22,28 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes24.dex */
 public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
-    private static final String mvj = TbConfig.SERVER_ADDRESS + Config.GET_FORUM_LIST;
+    private static final String mHP = TbConfig.SERVER_ADDRESS + Config.GET_FORUM_LIST;
     private final BdUniqueId mBdUniqueId;
+    private c mHM;
+    private a mHN;
+    private HttpMessage mHO;
+    private boolean mHQ;
+    private final HttpMessageListener mHR;
     private ResponsedMessage<?> mResponsedMessage;
-    private c mvg;
-    private a mvh;
-    private HttpMessage mvi;
-    private boolean mvk;
-    private final HttpMessageListener mvl;
 
     /* loaded from: classes24.dex */
     public interface a {
-        void LW(String str);
+        void Mu(String str);
 
         void a(c cVar);
     }
 
     public GetForumListModel(SignAllForumActivity signAllForumActivity) {
         super(signAllForumActivity.getPageContext());
-        this.mvg = null;
-        this.mvh = null;
+        this.mHM = null;
+        this.mHN = null;
         this.mBdUniqueId = BdUniqueId.gen();
-        this.mvl = new HttpMessageListener(1001201) { // from class: com.baidu.tieba.signall.GetForumListModel.1
+        this.mHR = new HttpMessageListener(1001201) { // from class: com.baidu.tieba.signall.GetForumListModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -54,60 +54,60 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
                         if (error == 110001) {
                             GetForumListModel.this.d(httpResponsedMessage);
                         }
-                        GetForumListModel.this.mvh.LW(httpResponsedMessage.getErrorString());
+                        GetForumListModel.this.mHN.Mu(httpResponsedMessage.getErrorString());
                     } else if (error == 0) {
-                        GetForumListModel.this.mvg = ((GetForumResponsed) httpResponsedMessage).listData;
-                        if (GetForumListModel.this.mvh != null) {
-                            if (GetForumListModel.this.mvg != null) {
-                                GetForumListModel.this.mvh.a(GetForumListModel.this.mvg);
+                        GetForumListModel.this.mHM = ((GetForumResponsed) httpResponsedMessage).listData;
+                        if (GetForumListModel.this.mHN != null) {
+                            if (GetForumListModel.this.mHM != null) {
+                                GetForumListModel.this.mHN.a(GetForumListModel.this.mHM);
                             } else {
                                 String errorString = httpResponsedMessage.getErrorString();
                                 if (StringUtils.isNull(errorString)) {
                                     errorString = TbadkCoreApplication.getInst().getContext().getString(R.string.neterror);
                                 }
-                                GetForumListModel.this.mvh.LW(errorString);
+                                GetForumListModel.this.mHN.Mu(errorString);
                             }
                         }
                     } else {
-                        GetForumListModel.this.mvh.LW(httpResponsedMessage.getErrorString());
+                        GetForumListModel.this.mHN.Mu(httpResponsedMessage.getErrorString());
                     }
-                    GetForumListModel.this.mvi = null;
+                    GetForumListModel.this.mHO = null;
                 }
             }
         };
-        this.mvk = signAllForumActivity.getIntent().getBooleanExtra("member_buy_show", false);
+        this.mHQ = signAllForumActivity.getIntent().getBooleanExtra("member_buy_show", false);
         MessageManager messageManager = MessageManager.getInstance();
-        this.mvg = new c();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001201, mvj);
+        this.mHM = new c();
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001201, mHP);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setResponsedClass(GetForumResponsed.class);
         messageManager.registerTask(tbHttpMessageTask);
-        registerListener(this.mvl);
+        registerListener(this.mHR);
     }
 
-    public boolean dBL() {
-        return this.mvk;
+    public boolean dET() {
+        return this.mHQ;
     }
 
     public void a(a aVar) {
-        this.mvh = aVar;
+        this.mHN = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        if (this.mvi != null) {
+        if (this.mHO != null) {
             return false;
         }
-        this.mvi = new HttpMessage(1001201);
+        this.mHO = new HttpMessage(1001201);
         AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
         String str = null;
         if (currentAccountObj != null) {
             str = currentAccountObj.getID();
         }
-        this.mvi.addParam("user_id", str);
-        this.mvi.setTag(this.mBdUniqueId);
-        MessageManager.getInstance().sendMessage(this.mvi);
+        this.mHO.addParam("user_id", str);
+        this.mHO.setTag(this.mBdUniqueId);
+        MessageManager.getInstance().sendMessage(this.mHO);
         return true;
     }
 
@@ -136,9 +136,9 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.mvi != null) {
+        if (this.mHO != null) {
             MessageManager.getInstance().removeHttpMessage(this.mBdUniqueId);
-            this.mvi = null;
+            this.mHO = null;
         }
         MessageManager.getInstance().unRegisterTask(1001201);
         return true;

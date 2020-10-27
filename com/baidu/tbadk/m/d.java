@@ -6,10 +6,10 @@ import java.util.List;
 public class d {
     private String abTag;
     private String currentPageKey;
-    public String fgl;
-    private String fgm;
-    public String fgn;
     private long fid;
+    public String foK;
+    private String foL;
+    public String foM;
     public boolean isRouteStat = false;
     public String isVertical;
     private com.baidu.tbadk.l.b mTbPageExtra;
@@ -95,20 +95,20 @@ public class d {
         return this.task_id;
     }
 
-    public String bxM() {
+    public String bzF() {
         return this.abTag;
     }
 
-    public void DD(String str) {
+    public void DW(String str) {
         this.abTag = str;
     }
 
-    public String bxN() {
-        return this.fgm;
+    public String bzG() {
+        return this.foL;
     }
 
-    public void DE(String str) {
-        this.fgm = str;
+    public void DX(String str) {
+        this.foL = str;
     }
 
     public boolean isDirtyData() {

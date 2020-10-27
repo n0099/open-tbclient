@@ -7,7 +7,7 @@ import com.baidu.android.pushservice.i.m;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public e f1013a;
+    public e f1010a;
     private c b;
 
     public d(c cVar) {
@@ -22,7 +22,7 @@ public class d {
             return new d(c.UNKNOWN_CLIENT);
         }
         d dVar = new d(c.PUSH_CLIENT);
-        dVar.f1013a = b;
+        dVar.f1010a = b;
         return dVar;
     }
 

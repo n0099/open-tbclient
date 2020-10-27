@@ -17,25 +17,25 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class b {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.apps.media.b.a chu;
-    private JSONObject chv;
+    private com.baidu.swan.apps.media.b.a cpV;
+    private JSONObject cpW;
     private Context mContext;
 
     public b(Context context, JSONObject jSONObject) {
         this.mContext = context;
-        this.chv = jSONObject;
+        this.cpW = jSONObject;
     }
 
     public b(Context context, JSONObject jSONObject, com.baidu.swan.apps.media.b.a aVar) {
         this.mContext = context;
-        this.chv = jSONObject;
-        this.chu = aVar;
+        this.cpW = jSONObject;
+        this.cpV = aVar;
     }
 
     private String c(String str, HashMap<String, String> hashMap) {
         HashMap hashMap2 = new HashMap();
-        if (this.chu != null) {
-            hashMap2.put("cur_time", String.valueOf(this.chu.getDuration() / 1000));
+        if (this.cpV != null) {
+            hashMap2.put("cur_time", String.valueOf(this.cpV.getDuration() / 1000));
         }
         hashMap2.put("origin_time", String.valueOf(System.currentTimeMillis()));
         hashMap.putAll(hashMap2);
@@ -56,7 +56,7 @@ public class b {
         return str;
     }
 
-    public void jQ(String str) {
+    public void kj(String str) {
         d(str, new HashMap<>());
     }
 
@@ -69,7 +69,7 @@ public class b {
             hashMap.put("da_page", "VIDEOADDETAI");
         }
         hashMap.put("play_mode", String.valueOf((SwanAppNetworkUtils.isWifiNetworkConnected(this.mContext) && TextUtils.equals(str, "vstart")) ? 0 : 1));
-        JSONArray optJSONArray = this.chv != null ? this.chv.optJSONArray(str) : null;
+        JSONArray optJSONArray = this.cpW != null ? this.cpW.optJSONArray(str) : null;
         if (optJSONArray != null) {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 String optString = optJSONArray.optString(i);
@@ -86,7 +86,7 @@ public class b {
     }
 
     private void a(@NonNull final Request request) {
-        if (com.baidu.swan.apps.runtime.e.aDb() != null) {
+        if (com.baidu.swan.apps.runtime.e.aEV() != null) {
             com.baidu.swan.a.b.a aVar = new com.baidu.swan.a.b.a(request.url().toString(), new ResponseCallback() { // from class: com.baidu.swan.apps.adlanding.b.1
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 public Object parseResponse(Response response, int i) throws Exception {
@@ -107,10 +107,10 @@ public class b {
                     }
                 }
             });
-            aVar.dSX = true;
-            aVar.dSY = false;
-            aVar.dSZ = false;
-            com.baidu.swan.a.c.a.aWr().a(aVar);
+            aVar.ebt = true;
+            aVar.ebu = false;
+            aVar.ebv = false;
+            com.baidu.swan.a.c.a.aYk().a(aVar);
         }
     }
 }

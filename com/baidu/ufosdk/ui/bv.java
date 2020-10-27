@@ -9,20 +9,20 @@ import android.widget.TextView;
 public final class bv implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ View f3789a;
+    final /* synthetic */ View f3787a;
     final /* synthetic */ PopupWindow b;
     final /* synthetic */ FeedbackInputActivity c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bv(FeedbackInputActivity feedbackInputActivity, View view, PopupWindow popupWindow) {
         this.c = feedbackInputActivity;
-        this.f3789a = view;
+        this.f3787a = view;
         this.b = popupWindow;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        ((ClipboardManager) this.c.getSystemService("clipboard")).setText(((TextView) this.f3789a).getText().toString());
+        ((ClipboardManager) this.c.getSystemService("clipboard")).setText(((TextView) this.f3787a).getText().toString());
         this.b.dismiss();
     }
 }

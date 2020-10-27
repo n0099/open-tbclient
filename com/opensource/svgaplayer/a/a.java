@@ -12,40 +12,40 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes15.dex */
 public class a {
-    private final f oCt;
-    private final d oDr;
+    private final f ptP;
+    private final d puN;
 
     public a(f fVar) {
         q.n(fVar, "videoItem");
-        this.oCt = fVar;
-        this.oDr = new d();
+        this.ptP = fVar;
+        this.puN = new d();
     }
 
-    public final f eiN() {
-        return this.oCt;
+    public final f esN() {
+        return this.ptP;
     }
 
-    public final d ejj() {
-        return this.oDr;
+    public final d etj() {
+        return this.puN;
     }
 
     @h
     /* renamed from: com.opensource.svgaplayer.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    public final class C0940a {
+    public final class C1012a {
         private final String imageKey;
-        private final g oDs;
-        final /* synthetic */ a oDt;
+        private final g puO;
+        final /* synthetic */ a puP;
 
-        public C0940a(a aVar, String str, g gVar) {
+        public C1012a(a aVar, String str, g gVar) {
             q.n(gVar, "frameEntity");
-            this.oDt = aVar;
+            this.puP = aVar;
             this.imageKey = str;
-            this.oDs = gVar;
+            this.puO = gVar;
         }
 
-        public final g ejk() {
-            return this.oDs;
+        public final g etk() {
+            return this.puO;
         }
 
         public final String getImageKey() {
@@ -53,17 +53,17 @@ public class a {
         }
     }
 
-    public final List<C0940a> OL(int i) {
-        C0940a c0940a;
+    public final List<C1012a> QC(int i) {
+        C1012a c1012a;
         ArrayList arrayList = new ArrayList();
-        for (com.opensource.svgaplayer.entities.f fVar : this.oCt.eje()) {
-            if (i < 0 || i >= fVar.ejH().size()) {
-                c0940a = null;
+        for (com.opensource.svgaplayer.entities.f fVar : this.ptP.ete()) {
+            if (i < 0 || i >= fVar.etH().size()) {
+                c1012a = null;
             } else {
-                c0940a = fVar.ejH().get(i).ejI() <= 0.0d ? null : new C0940a(this, fVar.getImageKey(), fVar.ejH().get(i));
+                c1012a = fVar.etH().get(i).etI() <= 0.0d ? null : new C1012a(this, fVar.getImageKey(), fVar.etH().get(i));
             }
-            if (c0940a != null) {
-                arrayList.add(c0940a);
+            if (c1012a != null) {
+                arrayList.add(c1012a);
             }
         }
         return arrayList;
@@ -72,6 +72,6 @@ public class a {
     public void a(Canvas canvas, int i, ImageView.ScaleType scaleType) {
         q.n(canvas, "canvas");
         q.n(scaleType, "scaleType");
-        this.oDr.a(canvas.getWidth(), canvas.getHeight(), (float) this.oCt.ejc().getWidth(), (float) this.oCt.ejc().getHeight(), scaleType);
+        this.puN.a(canvas.getWidth(), canvas.getHeight(), (float) this.ptP.etc().getWidth(), (float) this.ptP.etc().getHeight(), scaleType);
     }
 }

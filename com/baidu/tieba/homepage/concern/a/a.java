@@ -6,20 +6,20 @@ import com.baidu.tbadk.core.data.ar;
 import com.baidu.tbadk.core.data.bw;
 /* loaded from: classes22.dex */
 public class a extends AbsThreadDataSupport {
-    public static final BdUniqueId jew = BdUniqueId.gen();
+    public static final BdUniqueId jqU = BdUniqueId.gen();
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bw bfG() {
+    public bw bhz() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public ar bfI() {
+    public ar bhB() {
         return null;
     }
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return jew;
+        return jqU;
     }
 }

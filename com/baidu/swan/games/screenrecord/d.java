@@ -5,58 +5,58 @@ import android.util.Log;
 /* loaded from: classes10.dex */
 public class d {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile d dKA = null;
-    private GameRecorderController dHs;
-    private boolean dKB;
+    private static volatile d dSX = null;
+    private GameRecorderController dPP;
+    private boolean dSY;
 
     private d() {
     }
 
-    public static d aSt() {
-        if (dKA == null) {
+    public static d aUn() {
+        if (dSX == null) {
             synchronized (d.class) {
-                if (dKA == null) {
-                    dKA = new d();
+                if (dSX == null) {
+                    dSX = new d();
                 }
             }
         }
-        return dKA;
+        return dSX;
     }
 
     public void g(GameRecorderController gameRecorderController) {
-        if (this.dHs != null && this.dHs != gameRecorderController) {
-            this.dHs.release();
+        if (this.dPP != null && this.dPP != gameRecorderController) {
+            this.dPP.release();
         }
-        this.dHs = gameRecorderController;
+        this.dPP = gameRecorderController;
     }
 
     @NonNull
-    public GameRecorderController aSu() {
+    public GameRecorderController aUo() {
         if (DEBUG) {
-            Log.i("GameRecorderManager", "getRecorderController:" + this.dHs);
+            Log.i("GameRecorderManager", "getRecorderController:" + this.dPP);
         }
-        return this.dHs == null ? GameRecorderController.aSs() : this.dHs;
+        return this.dPP == null ? GameRecorderController.aUm() : this.dPP;
     }
 
     public void h(GameRecorderController gameRecorderController) {
-        if (this.dHs != null && this.dHs == gameRecorderController) {
-            this.dHs.release();
-            this.dHs = null;
+        if (this.dPP != null && this.dPP == gameRecorderController) {
+            this.dPP.release();
+            this.dPP = null;
         }
     }
 
-    public boolean aSv() {
+    public boolean aUp() {
         if (DEBUG) {
-            Log.i("GameRecorderManager", "isGamePause:" + this.dKB);
+            Log.i("GameRecorderManager", "isGamePause:" + this.dSY);
         }
-        return this.dKB;
+        return this.dSY;
     }
 
-    public void aSw() {
-        this.dKB = true;
+    public void aUq() {
+        this.dSY = true;
     }
 
-    public void aSx() {
-        this.dKB = false;
+    public void aUr() {
+        this.dSY = false;
     }
 }

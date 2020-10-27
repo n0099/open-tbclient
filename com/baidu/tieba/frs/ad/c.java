@@ -8,67 +8,67 @@ import tbclient.AdInfo;
 import tbclient.Media;
 /* loaded from: classes22.dex */
 public class c extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId ivm = BdUniqueId.gen();
-    private String ekw;
-    private String ekx;
-    public boolean ika = false;
-    private String ivn;
-    private String ivo;
-    private List<MediaData> ivp;
-    private int ivq;
+    public static final BdUniqueId iHI = BdUniqueId.gen();
+    private String esV;
+    private String esW;
+    private String iHJ;
+    private String iHK;
+    private List<MediaData> iHL;
+    private int iHM;
+    public boolean iwy = false;
 
     public void a(AdInfo adInfo) {
         if (adInfo != null) {
-            this.ivn = adInfo.portrait;
-            this.ekw = adInfo.ad_name;
-            this.ivo = adInfo.ad_desc;
-            this.ekx = adInfo.ad_url;
-            this.ivq = adInfo.show_rule.intValue();
+            this.iHJ = adInfo.portrait;
+            this.esV = adInfo.ad_name;
+            this.iHK = adInfo.ad_desc;
+            this.esW = adInfo.ad_url;
+            this.iHM = adInfo.show_rule.intValue();
             if (adInfo.media != null) {
-                this.ivp = new ArrayList();
+                this.iHL = new ArrayList();
                 for (Media media : adInfo.media) {
                     MediaData mediaData = new MediaData();
                     mediaData.parserProtobuf(media);
-                    this.ivp.add(mediaData);
+                    this.iHL.add(mediaData);
                 }
             }
         }
     }
 
-    public int cvh() {
-        return this.ivq;
+    public int cyo() {
+        return this.iHM;
     }
 
-    public String cvi() {
-        return this.ivn;
+    public String cyp() {
+        return this.iHJ;
     }
 
-    public String cvj() {
-        return this.ekw;
+    public String cyq() {
+        return this.esV;
     }
 
-    public String cvk() {
-        return this.ivo;
+    public String cyr() {
+        return this.iHK;
     }
 
-    public String byP() {
-        return this.ekx;
+    public String bAI() {
+        return this.esW;
     }
 
-    public List<MediaData> cvl() {
-        return this.ivp;
+    public List<MediaData> cys() {
+        return this.iHL;
     }
 
-    public void po(boolean z) {
-        this.ika = z;
+    public void pG(boolean z) {
+        this.iwy = z;
     }
 
-    public boolean cvm() {
-        return this.ika;
+    public boolean cyt() {
+        return this.iwy;
     }
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return ivm;
+        return iHI;
     }
 }

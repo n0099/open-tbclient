@@ -7,7 +7,7 @@ import java.util.HashMap;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f3700a = false;
+    public static boolean f3698a = false;
     public static String b = "";
     public static String c = "";
     public static String d = "";

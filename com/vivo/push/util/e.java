@@ -8,9 +8,9 @@ import java.util.concurrent.TimeUnit;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f4699a = Runtime.getRuntime().availableProcessors();
-    private static final int b = Math.max(2, Math.min(f4699a - 1, 4));
-    private static final int c = (f4699a * 2) + 1;
+    private static final int f4697a = Runtime.getRuntime().availableProcessors();
+    private static final int b = Math.max(2, Math.min(f4697a - 1, 4));
+    private static final int c = (f4697a * 2) + 1;
     private static ExecutorService d = a("COMMON_THREAD");
 
     public static ExecutorService a(String str) {

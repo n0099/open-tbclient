@@ -43,11 +43,11 @@ public class a extends aa {
     }
 
     public void b(Context context, final CallbackHandler callbackHandler, final String str) {
-        b abw;
-        if ((context instanceof com.baidu.swan.apps.al.f.c) && (abw = ((com.baidu.swan.apps.al.f.c) context).abw()) != null) {
-            abw.a(new com.baidu.swan.apps.al.f.a() { // from class: com.baidu.swan.apps.al.f.a.a.1
+        b adq;
+        if ((context instanceof com.baidu.swan.apps.al.f.c) && (adq = ((com.baidu.swan.apps.al.f.c) context).adq()) != null) {
+            adq.a(new com.baidu.swan.apps.al.f.a() { // from class: com.baidu.swan.apps.al.f.a.a.1
                 @Override // com.baidu.swan.apps.al.f.a
-                public void kI(int i) {
+                public void kT(int i) {
                     c.i("MemoryWarningAction", "trimMemory consume level:" + i);
                     if (i == 10 || i == 15) {
                         JSONObject jSONObject = new JSONObject();

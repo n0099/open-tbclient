@@ -6,7 +6,7 @@ import java.security.NoSuchAlgorithmException;
 /* loaded from: classes16.dex */
 public class a {
     @SuppressLint({"DefaultLocale"})
-    public static String s(String str, long j) {
+    public static String u(String str, long j) {
         return md5(String.format("%d%s%d", 1, str.toLowerCase(), Long.valueOf(j)));
     }
 

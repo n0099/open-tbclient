@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.c> {
-    private h gor;
+    private h gyw;
     private TbPageContext mPageContext;
 
     public g(TbPageContext<?> tbPageContext) {
@@ -17,20 +17,20 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
     }
 
     private void initView() {
-        this.gor = new h(this.mPageContext);
-        ((ViewGroup) getView()).addView(this.gor.getView());
+        this.gyw = new h(this.mPageContext);
+        ((ViewGroup) getView()).addView(this.gyw.getView());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        if (this.gor != null) {
-            this.gor.onChangeSkinType(tbPageContext, i);
+        if (this.gyw != null) {
+            this.gyw.onChangeSkinType(tbPageContext, i);
         }
     }
 
     public void c(com.baidu.tieba.ala.f fVar) {
-        if (this.gor != null) {
-            this.gor.d(fVar);
+        if (this.gyw != null) {
+            this.gyw.d(fVar);
         }
     }
 
@@ -42,8 +42,8 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.frsgamelive.b.c cVar) {
-        if (cVar != null && cVar.eji != null && this.gor != null) {
-            this.gor.a(cVar.eji);
+        if (cVar != null && cVar.erH != null && this.gyw != null) {
+            this.gyw.a(cVar.erH);
         }
     }
 
@@ -53,11 +53,11 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
 
     /* loaded from: classes4.dex */
     public static class a extends af.a {
-        public g gos;
+        public g gyx;
 
         public a(g gVar) {
             super(gVar.getView());
-            this.gos = gVar;
+            this.gyx = gVar;
         }
     }
 }

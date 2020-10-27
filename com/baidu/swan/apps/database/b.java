@@ -2,49 +2,49 @@ package com.baidu.swan.apps.database;
 /* loaded from: classes10.dex */
 public final class b {
     private String appTitle;
-    private String cCR;
-    private String cCS;
-    private String cCT;
-    public String cCU;
-    public int cCV;
+    private String cLn;
+    private String cLo;
+    private String cLp;
+    public String cLq;
+    public int cLr;
 
     public b(String str) {
-        this.cCR = str;
+        this.cLn = str;
     }
 
     public String getAppID() {
-        return this.cCR;
+        return this.cLn;
     }
 
     public void setAppID(String str) {
-        this.cCR = str;
+        this.cLn = str;
     }
 
-    public String aoj() {
+    public String aqe() {
         return this.appTitle;
     }
 
-    public void nd(String str) {
+    public void nw(String str) {
         this.appTitle = str;
     }
 
-    public String aok() {
-        return this.cCT;
+    public String aqf() {
+        return this.cLp;
     }
 
-    public void ne(String str) {
-        this.cCT = str;
+    public void nx(String str) {
+        this.cLp = str;
     }
 
-    public void nf(String str) {
-        this.cCU = str;
+    public void ny(String str) {
+        this.cLq = str;
     }
 
-    public void ng(String str) {
-        this.cCS = str;
+    public void nz(String str) {
+        this.cLo = str;
     }
 
     public void setAppFrameType(int i) {
-        this.cCV = i;
+        this.cLr = i;
     }
 }

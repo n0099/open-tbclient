@@ -21,13 +21,13 @@ public class RtcParameterSettings {
     public boolean AutoPublish = true;
     public boolean AutoSubScribe = true;
     public int AudioContentType = 1;
-    public RtcVideoRenderMode bXP = RtcVideoRenderMode.RTC_VIDEO_RENDER_MODE_INTERNAL;
-    public boolean bXO = false;
-    public boolean bXJ = false;
-    public boolean bXL = false;
-    public boolean bXN = false;
-    public boolean bXK = false;
-    public boolean bXM = false;
+    public RtcVideoRenderMode cgo = RtcVideoRenderMode.RTC_VIDEO_RENDER_MODE_INTERNAL;
+    public boolean cgn = false;
+    public boolean cgi = false;
+    public boolean cgk = false;
+    public boolean cgm = false;
+    public boolean cgj = false;
+    public boolean cgl = false;
 
     /* loaded from: classes9.dex */
     public enum RtcParamSettingType {
@@ -55,7 +55,7 @@ public class RtcParameterSettings {
         RTC_VIDEO_RENDER_MODE_EXTERNAL
     }
 
-    public static RtcParameterSettings ZA() {
+    public static RtcParameterSettings abt() {
         return new RtcParameterSettings();
     }
 }

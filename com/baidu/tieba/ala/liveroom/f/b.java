@@ -30,15 +30,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b {
-    private TextView cxH;
-    private HeadImageView gHl;
-    private AlaLastLiveroomInfo gHm;
-    private int gHn;
-    private int gHo;
+    private TextView cGd;
+    private HeadImageView gTa;
+    private AlaLastLiveroomInfo gTb;
+    private int gTc;
+    private int gTd;
     private TbPageContext mContext;
     private ValueAnimator mValueAnimator;
     private View mView;
-    private boolean gHr = false;
+    private boolean gTg = false;
     private final Handler mHandler = new Handler() { // from class: com.baidu.tieba.ala.liveroom.f.b.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -47,7 +47,7 @@ public class b {
                     b.this.startAnim();
                     return;
                 case 2:
-                    b.this.gHr = true;
+                    b.this.gTg = true;
                     b.this.hide();
                     return;
                 default:
@@ -55,29 +55,29 @@ public class b {
             }
         }
     };
-    private int gHp = com.baidu.live.x.a.OS().blo.aLO;
-    private int gHq = com.baidu.live.x.a.OS().blo.aLP;
+    private int gTe = com.baidu.live.z.a.Pq().bmJ.aMs;
+    private int gTf = com.baidu.live.z.a.Pq().bmJ.aMt;
 
     public b(@NonNull TbPageContext tbPageContext) {
         this.mContext = tbPageContext;
-        this.gHn = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds8);
-        this.gHo = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds94);
+        this.gTc = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds8);
+        this.gTd = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds94);
         init();
     }
 
     private void init() {
         this.mView = LayoutInflater.from(this.mContext.getPageActivity()).inflate(a.h.ala_back_to_last_live_button, (ViewGroup) null);
-        this.gHl = (HeadImageView) this.mView.findViewById(a.g.back_to_last_live_portrait);
-        this.gHl.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def);
-        this.gHl.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def);
-        this.gHl.setIsRound(true);
-        this.gHl.setAutoChangeStyle(false);
-        this.gHl.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.cxH = (TextView) this.mView.findViewById(a.g.back_to_last_live_content);
+        this.gTa = (HeadImageView) this.mView.findViewById(a.g.back_to_last_live_portrait);
+        this.gTa.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def);
+        this.gTa.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def);
+        this.gTa.setIsRound(true);
+        this.gTa.setAutoChangeStyle(false);
+        this.gTa.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.cGd = (TextView) this.mView.findViewById(a.g.back_to_last_live_content);
     }
 
     public void show() {
-        if (this.mView != null && this.mView.getParent() != null && !this.gHr) {
+        if (this.mView != null && this.mView.getParent() != null && !this.gTg) {
             this.mView.setVisibility(0);
         }
     }
@@ -90,18 +90,18 @@ public class b {
 
     public void d(AlaLastLiveroomInfo alaLastLiveroomInfo) {
         if (alaLastLiveroomInfo != null) {
-            bTK();
-            this.gHl.startLoad(alaLastLiveroomInfo.getLastAnchorPortrait(), 10, false);
-            this.gHm = alaLastLiveroomInfo;
+            bWJ();
+            this.gTa.startLoad(alaLastLiveroomInfo.getLastAnchorPortrait(), 10, false);
+            this.gTb = alaLastLiveroomInfo;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startAnim() {
         int i;
-        int width = this.cxH.getWidth();
+        int width = this.cGd.getWidth();
         int width2 = this.mView.getWidth();
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gHl.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gTa.getLayoutParams();
         if (Build.VERSION.SDK_INT >= 17) {
             layoutParams.addRule(11);
             layoutParams.removeRule(1);
@@ -110,11 +110,11 @@ public class b {
             layoutParams.addRule(1, a.g.back_to_last_live_icon);
             i = 0;
         }
-        this.gHl.setLayoutParams(layoutParams);
+        this.gTa.setLayoutParams(layoutParams);
         if (this.mValueAnimator != null && this.mValueAnimator.isRunning()) {
             this.mValueAnimator.cancel();
         }
-        this.mValueAnimator = ValueAnimator.ofInt(width2, (width2 - width) - this.gHn).setDuration(i);
+        this.mValueAnimator = ValueAnimator.ofInt(width2, (width2 - width) - this.gTc).setDuration(i);
         this.mValueAnimator.setInterpolator(new AccelerateInterpolator());
         this.mValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.f.b.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -127,41 +127,41 @@ public class b {
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
-                b.this.mView.getLayoutParams().width = b.this.gHo;
+                b.this.mView.getLayoutParams().width = b.this.gTd;
                 b.this.mView.requestLayout();
                 Message message = new Message();
                 message.what = 2;
-                b.this.mHandler.sendMessageDelayed(message, b.this.gHq);
+                b.this.mHandler.sendMessageDelayed(message, b.this.gTf);
             }
         });
         this.mValueAnimator.start();
     }
 
-    private void bTK() {
-        if (this.gHl != null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gHl.getLayoutParams();
+    private void bWJ() {
+        if (this.gTa != null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gTa.getLayoutParams();
             if (Build.VERSION.SDK_INT >= 17) {
                 layoutParams.removeRule(11);
             }
             layoutParams.addRule(1, a.g.back_to_last_live_content);
-            this.gHl.setLayoutParams(layoutParams);
+            this.gTa.setLayoutParams(layoutParams);
         }
     }
 
-    public void bTL() {
-        if (this.gHm != null && this.gHm.getLastLiveId() > 0 && this.mContext != null) {
-            if (this.gHm.getIsAudio() == 1) {
+    public void bWK() {
+        if (this.gTb != null && this.gTb.getLastLiveId() > 0 && this.mContext != null) {
+            if (this.gTb.getIsAudio() == 1) {
                 YuyinAlaLiveRoomActivityConfig yuyinAlaLiveRoomActivityConfig = new YuyinAlaLiveRoomActivityConfig(this.mContext.getPageActivity());
-                yuyinAlaLiveRoomActivityConfig.addExtraByLiveId(this.gHm.getLastLiveId(), "", "live_sdk");
+                yuyinAlaLiveRoomActivityConfig.addExtraByLiveId(this.gTb.getLastLiveId(), "", "live_sdk");
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    if (!TextUtils.isEmpty(this.gHm.getLastCover())) {
-                        jSONObject.put("cover", this.gHm.getLastCover());
+                    if (!TextUtils.isEmpty(this.gTb.getLastCover())) {
+                        jSONObject.put("cover", this.gTb.getLastCover());
                     }
-                    if (!TextUtils.isEmpty(this.gHm.getLastVideoUrl())) {
-                        jSONObject.put("live_url", this.gHm.getLastVideoUrl());
+                    if (!TextUtils.isEmpty(this.gTb.getLastVideoUrl())) {
+                        jSONObject.put("live_url", this.gTb.getLastVideoUrl());
                     }
-                    jSONObject.put("enterLiveId", this.gHm.getLastLiveId());
+                    jSONObject.put("enterLiveId", this.gTb.getLastLiveId());
                     yuyinAlaLiveRoomActivityConfig.addExtraByParams(jSONObject.toString());
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -171,16 +171,16 @@ public class b {
                 return;
             }
             AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = new AlaLiveRoomActivityConfig(this.mContext.getPageActivity());
-            alaLiveRoomActivityConfig.addExtraByLiveId(this.gHm.getLastLiveId(), "", "live_sdk");
+            alaLiveRoomActivityConfig.addExtraByLiveId(this.gTb.getLastLiveId(), "", "live_sdk");
             JSONObject jSONObject2 = new JSONObject();
             try {
-                if (!TextUtils.isEmpty(this.gHm.getLastCover())) {
-                    jSONObject2.put("cover", this.gHm.getLastCover());
+                if (!TextUtils.isEmpty(this.gTb.getLastCover())) {
+                    jSONObject2.put("cover", this.gTb.getLastCover());
                 }
-                if (!TextUtils.isEmpty(this.gHm.getLastVideoUrl())) {
-                    jSONObject2.put("live_url", this.gHm.getLastVideoUrl());
+                if (!TextUtils.isEmpty(this.gTb.getLastVideoUrl())) {
+                    jSONObject2.put("live_url", this.gTb.getLastVideoUrl());
                 }
-                jSONObject2.put("enterLiveId", this.gHm.getLastLiveId());
+                jSONObject2.put("enterLiveId", this.gTb.getLastLiveId());
                 alaLiveRoomActivityConfig.addExtraByParams(jSONObject2.toString());
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -197,7 +197,7 @@ public class b {
         release();
     }
 
-    private RelativeLayout.LayoutParams bTM() {
+    private RelativeLayout.LayoutParams bWL() {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(12);
         layoutParams.bottomMargin = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds204);
@@ -206,7 +206,7 @@ public class b {
 
     public void ax(ViewGroup viewGroup) {
         if (this.mView != null && viewGroup != null && this.mView.getParent() == null) {
-            viewGroup.addView(this.mView, bTM());
+            viewGroup.addView(this.mView, bWL());
             if (UtilHelper.getRealScreenOrientation(this.mContext.getPageActivity()) == 2) {
                 hide();
             } else {
@@ -215,16 +215,16 @@ public class b {
             this.mHandler.removeCallbacksAndMessages(null);
             Message message = new Message();
             message.what = 1;
-            this.mHandler.sendMessageDelayed(message, this.gHp);
+            this.mHandler.sendMessageDelayed(message, this.gTe);
         }
     }
 
-    public void bTN() {
+    public void bWM() {
         release();
     }
 
     private void release() {
-        this.gHr = false;
+        this.gTg = false;
         this.mHandler.removeCallbacksAndMessages(null);
         if (this.mValueAnimator != null) {
             this.mValueAnimator.cancel();
@@ -235,7 +235,7 @@ public class b {
         }
     }
 
-    public void bTO() {
+    public void bWN() {
         if (this.mValueAnimator != null && this.mValueAnimator.isRunning()) {
             this.mValueAnimator.cancel();
         }

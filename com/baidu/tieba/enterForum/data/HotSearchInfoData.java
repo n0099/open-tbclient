@@ -4,18 +4,18 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import tbclient.ForumRecommend.HotSearch;
 /* loaded from: classes22.dex */
 public class HotSearchInfoData extends OrmObject {
-    private String hQm;
+    private String icJ;
     private long mId;
     private String mName;
     private long mType;
 
-    public String cls() {
-        return this.hQm;
+    public String coz() {
+        return this.icJ;
     }
 
     public void a(HotSearch hotSearch) {
         if (hotSearch != null && hotSearch.search_value != null) {
-            this.hQm = hotSearch.search_title;
+            this.icJ = hotSearch.search_title;
             this.mId = hotSearch.search_value.id.longValue();
             this.mName = hotSearch.search_value.name;
             this.mType = hotSearch.search_value.type.longValue();

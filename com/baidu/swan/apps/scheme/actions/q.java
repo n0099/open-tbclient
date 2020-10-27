@@ -29,7 +29,7 @@ public class q extends aa {
         try {
             optParamsAsJo.putOpt("timestamp", Long.valueOf(System.currentTimeMillis()));
             optParamsAsJo.putOpt("eventType", "0");
-            optParamsAsJo.putOpt("propagation", com.baidu.swan.apps.ap.v.b(optParamsAsJo.optJSONObject("propagation"), "source", com.baidu.swan.apps.runtime.d.aCW().aCS().aDe().auj()));
+            optParamsAsJo.putOpt("propagation", com.baidu.swan.apps.ap.v.b(optParamsAsJo.optJSONObject("propagation"), "source", com.baidu.swan.apps.runtime.d.aEQ().aEM().aEY().awd()));
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -37,7 +37,7 @@ public class q extends aa {
         }
         JSONObject optJSONObject = optParamsAsJo.optJSONObject("content");
         if (optJSONObject != null) {
-            bH(optJSONObject.optJSONObject("ext"));
+            bK(optJSONObject.optJSONObject("ext"));
         }
         com.baidu.swan.apps.console.c.i("OpenStatisticEvent", "OpenStat : " + optParamsAsJo);
         com.baidu.swan.apps.ap.p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.q.1
@@ -50,14 +50,14 @@ public class q extends aa {
         return true;
     }
 
-    public static void bH(JSONObject jSONObject) {
+    public static void bK(JSONObject jSONObject) {
         if (jSONObject != null) {
-            b.a aDe = com.baidu.swan.apps.runtime.d.aCW().aCS().aDe();
-            com.baidu.swan.apps.ap.v.b(jSONObject, "launchId", aDe.auC());
-            com.baidu.swan.apps.ap.v.b(jSONObject, "scheme", aDe.aul());
-            com.baidu.swan.apps.ap.v.b(jSONObject, "appid", aDe.getAppId());
-            com.baidu.swan.apps.ap.v.b(jSONObject, "swan", com.baidu.swan.apps.swancore.b.a(aDe.anI(), aDe.getAppFrameType()));
-            com.baidu.swan.apps.ap.v.b(jSONObject, "packageVersion", aDe.getVersion());
+            b.a aEY = com.baidu.swan.apps.runtime.d.aEQ().aEM().aEY();
+            com.baidu.swan.apps.ap.v.b(jSONObject, "launchId", aEY.aww());
+            com.baidu.swan.apps.ap.v.b(jSONObject, "scheme", aEY.awf());
+            com.baidu.swan.apps.ap.v.b(jSONObject, "appid", aEY.getAppId());
+            com.baidu.swan.apps.ap.v.b(jSONObject, "swan", com.baidu.swan.apps.swancore.b.a(aEY.apD(), aEY.getAppFrameType()));
+            com.baidu.swan.apps.ap.v.b(jSONObject, "packageVersion", aEY.getVersion());
         }
     }
 }

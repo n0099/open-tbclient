@@ -6,39 +6,39 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes10.dex */
 final class f {
-    private static SQLiteOpenHelper nFA;
-    private static f nFz;
-    private AtomicInteger nFB = new AtomicInteger();
-    private SQLiteDatabase nFC;
+    private static f oib;
+    private static SQLiteOpenHelper oic;
+    private AtomicInteger oid = new AtomicInteger();
+    private SQLiteDatabase oie;
 
     f() {
     }
 
     private static synchronized void b(Context context) {
         synchronized (f.class) {
-            if (nFz == null) {
-                nFz = new f();
-                nFA = new d(context);
+            if (oib == null) {
+                oib = new f();
+                oic = new d(context);
             }
         }
     }
 
-    public static synchronized f dUc() {
+    public static synchronized f dZU() {
         f fVar;
         synchronized (f.class) {
-            if (nFz == null) {
-                b(com.baidu.ubs.analytics.d.dUa().getContext());
+            if (oib == null) {
+                b(com.baidu.ubs.analytics.d.dZS().getContext());
             }
-            fVar = nFz;
+            fVar = oib;
         }
         return fVar;
     }
 
-    public final synchronized SQLiteDatabase aoh() {
-        if (this.nFB.incrementAndGet() == 1) {
+    public final synchronized SQLiteDatabase aqc() {
+        if (this.oid.incrementAndGet() == 1) {
             com.baidu.ubs.analytics.d.b.H("***************新建立了 一个数据库的实例****************");
-            this.nFC = nFA.getWritableDatabase();
+            this.oie = oic.getWritableDatabase();
         }
-        return this.nFC;
+        return this.oie;
     }
 }

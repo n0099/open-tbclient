@@ -10,8 +10,8 @@ import android.view.View;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class GiftPanelNumRoundRectView extends View {
-    private float bcO;
-    private boolean bcP;
+    private float bec;
+    private boolean bed;
     private Paint mPaint;
     private Path mPath;
     private float mRadius;
@@ -22,9 +22,9 @@ public class GiftPanelNumRoundRectView extends View {
     }
 
     public void setStyleEnabled(boolean z) {
-        if (this.bcP != z) {
-            this.bcP = z;
-            this.mPaint.setColor(this.bcP ? -49609 : -8445926);
+        if (this.bed != z) {
+            this.bed = z;
+            this.mPaint.setColor(this.bed ? -49609 : -8445926);
             invalidate();
         }
     }
@@ -32,16 +32,16 @@ public class GiftPanelNumRoundRectView extends View {
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        RectF rectF = new RectF(this.bcO, this.bcO, this.bcO + (this.mRadius * 2.0f), this.bcO + (this.mRadius * 2.0f));
+        RectF rectF = new RectF(this.bec, this.bec, this.bec + (this.mRadius * 2.0f), this.bec + (this.mRadius * 2.0f));
         this.mPath.reset();
         this.mPath.addArc(rectF, -90.0f, -90.0f);
-        this.mPath.moveTo(this.bcO, this.mRadius + this.bcO);
-        this.mPath.lineTo(this.bcO, i2 - this.mRadius);
-        this.mPath.addArc(new RectF(this.bcO, i2 - (this.mRadius * 2.0f), this.bcO + (this.mRadius * 2.0f), i2 - this.bcO), -180.0f, -90.0f);
-        this.mPath.moveTo(this.mRadius + this.bcO, this.bcO);
-        this.mPath.lineTo(i, this.bcO);
-        this.mPath.moveTo(this.mRadius + this.bcO, i2 - this.bcO);
-        this.mPath.lineTo(i, i2 - this.bcO);
+        this.mPath.moveTo(this.bec, this.mRadius + this.bec);
+        this.mPath.lineTo(this.bec, i2 - this.mRadius);
+        this.mPath.addArc(new RectF(this.bec, i2 - (this.mRadius * 2.0f), this.bec + (this.mRadius * 2.0f), i2 - this.bec), -180.0f, -90.0f);
+        this.mPath.moveTo(this.mRadius + this.bec, this.bec);
+        this.mPath.lineTo(i, this.bec);
+        this.mPath.moveTo(this.mRadius + this.bec, i2 - this.bec);
+        this.mPath.lineTo(i, i2 - this.bec);
     }
 
     @Override // android.view.View
@@ -52,7 +52,7 @@ public class GiftPanelNumRoundRectView extends View {
 
     private void init() {
         this.mRadius = getResources().getDimensionPixelOffset(a.e.sdk_ds28);
-        this.bcO = 0.5f * 2.0f;
+        this.bec = 0.5f * 2.0f;
         this.mPaint = new Paint(1);
         this.mPaint.setDither(true);
         this.mPaint.setColor(-49609);

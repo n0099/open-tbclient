@@ -25,14 +25,14 @@ import com.baidu.tieba.ala.guardclub.model.e;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class d extends BdBaseView<GuardClubMemberListActivity> {
-    private BaseActivity bEO;
-    private CommonEmptyView bwB;
-    CustomMessageListener gfx;
-    private LoadMoreFooter gqW;
-    private e gqt;
-    private BdListView gte;
-    private f gtf;
-    private l gtg;
+    private BaseActivity bHN;
+    private CommonEmptyView byP;
+    private e gAy;
+    private LoadMoreFooter gBa;
+    private BdListView gDi;
+    private f gDj;
+    private l gDk;
+    CustomMessageListener gpA;
     private View mRootView;
     private String otherParams;
 
@@ -42,7 +42,7 @@ public class d extends BdBaseView<GuardClubMemberListActivity> {
 
     public d(BaseActivity baseActivity, BdUniqueId bdUniqueId) {
         super(baseActivity.getPageContext());
-        this.gfx = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.guardclub.view.d.3
+        this.gpA = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.guardclub.view.d.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -55,109 +55,109 @@ public class d extends BdBaseView<GuardClubMemberListActivity> {
                 }
             }
         };
-        this.bEO = baseActivity;
-        this.mRootView = LayoutInflater.from(this.bEO).inflate(a.h.layout_guard_club_join_list, (ViewGroup) null);
-        this.gte = (BdListView) this.mRootView.findViewById(a.g.list_guard_club_join);
-        this.gtf = new f(baseActivity, bdUniqueId);
-        this.gtf.a(new AnonymousClass1(baseActivity));
-        this.gte.setAdapter((ListAdapter) this.gtf);
-        this.gqW = new LoadMoreFooter(this.bEO);
-        this.gqW.setBackgroundColor(-1);
-        this.gqW.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_b));
-        this.gqW.createView();
-        this.gte.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.ala.guardclub.view.d.2
+        this.bHN = baseActivity;
+        this.mRootView = LayoutInflater.from(this.bHN).inflate(a.h.layout_guard_club_join_list, (ViewGroup) null);
+        this.gDi = (BdListView) this.mRootView.findViewById(a.g.list_guard_club_join);
+        this.gDj = new f(baseActivity, bdUniqueId);
+        this.gDj.a(new AnonymousClass1(baseActivity));
+        this.gDi.setAdapter((ListAdapter) this.gDj);
+        this.gBa = new LoadMoreFooter(this.bHN);
+        this.gBa.setBackgroundColor(-1);
+        this.gBa.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_b));
+        this.gBa.createView();
+        this.gDi.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.ala.guardclub.view.d.2
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
             }
 
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-                if (!d.this.gqW.isLoading() && d.this.gqt.bOg() && i + i2 > i3 - 2 && d.this.gqt.bOg()) {
-                    d.this.gqt.bOi();
+                if (!d.this.gBa.isLoading() && d.this.gAy.bQL() && i + i2 > i3 - 2 && d.this.gAy.bQL()) {
+                    d.this.gAy.bQN();
                 }
             }
         });
-        MessageManager.getInstance().registerListener(this.gfx);
-        this.bwB = (CommonEmptyView) this.mRootView.findViewById(a.g.guard_club_join_empty_view);
+        MessageManager.getInstance().registerListener(this.gpA);
+        this.byP = (CommonEmptyView) this.mRootView.findViewById(a.g.guard_club_join_empty_view);
     }
 
     /* renamed from: com.baidu.tieba.ala.guardclub.view.d$1  reason: invalid class name */
     /* loaded from: classes4.dex */
     class AnonymousClass1 implements f.b {
-        final /* synthetic */ BaseActivity gth;
+        final /* synthetic */ BaseActivity gDl;
 
         AnonymousClass1(BaseActivity baseActivity) {
-            this.gth = baseActivity;
+            this.gDl = baseActivity;
         }
 
         @Override // com.baidu.tieba.ala.guardclub.f.b
         public void a(com.baidu.tieba.ala.guardclub.model.d dVar, int i) {
-            if (dVar != null && d.this.gqt != null) {
-                if (d.this.gtg == null) {
-                    d.this.gtg = new l(this.gth.getPageContext());
-                    d.this.gtg.a(new l.a() { // from class: com.baidu.tieba.ala.guardclub.view.d.1.1
+            if (dVar != null && d.this.gAy != null) {
+                if (d.this.gDk == null) {
+                    d.this.gDk = new l(this.gDl.getPageContext());
+                    d.this.gDk.a(new l.a() { // from class: com.baidu.tieba.ala.guardclub.view.d.1.1
                         @Override // com.baidu.tieba.ala.guardclub.l.a
                         public void c(final com.baidu.tieba.ala.guardclub.model.d dVar2, final int i2) {
                             LogManager.getGuardClubLogger().doClickLiveLeaveGuardLog();
-                            if (d.this.gqt != null && dVar2 != null) {
-                                d.this.gqt.a(dVar2.id, new e.b() { // from class: com.baidu.tieba.ala.guardclub.view.d.1.1.1
+                            if (d.this.gAy != null && dVar2 != null) {
+                                d.this.gAy.a(dVar2.id, new e.b() { // from class: com.baidu.tieba.ala.guardclub.view.d.1.1.1
                                     @Override // com.baidu.tieba.ala.guardclub.model.e.b
                                     public void b(int i3, String str, Object obj) {
-                                        d.this.gtf.ug(i2);
-                                        if (d.this.gtf.getCount() <= 0) {
-                                            d.this.bKc();
+                                        d.this.gDj.uy(i2);
+                                        if (d.this.gDj.getCount() <= 0) {
+                                            d.this.bME();
                                         }
-                                        d.this.showToast(dVar2.bdB);
+                                        d.this.showToast(dVar2.beR);
                                     }
                                 });
                             }
                         }
                     });
                 }
-                d.this.gtg.b(dVar, i);
+                d.this.gDk.b(dVar, i);
                 LogManager.getGuardClubLogger().doDisplayLiveLeaveGuardLog();
             }
         }
     }
 
     public void completePullRefresh() {
-        if (this.gte != null) {
-            this.gte.completePullRefresh();
+        if (this.gDi != null) {
+            this.gDi.completePullRefresh();
         }
     }
 
-    public void bOc() {
-        if (this.gqW != null) {
-            this.gqW.endLoadData();
-            this.gte.setNextPage(null);
+    public void bQH() {
+        if (this.gBa != null) {
+            this.gBa.endLoadData();
+            this.gDi.setNextPage(null);
         }
     }
 
-    public void lT(boolean z) {
+    public void mj(boolean z) {
         if (z) {
-            if (this.gqW != null) {
-                this.gte.setNextPage(null);
+            if (this.gBa != null) {
+                this.gDi.setNextPage(null);
             }
-        } else if (this.gqW != null) {
-            if (this.gqW.getView().getParent() == null) {
-                this.gte.setNextPage(this.gqW);
+        } else if (this.gBa != null) {
+            if (this.gBa.getView().getParent() == null) {
+                this.gDi.setNextPage(this.gBa);
             }
-            this.gqW.showNoMoreData();
+            this.gBa.showNoMoreData();
         }
     }
 
-    public void bJV() {
-        if (this.gqW != null) {
-            if (this.gqW.getView().getParent() == null) {
-                this.gte.setNextPage(this.gqW);
+    public void bMx() {
+        if (this.gBa != null) {
+            if (this.gBa.getView().getParent() == null) {
+                this.gDi.setNextPage(this.gBa);
             }
-            this.gqW.showLoadView();
+            this.gBa.showLoadView();
         }
     }
 
     public void notifyDataSetInvalidated() {
-        if (this.gtf != null) {
-            this.gtf.notifyDataSetInvalidated();
+        if (this.gDj != null) {
+            this.gDj.notifyDataSetInvalidated();
         }
     }
 
@@ -166,39 +166,39 @@ public class d extends BdBaseView<GuardClubMemberListActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bKc() {
-        bF(8, 0);
+    public void bME() {
+        bH(8, 0);
     }
 
     public void f(e eVar) {
-        this.gqt = eVar;
-        this.gqt.bOh();
+        this.gAy = eVar;
+        this.gAy.bQM();
     }
 
-    public void bU(List<com.baidu.tieba.ala.guardclub.model.d> list) {
-        if (this.gtf != null && list != null && !list.isEmpty()) {
-            bF(0, 8);
-            this.gtf.bU(list);
+    public void ce(List<com.baidu.tieba.ala.guardclub.model.d> list) {
+        if (this.gDj != null && list != null && !list.isEmpty()) {
+            bH(0, 8);
+            this.gDj.ce(list);
             return;
         }
-        bKc();
+        bME();
     }
 
-    private void bF(int i, int i2) {
-        this.gte.setVisibility(i);
+    private void bH(int i, int i2) {
+        this.gDi.setVisibility(i);
         if (i2 == 0) {
-            this.bwB.reset();
-            this.bwB.setTitle(a.i.guard_join_list_empty);
-            this.bwB.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.LIGHT);
-            this.bwB.setVisibility(0);
+            this.byP.reset();
+            this.byP.setTitle(a.i.guard_join_list_empty);
+            this.byP.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.LIGHT);
+            this.byP.setVisibility(0);
             return;
         }
-        this.bwB.setVisibility(8);
+        this.byP.setVisibility(8);
     }
 
-    public void bV(List<com.baidu.tieba.ala.guardclub.model.d> list) {
-        if (this.gtf != null) {
-            this.gtf.bV(list);
+    public void cf(List<com.baidu.tieba.ala.guardclub.model.d> list) {
+        if (this.gDj != null) {
+            this.gDj.cf(list);
         }
     }
 
@@ -210,31 +210,31 @@ public class d extends BdBaseView<GuardClubMemberListActivity> {
         makeText.show();
     }
 
-    public void bOa() {
-        if (this.gtf != null) {
-            this.gtf.bOa();
+    public void bQF() {
+        if (this.gDj != null) {
+            this.gDj.bQF();
         }
-        MessageManager.getInstance().unRegisterListener(this.gfx);
+        MessageManager.getInstance().unRegisterListener(this.gpA);
     }
 
-    public void bHF() {
-        this.bwB.reset();
-        this.bwB.setTitle(a.i.sdk_net_fail_tip_rank);
-        this.bwB.setRefreshButton(a.i.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.view.d.4
+    public void bJw() {
+        this.byP.reset();
+        this.byP.setTitle(a.i.sdk_net_fail_tip_rank);
+        this.byP.setRefreshButton(a.i.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.view.d.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                d.this.bwB.setVisibility(8);
-                if (d.this.gqt != null) {
-                    d.this.gqt.bOh();
+                d.this.byP.setVisibility(8);
+                if (d.this.gAy != null) {
+                    d.this.gAy.bQM();
                 }
             }
         });
         if (BdNetTypeUtil.isNetWorkAvailable()) {
-            this.bwB.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.LIGHT);
+            this.byP.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.LIGHT);
         } else {
-            this.bwB.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.LIGHT);
+            this.byP.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.LIGHT);
         }
-        this.bwB.setVisibility(0);
-        this.gte.setVisibility(8);
+        this.byP.setVisibility(0);
+        this.gDi.setVisibility(8);
     }
 }

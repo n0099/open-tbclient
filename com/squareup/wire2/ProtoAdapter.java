@@ -144,7 +144,7 @@ public abstract class ProtoAdapter<E> {
     public static final ProtoAdapter<Long> INT64 = new ProtoAdapter<Long>(FieldEncoding.VARINT, Long.class) { // from class: com.squareup.wire2.ProtoAdapter.12
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        /* renamed from: h */
+        /* renamed from: i */
         public int encodedSize(Long l) {
             return d.varint64Size(l.longValue());
         }
@@ -166,7 +166,7 @@ public abstract class ProtoAdapter<E> {
     public static final ProtoAdapter<Long> UINT64 = new ProtoAdapter<Long>(FieldEncoding.VARINT, Long.class) { // from class: com.squareup.wire2.ProtoAdapter.13
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        /* renamed from: h */
+        /* renamed from: i */
         public int encodedSize(Long l) {
             return d.varint64Size(l.longValue());
         }
@@ -188,7 +188,7 @@ public abstract class ProtoAdapter<E> {
     public static final ProtoAdapter<Long> SINT64 = new ProtoAdapter<Long>(FieldEncoding.VARINT, Long.class) { // from class: com.squareup.wire2.ProtoAdapter.14
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        /* renamed from: h */
+        /* renamed from: i */
         public int encodedSize(Long l) {
             return d.varint64Size(d.encodeZigZag64(l.longValue()));
         }
@@ -210,7 +210,7 @@ public abstract class ProtoAdapter<E> {
     public static final ProtoAdapter<Long> FIXED64 = new ProtoAdapter<Long>(FieldEncoding.FIXED64, Long.class) { // from class: com.squareup.wire2.ProtoAdapter.15
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        /* renamed from: h */
+        /* renamed from: i */
         public int encodedSize(Long l) {
             return 8;
         }
@@ -277,7 +277,7 @@ public abstract class ProtoAdapter<E> {
     public static final ProtoAdapter<String> STRING = new ProtoAdapter<String>(FieldEncoding.LENGTH_DELIMITED, String.class) { // from class: com.squareup.wire2.ProtoAdapter.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        /* renamed from: WT */
+        /* renamed from: YG */
         public int encodedSize(String str) {
             return d.utf8Length(str);
         }
@@ -315,7 +315,7 @@ public abstract class ProtoAdapter<E> {
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: e */
         public ByteString decode(c cVar) throws IOException {
-            return cVar.eky();
+            return cVar.euy();
         }
     };
 
@@ -374,7 +374,7 @@ public abstract class ProtoAdapter<E> {
         if (this.fieldEncoding == FieldEncoding.LENGTH_DELIMITED) {
             encodedSize += d.varint32Size(encodedSize);
         }
-        return encodedSize + d.OU(i);
+        return encodedSize + d.QL(i);
     }
 
     public void encodeWithTag(d dVar, int i, E e) throws IOException {
@@ -483,7 +483,7 @@ public abstract class ProtoAdapter<E> {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.squareup.wire2.ProtoAdapter
-            /* renamed from: gc */
+            /* renamed from: gy */
             public int encodedSize(List<E> list) {
                 int size = list.size();
                 int i = 0;
@@ -522,7 +522,7 @@ public abstract class ProtoAdapter<E> {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.squareup.wire2.ProtoAdapter
-            /* renamed from: gd */
+            /* renamed from: gz */
             public List<E> redact(List<E> list) {
                 return Collections.emptyList();
             }
@@ -533,7 +533,7 @@ public abstract class ProtoAdapter<E> {
         return new ProtoAdapter<List<E>>(this.fieldEncoding, List.class) { // from class: com.squareup.wire2.ProtoAdapter.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.squareup.wire2.ProtoAdapter
-            /* renamed from: gc */
+            /* renamed from: gy */
             public int encodedSize(List<E> list) {
                 throw new UnsupportedOperationException("Repeated values can only be sized with a tag.");
             }
@@ -576,7 +576,7 @@ public abstract class ProtoAdapter<E> {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.squareup.wire2.ProtoAdapter
-            /* renamed from: gd */
+            /* renamed from: gz */
             public List<E> redact(List<E> list) {
                 return Collections.emptyList();
             }
@@ -596,11 +596,11 @@ public abstract class ProtoAdapter<E> {
 
     /* loaded from: classes6.dex */
     private static final class b<K, V> extends ProtoAdapter<Map<K, V>> {
-        private final a<K, V> oGT;
+        private final a<K, V> pyq;
 
         b(ProtoAdapter<K> protoAdapter, ProtoAdapter<V> protoAdapter2) {
             super(FieldEncoding.LENGTH_DELIMITED, null);
-            this.oGT = new a<>(protoAdapter, protoAdapter2);
+            this.pyq = new a<>(protoAdapter, protoAdapter2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -619,7 +619,7 @@ public abstract class ProtoAdapter<E> {
             while (true) {
                 int i3 = i2;
                 if (it.hasNext()) {
-                    i2 = this.oGT.encodedSizeWithTag(i, it.next()) + i3;
+                    i2 = this.pyq.encodedSizeWithTag(i, it.next()) + i3;
                 } else {
                     return i3;
                 }
@@ -638,7 +638,7 @@ public abstract class ProtoAdapter<E> {
         /* renamed from: a */
         public void encodeWithTag(d dVar, int i, Map<K, V> map) throws IOException {
             for (Map.Entry<K, V> entry : map.entrySet()) {
-                this.oGT.encodeWithTag(dVar, i, entry);
+                this.pyq.encodeWithTag(dVar, i, entry);
             }
         }
 
@@ -647,21 +647,21 @@ public abstract class ProtoAdapter<E> {
         /* renamed from: j */
         public Map<K, V> decode(c cVar) throws IOException {
             V v = null;
-            long ekv = cVar.ekv();
+            long euv = cVar.euv();
             K k = null;
             while (true) {
-                int ekw = cVar.ekw();
-                if (ekw != -1) {
-                    switch (ekw) {
+                int euw = cVar.euw();
+                if (euw != -1) {
+                    switch (euw) {
                         case 1:
-                            k = this.oGT.oGP.decode(cVar);
+                            k = this.pyq.pym.decode(cVar);
                             break;
                         case 2:
-                            v = this.oGT.oGS.decode(cVar);
+                            v = this.pyq.pyp.decode(cVar);
                             break;
                     }
                 } else {
-                    cVar.hp(ekv);
+                    cVar.hF(euv);
                     if (k == null) {
                         throw new IllegalStateException("Map entry with null key");
                     }
@@ -684,28 +684,28 @@ public abstract class ProtoAdapter<E> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static final class a<K, V> extends ProtoAdapter<Map.Entry<K, V>> {
-        final ProtoAdapter<K> oGP;
-        final ProtoAdapter<V> oGS;
+        final ProtoAdapter<K> pym;
+        final ProtoAdapter<V> pyp;
 
         a(ProtoAdapter<K> protoAdapter, ProtoAdapter<V> protoAdapter2) {
             super(FieldEncoding.LENGTH_DELIMITED, null);
-            this.oGP = protoAdapter;
-            this.oGS = protoAdapter2;
+            this.pym = protoAdapter;
+            this.pyp = protoAdapter2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: a */
         public int encodedSize(Map.Entry<K, V> entry) {
-            return this.oGP.encodedSizeWithTag(1, entry.getKey()) + this.oGS.encodedSizeWithTag(2, entry.getValue());
+            return this.pym.encodedSizeWithTag(1, entry.getKey()) + this.pyp.encodedSizeWithTag(2, entry.getValue());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: a */
         public void encode(d dVar, Map.Entry<K, V> entry) throws IOException {
-            this.oGP.encodeWithTag(dVar, 1, entry.getKey());
-            this.oGS.encodeWithTag(dVar, 2, entry.getValue());
+            this.pym.encodeWithTag(dVar, 1, entry.getKey());
+            this.pyp.encodeWithTag(dVar, 2, entry.getValue());
         }
 
         /* JADX DEBUG: Method merged with bridge method */

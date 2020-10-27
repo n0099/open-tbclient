@@ -13,16 +13,16 @@ public class b extends com.baidu.swan.apps.api.a.d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b ll(String str) {
+    public com.baidu.swan.apps.api.c.b lE(String str) {
         if (DEBUG) {
             Log.d("Api-HandleException", "params = " + str);
         }
-        if (afg()) {
+        if (aha()) {
             com.baidu.swan.apps.console.c.e("Api-HandleException", "Api-HandleException does not supported when app is invisible.");
             return new com.baidu.swan.apps.api.c.b(1001, "Api-HandleException does not supported when app is invisible.");
         }
-        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bc = com.baidu.swan.apps.api.d.b.bc("Api-HandleException", str);
-        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bc.first;
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bj = com.baidu.swan.apps.api.d.b.bj("Api-HandleException", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bj.first;
         if (!bVar.isSuccess()) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-HandleException", "parse fail");
@@ -30,7 +30,7 @@ public class b extends com.baidu.swan.apps.api.a.d {
             }
             return bVar;
         }
-        JSONObject jSONObject = (JSONObject) bc.second;
+        JSONObject jSONObject = (JSONObject) bj.second;
         String optString = jSONObject.optString("code");
         if (TextUtils.isEmpty(optString)) {
             return new com.baidu.swan.apps.api.c.b(202, "code is required");
@@ -55,20 +55,20 @@ public class b extends com.baidu.swan.apps.api.a.d {
         }
         switch (c) {
             case 0:
-                return aM(jSONObject);
+                return aP(jSONObject);
             case 1:
-                return aL(jSONObject);
+                return aO(jSONObject);
             default:
                 return new com.baidu.swan.apps.api.c.b(202, "unsupported code");
         }
     }
 
-    private com.baidu.swan.apps.api.c.b aL(JSONObject jSONObject) {
-        com.baidu.swan.apps.core.f.bi("data_init", "业务数据初始化异常");
+    private com.baidu.swan.apps.api.c.b aO(JSONObject jSONObject) {
+        com.baidu.swan.apps.core.f.bp("data_init", "业务数据初始化异常");
         return new com.baidu.swan.apps.api.c.b(0);
     }
 
-    private com.baidu.swan.apps.api.c.b aM(JSONObject jSONObject) {
+    private com.baidu.swan.apps.api.c.b aP(JSONObject jSONObject) {
         String optString = jSONObject.optString("data");
         if (TextUtils.isEmpty(optString)) {
             return new com.baidu.swan.apps.api.c.b(202, "data is required");
@@ -78,8 +78,8 @@ public class b extends com.baidu.swan.apps.api.a.d {
             if (TextUtils.isEmpty(optString2)) {
                 return new com.baidu.swan.apps.api.c.b(202, "path is required");
             }
-            if (ak.tQ(optString2) && ak.aIz()) {
-                com.baidu.swan.apps.core.f.bi("skeleton", "5秒内未触发骨架屏移除");
+            if (ak.uj(optString2) && ak.aKt()) {
+                com.baidu.swan.apps.core.f.bp("skeleton", "5秒内未触发骨架屏移除");
             } else if (DEBUG) {
                 Log.d("Api-HandleException", "path is not first page: " + optString2);
             }

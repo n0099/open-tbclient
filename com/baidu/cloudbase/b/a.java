@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes9.dex */
 public class a {
-    public List<c> anf;
-    public Map<String, Integer> ang = new HashMap();
+    public List<c> ang;
+    public Map<String, Integer> anh = new HashMap();
     public Context mContext;
 
     /* renamed from: com.baidu.cloudbase.b.a$a  reason: collision with other inner class name */
@@ -72,7 +72,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes9.dex */
     public static class b {
-        public static a anh = new a();
+        public static a ani = new a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -80,16 +80,16 @@ public class a {
         if (cVar != null) {
             cVar.dx(str);
         }
-        if (this.anf == null) {
+        if (this.ang == null) {
             return;
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.anf.size()) {
+            if (i2 >= this.ang.size()) {
                 return;
             }
-            this.anf.get(i2).dx(str);
+            this.ang.get(i2).dx(str);
             i = i2 + 1;
         }
     }
@@ -99,56 +99,56 @@ public class a {
         if (cVar != null) {
             cVar.p(f);
         }
-        if (this.anf == null) {
+        if (this.ang == null) {
             return;
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.anf.size()) {
+            if (i2 >= this.ang.size()) {
                 return;
             }
-            this.anf.get(i2).p(f);
+            this.ang.get(i2).p(f);
             i = i2 + 1;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(c cVar, String str, int i, String str2) {
-        this.ang.put(str, 2);
+        this.anh.put(str, 2);
         if (cVar != null) {
             cVar.b(str, i, str2);
         }
-        if (this.anf == null) {
+        if (this.ang == null) {
             return;
         }
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 >= this.anf.size()) {
+            if (i3 >= this.ang.size()) {
                 return;
             }
-            this.anf.get(i3).b(str, i, str2);
+            this.ang.get(i3).b(str, i, str2);
             i2 = i3 + 1;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(c cVar, String str, String str2) {
-        this.ang.put(str, 3);
+        this.anh.put(str, 3);
         if (cVar != null) {
             cVar.V(str, str2);
         }
-        if (this.anf == null) {
+        if (this.ang == null) {
             return;
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.anf.size()) {
+            if (i2 >= this.ang.size()) {
                 return;
             }
-            this.anf.get(i2).V(str, str2);
+            this.ang.get(i2).V(str, str2);
             i = i2 + 1;
         }
     }
@@ -161,7 +161,7 @@ public class a {
         if (!file.exists()) {
             file.mkdirs();
         }
-        this.ang.put(str, 1);
+        this.anh.put(str, 1);
         String m = com.baidu.cloudbase.b.b.m(this.mContext, str, str2);
         File file2 = new File(m + ".temp");
         File file3 = new File(m + ".zip");
@@ -170,8 +170,8 @@ public class a {
     }
 
     public static a aa(Context context) {
-        b.anh.mContext = context.getApplicationContext();
-        return b.anh;
+        b.ani.mContext = context.getApplicationContext();
+        return b.ani;
     }
 
     private boolean cG(String str) {

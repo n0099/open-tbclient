@@ -5,52 +5,52 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.baidu.live.data.ac;
+import com.baidu.live.data.ae;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private InterfaceC0643a gPN;
-    private boolean gPO;
+    private InterfaceC0659a hbB;
+    private boolean hbC;
     private Context mContext;
-    public List<ac> gPM = new ArrayList();
-    private int fPm = -1;
+    public List<ae> hbA = new ArrayList();
+    private int fYF = -1;
 
     /* renamed from: com.baidu.tieba.ala.liveroom.exclusive.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0643a {
-        void a(View view, int i, ac acVar);
+    public interface InterfaceC0659a {
+        void a(View view, int i, ae aeVar);
     }
 
     public a(Context context, boolean z) {
         this.mContext = context;
-        this.gPO = z;
+        this.hbC = z;
     }
 
-    public void uV(int i) {
-        this.fPm = i;
+    public void vp(int i) {
+        this.fYF = i;
         notifyDataSetChanged();
     }
 
-    public void a(InterfaceC0643a interfaceC0643a) {
-        this.gPN = interfaceC0643a;
+    public void a(InterfaceC0659a interfaceC0659a) {
+        this.hbB = interfaceC0659a;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.gPM == null) {
+        if (this.hbA == null) {
             return 0;
         }
-        return this.gPM.size();
+        return this.hbA.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: uW */
-    public ac getItem(int i) {
-        return (ac) ListUtils.getItem(this.gPM, i);
+    /* renamed from: vq */
+    public ae getItem(int i) {
+        return (ae) ListUtils.getItem(this.hbA, i);
     }
 
     @Override // android.widget.Adapter
@@ -58,10 +58,10 @@ public class a extends BaseAdapter {
         return i;
     }
 
-    public void setDatas(List<ac> list) {
+    public void setDatas(List<ae> list) {
         if (!ListUtils.isEmpty(list)) {
-            this.gPM.clear();
-            this.gPM.addAll(list);
+            this.hbA.clear();
+            this.hbA.addAll(list);
             notifyDataSetChanged();
         }
     }
@@ -71,7 +71,7 @@ public class a extends BaseAdapter {
         g gVar;
         View inflate;
         if (view == null) {
-            if (this.gPO) {
+            if (this.hbC) {
                 inflate = LayoutInflater.from(this.mContext).inflate(a.h.ala_exclusive_scene_item, (ViewGroup) null);
             } else {
                 inflate = LayoutInflater.from(this.mContext).inflate(a.h.ala_exclusive_scene_land_item, (ViewGroup) null);
@@ -82,19 +82,19 @@ public class a extends BaseAdapter {
         } else {
             gVar = (g) view.getTag();
         }
-        final ac acVar = this.gPM.get(i);
-        if (this.fPm == i) {
-            gVar.a(acVar, true, this.gPO);
+        final ae aeVar = this.hbA.get(i);
+        if (this.fYF == i) {
+            gVar.a(aeVar, true, this.hbC);
         } else {
-            gVar.a(acVar, false, this.gPO);
+            gVar.a(aeVar, false, this.hbC);
         }
         view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.exclusive.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                a.this.fPm = i;
+                a.this.fYF = i;
                 a.this.notifyDataSetChanged();
-                if (a.this.gPN != null) {
-                    a.this.gPN.a(view2, i, acVar);
+                if (a.this.hbB != null) {
+                    a.this.hbB.a(view2, i, aeVar);
                 }
             }
         });

@@ -18,10 +18,10 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
     private int l;
 
     /* loaded from: classes7.dex */
-    public static abstract class a<T extends a<T>> extends a.AbstractC0937a<T> {
+    public static abstract class a<T extends a<T>> extends a.AbstractC1009a<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f4396a;
+        private String f4394a;
         private String b;
         private String c;
         private String d;
@@ -37,7 +37,7 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
         }
 
         public T a(String str) {
-            this.f4396a = str;
+            this.f4394a = str;
             return (T) a();
         }
 
@@ -83,15 +83,15 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
 
     /* renamed from: com.meizu.cloud.pushsdk.c.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    private static class C0938b extends a<C0938b> {
-        private C0938b() {
+    private static class C1010b extends a<C1010b> {
+        private C1010b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.meizu.cloud.pushsdk.c.c.a.AbstractC0937a
+        @Override // com.meizu.cloud.pushsdk.c.c.a.AbstractC1009a
         /* renamed from: c */
-        public C0938b a() {
+        public C1010b a() {
             return this;
         }
     }
@@ -100,7 +100,7 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
         super(aVar);
         this.e = ((a) aVar).b;
         this.f = ((a) aVar).c;
-        this.d = ((a) aVar).f4396a;
+        this.d = ((a) aVar).f4394a;
         this.g = ((a) aVar).d;
         this.h = ((a) aVar).e;
         this.i = ((a) aVar).f;
@@ -110,7 +110,7 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
     }
 
     public static a<?> d() {
-        return new C0938b();
+        return new C1010b();
     }
 
     public c e() {

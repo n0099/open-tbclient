@@ -16,8 +16,9 @@ import java.security.spec.InvalidKeySpecException;
 import java.util.Arrays;
 import org.conscrypt.NativeRef;
 import org.conscrypt.OpenSSLX509CertificateFactory;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
-final class OpenSSLECPrivateKey implements ECPrivateKey, OpenSSLKeyHolder {
+public final class OpenSSLECPrivateKey implements ECPrivateKey, OpenSSLKeyHolder {
     private static final String ALGORITHM = "EC";
     private static final long serialVersionUID = -4036633595001083922L;
     protected transient OpenSSLECGroupContext group;

@@ -110,8 +110,8 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
 
     /* renamed from: com.baidu.pass.ecommerce.d.c$c  reason: collision with other inner class name */
     /* loaded from: classes17.dex */
-    class C0252c extends AnimatorListenerAdapter {
-        C0252c() {
+    class C0266c extends AnimatorListenerAdapter {
+        C0266c() {
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -470,7 +470,7 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
             this.z.setDuration(this.B);
             this.z.setInterpolator(new AccelerateInterpolator());
             this.z.addUpdateListener(new b(new int[]{0, ViewCompat.MEASURED_STATE_MASK, ViewCompat.MEASURED_STATE_MASK, ViewCompat.MEASURED_STATE_MASK, 0}, new float[]{0.0f, 0.2f, 0.5f, 0.8f, 1.0f}));
-            this.z.addListener(new C0252c());
+            this.z.addListener(new C0266c());
             this.z.start();
         }
     }

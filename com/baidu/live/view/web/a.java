@@ -6,12 +6,12 @@ import android.util.Log;
 import android.webkit.JavascriptInterface;
 /* loaded from: classes4.dex */
 public abstract class a {
-    protected h bEI;
+    protected h bHH;
     protected Handler mHandler;
 
     public abstract String getName();
 
-    public abstract void iq(String str);
+    public abstract void iB(String str);
 
     public void g(String str, String str2, boolean z) {
     }
@@ -25,10 +25,10 @@ public abstract class a {
         this.mHandler.post(new Runnable() { // from class: com.baidu.live.view.web.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.bEI != null) {
-                    a.this.bEI.iv(str);
+                if (a.this.bHH != null) {
+                    a.this.bHH.iG(str);
                 } else {
-                    a.this.iq(str);
+                    a.this.iB(str);
                 }
             }
         });
@@ -49,6 +49,6 @@ public abstract class a {
     }
 
     public void a(h hVar) {
-        this.bEI = hVar;
+        this.bHH = hVar;
     }
 }

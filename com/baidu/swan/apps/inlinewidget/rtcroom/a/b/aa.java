@@ -6,7 +6,7 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 public class aa extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.rtcroom.c.b> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String arf() {
+    public String ata() {
         return "subscribeRemoteStream";
     }
 
@@ -16,8 +16,8 @@ public class aa extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.i
         a(bVar, command.what, "" + command.obj, true);
         if (command.obj instanceof Long) {
             long longValue = ((Long) command.obj).longValue();
-            if (com.baidu.swan.apps.inlinewidget.rtcroom.b.a.bi(longValue)) {
-                bVar.bj(longValue);
+            if (com.baidu.swan.apps.inlinewidget.rtcroom.b.a.bk(longValue)) {
+                bVar.bl(longValue);
             }
         }
     }

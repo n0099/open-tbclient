@@ -7,26 +7,26 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.view.HotTopicPkView;
 /* loaded from: classes21.dex */
 public class d extends af.a {
-    public int ajp;
-    public TextView jyl;
-    public TextView jym;
-    public HotTopicPkView jyn;
-    public TextView jyo;
-    public TextView jyp;
+    public int ajq;
+    public TextView jKK;
+    public TextView jKL;
+    public HotTopicPkView jKM;
+    public TextView jKN;
+    public TextView jKO;
 
     public d(View view) {
         super(view);
-        this.ajp = 3;
-        cG(view);
+        this.ajq = 3;
+        cK(view);
     }
 
-    private void cG(View view) {
+    private void cK(View view) {
         if (view != null) {
-            this.jyl = (TextView) view.findViewById(R.id.pk_item_theme_title);
-            this.jym = (TextView) view.findViewById(R.id.pk_topic_title);
-            this.jyn = (HotTopicPkView) view.findViewById(R.id.pk_topic_view);
-            this.jyo = (TextView) view.findViewById(R.id.pk_topic_positive);
-            this.jyp = (TextView) view.findViewById(R.id.pk_topic_opposing);
+            this.jKK = (TextView) view.findViewById(R.id.pk_item_theme_title);
+            this.jKL = (TextView) view.findViewById(R.id.pk_topic_title);
+            this.jKM = (HotTopicPkView) view.findViewById(R.id.pk_topic_view);
+            this.jKN = (TextView) view.findViewById(R.id.pk_topic_positive);
+            this.jKO = (TextView) view.findViewById(R.id.pk_topic_opposing);
         }
     }
 }

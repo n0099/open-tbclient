@@ -9,32 +9,32 @@ import kotlin.jvm.internal.q;
 public final class b {
     public final void a(WebSocketTask webSocketTask) {
         q.n(webSocketTask, "task");
-        k aSd = aSd();
-        if (aSd != null) {
-            aSd.a(webSocketTask);
+        k aTX = aTX();
+        if (aTX != null) {
+            aTX.a(webSocketTask);
         }
     }
 
-    public final void pS(String str) {
+    public final void ql(String str) {
         q.n(str, "taskId");
-        k aSd = aSd();
-        if (aSd != null) {
-            aSd.pS(str);
+        k aTX = aTX();
+        if (aTX != null) {
+            aTX.ql(str);
         }
     }
 
-    public final boolean ayp() {
-        k aSd = aSd();
-        if (aSd != null) {
-            return aSd.ayp();
+    public final boolean aAj() {
+        k aTX = aTX();
+        if (aTX != null) {
+            return aTX.aAj();
         }
         return false;
     }
 
-    private final k aSd() {
-        com.baidu.swan.apps.runtime.e aDa = com.baidu.swan.apps.runtime.e.aDa();
-        if (aDa != null) {
-            return aDa.aDq();
+    private final k aTX() {
+        com.baidu.swan.apps.runtime.e aEU = com.baidu.swan.apps.runtime.e.aEU();
+        if (aEU != null) {
+            return aEU.aFk();
         }
         return null;
     }

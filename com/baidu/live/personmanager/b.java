@@ -1,282 +1,118 @@
 package com.baidu.live.personmanager;
 
 import android.text.TextUtils;
-import com.baidu.live.adp.base.BdBaseModel;
 import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.adp.framework.listener.HttpMessageListener;
-import com.baidu.live.adp.framework.message.HttpMessage;
-import com.baidu.live.adp.framework.message.HttpResponsedMessage;
+import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
+import com.baidu.live.data.PersonUserData;
+import com.baidu.live.data.br;
+import com.baidu.live.personmanager.d;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.live.tbadk.task.TbHttpMessageTask;
+import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 /* loaded from: classes4.dex */
-public class b extends BdBaseModel {
-    private InterfaceC0192b bnl;
-    private a bnm;
-    private HttpMessageListener bnn;
-    private HttpMessageListener bno;
-    private HttpMessageListener bnp;
-    private HttpMessageListener bnq;
-    private HttpMessageListener bnr;
-    private TbPageContext mPageContext;
+public class b {
+    private a boO;
+    private com.baidu.live.p.d boP;
+    private d boQ;
+    private d boR;
+    private TbPageContext mTbPageContext;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void NN();
+        void b(PersonUserData personUserData);
+
+        void b(br brVar);
+
+        void c(br brVar);
 
         void onFail(String str);
     }
 
-    /* renamed from: com.baidu.live.personmanager.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC0192b {
-        void NO();
-    }
-
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext);
-        this.bnn = new HttpMessageListener(1021031) { // from class: com.baidu.live.personmanager.b.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.live.adp.framework.listener.MessageListener
-            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021031) {
-                    int statusCode = httpResponsedMessage.getStatusCode();
-                    if (httpResponsedMessage.getOrginalMessage() instanceof com.baidu.live.personmanager.a) {
-                        if (statusCode != 200 || !(httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
-                            b.this.mPageContext.showToast(httpResponsedMessage.getErrorString());
-                        } else if (httpResponsedMessage.getError() == 0) {
-                            b.this.mPageContext.showToast(a.i.sdk_person_operation_success);
-                        } else {
-                            b.this.mPageContext.showToast(httpResponsedMessage.getErrorString());
-                        }
-                    }
+        this.mTbPageContext = tbPageContext;
+        this.boQ = new d(tbPageContext);
+        this.boR = new d(tbPageContext);
+        this.boQ.a(new d.a() { // from class: com.baidu.live.personmanager.b.1
+            @Override // com.baidu.live.personmanager.d.a
+            public void a(br brVar) {
+                if (brVar != null && b.this.boO != null) {
+                    b.this.boO.b(brVar);
                 }
             }
-        };
-        this.bno = new HttpMessageListener(1021058) { // from class: com.baidu.live.personmanager.b.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.live.adp.framework.listener.MessageListener
-            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021058) {
-                    if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
-                        b.this.mPageContext.showToast(httpResponsedMessage.getErrorString());
-                    } else if (httpResponsedMessage.getError() == 0) {
-                        b.this.mPageContext.showToast(a.i.sdk_person_operation_success);
-                    } else {
-                        b.this.mPageContext.showToast(httpResponsedMessage.getErrorString());
-                    }
+
+            @Override // com.baidu.live.personmanager.d.a
+            public void onFail(String str) {
+            }
+        });
+        this.boR.a(new d.a() { // from class: com.baidu.live.personmanager.b.2
+            @Override // com.baidu.live.personmanager.d.a
+            public void a(br brVar) {
+                if (brVar != null && b.this.boO != null) {
+                    b.this.boO.c(brVar);
                 }
             }
-        };
-        this.bnp = new HttpMessageListener(1021059) { // from class: com.baidu.live.personmanager.b.3
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.live.adp.framework.listener.MessageListener
-            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021059) {
-                    if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
-                        b.this.mPageContext.showToast(httpResponsedMessage.getErrorString());
-                    } else if (httpResponsedMessage.getError() == 0) {
-                        b.this.mPageContext.showToast(a.i.sdk_person_operation_success);
-                    } else {
-                        b.this.mPageContext.showToast(httpResponsedMessage.getErrorString());
-                    }
-                }
+
+            @Override // com.baidu.live.personmanager.d.a
+            public void onFail(String str) {
             }
-        };
-        this.bnq = new HttpMessageListener(1021060) { // from class: com.baidu.live.personmanager.b.4
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.live.adp.framework.listener.MessageListener
-            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021060) {
-                    if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
-                        b.this.mPageContext.showToast(httpResponsedMessage.getErrorString());
-                    } else if (httpResponsedMessage.getError() == 0) {
-                        b.this.mPageContext.showToast(a.i.sdk_person_operation_success);
-                        if (b.this.bnl != null) {
-                            b.this.bnl.NO();
-                        }
-                    } else {
-                        b.this.mPageContext.showToast(httpResponsedMessage.getErrorString());
-                    }
-                }
-            }
-        };
-        this.bnr = new HttpMessageListener(1021030) { // from class: com.baidu.live.personmanager.b.5
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.live.adp.framework.listener.MessageListener
-            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021030 && b.this.bnm != null) {
-                    if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
-                        b.this.bnm.onFail(httpResponsedMessage.getErrorString());
-                    } else if (httpResponsedMessage.getError() == 0) {
-                        b.this.bnm.NN();
-                    } else {
-                        b.this.bnm.onFail(httpResponsedMessage.getErrorString());
-                    }
-                }
-            }
-        };
-        this.mPageContext = tbPageContext;
-        this.bnn.setSelfListener(true);
-        this.bno.setSelfListener(true);
-        this.bnp.setSelfListener(true);
-        this.bnq.setSelfListener(true);
-        this.bnr.setSelfListener(true);
-        registerListener(this.bnr);
-        registerListener(this.bnn);
-        registerListener(this.bno);
-        registerListener(this.bnp);
-        registerListener(this.bnq);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021031, com.baidu.live.a.azH);
-        tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(1021058, com.baidu.live.a.azJ);
-        tbHttpMessageTask2.setResponsedClass(JsonHttpResponsedMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask2);
-        TbHttpMessageTask tbHttpMessageTask3 = new TbHttpMessageTask(1021059, com.baidu.live.a.azK);
-        tbHttpMessageTask3.setResponsedClass(JsonHttpResponsedMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask3);
-        TbHttpMessageTask tbHttpMessageTask4 = new TbHttpMessageTask(1021060, com.baidu.live.a.azL);
-        tbHttpMessageTask4.setResponsedClass(JsonHttpResponsedMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask4);
-        TbHttpMessageTask tbHttpMessageTask5 = new TbHttpMessageTask(1021030, com.baidu.live.a.azG);
-        tbHttpMessageTask5.setResponsedClass(JsonHttpResponsedMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask5);
+        });
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x0038, code lost:
-        if (java.lang.Long.parseLong(r7) <= 0) goto L15;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void aC(String str, String str2) {
-        boolean z = true;
+    public void b(String str, String str2, String str3, String str4, String str5, String str6) {
         if (!BdNetTypeUtil.isNetWorkAvailable()) {
-            if (this.bnm != null) {
-                this.bnm.onFail(this.mPageContext.getResources().getString(a.i.sdk_no_network));
-                return;
+            if (this.boO != null) {
+                this.boO.onFail(this.mTbPageContext.getPageActivity().getResources().getString(a.i.sdk_no_network));
             }
-            return;
-        }
-        boolean z2 = false;
-        if (TextUtils.isEmpty(str) || TextUtils.equals(str, "null")) {
-            z2 = true;
-        }
-        if (!z2) {
-            try {
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
+        } else if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
+            if (this.boO != null) {
+                this.boO.onFail(this.mTbPageContext.getPageActivity().getResources().getString(a.i.sdk_error_unkown_try_again));
             }
-        }
-        z = z2;
-        if (z) {
-            if (this.bnm != null) {
-                this.bnm.onFail(this.mPageContext.getResources().getString(a.i.ala_report_failed));
-                return;
+        } else {
+            this.boP = new com.baidu.live.p.d(new com.baidu.live.p.c() { // from class: com.baidu.live.personmanager.b.3
+                @Override // com.baidu.live.p.c
+                public void a(PersonUserData personUserData) {
+                    if (b.this.boO != null) {
+                        b.this.boO.b(personUserData);
+                    }
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501021, personUserData));
+                }
+
+                @Override // com.baidu.live.p.c
+                public void s(int i, String str7) {
+                    if (b.this.boO != null) {
+                        b.this.boO.onFail(str7);
+                    }
+                }
+            });
+            if (TextUtils.isEmpty(str2)) {
+                str2 = ExtraParamsManager.getEncryptionUserId(str);
             }
-            return;
+            this.boP.execute(str2, str4, str3);
+            aD(str, str5);
         }
-        HttpMessage httpMessage = new HttpMessage(1021030);
-        httpMessage.addParam("target_user_id", str);
-        httpMessage.addParam("tipoff_reason", str2);
-        httpMessage.addParam("tbs", TbadkCoreApplication.getInst().getTbs());
-        this.mPageContext.sendMessage(httpMessage);
-    }
-
-    public void p(String str, String str2, String str3) {
-        b(str, str2, str3, 1);
-    }
-
-    public void q(String str, String str2, String str3) {
-        b(str, str2, str3, 2);
-    }
-
-    public void r(String str, String str2, String str3) {
-        b(str, str2, str3, 8);
-    }
-
-    public void s(String str, String str2, String str3) {
-        b(str, str2, str3, 9);
-    }
-
-    private void b(String str, String str2, String str3, int i) {
-        if (!BdNetTypeUtil.isNetWorkAvailable() || TextUtils.isEmpty(str)) {
-            this.mPageContext.showToast(this.mPageContext.getResources().getString(a.i.sdk_no_network));
-            return;
-        }
-        com.baidu.live.personmanager.a aVar = new com.baidu.live.personmanager.a(i);
-        aVar.addParam("block_user_id", str);
-        aVar.addParam("block_group_id", str2);
-        aVar.addParam("live_id", str3);
-        aVar.addParam("tbs", TbadkCoreApplication.getInst().getTbs());
-        this.mPageContext.sendMessage(aVar);
     }
 
     public void aD(String str, String str2) {
-        if (!BdNetTypeUtil.isNetWorkAvailable() || TextUtils.isEmpty(str)) {
-            this.mPageContext.showToast(this.mPageContext.getResources().getString(a.i.sdk_no_network));
-            return;
+        if (TbadkCoreApplication.isLogin()) {
+            this.boQ.setPn(-1);
+            this.boQ.c(0, str, str2);
+            this.boR.setPn(-1);
+            this.boR.c(1, str, str2);
         }
-        HttpMessage httpMessage = new HttpMessage(1021058);
-        httpMessage.addParam("admin_id", str);
-        httpMessage.addParam("live_id", str2);
-        httpMessage.addParam("tbs", TbadkCoreApplication.getInst().getTbs());
-        this.mPageContext.sendMessage(httpMessage);
-    }
-
-    public void aE(String str, String str2) {
-        if (!BdNetTypeUtil.isNetWorkAvailable() || TextUtils.isEmpty(str)) {
-            this.mPageContext.showToast(this.mPageContext.getResources().getString(a.i.sdk_no_network));
-            return;
-        }
-        HttpMessage httpMessage = new HttpMessage(1021059);
-        httpMessage.addParam("admin_id", str);
-        httpMessage.addParam("live_id", str2);
-        httpMessage.addParam("tbs", TbadkCoreApplication.getInst().getTbs());
-        this.mPageContext.sendMessage(httpMessage);
-    }
-
-    public void aF(String str, String str2) {
-        if (!BdNetTypeUtil.isNetWorkAvailable() || TextUtils.isEmpty(str)) {
-            this.mPageContext.showToast(this.mPageContext.getResources().getString(a.i.sdk_no_network));
-            return;
-        }
-        HttpMessage httpMessage = new HttpMessage(1021060);
-        httpMessage.addParam("anchor_id", str);
-        httpMessage.addParam("live_id", str2);
-        httpMessage.addParam("tbs", TbadkCoreApplication.getInst().getTbs());
-        this.mPageContext.sendMessage(httpMessage);
-    }
-
-    @Override // com.baidu.live.adp.base.BdBaseModel
-    protected boolean loadData() {
-        return false;
-    }
-
-    @Override // com.baidu.live.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        cancelMessage();
-        return false;
     }
 
     public void onDestroy() {
-        cancelMessage();
-        MessageManager.getInstance().unRegisterTask(1021031);
-        MessageManager.getInstance().unRegisterTask(1021058);
-        MessageManager.getInstance().unRegisterTask(1021059);
-        MessageManager.getInstance().unRegisterTask(1021060);
-        MessageManager.getInstance().unRegisterTask(1021030);
-    }
-
-    public void a(InterfaceC0192b interfaceC0192b) {
-        this.bnl = interfaceC0192b;
+        if (this.boP != null && !this.boP.isCancelled()) {
+            this.boP.cancel();
+        }
+        if (this.boO != null) {
+            this.boO.onFail(null);
+        }
     }
 
     public void a(a aVar) {
-        this.bnm = aVar;
+        this.boO = aVar;
     }
 }

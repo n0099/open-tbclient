@@ -41,6 +41,8 @@ public interface ICyberVideoView {
 
     void seekTo(int i);
 
+    void setClarityInfo(String str);
+
     void setDecodeMode(int i);
 
     void setExternalInfo(String str, Object obj);
@@ -55,6 +57,8 @@ public interface ICyberVideoView {
 
     void setOnInfoListener(CyberPlayerManager.OnInfoListener onInfoListener);
 
+    void setOnMediaSourceChangedListener(CyberPlayerManager.OnMediaSourceChangedListener onMediaSourceChangedListener);
+
     void setOnPreparedListener(CyberPlayerManager.OnPreparedListener onPreparedListener);
 
     void setOnSeekCompleteListener(CyberPlayerManager.OnSeekCompleteListener onSeekCompleteListener);
@@ -62,6 +66,8 @@ public interface ICyberVideoView {
     void setOnVideoSizeChangedListener(CyberPlayerManager.OnVideoSizeChangedListener onVideoSizeChangedListener);
 
     void setOption(String str, String str2);
+
+    void setPlayJson(String str);
 
     void setRemote(boolean z);
 
@@ -78,6 +84,8 @@ public interface ICyberVideoView {
     void start();
 
     void stopPlayback();
+
+    void switchMediaSource(int i);
 
     boolean takeSnapshotAsync(OnSnapShotCompleteListener onSnapShotCompleteListener);
 

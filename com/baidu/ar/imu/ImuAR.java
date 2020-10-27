@@ -21,7 +21,7 @@ public class ImuAR extends com.baidu.ar.c implements g {
     private com.baidu.ar.lua.c rw;
 
     /* renamed from: rx  reason: collision with root package name */
-    private i f1194rx;
+    private i f1191rx;
     private Matrixf4x4 ry = new Matrixf4x4();
     private Matrixf4x4 rz = new Matrixf4x4();
     private Matrixf4x4 rA = new Matrixf4x4();
@@ -232,7 +232,7 @@ public class ImuAR extends com.baidu.ar.c implements g {
             if (this.rJ) {
                 b(a3);
             }
-            if (this.f1194rx != null && this.f1194rx.eX() == b.WORLD && this.rH) {
+            if (this.f1191rx != null && this.f1191rx.eX() == b.WORLD && this.rH) {
                 a3 = c(a3);
             }
             l lVar = new l();
@@ -258,7 +258,7 @@ public class ImuAR extends com.baidu.ar.c implements g {
         hashMap.put("succeeded", 1);
         b(304, hashMap);
         b(this.rw);
-        this.f1194rx = null;
+        this.f1191rx = null;
         super.release();
     }
 
@@ -278,18 +278,18 @@ public class ImuAR extends com.baidu.ar.c implements g {
                     i = (int) ((Float) obj2).floatValue();
                 }
             }
-            this.f1194rx = new i();
-            this.f1194rx.b(b.J(intValue));
-            this.f1194rx.L(i);
-            a(this.f1194rx, this);
+            this.f1191rx = new i();
+            this.f1191rx.b(b.J(intValue));
+            this.f1191rx.L(i);
+            a(this.f1191rx, this);
             eT();
             com.baidu.ar.arrender.k r = r();
             if (r != null) {
                 r.bz();
-                if (this.f1194rx.eX() == b.RELATIVE) {
+                if (this.f1191rx.eX() == b.RELATIVE) {
                     r.aI();
                 }
-                r.a(this.f1194rx.eX());
+                r.a(this.f1191rx.eX());
             }
             HashMap<String, Object> hashMap2 = new HashMap<>();
             hashMap2.put("succeeded", 1);

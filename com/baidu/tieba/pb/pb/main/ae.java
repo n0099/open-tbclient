@@ -19,7 +19,7 @@ public class ae extends o<com.baidu.tieba.pb.data.j, af> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cj */
+    /* renamed from: ck */
     public af c(ViewGroup viewGroup) {
         return new af(LayoutInflater.from(this.mContext).inflate(R.layout.new_pb_list_more, viewGroup, false), this.mPageId);
     }

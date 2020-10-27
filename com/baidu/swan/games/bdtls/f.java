@@ -19,10 +19,10 @@ public class f {
         }
         try {
             String str = alert.getLevel() == 1 ? "warning" : "fatal_error";
-            int intValue = jVar.aPL() != null ? jVar.aPL().intValue() : -1;
-            int intValue2 = jVar.aPM() != null ? jVar.aPM().intValue() : -1;
-            int intValue3 = jVar.aPN() != null ? jVar.aPN().intValue() : -1;
-            int intValue4 = jVar.aPO() != null ? jVar.aPO().intValue() : -1;
+            int intValue = jVar.aRF() != null ? jVar.aRF().intValue() : -1;
+            int intValue2 = jVar.aRG() != null ? jVar.aRG().intValue() : -1;
+            int intValue3 = jVar.aRH() != null ? jVar.aRH().intValue() : -1;
+            int intValue4 = jVar.aRI() != null ? jVar.aRI().intValue() : -1;
             String str2 = alert.getDescription() != null ? new String(alert.getDescription().toByteArray()) : "";
             if (a.DEBUG) {
                 Log.d("BDTLS", "bdtls ubc get data");
@@ -47,12 +47,12 @@ public class f {
         }
     }
 
-    public static void vM(String str) {
+    public static void wf(String str) {
         if (a.DEBUG) {
             Log.d("BDTLS", "bdtls success");
         }
-        j aOI = e.aOH().aOI();
-        if (aOI == null) {
+        j aQC = e.aQB().aQC();
+        if (aQC == null) {
             if (a.DEBUG) {
                 Log.d("BDTLS", "bdtls ubc data is null");
                 return;
@@ -60,10 +60,10 @@ public class f {
             return;
         }
         try {
-            int intValue = aOI.aPL() != null ? aOI.aPL().intValue() : -1;
-            int intValue2 = aOI.aPM() != null ? aOI.aPM().intValue() : -1;
-            int intValue3 = aOI.aPN() != null ? aOI.aPN().intValue() : -1;
-            int intValue4 = aOI.aPO() != null ? aOI.aPO().intValue() : -1;
+            int intValue = aQC.aRF() != null ? aQC.aRF().intValue() : -1;
+            int intValue2 = aQC.aRG() != null ? aQC.aRG().intValue() : -1;
+            int intValue3 = aQC.aRH() != null ? aQC.aRH().intValue() : -1;
+            int intValue4 = aQC.aRI() != null ? aQC.aRI().intValue() : -1;
             if (a.DEBUG) {
                 Log.d("BDTLS", "bdtls ubc get data");
             }

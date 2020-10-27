@@ -7,7 +7,7 @@ import java.util.List;
 public class b extends j {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final g f4320a = g.a("application/x-www-form-urlencoded");
+    private static final g f4318a = g.a("application/x-www-form-urlencoded");
     private final List<String> b;
     private final List<String> c;
 
@@ -15,21 +15,21 @@ public class b extends j {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final List<String> f4321a = new ArrayList();
+        private final List<String> f4319a = new ArrayList();
         private final List<String> b = new ArrayList();
 
         public a a(String str, String str2) {
-            this.f4321a.add(f.a(str, " \"':;<=>@[]^`{}|/\\?#&!$(),~", false, false, true, true));
+            this.f4319a.add(f.a(str, " \"':;<=>@[]^`{}|/\\?#&!$(),~", false, false, true, true));
             this.b.add(f.a(str2, " \"':;<=>@[]^`{}|/\\?#&!$(),~", false, false, true, true));
             return this;
         }
 
         public b a() {
-            return new b(this.f4321a, this.b);
+            return new b(this.f4319a, this.b);
         }
 
         public a b(String str, String str2) {
-            this.f4321a.add(f.a(str, " \"':;<=>@[]^`{}|/\\?#&!$(),~", true, false, true, true));
+            this.f4319a.add(f.a(str, " \"':;<=>@[]^`{}|/\\?#&!$(),~", true, false, true, true));
             this.b.add(f.a(str2, " \"':;<=>@[]^`{}|/\\?#&!$(),~", true, false, true, true));
             return this;
         }
@@ -61,7 +61,7 @@ public class b extends j {
 
     @Override // com.meizu.cloud.pushsdk.b.c.j
     public g a() {
-        return f4320a;
+        return f4318a;
     }
 
     @Override // com.meizu.cloud.pushsdk.b.c.j

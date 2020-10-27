@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.data.k;
 import java.util.ArrayList;
 /* loaded from: classes22.dex */
 public class c {
-    public ArrayList<q> jqj;
-    public k jqk;
-    public ai jql;
-    public int jnV = 0;
-    public int jnU = 0;
-    public boolean fzJ = true;
+    public ArrayList<q> jCJ;
+    public k jCK;
+    public ai jCL;
+    public int jAv = 0;
+    public int jAu = 0;
+    public boolean fIe = true;
     public boolean hasMore = true;
 }

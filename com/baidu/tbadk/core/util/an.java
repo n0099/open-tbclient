@@ -8,67 +8,67 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class an {
-    private static String ezm;
-    private static String ezn;
+    private static String eHI;
+    private static String eHJ;
 
     public static boolean isEmui() {
-        return bmL();
+        return boE();
     }
 
-    public static boolean bmL() {
+    public static boolean boE() {
         return check(RomUtils.ROM_EMUI) && Build.VERSION.SDK_INT >= 24;
     }
 
-    public static boolean bmM() {
+    public static boolean boF() {
         return check("ONEPLUS");
     }
 
-    public static boolean bmN() {
+    public static boolean boG() {
         return check(RomUtils.ROM_OPPO);
     }
 
     public static boolean check(String str) {
-        if (ezm != null) {
-            return ezm.equals(str);
+        if (eHI != null) {
+            return eHI.equals(str);
         }
         String prop = getProp("ro.miui.ui.version.name");
-        ezn = prop;
+        eHJ = prop;
         if (!TextUtils.isEmpty(prop)) {
-            ezm = RomUtils.ROM_MIUI;
+            eHI = RomUtils.ROM_MIUI;
         } else {
             String prop2 = getProp("ro.build.version.emui");
-            ezn = prop2;
+            eHJ = prop2;
             if (!TextUtils.isEmpty(prop2)) {
-                ezm = RomUtils.ROM_EMUI;
+                eHI = RomUtils.ROM_EMUI;
             } else {
                 String prop3 = getProp("ro.build.version.opporom");
-                ezn = prop3;
+                eHJ = prop3;
                 if (!TextUtils.isEmpty(prop3)) {
-                    ezm = RomUtils.ROM_OPPO;
+                    eHI = RomUtils.ROM_OPPO;
                 } else {
                     String prop4 = getProp("ro.vivo.os.version");
-                    ezn = prop4;
+                    eHJ = prop4;
                     if (!TextUtils.isEmpty(prop4)) {
-                        ezm = RomUtils.ROM_VIVO;
+                        eHI = RomUtils.ROM_VIVO;
                     } else {
                         String prop5 = getProp("ro.smartisan.version");
-                        ezn = prop5;
+                        eHJ = prop5;
                         if (!TextUtils.isEmpty(prop5)) {
-                            ezm = RomUtils.ROM_SMARTISAN;
+                            eHI = RomUtils.ROM_SMARTISAN;
                         } else {
-                            ezn = Build.DISPLAY;
-                            if (ezn.toUpperCase().contains(RomUtils.ROM_FLYME)) {
-                                ezm = RomUtils.ROM_FLYME;
+                            eHJ = Build.DISPLAY;
+                            if (eHJ.toUpperCase().contains(RomUtils.ROM_FLYME)) {
+                                eHI = RomUtils.ROM_FLYME;
                             } else {
-                                ezn = "unknown";
-                                ezm = Build.MANUFACTURER.toUpperCase();
+                                eHJ = "unknown";
+                                eHI = Build.MANUFACTURER.toUpperCase();
                             }
                         }
                     }
                 }
             }
         }
-        return ezm.equals(str);
+        return eHI.equals(str);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [101=4] */

@@ -6,7 +6,7 @@ import com.vivo.push.model.InsideNotificationItem;
 public final class s extends x {
 
     /* renamed from: a  reason: collision with root package name */
-    protected InsideNotificationItem f4649a;
+    protected InsideNotificationItem f4647a;
     private String b;
 
     public s() {
@@ -14,14 +14,14 @@ public final class s extends x {
     }
 
     public final InsideNotificationItem d() {
-        return this.f4649a;
+        return this.f4647a;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.vivo.push.b.x, com.vivo.push.b.u, com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
         super.c(aVar);
-        this.b = com.vivo.push.util.q.b(this.f4649a);
+        this.b = com.vivo.push.util.q.b(this.f4647a);
         aVar.a("notification_v1", this.b);
     }
 
@@ -31,19 +31,19 @@ public final class s extends x {
         super.d(aVar);
         this.b = aVar.a("notification_v1");
         if (!TextUtils.isEmpty(this.b)) {
-            this.f4649a = com.vivo.push.util.q.a(this.b);
-            if (this.f4649a != null) {
-                this.f4649a.setMsgId(f());
+            this.f4647a = com.vivo.push.util.q.a(this.b);
+            if (this.f4647a != null) {
+                this.f4647a.setMsgId(f());
             }
         }
     }
 
     public final String e() {
         if (TextUtils.isEmpty(this.b)) {
-            if (this.f4649a == null) {
+            if (this.f4647a == null) {
                 return null;
             }
-            return com.vivo.push.util.q.b(this.f4649a);
+            return com.vivo.push.util.q.b(this.f4647a);
         }
         return this.b;
     }

@@ -2,7 +2,7 @@ package kotlin.text;
 @kotlin.h
 /* loaded from: classes10.dex */
 public interface i {
-    kotlin.b.h eox();
+    kotlin.b.h eyv();
 
-    i eoy();
+    i eyw();
 }

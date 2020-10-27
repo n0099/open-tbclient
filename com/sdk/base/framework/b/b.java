@@ -5,13 +5,13 @@ import com.sdk.base.framework.a.k;
 public abstract class b<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4479a = 1000;
+    private int f4477a = 1000;
 
     public final int a() {
-        if (this.f4479a < 200) {
+        if (this.f4477a < 200) {
             return 200;
         }
-        return this.f4479a;
+        return this.f4477a;
     }
 
     public abstract void a(int i, Object obj);

@@ -10,7 +10,7 @@ public class a implements DebugConsole {
 
     @Override // com.baidu.searchbox.v8engine.console.DebugConsole
     public void onReceiveInfo(int i, String str) {
-        if (DEBUG && !d.aSJ()) {
+        if (DEBUG && !d.aUD()) {
             switch (i) {
                 case 0:
                     Log.d("arConsole", String.format("%s: %s %s", "queue event", "", str));

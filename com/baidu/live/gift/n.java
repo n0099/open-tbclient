@@ -18,54 +18,54 @@ import com.baidu.live.tbadk.statics.QMStaticKeys;
 import com.baidu.live.tbadk.statics.SdkStaticKeys;
 /* loaded from: classes4.dex */
 public class n {
-    public static boolean a(Context context, g gVar, int i, com.baidu.live.data.u uVar) {
-        if (context == null || gVar == null || i <= 0 || uVar == null) {
+    public static boolean a(Context context, g gVar, int i, com.baidu.live.data.w wVar) {
+        if (context == null || gVar == null || i <= 0 || wVar == null) {
             return false;
         }
         return true;
     }
 
-    public static boolean a(TbPageContext tbPageContext, com.baidu.live.data.u uVar, g gVar, String str) {
-        if (tbPageContext == null || tbPageContext.getPageActivity() == null || gVar == null || uVar == null || uVar.mLiveInfo == null || uVar.aIf == null) {
+    public static boolean a(TbPageContext tbPageContext, com.baidu.live.data.w wVar, g gVar, String str) {
+        if (tbPageContext == null || tbPageContext.getPageActivity() == null || gVar == null || wVar == null || wVar.mLiveInfo == null || wVar.aIA == null) {
             return false;
         }
-        if (gVar.FD()) {
-            if (gVar.Fz() == 6 && uVar.aIf.levelId < 3) {
+        if (gVar.FS()) {
+            if (gVar.FO() == 6 && wVar.aIA.levelId < 3) {
                 return false;
             }
-            if (gVar.Fz() == 7 && uVar.aIf.levelId < 7) {
+            if (gVar.FO() == 7 && wVar.aIA.levelId < 7) {
                 return false;
             }
-            if (gVar.Fz() == 8 && uVar.aIf.levelId < 13) {
+            if (gVar.FO() == 8 && wVar.aIA.levelId < 13) {
                 return false;
             }
-            if (gVar.Fz() == 9 && uVar.aIf.levelId < 22) {
+            if (gVar.FO() == 9 && wVar.aIA.levelId < 22) {
                 return false;
             }
-            if (gVar.Fz() == 10 && uVar.aIf.levelId < 29) {
+            if (gVar.FO() == 10 && wVar.aIA.levelId < 29) {
                 return false;
             }
-            if (gVar.Fz() == 11 && uVar.aIf.levelId < 39) {
+            if (gVar.FO() == 11 && wVar.aIA.levelId < 39) {
                 return false;
             }
-            if (gVar.Fz() == 12 && uVar.aIf.levelId < 47) {
+            if (gVar.FO() == 12 && wVar.aIA.levelId < 47) {
                 return false;
             }
         }
-        if (a(tbPageContext.getPageActivity(), gVar, 1, uVar)) {
-            if (gVar.Fn()) {
+        if (a(tbPageContext.getPageActivity(), gVar, 1, wVar)) {
+            if (gVar.FC()) {
                 if (TbadkCoreApplication.getInst().currentAccountFlowerNum <= 0 || TbadkCoreApplication.getInst().currentAccountFlowerNum < JavaTypesHelper.toLong(gVar.getPrice(), 0L) * 1) {
                     BdUtilHelper.showToast(tbPageContext.getPageActivity(), tbPageContext.getPageActivity().getResources().getString(a.i.ala_free_gift_flower_no_enough), 1000);
                     return false;
                 }
-                w.b(gVar, 1, uVar.aHD.userId + "", uVar.aHD.userName, uVar.mLiveInfo.live_id + "", uVar.mLiveInfo.room_id + "", uVar.mLiveInfo.appId + "", uVar.mLiveInfo.feed_id + "", str, 0L);
-                a(gVar, uVar.mLiveInfo.feed_id, uVar.mLiveInfo.live_id + "", str);
+                ab.b(gVar, 1, wVar.aIe.userId + "", wVar.aIe.userName, wVar.mLiveInfo.live_id + "", wVar.mLiveInfo.room_id + "", wVar.mLiveInfo.appId + "", wVar.mLiveInfo.feed_id + "", str, 0L);
+                a(gVar, wVar.mLiveInfo.feed_id, wVar.mLiveInfo.live_id + "", str);
             } else if (TbadkCoreApplication.getInst().currentAccountTdouNum <= 0 || TbadkCoreApplication.getInst().currentAccountTdouNum < JavaTypesHelper.toLong(gVar.getPrice(), 0L) * 1) {
                 a(tbPageContext, str);
                 return false;
             } else {
-                w.b(gVar, 1, uVar.aHD.userId + "", uVar.aHD.userName, uVar.mLiveInfo.live_id + "", uVar.mLiveInfo.room_id + "", uVar.mLiveInfo.appId + "", uVar.mLiveInfo.feed_id + "", str, 0L);
-                a(gVar, uVar.mLiveInfo.feed_id, uVar.mLiveInfo.live_id + "", str);
+                ab.b(gVar, 1, wVar.aIe.userId + "", wVar.aIe.userName, wVar.mLiveInfo.live_id + "", wVar.mLiveInfo.room_id + "", wVar.mLiveInfo.appId + "", wVar.mLiveInfo.feed_id + "", str, 0L);
+                a(gVar, wVar.mLiveInfo.feed_id, wVar.mLiveInfo.live_id + "", str);
             }
         }
         return true;
@@ -88,8 +88,8 @@ public class n {
             if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
                 AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.QUICK_GIFT_SUCCESS);
                 alaStaticItem.addParams("gifts_value", gVar.getPrice());
-                alaStaticItem.addParams(SdkStaticKeys.KEY_GIFTS_ID, gVar.Fd());
-                alaStaticItem.addParams(QMStaticKeys.KEY_QM_GIFTS_NAME, gVar.Fe());
+                alaStaticItem.addParams(SdkStaticKeys.KEY_GIFTS_ID, gVar.Fs());
+                alaStaticItem.addParams(QMStaticKeys.KEY_QM_GIFTS_NAME, gVar.Ft());
                 alaStaticItem.addParams("other_params", str3);
                 alaStaticItem.addParams("feed_id", str);
                 alaStaticItem.addParams("live_id", str2);

@@ -13,41 +13,41 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class f {
-    private static AtomicBoolean mHq = new AtomicBoolean(false);
-    private static List<Integer> mHr = Arrays.asList(3250020, 3250021, 3250022, 3250023, 3250024, 3250017);
+    private static AtomicBoolean mUa = new AtomicBoolean(false);
+    private static List<Integer> mUb = Arrays.asList(3250020, 3250021, 3250022, 3250023, 3250024, 3250017);
 
     public static boolean a(int i, AuthTokenData authTokenData, a aVar) {
-        if (!mHr.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && (authTokenData == null || TextUtils.isEmpty(authTokenData.getAuthToken())))) {
+        if (!mUb.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && (authTokenData == null || TextUtils.isEmpty(authTokenData.getAuthToken())))) {
             return false;
         }
         return b(i, authTokenData.getAuthToken(), aVar);
     }
 
     public static boolean a(int i, String str, a aVar) {
-        if (!mHr.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && TextUtils.isEmpty(str))) {
+        if (!mUb.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && TextUtils.isEmpty(str))) {
             return false;
         }
         return b(i, str, aVar);
     }
 
     private static boolean b(int i, String str, a aVar) {
-        j Cb;
-        if (mHq.compareAndSet(false, true)) {
+        j Cu;
+        if (mUa.compareAndSet(false, true)) {
             String.valueOf(System.currentTimeMillis());
             if (i == 3250022) {
-                final j bqf = j.bqf();
-                bqf.a(aVar);
+                final j brY = j.brY();
+                brY.a(aVar);
                 if (aVar != null) {
                     aVar.onFail();
                 }
                 if (TbadkCoreApplication.getInst().getCurrentActivity() != null) {
                     final com.baidu.tbadk.core.dialog.a aVar2 = new com.baidu.tbadk.core.dialog.a(TbadkCoreApplication.getInst().getCurrentActivity());
-                    aVar2.ob(R.string.anti_account_modifypwd_tip);
+                    aVar2.om(R.string.anti_account_modifypwd_tip);
                     aVar2.a(R.string.modify_pwd, new a.b() { // from class: com.baidu.tieba.tbadkCore.util.f.1
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar3) {
                             com.baidu.tbadk.core.dialog.a.this.dismiss();
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2921372, bqf));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2921372, brY));
                         }
                     });
                     aVar2.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.tbadkCore.util.f.2
@@ -58,23 +58,23 @@ public class f {
                     });
                     if (TbadkCoreApplication.getInst().getCurrentActivity() instanceof com.baidu.adp.base.f) {
                         aVar2.b(((com.baidu.adp.base.f) TbadkCoreApplication.getInst().getCurrentActivity()).getPageContext());
-                        aVar2.bkJ();
+                        aVar2.bmC();
                     }
                 }
             } else {
                 if (i == 3250017) {
-                    Cb = j.bqg();
+                    Cu = j.brZ();
                 } else if (i == 3250023) {
-                    Cb = j.bqh();
+                    Cu = j.bsa();
                 } else if (i == 3250024) {
-                    Cb = new j(4, null);
+                    Cu = new j(4, null);
                 } else {
-                    Cb = j.Cb(str);
+                    Cu = j.Cu(str);
                 }
-                Cb.a(aVar);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, Cb));
+                Cu.a(aVar);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, Cu));
             }
-            mHq.set(false);
+            mUa.set(false);
             return true;
         }
         return false;
@@ -82,22 +82,22 @@ public class f {
 
     /* loaded from: classes.dex */
     public static abstract class a {
-        public abstract void ID(String str);
+        public abstract void Jc(String str);
 
-        public abstract void IE(String str);
+        public abstract void Jd(String str);
 
-        public abstract void clh();
+        public abstract void coo();
 
         public void b(j.c cVar) {
             if (cVar != null && cVar.isSuccess) {
                 if (cVar instanceof j.a) {
-                    ID(((j.a) cVar).authSid);
+                    Jc(((j.a) cVar).authSid);
                     return;
                 } else if (cVar instanceof j.b) {
-                    IE(((j.b) cVar).callbackKey);
+                    Jd(((j.b) cVar).callbackKey);
                     return;
                 } else {
-                    clh();
+                    coo();
                     return;
                 }
             }

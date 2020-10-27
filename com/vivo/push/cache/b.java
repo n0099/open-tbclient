@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Object f4672a = new Object();
+    private static final Object f4670a = new Object();
     private static volatile b b;
     private e c;
 
@@ -17,7 +17,7 @@ public final class b {
 
     public static b a() {
         if (b == null) {
-            synchronized (f4672a) {
+            synchronized (f4670a) {
                 if (b == null) {
                     b = new b();
                 }

@@ -8,48 +8,48 @@ import java.util.concurrent.ConcurrentHashMap;
 public final class bg implements af {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile bg f5079a;
+    private static volatile bg f5077a;
 
     /* renamed from: a  reason: collision with other field name */
-    private long f889a;
+    private long f886a;
 
     /* renamed from: a  reason: collision with other field name */
-    Context f890a;
+    Context f887a;
 
     /* renamed from: a  reason: collision with other field name */
-    private SharedPreferences f891a;
+    private SharedPreferences f888a;
 
     /* renamed from: a  reason: collision with other field name */
-    private volatile boolean f893a = false;
+    private volatile boolean f890a = false;
 
     /* renamed from: a  reason: collision with other field name */
-    private ConcurrentHashMap<String, a> f892a = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<String, a> f889a = new ConcurrentHashMap<>();
 
     /* loaded from: classes12.dex */
     public static abstract class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        long f5080a;
+        long f5078a;
 
         /* renamed from: a  reason: collision with other field name */
-        String f894a;
+        String f891a;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public a(String str, long j) {
-            this.f894a = str;
-            this.f5080a = j;
+            this.f891a = str;
+            this.f5078a = j;
         }
 
         abstract void a(bg bgVar);
 
         @Override // java.lang.Runnable
         public void run() {
-            if (bg.f5079a != null) {
-                Context context = bg.f5079a.f890a;
+            if (bg.f5077a != null) {
+                Context context = bg.f5077a.f887a;
                 if (com.xiaomi.push.az.c(context)) {
-                    if (System.currentTimeMillis() - bg.f5079a.f891a.getLong(":ts-" + this.f894a, 0L) > this.f5080a || com.xiaomi.push.af.a(context)) {
-                        com.xiaomi.push.r.a(bg.f5079a.f891a.edit().putLong(":ts-" + this.f894a, System.currentTimeMillis()));
-                        a(bg.f5079a);
+                    if (System.currentTimeMillis() - bg.f5077a.f888a.getLong(":ts-" + this.f891a, 0L) > this.f5078a || com.xiaomi.push.af.a(context)) {
+                        com.xiaomi.push.r.a(bg.f5077a.f888a.edit().putLong(":ts-" + this.f891a, System.currentTimeMillis()));
+                        a(bg.f5077a);
                     }
                 }
             }
@@ -57,46 +57,46 @@ public final class bg implements af {
     }
 
     private bg(Context context) {
-        this.f890a = context.getApplicationContext();
-        this.f891a = context.getSharedPreferences("sync", 0);
+        this.f887a = context.getApplicationContext();
+        this.f888a = context.getSharedPreferences("sync", 0);
     }
 
     public static bg a(Context context) {
-        if (f5079a == null) {
+        if (f5077a == null) {
             synchronized (bg.class) {
-                if (f5079a == null) {
-                    f5079a = new bg(context);
+                if (f5077a == null) {
+                    f5077a = new bg(context);
                 }
             }
         }
-        return f5079a;
+        return f5077a;
     }
 
     public String a(String str, String str2) {
-        return this.f891a.getString(str + ":" + str2, "");
+        return this.f888a.getString(str + ":" + str2, "");
     }
 
     @Override // com.xiaomi.push.service.af
     /* renamed from: a  reason: collision with other method in class */
-    public void mo567a() {
-        if (this.f893a) {
+    public void mo566a() {
+        if (this.f890a) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.f889a >= BdKVCache.MILLS_1Hour) {
-            this.f889a = currentTimeMillis;
-            this.f893a = true;
-            com.xiaomi.push.ai.a(this.f890a).a(new bh(this), (int) (Math.random() * 10.0d));
+        if (currentTimeMillis - this.f886a >= BdKVCache.MILLS_1Hour) {
+            this.f886a = currentTimeMillis;
+            this.f890a = true;
+            com.xiaomi.push.ai.a(this.f887a).a(new bh(this), (int) (Math.random() * 10.0d));
         }
     }
 
     public void a(a aVar) {
-        if (this.f892a.putIfAbsent(aVar.f894a, aVar) == null) {
-            com.xiaomi.push.ai.a(this.f890a).a(aVar, ((int) (Math.random() * 30.0d)) + 10);
+        if (this.f889a.putIfAbsent(aVar.f891a, aVar) == null) {
+            com.xiaomi.push.ai.a(this.f887a).a(aVar, ((int) (Math.random() * 30.0d)) + 10);
         }
     }
 
     public void a(String str, String str2, String str3) {
-        com.xiaomi.push.r.a(f5079a.f891a.edit().putString(str + ":" + str2, str3));
+        com.xiaomi.push.r.a(f5077a.f888a.edit().putString(str + ":" + str2, str3));
     }
 }

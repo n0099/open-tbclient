@@ -10,28 +10,28 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes10.dex */
 public final class a {
-    private final ArrayList<Integer> dIT = new ArrayList<>();
+    private final ArrayList<Integer> dRq = new ArrayList<>();
 
     public final void i(c cVar) {
         if (cVar != null) {
-            cZ(cVar.optString("action"), cVar.optString("menuItemName"));
+            dg(cVar.optString("action"), cVar.optString("menuItemName"));
         }
     }
 
-    private final boolean cZ(String str, String str2) {
+    private final boolean dg(String str, String str2) {
         if (str != null) {
             switch (str.hashCode()) {
                 case 3202370:
                     if (str.equals("hide")) {
-                        f avu = f.avu();
-                        q.m(avu, "SwanAppController.getInstance()");
-                        com.baidu.swan.apps.core.d.f abs = avu.abs();
-                        j jVar = abs != null ? (j) abs.q(j.class) : null;
-                        com.baidu.swan.menu.h ali = jVar != null ? jVar.ali() : null;
-                        if (ali != null && jVar != null) {
-                            jVar.ew(true);
+                        f axo = f.axo();
+                        q.m(axo, "SwanAppController.getInstance()");
+                        com.baidu.swan.apps.core.d.f adm = axo.adm();
+                        j jVar = adm != null ? (j) adm.q(j.class) : null;
+                        com.baidu.swan.menu.h anc = jVar != null ? jVar.anc() : null;
+                        if (anc != null && jVar != null) {
+                            jVar.eJ(true);
                         }
-                        return a(ali, str2);
+                        return a(anc, str2);
                     }
                     break;
             }
@@ -40,13 +40,13 @@ public final class a {
     }
 
     private final boolean a(com.baidu.swan.menu.h hVar, String str) {
-        Integer wI = b.wI(str);
-        if (wI != null) {
-            if (!this.dIT.contains(wI)) {
-                this.dIT.add(wI);
+        Integer xb = b.xb(str);
+        if (xb != null) {
+            if (!this.dRq.contains(xb)) {
+                this.dRq.add(xb);
             }
             if (hVar != null) {
-                hVar.mi(wI.intValue());
+                hVar.mt(xb.intValue());
             }
             return true;
         }
@@ -54,13 +54,13 @@ public final class a {
     }
 
     public final void a(com.baidu.swan.menu.h hVar) {
-        if (!this.dIT.isEmpty()) {
-            Iterator<Integer> it = this.dIT.iterator();
+        if (!this.dRq.isEmpty()) {
+            Iterator<Integer> it = this.dRq.iterator();
             while (it.hasNext()) {
                 Integer next = it.next();
                 if (hVar != null) {
                     q.m(next, "id");
-                    hVar.mi(next.intValue());
+                    hVar.mt(next.intValue());
                 }
             }
         }

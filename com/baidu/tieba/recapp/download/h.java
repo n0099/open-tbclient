@@ -18,15 +18,15 @@ import java.io.File;
 public class h {
     public static final boolean a(Context context, AdvertAppInfo advertAppInfo, int i, DownloadStaticsData downloadStaticsData) {
         com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        if (adAdSense != null && !adAdSense.bqd()) {
+        if (adAdSense != null && !adAdSense.brW()) {
             return s.a(context, advertAppInfo, i, downloadStaticsData);
         }
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.ekw;
-        if (StringUtils.isNull(str) && advertAppInfo.ekE != null) {
-            str = advertAppInfo.ekE.userName;
+        String str = advertAppInfo.esV;
+        if (StringUtils.isNull(str) && advertAppInfo.ete != null) {
+            str = advertAppInfo.ete.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -38,25 +38,25 @@ public class h {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        com.baidu.tbadk.distribute.a.buS().b(advertAppInfo);
-        String str2 = advertAppInfo.ekw;
+        com.baidu.tbadk.distribute.a.bwL().b(advertAppInfo);
+        String str2 = advertAppInfo.esV;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        i.duR().a(advertAppInfo.eky, advertAppInfo.apkUrl, str2, i, i.QF(advertAppInfo.eky).intValue(), null, true, false, true, advertAppInfo.ekE.userPortrait, downloadStaticsData, advertAppInfo.ekE.userName);
+        i.dxY().a(advertAppInfo.esX, advertAppInfo.apkUrl, str2, i, i.Rd(advertAppInfo.esX).intValue(), null, true, false, true, advertAppInfo.ete.userPortrait, downloadStaticsData, advertAppInfo.ete.userName);
         return true;
     }
 
     public static final void e(AdvertAppInfo advertAppInfo) {
         com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        if (adAdSense != null && !adAdSense.bqd()) {
+        if (adAdSense != null && !adAdSense.brW()) {
             s.e(advertAppInfo);
         } else {
-            i.duR().B(advertAppInfo.apkUrl, advertAppInfo.eky, true);
+            i.dxY().B(advertAppInfo.apkUrl, advertAppInfo.esX, true);
         }
     }
 
-    public static final void aV(Context context, String str) {
+    public static final void aX(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
             l.showToast(context, R.string.download_error);
             return;

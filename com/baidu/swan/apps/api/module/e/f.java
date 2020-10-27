@@ -12,12 +12,12 @@ public class f extends com.baidu.swan.apps.api.a.d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b kr(String str) {
+    public com.baidu.swan.apps.api.c.b kK(String str) {
         if (DEBUG) {
             Log.d("Api-PullDownRefresh", "stop pull down refresh");
         }
-        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bc = com.baidu.swan.apps.api.d.b.bc("Api-PullDownRefresh", str);
-        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bc.first;
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bj = com.baidu.swan.apps.api.d.b.bj("Api-PullDownRefresh", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bj.first;
         if (!bVar.isSuccess()) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-PullDownRefresh", "parse fail");
@@ -25,7 +25,7 @@ public class f extends com.baidu.swan.apps.api.a.d {
             }
             return bVar;
         }
-        final String optString = ((JSONObject) bc.second).optString("cb");
+        final String optString = ((JSONObject) bj.second).optString("cb");
         if (TextUtils.isEmpty(optString)) {
             com.baidu.swan.apps.console.c.e("Api-PullDownRefresh", "callback is null");
             return new com.baidu.swan.apps.api.c.b(1001, "callback is null");
@@ -33,21 +33,21 @@ public class f extends com.baidu.swan.apps.api.a.d {
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.f.1
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.apps.core.d.f abs = com.baidu.swan.apps.v.f.avu().abs();
-                if (abs == null) {
+                com.baidu.swan.apps.core.d.f adm = com.baidu.swan.apps.v.f.axo().adm();
+                if (adm == null) {
                     com.baidu.swan.apps.console.c.e("Api-PullDownRefresh", "manager is null");
                     f.this.a(optString, new com.baidu.swan.apps.api.c.b(1001));
-                } else if (!(abs.akH() instanceof com.baidu.swan.apps.core.d.e)) {
+                } else if (!(adm.amB() instanceof com.baidu.swan.apps.core.d.e)) {
                     com.baidu.swan.apps.console.c.e("Api-PullDownRefresh", "top fragment error");
                     f.this.a(optString, new com.baidu.swan.apps.api.c.b(1001));
                 } else {
-                    com.baidu.swan.apps.core.d.e eVar = (com.baidu.swan.apps.core.d.e) abs.akH();
-                    if (eVar.aef() == null) {
+                    com.baidu.swan.apps.core.d.e eVar = (com.baidu.swan.apps.core.d.e) adm.amB();
+                    if (eVar.afZ() == null) {
                         com.baidu.swan.apps.console.c.e("Api-PullDownRefresh", "view is null");
                         f.this.a(optString, new com.baidu.swan.apps.api.c.b(1001));
                         return;
                     }
-                    eVar.aef().fM(false);
+                    eVar.afZ().fZ(false);
                     com.baidu.swan.apps.console.c.i("Api-PullDownRefresh", "refresh complete");
                     f.this.a(optString, new com.baidu.swan.apps.api.c.b(0));
                 }

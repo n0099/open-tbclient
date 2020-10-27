@@ -13,47 +13,47 @@ import tv.chushou.zues.b;
 public class SuccessTickView extends View {
     private float mDensity;
     private Paint mPaint;
-    private final float ppP;
-    private final float ppQ;
-    private final float ppR;
-    private final float ppS;
-    private final float ppT;
-    private final float ppU;
-    private float ppV;
-    private float ppW;
-    private float ppX;
-    private boolean ppY;
+    private final float qha;
+    private final float qhb;
+    private final float qhc;
+    private final float qhd;
+    private final float qhe;
+    private final float qhf;
+    private float qhg;
+    private float qhh;
+    private float qhi;
+    private boolean qhj;
 
     public SuccessTickView(Context context) {
         super(context);
         this.mDensity = -1.0f;
-        this.ppP = bi(1.2f);
-        this.ppQ = bi(3.0f);
-        this.ppR = bi(15.0f);
-        this.ppS = bi(25.0f);
-        this.ppT = bi(3.3f);
-        this.ppU = this.ppS + bi(6.7f);
+        this.qha = bz(1.2f);
+        this.qhb = bz(3.0f);
+        this.qhc = bz(15.0f);
+        this.qhd = bz(25.0f);
+        this.qhe = bz(3.3f);
+        this.qhf = this.qhd + bz(6.7f);
         init();
     }
 
     public SuccessTickView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mDensity = -1.0f;
-        this.ppP = bi(1.2f);
-        this.ppQ = bi(3.0f);
-        this.ppR = bi(15.0f);
-        this.ppS = bi(25.0f);
-        this.ppT = bi(3.3f);
-        this.ppU = this.ppS + bi(6.7f);
+        this.qha = bz(1.2f);
+        this.qhb = bz(3.0f);
+        this.qhc = bz(15.0f);
+        this.qhd = bz(25.0f);
+        this.qhe = bz(3.3f);
+        this.qhf = this.qhd + bz(6.7f);
         init();
     }
 
     private void init() {
         this.mPaint = new Paint();
-        this.mPaint.setColor(getResources().getColor(b.C1023b.success_stroke_color));
-        this.ppW = this.ppR;
-        this.ppX = this.ppS;
-        this.ppY = false;
+        this.mPaint.setColor(getResources().getColor(b.C1095b.success_stroke_color));
+        this.qhh = this.qhc;
+        this.qhi = this.qhd;
+        this.qhj = false;
     }
 
     @Override // android.view.View
@@ -64,60 +64,60 @@ public class SuccessTickView extends View {
         canvas.rotate(45.0f, width / 2, height / 2);
         int i = (int) (width / 1.2d);
         int i2 = (int) (height / 1.4d);
-        this.ppV = (((i + this.ppR) / 2.0f) + this.ppQ) - 1.0f;
+        this.qhg = (((i + this.qhc) / 2.0f) + this.qhb) - 1.0f;
         RectF rectF = new RectF();
-        if (this.ppY) {
+        if (this.qhj) {
             rectF.left = 0.0f;
-            rectF.right = rectF.left + this.ppW;
-            rectF.top = (i2 + this.ppS) / 2.0f;
-            rectF.bottom = rectF.top + this.ppQ;
+            rectF.right = rectF.left + this.qhh;
+            rectF.top = (i2 + this.qhd) / 2.0f;
+            rectF.bottom = rectF.top + this.qhb;
         } else {
-            rectF.right = (((i + this.ppR) / 2.0f) + this.ppQ) - 1.0f;
-            rectF.left = rectF.right - this.ppW;
-            rectF.top = (i2 + this.ppS) / 2.0f;
-            rectF.bottom = rectF.top + this.ppQ;
+            rectF.right = (((i + this.qhc) / 2.0f) + this.qhb) - 1.0f;
+            rectF.left = rectF.right - this.qhh;
+            rectF.top = (i2 + this.qhd) / 2.0f;
+            rectF.bottom = rectF.top + this.qhb;
         }
-        canvas.drawRoundRect(rectF, this.ppP, this.ppP, this.mPaint);
+        canvas.drawRoundRect(rectF, this.qha, this.qha, this.mPaint);
         RectF rectF2 = new RectF();
-        rectF2.bottom = (((i2 + this.ppS) / 2.0f) + this.ppQ) - 1.0f;
-        rectF2.left = (i + this.ppR) / 2.0f;
-        rectF2.right = rectF2.left + this.ppQ;
-        rectF2.top = rectF2.bottom - this.ppX;
-        canvas.drawRoundRect(rectF2, this.ppP, this.ppP, this.mPaint);
+        rectF2.bottom = (((i2 + this.qhd) / 2.0f) + this.qhb) - 1.0f;
+        rectF2.left = (i + this.qhc) / 2.0f;
+        rectF2.right = rectF2.left + this.qhb;
+        rectF2.top = rectF2.bottom - this.qhi;
+        canvas.drawRoundRect(rectF2, this.qha, this.qha, this.mPaint);
     }
 
-    public float bi(float f) {
+    public float bz(float f) {
         if (this.mDensity == -1.0f) {
             this.mDensity = getResources().getDisplayMetrics().density;
         }
         return (this.mDensity * f) + 0.5f;
     }
 
-    public void euB() {
-        this.ppW = 0.0f;
-        this.ppX = 0.0f;
+    public void eEz() {
+        this.qhh = 0.0f;
+        this.qhi = 0.0f;
         invalidate();
         Animation animation = new Animation() { // from class: tv.chushou.zues.widget.sweetalert.SuccessTickView.1
             @Override // android.view.animation.Animation
             protected void applyTransformation(float f, Transformation transformation) {
                 super.applyTransformation(f, transformation);
                 if (0.54d < f && 0.7d >= f) {
-                    SuccessTickView.this.ppY = true;
-                    SuccessTickView.this.ppW = SuccessTickView.this.ppV * ((f - 0.54f) / 0.16f);
+                    SuccessTickView.this.qhj = true;
+                    SuccessTickView.this.qhh = SuccessTickView.this.qhg * ((f - 0.54f) / 0.16f);
                     if (0.65d < f) {
-                        SuccessTickView.this.ppX = SuccessTickView.this.ppU * ((f - 0.65f) / 0.19f);
+                        SuccessTickView.this.qhi = SuccessTickView.this.qhf * ((f - 0.65f) / 0.19f);
                     }
                     SuccessTickView.this.invalidate();
                 } else if (0.7d < f && 0.84d >= f) {
-                    SuccessTickView.this.ppY = false;
-                    SuccessTickView.this.ppW = SuccessTickView.this.ppV * (1.0f - ((f - 0.7f) / 0.14f));
-                    SuccessTickView.this.ppW = SuccessTickView.this.ppW < SuccessTickView.this.ppT ? SuccessTickView.this.ppT : SuccessTickView.this.ppW;
-                    SuccessTickView.this.ppX = SuccessTickView.this.ppU * ((f - 0.65f) / 0.19f);
+                    SuccessTickView.this.qhj = false;
+                    SuccessTickView.this.qhh = SuccessTickView.this.qhg * (1.0f - ((f - 0.7f) / 0.14f));
+                    SuccessTickView.this.qhh = SuccessTickView.this.qhh < SuccessTickView.this.qhe ? SuccessTickView.this.qhe : SuccessTickView.this.qhh;
+                    SuccessTickView.this.qhi = SuccessTickView.this.qhf * ((f - 0.65f) / 0.19f);
                     SuccessTickView.this.invalidate();
                 } else if (0.84d < f && 1.0f >= f) {
-                    SuccessTickView.this.ppY = false;
-                    SuccessTickView.this.ppW = SuccessTickView.this.ppT + ((SuccessTickView.this.ppR - SuccessTickView.this.ppT) * ((f - 0.84f) / 0.16f));
-                    SuccessTickView.this.ppX = SuccessTickView.this.ppS + ((SuccessTickView.this.ppU - SuccessTickView.this.ppS) * (1.0f - ((f - 0.84f) / 0.16f)));
+                    SuccessTickView.this.qhj = false;
+                    SuccessTickView.this.qhh = SuccessTickView.this.qhe + ((SuccessTickView.this.qhc - SuccessTickView.this.qhe) * ((f - 0.84f) / 0.16f));
+                    SuccessTickView.this.qhi = SuccessTickView.this.qhd + ((SuccessTickView.this.qhf - SuccessTickView.this.qhd) * (1.0f - ((f - 0.84f) / 0.16f)));
                     SuccessTickView.this.invalidate();
                 }
             }

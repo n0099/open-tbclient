@@ -36,39 +36,39 @@ public class c extends b {
         int f = kVar.f();
         byte[] h = kVar.h();
         String c = kVar.c();
-        PublicMsg a2 = h.a(this.f1169a, e, b, bArr);
+        PublicMsg a2 = h.a(this.f1166a, e, b, bArr);
         if (a2 != null && !TextUtils.isEmpty(a2.mDescription)) {
-            com.baidu.android.pushservice.a.d a3 = com.baidu.android.pushservice.a.d.a(this.f1169a, b);
-            if (!TextUtils.isEmpty(c) && m.b(this.f1169a, c)) {
+            com.baidu.android.pushservice.a.d a3 = com.baidu.android.pushservice.a.d.a(this.f1166a, b);
+            if (!TextUtils.isEmpty(c) && m.b(this.f1166a, c)) {
                 a2.mPkgName = c;
             } else if (a3.a() == com.baidu.android.pushservice.a.c.PUSH_CLIENT) {
-                a2.mPkgName = a3.f1013a.b();
+                a2.mPkgName = a3.f1010a.b();
             }
-            m.a(this.f1169a, a2);
+            m.a(this.f1166a, a2);
             switch (a3.a()) {
                 case PUSH_CLIENT:
-                    PackageManager packageManager = this.f1169a.getPackageManager();
+                    PackageManager packageManager = this.f1166a.getPackageManager();
                     try {
                         ApplicationInfo applicationInfo = packageManager.getApplicationInfo(a2.mPkgName, 128);
                         if (TextUtils.isEmpty(a2.mTitle)) {
                             a2.mTitle = packageManager.getApplicationLabel(applicationInfo).toString();
                         }
-                        d.a(this.f1169a, a2, e, b, f, h, bArr);
+                        d.a(this.f1166a, a2, e, b, f, h, bArr);
                         i = 1;
-                        m.a(e + " is showing Notification!", this.f1169a);
+                        m.a(e + " is showing Notification!", this.f1166a);
                         break;
                     } catch (PackageManager.NameNotFoundException e2) {
-                        new b.c(this.f1169a).a(Log.getStackTraceString(e2)).a();
+                        new b.c(this.f1166a).a(Log.getStackTraceString(e2)).a();
                         i = 8;
                         break;
                     }
                 default:
-                    m.a("MultiPrivateNotificationHandler*BBind*>>> Don't Show pMsg private Notification! package name is null", this.f1169a);
+                    m.a("MultiPrivateNotificationHandler*BBind*>>> Don't Show pMsg private Notification! package name is null", this.f1166a);
                     i = 7;
                     break;
             }
         } else {
-            m.a("MultiPrivateNotificationHandler*BBind*>>> pMsg JSON parsing error!", this.f1169a);
+            m.a("MultiPrivateNotificationHandler*BBind*>>> pMsg JSON parsing error!", this.f1166a);
             i = 2;
         }
         com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();

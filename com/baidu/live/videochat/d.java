@@ -16,29 +16,29 @@ import com.baidu.live.data.AlaLiveUserInfoData;
 import com.baidu.live.recorder.helper.LiveRecorderConfigHelper;
 /* loaded from: classes4.dex */
 public class d {
-    private AlaLiveRecorder bya;
-    private View byb;
-    private com.baidu.live.videochat.e.d byc;
-    private a byd;
+    private AlaLiveRecorder bAW;
+    private View bAX;
+    private com.baidu.live.videochat.e.d bAY;
+    private a bAZ;
     private Activity mActivity;
     private Handler mHandler = new Handler(Looper.getMainLooper());
-    private int bye = 1;
-    private boolean byf = false;
+    private int bBa = 1;
+    private boolean bBb = false;
     private long mChatId = 0;
-    private boolean byg = false;
-    private Runnable byh = null;
-    private com.baidu.live.videochat.e.a byi = new com.baidu.live.videochat.e.a() { // from class: com.baidu.live.videochat.d.1
+    private boolean bBc = false;
+    private Runnable bBd = null;
+    private com.baidu.live.videochat.e.a bBe = new com.baidu.live.videochat.e.a() { // from class: com.baidu.live.videochat.d.1
         @Override // com.baidu.live.videochat.e.a
-        public int Dg() {
-            if (d.this.bya != null) {
-                return d.this.bya.getRtcStreamStatus();
+        public int Dn() {
+            if (d.this.bAW != null) {
+                return d.this.bAW.getRtcStreamStatus();
             }
             return 0;
         }
 
         @Override // com.baidu.live.videochat.e.a
-        public int RD() {
-            return d.this.byf ? 1 : 2;
+        public int SD() {
+            return d.this.bBb ? 1 : 2;
         }
     };
     private RecorderCallback mRecorderCallback = new RecorderCallback() { // from class: com.baidu.live.videochat.d.2
@@ -80,7 +80,7 @@ public class d {
 
         @Override // com.baidu.ala.recorder.RecorderCallback
         public void onRtcConnected(int i) {
-            d.this.byf = i == 0;
+            d.this.bBb = i == 0;
         }
 
         @Override // com.baidu.ala.recorder.RecorderCallback
@@ -91,202 +91,202 @@ public class d {
         public void onFaceUnityEvent(int i, int i2, Object obj) {
         }
     };
-    private com.baidu.live.videochat.e.e byj = new com.baidu.live.videochat.e.e() { // from class: com.baidu.live.videochat.d.3
+    private com.baidu.live.videochat.e.e bBf = new com.baidu.live.videochat.e.e() { // from class: com.baidu.live.videochat.d.3
         @Override // com.baidu.live.videochat.e.e
         public void a(com.baidu.live.videochat.b.a aVar) {
-            d.this.byg = false;
+            d.this.bBc = false;
             if (aVar != null) {
-                d.this.a(aVar.chatId, aVar.aGh, aVar.aGi, false);
-            }
-        }
-
-        @Override // com.baidu.live.videochat.e.e
-        public void A(int i, String str) {
-            d.this.byg = false;
-            if (d.this.byd != null) {
-                d.this.byd.t(i, str);
-            }
-        }
-
-        @Override // com.baidu.live.videochat.e.e
-        public void RE() {
-            d.this.byg = false;
-            if (d.this.byc != null) {
-                d.this.byc.SF();
-            }
-            if (d.this.byd != null) {
-                d.this.byd.Rl();
-            }
-            d.this.bye = 1;
-        }
-
-        @Override // com.baidu.live.videochat.e.e
-        public void B(int i, String str) {
-            d.this.byg = false;
-            if (d.this.byd != null) {
-                d.this.byd.u(i, str);
-            }
-        }
-
-        @Override // com.baidu.live.videochat.e.e
-        public void RF() {
-            if (d.this.byd != null) {
-                d.this.byd.cK(false);
+                d.this.a(aVar.chatId, aVar.aGp, aVar.aGq, false);
             }
         }
 
         @Override // com.baidu.live.videochat.e.e
         public void C(int i, String str) {
-            if (d.this.byd != null) {
-                d.this.byd.a(false, i, str);
+            d.this.bBc = false;
+            if (d.this.bAZ != null) {
+                d.this.bAZ.v(i, str);
             }
         }
 
         @Override // com.baidu.live.videochat.e.e
-        public void RG() {
-            if (d.this.byd != null) {
-                d.this.byd.cK(true);
+        public void SE() {
+            d.this.bBc = false;
+            if (d.this.bAY != null) {
+                d.this.bAY.TF();
             }
+            if (d.this.bAZ != null) {
+                d.this.bAZ.Sl();
+            }
+            d.this.bBa = 1;
         }
 
         @Override // com.baidu.live.videochat.e.e
         public void D(int i, String str) {
-            if (d.this.byd != null) {
-                d.this.byd.a(true, i, str);
+            d.this.bBc = false;
+            if (d.this.bAZ != null) {
+                d.this.bAZ.w(i, str);
             }
         }
 
         @Override // com.baidu.live.videochat.e.e
-        public void RH() {
-            if (d.this.byd != null) {
-                d.this.byd.cL(false);
+        public void SF() {
+            if (d.this.bAZ != null) {
+                d.this.bAZ.cQ(false);
             }
         }
 
         @Override // com.baidu.live.videochat.e.e
         public void E(int i, String str) {
-            if (d.this.byd != null) {
-                d.this.byd.b(false, i, str);
+            if (d.this.bAZ != null) {
+                d.this.bAZ.a(false, i, str);
             }
         }
 
         @Override // com.baidu.live.videochat.e.e
-        public void RI() {
-            if (d.this.byd != null) {
-                d.this.byd.cL(true);
+        public void SG() {
+            if (d.this.bAZ != null) {
+                d.this.bAZ.cQ(true);
             }
         }
 
         @Override // com.baidu.live.videochat.e.e
         public void F(int i, String str) {
-            if (d.this.byd != null) {
-                d.this.byd.b(false, i, str);
+            if (d.this.bAZ != null) {
+                d.this.bAZ.a(true, i, str);
+            }
+        }
+
+        @Override // com.baidu.live.videochat.e.e
+        public void SH() {
+            if (d.this.bAZ != null) {
+                d.this.bAZ.cR(false);
+            }
+        }
+
+        @Override // com.baidu.live.videochat.e.e
+        public void G(int i, String str) {
+            if (d.this.bAZ != null) {
+                d.this.bAZ.b(false, i, str);
+            }
+        }
+
+        @Override // com.baidu.live.videochat.e.e
+        public void SI() {
+            if (d.this.bAZ != null) {
+                d.this.bAZ.cR(true);
+            }
+        }
+
+        @Override // com.baidu.live.videochat.e.e
+        public void H(int i, String str) {
+            if (d.this.bAZ != null) {
+                d.this.bAZ.b(false, i, str);
             }
         }
 
         @Override // com.baidu.live.videochat.e.c
         public void a(int i, String str, AlaLiveInfoData alaLiveInfoData, com.baidu.live.videochat.b.a aVar, com.baidu.live.videochat.b.c cVar) {
             if (cVar == null || i != 1) {
-                if (d.this.bye == 2 && d.this.byd != null) {
-                    d.this.byd.a(null);
+                if (d.this.bBa == 2 && d.this.bAZ != null) {
+                    d.this.bAZ.a(null);
                 }
-                d.this.bye = 1;
-                d.this.byc.SF();
+                d.this.bBa = 1;
+                d.this.bAY.TF();
                 return;
             }
-            if (!d.this.byg && d.this.byd != null) {
-                d.this.byd.a(cVar.aMN);
+            if (!d.this.bBc && d.this.bAZ != null) {
+                d.this.bAZ.a(cVar.aNs);
             }
-            d.this.bye = 2;
+            d.this.bBa = 2;
         }
 
         @Override // com.baidu.live.videochat.e.c
         public void a(boolean z, com.baidu.live.videochat.b.b bVar, com.baidu.live.videochat.b.d dVar, com.baidu.live.videochat.b.d dVar2) {
-            if (d.this.bye != 4 && bVar != null && bVar.Sa() == 2) {
-                d.this.bye = 4;
-                if (d.this.byd != null) {
+            if (d.this.bBa != 4 && bVar != null && bVar.Ta() == 2) {
+                d.this.bBa = 4;
+                if (d.this.bAZ != null) {
                     AlaLiveUserInfoData alaLiveUserInfoData = null;
                     if (dVar2 != null) {
-                        alaLiveUserInfoData = dVar2.aMN;
+                        alaLiveUserInfoData = dVar2.aNs;
                     }
-                    d.this.byd.a(d.this.byc.RZ(), alaLiveUserInfoData);
+                    d.this.bAZ.a(d.this.bAY.SZ(), alaLiveUserInfoData);
                 }
             }
         }
 
         @Override // com.baidu.live.videochat.e.c
         public void a(com.baidu.live.videochat.b.b bVar, com.baidu.live.videochat.b.d dVar, com.baidu.live.videochat.b.d dVar2) {
-            d.this.RC();
+            d.this.SC();
         }
 
         @Override // com.baidu.live.videochat.e.c
-        public void RJ() {
-            d.this.RC();
+        public void SJ() {
+            d.this.SC();
         }
 
         @Override // com.baidu.live.videochat.e.c
-        public void G(int i, String str) {
-            if (d.this.byd != null) {
-                d.this.byd.v(i, str);
+        public void I(int i, String str) {
+            if (d.this.bAZ != null) {
+                d.this.bAZ.x(i, str);
             }
         }
     };
-    private BdUniqueId blA = BdUniqueId.gen();
+    private BdUniqueId bnb = BdUniqueId.gen();
 
     public d(Activity activity) {
         this.mActivity = activity;
-        this.byc = new com.baidu.live.videochat.e.d(activity, this.blA);
-        this.byc.a(this.byj);
-        this.byc.a(this.byi);
+        this.bAY = new com.baidu.live.videochat.e.d(activity, this.bnb);
+        this.bAY.a(this.bBf);
+        this.bAY.a(this.bBe);
     }
 
     private void a(AlaAvtsData alaAvtsData, AlaAvtsConfigInfo alaAvtsConfigInfo) {
-        if (this.bya != null && this.bya.getPreview() != null) {
-            if (this.bya.getPreview().getParent() != null) {
-                ((ViewGroup) this.bya.getPreview().getParent()).removeView(this.bya.getPreview());
+        if (this.bAW != null && this.bAW.getPreview() != null) {
+            if (this.bAW.getPreview().getParent() != null) {
+                ((ViewGroup) this.bAW.getPreview().getParent()).removeView(this.bAW.getPreview());
             }
-            this.bya.addRecorderCallback(this.mRecorderCallback);
-            com.baidu.live.videochat.g.a.a(this.bya, com.baidu.live.videochat.g.a.b(alaAvtsData, alaAvtsConfigInfo));
-            this.byb = this.bya.createPKPlayer();
+            this.bAW.addRecorderCallback(this.mRecorderCallback);
+            com.baidu.live.videochat.g.a.a(this.bAW, com.baidu.live.videochat.g.a.b(alaAvtsData, alaAvtsConfigInfo));
+            this.bAX = this.bAW.createPKPlayer();
         }
     }
 
-    private void RB() {
-        this.byb = null;
-        if (this.bya != null) {
-            this.bya.removeRecorderCallback(this.mRecorderCallback);
-            if (this.bya.getPreview().getParent() != null) {
-                ((ViewGroup) this.bya.getPreview().getParent()).removeView(this.bya.getPreview());
+    private void SB() {
+        this.bAX = null;
+        if (this.bAW != null) {
+            this.bAW.removeRecorderCallback(this.mRecorderCallback);
+            if (this.bAW.getPreview().getParent() != null) {
+                ((ViewGroup) this.bAW.getPreview().getParent()).removeView(this.bAW.getPreview());
             }
-            LiveRecorderConfigHelper.VideoResolution f = LiveRecorderConfigHelper.Op().f(true, false);
-            this.bya.switchToCommonMode(f.getWidth(), f.getHeight());
+            LiveRecorderConfigHelper.VideoResolution f = LiveRecorderConfigHelper.ON().f(true, false);
+            this.bAW.switchToCommonMode(f.getWidth(), f.getHeight());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(long j, AlaAvtsData alaAvtsData, AlaAvtsConfigInfo alaAvtsConfigInfo, boolean z) {
-        if (this.bye != 3) {
-            this.byc.c(j, false);
-            this.byc.SF();
-            if (this.byd != null && !z) {
-                this.byd.Rk();
+        if (this.bBa != 3) {
+            this.bAY.c(j, false);
+            this.bAY.TF();
+            if (this.bAZ != null && !z) {
+                this.bAZ.Sk();
             }
-            this.bye = 3;
+            this.bBa = 3;
             a(alaAvtsData, alaAvtsConfigInfo);
-            if (this.byd != null) {
-                this.byd.a(j, this.bya.getPreview(), this.byb);
+            if (this.bAZ != null) {
+                this.bAZ.a(j, this.bAW.getPreview(), this.bAX);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void RC() {
-        this.byc.SH();
-        if (this.bye != 1) {
-            RB();
-            this.bye = 1;
-            if (this.byd != null) {
-                this.byd.aA(this.byc.RZ());
+    public void SC() {
+        this.bAY.TH();
+        if (this.bBa != 1) {
+            SB();
+            this.bBa = 1;
+            if (this.bAZ != null) {
+                this.bAZ.aC(this.bAY.SZ());
             }
         }
     }

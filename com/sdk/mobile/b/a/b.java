@@ -8,13 +8,13 @@ import org.json.JSONObject;
 public final class b implements com.sdk.base.framework.b.a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private /* synthetic */ int f4517a;
+    private /* synthetic */ int f4515a;
     private /* synthetic */ a b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, int i) {
         this.b = aVar;
-        this.f4517a = i;
+        this.f4515a = i;
     }
 
     @Override // com.sdk.base.framework.b.a
@@ -35,7 +35,7 @@ public final class b implements com.sdk.base.framework.b.a<T> {
         if (i == 0) {
             try {
                 context2 = this.b.d;
-                com.sdk.base.framework.a.a.a.a(context2, this.f4517a, com.sdk.base.framework.a.a.a.a(t, str2));
+                com.sdk.base.framework.a.a.a.a(context2, this.f4515a, com.sdk.base.framework.a.a.a.a(t, str2));
                 context3 = this.b.d;
                 str3 = com.sdk.base.framework.f.l.a.a(context3, String.valueOf(t));
                 try {
@@ -44,13 +44,13 @@ public final class b implements com.sdk.base.framework.b.a<T> {
                         return;
                     }
                     JSONObject jSONObject = new JSONObject(String.valueOf(str3));
-                    if (this.f4517a == 1) {
+                    if (this.f4515a == 1) {
                         jSONObject.remove("fakeMobile");
                         str3 = jSONObject.toString();
                     }
                 } catch (Exception e) {
                     e = e;
-                    com.sdk.base.framework.a.a.c.b(a.f4516a, e.toString(), a.b);
+                    com.sdk.base.framework.a.a.c.b(a.f4514a, e.toString(), a.b);
                     this.b.a(i, str, i2, str3, str2);
                 }
             } catch (Exception e2) {

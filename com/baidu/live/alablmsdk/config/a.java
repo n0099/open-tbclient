@@ -11,22 +11,22 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private static final BLMAudioSampleRate aAt = BLMAudioSampleRate.BLM_AUDIO_SAMPLE_RATE_48000HZ;
-    public String aAB;
-    public com.baidu.live.alablmsdk.config.a.a aAC;
-    public List<b> aAD;
-    public com.baidu.live.alablmsdk.config.a.a aAu;
-    public int aAv;
-    private BLMAudioSampleRate aAw;
-    public String aAz;
+    private static final BLMAudioSampleRate aAy = BLMAudioSampleRate.BLM_AUDIO_SAMPLE_RATE_48000HZ;
+    public int aAA;
+    private BLMAudioSampleRate aAB;
+    public String aAE;
+    public String aAG;
+    public com.baidu.live.alablmsdk.config.a.a aAH;
+    public List<b> aAI;
+    public com.baidu.live.alablmsdk.config.a.a aAz;
     public int fps;
-    private BLMAudioBitDepth aAx = BLMAudioBitDepth.BLM_AUDIO_BIT_DEPTH_UINT16;
-    private BLMAudioBitRate aAy = BLMAudioBitRate.BLM_AUDIO_BIT_RATE_128KBPS;
-    public boolean aAA = true;
+    private BLMAudioBitDepth aAC = BLMAudioBitDepth.BLM_AUDIO_BIT_DEPTH_UINT16;
+    private BLMAudioBitRate aAD = BLMAudioBitRate.BLM_AUDIO_BIT_RATE_128KBPS;
+    public boolean aAF = true;
 
     public String Bk() {
         StringBuilder sb = new StringBuilder();
-        sb.append("custom_layout").append("-v:").append(a(this.aAu)).append("-b:").append(Bl()).append("-f:").append(Bm()).append("-ar:").append(Bn()).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append("wp:").append("{").append(Bo()).append("}");
+        sb.append("custom_layout").append("-v:").append(a(this.aAz)).append("-b:").append(Bl()).append("-f:").append(Bm()).append("-ar:").append(Bn()).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append("wp:").append("{").append(Bo()).append("}");
         String sb2 = sb.toString();
         c.d(" template " + sb2);
         c.fJ(" template " + sb2);
@@ -72,7 +72,7 @@ public class a {
     }
 
     private int Bl() {
-        return this.aAv > 0 ? this.aAv : FeatureCodes.ADVANCE_BEAUTY;
+        return this.aAA > 0 ? this.aAA : FeatureCodes.ADVANCE_BEAUTY;
     }
 
     private int Bm() {
@@ -83,17 +83,17 @@ public class a {
     }
 
     private int Bn() {
-        return this.aAw != null ? this.aAw.getSampleRate() : aAt.getSampleRate();
+        return this.aAB != null ? this.aAB.getSampleRate() : aAy.getSampleRate();
     }
 
     private String Bo() {
-        if (com.baidu.live.alablmsdk.a.a.isEmpty(this.aAD)) {
+        if (com.baidu.live.alablmsdk.a.a.isEmpty(this.aAI)) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
         boolean z = true;
-        for (int i = 0; i < this.aAD.size(); i++) {
-            b bVar = this.aAD.get(i);
+        for (int i = 0; i < this.aAI.size(); i++) {
+            b bVar = this.aAI.get(i);
             int i2 = i + 1;
             if (bVar != null) {
                 if (!z) {
@@ -110,10 +110,10 @@ public class a {
         if (bVar == null) {
             return "";
         }
-        if (this.aAC == null || this.aAu == null) {
+        if (this.aAH == null || this.aAz == null) {
             return bVar.Bp();
         }
-        float f = (this.aAu.width * 1.0f) / this.aAC.width;
+        float f = (this.aAz.width * 1.0f) / this.aAH.width;
         return new b(s(bVar.x * f), s(bVar.y * f), s(bVar.width * f), s(f * bVar.height)).Bp();
     }
 

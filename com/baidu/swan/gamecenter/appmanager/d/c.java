@@ -11,23 +11,23 @@ public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static void a(String str, String str2, String str3, String str4, a aVar) {
-        String vz = b.vz(str2);
-        if (!TextUtils.isEmpty(vz)) {
+        String vS = b.vS(str2);
+        if (!TextUtils.isEmpty(vS)) {
             if (DEBUG) {
                 Log.d("GameCenterStatistic", "packageName:" + str + ";operation:" + str2 + ";value:" + str3 + ";errorCode:" + str4);
             }
             if (!TextUtils.isEmpty(str)) {
                 b bVar = new b();
                 bVar.a(aVar);
-                bVar.mType = vz;
+                bVar.mType = vS;
                 bVar.mValue = str3;
                 bVar.packageName = str;
                 bVar.mAppVersion = ak.getVersionName();
-                if (e.aDb() != null) {
-                    b.a aDe = e.aDb().aDe();
-                    bVar.mFrom = h.kd(aDe.getAppFrameType());
-                    bVar.mAppId = aDe.getAppId();
-                    bVar.mSource = aDe.auj();
+                if (e.aEV() != null) {
+                    b.a aEY = e.aEV().aEY();
+                    bVar.mFrom = h.ko(aEY.getAppFrameType());
+                    bVar.mAppId = aEY.getAppId();
+                    bVar.mSource = aEY.awd();
                 }
                 bVar.mErrorCode = str4;
                 h.a("1245", bVar);

@@ -3,25 +3,25 @@ package com.baidu.tieba.k;
 public interface i {
     void A(long j, int i);
 
-    void El(int i);
+    void EE(int i);
 
-    void Em(int i);
+    void EF(int i);
 
-    void En(int i);
+    void EG(int i);
 
-    void NY(String str);
+    void Ow(String str);
 
-    String NZ(String str);
+    String Ox(String str);
 
-    boolean Oa(String str);
+    boolean Oy(String str);
 
-    void aj(boolean z, boolean z2);
+    void am(boolean z, boolean z2);
 
-    void cYw();
+    void dbE();
 
-    void cYx();
+    void dbF();
 
     void h(long j, long j2, long j3);
 
-    void sL(boolean z);
+    void tc(boolean z);
 }

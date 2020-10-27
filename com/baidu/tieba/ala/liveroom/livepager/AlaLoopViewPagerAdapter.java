@@ -6,12 +6,12 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.live.data.AlaLiveInfoData;
-import com.baidu.live.data.u;
+import com.baidu.live.data.w;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.ala.liveroom.views.AlaLiveRoomBlurPageLayout;
 /* loaded from: classes4.dex */
 public class AlaLoopViewPagerAdapter extends PagerAdapter {
-    private SimpleArrayMap<Integer, AlaLiveRoomBlurPageLayout> gTt = new SimpleArrayMap<>();
+    private SimpleArrayMap<Integer, AlaLiveRoomBlurPageLayout> hfg = new SimpleArrayMap<>();
     private TbPageContext mTbPageContext;
 
     public AlaLoopViewPagerAdapter(TbPageContext tbPageContext) {
@@ -34,73 +34,73 @@ public class AlaLoopViewPagerAdapter extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        if (this.gTt.get(Integer.valueOf(i)).getParent() != null) {
-            ((ViewGroup) this.gTt.get(Integer.valueOf(i)).getParent()).removeView(this.gTt.get(Integer.valueOf(i)));
+        if (this.hfg.get(Integer.valueOf(i)).getParent() != null) {
+            ((ViewGroup) this.hfg.get(Integer.valueOf(i)).getParent()).removeView(this.hfg.get(Integer.valueOf(i)));
         }
-        viewGroup.addView(this.gTt.get(Integer.valueOf(i)));
-        return this.gTt.get(Integer.valueOf(i));
+        viewGroup.addView(this.hfg.get(Integer.valueOf(i)));
+        return this.hfg.get(Integer.valueOf(i));
     }
 
-    public void bXZ() {
-        if (this.gTt == null) {
-            this.gTt = new SimpleArrayMap<>();
+    public void cba() {
+        if (this.hfg == null) {
+            this.hfg = new SimpleArrayMap<>();
         }
         AlaLiveRoomBlurPageLayout alaLiveRoomBlurPageLayout = new AlaLiveRoomBlurPageLayout(this.mTbPageContext.getPageActivity());
         alaLiveRoomBlurPageLayout.c(this.mTbPageContext);
-        this.gTt.put(0, alaLiveRoomBlurPageLayout);
+        this.hfg.put(0, alaLiveRoomBlurPageLayout);
         AlaLiveRoomBlurPageLayout alaLiveRoomBlurPageLayout2 = new AlaLiveRoomBlurPageLayout(this.mTbPageContext.getPageActivity());
         alaLiveRoomBlurPageLayout2.c(this.mTbPageContext);
-        this.gTt.put(1, alaLiveRoomBlurPageLayout2);
+        this.hfg.put(1, alaLiveRoomBlurPageLayout2);
         AlaLiveRoomBlurPageLayout alaLiveRoomBlurPageLayout3 = new AlaLiveRoomBlurPageLayout(this.mTbPageContext.getPageActivity());
         alaLiveRoomBlurPageLayout3.c(this.mTbPageContext);
-        this.gTt.put(2, alaLiveRoomBlurPageLayout3);
+        this.hfg.put(2, alaLiveRoomBlurPageLayout3);
     }
 
-    public AlaLiveRoomBlurPageLayout vf(int i) {
-        return this.gTt.get(Integer.valueOf(i));
+    public AlaLiveRoomBlurPageLayout vz(int i) {
+        return this.hfg.get(Integer.valueOf(i));
     }
 
-    public AlaLiveRoomBlurPageLayout vg(int i) {
-        return this.gTt.get(Integer.valueOf(i));
+    public AlaLiveRoomBlurPageLayout vA(int i) {
+        return this.hfg.get(Integer.valueOf(i));
     }
 
-    private int vh(int i) {
+    private int vB(int i) {
         return ((getCount() + i) - 1) % getCount();
     }
 
-    private int vi(int i) {
+    private int vC(int i) {
         return ((getCount() + i) + 1) % getCount();
     }
 
-    public void a(int i, AlaLiveInfoData alaLiveInfoData, u uVar) {
-        AlaLiveRoomBlurPageLayout alaLiveRoomBlurPageLayout = this.gTt.get(Integer.valueOf(vh(i)));
+    public void a(int i, AlaLiveInfoData alaLiveInfoData, w wVar) {
+        AlaLiveRoomBlurPageLayout alaLiveRoomBlurPageLayout = this.hfg.get(Integer.valueOf(vB(i)));
         if (alaLiveInfoData != null) {
-            alaLiveRoomBlurPageLayout.ccl();
+            alaLiveRoomBlurPageLayout.cfp();
             alaLiveRoomBlurPageLayout.setBgImageUrl(alaLiveInfoData.cover, null);
-        } else if (uVar != null && uVar.mLiveInfo != null) {
-            alaLiveRoomBlurPageLayout.ccl();
-            alaLiveRoomBlurPageLayout.setBgImageUrl(uVar.mLiveInfo.cover, null);
+        } else if (wVar != null && wVar.mLiveInfo != null) {
+            alaLiveRoomBlurPageLayout.cfp();
+            alaLiveRoomBlurPageLayout.setBgImageUrl(wVar.mLiveInfo.cover, null);
         }
     }
 
-    public void b(int i, AlaLiveInfoData alaLiveInfoData, u uVar) {
-        AlaLiveRoomBlurPageLayout alaLiveRoomBlurPageLayout = this.gTt.get(Integer.valueOf(vi(i)));
+    public void b(int i, AlaLiveInfoData alaLiveInfoData, w wVar) {
+        AlaLiveRoomBlurPageLayout alaLiveRoomBlurPageLayout = this.hfg.get(Integer.valueOf(vC(i)));
         if (alaLiveInfoData != null) {
-            alaLiveRoomBlurPageLayout.ccl();
+            alaLiveRoomBlurPageLayout.cfp();
             alaLiveRoomBlurPageLayout.setBgImageUrl(alaLiveInfoData.cover, null);
-        } else if (uVar != null && uVar.mLiveInfo != null) {
-            alaLiveRoomBlurPageLayout.ccl();
-            alaLiveRoomBlurPageLayout.setBgImageUrl(uVar.mLiveInfo.cover, null);
+        } else if (wVar != null && wVar.mLiveInfo != null) {
+            alaLiveRoomBlurPageLayout.cfp();
+            alaLiveRoomBlurPageLayout.setBgImageUrl(wVar.mLiveInfo.cover, null);
         }
     }
 
-    public void a(int i, u uVar) {
-        if (uVar != null) {
-            AlaLiveRoomBlurPageLayout alaLiveRoomBlurPageLayout = this.gTt.get(Integer.valueOf(i));
-            if (uVar.mLiveInfo != null && !TextUtils.isEmpty(uVar.mLiveInfo.cover)) {
-                alaLiveRoomBlurPageLayout.setBgImageUrl(uVar.mLiveInfo.cover, null);
-            } else if (uVar.aHD != null) {
-                alaLiveRoomBlurPageLayout.setBgImageUrl(uVar.aHD.portrait, null);
+    public void a(int i, w wVar) {
+        if (wVar != null) {
+            AlaLiveRoomBlurPageLayout alaLiveRoomBlurPageLayout = this.hfg.get(Integer.valueOf(i));
+            if (wVar.mLiveInfo != null && !TextUtils.isEmpty(wVar.mLiveInfo.cover)) {
+                alaLiveRoomBlurPageLayout.setBgImageUrl(wVar.mLiveInfo.cover, null);
+            } else if (wVar.aIe != null) {
+                alaLiveRoomBlurPageLayout.setBgImageUrl(wVar.aIe.portrait, null);
             }
         }
     }
@@ -109,11 +109,11 @@ public class AlaLoopViewPagerAdapter extends PagerAdapter {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.gTt.size()) {
-                this.gTt.get(Integer.valueOf(i2)).release();
+            if (i2 < this.hfg.size()) {
+                this.hfg.get(Integer.valueOf(i2)).release();
                 i = i2 + 1;
             } else {
-                this.gTt.clear();
+                this.hfg.clear();
                 return;
             }
         }

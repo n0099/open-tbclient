@@ -19,15 +19,15 @@ public class a implements c {
     }
 
     @Override // com.facebook.imagepipeline.h.c
-    public void VQ(String str) {
+    public void XD(String str) {
     }
 
     @Override // com.facebook.imagepipeline.producers.am
-    public void gH(String str, String str2) {
+    public void gX(String str, String str2) {
     }
 
     @Override // com.facebook.imagepipeline.producers.am
-    public void aC(String str, String str2, String str3) {
+    public void aN(String str, String str2, String str3) {
     }
 
     @Override // com.facebook.imagepipeline.producers.am
@@ -47,11 +47,11 @@ public class a implements c {
     }
 
     @Override // com.facebook.imagepipeline.producers.am
-    public void F(String str, String str2, boolean z) {
+    public void G(String str, String str2, boolean z) {
     }
 
     @Override // com.facebook.imagepipeline.producers.am
-    public boolean VV(String str) {
+    public boolean XI(String str) {
         return false;
     }
 }

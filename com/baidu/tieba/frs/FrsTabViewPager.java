@@ -20,10 +20,10 @@ public class FrsTabViewPager extends BdBaseViewPager {
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                pj(true);
+                pB(true);
                 break;
             case 1:
-                pj(false);
+                pB(false);
                 break;
         }
         return super.dispatchTouchEvent(motionEvent);
@@ -33,46 +33,46 @@ public class FrsTabViewPager extends BdBaseViewPager {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 1:
-                pj(false);
+                pB(false);
                 break;
         }
         return super.onTouchEvent(motionEvent);
     }
 
-    public void pj(boolean z) {
+    public void pB(boolean z) {
         a aVar = new a();
-        aVar.pk(cuJ());
-        aVar.pl(z);
+        aVar.pC(cxQ());
+        aVar.pD(z);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921369, aVar));
     }
 
-    public void cuI() {
-        pj(false);
+    public void cxP() {
+        pB(false);
     }
 
-    private boolean cuJ() {
+    private boolean cxQ() {
         return getCurrentItem() == getAdapter().getCount() + (-1);
     }
 
     /* loaded from: classes22.dex */
     public static class a {
-        private boolean itB;
-        private boolean itC;
+        private boolean iFX;
+        private boolean iFY;
 
-        public boolean cuK() {
-            return this.itB;
+        public boolean cxR() {
+            return this.iFX;
         }
 
-        public void pk(boolean z) {
-            this.itB = z;
+        public void pC(boolean z) {
+            this.iFX = z;
         }
 
-        public boolean cuL() {
-            return this.itC;
+        public boolean cxS() {
+            return this.iFY;
         }
 
-        public void pl(boolean z) {
-            this.itC = z;
+        public void pD(boolean z) {
+            this.iFY = z;
         }
     }
 }

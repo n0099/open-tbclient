@@ -8,33 +8,33 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class a {
-    public Object cWp;
-    public String cWq;
-    public String cpp;
-    public String cpq;
+    public String cxR;
+    public String cxS;
+    public Object deQ;
+    public String deR;
     public boolean isSuccess = false;
 
     public a(String str) {
-        this.cpp = str;
+        this.cxR = str;
     }
 
     /* JADX WARN: Type inference failed for: r2v0, types: [org.json.JSONObject, T] */
-    public void aAa() {
+    public void aBU() {
         g gVar = new g();
         ?? jSONObject = new JSONObject();
         try {
             jSONObject.put("type", "functionPageFinished");
-            jSONObject.put("componentId", this.cpp);
+            jSONObject.put("componentId", this.cxR);
             jSONObject.put("isSuccess", this.isSuccess);
-            jSONObject.put("data", this.cWq);
-            if (this.cWp != null) {
-                jSONObject.put(BdStatsConstant.StatsType.ERROR, this.cWp.toString());
+            jSONObject.put("data", this.deR);
+            if (this.deQ != null) {
+                jSONObject.put(BdStatsConstant.StatsType.ERROR, this.deQ.toString());
             }
         } catch (JSONException e) {
             com.baidu.swan.apps.ac.d.a.print(Log.getStackTraceString(e));
         }
         gVar.mData = jSONObject;
-        f.avu().a(this.cpq, gVar);
+        f.axo().a(this.cxS, gVar);
         com.baidu.swan.apps.ac.d.a.print("finish event, isSuccess = " + this.isSuccess);
     }
 
@@ -44,10 +44,10 @@ public class a {
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("componentId", bVar.cpp);
-            jSONObject.put("pluginProvider", bVar.cWl);
+            jSONObject.put("componentId", bVar.cxR);
+            jSONObject.put("pluginProvider", bVar.deM);
             jSONObject.put("args", bVar.pageParams);
-            jSONObject.put("slaveId", bVar.cpq);
+            jSONObject.put("slaveId", bVar.cxS);
         } catch (JSONException e) {
             com.baidu.swan.apps.ac.d.a.print(Log.getStackTraceString(e));
         }
@@ -55,6 +55,6 @@ public class a {
     }
 
     public String toString() {
-        return "SwanPluginFunPageFinishEvent{eventType='functionPageFinished', componentId='" + this.cpp + "', error=" + this.cWp + ", isSuccess=" + this.isSuccess + ", resultData='" + this.cWq + "'}";
+        return "SwanPluginFunPageFinishEvent{eventType='functionPageFinished', componentId='" + this.cxR + "', error=" + this.deQ + ", isSuccess=" + this.isSuccess + ", resultData='" + this.deR + "'}";
     }
 }

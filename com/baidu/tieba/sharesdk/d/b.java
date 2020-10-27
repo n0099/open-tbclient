@@ -29,82 +29,82 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes24.dex */
 public class b extends c {
-    private ImageView jjM;
-    private m msR;
-    private View msS;
-    private View msT;
-    private View msU;
-    private TbImageView msV;
-    private LinearLayout msW;
-    private TbImageView msX;
-    private TextView msY;
-    private View msZ;
-    private TextView mta;
-    private TextView mtb;
-    private TbImageView mtc;
-    private View mtd;
-    private TextView mte;
-    private TextView mtf;
-    private LinearLayout mtg;
-    private PlayVoiceBntNew mth;
+    private ImageView jwj;
+    private TbImageView mFA;
+    private LinearLayout mFB;
+    private TbImageView mFC;
+    private TextView mFD;
+    private View mFE;
+    private TextView mFF;
+    private TextView mFG;
+    private TbImageView mFH;
+    private View mFI;
+    private TextView mFJ;
+    private TextView mFK;
+    private LinearLayout mFL;
+    private PlayVoiceBntNew mFM;
+    private m mFw;
+    private View mFx;
+    private View mFy;
+    private View mFz;
     private View rootView;
 
     public b(Context context, boolean z, int i, m mVar) {
         super(context, z, i);
-        this.msR = mVar;
+        this.mFw = mVar;
         this.rootView = this.mRootView.findViewById(R.id.pb_post_share_root_view);
-        this.msS = this.mRootView.findViewById(R.id.pb_post_share_card_container);
-        this.msT = this.mRootView.findViewById(R.id.pb_post_share_card);
-        this.msU = this.mRootView.findViewById(R.id.pb_post_share_card_content);
-        this.msV = (TbImageView) this.mRootView.findViewById(R.id.pb_post_share_title);
-        this.msW = (LinearLayout) this.mRootView.findViewById(R.id.pb_share_thread_container);
-        this.msX = (TbImageView) this.mRootView.findViewById(R.id.pb_share_origin_thread_img);
-        this.msX.setPlaceHolder(2);
-        this.msX.setConrers(15);
-        this.msX.setRadius(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
-        this.msX.setGifIconSupport(false);
-        this.msX.setLongIconSupport(false);
-        this.msY = (TextView) this.mRootView.findViewById(R.id.origin_thread_abstract);
-        this.msZ = this.mRootView.findViewById(R.id.pb_share_origin_thread_gradient_mask);
-        this.jjM = (ImageView) this.mRootView.findViewById(R.id.pb_post_share_video_play_iv);
-        this.mta = (TextView) this.mRootView.findViewById(R.id.post_share_screen_shot_title);
-        this.mtb = (TextView) this.mRootView.findViewById(R.id.post_share_qcode_comment);
-        this.mtc = (TbImageView) this.mRootView.findViewById(R.id.post_share_qcode);
-        this.mtd = this.mRootView.findViewById(R.id.post_share_reply_user_id_guide_line);
-        this.mte = (TextView) this.mRootView.findViewById(R.id.post_share_reply_user_id);
-        this.mtf = (TextView) this.mRootView.findViewById(R.id.post_share_comment_text);
-        this.mtg = (LinearLayout) this.mRootView.findViewById(R.id.post_share_comment_image_container);
-        this.mth = (PlayVoiceBntNew) this.mRootView.findViewById(R.id.post_share_comment_voice);
-        a(context, mVar.ddq().dEr());
-        dAy();
+        this.mFx = this.mRootView.findViewById(R.id.pb_post_share_card_container);
+        this.mFy = this.mRootView.findViewById(R.id.pb_post_share_card);
+        this.mFz = this.mRootView.findViewById(R.id.pb_post_share_card_content);
+        this.mFA = (TbImageView) this.mRootView.findViewById(R.id.pb_post_share_title);
+        this.mFB = (LinearLayout) this.mRootView.findViewById(R.id.pb_share_thread_container);
+        this.mFC = (TbImageView) this.mRootView.findViewById(R.id.pb_share_origin_thread_img);
+        this.mFC.setPlaceHolder(2);
+        this.mFC.setConrers(15);
+        this.mFC.setRadius(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
+        this.mFC.setGifIconSupport(false);
+        this.mFC.setLongIconSupport(false);
+        this.mFD = (TextView) this.mRootView.findViewById(R.id.origin_thread_abstract);
+        this.mFE = this.mRootView.findViewById(R.id.pb_share_origin_thread_gradient_mask);
+        this.jwj = (ImageView) this.mRootView.findViewById(R.id.pb_post_share_video_play_iv);
+        this.mFF = (TextView) this.mRootView.findViewById(R.id.post_share_screen_shot_title);
+        this.mFG = (TextView) this.mRootView.findViewById(R.id.post_share_qcode_comment);
+        this.mFH = (TbImageView) this.mRootView.findViewById(R.id.post_share_qcode);
+        this.mFI = this.mRootView.findViewById(R.id.post_share_reply_user_id_guide_line);
+        this.mFJ = (TextView) this.mRootView.findViewById(R.id.post_share_reply_user_id);
+        this.mFK = (TextView) this.mRootView.findViewById(R.id.post_share_comment_text);
+        this.mFL = (LinearLayout) this.mRootView.findViewById(R.id.post_share_comment_image_container);
+        this.mFM = (PlayVoiceBntNew) this.mRootView.findViewById(R.id.post_share_comment_voice);
+        a(context, mVar.dgy().dHz());
+        dDG();
     }
 
-    private void dAy() {
+    private void dDG() {
     }
 
     @Override // com.baidu.tieba.sharesdk.d.c
-    protected View cvZ() {
+    protected View czg() {
         return LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(R.layout.pb_post_share_dialog_layout, (ViewGroup) null);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.sharesdk.d.c
-    public ShareItem In(int i) {
-        ShareItem shareItem = this.msL.get(1);
+    public ShareItem IG(int i) {
+        ShareItem shareItem = this.mFq.get(1);
         if (shareItem == null) {
             shareItem = new ShareItem();
         }
-        shareItem.eSW = false;
-        shareItem.eSV = false;
+        shareItem.fbs = false;
+        shareItem.fbr = false;
         shareItem.content = "";
         shareItem.shareType = 1;
-        shareItem.w(dx(this.msS));
-        shareItem.bte();
-        this.msL.put(1, shareItem);
-        return super.In(i);
+        shareItem.w(dB(this.mFx));
+        shareItem.buX();
+        this.mFq.put(1, shareItem);
+        return super.IG(i);
     }
 
-    private Bitmap dx(View view) {
+    private Bitmap dB(View view) {
         if (view == null) {
             return null;
         }
@@ -116,27 +116,27 @@ public class b extends c {
 
     @Override // com.baidu.tieba.sharesdk.d.c
     public void show() {
-        if (this.msR != null) {
+        if (this.mFw != null) {
             this.rootView.setBackgroundColor(ap.getColor(R.color.cp_bg_line_j));
-            ap.c(this.msU, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds31), R.color.cp_bg_line_k, R.color.cp_bg_line_k);
+            ap.c(this.mFz, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds31), R.color.cp_bg_line_k, R.color.cp_bg_line_k);
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setCornerRadius(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds21));
             gradientDrawable.setColor(ap.getColor(R.color.cp_bg_line_g));
-            this.msW.setBackgroundDrawable(gradientDrawable);
-            ap.setViewTextColor(this.msY, R.color.cp_cont_j);
-            this.msY.setText(this.msR.getContent());
-            dAz();
-            ap.setBackgroundColor(this.mtd, R.color.cp_cont_d);
-            String name_show = this.msR.ddq().bih().getName_show();
+            this.mFB.setBackgroundDrawable(gradientDrawable);
+            ap.setViewTextColor(this.mFD, R.color.cp_cont_j);
+            this.mFD.setText(this.mFw.getContent());
+            dDH();
+            ap.setBackgroundColor(this.mFI, R.color.cp_cont_d);
+            String name_show = this.mFw.dgy().bka().getName_show();
             if (name_show.length() > 10) {
                 name_show = name_show.substring(0, 10) + StringHelper.STRING_MORE;
             }
-            this.mte.setText(name_show);
-            ap.setViewTextColor(this.mte, R.color.cp_cont_d);
-            ap.setViewTextColor(this.mta, R.color.cp_link_tip_c);
-            ap.setViewTextColor(this.mtb, R.color.cp_cont_b);
-            this.mtc.setImageBitmap(this.msR.ddp());
-            ap.setImageResource(this.msV, R.drawable.pic_pb_post_share_logo);
+            this.mFJ.setText(name_show);
+            ap.setViewTextColor(this.mFJ, R.color.cp_cont_d);
+            ap.setViewTextColor(this.mFF, R.color.cp_link_tip_c);
+            ap.setViewTextColor(this.mFG, R.color.cp_cont_b);
+            this.mFH.setImageBitmap(this.mFw.dgx());
+            ap.setImageResource(this.mFA, R.drawable.pic_pb_post_share_logo);
             super.show();
         }
     }
@@ -146,26 +146,26 @@ public class b extends c {
         window.setLayout(-1, -1);
     }
 
-    private void dAz() {
-        switch (this.msR.getThreadType()) {
+    private void dDH() {
+        switch (this.mFw.getThreadType()) {
             case 0:
-                if (!StringUtils.isNull(this.msR.getThreadImgUrl())) {
-                    this.msX.startLoad(this.msR.getThreadImgUrl(), 10, false);
+                if (!StringUtils.isNull(this.mFw.getThreadImgUrl())) {
+                    this.mFC.startLoad(this.mFw.getThreadImgUrl(), 10, false);
                     return;
                 }
-                this.msX.setImageDrawable(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.icon_pb_post_share_article_thread));
-                this.msX.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                this.mFC.setImageDrawable(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.icon_pb_post_share_article_thread));
+                this.mFC.setScaleType(ImageView.ScaleType.FIT_CENTER);
                 return;
             case 11:
-                this.msX.setImageDrawable(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.icon_pb_post_share_voice_thread));
-                this.msX.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                this.mFC.setImageDrawable(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.icon_pb_post_share_voice_thread));
+                this.mFC.setScaleType(ImageView.ScaleType.FIT_CENTER);
                 return;
             case 40:
-                this.msZ.setVisibility(0);
-                this.jjM.setVisibility(0);
-                this.jjM.setImageDrawable(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.icon_pb_post_share_voide_thread_play));
-                com.baidu.tbadk.core.util.e.a.bnv().oO(0).i(R.color.cp_mask_b_alpha0, R.color.cp_mask_b_alpha25).oT(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10)).bf(this.msZ);
-                this.msX.startLoad(this.msR.getThreadImgUrl(), 10, false);
+                this.mFE.setVisibility(0);
+                this.jwj.setVisibility(0);
+                this.jwj.setImageDrawable(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.icon_pb_post_share_voide_thread_play));
+                com.baidu.tbadk.core.util.e.a.bpo().oZ(0).i(R.color.cp_mask_b_alpha0, R.color.cp_mask_b_alpha25).pe(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10)).bg(this.mFE);
+                this.mFC.startLoad(this.mFw.getThreadImgUrl(), 10, false);
                 return;
             default:
                 return;
@@ -173,48 +173,48 @@ public class b extends c {
     }
 
     public void a(Context context, TbRichText tbRichText) {
-        if (tbRichText != null && tbRichText.bBq() != null && !tbRichText.bBq().isEmpty()) {
-            Iterator<TbRichTextData> it = tbRichText.bBq().iterator();
+        if (tbRichText != null && tbRichText.bDj() != null && !tbRichText.bDj().isEmpty()) {
+            Iterator<TbRichTextData> it = tbRichText.bDj().iterator();
             while (it.hasNext()) {
                 TbRichTextData next = it.next();
                 if (next != null) {
                     switch (next.getType()) {
                         case 1:
-                            if (this.mtf.getVisibility() == 8) {
-                                ap.setViewTextColor(this.mtf, R.color.cp_cont_b);
-                                this.mtf.setText(next.bBx());
-                                this.mtf.setVisibility(0);
+                            if (this.mFK.getVisibility() == 8) {
+                                ap.setViewTextColor(this.mFK, R.color.cp_cont_b);
+                                this.mFK.setText(next.bDq());
+                                this.mFK.setVisibility(0);
                                 break;
                             } else {
                                 continue;
                             }
                         case 512:
-                            this.mth.setVoiceModel((VoiceData.VoiceModel) next.bBy().bCs());
-                            if (this.mtf.getVisibility() == 0 || this.mtg.getVisibility() == 0) {
-                                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mth.getLayoutParams();
-                                if (this.mtf.getVisibility() == 0 && this.mtg.getVisibility() == 8) {
+                            this.mFM.setVoiceModel((VoiceData.VoiceModel) next.bDr().bEl());
+                            if (this.mFK.getVisibility() == 0 || this.mFL.getVisibility() == 0) {
+                                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mFM.getLayoutParams();
+                                if (this.mFK.getVisibility() == 0 && this.mFL.getVisibility() == 8) {
                                     layoutParams.topMargin = l.getDimens(context, R.dimen.tbds39);
                                 } else {
                                     layoutParams.topMargin = l.getDimens(context, R.dimen.tbds42);
                                 }
-                                this.mth.setLayoutParams(layoutParams);
+                                this.mFM.setLayoutParams(layoutParams);
                             }
-                            this.mth.setVisibility(0);
+                            this.mFM.setVisibility(0);
                             continue;
                     }
                 }
             }
-            if (!tbRichText.bBr().isEmpty()) {
-                if (this.mtf.getVisibility() == 0) {
-                    LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.mtg.getLayoutParams();
+            if (!tbRichText.bDk().isEmpty()) {
+                if (this.mFK.getVisibility() == 0) {
+                    LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.mFL.getLayoutParams();
                     layoutParams2.topMargin = l.getDimens(context, R.dimen.tbds37);
-                    this.mtg.setLayoutParams(layoutParams2);
+                    this.mFL.setLayoutParams(layoutParams2);
                 }
-                this.mtg.setVisibility(0);
-                if (fn(tbRichText.bBr())) {
-                    this.mtg.addView(a(context, a(tbRichText.bBr().get(0), this.msR.ddr()), tbRichText.bBr().get(0), true, this.msR.ddr().mIsFromCDN));
+                this.mFL.setVisibility(0);
+                if (fw(tbRichText.bDk())) {
+                    this.mFL.addView(a(context, a(tbRichText.bDk().get(0), this.mFw.dgz()), tbRichText.bDk().get(0), true, this.mFw.dgz().mIsFromCDN));
                 } else {
-                    c(context, tbRichText.bBr());
+                    c(context, tbRichText.bDk());
                 }
             }
         }
@@ -223,23 +223,23 @@ public class b extends c {
     private void c(Context context, List<TbRichTextImageInfo> list) {
         int i = 0;
         while (i < list.size() && i != 3) {
-            if (!list.get(i).bBR()) {
-                this.mtg.addView(a(context, a(list.get(i), this.msR.ddr()), list.get(i), i == 0, this.msR.ddr().mIsFromCDN));
+            if (!list.get(i).bDK()) {
+                this.mFL.addView(a(context, a(list.get(i), this.mFw.dgz()), list.get(i), i == 0, this.mFw.dgz().mIsFromCDN));
             }
             i++;
         }
     }
 
     private TbImageView a(Context context, String str, TbRichTextImageInfo tbRichTextImageInfo, boolean z, boolean z2) {
-        int[] ac = ac(tbRichTextImageInfo.getWidth(), tbRichTextImageInfo.getHeight(), l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds981));
+        int[] ad = ad(tbRichTextImageInfo.getWidth(), tbRichTextImageInfo.getHeight(), l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds981));
         TbImageView tbImageView = new TbImageView(context);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ac[0], ac[1]);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ad[0], ad[1]);
         if (!z) {
             layoutParams.setMargins(0, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds20), 0, 0);
         }
         tbImageView.setLayoutParams(layoutParams);
         tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-        if (tbRichTextImageInfo.bBR()) {
+        if (tbRichTextImageInfo.bDK()) {
             tbImageView.setLongIconSupport(true);
             tbImageView.setIsLongPic(true);
         }
@@ -249,9 +249,9 @@ public class b extends c {
         return tbImageView;
     }
 
-    private boolean fn(List<TbRichTextImageInfo> list) {
+    private boolean fw(List<TbRichTextImageInfo> list) {
         for (TbRichTextImageInfo tbRichTextImageInfo : list) {
-            if (!tbRichTextImageInfo.bBR()) {
+            if (!tbRichTextImageInfo.bDK()) {
                 return false;
             }
         }
@@ -259,10 +259,10 @@ public class b extends c {
     }
 
     private String a(TbRichTextImageInfo tbRichTextImageInfo, com.baidu.tbadk.widget.richText.a aVar) {
-        return aVar.bBp() ? tbRichTextImageInfo.bBJ() : tbRichTextImageInfo.bBM();
+        return aVar.bDi() ? tbRichTextImageInfo.bDC() : tbRichTextImageInfo.bDF();
     }
 
-    private int[] ac(int i, int i2, int i3) {
+    private int[] ad(int i, int i2, int i3) {
         int i4;
         int[] iArr = new int[2];
         iArr[0] = i3;

@@ -41,7 +41,7 @@ public final class e {
     private static int u = 2;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1063a = -1;
+    private int f1060a = -1;
     private boolean b = false;
     private boolean d = false;
     private boolean g = false;
@@ -61,7 +61,7 @@ public final class e {
             e.this.a(false);
             e.this.a(10004);
             e.this.j();
-            m.a("PushConnection Send Timeout " + e.this.k.getPackageName() + " lastSocketError " + PushSocket.getLastSocketError() + " socketfd " + e.this.f1063a + System.currentTimeMillis(), e.this.k.getApplicationContext());
+            m.a("PushConnection Send Timeout " + e.this.k.getPackageName() + " lastSocketError " + PushSocket.getLastSocketError() + " socketfd " + e.this.f1060a + System.currentTimeMillis(), e.this.k.getApplicationContext());
         }
     };
     private long x = 0;
@@ -80,7 +80,7 @@ public final class e {
             byte[] bArr;
             while (!e.this.d) {
                 try {
-                    bArr = PushSocket.a(e.this.k, e.this.f1063a);
+                    bArr = PushSocket.a(e.this.k, e.this.f1060a);
                 } catch (Exception e) {
                     bArr = null;
                     com.baidu.android.pushservice.f.a.b("PushConnection", "Get message exception", e.this.k.getApplicationContext());
@@ -98,7 +98,7 @@ public final class e {
                 if (bArr == null || bArr.length == 0) {
                     e.this.a(lastSocketError);
                     e.this.j();
-                    m.a("PushConnection Receive err " + e.this.k.getPackageName() + " lastSocketError " + lastSocketError + " socketfd " + e.this.f1063a + System.currentTimeMillis(), e.this.k.getApplicationContext());
+                    m.a("PushConnection Receive err " + e.this.k.getPackageName() + " lastSocketError " + lastSocketError + " socketfd " + e.this.f1060a + System.currentTimeMillis(), e.this.k.getApplicationContext());
                 } else {
                     try {
                         com.baidu.android.pushservice.message.e a2 = e.this.l.a(bArr);
@@ -107,7 +107,7 @@ public final class e {
                                 e.this.l.b(a2);
                             } catch (Exception e2) {
                                 com.baidu.android.pushservice.f.a.b("PushConnection", "Handle message exception " + m.a(e2), e.this.k.getApplicationContext());
-                                m.a("PushConnection Handle message exception " + e.this.k.getPackageName() + m.a(e2) + " lastSocketError " + lastSocketError + " socketfd " + e.this.f1063a + System.currentTimeMillis(), e.this.k.getApplicationContext());
+                                m.a("PushConnection Handle message exception " + e.this.k.getPackageName() + m.a(e2) + " lastSocketError " + lastSocketError + " socketfd " + e.this.f1060a + System.currentTimeMillis(), e.this.k.getApplicationContext());
                                 new b.c(e.this.k).a(Log.getStackTraceString(e2)).a();
                                 e.this.j();
                             }
@@ -118,7 +118,7 @@ public final class e {
                         new b.c(e.this.k).a(Log.getStackTraceString(e3)).a();
                         e.this.a(lastSocketError);
                         e.this.j();
-                        m.a("PushConnection Read message exception " + e.this.k.getPackageName() + m.a(e3) + " lastSocketError " + lastSocketError + " socketfd " + e.this.f1063a + System.currentTimeMillis(), e.this.k.getApplicationContext());
+                        m.a("PushConnection Read message exception " + e.this.k.getPackageName() + m.a(e3) + " lastSocketError " + lastSocketError + " socketfd " + e.this.f1060a + System.currentTimeMillis(), e.this.k.getApplicationContext());
                     }
                 }
             }
@@ -159,7 +159,7 @@ public final class e {
                         e.this.j.postDelayed(e.this.w, 60000L);
                     }
                     try {
-                        i = PushSocket.sendMsg(e.this.f1063a, removeFirst.b(), removeFirst.b().length);
+                        i = PushSocket.sendMsg(e.this.f1060a, removeFirst.b(), removeFirst.b().length);
                     } catch (Exception e2) {
                         new b.c(e.this.k).a(Log.getStackTraceString(e2)).a();
                         i = -1;
@@ -168,7 +168,7 @@ public final class e {
                         int lastSocketError = PushSocket.getLastSocketError();
                         e.this.a(lastSocketError);
                         e.this.j();
-                        m.a("PushConnection sendMsg err " + e.this.k.getPackageName() + " lastSocketError " + lastSocketError + " socketfd " + e.this.f1063a + System.currentTimeMillis(), e.this.k.getApplicationContext());
+                        m.a("PushConnection sendMsg err " + e.this.k.getPackageName() + " lastSocketError " + lastSocketError + " socketfd " + e.this.f1060a + System.currentTimeMillis(), e.this.k.getApplicationContext());
                     }
                 }
             }
@@ -220,7 +220,7 @@ public final class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i) {
-        if (this.f1063a == -1 && i == 110) {
+        if (this.f1060a == -1 && i == 110) {
             this.r = 80;
         }
         a(i);
@@ -387,7 +387,7 @@ public final class e {
         } else if (j.a(this.k).e()) {
             m.a("PushConnection connectImpl from " + this.k.getPackageName() + " at Time " + System.currentTimeMillis(), this.k);
             c = true;
-            this.f1063a = -1;
+            this.f1060a = -1;
             Runnable runnable = new Runnable() { // from class: com.baidu.android.pushservice.e.3
                 @Override // java.lang.Runnable
                 public void run() {
@@ -396,14 +396,14 @@ public final class e {
                             @Override // com.baidu.android.pushservice.jni.PushSocket.OnCreateSocketListener
                             public void onConnect(int i) {
                                 int i2;
-                                e.this.f1063a = i;
+                                e.this.f1060a = i;
                                 e.this.q = PushSocket.getLastSocketIP();
                                 try {
                                     i2 = PushSocket.getLastSocketError();
                                 } catch (Exception e) {
                                     i2 = 0;
                                 }
-                                if (e.this.f1063a <= -1 || (i2 >= 101 && i2 != 115)) {
+                                if (e.this.f1060a <= -1 || (i2 >= 101 && i2 != 115)) {
                                     e.this.b(i2);
                                     return;
                                 }
@@ -481,7 +481,7 @@ public final class e {
                 new b.c(this.k).a(Log.getStackTraceString(e)).a();
             }
         }
-        PushSocket.a(this.f1063a);
+        PushSocket.a(this.f1060a);
         if (this.l != null) {
             this.l.c();
         }

@@ -4,33 +4,33 @@ import com.baidu.swan.apps.ap.ak;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
 /* loaded from: classes10.dex */
 public class e implements com.baidu.swan.apps.ap.e.b<HybridUbcFlow> {
-    private static boolean cVF = true;
-    private static int cVG = -1;
-    private final String cmp;
+    private static boolean def = true;
+    private static int deg = -1;
+    private final String cuT;
 
     public e(String str) {
-        this.cmp = str;
+        this.cuT = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.ap.e.b
     /* renamed from: a */
     public synchronized void M(HybridUbcFlow hybridUbcFlow) {
-        if (cVF) {
-            if (cVG == -1) {
-                cVG = com.baidu.swan.apps.t.a.asi().getSwitch("swan_next_env_delay", 600);
+        if (def) {
+            if (deg == -1) {
+                deg = com.baidu.swan.apps.t.a.aud().getSwitch("swan_next_env_delay", 600);
             }
             ak.c(new Runnable() { // from class: com.baidu.swan.apps.performance.c.e.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    ak.aID();
+                    ak.aKx();
                 }
-            }, cVG);
+            }, deg);
         }
-        if ("fmp_callback".equals(this.cmp)) {
-            cVF = false;
-        } else if ("callback_on_submit".equals(this.cmp)) {
-            cVF = true;
+        if ("fmp_callback".equals(this.cuT)) {
+            def = false;
+        } else if ("callback_on_submit".equals(this.cuT)) {
+            def = true;
         }
     }
 }

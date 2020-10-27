@@ -5,7 +5,7 @@ import java.security.InvalidParameterException;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class b<T> {
-    protected c<T> MQ;
+    protected c<T> MR;
     private int _maxIdle;
     private int _minIdle;
     protected LinkedList<T> _pool;
@@ -14,11 +14,11 @@ public class b<T> {
         this._maxIdle = 10;
         this._minIdle = 0;
         this._pool = null;
-        this.MQ = null;
+        this.MR = null;
         if (cVar == null || i <= 0 || i2 > i) {
             throw new InvalidParameterException("invalid params");
         }
-        this.MQ = cVar;
+        this.MR = cVar;
         this._maxIdle = i;
         this._minIdle = i2;
         this._pool = new LinkedList<>();
@@ -29,7 +29,7 @@ public class b<T> {
         synchronized (this) {
             for (int i2 = 0; i2 < i; i2++) {
                 try {
-                    this.MQ.destroyObject(this._pool.poll());
+                    this.MR.destroyObject(this._pool.poll());
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
@@ -42,7 +42,7 @@ public class b<T> {
         synchronized (this) {
             for (int i2 = 0; i2 < i; i2++) {
                 try {
-                    t = this.MQ.activateObject(this.MQ.makeObject());
+                    t = this.MR.activateObject(this.MR.makeObject());
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                     t = null;
@@ -80,9 +80,9 @@ public class b<T> {
         synchronized (this) {
             try {
                 if (this._pool.size() > 0) {
-                    t = this.MQ.activateObject(this._pool.poll());
+                    t = this.MR.activateObject(this._pool.poll());
                 } else {
-                    t = this.MQ.activateObject(this.MQ.makeObject());
+                    t = this.MR.activateObject(this.MR.makeObject());
                 }
                 addItems(this._minIdle - this._pool.size());
             } catch (Exception e) {
@@ -97,7 +97,7 @@ public class b<T> {
         synchronized (this) {
             if (this._pool.size() < this._maxIdle) {
                 try {
-                    t2 = this.MQ.passivateObject(t);
+                    t2 = this.MR.passivateObject(t);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                     t2 = null;
@@ -106,7 +106,7 @@ public class b<T> {
                     this._pool.offer(t2);
                 }
             } else {
-                this.MQ.destroyObject(t);
+                this.MR.destroyObject(t);
             }
         }
     }

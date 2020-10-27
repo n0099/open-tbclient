@@ -306,20 +306,27 @@ public class AlaCameraManager implements ICameraStatusHandler {
     }
 
     public float getExposure() {
-        Camera.Parameters parameters;
-        if (this.mCamera == null || this.mActivity == null || (parameters = this.mCamera.getParameters()) == null) {
+        if (this.mCamera == null || this.mActivity == null) {
             return -1.0f;
         }
-        int maxExposureCompensation = parameters.getMaxExposureCompensation();
-        int minExposureCompensation = maxExposureCompensation - parameters.getMinExposureCompensation();
-        int i = 0;
-        if (this.mCameraId == 1) {
-            i = this.mFrontCameraExposure;
+        try {
+            Camera.Parameters parameters = this.mCamera.getParameters();
+            if (parameters == null) {
+                return -1.0f;
+            }
+            int maxExposureCompensation = parameters.getMaxExposureCompensation();
+            int minExposureCompensation = maxExposureCompensation - parameters.getMinExposureCompensation();
+            int i = 0;
+            if (this.mCameraId == 1) {
+                i = this.mFrontCameraExposure;
+            }
+            if (this.mCameraId == 0) {
+                i = this.mBackCameraExposure;
+            }
+            return ((maxExposureCompensation - i) * 1.0f) / minExposureCompensation;
+        } catch (Exception e) {
+            return -1.0f;
         }
-        if (this.mCameraId == 0) {
-            i = this.mBackCameraExposure;
-        }
-        return ((maxExposureCompensation - i) * 1.0f) / minExposureCompensation;
     }
 
     private void calculateTapArea(int i, int i2, float f, int i3, int i4, int i5, int i6, Rect rect) {

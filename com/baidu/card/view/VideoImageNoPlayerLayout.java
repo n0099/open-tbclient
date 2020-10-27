@@ -20,29 +20,29 @@ import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.imageManager.c;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.aa;
+import com.baidu.tieba.card.ab;
 import java.lang.ref.WeakReference;
 /* loaded from: classes21.dex */
 public class VideoImageNoPlayerLayout extends RelativeLayout implements p<AbsThreadDataSupport> {
-    private AbsThreadDataSupport afH;
-    private View.OnClickListener afI;
-    private a ait;
-    protected boolean akK;
-    private TbImageView.c akr;
-    public TbImageView alI;
-    private ImageView alJ;
+    private AbsThreadDataSupport afI;
+    private View.OnClickListener afJ;
+    private a aiu;
+    protected boolean akL;
+    private TbImageView.c aks;
+    public TbImageView alJ;
     private ImageView alK;
-    private TextView alL;
+    private ImageView alL;
     private TextView alM;
     private TextView alN;
-    private WeakReference<Context> alO;
-    public RelativeLayout alP;
+    private TextView alO;
+    private WeakReference<Context> alP;
     public RelativeLayout alQ;
-    protected boolean alR;
-    protected String alS;
-    protected long alT;
+    public RelativeLayout alR;
+    protected boolean alS;
+    protected String alT;
     protected long alU;
-    private aa<AbsThreadDataSupport> alV;
+    protected long alV;
+    private ab<AbsThreadDataSupport> alW;
     private Context mContext;
     protected long mFid;
     private int mSkinType;
@@ -50,9 +50,9 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<AbsThr
     public VideoImageNoPlayerLayout(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.alO = null;
-        this.akK = false;
-        this.akr = new TbImageView.c() { // from class: com.baidu.card.view.VideoImageNoPlayerLayout.2
+        this.alP = null;
+        this.akL = false;
+        this.aks = new TbImageView.c() { // from class: com.baidu.card.view.VideoImageNoPlayerLayout.2
             @Override // com.baidu.tbadk.widget.TbImageView.c
             public void a(TbImageView tbImageView, Canvas canvas) {
                 int i;
@@ -65,10 +65,10 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<AbsThr
                 float f6;
                 float f7 = 0.0f;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a Du = c.bwL().Du(com.baidu.adp.lib.e.c.mS().genCacheKey(tbImageView.getUrl(), 10));
-                    if (Du != null) {
-                        int width = Du.getWidth();
-                        i = Du.getHeight();
+                    com.baidu.adp.widget.ImageView.a DN = c.byE().DN(com.baidu.adp.lib.e.c.mS().genCacheKey(tbImageView.getUrl(), 10));
+                    if (DN != null) {
+                        int width = DN.getWidth();
+                        i = DN.getHeight();
                         i2 = width;
                     } else {
                         i = 0;
@@ -128,7 +128,7 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<AbsThr
                                 f3 = 0.0f;
                             }
                             imageMatrix.setScale(f2, f2);
-                            if (VideoImageNoPlayerLayout.this.akK && i > i2) {
+                            if (VideoImageNoPlayerLayout.this.akL && i > i2) {
                                 imageMatrix.postTranslate(f3, 0.0f);
                             } else {
                                 imageMatrix.postTranslate(f3, f);
@@ -149,27 +149,27 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<AbsThr
     private void initUI() {
         LayoutInflater.from(getContext()).inflate(R.layout.video_image_no_player_layout, (ViewGroup) this, true);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.alP = (RelativeLayout) findViewById(R.id.operable_video_container);
-        this.alQ = (RelativeLayout) findViewById(R.id.video_container);
-        this.alO = new WeakReference<>(TbadkCoreApplication.getInst());
-        this.alI = (TbImageView) findViewById(R.id.video_thumbnail);
-        this.alJ = (ImageView) findViewById(R.id.video_play);
-        this.alK = (ImageView) findViewById(R.id.video_pause);
-        this.alL = (TextView) findViewById(R.id.video_play_count);
-        this.alM = (TextView) findViewById(R.id.video_play_flag);
-        this.alN = (TextView) findViewById(R.id.video_duration);
-        this.alI.setConrers(15);
-        this.alI.setRadius(l.getDimens(this.mContext, R.dimen.tbds10));
-        this.alI.setDrawCorner(true);
-        this.alI.setPlaceHolder(3);
+        this.alQ = (RelativeLayout) findViewById(R.id.operable_video_container);
+        this.alR = (RelativeLayout) findViewById(R.id.video_container);
+        this.alP = new WeakReference<>(TbadkCoreApplication.getInst());
+        this.alJ = (TbImageView) findViewById(R.id.video_thumbnail);
+        this.alK = (ImageView) findViewById(R.id.video_play);
+        this.alL = (ImageView) findViewById(R.id.video_pause);
+        this.alM = (TextView) findViewById(R.id.video_play_count);
+        this.alN = (TextView) findViewById(R.id.video_play_flag);
+        this.alO = (TextView) findViewById(R.id.video_duration);
+        this.alJ.setConrers(15);
+        this.alJ.setRadius(l.getDimens(this.mContext, R.dimen.tbds10));
+        this.alJ.setDrawCorner(true);
+        this.alJ.setPlaceHolder(3);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.view.VideoImageNoPlayerLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (VideoImageNoPlayerLayout.this.alV != null) {
-                    VideoImageNoPlayerLayout.this.alV.a(VideoImageNoPlayerLayout.this.alI, VideoImageNoPlayerLayout.this.afH);
+                if (VideoImageNoPlayerLayout.this.alW != null) {
+                    VideoImageNoPlayerLayout.this.alW.a(VideoImageNoPlayerLayout.this.alJ, VideoImageNoPlayerLayout.this.afI);
                 }
-                if (VideoImageNoPlayerLayout.this.afI != null) {
-                    VideoImageNoPlayerLayout.this.afI.onClick(VideoImageNoPlayerLayout.this.alI);
+                if (VideoImageNoPlayerLayout.this.afJ != null) {
+                    VideoImageNoPlayerLayout.this.afJ.onClick(VideoImageNoPlayerLayout.this.alJ);
                 }
             }
         });
@@ -178,67 +178,67 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<AbsThr
 
     @Override // android.view.View
     public View getRootView() {
-        return this.alP;
+        return this.alQ;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
     public void H(AbsThreadDataSupport absThreadDataSupport) {
-        if (absThreadDataSupport != null && absThreadDataSupport.bfG() != null && absThreadDataSupport.bfG().erY != null) {
-            OriginalThreadInfo originalThreadInfo = absThreadDataSupport.bfG().erY;
-            this.alR = originalThreadInfo.videoInfo.is_vertical.intValue() == 1;
-            this.alS = originalThreadInfo.threadId;
-            this.alT = originalThreadInfo.videoInfo.video_length.intValue();
-            this.alU = originalThreadInfo.videoInfo.video_duration.intValue();
+        if (absThreadDataSupport != null && absThreadDataSupport.bhz() != null && absThreadDataSupport.bhz().eAy != null) {
+            OriginalThreadInfo originalThreadInfo = absThreadDataSupport.bhz().eAy;
+            this.alS = originalThreadInfo.videoInfo.is_vertical.intValue() == 1;
+            this.alT = originalThreadInfo.threadId;
+            this.alU = originalThreadInfo.videoInfo.video_length.intValue();
+            this.alV = originalThreadInfo.videoInfo.video_duration.intValue();
             this.mFid = originalThreadInfo.forumId;
-            this.alN.setText(at.stringForVideoTime(originalThreadInfo.videoInfo.video_duration.intValue() * 1000));
-            this.alL.setText(String.format(this.mContext.getResources().getString(R.string.play_count_new), at.numFormatOverWan(originalThreadInfo.videoInfo.play_count.intValue())));
-            this.alM.setVisibility(8);
-            this.alI.startLoad(originalThreadInfo.videoInfo.thumbnail_url, 10, false);
+            this.alO.setText(at.stringForVideoTime(originalThreadInfo.videoInfo.video_duration.intValue() * 1000));
+            this.alM.setText(String.format(this.mContext.getResources().getString(R.string.play_count_new), at.numFormatOverWan(originalThreadInfo.videoInfo.play_count.intValue())));
+            this.alN.setVisibility(8);
+            this.alJ.startLoad(originalThreadInfo.videoInfo.thumbnail_url, 10, false);
         }
     }
 
     public void setCanCenterStart(boolean z) {
-        this.akK = z;
+        this.akL = z;
     }
 
-    public void setOnCardSubClickListener(aa<AbsThreadDataSupport> aaVar) {
-        this.alV = aaVar;
+    public void setOnCardSubClickListener(ab<AbsThreadDataSupport> abVar) {
+        this.alW = abVar;
     }
 
     public void setVideoAreaClickListener(a aVar) {
-        this.ait = aVar;
+        this.aiu = aVar;
         if (aVar != null) {
             ub();
         }
     }
 
     private void ub() {
-        if (this.alQ != null) {
-            this.alQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.view.VideoImageNoPlayerLayout.3
+        if (this.alR != null) {
+            this.alR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.view.VideoImageNoPlayerLayout.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    VideoImageNoPlayerLayout.this.ait.a(VideoImageNoPlayerLayout.this.afH);
+                    VideoImageNoPlayerLayout.this.aiu.a(VideoImageNoPlayerLayout.this.afI);
                 }
             });
         }
     }
 
     public void setData(AbsThreadDataSupport absThreadDataSupport) {
-        this.afH = absThreadDataSupport;
+        this.afI = absThreadDataSupport;
     }
 
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ap.setBackgroundColor(this.alP, R.color.cp_bg_line_g);
             ap.setBackgroundColor(this.alQ, R.color.cp_bg_line_g);
+            ap.setBackgroundColor(this.alR, R.color.cp_bg_line_g);
             ap.setBackgroundColor(this, R.color.cp_bg_line_g);
         }
         this.mSkinType = i;
     }
 
     public void setJumpToPbListener(View.OnClickListener onClickListener) {
-        this.afI = onClickListener;
+        this.afJ = onClickListener;
     }
 }

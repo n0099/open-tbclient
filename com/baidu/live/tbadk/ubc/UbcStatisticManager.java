@@ -313,6 +313,7 @@ public class UbcStatisticManager {
             try {
                 jSONObject.put("loc", ubcStatisticItem.getLoc());
                 jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, ubcStatisticItem.getSubPage());
+                jSONObject.put("status", ubcStatisticItem.getStatus());
             } catch (JSONException e) {
                 BdLog.e(e);
             }
@@ -585,6 +586,7 @@ public class UbcStatisticManager {
                     try {
                         contentExt.put("loc", ubcStatisticItem.getLoc());
                         contentExt.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, ubcStatisticItem.getSubPage());
+                        contentExt.put("status", ubcStatisticItem.getStatus());
                     } catch (JSONException e) {
                         BdLog.e(e);
                     }

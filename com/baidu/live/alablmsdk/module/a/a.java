@@ -5,14 +5,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    public int aBm;
+    public int aBr;
     public int permission;
     public String roomId;
 
     public a(String str, int i, int i2) {
         this.roomId = str;
         this.permission = i;
-        this.aBm = i2;
+        this.aBr = i2;
     }
 
     public String toJsonString() {
@@ -20,7 +20,7 @@ public class a {
         try {
             jSONObject.put("room_id", this.roomId);
             jSONObject.put("room_permission", this.permission);
-            jSONObject.put("logically_hung_up", this.aBm);
+            jSONObject.put("logically_hung_up", this.aBr);
         } catch (JSONException e) {
         }
         return jSONObject.toString();

@@ -5,31 +5,31 @@ import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes10.dex */
 public class a {
-    private static final ReentrantLock dLw = new ReentrantLock();
-    private static volatile a dLx;
-    private d dEw;
-    private List<c> dFo = new ArrayList(3);
+    private static final ReentrantLock dTT = new ReentrantLock();
+    private static volatile a dTU;
+    private d dMT;
+    private List<c> dNL = new ArrayList(3);
 
     private a() {
     }
 
-    public static a aSW() {
-        if (dLx == null) {
+    public static a aUQ() {
+        if (dTU == null) {
             synchronized (a.class) {
-                if (dLx == null) {
-                    dLx = new a();
+                if (dTU == null) {
+                    dTU = new a();
                 }
             }
         }
-        return dLx;
+        return dTU;
     }
 
     public void a(d dVar) {
-        this.dEw = dVar;
-        aSX();
+        this.dMT = dVar;
+        aUR();
     }
 
-    public void aq(String str, boolean z) {
+    public void as(String str, boolean z) {
         com.baidu.swan.apps.console.c.i("SwanGameBundleUpdateManager", String.format("sendJSMessage : eventType = %s; hasUpdate = %s", str, Boolean.valueOf(z)));
         c cVar = new c(str);
         cVar.hasUpdate = z;
@@ -37,33 +37,33 @@ public class a {
     }
 
     public void release() {
-        this.dEw = null;
-        this.dFo.clear();
+        this.dMT = null;
+        this.dNL.clear();
     }
 
     private void a(c cVar) {
-        dLw.lock();
+        dTT.lock();
         try {
-            if (this.dEw != null) {
-                this.dEw.c(cVar);
+            if (this.dMT != null) {
+                this.dMT.c(cVar);
             } else {
-                this.dFo.add(cVar);
+                this.dNL.add(cVar);
             }
         } finally {
-            dLw.unlock();
+            dTT.unlock();
         }
     }
 
-    private void aSX() {
-        if (!this.dFo.isEmpty() && this.dEw != null) {
-            dLw.lock();
+    private void aUR() {
+        if (!this.dNL.isEmpty() && this.dMT != null) {
+            dTT.lock();
             try {
-                for (c cVar : this.dFo) {
-                    this.dEw.c(cVar);
+                for (c cVar : this.dNL) {
+                    this.dMT.c(cVar);
                 }
-                this.dFo.clear();
+                this.dNL.clear();
             } finally {
-                dLw.unlock();
+                dTT.unlock();
             }
         }
     }

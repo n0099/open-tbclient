@@ -3,28 +3,28 @@ package com.xiaomi.push;
 public class dq {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile dq f4865a;
+    private static volatile dq f4863a;
 
     /* renamed from: a  reason: collision with other field name */
-    private dp f227a;
+    private dp f224a;
 
     public static dq a() {
-        if (f4865a == null) {
+        if (f4863a == null) {
             synchronized (dq.class) {
-                if (f4865a == null) {
-                    f4865a = new dq();
+                if (f4863a == null) {
+                    f4863a = new dq();
                 }
             }
         }
-        return f4865a;
+        return f4863a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public dp m233a() {
-        return this.f227a;
+    public dp m232a() {
+        return this.f224a;
     }
 
     public void a(dp dpVar) {
-        this.f227a = dpVar;
+        this.f224a = dpVar;
     }
 }

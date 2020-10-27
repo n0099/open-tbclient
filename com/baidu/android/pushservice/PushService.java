@@ -14,7 +14,7 @@ import com.baidu.android.pushservice.i.m;
 public class PushService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f1003a = false;
+    private boolean f1000a = false;
     private Handler b = new Handler();
     private boolean c = false;
     private final Runnable d = new Runnable() { // from class: com.baidu.android.pushservice.PushService.1
@@ -32,7 +32,7 @@ public class PushService extends Service {
     };
 
     private void a(boolean z, boolean z2) {
-        this.f1003a = z;
+        this.f1000a = z;
         com.baidu.android.pushservice.f.a.a("PushService", "stopSelf : exitOnDestroy=" + z + " --- immediate=" + z2, getApplicationContext());
         if (z2) {
             this.d.run();
@@ -65,7 +65,7 @@ public class PushService extends Service {
         com.baidu.android.pushservice.f.a.a("PushService", "onDestroy from : " + getPackageName(), getApplicationContext());
         m.a("PushService onDestroy from : " + getPackageName() + " at Time :" + System.currentTimeMillis(), getApplicationContext());
         g.b();
-        if (this.f1003a) {
+        if (this.f1000a) {
             this.b.removeCallbacks(this.e);
             this.b.postDelayed(this.e, 1000L);
         }

@@ -16,7 +16,7 @@ import tv.chushou.basis.d.a.b.e;
 public class HttpParam {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Comparator<String> f5398a = new Comparator<String>() { // from class: tv.chushou.basis.http.model.HttpParam.1
+    private static final Comparator<String> f5396a = new Comparator<String>() { // from class: tv.chushou.basis.http.model.HttpParam.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -25,11 +25,11 @@ public class HttpParam {
         }
     };
     private final Map<String, String> c;
-    private final RequestTag pkP;
+    private final RequestTag qce;
 
     public HttpParam(RequestTag requestTag) {
-        this.pkP = requestTag == null ? RequestTag.normal() : requestTag;
-        this.c = new TreeMap(f5398a);
+        this.qce = requestTag == null ? RequestTag.normal() : requestTag;
+        this.c = new TreeMap(f5396a);
     }
 
     private String e() {
@@ -47,34 +47,34 @@ public class HttpParam {
     }
 
     public void a() {
-        Map<String, String> ein;
-        if (this.pkP.signType == 2) {
+        Map<String, String> esn;
+        if (this.qce.signType == 2) {
             return;
         }
-        b bVar = (b) tv.chushou.basis.d.b.etD().S(b.class);
+        b bVar = (b) tv.chushou.basis.d.b.eDB().S(b.class);
         if (bVar != null) {
             b("_appkey", bVar.getAppKey());
-            b("_xappkey", bVar.eij());
-            b("_appSource", bVar.aok());
+            b("_xappkey", bVar.esj());
+            b("_appSource", bVar.aqf());
             b("_appVersion", bVar.getSdkVersion());
             String token = bVar.getToken();
             if (!TextUtils.isEmpty(token)) {
                 b("token", token);
             }
-            b("_cssdkVersion", bVar.eim());
+            b("_cssdkVersion", bVar.esm());
         }
-        d dVar = (d) tv.chushou.basis.d.b.etD().S(d.class);
+        d dVar = (d) tv.chushou.basis.d.b.eDB().S(d.class);
         if (dVar != null) {
             b("_identifier", dVar.getIdentifier());
-            b("_imei", dVar.aIF());
-            b("device_cs", dVar.ett());
-            b("device_ds", dVar.etu());
-            for (Map.Entry<String, String> entry : dVar.etv().entrySet()) {
+            b("_imei", dVar.aKz());
+            b("device_cs", dVar.eDr());
+            b("device_ds", dVar.eDs());
+            for (Map.Entry<String, String> entry : dVar.eDt().entrySet()) {
                 b(entry.getKey(), entry.getValue());
             }
         }
-        if (bVar != null && (ein = bVar.ein()) != null) {
-            for (Map.Entry<String, String> entry2 : ein.entrySet()) {
+        if (bVar != null && (esn = bVar.esn()) != null) {
+            for (Map.Entry<String, String> entry2 : esn.entrySet()) {
                 b(entry2.getKey(), entry2.getValue());
             }
         }
@@ -89,15 +89,15 @@ public class HttpParam {
     }
 
     public void b() {
-        if (this.pkP.signType == 2) {
+        if (this.qce.signType == 2) {
             return;
         }
-        c cVar = (c) tv.chushou.basis.d.b.etD().S(c.class);
+        c cVar = (c) tv.chushou.basis.d.b.eDB().S(c.class);
         if (cVar == null) {
             this.c.put("_t", String.valueOf(System.currentTimeMillis()));
             return;
         }
-        this.c.put("_t", cVar.eip());
+        this.c.put("_t", cVar.esp());
     }
 
     public void b(String str, Object obj) {
@@ -112,23 +112,23 @@ public class HttpParam {
     }
 
     public void c() {
-        if (this.pkP.signType == 2) {
+        if (this.qce.signType == 2) {
             return;
         }
-        String str = this.pkP.signKey;
-        String str2 = this.pkP.signSecret;
+        String str = this.qce.signKey;
+        String str2 = this.qce.signSecret;
         String str3 = TextUtils.isEmpty(str) ? "_sign" : str;
-        b bVar = (b) tv.chushou.basis.d.b.etD().S(b.class);
-        String eik = (!TextUtils.isEmpty(str2) || bVar == null) ? str2 : bVar.eik();
+        b bVar = (b) tv.chushou.basis.d.b.eDB().S(b.class);
+        String esk = (!TextUtils.isEmpty(str2) || bVar == null) ? str2 : bVar.esk();
         this.c.remove(str3);
-        e eVar = (e) tv.chushou.basis.d.b.etD().S(e.class);
+        e eVar = (e) tv.chushou.basis.d.b.eDB().S(e.class);
         if (bVar == null || eVar == null) {
             return;
         }
-        this.c.put(str3, eVar.gJ(eik, e()));
+        this.c.put(str3, eVar.gZ(esk, e()));
     }
 
-    public Set<Map.Entry<String, String>> etA() {
+    public Set<Map.Entry<String, String>> eDy() {
         return this.c.entrySet();
     }
 

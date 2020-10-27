@@ -9,9 +9,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class LivePrepareListHttpResponseMessage extends JsonHttpResponsedMessage {
-    public String gXb;
-    public String gXc;
-    public List<String> gXd;
+    public String hiR;
+    public String hiS;
+    public List<String> hiT;
 
     public LivePrepareListHttpResponseMessage() {
         super(1021147);
@@ -22,15 +22,15 @@ public class LivePrepareListHttpResponseMessage extends JsonHttpResponsedMessage
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.gXb = optJSONObject.optString(LogConfig.LIVE_SHARE_HK_WEIBO);
-            this.gXc = optJSONObject.optString("tencent");
+            this.hiR = optJSONObject.optString(LogConfig.LIVE_SHARE_HK_WEIBO);
+            this.hiS = optJSONObject.optString("tencent");
             JSONArray optJSONArray = optJSONObject.optJSONArray("title");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.gXd = new ArrayList();
+                this.hiT = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     String optString = optJSONArray.optString(i2);
                     if (!TextUtils.isEmpty(optString)) {
-                        this.gXd.add(optString);
+                        this.hiT.add(optString);
                     }
                 }
             }

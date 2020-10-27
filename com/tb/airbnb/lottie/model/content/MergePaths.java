@@ -4,7 +4,7 @@ import android.support.annotation.Nullable;
 /* loaded from: classes16.dex */
 public class MergePaths implements b {
     private final String name;
-    private final MergePathsMode oIQ;
+    private final MergePathsMode pAn;
 
     /* loaded from: classes16.dex */
     public enum MergePathsMode {
@@ -34,15 +34,15 @@ public class MergePaths implements b {
 
     public MergePaths(String str, MergePathsMode mergePathsMode) {
         this.name = str;
-        this.oIQ = mergePathsMode;
+        this.pAn = mergePathsMode;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public MergePathsMode elr() {
-        return this.oIQ;
+    public MergePathsMode evr() {
+        return this.pAn;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b
@@ -56,6 +56,6 @@ public class MergePaths implements b {
     }
 
     public String toString() {
-        return "MergePaths{mode=" + this.oIQ + '}';
+        return "MergePaths{mode=" + this.pAn + '}';
     }
 }

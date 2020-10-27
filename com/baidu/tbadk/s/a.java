@@ -5,7 +5,7 @@ import android.view.View;
 public interface a {
     void a(b bVar);
 
-    void byI();
+    void bAB();
 
     View getView();
 

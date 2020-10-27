@@ -17,24 +17,24 @@ import com.baidu.tieba.homepage.gamevideo.view.GameVideoGridView;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class a {
-    private TbPageContext etO;
-    private GameVideoGridView jhN;
-    private com.baidu.tieba.homepage.gamevideo.a.b jhO;
-    private InterfaceC0710a jhP;
+    private TbPageContext eCn;
+    private GameVideoGridView jul;
+    private com.baidu.tieba.homepage.gamevideo.a.b jum;
+    private InterfaceC0726a jun;
     private BdUniqueId mBdUniqueId;
     private AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.a.1
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            if (a.this.jhO != null && i < a.this.jhO.getCount() && a.this.jhO.getItem(i) != null && (a.this.jhO.getItem(i) instanceof com.baidu.tieba.homepage.gamevideo.c.a)) {
-                com.baidu.tieba.homepage.gamevideo.c.a aVar = (com.baidu.tieba.homepage.gamevideo.c.a) a.this.jhO.getItem(i);
+            if (a.this.jum != null && i < a.this.jum.getCount() && a.this.jum.getItem(i) != null && (a.this.jum.getItem(i) instanceof com.baidu.tieba.homepage.gamevideo.c.a)) {
+                com.baidu.tieba.homepage.gamevideo.c.a aVar = (com.baidu.tieba.homepage.gamevideo.c.a) a.this.jum.getItem(i);
                 if (aVar.enable == 1) {
-                    a.this.jhO.AY(aVar.sub_class_id);
-                    if (a.this.jhP != null) {
-                        a.this.jhP.a(aVar);
+                    a.this.jum.Br(aVar.sub_class_id);
+                    if (a.this.jun != null) {
+                        a.this.jun.a(aVar);
                     }
-                    a.this.cEo();
-                    com.baidu.tbadk.core.sharedPref.b.blO().putInt("key_game_video_tab_has_choosed_sub_class_id", aVar.sub_class_id);
-                    com.baidu.tbadk.core.sharedPref.b.blO().putString("key_game_video_tab_has_choosed_sub_class_name", aVar.sub_class_name);
+                    a.this.cHv();
+                    com.baidu.tbadk.core.sharedPref.b.bnH().putInt("key_game_video_tab_has_choosed_sub_class_id", aVar.sub_class_id);
+                    com.baidu.tbadk.core.sharedPref.b.bnH().putString("key_game_video_tab_has_choosed_sub_class_name", aVar.sub_class_name);
                     TiebaStatic.log(new aq("c13485").aj("obj_type", aVar.sub_class_id));
                 }
             }
@@ -45,31 +45,31 @@ public class a {
 
     /* renamed from: com.baidu.tieba.homepage.gamevideo.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes22.dex */
-    public interface InterfaceC0710a {
+    public interface InterfaceC0726a {
         void a(com.baidu.tieba.homepage.gamevideo.c.a aVar);
     }
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.etO = tbPageContext;
+        this.eCn = tbPageContext;
         this.mBdUniqueId = bdUniqueId;
         init();
     }
 
     private void init() {
-        this.mRootView = LayoutInflater.from(this.etO.getPageActivity()).inflate(R.layout.game_video_choose_fullscreen_layout, (ViewGroup) null);
-        this.jhN = (GameVideoGridView) this.mRootView.findViewById(R.id.id_game_video_choose_full_gridview);
-        this.jhO = new com.baidu.tieba.homepage.gamevideo.a.b(this.etO, 101, this.mBdUniqueId);
-        this.jhN.setNumColumns(4);
-        this.jhN.setAdapter((ListAdapter) this.jhO);
-        this.jhN.setOnItemClickListener(this.mOnItemClickListener);
+        this.mRootView = LayoutInflater.from(this.eCn.getPageActivity()).inflate(R.layout.game_video_choose_fullscreen_layout, (ViewGroup) null);
+        this.jul = (GameVideoGridView) this.mRootView.findViewById(R.id.id_game_video_choose_full_gridview);
+        this.jum = new com.baidu.tieba.homepage.gamevideo.a.b(this.eCn, 101, this.mBdUniqueId);
+        this.jul.setNumColumns(4);
+        this.jul.setAdapter((ListAdapter) this.jum);
+        this.jul.setOnItemClickListener(this.mOnItemClickListener);
         this.mTitle = (TextView) this.mRootView.findViewById(R.id.id_game_video_choose_full_title);
         onChangeSkinType();
     }
 
     public void setData(List<com.baidu.tieba.homepage.gamevideo.c.a> list) {
         if (!y.isEmpty(list)) {
-            this.jhO.setData(list);
-            this.jhO.notifyDataSetChanged();
+            this.jum.setData(list);
+            this.jum.notifyDataSetChanged();
         }
     }
 
@@ -92,19 +92,19 @@ public class a {
         }
     }
 
-    public void cEo() {
+    public void cHv() {
         if (this.mRootView != null && this.mRootView.getParent() != null) {
             ((ViewGroup) this.mRootView.getParent()).removeView(this.mRootView);
         }
     }
 
-    public void a(InterfaceC0710a interfaceC0710a) {
-        this.jhP = interfaceC0710a;
+    public void a(InterfaceC0726a interfaceC0726a) {
+        this.jun = interfaceC0726a;
     }
 
     public void onDestroy() {
-        if (this.jhN != null) {
-            this.jhN.onDestroy();
+        if (this.jul != null) {
+            this.jul.onDestroy();
         }
     }
 }

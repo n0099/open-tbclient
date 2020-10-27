@@ -32,7 +32,7 @@ public class i extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void iq(String str) {
+    public void iB(String str) {
         ISchemeAbility buildSchemeAbility;
         Log.d("JsInterface", "@@ JsInterface-impl PersonalCenterBridgeJsInterface params = " + str);
         try {

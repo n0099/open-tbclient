@@ -17,9 +17,9 @@ public class b {
     private int isCopyTWZhibo;
     private CustomDialogData mActDialogData;
     private ContriInfo mContriInfo;
-    private String mIr;
-    private String mIt;
     private bp mReplyPrivacyTip;
+    private String mVb;
+    private String mVc;
     private VideoEasterEggData mVideoEasterEggData;
     private String preMsg;
     private String videoId;
@@ -37,19 +37,19 @@ public class b {
         return this.errorCode != 0;
     }
 
-    public boolean dFG() {
+    public boolean dIO() {
         return this.errorCode == 5 || this.errorCode == 6;
     }
 
-    public boolean dFH() {
+    public boolean dIP() {
         return this.errorCode == 1990055;
     }
 
-    public boolean dFI() {
+    public boolean dIQ() {
         return this.errorCode == 3250012;
     }
 
-    public boolean dFJ() {
+    public boolean dIR() {
         return this.errorCode == 227001;
     }
 
@@ -65,7 +65,7 @@ public class b {
         this.errorString = str;
     }
 
-    public AntiData crF() {
+    public AntiData cuM() {
         return this.antiData;
     }
 
@@ -109,20 +109,20 @@ public class b {
         return this.isCopyTWZhibo;
     }
 
-    public String dFK() {
-        return this.mIr;
+    public String dIS() {
+        return this.mVb;
     }
 
-    public void Sq(String str) {
-        this.mIr = str;
+    public void SP(String str) {
+        this.mVb = str;
     }
 
-    public String dFL() {
-        return this.mIt;
+    public String dIT() {
+        return this.mVc;
     }
 
-    public void Sr(String str) {
-        this.mIt = str;
+    public void SQ(String str) {
+        this.mVc = str;
     }
 
     public CustomDialogData getActivityDialog() {

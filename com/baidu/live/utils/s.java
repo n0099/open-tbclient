@@ -1,61 +1,57 @@
 package com.baidu.live.utils;
 
 import android.text.TextUtils;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes4.dex */
 public class s {
-    public static String QY() {
-        return r.bxD;
+    private static String bAB = "";
+
+    public static String GQ() {
+        if (TbadkCoreApplication.getInst().isMobileBaidu()) {
+            return "ala_audio_mobilebaidu_android_consume";
+        }
+        if (TbadkCoreApplication.getInst().isHaokan()) {
+            return "ala_audio_haokan_android_consume";
+        }
+        if (TbadkCoreApplication.getInst().isQuanmin()) {
+            return "ala_audio_quanmin_android_consume";
+        }
+        if (TbadkCoreApplication.getInst().isTieba()) {
+            return "ala_audio_tieba_android_consume";
+        }
+        if (TbadkCoreApplication.getInst().isYinbo()) {
+            return "ala_audio_yinbo_android_consume";
+        }
+        return "";
     }
 
-    public static String hX(String str) {
-        return !TextUtils.isEmpty(str) ? QY() + "/" + str : "";
+    public static String Sc() {
+        if (TextUtils.isEmpty(bAB)) {
+            if (TbadkCoreApplication.getInst().isMobileBaidu()) {
+                return "ala_audio_mobilebaidu_android_consume";
+            }
+            if (TbadkCoreApplication.getInst().isHaokan()) {
+                return "ala_audio_haokan_android_consume";
+            }
+            if (TbadkCoreApplication.getInst().isQuanmin()) {
+                return "ala_audio_quanmin_android_consume";
+            }
+            if (TbadkCoreApplication.getInst().isTieba()) {
+                return "ala_audio_tieba_android_consume";
+            }
+            if (TbadkCoreApplication.getInst().isYinbo()) {
+                return "ala_audio_yinbo_android_consume";
+            }
+            return "";
+        }
+        return bAB;
     }
 
-    public static String hY(String str) {
-        return !TextUtils.isEmpty(str) ? hX(str) + "/dest" : "";
+    public static void in(String str) {
+        bAB = str;
     }
 
-    public static String hZ(String str) {
-        return !TextUtils.isEmpty(str) ? hX(str) + "/video" : "";
-    }
-
-    public static String ia(String str) {
-        return !TextUtils.isEmpty(str) ? hX(str) + "/frame" : "";
-    }
-
-    public static String QZ() {
-        return r.bxE;
-    }
-
-    public static String ib(String str) {
-        return !TextUtils.isEmpty(str) ? QZ() + "/" + str : "";
-    }
-
-    public static String ic(String str) {
-        return !TextUtils.isEmpty(str) ? ib(str) + "/dest" : "";
-    }
-
-    public static String id(String str) {
-        return !TextUtils.isEmpty(str) ? ib(str) + "/video" : "";
-    }
-
-    public static String ie(String str) {
-        return !TextUtils.isEmpty(str) ? ib(str) + "/frame" : "";
-    }
-
-    public static String Ra() {
-        return r.bxF;
-    }
-
-    public static String Rb() {
-        return Ra() + "/start";
-    }
-
-    public static String Rc() {
-        return Rb() + "/dest";
-    }
-
-    public static String Rd() {
-        return Rb() + "/video";
+    public static String Sd() {
+        return bAB;
     }
 }

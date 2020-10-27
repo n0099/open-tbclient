@@ -3,9 +3,9 @@ package com.kascend.chushou.b.a.a;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f4074a;
+    public int f4072a;
 
     public j(int i) {
-        this.f4074a = i;
+        this.f4072a = i;
     }
 }

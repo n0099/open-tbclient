@@ -4,14 +4,14 @@ import android.support.annotation.NonNull;
 import com.baidu.swan.apps.runtime.e;
 /* loaded from: classes10.dex */
 public class a {
-    public static String nZ(@NonNull String str) {
+    public static String ou(@NonNull String str) {
         if (str.startsWith("file:///")) {
             str = str.substring("file:///".length());
         }
-        e aDa = e.aDa();
-        if (!com.baidu.swan.apps.storage.b.sH(str) || aDa == null) {
+        e aEU = e.aEU();
+        if (!com.baidu.swan.apps.storage.b.ta(str) || aEU == null) {
             return str;
         }
-        return com.baidu.swan.apps.storage.b.d(str, aDa);
+        return com.baidu.swan.apps.storage.b.d(str, aEU);
     }
 }

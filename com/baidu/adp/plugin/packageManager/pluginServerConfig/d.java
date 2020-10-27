@@ -7,32 +7,32 @@ import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class d {
-    private static volatile d Ua;
-    private PluginNetConfigInfos Ub = new PluginNetConfigInfos();
-    private b Uc;
+    private static volatile d Ub;
+    private PluginNetConfigInfos Uc = new PluginNetConfigInfos();
+    private b Ud;
 
     public static d qp() {
-        if (Ua == null) {
+        if (Ub == null) {
             synchronized (d.class) {
-                if (Ua == null) {
-                    Ua = new d();
+                if (Ub == null) {
+                    Ub = new d();
                 }
             }
         }
-        return Ua;
+        return Ub;
     }
 
     public void a(PluginSettings pluginSettings, boolean z, final a aVar) {
         c b = b(pluginSettings);
-        if (this.Uc != null) {
-            this.Uc.a(z, b, new a() { // from class: com.baidu.adp.plugin.packageManager.pluginServerConfig.d.1
+        if (this.Ud != null) {
+            this.Ud.a(z, b, new a() { // from class: com.baidu.adp.plugin.packageManager.pluginServerConfig.d.1
                 @Override // com.baidu.adp.plugin.packageManager.pluginServerConfig.a
                 public void a(boolean z2, c cVar, PluginNetConfigInfos pluginNetConfigInfos, String str) {
                     if (z2) {
-                        d.this.Ub = pluginNetConfigInfos;
+                        d.this.Uc = pluginNetConfigInfos;
                     }
                     if (aVar != null) {
-                        aVar.a(z2, cVar, d.this.Ub, str);
+                        aVar.a(z2, cVar, d.this.Uc, str);
                     }
                 }
             });
@@ -55,10 +55,10 @@ public class d {
     }
 
     public PluginNetConfigInfos qq() {
-        return this.Ub;
+        return this.Uc;
     }
 
     public void a(b bVar) {
-        this.Uc = bVar;
+        this.Ud = bVar;
     }
 }

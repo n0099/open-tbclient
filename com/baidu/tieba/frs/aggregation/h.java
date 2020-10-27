@@ -14,21 +14,21 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class h {
-    private com.baidu.tbadk.coreExtra.model.a ezg;
-    private c ixb;
+    private com.baidu.tbadk.coreExtra.model.a eHC;
+    private c iJx;
     private TbPageContext mPageContext;
-    private BdUniqueId aiy = BdUniqueId.gen();
-    private CustomMessageListener ezk = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.frs.aggregation.h.1
+    private BdUniqueId aiz = BdUniqueId.gen();
+    private CustomMessageListener eHG = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.frs.aggregation.h.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             UpdateAttentionMessage updateAttentionMessage;
             UpdateAttentionMessage.a data;
-            if ((customResponsedMessage instanceof UpdateAttentionMessage) && h.this.ixb != null && (data = (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage).getData()) != null) {
+            if ((customResponsedMessage instanceof UpdateAttentionMessage) && h.this.iJx != null && (data = (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage).getData()) != null) {
                 if (!data.isSucc) {
-                    h.this.ixb.showMsg(updateAttentionMessage.getData().errorString);
+                    h.this.iJx.showMsg(updateAttentionMessage.getData().errorString);
                 } else {
-                    h.this.ixb.pr(data.isAttention);
+                    h.this.iJx.pJ(data.isAttention);
                 }
             }
         }
@@ -36,25 +36,25 @@ public class h {
 
     public h(TbPageContext tbPageContext, c cVar) {
         this.mPageContext = tbPageContext;
-        this.ixb = cVar;
-        this.ezg = new com.baidu.tbadk.coreExtra.model.a(tbPageContext);
-        this.ezk.setSelfListener(true);
-        this.ezk.setTag(this.aiy);
-        MessageManager.getInstance().registerListener(this.ezk);
+        this.iJx = cVar;
+        this.eHC = new com.baidu.tbadk.coreExtra.model.a(tbPageContext);
+        this.eHG.setSelfListener(true);
+        this.eHG.setTag(this.aiz);
+        MessageManager.getInstance().registerListener(this.eHG);
     }
 
     public void f(g gVar) {
         if (!j.isNetWorkAvailable()) {
             this.mPageContext.showToast(R.string.no_network);
-        } else if (gVar != null && gVar.iwF != null && this.ezg != null && bg.checkUpIsLogin(this.mPageContext.getPageActivity())) {
-            this.ezg.a(!gVar.iwF.hasFocus, gVar.iwF.portrait, gVar.iwF.userId, this.aiy);
+        } else if (gVar != null && gVar.iJb != null && this.eHC != null && bg.checkUpIsLogin(this.mPageContext.getPageActivity())) {
+            this.eHC.a(!gVar.iJb.hasFocus, gVar.iJb.portrait, gVar.iJb.userId, this.aiz);
         }
     }
 
     public void g(g gVar) {
         if (!j.isNetWorkAvailable()) {
             this.mPageContext.showToast(R.string.no_network);
-        } else if (gVar != null && this.ixb != null && bg.checkUpIsLogin(this.mPageContext.getPageActivity())) {
+        } else if (gVar != null && this.iJx != null && bg.checkUpIsLogin(this.mPageContext.getPageActivity())) {
             HttpMessage httpMessage = new HttpMessage(1001601);
             httpMessage.addParam("thread_id", gVar.threadId);
             httpMessage.addParam("op_type", Boolean.valueOf(gVar.hasAgree));
@@ -64,14 +64,14 @@ public class h {
             httpMessage.addParam("z_id", TbadkCoreApplication.getInst().getZid());
             httpMessage.addHeader("needSig", "1");
             MessageManager.getInstance().sendMessage(httpMessage);
-            this.ixb.cvw();
+            this.iJx.cyD();
         }
     }
 
-    public void cvF() {
-        if (this.ezg != null) {
-            this.ezg.cancel();
+    public void cyM() {
+        if (this.eHC != null) {
+            this.eHC.cancel();
         }
-        MessageManager.getInstance().unRegisterListener(this.ezk);
+        MessageManager.getInstance().unRegisterListener(this.eHG);
     }
 }

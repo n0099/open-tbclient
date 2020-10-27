@@ -14,100 +14,100 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes21.dex */
 public class i {
-    private int kgA;
-    private int kgB;
-    private int kgC;
-    private String kgz;
-    private long kgy = 0;
-    private HashMap<String, Boolean> kgx = new HashMap<>();
+    private String ksX;
+    private int ksY;
+    private int ksZ;
+    private int kta;
+    private long ksW = 0;
+    private HashMap<String, Boolean> ksV = new HashMap<>();
 
-    public void Dk(int i) {
-        this.kgB = i;
+    public void DD(int i) {
+        this.ksZ = i;
     }
 
-    public int cSg() {
-        return this.kgB;
+    public int cVn() {
+        return this.ksZ;
     }
 
-    public void Dl(int i) {
-        this.kgC = i;
+    public void DE(int i) {
+        this.kta = i;
     }
 
-    public int cSh() {
-        return this.kgC;
+    public int cVo() {
+        return this.kta;
     }
 
     public void b(Bundle bundle, Intent intent) {
         if (bundle != null) {
-            this.kgz = bundle.getString(ImageViewerConfig.PV_TYPE);
+            this.ksX = bundle.getString(ImageViewerConfig.PV_TYPE);
         } else if (intent != null) {
-            this.kgz = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
+            this.ksX = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
             int intExtra = intent.getIntExtra("index", -1);
-            this.kgA = intExtra;
-            this.kgB = intExtra;
-            this.kgC = intExtra;
+            this.ksY = intExtra;
+            this.ksZ = intExtra;
+            this.kta = intExtra;
         }
     }
 
     public void ay(Bundle bundle) {
         if (bundle != null) {
-            bundle.putString(ImageViewerConfig.PV_TYPE, this.kgz);
+            bundle.putString(ImageViewerConfig.PV_TYPE, this.ksX);
         }
     }
 
     public void e(List<String> list, int i, int i2) {
-        synchronized (this.kgx) {
-            if (System.nanoTime() - this.kgy > 300000000 && list != null && i < list.size()) {
-                this.kgx.put(list.get(i), true);
+        synchronized (this.ksV) {
+            if (System.nanoTime() - this.ksW > 300000000 && list != null && i < list.size()) {
+                this.ksV.put(list.get(i), true);
             }
-            this.kgy = System.nanoTime();
-            if (list != null && i2 < list.size() && this.kgx.get(list.get(i2)) == null) {
-                this.kgx.put(list.get(i2), false);
+            this.ksW = System.nanoTime();
+            if (list != null && i2 < list.size() && this.ksV.get(list.get(i2)) == null) {
+                this.ksV.put(list.get(i2), false);
             }
         }
-        if (this.kgx.size() >= 100) {
-            cSi();
+        if (this.ksV.size() >= 100) {
+            cVp();
         }
     }
 
-    public void cSi() {
-        if (this.kgx != null) {
-            synchronized (this.kgx) {
-                if (this.kgx.size() > 0) {
+    public void cVp() {
+        if (this.ksV != null) {
+            synchronized (this.ksV) {
+                if (this.ksV.size() > 0) {
                     int i = 0;
-                    for (Map.Entry<String, Boolean> entry : this.kgx.entrySet()) {
+                    for (Map.Entry<String, Boolean> entry : this.ksV.entrySet()) {
                         if (entry.getValue().booleanValue()) {
                             i++;
                         }
                     }
-                    TbadkCoreApplication.getInst().sendImagePv(i, this.kgx.size(), this.kgz, this.kgA + 1, this.kgB + 1);
-                    this.kgx.clear();
+                    TbadkCoreApplication.getInst().sendImagePv(i, this.ksV.size(), this.ksX, this.ksY + 1, this.ksZ + 1);
+                    this.ksV.clear();
                 }
             }
         }
     }
 
-    public void bx(int i, String str) {
-        if (i == 1 && System.nanoTime() - this.kgy > 300000000) {
-            this.kgx.put(str, true);
+    public void by(int i, String str) {
+        if (i == 1 && System.nanoTime() - this.ksW > 300000000) {
+            this.ksV.put(str, true);
         }
     }
 
     public void a(int i, String str, String str2, String str3, String str4, String str5) {
         StringBuilder sb = new StringBuilder();
         StringBuilder sb2 = new StringBuilder();
-        if (this.kgC == this.kgB) {
-            sb.append(this.kgC + 1);
-            if (this.kgB == i - 1) {
+        if (this.kta == this.ksZ) {
+            sb.append(this.kta + 1);
+            if (this.ksZ == i - 1) {
                 sb2.append(1);
             } else {
                 sb2.append(0);
             }
         } else {
-            for (int i2 = this.kgC; i2 <= this.kgB; i2++) {
-                if (i2 == this.kgB) {
+            for (int i2 = this.kta; i2 <= this.ksZ; i2++) {
+                if (i2 == this.ksZ) {
                     sb.append(i2 + 1);
-                    if (this.kgB == i - 1) {
+                    if (this.ksZ == i - 1) {
                         sb2.append(1);
                     } else {
                         sb2.append(0);
@@ -121,25 +121,25 @@ public class i {
             }
         }
         aq aqVar = new aq("common_exp");
-        aqVar.dK("page_type", PageStayDurationConstants.PageName.BIGIMAGE);
+        aqVar.dR("page_type", PageStayDurationConstants.PageName.BIGIMAGE);
         if (!at.isEmpty(str2)) {
-            aqVar.dK("fid", str2);
+            aqVar.dR("fid", str2);
         }
         if (!at.isEmpty(str3)) {
-            aqVar.dK("tid", str3);
+            aqVar.dR("tid", str3);
         }
         if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
-            aqVar.dK("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().eOl);
+            aqVar.dR("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().eWH);
         }
         aqVar.aj("pic_count", i);
-        aqVar.dK("obj_floors", sb.toString());
-        aqVar.dK("obj_isads", sb2.toString());
-        int i3 = (this.kgB - this.kgC) + 1;
+        aqVar.dR("obj_floors", sb.toString());
+        aqVar.dR("obj_isads", sb2.toString());
+        int i3 = (this.ksZ - this.kta) + 1;
         if (i3 == 1) {
-            if (this.kgB == i - 1) {
-                aqVar.dK("obj_id", str);
+            if (this.ksZ == i - 1) {
+                aqVar.dR("obj_id", str);
             } else {
-                aqVar.dK("obj_id", "");
+                aqVar.dR("obj_id", "");
             }
         }
         if (i3 > 1) {
@@ -147,16 +147,16 @@ public class i {
             for (int i4 = 0; i4 < i3 - 1; i4++) {
                 sb3.append("|");
             }
-            if (this.kgB == i - 1) {
+            if (this.ksZ == i - 1) {
                 sb3.append(str);
             }
-            aqVar.dK("obj_ids", str);
+            aqVar.dR("obj_ids", str);
         }
         if (!StringUtils.isNull(str4)) {
-            aqVar.dK("first_dir", str4);
+            aqVar.dR("first_dir", str4);
         }
         if (!StringUtils.isNull(str5)) {
-            aqVar.dK("second_dir", str5);
+            aqVar.dR("second_dir", str5);
         }
         TiebaStatic.log(aqVar);
     }

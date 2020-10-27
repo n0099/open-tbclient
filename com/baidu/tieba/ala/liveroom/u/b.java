@@ -9,15 +9,15 @@ import com.baidu.live.tbadk.browser.BrowserHelper;
 import com.baidu.tieba.ala.liveroom.j.g;
 /* loaded from: classes4.dex */
 public class b {
-    private ViewGroup bBk;
-    private View.OnClickListener eTU = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.u.b.1
+    private ViewGroup bEg;
+    private String fLC;
+    private View.OnClickListener fcr = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.u.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            BrowserHelper.startInternalWebActivity(b.this.mTbPageContext.getPageActivity(), b.this.fDh);
+            BrowserHelper.startInternalWebActivity(b.this.mTbPageContext.getPageActivity(), b.this.fLC);
         }
     };
-    private String fDh;
-    protected c haF;
+    protected c hmv;
     protected TbPageContext mTbPageContext;
 
     public b(TbPageContext tbPageContext) {
@@ -28,37 +28,37 @@ public class b {
         return this.mTbPageContext;
     }
 
-    protected boolean a(ViewGroup viewGroup, String str) {
+    protected boolean b(ViewGroup viewGroup, String str) {
         if (viewGroup == null) {
             return false;
         }
-        this.fDh = str;
-        if (this.haF == null) {
-            this.haF = new c(getPageContext(), this.eTU);
+        this.fLC = str;
+        if (this.hmv == null) {
+            this.hmv = new c(getPageContext(), this.fcr);
         }
-        if (this.bBk != null && this.bBk.indexOfChild(this.haF.getView()) > 0) {
-            this.bBk.removeView(this.haF.getView());
+        if (this.bEg != null && this.bEg.indexOfChild(this.hmv.getView()) > 0) {
+            this.bEg.removeView(this.hmv.getView());
         }
-        this.bBk = viewGroup;
-        this.haF.getView().setId(a.g.privilege_manager_id);
-        this.haF.getView().setVisibility(0);
+        this.bEg = viewGroup;
+        this.hmv.getView().setId(a.g.privilege_manager_id);
+        this.hmv.getView().setVisibility(0);
         return true;
     }
 
-    public void b(ViewGroup viewGroup, String str) {
-        if (a(viewGroup, str)) {
+    public void c(ViewGroup viewGroup, String str) {
+        if (b(viewGroup, str)) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(12);
             layoutParams.setMargins(getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds18), 0, getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds180), 0);
             layoutParams.bottomMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_tbds130) + getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds18);
-            viewGroup.addView(this.haF.getView(), layoutParams);
+            viewGroup.addView(this.hmv.getView(), layoutParams);
         }
     }
 
-    public void cbt() {
-        if (this.bBk != null && this.bBk.indexOfChild(this.haF.getView()) > 0) {
-            this.bBk.removeView(this.haF.getView());
-            g.va(2913128);
+    public void cex() {
+        if (this.bEg != null && this.bEg.indexOfChild(this.hmv.getView()) > 0) {
+            this.bEg.removeView(this.hmv.getView());
+            g.vu(2913128);
         }
     }
 }

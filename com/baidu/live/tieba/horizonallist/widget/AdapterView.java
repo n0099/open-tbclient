@@ -18,10 +18,10 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Adapter;
 /* loaded from: classes4.dex */
 public abstract class AdapterView<T extends Adapter> extends ViewGroup {
-    private AdapterView<T>.f bsA;
-    e bsx;
-    c bsy;
-    d bsz;
+    e buF;
+    c buG;
+    d buH;
+    private AdapterView<T>.f buI;
     AccessibilityManager mAccessibilityManager;
     protected boolean mBlockLayoutRequests;
     public boolean mDataChanged;
@@ -125,20 +125,20 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     }
 
     public void setOnItemClickListener(c cVar) {
-        this.bsy = cVar;
+        this.buG = cVar;
     }
 
     public final c getOnItemClickListener() {
-        return this.bsy;
+        return this.buG;
     }
 
     public boolean performItemClick(View view, int i, long j) {
-        if (this.bsy != null) {
+        if (this.buG != null) {
             playSoundEffect(0);
             if (view != null) {
                 view.sendAccessibilityEvent(1);
             }
-            this.bsy.a(this, view, i, j);
+            this.buG.a(this, view, i, j);
             return true;
         }
         return false;
@@ -148,19 +148,19 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         if (!isLongClickable()) {
             setLongClickable(true);
         }
-        this.bsz = dVar;
+        this.buH = dVar;
     }
 
     public final d getOnItemLongClickListener() {
-        return this.bsz;
+        return this.buH;
     }
 
     public void setOnItemSelectedListener(e eVar) {
-        this.bsx = eVar;
+        this.buF = eVar;
     }
 
     public final e getOnItemSelectedListener() {
-        return this.bsx;
+        return this.buF;
     }
 
     /* loaded from: classes4.dex */
@@ -422,7 +422,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        removeCallbacks(this.bsA);
+        removeCallbacks(this.buI);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -443,12 +443,12 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     }
 
     void selectionChanged() {
-        if (this.bsx != null || this.mAccessibilityManager.isEnabled()) {
+        if (this.buF != null || this.mAccessibilityManager.isEnabled()) {
             if (this.mInLayout || this.mBlockLayoutRequests) {
-                if (this.bsA == null) {
-                    this.bsA = new f();
+                if (this.buI == null) {
+                    this.buI = new f();
                 }
-                post(this.bsA);
+                post(this.buI);
                 return;
             }
             fireOnSelected();
@@ -458,13 +458,13 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void fireOnSelected() {
-        if (this.bsx != null) {
+        if (this.buF != null) {
             int selectedItemPosition = getSelectedItemPosition();
             if (selectedItemPosition >= 0) {
-                this.bsx.c(this, getSelectedView(), selectedItemPosition, getAdapter().getItemId(selectedItemPosition));
+                this.buF.c(this, getSelectedView(), selectedItemPosition, getAdapter().getItemId(selectedItemPosition));
                 return;
             }
-            this.bsx.d(this);
+            this.buF.d(this);
         }
     }
 

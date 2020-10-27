@@ -10,7 +10,7 @@ import java.util.concurrent.ScheduledExecutorService;
 public class a extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    private int[] f4439a;
+    private int[] f4437a;
     private int b;
     private String c;
 
@@ -37,13 +37,13 @@ public class a extends c {
     }
 
     public void a(int... iArr) {
-        this.f4439a = iArr;
+        this.f4437a = iArr;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     protected boolean a() {
         if (this.b != 0) {
-            if (this.f4439a == null || this.f4439a.length <= 0 || this.b != 1) {
+            if (this.f4437a == null || this.f4437a.length <= 0 || this.b != 1) {
                 return this.b == 2 && !TextUtils.isEmpty(this.c);
             }
             return true;
@@ -74,15 +74,15 @@ public class a extends c {
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     protected Intent[] d() {
-        if (this.f4439a != null) {
-            Intent[] intentArr = new Intent[this.f4439a.length];
-            for (int i = 0; i < this.f4439a.length; i++) {
-                com.meizu.cloud.a.a.i("Strategy", "send notifyId " + this.f4439a[i] + " to PushManagerService");
+        if (this.f4437a != null) {
+            Intent[] intentArr = new Intent[this.f4437a.length];
+            for (int i = 0; i < this.f4437a.length; i++) {
+                com.meizu.cloud.a.a.i("Strategy", "send notifyId " + this.f4437a[i] + " to PushManagerService");
                 Intent intent = new Intent();
                 intent.putExtra("strategy_package_name", this.e.getPackageName());
                 intent.putExtra("strategy_type", g());
                 intent.putExtra("strategy_child_type", this.b);
-                intent.putExtra("strategy_params", "" + this.f4439a[i]);
+                intent.putExtra("strategy_params", "" + this.f4437a[i]);
                 intentArr[i] = intent;
             }
             return intentArr;
@@ -102,8 +102,8 @@ public class a extends c {
                 com.meizu.cloud.pushsdk.notification.c.b.a(this.e, this.h);
                 return null;
             case 1:
-                if (this.f4439a != null) {
-                    for (int i : this.f4439a) {
+                if (this.f4437a != null) {
+                    for (int i : this.f4437a) {
                         com.meizu.cloud.a.a.e("Strategy", "clear notifyId " + i);
                         com.meizu.cloud.pushsdk.notification.c.b.a(this.e, this.h, i);
                     }

@@ -22,22 +22,22 @@ import master.flame.danmaku.danmaku.model.l;
 public class DanmakuSurfaceView extends SurfaceView implements SurfaceHolder.Callback, f, g {
     private HandlerThread mHandlerThread;
     private SurfaceHolder mSurfaceHolder;
-    private c.a oTX;
-    private LinkedList<Long> oUf;
-    private c oYN;
-    private boolean oYO;
-    private boolean oYP;
-    private f.a oYQ;
-    private a oYR;
-    private boolean oYS;
-    private boolean oYT;
-    protected int oYU;
+    private LinkedList<Long> pLB;
+    private c.a pLt;
+    private c pQj;
+    private boolean pQk;
+    private boolean pQl;
+    private f.a pQm;
+    private a pQn;
+    private boolean pQo;
+    private boolean pQp;
+    protected int pQq;
 
     public DanmakuSurfaceView(Context context) {
         super(context);
-        this.oYP = true;
-        this.oYT = true;
-        this.oYU = 0;
+        this.pQl = true;
+        this.pQp = true;
+        this.pQq = 0;
         init();
     }
 
@@ -49,56 +49,56 @@ public class DanmakuSurfaceView extends SurfaceView implements SurfaceHolder.Cal
         this.mSurfaceHolder = getHolder();
         this.mSurfaceHolder.addCallback(this);
         this.mSurfaceHolder.setFormat(-2);
-        d.aH(true, true);
-        this.oYR = a.b(this);
+        d.aN(true, true);
+        this.pQn = a.b(this);
     }
 
     public DanmakuSurfaceView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.oYP = true;
-        this.oYT = true;
-        this.oYU = 0;
+        this.pQl = true;
+        this.pQp = true;
+        this.pQq = 0;
         init();
     }
 
     public DanmakuSurfaceView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.oYP = true;
-        this.oYT = true;
-        this.oYU = 0;
+        this.pQl = true;
+        this.pQp = true;
+        this.pQq = 0;
         init();
     }
 
     public void a(master.flame.danmaku.danmaku.model.d dVar) {
-        if (this.oYN != null) {
-            this.oYN.a(dVar);
+        if (this.pQj != null) {
+            this.pQj.a(dVar);
         }
     }
 
-    public void zC(boolean z) {
-        if (this.oYN != null) {
-            this.oYN.zC(z);
+    public void AK(boolean z) {
+        if (this.pQj != null) {
+            this.pQj.AK(z);
         }
     }
 
     @Override // master.flame.danmaku.a.f
     public l getCurrentVisibleDanmakus() {
-        if (this.oYN != null) {
-            return this.oYN.getCurrentVisibleDanmakus();
+        if (this.pQj != null) {
+            return this.pQj.getCurrentVisibleDanmakus();
         }
         return null;
     }
 
     public void setCallback(c.a aVar) {
-        this.oTX = aVar;
-        if (this.oYN != null) {
-            this.oYN.setCallback(aVar);
+        this.pLt = aVar;
+        if (this.pQj != null) {
+            this.pQj.setCallback(aVar);
         }
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
-        this.oYO = true;
+        this.pQk = true;
         Canvas lockCanvas = surfaceHolder.lockCanvas();
         if (lockCanvas != null) {
             d.e(lockCanvas);
@@ -108,31 +108,31 @@ public class DanmakuSurfaceView extends SurfaceView implements SurfaceHolder.Cal
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
-        if (this.oYN != null) {
-            this.oYN.eo(i2, i3);
+        if (this.pQj != null) {
+            this.pQj.ew(i2, i3);
         }
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-        this.oYO = false;
+        this.pQk = false;
     }
 
     public void release() {
         stop();
-        if (this.oUf != null) {
-            this.oUf.clear();
+        if (this.pLB != null) {
+            this.pLB.clear();
         }
     }
 
     public void stop() {
-        eqz();
+        eAx();
     }
 
-    private synchronized void eqz() {
-        if (this.oYN != null) {
-            this.oYN.quit();
-            this.oYN = null;
+    private synchronized void eAx() {
+        if (this.pQj != null) {
+            this.pQj.quit();
+            this.pQj = null;
         }
         HandlerThread handlerThread = this.mHandlerThread;
         this.mHandlerThread = null;
@@ -146,7 +146,7 @@ public class DanmakuSurfaceView extends SurfaceView implements SurfaceHolder.Cal
         }
     }
 
-    protected synchronized Looper Pq(int i) {
+    protected synchronized Looper Rh(int i) {
         int i2;
         Looper mainLooper;
         if (this.mHandlerThread != null) {
@@ -180,85 +180,85 @@ public class DanmakuSurfaceView extends SurfaceView implements SurfaceHolder.Cal
     }
 
     private void prepare() {
-        if (this.oYN == null) {
-            this.oYN = new c(Pq(this.oYU), this, this.oYT);
+        if (this.pQj == null) {
+            this.pQj = new c(Rh(this.pQq), this, this.pQp);
         }
     }
 
     public void a(master.flame.danmaku.danmaku.a.a aVar, DanmakuContext danmakuContext) {
         prepare();
-        this.oYN.a(danmakuContext);
-        this.oYN.a(aVar);
-        this.oYN.setCallback(this.oTX);
-        this.oYN.prepare();
+        this.pQj.a(danmakuContext);
+        this.pQj.a(aVar);
+        this.pQj.setCallback(this.pLt);
+        this.pQj.prepare();
     }
 
     public boolean isPrepared() {
-        return this.oYN != null && this.oYN.isPrepared();
+        return this.pQj != null && this.pQj.isPrepared();
     }
 
     public DanmakuContext getConfig() {
-        if (this.oYN == null) {
+        if (this.pQj == null) {
             return null;
         }
-        return this.oYN.getConfig();
+        return this.pQj.getConfig();
     }
 
-    private float eqA() {
-        long eqy = master.flame.danmaku.danmaku.c.c.eqy();
-        this.oUf.addLast(Long.valueOf(eqy));
-        Long peekFirst = this.oUf.peekFirst();
+    private float eAy() {
+        long eAw = master.flame.danmaku.danmaku.c.c.eAw();
+        this.pLB.addLast(Long.valueOf(eAw));
+        Long peekFirst = this.pLB.peekFirst();
         if (peekFirst == null) {
             return 0.0f;
         }
-        float longValue = (float) (eqy - peekFirst.longValue());
-        if (this.oUf.size() > 50) {
-            this.oUf.removeFirst();
+        float longValue = (float) (eAw - peekFirst.longValue());
+        if (this.pLB.size() > 50) {
+            this.pLB.removeFirst();
         }
-        return longValue > 0.0f ? (this.oUf.size() * 1000) / longValue : 0.0f;
+        return longValue > 0.0f ? (this.pLB.size() * 1000) / longValue : 0.0f;
     }
 
     @Override // master.flame.danmaku.a.g
-    public long eph() {
-        if (!this.oYO) {
+    public long ezf() {
+        if (!this.pQk) {
             return 0L;
         }
         if (!isShown()) {
             return -1L;
         }
-        long eqy = master.flame.danmaku.danmaku.c.c.eqy();
+        long eAw = master.flame.danmaku.danmaku.c.c.eAw();
         try {
             Canvas lockCanvas = this.mSurfaceHolder.lockCanvas();
             if (lockCanvas != null) {
-                if (this.oYN != null) {
-                    a.b as = this.oYN.as(lockCanvas);
-                    if (this.oYS) {
-                        if (this.oUf == null) {
-                            this.oUf = new LinkedList<>();
+                if (this.pQj != null) {
+                    a.b au = this.pQj.au(lockCanvas);
+                    if (this.pQo) {
+                        if (this.pLB == null) {
+                            this.pLB = new LinkedList<>();
                         }
-                        long eqy2 = master.flame.danmaku.danmaku.c.c.eqy() - eqy;
-                        d.c(lockCanvas, String.format(Locale.getDefault(), "fps %.2f,time:%d s,cache:%d,miss:%d", Float.valueOf(eqA()), Long.valueOf(getCurrentTime() / 1000), Long.valueOf(as.oYe), Long.valueOf(as.oYf)));
+                        long eAw2 = master.flame.danmaku.danmaku.c.c.eAw() - eAw;
+                        d.c(lockCanvas, String.format(Locale.getDefault(), "fps %.2f,time:%d s,cache:%d,miss:%d", Float.valueOf(eAy()), Long.valueOf(getCurrentTime() / 1000), Long.valueOf(au.pPA), Long.valueOf(au.pPB)));
                     }
                 }
-                if (this.oYO) {
+                if (this.pQk) {
                     this.mSurfaceHolder.unlockCanvasAndPost(lockCanvas);
                 }
             }
         } catch (Exception e) {
         }
-        return master.flame.danmaku.danmaku.c.c.eqy() - eqy;
+        return master.flame.danmaku.danmaku.c.c.eAw() - eAw;
     }
 
     public void pause() {
-        if (this.oYN != null) {
-            this.oYN.pause();
+        if (this.pQj != null) {
+            this.pQj.pause();
         }
     }
 
     public void resume() {
-        if (this.oYN != null && this.oYN.isPrepared()) {
-            this.oYN.resume();
-        } else if (this.oYN == null) {
+        if (this.pQj != null && this.pQj.isPrepared()) {
+            this.pQj.resume();
+        } else if (this.pQj == null) {
             restart();
         }
     }
@@ -273,35 +273,35 @@ public class DanmakuSurfaceView extends SurfaceView implements SurfaceHolder.Cal
     }
 
     public void start(long j) {
-        if (this.oYN == null) {
+        if (this.pQj == null) {
             prepare();
         } else {
-            this.oYN.removeCallbacksAndMessages(null);
+            this.pQj.removeCallbacksAndMessages(null);
         }
-        this.oYN.obtainMessage(1, Long.valueOf(j)).sendToTarget();
+        this.pQj.obtainMessage(1, Long.valueOf(j)).sendToTarget();
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        boolean onTouchEvent = this.oYR.onTouchEvent(motionEvent);
+        boolean onTouchEvent = this.pQn.onTouchEvent(motionEvent);
         if (!onTouchEvent) {
             return super.onTouchEvent(motionEvent);
         }
         return onTouchEvent;
     }
 
-    public void zO(boolean z) {
-        this.oYP = z;
+    public void AW(boolean z) {
+        this.pQl = z;
     }
 
     @Override // master.flame.danmaku.a.g
-    public boolean epi() {
-        return this.oYP;
+    public boolean ezg() {
+        return this.pQl;
     }
 
     @Override // master.flame.danmaku.a.g
-    public boolean epg() {
-        return this.oYO;
+    public boolean eze() {
+        return this.pQk;
     }
 
     public View getView() {
@@ -309,18 +309,18 @@ public class DanmakuSurfaceView extends SurfaceView implements SurfaceHolder.Cal
     }
 
     public void setOnDanmakuClickListener(f.a aVar) {
-        this.oYQ = aVar;
+        this.pQm = aVar;
     }
 
     @Override // master.flame.danmaku.a.f
     public f.a getOnDanmakuClickListener() {
-        return this.oYQ;
+        return this.pQm;
     }
 
     @Override // master.flame.danmaku.a.g
     public void clear() {
         Canvas lockCanvas;
-        if (epg() && (lockCanvas = this.mSurfaceHolder.lockCanvas()) != null) {
+        if (eze() && (lockCanvas = this.mSurfaceHolder.lockCanvas()) != null) {
             d.e(lockCanvas);
             this.mSurfaceHolder.unlockCanvasAndPost(lockCanvas);
         }
@@ -328,16 +328,16 @@ public class DanmakuSurfaceView extends SurfaceView implements SurfaceHolder.Cal
 
     @Override // android.view.View
     public boolean isShown() {
-        return this.oYT && super.isShown();
+        return this.pQp && super.isShown();
     }
 
     public void setDrawingThreadType(int i) {
-        this.oYU = i;
+        this.pQq = i;
     }
 
     public long getCurrentTime() {
-        if (this.oYN != null) {
-            return this.oYN.getCurrentTime();
+        if (this.pQj != null) {
+            return this.pQj.getCurrentTime();
         }
         return 0L;
     }

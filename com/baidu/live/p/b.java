@@ -1,18 +1,9 @@
 package com.baidu.live.p;
 
-import android.view.ViewGroup;
-import com.baidu.live.data.u;
+import com.baidu.live.data.PersonUserData;
 /* loaded from: classes4.dex */
-public interface b {
-    void JQ();
-
-    void a(u uVar);
-
-    void b(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, u uVar);
-
-    boolean isShowing();
-
-    void onDestroy();
-
-    void setVisible(int i);
+public class b {
+    public PersonUserData boI;
+    public int errCode;
+    public String errMsg;
 }

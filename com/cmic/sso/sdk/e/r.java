@@ -34,7 +34,7 @@ public class r {
         }
     }
 
-    public static String aB(boolean z, boolean z2) {
+    public static String aH(boolean z, boolean z2) {
         StringBuilder sb = new StringBuilder();
         try {
             Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();

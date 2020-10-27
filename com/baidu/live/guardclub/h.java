@@ -1,22 +1,18 @@
 package com.baidu.live.guardclub;
 
 import android.view.ViewGroup;
-import com.baidu.live.data.u;
+import com.baidu.live.data.w;
 /* loaded from: classes4.dex */
 public interface h {
-    void JQ();
+    void Kj();
 
-    void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, u uVar);
+    void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, w wVar);
 
     void a(l lVar);
-
-    boolean isShowing();
 
     void onDestroy();
 
     void setHost(boolean z);
 
     void setOtherParams(String str);
-
-    void setVisible(int i);
 }

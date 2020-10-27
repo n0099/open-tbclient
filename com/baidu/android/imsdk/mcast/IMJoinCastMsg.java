@@ -119,7 +119,7 @@ public class IMJoinCastMsg extends Message {
                     int optInt = jSONObject.optInt("ping_interval", 60000);
                     if (optInt > 0) {
                         Heartbeat.ALARM_TIMEOUT = optInt * 1000;
-                        if (a.azA) {
+                        if (a.azB) {
                             ConversationStudioManImpl.mCastHeartBeatTime = optInt;
                         }
                     } else {

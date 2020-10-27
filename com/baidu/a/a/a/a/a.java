@@ -10,7 +10,7 @@ import com.baidu.live.adp.lib.cache.BdKVCache;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f989a = true;
+    public static boolean f986a = true;
     private static volatile a e;
     private final Context b;
     private h c;

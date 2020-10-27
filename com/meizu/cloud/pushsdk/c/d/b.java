@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class b extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4398a = b.class.getName();
+    private static final String f4396a = b.class.getName();
     private static b b;
 
     private b(Context context, String str) {
@@ -28,7 +28,7 @@ public class b extends SQLiteOpenHelper {
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        com.meizu.cloud.pushsdk.c.f.c.b(f4398a, "Upgrading database from version " + i + " to " + i2 + ". Destroying old data now..", new Object[0]);
+        com.meizu.cloud.pushsdk.c.f.c.b(f4396a, "Upgrading database from version " + i + " to " + i2 + ". Destroying old data now..", new Object[0]);
         sQLiteDatabase.execSQL("DROP TABLE IF EXISTS 'events'");
         onCreate(sQLiteDatabase);
     }

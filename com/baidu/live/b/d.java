@@ -1,28 +1,20 @@
 package com.baidu.live.b;
 
 import android.content.Context;
-import com.baidu.live.tbadk.core.frameworkdata.IntentAction;
+import com.baidu.ala.atomdata.AlaPersonCenterExpActivityConfig;
+import com.baidu.ala.atomdata.AlaSDKShareEmptyActivityConfig;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
-import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class d extends IntentConfig {
-    public d(Context context, int i, int i2) {
+    public d(Context context, int i, boolean z) {
         super(context);
-        getIntent().putExtra("key_choose_type", i);
-        setRequestCode(i2);
-        setIntentAction(IntentAction.ActivityForResult);
+        getIntent().putExtra("type", i);
+        getIntent().putExtra(AlaPersonCenterExpActivityConfig.IS_HOST, z);
     }
 
-    public void d(String str, ArrayList<String> arrayList) {
-        getIntent().putExtra("key_chosen_gift_id", str);
-        getIntent().putStringArrayListExtra("key_used_gift_list", arrayList);
-    }
-
-    public void dE(int i) {
-        getIntent().putExtra("key_chosen_gift_num", i);
-    }
-
-    public void dF(int i) {
-        getIntent().putExtra("key_chosen_date", i);
+    public void b(long j, long j2, long j3) {
+        getIntent().putExtra("challengeid", j);
+        getIntent().putExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, j2);
+        getIntent().putExtra("anchorid", j3);
     }
 }

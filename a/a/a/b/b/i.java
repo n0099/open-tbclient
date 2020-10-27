@@ -19,7 +19,7 @@ import java.util.Map;
 public abstract class i implements a.a.a.b.a.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f960a;
+    public String f957a;
     public volatile int e;
     public volatile int f = 0;
     public final c yG;
@@ -30,9 +30,9 @@ public abstract class i implements a.a.a.b.a.b {
         this.yG = cVar;
         this.yH = eVar;
         this.yI = aVar;
-        this.f960a = c();
-        if (TextUtils.isEmpty(this.f960a)) {
-            this.f960a = getClass().getSimpleName();
+        this.f957a = c();
+        if (TextUtils.isEmpty(this.f957a)) {
+            this.f957a = getClass().getSimpleName();
         }
     }
 
@@ -45,7 +45,7 @@ public abstract class i implements a.a.a.b.a.b {
         try {
             try {
                 try {
-                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.yH.f957a).openConnection();
+                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.yH.f954a).openConnection();
                     try {
                         httpURLConnection2.setConnectTimeout(4000);
                         httpURLConnection2.setReadTimeout(4000);
@@ -166,7 +166,7 @@ public abstract class i implements a.a.a.b.a.b {
                         if (!file.exists()) {
                             file.mkdirs();
                         }
-                        randomAccessFile = a(file, this.yG.f956a, j + j2);
+                        randomAccessFile = a(file, this.yG.f953a, j + j2);
                         try {
                             a(inputStream, randomAccessFile);
                             try {
@@ -234,7 +234,7 @@ public abstract class i implements a.a.a.b.a.b {
             synchronized (this.yI) {
                 this.e = 105;
                 b.a aVar = this.yI;
-                ((g) aVar).a(this.yG.b.getAbsolutePath() + File.separator + this.yG.f956a);
+                ((g) aVar).a(this.yG.b.getAbsolutePath() + File.separator + this.yG.f953a);
             }
         } catch (DownloadException e) {
             a(e);

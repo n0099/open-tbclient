@@ -7,16 +7,16 @@ import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.widget.listview.AbsDelegateAdapter;
 /* loaded from: classes4.dex */
 public class c extends AbsDelegateAdapter<com.baidu.tieba.ala.category.b.c, d> {
-    private String geJ;
+    private String goM;
 
     public c(Context context, BdUniqueId bdUniqueId) {
-        super(context, com.baidu.tieba.ala.category.b.c.geY, bdUniqueId);
+        super(context, com.baidu.tieba.ala.category.b.c.gpb, bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
-    /* renamed from: ae */
+    /* renamed from: af */
     public d onCreateViewHolder(ViewGroup viewGroup) {
         return new d(this.mContext, this.mPageId);
     }
@@ -26,12 +26,12 @@ public class c extends AbsDelegateAdapter<com.baidu.tieba.ala.category.b.c, d> {
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.category.b.c cVar, d dVar) {
-        dVar.a(cVar, this.geJ);
+        dVar.a(cVar, this.goM);
         return view;
     }
 
-    public void FP(String str) {
-        this.geJ = str;
+    public void Go(String str) {
+        this.goM = str;
         notifyDataSetChanged();
     }
 }

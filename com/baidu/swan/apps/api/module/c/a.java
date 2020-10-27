@@ -25,17 +25,17 @@ public class a extends d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b kc(String str) {
+    public com.baidu.swan.apps.api.c.b kv(String str) {
         Uri fromFile;
         if (DEBUG) {
             Log.d("Api-Base", "handle: " + str);
         }
-        if (afg()) {
+        if (aha()) {
             c.e("Api-Base", "Api-Base does not supported when app is invisible.");
             return new com.baidu.swan.apps.api.c.b(1001, "Api-Base does not supported when app is invisible.");
         }
-        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bc = com.baidu.swan.apps.api.d.b.bc("Api-Base", str);
-        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bc.first;
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bj = com.baidu.swan.apps.api.d.b.bj("Api-Base", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bj.first;
         if (!bVar.isSuccess()) {
             if (DEBUG) {
                 c.e("Api-Base", "parse fail");
@@ -43,10 +43,10 @@ public class a extends d {
             }
             return bVar;
         }
-        JSONObject jSONObject = (JSONObject) bc.second;
+        JSONObject jSONObject = (JSONObject) bj.second;
         String optString = jSONObject.optString("filePath");
-        String cs = com.baidu.swan.apps.storage.b.cs(optString, e.aDc());
-        if (TextUtils.isEmpty(optString) || com.baidu.swan.apps.storage.b.sQ(optString) != PathType.BD_FILE || TextUtils.isEmpty(cs)) {
+        String cz = com.baidu.swan.apps.storage.b.cz(optString, e.aEW());
+        if (TextUtils.isEmpty(optString) || com.baidu.swan.apps.storage.b.tj(optString) != PathType.BD_FILE || TextUtils.isEmpty(cz)) {
             c.e("Api-Base", "a valid filePath is required");
             return new com.baidu.swan.apps.api.c.b(202, "a valid filePath is required");
         }
@@ -55,27 +55,27 @@ public class a extends d {
             c.e("Api-Base", "cb is required");
             return new com.baidu.swan.apps.api.c.b(202, "cb is required");
         }
-        File file = new File(cs);
+        File file = new File(cz);
         if (!file.exists() || file.isDirectory()) {
             c.e("Api-Base", "file not exists");
             return new com.baidu.swan.apps.api.c.b(1001, "file not exists");
         }
-        SwanAppActivity ave = f.avu().ave();
-        if (ave == null) {
+        SwanAppActivity awY = f.axo().awY();
+        if (awY == null) {
             c.e("Api-Base", "activity null");
             return new com.baidu.swan.apps.api.c.b(1001, "activity null");
         }
-        ActivityResultDispatcher resultDispatcher = ave.getResultDispatcher();
+        ActivityResultDispatcher resultDispatcher = awY.getResultDispatcher();
         Intent intent = new Intent();
         if (com.baidu.swan.apps.ap.c.hasNougat()) {
-            fromFile = FileProvider.getUriForFile(ave, ave.getPackageName() + ".swan.fileprovider", file);
+            fromFile = FileProvider.getUriForFile(awY, awY.getPackageName() + ".swan.fileprovider", file);
             intent.setFlags(3);
         } else {
             fromFile = Uri.fromFile(file);
         }
         intent.setAction("android.intent.action.SEND");
         intent.putExtra("android.intent.extra.STREAM", fromFile);
-        intent.setType(kd(cs));
+        intent.setType(kw(cz));
         resultDispatcher.addConsumer(new ActivityResultConsumer() { // from class: com.baidu.swan.apps.api.module.c.a.1
             @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
             public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent2) {
@@ -90,7 +90,7 @@ public class a extends d {
         return new com.baidu.swan.apps.api.c.b(0);
     }
 
-    private String kd(String str) {
+    private String kw(String str) {
         int lastIndexOf = str.lastIndexOf("/");
         if (lastIndexOf > 0) {
             String contentTypeFor = URLConnection.getFileNameMap().getContentTypeFor(str.substring(lastIndexOf + 1));

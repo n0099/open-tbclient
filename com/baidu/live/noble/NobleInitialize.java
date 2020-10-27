@@ -5,37 +5,37 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
-import com.baidu.live.noble.b.b;
-import com.baidu.live.noble.data.c;
+import com.baidu.live.noble.b.c;
+import com.baidu.live.noble.b.d;
 /* loaded from: classes4.dex */
 public class NobleInitialize {
     static {
-        Nw();
-        Nx();
+        NU();
+        NV();
     }
 
-    private static void Nw() {
+    private static void NU() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913198, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.live.noble.NobleInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Context> customMessage) {
-                return new CustomResponsedMessage<>(2913198, new b());
+                return new CustomResponsedMessage<>(2913198, new c());
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void Nx() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2913204, new CustomMessageTask.CustomRunnable<c>() { // from class: com.baidu.live.noble.NobleInitialize.2
+    private static void NV() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2913204, new CustomMessageTask.CustomRunnable<com.baidu.live.noble.data.c>() { // from class: com.baidu.live.noble.NobleInitialize.2
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<?> run(CustomMessage<c> customMessage) {
-                if (customMessage == null || !(customMessage.getData() instanceof c)) {
+            public CustomResponsedMessage<?> run(CustomMessage<com.baidu.live.noble.data.c> customMessage) {
+                if (customMessage == null || !(customMessage.getData() instanceof com.baidu.live.noble.data.c)) {
                     return null;
                 }
-                c data = customMessage.getData();
-                com.baidu.live.noble.b.c cVar = new com.baidu.live.noble.b.c();
-                cVar.a(data.mTbPageContext, data.mLiveId, data.bla, data.aLF, data.mTabId, data.mIsHost);
-                return new CustomResponsedMessage<>(2913204, cVar);
+                com.baidu.live.noble.data.c data = customMessage.getData();
+                d dVar = new d();
+                dVar.a(data.mTbPageContext, data.mLiveId, data.bmv, data.aMj, data.mTabId, data.mIsHost);
+                return new CustomResponsedMessage<>(2913204, dVar);
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

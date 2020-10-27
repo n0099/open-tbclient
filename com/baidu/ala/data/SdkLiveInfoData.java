@@ -22,6 +22,7 @@ public class SdkLiveInfoData {
     public int recom_extra_img_width;
     public String roomId;
     public int routerType;
+    public String source;
     public String tid;
     public String title;
     public UiTransParam uiTransParam;
@@ -36,6 +37,7 @@ public class SdkLiveInfoData {
             this.title = jSONObject.optString("title");
             this.createTime = jSONObject.optLong("create_time");
             this.from = jSONObject.optInt("from");
+            this.source = jSONObject.optString("source");
             this.recom_extra_img = jSONObject.optString("recom_extra_img");
             this.recom_extra_img_night = jSONObject.optString("recom_extra_img_night");
             this.recom_extra_img_dark = jSONObject.optString("recom_extra_img_dark");
@@ -90,6 +92,7 @@ public class SdkLiveInfoData {
         public boolean haveRedpkg;
         public String hlsUrl;
         public int liveType;
+        public int roomStatus;
         public String rtmpUrl;
         public int screenDirection;
         public String sessionId;
@@ -103,6 +106,7 @@ public class SdkLiveInfoData {
                 this.audienceCount = jSONObject.optLong("audience_count");
                 this.liveType = jSONObject.optInt(UbcStatConstant.KEY_LIVE_TYPE);
                 this.screenDirection = jSONObject.optInt("screen_direction");
+                this.roomStatus = jSONObject.optInt("room_status");
                 JSONObject optJSONObject = jSONObject.optJSONObject("challenge_info");
                 if (optJSONObject != null) {
                     this.challengeInfoData = new AlaChallengeInfoData();

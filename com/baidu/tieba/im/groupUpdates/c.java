@@ -12,131 +12,131 @@ import com.baidu.tieba.im.data.UpdatesItemData;
 import java.util.List;
 /* loaded from: classes26.dex */
 public class c extends com.baidu.adp.base.c<UpdatesActivity> {
-    private View fih;
-    private View jPW;
-    private UpdatesActivity jRS;
-    private BdListView jSc;
-    private a jSd;
-    private ProgressBar jSe;
-    private Button jSf;
-    private Button jSg;
-    private Button jSh;
-    private View jSi;
-    private View jSj;
+    private View fqG;
+    private View kcv;
+    private BdListView keC;
+    private a keD;
+    private ProgressBar keE;
+    private Button keF;
+    private Button keG;
+    private Button keH;
+    private View keI;
+    private View keJ;
+    private UpdatesActivity ker;
     private NavigationBar mNavigationBar;
 
     public c(UpdatesActivity updatesActivity) {
         super(updatesActivity.getPageContext());
-        this.jRS = updatesActivity;
+        this.ker = updatesActivity;
         initView();
-        this.jSd = new a(this.jRS);
-        this.jSc.setAdapter((ListAdapter) this.jSd);
-        this.jSc.setOnScrollListener(this.jRS);
+        this.keD = new a(this.ker);
+        this.keC.setAdapter((ListAdapter) this.keD);
+        this.keC.setOnScrollListener(this.ker);
     }
 
     void initView() {
-        this.fih = View.inflate(this.jRS.getPageContext().getPageActivity(), R.layout.updates_activity, null);
-        this.jRS.setContentView(this.fih);
-        this.mNavigationBar = (NavigationBar) this.jRS.findViewById(R.id.view_navigation_bar);
-        this.jPW = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(this.jRS.getPageContext().getString(R.string.updates_activity_title));
-        this.jSi = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.updates_activity_nav_left, (View.OnClickListener) null);
-        this.jSj = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.updates_activity_nav_right, (View.OnClickListener) null);
-        this.jSh = (Button) this.jSi.findViewById(R.id.btn_delete);
-        this.jSh.setOnClickListener(this.jRS);
-        this.jPW.setOnClickListener(this.jRS);
-        this.jSc = (BdListView) this.fih.findViewById(R.id.updates_list);
-        this.jSe = (ProgressBar) this.fih.findViewById(R.id.pro_load);
-        this.jSf = (Button) this.jSj.findViewById(R.id.btn_edit);
-        this.jSf.setOnClickListener(this.jRS);
-        this.jSg = (Button) this.jSj.findViewById(R.id.btn_cancel);
-        this.jSg.setOnClickListener(this.jRS);
-        CA(0);
-        rD(false);
+        this.fqG = View.inflate(this.ker.getPageContext().getPageActivity(), R.layout.updates_activity, null);
+        this.ker.setContentView(this.fqG);
+        this.mNavigationBar = (NavigationBar) this.ker.findViewById(R.id.view_navigation_bar);
+        this.kcv = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.mNavigationBar.setTitleText(this.ker.getPageContext().getString(R.string.updates_activity_title));
+        this.keI = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.updates_activity_nav_left, (View.OnClickListener) null);
+        this.keJ = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.updates_activity_nav_right, (View.OnClickListener) null);
+        this.keH = (Button) this.keI.findViewById(R.id.btn_delete);
+        this.keH.setOnClickListener(this.ker);
+        this.kcv.setOnClickListener(this.ker);
+        this.keC = (BdListView) this.fqG.findViewById(R.id.updates_list);
+        this.keE = (ProgressBar) this.fqG.findViewById(R.id.pro_load);
+        this.keF = (Button) this.keJ.findViewById(R.id.btn_edit);
+        this.keF.setOnClickListener(this.ker);
+        this.keG = (Button) this.keJ.findViewById(R.id.btn_cancel);
+        this.keG.setOnClickListener(this.ker);
+        CT(0);
+        rV(false);
     }
 
     @Override // com.baidu.adp.base.c
     public void destroy() {
         super.destroy();
-        if (this.jSd != null) {
-            this.jSd.destroy();
-            this.jSd = null;
+        if (this.keD != null) {
+            this.keD.destroy();
+            this.keD = null;
         }
-        this.jRS = null;
+        this.ker = null;
     }
 
-    public a cNT() {
-        return this.jSd;
+    public a cRa() {
+        return this.keD;
     }
 
-    public void cNU() {
-        this.jSf.setVisibility(8);
-        this.jPW.setVisibility(8);
-        this.jSg.setVisibility(0);
-        this.jSi.setVisibility(0);
-        cMM();
+    public void cRb() {
+        this.keF.setVisibility(8);
+        this.kcv.setVisibility(8);
+        this.keG.setVisibility(0);
+        this.keI.setVisibility(0);
+        cPT();
     }
 
-    public void cNV() {
-        this.jSf.setVisibility(0);
-        this.jPW.setVisibility(0);
-        this.jSg.setVisibility(8);
-        this.jSi.setVisibility(8);
-        CA(0);
-        cMM();
+    public void cRc() {
+        this.keF.setVisibility(0);
+        this.kcv.setVisibility(0);
+        this.keG.setVisibility(8);
+        this.keI.setVisibility(8);
+        CT(0);
+        cPT();
     }
 
-    public void cMM() {
-        if (this.jSd != null) {
-            this.jSd.notifyDataSetChanged();
+    public void cPT() {
+        if (this.keD != null) {
+            this.keD.notifyDataSetChanged();
         }
     }
 
     public void setData(List<UpdatesItemData> list) {
-        if (this.jSd != null) {
-            this.jSd.setData(list);
+        if (this.keD != null) {
+            this.keD.setData(list);
         }
     }
 
-    public void CA(int i) {
-        if (this.jSh != null && this.jRS != null) {
-            this.jSh.setText(String.format(this.jRS.getPageContext().getString(R.string.del_count), Integer.valueOf(i)));
+    public void CT(int i) {
+        if (this.keH != null && this.ker != null) {
+            this.keH.setText(String.format(this.ker.getPageContext().getString(R.string.del_count), Integer.valueOf(i)));
             if (i == 0) {
-                this.jSh.setEnabled(false);
+                this.keH.setEnabled(false);
             } else {
-                this.jSh.setEnabled(true);
+                this.keH.setEnabled(true);
             }
         }
     }
 
-    public void rD(boolean z) {
-        this.jSe.setVisibility(z ? 0 : 8);
+    public void rV(boolean z) {
+        this.keE.setVisibility(z ? 0 : 8);
     }
 
     public void onChangeSkinType(int i) {
-        this.jRS.getLayoutMode().setNightMode(i == 1);
-        this.jRS.getLayoutMode().onModeChanged(this.fih);
-        this.mNavigationBar.onChangeSkinType(this.jRS.getPageContext(), i);
-        ap.setBackgroundResource(this.jSh, R.drawable.btn_delete_groupupdates);
+        this.ker.getLayoutMode().setNightMode(i == 1);
+        this.ker.getLayoutMode().onModeChanged(this.fqG);
+        this.mNavigationBar.onChangeSkinType(this.ker.getPageContext(), i);
+        ap.setBackgroundResource(this.keH, R.drawable.btn_delete_groupupdates);
     }
 
-    public View cNW() {
-        return this.jPW;
+    public View cRd() {
+        return this.kcv;
     }
 
-    public BdListView cNX() {
-        return this.jSc;
+    public BdListView cRe() {
+        return this.keC;
     }
 
-    public Button cNY() {
-        return this.jSf;
+    public Button cRf() {
+        return this.keF;
     }
 
-    public Button cNZ() {
-        return this.jSg;
+    public Button cRg() {
+        return this.keG;
     }
 
-    public Button cOa() {
-        return this.jSh;
+    public Button cRh() {
+        return this.keH;
     }
 }

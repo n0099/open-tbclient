@@ -15,25 +15,25 @@ import com.baidu.live.tieba.pb.interactionpopupwindow.IBaseDialogData;
 import com.baidu.live.tieba.pb.interactionpopupwindow.d;
 /* loaded from: classes4.dex */
 public abstract class a<V extends d, D extends IBaseDialogData> implements c {
-    private DialogInterface.OnDismissListener btT;
-    protected V btX;
-    protected D btY;
+    private DialogInterface.OnDismissListener bwa;
+    protected V bwe;
+    protected D bwf;
     private DialogInterface.OnCancelListener mCancelListenr;
     protected Context mContext;
     private AlertDialog mDialog;
     private DialogInterface.OnKeyListener mOnKeyListener;
     protected TbPageContext mPageContext;
     private int mDialogGravity = -1;
-    private boolean btU = true;
-    private boolean btV = false;
-    private boolean btW = false;
+    private boolean bwb = true;
+    private boolean bwc = false;
+    private boolean bwd = false;
 
     public a(TbPageContext tbPageContext, V v, D d) {
         this.mPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.btX = v;
-        this.btY = d;
-        a(d);
+        this.bwe = v;
+        this.bwf = d;
+        a((a<V, D>) d);
     }
 
     public void show() {
@@ -41,8 +41,8 @@ public abstract class a<V extends d, D extends IBaseDialogData> implements c {
             ShowUtil.showDialog(this.mDialog, this.mPageContext.getPageActivity());
             return;
         }
-        if (this.btV) {
-            if (this.btW) {
+        if (this.bwc) {
+            if (this.bwd) {
                 this.mDialog = new AlertDialog.Builder(this.mContext, a.j.sdk_search_dialog_from_bottom_in).create();
             } else {
                 this.mDialog = new AlertDialog.Builder(this.mContext, a.j.sdk_search_dialog).create();
@@ -50,14 +50,14 @@ public abstract class a<V extends d, D extends IBaseDialogData> implements c {
         } else {
             this.mDialog = new AlertDialog.Builder(this.mContext).create();
         }
-        this.mDialog.setCanceledOnTouchOutside(PN());
-        this.mDialog.setCancelable(PO());
+        this.mDialog.setCanceledOnTouchOutside(QG());
+        this.mDialog.setCancelable(QH());
         this.mDialog.setOnKeyListener(this.mOnKeyListener);
         if (this.mCancelListenr != null) {
             this.mDialog.setOnCancelListener(this.mCancelListenr);
         }
-        if (this.btT != null) {
-            this.mDialog.setOnDismissListener(this.btT);
+        if (this.bwa != null) {
+            this.mDialog.setOnDismissListener(this.bwa);
         }
         ShowUtil.showDialog(this.mDialog, this.mPageContext.getPageActivity());
         if (this.mDialog.getWindow().getDecorView().getParent() != null) {
@@ -81,7 +81,7 @@ public abstract class a<V extends d, D extends IBaseDialogData> implements c {
             }
             attributes.height = -2;
             window.setAttributes(attributes);
-            window.setContentView(this.btX.getViewGroup());
+            window.setContentView(this.bwe.getViewGroup());
         }
     }
 
@@ -92,6 +92,12 @@ public abstract class a<V extends d, D extends IBaseDialogData> implements c {
         }
     }
 
+    public a a(DialogInterface.OnDismissListener onDismissListener) {
+        this.bwa = onDismissListener;
+        return this;
+    }
+
+    @Override // com.baidu.live.tieba.pb.interactionpopupwindow.c
     public boolean isShowing() {
         if (this.mDialog != null) {
             return this.mDialog.isShowing();
@@ -99,19 +105,23 @@ public abstract class a<V extends d, D extends IBaseDialogData> implements c {
         return false;
     }
 
-    public a fE(int i) {
+    public a fG(int i) {
         this.mDialogGravity = i;
         return this;
     }
 
-    public a cv(boolean z) {
-        this.btV = z;
+    public a cA(boolean z) {
+        this.bwc = z;
         return this;
     }
 
     public void a(D d) {
-        if (this.btX != null) {
-            this.btX.a(d);
+        if (this.bwe != null) {
+            this.bwe.a(d);
         }
+    }
+
+    public void cB(boolean z) {
+        this.bwd = z;
     }
 }

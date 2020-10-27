@@ -30,10 +30,10 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes10.dex */
 public class j extends UnitedSchemeBaseDispatcher {
-    protected final Map<String, aa> dgt = new HashMap();
+    protected final Map<String, aa> doV = new HashMap();
 
     public j() {
-        aEh();
+        aGb();
     }
 
     @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
@@ -66,7 +66,7 @@ public class j extends UnitedSchemeBaseDispatcher {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302, "err path ：" + str2 + " @ " + str3);
                     return false;
                 }
-                aa aaVar = this.dgt.get(str2);
+                aa aaVar = this.doV.get(str2);
                 if (aaVar != null) {
                     if (unitedSchemeEntity.isOnlyVerify()) {
                         return true;
@@ -85,8 +85,8 @@ public class j extends UnitedSchemeBaseDispatcher {
         return null;
     }
 
-    protected void aEh() {
-        this.dgt.clear();
+    protected void aGb() {
+        this.doV.clear();
         a(new u(this));
         a(new com.baidu.swan.apps.network.i(this));
         a(new ad(this));
@@ -153,6 +153,6 @@ public class j extends UnitedSchemeBaseDispatcher {
     }
 
     public void a(aa aaVar) {
-        this.dgt.put(aaVar.name, aaVar);
+        this.doV.put(aaVar.name, aaVar);
     }
 }

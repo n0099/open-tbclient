@@ -20,9 +20,9 @@ public class ResponseHttpMajorResidueMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         if (jSONObject != null && jSONObject.optInt("error_code", -1) == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             this.majorHistoryData = new ForumBroadcastMajorResidueData();
-            this.majorHistoryData.Ch(optJSONObject.optInt("used_cnt"));
-            this.majorHistoryData.Ci(optJSONObject.optInt("has_cnt"));
-            this.majorHistoryData.Cj(optJSONObject.optInt("predict_push_usercnt"));
+            this.majorHistoryData.CA(optJSONObject.optInt("used_cnt"));
+            this.majorHistoryData.CB(optJSONObject.optInt("has_cnt"));
+            this.majorHistoryData.CC(optJSONObject.optInt("predict_push_usercnt"));
         }
     }
 }

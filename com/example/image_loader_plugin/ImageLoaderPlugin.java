@@ -92,9 +92,9 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
                             } else if (methodCall.argument("patternColor") instanceof Long) {
                                 i3 = ((Long) methodCall.argument("patternColor")).intValue();
                             }
-                            a2 = SvgManager.bmU().b(identifier, i3, SvgManager.SvgResourceStateType.NORMAL);
+                            a2 = SvgManager.boN().b(identifier, i3, SvgManager.SvgResourceStateType.NORMAL);
                         } else {
-                            a2 = SvgManager.bmU().a(identifier, null);
+                            a2 = SvgManager.boN().a(identifier, null);
                         }
                         int i4 = 1;
                         if (a2 != null) {
@@ -165,7 +165,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
                             ImageLoaderPlugin.access$108();
                             hashMap2.put("requestId", Integer.valueOf(ImageLoaderPlugin.requestId));
                             hashMap3 = new HashMap();
-                            hashMap3.put("codecCost", Long.valueOf(aVar.Vm.costTime));
+                            hashMap3.put("codecCost", Long.valueOf(aVar.Vn.costTime));
                             hashMap3.put("isBundleFile", false);
                             hashMap3.put("netType", j.netTypeNameInLowerCase());
                             hashMap3.put(CameraActivityConfig.KEY_CONTENT_TYPE, String.valueOf(i5));
@@ -222,7 +222,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
     }
 
     private boolean shouldMonitorPerformance(int i) {
-        return m.byc().byd() && i % 100 == 0;
+        return m.bzV().bzW() && i % 100 == 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

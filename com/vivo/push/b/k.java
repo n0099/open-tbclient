@@ -3,7 +3,7 @@ package com.vivo.push.b;
 public final class k extends u {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4642a;
+    private String f4640a;
     private String b;
     private String c;
 
@@ -12,7 +12,7 @@ public final class k extends u {
     }
 
     public final String d() {
-        return this.f4642a;
+        return this.f4640a;
     }
 
     public final String e() {
@@ -23,7 +23,7 @@ public final class k extends u {
     @Override // com.vivo.push.b.u, com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
         super.c(aVar);
-        aVar.a("app_id", this.f4642a);
+        aVar.a("app_id", this.f4640a);
         aVar.a("client_id", this.b);
         aVar.a("client_token", this.c);
     }
@@ -32,7 +32,7 @@ public final class k extends u {
     @Override // com.vivo.push.b.u, com.vivo.push.y
     public final void d(com.vivo.push.a aVar) {
         super.d(aVar);
-        this.f4642a = aVar.a("app_id");
+        this.f4640a = aVar.a("app_id");
         this.b = aVar.a("client_id");
         this.c = aVar.a("client_token");
     }

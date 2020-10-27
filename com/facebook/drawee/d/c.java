@@ -13,7 +13,7 @@ public interface c extends b {
 
     void c(float f, boolean z);
 
-    void j(Drawable drawable);
+    void o(Drawable drawable);
 
     void reset();
 }

@@ -1,41 +1,36 @@
 package com.baidu.live.data;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ai {
-    public int aLZ;
-    public String aMa;
-    public int aMb;
-    public int aMc;
-    public ak aMd;
-    public int aMe;
-    public String aMf;
-    public int status;
+    public String aHs;
+    public String aIv;
+    public String aJA;
+    public String aJB;
+    public boolean aJC;
+    public int aJy;
+    public int aJz;
+    public int duration;
+    public String iconUrl;
+    public int limit;
+    public String picUrl;
 
     public void parseJson(JSONObject jSONObject) {
-        this.aLZ = jSONObject.optInt("taskid");
-        this.aMa = jSONObject.optString("taskname");
-        this.status = jSONObject.optInt("status");
-        this.aMb = jSONObject.optInt("cur_step");
-        this.aMc = jSONObject.optInt("total_step");
-        JSONObject optJSONObject = jSONObject.optJSONObject("param");
-        if (optJSONObject != null) {
-            this.aMd = new ak();
-            this.aMd.parseJson(optJSONObject);
+        JSONObject optJSONObject;
+        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
+            this.aJy = optJSONObject.optInt("interval");
+            this.picUrl = optJSONObject.optString("pic_url");
+            this.aJz = optJSONObject.optInt("is_month_super_customer");
+            this.aHs = optJSONObject.optString(BigdayActivityConfig.JUMP_URL);
+            this.aJA = optJSONObject.optString("jump_url_audio");
+            this.limit = optJSONObject.optInt(Constants.EXTRA_CONFIG_LIMIT);
+            this.duration = optJSONObject.optInt("duration");
+            this.aIv = optJSONObject.optString("toast_text");
+            this.iconUrl = optJSONObject.optString("icon_url");
+            this.aJB = optJSONObject.optString("btn_url");
+            this.aJC = optJSONObject.optInt("audio_show_switch") == 1;
         }
-        this.aMe = jSONObject.optInt("award_num");
-        this.aMf = jSONObject.optString("taskdetail");
-    }
-
-    public boolean DZ() {
-        return this.aLZ == 1;
-    }
-
-    public boolean Ea() {
-        return this.aLZ == 6;
-    }
-
-    public boolean Eb() {
-        return this.status == 2;
     }
 }

@@ -1,89 +1,55 @@
 package com.baidu.live.data;
 
-import android.text.TextUtils;
+import com.baidu.live.adp.base.BdBaseApplication;
+import com.baidu.live.sdk.a;
+import com.baidu.live.tbadk.core.data.BaseData;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class r {
-    private String aHT;
-    private String aHU;
-    private String aHV;
-    private String aHW;
-    private List<ac> aHX;
-    private String action;
-    private String id;
-    private String userId;
+public class r extends BaseData {
+    private int aIn;
+    public String aIo;
+    public String aIp;
+    public String aIq;
+    public List<k> aIr;
 
-    public static r w(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return null;
-        }
-        r rVar = new r();
-        rVar.action = jSONObject.optString("action");
-        rVar.id = jSONObject.optString("id");
-        rVar.userId = jSONObject.optString("user_id");
-        rVar.aHU = jSONObject.optString("toast_text");
-        rVar.aHV = jSONObject.optString("chosen_color_start", "#7C11FF");
-        rVar.aHW = jSONObject.optString("chosen_color_end", "#FF3656");
-        rVar.aHT = jSONObject.optString("theme");
-        JSONArray optJSONArray = jSONObject.optJSONArray("session_conf");
-        if (optJSONArray != null && optJSONArray.length() > 0) {
-            rVar.aHX = new ArrayList();
-            int length = optJSONArray.length();
-            for (int i = 0; i < length; i++) {
-                ac acVar = new ac();
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                acVar.imageUrl = optJSONObject.optString("img");
-                acVar.aIO = optJSONObject.optString("btn_text");
-                acVar.url = optJSONObject.optString("session_info");
-                acVar.startColor = rVar.aHV;
-                acVar.endColor = rVar.aHW;
-                rVar.aHX.add(acVar);
+    @Override // com.baidu.live.tbadk.core.data.BaseData
+    public void parserJson(JSONObject jSONObject) {
+        int i = 0;
+        if (jSONObject != null) {
+            this.aIn = jSONObject.optInt("contact_authority_bar_switch");
+            this.aIo = jSONObject.optString("qq", "");
+            this.aIp = jSONObject.optString("live_assistent_url", "");
+            this.aIq = jSONObject.optString("live_assistent_msg", BdBaseApplication.getInst().getResources().getString(a.i.ala_live_assistant_msg));
+            JSONArray optJSONArray = jSONObject.optJSONArray("rolling_msg_conf");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                this.aIr = new ArrayList();
+                int length = optJSONArray.length();
+                while (i < length) {
+                    k v = k.v(optJSONArray.optJSONObject(i));
+                    if (v != null) {
+                        this.aIr.add(v);
+                    }
+                    i++;
+                }
+                return;
             }
-            return rVar;
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("rolling_msg");
+            if (optJSONArray2 != null) {
+                if (this.aIr == null) {
+                    this.aIr = new ArrayList();
+                }
+                int length2 = optJSONArray2.length();
+                while (i < length2) {
+                    k kVar = new k();
+                    kVar.gi(this.aIp);
+                    kVar.setText(optJSONArray2.optString(i));
+                    this.aIr.add(kVar);
+                    i++;
+                }
+            }
         }
-        return rVar;
-    }
-
-    public boolean DI() {
-        return (this.aHX == null || this.aHX.isEmpty()) ? false : true;
-    }
-
-    public List<ac> DJ() {
-        return this.aHX;
-    }
-
-    public String getAction() {
-        return this.action;
-    }
-
-    public String DK() {
-        return this.aHW;
-    }
-
-    public String DL() {
-        return this.aHV;
-    }
-
-    public String DM() {
-        return this.aHU;
-    }
-
-    public boolean gi(String str) {
-        return !TextUtils.isEmpty(this.action) && this.action.equals(str);
-    }
-
-    public boolean gj(String str) {
-        return !TextUtils.isEmpty(this.id) && this.id.equals(str);
-    }
-
-    public String getId() {
-        return this.id;
-    }
-
-    public String toString() {
-        return "AlaLiveMultiSession{id='" + this.id + "', userId='" + this.userId + "', theme='" + this.aHT + "', action='" + this.action + "', toastText='" + this.aHU + "', choseColorStart='" + this.aHV + "', choseColorEnd='" + this.aHW + "', sessionList=" + this.aHX + '}';
     }
 }

@@ -12,81 +12,81 @@ import com.baidu.tieba.frs.be;
 import com.baidu.tieba.frs.q;
 /* loaded from: classes22.dex */
 public class a {
-    private int cfD;
-    private TextView iEw;
-    private be iJU;
-    private final FrsFragment iKB;
-    private boolean iMI;
-    private int iMJ = -1;
+    private int coc;
+    private TextView iQS;
+    private final FrsFragment iWX;
+    private be iWq;
+    private boolean iZe;
+    private int iZf = -1;
 
     public a(FrsFragment frsFragment) {
-        this.cfD = 0;
+        this.coc = 0;
         if (frsFragment == null) {
             throw new NullPointerException("FrsFragment is null");
         }
-        this.iKB = frsFragment;
+        this.iWX = frsFragment;
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.cfD = UtilHelper.getStatusBarHeight();
+            this.coc = UtilHelper.getStatusBarHeight();
         }
     }
 
-    public void czd() {
-        if (this.iMI && this.iMJ >= 0) {
-            zy(this.iMJ);
+    public void cCk() {
+        if (this.iZe && this.iZf >= 0) {
+            zR(this.iZf);
         }
-        this.iMI = false;
+        this.iZe = false;
     }
 
-    public void zx(int i) {
+    public void zQ(int i) {
         if (i >= 0) {
-            pN(true);
-            zz(i);
+            qf(true);
+            zS(i);
             return;
         }
-        pN(false);
-        zz(i);
+        qf(false);
+        zS(i);
     }
 
-    private void zy(int i) {
+    private void zR(int i) {
         FrameLayout frameLayout;
         String string;
-        q csD = this.iKB.csD();
-        if (csD != null && csD.getListView() != null && (frameLayout = (FrameLayout) csD.cud()) != null) {
-            if (this.iEw == null && this.iKB.getPageContext() != null) {
-                this.iEw = new TextView(this.iKB.getPageContext().getPageActivity());
-                this.iEw.setTextSize(0, this.iKB.getResources().getDimensionPixelSize(R.dimen.fontsize28));
-                this.iEw.setGravity(17);
+        q cvK = this.iWX.cvK();
+        if (cvK != null && cvK.getListView() != null && (frameLayout = (FrameLayout) cvK.cxk()) != null) {
+            if (this.iQS == null && this.iWX.getPageContext() != null) {
+                this.iQS = new TextView(this.iWX.getPageContext().getPageActivity());
+                this.iQS.setTextSize(0, this.iWX.getResources().getDimensionPixelSize(R.dimen.fontsize28));
+                this.iQS.setGravity(17);
             }
-            if (this.iEw != null) {
+            if (this.iQS != null) {
                 if (i > 0) {
                     string = String.format(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_refresh_return), Integer.valueOf(i));
                 } else {
                     string = TbadkCoreApplication.getInst().getString(R.string.smart_frs_refresh_nodata);
                 }
-                this.iEw.setText(string);
+                this.iQS.setText(string);
             }
-            ap.setBackgroundResource(this.iEw, R.color.cp_link_tip_a);
-            ap.setViewTextColor(this.iEw, R.color.cp_cont_i);
+            ap.setBackgroundResource(this.iQS, R.color.cp_link_tip_a);
+            ap.setViewTextColor(this.iQS, R.color.cp_cont_i);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds56));
-            if (this.iJU == null) {
-                this.iJU = new be();
+            if (this.iWq == null) {
+                this.iWq = new be();
             }
-            this.iJU.a(this.iEw, frameLayout, layoutParams, 2000);
-            this.iMJ = -1;
+            this.iWq.a(this.iQS, frameLayout, layoutParams, 2000);
+            this.iZf = -1;
         }
     }
 
-    public void pN(boolean z) {
-        this.iMI = z;
+    public void qf(boolean z) {
+        this.iZe = z;
     }
 
-    public void zz(int i) {
-        this.iMJ = i;
+    public void zS(int i) {
+        this.iZf = i;
     }
 
     public void onDestroy() {
-        if (this.iJU != null) {
-            this.iJU.onDestroy();
+        if (this.iWq != null) {
+            this.iWq.onDestroy();
         }
     }
 }

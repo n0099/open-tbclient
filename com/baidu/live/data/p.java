@@ -4,25 +4,36 @@ import com.baidu.live.tbadk.core.data.BaseData;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class p extends BaseData {
-    public AlaLiveInfoData mLiveInfo;
+    public AlaLiveUserInfoData aIe;
+    public AlaLocationData aIf;
+    public AlaRelationData aIg;
+    public long aIh;
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.mLiveInfo = new AlaLiveInfoData();
-            JSONObject optJSONObject = jSONObject.optJSONObject("ala_info");
+            JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
             if (optJSONObject != null) {
-                this.mLiveInfo.parserJson(optJSONObject);
+                this.aIe = new AlaLiveUserInfoData();
+                this.aIe.parserJson(optJSONObject);
             }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("author");
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("location_info");
             if (optJSONObject2 != null) {
-                long optLong = optJSONObject2.optLong("id");
-                String optString = optJSONObject2.optString("name");
-                String optString2 = optJSONObject2.optString("name_show");
-                optJSONObject2.optString("portrait");
-                this.mLiveInfo.user_id = optLong;
-                this.mLiveInfo.user_name = optString;
-                this.mLiveInfo.user_nickname = optString2;
+                this.aIf = new AlaLocationData();
+                this.aIf.parserJson(optJSONObject2);
+            }
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("relation_info");
+            if (optJSONObject3 != null) {
+                this.aIg = new AlaRelationData();
+                this.aIg.parserJson(optJSONObject3);
+            }
+            this.aIh = jSONObject.optLong("rank_num");
+            if (this.aIe == null) {
+                try {
+                    this.aIe = new AlaLiveUserInfoData();
+                    this.aIe.parserJson(jSONObject);
+                } catch (Exception e) {
+                }
             }
         }
     }

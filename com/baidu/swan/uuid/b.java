@@ -9,39 +9,39 @@ import com.baidu.swan.uuid.a.f;
 import com.baidu.swan.uuid.a.g;
 /* loaded from: classes5.dex */
 public class b {
-    private static b dYP;
-    private final a<String> dYQ = new a<>();
-    private String dYR;
+    private static b ehm;
+    private final a<String> ehn = new a<>();
+    private String eho;
 
     private b(Context context) {
-        this.dYQ.a(new c(context));
-        this.dYQ.a(new e(context));
-        this.dYQ.a(new d(context));
-        this.dYQ.a(new g(context));
-        this.dYQ.a(new com.baidu.swan.uuid.a.a(context));
-        this.dYQ.a(new f(context));
+        this.ehn.a(new c(context));
+        this.ehn.a(new e(context));
+        this.ehn.a(new d(context));
+        this.ehn.a(new g(context));
+        this.ehn.a(new com.baidu.swan.uuid.a.a(context));
+        this.ehn.a(new f(context));
     }
 
     public static b dO(Context context) {
-        if (dYP == null) {
+        if (ehm == null) {
             synchronized (b.class) {
-                if (dYP == null) {
-                    dYP = new b(context);
+                if (ehm == null) {
+                    ehm = new b(context);
                 }
             }
         }
-        return dYP;
+        return ehm;
     }
 
     public String getUUID() {
-        if (TextUtils.isEmpty(this.dYR)) {
+        if (TextUtils.isEmpty(this.eho)) {
             synchronized (this) {
-                if (TextUtils.isEmpty(this.dYR)) {
-                    this.dYR = this.dYQ.aZT();
-                    this.dYQ.ap(this.dYR);
+                if (TextUtils.isEmpty(this.eho)) {
+                    this.eho = this.ehn.bbM();
+                    this.ehn.ap(this.eho);
                 }
             }
         }
-        return this.dYR;
+        return this.eho;
     }
 }

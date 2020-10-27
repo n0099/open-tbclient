@@ -46,7 +46,7 @@ public class b {
 
     /* renamed from: com.baidu.sapi2.share.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static abstract class AbstractC0317b {
+    public static abstract class AbstractC0331b {
         public void onFailed(int i, String str) {
         }
 
@@ -83,7 +83,7 @@ public class b {
         e.a(activity, str, str2, str3, str4, list, str5);
     }
 
-    public void a(AbstractC0317b abstractC0317b, int i2, int i3, Intent intent, List<PassNameValuePair> list) {
-        e.a(abstractC0317b, i2, i3, intent, this, list);
+    public void a(AbstractC0331b abstractC0331b, int i2, int i3, Intent intent, List<PassNameValuePair> list) {
+        e.a(abstractC0331b, i2, i3, intent, this, list);
     }
 }

@@ -7,15 +7,15 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes10.dex */
 public class h implements Runnable {
-    private final i dFL;
-    private AtomicBoolean dGH = new AtomicBoolean(false);
-    private List<h> dGI = Collections.synchronizedList(new ArrayList());
+    private final i dOi;
+    private AtomicBoolean dPe = new AtomicBoolean(false);
+    private List<h> dPf = Collections.synchronizedList(new ArrayList());
     private String[] mPaths;
     private final Runnable mRunnable;
     private String mTag;
 
     public h(i iVar, Runnable runnable, String str, String[] strArr) {
-        this.dFL = iVar;
+        this.dOi = iVar;
         this.mRunnable = runnable;
         this.mTag = str;
         this.mPaths = strArr;
@@ -24,17 +24,17 @@ public class h implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         try {
-            aQK();
+            aSE();
         } finally {
-            this.dFL.c(this);
+            this.dOi.c(this);
         }
     }
 
-    public void aQK() {
+    public void aSE() {
         this.mRunnable.run();
     }
 
-    public void aQL() {
+    public void aSF() {
         p.postOnIO(this, this.mTag);
     }
 
@@ -42,29 +42,29 @@ public class h implements Runnable {
         return this.mTag;
     }
 
-    public String[] aQM() {
+    public String[] aSG() {
         return this.mPaths;
     }
 
-    public boolean aQN() {
-        return this.dGH.get();
+    public boolean aSH() {
+        return this.dPe.get();
     }
 
-    public void aQO() {
-        this.dGH.set(true);
+    public void aSI() {
+        this.dPe.set(true);
     }
 
     public void a(h hVar) {
-        if (!this.dGI.contains(hVar)) {
-            this.dGI.add(hVar);
+        if (!this.dPf.contains(hVar)) {
+            this.dPf.add(hVar);
         }
     }
 
     public void b(h hVar) {
-        this.dGI.remove(hVar);
+        this.dPf.remove(hVar);
     }
 
-    public boolean aQP() {
-        return this.dGI.isEmpty();
+    public boolean aSJ() {
+        return this.dPf.isEmpty();
     }
 }

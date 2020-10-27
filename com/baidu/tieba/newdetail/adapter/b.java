@@ -17,13 +17,13 @@ import com.baidu.tieba.newdetail.a.c;
 /* loaded from: classes21.dex */
 public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.kJT);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.kWq);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ca */
+    /* renamed from: cb */
     public a c(ViewGroup viewGroup) {
         LinearLayout linearLayout = new LinearLayout(viewGroup.getContext());
         linearLayout.setOrientation(1);
@@ -60,29 +60,29 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes21.dex */
     public static class a extends af.a {
-        private TextView egP;
-        private View euA;
-        private int jjB;
+        private View eCZ;
+        private TextView epn;
+        private int jvY;
 
         a(View view, TextView textView, View view2) {
             super(view);
-            this.jjB = 3;
-            this.egP = textView;
-            this.euA = view2;
+            this.jvY = 3;
+            this.epn = textView;
+            this.eCZ = view2;
         }
 
         void a(c cVar) {
             if (cVar != null) {
-                this.egP.setText(cVar.title);
-                this.euA.setVisibility(cVar.kxi ? 0 : 8);
+                this.epn.setText(cVar.title);
+                this.eCZ.setVisibility(cVar.kJF ? 0 : 8);
             }
         }
 
         void onChangeSkinType(int i) {
-            if (this.jjB != i) {
-                ap.setViewTextColor(this.egP, R.color.cp_cont_b);
-                ap.setBackgroundColor(this.euA, R.color.cp_bg_line_c);
-                this.jjB = i;
+            if (this.jvY != i) {
+                ap.setViewTextColor(this.epn, R.color.cp_cont_b);
+                ap.setBackgroundColor(this.eCZ, R.color.cp_bg_line_c);
+                this.jvY = i;
             }
         }
     }

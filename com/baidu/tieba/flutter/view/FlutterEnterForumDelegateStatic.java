@@ -34,7 +34,7 @@ public class FlutterEnterForumDelegateStatic extends b {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && FlutterMyTabEnableSwitch.isOn()) {
-                    if (c.bdk().zg("11_8_forum_guide_a") != null || c.bdk().zg("11_8_forum_guide_b") != null || c.bdk().zg("11_8_forum_guide_c") != null) {
+                    if (c.bfd().zz("11_8_forum_guide_a") != null || c.bfd().zz("11_8_forum_guide_b") != null || c.bfd().zz("11_8_forum_guide_c") != null) {
                         FlutterEnterForumDelegateStatic flutterEnterForumDelegateStatic = new FlutterEnterForumDelegateStatic();
                         ((d) customResponsedMessage.getData()).a(flutterEnterForumDelegateStatic);
                         if (((d) customResponsedMessage.getData()).getContext() == null || flutterEnterForumDelegateStatic.getFragmentTabStructure() == null) {
@@ -60,7 +60,7 @@ public class FlutterEnterForumDelegateStatic extends b {
         Resources resources = g.li().getResources();
         cVar.textResId = resources.getIdentifier("enter_forum", "string", BdBaseApplication.getInst().getPackageName());
         cVar.animationResId = resources.getIdentifier("lottie_tab_forum", "raw", BdBaseApplication.getInst().getPackageName());
-        cVar.showIconType = com.baidu.tbadk.mainTab.c.feC;
+        cVar.showIconType = com.baidu.tbadk.mainTab.c.fnb;
         return cVar;
     }
 
@@ -69,11 +69,11 @@ public class FlutterEnterForumDelegateStatic extends b {
         this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(g.li().getResources().getIdentifier("maintab_bottom_indicator", "layout", BdBaseApplication.getInst().getPackageName()), (ViewGroup) null);
         this.tipView = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.feT = this.mIndicator;
+        aVar.fns = this.mIndicator;
         aVar.offsetX = l.dip2px(context, 10.0f);
         aVar.view = this.tipView;
         this.mIndicator.b("emotion", aVar);
-        boolean z = com.baidu.tbadk.core.sharedPref.b.blO().getBoolean(SharedPrefConfig.KEY_FEEDBACK_PERSON_TAB_SHOW, false);
+        boolean z = com.baidu.tbadk.core.sharedPref.b.bnH().getBoolean(SharedPrefConfig.KEY_FEEDBACK_PERSON_TAB_SHOW, false);
         if (this.isNew.booleanValue() || z) {
             this.tipView.refresh(0);
             this.tipView.setVisibility(0);

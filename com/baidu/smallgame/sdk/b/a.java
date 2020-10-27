@@ -3,5 +3,5 @@ package com.baidu.smallgame.sdk.b;
 public interface a {
     void a(b bVar);
 
-    void aaU();
+    void acO();
 }

@@ -567,7 +567,7 @@ public class UfoSDK {
     }
 
     public static void openLogcatSwitch() {
-        b.f3700a = true;
+        b.f3698a = true;
     }
 
     public static void openRobotAnswer() {

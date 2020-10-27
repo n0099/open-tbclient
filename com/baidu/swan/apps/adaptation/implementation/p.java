@@ -4,7 +4,7 @@ import com.baidu.swan.apps.adaptation.a.at;
 /* loaded from: classes10.dex */
 public class p implements at {
     @Override // com.baidu.swan.apps.adaptation.a.at
-    public boolean adh() {
+    public boolean afb() {
         return false;
     }
 }

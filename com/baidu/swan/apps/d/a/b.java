@@ -6,7 +6,7 @@ import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 public class b extends ProviderDelegation {
     @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
     public Bundle execCall(Bundle bundle) {
-        a.X(getAgent().getContext(), bundle.getString("bduss"));
+        a.Y(getAgent().getContext(), bundle.getString("bduss"));
         return null;
     }
 }

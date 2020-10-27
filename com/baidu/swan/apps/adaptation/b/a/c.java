@@ -7,17 +7,17 @@ public final class c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes10.dex */
     public static class a {
-        public static final c chk = new c();
+        public static final c cpL = new c();
     }
 
     private c() {
     }
 
-    public static c aey() {
-        return a.chk;
+    public static c ags() {
+        return a.cpL;
     }
 
-    public j aez() {
+    public j agt() {
         return new com.baidu.swan.apps.adaptation.b.a.a();
     }
 }

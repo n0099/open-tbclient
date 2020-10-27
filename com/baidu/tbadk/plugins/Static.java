@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import java.util.List;
 /* loaded from: classes.dex */
 public class Static {
-    public static final String[] fiW = {"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
+    public static final String[] frv = {"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tbadk.plugins.Static.1
@@ -30,7 +30,7 @@ public class Static {
                 }
             }
         });
-        byv();
+        bAo();
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.UEXCEPTION_MESSAGE) { // from class: com.baidu.tbadk.plugins.Static.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -40,7 +40,7 @@ public class Static {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData)) {
                     boolean z = true;
                     ExceptionData exceptionData = (ExceptionData) customResponsedMessage.getData();
-                    String[] strArr = Static.fiW;
+                    String[] strArr = Static.frv;
                     int length = strArr.length;
                     int i = 0;
                     while (true) {
@@ -65,7 +65,7 @@ public class Static {
                                         for (StackTraceElement stackTraceElement : stackTrace) {
                                             try {
                                                 plugin2.getDexClassLoader().loadClass(stackTraceElement.getClassName());
-                                                com.baidu.tbadk.core.sharedPref.b.blO().putInt(SharedPrefConfig.PATCH_FATAL_ERROR_COUNT, com.baidu.tbadk.core.sharedPref.b.blO().getInt(SharedPrefConfig.PATCH_FATAL_ERROR_COUNT, 0) + 1);
+                                                com.baidu.tbadk.core.sharedPref.b.bnH().putInt(SharedPrefConfig.PATCH_FATAL_ERROR_COUNT, com.baidu.tbadk.core.sharedPref.b.bnH().getInt(SharedPrefConfig.PATCH_FATAL_ERROR_COUNT, 0) + 1);
                                                 break;
                                             } catch (ClassNotFoundException e) {
                                             }
@@ -82,7 +82,7 @@ public class Static {
         });
     }
 
-    private static void byv() {
+    private static void bAo() {
         MessageManager.getInstance().addMessageRule(new com.baidu.adp.framework.b.b(0) { // from class: com.baidu.tbadk.plugins.Static.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.b.f

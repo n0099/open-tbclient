@@ -13,18 +13,18 @@ import java.util.List;
 /* loaded from: classes22.dex */
 public class SelectForumPagerAdapter extends PagerAdapter {
     private TbPageContext<SelectForumActivity> mPageContext;
-    private int fBv = -1;
-    private List<d> fBu = new ArrayList();
+    private int fJQ = -1;
+    private List<d> fJP = new ArrayList();
 
     public SelectForumPagerAdapter(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.fBu.add(new LatelyView(this.mPageContext.getPageActivity()));
-        this.fBu.add(new AttentionView(this.mPageContext.getPageActivity()));
+        this.fJP.add(new LatelyView(this.mPageContext.getPageActivity()));
+        this.fJP.add(new AttentionView(this.mPageContext.getPageActivity()));
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return y.getCount(this.fBu);
+        return y.getCount(this.fJP);
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -34,7 +34,7 @@ public class SelectForumPagerAdapter extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public CharSequence getPageTitle(int i) {
-        return y.getItem(this.fBu, i) == null ? "" : ((d) y.getItem(this.fBu, i)).getTitle();
+        return y.getItem(this.fJP, i) == null ? "" : ((d) y.getItem(this.fJP, i)).getTitle();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,7 +42,7 @@ public class SelectForumPagerAdapter extends PagerAdapter {
     @NonNull
     /* renamed from: n */
     public d instantiateItem(@NonNull ViewGroup viewGroup, int i) {
-        d dVar = (d) y.getItem(this.fBu, i);
+        d dVar = (d) y.getItem(this.fJP, i);
         if (dVar instanceof View) {
             if (((View) dVar).getParent() != null) {
                 viewGroup.removeView((View) dVar);
@@ -55,17 +55,17 @@ public class SelectForumPagerAdapter extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public void setPrimaryItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
-        if (this.fBv != i) {
-            this.fBv = i;
-            d dVar = (d) y.getItem(this.fBu, i);
+        if (this.fJQ != i) {
+            this.fJQ = i;
+            d dVar = (d) y.getItem(this.fJP, i);
             if (dVar != null) {
                 dVar.az(null);
             }
         }
     }
 
-    public void bEj() {
-        for (d dVar : this.fBu) {
+    public void bGc() {
+        for (d dVar : this.fJP) {
             dVar.onChangeSkinType();
         }
     }

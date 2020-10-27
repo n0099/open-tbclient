@@ -8,21 +8,21 @@ import java.util.List;
 public final class e implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ List f4675a;
+    final /* synthetic */ List f4673a;
     final /* synthetic */ LocalAliasTagsManager b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(LocalAliasTagsManager localAliasTagsManager, List list) {
         this.b = localAliasTagsManager;
-        this.f4675a = list;
+        this.f4673a = list;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         ISubscribeAppTagManager iSubscribeAppTagManager;
-        if (this.f4675a != null && this.f4675a.size() > 0) {
+        if (this.f4673a != null && this.f4673a.size() > 0) {
             HashSet hashSet = new HashSet();
-            for (String str : this.f4675a) {
+            for (String str : this.f4673a) {
                 hashSet.add(str);
             }
             iSubscribeAppTagManager = this.b.mSubscribeAppTagManager;

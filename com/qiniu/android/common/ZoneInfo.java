@@ -12,18 +12,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ZoneInfo {
-    private static int oEK = 600;
-    public final List<String> oEL;
-    public final Map<String, Long> oEM;
-    private final int oEN;
+    private static int pwh = 600;
+    public final List<String> pwi;
+    public final Map<String, Long> pwj;
+    private final int pwk;
 
     public ZoneInfo(int i, List<String> list, Map<String, Long> map) {
-        this.oEN = i;
-        this.oEL = list;
-        this.oEM = map;
+        this.pwk = i;
+        this.pwi = list;
+        this.pwj = map;
     }
 
-    public static ZoneInfo eS(JSONObject jSONObject) throws JSONException {
+    public static ZoneInfo fa(JSONObject jSONObject) throws JSONException {
         int i = jSONObject.getInt("ttl");
         ArrayList arrayList = new ArrayList();
         ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
@@ -51,15 +51,15 @@ public class ZoneInfo {
         return new ZoneInfo(i, arrayList, concurrentHashMap);
     }
 
-    public void WH(String str) {
-        this.oEM.put(str, Long.valueOf((System.currentTimeMillis() / 1000) + oEK));
+    public void Yu(String str) {
+        this.pwj.put(str, Long.valueOf((System.currentTimeMillis() / 1000) + pwh));
     }
 
     public String toString() {
         HashMap hashMap = new HashMap();
-        hashMap.put("ttl", Integer.valueOf(this.oEN));
-        hashMap.put("upDomainList", this.oEL);
-        hashMap.put("upDomainMap", this.oEM);
+        hashMap.put("ttl", Integer.valueOf(this.pwk));
+        hashMap.put("upDomainList", this.pwi);
+        hashMap.put("upDomainMap", this.pwj);
         return new JSONObject(hashMap).toString();
     }
 }

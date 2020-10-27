@@ -14,8 +14,8 @@ public abstract class a {
     protected Context c;
 
     /* renamed from: a  reason: collision with root package name */
-    protected List<c> f4109a = new ArrayList();
-    protected com.kascend.chushou.c.b ogW = new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.a.a.1
+    protected List<c> f4107a = new ArrayList();
+    protected com.kascend.chushou.c.b oYl = new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.a.a.1
         @Override // com.kascend.chushou.c.b
         public void a() {
         }
@@ -25,7 +25,7 @@ public abstract class a {
             int optInt = jSONObject.optInt("code", -1);
             String optString = jSONObject.optString("message", "");
             if (optInt == 0) {
-                g.PQ(a.i.report_success);
+                g.RH(a.i.report_success);
             } else {
                 a(optInt, optString);
             }
@@ -40,7 +40,7 @@ public abstract class a {
             if (h.isEmpty(str)) {
                 str = a.this.c.getString(a.i.report_failed);
             }
-            g.c(a.this.c, str);
+            g.d(a.this.c, str);
         }
     };
 

@@ -6,24 +6,24 @@ import java.util.List;
 import tbclient.ManagerElection;
 /* loaded from: classes21.dex */
 public class f {
-    private BdUniqueId aiy;
+    private BdUniqueId aiz;
     private long fid;
+    private e hLL;
+    private d hLM;
+    private List<d> hLN;
+    private ManagerElection hLO;
     private boolean hasMore;
-    private e hzp;
-    private d hzq;
-    private List<d> hzr;
-    private ManagerElection hzs;
 
-    public List<d> chC() {
-        return this.hzr;
+    public List<d> ckJ() {
+        return this.hLN;
     }
 
-    public d chD() {
-        return this.hzq;
+    public d ckK() {
+        return this.hLM;
     }
 
-    public e chE() {
-        return this.hzp;
+    public e ckL() {
+        return this.hLL;
     }
 
     public boolean getHasMore() {
@@ -35,23 +35,23 @@ public class f {
     }
 
     public BdUniqueId getUniqueId() {
-        return this.aiy;
+        return this.aiz;
     }
 
-    public ManagerElection chF() {
-        return this.hzs;
+    public ManagerElection ckM() {
+        return this.hLO;
     }
 
-    public void am(ArrayList<d> arrayList) {
-        this.hzr = arrayList;
+    public void an(ArrayList<d> arrayList) {
+        this.hLN = arrayList;
     }
 
     public void a(e eVar) {
-        this.hzp = eVar;
+        this.hLL = eVar;
     }
 
     public void a(d dVar) {
-        this.hzq = dVar;
+        this.hLM = dVar;
     }
 
     public void setHasMore(boolean z) {
@@ -63,10 +63,10 @@ public class f {
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.aiy = bdUniqueId;
+        this.aiz = bdUniqueId;
     }
 
     public void a(ManagerElection managerElection) {
-        this.hzs = managerElection;
+        this.hLO = managerElection;
     }
 }

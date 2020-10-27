@@ -95,8 +95,8 @@ public class d extends a {
     }
 
     private void c(MapStatus mapStatus) {
-        double abs = Math.abs(new a.c(new a.C0255a(this.i.b.f2899a, this.i.c.f2899a), this.i.b).f2902a);
-        double abs2 = Math.abs(new a.c(new a.C0255a(this.i.b.b, this.i.c.b), this.i.b).f2902a);
+        double abs = Math.abs(new a.c(new a.C0269a(this.i.b.f2899a, this.i.c.f2899a), this.i.b).f2902a);
+        double abs2 = Math.abs(new a.c(new a.C0269a(this.i.b.b, this.i.c.b), this.i.b).f2902a);
         if (this.k != 0.0d && this.k * this.g.b < 0.0d) {
             return;
         }
@@ -137,8 +137,8 @@ public class d extends a {
                 a(mapStatus, a2);
                 return;
             }
-            double abs = Math.abs(new a.c(new a.C0255a(bVar.b.f2899a, bVar.c.f2899a), bVar.b).f2902a);
-            double abs2 = Math.abs(new a.c(new a.C0255a(bVar.b.b, bVar.c.b), bVar.b).f2902a);
+            double abs = Math.abs(new a.c(new a.C0269a(bVar.b.f2899a, bVar.c.f2899a), bVar.b).f2902a);
+            double abs2 = Math.abs(new a.c(new a.C0269a(bVar.b.b, bVar.c.b), bVar.b).f2902a);
             if (this.k != 0.0d && this.k * this.g.b < 0.0d) {
                 a(mapStatus, a2);
                 return;

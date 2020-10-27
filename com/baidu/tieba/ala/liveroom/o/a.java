@@ -9,16 +9,16 @@ import android.view.WindowManager;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public abstract class a extends Dialog {
-    public InterfaceC0651a gSb;
-    public String gSc;
+    public InterfaceC0667a hdO;
+    public String hdP;
 
     /* renamed from: com.baidu.tieba.ala.liveroom.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0651a {
+    public interface InterfaceC0667a {
         void onConfirm();
     }
 
-    public abstract void en(String str, String str2);
+    public abstract void eu(String str, String str2);
 
     public abstract void initView();
 
@@ -29,16 +29,16 @@ public abstract class a extends Dialog {
 
     public void init() {
         initView();
-        Og();
+        OE();
     }
 
-    private void Og() {
+    private void OE() {
         setCancelable(true);
         setCanceledOnTouchOutside(true);
-        bXf();
+        cae();
     }
 
-    public void bXf() {
+    public void cae() {
         show();
         Window window = getWindow();
         if (window != null) {
@@ -56,11 +56,11 @@ public abstract class a extends Dialog {
         }
     }
 
-    public void a(InterfaceC0651a interfaceC0651a) {
-        this.gSb = interfaceC0651a;
+    public void a(InterfaceC0667a interfaceC0667a) {
+        this.hdO = interfaceC0667a;
     }
 
-    public String bXg() {
-        return this.gSc;
+    public String caf() {
+        return this.hdP;
     }
 }

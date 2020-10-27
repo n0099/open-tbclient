@@ -3,7 +3,7 @@ package com.google.ar.core;
 import com.google.ar.core.exceptions.FatalException;
 /* loaded from: classes11.dex */
 public class LightEstimate {
-    long obA;
+    long oSR;
 
     private static native long nativeCreateLightEstimate(long j);
 
@@ -38,8 +38,8 @@ public class LightEstimate {
     }
 
     protected void finalize() throws Throwable {
-        if (this.obA != 0) {
-            nativeDestroyLightEstimate(this.obA);
+        if (this.oSR != 0) {
+            nativeDestroyLightEstimate(this.oSR);
         }
         super.finalize();
     }

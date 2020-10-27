@@ -22,11 +22,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
-    private static final byte[] azv = {77, 73, 78, 71};
+    private static final byte[] azw = {77, 73, 78, 71};
     private String D;
     private int F;
-    private Set<String> azw;
-    private Context azx;
+    private Set<String> azx;
+    private Context azy;
     public String o;
     private long t;
     private boolean u;
@@ -49,12 +49,12 @@ public class a {
             }
             byte[] decode = Base64.decode(string.getBytes("utf-8"), 1);
             for (int i = 0; i < decode.length; i++) {
-                decode[i] = (byte) (decode[i] ^ azv[i % azv.length]);
+                decode[i] = (byte) (decode[i] ^ azw[i % azw.length]);
             }
             JSONObject jSONObject = new JSONObject(new String(decode));
             if (s(jSONObject)) {
-                this.azw = new HashSet();
-                if (!a(this.D, this.azx, jSONObject, this.azw)) {
+                this.azx = new HashSet();
+                if (!a(this.D, this.azy, jSONObject, this.azx)) {
                     this.F |= 4;
                 } else if (!Arrays.equals(g.b(Base64.decode(string2, 0), aVar), f.sha256(decode))) {
                     this.F |= 8;
@@ -145,14 +145,14 @@ public class a {
     }
 
     public Set<String> AV() {
-        return this.azw;
+        return this.azx;
     }
 
     public void a(com.baidu.helios.common.a.b.a aVar, boolean z) {
         PackageInfo packageInfo;
         ActivityInfo[] activityInfoArr;
         ActivityInfo activityInfo;
-        PackageManager packageManager = this.azx.getPackageManager();
+        PackageManager packageManager = this.azy.getPackageManager();
         try {
             packageInfo = packageManager.getPackageInfo(this.D, 2);
         } catch (PackageManager.NameNotFoundException e) {
@@ -180,7 +180,7 @@ public class a {
 
     public void a(String str, Context context) {
         this.D = str;
-        this.azx = context;
+        this.azy = context;
     }
 
     public boolean a() {

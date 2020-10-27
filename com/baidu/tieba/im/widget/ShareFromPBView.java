@@ -10,9 +10,9 @@ import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public final class ShareFromPBView extends LinearLayout {
-    private HeadImageView iVJ;
-    private TextView jAw;
-    private ShareFromPBMsgData jXX;
+    private TextView jMV;
+    private HeadImageView jig;
+    private ShareFromPBMsgData kkx;
     private TextView title;
 
     public ShareFromPBView(Context context, AttributeSet attributeSet) {
@@ -29,30 +29,30 @@ public final class ShareFromPBView extends LinearLayout {
         LayoutInflater.from(getContext()).inflate(R.layout.share_from_pb_view, this);
         setOrientation(1);
         this.title = (TextView) findViewById(R.id.chat_title);
-        this.iVJ = (HeadImageView) findViewById(R.id.chat_group_img);
-        this.jAw = (TextView) findViewById(R.id.chat_group_desc);
+        this.jig = (HeadImageView) findViewById(R.id.chat_group_img);
+        this.jMV = (TextView) findViewById(R.id.chat_group_desc);
     }
 
     public void setIsLeft(boolean z) {
         if (z) {
             this.title.setTextColor(getContext().getResources().getColor(R.color.cp_cont_b));
-            this.jAw.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
+            this.jMV.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
             return;
         }
         this.title.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
-        this.jAw.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
+        this.jMV.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.jXX = shareFromPBMsgData;
+        this.kkx = shareFromPBMsgData;
         updateUI();
     }
 
     private void updateUI() {
-        this.title.setText(this.jXX.getTitle());
-        this.iVJ.setPlaceHolder(1);
-        this.iVJ.setAutoChangeStyle(false);
-        this.iVJ.startLoad(this.jXX.getImageUrl(), 10, false);
-        this.jAw.setText(this.jXX.getContent());
+        this.title.setText(this.kkx.getTitle());
+        this.jig.setPlaceHolder(1);
+        this.jig.setAutoChangeStyle(false);
+        this.jig.startLoad(this.kkx.getImageUrl(), 10, false);
+        this.jMV.setText(this.kkx.getContent());
     }
 }

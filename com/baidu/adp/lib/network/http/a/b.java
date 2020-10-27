@@ -13,10 +13,10 @@ import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
 /* loaded from: classes.dex */
 public class b {
-    private static b Ms = null;
+    private static b Mt = null;
     private HashMap<String, com.baidu.adp.lib.network.http.a.a> mCache = new HashMap<>();
-    private a Mt = null;
-    private int Mu = 0;
+    private a Mu = null;
+    private int Mv = 0;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -26,14 +26,14 @@ public class b {
     }
 
     public static b mI() {
-        if (Ms == null) {
+        if (Mt == null) {
             synchronized (b.class) {
-                if (Ms == null) {
-                    Ms = new b();
+                if (Mt == null) {
+                    Mt = new b();
                 }
             }
         }
-        return Ms;
+        return Mt;
     }
 
     public c bL(String str) {

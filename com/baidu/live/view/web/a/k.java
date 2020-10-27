@@ -18,12 +18,12 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class k extends com.baidu.live.view.web.a {
-    private SchemeCallback bFj;
+    private SchemeCallback bIi;
     private Context context;
 
     public k(Context context, SchemeCallback schemeCallback) {
         this.context = context;
-        this.bFj = schemeCallback;
+        this.bIi = schemeCallback;
     }
 
     @Override // com.baidu.live.view.web.a
@@ -32,7 +32,7 @@ public class k extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void iq(String str) {
+    public void iB(String str) {
         Log.d("JsInterface", "@@ JsInterface-impl WkBridgeJsInterface params = " + str);
         if (str != null && str.contains("rmb_baiducloud://")) {
             if (this.context instanceof Activity) {
@@ -52,10 +52,10 @@ public class k extends com.baidu.live.view.web.a {
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913222, faceRecognitionActivityConfig));
             }
-        } else if (this.bFj == null) {
+        } else if (this.bIi == null) {
             SchemeUtils.openScheme(str);
         } else {
-            SchemeUtils.openScheme(str, this.bFj);
+            SchemeUtils.openScheme(str, this.bIi);
         }
     }
 
@@ -66,8 +66,8 @@ public class k extends com.baidu.live.view.web.a {
             Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
             List<ResolveInfo> queryIntentActivities = (this.context == null || (packageManager = this.context.getPackageManager()) == null) ? null : packageManager.queryIntentActivities(intent, 0);
             boolean z2 = (queryIntentActivities == null || queryIntentActivities.isEmpty()) ? false : true;
-            if (this.bFj != null) {
-                this.bFj.doJsCallback(z2 ? 1 : 0, "", null, str2);
+            if (this.bIi != null) {
+                this.bIi.doJsCallback(z2 ? 1 : 0, "", null, str2);
             }
             if (z && z2 && this.context != null) {
                 intent.addFlags(268435456);

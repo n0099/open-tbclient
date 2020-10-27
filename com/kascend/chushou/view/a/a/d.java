@@ -16,45 +16,45 @@ import tv.chushou.zues.utils.h;
 public class d extends RecyclerView.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<ListItem> f4222a;
+    private final List<ListItem> f4220a;
     private Context b;
     private boolean d;
     private String e;
-    private ConvenientBanner<ListItem> owP;
+    private ConvenientBanner<ListItem> pog;
 
     public d(View view, String str) {
         super(view);
-        this.f4222a = new ArrayList();
+        this.f4220a = new ArrayList();
         this.d = false;
         this.e = str;
         this.b = view.getContext();
-        this.owP = (ConvenientBanner) view.findViewById(a.f.recycler_view);
-        this.owP.a(new com.kascend.chushou.widget.convenientbanner.c.a<ListItem>() { // from class: com.kascend.chushou.view.a.a.d.1
+        this.pog = (ConvenientBanner) view.findViewById(a.f.recycler_view);
+        this.pog.a(new com.kascend.chushou.widget.convenientbanner.c.a<ListItem>() { // from class: com.kascend.chushou.view.a.a.d.1
             @Override // com.kascend.chushou.widget.convenientbanner.c.a
             public int getLayoutId() {
                 return a.h.recycleitem_sliding_items;
             }
 
             @Override // com.kascend.chushou.widget.convenientbanner.c.a
-            public com.kascend.chushou.widget.convenientbanner.c.b<ListItem> dQ(View view2) {
+            public com.kascend.chushou.widget.convenientbanner.c.b<ListItem> dY(View view2) {
                 return new a(view2, null);
             }
-        }, this.f4222a);
-        this.owP.r(new int[]{a.e.cs_point_normal, a.e.cs_point_selected});
+        }, this.f4220a);
+        this.pog.r(new int[]{a.e.cs_point_normal, a.e.cs_point_selected});
     }
 
     public void a(PannelItem pannelItem) {
-        this.f4222a.clear();
-        this.f4222a.addAll(pannelItem.mNavItemList);
+        this.f4220a.clear();
+        this.f4220a.addAll(pannelItem.mNavItemList);
         this.d = false;
-        if (!h.isEmpty(this.f4222a)) {
-            this.d = !h.isEmpty(this.f4222a.get(0).mName);
+        if (!h.isEmpty(this.f4220a)) {
+            this.d = !h.isEmpty(this.f4220a.get(0).mName);
         }
-        this.owP.notifyDataSetChanged();
+        this.pog.notifyDataSetChanged();
         if (this.d) {
-            this.owP.h(8388693, 0, 0, tv.chushou.zues.utils.a.dip2px(this.b, 10.0f), tv.chushou.zues.utils.a.dip2px(this.b, 34.0f));
+            this.pog.h(8388693, 0, 0, tv.chushou.zues.utils.a.dip2px(this.b, 10.0f), tv.chushou.zues.utils.a.dip2px(this.b, 34.0f));
         } else {
-            this.owP.h(8388693, 0, 0, tv.chushou.zues.utils.a.dip2px(this.b, 10.0f), tv.chushou.zues.utils.a.dip2px(this.b, 10.0f));
+            this.pog.h(8388693, 0, 0, tv.chushou.zues.utils.a.dip2px(this.b, 10.0f), tv.chushou.zues.utils.a.dip2px(this.b, 10.0f));
         }
     }
 
@@ -63,11 +63,11 @@ public class d extends RecyclerView.ViewHolder {
         private TextView b;
         private TextView c;
         private TextView d;
-        private FoodView osN;
+        private FoodView pke;
 
         a(View view, com.kascend.chushou.widget.convenientbanner.d.b<ListItem> bVar) {
             super(view, bVar);
-            this.osN = (FoodView) view.findViewById(a.f.iv_ad);
+            this.pke = (FoodView) view.findViewById(a.f.iv_ad);
             this.b = (TextView) view.findViewById(a.f.tv_creator);
             this.c = (TextView) view.findViewById(a.f.tv_count);
             this.d = (TextView) view.findViewById(a.f.tv_name);
@@ -76,9 +76,9 @@ public class d extends RecyclerView.ViewHolder {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.kascend.chushou.widget.convenientbanner.c.b
         /* renamed from: a */
-        public void bD(ListItem listItem) {
-            super.bD(listItem);
-            this.osN.a(listItem, null, true, d.this.e, 405, 208, 0);
+        public void bH(ListItem listItem) {
+            super.bH(listItem);
+            this.pke.a(listItem, null, true, d.this.e, 405, 208, 0);
             if (h.isEmpty(listItem.mDesc)) {
                 this.b.setVisibility(8);
             } else {

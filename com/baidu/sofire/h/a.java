@@ -25,7 +25,7 @@ public final class a {
     public e f3625a;
     public Context b;
     public Receiver c;
-    private HandlerC0333a e = new HandlerC0333a(m.a());
+    private HandlerC0347a e = new HandlerC0347a(m.a());
     private com.baidu.sofire.g.a f;
 
     public a(Context context) {
@@ -41,8 +41,8 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.sofire.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    public class HandlerC0333a extends Handler {
-        public HandlerC0333a(Looper looper) {
+    public class HandlerC0347a extends Handler {
+        public HandlerC0347a(Looper looper) {
             super(looper);
         }
 

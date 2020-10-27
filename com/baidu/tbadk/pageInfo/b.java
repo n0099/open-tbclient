@@ -4,27 +4,27 @@ import android.content.Intent;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class b {
-    private TbPageTag fgj;
-    private TbPageTag fgk;
+    private TbPageTag foI;
+    private TbPageTag foJ;
     private BdUniqueId mId;
 
     public b(BdUniqueId bdUniqueId, TbPageTag tbPageTag, Intent intent) {
         this.mId = bdUniqueId;
-        this.fgk = tbPageTag;
+        this.foJ = tbPageTag;
         I(intent);
     }
 
     private void I(Intent intent) {
         if (intent != null) {
-            this.fgj = (TbPageTag) intent.getParcelableExtra("tb_page_tag_source_trace");
+            this.foI = (TbPageTag) intent.getParcelableExtra("tb_page_tag_source_trace");
         }
     }
 
-    public TbPageTag bxL() {
-        return this.fgk;
+    public TbPageTag bzE() {
+        return this.foJ;
     }
 
     public TbPageTag getPrePageTag() {
-        return this.fgj;
+        return this.foI;
     }
 }

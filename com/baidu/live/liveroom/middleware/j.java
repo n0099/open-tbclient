@@ -8,9 +8,9 @@ import com.baidu.live.data.AlaLivePersonData;
 public interface j {
     void J(Object obj);
 
-    View MJ();
+    View Nd();
 
-    void MK();
+    void Ne();
 
     void a(com.baidu.live.liveroom.g.a aVar);
 

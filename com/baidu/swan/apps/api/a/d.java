@@ -31,12 +31,12 @@ public abstract class d implements com.baidu.swan.apps.api.a.a {
 
     public d(@NonNull b bVar) {
         this.mSwanApiContext = bVar;
-        this.mCallbackHandler = bVar.afc();
+        this.mCallbackHandler = bVar.agW();
     }
 
     @Override // com.baidu.swan.apps.api.a.a
     @NonNull
-    public final b afe() {
+    public final b agY() {
         return this.mSwanApiContext;
     }
 
@@ -77,7 +77,7 @@ public abstract class d implements com.baidu.swan.apps.api.a.a {
     }
 
     @NonNull
-    public static Pair<com.baidu.swan.apps.api.c.a, JSONObject> jU(String str) {
+    public static Pair<com.baidu.swan.apps.api.c.a, JSONObject> kn(String str) {
         if (DEBUG) {
             Log.d("Api-Base", "parseParams(String): String");
         }
@@ -269,12 +269,12 @@ public abstract class d implements com.baidu.swan.apps.api.a.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final boolean afg() {
-        e aDb = e.aDb();
-        if (aDb == null) {
+    public final boolean aha() {
+        e aEV = e.aEV();
+        if (aEV == null) {
             return true;
         }
-        return aDb.afg();
+        return aEV.aha();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -292,8 +292,8 @@ public abstract class d implements com.baidu.swan.apps.api.a.a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public com.baidu.swan.apps.api.c.b a(@Nullable String str, @NonNull c cVar) {
-        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bc = com.baidu.swan.apps.api.d.b.bc("Api-Base", str);
-        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bc.first;
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bj = com.baidu.swan.apps.api.d.b.bj("Api-Base", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bj.first;
         if (!bVar.isSuccess()) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-Base", "parse fail");
@@ -301,7 +301,7 @@ public abstract class d implements com.baidu.swan.apps.api.a.a {
             }
             return bVar;
         }
-        JSONObject jSONObject = (JSONObject) bc.second;
+        JSONObject jSONObject = (JSONObject) bj.second;
         String optString = jSONObject.optString("cb");
         if (TextUtils.isEmpty(optString)) {
             com.baidu.swan.apps.console.c.e("Api-Base", "cb is required");
@@ -312,17 +312,17 @@ public abstract class d implements com.baidu.swan.apps.api.a.a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public com.baidu.swan.apps.api.c.b a(String str, boolean z, a aVar) {
-        e aDa = e.aDa();
-        if (aDa == null) {
+        e aEU = e.aEU();
+        if (aEU == null) {
             return new com.baidu.swan.apps.api.c.b(1001, "swan app is null");
         }
-        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bc = com.baidu.swan.apps.api.d.b.bc("Api-Base", str);
-        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bc.first;
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bj = com.baidu.swan.apps.api.d.b.bj("Api-Base", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bj.first;
         if (!bVar.isSuccess()) {
             com.baidu.swan.apps.console.c.e("Api-Base", "parse fail");
             return bVar;
         }
-        JSONObject jSONObject = (JSONObject) bc.second;
+        JSONObject jSONObject = (JSONObject) bj.second;
         String str2 = null;
         if (z) {
             str2 = jSONObject.optString("cb");
@@ -331,11 +331,11 @@ public abstract class d implements com.baidu.swan.apps.api.a.a {
                 return new com.baidu.swan.apps.api.c.b(202, "callback is null");
             }
         }
-        return aVar.a(aDa, jSONObject, str2);
+        return aVar.a(aEU, jSONObject, str2);
     }
 
     @Nullable
-    public static JSONObject jV(String str) {
+    public static JSONObject ko(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

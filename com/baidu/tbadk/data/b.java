@@ -1,11 +1,11 @@
 package com.baidu.tbadk.data;
 /* loaded from: classes.dex */
 public class b {
-    private String eXF;
+    private String fgb;
     private String uk;
 
     public b(String str, String str2) {
         this.uk = str;
-        this.eXF = str2;
+        this.fgb = str2;
     }
 }

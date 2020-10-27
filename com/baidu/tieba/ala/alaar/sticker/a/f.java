@@ -1,49 +1,38 @@
 package com.baidu.tieba.ala.alaar.sticker.a;
 
-import com.baidu.live.adp.BdUniqueId;
-import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.data.AlaLiveStickerInfo;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import android.util.ArrayMap;
+import com.baidu.tieba.ala.alaar.sticker.model.e;
+import java.io.File;
 /* loaded from: classes4.dex */
-public class f {
-    private static int fNO = 0;
-    private static volatile boolean fNP = false;
+public class f<T extends com.baidu.tieba.ala.alaar.sticker.model.e> {
+    private static f fWY;
+    private ArrayMap<String, T> fWT = new ArrayMap<>();
+    private File mFolder;
 
-    public static void a(BdUniqueId bdUniqueId, String str, int i, int i2) {
-        com.baidu.tieba.ala.alaar.messages.c cVar = new com.baidu.tieba.ala.alaar.messages.c(bdUniqueId, str, i, i2);
-        cVar.setParams();
-        MessageManager.getInstance().sendMessage(cVar);
+    public static f<com.baidu.tieba.ala.alaar.sticker.model.c> bLg() {
+        if (fWY == null) {
+            bLh();
+        }
+        return fWY;
     }
 
-    public static void Pe() {
-        com.baidu.tieba.ala.alaar.messages.b bVar = new com.baidu.tieba.ala.alaar.messages.b("");
-        bVar.setParams();
-        MessageManager.getInstance().sendMessage(bVar);
+    private static synchronized void bLh() {
+        synchronized (f.class) {
+            if (fWY == null) {
+                fWY = new f(a.bKX().bKZ());
+            }
+        }
     }
 
-    public static void ea(String str, String str2) {
-        com.baidu.tieba.ala.alaar.messages.a aVar = new com.baidu.tieba.ala.alaar.messages.a();
-        aVar.setParams();
-        aVar.addParam("user_id", TbadkCoreApplication.getCurrentAccountId());
-        aVar.addParam("nickname", TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow());
-        aVar.addParam("content", str);
-        aVar.addParam("title", str2);
-        MessageManager.getInstance().sendMessage(aVar);
+    private f(File file) {
+        this.mFolder = file;
     }
 
-    public static void a(long j, int i, AlaLiveStickerInfo alaLiveStickerInfo) {
-        fNO = i;
-        fNP = true;
-        com.baidu.tieba.ala.alaar.messages.d dVar = new com.baidu.tieba.ala.alaar.messages.d(j, i, alaLiveStickerInfo);
-        dVar.setParams();
-        MessageManager.getInstance().sendMessage(dVar);
+    public T a(String str, T t) {
+        return this.fWT.put(str, t);
     }
 
-    public static void bII() {
-        fNP = false;
-    }
-
-    public static boolean bIJ() {
-        return fNP;
+    public T FS(String str) {
+        return this.fWT.get(str);
     }
 }

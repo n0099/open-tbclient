@@ -23,14 +23,14 @@ import org.json.JSONObject;
 public class a {
     public static void a(final com.baidu.prologue.a.b.a aVar) {
         final long currentTimeMillis = System.currentTimeMillis();
-        a(aVar, IMTrack.DbBuilder.ACTION_UPDATE, aVar.ry(), currentTimeMillis).YJ().YI().a(new m() { // from class: com.baidu.prologue.business.a.1
+        a(aVar, IMTrack.DbBuilder.ACTION_UPDATE, aVar.ry(), currentTimeMillis).aaC().aaB().a(new m() { // from class: com.baidu.prologue.business.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.prologue.service.network.j
-            /* renamed from: iW */
+            /* renamed from: jp */
             public void onResponse(String str) {
                 a.a(com.baidu.prologue.a.b.a.this, currentTimeMillis, BasicPushStatus.SUCCESS_CODE, IMTrack.DbBuilder.ACTION_UPDATE);
                 try {
-                    com.baidu.prologue.business.data.a.aR(str, com.baidu.prologue.a.b.a.this.ry());
+                    com.baidu.prologue.business.data.a.aY(str, com.baidu.prologue.a.b.a.this.ry());
                 } catch (ParseError e) {
                     e.printStackTrace();
                 }
@@ -38,7 +38,7 @@ public class a {
 
             @Override // com.baidu.prologue.service.network.j
             public void n(Throwable th) {
-                g.bSX.e("Afd", "update接口 " + th.getMessage());
+                g.cbu.e("Afd", "update接口 " + th.getMessage());
                 a.a(com.baidu.prologue.a.b.a.this, currentTimeMillis, th.getMessage(), IMTrack.DbBuilder.ACTION_UPDATE);
             }
         });
@@ -47,17 +47,17 @@ public class a {
     public static void a(final com.baidu.prologue.a.b.a aVar, final c cVar) {
         final long currentTimeMillis = System.currentTimeMillis();
         Request.a a2 = a(aVar, "query", aVar.ry(), currentTimeMillis);
-        a2.dt(true);
-        a2.YJ().YI().a(new m() { // from class: com.baidu.prologue.business.a.2
+        a2.dH(true);
+        a2.aaC().aaB().a(new m() { // from class: com.baidu.prologue.business.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.prologue.service.network.j
-            /* renamed from: iW */
+            /* renamed from: jp */
             public void onResponse(String str) {
                 a.a(com.baidu.prologue.a.b.a.this, currentTimeMillis, BasicPushStatus.SUCCESS_CODE, "query");
                 try {
-                    List<com.baidu.prologue.business.data.e> aR = com.baidu.prologue.business.data.a.aR(str, com.baidu.prologue.a.b.a.this.ry());
-                    if (aR != null && aR.size() > 0 && aR.get(0) != null) {
-                        cVar.a(aR.get(0));
+                    List<com.baidu.prologue.business.data.e> aY = com.baidu.prologue.business.data.a.aY(str, com.baidu.prologue.a.b.a.this.ry());
+                    if (aY != null && aY.size() > 0 && aY.get(0) != null) {
+                        cVar.a(aY.get(0));
                     } else {
                         cVar.m(new Throwable("no ad"));
                     }
@@ -69,7 +69,7 @@ public class a {
 
             @Override // com.baidu.prologue.service.network.j
             public void n(Throwable th) {
-                g.bSX.e("Afd", "query接口 " + th.getMessage());
+                g.cbu.e("Afd", "query接口 " + th.getMessage());
                 cVar.m(th);
                 a.a(com.baidu.prologue.a.b.a.this, currentTimeMillis, th.getMessage(), "query");
             }
@@ -77,10 +77,10 @@ public class a {
     }
 
     private static Request.a a(com.baidu.prologue.a.b.a aVar, String str, String str2, long j) {
-        Request.a aVar2 = new Request.a(aVar.Xq(), com.baidu.prologue.a.a.a.Xp() + (TextUtils.equals(str, IMTrack.DbBuilder.ACTION_UPDATE) ? "?action=update" : "?action=query"));
-        aVar2.aW("ac", "3");
-        aVar2.aW("pid", str2);
-        aVar2.aW("product_id ", aVar.XB());
+        Request.a aVar2 = new Request.a(aVar.Zk(), com.baidu.prologue.a.a.a.Zj() + (TextUtils.equals(str, IMTrack.DbBuilder.ACTION_UPDATE) ? "?action=update" : "?action=query"));
+        aVar2.bd("ac", "3");
+        aVar2.bd("pid", str2);
+        aVar2.bd("product_id ", aVar.Zv());
         a(aVar2, aVar);
         a(aVar2, str, aVar, j);
         return aVar2;
@@ -94,26 +94,26 @@ public class a {
             jSONObject.put("v", str);
             jSONArray.put(jSONObject);
             JSONObject jSONObject2 = new JSONObject();
-            List<com.baidu.prologue.business.data.e> Yd = com.baidu.prologue.business.data.d.Yd();
+            List<com.baidu.prologue.business.data.e> ZX = com.baidu.prologue.business.data.d.ZX();
             ArrayList arrayList = new ArrayList();
             JSONArray jSONArray2 = new JSONArray();
-            if (Yd != null && Yd.size() > 0) {
-                for (com.baidu.prologue.business.data.e eVar : Yd) {
+            if (ZX != null && ZX.size() > 0) {
+                for (com.baidu.prologue.business.data.e eVar : ZX) {
                     JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put("k", eVar.bTv);
-                    if (!TextUtils.isEmpty(eVar.bTv)) {
+                    jSONObject3.put("k", eVar.cbS);
+                    if (!TextUtils.isEmpty(eVar.cbS)) {
                         int f = com.baidu.prologue.business.data.d.f(eVar);
                         Log.e("Afd", "onAdSuccess: " + f);
                         if (f == 0) {
-                            arrayList.add(eVar.bTv);
+                            arrayList.add(eVar.cbS);
                         }
                     }
-                    jSONObject3.put("r", String.valueOf(eVar.bTE));
+                    jSONObject3.put("r", String.valueOf(eVar.ccb));
                     jSONArray2.put(jSONObject3);
                 }
             }
             jSONObject2.put("d", jSONArray2);
-            jSONObject2.put("s", f.Yi());
+            jSONObject2.put("s", f.aac());
             JSONObject jSONObject4 = new JSONObject();
             jSONObject4.put("k", "adinfo");
             jSONObject4.put("v", jSONObject2.toString());
@@ -124,46 +124,46 @@ public class a {
             jSONArray.put(jSONObject5);
             JSONObject jSONObject6 = new JSONObject();
             jSONObject6.put("k", "logid");
-            jSONObject6.put("v", com.baidu.prologue.a.c.f.md5(aVar2.Xt() + j));
+            jSONObject6.put("v", com.baidu.prologue.a.c.f.md5(aVar2.Zn() + j));
             jSONArray.put(jSONObject6);
-            aVar.aW("ext", jSONArray.toString());
+            aVar.bd("ext", jSONArray.toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
     private static void a(Request.a aVar, com.baidu.prologue.a.b.a aVar2) {
-        aVar.aW("ver", aVar2.Xr());
-        aVar.aW("sv", "1.0.4");
-        aVar.aW("uid", aVar2.Xz());
-        aVar.aW("bdid", aVar2.Xx());
-        aVar.aW("cuid", aVar2.Xt());
-        aVar.aW("mod", aVar2.Xu());
-        aVar.aW("ov", aVar2.Xs());
-        aVar.aW("imei", aVar2.Xv());
-        aVar.aW(j.c, aVar2.Xy());
-        aVar.aW("fmt", "json");
-        aVar.aW("coot", aVar2.XE());
-        aVar.aW("lgt", aVar2.XF()[0]);
-        aVar.aW("lat", aVar2.XF()[1]);
-        aVar.aW("apna", aVar2.Xw());
-        aVar.aW("eid", aVar2.XD());
-        aVar.aW("st", "1");
-        aVar.aW("ot", "2");
-        aVar.aW("nt", String.valueOf(new com.baidu.prologue.service.network.g(aVar2.Xq()).YG()));
-        aVar.aW(Config.EXCEPTION_CRASH_TYPE, "2");
-        aVar.aW("is_https", "1");
-        aVar.aW("android_id", aVar2.androidId());
-        aVar.aW("from", aVar2.XG());
-        aVar.aW(BdStatsConstant.StatsKey.CURRENT_CHANNEL, aVar2.XH());
-        aVar.aV("User-Agent", aVar2.userAgent());
-        if (!TextUtils.isEmpty(aVar2.XL())) {
-            aVar.aW("oaid", aVar2.XL());
+        aVar.bd("ver", aVar2.Zl());
+        aVar.bd("sv", "1.0.4");
+        aVar.bd("uid", aVar2.Zt());
+        aVar.bd("bdid", aVar2.Zr());
+        aVar.bd("cuid", aVar2.Zn());
+        aVar.bd("mod", aVar2.Zo());
+        aVar.bd("ov", aVar2.Zm());
+        aVar.bd("imei", aVar2.Zp());
+        aVar.bd(j.c, aVar2.Zs());
+        aVar.bd("fmt", "json");
+        aVar.bd("coot", aVar2.Zy());
+        aVar.bd("lgt", aVar2.Zz()[0]);
+        aVar.bd("lat", aVar2.Zz()[1]);
+        aVar.bd("apna", aVar2.Zq());
+        aVar.bd("eid", aVar2.Zx());
+        aVar.bd("st", "1");
+        aVar.bd("ot", "2");
+        aVar.bd("nt", String.valueOf(new com.baidu.prologue.service.network.g(aVar2.Zk()).aaz()));
+        aVar.bd(Config.EXCEPTION_CRASH_TYPE, "2");
+        aVar.bd("is_https", "1");
+        aVar.bd("android_id", aVar2.androidId());
+        aVar.bd("from", aVar2.ZA());
+        aVar.bd(BdStatsConstant.StatsKey.CURRENT_CHANNEL, aVar2.ZB());
+        aVar.bc("User-Agent", aVar2.userAgent());
+        if (!TextUtils.isEmpty(aVar2.ZF())) {
+            aVar.bd("oaid", aVar2.ZF());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(com.baidu.prologue.a.b.a aVar, long j, String str, String str2) {
-        Als.a(com.baidu.prologue.a.c.f.md5(aVar.Xt() + j), aVar.ry(), str, System.currentTimeMillis() - j, str2);
+        Als.a(com.baidu.prologue.a.c.f.md5(aVar.Zn() + j), aVar.ry(), str, System.currentTimeMillis() - j, str2);
     }
 }

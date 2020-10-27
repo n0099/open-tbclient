@@ -5,9 +5,9 @@ public abstract class b {
     public void F(Throwable th) {
     }
 
-    public final String ck(Object obj) {
+    public final String co(Object obj) {
         try {
-            return cl(obj);
+            return cp(obj);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             return obj.getClass().getName() + ".errorRendering";
@@ -17,7 +17,7 @@ public abstract class b {
         }
     }
 
-    protected String cl(Object obj) throws InterruptedException {
+    protected String cp(Object obj) throws InterruptedException {
         return null;
     }
 }

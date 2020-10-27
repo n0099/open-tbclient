@@ -3,8 +3,8 @@ package com.baidu.swan.games.i.a;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 /* loaded from: classes10.dex */
 public class c {
-    private int dGU;
-    private int dGV;
+    private int dPr;
+    private int dPs;
     @V8JavascriptField
     public String digest;
     @V8JavascriptField
@@ -13,13 +13,13 @@ public class c {
     public int size;
 
     public c() {
-        this.dGV = 0;
-        int i = this.dGV;
-        this.dGV = i + 1;
-        this.dGU = i;
+        this.dPs = 0;
+        int i = this.dPs;
+        this.dPs = i + 1;
+        this.dPr = i;
     }
 
     public String toString() {
-        return "GetFileInfoCallBack" + this.dGU;
+        return "GetFileInfoCallBack" + this.dPr;
     }
 }

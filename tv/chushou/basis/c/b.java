@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
 public class b implements a {
-    private final Map<String, Object> pkQ = new ConcurrentHashMap();
+    private final Map<String, Object> qcf = new ConcurrentHashMap();
 
     @Override // tv.chushou.basis.c.a
     public String getString(String str, @Nullable String str2) {
@@ -17,7 +17,7 @@ public class b implements a {
     @Override // tv.chushou.basis.c.a
     public void putString(String str, String str2) {
         if (!TextUtils.isEmpty(str) && str2 != null) {
-            this.pkQ.put(str, str2);
+            this.qcf.put(str, str2);
         }
     }
 
@@ -33,14 +33,14 @@ public class b implements a {
     @Override // tv.chushou.basis.c.a
     public void putInt(String str, int i) {
         if (!TextUtils.isEmpty(str)) {
-            this.pkQ.put(str, Integer.valueOf(i));
+            this.qcf.put(str, Integer.valueOf(i));
         }
     }
 
     @Override // tv.chushou.basis.c.a
     public void putBoolean(String str, boolean z) {
         if (!TextUtils.isEmpty(str)) {
-            this.pkQ.put(str, Boolean.valueOf(z));
+            this.qcf.put(str, Boolean.valueOf(z));
         }
     }
 
@@ -49,7 +49,7 @@ public class b implements a {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.pkQ.get(str);
+        return this.qcf.get(str);
     }
 
     @Override // tv.chushou.basis.c.a
@@ -57,6 +57,6 @@ public class b implements a {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.pkQ.remove(str);
+        return this.qcf.remove(str);
     }
 }

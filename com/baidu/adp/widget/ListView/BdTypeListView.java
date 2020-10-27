@@ -12,8 +12,8 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BdTypeListView extends BdListView implements v<BdTypeListView> {
-    private HashMap<BdUniqueId, a> Wt;
-    private HashMap<BdUniqueId, j> Wu;
+    private HashMap<BdUniqueId, a> Wu;
+    private HashMap<BdUniqueId, j> Wv;
     af mTypeAdapter;
 
     public BdTypeListView(Context context) {
@@ -38,11 +38,11 @@ public class BdTypeListView extends BdListView implements v<BdTypeListView> {
         if (this.mTypeAdapter == null) {
             this.mTypeAdapter = new af();
         }
-        if (this.Wt == null) {
-            this.Wt = new HashMap<>();
-        }
         if (this.Wu == null) {
             this.Wu = new HashMap<>();
+        }
+        if (this.Wv == null) {
+            this.Wv = new HashMap<>();
         }
         super.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.adp.widget.ListView.BdTypeListView.1
             @Override // android.widget.AdapterView.OnItemClickListener
@@ -88,44 +88,44 @@ public class BdTypeListView extends BdListView implements v<BdTypeListView> {
                 BdUniqueId bdUniqueId = null;
                 if (aVar.qJ() != null) {
                     bdUniqueId = aVar.qJ();
-                    if (!this.Wu.containsKey(bdUniqueId)) {
+                    if (!this.Wv.containsKey(bdUniqueId)) {
                         j jVar = new j(aVar.mContext, bdUniqueId, aVar.mPageId);
                         jVar.a(aVar);
                         this.mTypeAdapter.addAdapter(jVar);
-                        this.Wu.put(bdUniqueId, jVar);
+                        this.Wv.put(bdUniqueId, jVar);
                     }
                 }
                 if (aVar.qK() != null) {
                     bdUniqueId = aVar.qK();
-                    if (!this.Wu.containsKey(bdUniqueId)) {
+                    if (!this.Wv.containsKey(bdUniqueId)) {
                         j jVar2 = new j(aVar.mContext, bdUniqueId, aVar.mPageId);
                         jVar2.a(aVar);
                         this.mTypeAdapter.addAdapter(jVar2);
-                        this.Wu.put(bdUniqueId, jVar2);
+                        this.Wv.put(bdUniqueId, jVar2);
                     }
                 }
                 if (aVar.qL() != null) {
                     bdUniqueId = aVar.qL();
-                    if (!this.Wu.containsKey(bdUniqueId)) {
+                    if (!this.Wv.containsKey(bdUniqueId)) {
                         j jVar3 = new j(aVar.mContext, bdUniqueId, aVar.mPageId);
                         jVar3.a(aVar);
                         this.mTypeAdapter.addAdapter(jVar3);
-                        this.Wu.put(bdUniqueId, jVar3);
+                        this.Wv.put(bdUniqueId, jVar3);
                     }
                 }
                 if (aVar.qM() != null) {
                     bdUniqueId = aVar.qM();
-                    if (!this.Wu.containsKey(bdUniqueId)) {
+                    if (!this.Wv.containsKey(bdUniqueId)) {
                         j jVar4 = new j(aVar.mContext, bdUniqueId, aVar.mPageId);
                         jVar4.a(aVar);
                         this.mTypeAdapter.addAdapter(jVar4);
-                        this.Wu.put(bdUniqueId, jVar4);
+                        this.Wv.put(bdUniqueId, jVar4);
                     }
                 }
                 if (bdUniqueId == null) {
                     this.mTypeAdapter.addAdapter(aVar);
                 } else {
-                    this.Wt.put(aVar.Vv, aVar);
+                    this.Wu.put(aVar.Vw, aVar);
                 }
             }
         }
@@ -137,8 +137,8 @@ public class BdTypeListView extends BdListView implements v<BdTypeListView> {
         ArrayList arrayList = new ArrayList();
         for (q qVar : list) {
             if (qVar != null) {
-                if (this.Wt.containsKey(qVar.getType())) {
-                    a aVar = this.Wt.get(qVar.getType());
+                if (this.Wu.containsKey(qVar.getType())) {
+                    a aVar = this.Wu.get(qVar.getType());
                     if (aVar.qJ() != null) {
                         i iVar = new i();
                         iVar.g(aVar.qJ());

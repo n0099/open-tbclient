@@ -7,29 +7,29 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes24.dex */
 public class o {
-    private List<com.baidu.adp.widget.ListView.a> bhH = new ArrayList();
-    private com.baidu.tieba.person.a.a lBM;
-    private f lJa;
-    private l lJb;
-    private g lJc;
+    private List<com.baidu.adp.widget.ListView.a> bje = new ArrayList();
+    private com.baidu.tieba.person.a.a lOj;
+    private f lVw;
+    private l lVx;
+    private g lVy;
 
     public o(TbPageContext tbPageContext, HTypeListView hTypeListView) {
-        this.lJa = new f(tbPageContext, com.baidu.tieba.personPolymeric.c.o.lLj);
-        this.lJb = new l(tbPageContext);
-        this.lJc = new g(tbPageContext, com.baidu.tieba.personPolymeric.c.h.lLc);
-        this.lBM = new com.baidu.tieba.person.a.a(tbPageContext.getPageActivity(), com.baidu.tieba.person.d.lBz);
-        this.bhH.add(this.lJa);
-        this.bhH.add(this.lJb);
-        this.bhH.add(this.lJc);
-        this.bhH.add(this.lBM);
-        hTypeListView.addAdapters(this.bhH);
+        this.lVw = new f(tbPageContext, com.baidu.tieba.personPolymeric.c.o.lXF);
+        this.lVx = new l(tbPageContext);
+        this.lVy = new g(tbPageContext, com.baidu.tieba.personPolymeric.c.h.lXy);
+        this.lOj = new com.baidu.tieba.person.a.a(tbPageContext.getPageActivity(), com.baidu.tieba.person.d.lNW);
+        this.bje.add(this.lVw);
+        this.bje.add(this.lVx);
+        this.bje.add(this.lVy);
+        this.bje.add(this.lOj);
+        hTypeListView.addAdapters(this.bje);
     }
 
     public void Z(View.OnClickListener onClickListener) {
-        this.lJa.setOnClickListener(onClickListener);
+        this.lVw.setOnClickListener(onClickListener);
     }
 
     public void aa(View.OnClickListener onClickListener) {
-        this.lJc.setOnClickListener(onClickListener);
+        this.lVy.setOnClickListener(onClickListener);
     }
 }

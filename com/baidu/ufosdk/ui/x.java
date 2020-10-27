@@ -8,14 +8,14 @@ import java.util.List;
 final class x implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f3893a;
+    final /* synthetic */ String f3891a;
     final /* synthetic */ int b;
     final /* synthetic */ FeedbackEditActivity c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(FeedbackEditActivity feedbackEditActivity, String str, int i) {
         this.c = feedbackEditActivity;
-        this.f3893a = str;
+        this.f3891a = str;
         this.b = i;
     }
 
@@ -29,8 +29,8 @@ final class x implements Runnable {
         List list;
         List list2;
         List list3;
-        com.baidu.ufosdk.f.c.c(" --*^o^*-- return : " + this.f3893a);
-        b = FeedbackEditActivity.b(BitmapFactory.decodeFile(this.f3893a));
+        com.baidu.ufosdk.f.c.c(" --*^o^*-- return : " + this.f3891a);
+        b = FeedbackEditActivity.b(BitmapFactory.decodeFile(this.f3891a));
         if (b == null || b.length == 0) {
             return;
         }
@@ -47,7 +47,7 @@ final class x implements Runnable {
             com.baidu.ufosdk.f.c.a("arrayList error in readBitmapFromFile!", e);
         }
         hashMap = this.c.r;
-        hashMap.put(new StringBuilder().append(this.b).toString(), this.f3893a);
+        hashMap.put(new StringBuilder().append(this.b).toString(), this.f3891a);
         StringBuilder sb = new StringBuilder("*^o^*-- picPathMap.size : ");
         hashMap2 = this.c.r;
         com.baidu.ufosdk.f.c.c(sb.append(hashMap2.size()).toString());

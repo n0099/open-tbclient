@@ -6,56 +6,56 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class a implements View.OnTouchListener {
-    private InterfaceC0776a kWh;
+    private InterfaceC0791a liG;
     private int count = 0;
-    private long kWf = 0;
-    private long kWg = 0;
-    private long kWi = 500;
+    private long liE = 0;
+    private long liF = 0;
+    private long liH = 500;
     private Handler mHandler = new Handler() { // from class: com.baidu.tieba.pb.a.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 2) {
                 a.this.count = 0;
-                a.this.kWf = 0L;
-                a.this.kWg = 0L;
+                a.this.liE = 0L;
+                a.this.liF = 0L;
             } else if (message.what == 1 && a.this.count == 1) {
-                if (a.this.kWh != null) {
-                    a.this.kWh.ddB();
+                if (a.this.liG != null) {
+                    a.this.liG.dgJ();
                 }
                 a.this.count = 0;
-                a.this.kWf = 0L;
-                a.this.kWg = 0L;
+                a.this.liE = 0L;
+                a.this.liF = 0L;
             }
         }
     };
 
     /* renamed from: com.baidu.tieba.pb.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0776a {
-        void ddA();
+    public interface InterfaceC0791a {
+        void dgI();
 
-        void ddB();
+        void dgJ();
     }
 
-    public a(InterfaceC0776a interfaceC0776a) {
-        this.kWh = interfaceC0776a;
+    public a(InterfaceC0791a interfaceC0791a) {
+        this.liG = interfaceC0791a;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            if (this.kWh == null) {
+            if (this.liG == null) {
                 return false;
             }
             this.count++;
             if (this.count == 1) {
-                this.kWf = System.currentTimeMillis();
-                this.mHandler.sendEmptyMessageDelayed(1, this.kWi);
+                this.liE = System.currentTimeMillis();
+                this.mHandler.sendEmptyMessageDelayed(1, this.liH);
                 return true;
             } else if (this.count == 2) {
-                this.kWg = System.currentTimeMillis();
-                if (this.kWg - this.kWf < this.kWi) {
-                    this.kWh.ddA();
+                this.liF = System.currentTimeMillis();
+                if (this.liF - this.liE < this.liH) {
+                    this.liG.dgI();
                 }
                 this.mHandler.sendEmptyMessage(2);
                 return true;

@@ -4,13 +4,13 @@ import android.support.annotation.NonNull;
 /* loaded from: classes10.dex */
 public final class d {
     @NonNull
-    public String cGx;
+    public String cOT;
     @NonNull
-    public String cGy;
-    public boolean cGz = false;
+    public String cOU;
+    public boolean cOV = false;
 
     public d(@NonNull String str, @NonNull String str2) {
-        this.cGx = str;
-        this.cGy = str2;
+        this.cOT = str;
+        this.cOU = str2;
     }
 }

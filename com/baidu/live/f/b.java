@@ -1,11 +1,15 @@
 package com.baidu.live.f;
 
+import android.text.TextUtils;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.CloseUtil;
 import com.baidu.live.adp.lib.util.StringUtils;
+import com.baidu.live.d;
+import com.baidu.live.gift.v;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.FileHelper;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.download.DownloadData;
@@ -35,108 +39,118 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b {
     public static void a(String str, String str2, final String str3, final String str4, final String str5, String str6, String str7, int i, boolean z) {
-        if (!a.existFile(str3)) {
-            new File(str3).mkdirs();
+        String str8 = str3 + "/" + str6 + ".zip";
+        if (TextUtils.isEmpty(str3)) {
+            BdLog.w("warning!! download illegal dir");
+        } else if (TextUtils.isEmpty(str6)) {
+            BdLog.w("warning!! download illegal name");
+        } else if (!str3.startsWith(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath())) {
+            BdLog.w("warning!! download illegal dir=" + str3 + " name=" + str6);
+        } else {
+            final DownloadData downloadData = new DownloadData();
+            downloadData.setId(str);
+            downloadData.setForceDownload(z);
+            downloadData.setName(str6);
+            downloadData.setUrl(str2);
+            downloadData.setCheck(str7);
+            downloadData.setType(i);
+            downloadData.setPath(str8);
+            BdLog.e("dynamicgift开始下载：" + str2);
+            downloadData.setCallback(new FileDownloadCallBack() { // from class: com.baidu.live.f.b.1
+                @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
+                public void onFileUpdateProgress(DownloadData downloadData2) {
+                }
+
+                @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
+                public boolean onPreDownload(DownloadData downloadData2) {
+                    if (!com.baidu.live.ab.c.PX().b(downloadData2)) {
+                        return false;
+                    }
+                    c cVar = new c();
+                    cVar.aRI = 1;
+                    cVar.aRJ = downloadData2;
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
+                    return true;
+                }
+
+                @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
+                public boolean onFileDownloaded(DownloadData downloadData2) {
+                    c cVar = new c();
+                    cVar.aRI = 4;
+                    cVar.aRJ = downloadData2;
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
+                    return true;
+                }
+
+                @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
+                public void onFileDownloadSucceed(DownloadData downloadData2) {
+                    BdLog.e("dynamicgift下载成功： " + downloadData2.getUrl());
+                    b.a(downloadData2, str4, str5);
+                }
+
+                @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
+                public void onFileDownloadFailed(DownloadData downloadData2, int i2, String str9) {
+                    int i3 = 3;
+                    BdLog.e("下载失败" + i2 + ", " + str9);
+                    JSONObject jSONObject = new JSONObject();
+                    JSONObject jSONObject2 = new JSONObject();
+                    if (3 == i2) {
+                        i3 = 1;
+                    } else if (2 == i2) {
+                        i3 = 2;
+                    } else if (4 != i2) {
+                        if (6 == i2) {
+                            i3 = 4;
+                        } else if (7 != i2) {
+                            i3 = 0;
+                        } else {
+                            i3 = 5;
+                        }
+                    }
+                    try {
+                        jSONObject2.put("step_error", i3);
+                        jSONObject2.put("down_type", PraiseUBCHelper.SOURCE_DYNAMIC);
+                        jSONObject2.put("down_url", downloadData2.getUrl());
+                        if (downloadData2.getNetErrorJson() != null) {
+                            jSONObject2.put(ETAG.KEY_NET_ERROR, downloadData2.getNetErrorJson());
+                        }
+                        jSONObject.put("download", jSONObject2);
+                    } catch (JSONException e) {
+                        BdLog.e(e);
+                    }
+                    UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_DOWN_RES_RESP, UbcStatConstant.ContentType.UBC_TYPE_RES_DOWN, "liveroom", "").setContentExt(jSONObject), null, true);
+                    c cVar = new c();
+                    cVar.aRI = 2;
+                    cVar.aRJ = downloadData2;
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
+                }
+            });
+            new BdAsyncTask<Void, Void, Boolean>() { // from class: com.baidu.live.f.b.2
+                /* JADX DEBUG: Method merged with bridge method */
+                /* JADX INFO: Access modifiers changed from: protected */
+                @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
+                public Boolean doInBackground(Void... voidArr) {
+                    a.cleanDir(new File(str3));
+                    return true;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                /* JADX INFO: Access modifiers changed from: protected */
+                @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
+                public void onPostExecute(Boolean bool) {
+                    JSONObject jSONObject = new JSONObject();
+                    JSONObject jSONObject2 = new JSONObject();
+                    try {
+                        jSONObject2.put("down_type", PraiseUBCHelper.SOURCE_DYNAMIC);
+                        jSONObject.put("download", jSONObject2);
+                    } catch (JSONException e) {
+                        BdLog.e(e);
+                    }
+                    UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_DOWN_RES_REQ, UbcStatConstant.ContentType.UBC_TYPE_RES_DOWN, "liveroom", "").setContentExt(jSONObject));
+                    FileSerialDownLoader.getInstance().startDownLoadWithoutMax(downloadData);
+                }
+            }.execute(new Void[0]);
         }
-        final DownloadData downloadData = new DownloadData();
-        downloadData.setId(str);
-        downloadData.setName(str6);
-        downloadData.setUrl(str2);
-        downloadData.setCheck(str7);
-        downloadData.setType(i);
-        downloadData.setPath(str3 + "/" + str6 + ".zip");
-        BdLog.e("dynamicgift开始下载：" + str2);
-        downloadData.setCallback(new FileDownloadCallBack() { // from class: com.baidu.live.f.b.1
-            @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
-            public void onFileUpdateProgress(DownloadData downloadData2) {
-            }
-
-            @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
-            public boolean onPreDownload(DownloadData downloadData2) {
-                c cVar = new c();
-                cVar.aQU = 1;
-                cVar.aQV = downloadData2;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
-                return true;
-            }
-
-            @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
-            public boolean onFileDownloaded(DownloadData downloadData2) {
-                c cVar = new c();
-                cVar.aQU = 4;
-                cVar.aQV = downloadData2;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
-                return true;
-            }
-
-            @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
-            public void onFileDownloadSucceed(DownloadData downloadData2) {
-                BdLog.e("dynamicgift下载成功： " + downloadData2.getUrl());
-                b.a(downloadData2, str4, str5);
-            }
-
-            @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
-            public void onFileDownloadFailed(DownloadData downloadData2, int i2, String str8) {
-                int i3 = 3;
-                BdLog.e("下载失败" + i2 + ", " + str8);
-                JSONObject jSONObject = new JSONObject();
-                JSONObject jSONObject2 = new JSONObject();
-                if (3 == i2) {
-                    i3 = 1;
-                } else if (2 == i2) {
-                    i3 = 2;
-                } else if (4 != i2) {
-                    if (6 == i2) {
-                        i3 = 4;
-                    } else if (7 != i2) {
-                        i3 = 0;
-                    } else {
-                        i3 = 5;
-                    }
-                }
-                try {
-                    jSONObject2.put("step_error", i3);
-                    jSONObject2.put("down_type", PraiseUBCHelper.SOURCE_DYNAMIC);
-                    jSONObject2.put("down_url", downloadData2.getUrl());
-                    if (downloadData2.getNetErrorJson() != null) {
-                        jSONObject2.put(ETAG.KEY_NET_ERROR, downloadData2.getNetErrorJson());
-                    }
-                    jSONObject.put("download", jSONObject2);
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                }
-                UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_DOWN_RES_RESP, UbcStatConstant.ContentType.UBC_TYPE_RES_DOWN, "liveroom", "").setContentExt(jSONObject), null, true);
-                c cVar = new c();
-                cVar.aQU = 2;
-                cVar.aQV = downloadData2;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
-            }
-        });
-        new BdAsyncTask<Void, Void, Boolean>() { // from class: com.baidu.live.f.b.2
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
-            public Boolean doInBackground(Void... voidArr) {
-                a.cleanDir(new File(str3));
-                return true;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
-            public void onPostExecute(Boolean bool) {
-                JSONObject jSONObject = new JSONObject();
-                JSONObject jSONObject2 = new JSONObject();
-                try {
-                    jSONObject2.put("down_type", PraiseUBCHelper.SOURCE_DYNAMIC);
-                    jSONObject.put("download", jSONObject2);
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                }
-                UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_DOWN_RES_REQ, UbcStatConstant.ContentType.UBC_TYPE_RES_DOWN, "liveroom", "").setContentExt(jSONObject));
-                FileSerialDownLoader.getInstance().startDownLoadWithoutMax(downloadData);
-            }
-        }.execute(new Void[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -147,14 +161,14 @@ public class b {
             @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
             public Boolean doInBackground(Void... voidArr) {
                 if (DownloadData.this.getPath() != null && new File(DownloadData.this.getPath()).exists()) {
-                    int ai = b.ai(DownloadData.this.getPath(), str);
-                    if (ai == 0) {
-                        b.ah(str2, str);
+                    int aj = b.aj(DownloadData.this.getPath(), str);
+                    if (aj == 0) {
+                        b.ai(str2, str);
                     } else {
                         JSONObject jSONObject = new JSONObject();
                         JSONObject jSONObject2 = new JSONObject();
                         try {
-                            jSONObject2.put("step_error", ai);
+                            jSONObject2.put("step_error", aj);
                             jSONObject2.put("down_type", PraiseUBCHelper.SOURCE_DYNAMIC);
                             jSONObject2.put("down_url", DownloadData.this.getUrl());
                             jSONObject.put("download", jSONObject2);
@@ -163,7 +177,7 @@ public class b {
                         }
                         UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_DOWN_RES_RESP, UbcStatConstant.ContentType.UBC_TYPE_RES_DOWN, "liveroom", "").setContentExt(jSONObject), null, true);
                     }
-                    return Boolean.valueOf(ai == 0);
+                    return Boolean.valueOf(aj == 0);
                 }
                 return false;
             }
@@ -174,15 +188,16 @@ public class b {
             public void onPostExecute(Boolean bool) {
                 if (bool.booleanValue()) {
                     if (a.existFile(str)) {
+                        v.gv(DownloadData.this.getName());
                         c cVar = new c();
-                        cVar.aQU = 5;
-                        cVar.aQV = DownloadData.this;
+                        cVar.aRI = 5;
+                        cVar.aRJ = DownloadData.this;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
                         return;
                     }
                     c cVar2 = new c();
-                    cVar2.aQU = 6;
-                    cVar2.aQV = DownloadData.this;
+                    cVar2.aRI = 6;
+                    cVar2.aRJ = DownloadData.this;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar2));
                     BdLog.e("zip empty");
                     return;
@@ -192,9 +207,9 @@ public class b {
         }.execute(new Void[0]);
     }
 
-    public static ArrayList<String> gn(String str) {
+    public static ArrayList<String> go(String str) {
         ArrayList<String> arrayList = null;
-        String string = com.baidu.live.c.AZ().getSharedPreferences().getString(str, null);
+        String string = d.AZ().getSharedPreferences().getString(str, null);
         if (string == null) {
             return null;
         }
@@ -241,7 +256,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void ah(String str, String str2) {
+    public static void ai(String str, String str2) {
         File[] listFiles;
         String fileMd5;
         if (!StringUtils.isNull(str2) && (listFiles = new File(str2).listFiles()) != null) {
@@ -251,13 +266,12 @@ public class b {
                     jSONArray.put(fileMd5);
                 }
             }
-            com.baidu.live.c.AZ().putString(str, jSONArray.toString());
+            d.AZ().putString(str, jSONArray.toString());
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [371=4] */
     /* JADX INFO: Access modifiers changed from: private */
-    public static int ai(String str, String str2) {
+    public static int aj(String str, String str2) {
         ZipInputStream zipInputStream;
         try {
             try {
@@ -265,13 +279,15 @@ public class b {
                 while (true) {
                     try {
                         ZipEntry nextEntry = zipInputStream.getNextEntry();
-                        if (nextEntry == null) {
+                        if (nextEntry != null) {
+                            if (!nextEntry.isDirectory()) {
+                                saveFile(str2, nextEntry.getName(), zipInputStream);
+                            }
+                        } else {
                             zipInputStream.close();
                             FileHelper.deleteFile(new File(str));
                             CloseUtil.close((InputStream) zipInputStream);
                             return 0;
-                        } else if (!nextEntry.isDirectory()) {
-                            saveFile(str2, nextEntry.getName(), zipInputStream);
                         }
                     } catch (FileNotFoundException e) {
                         e = e;
@@ -303,7 +319,7 @@ public class b {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [434=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [458=4] */
     private static String saveFile(String str, String str2, InputStream inputStream) {
         String str3;
         FileOutputStream fileOutputStream;

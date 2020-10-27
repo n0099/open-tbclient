@@ -8,7 +8,7 @@ import com.tencent.open.a.f;
 public class a extends InputConnectionWrapper {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4626a;
+    public static String f4624a;
     public static boolean b = false;
     public static boolean c = false;
 
@@ -19,7 +19,7 @@ public class a extends InputConnectionWrapper {
     @Override // android.view.inputmethod.InputConnectionWrapper, android.view.inputmethod.InputConnection
     public boolean setComposingText(CharSequence charSequence, int i) {
         c = true;
-        f4626a = charSequence.toString();
+        f4624a = charSequence.toString();
         f.a("openSDK_LOG.CaptureInputConnection", "-->setComposingText: " + charSequence.toString());
         return super.setComposingText(charSequence, i);
     }
@@ -27,7 +27,7 @@ public class a extends InputConnectionWrapper {
     @Override // android.view.inputmethod.InputConnectionWrapper, android.view.inputmethod.InputConnection
     public boolean commitText(CharSequence charSequence, int i) {
         c = true;
-        f4626a = charSequence.toString();
+        f4624a = charSequence.toString();
         f.a("openSDK_LOG.CaptureInputConnection", "-->commitText: " + charSequence.toString());
         return super.commitText(charSequence, i);
     }
@@ -36,11 +36,11 @@ public class a extends InputConnectionWrapper {
     public boolean sendKeyEvent(KeyEvent keyEvent) {
         if (keyEvent.getAction() == 0) {
             f.c("openSDK_LOG.CaptureInputConnection", "sendKeyEvent");
-            f4626a = String.valueOf((char) keyEvent.getUnicodeChar());
+            f4624a = String.valueOf((char) keyEvent.getUnicodeChar());
             c = true;
-            f.b("openSDK_LOG.CaptureInputConnection", "s: " + f4626a);
+            f.b("openSDK_LOG.CaptureInputConnection", "s: " + f4624a);
         }
-        f.b("openSDK_LOG.CaptureInputConnection", "-->sendKeyEvent: " + f4626a);
+        f.b("openSDK_LOG.CaptureInputConnection", "-->sendKeyEvent: " + f4624a);
         return super.sendKeyEvent(keyEvent);
     }
 }

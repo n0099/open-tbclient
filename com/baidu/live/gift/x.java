@@ -1,21 +1,41 @@
 package com.baidu.live.gift;
 
-import android.view.View;
+import android.text.TextUtils;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes4.dex */
-public interface x {
-    View FQ();
+public class x {
+    private Set<String> aVe;
 
-    View FR();
+    public static x Gz() {
+        return a.aVf;
+    }
 
-    void FS();
+    public boolean gL(String str) {
+        if (TextUtils.isEmpty(str) || this.aVe == null || this.aVe.isEmpty()) {
+            return false;
+        }
+        return this.aVe.contains(str);
+    }
 
-    void FT();
+    public void gM(String str) {
+        if (this.aVe == null) {
+            this.aVe = new HashSet();
+        }
+        this.aVe.add(str);
+    }
 
-    void bo(boolean z);
+    public void release() {
+        if (this.aVe != null) {
+            this.aVe.clear();
+        }
+    }
 
-    void dU(int i);
+    private x() {
+    }
 
-    void dV(int i);
-
-    void onDestroy();
+    /* loaded from: classes4.dex */
+    private static class a {
+        private static x aVf = new x();
+    }
 }

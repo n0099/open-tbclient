@@ -5,13 +5,13 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class c implements e {
-    private List<Long> cVL = new ArrayList();
+    private List<Long> del = new ArrayList();
     private long mEndTime = -1;
 
     @Override // com.baidu.swan.apps.performance.e.e
     public void setStart(long j) {
-        if (this.cVL != null) {
-            this.cVL.add(Long.valueOf(j));
+        if (this.del != null) {
+            this.del.add(Long.valueOf(j));
         }
     }
 
@@ -21,11 +21,11 @@ public class c implements e {
     }
 
     @Override // com.baidu.swan.apps.performance.e.e
-    public long alE() {
-        if (this.cVL == null || this.cVL.size() <= 0 || this.mEndTime < 0) {
+    public long any() {
+        if (this.del == null || this.del.size() <= 0 || this.mEndTime < 0) {
             return -1L;
         }
-        return this.mEndTime - ((Long) Collections.min(this.cVL)).longValue();
+        return this.mEndTime - ((Long) Collections.min(this.del)).longValue();
     }
 
     @Override // com.baidu.swan.apps.performance.e.e

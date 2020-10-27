@@ -9,13 +9,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes13.dex */
 public class TbCdnIpListData {
-    public ArrayList<ArrayList<String>> khs;
-    public int khq = 0;
+    public ArrayList<ArrayList<String>> ktQ;
+    public int ktO = 0;
     public String errorString = null;
     public String imageUrl = null;
-    public String khr = null;
-    boolean kht = false;
-    public String khu = null;
+    public String ktP = null;
+    boolean ktR = false;
+    public String ktS = null;
 
     public void parseJson(JSONObject jSONObject) {
         JSONArray optJSONArray;
@@ -23,19 +23,19 @@ public class TbCdnIpListData {
             try {
                 JSONObject optJSONObject = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
                 if (optJSONObject != null) {
-                    this.khq = optJSONObject.optInt("errorno");
+                    this.ktO = optJSONObject.optInt("errorno");
                     this.errorString = optJSONObject.optString(BaseJsonData.TAG_ERRMSG);
                 }
                 if (1 == jSONObject.optInt("cdn_switch")) {
-                    this.kht = true;
+                    this.ktR = true;
                 } else {
-                    this.kht = false;
+                    this.ktR = false;
                 }
-                this.khu = jSONObject.optString("cdn_domain");
+                this.ktS = jSONObject.optString("cdn_domain");
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("cdn_img_info");
                 if (optJSONObject2 != null) {
                     this.imageUrl = optJSONObject2.optString(BigdayActivityConfig.IMG_URL);
-                    this.khr = optJSONObject2.optString("img_md5");
+                    this.ktP = optJSONObject2.optString("img_md5");
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("ip_list");
                 if (optJSONArray2 != null) {
@@ -58,7 +58,7 @@ public class TbCdnIpListData {
                         }
                     }
                     if (arrayList.size() > 0) {
-                        this.khs = arrayList;
+                        this.ktQ = arrayList;
                     }
                 }
             } catch (Exception e) {

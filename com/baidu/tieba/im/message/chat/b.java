@@ -4,19 +4,19 @@ import com.baidu.tieba.im.message.chat.a;
 /* loaded from: classes.dex */
 public class b implements com.baidu.tbadk.mvc.b.a {
     private long createTime;
-    private boolean jTW;
-    private a.C0734a jTX;
-    private com.baidu.tieba.im.db.pojo.a jTY;
-    private int jTZ;
+    private boolean kgw;
+    private a.C0750a kgx;
+    private com.baidu.tieba.im.db.pojo.a kgy;
+    private int kgz;
 
-    public static b a(ChatMessage chatMessage, a.C0734a c0734a) {
+    public static b a(ChatMessage chatMessage, a.C0750a c0750a) {
         b bVar = new b();
         if (chatMessage == null) {
             return bVar;
         }
-        c0734a.jTT /= 100;
-        bVar.CG(chatMessage.getReadCountPv());
-        bVar.a(c0734a);
+        c0750a.kgt /= 100;
+        bVar.CZ(chatMessage.getReadCountPv());
+        bVar.a(c0750a);
         bVar.setCreateTime(chatMessage.getTime());
         if (chatMessage.getObjContent() instanceof com.baidu.tieba.im.db.pojo.a) {
             bVar.a((com.baidu.tieba.im.db.pojo.a) chatMessage.getObjContent());
@@ -24,28 +24,28 @@ public class b implements com.baidu.tbadk.mvc.b.a {
         return bVar;
     }
 
-    public boolean cOz() {
-        return this.jTW;
+    public boolean cRG() {
+        return this.kgw;
     }
 
-    public void rK(boolean z) {
-        this.jTW = z;
+    public void sc(boolean z) {
+        this.kgw = z;
     }
 
-    public a.C0734a cOA() {
-        return this.jTX;
+    public a.C0750a cRH() {
+        return this.kgx;
     }
 
-    public void a(a.C0734a c0734a) {
-        this.jTX = c0734a;
+    public void a(a.C0750a c0750a) {
+        this.kgx = c0750a;
     }
 
-    public com.baidu.tieba.im.db.pojo.a cOB() {
-        return this.jTY;
+    public com.baidu.tieba.im.db.pojo.a cRI() {
+        return this.kgy;
     }
 
     public void a(com.baidu.tieba.im.db.pojo.a aVar) {
-        this.jTY = aVar;
+        this.kgy = aVar;
     }
 
     public long getCreateTime() {
@@ -56,11 +56,11 @@ public class b implements com.baidu.tbadk.mvc.b.a {
         this.createTime = j;
     }
 
-    public int cOC() {
-        return this.jTZ;
+    public int cRJ() {
+        return this.kgz;
     }
 
-    public void CG(int i) {
-        this.jTZ = i;
+    public void CZ(int i) {
+        this.kgz = i;
     }
 }

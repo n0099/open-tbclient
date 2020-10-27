@@ -11,7 +11,7 @@ import com.kascend.chushou.view.h5.H5Options;
 public class RoomInfoActivity extends BaseActivity {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f4239a;
+    private TextView f4237a;
 
     @Override // com.kascend.chushou.view.base.BaseActivity
     public void a() {
@@ -20,7 +20,7 @@ public class RoomInfoActivity extends BaseActivity {
 
     @Override // com.kascend.chushou.view.base.BaseActivity
     public void M() {
-        this.f4239a = (TextView) findViewById(a.f.tittle_name);
+        this.f4237a = (TextView) findViewById(a.f.tittle_name);
         findViewById(a.f.back_icon).setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.view.user.RoomInfoActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -36,10 +36,10 @@ public class RoomInfoActivity extends BaseActivity {
         String stringExtra = intent.getStringExtra(LogConfig.LOG_ROOMID);
         com.kascend.chushou.view.h5.a aVar = null;
         if (intExtra == 2) {
-            this.f4239a.setText(a.i.str_contribute_tittle);
+            this.f4237a.setText(a.i.str_contribute_tittle);
             H5Options h5Options = new H5Options();
             h5Options.d = true;
-            h5Options.f4233a = tv.chushou.common.a.cCv() + "m/room-billboard/" + stringExtra + ".htm";
+            h5Options.f4231a = tv.chushou.common.a.cFC() + "m/room-billboard/" + stringExtra + ".htm";
             aVar = com.kascend.chushou.view.h5.a.a(h5Options);
         }
         if (aVar != null) {

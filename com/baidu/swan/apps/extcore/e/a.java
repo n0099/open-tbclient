@@ -18,26 +18,26 @@ public class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends com.baid
         super(t);
     }
 
-    public long apS() {
-        return h.aGy().getLong(this.cFn.apN(), 0L);
+    public long arM() {
+        return h.aIs().getLong(this.cNJ.arH(), 0L);
     }
 
-    public void bg(long j) {
-        h.aGy().putLong(this.cFn.apN(), j);
+    public void bi(long j) {
+        h.aIs().putLong(this.cNJ.arH(), j);
     }
 
     @Override // com.baidu.swan.apps.extcore.b.a
-    public File apC() {
-        return new File(super.apC(), "remote");
+    public File arw() {
+        return new File(super.arw(), "remote");
     }
 
     @NonNull
-    public ExtensionCore apT() {
+    public ExtensionCore arN() {
         ExtensionCore extensionCore = new ExtensionCore();
-        long apS = apS();
-        extensionCore.extensionCoreVersionCode = apS;
-        extensionCore.extensionCoreVersionName = com.baidu.swan.apps.extcore.f.a.bh(apS);
-        extensionCore.extensionCorePath = bf(apS).getPath();
+        long arM = arM();
+        extensionCore.extensionCoreVersionCode = arM;
+        extensionCore.extensionCoreVersionName = com.baidu.swan.apps.extcore.f.a.bj(arM);
+        extensionCore.extensionCorePath = bh(arM).getPath();
         extensionCore.extensionCoreType = 1;
         return extensionCore;
     }
@@ -47,47 +47,47 @@ public class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends com.baid
         if (DEBUG) {
             Log.d("ExtCore-RemoteControl", "doUpdate: remote");
         }
-        if (TextUtils.isEmpty(aVar.cFP)) {
+        if (TextUtils.isEmpty(aVar.cOl)) {
             if (DEBUG) {
                 Log.e("ExtCore-RemoteControl", "doUpdate: remote with null coreFilePath");
             }
             return new Exception("ExtCore-RemoteControl doUpdate: failed by updateInfo.coreFilePath empty");
         }
-        C0416a C = C(aVar.versionName, aVar.cFP, aVar.sign);
+        C0430a J = J(aVar.versionName, aVar.cOl, aVar.sign);
         if (DEBUG) {
-            Log.d("ExtCore-RemoteControl", "doUpdate: remote status: " + C);
+            Log.d("ExtCore-RemoteControl", "doUpdate: remote status: " + J);
         }
-        nH(aVar.cFP);
-        if (C.isOk()) {
+        oa(aVar.cOl);
+        if (J.isOk()) {
             return null;
         }
-        return new Exception("ExtCore-RemoteControl doUpdate: failed by " + C.toString());
+        return new Exception("ExtCore-RemoteControl doUpdate: failed by " + J.toString());
     }
 
-    private C0416a C(String str, @NonNull String str2, String str3) {
+    private C0430a J(String str, @NonNull String str2, String str3) {
         if (DEBUG) {
             Log.d("ExtCore-RemoteControl", "doRemoteUpdate start.");
             Log.d("ExtCore-RemoteControl", "doRemoteUpdate version: " + str + " ,filePath: " + str2 + " ,sign:" + str3);
         }
-        long nJ = com.baidu.swan.apps.extcore.f.a.nJ(str);
-        if (nJ == 0) {
-            return C0416a.nI("invalid version code : " + str);
+        long oc = com.baidu.swan.apps.extcore.f.a.oc(str);
+        if (oc == 0) {
+            return C0430a.ob("invalid version code : " + str);
         }
         if (!ae.e(new File(str2), str3)) {
-            return C0416a.nI("sign failed.");
+            return C0430a.ob("sign failed.");
         }
-        if (!d.unzipFile(str2, bf(nJ).getPath())) {
-            return C0416a.nI("unzip bundle failed.");
+        if (!d.unzipFile(str2, bh(oc).getPath())) {
+            return C0430a.ob("unzip bundle failed.");
         }
-        com.baidu.swan.apps.extcore.f.a.a(apC(), apS(), nJ);
-        bg(nJ);
+        com.baidu.swan.apps.extcore.f.a.a(arw(), arM(), oc);
+        bi(oc);
         if (DEBUG) {
-            Log.d("ExtCore-RemoteControl", "doRemoteUpdate end. version = " + nJ);
+            Log.d("ExtCore-RemoteControl", "doRemoteUpdate end. version = " + oc);
         }
-        return C0416a.apU();
+        return C0430a.arO();
     }
 
-    private void nH(String str) {
+    private void oa(String str) {
         if (!TextUtils.isEmpty(str)) {
             d.deleteFile(str);
         }
@@ -95,7 +95,7 @@ public class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends com.baid
 
     /* renamed from: com.baidu.swan.apps.extcore.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0416a {
+    public static class C0430a {
         public String message;
         public int statusCode = 0;
 
@@ -103,19 +103,19 @@ public class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends com.baid
             return this.statusCode == 0;
         }
 
-        public static C0416a apU() {
-            return ad(0, "");
+        public static C0430a arO() {
+            return af(0, "");
         }
 
-        public static C0416a nI(String str) {
-            return ad(1, str);
+        public static C0430a ob(String str) {
+            return af(1, str);
         }
 
-        public static C0416a ad(int i, String str) {
-            C0416a c0416a = new C0416a();
-            c0416a.statusCode = i;
-            c0416a.message = str;
-            return c0416a;
+        public static C0430a af(int i, String str) {
+            C0430a c0430a = new C0430a();
+            c0430a.statusCode = i;
+            c0430a.message = str;
+            return c0430a;
         }
 
         public String toString() {

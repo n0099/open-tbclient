@@ -10,14 +10,14 @@ public class d implements com.baidu.swan.apps.ap.e.b<HybridUbcFlow> {
     @Override // com.baidu.swan.apps.ap.e.b
     /* renamed from: a */
     public void M(HybridUbcFlow hybridUbcFlow) {
-        PMSAppInfo xF;
+        PMSAppInfo xY;
         if (DEBUG) {
             Log.i("LaunchCounter", "report: flow=" + hybridUbcFlow);
         }
-        if (hybridUbcFlow != null && (xF = com.baidu.swan.pms.database.a.aWO().xF(com.baidu.swan.apps.runtime.d.aCW().getAppId())) != null) {
-            UbcFlowEvent qj = hybridUbcFlow.qj("naStart");
-            xF.co(qj == null ? System.currentTimeMillis() : qj.azq());
-            com.baidu.swan.pms.database.a.aWO().s(xF);
+        if (hybridUbcFlow != null && (xY = com.baidu.swan.pms.database.a.aYH().xY(com.baidu.swan.apps.runtime.d.aEQ().getAppId())) != null) {
+            UbcFlowEvent qC = hybridUbcFlow.qC("naStart");
+            xY.cq(qC == null ? System.currentTimeMillis() : qC.aBk());
+            com.baidu.swan.pms.database.a.aYH().s(xY);
         }
     }
 }

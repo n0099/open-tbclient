@@ -8,27 +8,27 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes10.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.runtime.e.DEBUG;
-    boolean bWo;
-    Rect bvm;
-    private WeakReference<Bitmap> cSj;
-    boolean cSk;
+    Rect bxA;
+    boolean ceN;
+    private WeakReference<Bitmap> daH;
+    boolean daI;
     String id;
     long remainTime;
     String url;
-    int cSi = 0;
+    int daG = 0;
     long startTime = System.currentTimeMillis();
-    int cSh = 0;
+    int daF = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(String str, String str2, long j, boolean z) {
         this.id = str;
         this.url = str2;
         this.remainTime = j;
-        this.cSk = z;
+        this.daI = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long axT() {
+    public long azN() {
         if (this.remainTime > 0) {
             this.remainTime -= System.currentTimeMillis() - this.startTime;
         }
@@ -51,22 +51,22 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void axU() {
-        this.cSh = 1;
+    public void azO() {
+        this.daF = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void axV() {
-        this.cSh = 2;
+    public void azP() {
+        this.daF = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isChecked() {
-        return this.cSh == 2;
+        return this.daF == 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void p(Bitmap bitmap) {
-        this.cSj = new WeakReference<>(bitmap);
+        this.daH = new WeakReference<>(bitmap);
     }
 }

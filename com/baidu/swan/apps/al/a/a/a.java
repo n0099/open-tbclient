@@ -61,10 +61,10 @@ public class a extends aa {
             }
             c.i("accelerometer", " init ");
             final k kVar = new k("accelerometerChange", optParamsAsJo, optString);
-            com.baidu.swan.apps.al.a.a aGP = com.baidu.swan.apps.al.a.a.aGP();
-            aGP.m(context, a.C0375a.kZ(optParamsAsJo.optString("interval")));
-            aGP.a(new a.InterfaceC0349a() { // from class: com.baidu.swan.apps.al.a.a.a.1
-                @Override // com.baidu.swan.apps.al.a.a.InterfaceC0349a
+            com.baidu.swan.apps.al.a.a aIJ = com.baidu.swan.apps.al.a.a.aIJ();
+            aIJ.m(context, a.C0389a.ls(optParamsAsJo.optString("interval")));
+            aIJ.a(new a.InterfaceC0363a() { // from class: com.baidu.swan.apps.al.a.a.a.1
+                @Override // com.baidu.swan.apps.al.a.a.InterfaceC0363a
                 public void b(double[] dArr) {
                     if (dArr == null || dArr.length != 3) {
                         c.e("accelerometer", "illegal accelerometers");
@@ -74,7 +74,7 @@ public class a extends aa {
                     a.this.a(unitedSchemeEntity, callbackHandler, kVar, dArr);
                 }
             });
-            aGP.aGQ();
+            aIJ.aIK();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             kVar.a(unitedSchemeEntity, callbackHandler);
             return true;

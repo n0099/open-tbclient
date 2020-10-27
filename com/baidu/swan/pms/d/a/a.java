@@ -5,9 +5,9 @@ import com.baidu.swan.pms.node.c;
 import org.json.JSONArray;
 /* loaded from: classes15.dex */
 public interface a {
-    g apl();
+    g arf();
 
-    c<JSONArray> apm();
+    c<JSONArray> arg();
 
-    com.baidu.swan.pms.c.d.g apn();
+    com.baidu.swan.pms.c.d.g arh();
 }

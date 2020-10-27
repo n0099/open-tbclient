@@ -6,25 +6,25 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 /* loaded from: classes22.dex */
 public class EllipsizeRichTextView extends TextView {
-    private SpannableStringBuilder lpy;
+    private SpannableStringBuilder lBX;
 
     public EllipsizeRichTextView(Context context) {
         super(context);
-        djI();
+        dmP();
     }
 
     public EllipsizeRichTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        djI();
+        dmP();
     }
 
     public EllipsizeRichTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        djI();
+        dmP();
     }
 
-    private void djI() {
-        this.lpy = new SpannableStringBuilder();
+    private void dmP() {
+        this.lBX = new SpannableStringBuilder();
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -35,14 +35,14 @@ public class EllipsizeRichTextView extends TextView {
             int lineCount = getLineCount();
             int lineVisibleEnd = getLayout().getLineVisibleEnd((lineCount <= 2 ? lineCount : 2) - 1);
             if (text != null && text.length() > lineVisibleEnd) {
-                if (this.lpy == null) {
-                    djI();
+                if (this.lBX == null) {
+                    dmP();
                 } else {
-                    this.lpy.clear();
+                    this.lBX.clear();
                 }
-                if (this.lpy != null) {
-                    this.lpy.append(text.subSequence(0, lineVisibleEnd));
-                    setText(this.lpy);
+                if (this.lBX != null) {
+                    this.lBX.append(text.subSequence(0, lineVisibleEnd));
+                    setText(this.lBX);
                 }
             }
         }

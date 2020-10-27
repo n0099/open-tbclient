@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes21.dex */
 public class a {
-    private SparseArray<List<b>> aiG = new SparseArray<>();
+    private SparseArray<List<b>> aiH = new SparseArray<>();
 
     /* loaded from: classes21.dex */
     public interface b {
@@ -15,23 +15,23 @@ public class a {
     }
 
     public void c(int i, b bVar) {
-        if (this.aiG == null) {
-            this.aiG = new SparseArray<>();
+        if (this.aiH == null) {
+            this.aiH = new SparseArray<>();
         }
-        List<b> list = this.aiG.get(i);
+        List<b> list = this.aiH.get(i);
         if (list == null) {
             list = new ArrayList<>();
-            this.aiG.put(i, list);
+            this.aiH.put(i, list);
         }
         list.add(bVar);
     }
 
     public void d(int i, b bVar) {
         if (bVar == null) {
-            this.aiG.remove(i);
+            this.aiH.remove(i);
             return;
         }
-        List<b> list = this.aiG.get(i);
+        List<b> list = this.aiH.get(i);
         if (!y.isEmpty(list)) {
             Iterator<b> it = list.iterator();
             while (it.hasNext()) {
@@ -43,7 +43,7 @@ public class a {
     }
 
     public boolean b(C0097a c0097a) {
-        List<b> list = this.aiG.get(c0097a.aiH);
+        List<b> list = this.aiH.get(c0097a.aiI);
         if (y.isEmpty(list)) {
             return false;
         }
@@ -58,28 +58,28 @@ public class a {
     /* renamed from: com.baidu.card.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes21.dex */
     public static class C0097a {
-        private int aiH;
-        private Object aiI;
+        private int aiI;
+        private Object aiJ;
 
         public C0097a(int i, Object obj) {
-            this.aiH = i;
-            this.aiI = obj;
+            this.aiI = i;
+            this.aiJ = obj;
         }
 
         public C0097a(int i) {
-            this.aiH = i;
+            this.aiI = i;
         }
 
         public int getActionType() {
-            return this.aiH;
+            return this.aiI;
         }
 
         public void setExtraData(Object obj) {
-            this.aiI = obj;
+            this.aiJ = obj;
         }
 
         public Object ud() {
-            return this.aiI;
+            return this.aiJ;
         }
     }
 }

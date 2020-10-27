@@ -13,17 +13,17 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes23.dex */
 public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> implements f.c {
-    private ba ikT;
-    private com.baidu.tieba.forumMember.member.a.b ikV;
-    private e ikW;
+    private ba ixr;
+    private com.baidu.tieba.forumMember.member.a.b ixt;
+    private e ixu;
     private String mForumId;
     private String mForumName;
-    private List<com.baidu.adp.widget.ListView.q> ikU = null;
-    private av ikX = new av() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.1
+    private List<com.baidu.adp.widget.ListView.q> ixs = null;
+    private av ixv = new av() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.1
         @Override // com.baidu.tieba.frs.av
         public void a(int i, int i2, bd bdVar, ArrayList<com.baidu.adp.widget.ListView.q> arrayList) {
-            ForumMemberActivity.this.ikV.hideLoadingView();
-            ForumMemberActivity.this.ikV.completePullRefresh();
+            ForumMemberActivity.this.ixt.hideLoadingView();
+            ForumMemberActivity.this.ixt.completePullRefresh();
             if (arrayList != null) {
                 Iterator<com.baidu.adp.widget.ListView.q> it = arrayList.iterator();
                 while (it.hasNext()) {
@@ -33,23 +33,23 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                 }
             }
             if (!y.isEmpty(arrayList)) {
-                ForumMemberActivity.this.ikV.SK();
-                ForumMemberActivity.this.ikU = arrayList;
-                ForumMemberActivity.this.ikV.cI(ForumMemberActivity.this.ikU);
-            } else if (y.isEmpty(ForumMemberActivity.this.ikU) && bdVar != null) {
-                ForumMemberActivity.this.ikV.Jv(bdVar.errMsg);
+                ForumMemberActivity.this.ixt.TK();
+                ForumMemberActivity.this.ixs = arrayList;
+                ForumMemberActivity.this.ixt.cR(ForumMemberActivity.this.ixs);
+            } else if (y.isEmpty(ForumMemberActivity.this.ixs) && bdVar != null) {
+                ForumMemberActivity.this.ixt.JU(bdVar.errMsg);
             }
         }
     };
-    private NoNetworkView.a fRO = new NoNetworkView.a() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.2
+    private NoNetworkView.a gbR = new NoNetworkView.a() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.2
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
         public void onNetworkChange(boolean z) {
-            ForumMemberActivity.this.ikV.oK(z);
+            ForumMemberActivity.this.ixt.pc(z);
             if (z) {
-                if (y.isEmpty(ForumMemberActivity.this.ikU)) {
-                    ForumMemberActivity.this.cqW();
+                if (y.isEmpty(ForumMemberActivity.this.ixs)) {
+                    ForumMemberActivity.this.cud();
                 } else {
-                    ForumMemberActivity.this.ikV.startPullRefresh();
+                    ForumMemberActivity.this.ixt.startPullRefresh();
                 }
             }
         }
@@ -60,13 +60,13 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initBundle(bundle);
-        this.ikV = new com.baidu.tieba.forumMember.member.a.b(this);
-        this.ikV.f(this.fRO);
-        this.ikW = new e();
-        this.ikW.setTag(getUniqueId());
-        this.ikW.init();
-        this.ikW.a(this.ikX);
-        cqW();
+        this.ixt = new com.baidu.tieba.forumMember.member.a.b(this);
+        this.ixt.f(this.gbR);
+        this.ixu = new e();
+        this.ixu.setTag(getUniqueId());
+        this.ixu.init();
+        this.ixu.a(this.ixv);
+        cud();
     }
 
     private void initBundle(Bundle bundle) {
@@ -81,9 +81,9 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
             this.mForumId = bundle.getString("forum_id", "");
             this.mForumName = bundle.getString("forum_name", "");
         }
-        this.ikT = new ba();
-        this.ikT.forumId = this.mForumId;
-        this.ikT.forumName = this.mForumName;
+        this.ixr = new ba();
+        this.ixr.forumId = this.mForumId;
+        this.ixr.forumName = this.mForumName;
     }
 
     @Override // android.app.Activity
@@ -97,39 +97,39 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.ikV.onChangeSkinType(i);
+        this.ixt.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.ikW.bQq();
-        if (this.ikV != null) {
-            this.ikV.onDestroy();
+        this.ixu.bTn();
+        if (this.ixt != null) {
+            this.ixt.onDestroy();
         }
     }
 
     @Override // com.baidu.tbadk.core.view.f.c
     public void onListPullRefresh(boolean z) {
-        e eVar = this.ikW;
-        e eVar2 = this.ikW;
-        eVar.a(3, 0, this.ikT);
+        e eVar = this.ixu;
+        e eVar2 = this.ixu;
+        eVar.a(3, 0, this.ixr);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
         if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
-            cqW();
+            cud();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cqW() {
-        this.ikV.showLoadingView();
-        e eVar = this.ikW;
-        e eVar2 = this.ikW;
-        eVar.a(3, 0, this.ikT);
+    public void cud() {
+        this.ixt.showLoadingView();
+        e eVar = this.ixu;
+        e eVar2 = this.ixu;
+        eVar.a(3, 0, this.ixr);
     }
 }

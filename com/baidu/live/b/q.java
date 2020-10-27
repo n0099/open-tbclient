@@ -1,13 +1,14 @@
 package com.baidu.live.b;
 
 import android.content.Context;
+import com.baidu.ala.atomdata.AlaPersonCenterExpActivityConfig;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
 /* loaded from: classes4.dex */
 public class q extends IntentConfig {
-    public q(Context context, String str, String str2, String str3) {
+    public q(Context context, long j, int i) {
         super(context);
-        getIntent().putExtra("red_packet_id", str);
-        getIntent().putExtra("live_id", str2);
-        getIntent().putExtra("anchor_id", str3);
+        getIntent().putExtra(AlaPersonCenterExpActivityConfig.CURRENT_EXP, j);
+        getIntent().putExtra("current_level", i);
+        getIntent().putExtra(AlaPersonCenterExpActivityConfig.IS_HOST, true);
     }
 }

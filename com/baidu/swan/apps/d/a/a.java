@@ -10,15 +10,15 @@ import com.baidu.webkit.sdk.CookieManager;
 import com.baidu.webkit.sdk.CookieSyncManager;
 /* loaded from: classes10.dex */
 public class a {
-    public static void W(Context context, String str) {
+    public static void X(Context context, String str) {
         if (ProcessUtils.isMainProcess()) {
-            X(context, str);
-        } else {
             Y(context, str);
+        } else {
+            Z(context, str);
         }
     }
 
-    public static void X(Context context, String str) {
+    public static void Y(Context context, String str) {
         if (context != null) {
             CookieManager.getInstance().setCookie(".baidu.com", ai.getCookieStr(".baidu.com", "OPENBDUSS", str, 31449600L));
             CookieSyncManager.createInstance(AppRuntime.getAppContext());
@@ -26,7 +26,7 @@ public class a {
         }
     }
 
-    private static void Y(Context context, String str) {
+    private static void Z(Context context, String str) {
         Bundle bundle = new Bundle();
         bundle.putString("bduss", str);
         DelegateUtils.callOnMainWithContentProvider(context, b.class, bundle);

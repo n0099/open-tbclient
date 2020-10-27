@@ -3,5 +3,5 @@ package com.baidu.swan.pms.utils;
 import android.support.annotation.NonNull;
 /* loaded from: classes15.dex */
 public interface a {
-    boolean tV(@NonNull String str);
+    boolean uo(@NonNull String str);
 }

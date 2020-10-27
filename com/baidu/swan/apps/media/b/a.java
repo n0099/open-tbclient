@@ -10,24 +10,24 @@ import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 /* loaded from: classes10.dex */
 public class a implements com.baidu.swan.apps.media.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private j cQn;
-    private String cQo;
-    private c cQp;
-    private boolean cQq;
-    private b cQr;
+    private j cYJ;
+    private String cYK;
+    private c cYL;
+    private boolean cYM;
+    private b cYN;
     private Context mContext;
     private boolean mIsForeground = true;
 
     public a(Context context, @NonNull c cVar) {
         this.mContext = context;
-        this.cQp = cVar;
-        this.cQo = cVar.cMu;
-        axe();
-        axd();
+        this.cYL = cVar;
+        this.cYK = cVar.cUQ;
+        ayY();
+        ayX();
     }
 
-    private void axd() {
-        if (!TextUtils.isEmpty(this.cQo)) {
+    private void ayX() {
+        if (!TextUtils.isEmpty(this.cYK)) {
             com.baidu.swan.apps.media.b.a(this);
         }
     }
@@ -36,218 +36,218 @@ public class a implements com.baidu.swan.apps.media.a {
         if (DEBUG) {
             Log.e("SwanAppVideoPlayer", "update 接口");
         }
-        if (this.cQn != null) {
-            this.cQn.a(cVar, true);
+        if (this.cYJ != null) {
+            this.cYJ.a(cVar, true);
         }
-        this.cQp = cVar;
+        this.cYL = cVar;
     }
 
     public void a(b bVar) {
-        this.cQr = bVar;
+        this.cYN = bVar;
     }
 
-    public c aeL() {
-        return this.cQp;
+    public c agF() {
+        return this.cYL;
     }
 
     public void d(c cVar) {
-        com.baidu.swan.apps.console.c.i("video", "Open Player " + cVar.cMu);
-        if (this.cQn != null) {
-            this.cQn.a(cVar);
+        com.baidu.swan.apps.console.c.i("video", "Open Player " + cVar.cUQ);
+        if (this.cYJ != null) {
+            this.cYJ.a(cVar);
         }
-        this.cQp = cVar;
+        this.cYL = cVar;
     }
 
-    public void eW(boolean z) {
-        if (this.cQn != null) {
-            this.cQn.eW(z);
+    public void fj(boolean z) {
+        if (this.cYJ != null) {
+            this.cYJ.fj(z);
         }
     }
 
     public void pause() {
-        if (axf()) {
-            axe().pause();
+        if (ayZ()) {
+            ayY().pause();
         }
     }
 
     public void resume() {
-        if (axf() && !isPlaying() && this.mIsForeground && this.cQn != null) {
-            this.cQn.resume();
+        if (ayZ() && !isPlaying() && this.mIsForeground && this.cYJ != null) {
+            this.cYJ.resume();
         }
     }
 
     public void seekTo(int i) {
-        if (axf() && this.cQn != null) {
-            this.cQn.seekTo(i);
+        if (ayZ() && this.cYJ != null) {
+            this.cYJ.seekTo(i);
         }
     }
 
     public int getDuration() {
-        return axe().getDuration();
+        return ayY().getDuration();
     }
 
     public int getCurrentPosition() {
-        return axe().getCurrentPosition();
+        return ayY().getCurrentPosition();
     }
 
     public boolean isPlaying() {
-        return this.cQn != null && this.cQn.isPlaying();
+        return this.cYJ != null && this.cYJ.isPlaying();
     }
 
     public boolean isEnd() {
-        return this.cQn != null && this.cQn.isEnd();
+        return this.cYJ != null && this.cYJ.isEnd();
     }
 
     public void c(FrameLayout frameLayout) {
-        if (this.cQn != null) {
-            this.cQn.c(frameLayout);
+        if (this.cYJ != null) {
+            this.cYJ.c(frameLayout);
         }
     }
 
     public void j(boolean z, int i) {
-        if (this.cQn != null) {
-            this.cQn.j(z, i);
+        if (this.cYJ != null) {
+            this.cYJ.j(z, i);
         }
     }
 
     public void b(b bVar) {
-        this.cQr = bVar;
+        this.cYN = bVar;
     }
 
-    public j axe() {
-        if (this.cQn == null) {
+    public j ayY() {
+        if (this.cYJ == null) {
             com.baidu.swan.apps.console.c.i("video", "create player");
-            this.cQn = com.baidu.swan.apps.t.a.ast().a(this.mContext, this.cQp);
-            this.cQn.a(new j.a() { // from class: com.baidu.swan.apps.media.b.a.1
+            this.cYJ = com.baidu.swan.apps.t.a.aun().a(this.mContext, this.cYL);
+            this.cYJ.a(new j.a() { // from class: com.baidu.swan.apps.media.b.a.1
                 @Override // com.baidu.swan.apps.t.b.j.a
                 public void b(j jVar) {
-                    if (a.this.cQr != null) {
-                        a.this.cQr.b(jVar);
+                    if (a.this.cYN != null) {
+                        a.this.cYN.b(jVar);
                     }
                 }
             });
-            this.cQn.a(new j.b() { // from class: com.baidu.swan.apps.media.b.a.2
+            this.cYJ.a(new j.b() { // from class: com.baidu.swan.apps.media.b.a.2
                 @Override // com.baidu.swan.apps.t.b.j.b
                 public boolean a(j jVar, int i, int i2) {
-                    return a.this.cQr != null && a.this.cQr.a(jVar, i, i2);
+                    return a.this.cYN != null && a.this.cYN.a(jVar, i, i2);
                 }
             });
-            this.cQn.a(new j.d() { // from class: com.baidu.swan.apps.media.b.a.3
+            this.cYJ.a(new j.d() { // from class: com.baidu.swan.apps.media.b.a.3
                 @Override // com.baidu.swan.apps.t.b.j.d
                 public void a(j jVar) {
-                    if (a.this.cQr != null) {
-                        a.this.cQr.a(jVar);
+                    if (a.this.cYN != null) {
+                        a.this.cYN.a(jVar);
                     }
                 }
             });
-            this.cQn.a(new j.e() { // from class: com.baidu.swan.apps.media.b.a.4
+            this.cYJ.a(new j.e() { // from class: com.baidu.swan.apps.media.b.a.4
                 @Override // com.baidu.swan.apps.t.b.j.e
                 public void c(j jVar) {
-                    if (a.this.cQr != null) {
-                        a.this.cQr.c(jVar);
+                    if (a.this.cYN != null) {
+                        a.this.cYN.c(jVar);
                     }
                 }
             });
-            this.cQn.a(new j.f() { // from class: com.baidu.swan.apps.media.b.a.5
+            this.cYJ.a(new j.f() { // from class: com.baidu.swan.apps.media.b.a.5
                 @Override // com.baidu.swan.apps.t.b.j.f
                 public void d(j jVar) {
-                    if (a.this.cQr != null) {
-                        a.this.cQr.d(jVar);
+                    if (a.this.cYN != null) {
+                        a.this.cYN.d(jVar);
                     }
                 }
             });
-            this.cQn.a(new j.c() { // from class: com.baidu.swan.apps.media.b.a.6
+            this.cYJ.a(new j.c() { // from class: com.baidu.swan.apps.media.b.a.6
                 @Override // com.baidu.swan.apps.t.b.j.c
                 public void e(j jVar) {
-                    if (a.this.cQr != null) {
-                        a.this.cQr.e(jVar);
+                    if (a.this.cYN != null) {
+                        a.this.cYN.e(jVar);
                     }
                 }
             });
         }
-        return this.cQn;
+        return this.cYJ;
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public String arL() {
-        return this.cQo;
+    public String atG() {
+        return this.cYK;
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public String avN() {
-        return this.cQp != null ? this.cQp.cQC : "";
+    public String axH() {
+        return this.cYL != null ? this.cYL.cYY : "";
     }
 
     @Override // com.baidu.swan.apps.media.a
     public String getSlaveId() {
-        return this.cQp.cpq;
+        return this.cYL.cxS;
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public Object avO() {
+    public Object axI() {
         return this;
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public void fc(boolean z) {
+    public void fp(boolean z) {
         this.mIsForeground = z;
         if (z) {
-            if (this.cQq) {
-                axe().resume();
+            if (this.cYM) {
+                ayY().resume();
             }
-            axe().onForeground();
-        } else if (this.cQn != null) {
-            this.cQq = axe().isPlaying();
-            axe().pause();
-            axe().onBackground();
+            ayY().onForeground();
+        } else if (this.cYJ != null) {
+            this.cYM = ayY().isPlaying();
+            ayY().pause();
+            ayY().onBackground();
         }
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public void fd(boolean z) {
+    public void fq(boolean z) {
     }
 
     @Override // com.baidu.swan.apps.media.a
     public boolean onBackPressed() {
         com.baidu.swan.apps.console.c.i("video", "onBackPressed");
-        return this.cQn != null && this.cQn.onBackPressed();
+        return this.cYJ != null && this.cYJ.onBackPressed();
     }
 
     @Override // com.baidu.swan.apps.media.a
     public void onDestroy() {
         com.baidu.swan.apps.console.c.i("video", MissionEvent.MESSAGE_DESTROY);
-        if (this.cQn != null) {
-            this.cQn.stop();
-            this.cQn = null;
+        if (this.cYJ != null) {
+            this.cYJ.stop();
+            this.cYJ = null;
         }
         com.baidu.swan.apps.media.b.b(this);
     }
 
-    public void oq(String str) {
-        if (this.cQn != null) {
-            this.cQn.oq(str);
+    public void oJ(String str) {
+        if (this.cYJ != null) {
+            this.cYJ.oJ(str);
         }
     }
 
     public void b(c cVar) {
-        if (this.cQn != null) {
-            this.cQn.b(cVar);
+        if (this.cYJ != null) {
+            this.cYJ.b(cVar);
         }
     }
 
-    public void atM() {
-        if (this.cQn != null) {
-            this.cQn.atM();
+    public void avG() {
+        if (this.cYJ != null) {
+            this.cYJ.avG();
         }
     }
 
-    private boolean axf() {
-        return (this.cQp == null || TextUtils.isEmpty(this.cQp.mSrc) || TextUtils.isEmpty(this.cQo) || TextUtils.isEmpty(this.cQp.cpp)) ? false : true;
+    private boolean ayZ() {
+        return (this.cYL == null || TextUtils.isEmpty(this.cYL.mSrc) || TextUtils.isEmpty(this.cYK) || TextUtils.isEmpty(this.cYL.cxR)) ? false : true;
     }
 
     public void mute(boolean z) {
-        if (this.cQn != null) {
-            this.cQn.mute(z);
+        if (this.cYJ != null) {
+            this.cYJ.mute(z);
         }
     }
 }

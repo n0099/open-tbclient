@@ -6,11 +6,11 @@ import java.util.Map;
 /* loaded from: classes10.dex */
 public class g extends f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private Map<String, Object> deF;
+    private Map<String, Object> dne;
 
     public g(e eVar) {
         super(eVar);
-        this.deF = new HashMap();
+        this.dne = new HashMap();
     }
 
     public void putString(String str, String str2) {
@@ -59,23 +59,23 @@ public class g extends f {
     }
 
     public void clear() {
-        this.deF.clear();
+        this.dne.clear();
     }
 
     public boolean containsKey(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return this.deF.containsKey(str);
+        return this.dne.containsKey(str);
     }
 
     private <V> V s(String str, V v) {
         if (containsKey(str)) {
-            if (this.deF.get(str) == null) {
+            if (this.dne.get(str) == null) {
                 return null;
             }
             try {
-                return (V) this.deF.get(str);
+                return (V) this.dne.get(str);
             } catch (Exception e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -88,7 +88,7 @@ public class g extends f {
     }
 
     private <V> void t(String str, V v) {
-        this.deF.put(str, v);
+        this.dne.put(str, v);
     }
 
     @Override // com.baidu.swan.apps.runtime.f

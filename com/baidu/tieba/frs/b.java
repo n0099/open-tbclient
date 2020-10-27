@@ -7,30 +7,30 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private AntiData eOB;
+    private AntiData eWX;
     private String forumId;
-    private ay inE;
-    private final ArrayList<bw> inG;
-    private boolean inH;
-    private boolean inI;
+    private ay iAa;
+    private final ArrayList<bw> iAc;
+    private boolean iAd;
+    private boolean iAe;
 
     private b() {
-        this.inH = false;
-        this.inG = new ArrayList<>();
+        this.iAd = false;
+        this.iAc = new ArrayList<>();
     }
 
-    public static b crE() {
-        return a.inJ;
+    public static b cuL() {
+        return a.iAf;
     }
 
-    public boolean cry() {
-        return this.inH;
+    public boolean cuF() {
+        return this.iAd;
     }
 
-    public void S(boolean z, boolean z2) {
-        this.inH = z;
-        if (this.inE != null) {
-            this.inE.d(this.inH, z2, 1);
+    public void V(boolean z, boolean z2) {
+        this.iAd = z;
+        if (this.iAa != null) {
+            this.iAa.d(this.iAd, z2, 1);
         }
     }
 
@@ -38,66 +38,66 @@ public class b {
         if (bwVar == null) {
             return false;
         }
-        if (this.inG.size() > 29) {
-            if (this.inE != null) {
-                this.inE.yb(1);
+        if (this.iAc.size() > 29) {
+            if (this.iAa != null) {
+                this.iAa.yu(1);
                 return false;
             }
             return false;
         }
-        this.inG.add(bwVar);
-        if (this.inE != null) {
-            this.inE.ci(this.inG.size(), 1);
+        this.iAc.add(bwVar);
+        if (this.iAa != null) {
+            this.iAa.ck(this.iAc.size(), 1);
         }
         return true;
     }
 
-    public List<bw> crB() {
-        return this.inG;
+    public List<bw> cuI() {
+        return this.iAc;
     }
 
     public void ak(bw bwVar) {
-        this.inG.remove(bwVar);
-        if (this.inE != null) {
-            this.inE.ci(this.inG.size(), 1);
+        this.iAc.remove(bwVar);
+        if (this.iAa != null) {
+            this.iAa.ck(this.iAc.size(), 1);
         }
     }
 
     public void clearData() {
-        Iterator<bw> it = this.inG.iterator();
+        Iterator<bw> it = this.iAc.iterator();
         while (it.hasNext()) {
             bw next = it.next();
             if (next != null) {
-                next.iu(false);
+                next.iH(false);
             }
         }
-        this.inG.clear();
-        if (this.inE != null) {
-            this.inE.ci(0, 1);
+        this.iAc.clear();
+        if (this.iAa != null) {
+            this.iAa.ck(0, 1);
         }
     }
 
     public void reset() {
-        S(false, false);
+        V(false, false);
         clearData();
     }
 
     public void a(ay ayVar) {
-        this.inE = ayVar;
+        this.iAa = ayVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static b inJ = new b();
+        private static b iAf = new b();
     }
 
-    public AntiData crF() {
-        return this.eOB;
+    public AntiData cuM() {
+        return this.eWX;
     }
 
     public void b(AntiData antiData) {
-        this.eOB = antiData;
+        this.eWX = antiData;
     }
 
     public String getForumId() {
@@ -108,13 +108,13 @@ public class b {
         this.forumId = str;
     }
 
-    public void oN(boolean z) {
-        this.inI = z;
+    public void pf(boolean z) {
+        this.iAe = z;
     }
 
-    public void cL(List<String> list) {
-        if (!com.baidu.tbadk.core.util.y.isEmpty(list) && !com.baidu.tbadk.core.util.y.isEmpty(this.inG)) {
-            Iterator<bw> it = this.inG.iterator();
+    public void cU(List<String> list) {
+        if (!com.baidu.tbadk.core.util.y.isEmpty(list) && !com.baidu.tbadk.core.util.y.isEmpty(this.iAc)) {
+            Iterator<bw> it = this.iAc.iterator();
             while (it.hasNext()) {
                 bw next = it.next();
                 int i = 0;
@@ -130,13 +130,13 @@ public class b {
                     }
                 }
             }
-            if (this.inE != null) {
-                this.inE.ci(this.inG.size(), 1);
+            if (this.iAa != null) {
+                this.iAa.ck(this.iAc.size(), 1);
             }
         }
     }
 
-    public boolean crG() {
-        return this.inI;
+    public boolean cuN() {
+        return this.iAe;
     }
 }

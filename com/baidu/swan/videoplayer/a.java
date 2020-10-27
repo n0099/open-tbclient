@@ -8,7 +8,7 @@ public interface a {
 
     /* renamed from: com.baidu.swan.videoplayer.a$a  reason: collision with other inner class name */
     /* loaded from: classes12.dex */
-    public interface InterfaceC0538a {
+    public interface InterfaceC0552a {
         void a(b bVar);
 
         void a(b bVar, int i, int i2);
@@ -20,12 +20,12 @@ public interface a {
     public interface b {
         void b(MediaPlayer mediaPlayer);
 
-        a bad();
+        a bbW();
     }
 
-    void a(InterfaceC0538a interfaceC0538a);
+    void a(InterfaceC0552a interfaceC0552a);
 
-    void b(InterfaceC0538a interfaceC0538a);
+    void b(InterfaceC0552a interfaceC0552a);
 
     Bitmap getBitmap();
 

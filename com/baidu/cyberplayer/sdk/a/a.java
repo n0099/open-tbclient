@@ -12,7 +12,7 @@ import java.util.HashMap;
 public class a implements b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1358a = Boolean.toString(true);
+    private static final String f1355a = Boolean.toString(true);
     private InterfaceC0109a b;
     private String c;
     private String d;
@@ -32,7 +32,7 @@ public class a implements b.a {
 
     private String a() {
         File file;
-        String str = f1358a;
+        String str = f1355a;
         try {
             file = new File(this.d, this.c);
             try {
@@ -102,7 +102,7 @@ public class a implements b.a {
 
     private static String a(String str, ArrayList<String> arrayList) {
         File file;
-        String str2 = f1358a;
+        String str2 = f1355a;
         if (arrayList != null) {
             for (int i = 0; i < arrayList.size(); i++) {
                 try {
@@ -134,7 +134,7 @@ public class a implements b.a {
     }
 
     private String b() {
-        String str = f1358a;
+        String str = f1355a;
         try {
             if (this.e != null) {
                 CyberLog.d("CyberFileDownloader", "---step---checkUnzipFilesMd5----start");
@@ -194,19 +194,19 @@ public class a implements b.a {
     @Override // com.baidu.cyberplayer.sdk.a.b.a
     public void b(String str, long j) {
         String a2 = a();
-        if (!f1358a.equals(a2)) {
+        if (!f1355a.equals(a2)) {
             n.a(this.d, this.e);
             this.b.a(str, j, -2, a2);
             return;
         }
         String b = b();
-        if (!f1358a.equals(b)) {
+        if (!f1355a.equals(b)) {
             n.a(this.d, this.e);
             this.b.a(str, j, -3, b);
             return;
         }
         String a3 = a(this.d, this.e);
-        if (f1358a.equals(a3)) {
+        if (f1355a.equals(a3)) {
             this.b.a(str, j, this.e);
             return;
         }

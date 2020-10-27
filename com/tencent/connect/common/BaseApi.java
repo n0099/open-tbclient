@@ -31,7 +31,7 @@ import org.json.JSONObject;
 public abstract class BaseApi {
 
     /* renamed from: a  reason: collision with root package name */
-    protected c f4550a;
+    protected c f4548a;
     protected QQToken b;
     public static String registerChannel = null;
     public static String installChannel = null;
@@ -39,7 +39,7 @@ public abstract class BaseApi {
     public static boolean isOEM = false;
 
     public BaseApi(c cVar, QQToken qQToken) {
-        this.f4550a = cVar;
+        this.f4548a = cVar;
         this.b = qQToken;
     }
 

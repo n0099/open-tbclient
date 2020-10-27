@@ -32,49 +32,49 @@ import com.baidu.tieba.view.i;
 import tbclient.VideoInfo;
 /* loaded from: classes22.dex */
 public class d {
-    private boolean kGt;
-    public TextView lrX;
-    public TextView lrY;
-    public TextView lrZ;
-    private TextView lsa;
-    private TbImageView lsb;
-    private ThreadAgreeAndShareLayout lsc;
-    private boolean lsd;
-    private boolean lse;
-    private com.baidu.tbadk.core.view.a.a lsf;
-    private SpannableStringBuilder lsg;
-    private SpannableStringBuilder lsh;
-    private View.OnTouchListener lsi;
-    private View.OnTouchListener lsj;
-    private com.baidu.tbadk.widget.richText.f lsk = new com.baidu.tbadk.widget.richText.f(2, null) { // from class: com.baidu.tieba.pb.video.d.3
+    private boolean kSQ;
+    private TbImageView lEA;
+    private ThreadAgreeAndShareLayout lEB;
+    private boolean lEC;
+    private boolean lED;
+    private com.baidu.tbadk.core.view.a.a lEE;
+    private SpannableStringBuilder lEF;
+    private SpannableStringBuilder lEG;
+    private View.OnTouchListener lEH;
+    private View.OnTouchListener lEI;
+    public TextView lEw;
+    public TextView lEx;
+    public TextView lEy;
+    private TextView lEz;
+    public View mRootView;
+    public TextView mTitleView;
+    private com.baidu.tbadk.widget.richText.f lEJ = new com.baidu.tbadk.widget.richText.f(2, null) { // from class: com.baidu.tieba.pb.video.d.3
         @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
         public void onClick(View view) {
-            d.this.kGt = true;
+            d.this.kSQ = true;
             d.this.mTitleView.setMaxLines(10);
-            d.this.mTitleView.setOnTouchListener(new i(d.this.lsg));
-            d.this.mTitleView.setText(d.this.lsg);
-            d.this.lrZ.setVisibility(0);
+            d.this.mTitleView.setOnTouchListener(new i(d.this.lEF));
+            d.this.mTitleView.setText(d.this.lEF);
+            d.this.lEy.setVisibility(0);
         }
     };
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.pb.video.d.4
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == d.this.lsa) {
-                Object tag = d.this.lsa.getTag();
+            if (view == d.this.lEz) {
+                Object tag = d.this.lEz.getTag();
                 Context context = view.getContext();
                 if ((tag instanceof String) && context != null) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(context).createNormalCfg((String) tag, null)));
                 }
-            } else if (view == d.this.lrZ) {
-                d.this.kGt = false;
-                d.this.mTitleView.setOnTouchListener(d.this.lsj);
-                d.this.mTitleView.setText(d.this.lsh);
-                d.this.lrZ.setVisibility(8);
+            } else if (view == d.this.lEy) {
+                d.this.kSQ = false;
+                d.this.mTitleView.setOnTouchListener(d.this.lEI);
+                d.this.mTitleView.setText(d.this.lEG);
+                d.this.lEy.setVisibility(8);
             }
         }
     };
-    public View mRootView;
-    public TextView mTitleView;
 
     public d(View view) {
         if (view != null) {
@@ -83,62 +83,62 @@ public class d {
             this.mTitleView.setTextSize(0, TbConfig.getContentSize());
             this.mTitleView.setLineSpacing(TbConfig.getContentLineSpace(), 1.0f);
             this.mTitleView.getPaint().setFakeBoldText(true);
-            this.lrX = (TextView) this.mRootView.findViewById(R.id.pb_video_replay_num);
-            this.lrY = (TextView) this.mRootView.findViewById(R.id.pb_video_play_count);
-            this.lrZ = (TextView) this.mRootView.findViewById(R.id.view_video_title_up);
-            this.lsa = (TextView) this.mRootView.findViewById(R.id.pb_video_forum);
-            this.lsc = (ThreadAgreeAndShareLayout) this.mRootView.findViewById(R.id.pb_video_act);
-            this.lsb = (TbImageView) this.mRootView.findViewById(R.id.arrow_right);
+            this.lEw = (TextView) this.mRootView.findViewById(R.id.pb_video_replay_num);
+            this.lEx = (TextView) this.mRootView.findViewById(R.id.pb_video_play_count);
+            this.lEy = (TextView) this.mRootView.findViewById(R.id.view_video_title_up);
+            this.lEz = (TextView) this.mRootView.findViewById(R.id.pb_video_forum);
+            this.lEB = (ThreadAgreeAndShareLayout) this.mRootView.findViewById(R.id.pb_video_act);
+            this.lEA = (TbImageView) this.mRootView.findViewById(R.id.arrow_right);
             this.mTitleView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.pb.video.d.1
                 @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                 public void onGlobalLayout() {
                     Layout layout;
                     int ellipsisCount;
                     Object[] spans;
-                    if (d.this.mTitleView != null && d.this.lsg != null && !d.this.lse && (layout = d.this.mTitleView.getLayout()) != null) {
-                        if (d.this.kGt) {
-                            if (!d.this.lsd) {
+                    if (d.this.mTitleView != null && d.this.lEF != null && !d.this.lED && (layout = d.this.mTitleView.getLayout()) != null) {
+                        if (d.this.kSQ) {
+                            if (!d.this.lEC) {
                                 int lineCount = layout.getLineCount();
-                                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) d.this.lrZ.getLayoutParams();
-                                if (layout.getLineWidth(lineCount - 1) + d.this.lrZ.getWidth() > layout.getWidth()) {
+                                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) d.this.lEy.getLayoutParams();
+                                if (layout.getLineWidth(lineCount - 1) + d.this.lEy.getWidth() > layout.getWidth()) {
                                     layoutParams.addRule(3, R.id.view_video_title);
                                     layoutParams.addRule(8, 0);
                                 } else {
                                     layoutParams.addRule(8, R.id.view_video_title);
                                     layoutParams.addRule(3, 0);
                                 }
-                                d.this.lrZ.setLayoutParams(layoutParams);
-                                d.this.lsd = true;
+                                d.this.lEy.setLayoutParams(layoutParams);
+                                d.this.lEC = true;
                                 return;
                             }
                             return;
                         }
                         int lineCount2 = layout.getLineCount();
                         if (lineCount2 >= 2 && (ellipsisCount = layout.getEllipsisCount(lineCount2 - 1)) != 0) {
-                            if (d.this.lsh == null) {
-                                String spannableStringBuilder = d.this.lsg.toString();
+                            if (d.this.lEG == null) {
+                                String spannableStringBuilder = d.this.lEF.toString();
                                 String cutChineseAndEnglishWithSuffix = at.cutChineseAndEnglishWithSuffix(spannableStringBuilder, at.getChineseAndEnglishLength(spannableStringBuilder.substring(0, spannableStringBuilder.length() - ellipsisCount)) - 6, "");
                                 int length = cutChineseAndEnglishWithSuffix.length();
-                                d.this.lsh = new SpannableStringBuilder();
-                                d.this.lsh.append((CharSequence) cutChineseAndEnglishWithSuffix);
-                                for (Object obj : d.this.lsg.getSpans(length, spannableStringBuilder.length(), Object.class)) {
-                                    int spanStart = d.this.lsg.getSpanStart(obj);
-                                    int spanEnd = d.this.lsg.getSpanEnd(obj);
+                                d.this.lEG = new SpannableStringBuilder();
+                                d.this.lEG.append((CharSequence) cutChineseAndEnglishWithSuffix);
+                                for (Object obj : d.this.lEF.getSpans(length, spannableStringBuilder.length(), Object.class)) {
+                                    int spanStart = d.this.lEF.getSpanStart(obj);
+                                    int spanEnd = d.this.lEF.getSpanEnd(obj);
                                     if (spanStart < length && spanEnd >= length) {
                                         break;
                                     }
                                     if (obj instanceof SpannableString) {
-                                        d.this.lsh.setSpan(obj, spanStart, spanEnd, ((SpannableString) obj).getSpanFlags(obj));
+                                        d.this.lEG.setSpan(obj, spanStart, spanEnd, ((SpannableString) obj).getSpanFlags(obj));
                                     }
                                 }
                                 SpannableString spannableString = new SpannableString("...展开");
-                                spannableString.setSpan(d.this.lsk, 0, spannableString.length(), 17);
-                                d.this.lsh.insert(length, (CharSequence) spannableString);
-                                d.this.lsj = new i(d.this.lsh);
+                                spannableString.setSpan(d.this.lEJ, 0, spannableString.length(), 17);
+                                d.this.lEG.insert(length, (CharSequence) spannableString);
+                                d.this.lEI = new i(d.this.lEG);
                             }
-                            d.this.lrZ.setVisibility(8);
-                            d.this.mTitleView.setOnTouchListener(d.this.lsj);
-                            d.this.mTitleView.setText(d.this.lsh);
+                            d.this.lEy.setVisibility(8);
+                            d.this.mTitleView.setOnTouchListener(d.this.lEI);
+                            d.this.mTitleView.setText(d.this.lEG);
                         }
                     }
                 }
@@ -147,15 +147,15 @@ public class d {
     }
 
     private boolean aL(bw bwVar) {
-        if (bwVar == null || this.lsg == null || !bwVar.biX() || StringUtils.isNull(bwVar.getTid())) {
+        if (bwVar == null || this.lEF == null || !bwVar.bkQ() || StringUtils.isNull(bwVar.getTid())) {
             return false;
         }
-        final String str = com.baidu.tbadk.core.sharedPref.b.blO().getString("nani_key_pre_h5_link", TbConfig.NANI_DEFAULT_H5_PREFIX) + "/" + bwVar.getTid();
-        this.lsg.append((CharSequence) bwVar.a(new com.baidu.tbadk.widget.richText.f(2, str) { // from class: com.baidu.tieba.pb.video.d.2
+        final String str = com.baidu.tbadk.core.sharedPref.b.bnH().getString("nani_key_pre_h5_link", TbConfig.NANI_DEFAULT_H5_PREFIX) + "/" + bwVar.getTid();
+        this.lEF.append((CharSequence) bwVar.a(new com.baidu.tbadk.widget.richText.f(2, str) { // from class: com.baidu.tieba.pb.video.d.2
             @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
             public void onClick(View view) {
                 com.baidu.tbadk.browser.a.startWebActivity(TbadkCoreApplication.getInst().getApplicationContext(), false, str);
-                TiebaStatic.log(new aq("c12841").dK("obj_source", "3"));
+                TiebaStatic.log(new aq("c12841").dR("obj_source", "3"));
             }
 
             @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -169,83 +169,83 @@ public class d {
     }
 
     public void a(com.baidu.tieba.pb.data.f fVar, String str) {
-        bw dcA;
+        bw dfI;
         bs bsVar;
-        Layout c;
+        Layout d;
         SpannableString aJ;
-        if (fVar != null && (dcA = fVar.dcA()) != null && dcA.biz() != null) {
-            dcA.bjg();
-            this.lsg = new SpannableStringBuilder(dcA.biR());
-            boolean aL = aL(dcA);
-            VideoInfo biz = dcA.biz();
-            if (!StringUtils.isNull(biz.mcn_lead_page) && !aL) {
-                this.lse = true;
+        if (fVar != null && (dfI = fVar.dfI()) != null && dfI.bks() != null) {
+            dfI.bkZ();
+            this.lEF = new SpannableStringBuilder(dfI.bkK());
+            boolean aL = aL(dfI);
+            VideoInfo bks = dfI.bks();
+            if (!StringUtils.isNull(bks.mcn_lead_page) && !aL) {
+                this.lED = true;
             } else {
-                this.lse = false;
+                this.lED = false;
             }
-            if (this.lsg != null && !this.lse && !aL && (aJ = ay.aJ(dcA)) != null) {
+            if (this.lEF != null && !this.lED && !aL && (aJ = ay.aJ(dfI)) != null) {
                 com.baidu.tbadk.core.view.a.a[] aVarArr = (com.baidu.tbadk.core.view.a.a[]) aJ.getSpans(0, aJ.length(), com.baidu.tbadk.core.view.a.a.class);
                 if (aVarArr != null && aVarArr.length > 0) {
-                    this.lsf = aVarArr[0];
+                    this.lEE = aVarArr[0];
                 }
-                this.lsg.append((CharSequence) aJ);
+                this.lEF.append((CharSequence) aJ);
             }
-            if (this.lsf != null && this.lsg != null && (c = ay.c(this.lsg)) != null && c.getLineCount() > 10) {
-                int spanStart = this.lsg.getSpanStart(this.lsf);
-                int spanEnd = this.lsg.getSpanEnd(this.lsf);
+            if (this.lEE != null && this.lEF != null && (d = ay.d(this.lEF)) != null && d.getLineCount() > 10) {
+                int spanStart = this.lEF.getSpanStart(this.lEE);
+                int spanEnd = this.lEF.getSpanEnd(this.lEE);
                 if (spanStart > 0) {
-                    this.lsg.delete(spanStart, spanEnd);
+                    this.lEF.delete(spanStart, spanEnd);
                 }
             }
-            if (this.lse) {
-                com.baidu.tieba.pb.video.a.a.a(TbadkCoreApplication.getInst().getApplicationContext(), this.mTitleView, dcA.biR().toString(), biz.mcn_lead_page, dcA.getTid());
+            if (this.lED) {
+                com.baidu.tieba.pb.video.a.a.a(TbadkCoreApplication.getInst().getApplicationContext(), this.mTitleView, dfI.bkK().toString(), bks.mcn_lead_page, dfI.getTid());
             } else {
-                this.mTitleView.setText(this.lsg);
+                this.mTitleView.setText(this.lEF);
             }
             this.mTitleView.setLinkTextColor(ap.getColor(R.color.cp_link_tip_c));
-            this.lsi = new i(this.lsg);
-            this.mTitleView.setOnTouchListener(this.lsi);
-            this.lrZ.setOnClickListener(this.mOnClickListener);
-            this.lrY.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.pb_video_header_play_count), at.numberUniformFormatExtra(biz.play_count.intValue())));
-            if (fVar.ddd() && fVar.dda()) {
+            this.lEH = new i(this.lEF);
+            this.mTitleView.setOnTouchListener(this.lEH);
+            this.lEy.setOnClickListener(this.mOnClickListener);
+            this.lEx.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.pb_video_header_play_count), at.numberUniformFormatExtra(bks.play_count.intValue())));
+            if (fVar.dgl() && fVar.dgi()) {
                 if (TextUtils.isEmpty(str)) {
-                    str = dcA.bil();
+                    str = dfI.bke();
                 }
-                if (TextUtils.isEmpty(str) && (bsVar = (bs) y.getItem(fVar.dcX(), 0)) != null) {
+                if (TextUtils.isEmpty(str) && (bsVar = (bs) y.getItem(fVar.dgf(), 0)) != null) {
                     str = bsVar.forumName;
                 }
                 if (!TextUtils.isEmpty(str)) {
-                    this.lsb.setVisibility(0);
-                    this.lsa.setVisibility(0);
-                    this.lsa.setOnClickListener(this.mOnClickListener);
-                    this.lsa.setText(ay.OX(str));
-                    this.lsa.setTag(str);
+                    this.lEA.setVisibility(0);
+                    this.lEz.setVisibility(0);
+                    this.lEz.setOnClickListener(this.mOnClickListener);
+                    this.lEz.setText(ay.Pv(str));
+                    this.lEz.setTag(str);
                 } else {
-                    this.lsa.setVisibility(8);
-                    this.lsb.setVisibility(8);
+                    this.lEz.setVisibility(8);
+                    this.lEA.setVisibility(8);
                 }
-                this.lrX.setVisibility(8);
-                this.lsc.setData(fVar, dcA.bjY());
+                this.lEw.setVisibility(8);
+                this.lEB.setData(fVar, dfI.blR());
             } else {
-                this.lsb.setVisibility(8);
-                this.lsa.setVisibility(8);
-                this.lrX.setVisibility(0);
-                this.lrX.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.pb_video_header_replay_num), at.numberUniformFormatExtra(dcA.bhY())));
-                this.lsc.setVisibility(8);
+                this.lEA.setVisibility(8);
+                this.lEz.setVisibility(8);
+                this.lEw.setVisibility(0);
+                this.lEw.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.pb_video_header_replay_num), at.numberUniformFormatExtra(dfI.bjR())));
+                this.lEB.setVisibility(8);
             }
-            btm();
+            bvf();
         }
     }
 
-    public void btm() {
-        ap.setViewTextColor(this.lrZ, R.color.cp_link_tip_c, 1);
+    public void bvf() {
+        ap.setViewTextColor(this.lEy, R.color.cp_link_tip_c, 1);
         ap.setViewTextColor(this.mTitleView, R.color.cp_cont_b, 1);
-        ap.setViewTextColor(this.lrX, R.color.cp_cont_j, 1);
-        ap.setViewTextColor(this.lrY, R.color.cp_cont_j, 1);
-        ap.setViewTextColor(this.lsa, R.color.cp_cont_j, 1);
-        ap.setImageResource(this.lsb, R.drawable.icon_common_arrow20_right_n);
-        if (this.lsc != null) {
-            this.lsc.btm();
+        ap.setViewTextColor(this.lEw, R.color.cp_cont_j, 1);
+        ap.setViewTextColor(this.lEx, R.color.cp_cont_j, 1);
+        ap.setViewTextColor(this.lEz, R.color.cp_cont_j, 1);
+        ap.setImageResource(this.lEA, R.drawable.icon_common_arrow20_right_n);
+        if (this.lEB != null) {
+            this.lEB.bvf();
         }
     }
 }

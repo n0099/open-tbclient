@@ -9,7 +9,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class LiveBBVideoFriendsResponseMessage extends JsonHttpResponsedMessage {
-    private List<a> bBD;
+    private List<a> bEz;
     private boolean hasMore;
     private int pn;
 
@@ -24,7 +24,7 @@ public class LiveBBVideoFriendsResponseMessage extends JsonHttpResponsedMessage 
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             this.pn = optJSONObject.optInt(Config.PACKAGE_NAME);
             this.hasMore = optJSONObject.optInt("has_more") == 1;
-            this.bBD = new ArrayList();
+            this.bEz = new ArrayList();
             JSONArray optJSONArray = optJSONObject.optJSONArray("list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
@@ -32,7 +32,7 @@ public class LiveBBVideoFriendsResponseMessage extends JsonHttpResponsedMessage 
                     if (optJSONObject2 != null) {
                         a aVar = new a();
                         aVar.parserJson(optJSONObject2);
-                        this.bBD.add(aVar);
+                        this.bEz.add(aVar);
                     }
                 }
             }
@@ -47,7 +47,7 @@ public class LiveBBVideoFriendsResponseMessage extends JsonHttpResponsedMessage 
         return this.hasMore;
     }
 
-    public List<a> SO() {
-        return this.bBD;
+    public List<a> TN() {
+        return this.bEz;
     }
 }

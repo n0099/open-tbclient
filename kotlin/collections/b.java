@@ -5,10 +5,10 @@ import java.util.NoSuchElementException;
 @kotlin.h
 /* loaded from: classes10.dex */
 public abstract class b<T> implements Iterator<T> {
-    private State oRc = State.NotReady;
-    private T oRd;
+    private T pIA;
+    private State pIz = State.NotReady;
 
-    protected abstract void enF();
+    protected abstract void exE();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -17,14 +17,14 @@ public abstract class b<T> implements Iterator<T> {
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        if (this.oRc != State.Failed) {
-            switch (this.oRc) {
+        if (this.pIz != State.Failed) {
+            switch (this.pIz) {
                 case Done:
                     return false;
                 case Ready:
                     return true;
                 default:
-                    return enE();
+                    return exD();
             }
         }
         throw new IllegalArgumentException("Failed requirement.".toString());
@@ -33,26 +33,26 @@ public abstract class b<T> implements Iterator<T> {
     @Override // java.util.Iterator
     public T next() {
         if (hasNext()) {
-            this.oRc = State.NotReady;
-            return this.oRd;
+            this.pIz = State.NotReady;
+            return this.pIA;
         }
         throw new NoSuchElementException();
     }
 
-    private final boolean enE() {
-        this.oRc = State.Failed;
-        enF();
-        return this.oRc == State.Ready;
+    private final boolean exD() {
+        this.pIz = State.Failed;
+        exE();
+        return this.pIz == State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void bP(T t) {
-        this.oRd = t;
-        this.oRc = State.Ready;
+    public final void bT(T t) {
+        this.pIA = t;
+        this.pIz = State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void done() {
-        this.oRc = State.Done;
+        this.pIz = State.Done;
     }
 }

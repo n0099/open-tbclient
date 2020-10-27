@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 /* loaded from: classes4.dex */
 public class h {
-    public static final int bxt = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds32);
+    public static final int bAv = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds32);
 
     public static int aB(Context context) {
         int aG = aG(context);
@@ -26,18 +26,18 @@ public class h {
     }
 
     public static int aD(Context context) {
-        return aG(context) + bxt;
+        return aG(context) + bAv;
     }
 
     public static int aE(Context context) {
-        return fP(BdUtilHelper.getScreenDimensions(context)[0] / 2);
+        return fU(BdUtilHelper.getScreenDimensions(context)[0] / 2);
     }
 
     public static int aF(Context context) {
         return BdUtilHelper.getScreenDimensions(context)[0] / 2;
     }
 
-    public static int fP(int i) {
+    public static int fU(int i) {
         return (i * 16) / 10;
     }
 

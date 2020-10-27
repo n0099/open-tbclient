@@ -14,34 +14,34 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
 import com.baidu.live.tbadk.core.util.SkinManager;
 /* loaded from: classes4.dex */
 public class a {
-    private boolean bra;
-    private String brb;
-    private int brh;
-    private int bri;
-    private int brj;
-    private int brk;
-    private View.OnClickListener brn;
-    private boolean bro;
+    private boolean btf;
+    private String btg;
+    private int btm;
+    private int bto;
+    private int btp;
+    private int btq;
+    private View.OnClickListener btt;
+    private boolean btu;
     private String mMessage;
     private TbPageContext mPageContext;
     private View mTargetView;
     private Handler mHandler = null;
-    private Guide bqZ = null;
-    private int brc = a.f.sdk_pic_sign_tip;
-    private int brd = 0;
-    private int bre = 1;
-    private int brf = 1000;
-    private int brg = 3000;
+    private Guide bte = null;
+    private int bth = a.f.sdk_pic_sign_tip;
+    private int bti = 0;
+    private int btj = 1;
+    private int btk = 1000;
+    private int btl = 3000;
     private int mXOffset = 5;
     private int mYOffset = 0;
-    private int brl = 48;
-    private int brm = 4;
+    private int btr = 48;
+    private int bts = 4;
     private boolean mUseDirectOffset = false;
-    private Runnable brp = new Runnable() { // from class: com.baidu.live.tieba.c.a.1
+    private Runnable btv = new Runnable() { // from class: com.baidu.live.tieba.c.a.1
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.bqZ == null && !StringUtils.isNull(a.this.mMessage)) {
-                if (!a.this.bro || a.this.Pp()) {
+            if (a.this.bte == null && !StringUtils.isNull(a.this.mMessage)) {
+                if (!a.this.btu || a.this.Qi()) {
                     GuideBuilder guideBuilder = new GuideBuilder();
                     guideBuilder.setTargetView(a.this.mTargetView).setAlpha(0).setOverlayTarget(true).setOutsideTouchable(true);
                     guideBuilder.addComponent(new Component() { // from class: com.baidu.live.tieba.c.a.1.1
@@ -53,23 +53,23 @@ public class a {
                             SkinManager.setViewTextColor(textView, a.d.sdk_cp_cont_i);
                             textView.setTextSize(0, a.this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_fontsize28));
                             textView.setHeight(a.this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds76));
-                            textView.setPadding(a.this.brh, a.this.bri, a.this.brj, a.this.brk);
+                            textView.setPadding(a.this.btm, a.this.bto, a.this.btp, a.this.btq);
                             textView.setSingleLine(true);
-                            SkinManager.setBackgroundResource(textView, a.this.brc);
-                            if (a.this.brn != null) {
-                                textView.setOnClickListener(a.this.brn);
+                            SkinManager.setBackgroundResource(textView, a.this.bth);
+                            if (a.this.btt != null) {
+                                textView.setOnClickListener(a.this.btt);
                             }
                             return textView;
                         }
 
                         @Override // com.baidu.live.adp.lib.guide.Component
                         public int getAnchor() {
-                            return a.this.brm;
+                            return a.this.bts;
                         }
 
                         @Override // com.baidu.live.adp.lib.guide.Component
                         public int getFitPosition() {
-                            return a.this.brl;
+                            return a.this.btr;
                         }
 
                         @Override // com.baidu.live.adp.lib.guide.Component
@@ -82,98 +82,98 @@ public class a {
                             return a.this.mYOffset;
                         }
                     });
-                    a.this.bqZ = guideBuilder.createGuide();
-                    a.this.bqZ.setShouldCheckLocInWindow(false);
-                    a.this.bqZ.setUseDirectOffset(a.this.mUseDirectOffset);
-                    a.this.bqZ.show(a.this.mPageContext.getPageActivity());
-                    a.this.bra = true;
-                    a.this.Pn();
-                    a.this.mHandler.postDelayed(a.this.brq, a.this.brg);
+                    a.this.bte = guideBuilder.createGuide();
+                    a.this.bte.setShouldCheckLocInWindow(false);
+                    a.this.bte.setUseDirectOffset(a.this.mUseDirectOffset);
+                    a.this.bte.show(a.this.mPageContext.getPageActivity());
+                    a.this.btf = true;
+                    a.this.Qg();
+                    a.this.mHandler.postDelayed(a.this.btw, a.this.btl);
                 }
             }
         }
     };
-    private Runnable brq = new Runnable() { // from class: com.baidu.live.tieba.c.a.2
+    private Runnable btw = new Runnable() { // from class: com.baidu.live.tieba.c.a.2
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.bqZ != null) {
-                a.this.bqZ.dismiss();
+            if (a.this.bte != null) {
+                a.this.bte.dismiss();
             }
         }
     };
 
-    public void fe(int i) {
-        this.brl = i;
+    public void fg(int i) {
+        this.btr = i;
     }
 
     public a(TbPageContext tbPageContext, View view) {
-        this.brh = 0;
-        this.bri = 0;
-        this.brj = 0;
-        this.brk = 0;
+        this.btm = 0;
+        this.bto = 0;
+        this.btp = 0;
+        this.btq = 0;
         this.mPageContext = tbPageContext;
         this.mTargetView = view;
-        this.brh = this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds24);
-        this.bri = this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds24);
-        this.brj = this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds24);
-        this.brk = this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds10);
+        this.btm = this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds24);
+        this.bto = this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds24);
+        this.btp = this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds24);
+        this.btq = this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds10);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Pn() {
-        SharedPrefHelper.getInstance().putInt(this.brb, this.brd + 1);
+    public void Qg() {
+        SharedPrefHelper.getInstance().putInt(this.btg, this.bti + 1);
     }
 
-    public void aJ(String str, String str2) {
+    public void aL(String str, String str2) {
         f(str, str2, false);
     }
 
     public void f(String str, String str2, boolean z) {
-        if (!this.bra && !StringUtils.isNull(str) && !StringUtils.isNull(str2) && this.mTargetView != null && this.mTargetView.getVisibility() == 0) {
+        if (!this.btf && !StringUtils.isNull(str) && !StringUtils.isNull(str2) && this.mTargetView != null && this.mTargetView.getVisibility() == 0) {
             this.mMessage = str;
-            this.brb = str2;
-            this.brd = SharedPrefHelper.getInstance().getInt(str2, 0);
-            if (this.brd < this.bre) {
+            this.btg = str2;
+            this.bti = SharedPrefHelper.getInstance().getInt(str2, 0);
+            if (this.bti < this.btj) {
                 if (z) {
-                    Pn();
-                    this.bra = true;
+                    Qg();
+                    this.btf = true;
                 }
                 if (this.mHandler == null) {
                     this.mHandler = new Handler();
                 }
-                this.mHandler.postDelayed(this.brp, this.brf);
+                this.mHandler.postDelayed(this.btv, this.btk);
             }
         }
     }
 
-    public void Po() {
-        if (this.bqZ != null) {
-            this.bqZ.dismiss();
-            this.bqZ = null;
+    public void Qh() {
+        if (this.bte != null) {
+            this.bte.dismiss();
+            this.bte = null;
         }
         if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.brp);
-            this.mHandler.removeCallbacks(this.brq);
+            this.mHandler.removeCallbacks(this.btv);
+            this.mHandler.removeCallbacks(this.btw);
         }
     }
 
-    public void ff(int i) {
+    public void fh(int i) {
         if (i > 0) {
-            this.brc = i;
+            this.bth = i;
         }
     }
 
-    public void fg(int i) {
+    public void fi(int i) {
         if (i > 0) {
-            this.brg = i;
+            this.btl = i;
         }
     }
 
     public void c(View.OnClickListener onClickListener) {
-        this.brn = onClickListener;
+        this.btt = onClickListener;
     }
 
-    public boolean Pp() {
+    public boolean Qi() {
         return this.mTargetView != null && this.mTargetView.getVisibility() == 0 && ((double) this.mTargetView.getAlpha()) >= 0.4d;
     }
 }

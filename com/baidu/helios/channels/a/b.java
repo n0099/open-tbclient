@@ -28,8 +28,8 @@ import java.io.OutputStream;
 import org.json.JSONObject;
 /* loaded from: classes17.dex */
 public class b extends com.baidu.helios.channels.a {
-    a.C0153a awJ;
-    private C0150b axp;
+    a.C0153a awK;
+    private C0150b axq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes17.dex */
@@ -120,7 +120,7 @@ public class b extends com.baidu.helios.channels.a {
         }
 
         boolean b() {
-            return b(b.this.awJ.q("pub.dat", true));
+            return b(b.this.awK.q("pub.dat", true));
         }
 
         boolean c() {
@@ -130,7 +130,7 @@ public class b extends com.baidu.helios.channels.a {
                     jSONObject.put("pub_id", this.i);
                     jSONObject.put("pub_lst_ts", this.h);
                     jSONObject.put("d_form_ver", 1);
-                    b.this.awJ.d("pub.dat", jSONObject.toString(), true);
+                    b.this.awK.d("pub.dat", jSONObject.toString(), true);
                     this.j = false;
                     return true;
                 } catch (Exception e) {
@@ -149,7 +149,7 @@ public class b extends com.baidu.helios.channels.a {
         private String l;
 
         public c(String str) {
-            super(b.this.awJ, str);
+            super(b.this.awK, str);
         }
 
         String a() {
@@ -221,7 +221,7 @@ public class b extends com.baidu.helios.channels.a {
 
     public b() {
         super("esc-ms", 7500000L);
-        this.axp = new C0150b();
+        this.axq = new C0150b();
     }
 
     private Uri a(String str, ContentResolver contentResolver, String str2) {
@@ -277,11 +277,11 @@ public class b extends com.baidu.helios.channels.a {
         OutputStream outputStream;
         a.e i;
         Closeable closeable = null;
-        Context context = this.awZ.applicationContext;
+        Context context = this.axa.applicationContext;
         String packageName = context.getPackageName();
-        ContentResolver contentResolver = this.awZ.applicationContext.getContentResolver();
-        String AI = this.awZ.axd.fE("aid").AI();
-        String a2 = this.axp.a();
+        ContentResolver contentResolver = this.axa.applicationContext.getContentResolver();
+        String AI = this.axa.axe.fE("aid").AI();
+        String a2 = this.axq.a();
         if (a2 != null && TextUtils.equals(a2, AI)) {
             return a.e.Aj();
         }
@@ -295,8 +295,8 @@ public class b extends com.baidu.helios.channels.a {
                 outputStream = new ParcelFileDescriptor.AutoCloseOutputStream(contentResolver.openFileDescriptor(a(packageName, contentResolver, aVar.b()), "w", null));
                 try {
                     a(outputStream, context);
-                    this.axp.a(AI);
-                    this.axp.a(System.currentTimeMillis());
+                    this.axq.a(AI);
+                    this.axq.a(System.currentTimeMillis());
                     i = a.e.Aj();
                     com.baidu.helios.common.b.a.c.b(outputStream);
                     packageName = outputStream;
@@ -327,11 +327,11 @@ public class b extends com.baidu.helios.channels.a {
         if (Build.VERSION.SDK_INT < 29) {
             return a.e.Ak();
         }
-        this.axp.b();
+        this.axq.b();
         try {
             return b(dVar);
         } finally {
-            this.axp.c();
+            this.axq.c();
         }
     }
 
@@ -348,7 +348,7 @@ public class b extends com.baidu.helios.channels.a {
         if (Build.VERSION.SDK_INT < 29) {
             return a.g.dr(-101);
         }
-        Context context = this.awZ.applicationContext;
+        Context context = this.axa.applicationContext;
         try {
             packageInfo = context.getPackageManager().getPackageInfo(str, 0);
         } catch (PackageManager.NameNotFoundException e) {
@@ -445,6 +445,6 @@ public class b extends com.baidu.helios.channels.a {
 
     @Override // com.baidu.helios.channels.a
     public void a(a.c cVar) {
-        this.awJ = this.axa.fD("esc-ms");
+        this.awK = this.axb.fD("esc-ms");
     }
 }

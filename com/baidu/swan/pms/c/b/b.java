@@ -12,9 +12,9 @@ public class b extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.b> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.c.d
-    /* renamed from: cD */
-    public com.baidu.swan.pms.c.c.b cB(JSONObject jSONObject) {
-        return com.baidu.swan.pms.utils.e.cM(jSONObject);
+    /* renamed from: cG */
+    public com.baidu.swan.pms.c.c.b cE(JSONObject jSONObject) {
+        return com.baidu.swan.pms.utils.e.cP(jSONObject);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,19 +22,19 @@ public class b extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.b> {
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: a */
     public com.baidu.swan.pms.model.a ak(com.baidu.swan.pms.c.c.b bVar) {
-        this.dTD.alR();
+        this.ebZ.anL();
         f fVar = new f();
-        a(bVar.dUk, fVar);
-        a(bVar.dUl, fVar);
-        a(bVar.dUo, fVar);
-        a(bVar.dUq, fVar);
-        v(bVar.dUp);
-        if (fVar.aYf() == 0) {
-            this.dTD.aiW();
+        a(bVar.ecG, fVar);
+        a(bVar.ecH, fVar);
+        a(bVar.ecK, fVar);
+        a(bVar.ecM, fVar);
+        v(bVar.ecL);
+        if (fVar.aZY() == 0) {
+            this.ebZ.akQ();
             return null;
         }
-        this.dTD.a(fVar);
-        com.baidu.swan.pms.c.a.a.a(bVar, this.dTD);
+        this.ebZ.a(fVar);
+        com.baidu.swan.pms.c.a.a.a(bVar, this.ebZ);
         return null;
     }
 
@@ -46,20 +46,20 @@ public class b extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.b> {
         if (bVar == null) {
             return false;
         }
-        if (bVar.dUk == null && ((bVar.dUl == null || bVar.dUl.isEmpty()) && bVar.dUo == null && bVar.dUq == null && bVar.dUp == null)) {
+        if (bVar.ecG == null && ((bVar.ecH == null || bVar.ecH.isEmpty()) && bVar.ecK == null && bVar.ecM == null && bVar.ecL == null)) {
             return false;
         }
-        if (bVar.dUk == null || bVar.dUk.amJ()) {
-            if (bVar.dUl != null) {
-                for (com.baidu.swan.pms.model.g gVar : bVar.dUl) {
-                    if (!gVar.amJ()) {
+        if (bVar.ecG == null || bVar.ecG.aoD()) {
+            if (bVar.ecH != null) {
+                for (com.baidu.swan.pms.model.g gVar : bVar.ecH) {
+                    if (!gVar.aoD()) {
                         return false;
                     }
                 }
             }
-            if (bVar.dUo == null || bVar.dUo.amJ()) {
-                if (bVar.dUq == null || bVar.dUq.amJ()) {
-                    return bVar.dUp == null || bVar.dUp.amJ();
+            if (bVar.ecK == null || bVar.ecK.aoD()) {
+                if (bVar.ecM == null || bVar.ecM.aoD()) {
+                    return bVar.ecL == null || bVar.ecL.aoD();
                 }
                 return false;
             }
@@ -69,7 +69,7 @@ public class b extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.b> {
     }
 
     @Override // com.baidu.swan.pms.c.d
-    protected String aXd() {
+    protected String aYW() {
         return "getpkg";
     }
 }

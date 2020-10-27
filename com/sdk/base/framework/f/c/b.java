@@ -11,7 +11,7 @@ import java.util.List;
 public class b extends com.sdk.base.framework.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4495a = b.class.getName();
+    private static final String f4493a = b.class.getName();
     private static Boolean b = Boolean.valueOf(f.b);
 
     public static ArrayList<String> a(Context context) {
@@ -19,7 +19,7 @@ public class b extends com.sdk.base.framework.f.a {
         try {
             arrayList = com.sdk.base.framework.f.a.a.b() >= 21 ? b(context) : c(context);
         } catch (Exception e) {
-            c.b(f4495a, e.getMessage(), b);
+            c.b(f4493a, e.getMessage(), b);
         }
         return arrayList;
     }
@@ -49,7 +49,7 @@ public class b extends com.sdk.base.framework.f.a {
                 }
             }
         } catch (Throwable th) {
-            c.b(f4495a, th.getMessage(), b);
+            c.b(f4493a, th.getMessage(), b);
         }
         b.booleanValue();
         return arrayList;
@@ -82,10 +82,10 @@ public class b extends com.sdk.base.framework.f.a {
             }
             arrayList.add(z ? (String) declaredMethod.invoke(obj, new Object[0]) : (String) declaredMethod.invoke(telephonyManager, new Object[0]));
         } catch (Exception e2) {
-            c.b(f4495a, e2.getMessage(), b);
+            c.b(f4493a, e2.getMessage(), b);
         }
         if (b.booleanValue()) {
-            c.a(f4495a, "应用层获取IMEI信息耗时：" + (System.currentTimeMillis() - currentTimeMillis), b);
+            c.a(f4493a, "应用层获取IMEI信息耗时：" + (System.currentTimeMillis() - currentTimeMillis), b);
         }
         return arrayList;
     }

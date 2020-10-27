@@ -7,17 +7,17 @@ import com.baidu.tbadk.coreExtra.share.ShareItem;
 public class a {
     public Activity activity;
     public int channel;
-    public ShareItem ejq;
+    public ShareItem erP;
     public DialogInterface.OnCancelListener onCancelListener;
 
     public a(ShareItem shareItem, Activity activity, DialogInterface.OnCancelListener onCancelListener) {
-        this.ejq = shareItem;
+        this.erP = shareItem;
         this.activity = activity;
         this.onCancelListener = onCancelListener;
     }
 
     public a(ShareItem shareItem, Activity activity, int i) {
-        this.ejq = shareItem;
+        this.erP = shareItem;
         this.activity = activity;
         this.channel = i;
     }

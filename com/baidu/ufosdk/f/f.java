@@ -17,7 +17,7 @@ public final class f {
     private final String b = "ufo";
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f3716a = 1209600000;
+    public final int f3714a = 1209600000;
 
     public static Bitmap a(String str) {
         Bitmap decodeFile;

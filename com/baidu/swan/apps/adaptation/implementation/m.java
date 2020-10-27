@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class m implements com.baidu.swan.menu.b {
-    private SparseArray<String> cgX = new SparseArray<>();
+    private SparseArray<String> cpy = new SparseArray<>();
 
     public m() {
-        this.cgX.put(38, "favor");
+        this.cpy.put(38, "favor");
     }
 
     @Override // com.baidu.swan.menu.b
@@ -31,10 +31,10 @@ public class m implements com.baidu.swan.menu.b {
     }
 
     private void i(int i, List<com.baidu.swan.menu.i> list) {
-        if (!ak.aIG() && list != null && list.size() > 0) {
+        if (!ak.aKA() && list != null && list.size() > 0) {
             ArrayList arrayList = new ArrayList();
             for (com.baidu.swan.menu.i iVar : list) {
-                if (this.cgX.get(iVar.getItemId()) != null) {
+                if (this.cpy.get(iVar.getItemId()) != null) {
                     arrayList.add(iVar);
                 }
             }

@@ -15,7 +15,7 @@ public final class a {
         }
         Bundle bundle2 = new Bundle();
         bundle2.putBundle("swan_app_on_launch_event", bundle);
-        com.baidu.swan.apps.process.messaging.a.aAK().a(new com.baidu.swan.apps.process.messaging.c(122, bundle2).a(cVar.cXG).fJ(true));
+        com.baidu.swan.apps.process.messaging.a.aCE().a(new com.baidu.swan.apps.process.messaging.c(122, bundle2).a(cVar.dgh).fW(true));
         if (DEBUG) {
             Log.d("AppLaunchMessenger", "sendAppLaunchEvent event end.");
         }
@@ -23,33 +23,33 @@ public final class a {
 
     /* renamed from: com.baidu.swan.apps.core.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0400a {
-        private static int cAk = -1;
+    public static class C0414a {
+        private static int cIG = -1;
 
-        public static String amz() {
+        public static String aot() {
             return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getString("swan_sub_pkg_launch_switch", "debug_ab");
         }
 
-        public static boolean amA() {
+        public static boolean aou() {
             if (a.DEBUG) {
-                Log.d("AppLaunchMessenger", "isOnAppLaunchEnable getAppLaunchDebugSwitch : " + amz());
-                String amz = amz();
+                Log.d("AppLaunchMessenger", "isOnAppLaunchEnable getAppLaunchDebugSwitch : " + aot());
+                String aot = aot();
                 char c = 65535;
-                switch (amz.hashCode()) {
+                switch (aot.hashCode()) {
                     case 251117829:
-                        if (amz.equals("debug_on_app_launch")) {
+                        if (aot.equals("debug_on_app_launch")) {
                             c = 0;
                             break;
                         }
                         break;
                     case 547804557:
-                        if (amz.equals("debug_ab")) {
+                        if (aot.equals("debug_ab")) {
                             c = 2;
                             break;
                         }
                         break;
                     case 569516856:
-                        if (amz.equals("debug_on_activity_create")) {
+                        if (aot.equals("debug_on_activity_create")) {
                             c = 1;
                             break;
                         }
@@ -62,13 +62,13 @@ public final class a {
                         return false;
                 }
             }
-            if (cAk < 0) {
-                cAk = com.baidu.swan.apps.t.a.asi().getSwitch("swan_sub_pkg_launch_switch", 0);
+            if (cIG < 0) {
+                cIG = com.baidu.swan.apps.t.a.aud().getSwitch("swan_sub_pkg_launch_switch", 0);
             }
             if (a.DEBUG) {
-                Log.d("AppLaunchMessenger", "isOnAppLaunchEnable sLaunchABSwitcher : " + cAk);
+                Log.d("AppLaunchMessenger", "isOnAppLaunchEnable sLaunchABSwitcher : " + cIG);
             }
-            return cAk == 1;
+            return cIG == 1;
         }
     }
 }

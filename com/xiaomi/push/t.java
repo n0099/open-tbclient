@@ -8,10 +8,10 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f5124a;
+    private static Context f5122a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static String f938a = null;
+    private static String f935a = null;
 
     public static int a() {
         try {
@@ -26,8 +26,8 @@ public class t {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Context m584a() {
-        return f5124a;
+    public static Context m583a() {
+        return f5122a;
     }
 
     public static Class<?> a(Context context, String str) {
@@ -44,17 +44,17 @@ public class t {
         try {
             return Class.forName(str);
         } catch (ClassNotFoundException e2) {
-            com.xiaomi.channel.commonutils.logger.b.m55a(String.format("loadClass fail hasContext= %s, errMsg = %s", Boolean.valueOf(z), e2.getLocalizedMessage()));
+            com.xiaomi.channel.commonutils.logger.b.m54a(String.format("loadClass fail hasContext= %s, errMsg = %s", Boolean.valueOf(z), e2.getLocalizedMessage()));
             throw new ClassNotFoundException("loadClass fail ", e2);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m585a() {
+    public static synchronized String m584a() {
         String str;
         synchronized (t.class) {
-            if (f938a != null) {
-                str = f938a;
+            if (f935a != null) {
+                str = f935a;
             } else {
                 String str2 = Build.VERSION.INCREMENTAL;
                 if (a() <= 0) {
@@ -71,14 +71,14 @@ public class t {
                 } else {
                     str = str2;
                 }
-                f938a = str;
+                f935a = str;
             }
         }
         return str;
     }
 
     public static String a(Context context) {
-        if (l.m502b()) {
+        if (l.m501b()) {
             return "";
         }
         String str = (String) ba.a("com.xiaomi.xmsf.helper.MIIDAccountHelper", "getMIID", context);
@@ -86,17 +86,17 @@ public class t {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m586a(Context context) {
-        f5124a = context.getApplicationContext();
+    public static void m585a(Context context) {
+        f5122a = context.getApplicationContext();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m587a() {
+    public static boolean m586a() {
         return TextUtils.equals((String) ba.a("android.os.SystemProperties", "get", "sys.boot_completed"), "1");
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m588a(Context context) {
+    public static boolean m587a(Context context) {
         try {
             return (context.getApplicationInfo().flags & 2) != 0;
         } catch (Exception e) {
@@ -106,12 +106,12 @@ public class t {
     }
 
     private static String b() {
-        f938a = s.a("ro.build.version.emui", "");
-        return f938a;
+        f935a = s.a("ro.build.version.emui", "");
+        return f935a;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m589b() {
+    public static boolean m588b() {
         try {
             return a(null, "miui.os.Build").getField("IS_GLOBAL_BUILD").getBoolean(false);
         } catch (ClassNotFoundException e) {
@@ -126,16 +126,16 @@ public class t {
     private static String c() {
         String a2 = s.a("ro.build.version.opporom", "");
         if (!TextUtils.isEmpty(a2) && !a2.startsWith("ColorOS_")) {
-            f938a = "ColorOS_" + a2;
+            f935a = "ColorOS_" + a2;
         }
-        return f938a;
+        return f935a;
     }
 
     private static String d() {
         String a2 = s.a("ro.vivo.os.version", "");
         if (!TextUtils.isEmpty(a2) && !a2.startsWith("FuntouchOS_")) {
-            f938a = "FuntouchOS_" + a2;
+            f935a = "FuntouchOS_" + a2;
         }
-        return f938a;
+        return f935a;
     }
 }

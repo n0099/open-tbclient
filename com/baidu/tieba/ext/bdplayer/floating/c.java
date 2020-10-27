@@ -4,21 +4,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c {
-    private JSONObject glK;
-    private JSONObject glP;
+    private JSONObject gvP;
+    private JSONObject gvU;
     public String roomId = null;
     public String cover = null;
     public String extra = null;
 
-    public JSONObject coj() {
-        return this.glK;
+    public JSONObject crq() {
+        return this.gvP;
     }
 
-    public JSONObject cok() {
-        return this.glP;
+    public JSONObject crr() {
+        return this.gvU;
     }
 
-    public static c IL(String str) {
+    public static c Jk(String str) {
         JSONObject jSONObject;
         try {
             jSONObject = new JSONObject(str);
@@ -26,25 +26,25 @@ public class c {
             e.printStackTrace();
             jSONObject = null;
         }
-        return dL(jSONObject);
+        return dR(jSONObject);
     }
 
-    public static c dL(JSONObject jSONObject) {
+    public static c dR(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
         c cVar = new c();
-        cVar.glK = jSONObject.optJSONObject("extra");
-        cVar.glP = jSONObject.optJSONObject("src");
+        cVar.gvP = jSONObject.optJSONObject("extra");
+        cVar.gvU = jSONObject.optJSONObject("src");
         try {
-            JSONObject cok = cVar.cok();
-            if (cok != null) {
-                cVar.roomId = cok.optString("room_id");
-                cVar.cover = cok.optString("cover");
+            JSONObject crr = cVar.crr();
+            if (crr != null) {
+                cVar.roomId = crr.optString("room_id");
+                cVar.cover = crr.optString("cover");
             }
-            JSONObject coj = cVar.coj();
-            if (coj != null) {
-                cVar.extra = coj.toString();
+            JSONObject crq = cVar.crq();
+            if (crq != null) {
+                cVar.extra = crq.toString();
                 return cVar;
             }
             return cVar;

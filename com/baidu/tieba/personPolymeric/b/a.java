@@ -1,7 +1,7 @@
 package com.baidu.tieba.personPolymeric.b;
 /* loaded from: classes24.dex */
 public interface a {
-    void BK(int i);
+    void Cd(int i);
 
-    void gO(boolean z);
+    void hb(boolean z);
 }

@@ -84,12 +84,12 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static final class c implements InterfaceC0164b {
-        private final FileChannel azy;
+        private final FileChannel azz;
         private final long b;
         private final long c;
 
         public c(FileChannel fileChannel, long j, long j2) {
-            this.azy = fileChannel;
+            this.azz = fileChannel;
             this.b = j;
             this.c = j2;
         }
@@ -101,7 +101,7 @@ public class b {
 
         @Override // com.baidu.helios.trusts.zone.verifier.b.InterfaceC0164b
         public void a(MessageDigest[] messageDigestArr, long j, int i) {
-            MappedByteBuffer map = this.azy.map(FileChannel.MapMode.READ_ONLY, this.b + j, i);
+            MappedByteBuffer map = this.azz.map(FileChannel.MapMode.READ_ONLY, this.b + j, i);
             for (MessageDigest messageDigest : messageDigestArr) {
                 map.position(0);
                 messageDigest.update(map);
@@ -115,7 +115,7 @@ public class b {
 
         /* renamed from: a  reason: collision with root package name */
         private final ByteBuffer f1824a;
-        private final ByteBuffer azz;
+        private final ByteBuffer azA;
         private final long b;
         private final long c;
         private final long d;
@@ -125,7 +125,7 @@ public class b {
             this.b = j;
             this.c = j2;
             this.d = j3;
-            this.azz = byteBuffer2;
+            this.azA = byteBuffer2;
         }
     }
 
@@ -699,7 +699,7 @@ public class b {
                 if (hashMap.isEmpty()) {
                     throw new SecurityException("No content digests found");
                 }
-                a(hashMap, randomAccessFile, fileDescriptor, dVar.b, dVar.c, dVar.d, dVar.azz);
+                a(hashMap, randomAccessFile, fileDescriptor, dVar.b, dVar.c, dVar.d, dVar.azA);
                 return (X509Certificate[][]) arrayList.toArray(new X509Certificate[arrayList.size()]);
             } catch (IOException e3) {
                 throw new SecurityException("Failed to read list of signers", e3);

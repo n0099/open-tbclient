@@ -64,7 +64,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.c.b implements Compo
     /* renamed from: a  reason: collision with root package name */
     Animation f3026a;
     private a.b ae;
-    private a.C0226a af;
+    private a.C0240a af;
     private View ag;
     private View ah;
     private RelativeLayout ai;
@@ -513,7 +513,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.c.b implements Compo
 
     public void c() {
         if (this.V) {
-            com.baidu.platform.comapi.walknavi.d.e.c().a(new C0265c(this));
+            com.baidu.platform.comapi.walknavi.d.e.c().a(new C0279c(this));
             String a2 = com.baidu.platform.comapi.walknavi.d.e.c().a();
             if (TextUtils.isEmpty(a2)) {
                 b(true);
@@ -529,12 +529,12 @@ public class c extends com.baidu.platform.comapi.walknavi.g.c.b implements Compo
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.walknavi.g.c.c$c  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0265c implements g.a {
+    public static class C0279c implements g.a {
 
         /* renamed from: a  reason: collision with root package name */
         private WeakReference<com.baidu.platform.comapi.walknavi.g.c.b> f3027a;
 
-        public C0265c(com.baidu.platform.comapi.walknavi.g.c.b bVar) {
+        public C0279c(com.baidu.platform.comapi.walknavi.g.c.b bVar) {
             this.f3027a = null;
             this.f3027a = new WeakReference<>(bVar);
         }
@@ -1090,7 +1090,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.c.b implements Compo
         this.ae = bVar;
     }
 
-    public void a(a.C0226a c0226a) {
-        this.af = c0226a;
+    public void a(a.C0240a c0240a) {
+        this.af = c0240a;
     }
 }

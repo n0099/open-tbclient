@@ -16,9 +16,9 @@ import android.widget.RelativeLayout;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class CubicRoundRectRelativeLayout extends RelativeLayout {
-    private float bDl;
-    private boolean bDm;
-    private boolean bDn;
+    private float bGh;
+    private boolean bGi;
+    private boolean bGj;
     private float mHeight;
     private Paint mPaint;
     private Path mPath;
@@ -40,14 +40,14 @@ public class CubicRoundRectRelativeLayout extends RelativeLayout {
         this.mHeight = i2;
         this.mWidth = i;
         this.mRectF.set(0.0f, 0.0f, i, i2);
-        if (this.bDl == 0.0f) {
-            this.bDl = 0.11f * this.mWidth;
+        if (this.bGh == 0.0f) {
+            this.bGh = 0.11f * this.mWidth;
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
-        if (this.bDn) {
+        if (this.bGj) {
             h(canvas);
         } else {
             i(canvas);
@@ -56,8 +56,8 @@ public class CubicRoundRectRelativeLayout extends RelativeLayout {
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
-        if (this.bDm) {
-            if (this.bDn) {
+        if (this.bGi) {
+            if (this.bGj) {
                 j(canvas);
                 return;
             } else {
@@ -78,37 +78,37 @@ public class CubicRoundRectRelativeLayout extends RelativeLayout {
         this.mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
         this.mPath = new Path();
         this.mRectF = new RectF();
-        this.bDm = true;
-        this.bDn = Build.VERSION.SDK_INT >= 28;
+        this.bGi = true;
+        this.bGj = Build.VERSION.SDK_INT >= 28;
     }
 
     private void initAttrs(AttributeSet attributeSet) {
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, a.k.sdk_CubicRoundRectRelativeLayout);
-            this.bDm = obtainStyledAttributes.getBoolean(a.k.sdk_CubicRoundRectRelativeLayout_sdk_crrrl_clip_background, true);
-            this.bDl = obtainStyledAttributes.getDimension(a.k.sdk_CubicRoundRectRelativeLayout_sdk_crrrl_accuracy, 0.0f);
+            this.bGi = obtainStyledAttributes.getBoolean(a.k.sdk_CubicRoundRectRelativeLayout_sdk_crrrl_clip_background, true);
+            this.bGh = obtainStyledAttributes.getDimension(a.k.sdk_CubicRoundRectRelativeLayout_sdk_crrrl_accuracy, 0.0f);
             obtainStyledAttributes.recycle();
         }
     }
 
-    private Path Te() {
+    private Path Ud() {
         this.mPath.reset();
         float f = this.mWidth;
         float f2 = (0.0f + f) / 2.0f;
         float f3 = this.mHeight;
         float f4 = (0.0f + f3) / 2.0f;
         this.mPath.moveTo(f2, 0.0f);
-        this.mPath.cubicTo(this.mWidth - this.bDl, 0.0f, this.mWidth, this.bDl, f, f4);
-        this.mPath.cubicTo(this.mWidth, this.mWidth - this.bDl, this.mWidth - this.bDl, this.mWidth, f2, f3);
-        this.mPath.cubicTo(this.bDl, this.mWidth, 0.0f, this.mWidth - this.bDl, 0.0f, f4);
-        this.mPath.cubicTo(0.0f, this.bDl, this.bDl, 0.0f, f2, 0.0f);
+        this.mPath.cubicTo(this.mWidth - this.bGh, 0.0f, this.mWidth, this.bGh, f, f4);
+        this.mPath.cubicTo(this.mWidth, this.mWidth - this.bGh, this.mWidth - this.bGh, this.mWidth, f2, f3);
+        this.mPath.cubicTo(this.bGh, this.mWidth, 0.0f, this.mWidth - this.bGh, 0.0f, f4);
+        this.mPath.cubicTo(0.0f, this.bGh, this.bGh, 0.0f, f2, 0.0f);
         this.mPath.close();
         return this.mPath;
     }
 
     private void h(Canvas canvas) {
         canvas.save();
-        canvas.clipPath(Te());
+        canvas.clipPath(Ud());
         super.dispatchDraw(canvas);
         canvas.restore();
     }
@@ -116,13 +116,13 @@ public class CubicRoundRectRelativeLayout extends RelativeLayout {
     private void i(Canvas canvas) {
         canvas.saveLayer(this.mRectF, null, 31);
         super.dispatchDraw(canvas);
-        canvas.drawPath(Te(), this.mPaint);
+        canvas.drawPath(Ud(), this.mPaint);
         canvas.restore();
     }
 
     private void j(Canvas canvas) {
         canvas.save();
-        canvas.clipPath(Te());
+        canvas.clipPath(Ud());
         super.draw(canvas);
         canvas.restore();
     }
@@ -130,7 +130,7 @@ public class CubicRoundRectRelativeLayout extends RelativeLayout {
     private void k(Canvas canvas) {
         canvas.saveLayer(this.mRectF, null, 31);
         super.draw(canvas);
-        canvas.drawPath(Te(), this.mPaint);
+        canvas.drawPath(Ud(), this.mPaint);
         canvas.restore();
     }
 }

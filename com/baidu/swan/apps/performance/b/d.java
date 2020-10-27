@@ -14,23 +14,23 @@ import com.baidu.swan.apps.statistic.g;
 import com.baidu.swan.apps.storage.c.h;
 /* loaded from: classes10.dex */
 public class d {
-    private static int cVD = -1;
+    private static int ded = -1;
 
     @AnyThread
-    public static void azL() {
+    public static void aBF() {
         p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.performance.b.d.1
             @Override // java.lang.Runnable
             public void run() {
-                e aDb = e.aDb();
-                if (aDb != null) {
+                e aEV = e.aEV();
+                if (aEV != null) {
                     ContentValues contentValues = new ContentValues();
-                    contentValues.put("appKey", aDb.getAppId());
-                    contentValues.put("launch_type", Integer.valueOf(g.aFU()));
-                    contentValues.put("source", aDb.aDe().auj());
+                    contentValues.put("appKey", aEV.getAppId());
+                    contentValues.put("launch_type", Integer.valueOf(g.aHO()));
+                    contentValues.put("source", aEV.aEY().awd());
                     contentValues.put("time", Long.valueOf(System.currentTimeMillis()));
-                    ContentResolver contentResolver = com.baidu.swan.apps.t.a.asf().getContentResolver();
+                    ContentResolver contentResolver = com.baidu.swan.apps.t.a.aua().getContentResolver();
                     if (contentResolver != null) {
-                        contentResolver.insert(com.baidu.swan.apps.database.favorite.d.aoy(), contentValues);
+                        contentResolver.insert(com.baidu.swan.apps.database.favorite.d.aqt(), contentValues);
                     }
                 }
             }
@@ -39,10 +39,10 @@ public class d {
 
     @WorkerThread
     @IntRange(from = 0)
-    private static int qw(@NonNull String str) {
-        ContentResolver contentResolver = com.baidu.swan.apps.t.a.asf().getContentResolver();
+    private static int qP(@NonNull String str) {
+        ContentResolver contentResolver = com.baidu.swan.apps.t.a.aua().getContentResolver();
         if (contentResolver != null) {
-            Cursor query = contentResolver.query(com.baidu.swan.apps.database.favorite.d.aoy(), null, "time>? and appKey=?", new String[]{String.valueOf(System.currentTimeMillis() - 86400000), str}, null);
+            Cursor query = contentResolver.query(com.baidu.swan.apps.database.favorite.d.aqt(), null, "time>? and appKey=?", new String[]{String.valueOf(System.currentTimeMillis() - 86400000), str}, null);
             int count = query != null ? query.getCount() : 0;
             com.baidu.swan.c.d.closeSafely(query);
             return count;
@@ -52,62 +52,62 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     @WorkerThread
-    public static int qx(@NonNull String str) {
-        int qw = qw(str);
-        int i = azO().getInt("step", 300);
-        int i2 = (i > 0 ? i : 300) * (qw + 1);
+    public static int qQ(@NonNull String str) {
+        int qP = qP(str);
+        int i = aBI().getInt("step", 300);
+        int i2 = (i > 0 ? i : 300) * (qP + 1);
         if (i2 > 3600) {
             return 3600;
         }
         return i2;
     }
 
-    private static int qy(@NonNull final String str) {
-        int i = azO().getInt(str, 300);
+    private static int qR(@NonNull final String str) {
+        int i = aBI().getInt(str, 300);
         p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.performance.b.d.2
             @Override // java.lang.Runnable
             public void run() {
-                d.azO().putInt(str, d.qx(str));
+                d.aBI().putInt(str, d.qQ(str));
             }
         }, "SwanLaunchBehavior");
         return i;
     }
 
-    private static int azM() {
-        String appId = com.baidu.swan.apps.runtime.d.aCW().getAppId();
+    private static int aBG() {
+        String appId = com.baidu.swan.apps.runtime.d.aEQ().getAppId();
         if (TextUtils.isEmpty(appId)) {
             return 300;
         }
-        return qy(appId);
+        return qR(appId);
     }
 
-    public static int azN() {
-        if (cVD != -1) {
-            return cVD;
+    public static int aBH() {
+        if (ded != -1) {
+            return ded;
         }
-        switch (com.baidu.swan.apps.t.a.asi().getSwitch("swan_backstage_policy", 0)) {
+        switch (com.baidu.swan.apps.t.a.aud().getSwitch("swan_backstage_policy", 0)) {
             case 0:
-                cVD = 300;
+                ded = 300;
                 break;
             case 1:
-                cVD = com.baidu.swan.apps.t.a.asi().getSwitch("swan_backstage_interval_setting", 300);
+                ded = com.baidu.swan.apps.t.a.aud().getSwitch("swan_backstage_interval_setting", 300);
                 break;
             case 2:
-                azO().putInt("step", com.baidu.swan.apps.t.a.asi().getSwitch("swan_backstage_interval_setting", 300));
-                cVD = azM();
+                aBI().putInt("step", com.baidu.swan.apps.t.a.aud().getSwitch("swan_backstage_interval_setting", 300));
+                ded = aBG();
                 break;
         }
-        if (cVD < 60) {
-            cVD = 60;
-        } else if (cVD > 3600) {
-            cVD = 3600;
+        if (ded < 60) {
+            ded = 60;
+        } else if (ded > 3600) {
+            ded = 3600;
         }
-        return cVD;
+        return ded;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @NonNull
-    public static com.baidu.swan.apps.storage.c.b azO() {
-        return h.tg("sp_launch_behavior");
+    public static com.baidu.swan.apps.storage.c.b aBI() {
+        return h.tz("sp_launch_behavior");
     }
 }

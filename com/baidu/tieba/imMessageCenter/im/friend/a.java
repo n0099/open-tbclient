@@ -13,45 +13,45 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes22.dex */
 public class a extends BaseAdapter {
-    private View.OnClickListener eKg = new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.friend.a.1
+    private ArrayList<BlackListItemData> eCX;
+    private View.OnClickListener eSC = new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.friend.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Object tag = view.getTag();
             if (tag != null && (tag instanceof BlackListItemData)) {
-                a.this.jZA.a(view, (BlackListItemData) tag);
+                a.this.kma.a(view, (BlackListItemData) tag);
             }
         }
     };
-    private ArrayList<BlackListItemData> euy;
-    private IMBlackListActivity jZA;
+    private IMBlackListActivity kma;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(IMBlackListActivity iMBlackListActivity) {
-        this.jZA = iMBlackListActivity;
+        this.kma = iMBlackListActivity;
     }
 
     public void setData(ArrayList<BlackListItemData> arrayList) {
-        this.euy = arrayList;
+        this.eCX = arrayList;
     }
 
     public void b(BlackListItemData blackListItemData) {
-        if (this.euy != null) {
-            this.euy.remove(blackListItemData);
+        if (this.eCX != null) {
+            this.eCX.remove(blackListItemData);
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.euy != null) {
-            return this.euy.size();
+        if (this.eCX != null) {
+            return this.eCX.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.euy != null) {
-            return this.euy.get(i);
+        if (this.eCX != null) {
+            return this.eCX.get(i);
         }
         return null;
     }
@@ -63,62 +63,62 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0740a c0740a;
+        C0756a c0756a;
         BlackListItemData blackListItemData = (BlackListItemData) getItem(i);
         if (blackListItemData != null) {
-            c0740a = a(view != null ? view.getTag() : null, blackListItemData);
+            c0756a = a(view != null ? view.getTag() : null, blackListItemData);
         } else {
-            c0740a = null;
+            c0756a = null;
         }
-        if (c0740a != null) {
-            return c0740a.rootView;
+        if (c0756a != null) {
+            return c0756a.rootView;
         }
         return null;
     }
 
-    private C0740a cQl() {
-        C0740a c0740a = new C0740a();
-        c0740a.rootView = LayoutInflater.from(this.jZA.getPageContext().getContext()).inflate(R.layout.im_black_list_item, (ViewGroup) null);
-        c0740a.jZC = (HeadImageView) c0740a.rootView.findViewById(R.id.header_view);
-        c0740a.jZC.setIsRound(true);
-        c0740a.hkx = (TextView) c0740a.rootView.findViewById(R.id.user_name);
-        c0740a.jZD = (Button) c0740a.rootView.findViewById(R.id.remove_button);
-        c0740a.rootView.setTag(c0740a);
-        c0740a.jZD.setOnClickListener(this.eKg);
-        return c0740a;
+    private C0756a cTs() {
+        C0756a c0756a = new C0756a();
+        c0756a.rootView = LayoutInflater.from(this.kma.getPageContext().getContext()).inflate(R.layout.im_black_list_item, (ViewGroup) null);
+        c0756a.kmc = (HeadImageView) c0756a.rootView.findViewById(R.id.header_view);
+        c0756a.kmc.setIsRound(true);
+        c0756a.hws = (TextView) c0756a.rootView.findViewById(R.id.user_name);
+        c0756a.kmd = (Button) c0756a.rootView.findViewById(R.id.remove_button);
+        c0756a.rootView.setTag(c0756a);
+        c0756a.kmd.setOnClickListener(this.eSC);
+        return c0756a;
     }
 
-    private C0740a a(Object obj, BlackListItemData blackListItemData) {
-        C0740a c0740a;
+    private C0756a a(Object obj, BlackListItemData blackListItemData) {
+        C0756a c0756a;
         if (obj == null) {
-            c0740a = cQl();
+            c0756a = cTs();
         } else {
-            c0740a = (C0740a) obj;
+            c0756a = (C0756a) obj;
         }
-        a(c0740a, blackListItemData.TM());
-        c0740a.hkx.setText(blackListItemData.bsZ());
-        c0740a.jZD.setTag(blackListItemData);
-        this.jZA.getLayoutMode().onModeChanged(c0740a.rootView);
-        return c0740a;
+        a(c0756a, blackListItemData.VG());
+        c0756a.hws.setText(blackListItemData.buS());
+        c0756a.kmd.setTag(blackListItemData);
+        this.kma.getLayoutMode().onModeChanged(c0756a.rootView);
+        return c0756a;
     }
 
-    private void a(C0740a c0740a, String str) {
+    private void a(C0756a c0756a, String str) {
         if (str != null) {
-            c0740a.jZC.setTag(str);
-            c0740a.jZC.startLoad(str, 12, false);
+            c0756a.kmc.setTag(str);
+            c0756a.kmc.startLoad(str, 12, false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.imMessageCenter.im.friend.a$a  reason: collision with other inner class name */
     /* loaded from: classes22.dex */
-    public class C0740a {
-        public TextView hkx;
-        public HeadImageView jZC;
-        public Button jZD;
+    public class C0756a {
+        public TextView hws;
+        public HeadImageView kmc;
+        public Button kmd;
         public View rootView;
 
-        private C0740a() {
+        private C0756a() {
         }
     }
 }

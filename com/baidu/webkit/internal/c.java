@@ -4,15 +4,15 @@ package com.baidu.webkit.internal;
 public final class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f3935a;
+    final /* synthetic */ String f3933a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(String str) {
-        this.f3935a = str;
+        this.f3933a = str;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        ApisInteractWithMario.clearCrashKey(this.f3935a);
+        ApisInteractWithMario.clearCrashKey(this.f3933a);
     }
 }

@@ -8,18 +8,18 @@ import com.baidu.tbadk.core.view.ThreadSmartAppLayout;
 import com.baidu.tieba.R;
 /* loaded from: classes21.dex */
 public class ai extends i {
-    private AbsThreadDataSupport afH;
-    private ThreadSmartAppLayout ahd;
+    private AbsThreadDataSupport afI;
+    private ThreadSmartAppLayout ahe;
 
     public ai(Context context) {
         super(context);
         setTopMargin(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds21));
-        this.ahd = new ThreadSmartAppLayout(context);
-        this.ahd.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.ai.1
+        this.ahe = new ThreadSmartAppLayout(context);
+        this.ahe.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.ai.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (ai.this.tB() != null) {
-                    ai.this.tB().a(view, ai.this.afH);
+                    ai.this.tB().a(view, ai.this.afI);
                 }
             }
         });
@@ -28,21 +28,21 @@ public class ai extends i {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.ahd;
+        return this.ahe;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
     public void H(AbsThreadDataSupport absThreadDataSupport) {
-        this.afH = absThreadDataSupport;
-        this.ahd.H(absThreadDataSupport);
+        this.afI = absThreadDataSupport;
+        this.ahe.H(absThreadDataSupport);
     }
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (this.ahd != null) {
-            this.ahd.onChangeSkinType();
+        if (this.ahe != null) {
+            this.ahe.onChangeSkinType();
         }
     }
 }

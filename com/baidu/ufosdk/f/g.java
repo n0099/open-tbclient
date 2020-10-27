@@ -6,11 +6,11 @@ import java.util.Comparator;
 final class g implements Comparator {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f3717a;
+    final /* synthetic */ f f3715a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.f3717a = fVar;
+        this.f3715a = fVar;
     }
 
     @Override // java.util.Comparator

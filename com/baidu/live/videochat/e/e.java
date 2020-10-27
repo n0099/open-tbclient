@@ -1,10 +1,6 @@
 package com.baidu.live.videochat.e;
 /* loaded from: classes4.dex */
 public interface e extends c {
-    void A(int i, String str);
-
-    void B(int i, String str);
-
     void C(int i, String str);
 
     void D(int i, String str);
@@ -13,15 +9,19 @@ public interface e extends c {
 
     void F(int i, String str);
 
-    void RE();
+    void G(int i, String str);
 
-    void RF();
+    void H(int i, String str);
 
-    void RG();
+    void SE();
 
-    void RH();
+    void SF();
 
-    void RI();
+    void SG();
+
+    void SH();
+
+    void SI();
 
     void a(com.baidu.live.videochat.b.a aVar);
 }

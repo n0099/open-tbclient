@@ -16,25 +16,25 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected HashMap<String, b> f4573a = new HashMap<>();
+    protected HashMap<String, b> f4571a = new HashMap<>();
 
     /* renamed from: com.tencent.open.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0956a {
+    public static class C1028a {
 
         /* renamed from: a  reason: collision with root package name */
-        protected WeakReference<WebView> f4575a;
+        protected WeakReference<WebView> f4573a;
         protected long b;
         protected String c;
 
-        public C0956a(WebView webView, long j, String str) {
-            this.f4575a = new WeakReference<>(webView);
+        public C1028a(WebView webView, long j, String str) {
+            this.f4573a = new WeakReference<>(webView);
             this.b = j;
             this.c = str;
         }
 
         public void a(Object obj) {
-            WebView webView = this.f4575a.get();
+            WebView webView = this.f4573a.get();
             if (webView != null) {
                 String str = "'undefined'";
                 if (obj instanceof String) {
@@ -49,14 +49,14 @@ public class a {
         }
 
         public void a() {
-            WebView webView = this.f4575a.get();
+            WebView webView = this.f4573a.get();
             if (webView != null) {
                 webView.loadUrl("javascript:window.JsBridge&&JsBridge.callback(" + this.b + ",{'r':1,'result':'no such method'})");
             }
         }
 
         public void a(String str) {
-            WebView webView = this.f4575a.get();
+            WebView webView = this.f4573a.get();
             if (webView != null) {
                 webView.loadUrl("javascript:" + str);
             }
@@ -65,7 +65,7 @@ public class a {
 
     /* loaded from: classes6.dex */
     public static class b {
-        public void call(String str, List<String> list, C0956a c0956a) {
+        public void call(String str, List<String> list, C1028a c1028a) {
             Object invoke;
             Method[] declaredMethods = getClass().getDeclaredMethods();
             Method method = null;
@@ -84,8 +84,8 @@ public class a {
                     i++;
                 } catch (Exception e) {
                     f.b("openSDK_LOG.JsBridge", "-->handler call mehtod ex. targetMethod: " + ((Object) null), e);
-                    if (c0956a != null) {
-                        c0956a.a();
+                    if (c1028a != null) {
+                        c1028a.a();
                         return;
                     }
                     return;
@@ -118,14 +118,14 @@ public class a {
                 Class<?> returnType = method.getReturnType();
                 f.b("openSDK_LOG.JsBridge", "-->call, result: " + invoke + " | ReturnType: " + returnType.getName());
                 if ("void".equals(returnType.getName()) || returnType == Void.class) {
-                    if (c0956a != null) {
-                        c0956a.a((Object) null);
+                    if (c1028a != null) {
+                        c1028a.a((Object) null);
                     }
-                } else if (c0956a != null && customCallback()) {
-                    c0956a.a(invoke != null ? invoke.toString() : null);
+                } else if (c1028a != null && customCallback()) {
+                    c1028a.a(invoke != null ? invoke.toString() : null);
                 }
-            } else if (c0956a != null) {
-                c0956a.a();
+            } else if (c1028a != null) {
+                c1028a.a();
             }
         }
 
@@ -135,10 +135,10 @@ public class a {
     }
 
     public void a(b bVar, String str) {
-        this.f4573a.put(str, bVar);
+        this.f4571a.put(str, bVar);
     }
 
-    public void a(String str, String str2, List<String> list, C0956a c0956a) {
+    public void a(String str, String str2, List<String> list, C1028a c1028a) {
         f.a("openSDK_LOG.JsBridge", "getResult---objName = " + str + " methodName = " + str2);
         int size = list.size();
         for (int i = 0; i < size; i++) {
@@ -148,15 +148,15 @@ public class a {
                 e.printStackTrace();
             }
         }
-        b bVar = this.f4573a.get(str);
+        b bVar = this.f4571a.get(str);
         if (bVar != null) {
             f.b("openSDK_LOG.JsBridge", "call----");
-            bVar.call(str2, list, c0956a);
+            bVar.call(str2, list, c1028a);
             return;
         }
         f.b("openSDK_LOG.JsBridge", "not call----objName NOT FIND");
-        if (c0956a != null) {
-            c0956a.a();
+        if (c1028a != null) {
+            c1028a.a();
         }
     }
 
@@ -166,9 +166,9 @@ public class a {
             ArrayList arrayList = new ArrayList(Arrays.asList((str + "/#").split("/")));
             if (arrayList.size() >= 6) {
                 List<String> subList = arrayList.subList(4, arrayList.size() - 1);
-                C0956a c0956a = new C0956a(webView, 4L, str);
+                C1028a c1028a = new C1028a(webView, 4L, str);
                 webView.getUrl();
-                a((String) arrayList.get(2), (String) arrayList.get(3), subList, c0956a);
+                a((String) arrayList.get(2), (String) arrayList.get(3), subList, c1028a);
                 return true;
             }
             return false;

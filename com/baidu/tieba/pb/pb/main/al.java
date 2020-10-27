@@ -7,14 +7,14 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.view.NavigationBarCoverTip;
 /* loaded from: classes22.dex */
 public class al {
-    private NavigationBarCoverTip iSa;
-    private int iSb;
+    private NavigationBarCoverTip jew;
+    private int jex;
     private com.baidu.adp.base.e mContext;
     private TextView mTipView;
 
     public al(com.baidu.adp.base.e eVar, NavigationBarCoverTip navigationBarCoverTip) {
         this.mContext = eVar;
-        this.iSa = navigationBarCoverTip;
+        this.jew = navigationBarCoverTip;
         init();
     }
 
@@ -28,26 +28,26 @@ public class al {
         this.mTipView.setLineSpacing(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds2), 1.0f);
     }
 
-    public void OW(String str) {
-        if (this.iSa != null) {
-            if (com.baidu.tbadk.core.util.at.isEmpty(str) || this.iSb > 0) {
+    public void Pu(String str) {
+        if (this.jew != null) {
+            if (com.baidu.tbadk.core.util.at.isEmpty(str) || this.jex > 0) {
                 onDestory();
-                this.iSa.setVisibility(8);
+                this.jew.setVisibility(8);
                 return;
             }
-            this.iSa.setVisibility(0);
-            this.iSb++;
+            this.jew.setVisibility(0);
+            this.jex++;
             this.mTipView.setText(str);
             com.baidu.tbadk.core.util.ap.setViewTextColor(this.mTipView, R.color.cp_cont_a);
-            this.iSa.removeAllViews();
-            this.iSa.addView(this.mTipView);
-            this.iSa.h(this.mContext.getPageActivity(), 5000);
+            this.jew.removeAllViews();
+            this.jew.addView(this.mTipView);
+            this.jew.h(this.mContext.getPageActivity(), 5000);
         }
     }
 
     public void onDestory() {
-        if (this.iSa != null) {
-            this.iSa.onDestroy();
+        if (this.jew != null) {
+            this.jew.onDestroy();
         }
     }
 }

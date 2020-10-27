@@ -15,7 +15,7 @@ public class ForbiddenInfo implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: jX */
+        /* renamed from: ki */
         public ForbiddenInfo[] newArray(int i) {
             return new ForbiddenInfo[i];
         }
@@ -74,17 +74,17 @@ public class ForbiddenInfo implements Parcelable {
         if (bVar != null) {
             this.appId = bVar.getAppId();
             this.appKey = bVar.getAppKey();
-            this.appTitle = bVar.aoj();
+            this.appTitle = bVar.aqe();
             this.launchPath = bVar.getPage();
-            this.launchSource = bVar.auj();
+            this.launchSource = bVar.awd();
         }
     }
 
-    public boolean akk() {
+    public boolean ame() {
         return this.enableSlidingFlag == 0;
     }
 
     public String toString() {
-        return "ForbiddenInfo{appId='" + this.appId + "', appKey='" + this.appKey + "', forbiddenReason='" + this.forbiddenReason + "', forbiddenDetail='" + this.forbiddenDetail + "', appTitle='" + this.appTitle + "', launchPath='" + this.launchPath + "', launchSource='" + this.launchSource + "', enableSlidingFlag='" + akk() + "'}";
+        return "ForbiddenInfo{appId='" + this.appId + "', appKey='" + this.appKey + "', forbiddenReason='" + this.forbiddenReason + "', forbiddenDetail='" + this.forbiddenDetail + "', appTitle='" + this.appTitle + "', launchPath='" + this.launchPath + "', launchSource='" + this.launchSource + "', enableSlidingFlag='" + ame() + "'}";
     }
 }

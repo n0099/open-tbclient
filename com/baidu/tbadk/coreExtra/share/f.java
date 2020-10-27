@@ -6,20 +6,20 @@ import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class f {
-    private static int btg() {
+    private static int buZ() {
         if (at.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
             return 3;
         }
-        return com.baidu.tbadk.core.sharedPref.b.blO().getInt("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), 3);
+        return com.baidu.tbadk.core.sharedPref.b.bnH().getInt("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), 3);
     }
 
-    public static int bth() {
-        if (TbSingleton.getInstance().getSharePanelConfData() == null || !TbSingleton.getInstance().getSharePanelConfData().bqx()) {
+    public static int bva() {
+        if (TbSingleton.getInstance().getSharePanelConfData() == null || !TbSingleton.getInstance().getSharePanelConfData().bsq()) {
             return -1;
         }
-        int btg = btg();
+        int buZ = buZ();
         int i = R.drawable.icon_mask_share_wechat40_svg;
-        switch (btg) {
+        switch (buZ) {
             case 2:
                 return R.drawable.icon_mask_share_circle40_svg;
             case 3:
@@ -37,9 +37,9 @@ public class f {
         }
     }
 
-    public static void qu(int i) {
+    public static void qF(int i) {
         if (i > 0 && !at.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-            com.baidu.tbadk.core.sharedPref.b.blO().putInt("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), i);
+            com.baidu.tbadk.core.sharedPref.b.bnH().putInt("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), i);
         }
     }
 }

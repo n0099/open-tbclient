@@ -19,33 +19,33 @@ import java.util.Locale;
 public class ScreenLockHeaderView extends LinearLayout {
     private EditText mEditText;
     View mLine;
-    TextView mle;
-    View mlf;
-    View mlg;
-    TextView mlh;
-    TextView mli;
-    TextView mlj;
-    private d mlk;
-    private TextView mll;
-    private RelativeLayout mlm;
+    TextView mxF;
+    View mxG;
+    View mxH;
+    TextView mxI;
+    TextView mxJ;
+    TextView mxK;
+    private d mxL;
+    private TextView mxM;
+    private RelativeLayout mxN;
 
     public ScreenLockHeaderView(Context context) {
         super(context);
         LayoutInflater.from(getContext()).inflate(R.layout.screenlock_show_item_header, (ViewGroup) this, true);
-        this.mle = (TextView) findViewById(R.id.friend_name_show1);
-        this.mlf = findViewById(R.id.friend_name_layout);
-        this.mlg = findViewById(R.id.msg_content_layout);
-        this.mlh = (TextView) findViewById(R.id.last_msg_time_show1);
-        this.mli = (TextView) findViewById(R.id.one_msg_content_show1);
-        this.mlj = (TextView) findViewById(R.id.unread_msg_count_show1);
+        this.mxF = (TextView) findViewById(R.id.friend_name_show1);
+        this.mxG = findViewById(R.id.friend_name_layout);
+        this.mxH = findViewById(R.id.msg_content_layout);
+        this.mxI = (TextView) findViewById(R.id.last_msg_time_show1);
+        this.mxJ = (TextView) findViewById(R.id.one_msg_content_show1);
+        this.mxK = (TextView) findViewById(R.id.unread_msg_count_show1);
         this.mLine = findViewById(R.id.line);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setBackgroundResource(R.drawable.screen_notify_item_background);
         setOrientation(1);
-        this.mlm = (RelativeLayout) findViewById(R.id.screenlock_input_layout);
-        this.mll = (TextView) findViewById(R.id.screenlock_send_button);
+        this.mxN = (RelativeLayout) findViewById(R.id.screenlock_input_layout);
+        this.mxM = (TextView) findViewById(R.id.screenlock_send_button);
         this.mEditText = (EditText) findViewById(R.id.screenlock_edit_view);
-        this.mlm.setVisibility(8);
+        this.mxN.setVisibility(8);
     }
 
     public ScreenLockHeaderView(Context context, AttributeSet attributeSet) {
@@ -57,28 +57,28 @@ public class ScreenLockHeaderView extends LinearLayout {
     }
 
     public void f(d dVar) {
-        this.mlk = dVar;
-        this.mle.setText(dVar.groupName);
-        this.mlh.setText(gx(dVar.lastTime));
-        this.mli.setText(dVar.content);
-        this.mlj.setText(HL(dVar.unreadCount));
+        this.mxL = dVar;
+        this.mxF.setText(dVar.groupName);
+        this.mxI.setText(gy(dVar.lastTime));
+        this.mxJ.setText(dVar.content);
+        this.mxK.setText(Ie(dVar.unreadCount));
     }
 
-    public void wo(boolean z) {
+    public void wF(boolean z) {
         if (z) {
-            this.mlm.setVisibility(0);
+            this.mxN.setVisibility(0);
             this.mLine.setVisibility(8);
             return;
         }
-        this.mlm.setVisibility(8);
+        this.mxN.setVisibility(8);
         this.mLine.setVisibility(0);
     }
 
-    public String gx(long j) {
+    public String gy(long j) {
         return new SimpleDateFormat("HH:mm", Locale.CHINA).format(new Date(j));
     }
 
-    public String HL(int i) {
+    public String Ie(int i) {
         return i < 100 ? "" + i : "99+";
     }
 
@@ -94,12 +94,12 @@ public class ScreenLockHeaderView extends LinearLayout {
     }
 
     public d getData() {
-        return this.mlk;
+        return this.mxL;
     }
 
     public void setUIClickListener(View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
-        this.mll.setOnClickListener(onClickListener);
-        this.mlf.setOnClickListener(onClickListener2);
-        this.mlg.setOnClickListener(onClickListener2);
+        this.mxM.setOnClickListener(onClickListener);
+        this.mxG.setOnClickListener(onClickListener2);
+        this.mxH.setOnClickListener(onClickListener2);
     }
 }

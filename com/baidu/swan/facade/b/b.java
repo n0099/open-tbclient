@@ -11,26 +11,26 @@ import com.baidu.swan.facade.init.SwanAppInitHelper;
 import org.apache.http.HttpHost;
 /* loaded from: classes16.dex */
 public class b {
-    private static void uw(String str) {
+    private static void uP(String str) {
         SchemeRouter.invokeSchemeForInner(AppRuntime.getAppContext(), Uri.parse(str));
     }
 
-    private static void ux(String str) {
-        a.uv(str);
+    private static void uQ(String str) {
+        a.uO(str);
     }
 
-    public static void uy(String str) {
+    public static void uR(String str) {
         if (!SwanAppInitHelper.entranceOK()) {
             Log.w("SwanAppLaunchHelper", "entrance not open");
             d.a(AppRuntime.getAppContext(), "not support for this android version").showToast();
         } else if (TextUtils.isEmpty(str)) {
             d.a(AppRuntime.getAppContext(), "url is empty").showToast();
         } else if (str.startsWith(SchemeConfig.getSchemeHead())) {
-            uw(str);
+            uP(str);
         } else if (str.startsWith("bdswan")) {
-            uw(str.replace("bdswan", SchemeConfig.getSchemeHead()));
+            uP(str.replace("bdswan", SchemeConfig.getSchemeHead()));
         } else if (str.startsWith("https") || str.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-            ux(str);
+            uQ(str);
         } else {
             d.a(AppRuntime.getAppContext(), "not support this uri").showToast();
         }

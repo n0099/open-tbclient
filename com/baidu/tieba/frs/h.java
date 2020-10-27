@@ -1,19 +1,19 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 public class h implements com.baidu.tbadk.core.flow.a.a {
-    private String iok;
+    private String iAG;
 
     public h(String str) {
-        this.iok = str;
+        this.iAG = str;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.iok;
+        return this.iAG;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String bgf() {
+    public String bhY() {
         return null;
     }
 }

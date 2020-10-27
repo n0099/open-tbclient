@@ -6,42 +6,42 @@ import android.util.Log;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.HttpMessage;
-import com.baidu.live.c;
+import com.baidu.live.d;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public final class b {
-    private static b fNk = new b();
-    public static boolean fNn = false;
-    private JSONObject fNl;
-    private int fNm = 3;
+    private static b fWu = new b();
+    public static boolean fWx = false;
+    private JSONObject fWv;
+    private int fWw = 3;
 
-    public static b bIo() {
-        return fNk;
+    public static b bKM() {
+        return fWu;
     }
 
     public void init() {
         loadData();
     }
 
-    public void bIp() {
+    public void bKN() {
         HttpMessage httpMessage = new HttpMessage(1021204);
         httpMessage.setTag(null);
-        httpMessage.addParam("classification_id", bIr());
+        httpMessage.addParam("classification_id", bKP());
         httpMessage.addParam(HttpConstants.HTTP_HARDWARE, Build.HARDWARE);
         httpMessage.addParam("live_model", Build.MODEL);
         httpMessage.addParam("manufacture", Build.MANUFACTURER);
-        httpMessage.addParam("quality_sign", bIq());
+        httpMessage.addParam("quality_sign", bKO());
         httpMessage.addParam("submodule", "live");
         httpMessage.addParam(HttpConstants.HTTP_BOARD, Build.BOARD);
         httpMessage.addParam("arsdk_version", String.valueOf(com.baidu.minivideo.arface.a.getVersion()));
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    private String bIq() {
+    private String bKO() {
         String str = null;
         if (!isEmpty()) {
-            str = this.fNl.optString("quality_sign");
+            str = this.fWv.optString("quality_sign");
         }
         if (TextUtils.isEmpty(str)) {
             return "default";
@@ -49,10 +49,10 @@ public final class b {
         return str;
     }
 
-    private String bIr() {
+    private String bKP() {
         String str = null;
         if (!isEmpty()) {
-            str = this.fNl.optString("classification_id");
+            str = this.fWv.optString("classification_id");
         }
         if (TextUtils.isEmpty(str)) {
             return "default";
@@ -60,34 +60,34 @@ public final class b {
         return str;
     }
 
-    public JSONObject bIs() {
+    public JSONObject bKQ() {
         if (isEmpty()) {
             return null;
         }
-        return this.fNl.optJSONObject("classification");
+        return this.fWv.optJSONObject("classification");
     }
 
-    public JSONObject bIt() {
+    public JSONObject bKR() {
         if (isEmpty()) {
             return null;
         }
-        return this.fNl.optJSONObject("quality");
+        return this.fWv.optJSONObject("quality");
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:59:0x0104 -> B:69:0x00cf). Please submit an issue!!! */
-    public JSONObject dq(JSONObject jSONObject) {
+    public JSONObject du(JSONObject jSONObject) {
         JSONObject jSONObject2 = new JSONObject();
         if (jSONObject == null) {
-            return this.fNl;
+            return this.fWv;
         }
-        if (this.fNl == null) {
+        if (this.fWv == null) {
             if (jSONObject.has("quality") && com.baidu.live.ar.b.t(jSONObject.optJSONObject("quality")) == null) {
                 return null;
             }
             return jSONObject;
         }
-        String optString = this.fNl.optString("classification_id");
-        JSONObject optJSONObject = this.fNl.optJSONObject("classification");
+        String optString = this.fWv.optString("classification_id");
+        JSONObject optJSONObject = this.fWv.optJSONObject("classification");
         String jSONObject3 = optJSONObject != null ? optJSONObject.toString() : null;
         if (jSONObject.has("classification_id")) {
             String optString2 = jSONObject.optString("classification_id");
@@ -111,8 +111,8 @@ public final class b {
             } catch (JSONException e2) {
             }
         }
-        String optString3 = this.fNl.optString("quality_sign");
-        JSONObject optJSONObject3 = this.fNl.optJSONObject("quality");
+        String optString3 = this.fWv.optString("quality_sign");
+        JSONObject optJSONObject3 = this.fWv.optJSONObject("quality");
         String jSONObject5 = optJSONObject3 != null ? optJSONObject3.toString() : null;
         if (jSONObject.has("quality_sign")) {
             String optString4 = jSONObject.optString("quality_sign");
@@ -142,20 +142,20 @@ public final class b {
     public void d(JSONObject jSONObject, boolean z) {
         if (jSONObject != null && jSONObject.length() != 0) {
             if (z) {
-                dr(jSONObject);
+                dv(jSONObject);
             }
-            this.fNl = jSONObject;
-            com.baidu.minivideo.arface.b.setGradingConfig(bIs());
-            com.baidu.minivideo.arface.b.ag(bIt());
+            this.fWv = jSONObject;
+            com.baidu.minivideo.arface.b.setGradingConfig(bKQ());
+            com.baidu.minivideo.arface.b.aj(bKR());
         }
     }
 
-    private void dr(JSONObject jSONObject) {
+    private void dv(JSONObject jSONObject) {
         if (jSONObject != null && jSONObject.length() > 0) {
             String jSONObject2 = jSONObject.toString();
-            c.AZ().putString("ar_grading_quality_config", jSONObject2);
-            if (com.baidu.live.ar.b.d(this.fNl, jSONObject)) {
-                c.AZ().putBoolean("ar_grading_quality_config_need_update", true);
+            d.AZ().putString("ar_grading_quality_config", jSONObject2);
+            if (com.baidu.live.ar.b.d(this.fWv, jSONObject)) {
+                d.AZ().putBoolean("ar_grading_quality_config_need_update", true);
                 if (isDebug()) {
                     Log.d("GradingQualityConfig", "saveCache: need update quality value ");
                 }
@@ -166,8 +166,8 @@ public final class b {
         }
     }
 
-    private void bIu() {
-        String string = c.AZ().getString("ar_grading_quality_config", "");
+    private void bKS() {
+        String string = d.AZ().getString("ar_grading_quality_config", "");
         if (isDebug()) {
             Log.d("GradingQualityConfig", "readCache: " + string);
         }
@@ -181,15 +181,15 @@ public final class b {
     }
 
     protected void loadData() {
-        bIu();
-        bIp();
+        bKS();
+        bKN();
     }
 
     public boolean isEmpty() {
-        return this.fNl == null || this.fNl.length() == 0;
+        return this.fWv == null || this.fWv.length() == 0;
     }
 
-    private static final boolean isDebug() {
+    public static boolean isDebug() {
         return com.baidu.minivideo.arface.b.isDebug();
     }
 }

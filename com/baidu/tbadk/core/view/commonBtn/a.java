@@ -9,38 +9,38 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a extends TBSpecificationButtonConfig {
     public a() {
-        this.eKT = R.color.cp_cont_a;
-        this.eKV = R.color.cp_link_tip_a;
+        this.eTp = R.color.cp_cont_a;
+        this.eTr = R.color.cp_link_tip_a;
     }
 
-    public void pN(@ColorRes int i) {
-        this.eKV = i;
-        this.eKT = R.color.cp_cont_a;
-        this.eLf = true;
-        if (this.eLh != null) {
-            this.eLh.boQ();
+    public void pY(@ColorRes int i) {
+        this.eTr = i;
+        this.eTp = R.color.cp_cont_a;
+        this.eTB = true;
+        if (this.eTD != null) {
+            this.eTD.bqJ();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
-    public Drawable ac(float f) {
-        return ad(f);
+    public Drawable ae(float f) {
+        return af(f);
     }
 
-    private Drawable ad(float f) {
+    private Drawable af(float f) {
         GradientDrawable gradientDrawable;
-        if (!this.eLf) {
-            this.eKT = ap.getColor(this.ajp, R.color.cp_cont_a);
+        if (!this.eTB) {
+            this.eTp = ap.getColor(this.ajq, R.color.cp_cont_a);
         }
-        int color = this.eLf ? ap.getColor(this.ajp, this.eKV) : this.eKV;
-        int[] iArr = {com.baidu.tieba.tbadkCore.c.IO(color), color};
+        int color = this.eTB ? ap.getColor(this.ajq, this.eTr) : this.eTr;
+        int[] iArr = {com.baidu.tieba.tbadkCore.c.Jg(color), color};
         if (Build.VERSION.SDK_INT >= 16) {
             gradientDrawable = new GradientDrawable();
-            gradientDrawable.setOrientation(this.eLg);
+            gradientDrawable.setOrientation(this.eTC);
             gradientDrawable.setColors(iArr);
         } else {
-            gradientDrawable = new GradientDrawable(this.eLg, iArr);
+            gradientDrawable = new GradientDrawable(this.eTC, iArr);
         }
         gradientDrawable.setGradientType(0);
         gradientDrawable.setShape(0);

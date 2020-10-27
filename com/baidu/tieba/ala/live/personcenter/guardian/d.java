@@ -9,33 +9,33 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class d {
-    private LinearLayout gAd;
-    private TextView gAe;
+    private LinearLayout gLR;
+    private TextView gLS;
     protected Context mContext;
     private View mRootView;
 
     public d(Context context) {
         this.mContext = context;
-        an(bQb());
+        ah(bSY());
     }
 
-    public View bQb() {
+    public View bSY() {
         if (this.mRootView == null) {
             this.mRootView = LayoutInflater.from(this.mContext).inflate(a.h.sdk_prc_person_center_guardian_header, (ViewGroup) null);
         }
         return this.mRootView;
     }
 
-    private void an(View view) {
-        this.gAd = (LinearLayout) view.findViewById(a.g.ala_guardian_header_root);
-        this.gAe = (TextView) view.findViewById(a.g.ala_guardian_header_title);
+    private void ah(View view) {
+        this.gLR = (LinearLayout) view.findViewById(a.g.ala_guardian_header_root);
+        this.gLS = (TextView) view.findViewById(a.g.ala_guardian_header_title);
     }
 
-    public void GS(String str) {
-        this.gAe.setText(str);
+    public void Hq(String str) {
+        this.gLS.setText(str);
     }
 
     public void a(AlaGuardianListActivity alaGuardianListActivity, int i) {
-        alaGuardianListActivity.getLayoutMode().onModeChanged(this.gAd);
+        alaGuardianListActivity.getLayoutMode().onModeChanged(this.gLR);
     }
 }

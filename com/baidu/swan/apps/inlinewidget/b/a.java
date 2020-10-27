@@ -8,13 +8,13 @@ public interface a extends d {
 
     /* renamed from: com.baidu.swan.apps.inlinewidget.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC0419a {
+    public interface InterfaceC0433a {
         void onRelease();
 
         void z(Bundle bundle);
     }
 
-    void a(InterfaceC0419a interfaceC0419a);
+    void a(InterfaceC0433a interfaceC0433a);
 
     void f(String str, Map<String, String> map);
 

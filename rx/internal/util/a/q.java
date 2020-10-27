@@ -10,13 +10,13 @@ public final class q<E> extends v<E> {
         if (e == null) {
             throw new NullPointerException("null elements not allowed");
         }
-        E[] eArr = this.oRn;
+        E[] eArr = this.pIK;
         long j = this.producerIndex;
-        long hJ = hJ(j);
-        if (b(eArr, hJ) != null) {
+        long hZ = hZ(j);
+        if (b(eArr, hZ) != null) {
             return false;
         }
-        b(eArr, hJ, e);
+        b(eArr, hZ, e);
         soProducerIndex(1 + j);
         return true;
     }
@@ -24,53 +24,53 @@ public final class q<E> extends v<E> {
     @Override // java.util.Queue
     public E poll() {
         long j = this.consumerIndex;
-        long hJ = hJ(j);
-        E[] eArr = this.oRn;
-        E b = b(eArr, hJ);
+        long hZ = hZ(j);
+        E[] eArr = this.pIK;
+        E b = b(eArr, hZ);
         if (b == null) {
             return null;
         }
-        b(eArr, hJ, null);
+        b(eArr, hZ, null);
         soConsumerIndex(j + 1);
         return b;
     }
 
     @Override // java.util.Queue
     public E peek() {
-        return hK(hJ(this.consumerIndex));
+        return ia(hZ(this.consumerIndex));
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long enb = enb();
+        long exb = exb();
         while (true) {
-            long ena = ena();
-            long enb2 = enb();
-            if (enb == enb2) {
-                return (int) (ena - enb2);
+            long exa = exa();
+            long exb2 = exb();
+            if (exb == exb2) {
+                return (int) (exa - exb2);
             }
-            enb = enb2;
+            exb = exb2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return ena() == enb();
+        return exa() == exb();
     }
 
     private void soProducerIndex(long j) {
-        ae.piy.a(this, pis, j);
+        ae.pZO.a(this, pZI, j);
     }
 
     private void soConsumerIndex(long j) {
-        ae.piy.a(this, pir, j);
+        ae.pZO.a(this, pZH, j);
     }
 
-    private long ena() {
-        return ae.piy.e(this, pis);
+    private long exa() {
+        return ae.pZO.e(this, pZI);
     }
 
-    private long enb() {
-        return ae.piy.e(this, pir);
+    private long exb() {
+        return ae.pZO.e(this, pZH);
     }
 }

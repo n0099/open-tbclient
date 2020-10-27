@@ -11,19 +11,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c Ts;
-    private ArrayList<String> Tj = new ArrayList<>();
-    private a Tt;
+    private static volatile c Tt;
+    private ArrayList<String> Tk = new ArrayList<>();
+    private a Tu;
 
     public static c pR() {
-        if (Ts == null) {
+        if (Tt == null) {
             synchronized (c.class) {
-                if (Ts == null) {
-                    Ts = new c();
+                if (Tt == null) {
+                    Tt = new c();
                 }
             }
         }
-        return Ts;
+        return Tt;
     }
 
     private c() {
@@ -32,7 +32,7 @@ public class c {
     public void a(PluginSetting pluginSetting) {
         boolean z;
         if (pluginSetting != null && !TextUtils.isEmpty(pluginSetting.packageName)) {
-            Iterator<String> it = this.Tj.iterator();
+            Iterator<String> it = this.Tk.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -45,7 +45,7 @@ public class c {
                 }
             }
             if (!z) {
-                this.Tj.add(pluginSetting.packageName);
+                this.Tk.add(pluginSetting.packageName);
             }
             pN();
         }
@@ -53,9 +53,9 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void pN() {
-        if (this.Tj.size() > 0 && this.Tt == null) {
-            this.Tt = new a(this.Tj.get(0));
-            this.Tt.execute(new String[0]);
+        if (this.Tk.size() > 0 && this.Tu == null) {
+            this.Tu = new a(this.Tk.get(0));
+            this.Tu.execute(new String[0]);
         }
     }
 
@@ -83,16 +83,16 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
-            c.this.Tt = null;
-            if (c.this.Tj.size() > 0) {
-                Iterator it = c.this.Tj.iterator();
+            c.this.Tu = null;
+            if (c.this.Tk.size() > 0) {
+                Iterator it = c.this.Tk.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     String str = (String) it.next();
                     if (str != null && str.equals(this.packageName)) {
-                        c.this.Tj.remove(str);
+                        c.this.Tk.remove(str);
                         break;
                     }
                 }

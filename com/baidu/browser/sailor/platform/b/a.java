@@ -9,17 +9,17 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f1282a = 12323;
+    public static int f1279a = 12323;
     public static int b = 12324;
-    public b aft;
-    private JSONObject afu;
+    public b afu;
+    private JSONObject afv;
     public JSONObject d;
     public boolean e = false;
 
     public final void a() {
-        if (this.afu != null) {
-            SessionMonitorEngine.getInstance().recordImmediately(ZeusPerformanceTiming.SERVER_TYPE_T7_INIT, this.afu.toString());
-            this.afu = null;
+        if (this.afv != null) {
+            SessionMonitorEngine.getInstance().recordImmediately(ZeusPerformanceTiming.SERVER_TYPE_T7_INIT, this.afv.toString());
+            this.afv = null;
         }
     }
 
@@ -27,7 +27,7 @@ public final class a {
         try {
             if (this.d == null) {
                 this.d = new JSONObject();
-                this.d.put("type", f1282a);
+                this.d.put("type", f1279a);
             }
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 return;
@@ -40,14 +40,14 @@ public final class a {
 
     public final void b(String str, String str2) {
         try {
-            if (this.afu == null) {
-                this.afu = new JSONObject();
-                this.afu.put("type", b);
+            if (this.afv == null) {
+                this.afv = new JSONObject();
+                this.afv.put("type", b);
             }
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 return;
             }
-            this.afu.put(str, str2);
+            this.afv.put(str, str2);
         } catch (Exception e) {
             Log.e("mWebkitDownloadStatics JSON error");
         }

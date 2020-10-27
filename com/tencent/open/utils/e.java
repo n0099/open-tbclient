@@ -6,17 +6,17 @@ import java.io.File;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f4614a;
+    private static Context f4612a;
 
     public static final Context a() {
-        if (f4614a == null) {
+        if (f4612a == null) {
             return null;
         }
-        return f4614a;
+        return f4612a;
     }
 
     public static final void a(Context context) {
-        f4614a = context;
+        f4612a = context;
     }
 
     public static final String b() {

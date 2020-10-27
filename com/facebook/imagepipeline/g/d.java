@@ -8,11 +8,11 @@ import javax.annotation.concurrent.ThreadSafe;
 /* loaded from: classes12.dex */
 public class d extends b {
     private volatile Bitmap mBitmap;
-    private final int nOo;
-    private final int nOp;
+    private final int oFH;
+    private final int oFI;
     @GuardedBy("this")
-    private com.facebook.common.references.a<Bitmap> nWf;
-    private final h nWg;
+    private com.facebook.common.references.a<Bitmap> oNx;
+    private final h oNy;
 
     public d(Bitmap bitmap, com.facebook.common.references.c<Bitmap> cVar, h hVar, int i) {
         this(bitmap, cVar, hVar, i, 0);
@@ -20,10 +20,10 @@ public class d extends b {
 
     public d(Bitmap bitmap, com.facebook.common.references.c<Bitmap> cVar, h hVar, int i, int i2) {
         this.mBitmap = (Bitmap) com.facebook.common.internal.g.checkNotNull(bitmap);
-        this.nWf = com.facebook.common.references.a.a(this.mBitmap, (com.facebook.common.references.c) com.facebook.common.internal.g.checkNotNull(cVar));
-        this.nWg = hVar;
-        this.nOo = i;
-        this.nOp = i2;
+        this.oNx = com.facebook.common.references.a.a(this.mBitmap, (com.facebook.common.references.c) com.facebook.common.internal.g.checkNotNull(cVar));
+        this.oNy = hVar;
+        this.oFH = i;
+        this.oFI = i2;
     }
 
     public d(com.facebook.common.references.a<Bitmap> aVar, h hVar, int i) {
@@ -31,83 +31,83 @@ public class d extends b {
     }
 
     public d(com.facebook.common.references.a<Bitmap> aVar, h hVar, int i, int i2) {
-        this.nWf = (com.facebook.common.references.a) com.facebook.common.internal.g.checkNotNull(aVar.dWB());
-        this.mBitmap = this.nWf.get();
-        this.nWg = hVar;
-        this.nOo = i;
-        this.nOp = i2;
+        this.oNx = (com.facebook.common.references.a) com.facebook.common.internal.g.checkNotNull(aVar.egz());
+        this.mBitmap = this.oNx.get();
+        this.oNy = hVar;
+        this.oFH = i;
+        this.oFI = i2;
     }
 
     @Override // com.facebook.imagepipeline.g.c, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        com.facebook.common.references.a<Bitmap> ecd = ecd();
-        if (ecd != null) {
-            ecd.close();
+        com.facebook.common.references.a<Bitmap> emb = emb();
+        if (emb != null) {
+            emb.close();
         }
     }
 
-    private synchronized com.facebook.common.references.a<Bitmap> ecd() {
+    private synchronized com.facebook.common.references.a<Bitmap> emb() {
         com.facebook.common.references.a<Bitmap> aVar;
-        aVar = this.nWf;
-        this.nWf = null;
+        aVar = this.oNx;
+        this.oNx = null;
         this.mBitmap = null;
         return aVar;
     }
 
     @Nullable
-    public synchronized com.facebook.common.references.a<Bitmap> ece() {
-        return com.facebook.common.references.a.b(this.nWf);
+    public synchronized com.facebook.common.references.a<Bitmap> emc() {
+        return com.facebook.common.references.a.b(this.oNx);
     }
 
     @Override // com.facebook.imagepipeline.g.c
     public synchronized boolean isClosed() {
-        return this.nWf == null;
+        return this.oNx == null;
     }
 
     @Override // com.facebook.imagepipeline.g.b
-    public Bitmap ecb() {
+    public Bitmap elZ() {
         return this.mBitmap;
     }
 
     @Override // com.facebook.imagepipeline.g.c
     public int getSizeInBytes() {
-        return com.facebook.d.a.ai(this.mBitmap);
+        return com.facebook.d.a.am(this.mBitmap);
     }
 
     @Override // com.facebook.imagepipeline.g.f
     public int getWidth() {
-        return (this.nOo % 180 != 0 || this.nOp == 5 || this.nOp == 7) ? Z(this.mBitmap) : Y(this.mBitmap);
+        return (this.oFH % 180 != 0 || this.oFI == 5 || this.oFI == 7) ? ad(this.mBitmap) : ac(this.mBitmap);
     }
 
     @Override // com.facebook.imagepipeline.g.f
     public int getHeight() {
-        return (this.nOo % 180 != 0 || this.nOp == 5 || this.nOp == 7) ? Y(this.mBitmap) : Z(this.mBitmap);
+        return (this.oFH % 180 != 0 || this.oFI == 5 || this.oFI == 7) ? ac(this.mBitmap) : ad(this.mBitmap);
     }
 
-    private static int Y(@Nullable Bitmap bitmap) {
+    private static int ac(@Nullable Bitmap bitmap) {
         if (bitmap == null) {
             return 0;
         }
         return bitmap.getWidth();
     }
 
-    private static int Z(@Nullable Bitmap bitmap) {
+    private static int ad(@Nullable Bitmap bitmap) {
         if (bitmap == null) {
             return 0;
         }
         return bitmap.getHeight();
     }
 
-    public int ecf() {
-        return this.nOo;
+    public int emd() {
+        return this.oFH;
     }
 
-    public int ecg() {
-        return this.nOp;
+    public int eme() {
+        return this.oFI;
     }
 
     @Override // com.facebook.imagepipeline.g.c
-    public h ecc() {
-        return this.nWg;
+    public h ema() {
+        return this.oNy;
     }
 }

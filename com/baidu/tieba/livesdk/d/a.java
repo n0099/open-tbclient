@@ -16,13 +16,13 @@ import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 public class a implements IExtraJumpBuilder {
     @Override // com.baidu.live.tbadk.extrajump.interfaces.IExtraJumpBuilder
     public IExtraJump build() {
-        return new C0751a();
+        return new C0766a();
     }
 
     /* renamed from: com.baidu.tieba.livesdk.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private static class C0751a implements IExtraJump {
-        private C0751a() {
+    private static class C0766a implements IExtraJump {
+        private C0766a() {
         }
 
         @Override // com.baidu.live.tbadk.extrajump.interfaces.IExtraJump

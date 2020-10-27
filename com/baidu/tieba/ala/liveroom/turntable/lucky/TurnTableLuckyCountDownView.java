@@ -10,12 +10,12 @@ import android.view.View;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class TurnTableLuckyCountDownView extends View {
-    private RectF dwi;
-    private Paint dwk;
-    private float dwp;
-    private float hch;
-    private float hci;
-    private String hcj;
+    private RectF dEF;
+    private Paint dEH;
+    private float dEM;
+    private float hnX;
+    private float hnY;
+    private String hnZ;
     private float mProgress;
     private Paint mTextPaint;
 
@@ -25,7 +25,7 @@ public class TurnTableLuckyCountDownView extends View {
     }
 
     public void setTimer(String str, float f) {
-        this.hcj = str;
+        this.hnZ = str;
         this.mProgress = f;
         invalidate();
     }
@@ -34,24 +34,24 @@ public class TurnTableLuckyCountDownView extends View {
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
         Paint.FontMetricsInt fontMetricsInt = this.mTextPaint.getFontMetricsInt();
-        this.hch = i * 0.5f;
-        this.hci = ((i2 - fontMetricsInt.top) - fontMetricsInt.bottom) * 0.5f;
-        this.dwi.set(this.dwp * 0.5f, this.dwp * 0.5f, i - (this.dwp * 0.5f), i2 - (this.dwp * 0.5f));
+        this.hnX = i * 0.5f;
+        this.hnY = ((i2 - fontMetricsInt.top) - fontMetricsInt.bottom) * 0.5f;
+        this.dEF.set(this.dEM * 0.5f, this.dEM * 0.5f, i - (this.dEM * 0.5f), i2 - (this.dEM * 0.5f));
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawArc(this.dwi, -90.0f, this.mProgress * (-360.0f), false, this.dwk);
-        canvas.drawText(this.hcj, this.hch, this.hci, this.mTextPaint);
+        canvas.drawArc(this.dEF, -90.0f, this.mProgress * (-360.0f), false, this.dEH);
+        canvas.drawText(this.hnZ, this.hnX, this.hnY, this.mTextPaint);
     }
 
     private void init() {
-        cbR();
+        ceV();
         initProgress();
     }
 
-    private void cbR() {
+    private void ceV() {
         this.mTextPaint = new Paint(1);
         this.mTextPaint.setDither(true);
         this.mTextPaint.setColor(-1);
@@ -61,12 +61,12 @@ public class TurnTableLuckyCountDownView extends View {
     }
 
     private void initProgress() {
-        this.dwp = getResources().getDimensionPixelOffset(a.e.sdk_ds6);
-        this.dwk = new Paint(1);
-        this.dwk.setDither(true);
-        this.dwk.setColor(-12753);
-        this.dwk.setStrokeWidth(this.dwp);
-        this.dwk.setStyle(Paint.Style.STROKE);
-        this.dwi = new RectF();
+        this.dEM = getResources().getDimensionPixelOffset(a.e.sdk_ds6);
+        this.dEH = new Paint(1);
+        this.dEH.setDither(true);
+        this.dEH.setColor(-12753);
+        this.dEH.setStrokeWidth(this.dEM);
+        this.dEH.setStyle(Paint.Style.STROKE);
+        this.dEF = new RectF();
     }
 }

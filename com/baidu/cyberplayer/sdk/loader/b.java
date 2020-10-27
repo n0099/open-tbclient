@@ -22,7 +22,7 @@ import java.util.concurrent.Executors;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static b f1399a;
+    private static b f1396a;
     private Context f;
     private final Object c = new Object();
     private volatile int e = 0;
@@ -98,10 +98,10 @@ public class b {
     public static synchronized b a() {
         b bVar;
         synchronized (b.class) {
-            if (f1399a == null) {
-                f1399a = new b();
+            if (f1396a == null) {
+                f1396a = new b();
             }
-            bVar = f1399a;
+            bVar = f1396a;
         }
         return bVar;
     }

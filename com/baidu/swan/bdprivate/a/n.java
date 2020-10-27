@@ -15,57 +15,57 @@ public class n extends com.baidu.swan.apps.setting.oauth.a.a {
     public n(Activity activity, boolean z, String str, String str2) {
         super(activity, z, str, str2);
         if (z) {
-            aFr();
+            aHl();
         }
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean aEO() {
+    protected boolean aGI() {
         a(new a());
         return true;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.a.a, com.baidu.swan.apps.setting.oauth.b
-    protected boolean aEP() {
+    protected boolean aGJ() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("ma_id", aFp().id);
+            jSONObject.put("ma_id", aHj().id);
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("app_key", aFp().getAppKey());
+            jSONObject2.put("app_key", aHj().getAppKey());
             jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject2.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
             jSONObject2.put("stoken", this.mStoken);
-            String adG = com.baidu.swan.apps.t.a.ass().adG();
-            if (!TextUtils.isEmpty(adG)) {
-                jSONObject2.put("host_api_key", adG);
+            String afA = com.baidu.swan.apps.t.a.aum().afA();
+            if (!TextUtils.isEmpty(afA)) {
+                jSONObject2.put("host_api_key", afA);
             }
             jSONObject.put("open", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
-            jSONObject3.put("permit", Boolean.toString(this.dkd));
+            jSONObject3.put("permit", Boolean.toString(this.dsE));
             JSONObject jSONObject4 = new JSONObject();
             jSONObject4.put(this.mScope, jSONObject3);
             jSONObject.put("accredits", jSONObject4);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        co("data", jSONObject.toString());
+        cv("data", jSONObject.toString());
         return true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.a.a, com.baidu.swan.apps.setting.oauth.b
-    /* renamed from: bQ */
-    public a.C0457a bL(JSONObject jSONObject) throws JSONException {
+    /* renamed from: bT */
+    public a.C0471a bO(JSONObject jSONObject) throws JSONException {
         com.baidu.swan.bdprivate.a.a.b(this.mActivity, jSONObject);
-        return super.bL(jSONObject);
+        return super.bO(jSONObject);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.a.a, com.baidu.swan.apps.setting.oauth.a.h
-    public void aFk() {
-        super.aFk();
-        com.baidu.swan.apps.network.c.b.a.ayz();
+    public void aHe() {
+        super.aHe();
+        com.baidu.swan.apps.network.c.b.a.aAt();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -75,7 +75,7 @@ public class n extends com.baidu.swan.apps.setting.oauth.a.a {
         }
 
         @Override // com.baidu.swan.apps.setting.oauth.d
-        protected boolean aEU() throws Exception {
+        protected boolean aGO() throws Exception {
             com.baidu.swan.bdprivate.a.a.a(n.this.mActivity, new com.baidu.swan.apps.ap.e.b<Bundle>() { // from class: com.baidu.swan.bdprivate.a.n.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ap.e.b
@@ -88,7 +88,7 @@ public class n extends com.baidu.swan.apps.setting.oauth.a.a {
                     String string = bundle.getString("dev", "");
                     if (!TextUtils.isEmpty(string)) {
                         n.this.mStoken = string;
-                        a.this.aEW();
+                        a.this.aGQ();
                         return;
                     }
                     a.this.w(new OAuthException("empty stoken", 10001));

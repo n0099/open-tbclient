@@ -15,7 +15,7 @@ import java.io.File;
 import java.util.List;
 /* loaded from: classes14.dex */
 public class e {
-    public static boolean ah(String str, boolean z) {
+    public static boolean aj(String str, boolean z) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -60,7 +60,7 @@ public class e {
         Uri uriForFile;
         if (com.baidu.swan.apps.ap.c.hasNougat()) {
             try {
-                if (ak.aIG()) {
+                if (ak.aKA()) {
                     uriForFile = FileProvider.getUriForFile(context, context.getPackageName() + ".fileprovider", file);
                 } else {
                     uriForFile = FileProvider.getUriForFile(context, context.getPackageName() + ".swan.fileprovider", file);
@@ -85,7 +85,7 @@ public class e {
         return true;
     }
 
-    public static boolean al(Context context, String str) {
+    public static boolean am(Context context, String str) {
         if (context != null) {
             try {
                 if (context.getPackageManager() != null) {
@@ -100,7 +100,7 @@ public class e {
         return false;
     }
 
-    public static String am(Context context, @NonNull String str) {
+    public static String an(Context context, @NonNull String str) {
         PackageInfo packageArchiveInfo;
         File file = new File(str);
         if (!file.exists() || (packageArchiveInfo = context.getPackageManager().getPackageArchiveInfo(file.getAbsolutePath(), 1)) == null) {

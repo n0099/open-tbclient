@@ -5,64 +5,64 @@ import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes18.dex */
 public class t {
-    private final k<com.facebook.imagepipeline.g.e> nXP;
-    private final ak nXW;
-    private long nXX = 0;
-    private int nXY;
+    private final k<com.facebook.imagepipeline.g.e> oPh;
+    private final ak oPo;
+    private long oPp = 0;
+    private int oPq;
     @Nullable
-    private com.facebook.imagepipeline.common.a nXZ;
+    private com.facebook.imagepipeline.common.a oPr;
 
     public t(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        this.nXP = kVar;
-        this.nXW = akVar;
+        this.oPh = kVar;
+        this.oPo = akVar;
     }
 
-    public k<com.facebook.imagepipeline.g.e> eds() {
-        return this.nXP;
+    public k<com.facebook.imagepipeline.g.e> enr() {
+        return this.oPh;
     }
 
-    public ak edt() {
-        return this.nXW;
+    public ak ens() {
+        return this.oPo;
     }
 
     public String getId() {
-        return this.nXW.getId();
+        return this.oPo.getId();
     }
 
-    public am edh() {
-        return this.nXW.edh();
+    public am eng() {
+        return this.oPo.eng();
     }
 
     public Uri getUri() {
-        return this.nXW.edg().edY();
+        return this.oPo.enf().enX();
     }
 
-    public long edu() {
-        return this.nXX;
+    public long ent() {
+        return this.oPp;
     }
 
-    public void hd(long j) {
-        this.nXX = j;
+    public void ht(long j) {
+        this.oPp = j;
     }
 
-    public int edv() {
-        return this.nXY;
+    public int enu() {
+        return this.oPq;
     }
 
-    public void Ny(int i) {
-        this.nXY = i;
+    public void Pp(int i) {
+        this.oPq = i;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.a edw() {
-        return this.nXZ;
+    public com.facebook.imagepipeline.common.a env() {
+        return this.oPr;
     }
 
     public void c(com.facebook.imagepipeline.common.a aVar) {
-        this.nXZ = aVar;
+        this.oPr = aVar;
     }
 
-    public Map<String, String> edx() {
-        return this.nXW.edg().edx();
+    public Map<String, String> enw() {
+        return this.oPo.enf().enw();
     }
 }

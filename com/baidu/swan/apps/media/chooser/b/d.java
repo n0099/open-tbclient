@@ -28,33 +28,33 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class d {
-    public static boolean cNq;
-    private static ArrayList<MediaModel> cOZ;
-    public static String cPb;
-    public static int cPc;
-    public static String cPd;
-    public static String cIJ = "album";
-    public static int cPa = 9;
+    public static boolean cVM;
+    private static ArrayList<MediaModel> cXv;
+    public static String cXx;
+    public static int cXy;
+    public static String cXz;
+    public static String cRf = "album";
+    public static int cXw = 9;
     public static String mMode = "single";
     public static boolean mIsShowCamera = true;
     public static boolean mIsFrontCamera = false;
 
     public static void t(ArrayList<MediaModel> arrayList) {
-        if (cOZ == null) {
-            cOZ = new ArrayList<>();
+        if (cXv == null) {
+            cXv = new ArrayList<>();
         }
-        cOZ.clear();
-        cOZ.addAll(arrayList);
+        cXv.clear();
+        cXv.addAll(arrayList);
     }
 
-    public static ArrayList<MediaModel> awA() {
-        return cOZ;
+    public static ArrayList<MediaModel> ayu() {
+        return cXv;
     }
 
     public static void clear() {
-        if (cOZ != null) {
-            cOZ.clear();
-            cOZ = null;
+        if (cXv != null) {
+            cXv.clear();
+            cXv = null;
         }
     }
 
@@ -62,54 +62,54 @@ public class d {
         Intent intent = new Intent(context, SwanAppAlbumActivity.class);
         intent.putExtra("launchParams", bundle);
         if (!(context instanceof ActivityResultDispatcherHolder)) {
-            cVar.pq("choose: context error");
+            cVar.pJ("choose: context error");
             return;
         }
         ActivityResultDispatcher resultDispatcher = ((ActivityResultDispatcherHolder) context).getResultDispatcher();
         if (resultDispatcher == null) {
-            cVar.pq("choose: ActivityResultDispatcher null");
+            cVar.pJ("choose: ActivityResultDispatcher null");
             return;
         }
         resultDispatcher.addConsumer(new ActivityResultConsumer() { // from class: com.baidu.swan.apps.media.chooser.b.d.1
             @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
             public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent2) {
-                com.baidu.swan.apps.v.f.avu().auV();
+                com.baidu.swan.apps.v.f.axo().awP();
                 if (i == -1) {
                     if (intent2 == null) {
-                        com.baidu.swan.apps.media.chooser.c.c.this.pq("choose: Selected data is null");
+                        com.baidu.swan.apps.media.chooser.c.c.this.pJ("choose: Selected data is null");
                         return true;
                     }
-                    com.baidu.swan.apps.media.chooser.c.c.this.aq(intent2.getParcelableArrayListExtra("mediaModels"));
+                    com.baidu.swan.apps.media.chooser.c.c.this.aA(intent2.getParcelableArrayListExtra("mediaModels"));
                     return true;
                 } else if (i == 0) {
-                    com.baidu.swan.apps.media.chooser.c.c.this.pq("选择文件失败：用户取消操作");
+                    com.baidu.swan.apps.media.chooser.c.c.this.pJ("选择文件失败：用户取消操作");
                     return true;
                 } else {
                     return true;
                 }
             }
         });
-        com.baidu.swan.apps.v.f.avu().auU();
+        com.baidu.swan.apps.v.f.axo().awO();
         resultDispatcher.startActivityForResult(intent);
-        ((Activity) context).overridePendingTransition(a.C0343a.swanapp_album_slide_bottom_in, 0);
+        ((Activity) context).overridePendingTransition(a.C0357a.swanapp_album_slide_bottom_in, 0);
     }
 
     public static JSONObject a(List<MediaModel> list, com.baidu.swan.apps.runtime.e eVar, String str) {
-        String cv;
+        String cC;
         JSONObject jSONObject = new JSONObject();
         try {
             JSONArray jSONArray = new JSONArray();
             JSONArray jSONArray2 = new JSONArray();
             for (MediaModel mediaModel : list) {
                 if (mediaModel != null) {
-                    if (eVar.aDt()) {
-                        cv = n.ww(mediaModel.awG());
+                    if (eVar.aFn()) {
+                        cC = n.wP(mediaModel.ayA());
                     } else {
-                        cv = com.baidu.swan.apps.storage.b.cv(mediaModel.awG(), eVar.id);
+                        cC = com.baidu.swan.apps.storage.b.cC(mediaModel.ayA(), eVar.id);
                     }
-                    jSONArray.put(cv);
+                    jSONArray.put(cC);
                     JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("path", cv);
+                    jSONObject2.put("path", cC);
                     if (TextUtils.equals("album", str)) {
                         jSONObject2.put("type", mediaModel.getType());
                     }
@@ -137,19 +137,19 @@ public class d {
     }
 
     public static JSONObject a(List<MediaModel> list, com.baidu.swan.apps.runtime.e eVar) {
-        String cv;
+        String cC;
         if (list == null || !(list.get(0) instanceof VideoModel)) {
             return null;
         }
         VideoModel videoModel = (VideoModel) list.get(0);
-        if (eVar.aDt()) {
-            cv = n.ww(videoModel.awG());
+        if (eVar.aFn()) {
+            cC = n.wP(videoModel.ayA());
         } else {
-            cv = com.baidu.swan.apps.storage.b.cv(videoModel.awG(), eVar.id);
+            cC = com.baidu.swan.apps.storage.b.cC(videoModel.ayA(), eVar.id);
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("tempFilePath", cv);
+            jSONObject.put("tempFilePath", cC);
             jSONObject.put("duration", videoModel.getDuration() / 1000);
             jSONObject.put("height", videoModel.getHeight());
             jSONObject.put("width", videoModel.getWidth());
@@ -169,7 +169,7 @@ public class d {
         Intent intent = new Intent(activity, SwanAppAlbumPreviewActivity.class);
         intent.putExtra("launchParams", bundle);
         activity.startActivityForResult(intent, UgcConstant.LOCAL_PREVIEW_REQUEST);
-        activity.overridePendingTransition(a.C0343a.swanapp_album_preview_enter, a.C0343a.aiapps_hold);
+        activity.overridePendingTransition(a.C0357a.swanapp_album_preview_enter, a.C0357a.aiapps_hold);
     }
 
     public static void c(final Activity activity, Bundle bundle) {
@@ -177,7 +177,7 @@ public class d {
             Log.d("SwanAppChooseHelper", "selectCompleted");
         }
         if (e.getSelectedCount() > 0) {
-            com.baidu.swan.apps.t.a.asw().a(activity, bundle, new com.baidu.swan.apps.media.chooser.c.d() { // from class: com.baidu.swan.apps.media.chooser.b.d.2
+            com.baidu.swan.apps.t.a.auq().a(activity, bundle, new com.baidu.swan.apps.media.chooser.c.d() { // from class: com.baidu.swan.apps.media.chooser.b.d.2
                 @Override // com.baidu.swan.apps.media.chooser.c.d
                 public void a(boolean z, String str, Object obj) {
                     if (z && (obj instanceof ArrayList)) {
@@ -185,7 +185,7 @@ public class d {
                         if (c.DEBUG) {
                             Iterator<? extends Parcelable> it = arrayList.iterator();
                             while (it.hasNext()) {
-                                Log.d("SwanAppChooseHelper", "tempPath = " + ((MediaModel) it.next()).awG());
+                                Log.d("SwanAppChooseHelper", "tempPath = " + ((MediaModel) it.next()).ayA());
                             }
                         }
                         Intent intent = new Intent();
@@ -203,29 +203,29 @@ public class d {
             Log.d("SwanAppChooseHelper", "selectCompleted");
         }
         if (e.getSelectedCount() > 0) {
-            com.baidu.swan.apps.t.a.asw().a(activity, bundle, dVar);
+            com.baidu.swan.apps.t.a.auq().a(activity, bundle, dVar);
         }
     }
 
     public static boolean a(String str, MediaModel mediaModel) {
-        if (e.getSelectedCount() < cPa || e.c(mediaModel)) {
-            return TextUtils.equals(str, "single") && e.getSelectedCount() > 0 && !TextUtils.equals(e.awC(), mediaModel.getType());
+        if (e.getSelectedCount() < cXw || e.c(mediaModel)) {
+            return TextUtils.equals(str, "single") && e.getSelectedCount() > 0 && !TextUtils.equals(e.ayw(), mediaModel.getType());
         }
         return true;
     }
 
-    public static void pv(String str) {
+    public static void pO(String str) {
         if (e.getSelectedCount() != 0) {
             Context appContext = AppRuntime.getAppContext();
-            String string = appContext.getString(a.h.swanapp_album_selected_max_files, Integer.valueOf(cPa));
+            String string = appContext.getString(a.h.swanapp_album_selected_max_files, Integer.valueOf(cXw));
             if (TextUtils.equals(str, "single")) {
-                if (e.awB().get(0) instanceof ImageModel) {
-                    string = appContext.getString(a.h.swanapp_album_selected_max_photos, Integer.valueOf(cPa));
+                if (e.ayv().get(0) instanceof ImageModel) {
+                    string = appContext.getString(a.h.swanapp_album_selected_max_photos, Integer.valueOf(cXw));
                 } else {
-                    string = appContext.getString(a.h.swanapp_album_selected_max_videos, Integer.valueOf(cPa));
+                    string = appContext.getString(a.h.swanapp_album_selected_max_videos, Integer.valueOf(cXw));
                 }
             } else if (TextUtils.equals(str, com.baidu.sapi2.utils.enums.a.c)) {
-                string = appContext.getString(a.h.swanapp_album_selected_max_files, Integer.valueOf(cPa));
+                string = appContext.getString(a.h.swanapp_album_selected_max_files, Integer.valueOf(cXw));
             }
             com.baidu.swan.apps.res.widget.b.d.a(appContext, string).showToast();
         }
@@ -252,7 +252,7 @@ public class d {
         return !TextUtils.isEmpty(str2) && str2.equalsIgnoreCase("image/gif");
     }
 
-    public static String ad(Context context, String str) {
+    public static String ae(Context context, String str) {
         int i;
         char c = 65535;
         switch (str.hashCode()) {

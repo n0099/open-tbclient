@@ -6,12 +6,12 @@ public final class b {
     private static b b = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1317a;
+    private Context f1314a;
     private com.baidu.clientupdate.download.a c;
 
     private b(Context context) {
-        this.f1317a = null;
-        this.f1317a = context.getApplicationContext();
+        this.f1314a = null;
+        this.f1314a = context.getApplicationContext();
         this.c = com.baidu.clientupdate.download.a.a(context);
     }
 
@@ -23,6 +23,6 @@ public final class b {
     }
 
     public void a(byte[] bArr) {
-        new c(this, com.baidu.clientupdate.c.a.a(this.f1317a).a() + "/lcmanage/index.php?r=InstallAction&cv=1", bArr).start();
+        new c(this, com.baidu.clientupdate.c.a.a(this.f1314a).a() + "/lcmanage/index.php?r=InstallAction&cv=1", bArr).start();
     }
 }

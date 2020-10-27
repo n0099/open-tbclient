@@ -6,25 +6,25 @@ import com.xiaomi.push.ai;
 final class ab extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f5043a;
+    final /* synthetic */ int f5041a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ NotificationManager f836a;
+    final /* synthetic */ NotificationManager f833a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(int i, NotificationManager notificationManager) {
-        this.f5043a = i;
-        this.f836a = notificationManager;
+        this.f5041a = i;
+        this.f833a = notificationManager;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo167a() {
-        return this.f5043a;
+    public int mo166a() {
+        return this.f5041a;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f836a.cancel(this.f5043a);
+        this.f833a.cancel(this.f5041a);
     }
 }

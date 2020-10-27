@@ -12,7 +12,7 @@ import com.baidu.tbadk.gif.GifView;
 public interface i {
     void aA(Context context, String str);
 
-    void aw(Context context, String str);
+    void aB(Context context, String str);
 
     void ax(Context context, String str);
 
@@ -20,19 +20,19 @@ public interface i {
 
     void az(Context context, String str);
 
-    int bCb();
+    int bDU();
 
-    com.baidu.adp.lib.d.b<ImageView> bCc();
+    com.baidu.adp.lib.d.b<ImageView> bDV();
 
-    com.baidu.adp.lib.d.b<TextView> bCd();
+    com.baidu.adp.lib.d.b<TextView> bDW();
 
-    com.baidu.adp.lib.d.b<GifView> bCe();
+    com.baidu.adp.lib.d.b<GifView> bDX();
 
-    com.baidu.adp.lib.d.b<View> bCf();
+    com.baidu.adp.lib.d.b<View> bDY();
 
-    com.baidu.adp.lib.d.b<LinearLayout> bCg();
+    com.baidu.adp.lib.d.b<LinearLayout> bDZ();
 
-    com.baidu.adp.lib.d.b<RelativeLayout> bCh();
+    com.baidu.adp.lib.d.b<RelativeLayout> bEa();
 
     void f(Context context, String str, boolean z);
 

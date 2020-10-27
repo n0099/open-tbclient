@@ -25,29 +25,29 @@ final class ResumeUploader implements Runnable {
     private File f;
     private RandomAccessFile file = null;
     private final String key;
-    private final long oEY;
-    private final Client oEz;
-    private final UpCompletionHandler oFM;
-    private final UploadOptions oFN;
-    private final Configuration oFO;
-    private final byte[] oFP;
-    private final String[] oFQ;
-    private final StringMap oFR;
-    private final long oFS;
-    private final String oFT;
-    private long oFU;
-    private UpToken oFV;
+    private final Client pvV;
+    private final long pwv;
+    private final UpCompletionHandler pxj;
+    private final UploadOptions pxk;
+    private final Configuration pxl;
+    private final byte[] pxm;
+    private final String[] pxn;
+    private final StringMap pxo;
+    private final long pxp;
+    private final String pxq;
+    private long pxr;
+    private UpToken pxs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ResumeUploader(Client client, Configuration configuration, File file, String str, UpToken upToken, final UpCompletionHandler upCompletionHandler, UploadOptions uploadOptions, String str2) {
-        this.oEz = client;
-        this.oFO = configuration;
+        this.pvV = client;
+        this.pxl = configuration;
         this.f = file;
-        this.oFT = str2;
-        this.oEY = file.length();
+        this.pxq = str2;
+        this.pwv = file.length();
         this.key = str;
-        this.oFR = new StringMap().O("Authorization", "UpToken " + upToken.token);
-        this.oFM = new UpCompletionHandler() { // from class: com.qiniu.android.storage.ResumeUploader.1
+        this.pxo = new StringMap().O("Authorization", "UpToken " + upToken.token);
+        this.pxj = new UpCompletionHandler() { // from class: com.qiniu.android.storage.ResumeUploader.1
             @Override // com.qiniu.android.storage.UpCompletionHandler
             public void a(String str3, ResponseInfo responseInfo, JSONObject jSONObject) {
                 if (ResumeUploader.this.file != null) {
@@ -60,19 +60,19 @@ final class ResumeUploader implements Runnable {
                 upCompletionHandler.a(str3, responseInfo, jSONObject);
             }
         };
-        this.oFN = uploadOptions == null ? UploadOptions.ekm() : uploadOptions;
-        this.oFP = new byte[configuration.chunkSize];
-        this.oFQ = new String[(int) (((this.oEY + ImageUploadStrategy.FILE_SIZE_4M) - 1) / ImageUploadStrategy.FILE_SIZE_4M)];
-        this.oFS = file.lastModified();
-        this.oFV = upToken;
+        this.pxk = uploadOptions == null ? UploadOptions.eum() : uploadOptions;
+        this.pxm = new byte[configuration.chunkSize];
+        this.pxn = new String[(int) (((this.pwv + ImageUploadStrategy.FILE_SIZE_4M) - 1) / ImageUploadStrategy.FILE_SIZE_4M)];
+        this.pxp = file.lastModified();
+        this.pxs = upToken;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static boolean b(ResponseInfo responseInfo, JSONObject jSONObject) {
-        return responseInfo.statusCode == 200 && responseInfo.error == null && (responseInfo.ekc() || eT(jSONObject));
+        return responseInfo.statusCode == 200 && responseInfo.error == null && (responseInfo.euc() || fb(jSONObject));
     }
 
-    private static boolean eT(JSONObject jSONObject) {
+    private static boolean fb(JSONObject jSONObject) {
         try {
             jSONObject.getString("ctx");
             jSONObject.getLong("crc32");
@@ -84,18 +84,18 @@ final class ResumeUploader implements Runnable {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static boolean c(ResponseInfo responseInfo, JSONObject jSONObject) {
-        return responseInfo.statusCode < 500 && responseInfo.statusCode >= 200 && !responseInfo.ekc() && !eT(jSONObject);
+        return responseInfo.statusCode < 500 && responseInfo.statusCode >= 200 && !responseInfo.euc() && !fb(jSONObject);
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        long eki = eki();
+        long eui = eui();
         try {
             this.file = new RandomAccessFile(this.f, "r");
-            a(eki, 0, this.oFO.oFy.d(this.oFV.token, this.oFO.useHttps, null));
+            a(eui, 0, this.pxl.pwV.d(this.pxs.token, this.pxl.useHttps, null));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            this.oFM.a(this.key, ResponseInfo.a(e, this.oFV), null);
+            this.pxj.a(this.key, ResponseInfo.a(e, this.pxs), null);
         }
     }
 
@@ -103,11 +103,11 @@ final class ResumeUploader implements Runnable {
         String format = String.format(Locale.ENGLISH, "/mkblk/%d", Integer.valueOf(i));
         try {
             this.file.seek(j);
-            this.file.read(this.oFP, 0, i2);
-            this.oFU = Crc32.y(this.oFP, 0, i2);
-            a(String.format("%s%s", str, format), this.oFP, 0, i2, progressHandler, completionHandler, upCancellationSignal);
+            this.file.read(this.pxm, 0, i2);
+            this.pxr = Crc32.y(this.pxm, 0, i2);
+            a(String.format("%s%s", str, format), this.pxm, 0, i2, progressHandler, completionHandler, upCancellationSignal);
         } catch (IOException e) {
-            this.oFM.a(this.key, ResponseInfo.a(e, this.oFV), null);
+            this.pxj.a(this.key, ResponseInfo.a(e, this.pxs), null);
         }
     }
 
@@ -115,89 +115,89 @@ final class ResumeUploader implements Runnable {
         String format = String.format(Locale.ENGLISH, "/bput/%s/%d", str2, Integer.valueOf((int) (j % ImageUploadStrategy.FILE_SIZE_4M)));
         try {
             this.file.seek(j);
-            this.file.read(this.oFP, 0, i);
-            this.oFU = Crc32.y(this.oFP, 0, i);
-            a(String.format("%s%s", str, format), this.oFP, 0, i, progressHandler, completionHandler, upCancellationSignal);
+            this.file.read(this.pxm, 0, i);
+            this.pxr = Crc32.y(this.pxm, 0, i);
+            a(String.format("%s%s", str, format), this.pxm, 0, i, progressHandler, completionHandler, upCancellationSignal);
         } catch (IOException e) {
-            this.oFM.a(this.key, ResponseInfo.a(e, this.oFV), null);
+            this.pxj.a(this.key, ResponseInfo.a(e, this.pxs), null);
         }
     }
 
     private void a(String str, CompletionHandler completionHandler, UpCancellationSignal upCancellationSignal) {
         String str2;
-        String format = String.format(Locale.ENGLISH, "/mimeType/%s/fname/%s", UrlSafeBase64.WS(this.oFN.mimeType), UrlSafeBase64.WS(this.f.getName()));
+        String format = String.format(Locale.ENGLISH, "/mimeType/%s/fname/%s", UrlSafeBase64.YF(this.pxk.mimeType), UrlSafeBase64.YF(this.f.getName()));
         if (this.key == null) {
             str2 = "";
         } else {
-            str2 = String.format("/key/%s", UrlSafeBase64.WS(this.key));
+            str2 = String.format("/key/%s", UrlSafeBase64.YF(this.key));
         }
         String str3 = "";
-        if (this.oFN.params.size() != 0) {
-            String[] strArr = new String[this.oFN.params.size()];
+        if (this.pxk.params.size() != 0) {
+            String[] strArr = new String[this.pxk.params.size()];
             int i = 0;
-            for (Map.Entry<String, String> entry : this.oFN.params.entrySet()) {
-                strArr[i] = String.format(Locale.ENGLISH, "%s/%s", entry.getKey(), UrlSafeBase64.WS(entry.getValue()));
+            for (Map.Entry<String, String> entry : this.pxk.params.entrySet()) {
+                strArr[i] = String.format(Locale.ENGLISH, "%s/%s", entry.getKey(), UrlSafeBase64.YF(entry.getValue()));
                 i++;
             }
             str3 = "/" + StringUtils.b(strArr, "/");
         }
-        String format2 = String.format(Locale.ENGLISH, "/mkfile/%d%s%s%s", Long.valueOf(this.oEY), format, str2, str3);
-        byte[] bytes = StringUtils.b(this.oFQ, Constants.ACCEPT_TIME_SEPARATOR_SP).getBytes();
+        String format2 = String.format(Locale.ENGLISH, "/mkfile/%d%s%s%s", Long.valueOf(this.pwv), format, str2, str3);
+        byte[] bytes = StringUtils.b(this.pxn, Constants.ACCEPT_TIME_SEPARATOR_SP).getBytes();
         a(String.format("%s%s", str, format2), bytes, 0, bytes.length, (ProgressHandler) null, completionHandler, upCancellationSignal);
     }
 
     private void a(String str, byte[] bArr, int i, int i2, ProgressHandler progressHandler, CompletionHandler completionHandler, UpCancellationSignal upCancellationSignal) {
-        this.oEz.a(str, bArr, i, i2, this.oFR, this.oFV, this.oEY, progressHandler, completionHandler, upCancellationSignal);
+        this.pvV.a(str, bArr, i, i2, this.pxo, this.pxs, this.pwv, progressHandler, completionHandler, upCancellationSignal);
     }
 
-    private long hm(long j) {
-        long j2 = this.oEY - j;
-        return j2 < ((long) this.oFO.chunkSize) ? j2 : this.oFO.chunkSize;
+    private long hC(long j) {
+        long j2 = this.pwv - j;
+        return j2 < ((long) this.pxl.chunkSize) ? j2 : this.pxl.chunkSize;
     }
 
-    private long hn(long j) {
-        long j2 = this.oEY - j;
+    private long hD(long j) {
+        long j2 = this.pwv - j;
         return j2 < ImageUploadStrategy.FILE_SIZE_4M ? j2 : ImageUploadStrategy.FILE_SIZE_4M;
     }
 
     private boolean isCancelled() {
-        return this.oFN.oGm.isCancelled();
+        return this.pxk.pxJ.isCancelled();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final long j, final int i, final String str) {
         if (isCancelled()) {
-            this.oFM.a(this.key, ResponseInfo.b(this.oFV), null);
-        } else if (j == this.oEY) {
+            this.pxj.a(this.key, ResponseInfo.b(this.pxs), null);
+        } else if (j == this.pwv) {
             a(str, new CompletionHandler() { // from class: com.qiniu.android.storage.ResumeUploader.2
                 @Override // com.qiniu.android.http.CompletionHandler
                 public void a(ResponseInfo responseInfo, JSONObject jSONObject) {
                     String d;
-                    if (responseInfo.ejX() && !AndroidNetwork.ekn()) {
-                        ResumeUploader.this.oFN.oGn.ekh();
-                        if (!AndroidNetwork.ekn()) {
-                            ResumeUploader.this.oFM.a(ResumeUploader.this.key, responseInfo, jSONObject);
+                    if (responseInfo.etX() && !AndroidNetwork.eun()) {
+                        ResumeUploader.this.pxk.pxK.euh();
+                        if (!AndroidNetwork.eun()) {
+                            ResumeUploader.this.pxj.a(ResumeUploader.this.key, responseInfo, jSONObject);
                             return;
                         }
                     }
-                    if (responseInfo.ejW()) {
-                        ResumeUploader.this.ekj();
-                        ResumeUploader.this.oFN.oGl.d(ResumeUploader.this.key, 1.0d);
-                        ResumeUploader.this.oFM.a(ResumeUploader.this.key, responseInfo, jSONObject);
-                    } else if (!responseInfo.eka() || i >= ResumeUploader.this.oFO.oFv + 1 || (d = ResumeUploader.this.oFO.oFy.d(ResumeUploader.this.oFV.token, ResumeUploader.this.oFO.useHttps, str)) == null) {
-                        ResumeUploader.this.oFM.a(ResumeUploader.this.key, responseInfo, jSONObject);
+                    if (responseInfo.etW()) {
+                        ResumeUploader.this.euj();
+                        ResumeUploader.this.pxk.pxI.d(ResumeUploader.this.key, 1.0d);
+                        ResumeUploader.this.pxj.a(ResumeUploader.this.key, responseInfo, jSONObject);
+                    } else if (!responseInfo.eua() || i >= ResumeUploader.this.pxl.pwS + 1 || (d = ResumeUploader.this.pxl.pwV.d(ResumeUploader.this.pxs.token, ResumeUploader.this.pxl.useHttps, str)) == null) {
+                        ResumeUploader.this.pxj.a(ResumeUploader.this.key, responseInfo, jSONObject);
                     } else {
                         ResumeUploader.this.a(j, i + 1, d);
                     }
                 }
-            }, this.oFN.oGm);
+            }, this.pxk.pxJ);
         } else {
-            final int hm = (int) hm(j);
+            final int hC = (int) hC(j);
             ProgressHandler progressHandler = new ProgressHandler() { // from class: com.qiniu.android.storage.ResumeUploader.3
                 @Override // com.qiniu.android.http.ProgressHandler
                 public void onProgress(long j2, long j3) {
                     double d = (j + j2) / j3;
-                    ResumeUploader.this.oFN.oGl.d(ResumeUploader.this.key, d <= 0.95d ? d : 0.95d);
+                    ResumeUploader.this.pxk.pxI.d(ResumeUploader.this.key, d <= 0.95d ? d : 0.95d);
                 }
             };
             CompletionHandler completionHandler = new CompletionHandler() { // from class: com.qiniu.android.storage.ResumeUploader.4
@@ -205,28 +205,28 @@ final class ResumeUploader implements Runnable {
                 public void a(ResponseInfo responseInfo, JSONObject jSONObject) {
                     String str2;
                     long j2;
-                    if (responseInfo.ejX() && !AndroidNetwork.ekn()) {
-                        ResumeUploader.this.oFN.oGn.ekh();
-                        if (!AndroidNetwork.ekn()) {
-                            ResumeUploader.this.oFM.a(ResumeUploader.this.key, responseInfo, jSONObject);
+                    if (responseInfo.etX() && !AndroidNetwork.eun()) {
+                        ResumeUploader.this.pxk.pxK.euh();
+                        if (!AndroidNetwork.eun()) {
+                            ResumeUploader.this.pxj.a(ResumeUploader.this.key, responseInfo, jSONObject);
                             return;
                         }
                     }
                     if (responseInfo.isCancelled()) {
-                        ResumeUploader.this.oFM.a(ResumeUploader.this.key, responseInfo, jSONObject);
+                        ResumeUploader.this.pxj.a(ResumeUploader.this.key, responseInfo, jSONObject);
                     } else if (!ResumeUploader.b(responseInfo, jSONObject)) {
-                        String d = ResumeUploader.this.oFO.oFy.d(ResumeUploader.this.oFV.token, ResumeUploader.this.oFO.useHttps, str);
-                        if (responseInfo.statusCode == 701 && i < ResumeUploader.this.oFO.oFv) {
+                        String d = ResumeUploader.this.pxl.pwV.d(ResumeUploader.this.pxs.token, ResumeUploader.this.pxl.useHttps, str);
+                        if (responseInfo.statusCode == 701 && i < ResumeUploader.this.pxl.pwS) {
                             ResumeUploader.this.a((j / ImageUploadStrategy.FILE_SIZE_4M) * ImageUploadStrategy.FILE_SIZE_4M, i + 1, str);
-                        } else if (d == null || ((!ResumeUploader.c(responseInfo, jSONObject) && !responseInfo.eka()) || i >= ResumeUploader.this.oFO.oFv)) {
-                            ResumeUploader.this.oFM.a(ResumeUploader.this.key, responseInfo, jSONObject);
+                        } else if (d == null || ((!ResumeUploader.c(responseInfo, jSONObject) && !responseInfo.eua()) || i >= ResumeUploader.this.pxl.pwS)) {
+                            ResumeUploader.this.pxj.a(ResumeUploader.this.key, responseInfo, jSONObject);
                         } else {
                             ResumeUploader.this.a(j, i + 1, d);
                         }
                     } else {
                         String str3 = null;
-                        if (jSONObject == null && i < ResumeUploader.this.oFO.oFv) {
-                            ResumeUploader.this.a(j, i + 1, ResumeUploader.this.oFO.oFy.d(ResumeUploader.this.oFV.token, ResumeUploader.this.oFO.useHttps, str));
+                        if (jSONObject == null && i < ResumeUploader.this.pxl.pwS) {
+                            ResumeUploader.this.a(j, i + 1, ResumeUploader.this.pxl.pwV.d(ResumeUploader.this.pxs.token, ResumeUploader.this.pxl.useHttps, str));
                             return;
                         }
                         try {
@@ -238,27 +238,27 @@ final class ResumeUploader implements Runnable {
                             str2 = str3;
                             j2 = 0;
                         }
-                        if ((str2 == null || j2 != ResumeUploader.this.oFU) && i < ResumeUploader.this.oFO.oFv) {
-                            ResumeUploader.this.a(j, i + 1, ResumeUploader.this.oFO.oFy.d(ResumeUploader.this.oFV.token, ResumeUploader.this.oFO.useHttps, str));
+                        if ((str2 == null || j2 != ResumeUploader.this.pxr) && i < ResumeUploader.this.pxl.pwS) {
+                            ResumeUploader.this.a(j, i + 1, ResumeUploader.this.pxl.pwV.d(ResumeUploader.this.pxs.token, ResumeUploader.this.pxl.useHttps, str));
                             return;
                         }
-                        ResumeUploader.this.oFQ[(int) (j / ImageUploadStrategy.FILE_SIZE_4M)] = str2;
-                        ResumeUploader.this.ho(j + hm);
-                        ResumeUploader.this.a(j + hm, i, str);
+                        ResumeUploader.this.pxn[(int) (j / ImageUploadStrategy.FILE_SIZE_4M)] = str2;
+                        ResumeUploader.this.hE(j + hC);
+                        ResumeUploader.this.a(j + hC, i, str);
                     }
                 }
             };
             if (j % ImageUploadStrategy.FILE_SIZE_4M == 0) {
-                a(str, j, (int) hn(j), hm, progressHandler, completionHandler, this.oFN.oGm);
+                a(str, j, (int) hD(j), hC, progressHandler, completionHandler, this.pxk.pxJ);
             } else {
-                a(str, j, hm, this.oFQ[(int) (j / ImageUploadStrategy.FILE_SIZE_4M)], progressHandler, completionHandler, this.oFN.oGm);
+                a(str, j, hC, this.pxn[(int) (j / ImageUploadStrategy.FILE_SIZE_4M)], progressHandler, completionHandler, this.pxk.pxJ);
             }
         }
     }
 
-    private long eki() {
+    private long eui() {
         byte[] bArr;
-        if (this.oFO.oFr == null || (bArr = this.oFO.oFr.get(this.oFT)) == null) {
+        if (this.pxl.pwO == null || (bArr = this.pxl.pwO.get(this.pxq)) == null) {
             return 0L;
         }
         try {
@@ -267,11 +267,11 @@ final class ResumeUploader implements Runnable {
             long optLong2 = jSONObject.optLong("modify_time", 0L);
             long optLong3 = jSONObject.optLong("size", 0L);
             JSONArray optJSONArray = jSONObject.optJSONArray("contexts");
-            if (optLong == 0 || optLong2 != this.oFS || optLong3 != this.oEY || optJSONArray == null || optJSONArray.length() == 0) {
+            if (optLong == 0 || optLong2 != this.pxp || optLong3 != this.pwv || optJSONArray == null || optJSONArray.length() == 0) {
                 return 0L;
             }
             for (int i = 0; i < optJSONArray.length(); i++) {
-                this.oFQ[i] = optJSONArray.optString(i);
+                this.pxn[i] = optJSONArray.optString(i);
             }
             return optLong;
         } catch (JSONException e) {
@@ -281,16 +281,16 @@ final class ResumeUploader implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ekj() {
-        if (this.oFO.oFr != null) {
-            this.oFO.oFr.WN(this.oFT);
+    public void euj() {
+        if (this.pxl.pwO != null) {
+            this.pxl.pwO.YA(this.pxq);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ho(long j) {
-        if (this.oFO.oFr != null && j != 0) {
-            this.oFO.oFr.q(this.oFT, String.format(Locale.ENGLISH, "{\"size\":%d,\"offset\":%d, \"modify_time\":%d, \"contexts\":[%s]}", Long.valueOf(this.oEY), Long.valueOf(j), Long.valueOf(this.oFS), StringUtils.Y(this.oFQ)).getBytes());
+    public void hE(long j) {
+        if (this.pxl.pwO != null && j != 0) {
+            this.pxl.pwO.q(this.pxq, String.format(Locale.ENGLISH, "{\"size\":%d,\"offset\":%d, \"modify_time\":%d, \"contexts\":[%s]}", Long.valueOf(this.pwv), Long.valueOf(j), Long.valueOf(this.pxp), StringUtils.Z(this.pxn)).getBytes());
         }
     }
 }

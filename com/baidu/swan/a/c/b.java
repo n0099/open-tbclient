@@ -12,7 +12,7 @@ import org.apache.http.client.methods.HttpTrace;
 public class b {
     @NonNull
     public static HttpRequestBuilder d(@NonNull com.baidu.swan.a.b.a aVar) {
-        HttpCommonRequestBuilder aWv;
+        HttpCommonRequestBuilder aYo;
         String str = aVar.method;
         char c = 65535;
         switch (str.hashCode()) {
@@ -67,34 +67,34 @@ public class b {
         }
         switch (c) {
             case 0:
-                return a.aWr().getRequest();
+                return a.aYk().getRequest();
             case 1:
-                return a.aWr().headerRequest();
+                return a.aYk().headerRequest();
             case 2:
-                aWv = a.aWr().aWt();
+                aYo = a.aYk().aYm();
                 break;
             case 3:
-                aWv = a.aWr().postRequest();
+                aYo = a.aYk().postRequest();
                 break;
             case 4:
-                aWv = a.aWr().putRequest();
+                aYo = a.aYk().putRequest();
                 break;
             case 5:
-                aWv = a.aWr().deleteRequest();
+                aYo = a.aYk().deleteRequest();
                 break;
             case 6:
-                aWv = a.aWr().aWu();
+                aYo = a.aYk().aYn();
                 break;
             case 7:
-                aWv = a.aWr().aWv();
+                aYo = a.aYk().aYo();
                 break;
             default:
-                return a.aWr().getRequest();
+                return a.aYk().getRequest();
         }
         if (aVar.requestBody != null) {
-            aWv.requestBody(aVar.requestBody);
-            return aWv;
+            aYo.requestBody(aVar.requestBody);
+            return aYo;
         }
-        return aWv;
+        return aYo;
     }
 }

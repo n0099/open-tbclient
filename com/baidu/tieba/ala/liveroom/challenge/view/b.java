@@ -12,60 +12,60 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b implements com.baidu.live.liveroom.d.d {
-    private long blh;
-    private long fKh;
-    private long gHv;
-    private c gNp;
-    private com.baidu.tieba.ala.liveroom.challenge.b.a gNq;
-    private List<com.baidu.tieba.ala.liveroom.challenge.a.a> gNr = new ArrayList();
-    private final c.a gNs = new c.a() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.b.1
+    private long bmB;
+    private long fSB;
+    private long gTk;
+    private c gZd;
+    private com.baidu.tieba.ala.liveroom.challenge.b.a gZe;
+    private List<com.baidu.tieba.ala.liveroom.challenge.a.a> gZf = new ArrayList();
+    private final c.a gZg = new c.a() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.b.1
         @Override // com.baidu.tieba.ala.liveroom.challenge.view.c.a
         public void onScrollToBottom() {
-            if (b.this.gNq != null) {
-                b.this.gNq.bJG();
+            if (b.this.gZe != null) {
+                b.this.gZe.bMi();
             }
         }
 
         @Override // com.baidu.tieba.ala.liveroom.challenge.view.c.a
-        public void bVt() {
-            if (b.this.gNq != null) {
-                b.this.gNq.refresh();
+        public void bYs() {
+            if (b.this.gZe != null) {
+                b.this.gZe.refresh();
             }
         }
     };
-    private final a.InterfaceC0639a gNt = new a.InterfaceC0639a() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.b.2
-        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0639a
-        public void f(boolean z, List<com.baidu.tieba.ala.liveroom.challenge.a.a> list) {
-            b.this.gNr = list;
-            if (b.this.gNp != null) {
-                b.this.gNp.completePullRefresh();
-                b.this.gNp.NM();
+    private final a.InterfaceC0655a gZh = new a.InterfaceC0655a() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.b.2
+        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0655a
+        public void e(boolean z, List<com.baidu.tieba.ala.liveroom.challenge.a.a> list) {
+            b.this.gZf = list;
+            if (b.this.gZd != null) {
+                b.this.gZd.completePullRefresh();
+                b.this.gZd.Oj();
                 if (ListUtils.isEmpty(list)) {
-                    b.this.gNp.cj(false);
-                    b.this.gNp.bKg();
+                    b.this.gZd.cl(false);
+                    b.this.gZd.bMI();
                     return;
                 }
                 if (z) {
-                    b.this.gNp.bJV();
+                    b.this.gZd.bMx();
                 } else {
-                    b.this.gNp.bJU();
+                    b.this.gZd.bMw();
                 }
-                b.this.gNp.setData(list);
+                b.this.gZd.setData(list);
             }
         }
 
-        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0639a
+        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0655a
         public void h(int i, String str, boolean z) {
-            if (b.this.gNp != null) {
-                b.this.gNp.completePullRefresh();
-                b.this.gNp.NM();
-                b.this.gNp.bKg();
-                if (!ListUtils.isEmpty(b.this.gNr)) {
+            if (b.this.gZd != null) {
+                b.this.gZd.completePullRefresh();
+                b.this.gZd.Oj();
+                b.this.gZd.bMI();
+                if (!ListUtils.isEmpty(b.this.gZf)) {
                     BdUtilHelper.showToast(b.this.mTbPageContext.getPageActivity(), str);
                 } else if (BdNetTypeUtil.isNetWorkAvailable()) {
-                    b.this.gNp.cj(false);
+                    b.this.gZd.cl(false);
                 } else {
-                    b.this.gNp.cj(true);
+                    b.this.gZd.cl(true);
                 }
             }
         }
@@ -78,24 +78,24 @@ public class b implements com.baidu.live.liveroom.d.d {
         this.mTbPageContext = tbPageContext;
         this.mType = i;
         this.mIsHost = z;
-        this.gNp = new c(this.mTbPageContext, this.mType, this.mIsHost);
-        this.gNp.a(this.gNs);
-        this.gNq = new com.baidu.tieba.ala.liveroom.challenge.b.a(this.mTbPageContext, this.mType, this.mIsHost);
-        this.gNq.a(this.gNt);
+        this.gZd = new c(this.mTbPageContext, this.mType, this.mIsHost);
+        this.gZd.a(this.gZg);
+        this.gZe = new com.baidu.tieba.ala.liveroom.challenge.b.a(this.mTbPageContext, this.mType, this.mIsHost);
+        this.gZe.a(this.gZh);
     }
 
     public void e(long j, long j2, long j3) {
-        this.gHv = j;
-        this.blh = j2;
-        this.fKh = j3;
-        this.gNp.c(this.gHv, this.blh, this.fKh);
-        this.gNq.c(this.gHv, this.blh, this.fKh);
-        this.gNq.refresh();
+        this.gTk = j;
+        this.bmB = j2;
+        this.fSB = j3;
+        this.gZd.c(this.gTk, this.bmB, this.fSB);
+        this.gZe.c(this.gTk, this.bmB, this.fSB);
+        this.gZe.refresh();
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        return this.gNp.getView();
+        return this.gZd.getView();
     }
 
     @Override // com.baidu.live.liveroom.d.d
@@ -104,12 +104,12 @@ public class b implements com.baidu.live.liveroom.d.d {
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String Kx() {
+    public String KR() {
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short Ky() {
+    public short KS() {
         return (short) 0;
     }
 
@@ -123,11 +123,11 @@ public class b implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.gNq != null) {
-            this.gNq.onDestroy();
+        if (this.gZe != null) {
+            this.gZe.onDestroy();
         }
-        if (this.gNp != null) {
-            this.gNp.onDestroy();
+        if (this.gZd != null) {
+            this.gZd.onDestroy();
         }
     }
 

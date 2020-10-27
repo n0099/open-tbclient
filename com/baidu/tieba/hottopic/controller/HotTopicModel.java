@@ -16,7 +16,7 @@ import com.baidu.tieba.hottopic.message.ResponseSocketHotTopicMessage;
 public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
     public static final int SORT_TYPE_HOT = 1;
     public static final int SORT_TYPE_NEW = 0;
-    private a jwd;
+    private a jIC;
     private BaseActivity<?> mActivity;
     private com.baidu.adp.framework.listener.a netMessageListener;
 
@@ -27,7 +27,7 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
 
     public HotTopicModel(BaseActivity<?> baseActivity) {
         super(baseActivity.getPageContext());
-        this.jwd = null;
+        this.jIC = null;
         this.netMessageListener = new com.baidu.adp.framework.listener.a(1003041, CmdConfigSocket.CMD_HOT_TOPIC) { // from class: com.baidu.tieba.hottopic.controller.HotTopicModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
@@ -40,7 +40,7 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
                         if (!StringUtils.isNull(responsedMessage.getErrorString())) {
                             HotTopicModel.this.mActivity.showToast(responsedMessage.getErrorString());
                         }
-                        HotTopicModel.this.jwd.a(false, null);
+                        HotTopicModel.this.jIC.a(false, null);
                     }
                 }
             }
@@ -59,7 +59,7 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
         int equipmentWidth = l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp());
         int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp());
         requestHotTopicMessage.setTopicId(Long.valueOf(j));
-        requestHotTopicMessage.setCall_from(Lg(str4));
+        requestHotTopicMessage.setCall_from(LE(str4));
         requestHotTopicMessage.setTopicName(str);
         requestHotTopicMessage.setScrH(Integer.valueOf(equipmentHeight));
         requestHotTopicMessage.setTopic_tid(j3);
@@ -68,7 +68,7 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
         requestHotTopicMessage.setFid(Long.valueOf(j2));
         requestHotTopicMessage.setFirst_dir(str2);
         requestHotTopicMessage.setSecond_dir(str3);
-        requestHotTopicMessage.setQType(Integer.valueOf(k.bfo().getViewImageQuality()));
+        requestHotTopicMessage.setQType(Integer.valueOf(k.bhh().getViewImageQuality()));
         requestHotTopicMessage.setSort_type(Integer.valueOf(i));
         if (requestHotTopicMessage.getHttpMessage() != null) {
             requestHotTopicMessage.getHttpMessage().setExtra(Integer.valueOf(i));
@@ -94,12 +94,12 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
             if (responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof Integer)) {
                 eVar.sortType = ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue();
             }
-            this.jwd.a(!responsedMessage.hasError(), eVar);
+            this.jIC.a(!responsedMessage.hasError(), eVar);
         }
     }
 
     public void a(a aVar) {
-        this.jwd = aVar;
+        this.jIC = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -113,7 +113,7 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
         return false;
     }
 
-    private int Lg(String str) {
+    private int LE(String str) {
         if ("1".equals(str)) {
             return 1;
         }

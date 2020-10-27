@@ -23,7 +23,7 @@ public class a implements a.InterfaceC0109a {
     private volatile int h;
 
     /* renamed from: a  reason: collision with root package name */
-    private long f1398a = 0;
+    private long f1395a = 0;
     private int b = 0;
     private Context c = null;
     private String d = SDKVersion.VERSION;
@@ -221,10 +221,10 @@ public class a implements a.InterfaceC0109a {
     @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0109a
     public void a(String str, long j, long j2) {
         Long valueOf = Long.valueOf(System.currentTimeMillis());
-        if (valueOf.longValue() - this.f1398a > 500) {
+        if (valueOf.longValue() - this.f1395a > 500) {
             float f = (((float) j) / ((float) j2)) * 99.0f;
             a((int) f);
-            this.f1398a = valueOf.longValue();
+            this.f1395a = valueOf.longValue();
             CyberLog.d("CyberCoreLoader", "onDownloading:" + ((int) f) + "%");
         }
     }

@@ -33,7 +33,7 @@ import org.json.JSONObject;
 public final class ev extends Dialog implements DialogInterface.OnDismissListener, TextWatcher, View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f3867a;
+    public View f3865a;
     public EditText b;
     public Button c;
     public String d;
@@ -83,11 +83,11 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
         inflate.findViewById(R.id.btn_dialog_close).setOnClickListener(this);
         inflate.findViewById(R.id.header_transparent).setOnClickListener(this);
         window.setContentView(inflate);
-        this.f3867a = com.baidu.ufosdk.f.i.b(this.g, com.baidu.ufosdk.f.s.a(SoUtils.SO_EVENT_ID_NEW_SO));
+        this.f3865a = com.baidu.ufosdk.f.i.b(this.g, com.baidu.ufosdk.f.s.a(SoUtils.SO_EVENT_ID_NEW_SO));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(13);
-        this.f3867a.setVisibility(8);
-        ((RelativeLayout) inflate.findViewById(R.id.rl_root)).addView(this.f3867a, layoutParams);
+        this.f3865a.setVisibility(8);
+        ((RelativeLayout) inflate.findViewById(R.id.rl_root)).addView(this.f3865a, layoutParams);
         window.setLayout(-1, -2);
         this.c = (Button) inflate.findViewById(R.id.btn_sumbit_evaluate);
         this.c.setOnClickListener(this);
@@ -220,8 +220,8 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
     }
 
     private void b() {
-        this.f3867a.setVisibility(0);
-        this.f3867a.bringToFront();
+        this.f3865a.setVisibility(0);
+        this.f3865a.bringToFront();
         this.c.setBackgroundResource(R.drawable.dialog_btn_bg_normal);
         this.c.setTextColor(872415231);
         this.c.setClickable(false);

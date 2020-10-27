@@ -16,12 +16,12 @@ public class b extends com.baidu.swan.apps.component.b.b {
     public int borderColor;
     public int borderWidth;
     @Nullable
-    public JSONObject cpa;
-    public int cpb;
-    public JSONArray cpc;
+    public JSONObject cxC;
+    public int cxD;
+    public JSONArray cxE;
     @Nullable
-    public JSONObject cpd;
-    public String cpe;
+    public JSONObject cxF;
+    public String cxG;
     public long duration;
 
     public b(String str, @NonNull String str2) {
@@ -29,30 +29,30 @@ public class b extends com.baidu.swan.apps.component.b.b {
         this.backgroundColor = 0;
         this.borderColor = 0;
         this.alpha = -1.0f;
-        this.cpe = "";
+        this.cxG = "";
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.component.b.b
     public Object clone() throws CloneNotSupportedException {
         b bVar = (b) super.clone();
-        if (this.cpa != null) {
+        if (this.cxC != null) {
             try {
-                bVar.cpa = new JSONObject(this.cpa.toString());
+                bVar.cxC = new JSONObject(this.cxC.toString());
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
-        if (this.cpc != null) {
+        if (this.cxE != null) {
             try {
-                bVar.cpc = new JSONArray(this.cpc.toString());
+                bVar.cxE = new JSONArray(this.cxE.toString());
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
         }
-        if (this.cpd != null) {
+        if (this.cxF != null) {
             try {
-                bVar.cpd = new JSONObject(this.cpd.toString());
+                bVar.cxF = new JSONObject(this.cxF.toString());
             } catch (JSONException e3) {
                 e3.printStackTrace();
             }
@@ -64,50 +64,50 @@ public class b extends com.baidu.swan.apps.component.b.b {
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             super.parseFromJson(jSONObject);
-            this.cpa = jSONObject.optJSONObject("style");
-            this.cpd = jSONObject.optJSONObject("transition");
-            ago();
-            ags();
+            this.cxC = jSONObject.optJSONObject("style");
+            this.cxF = jSONObject.optJSONObject("transition");
+            aii();
+            aim();
         }
     }
 
     @Override // com.baidu.swan.apps.component.b.b
-    public void aR(JSONObject jSONObject) {
-        super.aR(jSONObject);
-        ago();
-        ags();
+    public void aU(JSONObject jSONObject) {
+        super.aU(jSONObject);
+        aii();
+        aim();
     }
 
-    private void ago() {
-        if (this.cpa != null) {
+    private void aii() {
+        if (this.cxC != null) {
             try {
-                this.backgroundColor = Color.parseColor(this.cpa.optString("bgColor"));
+                this.backgroundColor = Color.parseColor(this.cxC.optString("bgColor"));
             } catch (Exception e) {
                 c.d("Component-Model-View", "backgroundColor occurs exception");
                 this.backgroundColor = 0;
             }
-            this.borderWidth = this.cpa.optInt("borderWidth");
+            this.borderWidth = this.cxC.optInt("borderWidth");
             try {
-                this.borderColor = Color.parseColor(this.cpa.optString("borderColor"));
+                this.borderColor = Color.parseColor(this.cxC.optString("borderColor"));
             } catch (Exception e2) {
                 c.d("Component-Model-View", "borderColor occurs exception");
                 this.borderColor = 0;
             }
-            this.cpb = ah.J(this.cpa.optInt("borderRadius"));
-            this.alpha = v.getFloat(this.cpa, "opacity", -1.0f);
-            this.cpc = this.cpa.optJSONArray("padding");
+            this.cxD = ah.L(this.cxC.optInt("borderRadius"));
+            this.alpha = v.getFloat(this.cxC, "opacity", -1.0f);
+            this.cxE = this.cxC.optJSONArray("padding");
         }
     }
 
-    private void ags() {
-        if (this.cpd != null) {
+    private void aim() {
+        if (this.cxF != null) {
             try {
-                this.duration = Long.parseLong(this.cpd.optString("duration"));
+                this.duration = Long.parseLong(this.cxF.optString("duration"));
             } catch (Exception e) {
                 c.d("Component-Model-View", "duration occurs exception");
                 this.duration = 0L;
             }
-            this.cpe = this.cpd.optString("easing");
+            this.cxG = this.cxF.optString("easing");
         }
     }
 }

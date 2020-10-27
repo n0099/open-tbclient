@@ -5,58 +5,58 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.android.imsdk.internal.IMConnection;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.a mFH;
-    private final int mFI = 10;
-    private final int mFJ = 3000;
+    private com.baidu.adp.lib.stats.a mSn;
+    private final int mSo = 10;
+    private final int mSq = 3000;
     public String mLogType = null;
     public boolean mIsJson = false;
 
     public b(String str) {
-        bb(str, false);
+        bd(str, false);
     }
 
-    public void bb(String str, boolean z) {
+    public void bd(String str, boolean z) {
         this.mLogType = str;
         this.mIsJson = z;
-        this.mFH = new com.baidu.adp.lib.stats.a("dbg");
+        this.mSn = new com.baidu.adp.lib.stats.a("dbg");
         c.C(str, getNetType(), z);
     }
 
     public void start() {
-        this.mFH.startTimer();
+        this.mSn.startTimer();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e dEH;
-        if (this.mFH != null && (dEH = dEH()) != null) {
+        e dHP;
+        if (this.mSn != null && (dHP = dHP()) != null) {
             if (z) {
-                if (dEH.mFO != null) {
-                    dEH.mFO.num++;
+                if (dHP.mSv != null) {
+                    dHP.mSv.num++;
                     if (z2) {
-                        dEH.mFO.mFL += j2;
-                        dEH.mFO.size += j;
+                        dHP.mSv.mSs += j2;
+                        dHP.mSv.size += j;
                     } else {
-                        dEH.mFO.mFM++;
+                        dHP.mSv.mSt++;
                     }
                 } else {
                     return;
                 }
-            } else if (dEH.mFP != null) {
-                dEH.mFP.num++;
+            } else if (dHP.mSw != null) {
+                dHP.mSw.num++;
                 if (z2) {
-                    dEH.mFP.mFL += j3;
-                    dEH.mFP.size += j;
+                    dHP.mSw.mSs += j3;
+                    dHP.mSw.size += j;
                     j2 = j3;
                 } else {
-                    dEH.mFP.mFM++;
+                    dHP.mSw.mSt++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.mFH = null;
+            this.mSn = null;
             if (z2) {
-                c.a(dEH, 10);
+                c.a(dHP, 10);
             }
             if (this.mLogType == "frsStat") {
                 if (!z2 || j2 > IMConnection.RETRY_DELAY_TIMES) {
@@ -75,19 +75,19 @@ public class b {
     }
 
     public void destory() {
-        e dEH;
-        if (this.mFH != null && (dEH = dEH()) != null && dEH.mFQ != null) {
-            long timeCost = this.mFH.getTimeCost();
+        e dHP;
+        if (this.mSn != null && (dHP = dHP()) != null && dHP.mSx != null) {
+            long timeCost = this.mSn.getTimeCost();
             if (timeCost > IMConnection.RETRY_DELAY_TIMES) {
-                d dVar = dEH.mFQ;
-                dVar.mFL = timeCost + dVar.mFL;
-                dEH.mFQ.num++;
-                c.a(dEH, 10);
+                d dVar = dHP.mSx;
+                dVar.mSs = timeCost + dVar.mSs;
+                dHP.mSx.num++;
+                c.a(dHP, 10);
             }
         }
     }
 
-    private e dEH() {
+    private e dHP() {
         return c.D(this.mLogType, getNetType(), this.mIsJson);
     }
 

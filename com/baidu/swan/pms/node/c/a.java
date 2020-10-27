@@ -10,28 +10,28 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes15.dex */
 class a {
-    final int dUV;
-    final int dUW;
-    final String dUX;
-    final Set<String> dUY;
-    final String dUZ;
-    final String doL;
+    final String dxl;
+    final int edr;
+    final int eds;
+    final String edt;
+    final Set<String> edu;
+    final String edv;
     final String mContentType;
     final String mVersion;
 
     public a(String str, int i, int i2, String str2, String str3, String str4, Set<String> set, String str5) {
         this.mContentType = str;
-        this.dUW = i2;
-        this.dUV = i;
-        this.doL = str2;
-        this.dUX = str3;
+        this.eds = i2;
+        this.edr = i;
+        this.dxl = str2;
+        this.edt = str3;
         this.mVersion = str4;
-        this.dUY = set;
-        this.dUZ = str5;
+        this.edu = set;
+        this.edv = str5;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a cL(JSONObject jSONObject) {
+    public static a cO(JSONObject jSONObject) {
         JSONObject optJSONObject;
         if (com.baidu.swan.pms.d.DEBUG) {
             Log.d(Node.TAG, "host info " + jSONObject.toString());

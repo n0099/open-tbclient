@@ -1,5 +1,12 @@
 package com.baidu.live.t;
+
+import android.view.View;
+import android.widget.TextView;
 /* loaded from: classes4.dex */
 public interface b {
-    boolean Oo();
+    View getRankItemRootView();
+
+    TextView getRankLevelView();
+
+    TextView getRankNameView();
 }

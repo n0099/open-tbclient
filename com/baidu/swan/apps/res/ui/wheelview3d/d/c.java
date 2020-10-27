@@ -5,13 +5,13 @@ import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
 import java.util.TimerTask;
 /* loaded from: classes10.dex */
 public final class c extends TimerTask {
-    private final WheelView3d dcP;
+    private final WheelView3d dlq;
     private int offset;
     private int realTotalOffset = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
     private int realOffset = 0;
 
     public c(WheelView3d wheelView3d, int i) {
-        this.dcP = wheelView3d;
+        this.dlq = wheelView3d;
         this.offset = i;
     }
 
@@ -29,23 +29,23 @@ public final class c extends TimerTask {
             }
         }
         if (Math.abs(this.realTotalOffset) <= 1) {
-            this.dcP.cancelFuture();
-            this.dcP.getHandler().sendEmptyMessage(3000);
+            this.dlq.cancelFuture();
+            this.dlq.getHandler().sendEmptyMessage(3000);
             return;
         }
-        this.dcP.setTotalScrollY(this.dcP.getTotalScrollY() + this.realOffset);
-        if (!this.dcP.isLoop()) {
-            float itemHeight = this.dcP.getItemHeight();
-            float f = (-this.dcP.getInitPosition()) * itemHeight;
-            float itemsCount = itemHeight * ((this.dcP.getItemsCount() - 1) - this.dcP.getInitPosition());
-            if (this.dcP.getTotalScrollY() <= f || this.dcP.getTotalScrollY() >= itemsCount) {
-                this.dcP.setTotalScrollY(this.dcP.getTotalScrollY() - this.realOffset);
-                this.dcP.cancelFuture();
-                this.dcP.getHandler().sendEmptyMessage(3000);
+        this.dlq.setTotalScrollY(this.dlq.getTotalScrollY() + this.realOffset);
+        if (!this.dlq.isLoop()) {
+            float itemHeight = this.dlq.getItemHeight();
+            float f = (-this.dlq.getInitPosition()) * itemHeight;
+            float itemsCount = itemHeight * ((this.dlq.getItemsCount() - 1) - this.dlq.getInitPosition());
+            if (this.dlq.getTotalScrollY() <= f || this.dlq.getTotalScrollY() >= itemsCount) {
+                this.dlq.setTotalScrollY(this.dlq.getTotalScrollY() - this.realOffset);
+                this.dlq.cancelFuture();
+                this.dlq.getHandler().sendEmptyMessage(3000);
                 return;
             }
         }
-        this.dcP.getHandler().sendEmptyMessage(1000);
+        this.dlq.getHandler().sendEmptyMessage(1000);
         this.realTotalOffset -= this.realOffset;
     }
 }

@@ -25,7 +25,7 @@ public class CfgItemParser {
         public boolean d = false;
 
         /* renamed from: a  reason: collision with root package name */
-        public String[] f1374a = null;
+        public String[] f1371a = null;
         public boolean b = true;
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -40,17 +40,17 @@ public class CfgItemParser {
                 this.c = true;
                 this.d = false;
             } else if (!str.contains(str2)) {
-                this.f1374a = a(str, str3);
+                this.f1371a = a(str, str3);
             } else {
                 if (str2.endsWith("|")) {
                     str2 = EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR;
                 }
                 String[] split = str.split(str2);
                 if (split.length == 2) {
-                    this.f1374a = a(split[0], str3);
+                    this.f1371a = a(split[0], str3);
                     this.b = c(split[1]);
                 } else if (split.length == 1) {
-                    this.f1374a = a(split[0], str3);
+                    this.f1371a = a(split[0], str3);
                 }
             }
         }
@@ -85,16 +85,16 @@ public class CfgItemParser {
             if (this.c) {
                 return true;
             }
-            if (!TextUtils.isEmpty(str) && this.f1374a != null) {
-                int length = this.f1374a.length;
+            if (!TextUtils.isEmpty(str) && this.f1371a != null) {
+                int length = this.f1371a.length;
                 for (int i = 0; i < length; i++) {
-                    if (str.equals(this.f1374a[i])) {
+                    if (str.equals(this.f1371a[i])) {
                         return true;
                     }
-                    if (this.e == 0 && a(str, this.f1374a[i], "\\.", "*")) {
+                    if (this.e == 0 && a(str, this.f1371a[i], "\\.", "*")) {
                         return true;
                     }
-                    if (this.e == 1 && str.contains("." + this.f1374a[i])) {
+                    if (this.e == 1 && str.contains("." + this.f1371a[i])) {
                         return true;
                     }
                 }

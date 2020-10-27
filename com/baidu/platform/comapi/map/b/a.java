@@ -5,25 +5,25 @@ import android.view.MotionEvent;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final C0255a f2897a = new C0255a(new b(0.0d, 0.0d), new b(1.0d, 0.0d));
-    public static final C0255a b = new C0255a(new b(0.0d, 0.0d), new b(0.0d, 1.0d));
-    public static final C0255a c = new C0255a(new b(0.0d, 1.0d), new b(0.0d, 0.0d));
+    public static final C0269a f2897a = new C0269a(new b(0.0d, 0.0d), new b(1.0d, 0.0d));
+    public static final C0269a b = new C0269a(new b(0.0d, 0.0d), new b(0.0d, 1.0d));
+    public static final C0269a c = new C0269a(new b(0.0d, 1.0d), new b(0.0d, 0.0d));
 
     /* renamed from: com.baidu.platform.comapi.map.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0255a {
+    public static class C0269a {
 
         /* renamed from: a  reason: collision with root package name */
         public b f2899a;
         public b b;
 
-        public C0255a(b bVar, b bVar2) {
+        public C0269a(b bVar, b bVar2) {
             this.f2899a = bVar;
             this.b = bVar2;
         }
 
-        public static C0255a a(MotionEvent motionEvent) {
-            return new C0255a(new b(motionEvent.getX(0), motionEvent.getY(0)), new b(motionEvent.getX(1), motionEvent.getY(1)));
+        public static C0269a a(MotionEvent motionEvent) {
+            return new C0269a(new b(motionEvent.getX(0), motionEvent.getY(0)), new b(motionEvent.getX(1), motionEvent.getY(1)));
         }
 
         public b a() {
@@ -68,10 +68,10 @@ public class a {
         public final double b;
         public final d c;
 
-        public c(C0255a c0255a, C0255a c0255a2) {
-            this.c = new d(c0255a.a(), c0255a2.a());
-            this.b = c0255a2.b() / c0255a.b();
-            this.f2902a = d.a(c0255a.c(), c0255a2.c());
+        public c(C0269a c0269a, C0269a c0269a2) {
+            this.c = new d(c0269a.a(), c0269a2.a());
+            this.b = c0269a2.b() / c0269a.b();
+            this.f2902a = d.a(c0269a.c(), c0269a2.c());
         }
 
         public String toString() {

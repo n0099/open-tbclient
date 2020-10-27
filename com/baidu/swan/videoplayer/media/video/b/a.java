@@ -22,24 +22,24 @@ import org.json.JSONObject;
 /* loaded from: classes12.dex */
 public class a implements j {
     private static final boolean DEBUG = b.DEBUG;
-    private c cQp;
-    private boolean cVd;
-    private j.f eaA;
-    private j.c eaB;
-    private FrameLayout eal;
-    private SwanVideoView eas;
-    private VideoContainerManager eat;
-    private int eau;
-    private boolean eav;
-    private j.d eaw;
-    private j.b eax;
-    private j.a eay;
-    private j.e eaz;
+    private c cYL;
+    private boolean ddD;
+    private FrameLayout eiI;
+    private SwanVideoView eiP;
+    private VideoContainerManager eiQ;
+    private int eiR;
+    private boolean eiS;
+    private j.d eiT;
+    private j.b eiU;
+    private j.a eiV;
+    private j.e eiW;
+    private j.f eiX;
+    private j.c eiY;
     private Context mContext;
     private boolean mIsLandscape;
     private boolean mIsPaused;
     private boolean mIsForeground = true;
-    private int eaC = 0;
+    private int eiZ = 0;
 
     @Override // com.baidu.swan.apps.t.b.j
     public void onForeground() {
@@ -54,39 +54,39 @@ public class a implements j {
     /* renamed from: b */
     public a a(Context context, @NonNull c cVar) {
         this.mContext = context;
-        this.cQp = cVar;
-        baH();
+        this.cYL = cVar;
+        bcA();
         return this;
     }
 
     @Override // com.baidu.swan.apps.t.b.j
     public void a(j.d dVar) {
-        this.eaw = dVar;
+        this.eiT = dVar;
     }
 
     @Override // com.baidu.swan.apps.t.b.j
     public void a(j.b bVar) {
-        this.eax = bVar;
+        this.eiU = bVar;
     }
 
     @Override // com.baidu.swan.apps.t.b.j
     public void a(j.a aVar) {
-        this.eay = aVar;
+        this.eiV = aVar;
     }
 
     @Override // com.baidu.swan.apps.t.b.j
     public void a(j.e eVar) {
-        this.eaz = eVar;
+        this.eiW = eVar;
     }
 
     @Override // com.baidu.swan.apps.t.b.j
     public void a(j.f fVar) {
-        this.eaA = fVar;
+        this.eiX = fVar;
     }
 
     @Override // com.baidu.swan.apps.t.b.j
     public void a(j.c cVar) {
-        this.eaB = cVar;
+        this.eiY = cVar;
     }
 
     private void g(c cVar) {
@@ -94,13 +94,13 @@ public class a implements j {
             com.baidu.swan.apps.console.c.e("SwanAppVideoPlayer", "setDataSource params is null!");
             return;
         }
-        baG().setVideoPath(this.cQp.mSrc);
+        bcz().setVideoPath(this.cYL.mSrc);
         com.baidu.swan.apps.console.c.d("video", "setDataSource url " + cVar.mSrc);
     }
 
     @Override // com.baidu.swan.apps.t.b.j
     public void c(FrameLayout frameLayout) {
-        this.eal = frameLayout;
+        this.eiI = frameLayout;
     }
 
     private boolean isLandscape() {
@@ -116,67 +116,67 @@ public class a implements j {
         if (h(cVar)) {
             i(cVar);
         }
-        this.cQp = cVar;
+        this.cYL = cVar;
         if (z) {
-            hJ(cVar.isVisible());
+            hW(cVar.isVisible());
         }
         j(cVar);
     }
 
     private boolean h(c cVar) {
-        if (this.cQp == null) {
+        if (this.cYL == null) {
             return false;
         }
-        return (this.cQp.cQt == cVar.cQt && this.cQp.cQB == cVar.cQB && TextUtils.equals(this.cQp.cQw, cVar.cQw) && this.cQp.cQJ == cVar.cQJ && this.cQp.cQG == cVar.cQG && this.cQp.cQH == cVar.cQH && this.cQp.cQI == cVar.cQI && this.cQp.mDirection == cVar.mDirection && this.cQp.mLoop == cVar.mLoop) ? false : true;
+        return (this.cYL.cYP == cVar.cYP && this.cYL.cYX == cVar.cYX && TextUtils.equals(this.cYL.cYS, cVar.cYS) && this.cYL.cZf == cVar.cZf && this.cYL.cZc == cVar.cZc && this.cYL.cZd == cVar.cZd && this.cYL.cZe == cVar.cZe && this.cYL.mDirection == cVar.mDirection && this.cYL.mLoop == cVar.mLoop) ? false : true;
     }
 
     private void i(c cVar) {
-        baG().setMuted(cVar.cQt);
-        baG().setMediaControllerEnabled(cVar.cQB);
-        baG().setLooping(cVar.mLoop);
-        if (TextUtils.equals(cVar.cQw, "cover")) {
-            baG().setVideoScalingMode(2);
-        } else if (TextUtils.equals(cVar.cQw, "fill")) {
-            baG().setVideoScalingMode(3);
+        bcz().setMuted(cVar.cYP);
+        bcz().setMediaControllerEnabled(cVar.cYX);
+        bcz().setLooping(cVar.mLoop);
+        if (TextUtils.equals(cVar.cYS, "cover")) {
+            bcz().setVideoScalingMode(2);
+        } else if (TextUtils.equals(cVar.cYS, "fill")) {
+            bcz().setVideoScalingMode(3);
         } else {
-            baG().setVideoScalingMode(1);
+            bcz().setVideoScalingMode(1);
         }
     }
 
-    private void hJ(boolean z) {
+    private void hW(boolean z) {
         if (DEBUG) {
             Log.e("SwanAppVideoPlayer", "updatePlayStateAfterVisibleChanged isVisible=" + z);
         }
-        if (this.eas != null && !z && isPlaying()) {
-            this.eas.pause();
+        if (this.eiP != null && !z && isPlaying()) {
+            this.eiP.pause();
         }
     }
 
     @Override // com.baidu.swan.apps.t.b.j
     public void a(c cVar) {
-        com.baidu.swan.apps.console.c.d("video", "Open Player " + cVar.cMu);
+        com.baidu.swan.apps.console.c.d("video", "Open Player " + cVar.cUQ);
         k(cVar);
-        this.cQp = cVar;
+        this.cYL = cVar;
         j(cVar);
         if (cVar.isAutoPlay() && cVar.isVisible()) {
             start();
             return;
         }
-        baC();
-        baD();
-        baH().dt(cVar.cQu, cVar.cQw);
+        bcv();
+        bcw();
+        bcA().dA(cVar.cYQ, cVar.cYS);
     }
 
     public void j(c cVar) {
-        baH().e(cVar);
-        baF();
+        bcA().e(cVar);
+        bcy();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean baA() {
+    public boolean bct() {
         final Activity activity;
-        e aDa = e.aDa();
-        if (aDa == null || (activity = aDa.getActivity()) == null || activity.isFinishing()) {
+        e aEU = e.aEU();
+        if (aEU == null || (activity = aEU.getActivity()) == null || activity.isFinishing()) {
             return false;
         }
         activity.runOnUiThread(new Runnable() { // from class: com.baidu.swan.videoplayer.media.video.b.a.1
@@ -185,15 +185,15 @@ public class a implements j {
                 activity.setRequestedOrientation(0);
                 activity.getWindow().addFlags(1024);
                 a.this.ab(activity);
-                SwanAppComponentContainerView baw = a.this.baH().baw();
-                baw.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-                d.aY(baw);
-                d.attachDecor(activity, baw);
-                com.baidu.swan.videoplayer.media.video.a.a.a(a.this.cQp.cMu, a.this.cQp.cpq, true, a.this.baH());
+                SwanAppComponentContainerView bcp = a.this.bcA().bcp();
+                bcp.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+                d.aZ(bcp);
+                d.attachDecor(activity, bcp);
+                com.baidu.swan.videoplayer.media.video.a.a.a(a.this.cYL.cUQ, a.this.cYL.cxS, true, a.this.bcA());
             }
         });
         this.mIsLandscape = true;
-        this.eas.setIsLandscape(this.mIsLandscape);
+        this.eiP.setIsLandscape(this.mIsLandscape);
         return true;
     }
 
@@ -203,10 +203,10 @@ public class a implements j {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean baB() {
+    public boolean bcu() {
         Activity activity;
-        e aDa = e.aDa();
-        if (aDa == null || (activity = aDa.getActivity()) == null || activity.isFinishing()) {
+        e aEU = e.aEU();
+        if (aEU == null || (activity = aEU.getActivity()) == null || activity.isFinishing()) {
             return false;
         }
         activity.setRequestedOrientation(1);
@@ -214,32 +214,32 @@ public class a implements j {
         activity.runOnUiThread(new Runnable() { // from class: com.baidu.swan.videoplayer.media.video.b.a.2
             @Override // java.lang.Runnable
             public void run() {
-                d.aY(a.this.baH().baw());
-                a.this.baH().agt();
-                com.baidu.swan.videoplayer.media.video.a.a.a(a.this.cQp.cMu, a.this.cQp.cpq, false, a.this.baH());
+                d.aZ(a.this.bcA().bcp());
+                a.this.bcA().ain();
+                com.baidu.swan.videoplayer.media.video.a.a.a(a.this.cYL.cUQ, a.this.cYL.cxS, false, a.this.bcA());
             }
         });
         this.mIsLandscape = false;
-        this.eas.setIsLandscape(this.mIsLandscape);
+        this.eiP.setIsLandscape(this.mIsLandscape);
         return true;
     }
 
     private void k(c cVar) {
-        if (this.cQp != null && cVar != null && !TextUtils.isEmpty(this.cQp.mSrc) && !TextUtils.isEmpty(cVar.mSrc) && !TextUtils.equals(this.cQp.mSrc, cVar.mSrc)) {
-            this.eav = true;
+        if (this.cYL != null && cVar != null && !TextUtils.isEmpty(this.cYL.mSrc) && !TextUtils.isEmpty(cVar.mSrc) && !TextUtils.equals(this.cYL.mSrc, cVar.mSrc)) {
+            this.eiS = true;
         } else {
-            this.eav = false;
+            this.eiS = false;
         }
     }
 
-    private void baC() {
-        if (this.eas != null) {
-            this.eas.stopPlayback();
+    private void bcv() {
+        if (this.eiP != null) {
+            this.eiP.stopPlayback();
         }
     }
 
-    private void baD() {
-        baH().e(new View.OnClickListener() { // from class: com.baidu.swan.videoplayer.media.video.b.a.3
+    private void bcw() {
+        bcA().e(new View.OnClickListener() { // from class: com.baidu.swan.videoplayer.media.video.b.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 a.this.start();
@@ -248,28 +248,28 @@ public class a implements j {
     }
 
     public void start() {
-        if (axf()) {
-            baH().bau();
+        if (ayZ()) {
+            bcA().bcn();
             reset();
-            baG().baj();
-            i(this.cQp);
-            a(this.cQp, false);
-            g(this.cQp);
-            baG().start();
-            this.eav = false;
+            bcz().bcc();
+            i(this.cYL);
+            a(this.cYL, false);
+            g(this.cYL);
+            bcz().start();
+            this.eiS = false;
         }
     }
 
     @Override // com.baidu.swan.apps.t.b.j
     public void pause() {
-        baG().pause();
+        bcz().pause();
         this.mIsPaused = true;
     }
 
     @Override // com.baidu.swan.apps.t.b.j
     public void resume() {
-        if (this.mIsPaused && !this.eav) {
-            baG().start();
+        if (this.mIsPaused && !this.eiS) {
+            bcz().start();
         } else {
             start();
         }
@@ -277,45 +277,45 @@ public class a implements j {
 
     @Override // com.baidu.swan.apps.t.b.j
     public void seekTo(int i) {
-        if (axf()) {
-            if (!this.eav) {
-                baG().seekTo(i);
+        if (ayZ()) {
+            if (!this.eiS) {
+                bcz().seekTo(i);
             } else {
-                this.eau = i;
+                this.eiR = i;
             }
         }
     }
 
     @Override // com.baidu.swan.apps.t.b.j
     public int getDuration() {
-        return baG().getDuration();
+        return bcz().getDuration();
     }
 
     @Override // com.baidu.swan.apps.t.b.j
     public int getCurrentPosition() {
-        return baG().getCurrentPosition();
+        return bcz().getCurrentPosition();
     }
 
     @Override // com.baidu.swan.apps.t.b.j
     public boolean isEnd() {
-        return this.cVd;
+        return this.ddD;
     }
 
     @Override // com.baidu.swan.apps.t.b.j
     public void j(boolean z, int i) {
         if (z) {
-            baA();
+            bct();
         } else {
-            baB();
+            bcu();
         }
     }
 
     private void initListener() {
-        baG().setVideoPlayerCallback(new C0542a());
+        bcz().setVideoPlayerCallback(new C0556a());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void baE() {
+    public void bcx() {
         if (!this.mIsForeground) {
             pause();
         }
@@ -323,101 +323,101 @@ public class a implements j {
 
     @Override // com.baidu.swan.apps.t.b.j
     public boolean isPlaying() {
-        if (this.eas == null) {
+        if (this.eiP == null) {
             return false;
         }
-        return this.eas.isPlaying();
+        return this.eiP.isPlaying();
     }
 
     @Override // com.baidu.swan.apps.t.b.j
     public boolean onBackPressed() {
-        return isLandscape() && baB();
+        return isLandscape() && bcu();
     }
 
     @Override // com.baidu.swan.apps.t.b.j
-    public void atM() {
+    public void avG() {
     }
 
     @Override // com.baidu.swan.apps.t.b.j
-    public void oq(String str) {
+    public void oJ(String str) {
     }
 
     @Override // com.baidu.swan.apps.t.b.j
     public void b(c cVar) {
     }
 
-    private void baF() {
-        if (this.eas != null) {
-            d.aY(this.eas);
-            if (this.eal != null) {
-                this.eal.addView(this.eas);
+    private void bcy() {
+        if (this.eiP != null) {
+            d.aZ(this.eiP);
+            if (this.eiI != null) {
+                this.eiI.addView(this.eiP);
             } else {
-                baH().getVideoHolder().addView(this.eas);
+                bcA().getVideoHolder().addView(this.eiP);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public SwanVideoView baG() {
-        if (this.eas == null) {
+    public SwanVideoView bcz() {
+        if (this.eiP == null) {
             com.baidu.swan.apps.console.c.i("video", "create player");
-            this.eas = new SwanVideoView(this.mContext);
+            this.eiP = new SwanVideoView(this.mContext);
             initListener();
         }
-        return this.eas;
+        return this.eiP;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public VideoContainerManager baH() {
-        if (this.cQp == null) {
-            com.baidu.swan.apps.component.e.a.bf("SwanAppVideoPlayer", "getContainerManager with a null mParams");
+    public VideoContainerManager bcA() {
+        if (this.cYL == null) {
+            com.baidu.swan.apps.component.e.a.bm("SwanAppVideoPlayer", "getContainerManager with a null mParams");
         }
-        if (this.eat == null) {
-            this.eat = new VideoContainerManager(this.mContext, this.cQp);
+        if (this.eiQ == null) {
+            this.eiQ = new VideoContainerManager(this.mContext, this.cYL);
         }
-        return this.eat;
+        return this.eiQ;
     }
 
     @Override // com.baidu.swan.apps.t.b.j
     public void mute(boolean z) {
-        baG().setMuted(z);
+        bcz().setMuted(z);
     }
 
     @Override // com.baidu.swan.apps.t.b.j
-    public void eW(boolean z) {
+    public void fj(boolean z) {
     }
 
     @Override // com.baidu.swan.apps.t.b.j
     public void stop() {
         com.baidu.swan.apps.console.c.d("video", "stop");
         reset();
-        baG().release();
+        bcz().release();
     }
 
     public void reset() {
-        if (this.eas != null) {
-            this.eas.stopPlayback();
-            d.aY(this.eas);
-            this.eas = null;
+        if (this.eiP != null) {
+            this.eiP.stopPlayback();
+            d.aZ(this.eiP);
+            this.eiP = null;
         }
     }
 
-    private boolean axf() {
-        return (this.cQp == null || TextUtils.isEmpty(this.cQp.mSrc) || TextUtils.isEmpty(this.cQp.cMu) || TextUtils.isEmpty(this.cQp.cpp)) ? false : true;
+    private boolean ayZ() {
+        return (this.cYL == null || TextUtils.isEmpty(this.cYL.mSrc) || TextUtils.isEmpty(this.cYL.cUQ) || TextUtils.isEmpty(this.cYL.cxR)) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void baI() {
-        if (axf()) {
-            if (this.eau != 0) {
-                baG().seekTo(this.eau);
-                this.eau = 0;
-            } else if (this.cQp.cQv != 0) {
-                this.eas.seekTo(this.cQp.cQv * 1000);
-                this.cQp.cQv = 0;
-            } else if (this.eaC != 0) {
-                this.eas.seekTo(this.eaC);
-                this.eaC = 0;
+    public void bcB() {
+        if (ayZ()) {
+            if (this.eiR != 0) {
+                bcz().seekTo(this.eiR);
+                this.eiR = 0;
+            } else if (this.cYL.cYR != 0) {
+                this.eiP.seekTo(this.cYL.cYR * 1000);
+                this.cYL.cYR = 0;
+            } else if (this.eiZ != 0) {
+                this.eiP.seekTo(this.eiZ);
+                this.eiZ = 0;
             }
         }
     }
@@ -425,18 +425,18 @@ public class a implements j {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.videoplayer.media.video.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes12.dex */
-    public class C0542a extends com.baidu.swan.videoplayer.a.b {
-        private C0542a() {
+    public class C0556a extends com.baidu.swan.videoplayer.a.b {
+        private C0556a() {
         }
 
         @Override // com.baidu.swan.videoplayer.a.b, com.baidu.swan.videoplayer.a.a
         public void onEnd() {
             a.this.mIsPaused = false;
-            com.baidu.swan.videoplayer.media.video.a.a.a(a.this.cQp.cMu, a.this.cQp.cpq, "ended", new JSONObject());
-            if (a.this.eay != null) {
-                a.this.eay.b(a.this);
+            com.baidu.swan.videoplayer.media.video.a.a.a(a.this.cYL.cUQ, a.this.cYL.cxS, "ended", new JSONObject());
+            if (a.this.eiV != null) {
+                a.this.eiV.b(a.this);
             }
-            a.this.cVd = true;
+            a.this.ddD = true;
             com.baidu.swan.apps.console.c.d("video", "onEnded call back");
         }
 
@@ -444,71 +444,71 @@ public class a implements j {
         public void onError(int i, int i2, String str) {
             a.this.mIsPaused = false;
             com.baidu.swan.apps.console.c.e("video", "errorCode :" + i);
-            a.this.baH().bau();
-            a.this.baH().bav();
-            com.baidu.swan.videoplayer.media.video.a.a.a(a.this.cQp.cMu, a.this.cQp.cpq, BdStatsConstant.StatsType.ERROR, com.baidu.swan.videoplayer.media.a.a.a.mX(i2));
-            if (a.this.eax != null) {
-                a.this.eax.a(a.this, i, i2);
+            a.this.bcA().bcn();
+            a.this.bcA().bco();
+            com.baidu.swan.videoplayer.media.video.a.a.a(a.this.cYL.cUQ, a.this.cYL.cxS, BdStatsConstant.StatsType.ERROR, com.baidu.swan.videoplayer.media.a.a.a.ni(i2));
+            if (a.this.eiU != null) {
+                a.this.eiU.a(a.this, i, i2);
             }
-            a.this.cVd = false;
-            int currentPosition = a.this.baG().getCurrentPosition();
+            a.this.ddD = false;
+            int currentPosition = a.this.bcz().getCurrentPosition();
             a aVar = a.this;
             if (currentPosition <= 0) {
-                currentPosition = a.this.eaC;
+                currentPosition = a.this.eiZ;
             }
-            aVar.eaC = currentPosition;
+            aVar.eiZ = currentPosition;
             com.baidu.swan.apps.console.c.e("video", "onError what " + i + " ,extra " + i2);
         }
 
         @Override // com.baidu.swan.videoplayer.a.b, com.baidu.swan.videoplayer.a.a
         public void onPrepared() {
             com.baidu.swan.apps.console.c.d("video", "onPrepared call back");
-            a.this.baI();
-            a.this.baE();
-            if (a.this.eaw != null) {
-                a.this.eaw.a(a.this);
+            a.this.bcB();
+            a.this.bcx();
+            if (a.this.eiT != null) {
+                a.this.eiT.a(a.this);
             }
         }
 
         @Override // com.baidu.swan.videoplayer.a.b, com.baidu.swan.videoplayer.a.a
         public void onResume() {
             super.onResume();
-            com.baidu.swan.videoplayer.media.video.a.a.a(a.this.cQp.cMu, a.this.cQp.cpq, AlaStaticKeys.ALA_STATIC_VALUE_PLAY, new JSONObject());
-            a.this.cVd = false;
+            com.baidu.swan.videoplayer.media.video.a.a.a(a.this.cYL.cUQ, a.this.cYL.cxS, AlaStaticKeys.ALA_STATIC_VALUE_PLAY, new JSONObject());
+            a.this.ddD = false;
             a.this.mIsPaused = false;
-            a.this.baH().bav();
-            if (a.this.eaz != null) {
-                a.this.eaz.c(a.this);
+            a.this.bcA().bco();
+            if (a.this.eiW != null) {
+                a.this.eiW.c(a.this);
             }
         }
 
         @Override // com.baidu.swan.videoplayer.a.b, com.baidu.swan.videoplayer.a.a
         public void onStart() {
-            com.baidu.swan.videoplayer.media.video.a.a.a(a.this.cQp.cMu, a.this.cQp.cpq, AlaStaticKeys.ALA_STATIC_VALUE_PLAY, new JSONObject());
-            a.this.cVd = false;
+            com.baidu.swan.videoplayer.media.video.a.a.a(a.this.cYL.cUQ, a.this.cYL.cxS, AlaStaticKeys.ALA_STATIC_VALUE_PLAY, new JSONObject());
+            a.this.ddD = false;
             a.this.mIsPaused = false;
-            a.this.baH().bav();
-            if (a.this.eaA != null) {
-                a.this.eaA.d(a.this);
+            a.this.bcA().bco();
+            if (a.this.eiX != null) {
+                a.this.eiX.d(a.this);
             }
         }
 
         @Override // com.baidu.swan.videoplayer.a.b, com.baidu.swan.videoplayer.a.a
-        public void hG(boolean z) {
+        public void hT(boolean z) {
             if (z) {
-                a.this.baA();
+                a.this.bct();
             } else {
-                a.this.baB();
+                a.this.bcu();
             }
         }
 
         @Override // com.baidu.swan.videoplayer.a.b, com.baidu.swan.videoplayer.a.a
         public void onPause() {
-            com.baidu.swan.videoplayer.media.video.a.a.a(a.this.cQp.cMu, a.this.cQp.cpq, "pause", new JSONObject());
+            com.baidu.swan.videoplayer.media.video.a.a.a(a.this.cYL.cUQ, a.this.cYL.cxS, "pause", new JSONObject());
             com.baidu.swan.apps.console.c.d("video", "onPaused call back");
             a.this.mIsPaused = true;
-            if (a.this.eaB != null) {
-                a.this.eaB.e(a.this);
+            if (a.this.eiY != null) {
+                a.this.eiY.e(a.this);
             }
         }
 
@@ -519,14 +519,14 @@ public class a implements j {
             int bufferPercentage = (swanVideoView.getBufferPercentage() * duration) / 100;
             if (currentPosition < bufferPercentage || currentPosition == 0 || (currentPosition > 0 && bufferPercentage == 0)) {
                 com.baidu.swan.apps.console.c.d("SwanAppVideoPlayer", String.format("onInfo update progress : %s, buffer : %s, duration :%s", Integer.valueOf(currentPosition), Integer.valueOf(bufferPercentage), Integer.valueOf(duration)));
-                aH(currentPosition, duration);
+                aI(currentPosition, duration);
                 return;
             }
             com.baidu.swan.apps.console.c.d("SwanAppVideoPlayer", String.format("onInfo wait progress : %s, buffer : %s, duration : %s", Integer.valueOf(currentPosition), Integer.valueOf(bufferPercentage), Integer.valueOf(duration)));
-            com.baidu.swan.videoplayer.media.video.a.a.a(a.this.cQp.cMu, a.this.cQp.cpq, "waiting", new JSONObject());
+            com.baidu.swan.videoplayer.media.video.a.a.a(a.this.cYL.cUQ, a.this.cYL.cxS, "waiting", new JSONObject());
         }
 
-        private void aH(int i, int i2) {
+        private void aI(int i, int i2) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.putOpt("duration", Integer.valueOf(i2));
@@ -536,7 +536,7 @@ public class a implements j {
                     e.printStackTrace();
                 }
             }
-            com.baidu.swan.videoplayer.media.video.a.a.a(a.this.cQp.cMu, a.this.cQp.cpq, "timeupdate", jSONObject);
+            com.baidu.swan.videoplayer.media.video.a.a.a(a.this.cYL.cUQ, a.this.cYL.cxS, "timeupdate", jSONObject);
         }
     }
 }

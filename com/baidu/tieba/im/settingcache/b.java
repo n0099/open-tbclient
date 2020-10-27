@@ -11,26 +11,26 @@ import com.baidu.tbadk.util.m;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
 public class b extends a {
-    private static b jWB = new b();
+    private static b kjb = new b();
 
     private b() {
     }
 
-    public static b cPw() {
-        return jWB;
+    public static b cSD() {
+        return kjb;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.settingcache.a
-    /* renamed from: fp */
-    public GroupSettingItemData fn(String str, String str2) {
+    /* renamed from: fu */
+    public GroupSettingItemData fs(String str, String str2) {
         GroupSettingItemData groupSettingItemData;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
         String str3 = str + UgcConstant.AT_RULE_TAG + str2;
-        synchronized (this.jWz) {
-            ChatSetting chatSetting = this.jWz.get(str3);
+        synchronized (this.kiZ) {
+            ChatSetting chatSetting = this.kiZ.get(str3);
             groupSettingItemData = chatSetting instanceof GroupSettingItemData ? (GroupSettingItemData) chatSetting : null;
         }
         if (groupSettingItemData == null) {
@@ -44,24 +44,24 @@ public class b extends a {
         return groupSettingItemData;
     }
 
-    public void cLl() {
+    public void cOs() {
         super.y(GroupSettingItemData.class);
     }
 
     public void b(String str, String str2, boolean z, m<Void> mVar) {
-        GroupSettingItemData fn = fn(str, str2);
-        if (fn != null) {
-            fn.setAlreadyApply(z);
-            fn.setLastApplyTimeStamp(System.currentTimeMillis());
-            a(fn, mVar);
+        GroupSettingItemData fs = fs(str, str2);
+        if (fs != null) {
+            fs.setAlreadyApply(z);
+            fs.setLastApplyTimeStamp(System.currentTimeMillis());
+            a(fs, mVar);
         }
     }
 
     public void c(String str, String str2, boolean z, m<Void> mVar) {
-        GroupSettingItemData fn = fn(str, str2);
-        if (fn != null) {
-            fn.setInGroup(z);
-            a(fn, mVar);
+        GroupSettingItemData fs = fs(str, str2);
+        if (fs != null) {
+            fs.setInGroup(z);
+            a(fs, mVar);
         }
     }
 
@@ -71,9 +71,9 @@ public class b extends a {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.baidu.tbadk.util.ad
             public Boolean doInBackground() {
-                GroupSettingItemData fn = b.this.fn(str, str2);
-                if (fn != null && fn.isAlreadyApply()) {
-                    if (System.currentTimeMillis() - fn.getLastApplyTimeStamp() <= j) {
+                GroupSettingItemData fs = b.this.fs(str, str2);
+                if (fs != null && fs.isAlreadyApply()) {
+                    if (System.currentTimeMillis() - fs.getLastApplyTimeStamp() <= j) {
                         return false;
                     }
                 }
@@ -83,8 +83,8 @@ public class b extends a {
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected l<String> cPv() {
-        return com.baidu.tbadk.core.c.a.bkE().AF("tb.im_group_setting");
+    protected l<String> cSC() {
+        return com.baidu.tbadk.core.c.a.bmx().AY("tb.im_group_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -99,13 +99,13 @@ public class b extends a {
                 }
                 return;
             }
-            l<String> cPv = cPv();
+            l<String> cSC = cSC();
             String str = uid + UgcConstant.AT_RULE_TAG + gid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(groupSettingItemData);
-            synchronized (this.jWz) {
-                this.jWz.put(str, groupSettingItemData);
+            synchronized (this.kiZ) {
+                this.kiZ.put(str, groupSettingItemData);
             }
-            cPv.setForever(str, jsonStrWithObject);
+            cSC.setForever(str, jsonStrWithObject);
         }
     }
 
@@ -122,15 +122,15 @@ public class b extends a {
                 return;
             }
             final String str = uid + UgcConstant.AT_RULE_TAG + gid;
-            synchronized (this.jWz) {
-                this.jWz.put(str, groupSettingItemData);
+            synchronized (this.kiZ) {
+                this.kiZ.put(str, groupSettingItemData);
             }
             ae.b(new ad<Void>() { // from class: com.baidu.tieba.im.settingcache.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.ad
-                /* renamed from: bFA */
+                /* renamed from: bHt */
                 public Void doInBackground() {
-                    b.this.cPv().setForever(str, OrmObject.jsonStrWithObject(groupSettingItemData));
+                    b.this.cSC().setForever(str, OrmObject.jsonStrWithObject(groupSettingItemData));
                     return null;
                 }
             }, mVar);
@@ -140,15 +140,15 @@ public class b extends a {
     public void b(String str, String str2, m<Void> mVar) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             final String str3 = str + UgcConstant.AT_RULE_TAG + str2;
-            synchronized (this.jWz) {
-                this.jWz.remove(str3);
+            synchronized (this.kiZ) {
+                this.kiZ.remove(str3);
             }
             ae.b(new ad<Void>() { // from class: com.baidu.tieba.im.settingcache.b.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.ad
-                /* renamed from: bFA */
+                /* renamed from: bHt */
                 public Void doInBackground() {
-                    b.this.cPv().remove(str3);
+                    b.this.cSC().remove(str3);
                     return null;
                 }
             }, mVar);

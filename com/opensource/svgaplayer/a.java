@@ -4,9 +4,9 @@ import kotlin.h;
 @h
 /* loaded from: classes15.dex */
 public interface a {
-    void abg();
+    void ada();
 
-    void abh();
+    void adb();
 
     void b(int i, double d);
 

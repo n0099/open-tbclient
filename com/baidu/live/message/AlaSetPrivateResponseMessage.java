@@ -7,16 +7,16 @@ public class AlaSetPrivateResponseMessage extends JsonHttpResponsedMessage {
         super(1021047);
     }
 
-    public boolean Nm() {
-        if (getOrginalMessage() instanceof f) {
-            return ((f) getOrginalMessage()).Nm();
+    public boolean NG() {
+        if (getOrginalMessage() instanceof g) {
+            return ((g) getOrginalMessage()).NG();
         }
         return false;
     }
 
     public boolean isSwitchOpen() {
-        if (getOrginalMessage() instanceof f) {
-            return ((f) getOrginalMessage()).isSwitchOpen();
+        if (getOrginalMessage() instanceof g) {
+            return ((g) getOrginalMessage()).isSwitchOpen();
         }
         return false;
     }

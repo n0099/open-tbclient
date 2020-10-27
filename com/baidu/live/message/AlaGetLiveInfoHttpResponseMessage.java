@@ -1,33 +1,37 @@
 package com.baidu.live.message;
 
-import com.baidu.live.data.u;
+import com.baidu.live.data.w;
 import com.baidu.live.tbadk.core.util.httpnet.HttpRequest;
 import com.baidu.live.tbadk.coreextra.data.AlaLiveSwitchData;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaGetLiveInfoHttpResponseMessage extends JsonHttpResponsedMessage {
-    private u aDU;
+    private w aEc;
 
     public AlaGetLiveInfoHttpResponseMessage() {
         super(1021007);
     }
 
-    public u Gm() {
-        return this.aDU;
+    public w GH() {
+        return this.aEc;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
-        JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
-        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null && getError() == 0) {
-            this.aDU = new u();
-            this.aDU.parserJson(optJSONObject);
-            JSONObject optJSONObject2 = optJSONObject.optJSONObject("live_info");
-            if (optJSONObject2 != null) {
-                AlaLiveSwitchData.isHotLive = optJSONObject2.optInt(HttpRequest.SDK_LIVE_IS_HOT);
-                AlaLiveSwitchData.liveActivityType = optJSONObject2.optString(HttpRequest.SDK_LIVE_LIVE_ACTIVITY_TYPE);
+        if (jSONObject != null) {
+            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+            long j = jSONObject.getLong("time");
+            if (optJSONObject != null && getError() == 0) {
+                this.aEc = new w();
+                this.aEc.serverTime = j;
+                this.aEc.parserJson(optJSONObject);
+                JSONObject optJSONObject2 = optJSONObject.optJSONObject("live_info");
+                if (optJSONObject2 != null) {
+                    AlaLiveSwitchData.isHotLive = optJSONObject2.optInt(HttpRequest.SDK_LIVE_IS_HOT);
+                    AlaLiveSwitchData.liveActivityType = optJSONObject2.optString(HttpRequest.SDK_LIVE_LIVE_ACTIVITY_TYPE);
+                }
             }
         }
     }

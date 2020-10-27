@@ -9,41 +9,41 @@ import java.util.List;
 public class ag {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile ag f4747a = null;
+    private static volatile ag f4745a = null;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f41a;
+    private Context f38a;
 
     /* renamed from: a  reason: collision with other field name */
-    private List<z> f42a = new ArrayList();
+    private List<z> f39a = new ArrayList();
 
     private ag(Context context) {
-        this.f41a = context.getApplicationContext();
-        if (this.f41a == null) {
-            this.f41a = context;
+        this.f38a = context.getApplicationContext();
+        if (this.f38a == null) {
+            this.f38a = context;
         }
     }
 
     public static ag a(Context context) {
-        if (f4747a == null) {
+        if (f4745a == null) {
             synchronized (ag.class) {
-                if (f4747a == null) {
-                    f4747a = new ag(context);
+                if (f4745a == null) {
+                    f4745a = new ag(context);
                 }
             }
         }
-        return f4747a;
+        return f4745a;
     }
 
     public int a(String str) {
         int i;
-        synchronized (this.f42a) {
+        synchronized (this.f39a) {
             z zVar = new z();
-            zVar.f89a = str;
-            if (this.f42a.contains(zVar)) {
-                for (z zVar2 : this.f42a) {
+            zVar.f86a = str;
+            if (this.f39a.contains(zVar)) {
+                for (z zVar2 : this.f39a) {
                     if (zVar2.equals(zVar)) {
-                        i = zVar2.f4784a;
+                        i = zVar2.f4782a;
                         break;
                     }
                 }
@@ -54,45 +54,45 @@ public class ag {
     }
 
     public synchronized String a(av avVar) {
-        return this.f41a.getSharedPreferences("mipush_extra", 0).getString(avVar.name(), "");
+        return this.f38a.getSharedPreferences("mipush_extra", 0).getString(avVar.name(), "");
     }
 
     public synchronized void a(av avVar, String str) {
-        SharedPreferences sharedPreferences = this.f41a.getSharedPreferences("mipush_extra", 0);
+        SharedPreferences sharedPreferences = this.f38a.getSharedPreferences("mipush_extra", 0);
         sharedPreferences.edit().putString(avVar.name(), str).commit();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m74a(String str) {
-        synchronized (this.f42a) {
+    public void m73a(String str) {
+        synchronized (this.f39a) {
             z zVar = new z();
-            zVar.f4784a = 0;
-            zVar.f89a = str;
-            if (this.f42a.contains(zVar)) {
-                this.f42a.remove(zVar);
+            zVar.f4782a = 0;
+            zVar.f86a = str;
+            if (this.f39a.contains(zVar)) {
+                this.f39a.remove(zVar);
             }
-            this.f42a.add(zVar);
+            this.f39a.add(zVar);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m75a(String str) {
+    public boolean m74a(String str) {
         boolean z;
-        synchronized (this.f42a) {
+        synchronized (this.f39a) {
             z zVar = new z();
-            zVar.f89a = str;
-            z = this.f42a.contains(zVar);
+            zVar.f86a = str;
+            z = this.f39a.contains(zVar);
         }
         return z;
     }
 
     public void b(String str) {
         z zVar;
-        synchronized (this.f42a) {
+        synchronized (this.f39a) {
             z zVar2 = new z();
-            zVar2.f89a = str;
-            if (this.f42a.contains(zVar2)) {
-                Iterator<z> it = this.f42a.iterator();
+            zVar2.f86a = str;
+            if (this.f39a.contains(zVar2)) {
+                Iterator<z> it = this.f39a.iterator();
                 while (it.hasNext()) {
                     zVar = it.next();
                     if (zVar2.equals(zVar)) {
@@ -101,18 +101,18 @@ public class ag {
                 }
             }
             zVar = zVar2;
-            zVar.f4784a++;
-            this.f42a.remove(zVar);
-            this.f42a.add(zVar);
+            zVar.f4782a++;
+            this.f39a.remove(zVar);
+            this.f39a.add(zVar);
         }
     }
 
     public void c(String str) {
-        synchronized (this.f42a) {
+        synchronized (this.f39a) {
             z zVar = new z();
-            zVar.f89a = str;
-            if (this.f42a.contains(zVar)) {
-                this.f42a.remove(zVar);
+            zVar.f86a = str;
+            if (this.f39a.contains(zVar)) {
+                this.f39a.remove(zVar);
             }
         }
     }

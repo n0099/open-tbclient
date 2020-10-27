@@ -30,24 +30,24 @@ public class f extends aa {
             }
             com.baidu.swan.apps.r.d.a(optString, new d.b() { // from class: com.baidu.swan.apps.scheme.actions.f.1
                 @Override // com.baidu.swan.apps.r.d.b
-                public void eX(int i) {
+                public void fa(int i) {
                 }
 
                 @Override // com.baidu.swan.apps.r.d.b
                 public void onSuccess() {
-                    File apM = com.baidu.swan.apps.swancore.b.a.apM();
-                    File apK = com.baidu.swan.apps.swancore.b.a.apK();
-                    if (apM.exists() && com.baidu.swan.c.d.unzipFile(apM.getPath(), apK.getPath())) {
-                        com.baidu.swan.apps.ad.a.a.fC(true);
-                        Toast.makeText(com.baidu.swan.apps.t.a.asf(), a.h.aiapps_debug_swan_core_download_success, 1).show();
+                    File arG = com.baidu.swan.apps.swancore.b.a.arG();
+                    File arE = com.baidu.swan.apps.swancore.b.a.arE();
+                    if (arG.exists() && com.baidu.swan.c.d.unzipFile(arG.getPath(), arE.getPath())) {
+                        com.baidu.swan.apps.ad.a.a.fP(true);
+                        Toast.makeText(com.baidu.swan.apps.t.a.aua(), a.h.aiapps_debug_swan_core_download_success, 1).show();
                         return;
                     }
-                    Toast.makeText(com.baidu.swan.apps.t.a.asf(), a.h.aiapps_debug_swan_core_download_failed, 1).show();
+                    Toast.makeText(com.baidu.swan.apps.t.a.aua(), a.h.aiapps_debug_swan_core_download_failed, 1).show();
                 }
 
                 @Override // com.baidu.swan.apps.r.d.b
                 public void onFailed() {
-                    Toast.makeText(com.baidu.swan.apps.t.a.asf(), a.h.aiapps_debug_swan_core_download_failed, 1).show();
+                    Toast.makeText(com.baidu.swan.apps.t.a.aua(), a.h.aiapps_debug_swan_core_download_failed, 1).show();
                 }
             });
             return true;

@@ -13,152 +13,152 @@ import java.util.Map;
 /* loaded from: classes6.dex */
 public class a extends master.flame.danmaku.danmaku.model.b<Canvas, Typeface> {
     private int height;
-    public Canvas oWa;
-    private float oWb;
+    public Canvas pNw;
+    private float pNx;
     private int width;
-    private Camera oVX = new Camera();
+    private Camera pNt = new Camera();
     private Matrix matrix = new Matrix();
-    private final C0996a oVY = new C0996a();
-    private b oVZ = new h();
-    private float auL = 1.0f;
+    private final C1068a pNu = new C1068a();
+    private b pNv = new h();
+    private float auM = 1.0f;
     private int densityDpi = 160;
-    private float oWc = 1.0f;
-    private int oWd = 0;
-    private boolean oWe = true;
-    private int oWf = 2048;
-    private int oWg = 2048;
+    private float pNy = 1.0f;
+    private int pNz = 0;
+    private boolean pNA = true;
+    private int pNB = 2048;
+    private int pNC = 2048;
 
     /* renamed from: master.flame.danmaku.danmaku.model.android.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0996a {
+    public static class C1068a {
         private boolean isTranslucent;
-        private float oWh;
-        public final TextPaint oWk;
-        private Paint oWl;
-        private Paint oWm;
-        private Paint oWn;
-        private final Map<Float, Float> oWi = new HashMap(10);
-        public int oWo = 4;
+        private float pND;
+        public final TextPaint pNG;
+        private Paint pNH;
+        private Paint pNI;
+        private Paint pNJ;
+        private final Map<Float, Float> pNE = new HashMap(10);
+        public int pNK = 4;
         private float SHADOW_RADIUS = 4.0f;
         private float STROKE_WIDTH = 3.5f;
-        public float oWp = 1.0f;
-        public float oWq = 1.0f;
-        private int oWr = 204;
-        public boolean oWs = false;
-        private boolean oWt = this.oWs;
-        public boolean oWu = true;
-        private boolean oWv = this.oWu;
-        public boolean oWw = false;
-        public boolean oWx = this.oWw;
-        public boolean oWy = true;
-        private boolean oWz = this.oWy;
-        private int oWA = master.flame.danmaku.danmaku.model.c.MAX;
-        private float oWB = 1.0f;
-        private boolean oWC = false;
+        public float pNL = 1.0f;
+        public float pNM = 1.0f;
+        private int pNN = 204;
+        public boolean pNO = false;
+        private boolean pNP = this.pNO;
+        public boolean pNQ = true;
+        private boolean pNR = this.pNQ;
+        public boolean pNS = false;
+        public boolean pNT = this.pNS;
+        public boolean pNU = true;
+        private boolean pNV = this.pNU;
+        private int pNW = master.flame.danmaku.danmaku.model.c.MAX;
+        private float pNX = 1.0f;
+        private boolean pNY = false;
         private int margin = 0;
-        private int oWD = 0;
-        public final TextPaint oWj = new TextPaint();
+        private int pNZ = 0;
+        public final TextPaint pNF = new TextPaint();
 
-        public C0996a() {
-            this.oWj.setStrokeWidth(this.STROKE_WIDTH);
-            this.oWk = new TextPaint(this.oWj);
-            this.oWl = new Paint();
-            this.oWm = new Paint();
-            this.oWm.setStrokeWidth(this.oWo);
-            this.oWm.setStyle(Paint.Style.STROKE);
-            this.oWn = new Paint();
-            this.oWn.setStyle(Paint.Style.STROKE);
-            this.oWn.setStrokeWidth(4.0f);
+        public C1068a() {
+            this.pNF.setStrokeWidth(this.STROKE_WIDTH);
+            this.pNG = new TextPaint(this.pNF);
+            this.pNH = new Paint();
+            this.pNI = new Paint();
+            this.pNI.setStrokeWidth(this.pNK);
+            this.pNI.setStyle(Paint.Style.STROKE);
+            this.pNJ = new Paint();
+            this.pNJ.setStyle(Paint.Style.STROKE);
+            this.pNJ.setStrokeWidth(4.0f);
         }
 
-        public void be(float f) {
+        public void bv(float f) {
             this.SHADOW_RADIUS = f;
         }
 
         public void setStrokeWidth(float f) {
-            this.oWj.setStrokeWidth(f);
+            this.pNF.setStrokeWidth(f);
             this.STROKE_WIDTH = f;
         }
 
         public void f(float f, float f2, int i) {
-            if (this.oWp != f || this.oWq != f2 || this.oWr != i) {
+            if (this.pNL != f || this.pNM != f2 || this.pNN != i) {
                 if (f <= 1.0f) {
                     f = 1.0f;
                 }
-                this.oWp = f;
+                this.pNL = f;
                 if (f2 <= 1.0f) {
                     f2 = 1.0f;
                 }
-                this.oWq = f2;
+                this.pNM = f2;
                 if (i < 0) {
                     i = 0;
                 } else if (i > 255) {
                     i = 255;
                 }
-                this.oWr = i;
+                this.pNN = i;
             }
         }
 
         private void a(master.flame.danmaku.danmaku.model.d dVar, Paint paint) {
-            if (this.oWC) {
-                Float f = this.oWi.get(Float.valueOf(dVar.bDA));
-                if (f == null || this.oWh != this.oWB) {
-                    this.oWh = this.oWB;
-                    f = Float.valueOf(dVar.bDA * this.oWB);
-                    this.oWi.put(Float.valueOf(dVar.bDA), f);
+            if (this.pNY) {
+                Float f = this.pNE.get(Float.valueOf(dVar.bGw));
+                if (f == null || this.pND != this.pNX) {
+                    this.pND = this.pNX;
+                    f = Float.valueOf(dVar.bGw * this.pNX);
+                    this.pNE.put(Float.valueOf(dVar.bGw), f);
                 }
                 paint.setTextSize(f.floatValue());
             }
         }
 
         public boolean p(master.flame.danmaku.danmaku.model.d dVar) {
-            return (this.oWv || this.oWx) && this.STROKE_WIDTH > 0.0f && dVar.oUZ != 0;
+            return (this.pNR || this.pNT) && this.STROKE_WIDTH > 0.0f && dVar.pMv != 0;
         }
 
         public Paint q(master.flame.danmaku.danmaku.model.d dVar) {
-            this.oWn.setColor(dVar.borderColor);
-            return this.oWn;
+            this.pNJ.setColor(dVar.borderColor);
+            return this.pNJ;
         }
 
         public Paint r(master.flame.danmaku.danmaku.model.d dVar) {
-            this.oWm.setColor(dVar.underlineColor);
-            return this.oWm;
+            this.pNI.setColor(dVar.underlineColor);
+            return this.pNI;
         }
 
         public TextPaint d(master.flame.danmaku.danmaku.model.d dVar, boolean z) {
             TextPaint textPaint;
             if (z) {
-                textPaint = this.oWj;
+                textPaint = this.pNF;
             } else {
-                textPaint = this.oWk;
-                textPaint.set(this.oWj);
+                textPaint = this.pNG;
+                textPaint.set(this.pNF);
             }
-            textPaint.setTextSize(dVar.bDA);
+            textPaint.setTextSize(dVar.bGw);
             a(dVar, textPaint);
-            if (!this.oWt || this.SHADOW_RADIUS <= 0.0f || dVar.oUZ == 0) {
+            if (!this.pNP || this.SHADOW_RADIUS <= 0.0f || dVar.pMv == 0) {
                 textPaint.clearShadowLayer();
             } else {
-                textPaint.setShadowLayer(this.SHADOW_RADIUS, 1.0f, 1.0f, dVar.oUZ);
+                textPaint.setShadowLayer(this.SHADOW_RADIUS, 1.0f, 1.0f, dVar.pMv);
             }
-            textPaint.setAntiAlias(this.oWz);
+            textPaint.setAntiAlias(this.pNV);
             return textPaint;
         }
 
         public void a(master.flame.danmaku.danmaku.model.d dVar, Paint paint, boolean z) {
             if (this.isTranslucent) {
                 if (z) {
-                    paint.setStyle(this.oWx ? Paint.Style.FILL : Paint.Style.STROKE);
-                    paint.setColor(dVar.oUZ & 16777215);
-                    paint.setAlpha(this.oWx ? (int) (this.oWr * (this.oWA / master.flame.danmaku.danmaku.model.c.MAX)) : this.oWA);
+                    paint.setStyle(this.pNT ? Paint.Style.FILL : Paint.Style.STROKE);
+                    paint.setColor(dVar.pMv & 16777215);
+                    paint.setAlpha(this.pNT ? (int) (this.pNN * (this.pNW / master.flame.danmaku.danmaku.model.c.MAX)) : this.pNW);
                 } else {
                     paint.setStyle(Paint.Style.FILL);
                     paint.setColor(dVar.textColor & 16777215);
-                    paint.setAlpha(this.oWA);
+                    paint.setAlpha(this.pNW);
                 }
             } else if (z) {
-                paint.setStyle(this.oWx ? Paint.Style.FILL : Paint.Style.STROKE);
-                paint.setColor(dVar.oUZ & 16777215);
-                paint.setAlpha(this.oWx ? this.oWr : master.flame.danmaku.danmaku.model.c.MAX);
+                paint.setStyle(this.pNT ? Paint.Style.FILL : Paint.Style.STROKE);
+                paint.setColor(dVar.pMv & 16777215);
+                paint.setAlpha(this.pNT ? this.pNN : master.flame.danmaku.danmaku.model.c.MAX);
             } else {
                 paint.setStyle(Paint.Style.FILL);
                 paint.setColor(dVar.textColor & 16777215);
@@ -170,78 +170,78 @@ public class a extends master.flame.danmaku.danmaku.model.b<Canvas, Typeface> {
         }
 
         public float getStrokeWidth() {
-            if (this.oWt && this.oWv) {
+            if (this.pNP && this.pNR) {
                 return Math.max(this.SHADOW_RADIUS, this.STROKE_WIDTH);
             }
-            if (this.oWt) {
+            if (this.pNP) {
                 return this.SHADOW_RADIUS;
             }
-            if (this.oWv) {
+            if (this.pNR) {
                 return this.STROKE_WIDTH;
             }
             return 0.0f;
         }
 
-        public void zJ(boolean z) {
-            this.oWv = this.oWu;
-            this.oWt = this.oWs;
-            this.oWx = this.oWw;
-            this.oWz = z && this.oWy;
+        public void AR(boolean z) {
+            this.pNR = this.pNQ;
+            this.pNP = this.pNO;
+            this.pNT = this.pNS;
+            this.pNV = z && this.pNU;
         }
     }
 
     @SuppressLint({"NewApi"})
-    private static final int at(Canvas canvas) {
+    private static final int av(Canvas canvas) {
         return Build.VERSION.SDK_INT >= 14 ? canvas.getMaximumBitmapWidth() : canvas.getWidth();
     }
 
     @SuppressLint({"NewApi"})
-    private static final int au(Canvas canvas) {
+    private static final int aw(Canvas canvas) {
         return Build.VERSION.SDK_INT >= 14 ? canvas.getMaximumBitmapHeight() : canvas.getHeight();
     }
 
-    public void be(float f) {
-        this.oVY.be(f);
+    public void bv(float f) {
+        this.pNu.bv(f);
     }
 
-    public void bf(float f) {
-        this.oVY.setStrokeWidth(f);
+    public void bw(float f) {
+        this.pNu.setStrokeWidth(f);
     }
 
     public void f(float f, float f2, int i) {
-        this.oVY.f(f, f2, i);
+        this.pNu.f(f, f2, i);
     }
 
     @Override // master.flame.danmaku.danmaku.model.b
     public void a(b bVar) {
-        if (bVar != this.oVZ) {
-            this.oVZ = bVar;
+        if (bVar != this.pNv) {
+            this.pNv = bVar;
         }
     }
 
     @Override // master.flame.danmaku.danmaku.model.b
-    public b epo() {
-        return this.oVZ;
+    public b ezm() {
+        return this.pNv;
     }
 
     @Override // master.flame.danmaku.danmaku.model.m
     public int getMargin() {
-        return this.oVY.margin;
+        return this.pNu.margin;
     }
 
     @Override // master.flame.danmaku.danmaku.model.m
-    public int epR() {
-        return this.oVY.oWD;
+    public int ezP() {
+        return this.pNu.pNZ;
     }
 
-    private void av(Canvas canvas) {
-        this.oWa = canvas;
+    private void ax(Canvas canvas) {
+        this.pNw = canvas;
         if (canvas != null) {
             this.width = canvas.getWidth();
             this.height = canvas.getHeight();
-            if (this.oWe) {
-                this.oWf = at(canvas);
-                this.oWg = au(canvas);
+            if (this.pNA) {
+                this.pNB = av(canvas);
+                this.pNC = aw(canvas);
             }
         }
     }
@@ -258,7 +258,7 @@ public class a extends master.flame.danmaku.danmaku.model.b<Canvas, Typeface> {
 
     @Override // master.flame.danmaku.danmaku.model.m
     public float getDensity() {
-        return this.auL;
+        return this.auM;
     }
 
     @Override // master.flame.danmaku.danmaku.model.m
@@ -271,39 +271,39 @@ public class a extends master.flame.danmaku.danmaku.model.b<Canvas, Typeface> {
         boolean z;
         int i;
         boolean z2;
-        float epx = dVar.epx();
-        float epw = dVar.epw();
-        if (this.oWa != null) {
+        float ezv = dVar.ezv();
+        float ezu = dVar.ezu();
+        if (this.pNw != null) {
             Paint paint = null;
             if (dVar.getType() != 7) {
                 z = false;
-            } else if (dVar.getAlpha() == master.flame.danmaku.danmaku.model.c.oUU) {
+            } else if (dVar.getAlpha() == master.flame.danmaku.danmaku.model.c.pMq) {
                 return 0;
             } else {
-                if (dVar.oUY == 0.0f && dVar.rotationY == 0.0f) {
+                if (dVar.pMu == 0.0f && dVar.rotationY == 0.0f) {
                     z2 = false;
                 } else {
-                    a(dVar, this.oWa, epw, epx);
+                    a(dVar, this.pNw, ezu, ezv);
                     z2 = true;
                 }
                 if (dVar.getAlpha() != master.flame.danmaku.danmaku.model.c.MAX) {
-                    paint = this.oVY.oWl;
+                    paint = this.pNu.pNH;
                     paint.setAlpha(dVar.getAlpha());
                 }
                 z = z2;
             }
-            if (paint == null || paint.getAlpha() != master.flame.danmaku.danmaku.model.c.oUU) {
-                if (this.oVZ.a(dVar, this.oWa, epw, epx, paint, this.oVY.oWj)) {
+            if (paint == null || paint.getAlpha() != master.flame.danmaku.danmaku.model.c.pMq) {
+                if (this.pNv.a(dVar, this.pNw, ezu, ezv, paint, this.pNu.pNF)) {
                     i = 1;
                 } else {
                     try {
                         if (paint != null) {
-                            this.oVY.oWj.setAlpha(paint.getAlpha());
-                            this.oVY.oWk.setAlpha(paint.getAlpha());
+                            this.pNu.pNF.setAlpha(paint.getAlpha());
+                            this.pNu.pNG.setAlpha(paint.getAlpha());
                         } else {
-                            c(this.oVY.oWj);
+                            c(this.pNu.pNF);
                         }
-                        a(dVar, this.oWa, epw, epx, false);
+                        a(dVar, this.pNw, ezu, ezv, false);
                         i = 2;
                     } catch (Exception e) {
                         i = 1;
@@ -311,7 +311,7 @@ public class a extends master.flame.danmaku.danmaku.model.b<Canvas, Typeface> {
                 }
                 if (z) {
                     try {
-                        aw(this.oWa);
+                        ay(this.pNw);
                     } catch (Exception e2) {
                     }
                 }
@@ -324,8 +324,8 @@ public class a extends master.flame.danmaku.danmaku.model.b<Canvas, Typeface> {
 
     @Override // master.flame.danmaku.danmaku.model.m
     public void o(master.flame.danmaku.danmaku.model.d dVar) {
-        if (this.oVZ != null) {
-            this.oVZ.t(dVar);
+        if (this.pNv != null) {
+            this.pNv.t(dVar);
         }
     }
 
@@ -335,20 +335,20 @@ public class a extends master.flame.danmaku.danmaku.model.b<Canvas, Typeface> {
         }
     }
 
-    private void aw(Canvas canvas) {
+    private void ay(Canvas canvas) {
         canvas.restore();
     }
 
     private int a(master.flame.danmaku.danmaku.model.d dVar, Canvas canvas, float f, float f2) {
-        this.oVX.save();
-        if (this.oWb != 0.0f && Build.VERSION.SDK_INT >= 12) {
-            this.oVX.setLocation(0.0f, 0.0f, this.oWb);
+        this.pNt.save();
+        if (this.pNx != 0.0f && Build.VERSION.SDK_INT >= 12) {
+            this.pNt.setLocation(0.0f, 0.0f, this.pNx);
         }
-        this.oVX.rotateY(-dVar.rotationY);
-        this.oVX.rotateZ(-dVar.oUY);
-        this.oVX.getMatrix(this.matrix);
+        this.pNt.rotateY(-dVar.rotationY);
+        this.pNt.rotateZ(-dVar.pMu);
+        this.pNt.getMatrix(this.matrix);
         this.matrix.postTranslate(f, f2);
-        this.oVX.restore();
+        this.pNt.restore();
         int save = canvas.save();
         canvas.concat(this.matrix);
         return save;
@@ -357,83 +357,83 @@ public class a extends master.flame.danmaku.danmaku.model.b<Canvas, Typeface> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // master.flame.danmaku.danmaku.model.b
     public synchronized void a(master.flame.danmaku.danmaku.model.d dVar, Canvas canvas, float f, float f2, boolean z) {
-        if (this.oVZ != null) {
-            this.oVZ.a(dVar, canvas, f, f2, z, this.oVY);
+        if (this.pNv != null) {
+            this.pNv.a(dVar, canvas, f, f2, z, this.pNu);
         }
     }
 
     private synchronized TextPaint d(master.flame.danmaku.danmaku.model.d dVar, boolean z) {
-        return this.oVY.d(dVar, z);
+        return this.pNu.d(dVar, z);
     }
 
     @Override // master.flame.danmaku.danmaku.model.m
     public void b(master.flame.danmaku.danmaku.model.d dVar, boolean z) {
-        if (this.oVZ != null) {
-            this.oVZ.b(dVar, z);
+        if (this.pNv != null) {
+            this.pNv.b(dVar, z);
         }
     }
 
     @Override // master.flame.danmaku.danmaku.model.m
     public void c(master.flame.danmaku.danmaku.model.d dVar, boolean z) {
         TextPaint d = d(dVar, z);
-        if (this.oVY.oWv) {
-            this.oVY.a(dVar, d, true);
+        if (this.pNu.pNR) {
+            this.pNu.a(dVar, d, true);
         }
         a(dVar, d, z);
-        if (this.oVY.oWv) {
-            this.oVY.a(dVar, d, false);
+        if (this.pNu.pNR) {
+            this.pNu.a(dVar, d, false);
         }
     }
 
     private void a(master.flame.danmaku.danmaku.model.d dVar, TextPaint textPaint, boolean z) {
-        this.oVZ.b(dVar, textPaint, z);
-        a(dVar, dVar.oVb, dVar.oVc);
+        this.pNv.b(dVar, textPaint, z);
+        a(dVar, dVar.pMx, dVar.pMy);
     }
 
     private void a(master.flame.danmaku.danmaku.model.d dVar, float f, float f2) {
         float f3 = f + (dVar.padding * 2);
         float f4 = (dVar.padding * 2) + f2;
         if (dVar.borderColor != 0) {
-            C0996a c0996a = this.oVY;
+            C1068a c1068a = this.pNu;
             f3 += 8;
-            C0996a c0996a2 = this.oVY;
+            C1068a c1068a2 = this.pNu;
             f4 += 8;
         }
-        dVar.oVb = f3 + getStrokeWidth();
-        dVar.oVc = f4;
+        dVar.pMx = f3 + getStrokeWidth();
+        dVar.pMy = f4;
     }
 
     @Override // master.flame.danmaku.danmaku.model.m
-    public float epN() {
-        return this.oWc;
+    public float ezL() {
+        return this.pNy;
     }
 
     @Override // master.flame.danmaku.danmaku.model.m
-    public void bd(float f) {
+    public void bu(float f) {
         float max = Math.max(f, getWidth() / 682.0f) * 25.0f;
-        this.oWd = (int) max;
+        this.pNz = (int) max;
         if (f > 1.0f) {
-            this.oWd = (int) (max * f);
+            this.pNz = (int) (max * f);
         }
     }
 
     @Override // master.flame.danmaku.danmaku.model.m
-    public int epO() {
-        return this.oWd;
+    public int ezM() {
+        return this.pNz;
     }
 
     @Override // master.flame.danmaku.danmaku.model.m
     public void a(float f, int i, float f2) {
-        this.auL = f;
+        this.auM = f;
         this.densityDpi = i;
-        this.oWc = f2;
+        this.pNy = f2;
     }
 
     @Override // master.flame.danmaku.danmaku.model.m
     public void setSize(int i, int i2) {
         this.width = i;
         this.height = i2;
-        this.oWb = (float) ((i / 2.0f) / Math.tan(0.4799655442984406d));
+        this.pNx = (float) ((i / 2.0f) / Math.tan(0.4799655442984406d));
     }
 
     @Override // master.flame.danmaku.danmaku.model.m
@@ -441,26 +441,26 @@ public class a extends master.flame.danmaku.danmaku.model.b<Canvas, Typeface> {
         switch (i) {
             case -1:
             case 2:
-                this.oVY.oWs = false;
-                this.oVY.oWu = true;
-                this.oVY.oWw = false;
-                bf(fArr[0]);
+                this.pNu.pNO = false;
+                this.pNu.pNQ = true;
+                this.pNu.pNS = false;
+                bw(fArr[0]);
                 return;
             case 0:
-                this.oVY.oWs = false;
-                this.oVY.oWu = false;
-                this.oVY.oWw = false;
+                this.pNu.pNO = false;
+                this.pNu.pNQ = false;
+                this.pNu.pNS = false;
                 return;
             case 1:
-                this.oVY.oWs = true;
-                this.oVY.oWu = false;
-                this.oVY.oWw = false;
-                be(fArr[0]);
+                this.pNu.pNO = true;
+                this.pNu.pNQ = false;
+                this.pNu.pNS = false;
+                bv(fArr[0]);
                 return;
             case 3:
-                this.oVY.oWs = false;
-                this.oVY.oWu = false;
-                this.oVY.oWw = true;
+                this.pNu.pNO = false;
+                this.pNu.pNQ = false;
+                this.pNu.pNS = true;
                 f(fArr[0], fArr[1], (int) fArr[2]);
                 return;
             default:
@@ -470,39 +470,39 @@ public class a extends master.flame.danmaku.danmaku.model.b<Canvas, Typeface> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // master.flame.danmaku.danmaku.model.b
-    /* renamed from: ax */
+    /* renamed from: az */
     public void setExtraData(Canvas canvas) {
-        av(canvas);
+        ax(canvas);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // master.flame.danmaku.danmaku.model.b
-    /* renamed from: epX */
+    /* renamed from: ezV */
     public Canvas ud() {
-        return this.oWa;
+        return this.pNw;
     }
 
     public float getStrokeWidth() {
-        return this.oVY.getStrokeWidth();
+        return this.pNu.getStrokeWidth();
     }
 
     @Override // master.flame.danmaku.danmaku.model.m
-    public void zI(boolean z) {
-        this.oWe = z;
+    public void AQ(boolean z) {
+        this.pNA = z;
     }
 
     @Override // master.flame.danmaku.danmaku.model.b, master.flame.danmaku.danmaku.model.m
     public boolean isHardwareAccelerated() {
-        return this.oWe;
+        return this.pNA;
     }
 
     @Override // master.flame.danmaku.danmaku.model.m
-    public int epP() {
-        return this.oWf;
+    public int ezN() {
+        return this.pNB;
     }
 
     @Override // master.flame.danmaku.danmaku.model.m
-    public int epQ() {
-        return this.oWg;
+    public int ezO() {
+        return this.pNC;
     }
 }

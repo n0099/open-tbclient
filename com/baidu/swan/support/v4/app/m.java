@@ -9,7 +9,7 @@ public abstract class m {
 
     public abstract m a(@IdRes int i, Fragment fragment, @Nullable String str);
 
-    public abstract m aD(@AnimRes int i, @AnimRes int i2);
+    public abstract m aE(@AnimRes int i, @AnimRes int i2);
 
     public abstract m c(Fragment fragment);
 

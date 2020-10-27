@@ -7,42 +7,42 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 /* loaded from: classes14.dex */
 public class f extends d {
-    private String dyZ;
-    private String dza;
-    private String dzb;
-    private String dzc;
-    private String dzu;
-    private String dzv;
-    private String dzw;
-    private String dzx;
+    private String dHR;
+    private String dHS;
+    private String dHT;
+    private String dHU;
+    private String dHw;
+    private String dHx;
+    private String dHy;
+    private String dHz;
 
     public f(Context context, b bVar) {
         super(context, bVar);
-        this.dyZ = "rvideo";
-        this.dza = "10";
-        this.dzb = "MSSP,ANTI,VIDEO,NMON";
-        this.dzc = "LP,DL";
-        this.dzu = "70300";
-        this.dzv = "70301";
-        this.dzw = "70302";
-        this.dzx = "70303";
+        this.dHw = "rvideo";
+        this.dHx = "10";
+        this.dHy = "MSSP,ANTI,VIDEO,NMON";
+        this.dHz = "LP,DL";
+        this.dHR = "70300";
+        this.dHS = "70301";
+        this.dHT = "70302";
+        this.dHU = "70303";
     }
 
     @Override // com.baidu.swan.game.ad.b.d
-    protected String aMC() {
+    protected String aOw() {
         String str = "";
         String str2 = "";
         if (!com.baidu.swan.games.view.a.c.isLandScape()) {
             str = "";
-        } else if (com.baidu.swan.games.view.a.c.aTQ()) {
-            str = this.dzv;
-        } else if (com.baidu.swan.games.view.a.c.aTR()) {
-            str = this.dzu;
+        } else if (com.baidu.swan.games.view.a.c.aVK()) {
+            str = this.dHS;
+        } else if (com.baidu.swan.games.view.a.c.aVL()) {
+            str = this.dHR;
         }
-        if (com.baidu.swan.game.ad.downloader.a.aLI()) {
-            str2 = this.dzx;
-        } else if (com.baidu.swan.game.ad.downloader.a.aLJ()) {
-            str2 = this.dzw;
+        if (com.baidu.swan.game.ad.downloader.a.aNC()) {
+            str2 = this.dHU;
+        } else if (com.baidu.swan.game.ad.downloader.a.aND()) {
+            str2 = this.dHT;
         }
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return str + str2;
@@ -51,12 +51,12 @@ public class f extends d {
     }
 
     @Override // com.baidu.swan.game.ad.b.d
-    protected HashMap<String, String> aMD() {
+    protected HashMap<String, String> aOx() {
         HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("act", this.dzc);
-        hashMap.put("prod", this.dyZ);
-        hashMap.put("at", this.dza);
-        hashMap.put(IXAdRequestInfo.FET, this.dzb);
+        hashMap.put("act", this.dHz);
+        hashMap.put("prod", this.dHw);
+        hashMap.put("at", this.dHx);
+        hashMap.put(IXAdRequestInfo.FET, this.dHy);
         return hashMap;
     }
 }

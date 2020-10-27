@@ -9,59 +9,59 @@ import org.json.JSONObject;
 public class aj {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static int aIw() {
-        JSONObject tP = tP(getAppId());
-        if (tP != null) {
-            return tP.optInt("launch_count", 0);
+    public static int aKq() {
+        JSONObject ui = ui(getAppId());
+        if (ui != null) {
+            return ui.optInt("launch_count", 0);
         }
         return 0;
     }
 
-    public static long aIx() {
+    public static long aKr() {
         long currentTimeMillis = System.currentTimeMillis();
-        JSONObject tP = tP(getAppId());
-        long optLong = tP != null ? tP.optLong("foreground_aiapp_last_time_local", 0L) : 0L;
-        if (tP != null) {
-            return tP.optLong("visit_duration", 0L) + (currentTimeMillis - optLong);
+        JSONObject ui = ui(getAppId());
+        long optLong = ui != null ? ui.optLong("foreground_aiapp_last_time_local", 0L) : 0L;
+        if (ui != null) {
+            return ui.optLong("visit_duration", 0L) + (currentTimeMillis - optLong);
         }
         return 0L;
     }
 
-    public static void aIy() {
-        d(getAppId(), "visit_duration", Long.valueOf(aIx()));
+    public static void aKs() {
+        d(getAppId(), "visit_duration", Long.valueOf(aKr()));
     }
 
-    public static void cb(long j) {
+    public static void cd(long j) {
         d(getAppId(), "foreground_aiapp_last_time_local", Long.valueOf(j));
     }
 
     public static String getCurrentDate() {
-        return j.a(j.aIb(), ControlShowManager.DAY_TIME_FORMAT);
+        return j.a(j.aJV(), ControlShowManager.DAY_TIME_FORMAT);
     }
 
-    public static boolean bZ(JSONObject jSONObject) {
+    public static boolean cc(JSONObject jSONObject) {
         String currentDate = getCurrentDate();
         String optString = jSONObject.optString("date", "");
         return TextUtils.isEmpty(optString) || !optString.equals(currentDate);
     }
 
-    public static JSONObject tP(String str) {
+    public static JSONObject ui(String str) {
         JSONObject jSONObject;
         JSONException e;
-        String string = com.baidu.swan.apps.storage.c.h.aGy().getString("dailyInfo", "");
+        String string = com.baidu.swan.apps.storage.c.h.aIs().getString("dailyInfo", "");
         if (DEBUG) {
             Log.i("SwanAppUserVisitInfoUtils", "dailyInfo:" + string);
         }
         try {
             JSONObject jSONObject2 = TextUtils.isEmpty(string) ? new JSONObject() : new JSONObject(string);
-            if (bZ(jSONObject2)) {
+            if (cc(jSONObject2)) {
                 jSONObject2.put("date", getCurrentDate());
             }
             jSONObject = jSONObject2.optJSONObject(str);
             if (jSONObject == null) {
                 try {
                     jSONObject2.put(str, new JSONObject());
-                    com.baidu.swan.apps.storage.c.h.aGy().putString("dailyInfo", jSONObject2.toString());
+                    com.baidu.swan.apps.storage.c.h.aIs().putString("dailyInfo", jSONObject2.toString());
                 } catch (JSONException e2) {
                     e = e2;
                     if (DEBUG) {
@@ -79,7 +79,7 @@ public class aj {
 
     public static void d(String str, String str2, Object obj) {
         JSONObject jSONObject;
-        String string = com.baidu.swan.apps.storage.c.h.aGy().getString("dailyInfo", "");
+        String string = com.baidu.swan.apps.storage.c.h.aIs().getString("dailyInfo", "");
         if (DEBUG) {
             Log.i("SwanAppUserVisitInfoUtils", TextUtils.isEmpty(string) ? "dailyinfo is null" : string);
         }
@@ -95,7 +95,7 @@ public class aj {
             } else {
                 jSONObject.put(str, new JSONObject());
             }
-            com.baidu.swan.apps.storage.c.h.aGy().putString("dailyInfo", jSONObject.toString());
+            com.baidu.swan.apps.storage.c.h.aIs().putString("dailyInfo", jSONObject.toString());
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e("SwanAppUserVisitInfoUtils", e.getMessage());
@@ -104,6 +104,6 @@ public class aj {
     }
 
     private static String getAppId() {
-        return com.baidu.swan.apps.runtime.e.aDa() != null ? com.baidu.swan.apps.runtime.e.aDa().id : "";
+        return com.baidu.swan.apps.runtime.e.aEU() != null ? com.baidu.swan.apps.runtime.e.aEU().id : "";
     }
 }

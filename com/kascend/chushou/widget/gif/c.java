@@ -6,14 +6,14 @@ import tv.chushou.zues.widget.a.e;
 public class c extends e {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4271a;
+    private String f4269a;
 
     public c(Drawable drawable, String str) {
         super(drawable);
-        this.f4271a = str;
+        this.f4269a = str;
     }
 
     public String a() {
-        return this.f4271a;
+        return this.f4269a;
     }
 }

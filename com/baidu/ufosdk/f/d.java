@@ -6,12 +6,12 @@ import android.content.SharedPreferences;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    Context f3714a;
+    Context f3712a;
     SharedPreferences b;
     SharedPreferences.Editor c;
 
     public d(Context context) {
-        this.f3714a = context;
+        this.f3712a = context;
         this.b = context.getSharedPreferences("UfoSharePreference", 0);
         this.c = this.b.edit();
     }

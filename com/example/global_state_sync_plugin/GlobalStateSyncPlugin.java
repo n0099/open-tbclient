@@ -254,13 +254,13 @@ public class GlobalStateSyncPlugin implements FlutterPlugin, MethodChannel.Metho
         HashMap hashMap4 = new HashMap();
         HashMap hashMap5 = new HashMap();
         HashMap hashMap6 = new HashMap();
-        hashMap2.put("financeURL", b.blO().getString("baidu_finance", null));
+        hashMap2.put("financeURL", b.bnH().getString("baidu_finance", null));
         hashMap2.put("personalCellText", TbadkCoreApplication.getInst().getActivityPrizeData().getPersonItemText());
         hashMap2.put("loginAwardUrl", TbadkCoreApplication.getInst().getActivityPrizeData().getH5Url());
-        hashMap2.put("auditPackageSwitch", Integer.valueOf(b.blO().getBoolean("person_center_show_lite_game", true) ? 1 : 0));
+        hashMap2.put("auditPackageSwitch", Integer.valueOf(b.bnH().getBoolean("person_center_show_lite_game", true) ? 1 : 0));
         hashMap2.put("isLiteMode", "0");
-        hashMap2.put("isShowShoubaiDynamicGuide", String.valueOf(b.blO().getInt("key_is_show_shoubai_dynamic_guide", 0)));
-        hashMap2.put("isShowBaiduFinanceEntrance", String.valueOf(b.blO().getInt("baidu_financial_display", 1)));
+        hashMap2.put("isShowShoubaiDynamicGuide", String.valueOf(b.bnH().getInt("key_is_show_shoubai_dynamic_guide", 0)));
+        hashMap2.put("isShowBaiduFinanceEntrance", String.valueOf(b.bnH().getInt("baidu_financial_display", 1)));
         hashMap2.put("experimentID", getExperimentID());
         hashMap.put("syncData", hashMap2);
         hashMap.put("configInfo", hashMap3);
@@ -272,9 +272,9 @@ public class GlobalStateSyncPlugin implements FlutterPlugin, MethodChannel.Metho
     }
 
     private static String getExperimentID() {
-        e j = d.j(k.efC);
-        if (j != null && !at.isEmpty(j.efB)) {
-            String str = j.efB;
+        e j = d.j(k.eoa);
+        if (j != null && !at.isEmpty(j.enZ)) {
+            String str = j.enZ;
             char c = 65535;
             switch (str.hashCode()) {
                 case 1687628:
@@ -346,12 +346,12 @@ public class GlobalStateSyncPlugin implements FlutterPlugin, MethodChannel.Metho
     /* JADX INFO: Access modifiers changed from: private */
     public static HashMap<String, Object> readNetData() {
         HashMap<String, Object> hashMap = new HashMap<>();
-        String bpR = a.bpO().bpR();
+        String brK = a.brH().brK();
         hashMap.put("keepAliveWifi", Integer.valueOf(TbadkCoreApplication.getInst().getKeepaliveWifi()));
         hashMap.put("keepAliveNoWifi", Integer.valueOf(TbadkCoreApplication.getInst().getKeepaliveNonWifi()));
         hashMap.put("puEnvValue", TbSingleton.getInstance().getPubEnvValue());
         hashMap.put("isVisitPreviewServer", Boolean.valueOf(TbSingleton.getInstance().isVisitPreviewServer()));
-        hashMap.put("sCookie", bpR);
+        hashMap.put("sCookie", brK);
         hashMap.put("proxyIp", TbadkCoreApplication.getInst().getProxyIp());
         return hashMap;
     }
@@ -383,7 +383,7 @@ public class GlobalStateSyncPlugin implements FlutterPlugin, MethodChannel.Metho
         hashMap.put("cuid_gid", TbadkCoreApplication.getInst().getCuidGid());
         hashMap.put("z_id", TbadkCoreApplication.getInst().getZid());
         hashMap.put("model", Build.MODEL);
-        hashMap.put("teenMode", Boolean.valueOf(c.bDa()));
+        hashMap.put("teenMode", Boolean.valueOf(c.bET()));
         return hashMap;
     }
 
@@ -418,9 +418,9 @@ public class GlobalStateSyncPlugin implements FlutterPlugin, MethodChannel.Metho
     /* JADX INFO: Access modifiers changed from: private */
     public static HashMap<String, Object> readThemeData() {
         HashMap<String, Object> hashMap = new HashMap<>();
-        String bmO = ap.bmO();
+        String boH = ap.boH();
         HashMap hashMap2 = new HashMap();
-        hashMap.put("mode", bmO);
+        hashMap.put("mode", boH);
         hashMap.put("colors", hashMap2);
         HashMap hashMap3 = new HashMap();
         HashMap hashMap4 = new HashMap();

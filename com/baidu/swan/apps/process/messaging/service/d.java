@@ -16,24 +16,24 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes10.dex */
 public class d implements a.b {
-    private final Map<String, Deque<Message>> cXS = new HashMap();
+    private final Map<String, Deque<Message>> dgt = new HashMap();
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
-    public void aAN() {
-        for (String str : this.cXS.keySet()) {
-            qT(str);
+    public void aCH() {
+        for (String str : this.dgt.keySet()) {
+            rm(str);
         }
     }
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
-    public void qT(String str) {
-        Deque<Message> deque = this.cXS.get(str);
+    public void rm(String str) {
+        Deque<Message> deque = this.dgt.get(str);
         com.baidu.swan.apps.process.messaging.a.log("flushMsg:: appid=" + str + " msgQueue=" + deque);
         if (deque != null && !deque.isEmpty()) {
-            List<c> qZ = e.aBy().qZ(str);
-            com.baidu.swan.apps.process.messaging.a.log("flushMsg:: msgQueue.size=" + deque.size() + " clients.size=" + qZ.size());
-            if (!qZ.isEmpty()) {
-                for (c cVar : qZ) {
+            List<c> rs = e.aDs().rs(str);
+            com.baidu.swan.apps.process.messaging.a.log("flushMsg:: msgQueue.size=" + deque.size() + " clients.size=" + rs.size());
+            if (!rs.isEmpty()) {
+                for (c cVar : rs) {
                     cVar.i(deque);
                 }
                 deque.clear();
@@ -43,51 +43,51 @@ public class d implements a.b {
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
     public void clear(String str) {
-        this.cXS.remove(str);
+        this.dgt.remove(str);
     }
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
     public void a(@NonNull com.baidu.swan.apps.process.messaging.c cVar) {
-        Message aAO = cVar.aAO();
-        if (cVar.aAS()) {
-            M(aAO);
+        Message aCI = cVar.aCI();
+        if (cVar.aCM()) {
+            M(aCI);
         }
-        Set<SwanAppProcessInfo> aAQ = cVar.aAQ();
-        Set<String> aAR = cVar.aAR();
+        Set<SwanAppProcessInfo> aCK = cVar.aCK();
+        Set<String> aCL = cVar.aCL();
         if (cVar.isSticky()) {
-            Iterator<c> it = e.aBy().aBA().iterator();
+            Iterator<c> it = e.aDs().aDu().iterator();
             while (it.hasNext()) {
                 c next = it.next();
-                boolean a2 = a(next, aAR);
-                if (aAQ.contains(next.cXG) || a2) {
-                    next.L(aAO);
+                boolean a2 = a(next, aCL);
+                if (aCK.contains(next.dgh) || a2) {
+                    next.L(aCI);
                     if (a2) {
-                        aAR.remove(next.getAppId());
+                        aCL.remove(next.getAppId());
                     }
                 }
             }
-            a(aAR, aAO);
+            a(aCL, aCI);
             return;
         }
-        Iterator<c> it2 = e.aBy().aBA().iterator();
+        Iterator<c> it2 = e.aDs().aDu().iterator();
         while (it2.hasNext()) {
             c next2 = it2.next();
-            if (next2 != null && next2.aBl() && (aAQ.contains(next2.cXG) || a(next2, aAR))) {
-                next2.L(aAO);
+            if (next2 != null && next2.aDf() && (aCK.contains(next2.dgh) || a(next2, aCL))) {
+                next2.L(aCI);
             }
         }
     }
 
     private void M(Message message) {
         try {
-            e.aBy().mMessenger.send(message);
+            e.aDs().mMessenger.send(message);
         } catch (RemoteException e) {
             com.baidu.swan.apps.process.messaging.a.log(Log.getStackTraceString(e));
         }
     }
 
     boolean a(@NonNull c cVar, @NonNull Set<String> set) {
-        return cVar.aBj() && set.contains(cVar.getAppId());
+        return cVar.aDd() && set.contains(cVar.getAppId());
     }
 
     private void a(Set<String> set, @NonNull Message message) {
@@ -98,10 +98,10 @@ public class d implements a.b {
 
     private void a(String str, @NonNull Message message) {
         if (!TextUtils.isEmpty(str)) {
-            Deque<Message> deque = this.cXS.get(str);
+            Deque<Message> deque = this.dgt.get(str);
             if (deque == null) {
                 deque = new ArrayDeque<>();
-                this.cXS.put(str, deque);
+                this.dgt.put(str, deque);
             }
             deque.offer(message);
         }

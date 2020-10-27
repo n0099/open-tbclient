@@ -8,7 +8,7 @@ import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData;
 import com.baidu.tieba.homepage.tabfeed.view.SpecialTopicLayout;
 /* loaded from: classes22.dex */
 public class n extends com.baidu.adp.widget.ListView.a<SpecialColumnListData, com.baidu.adp.widget.ListView.b<SpecialTopicLayout>> {
-    private v alC;
+    private v alD;
     private TbPageContext mPageContext;
 
     public n(TbPageContext tbPageContext) {
@@ -17,7 +17,7 @@ public class n extends com.baidu.adp.widget.ListView.a<SpecialColumnListData, co
     }
 
     public void a(v vVar) {
-        this.alC = vVar;
+        this.alD = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -8,28 +8,28 @@ import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.view.VoteView;
 /* loaded from: classes21.dex */
 public class au extends i {
-    private int agh;
-    private VoteView aiD;
+    private int agi;
+    private VoteView aiE;
     private TbPageContext mPageContext;
 
     public au(Context context) {
         super(context);
-        this.aiD = new VoteView(context);
+        this.aiE = new VoteView(context);
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.aiD.setPageContext(this.mPageContext);
+        this.aiE.setPageContext(this.mPageContext);
     }
 
     public void setFromForPb(int i) {
-        this.agh = i;
+        this.agi = i;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.aiD;
+        return this.aiE;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,25 +37,25 @@ public class au extends i {
     /* renamed from: b */
     public void H(final AbsThreadDataSupport absThreadDataSupport) {
         if (c(absThreadDataSupport)) {
-            this.aiD.setVisibility(0);
-            this.aiD.setData(absThreadDataSupport.bfG().bkm(), absThreadDataSupport.bfG().getTid(), absThreadDataSupport.bfG().getFid());
-            this.aiD.setOnItemClickListener(new View.OnClickListener() { // from class: com.baidu.card.au.1
+            this.aiE.setVisibility(0);
+            this.aiE.setData(absThreadDataSupport.bhz().bmf(), absThreadDataSupport.bhz().getTid(), absThreadDataSupport.bhz().getFid());
+            this.aiE.setOnItemClickListener(new View.OnClickListener() { // from class: com.baidu.card.au.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    ay.a(absThreadDataSupport, (Context) au.this.mPageContext.getPageActivity(), au.this.agh, false);
+                    ay.a(absThreadDataSupport, (Context) au.this.mPageContext.getPageActivity(), au.this.agi, false);
                 }
             });
             return;
         }
-        this.aiD.setVisibility(8);
+        this.aiE.setVisibility(8);
     }
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.aiD.onChangeSkinType(i);
+        this.aiE.onChangeSkinType(i);
     }
 
     private boolean c(AbsThreadDataSupport absThreadDataSupport) {
-        return (absThreadDataSupport == null || absThreadDataSupport.bfG() == null || absThreadDataSupport.bfG().bkm() == null || absThreadDataSupport.bfG().bkm().getOptions() == null || absThreadDataSupport.bfG().bkm().getOptions().size() <= 0 || absThreadDataSupport.bfG().bgN()) ? false : true;
+        return (absThreadDataSupport == null || absThreadDataSupport.bhz() == null || absThreadDataSupport.bhz().bmf() == null || absThreadDataSupport.bhz().bmf().getOptions() == null || absThreadDataSupport.bhz().bmf().getOptions().size() <= 0 || absThreadDataSupport.bhz().biG()) ? false : true;
     }
 }

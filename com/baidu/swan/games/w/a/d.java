@@ -19,14 +19,14 @@ public class d {
         return this.error == null;
     }
 
-    public String dd(String str, String str2) {
+    public String dk(String str, String str2) {
         if (isSuccess()) {
-            return a.xa(str);
+            return a.xt(str);
         }
-        return a.U(str, str2, aSS());
+        return a.ab(str, str2, aUM());
     }
 
-    public String aSS() {
+    public String aUM() {
         return this.error;
     }
 
@@ -34,11 +34,11 @@ public class d {
         return this.data;
     }
 
-    public static Object aST() {
+    public static Object aUN() {
         return new JsObject();
     }
 
-    public static String lP(int i) {
+    public static String ma(int i) {
         switch (i) {
             case 1:
                 return "boolean";
@@ -70,7 +70,7 @@ public class d {
         return new d(null, obj);
     }
 
-    public static d xb(@NonNull String str) {
+    public static d xu(@NonNull String str) {
         return new d(str, null);
     }
 
@@ -78,8 +78,8 @@ public class d {
         if (dVar.isSuccess()) {
             return dVar.getData();
         }
-        String U = a.U(str, str2, dVar.aSS());
-        bVar.throwJSException(JSExceptionType.Error, U);
-        return U;
+        String ab = a.ab(str, str2, dVar.aUM());
+        bVar.throwJSException(JSExceptionType.Error, ab);
+        return ab;
     }
 }

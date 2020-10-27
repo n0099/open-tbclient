@@ -6,17 +6,18 @@ import tv.danmaku.ijk.media.player.misc.IMediaDataSource;
 public abstract class a implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private b.e f5403a;
-    private b.InterfaceC1035b b;
+    private b.f f5401a;
+    private b.InterfaceC1107b b;
     private b.a c;
-    private b.f d;
-    private b.h e;
+    private b.g d;
+    private b.i e;
     private b.c f;
     private b.d g;
-    private b.g h;
+    private b.h h;
+    private b.e i;
 
     public void a() {
-        this.f5403a = null;
+        this.f5401a = null;
         this.c = null;
         this.b = null;
         this.d = null;
@@ -24,6 +25,7 @@ public abstract class a implements b {
         this.f = null;
         this.g = null;
         this.h = null;
+        this.i = null;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -40,12 +42,15 @@ public abstract class a implements b {
         }
     }
 
+    public void a(String str) {
+    }
+
     public final void a(b.a aVar) {
         this.c = aVar;
     }
 
-    public final void a(b.InterfaceC1035b interfaceC1035b) {
-        this.b = interfaceC1035b;
+    public final void a(b.InterfaceC1107b interfaceC1107b) {
+        this.b = interfaceC1107b;
     }
 
     public final void a(b.c cVar) {
@@ -57,15 +62,19 @@ public abstract class a implements b {
     }
 
     public final void a(b.e eVar) {
-        this.f5403a = eVar;
+        this.i = eVar;
     }
 
     public final void a(b.f fVar) {
-        this.d = fVar;
+        this.f5401a = fVar;
     }
 
-    public final void a(b.h hVar) {
-        this.e = hVar;
+    public final void a(b.g gVar) {
+        this.d = gVar;
+    }
+
+    public final void a(b.i iVar) {
+        this.e = iVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -82,8 +91,8 @@ public abstract class a implements b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void b() {
-        if (this.f5403a != null) {
-            this.f5403a.a(this);
+        if (this.f5401a != null) {
+            this.f5401a.a(this);
         }
     }
 
@@ -97,6 +106,11 @@ public abstract class a implements b {
         if (this.b != null) {
             this.b.b(this);
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public final boolean c(int i, int i2, Object obj) {
+        return this.i != null && this.i.c(this, i, i2, obj);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

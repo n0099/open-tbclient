@@ -16,67 +16,67 @@ import java.util.List;
 /* loaded from: classes22.dex */
 public class a {
     private boolean hasMore;
-    private String iGF;
-    private FrsGameSubPbActivity iGR;
-    private InterfaceC0701a iGS;
-    private boolean iGV;
+    private String iTb;
+    private FrsGameSubPbActivity iTn;
+    private InterfaceC0717a iTo;
+    private boolean iTr;
     private int mForumId;
-    private String iGT = "0";
-    private int iGU = 1;
-    private HttpMessageListener iGW = new HttpMessageListener(0) { // from class: com.baidu.tieba.frs.gamesubpb.model.a.1
+    private String iTp = "0";
+    private int iTq = 1;
+    private HttpMessageListener iTs = new HttpMessageListener(0) { // from class: com.baidu.tieba.frs.gamesubpb.model.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (a.this.iGS != null) {
+            if (a.this.iTo != null) {
                 if (httpResponsedMessage == null || httpResponsedMessage.hasError() || !(httpResponsedMessage instanceof FrsSelectSubCommentReponseMessage) || ((FrsSelectSubCommentReponseMessage) httpResponsedMessage).getSelectSubCommentData() == null) {
-                    a.this.iGS.a(false, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), false, a.this.iGV, null, null);
+                    a.this.iTo.a(false, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), false, a.this.iTr, null, null);
                 } else {
                     FrsSelectSubCommentReponseMessage frsSelectSubCommentReponseMessage = (FrsSelectSubCommentReponseMessage) httpResponsedMessage;
                     if (1003379 == httpResponsedMessage.getCmd()) {
                         a.this.hasMore = frsSelectSubCommentReponseMessage.getSelectSubCommentData().hasMore;
-                        if (!a.this.iGV || 1 == frsSelectSubCommentReponseMessage.getSelectSubCommentData().iGU) {
+                        if (!a.this.iTr || 1 == frsSelectSubCommentReponseMessage.getSelectSubCommentData().iTq) {
                             a.this.mDataList.clear();
                         } else {
                             a.c(a.this);
                         }
-                        if (!y.isEmpty(frsSelectSubCommentReponseMessage.getSelectSubCommentData().iHf)) {
-                            a.this.mDataList.addAll(frsSelectSubCommentReponseMessage.getSelectSubCommentData().iHf);
+                        if (!y.isEmpty(frsSelectSubCommentReponseMessage.getSelectSubCommentData().iTB)) {
+                            a.this.mDataList.addAll(frsSelectSubCommentReponseMessage.getSelectSubCommentData().iTB);
                         }
-                        a.this.iGS.a(true, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), a.this.hasMore, a.this.iGV, frsSelectSubCommentReponseMessage.getSelectSubCommentData().iHe, a.this.mDataList);
+                        a.this.iTo.a(true, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), a.this.hasMore, a.this.iTr, frsSelectSubCommentReponseMessage.getSelectSubCommentData().iTA, a.this.mDataList);
                     }
                 }
-                a.this.iGV = false;
+                a.this.iTr = false;
             }
         }
     };
-    private HttpMessageListener iGX = new HttpMessageListener(0) { // from class: com.baidu.tieba.frs.gamesubpb.model.a.2
+    private HttpMessageListener iTt = new HttpMessageListener(0) { // from class: com.baidu.tieba.frs.gamesubpb.model.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (a.this.iGS != null) {
+            if (a.this.iTo != null) {
                 if (httpResponsedMessage == null || httpResponsedMessage.hasError() || !(httpResponsedMessage instanceof FrsAddSubCommentResponseMessage) || ((FrsAddSubCommentResponseMessage) httpResponsedMessage).getSubCommentData() == null) {
-                    a.this.iGS.a(false, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), null);
+                    a.this.iTo.a(false, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), null);
                     return;
                 }
                 FrsAddSubCommentResponseMessage frsAddSubCommentResponseMessage = (FrsAddSubCommentResponseMessage) httpResponsedMessage;
                 if (1003380 == httpResponsedMessage.getCmd()) {
-                    a.this.iGS.a(true, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), frsAddSubCommentResponseMessage.getSubCommentData());
+                    a.this.iTo.a(true, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), frsAddSubCommentResponseMessage.getSubCommentData());
                 }
             }
         }
     };
-    private HttpMessageListener iGY = new HttpMessageListener(0) { // from class: com.baidu.tieba.frs.gamesubpb.model.a.3
+    private HttpMessageListener iTu = new HttpMessageListener(0) { // from class: com.baidu.tieba.frs.gamesubpb.model.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (a.this.iGS != null) {
+            if (a.this.iTo != null) {
                 if (httpResponsedMessage == null || httpResponsedMessage.hasError() || !(httpResponsedMessage instanceof FrsDeleteSubCommentResponseMessage) || ((FrsDeleteSubCommentResponseMessage) httpResponsedMessage).getSubCommentData() == null) {
-                    a.this.iGS.b(false, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), null);
+                    a.this.iTo.b(false, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), null);
                     return;
                 }
                 FrsDeleteSubCommentResponseMessage frsDeleteSubCommentResponseMessage = (FrsDeleteSubCommentResponseMessage) httpResponsedMessage;
                 if (1003381 == httpResponsedMessage.getCmd()) {
-                    a.this.iGS.b(true, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), frsDeleteSubCommentResponseMessage.getSubCommentData());
+                    a.this.iTo.b(true, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), frsDeleteSubCommentResponseMessage.getSubCommentData());
                 }
             }
         }
@@ -85,7 +85,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.frs.gamesubpb.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes22.dex */
-    public interface InterfaceC0701a {
+    public interface InterfaceC0717a {
         void a(boolean z, int i, String str, d dVar);
 
         void a(boolean z, int i, String str, boolean z2, boolean z3, b bVar, List<q> list);
@@ -94,59 +94,59 @@ public class a {
     }
 
     static /* synthetic */ int c(a aVar) {
-        int i = aVar.iGU;
-        aVar.iGU = i + 1;
+        int i = aVar.iTq;
+        aVar.iTq = i + 1;
         return i;
     }
 
     public a(FrsGameSubPbActivity frsGameSubPbActivity, int i, String str) {
-        this.iGR = frsGameSubPbActivity;
+        this.iTn = frsGameSubPbActivity;
         this.mForumId = i;
-        this.iGF = str;
-        cxv();
-        cxw();
-        cxx();
+        this.iTb = str;
+        cAC();
+        cAD();
+        cAE();
     }
 
-    private void cxv() {
+    private void cAC() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003379, TbConfig.SERVER_ADDRESS + "game/client/selectSubComment");
         tbHttpMessageTask.setResponsedClass(FrsSelectSubCommentReponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        this.iGR.registerListener(1003379, this.iGW);
+        this.iTn.registerListener(1003379, this.iTs);
     }
 
-    private void cxw() {
+    private void cAD() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003380, TbConfig.SERVER_ADDRESS + "game/client/addSubComment");
         tbHttpMessageTask.setResponsedClass(FrsAddSubCommentResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        this.iGR.registerListener(1003380, this.iGX);
+        this.iTn.registerListener(1003380, this.iTt);
     }
 
-    private void cxx() {
+    private void cAE() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003381, TbConfig.SERVER_ADDRESS + "game/client/deleteSubComment");
         tbHttpMessageTask.setResponsedClass(FrsDeleteSubCommentResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        this.iGR.registerListener(1003381, this.iGY);
+        this.iTn.registerListener(1003381, this.iTu);
     }
 
-    public void a(InterfaceC0701a interfaceC0701a) {
-        this.iGS = interfaceC0701a;
+    public void a(InterfaceC0717a interfaceC0717a) {
+        this.iTo = interfaceC0717a;
     }
 
-    public void ln(boolean z) {
+    public void lF(boolean z) {
         if (!z || this.hasMore) {
-            this.iGV = z;
+            this.iTr = z;
             HttpMessage httpMessage = new HttpMessage(1003379);
-            httpMessage.addParam(Config.PACKAGE_NAME, z ? this.iGU + 1 : 1);
+            httpMessage.addParam(Config.PACKAGE_NAME, z ? this.iTq + 1 : 1);
             httpMessage.addParam("ps", 20);
             httpMessage.addParam("forum_id", this.mForumId);
-            httpMessage.addParam("main_tower_id", this.iGF);
-            httpMessage.addParam(ImageViewerConfig.LAST_ID, this.iGT);
+            httpMessage.addParam("main_tower_id", this.iTb);
+            httpMessage.addParam(ImageViewerConfig.LAST_ID, this.iTp);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
-    public void JL(String str) {
-        this.iGT = str;
+    public void Kk(String str) {
+        this.iTp = str;
     }
 }

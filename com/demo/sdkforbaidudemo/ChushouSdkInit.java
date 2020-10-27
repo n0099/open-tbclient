@@ -31,7 +31,11 @@ public class ChushouSdkInit {
 
     public static final void testStartLiveRoom(Context context, String str, String str2) {
         if (!CyberPlayerManager.isCoreLoaded(1)) {
-            CyberPlayerManager.install(TbadkCoreApplication.getInst().getContext(), TbadkCoreApplication.getInst().getCuidGalaxy2(), null, 1, null, null, null);
+            try {
+                CyberPlayerManager.install(TbadkCoreApplication.getInst().getContext(), TbadkCoreApplication.getInst().getCuidGalaxy2(), null, 1, null, null, null);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         CSTVSdk.INSTANCE.startLiveRoom(context, str, str2);
     }
@@ -56,9 +60,9 @@ public class ChushouSdkInit {
             hashMap.put("from", from);
         }
         hashMap.put("net_type", String.valueOf(j.netType()));
-        String bzx = y.bzx();
-        if (!TextUtils.isEmpty(bzx)) {
-            hashMap.put("oaid", bzx);
+        String bBq = y.bBq();
+        if (!TextUtils.isEmpty(bBq)) {
+            hashMap.put("oaid", bBq);
         }
         hashMap.put("cuid", TbadkCoreApplication.getInst().getCuid());
         hashMap.put("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());

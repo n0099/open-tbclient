@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,12 +21,12 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.util.ScreenHelper;
 /* loaded from: classes4.dex */
 public class d implements View.OnClickListener {
-    private TextView aEj;
-    private a bDf;
-    private ImageView bDg;
-    private TextView bDh;
-    private TextView bDi;
-    private AnimatorSet bDj;
+    private TextView aEr;
+    private a bGb;
+    private ImageView bGc;
+    private TextView bGd;
+    private TextView bGe;
+    private AnimatorSet bGf;
     private Context mContext;
     private Dialog mDialog;
     private View mRootView;
@@ -33,9 +34,9 @@ public class d implements View.OnClickListener {
 
     /* loaded from: classes4.dex */
     public interface a {
-        void OK();
+        void Pi();
 
-        void OL();
+        void Pj();
     }
 
     public d(Context context) {
@@ -44,7 +45,7 @@ public class d implements View.OnClickListener {
     }
 
     public void a(a aVar) {
-        this.bDf = aVar;
+        this.bGb = aVar;
     }
 
     public void setCancelable(boolean z) {
@@ -56,23 +57,61 @@ public class d implements View.OnClickListener {
         this.mRootView.setOnClickListener(null);
     }
 
-    public void cT(boolean z) {
-        if (this.bDg != null) {
-            this.bDg.setVisibility(z ? 0 : 8);
+    public void cZ(boolean z) {
+        if (this.bGc != null) {
+            this.bGc.setVisibility(z ? 0 : 8);
+        }
+    }
+
+    public void da(boolean z) {
+        if (this.aEr != null) {
+            this.aEr.setVisibility(z ? 0 : 8);
         }
     }
 
     public void o(String str, String str2, String str3, String str4) {
         this.mTitleTextView.setText(str);
-        this.aEj.setText(str2);
-        this.bDh.setText(str3);
-        this.bDi.setText(str4);
+        this.aEr.setText(str2);
+        this.bGd.setText(str3);
+        this.bGe.setText(str4);
+    }
+
+    public void gh(int i) {
+        this.aEr.setTextColor(i);
+    }
+
+    public void db(boolean z) {
+        this.mTitleTextView.setSingleLine(z);
+    }
+
+    public void dc(boolean z) {
+        this.mTitleTextView.setTypeface(Typeface.defaultFromStyle(z ? 1 : 0));
+    }
+
+    public void B(float f) {
+        this.mTitleTextView.setLineSpacing(f, 1.0f);
+    }
+
+    public void setTitleTextSize(float f) {
+        this.mTitleTextView.setTextSize(0, f);
+    }
+
+    public void C(float f) {
+        this.aEr.setTextSize(0, f);
+    }
+
+    public void gi(int i) {
+        this.bGd.setTextColor(i);
+    }
+
+    public void gj(int i) {
+        this.bGe.setTextColor(i);
     }
 
     public void show() {
         if ((this.mContext instanceof Activity) && !((Activity) this.mContext).isFinishing() && this.mDialog != null) {
             this.mDialog.show();
-            LX();
+            Mr();
         }
     }
 
@@ -85,26 +124,26 @@ public class d implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.mRootView || view == this.bDg || view == this.bDh || view == this.bDi) {
+        if (view == this.mRootView || view == this.bGc || view == this.bGd || view == this.bGe) {
             dismiss();
         }
-        if (this.bDf != null) {
-            if (view == this.bDh) {
-                this.bDf.OK();
-            } else if (view == this.bDi) {
-                this.bDf.OL();
+        if (this.bGb != null) {
+            if (view == this.bGd) {
+                this.bGb.Pi();
+            } else if (view == this.bGe) {
+                this.bGb.Pj();
             }
         }
     }
 
     private void initDialog() {
         this.mDialog = new e(this.mContext);
-        Og();
+        OE();
         initView();
-        FL();
+        Ga();
     }
 
-    private void Og() {
+    private void OE() {
         this.mDialog.setCancelable(true);
         this.mDialog.setCanceledOnTouchOutside(true);
         Window window = this.mDialog.getWindow();
@@ -128,37 +167,37 @@ public class d implements View.OnClickListener {
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mDialog.getContext()).inflate(a.h.sdk_dialog_common_alert, (ViewGroup) null);
         this.mDialog.setContentView(this.mRootView);
-        this.bDg = (ImageView) this.mRootView.findViewById(a.g.iv_close);
+        this.bGc = (ImageView) this.mRootView.findViewById(a.g.iv_close);
         this.mTitleTextView = (TextView) this.mRootView.findViewById(a.g.tv_title);
-        this.aEj = (TextView) this.mRootView.findViewById(a.g.tv_content);
-        this.bDh = (TextView) this.mRootView.findViewById(a.g.tv_confirm);
-        this.bDi = (TextView) this.mRootView.findViewById(a.g.tv_cancel);
+        this.aEr = (TextView) this.mRootView.findViewById(a.g.tv_content);
+        this.bGd = (TextView) this.mRootView.findViewById(a.g.tv_confirm);
+        this.bGe = (TextView) this.mRootView.findViewById(a.g.tv_cancel);
         this.mRootView.setOnClickListener(this);
-        this.bDg.setOnClickListener(this);
-        this.bDh.setOnClickListener(this);
-        this.bDi.setOnClickListener(this);
+        this.bGc.setOnClickListener(this);
+        this.bGd.setOnClickListener(this);
+        this.bGe.setOnClickListener(this);
     }
 
-    private void FL() {
+    private void Ga() {
         this.mDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.live.view.d.1
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                if (d.this.bDj != null) {
-                    d.this.bDj.cancel();
+                if (d.this.bGf != null) {
+                    d.this.bGf.cancel();
                 }
             }
         });
     }
 
-    private void LX() {
-        if (this.bDj == null) {
+    private void Mr() {
+        if (this.bGf == null) {
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.mRootView, "ScaleX", 0.5f, 1.2f, 1.0f);
             ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.mRootView, "ScaleY", 0.5f, 1.2f, 1.0f);
-            this.bDj = new AnimatorSet();
-            this.bDj.playTogether(ofFloat, ofFloat2);
-            this.bDj.setDuration(300L);
-            this.bDj.setInterpolator(new LinearInterpolator());
+            this.bGf = new AnimatorSet();
+            this.bGf.playTogether(ofFloat, ofFloat2);
+            this.bGf.setDuration(300L);
+            this.bGf.setInterpolator(new LinearInterpolator());
         }
-        this.bDj.start();
+        this.bGf.start();
     }
 }

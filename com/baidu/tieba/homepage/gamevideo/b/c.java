@@ -30,29 +30,29 @@ import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes22.dex */
 public class c {
-    private int eCL;
-    private com.baidu.tieba.homepage.gamevideo.view.b jia;
-    private com.baidu.tieba.homepage.gamevideo.d.b jib;
-    private a jic;
-    private b jie;
+    private int eLh;
+    private a juA;
+    private b juB;
+    private com.baidu.tieba.homepage.gamevideo.view.b juy;
+    private com.baidu.tieba.homepage.gamevideo.d.b juz;
     private BdUniqueId mBdUniqueId;
     private TbPageContext mPageContext;
-    private CustomMessageListener hXD = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.homepage.gamevideo.b.c.1
+    private CustomMessageListener ikd = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.homepage.gamevideo.b.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             c.this.g(customResponsedMessage);
-            if (c.this.jia != null) {
-                c.this.jia.cEE();
+            if (c.this.juy != null) {
+                c.this.juy.cHL();
             }
         }
     };
-    private NEGFeedBackView.a jif = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.2
+    private NEGFeedBackView.a juC = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.2
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
         public void onNEGFeedbackWindowShow(ar arVar) {
             if (arVar != null) {
-                TiebaStatic.log(new aq("c13500").dK("obj_locate", "1").dK("fid", arVar.getFid()).dK("tid", arVar.getTid()).dK("uid", TbadkCoreApplication.getCurrentAccount()));
-                TiebaStatic.log(new aq("c13499").dK("fid", arVar.getFid()).dK("tid", arVar.getTid()).aj("obj_type", c.this.eCL).dK("uid", TbadkCoreApplication.getCurrentAccount()));
+                TiebaStatic.log(new aq("c13500").dR("obj_locate", "1").dR("fid", arVar.getFid()).dR("tid", arVar.getTid()).dR("uid", TbadkCoreApplication.getCurrentAccount()));
+                TiebaStatic.log(new aq("c13499").dR("fid", arVar.getFid()).dR("tid", arVar.getTid()).aj("obj_type", c.this.eLh).dR("uid", TbadkCoreApplication.getCurrentAccount()));
             }
         }
 
@@ -79,88 +79,88 @@ public class c {
                 } else if (arVar.threadType == 49) {
                     i = 3;
                 }
-                if (c.this.jia != null) {
-                    c.this.jia.Lf();
+                if (c.this.juy != null) {
+                    c.this.juy.Lz();
                 }
-                TiebaStatic.log(new aq("c13500").dK("tid", arVar.getTid()).dK("uid", TbadkCoreApplication.getCurrentAccount()).dK("fid", arVar.getFid()).dK("obj_param1", arVar.weight).dK("obj_source", arVar.source).dK("obj_id", arVar.extra).dK("obj_type", sb.toString()).dK("obj_name", str).aj(TiebaInitialize.Params.OBJ_PARAM2, i));
+                TiebaStatic.log(new aq("c13500").dR("tid", arVar.getTid()).dR("uid", TbadkCoreApplication.getCurrentAccount()).dR("fid", arVar.getFid()).dR("obj_param1", arVar.weight).dR("obj_source", arVar.source).dR("obj_id", arVar.extra).dR("obj_type", sb.toString()).dR("obj_name", str).aj(TiebaInitialize.Params.OBJ_PARAM2, i));
             }
         }
     };
-    private final View.OnClickListener jig = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.3
+    private final View.OnClickListener juD = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!c.this.jia.cEM()) {
-                c.this.jia.qv(true);
-                if (c.this.jie.isShowing()) {
-                    c.this.jie.cEr();
-                    c.this.jia.cEL();
-                    ap.setBackgroundResource(c.this.jia.cEJ(), R.color.cp_bg_line_h);
+            if (!c.this.juy.cHT()) {
+                c.this.juy.qN(true);
+                if (c.this.juB.isShowing()) {
+                    c.this.juB.cHy();
+                    c.this.juy.cHS();
+                    ap.setBackgroundResource(c.this.juy.cHQ(), R.color.cp_bg_line_h);
                     return;
                 }
-                c.this.jie.cC(c.this.jia.cEJ());
-                c.this.jia.cEK();
-                ap.setBackgroundResource(c.this.jia.cEJ(), R.color.cp_bg_line_d);
-                if (c.this.jib != null && !y.isEmpty(c.this.jib.cEy())) {
+                c.this.juB.cG(c.this.juy.cHQ());
+                c.this.juy.cHR();
+                ap.setBackgroundResource(c.this.juy.cHQ(), R.color.cp_bg_line_d);
+                if (c.this.juz != null && !y.isEmpty(c.this.juz.cHF())) {
                     TiebaStatic.log("c13490");
                 }
             }
         }
     };
-    private f.c fUA = new f.c() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.4
+    private f.c geE = new f.c() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.4
         @Override // com.baidu.tbadk.core.view.f.c
         public void onListPullRefresh(boolean z) {
             if (j.isNetWorkAvailable()) {
-                c.this.jib.Bb(c.this.eCL);
-                c.this.cEw();
-                c.this.jia.qu(false);
+                c.this.juz.Bu(c.this.eLh);
+                c.this.cHD();
+                c.this.juy.qM(false);
                 return;
             }
-            c.this.jia.b((f.e) null);
+            c.this.juy.b((f.e) null);
             c.this.mPageContext.showToast(R.string.im_error_default);
         }
     };
-    private BdListView.e jih = new BdListView.e() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.5
+    private BdListView.e juE = new BdListView.e() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.5
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            c.this.jia.bJV();
-            c.this.jib.Bc(c.this.eCL);
-            c.this.cEw();
+            c.this.juy.bMx();
+            c.this.juz.Bv(c.this.eLh);
+            c.this.cHD();
         }
     };
-    private b.a jii = new b.a() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.6
+    private b.a juF = new b.a() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.6
         @Override // com.baidu.tieba.homepage.gamevideo.d.b.a
         public void f(int i, boolean z, boolean z2) {
-            c.this.jia.hideLoadingView();
-            c.this.jia.SK();
+            c.this.juy.hideLoadingView();
+            c.this.juy.TK();
             if (z || z2) {
-                c.this.jia.b((f.e) null);
+                c.this.juy.b((f.e) null);
             } else {
-                c.this.jia.b(c.this.Ba(i));
+                c.this.juy.b(c.this.Bt(i));
             }
-            if (!c.this.cEx()) {
-                if (!y.isEmpty(c.this.jib.cEy()) && !StringUtils.isNull(com.baidu.tbadk.core.sharedPref.b.blO().getString("key_game_video_tab_has_choosed_sub_class_name", ""))) {
-                    c.this.jia.qw(c.this.jie.isShowing());
-                    c.this.jia.cEN();
-                    c.this.jie.setData(c.this.jib.cEy());
+            if (!c.this.cHE()) {
+                if (!y.isEmpty(c.this.juz.cHF()) && !StringUtils.isNull(com.baidu.tbadk.core.sharedPref.b.bnH().getString("key_game_video_tab_has_choosed_sub_class_name", ""))) {
+                    c.this.juy.qO(c.this.juB.isShowing());
+                    c.this.juy.cHU();
+                    c.this.juB.setData(c.this.juz.cHF());
                 }
                 if (i != 0) {
-                    c.this.jia.aR(c.this.jib.getDataList());
-                    c.this.jia.B(c.this.jij);
-                } else if (y.isEmpty(c.this.jia.getDataList())) {
-                    c.this.jia.showNoDataView();
+                    c.this.juy.bb(c.this.juz.getDataList());
+                    c.this.juy.B(c.this.juG);
+                } else if (y.isEmpty(c.this.juy.getDataList())) {
+                    c.this.juy.showNoDataView();
                 } else if (z) {
-                    c.this.jia.bJU();
+                    c.this.juy.bMw();
                 }
             }
         }
 
         @Override // com.baidu.tieba.homepage.gamevideo.d.b.a
         public void m(int i, String str, boolean z) {
-            c.this.jia.b((f.e) null);
-            c.this.jia.hideLoadingView();
-            c.this.jia.SK();
-            if (y.isEmpty(c.this.jia.getDataList())) {
-                c.this.jia.l(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.6.1
+            c.this.juy.b((f.e) null);
+            c.this.juy.hideLoadingView();
+            c.this.juy.TK();
+            if (y.isEmpty(c.this.juy.getDataList())) {
+                c.this.juy.l(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.6.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         c.this.loadData();
@@ -169,7 +169,7 @@ public class c {
                 return;
             }
             if (z) {
-                c.this.jia.B(c.this.jij);
+                c.this.juy.B(c.this.juG);
             }
             if (StringUtils.isNull(str)) {
                 c.this.mPageContext.showToast(R.string.game_video_recommend_load_more_fail);
@@ -178,52 +178,52 @@ public class c {
             }
         }
     };
-    private View.OnClickListener jij = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.7
+    private View.OnClickListener juG = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.7
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (c.this.jia != null && c.this.jib != null) {
-                c.this.jia.bJV();
-                c.this.jib.Bc(c.this.eCL);
+            if (c.this.juy != null && c.this.juz != null) {
+                c.this.juy.bMx();
+                c.this.juz.Bv(c.this.eLh);
             }
         }
     };
-    private b.a jik = new b.a() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.8
+    private b.a juH = new b.a() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.8
         @Override // com.baidu.tieba.homepage.gamevideo.b.b.a
-        public void cEu() {
-            c.this.jia.pe(true);
+        public void cHB() {
+            c.this.juy.pw(true);
         }
 
         @Override // com.baidu.tieba.homepage.gamevideo.b.b.a
         public void b(com.baidu.tieba.homepage.gamevideo.c.a aVar) {
             if (aVar != null) {
-                c.this.eCL = aVar.sub_class_id;
-                c.this.AZ(aVar.sub_class_id);
-                if (c.this.jia != null) {
-                    c.this.jia.AX(aVar.sub_class_id);
-                    c.this.jia.qw(false);
-                    c.this.jia.KX(aVar.sub_class_name);
+                c.this.eLh = aVar.sub_class_id;
+                c.this.Bs(aVar.sub_class_id);
+                if (c.this.juy != null) {
+                    c.this.juy.Bq(aVar.sub_class_id);
+                    c.this.juy.qO(false);
+                    c.this.juy.Lv(aVar.sub_class_name);
                 }
             }
         }
 
         @Override // com.baidu.tieba.homepage.gamevideo.b.b.a
-        public void cEv() {
-            if (c.this.jia != null) {
-                c.this.jia.qw(false);
-                c.this.jia.pe(false);
+        public void cHC() {
+            if (c.this.juy != null) {
+                c.this.juy.qO(false);
+                c.this.juy.pw(false);
             }
         }
     };
-    private a.InterfaceC0710a jhP = new a.InterfaceC0710a() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.9
-        @Override // com.baidu.tieba.homepage.gamevideo.b.a.InterfaceC0710a
+    private a.InterfaceC0726a jun = new a.InterfaceC0726a() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.9
+        @Override // com.baidu.tieba.homepage.gamevideo.b.a.InterfaceC0726a
         public void a(com.baidu.tieba.homepage.gamevideo.c.a aVar) {
             if (aVar != null) {
-                c.this.eCL = aVar.sub_class_id;
-                c.this.AZ(aVar.sub_class_id);
-                if (c.this.jia != null) {
-                    c.this.jia.AX(aVar.sub_class_id);
-                    c.this.jia.qw(false);
-                    c.this.jia.KX(aVar.sub_class_name);
+                c.this.eLh = aVar.sub_class_id;
+                c.this.Bs(aVar.sub_class_id);
+                if (c.this.juy != null) {
+                    c.this.juy.Bq(aVar.sub_class_id);
+                    c.this.juy.qO(false);
+                    c.this.juy.Lv(aVar.sub_class_name);
                 }
             }
         }
@@ -232,81 +232,81 @@ public class c {
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
         this.mBdUniqueId = bdUniqueId;
-        this.jia = new com.baidu.tieba.homepage.gamevideo.view.b(this.mPageContext, bdUniqueId, this.jif);
-        this.jib = new com.baidu.tieba.homepage.gamevideo.d.b(this.mPageContext, this.jii);
-        this.jie = new b(tbPageContext, this.mBdUniqueId);
-        this.jie.a(this.jik);
-        this.jic = new a(tbPageContext, this.mBdUniqueId);
-        this.jic.a(this.jhP);
-        this.jia.C(this.jig);
-        this.eCL = com.baidu.tbadk.core.sharedPref.b.blO().getInt("key_game_video_tab_has_choosed_sub_class_id", 0);
-        this.jia.AX(this.eCL);
+        this.juy = new com.baidu.tieba.homepage.gamevideo.view.b(this.mPageContext, bdUniqueId, this.juC);
+        this.juz = new com.baidu.tieba.homepage.gamevideo.d.b(this.mPageContext, this.juF);
+        this.juB = new b(tbPageContext, this.mBdUniqueId);
+        this.juB.a(this.juH);
+        this.juA = new a(tbPageContext, this.mBdUniqueId);
+        this.juA.a(this.jun);
+        this.juy.C(this.juD);
+        this.eLh = com.baidu.tbadk.core.sharedPref.b.bnH().getInt("key_game_video_tab_has_choosed_sub_class_id", 0);
+        this.juy.Bq(this.eLh);
     }
 
     public void init() {
-        this.jib.registerListener();
-        this.jia.init();
-        this.jia.setListPullRefreshListener(this.fUA);
-        this.jia.a(this.jih);
-        MessageManager.getInstance().registerListener(this.hXD);
+        this.juz.registerListener();
+        this.juy.init();
+        this.juy.setListPullRefreshListener(this.geE);
+        this.juy.a(this.juE);
+        MessageManager.getInstance().registerListener(this.ikd);
     }
 
     public View getView() {
-        if (this.jia != null) {
-            return this.jia.getRootView();
+        if (this.juy != null) {
+            return this.juy.getRootView();
         }
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cEw() {
-        TiebaStatic.log(new aq("c13493").aj("obj_type", this.eCL));
+    public void cHD() {
+        TiebaStatic.log(new aq("c13493").aj("obj_type", this.eLh));
     }
 
     public void loadData() {
-        if (this.jia != null) {
-            this.jia.cEH();
-            this.jia.showLoadingView();
+        if (this.juy != null) {
+            this.juy.cHO();
+            this.juy.showLoadingView();
         }
-        if (this.jib != null) {
-            this.jib.Bb(this.eCL);
+        if (this.juz != null) {
+            this.juz.Bu(this.eLh);
         }
     }
 
-    public void Qi() {
-        if (this.jia != null) {
-            this.jia.cED();
-            this.jia.startPullRefresh();
-            this.jia.qu(false);
-            this.jia.cEF();
+    public void Rd() {
+        if (this.juy != null) {
+            this.juy.cHK();
+            this.juy.startPullRefresh();
+            this.juy.qM(false);
+            this.juy.cHM();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void AZ(int i) {
-        if (this.jie != null) {
-            this.jie.AY(i);
+    public void Bs(int i) {
+        if (this.juB != null) {
+            this.juB.Br(i);
         }
-        if (this.jib != null) {
-            this.jib.reset();
+        if (this.juz != null) {
+            this.juz.reset();
         }
         loadData();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cEx() {
-        if (this.jib == null || y.isEmpty(this.jib.cEy()) || (!(this.jib.cEz() || this.eCL == 0) || this.jic == null)) {
+    public boolean cHE() {
+        if (this.juz == null || y.isEmpty(this.juz.cHF()) || (!(this.juz.cHG() || this.eLh == 0) || this.juA == null)) {
             return false;
         }
-        this.jic.setData(this.jib.cEy());
-        this.jic.bD((ViewGroup) this.jia.getRootView());
-        com.baidu.tbadk.core.sharedPref.b.blO().remove("key_game_video_tab_has_choosed_sub_class_id");
-        com.baidu.tbadk.core.sharedPref.b.blO().remove("key_game_video_tab_has_choosed_sub_class_name");
+        this.juA.setData(this.juz.cHF());
+        this.juA.bD((ViewGroup) this.juy.getRootView());
+        com.baidu.tbadk.core.sharedPref.b.bnH().remove("key_game_video_tab_has_choosed_sub_class_id");
+        com.baidu.tbadk.core.sharedPref.b.bnH().remove("key_game_video_tab_has_choosed_sub_class_name");
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public f.e Ba(int i) {
+    public f.e Bt(int i) {
         String string;
         if (i <= 0) {
             string = this.mPageContext.getResources().getString(R.string.game_video_no_more);
@@ -316,72 +316,72 @@ public class c {
         return new f.e(string, 1000);
     }
 
-    public void bok() {
-        if (this.jia != null) {
-            this.jia.bok();
+    public void bqd() {
+        if (this.juy != null) {
+            this.juy.bqd();
         }
-        if (this.jie != null) {
-            this.jie.onChangeSkinType();
+        if (this.juB != null) {
+            this.juB.onChangeSkinType();
         }
-        if (this.jic != null) {
-            this.jic.onChangeSkinType();
+        if (this.juA != null) {
+            this.juA.onChangeSkinType();
         }
-        if (this.jie.isShowing()) {
-            ap.setBackgroundResource(this.jia.cEJ(), R.color.cp_bg_line_d);
+        if (this.juB.isShowing()) {
+            ap.setBackgroundResource(this.juy.cHQ(), R.color.cp_bg_line_d);
         } else {
-            ap.setBackgroundResource(this.jia.cEJ(), R.color.cp_bg_line_h);
+            ap.setBackgroundResource(this.juy.cHQ(), R.color.cp_bg_line_h);
         }
     }
 
     public void onPause() {
-        if (this.jia != null) {
-            this.jia.onPause();
-            this.jia.cCY();
-            this.jia.setTabInForeBackgroundState(true);
+        if (this.juy != null) {
+            this.juy.onPause();
+            this.juy.cGf();
+            this.juy.setTabInForeBackgroundState(true);
         }
     }
 
     public void onDestroy() {
-        if (this.jia != null) {
-            this.jia.setListPullRefreshListener(null);
-            this.jia.a((BdListView.e) null);
-            this.jia.onDestroy();
+        if (this.juy != null) {
+            this.juy.setListPullRefreshListener(null);
+            this.juy.a((BdListView.e) null);
+            this.juy.onDestroy();
         }
-        if (this.jie != null) {
-            this.jie.onDestroy();
+        if (this.juB != null) {
+            this.juB.onDestroy();
         }
-        if (this.jic != null) {
-            this.jic.onDestroy();
+        if (this.juA != null) {
+            this.juA.onDestroy();
         }
-        if (this.jib != null) {
-            this.jib.onDestroy();
+        if (this.juz != null) {
+            this.juz.onDestroy();
         }
-        MessageManager.getInstance().unRegisterListener(this.hXD);
+        MessageManager.getInstance().unRegisterListener(this.ikd);
     }
 
     public void setPrimary(boolean z) {
         if (z) {
-            TiebaStatic.log(new aq("c13486").aj("obj_type", this.eCL));
-            if (!this.jie.isShowing()) {
-                this.jia.setViewForeground();
+            TiebaStatic.log(new aq("c13486").aj("obj_type", this.eLh));
+            if (!this.juB.isShowing()) {
+                this.juy.setViewForeground();
                 return;
             }
             return;
         }
-        if (this.jie != null) {
-            this.jie.cEs();
+        if (this.juB != null) {
+            this.juB.cHz();
         }
-        this.jia.cCY();
+        this.juy.cGf();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.jib != null && !y.isEmpty(this.jib.getDataList())) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.juz != null && !y.isEmpty(this.juz.getDataList())) {
             String optString = ((JSONObject) customResponsedMessage.getData()).optString("tid");
-            this.jib.JZ(optString);
-            this.jib.KW(optString);
-            if (this.jia != null) {
-                this.jia.KY(optString);
+            this.juz.Ky(optString);
+            this.juz.Lu(optString);
+            if (this.juy != null) {
+                this.juy.Lw(optString);
             }
         }
     }

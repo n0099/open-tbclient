@@ -11,25 +11,25 @@ import com.xiaomi.mipush.sdk.Constants;
 public class a extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f5017a = 1;
+    private static int f5015a = 1;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Object f793a = new Object();
+    public static final Object f790a = new Object();
 
     /* renamed from: a  reason: collision with other field name */
-    private static final String[] f794a = {"package_name", "TEXT", "message_ts", " LONG DEFAULT 0 ", "bytes", " LONG DEFAULT 0 ", HttpConstants.NETWORK_TYPE, " INT DEFAULT -1 ", "rcv", " INT DEFAULT -1 ", "imsi", "TEXT"};
+    private static final String[] f791a = {"package_name", "TEXT", "message_ts", " LONG DEFAULT 0 ", "bytes", " LONG DEFAULT 0 ", HttpConstants.NETWORK_TYPE, " INT DEFAULT -1 ", "rcv", " INT DEFAULT -1 ", "imsi", "TEXT"};
 
     public a(Context context) {
-        super(context, "traffic.db", (SQLiteDatabase.CursorFactory) null, f5017a);
+        super(context, "traffic.db", (SQLiteDatabase.CursorFactory) null, f5015a);
     }
 
     private void a(SQLiteDatabase sQLiteDatabase) {
         StringBuilder sb = new StringBuilder("CREATE TABLE traffic(_id INTEGER  PRIMARY KEY ,");
-        for (int i = 0; i < f794a.length - 1; i += 2) {
+        for (int i = 0; i < f791a.length - 1; i += 2) {
             if (i != 0) {
                 sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
             }
-            sb.append(f794a[i]).append(" ").append(f794a[i + 1]);
+            sb.append(f791a[i]).append(" ").append(f791a[i + 1]);
         }
         sb.append(");");
         sQLiteDatabase.execSQL(sb.toString());
@@ -37,7 +37,7 @@ public class a extends SQLiteOpenHelper {
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        synchronized (f793a) {
+        synchronized (f790a) {
             try {
                 a(sQLiteDatabase);
             } catch (SQLException e) {

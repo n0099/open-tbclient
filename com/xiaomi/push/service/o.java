@@ -12,17 +12,17 @@ import java.util.Map;
 public class o {
 
     /* renamed from: a  reason: collision with other field name */
-    private static final Map<String, byte[]> f922a = new HashMap();
+    private static final Map<String, byte[]> f919a = new HashMap();
 
     /* renamed from: a  reason: collision with root package name */
-    private static ArrayList<Pair<String, byte[]>> f5112a = new ArrayList<>();
+    private static ArrayList<Pair<String, byte[]>> f5110a = new ArrayList<>();
 
     public static void a(Context context, int i, String str) {
-        synchronized (f922a) {
-            for (String str2 : f922a.keySet()) {
-                a(context, str2, f922a.get(str2), i, str);
+        synchronized (f919a) {
+            for (String str2 : f919a.keySet()) {
+                a(context, str2, f919a.get(str2), i, str);
             }
-            f922a.clear();
+            f919a.clear();
         }
     }
 
@@ -37,11 +37,11 @@ public class o {
 
     public static void a(XMPushService xMPushService) {
         try {
-            synchronized (f922a) {
-                for (String str : f922a.keySet()) {
-                    w.a(xMPushService, str, f922a.get(str));
+            synchronized (f919a) {
+                for (String str : f919a.keySet()) {
+                    w.a(xMPushService, str, f919a.get(str));
                 }
-                f922a.clear();
+                f919a.clear();
             }
         } catch (gd e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
@@ -50,17 +50,17 @@ public class o {
     }
 
     public static void a(String str, byte[] bArr) {
-        synchronized (f922a) {
-            f922a.put(str, bArr);
+        synchronized (f919a) {
+            f919a.put(str, bArr);
         }
     }
 
     public static void b(XMPushService xMPushService) {
         ArrayList<Pair<String, byte[]>> arrayList;
         try {
-            synchronized (f5112a) {
-                arrayList = f5112a;
-                f5112a = new ArrayList<>();
+            synchronized (f5110a) {
+                arrayList = f5110a;
+                f5110a = new ArrayList<>();
             }
             Iterator<Pair<String, byte[]>> it = arrayList.iterator();
             while (it.hasNext()) {
@@ -74,10 +74,10 @@ public class o {
     }
 
     public static void b(String str, byte[] bArr) {
-        synchronized (f5112a) {
-            f5112a.add(new Pair<>(str, bArr));
-            if (f5112a.size() > 50) {
-                f5112a.remove(0);
+        synchronized (f5110a) {
+            f5110a.add(new Pair<>(str, bArr));
+            if (f5110a.size() > 50) {
+                f5110a.remove(0);
             }
         }
     }

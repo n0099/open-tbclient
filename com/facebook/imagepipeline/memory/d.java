@@ -7,74 +7,74 @@ import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
 /* loaded from: classes18.dex */
 class d<V> {
-    public final int kMd;
+    public final int kYA;
     public final int mItemSize;
-    final Queue nWE;
-    private final boolean nWF;
-    private int nWG;
+    final Queue oNW;
+    private final boolean oNX;
+    private int oNY;
 
     public d(int i, int i2, int i3, boolean z) {
         com.facebook.common.internal.g.checkState(i > 0);
         com.facebook.common.internal.g.checkState(i2 >= 0);
         com.facebook.common.internal.g.checkState(i3 >= 0);
         this.mItemSize = i;
-        this.kMd = i2;
-        this.nWE = new LinkedList();
-        this.nWG = i3;
-        this.nWF = z;
+        this.kYA = i2;
+        this.oNW = new LinkedList();
+        this.oNY = i3;
+        this.oNX = z;
     }
 
-    public boolean ecB() {
-        return this.nWG + ecC() > this.kMd;
+    public boolean emz() {
+        return this.oNY + emA() > this.kYA;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int ecC() {
-        return this.nWE.size();
+    public int emA() {
+        return this.oNW.size();
     }
 
     @Nullable
     public V get() {
         V pop = pop();
         if (pop != null) {
-            this.nWG++;
+            this.oNY++;
         }
         return pop;
     }
 
     @Nullable
     public V pop() {
-        return (V) this.nWE.poll();
+        return (V) this.oNW.poll();
     }
 
-    public void ecD() {
-        this.nWG++;
+    public void emB() {
+        this.oNY++;
     }
 
     public void release(V v) {
         com.facebook.common.internal.g.checkNotNull(v);
-        if (this.nWF) {
-            com.facebook.common.internal.g.checkState(this.nWG > 0);
-            this.nWG--;
-            bv(v);
-        } else if (this.nWG > 0) {
-            this.nWG--;
-            bv(v);
+        if (this.oNX) {
+            com.facebook.common.internal.g.checkState(this.oNY > 0);
+            this.oNY--;
+            bz(v);
+        } else if (this.oNY > 0) {
+            this.oNY--;
+            bz(v);
         } else {
             com.facebook.common.c.a.g("BUCKET", "Tried to release value %s from an empty bucket!", v);
         }
     }
 
-    void bv(V v) {
-        this.nWE.add(v);
+    void bz(V v) {
+        this.oNW.add(v);
     }
 
-    public void ecE() {
-        com.facebook.common.internal.g.checkState(this.nWG > 0);
-        this.nWG--;
+    public void emC() {
+        com.facebook.common.internal.g.checkState(this.oNY > 0);
+        this.oNY--;
     }
 
-    public int dZG() {
-        return this.nWG;
+    public int ejE() {
+        return this.oNY;
     }
 }

@@ -320,9 +320,9 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
     private void initARConfig() {
         if (!isSetupConfig) {
             isSetupConfig = true;
-            if (b.VI() != null) {
-                b.VI();
-                FILTER_DEFAULT = c.VN();
+            if (b.XC() != null) {
+                b.XC();
+                FILTER_DEFAULT = c.XH();
             }
         }
     }
@@ -369,11 +369,11 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
                             DuArCameraOperator.this.setBeautyJsonPath(DuArCameraOperator.this.mFaceFilePath);
                         }
                         if (DuArCameraOperator.this.mARProcessor != null) {
-                            com.baidu.minivideo.arface.bean.b VJ = b.VJ();
-                            if (DuArCameraOperator.this.isDebug() && VJ != null) {
+                            com.baidu.minivideo.arface.bean.b XD = b.XD();
+                            if (DuArCameraOperator.this.isDebug() && XD != null) {
                                 Log.d("ArUpdate", "onSetup setQulaityParm ------------ ");
                             }
-                            DuArCameraOperator.this.mARProcessor.setQulaityParm(VJ);
+                            DuArCameraOperator.this.mARProcessor.setQulaityParm(XD);
                         }
                     }
                 });

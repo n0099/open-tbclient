@@ -13,63 +13,63 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes22.dex */
 public class d implements com.baidu.tieba.c.c {
-    private EnterForumModel hRo;
-    private c.a hSk;
-    private final EnterForumModel.b hRB = new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.d.1
+    private EnterForumModel idP;
+    private c.a ieL;
+    private final EnterForumModel.b iec = new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.d.1
         @Override // com.baidu.tieba.enterForum.model.EnterForumModel.b
         public void a(EnterForumModel.a aVar) {
-            if (d.this.hSk != null) {
-                if (aVar == null || !aVar.isOk || aVar.hUk == null || aVar.hUk.cli() == null) {
-                    d.this.hSk.a(null, false, 1, 0);
+            if (d.this.ieL != null) {
+                if (aVar == null || !aVar.isOk || aVar.igK == null || aVar.igK.cop() == null) {
+                    d.this.ieL.a(null, false, 1, 0);
                     return;
                 }
                 ArrayList<TransmitForumData> arrayList = new ArrayList<>();
-                ArrayList<f> clE = aVar.hUk.cli().clE();
-                if (y.getCount(clE) > 0) {
-                    Iterator<f> it = clE.iterator();
+                ArrayList<f> coL = aVar.igK.cop().coL();
+                if (y.getCount(coL) > 0) {
+                    Iterator<f> it = coL.iterator();
                     while (it.hasNext()) {
                         f next = it.next();
                         if (next != null && !StringUtils.isNull(next.getId()) && !StringUtils.isNull(next.getName())) {
                             TransmitForumData transmitForumData = new TransmitForumData(Long.valueOf(next.getId()).longValue(), next.getName(), false, 1, next.getAvatar());
-                            transmitForumData.tabItemDatas = next.clD();
+                            transmitForumData.tabItemDatas = next.coK();
                             arrayList.add(transmitForumData);
                         }
                     }
                 }
-                d.this.hSk.a(arrayList, true, 1, 0);
+                d.this.ieL.a(arrayList, true, 1, 0);
             }
         }
     };
-    private com.baidu.adp.framework.listener.a hSl = new com.baidu.adp.framework.listener.a(1002400, CmdConfigSocket.CMD_FORUM_RECOMMEND) { // from class: com.baidu.tieba.enterForum.home.d.2
+    private com.baidu.adp.framework.listener.a ieM = new com.baidu.adp.framework.listener.a(1002400, CmdConfigSocket.CMD_FORUM_RECOMMEND) { // from class: com.baidu.tieba.enterForum.home.d.2
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && d.this.hRo.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
+            if (((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && d.this.idP.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
                 if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
-                    d.this.hRo.a((forumRecommendSocketResponseMessage) responsedMessage);
+                    d.this.idP.a((forumRecommendSocketResponseMessage) responsedMessage);
                 }
                 if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
-                    d.this.hRo.a((forumRecommendHttpResponseMessage) responsedMessage);
+                    d.this.idP.a((forumRecommendHttpResponseMessage) responsedMessage);
                 }
             }
         }
     };
 
     public d() {
-        this.hRo = null;
-        this.hRo = new EnterForumModel(null);
-        this.hRo.a(this.hRB);
-        MessageManager.getInstance().registerListener(this.hSl);
+        this.idP = null;
+        this.idP = new EnterForumModel(null);
+        this.idP.a(this.iec);
+        MessageManager.getInstance().registerListener(this.ieM);
     }
 
     @Override // com.baidu.tieba.c.c
-    public void cjK() {
-        if (this.hSk != null && this.hRo != null) {
-            this.hRo.oq(true);
+    public void cmR() {
+        if (this.ieL != null && this.idP != null) {
+            this.idP.oI(true);
         }
     }
 
     @Override // com.baidu.tieba.c.c
     public void a(c.a aVar) {
-        this.hSk = aVar;
+        this.ieL = aVar;
     }
 }

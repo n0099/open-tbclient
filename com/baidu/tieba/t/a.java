@@ -8,11 +8,11 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class a {
     private static a mInstance;
-    private InterfaceC0820a mICrabSdk = getCrabSdk();
+    private InterfaceC0835a mICrabSdk = getCrabSdk();
 
     /* renamed from: com.baidu.tieba.t.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0820a {
+    public interface InterfaceC0835a {
         void behaviorRecordEvent(MotionEvent motionEvent, Activity activity);
 
         void initSdk(Application application);
@@ -31,18 +31,18 @@ public class a {
     }
 
     private boolean isCrabSdkSwitchOn() {
-        return com.baidu.tbadk.core.sharedPref.b.blO().getInt("pref_key_crab_sdk_enable", 1) == 1;
+        return com.baidu.tbadk.core.sharedPref.b.bnH().getInt("pref_key_crab_sdk_enable", 1) == 1;
     }
 
     private a() {
     }
 
-    private InterfaceC0820a getCrabSdk() {
+    private InterfaceC0835a getCrabSdk() {
         CustomResponsedMessage runTask;
-        if (!isCrabSdkSwitchOn() || (runTask = MessageManager.getInstance().runTask(2016565, InterfaceC0820a.class)) == null) {
+        if (!isCrabSdkSwitchOn() || (runTask = MessageManager.getInstance().runTask(2016565, InterfaceC0835a.class)) == null) {
             return null;
         }
-        return (InterfaceC0820a) runTask.getData();
+        return (InterfaceC0835a) runTask.getData();
     }
 
     public static a getInstance() {

@@ -6,7 +6,7 @@ import java.util.List;
 @kotlin.h
 /* loaded from: classes10.dex */
 public class p {
-    public static final <T> List<T> bQ(T t) {
+    public static final <T> List<T> bU(T t) {
         List<T> singletonList = Collections.singletonList(t);
         kotlin.jvm.internal.q.m(singletonList, "java.util.Collections.singletonList(element)");
         return singletonList;

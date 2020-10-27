@@ -10,38 +10,38 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class be {
-    private TranslateAnimation bEp;
-    private View iuc = null;
-    private int iud = 2000;
-    private Runnable bEq = new Runnable() { // from class: com.baidu.tieba.frs.be.1
+    private TranslateAnimation bHl;
+    private View iGy = null;
+    private int iGz = 2000;
+    private Runnable bHm = new Runnable() { // from class: com.baidu.tieba.frs.be.1
         @Override // java.lang.Runnable
         public void run() {
             be.this.hideTip();
         }
     };
-    private ValueAnimator iue = new ValueAnimator();
+    private ValueAnimator iGA = new ValueAnimator();
 
     public be() {
-        this.iue.setFloatValues(1.0f, 0.0f);
-        this.iue.setDuration(400L);
-        this.iue.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.be.2
+        this.iGA.setFloatValues(1.0f, 0.0f);
+        this.iGA.setDuration(400L);
+        this.iGA.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.be.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (be.this.iuc != null && valueAnimator != null) {
-                    be.this.iuc.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                if (be.this.iGy != null && valueAnimator != null) {
+                    be.this.iGy.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             }
         });
-        this.iue.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.be.3
+        this.iGA.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.be.3
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (be.this.iuc != null) {
-                    be.this.cuY();
-                    be.this.iuc.setAlpha(1.0f);
+                if (be.this.iGy != null) {
+                    be.this.cyf();
+                    be.this.iGy.setAlpha(1.0f);
                 }
             }
 
@@ -53,16 +53,16 @@ public class be {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.bEp = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
-        this.bEp.setDuration(400L);
-        this.bEp.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.be.4
+        this.bHl = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
+        this.bHl.setDuration(400L);
+        this.bHl.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.be.4
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                com.baidu.adp.lib.f.e.mY().postDelayed(be.this.bEq, be.this.iud);
+                com.baidu.adp.lib.f.e.mY().postDelayed(be.this.bHm, be.this.iGz);
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -73,47 +73,47 @@ public class be {
 
     public void a(View view, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, int i) {
         if (viewGroup != null && view != null) {
-            this.iuc = view;
-            cuY();
-            viewGroup.addView(this.iuc, layoutParams);
-            this.iuc.setVisibility(0);
-            this.iud = i;
-            com.baidu.adp.lib.f.e.mY().removeCallbacks(this.bEq);
-            com.baidu.adp.lib.f.e.mY().postDelayed(this.bEq, this.iud);
+            this.iGy = view;
+            cyf();
+            viewGroup.addView(this.iGy, layoutParams);
+            this.iGy.setVisibility(0);
+            this.iGz = i;
+            com.baidu.adp.lib.f.e.mY().removeCallbacks(this.bHm);
+            com.baidu.adp.lib.f.e.mY().postDelayed(this.bHm, this.iGz);
         }
     }
 
     public void a(View view, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         if (viewGroup != null && view != null) {
-            this.iuc = view;
-            cuY();
-            viewGroup.addView(this.iuc, layoutParams);
-            this.iuc.setVisibility(0);
+            this.iGy = view;
+            cyf();
+            viewGroup.addView(this.iGy, layoutParams);
+            this.iGy.setVisibility(0);
         }
     }
 
     public void hideTip() {
-        com.baidu.adp.lib.f.e.mY().removeCallbacks(this.bEq);
-        if (this.iuc != null && this.iuc.getParent() != null && this.iuc.getVisibility() == 0 && !this.iue.isRunning()) {
-            this.iue.start();
+        com.baidu.adp.lib.f.e.mY().removeCallbacks(this.bHm);
+        if (this.iGy != null && this.iGy.getParent() != null && this.iGy.getVisibility() == 0 && !this.iGA.isRunning()) {
+            this.iGA.start();
         }
     }
 
-    public void cuY() {
-        com.baidu.adp.lib.f.e.mY().removeCallbacks(this.bEq);
-        if (this.iuc != null) {
-            if (this.iue != null && this.iue.isRunning()) {
-                this.iue.cancel();
+    public void cyf() {
+        com.baidu.adp.lib.f.e.mY().removeCallbacks(this.bHm);
+        if (this.iGy != null) {
+            if (this.iGA != null && this.iGA.isRunning()) {
+                this.iGA.cancel();
             }
-            this.iuc.clearAnimation();
-            if (this.iuc.getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.iuc.getParent()).removeView(this.iuc);
+            this.iGy.clearAnimation();
+            if (this.iGy.getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.iGy.getParent()).removeView(this.iGy);
             }
-            this.iuc.setVisibility(8);
+            this.iGy.setVisibility(8);
         }
     }
 
     public void onDestroy() {
-        cuY();
+        cyf();
     }
 }

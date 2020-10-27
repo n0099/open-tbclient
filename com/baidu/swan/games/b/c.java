@@ -8,18 +8,18 @@ import com.baidu.swan.apps.res.widget.dialog.g;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes10.dex */
 public class c {
-    private com.baidu.swan.apps.res.widget.dialog.g dBX;
+    private com.baidu.swan.apps.res.widget.dialog.g dKu;
 
     public void a(final Activity activity, final String str, final String str2, final boolean z, final DialogInterface.OnClickListener onClickListener) {
         ak.m(new Runnable() { // from class: com.baidu.swan.games.b.c.1
             @Override // java.lang.Runnable
             public void run() {
-                if (c.this.dBX != null && c.this.dBX.isShowing()) {
-                    c.this.dBX.dismiss();
+                if (c.this.dKu != null && c.this.dKu.isShowing()) {
+                    c.this.dKu.dismiss();
                 }
                 if (activity != null && !activity.isFinishing()) {
                     g.a b = c.this.b(activity, str, str2, z, onClickListener);
-                    c.this.dBX = b.aCH();
+                    c.this.dKu = b.aEB();
                 }
             }
         });
@@ -28,17 +28,17 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public g.a b(Activity activity, String str, String str2, boolean z, DialogInterface.OnClickListener onClickListener) {
         g.a aVar = new g.a(activity);
-        aVar.rk(str).aCD().a(new com.baidu.swan.apps.view.c.a()).fV(z).jG(a.c.swan_games_antiaddiction_positive).fT(true);
+        aVar.rD(str).aEx().a(new com.baidu.swan.apps.view.c.a()).gi(z).jR(a.c.swan_games_antiaddiction_positive).gg(true);
         aVar.a(str2, onClickListener);
         return aVar;
     }
 
     public void destroy() {
-        if (this.dBX != null) {
-            if (this.dBX.isShowing()) {
-                this.dBX.dismiss();
+        if (this.dKu != null) {
+            if (this.dKu.isShowing()) {
+                this.dKu.dismiss();
             }
-            this.dBX = null;
+            this.dKu = null;
         }
     }
 }

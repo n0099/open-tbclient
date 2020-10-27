@@ -8,15 +8,15 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    C0867a f3940a;
+    C0917a f3938a;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.webkit.internal.monitor.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public class C0867a {
+    public class C0917a {
 
         /* renamed from: a  reason: collision with root package name */
-        boolean f3941a;
+        boolean f3939a;
         boolean b;
         long c;
         long d;
@@ -24,7 +24,7 @@ public final class a {
         boolean f;
         Map<String, Long> g;
 
-        private C0867a() {
+        private C0917a() {
             this.b = true;
             this.c = -1L;
             this.d = -1L;
@@ -32,12 +32,12 @@ public final class a {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public /* synthetic */ C0867a(a aVar, byte b) {
+        public /* synthetic */ C0917a(a aVar, byte b) {
             this();
         }
 
         public final void a() {
-            this.f3941a = false;
+            this.f3939a = false;
             this.b = true;
             this.c = -1L;
             this.d = -1L;
@@ -50,23 +50,23 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: protected */
     public final JSONObject a() {
         try {
-            if (this.f3940a != null && this.f3940a.f) {
+            if (this.f3938a != null && this.f3938a.f) {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("coldbootfirst", this.f3940a.f3941a);
-                jSONObject.put("loadasycsearch", this.f3940a.b);
-                jSONObject.put("starttosearch", this.f3940a.c);
-                jSONObject.put("starttofragment", this.f3940a.d);
-                jSONObject.put("state50", this.f3940a.e);
-                for (String str : this.f3940a.g.keySet()) {
-                    jSONObject.put(str, this.f3940a.g.get(str));
+                jSONObject.put("coldbootfirst", this.f3938a.f3939a);
+                jSONObject.put("loadasycsearch", this.f3938a.b);
+                jSONObject.put("starttosearch", this.f3938a.c);
+                jSONObject.put("starttofragment", this.f3938a.d);
+                jSONObject.put("state50", this.f3938a.e);
+                for (String str : this.f3938a.g.keySet()) {
+                    jSONObject.put(str, this.f3938a.g.get(str));
                 }
-                this.f3940a.a();
+                this.f3938a.a();
                 return jSONObject;
             }
             return null;
         } catch (Throwable th) {
             Log.printStackTrace(th);
-            this.f3940a.a();
+            this.f3938a.a();
             return null;
         }
     }

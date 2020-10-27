@@ -5,10 +5,10 @@ import kotlin.jvm.internal.q;
 /* loaded from: classes10.dex */
 public final class d {
     private static final String TAG;
-    public static final d cih = new d();
+    public static final d cqH = new d();
 
     static {
-        String simpleName = cih.getClass().getSimpleName();
+        String simpleName = cqH.getClass().getSimpleName();
         q.m(simpleName, "SwanAppAllianceLoginBdus…ager.javaClass.simpleName");
         TAG = simpleName;
     }
@@ -16,7 +16,7 @@ public final class d {
     private d() {
     }
 
-    public final void aeN() {
-        a.W(com.baidu.swan.apps.t.a.asf(), "");
+    public final void agH() {
+        a.X(com.baidu.swan.apps.t.a.aua(), "");
     }
 }

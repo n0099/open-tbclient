@@ -7,61 +7,61 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
-    private Fragment[] bbL;
-    private String bvP;
-    private String bvQ;
-    private TbPageContext idM;
-    private e nmM;
-    private String[] nmN;
-    private ImageListFragment nmO;
-    private AlbumImageBrowseFragment nmP;
+    private Fragment[] bcZ;
+    private String byd;
+    private String bye;
+    private TbPageContext iqk;
+    private e nzn;
+    private String[] nzo;
+    private ImageListFragment nzp;
+    private AlbumImageBrowseFragment nzq;
 
     public a(TbPageContext tbPageContext, e eVar) {
         super(tbPageContext);
-        this.bvP = "tag_image";
-        this.bvQ = "tag_b_image";
-        this.idM = tbPageContext;
-        this.nmM = eVar;
+        this.byd = "tag_image";
+        this.bye = "tag_b_image";
+        this.iqk = tbPageContext;
+        this.nzn = eVar;
     }
 
-    public void Qj() {
-        this.bbL = new Fragment[2];
-        this.nmN = new String[2];
-        this.nmO = new ImageListFragment();
-        this.nmO.a(this.nmM);
-        this.bbL[0] = this.nmO;
-        this.nmN[0] = this.bvP;
-        this.nmP = new AlbumImageBrowseFragment();
-        this.nmP.a(this.nmM);
-        this.bbL[1] = this.nmP;
-        this.nmN[1] = this.bvQ;
+    public void Re() {
+        this.bcZ = new Fragment[2];
+        this.nzo = new String[2];
+        this.nzp = new ImageListFragment();
+        this.nzp.a(this.nzn);
+        this.bcZ[0] = this.nzp;
+        this.nzo[0] = this.byd;
+        this.nzq = new AlbumImageBrowseFragment();
+        this.nzq.a(this.nzn);
+        this.bcZ[1] = this.nzq;
+        this.nzo[1] = this.bye;
     }
 
-    public Fragment KH(int i) {
+    public Fragment KZ(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.bbL[i];
+        return this.bcZ[i];
     }
 
-    public String KI(int i) {
+    public String La(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.nmN[i];
+        return this.nzo[i];
     }
 
     public void a(NavigationBar navigationBar) {
-        this.nmO.a(navigationBar);
+        this.nzp.a(navigationBar);
     }
 
     public void onChangeSkinType(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < this.bbL.length) {
-                if (this.bbL[i3] != null && (this.bbL[i3] instanceof ImageListFragment)) {
-                    ((ImageListFragment) this.bbL[i3]).onChangeSkinType(i);
+            if (i3 < this.bcZ.length) {
+                if (this.bcZ[i3] != null && (this.bcZ[i3] instanceof ImageListFragment)) {
+                    ((ImageListFragment) this.bcZ[i3]).onChangeSkinType(i);
                 }
                 i2 = i3 + 1;
             } else {
@@ -70,99 +70,99 @@ public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
         }
     }
 
-    public TbCameraView dNI() {
-        if (this.nmO == null) {
+    public TbCameraView dQQ() {
+        if (this.nzp == null) {
             return null;
         }
-        return this.nmO.dNI();
+        return this.nzp.dQQ();
     }
 
     public void stopCamera() {
-        TbCameraView dNI = dNI();
-        if (dNI != null) {
-            dNI.stopCamera();
-            dNI.setVisibility(4);
+        TbCameraView dQQ = dQQ();
+        if (dQQ != null) {
+            dQQ.stopCamera();
+            dQQ.setVisibility(4);
         }
     }
 
     public void openCamera() {
-        TbCameraView dNI = dNI();
-        if (dNI != null) {
-            dNI.setVisibility(0);
-            dNI.xX(false);
+        TbCameraView dQQ = dQQ();
+        if (dQQ != null) {
+            dQQ.setVisibility(0);
+            dQQ.yo(false);
         }
-        if (this.nmO != null && this.nmO.dNT() != null) {
-            this.nmO.dNT().QG();
-        }
-    }
-
-    public void dNJ() {
-        if (this.nmO != null) {
-            this.nmO.QE();
+        if (this.nzp != null && this.nzp.dRb() != null) {
+            this.nzp.dRb().RB();
         }
     }
 
-    public View Qk() {
-        if (this.nmO == null) {
+    public void dQR() {
+        if (this.nzp != null) {
+            this.nzp.Rz();
+        }
+    }
+
+    public View Rf() {
+        if (this.nzp == null) {
             return null;
         }
-        return this.nmO.QB();
+        return this.nzp.Rw();
     }
 
-    public View Ql() {
-        if (this.nmO == null) {
+    public View Rg() {
+        if (this.nzp == null) {
             return null;
         }
-        return this.nmO.QF();
+        return this.nzp.RA();
     }
 
-    public View Qm() {
-        if (this.nmP == null) {
+    public View Rh() {
+        if (this.nzq == null) {
             return null;
         }
-        return this.nmP.QB();
+        return this.nzq.Rw();
     }
 
-    public View Qn() {
-        if (this.nmP == null) {
+    public View Ri() {
+        if (this.nzq == null) {
             return null;
         }
-        return this.nmP.QC();
+        return this.nzq.Rx();
     }
 
-    public View Qo() {
-        if (this.nmP == null) {
+    public View Rj() {
+        if (this.nzq == null) {
             return null;
         }
-        return this.nmP.Qo();
+        return this.nzq.Rj();
     }
 
-    public View Qp() {
-        if (this.nmO == null) {
+    public View Rk() {
+        if (this.nzp == null) {
             return null;
         }
-        return this.nmO.Qo();
+        return this.nzp.Rj();
     }
 
     public void onDestroy() {
     }
 
-    public ImageListFragment dNK() {
-        return this.nmO;
+    public ImageListFragment dQS() {
+        return this.nzp;
     }
 
-    public void cD(boolean z) {
-        if (this.nmP != null) {
-            this.nmP.cD(z);
+    public void cJ(boolean z) {
+        if (this.nzq != null) {
+            this.nzq.cJ(z);
         }
-        if (this.nmO != null) {
-            this.nmO.cD(z);
+        if (this.nzp != null) {
+            this.nzp.cJ(z);
         }
     }
 
     public void a(j jVar) {
-        if (this.nmO != null) {
-            this.nmO.a(jVar);
+        if (this.nzp != null) {
+            this.nzp.a(jVar);
         }
     }
 }

@@ -5,7 +5,7 @@ import android.os.Build;
 import android.view.View;
 /* loaded from: classes6.dex */
 public class f {
-    static final k dWP;
+    static final k efl;
 
     /* loaded from: classes6.dex */
     interface k {
@@ -84,7 +84,7 @@ public class f {
 
     /* loaded from: classes6.dex */
     static class e extends d {
-        static boolean dWQ = false;
+        static boolean efm = false;
 
         e() {
         }
@@ -97,8 +97,8 @@ public class f {
 
     /* renamed from: com.baidu.swan.support.v4.c.f$f  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    static class C0536f extends e {
-        C0536f() {
+    static class C0550f extends e {
+        C0550f() {
         }
 
         @Override // com.baidu.swan.support.v4.c.f.a, com.baidu.swan.support.v4.c.f.k
@@ -108,7 +108,7 @@ public class f {
     }
 
     /* loaded from: classes6.dex */
-    static class g extends C0536f {
+    static class g extends C0550f {
         g() {
         }
     }
@@ -133,29 +133,29 @@ public class f {
 
     static {
         if (Build.VERSION.SDK_INT >= 21) {
-            dWP = new j();
+            efl = new j();
         } else {
-            dWP = new i();
+            efl = new i();
         }
     }
 
     public static boolean canScrollVertically(View view, int i2) {
-        return dWP.canScrollVertically(view, i2);
+        return efl.canScrollVertically(view, i2);
     }
 
     public static void setLayerType(View view, int i2, Paint paint) {
-        dWP.setLayerType(view, i2, paint);
+        efl.setLayerType(view, i2, paint);
     }
 
     public static int getLayerType(View view) {
-        return dWP.getLayerType(view);
+        return efl.getLayerType(view);
     }
 
     public static void setSaveFromParentEnabled(View view, boolean z) {
-        dWP.setSaveFromParentEnabled(view, z);
+        efl.setSaveFromParentEnabled(view, z);
     }
 
     public static boolean hasOverlappingRendering(View view) {
-        return dWP.hasOverlappingRendering(view);
+        return efl.hasOverlappingRendering(view);
     }
 }

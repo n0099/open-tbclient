@@ -9,14 +9,14 @@ import rx.exceptions.MissingBackpressureException;
 import rx.internal.util.BackpressureDrainManager;
 /* loaded from: classes16.dex */
 public class m<T> implements d.b<T, T> {
-    private final Long pfr = null;
-    private final rx.functions.a pfs = null;
-    private final a.d pft = rx.a.pcp;
+    private final Long pWK = null;
+    private final rx.functions.a pWL = null;
+    private final a.d pWM = rx.a.pTI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes16.dex */
     public static final class b {
-        static final m<?> pfy = new m<>();
+        static final m<?> pWR = new m<>();
     }
 
     @Override // rx.functions.f
@@ -24,17 +24,17 @@ public class m<T> implements d.b<T, T> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> m<T> esb() {
-        return (m<T>) b.pfy;
+    public static <T> m<T> eBZ() {
+        return (m<T>) b.pWR;
     }
 
     m() {
     }
 
     public rx.j<? super T> call(rx.j<? super T> jVar) {
-        a aVar = new a(jVar, this.pfr, this.pfs, this.pft);
+        a aVar = new a(jVar, this.pWK, this.pWL, this.pWM);
         jVar.add(aVar);
-        jVar.setProducer(aVar.esd());
+        jVar.setProducer(aVar.eCb());
         return aVar;
     }
 
@@ -42,19 +42,19 @@ public class m<T> implements d.b<T, T> {
     /* loaded from: classes16.dex */
     public static final class a<T> extends rx.j<T> implements BackpressureDrainManager.a {
         private final rx.j<? super T> child;
-        private final rx.functions.a pfs;
-        private final a.d pft;
-        private final AtomicLong pfv;
-        private final BackpressureDrainManager pfx;
-        private final ConcurrentLinkedQueue<Object> pfu = new ConcurrentLinkedQueue<>();
-        private final AtomicBoolean pfw = new AtomicBoolean(false);
+        private final rx.functions.a pWL;
+        private final a.d pWM;
+        private final AtomicLong pWO;
+        private final BackpressureDrainManager pWQ;
+        private final ConcurrentLinkedQueue<Object> pWN = new ConcurrentLinkedQueue<>();
+        private final AtomicBoolean pWP = new AtomicBoolean(false);
 
         public a(rx.j<? super T> jVar, Long l, rx.functions.a aVar, a.d dVar) {
             this.child = jVar;
-            this.pfv = l != null ? new AtomicLong(l.longValue()) : null;
-            this.pfs = aVar;
-            this.pfx = new BackpressureDrainManager(this);
-            this.pft = dVar;
+            this.pWO = l != null ? new AtomicLong(l.longValue()) : null;
+            this.pWL = aVar;
+            this.pWQ = new BackpressureDrainManager(this);
+            this.pWM = dVar;
         }
 
         @Override // rx.j
@@ -64,28 +64,28 @@ public class m<T> implements d.b<T, T> {
 
         @Override // rx.e
         public void onCompleted() {
-            if (!this.pfw.get()) {
-                this.pfx.terminateAndDrain();
+            if (!this.pWP.get()) {
+                this.pWQ.terminateAndDrain();
             }
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            if (!this.pfw.get()) {
-                this.pfx.terminateAndDrain(th);
+            if (!this.pWP.get()) {
+                this.pWQ.terminateAndDrain(th);
             }
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            if (esc()) {
-                this.pfu.offer(NotificationLite.next(t));
-                this.pfx.drain();
+            if (eCa()) {
+                this.pWN.offer(NotificationLite.next(t));
+                this.pWQ.drain();
             }
         }
 
         @Override // rx.internal.util.BackpressureDrainManager.a
-        public boolean cf(Object obj) {
+        public boolean cj(Object obj) {
             return NotificationLite.a(this.child, obj);
         }
 
@@ -100,42 +100,42 @@ public class m<T> implements d.b<T, T> {
 
         @Override // rx.internal.util.BackpressureDrainManager.a
         public Object peek() {
-            return this.pfu.peek();
+            return this.pWN.peek();
         }
 
         @Override // rx.internal.util.BackpressureDrainManager.a
         public Object poll() {
-            Object poll = this.pfu.poll();
-            if (this.pfv != null && poll != null) {
-                this.pfv.incrementAndGet();
+            Object poll = this.pWN.poll();
+            if (this.pWO != null && poll != null) {
+                this.pWO.incrementAndGet();
             }
             return poll;
         }
 
-        private boolean esc() {
+        private boolean eCa() {
             long j;
             boolean z;
-            if (this.pfv == null) {
+            if (this.pWO == null) {
                 return true;
             }
             do {
-                j = this.pfv.get();
+                j = this.pWO.get();
                 if (j <= 0) {
                     try {
-                        z = this.pft.ert() && poll() != null;
+                        z = this.pWM.eBr() && poll() != null;
                     } catch (MissingBackpressureException e) {
-                        if (this.pfw.compareAndSet(false, true)) {
+                        if (this.pWP.compareAndSet(false, true)) {
                             unsubscribe();
                             this.child.onError(e);
                         }
                         z = false;
                     }
-                    if (this.pfs != null) {
+                    if (this.pWL != null) {
                         try {
-                            this.pfs.call();
+                            this.pWL.call();
                         } catch (Throwable th) {
                             rx.exceptions.a.J(th);
-                            this.pfx.terminateAndDrain(th);
+                            this.pWQ.terminateAndDrain(th);
                             return false;
                         }
                     }
@@ -143,12 +143,12 @@ public class m<T> implements d.b<T, T> {
                         return false;
                     }
                 }
-            } while (!this.pfv.compareAndSet(j, j - 1));
+            } while (!this.pWO.compareAndSet(j, j - 1));
             return true;
         }
 
-        protected rx.f esd() {
-            return this.pfx;
+        protected rx.f eCb() {
+            return this.pWQ;
         }
     }
 }

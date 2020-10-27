@@ -17,10 +17,10 @@ public enum fg {
     
 
     /* renamed from: a  reason: collision with other field name */
-    public final String f320a;
+    public final String f317a;
 
     fg(String str) {
-        this.f320a = str;
+        this.f317a = str;
     }
 
     public static int a(String str) {
@@ -28,7 +28,7 @@ public enum fg {
         int i = -1;
         if (!TextUtils.isEmpty(str)) {
             for (fg fgVar : values()) {
-                if (fgVar.f320a.equals(str)) {
+                if (fgVar.f317a.equals(str)) {
                     i = fa.a(fgVar);
                 }
             }

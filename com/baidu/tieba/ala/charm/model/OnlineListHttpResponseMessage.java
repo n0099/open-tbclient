@@ -1,14 +1,14 @@
 package com.baidu.tieba.ala.charm.model;
 
 import com.baidu.live.data.AlaLiveUserInfoData;
-import com.baidu.live.data.n;
+import com.baidu.live.data.q;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class OnlineListHttpResponseMessage extends JsonHttpResponsedMessage {
-    private AlaLiveUserInfoData aHD;
-    private n ggN;
-    private long ggO;
+    private AlaLiveUserInfoData aIe;
+    private q gqQ;
+    private long gqR;
     private long mAudienceCount;
 
     public OnlineListHttpResponseMessage() {
@@ -22,31 +22,31 @@ public class OnlineListHttpResponseMessage extends JsonHttpResponsedMessage {
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             this.mAudienceCount = optJSONObject.optLong("audience_count");
             if (optJSONObject.optJSONArray("initmacy_rank") != null) {
-                this.ggN = new n();
-                this.ggN.parserJson(optJSONObject);
+                this.gqQ = new q();
+                this.gqQ.parserJson(optJSONObject);
             }
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("current_user_info");
             if (optJSONObject2 != null) {
-                this.aHD = new AlaLiveUserInfoData();
-                this.aHD.parserJson(optJSONObject2);
+                this.aIe = new AlaLiveUserInfoData();
+                this.aIe.parserJson(optJSONObject2);
             }
-            this.ggO = optJSONObject.optLong("live_total_price");
+            this.gqR = optJSONObject.optLong("live_total_price");
         }
     }
 
-    public long bMn() {
+    public long bOP() {
         return this.mAudienceCount;
     }
 
-    public n bMo() {
-        return this.ggN;
+    public q bOQ() {
+        return this.gqQ;
     }
 
-    public AlaLiveUserInfoData bMp() {
-        return this.aHD;
+    public AlaLiveUserInfoData bOR() {
+        return this.aIe;
     }
 
-    public long bMq() {
-        return this.ggO;
+    public long bOS() {
+        return this.gqR;
     }
 }

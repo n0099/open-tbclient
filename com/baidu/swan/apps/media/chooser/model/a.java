@@ -4,51 +4,51 @@ import java.util.ArrayList;
 /* loaded from: classes10.dex */
 public class a implements Comparable<Object> {
     private String BU;
-    private String cPm;
-    public ArrayList<MediaModel> cPn;
+    private String cXI;
+    public ArrayList<MediaModel> cXJ;
     private long lastModified;
 
     public String iN() {
         return this.BU;
     }
 
-    public void pw(String str) {
+    public void pP(String str) {
         this.BU = str;
     }
 
-    public String awD() {
-        return this.cPm;
+    public String ayx() {
+        return this.cXI;
     }
 
-    public void px(String str) {
-        this.cPm = str;
+    public void pQ(String str) {
+        this.cXI = str;
     }
 
     public long getLastModified() {
         return this.lastModified;
     }
 
-    public void br(long j) {
+    public void bt(long j) {
         this.lastModified = j;
     }
 
-    public int awE() {
-        return this.cPn.size();
+    public int ayy() {
+        return this.cXJ.size();
     }
 
-    public ArrayList<MediaModel> awy() {
-        return this.cPn;
+    public ArrayList<MediaModel> ays() {
+        return this.cXJ;
     }
 
     public void h(MediaModel mediaModel) {
-        if (this.cPn == null) {
-            this.cPn = new ArrayList<>();
+        if (this.cXJ == null) {
+            this.cXJ = new ArrayList<>();
         }
-        this.cPn.add(mediaModel);
+        this.cXJ.add(mediaModel);
     }
 
     public String toString() {
-        return "MediaDir [firstImgPath=, dirName=" + this.BU + ", imageCount=" + awE() + "]";
+        return "MediaDir [firstImgPath=, dirName=" + this.BU + ", imageCount=" + ayy() + "]";
     }
 
     public boolean equals(Object obj) {

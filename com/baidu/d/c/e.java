@@ -16,19 +16,19 @@ import java.util.HashMap;
 public class e {
     private static boolean DEBUG = AppConfig.isDebug();
     private static String TAG = "networkparam";
-    private static HashMap<String, Integer> anx = new HashMap<>();
+    private static HashMap<String, Integer> any = new HashMap<>();
     private Context mContext = AppRuntime.getAppContext();
 
     static {
-        anx.put("WIFI", 1);
-        anx.put("3GNET", 21);
-        anx.put("3GWAP", 22);
-        anx.put("CMNET", 31);
-        anx.put("UNINET", 32);
-        anx.put("CTNET", 33);
-        anx.put("CMWAP", 41);
-        anx.put("UNIWAP", 42);
-        anx.put("CTWAP", 43);
+        any.put("WIFI", 1);
+        any.put("3GNET", 21);
+        any.put("3GWAP", 22);
+        any.put("CMNET", 31);
+        any.put("UNINET", 32);
+        any.put("CTNET", 33);
+        any.put("CMWAP", 41);
+        any.put("UNIWAP", 42);
+        any.put("CTWAP", 43);
     }
 
     public String vc() {
@@ -44,7 +44,7 @@ public class e {
         int subType = connectManager.getSubType();
         if (!TextUtils.isEmpty(netType)) {
             String upperCase = netType.toUpperCase();
-            Integer num = anx.get(upperCase);
+            Integer num = any.get(upperCase);
             if (num == null) {
                 num = 5;
             }

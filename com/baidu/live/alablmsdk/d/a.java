@@ -10,56 +10,56 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes4.dex */
 public class a {
-    private c aAJ;
+    private c aAO;
     private Context mContext;
-    private Set<String> aBp = new HashSet();
-    private HashMap<String, RTCVideoView> aBq = new HashMap<>();
-    com.baidu.live.alablmsdk.c.a.a aBr = new com.baidu.live.alablmsdk.c.a.a() { // from class: com.baidu.live.alablmsdk.d.a.1
+    private Set<String> aBu = new HashSet();
+    private HashMap<String, RTCVideoView> aBv = new HashMap<>();
+    com.baidu.live.alablmsdk.c.a.a aBw = new com.baidu.live.alablmsdk.c.a.a() { // from class: com.baidu.live.alablmsdk.d.a.1
         @Override // com.baidu.live.alablmsdk.c.a.a
         public void onPixelRead(byte[] bArr, int i, int i2) {
-            if (a.this.aBo != null) {
-                a.this.aBo.p(bArr, i, i2);
+            if (a.this.aBt != null) {
+                a.this.aBt.p(bArr, i, i2);
             }
         }
     };
-    private d aBo = new d();
+    private d aBt = new d();
 
     public a(Context context, c cVar) {
         this.mContext = context;
-        this.aAJ = cVar;
-        this.aAJ.a(this.aBo);
+        this.aAO = cVar;
+        this.aAO.a(this.aBt);
     }
 
     public com.baidu.live.alablmsdk.c.a.a BF() {
-        return this.aBr;
+        return this.aBw;
     }
 
     public void b(boolean z, long j) {
         com.baidu.live.alablmsdk.a.c.d(" enableRemoteDisplay imUk=" + j);
         com.baidu.live.alablmsdk.a.c.fJ(" enableRemoteDisplay ");
         if (j != 0) {
-            synchronized (this.aBp) {
+            synchronized (this.aBu) {
                 if (z) {
-                    this.aBp.add(j + "");
-                    com.baidu.live.alablmsdk.a.c.d(" remote user video view num = " + this.aBp.size());
-                    com.baidu.live.alablmsdk.a.c.fJ(" remote user video view num " + this.aBp.size());
+                    this.aBu.add(j + "");
+                    com.baidu.live.alablmsdk.a.c.d(" remote user video view num = " + this.aBu.size());
+                    com.baidu.live.alablmsdk.a.c.fJ(" remote user video view num " + this.aBu.size());
                 }
             }
         }
     }
 
     public void BG() {
-        if (this.aAJ != null) {
-            this.aAJ.t(BH());
+        if (this.aAO != null) {
+            this.aAO.t(BH());
         }
     }
 
     protected List<RTCVideoView> BH() {
         ArrayList arrayList;
         RTCVideoView fN;
-        synchronized (this.aBp) {
+        synchronized (this.aBu) {
             arrayList = new ArrayList();
-            for (String str : this.aBp) {
+            for (String str : this.aBu) {
                 if (!TextUtils.isEmpty(str) && (fN = fN(str)) != null) {
                     com.baidu.live.alablmsdk.a.c.d(" 添加 videoview = " + fN);
                     com.baidu.live.alablmsdk.a.c.fJ("add video view");
@@ -74,35 +74,35 @@ public class a {
 
     private RTCVideoView fN(String str) {
         RTCVideoView rTCVideoView;
-        synchronized (this.aBq) {
-            if (!this.aBq.containsKey(str)) {
+        synchronized (this.aBv) {
+            if (!this.aBv.containsKey(str)) {
                 rTCVideoView = new RTCVideoView(this.mContext);
-                this.aBq.put(str, rTCVideoView);
+                this.aBv.put(str, rTCVideoView);
             } else {
-                rTCVideoView = this.aBq.get(str);
+                rTCVideoView = this.aBv.get(str);
             }
         }
         return rTCVideoView;
     }
 
     public RTCVideoView a(com.baidu.live.alablmsdk.module.c cVar) {
-        if (cVar == null || cVar.aBd == -1) {
+        if (cVar == null || cVar.aBi == -1) {
             return null;
         }
-        com.baidu.live.alablmsdk.a.c.d(" imUk=" + cVar.aBd);
+        com.baidu.live.alablmsdk.a.c.d(" imUk=" + cVar.aBi);
         com.baidu.live.alablmsdk.a.c.fJ(" getRemoteDisplayViewForUser");
-        return V(cVar.aBd);
+        return V(cVar.aBi);
     }
 
     public RTCVideoView V(long j) {
         RTCVideoView rTCVideoView = null;
         if (j != 0) {
             String str = j + "";
-            synchronized (this.aBq) {
-                if (this.aBq.containsKey(str)) {
-                    com.baidu.live.alablmsdk.a.c.d(" mRemoteViewMap size = " + this.aBq.size());
-                    com.baidu.live.alablmsdk.a.c.fJ(" mRemoteViewMap sizes " + this.aBq.size());
-                    rTCVideoView = this.aBq.get(str);
+            synchronized (this.aBv) {
+                if (this.aBv.containsKey(str)) {
+                    com.baidu.live.alablmsdk.a.c.d(" mRemoteViewMap size = " + this.aBv.size());
+                    com.baidu.live.alablmsdk.a.c.fJ(" mRemoteViewMap sizes " + this.aBv.size());
+                    rTCVideoView = this.aBv.get(str);
                 }
             }
         }
@@ -119,14 +119,14 @@ public class a {
     }
 
     private void BJ() {
-        synchronized (this.aBq) {
-            this.aBq.clear();
+        synchronized (this.aBv) {
+            this.aBv.clear();
         }
     }
 
     private void BK() {
-        synchronized (this.aBp) {
-            this.aBp.clear();
+        synchronized (this.aBu) {
+            this.aBu.clear();
         }
     }
 }

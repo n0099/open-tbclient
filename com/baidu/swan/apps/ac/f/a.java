@@ -4,26 +4,26 @@ import android.text.TextUtils;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class a implements Cloneable {
-    public String Tc;
-    public String cWD;
-    public String cWE;
-    public int cWF;
-    public String cWG;
-    public String cWH;
+    public String Td;
+    public String dfe;
+    public String dff;
+    public int dfg;
+    public String dfh;
+    public String dfi;
 
     public a(JSONObject jSONObject, int i) {
-        this.cWF = 4;
+        this.dfg = 4;
         if (jSONObject != null) {
-            this.cWE = jSONObject.optString("version");
-            this.Tc = jSONObject.optString("provider");
-            this.cWG = jSONObject.optString("path");
-            this.cWH = jSONObject.optString("config");
-            this.cWF = i;
+            this.dff = jSONObject.optString("version");
+            this.Td = jSONObject.optString("provider");
+            this.dfh = jSONObject.optString("path");
+            this.dfi = jSONObject.optString("config");
+            this.dfg = i;
         }
     }
 
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.Tc) || TextUtils.isEmpty(this.cWE)) ? false : true;
+        return (TextUtils.isEmpty(this.Td) || TextUtils.isEmpty(this.dff)) ? false : true;
     }
 
     public Object clone() throws CloneNotSupportedException {
@@ -31,6 +31,6 @@ public class a implements Cloneable {
     }
 
     public String toString() {
-        return "SwanPluginModel{pluginAlias='" + this.cWD + "', pluginVersion='" + this.cWE + "', pluginName='" + this.Tc + "', pluginCategory=" + this.cWF + ", pluginPath='" + this.cWG + "', pluginPagesConfigFileName='" + this.cWH + "'}";
+        return "SwanPluginModel{pluginAlias='" + this.dfe + "', pluginVersion='" + this.dff + "', pluginName='" + this.Td + "', pluginCategory=" + this.dfg + ", pluginPath='" + this.dfh + "', pluginPagesConfigFileName='" + this.dfi + "'}";
     }
 }

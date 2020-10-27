@@ -14,129 +14,129 @@ import com.baidu.tieba.im.data.UpdatesItemData;
 import java.util.Date;
 /* loaded from: classes26.dex */
 public class b extends com.baidu.adp.base.b<UpdatesActivity> {
-    private TextView eFN;
-    private UpdatesActivity jRS;
-    private View jRT;
-    private HeadImageView jRU;
-    private TextView jRV;
-    private TextView jRW;
-    private ImageView jRX;
-    private RelativeLayout jRY;
-    private RelativeLayout jRZ;
-    private UpdatesItemData jSa;
-    private TextView jpT;
+    private TextView eOj;
+    private TextView jCt;
+    private UpdatesItemData keA;
+    private UpdatesActivity ker;
+    private View kes;
+    private HeadImageView ket;
+    private TextView keu;
+    private TextView kev;
+    private ImageView kew;
+    private RelativeLayout kex;
+    private RelativeLayout kez;
 
     public b(UpdatesActivity updatesActivity) {
         super(updatesActivity.getPageContext(), R.layout.updates_item);
-        this.jRS = updatesActivity;
+        this.ker = updatesActivity;
         initView();
     }
 
     void initView() {
-        this.jRT = this.mConvertView.findViewById(R.id.root_view);
-        this.jRU = (HeadImageView) this.jRT.findViewById(R.id.iv_head);
-        this.jRV = (TextView) this.jRT.findViewById(R.id.tv_group_name);
-        this.jpT = (TextView) this.jRT.findViewById(R.id.tv_content);
-        this.eFN = (TextView) this.jRT.findViewById(R.id.tv_title);
-        this.jRW = (TextView) this.jRT.findViewById(R.id.tv_time);
-        this.jRX = (ImageView) this.jRT.findViewById(R.id.cb_select);
-        this.jRY = (RelativeLayout) this.jRT.findViewById(R.id.layout_body);
-        this.jRZ = (RelativeLayout) this.jRT.findViewById(R.id.layout_title);
-        this.jRU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.1
+        this.kes = this.mConvertView.findViewById(R.id.root_view);
+        this.ket = (HeadImageView) this.kes.findViewById(R.id.iv_head);
+        this.keu = (TextView) this.kes.findViewById(R.id.tv_group_name);
+        this.jCt = (TextView) this.kes.findViewById(R.id.tv_content);
+        this.eOj = (TextView) this.kes.findViewById(R.id.tv_title);
+        this.kev = (TextView) this.kes.findViewById(R.id.tv_time);
+        this.kew = (ImageView) this.kes.findViewById(R.id.cb_select);
+        this.kex = (RelativeLayout) this.kes.findViewById(R.id.layout_body);
+        this.kez = (RelativeLayout) this.kes.findViewById(R.id.layout_title);
+        this.ket.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
             }
         });
-        this.jRY.setClickable(true);
-        this.jRY.setLongClickable(true);
-        this.jRZ.setClickable(true);
-        this.jRZ.setLongClickable(true);
-        this.jRY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.2
+        this.kex.setClickable(true);
+        this.kex.setLongClickable(true);
+        this.kez.setClickable(true);
+        this.kez.setLongClickable(true);
+        this.kex.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.jRS.cry()) {
-                    b.this.jRX.performClick();
+                if (b.this.ker.cuF()) {
+                    b.this.kew.performClick();
                 } else {
-                    b.this.jRS.a(b.this.jRT, 101, 0, 0L, b.this.jSa);
+                    b.this.ker.a(b.this.kes, 101, 0, 0L, b.this.keA);
                 }
             }
         });
-        this.jRY.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.3
+        this.kex.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.3
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                b.this.jRS.b(b.this.jRT, 200, 0, 0L, b.this.jSa);
+                b.this.ker.b(b.this.kes, 200, 0, 0L, b.this.keA);
                 return true;
             }
         });
-        this.jRZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.4
+        this.kez.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.jRS.a(b.this.jRT, 101, 0, 0L, b.this.jSa);
+                b.this.ker.a(b.this.kes, 101, 0, 0L, b.this.keA);
             }
         });
-        this.jRZ.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.5
+        this.kez.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.5
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                b.this.jRS.b(b.this.jRT, 200, 0, 0L, b.this.jSa);
+                b.this.ker.b(b.this.kes, 200, 0, 0L, b.this.keA);
                 return true;
             }
         });
-        this.jRX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.6
+        this.kew.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 view.setSelected(!view.isSelected());
-                b.this.jRS.a(view, view.isSelected(), b.this.jSa);
+                b.this.ker.a(view, view.isSelected(), b.this.keA);
             }
         });
     }
 
     public void refresh() {
-        if (this.jSa != null) {
-            if (this.jRS.cry()) {
-                this.jRX.setVisibility(0);
+        if (this.keA != null) {
+            if (this.ker.cuF()) {
+                this.kew.setVisibility(0);
             } else {
-                this.jRX.setVisibility(8);
-                this.jRY.setSelected(false);
+                this.kew.setVisibility(8);
+                this.kex.setSelected(false);
             }
-            String groupHeadUrl = this.jSa.getGroupHeadUrl();
+            String groupHeadUrl = this.keA.getGroupHeadUrl();
             if (!TextUtils.isEmpty(groupHeadUrl)) {
-                this.jRU.setTag(groupHeadUrl);
-                this.jRU.startLoad(groupHeadUrl, 10, false);
+                this.ket.setTag(groupHeadUrl);
+                this.ket.startLoad(groupHeadUrl, 10, false);
             } else {
-                this.jRU.setTag(null);
+                this.ket.setTag(null);
             }
-            this.jRU.setClickable(false);
-            if (!TextUtils.isEmpty(this.jSa.getTitle())) {
-                this.eFN.setText(this.jSa.getTitle());
+            this.ket.setClickable(false);
+            if (!TextUtils.isEmpty(this.keA.getTitle())) {
+                this.eOj.setText(this.keA.getTitle());
             } else {
-                this.eFN.setText(this.jRS.getPageContext().getString(R.string.inform));
+                this.eOj.setText(this.ker.getPageContext().getString(R.string.inform));
             }
             Date date = new Date();
-            date.setTime(this.jSa.getTime());
-            this.jRW.setText(at.l(date));
-            if (!TextUtils.isEmpty(this.jSa.getContent())) {
-                this.jpT.setText(this.jSa.getContent());
+            date.setTime(this.keA.getTime());
+            this.kev.setText(at.l(date));
+            if (!TextUtils.isEmpty(this.keA.getContent())) {
+                this.jCt.setText(this.keA.getContent());
             } else {
-                this.jpT.setText("");
+                this.jCt.setText("");
             }
-            if (!TextUtils.isEmpty(this.jSa.getGroupName())) {
-                this.jRV.setText(this.jSa.getGroupName());
+            if (!TextUtils.isEmpty(this.keA.getGroupName())) {
+                this.keu.setText(this.keA.getGroupName());
             } else {
-                this.jRV.setText("");
+                this.keu.setText("");
             }
-            int paddingLeft = this.jRY.getPaddingLeft();
-            int paddingTop = this.jRY.getPaddingTop();
-            int paddingRight = this.jRY.getPaddingRight();
-            int paddingBottom = this.jRY.getPaddingBottom();
-            this.jRS.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-            this.jRS.getLayoutMode().onModeChanged(this.mConvertView);
-            this.jRX.setSelected(this.jSa.isSelected());
-            if (this.jSa.isSelected() && this.jRS.cry()) {
-                ap.setBackgroundResource(this.jRY, R.drawable.bg_information_down_s);
+            int paddingLeft = this.kex.getPaddingLeft();
+            int paddingTop = this.kex.getPaddingTop();
+            int paddingRight = this.kex.getPaddingRight();
+            int paddingBottom = this.kex.getPaddingBottom();
+            this.ker.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+            this.ker.getLayoutMode().onModeChanged(this.mConvertView);
+            this.kew.setSelected(this.keA.isSelected());
+            if (this.keA.isSelected() && this.ker.cuF()) {
+                ap.setBackgroundResource(this.kex, R.drawable.bg_information_down_s);
             } else {
-                ap.setBackgroundResource(this.jRY, R.drawable.selector_group_updates_bottom_bg);
+                ap.setBackgroundResource(this.kex, R.drawable.selector_group_updates_bottom_bg);
             }
-            this.jRY.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+            this.kex.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
         }
     }
 
@@ -146,6 +146,6 @@ public class b extends com.baidu.adp.base.b<UpdatesActivity> {
     }
 
     public void c(UpdatesItemData updatesItemData) {
-        this.jSa = updatesItemData;
+        this.keA = updatesItemData;
     }
 }

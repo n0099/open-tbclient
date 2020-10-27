@@ -7,11 +7,11 @@ import com.baidu.tieba.R;
 import tbclient.FrsPage.StarEnter;
 /* loaded from: classes.dex */
 public class k implements com.baidu.adp.widget.ListView.q {
-    public static final String mCn = TbadkCoreApplication.getInst().getString(R.string.default_bar_manager_select_title);
+    public static final String mOV = TbadkCoreApplication.getInst().getString(R.string.default_bar_manager_select_title);
     private String icon;
-    private int kVv;
-    private String mCo;
-    private int mCp;
+    private int lhU;
+    private String mOW;
+    private int mOX;
     private String obj_id;
     private int time;
     private String title;
@@ -19,20 +19,20 @@ public class k implements com.baidu.adp.widget.ListView.q {
     private String url;
     private int weight;
 
-    public int dDv() {
-        return this.mCp;
+    public int dGD() {
+        return this.mOX;
     }
 
-    public void IP(int i) {
-        this.mCp = i;
+    public void Jh(int i) {
+        this.mOX = i;
     }
 
-    public int dDw() {
-        return this.kVv;
+    public int dGE() {
+        return this.lhU;
     }
 
-    public void IQ(int i) {
-        this.kVv = i;
+    public void Ji(int i) {
+        this.lhU = i;
     }
 
     public void setIcon(String str) {
@@ -51,11 +51,11 @@ public class k implements com.baidu.adp.widget.ListView.q {
         this.title = str;
     }
 
-    public int dDx() {
+    public int dGF() {
         return this.type;
     }
 
-    public void IR(int i) {
+    public void Jj(int i) {
         this.type = i;
     }
 
@@ -71,28 +71,28 @@ public class k implements com.baidu.adp.widget.ListView.q {
         this.time = i;
     }
 
-    public String dDy() {
+    public String dGG() {
         return this.obj_id;
     }
 
-    public String dDz() {
-        return this.mCo;
+    public String dGH() {
+        return this.mOW;
     }
 
     public void a(StarEnter starEnter) {
         setIcon(starEnter.icon);
         setTime(starEnter.time.intValue());
         setTitle(starEnter.title);
-        IR(starEnter.type.intValue());
+        Jj(starEnter.type.intValue());
         setUrl(starEnter.url);
         setWeight(starEnter.weight.intValue());
-        IQ(starEnter.rank_num.intValue());
-        IP(starEnter.bazhu_mark.intValue());
-        if (StringUtils.isNull(this.title) && this.mCp == 1) {
-            this.title = mCn;
+        Ji(starEnter.rank_num.intValue());
+        Jh(starEnter.bazhu_mark.intValue());
+        if (StringUtils.isNull(this.title) && this.mOX == 1) {
+            this.title = mOV;
         }
         this.obj_id = starEnter.obj_id;
-        this.mCo = starEnter.text;
+        this.mOW = starEnter.text;
     }
 
     @Override // com.baidu.adp.widget.ListView.q

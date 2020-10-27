@@ -1,14 +1,14 @@
 package com.baidu.tieba.ala.liveroom.challenge;
 
-import com.baidu.live.data.au;
-import com.baidu.live.data.ay;
+import com.baidu.live.data.ax;
+import com.baidu.live.data.bb;
 /* loaded from: classes4.dex */
 public interface d {
-    void CS();
+    void CY();
 
-    void a(au auVar, ay ayVar, ay ayVar2);
+    void a(ax axVar, bb bbVar, bb bbVar2);
 
-    void bTS();
+    void bWR();
 
-    void bTT();
+    void bWS();
 }

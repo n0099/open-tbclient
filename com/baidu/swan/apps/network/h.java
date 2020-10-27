@@ -10,31 +10,31 @@ import okio.Okio;
 import okio.Source;
 /* loaded from: classes10.dex */
 public class h extends ResponseBody {
-    private final ResponseBody cSK;
-    private final e cSL;
-    private BufferedSource cSM;
+    private final ResponseBody dbi;
+    private final e dbj;
+    private BufferedSource dbk;
 
     public h(ResponseBody responseBody, e eVar) {
-        this.cSK = responseBody;
-        this.cSL = eVar;
+        this.dbi = responseBody;
+        this.dbj = eVar;
     }
 
     @Override // okhttp3.ResponseBody
     public MediaType contentType() {
-        return this.cSK.contentType();
+        return this.dbi.contentType();
     }
 
     @Override // okhttp3.ResponseBody
     public long contentLength() {
-        return this.cSK.contentLength();
+        return this.dbi.contentLength();
     }
 
     @Override // okhttp3.ResponseBody
     public BufferedSource source() {
-        if (this.cSM == null) {
-            this.cSM = Okio.buffer(source(this.cSK.source()));
+        if (this.dbk == null) {
+            this.dbk = Okio.buffer(source(this.dbi.source()));
         }
-        return this.cSM;
+        return this.dbk;
     }
 
     private Source source(Source source) {
@@ -45,7 +45,7 @@ public class h extends ResponseBody {
             public long read(Buffer buffer, long j) throws IOException {
                 long read = super.read(buffer, j);
                 this.totalBytesRead = (read != -1 ? read : 0L) + this.totalBytesRead;
-                h.this.cSL.b(this.totalBytesRead, h.this.cSK.contentLength(), read == -1);
+                h.this.dbj.b(this.totalBytesRead, h.this.dbi.contentLength(), read == -1);
                 return read;
             }
         };

@@ -5,20 +5,20 @@ import android.support.annotation.WorkerThread;
 import com.baidu.swan.pms.c.c.a;
 /* loaded from: classes10.dex */
 public abstract class a {
-    public void hM(int i) {
+    public void hX(int i) {
     }
 
-    public void alM() {
+    public void anG() {
     }
 
-    public void aiW() {
+    public void akQ() {
     }
 
     public void a(com.baidu.swan.pms.model.a aVar) {
     }
 
     @WorkerThread
-    public void a(@NonNull a.C0532a c0532a) {
+    public void a(@NonNull a.C0546a c0546a) {
     }
 
     @WorkerThread

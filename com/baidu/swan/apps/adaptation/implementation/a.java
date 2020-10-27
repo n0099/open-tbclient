@@ -8,45 +8,45 @@ import com.baidu.webkit.sdk.VideoPlayerFactory;
 /* loaded from: classes10.dex */
 public class a implements com.baidu.swan.apps.adaptation.a.l {
     @Override // com.baidu.swan.apps.adaptation.a.l
-    public int abN() {
+    public int adH() {
         return 10150;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.l
-    public boolean abO() {
+    public boolean adI() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.l
-    public boolean abP() {
+    public boolean adJ() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.l
-    public int abQ() {
+    public int adK() {
         return 5000;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.l
-    public void gW(int i) {
+    public void hh(int i) {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.l
-    public void dN(boolean z) {
+    public void ea(boolean z) {
         if (z) {
-            com.baidu.swan.apps.core.k.b.bY(AppRuntime.getAppContext()).ey(ProcessUtils.isMainProcess());
+            com.baidu.swan.apps.core.k.b.bY(AppRuntime.getAppContext()).eL(ProcessUtils.isMainProcess());
         } else {
-            com.baidu.swan.apps.core.k.b.bY(AppRuntime.getAppContext()).amR();
+            com.baidu.swan.apps.core.k.b.bY(AppRuntime.getAppContext()).aoL();
         }
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.l
-    public void a(final a.InterfaceC0394a interfaceC0394a) {
+    public void a(final a.InterfaceC0408a interfaceC0408a) {
         com.baidu.swan.apps.core.k.b.bY(AppRuntime.getAppContext()).a(new b.a() { // from class: com.baidu.swan.apps.adaptation.implementation.a.1
             @Override // com.baidu.swan.apps.core.k.b.a
-            public void abS() {
-                if (interfaceC0394a != null) {
-                    interfaceC0394a.abS();
+            public void adM() {
+                if (interfaceC0408a != null) {
+                    interfaceC0408a.adM();
                 }
                 com.baidu.swan.apps.core.k.b.bY(AppRuntime.getAppContext()).b(this);
             }
@@ -54,7 +54,7 @@ public class a implements com.baidu.swan.apps.adaptation.a.l {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.l
-    public VideoPlayerFactory abR() {
+    public VideoPlayerFactory adL() {
         return null;
     }
 }

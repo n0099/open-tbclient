@@ -30,7 +30,7 @@ public class FileSerialDownLoader {
     private static final int CMD_BET_MSG_RESULT = 18;
     private static final int CMD_NET_MSG_GETLENTH = 17;
     public static final int DOWNLOAD_PROCESS_AFTER_DOWNLOAD_OPEARTION_ERROR = 2;
-    public static final int DOWNLOAD_PROCESS_CANCEL = 5;
+    public static final int DOWNLOAD_PROCESS_CANCEL_STORAGE_OPT = 5;
     public static final int DOWNLOAD_PROCESS_FILE_CHECK_FAILED = 4;
     public static final int DOWNLOAD_PROCESS_FILE_CHECK_FILE_NO_FIND = 6;
     public static final int DOWNLOAD_PROCESS_FILE_COPY_ERROR = 7;
@@ -71,6 +71,10 @@ public class FileSerialDownLoader {
 
     public void setMax(int i) {
         this.max = i;
+    }
+
+    public List<DownloadData> getTaskList() {
+        return mTaskList;
     }
 
     public void startDownloadWithTypeMax(DownloadData downloadData, int i) {
@@ -268,9 +272,10 @@ public class FileSerialDownLoader {
     }
 
     public void cancelDownloadByType(int i) {
-        if (mRun != null && mRun.getType() == i && this.mTask != null) {
-            this.mTask.cancel(true);
-        }
+        cancelDownloadByType(i, true);
+    }
+
+    public void cancelDownloadByType(int i, boolean z) {
         LinkedList<DownloadData> linkedList = new LinkedList();
         int i2 = 0;
         while (true) {
@@ -281,12 +286,14 @@ public class FileSerialDownLoader {
             try {
                 DownloadData downloadData = mTaskList.get(i3);
                 if (downloadData != null && downloadData.getType() == i) {
-                    downloadData.setStatus(4);
+                    downloadData.setStatus(z ? 4 : 6);
                     downloadData.setStatusMsg(null);
                     if (downloadData.getCallback() != null) {
                         downloadData.getCallback().onFileUpdateProgress(downloadData);
                     }
-                    linkedList.add(downloadData);
+                    if (z || !downloadData.isForceDownload()) {
+                        linkedList.add(downloadData);
+                    }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -295,6 +302,11 @@ public class FileSerialDownLoader {
         }
         for (DownloadData downloadData2 : linkedList) {
             mTaskList.remove(downloadData2);
+        }
+        if (mRun != null && mRun.getType() == i) {
+            if ((!mRun.isForceDownload() || z) && this.mTask != null) {
+                this.mTask.cancel(true);
+            }
         }
     }
 
@@ -320,6 +332,11 @@ public class FileSerialDownLoader {
                 }
                 if (mRun.getCallback() != null) {
                     mRun.getCallback().onFileDownloadSucceed(mRun);
+                }
+            } else if (i == 5) {
+                mRun.setStatus(6);
+                if (mRun.getCallback() != null) {
+                    mRun.getCallback().onFileUpdateProgress(mRun);
                 }
             } else {
                 switch (i) {
@@ -412,7 +429,7 @@ public class FileSerialDownLoader {
             Boolean.valueOf(false);
             if (downloadDataArr[0] != null) {
                 if (downloadDataArr[0].getCallback() != null && !downloadDataArr[0].getCallback().onPreDownload(downloadDataArr[0])) {
-                    sendResultMsg(0);
+                    sendResultMsg(5);
                 } else {
                     final File file = new File(downloadDataArr[0].getPath());
                     if (file.exists()) {
@@ -430,12 +447,12 @@ public class FileSerialDownLoader {
                         } else {
                             this.mNetWork.setUrl(downloadDataArr[0].getUrl());
                             this.mNetWork.downloadFile(FileHelper.getCacheFilePath(downloadDataArr[0].getId() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + downloadDataArr[0].getName() + ".tmp"), FileSerialDownLoader.this.mFileHandler, 17, 3, new NetWork.DownloadResultCallback() { // from class: com.baidu.live.tbadk.download.FileSerialDownLoader.AsyFileDownLoadTask.1
-                                /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [529=5, 531=4, 532=4, 533=4] */
-                                /* JADX DEBUG: Failed to insert an additional move for type inference into block B:52:0x0133 */
-                                /* JADX DEBUG: Failed to insert an additional move for type inference into block B:54:0x0135 */
-                                /* JADX DEBUG: Failed to insert an additional move for type inference into block B:59:? */
+                                /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [554=5, 556=4, 557=4, 558=4] */
+                                /* JADX DEBUG: Failed to insert an additional move for type inference into block B:55:0x0141 */
+                                /* JADX DEBUG: Failed to insert an additional move for type inference into block B:57:0x0143 */
+                                /* JADX DEBUG: Failed to insert an additional move for type inference into block B:61:? */
                                 /* JADX WARN: Multi-variable type inference failed */
-                                /* JADX WARN: Removed duplicated region for block: B:62:0x011f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+                                /* JADX WARN: Removed duplicated region for block: B:65:0x012d A[EXC_TOP_SPLITTER, SYNTHETIC] */
                                 /* JADX WARN: Type inference failed for: r1v12 */
                                 /* JADX WARN: Type inference failed for: r1v17 */
                                 /* JADX WARN: Type inference failed for: r1v18, types: [java.io.FileInputStream] */
@@ -469,15 +486,19 @@ public class FileSerialDownLoader {
                                     try {
                                         String parent = GetFileInCache.getParent();
                                         String parent2 = file.getParent();
+                                        File file2 = new File(parent2);
+                                        if (!file2.exists()) {
+                                            file2.mkdirs();
+                                        }
                                         if (parent.equals(parent2)) {
                                             String name = file.getName();
                                             GetFileInCache.renameTo(new File(parent2, name));
                                             str = name;
                                         } else {
-                                            File file2 = file;
-                                            BdFileHelper.copyFile(GetFileInCache, file2);
+                                            File file3 = file;
+                                            BdFileHelper.copyFile(GetFileInCache, file3);
                                             BdFileHelper.deleteQuietly(GetFileInCache);
-                                            str = file2;
+                                            str = file3;
                                         }
                                         DownloadData downloadData = str;
                                         if (!StringHelper.isEmpty(downloadDataArr[0].getCheck())) {

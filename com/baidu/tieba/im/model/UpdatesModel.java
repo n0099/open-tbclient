@@ -31,7 +31,7 @@ public class UpdatesModel {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.ad
                 public Boolean doInBackground() {
-                    return d.cLn().m(linkedList);
+                    return d.cOu().m(linkedList);
                 }
             }, mVar);
         }
@@ -44,7 +44,7 @@ public class UpdatesModel {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.ad
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(d.cLn().LN(UpdatesItemData.this.getNotice_id()));
+                    return Boolean.valueOf(d.cOu().Ml(UpdatesItemData.this.getNotice_id()));
                 }
             }, mVar);
         }
@@ -56,7 +56,7 @@ public class UpdatesModel {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.baidu.tbadk.util.ad
             public Boolean doInBackground() {
-                return Boolean.valueOf(d.cLn().dN(UpdatesModel.this.dataToDelete));
+                return Boolean.valueOf(d.cOu().dW(UpdatesModel.this.dataToDelete));
             }
         }, mVar);
     }
@@ -114,7 +114,7 @@ public class UpdatesModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.ad
             public LinkedList<GroupNewsPojo> doInBackground() {
-                return d.cLn().a(0L, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
+                return d.cOu().a(0L, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
             }
         }, mVar);
     }

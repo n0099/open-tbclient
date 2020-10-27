@@ -6,7 +6,7 @@ import java.lang.ref.WeakReference;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3709a;
+    private int f3707a;
     private boolean b = true;
     private WeakReference c;
     private String d;
@@ -14,6 +14,6 @@ public class c {
     public c(WebView webView, String str, int i) {
         this.c = new WeakReference(webView);
         this.d = str;
-        this.f3709a = i;
+        this.f3707a = i;
     }
 }

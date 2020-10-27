@@ -7,21 +7,21 @@ import com.baidu.swan.games.utils.so.e;
 /* loaded from: classes10.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static int doR = 0;
+    private static int dxr = 0;
 
-    public static void as(int i, int i2) {
-        com.baidu.swan.apps.extcore.cores.a.apH().al(i, i2);
-        i.aIa();
+    public static void at(int i, int i2) {
+        com.baidu.swan.apps.extcore.cores.a.arB().am(i, i2);
+        i.aJU();
         if (i == 0) {
-            doR = 2;
+            dxr = 2;
         } else if (i2 > i) {
-            doR = 1;
-            k.aQR();
-            e.a.aTC();
+            dxr = 1;
+            k.aSL();
+            e.a.aVw();
         }
     }
 
-    public static int aHE() {
-        return doR;
+    public static int aJy() {
+        return dxr;
     }
 }

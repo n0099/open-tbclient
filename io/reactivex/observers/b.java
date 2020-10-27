@@ -86,7 +86,7 @@ public final class b<T> implements io.reactivex.disposables.b, u<T> {
                     if (this.delayError) {
                         aVar.add(error);
                     } else {
-                        aVar.bK(error);
+                        aVar.bO(error);
                     }
                     return;
                 }

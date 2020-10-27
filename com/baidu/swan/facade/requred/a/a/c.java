@@ -6,40 +6,40 @@ import com.baidu.swan.apps.adaptation.a.g;
 import com.baidu.swan.apps.adlanding.download.model.SwanAdDownloadState;
 /* loaded from: classes16.dex */
 public class c implements g {
-    private final g chE = new com.baidu.swan.game.ad.downloader.view.b();
+    private final g cqf = new com.baidu.swan.game.ad.downloader.view.b();
 
     @Override // com.baidu.swan.apps.adaptation.a.g
     public View getRealView() {
-        return this.chE.getRealView();
+        return this.cqf.getRealView();
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.g
     public void P(Object obj) {
-        this.chE.P(obj);
+        this.cqf.P(obj);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.g
     public void a(SwanAdDownloadState swanAdDownloadState) {
-        this.chE.a(swanAdDownloadState);
+        this.cqf.a(swanAdDownloadState);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.g
-    public void jM(String str) {
-        this.chE.jM(str);
+    public void kf(String str) {
+        this.cqf.kf(str);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.g
-    public void adB() {
-        this.chE.adB();
+    public void afv() {
+        this.cqf.afv();
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.g
     public void updateProgress(int i) {
-        this.chE.updateProgress(i);
+        this.cqf.updateProgress(i);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.g
     public g a(Context context, com.baidu.swan.apps.adlanding.download.model.a aVar, com.baidu.swan.apps.adlanding.download.a.a aVar2) {
-        return this.chE.a(context, aVar, aVar2);
+        return this.cqf.a(context, aVar, aVar2);
     }
 }

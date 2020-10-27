@@ -1,29 +1,22 @@
 package com.baidu.live.data;
 
+import com.baidu.live.tbadk.core.atomdata.GuardClubInfoActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ay {
-    public AlaLiveUserInfoData aMN;
-    public AlaLiveInfoData aNb;
-    public at aNc;
+    public String aNA;
+    public String aNB;
+    public long aNC;
+    public String mNickName;
+    public String mPortrait;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
-            if (optJSONObject != null) {
-                this.aMN = new AlaLiveUserInfoData();
-                this.aMN.parserJson(optJSONObject);
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("live_info");
-            if (optJSONObject2 != null) {
-                this.aNb = new AlaLiveInfoData();
-                this.aNb.parserJson(optJSONObject2);
-            }
-            JSONObject optJSONObject3 = jSONObject.optJSONObject("rank_info");
-            if (optJSONObject3 != null) {
-                this.aNc = new at();
-                this.aNc.parserJson(optJSONObject3);
-            }
+            this.mNickName = jSONObject.optString("nickname");
+            this.mPortrait = jSONObject.optString("mvp_user_portrait");
+            this.aNA = jSONObject.optString("anchor_nickname");
+            this.aNB = jSONObject.optString(GuardClubInfoActivityConfig.ANCHOR_PORTRAIT);
+            this.aNC = jSONObject.optLong("win_score");
         }
     }
 }

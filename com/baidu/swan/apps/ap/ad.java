@@ -13,7 +13,7 @@ import com.baidu.android.util.devices.RomUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 /* loaded from: classes10.dex */
 public class ad {
-    public static boolean aIq() {
+    public static boolean aKk() {
         Context appContext = AppRuntime.getAppContext();
         if (cL(appContext)) {
             return false;
@@ -49,8 +49,8 @@ public class ad {
         return z;
     }
 
-    public static int aIr() {
-        if (!aIq()) {
+    public static int aKl() {
+        if (!aKk()) {
             return 0;
         }
         return ah.getInternalDimensionSize(AppRuntime.getAppContext().getResources(), ah.isScreenPortrait() ? "navigation_bar_height" : "navigation_bar_height_landscape");
@@ -96,7 +96,7 @@ public class ad {
         }
     }
 
-    public static Pair<Integer, Integer> aIs() {
+    public static Pair<Integer, Integer> aKm() {
         Context appContext = AppRuntime.getAppContext();
         WindowManager windowManager = (WindowManager) appContext.getSystemService("window");
         if (windowManager == null) {
@@ -108,8 +108,8 @@ public class ad {
         return new Pair<>(Integer.valueOf(displayMetrics.widthPixels), Integer.valueOf(displayMetrics.heightPixels));
     }
 
-    public static Pair<Integer, Integer> aIt() {
-        Pair<Integer, Integer> aIs = aIs();
-        return new Pair<>(Integer.valueOf(((Integer) aIs.first).intValue()), Integer.valueOf(((Integer) aIs.second).intValue() - aIr()));
+    public static Pair<Integer, Integer> aKn() {
+        Pair<Integer, Integer> aKm = aKm();
+        return new Pair<>(Integer.valueOf(((Integer) aKm.first).intValue()), Integer.valueOf(((Integer) aKm.second).intValue() - aKl()));
     }
 }

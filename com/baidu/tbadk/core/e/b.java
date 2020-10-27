@@ -3,54 +3,54 @@ package com.baidu.tbadk.core.e;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class b {
-    private static a ewn = null;
+    private static a eEM = null;
 
     public static void r(Context context, int i) {
-        if (ewn != null) {
-            ewn.r(context, i);
+        if (eEM != null) {
+            eEM.r(context, i);
         }
     }
 
     public static void c(Context context, int i, boolean z) {
-        if (ewn != null) {
-            ewn.c(context, i, z);
+        if (eEM != null) {
+            eEM.c(context, i, z);
         }
     }
 
     public static void dY(Context context) {
-        if (ewn != null) {
-            ewn.dY(context);
+        if (eEM != null) {
+            eEM.dY(context);
         }
     }
 
     public static void d(Context context, int i, boolean z) {
-        if (ewn != null) {
-            ewn.d(context, i, z);
+        if (eEM != null) {
+            eEM.d(context, i, z);
         }
     }
 
-    public static Class<?> blE() {
-        if (ewn == null) {
+    public static Class<?> bnx() {
+        if (eEM == null) {
             return null;
         }
-        return ewn.blE();
+        return eEM.bnx();
     }
 
-    public static String blF() {
-        if (ewn == null) {
+    public static String bny() {
+        if (eEM == null) {
             return null;
         }
-        return ewn.blF();
+        return eEM.bny();
     }
 
     public static void a(a aVar) {
-        ewn = aVar;
+        eEM = aVar;
     }
 
     public static int getCurrentTabType() {
-        if (ewn == null) {
+        if (eEM == null) {
             return -1;
         }
-        return ewn.getCurrentTabType();
+        return eEM.getCurrentTabType();
     }
 }

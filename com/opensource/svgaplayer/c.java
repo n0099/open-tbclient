@@ -12,57 +12,57 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes15.dex */
 public final class c {
-    private boolean oCC;
-    private HashMap<String, Boolean> oCv = new HashMap<>();
-    private HashMap<String, Bitmap> oCw = new HashMap<>();
-    private HashMap<String, String> oCx = new HashMap<>();
-    private HashMap<String, TextPaint> oCy = new HashMap<>();
-    private HashMap<String, StaticLayout> oCz = new HashMap<>();
-    private HashMap<String, m<Canvas, Integer, Boolean>> oCA = new HashMap<>();
-    private HashMap<String, r<Canvas, Integer, Integer, Integer, Boolean>> oCB = new HashMap<>();
+    private HashMap<String, Boolean> ptR = new HashMap<>();
+    private HashMap<String, Bitmap> ptS = new HashMap<>();
+    private HashMap<String, String> ptT = new HashMap<>();
+    private HashMap<String, TextPaint> ptU = new HashMap<>();
+    private HashMap<String, StaticLayout> ptV = new HashMap<>();
+    private HashMap<String, m<Canvas, Integer, Boolean>> ptW = new HashMap<>();
+    private HashMap<String, r<Canvas, Integer, Integer, Integer, Boolean>> ptX = new HashMap<>();
+    private boolean ptY;
 
-    public final HashMap<String, Boolean> eiO() {
-        return this.oCv;
+    public final HashMap<String, Boolean> esO() {
+        return this.ptR;
     }
 
-    public final HashMap<String, Bitmap> eiP() {
-        return this.oCw;
+    public final HashMap<String, Bitmap> esP() {
+        return this.ptS;
     }
 
-    public final HashMap<String, String> eiQ() {
-        return this.oCx;
+    public final HashMap<String, String> esQ() {
+        return this.ptT;
     }
 
-    public final HashMap<String, TextPaint> eiR() {
-        return this.oCy;
+    public final HashMap<String, TextPaint> esR() {
+        return this.ptU;
     }
 
-    public final HashMap<String, StaticLayout> eiS() {
-        return this.oCz;
+    public final HashMap<String, StaticLayout> esS() {
+        return this.ptV;
     }
 
-    public final HashMap<String, m<Canvas, Integer, Boolean>> eiT() {
-        return this.oCA;
+    public final HashMap<String, m<Canvas, Integer, Boolean>> esT() {
+        return this.ptW;
     }
 
-    public final HashMap<String, r<Canvas, Integer, Integer, Integer, Boolean>> eiU() {
-        return this.oCB;
+    public final HashMap<String, r<Canvas, Integer, Integer, Integer, Boolean>> esU() {
+        return this.ptX;
     }
 
-    public final boolean eiV() {
-        return this.oCC;
+    public final void AC(boolean z) {
+        this.ptY = z;
     }
 
-    public final void zu(boolean z) {
-        this.oCC = z;
+    public final boolean esV() {
+        return this.ptY;
     }
 
     public final void a(String str, TextPaint textPaint, String str2) {
         q.n(str, "text");
         q.n(textPaint, "textPaint");
         q.n(str2, "forKey");
-        this.oCC = true;
-        this.oCx.put(str2, str);
-        this.oCy.put(str2, textPaint);
+        this.ptY = true;
+        this.ptT.put(str2, str);
+        this.ptU.put(str2, textPaint);
     }
 }

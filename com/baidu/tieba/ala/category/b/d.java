@@ -6,13 +6,13 @@ import com.baidu.live.adp.widget.listview.IAdapterData;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d implements IAdapterData {
-    public static final BdUniqueId gfa = BdUniqueId.gen();
+    public static final BdUniqueId gpd = BdUniqueId.gen();
     private boolean checked;
-    private int gfb;
+    private int gpe;
     private String member;
     private int score;
 
-    public String bLS() {
+    public String bOu() {
         return this.member;
     }
 
@@ -28,12 +28,12 @@ public class d implements IAdapterData {
         this.checked = z;
     }
 
-    public int bLT() {
-        return this.gfb;
+    public int bOv() {
+        return this.gpe;
     }
 
-    public void tL(int i) {
-        this.gfb = i;
+    public void ue(int i) {
+        this.gpe = i;
     }
 
     public void parse(JSONObject jSONObject) {
@@ -46,6 +46,6 @@ public class d implements IAdapterData {
 
     @Override // com.baidu.live.adp.widget.listview.IAdapterData
     public BdUniqueId getType() {
-        return gfa;
+        return gpd;
     }
 }

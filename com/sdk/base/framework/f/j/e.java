@@ -7,7 +7,7 @@ import java.security.MessageDigest;
 public class e extends com.sdk.base.framework.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4509a = e.class.getName();
+    private static final String f4507a = e.class.getName();
     private static boolean b = f.b;
 
     static {
@@ -32,7 +32,7 @@ public class e extends com.sdk.base.framework.f.a {
             }
             return sb.toString();
         } catch (Exception e) {
-            a(f4509a, "encrypt", e.getMessage(), b);
+            a(f4507a, "encrypt", e.getMessage(), b);
             return null;
         }
     }

@@ -1,14 +1,14 @@
 package com.baidu.g.a.a;
 /* loaded from: classes26.dex */
 public class a {
-    public float auA;
-    public String auB;
-    public float auu;
+    public int auA;
+    public float auB;
+    public String auC;
     public float auv;
     public float auw;
     public float aux;
     public float auy;
-    public int auz;
+    public float auz;
     public int color;
     public int height;
     public String poster;

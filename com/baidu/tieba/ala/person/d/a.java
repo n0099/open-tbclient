@@ -4,28 +4,28 @@ import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.data.AlaLocationData;
 import com.baidu.live.data.AlaRelationData;
 import com.baidu.live.data.PersonUserData;
-import com.baidu.live.data.am;
-import com.baidu.live.data.az;
+import com.baidu.live.data.ap;
+import com.baidu.live.data.bc;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    public static PersonUserData a(az azVar) {
+    public static PersonUserData a(bc bcVar) {
         PersonUserData personUserData = new PersonUserData();
-        personUserData.user_info = new am();
+        personUserData.user_info = new ap();
         personUserData.relation_info = new AlaRelationData();
         personUserData.location_info = new AlaLocationData();
-        personUserData.user_info.aMu = azVar.metaKey;
-        personUserData.user_info.user_id = azVar.id;
-        personUserData.user_info.user_name = azVar.name;
-        personUserData.user_info.user_nickname = azVar.name_show;
-        personUserData.user_info.description = azVar.intro;
-        personUserData.user_info.portrait = azVar.portrait;
-        personUserData.relation_info.follow_status = azVar.aNe;
+        personUserData.user_info.aMZ = bcVar.metaKey;
+        personUserData.user_info.user_id = bcVar.id;
+        personUserData.user_info.user_name = bcVar.name;
+        personUserData.user_info.user_nickname = bcVar.name_show;
+        personUserData.user_info.description = bcVar.intro;
+        personUserData.user_info.portrait = bcVar.portrait;
+        personUserData.relation_info.follow_status = bcVar.aNJ;
         return personUserData;
     }
 
-    public static String bl(int i, String str) {
+    public static String u(int i, String str) {
         String str2;
         String str3;
         String str4 = null;
@@ -58,11 +58,11 @@ public class a {
         return null;
     }
 
-    public static String eL(long j) {
-        return j / 10000 > 0 ? z(Math.floor(j / 1000.0d) / 10.0d) + "w" : String.valueOf(j);
+    public static String as(long j) {
+        return j / 10000 > 0 ? p(Math.floor(j / 1000.0d) / 10.0d) + "w" : String.valueOf(j);
     }
 
-    public static String z(double d) {
+    public static String p(double d) {
         String valueOf = String.valueOf(d);
         int indexOf = valueOf.indexOf(".");
         String substring = valueOf.substring(indexOf + 1, valueOf.length());

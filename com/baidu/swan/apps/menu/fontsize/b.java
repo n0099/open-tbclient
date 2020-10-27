@@ -10,33 +10,33 @@ import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.swan.apps.v.f;
 /* loaded from: classes10.dex */
 public class b {
-    public static void jb(int i) {
+    public static void jm(int i) {
         Bundle bundle = new Bundle();
         bundle.putInt(QuickPersistConfigConst.KEY_TEXT_SIZE, i);
-        com.baidu.swan.apps.process.messaging.a.aAK().a(new com.baidu.swan.apps.process.messaging.c(22, bundle));
+        com.baidu.swan.apps.process.messaging.a.aCE().a(new com.baidu.swan.apps.process.messaging.c(22, bundle));
     }
 
-    public static int axw() {
-        return axy() + 1;
+    public static int azq() {
+        return azs() + 1;
     }
 
-    public static boolean axx() {
-        SwanAppConfigData auZ = f.avu().auZ();
-        if (auZ == null) {
+    public static boolean azr() {
+        SwanAppConfigData awT = f.axo().awT();
+        if (awT == null) {
             return false;
         }
-        return TextUtils.equals("none", auZ.dfg.dgb);
+        return TextUtils.equals("none", awT.dnG.doD);
     }
 
-    public static int axy() {
-        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(com.baidu.swan.apps.t.a.asf(), d.class, null);
+    public static int azs() {
+        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(com.baidu.swan.apps.t.a.aua(), d.class, null);
         if (callOnMainWithContentProvider.isOk()) {
             return callOnMainWithContentProvider.mResult.getInt("font_size_level", 1);
         }
         return 1;
     }
 
-    public static int jc(int i) {
+    public static int jn(int i) {
         switch (i) {
             case 0:
                 return 82;
@@ -50,7 +50,7 @@ public class b {
         }
     }
 
-    public static boolean axz() {
-        return ag.tL("3.200.101");
+    public static boolean azt() {
+        return ag.ue("3.200.101");
     }
 }

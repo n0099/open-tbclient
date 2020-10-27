@@ -1,26 +1,24 @@
 package com.baidu.live.message;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.tbadk.encryption.EncryptionHelper;
 /* loaded from: classes4.dex */
 public class f extends HttpMessage {
-    private int mCommand;
-    private int mIsAudio;
+    private String bac;
+    private String bmG;
+    private String bmH;
 
-    public f(int i, int i2) {
-        super(1021047);
-        this.mIsAudio = i;
-        this.mCommand = i2;
-        addParam("is_audio", i);
-        addParam("command", i2);
-        addParam("tbs", TbadkCoreApplication.getInst().getTbs());
+    public f(String str, String str2, String str3, String str4, String str5) {
+        super(1021120);
+        this.bac = str;
+        this.bmG = str4;
+        this.bmH = str5;
+        addParam("scene_from", this.bac);
+        addParam("live_id", str2);
+        addParam("anchor_uk", EncryptionHelper.getEncryptionUserId(str3));
     }
 
-    public boolean Nm() {
-        return this.mIsAudio == 1;
-    }
-
-    public boolean isSwitchOpen() {
-        return this.mCommand == 1;
+    public String IQ() {
+        return this.bmH;
     }
 }

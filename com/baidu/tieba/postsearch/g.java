@@ -6,89 +6,89 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes24.dex */
 public class g {
-    private PostSearchActivity lVD;
-    private a lWs;
-    private c lWt;
-    private f lWu;
     private View mRootView;
+    private a miT;
+    private c miU;
+    private f miV;
+    private PostSearchActivity mic;
 
     public g(PostSearchActivity postSearchActivity) {
-        this.lVD = postSearchActivity;
+        this.mic = postSearchActivity;
     }
 
     public void initView() {
-        this.lVD.setContentView(R.layout.post_search_activity);
-        this.mRootView = this.lVD.findViewById(R.id.search_rootview);
-        this.lWs = new a(this.lVD, this.mRootView);
-        this.lWt = new c(this.lVD, this.mRootView);
-        this.lWu = new f(this.lVD, this.mRootView);
+        this.mic.setContentView(R.layout.post_search_activity);
+        this.mRootView = this.mic.findViewById(R.id.search_rootview);
+        this.miT = new a(this.mic, this.mRootView);
+        this.miU = new c(this.mic, this.mRootView);
+        this.miV = new f(this.mic, this.mRootView);
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        if (this.lWu != null) {
-            this.lWu.setOnPageChangeListener(onPageChangeListener);
+        if (this.miV != null) {
+            this.miV.setOnPageChangeListener(onPageChangeListener);
         }
     }
 
-    public void bb(ArrayList<String> arrayList) {
-        this.lWu.setVisibility(false);
-        this.lWt.bb(arrayList);
+    public void be(ArrayList<String> arrayList) {
+        this.miV.setVisibility(false);
+        this.miU.be(arrayList);
     }
 
-    public void GZ(int i) {
-        this.lWs.cBE();
+    public void Hs(int i) {
+        this.miT.cEL();
         hideSoftKeyPad();
-        this.lWs.dsM();
-        this.lWu.setVisibility(true);
-        this.lWu.GZ(i);
+        this.miT.dvT();
+        this.miV.setVisibility(true);
+        this.miV.Hs(i);
     }
 
-    public void Qd(String str) {
-        this.lWs.Qd(str);
+    public void QB(String str) {
+        this.miT.QB(str);
     }
 
     public void a(int i, b bVar, boolean z) {
-        this.lWu.a(i, bVar, z);
+        this.miV.a(i, bVar, z);
     }
 
-    public boolean dsQ() {
-        return this.lWt.dsY();
+    public boolean dvX() {
+        return this.miU.dwf();
     }
 
     public void showLoadingView() {
-        this.lWt.showLoadingView();
+        this.miU.showLoadingView();
     }
 
     public void hideLoadingView() {
-        this.lWt.hideLoadingView();
+        this.miU.hideLoadingView();
     }
 
-    public void dsX() {
-        this.lWt.dsX();
+    public void dwe() {
+        this.miU.dwe();
     }
 
     public void hideSoftKeyPad() {
-        this.lWs.hideSoftKeyPad();
+        this.miT.hideSoftKeyPad();
     }
 
-    public void dtj() {
-        this.lWt.dsW();
+    public void dwq() {
+        this.miU.dwd();
     }
 
     public int getCurrentTabType() {
-        return this.lWu.getCurrentTabType();
+        return this.miV.getCurrentTabType();
     }
 
     public void onChangeSkinType(int i) {
-        this.lWs.onChangeSkinType(i);
-        this.lWt.onChangeSkinType(i);
-        this.lWu.onChangeSkinType(i);
-        com.baidu.tbadk.r.a.a(this.lVD.getPageContext(), this.mRootView);
+        this.miT.onChangeSkinType(i);
+        this.miU.onChangeSkinType(i);
+        this.miV.onChangeSkinType(i);
+        com.baidu.tbadk.r.a.a(this.mic.getPageContext(), this.mRootView);
     }
 
     public void onDestroy() {
-        if (this.lWs != null) {
-            this.lWs.onDestroy();
+        if (this.miT != null) {
+            this.miT.onDestroy();
         }
     }
 }

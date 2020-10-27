@@ -1,28 +1,28 @@
 package com.baidu.minivideo.arface.bean;
 /* loaded from: classes15.dex */
 public class a {
-    public boolean bMf = true;
-    public boolean bMg = true;
-    public boolean bMh = true;
-    public boolean bMi = true;
+    public boolean bUC = true;
+    public boolean bUD = true;
+    public boolean bUE = true;
+    public boolean bUF = true;
 
-    public void dg(boolean z) {
-        this.bMf = z;
+    public void du(boolean z) {
+        this.bUC = z;
     }
 
-    public void dh(boolean z) {
-        this.bMg = z;
+    public void dv(boolean z) {
+        this.bUD = z;
     }
 
-    public void di(boolean z) {
-        this.bMh = z;
+    public void dw(boolean z) {
+        this.bUE = z;
     }
 
-    public void dj(boolean z) {
-        this.bMi = z;
+    public void dx(boolean z) {
+        this.bUF = z;
     }
 
     public boolean equals(Object obj) {
-        return super.equals(obj) || ((obj instanceof a) && ((a) obj).bMh == this.bMh && ((a) obj).bMi == this.bMi && ((a) obj).bMg == this.bMg);
+        return super.equals(obj) || ((obj instanceof a) && ((a) obj).bUE == this.bUE && ((a) obj).bUF == this.bUF && ((a) obj).bUD == this.bUD);
     }
 }

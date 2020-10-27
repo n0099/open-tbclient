@@ -1,23 +1,23 @@
 package master.flame.danmaku.a;
 /* loaded from: classes6.dex */
 public class i extends Thread {
-    volatile boolean oUT;
+    volatile boolean pMp;
 
     public i(String str) {
         super(str);
     }
 
     public void quit() {
-        this.oUT = true;
+        this.pMp = true;
     }
 
-    public boolean epj() {
-        return this.oUT;
+    public boolean ezh() {
+        return this.pMp;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        if (this.oUT) {
+        if (this.pMp) {
         }
     }
 }

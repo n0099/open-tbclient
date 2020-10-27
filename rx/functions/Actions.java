@@ -3,10 +3,10 @@ package rx.functions;
 import rx.exceptions.OnErrorNotImplementedException;
 /* loaded from: classes16.dex */
 public final class Actions {
-    private static final b pdd = new b();
+    private static final b pUw = new b();
 
-    public static <T0, T1, T2, T3, T4, T5, T6, T7, T8> b<T0, T1, T2, T3, T4, T5, T6, T7, T8> erP() {
-        return pdd;
+    public static <T0, T1, T2, T3, T4, T5, T6, T7, T8> b<T0, T1, T2, T3, T4, T5, T6, T7, T8> eBN() {
+        return pUw;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -47,8 +47,9 @@ public final class Actions {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes16.dex */
-    enum NotImplemented implements rx.functions.b<Throwable> {
+    public enum NotImplemented implements rx.functions.b<Throwable> {
         INSTANCE;
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -58,7 +59,7 @@ public final class Actions {
         }
     }
 
-    public static rx.functions.b<Throwable> erQ() {
+    public static rx.functions.b<Throwable> eBO() {
         return NotImplemented.INSTANCE;
     }
 }

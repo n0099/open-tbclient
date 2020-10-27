@@ -9,7 +9,7 @@ public interface b {
 
     /* loaded from: classes6.dex */
     public interface a {
-        void gG(String str, String str2);
+        void gW(String str, String str2);
     }
 
     Bitmap a(FileDescriptor fileDescriptor, Rect rect, BitmapFactory.Options options);

@@ -11,10 +11,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.setting.more.youngster.view.YoungsterIntroduceView;
 /* loaded from: classes26.dex */
 public class YoungsterIntroduceActivity extends BaseActivity {
+    private View mBI;
+    private YoungsterIntroduceView mDu;
     private int mFrom;
     private NavigationBar mNavigationBar;
-    private View mph;
-    private YoungsterIntroduceView mqR;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -22,16 +22,16 @@ public class YoungsterIntroduceActivity extends BaseActivity {
         super.onCreate(bundle);
         setContentView(R.layout.activity_youngster);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.mph = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mph.setOnClickListener(this);
+        this.mBI = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.mBI.setOnClickListener(this);
         this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.youngster_settings_open_title));
         Intent intent = getIntent();
         if (intent != null) {
             this.mFrom = intent.getIntExtra(YoungsterPasswordActivityConfig.KEY_YOUNGSTER_PASSWORD_FROM, 0);
         }
-        this.mqR = new YoungsterIntroduceView(getPageContext().getPageActivity());
-        this.mqR.setFrom(this.mFrom);
-        ((FrameLayout) findViewById(R.id.youngster_content)).addView(this.mqR);
+        this.mDu = new YoungsterIntroduceView(getPageContext().getPageActivity());
+        this.mDu.setFrom(this.mFrom);
+        ((FrameLayout) findViewById(R.id.youngster_content)).addView(this.mDu);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -39,13 +39,13 @@ public class YoungsterIntroduceActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.mqR.onChangeSkinType();
+        this.mDu.onChangeSkinType();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.mph) {
+        if (view == this.mBI) {
             finish();
         }
     }

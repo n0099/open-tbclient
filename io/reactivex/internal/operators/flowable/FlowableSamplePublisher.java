@@ -8,17 +8,17 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes17.dex */
 public final class FlowableSamplePublisher<T> extends io.reactivex.g<T> {
-    final boolean oMI;
-    final org.a.b<?> oMs;
+    final org.a.b<?> pDP;
+    final boolean pEf;
     final org.a.b<T> source;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
-        if (this.oMI) {
-            this.source.subscribe(new SampleMainEmitLast(bVar, this.oMs));
+        if (this.pEf) {
+            this.source.subscribe(new SampleMainEmitLast(bVar, this.pDP));
         } else {
-            this.source.subscribe(new SampleMainNoLast(bVar, this.oMs));
+            this.source.subscribe(new SampleMainNoLast(bVar, this.pDP));
         }
     }
 
@@ -114,32 +114,32 @@ public final class FlowableSamplePublisher<T> extends io.reactivex.g<T> {
 
     /* loaded from: classes17.dex */
     static final class a<T> implements j<Object> {
-        final SamplePublisherSubscriber<T> oMJ;
+        final SamplePublisherSubscriber<T> pEg;
 
         a(SamplePublisherSubscriber<T> samplePublisherSubscriber) {
-            this.oMJ = samplePublisherSubscriber;
+            this.pEg = samplePublisherSubscriber;
         }
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(org.a.d dVar) {
-            if (this.oMJ.setOther(dVar)) {
+            if (this.pEg.setOther(dVar)) {
                 dVar.request(Long.MAX_VALUE);
             }
         }
 
         @Override // org.a.c
         public void onNext(Object obj) {
-            this.oMJ.run();
+            this.pEg.run();
         }
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            this.oMJ.error(th);
+            this.pEg.error(th);
         }
 
         @Override // org.a.c
         public void onComplete() {
-            this.oMJ.complete();
+            this.pEg.complete();
         }
     }
 

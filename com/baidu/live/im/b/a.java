@@ -1,27 +1,27 @@
 package com.baidu.live.im.b;
 
 import android.view.View;
-import com.baidu.live.data.u;
+import com.baidu.live.data.w;
 /* loaded from: classes4.dex */
 public interface a {
 
     /* renamed from: com.baidu.live.im.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0185a {
-        void Ll();
+    public interface InterfaceC0186a {
+        void LF();
     }
 
-    View Cl();
+    View Cr();
 
-    void Cm();
+    void Cs();
 
-    void Cn();
+    void Ct();
 
-    void a(u uVar);
+    void a(w wVar);
 
-    void a(u uVar, boolean z);
+    void a(w wVar, boolean z);
 
-    void a(InterfaceC0185a interfaceC0185a);
+    void a(InterfaceC0186a interfaceC0186a);
 
     void release();
 

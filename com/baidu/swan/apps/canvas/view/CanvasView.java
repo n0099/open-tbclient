@@ -18,15 +18,15 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class CanvasView extends AbsCanvasView {
-    private List<a> coG;
-    private final DrawFilter coH;
-    private int coI;
-    private HashMap<String, Bitmap> coJ;
-    private b coK;
+    private List<a> cxi;
+    private final DrawFilter cxj;
+    private int cxk;
+    private HashMap<String, Bitmap> cxl;
+    private b cxm;
 
     /* loaded from: classes10.dex */
     public interface b {
-        void agd();
+        void ahX();
     }
 
     public CanvasView(Context context) {
@@ -39,35 +39,35 @@ public class CanvasView extends AbsCanvasView {
 
     public CanvasView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.coG = new ArrayList();
-        this.coH = new PaintFlagsDrawFilter(0, 3);
-        this.coI = 0;
-        this.coJ = new HashMap<>();
-        this.coI = getLayerType();
+        this.cxi = new ArrayList();
+        this.cxj = new PaintFlagsDrawFilter(0, 3);
+        this.cxk = 0;
+        this.cxl = new HashMap<>();
+        this.cxk = getLayerType();
     }
 
-    public void h(List<com.baidu.swan.apps.canvas.a.a.a> list, boolean z) {
-        if (list != null && !this.coG.contains(list)) {
+    public void i(List<com.baidu.swan.apps.canvas.a.a.a> list, boolean z) {
+        if (list != null && !this.cxi.contains(list)) {
             if (!z) {
-                this.coG.clear();
+                this.cxi.clear();
             }
-            int size = this.coG.size();
+            int size = this.cxi.size();
             boolean z2 = z && size > 0;
             a aVar = new a();
             if (z2) {
-                a aVar2 = this.coG.get(size - 1);
-                aVar.coM = aVar2.coM;
-                aVar.cow = aVar2.cow;
-                aVar.cow.addAll(list);
+                a aVar2 = this.cxi.get(size - 1);
+                aVar.cxo = aVar2.cxo;
+                aVar.cwY = aVar2.cwY;
+                aVar.cwY.addAll(list);
             } else {
-                aVar.coM = new com.baidu.swan.apps.canvas.a.a.b(this);
-                aVar.cow = list;
+                aVar.cxo = new com.baidu.swan.apps.canvas.a.a.b(this);
+                aVar.cwY = list;
             }
-            this.coG.add(aVar);
+            this.cxi.add(aVar);
             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.canvas.view.CanvasView.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    CanvasView.this.agn();
+                    CanvasView.this.aih();
                 }
             });
         }
@@ -75,23 +75,23 @@ public class CanvasView extends AbsCanvasView {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return agm() || super.onTouchEvent(motionEvent);
+        return aig() || super.onTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.coG.size() > 0) {
+        if (this.cxi.size() > 0) {
             canvas.save();
-            canvas.setDrawFilter(this.coH);
-            for (a aVar : this.coG) {
-                List<com.baidu.swan.apps.canvas.a.a.a> list = aVar.cow;
-                com.baidu.swan.apps.canvas.a.a.b bVar = aVar.coM;
+            canvas.setDrawFilter(this.cxj);
+            for (a aVar : this.cxi) {
+                List<com.baidu.swan.apps.canvas.a.a.a> list = aVar.cwY;
+                com.baidu.swan.apps.canvas.a.a.b bVar = aVar.cxo;
                 bVar.init();
                 for (com.baidu.swan.apps.canvas.a.a.a aVar2 : list) {
                     aVar2.a(bVar, canvas);
                     if (aVar2 instanceof k) {
-                        ((k) aVar2).y(this.coJ);
+                        ((k) aVar2).y(this.cxl);
                     }
                 }
             }
@@ -100,35 +100,35 @@ public class CanvasView extends AbsCanvasView {
     }
 
     public com.baidu.swan.apps.canvas.a.a.b getCanvasContext() {
-        if (this.coG.size() > 0) {
-            return this.coG.get(this.coG.size() - 1).coM;
+        if (this.cxi.size() > 0) {
+            return this.cxi.get(this.cxi.size() - 1).cxo;
         }
         return null;
     }
 
-    public Bitmap lz(String str) {
+    public Bitmap lS(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.coJ.get(str);
+        return this.cxl.get(str);
     }
 
     public synchronized void onRelease() {
-        this.coJ.clear();
+        this.cxl.clear();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void agn() {
+    public void aih() {
         int i;
-        int i2 = this.coI;
-        if (this.coG.size() > 0) {
-            Iterator<a> it = this.coG.iterator();
+        int i2 = this.cxk;
+        if (this.cxi.size() > 0) {
+            Iterator<a> it = this.cxi.iterator();
             while (true) {
                 i = i2;
                 if (!it.hasNext()) {
                     break;
                 }
-                Iterator<com.baidu.swan.apps.canvas.a.a.a> it2 = it.next().cow.iterator();
+                Iterator<com.baidu.swan.apps.canvas.a.a.a> it2 = it.next().cwY.iterator();
                 while (true) {
                     if (!it2.hasNext()) {
                         i2 = i;
@@ -154,14 +154,14 @@ public class CanvasView extends AbsCanvasView {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes10.dex */
     public static class a {
-        com.baidu.swan.apps.canvas.a.a.b coM;
-        List<com.baidu.swan.apps.canvas.a.a.a> cow;
+        List<com.baidu.swan.apps.canvas.a.a.a> cwY;
+        com.baidu.swan.apps.canvas.a.a.b cxo;
 
         private a() {
         }
     }
 
     public void setOnDrawCompleteLinstener(b bVar) {
-        this.coK = bVar;
+        this.cxm = bVar;
     }
 }

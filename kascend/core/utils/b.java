@@ -1,50 +1,50 @@
 package kascend.core.utils;
 /* loaded from: classes18.dex */
 public class b {
-    private static final byte[] oQX = new byte[128];
-    private static final char[] oQY = new char[64];
+    private static final byte[] pIu = new byte[128];
+    private static final char[] pIv = new char[64];
 
     static {
         int i = 0;
         for (int i2 = 0; i2 < 128; i2++) {
-            oQX[i2] = -1;
+            pIu[i2] = -1;
         }
         for (int i3 = 90; i3 >= 65; i3--) {
-            oQX[i3] = (byte) (i3 - 65);
+            pIu[i3] = (byte) (i3 - 65);
         }
         for (int i4 = 122; i4 >= 97; i4--) {
-            oQX[i4] = (byte) ((i4 - 97) + 26);
+            pIu[i4] = (byte) ((i4 - 97) + 26);
         }
         for (int i5 = 57; i5 >= 48; i5--) {
-            oQX[i5] = (byte) ((i5 - 48) + 52);
+            pIu[i5] = (byte) ((i5 - 48) + 52);
         }
-        oQX[43] = 62;
-        oQX[47] = 63;
+        pIu[43] = 62;
+        pIu[47] = 63;
         for (int i6 = 0; i6 <= 25; i6++) {
-            oQY[i6] = (char) (i6 + 65);
+            pIv[i6] = (char) (i6 + 65);
         }
         int i7 = 26;
         int i8 = 0;
         while (i7 <= 51) {
-            oQY[i7] = (char) (i8 + 97);
+            pIv[i7] = (char) (i8 + 97);
             i7++;
             i8++;
         }
         int i9 = 52;
         while (i9 <= 61) {
-            oQY[i9] = (char) (i + 48);
+            pIv[i9] = (char) (i + 48);
             i9++;
             i++;
         }
-        oQY[62] = '+';
-        oQY[63] = '/';
+        pIv[62] = '+';
+        pIv[63] = '/';
     }
 
     public static byte[] decode(String str) throws Exception {
-        return Xv(str);
+        return Zi(str);
     }
 
-    public static byte[] Xv(String str) {
+    public static byte[] Zi(String str) {
         if (str == null) {
             return null;
         }
@@ -80,10 +80,10 @@ public class b {
                 if (!k(c4)) {
                     return null;
                 }
-                byte b2 = oQX[c];
-                byte b3 = oQX[c2];
-                byte b4 = oQX[c3];
-                byte b5 = oQX[c4];
+                byte b2 = pIu[c];
+                byte b3 = pIu[c2];
+                byte b4 = pIu[c3];
+                byte b5 = pIu[c4];
                 int i8 = i3 + 1;
                 bArr[i3] = (byte) ((b2 << 2) | (b3 >> 4));
                 int i9 = i8 + 1;
@@ -98,8 +98,8 @@ public class b {
                 int i11 = i10 + 1;
                 char c6 = charArray[i10];
                 if (k(c6)) {
-                    byte b6 = oQX[c5];
-                    byte b7 = oQX[c6];
+                    byte b6 = pIu[c5];
+                    byte b7 = pIu[c6];
                     int i12 = i11 + 1;
                     char c7 = charArray[i11];
                     int i13 = i12 + 1;
@@ -116,7 +116,7 @@ public class b {
                         } else if (j(c7) || !j(c8)) {
                             return null;
                         } else {
-                            byte b8 = oQX[c7];
+                            byte b8 = pIu[c7];
                             if ((b8 & 3) == 0) {
                                 byte[] bArr3 = new byte[(i4 * 3) + 2];
                                 System.arraycopy(bArr, 0, bArr3, 0, i4 * 3);
@@ -127,8 +127,8 @@ public class b {
                             return null;
                         }
                     }
-                    byte b9 = oQX[c7];
-                    byte b10 = oQX[c8];
+                    byte b9 = pIu[c7];
+                    byte b10 = pIu[c8];
                     int i14 = i3 + 1;
                     bArr[i3] = (byte) ((b6 << 2) | (b7 >> 4));
                     int i15 = i14 + 1;
@@ -173,6 +173,6 @@ public class b {
     }
 
     private static boolean k(char c) {
-        return c < 128 && oQX[c] != -1;
+        return c < 128 && pIu[c] != -1;
     }
 }

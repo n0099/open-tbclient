@@ -7,18 +7,18 @@ import com.facebook.imagepipeline.c.p;
 import com.facebook.imagepipeline.d.h;
 /* loaded from: classes18.dex */
 public class i {
-    private final boolean nUW;
-    private final b.a nUX;
-    private final boolean nUY;
-    private final com.facebook.common.g.b nUZ;
-    private final com.facebook.common.internal.j<Boolean> nUw;
-    private final boolean nVa;
-    private final boolean nVb;
-    private final int nVc;
-    private final int nVd;
-    private boolean nVe;
-    private final boolean nVf;
-    private final c nVg;
+    private final com.facebook.common.internal.j<Boolean> oLO;
+    private final boolean oMo;
+    private final b.a oMp;
+    private final boolean oMq;
+    private final com.facebook.common.g.b oMr;
+    private final boolean oMs;
+    private final boolean oMt;
+    private final int oMu;
+    private final int oMv;
+    private boolean oMw;
+    private final boolean oMx;
+    private final c oMy;
 
     /* loaded from: classes18.dex */
     public interface c {
@@ -26,93 +26,93 @@ public class i {
     }
 
     private i(a aVar) {
-        this.nUW = aVar.nUW;
-        this.nUX = aVar.nUX;
-        this.nUY = aVar.nUY;
-        this.nUZ = aVar.nUZ;
-        this.nVa = aVar.nVa;
-        this.nVb = aVar.nVb;
-        this.nVc = aVar.nVc;
-        this.nVd = aVar.nVd;
-        this.nVe = aVar.nVe;
-        this.nVf = aVar.nVf;
-        if (aVar.nVg == null) {
-            this.nVg = new b();
+        this.oMo = aVar.oMo;
+        this.oMp = aVar.oMp;
+        this.oMq = aVar.oMq;
+        this.oMr = aVar.oMr;
+        this.oMs = aVar.oMs;
+        this.oMt = aVar.oMt;
+        this.oMu = aVar.oMu;
+        this.oMv = aVar.oMv;
+        this.oMw = aVar.oMw;
+        this.oMx = aVar.oMx;
+        if (aVar.oMy == null) {
+            this.oMy = new b();
         } else {
-            this.nVg = aVar.nVg;
+            this.oMy = aVar.oMy;
         }
-        this.nUw = aVar.nUw;
+        this.oLO = aVar.oLO;
     }
 
-    public boolean eaT() {
-        return this.nVa;
+    public boolean ekR() {
+        return this.oMs;
     }
 
-    public boolean eaU() {
-        return this.nUW;
+    public boolean ekS() {
+        return this.oMo;
     }
 
-    public boolean eaV() {
-        return this.nUY;
+    public boolean ekT() {
+        return this.oMq;
     }
 
-    public b.a eaW() {
-        return this.nUX;
+    public b.a ekU() {
+        return this.oMp;
     }
 
-    public com.facebook.common.g.b eaX() {
-        return this.nUZ;
+    public com.facebook.common.g.b ekV() {
+        return this.oMr;
     }
 
-    public boolean eaY() {
-        return this.nVb;
+    public boolean ekW() {
+        return this.oMt;
     }
 
-    public int eaZ() {
-        return this.nVc;
+    public int ekX() {
+        return this.oMu;
     }
 
-    public int eba() {
-        return this.nVd;
+    public int ekY() {
+        return this.oMv;
     }
 
-    public boolean ebb() {
-        return this.nVf;
+    public boolean ekZ() {
+        return this.oMx;
     }
 
-    public c ebc() {
-        return this.nVg;
+    public c ela() {
+        return this.oMy;
     }
 
-    public boolean ebd() {
-        return this.nVe;
+    public boolean elb() {
+        return this.oMw;
     }
 
-    public com.facebook.common.internal.j<Boolean> ebe() {
-        return this.nUw;
+    public com.facebook.common.internal.j<Boolean> elc() {
+        return this.oLO;
     }
 
     /* loaded from: classes18.dex */
     public static class a {
-        private b.a nUX;
-        private com.facebook.common.g.b nUZ;
-        public com.facebook.common.internal.j<Boolean> nUw;
-        private c nVg;
-        private final h.a nVh;
-        private boolean nUW = false;
-        private boolean nUY = false;
-        private boolean nVa = false;
-        private boolean nVb = false;
-        private int nVc = 0;
-        private int nVd = 0;
-        public boolean nVe = false;
-        private boolean nVf = false;
+        public com.facebook.common.internal.j<Boolean> oLO;
+        private b.a oMp;
+        private com.facebook.common.g.b oMr;
+        private c oMy;
+        private final h.a oMz;
+        private boolean oMo = false;
+        private boolean oMq = false;
+        private boolean oMs = false;
+        private boolean oMt = false;
+        private int oMu = 0;
+        private int oMv = 0;
+        public boolean oMw = false;
+        private boolean oMx = false;
 
         public a(h.a aVar) {
-            this.nVh = aVar;
+            this.oMz = aVar;
         }
 
-        public i ebf() {
+        public i eld() {
             return new i(this);
         }
     }

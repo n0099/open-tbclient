@@ -7,11 +7,11 @@ import org.json.JSONArray;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    String f3958a;
+    String f3956a;
     public Vector<String> b = new Vector<>();
 
     public a(String str) {
-        this.f3958a = str;
+        this.f3956a = str;
     }
 
     public final int a(String str) {

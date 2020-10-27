@@ -13,10 +13,10 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class GradientTextView extends TextView {
-    private int bvd;
-    private int bve;
-    private String bvh;
-    private boolean bvi;
+    private int bxr;
+    private int bxs;
+    private String bxv;
+    private boolean bxw;
 
     public GradientTextView(Context context) {
         this(context, null);
@@ -29,19 +29,19 @@ public class GradientTextView extends TextView {
     public GradientTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.k.sdk_GradientTextView);
-        this.bvd = obtainStyledAttributes.getColor(a.k.sdk_GradientTextView_startColor, -1);
-        this.bve = obtainStyledAttributes.getColor(a.k.sdk_GradientTextView_endColor, -1);
+        this.bxr = obtainStyledAttributes.getColor(a.k.sdk_GradientTextView_startColor, -1);
+        this.bxs = obtainStyledAttributes.getColor(a.k.sdk_GradientTextView_endColor, -1);
         obtainStyledAttributes.recycle();
-        this.bvi = true;
+        this.bxw = true;
     }
 
     public void setCheckStrEquals(boolean z) {
-        this.bvi = z;
+        this.bxw = z;
     }
 
     public void setGradientTextColor(int i, int i2) {
-        this.bvd = i;
-        this.bve = i2;
+        this.bxr = i;
+        this.bxs = i2;
         invalidate();
     }
 
@@ -49,11 +49,11 @@ public class GradientTextView extends TextView {
     @SuppressLint({"DrawAllocation"})
     protected void onDraw(Canvas canvas) {
         String charSequence = getText().toString();
-        if (!TextUtils.isEmpty(charSequence) && ((this.bvd != 0 || this.bve != 0) && (!this.bvi || !charSequence.equals(this.bvh)))) {
-            this.bvh = charSequence;
+        if (!TextUtils.isEmpty(charSequence) && ((this.bxr != 0 || this.bxs != 0) && (!this.bxw || !charSequence.equals(this.bxv)))) {
+            this.bxv = charSequence;
             float measureText = getPaint().measureText(charSequence);
             float width = (getWidth() - measureText) / 2.0f;
-            getPaint().setShader(new LinearGradient(width, 0.0f, width + measureText, 0.0f, this.bvd, this.bve, Shader.TileMode.CLAMP));
+            getPaint().setShader(new LinearGradient(width, 0.0f, width + measureText, 0.0f, this.bxr, this.bxs, Shader.TileMode.CLAMP));
         }
         super.onDraw(canvas);
     }

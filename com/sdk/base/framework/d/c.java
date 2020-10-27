@@ -9,18 +9,18 @@ import org.json.JSONObject;
 public final class c extends com.sdk.base.framework.b.b<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    private /* synthetic */ a f4489a;
+    private /* synthetic */ a f4487a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.f4489a = aVar;
+        this.f4487a = aVar;
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r5v0 java.lang.Object)] */
     @Override // com.sdk.base.framework.b.b
     public final void a(int i, Object obj) {
-        this.f4489a.a(i, CmdConfigSocket.CMD_SUBPB_FLOOR, new StringBuilder().append(obj).toString());
-        com.sdk.base.framework.f.h.a.a(this.f4489a.f4488a);
+        this.f4487a.a(i, CmdConfigSocket.CMD_SUBPB_FLOOR, new StringBuilder().append(obj).toString());
+        com.sdk.base.framework.f.h.a.a(this.f4487a.f4486a);
     }
 
     @Override // com.sdk.base.framework.b.b
@@ -45,11 +45,11 @@ public final class c extends com.sdk.base.framework.b.b<String> {
             String optString2 = jSONObject.optString(MapBundleKey.MapObjKey.OBJ_SL_OBJ);
             String optString3 = jSONObject.optString("seq");
             if (!com.sdk.base.framework.a.a.c.a(optString).booleanValue() || !com.sdk.base.framework.a.a.c.a(optString3).booleanValue() || !com.sdk.base.framework.a.a.c.a(optString2).booleanValue()) {
-                this.f4489a.a(optInt, optString, optInt2, optString2, optString3);
-                com.sdk.base.framework.f.h.a.a(this.f4489a.f4488a);
+                this.f4487a.a(optInt, optString, optInt2, optString2, optString3);
+                com.sdk.base.framework.f.h.a.a(this.f4487a.f4486a);
                 return;
             }
-            this.f4489a.a(1, "服务端数据格式出错", 302003, null, com.sdk.base.framework.f.g.a.b().a());
+            this.f4487a.a(1, "服务端数据格式出错", 302003, null, com.sdk.base.framework.f.g.a.b().a());
             str2 = a.d;
             z2 = a.e;
             com.sdk.base.framework.a.a.c.b(str2, "返回数据为空", Boolean.valueOf(z2));
@@ -57,7 +57,7 @@ public final class c extends com.sdk.base.framework.b.b<String> {
             i = optInt;
             th = th3;
             com.sdk.base.framework.f.g.a.c(th.toString());
-            this.f4489a.a(i, "服务端数据格式出错", 302003, null, com.sdk.base.framework.f.g.a.b().a());
+            this.f4487a.a(i, "服务端数据格式出错", 302003, null, com.sdk.base.framework.f.g.a.b().a());
             str = a.d;
             z = a.e;
             com.sdk.base.framework.a.a.c.b(str, "返回数据解析异常：" + th.toString(), Boolean.valueOf(z));

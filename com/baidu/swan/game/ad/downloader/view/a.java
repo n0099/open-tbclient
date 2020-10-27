@@ -5,13 +5,13 @@ import com.baidu.swan.apps.adlanding.download.model.SwanAdDownloadState;
 public class a {
     public String name;
     public String url;
-    public SwanAdDownloadState dyv = SwanAdDownloadState.NOT_START;
+    public SwanAdDownloadState dGS = SwanAdDownloadState.NOT_START;
     public int percent = Integer.parseInt("0");
 
     private a() {
     }
 
-    public static a cG(String str, String str2) {
+    public static a cN(String str, String str2) {
         a aVar = new a();
         aVar.url = str;
         aVar.name = str2;

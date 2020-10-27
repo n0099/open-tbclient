@@ -26,28 +26,28 @@ import com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabFriendModel;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
-    private BdTypeRecyclerView Xc;
-    private PbListView fTv;
-    private BdSwipeRefreshLayout fUv;
-    private a fUw;
-    private AlaLiveTabFriendModel fUx;
+    private BdTypeRecyclerView Xe;
+    private PbListView gdy;
+    private a geA;
+    private AlaLiveTabFriendModel geB;
+    private BdSwipeRefreshLayout gez;
     private g mPullView;
     private View mRootView;
-    private int fUy = 0;
-    private AlaLiveTabFriendModel.a fUz = new AlaLiveTabFriendModel.a() { // from class: com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabFriendSubFragment.1
+    private int geC = 0;
+    private AlaLiveTabFriendModel.a geD = new AlaLiveTabFriendModel.a() { // from class: com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabFriendSubFragment.1
         @Override // com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabFriendModel.a
-        public void f(boolean z, List<q> list) {
+        public void e(boolean z, List<q> list) {
             LiveTabFriendSubFragment.this.hideLoadingView();
-            LiveTabFriendSubFragment.this.SK();
+            LiveTabFriendSubFragment.this.TK();
             if (z) {
-                LiveTabFriendSubFragment.this.bJV();
+                LiveTabFriendSubFragment.this.bMx();
             } else {
-                LiveTabFriendSubFragment.this.bJU();
+                LiveTabFriendSubFragment.this.bMw();
             }
-            LiveTabFriendSubFragment.this.bKf();
+            LiveTabFriendSubFragment.this.bMH();
             LiveTabFriendSubFragment.this.setData(list);
             if (y.isEmpty(list)) {
-                LiveTabFriendSubFragment.this.bKc();
+                LiveTabFriendSubFragment.this.bME();
             } else {
                 LiveTabFriendSubFragment.this.hideEmptyView();
             }
@@ -55,12 +55,12 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
 
         @Override // com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabFriendModel.a
         public void h(int i, String str, boolean z) {
-            LiveTabFriendSubFragment.this.bKf();
+            LiveTabFriendSubFragment.this.bMH();
             LiveTabFriendSubFragment.this.hideLoadingView();
-            LiveTabFriendSubFragment.this.SK();
+            LiveTabFriendSubFragment.this.TK();
             if (!z) {
-                if (!LiveTabFriendSubFragment.this.fUx.hasData()) {
-                    LiveTabFriendSubFragment.this.bJY();
+                if (!LiveTabFriendSubFragment.this.geB.hasData()) {
+                    LiveTabFriendSubFragment.this.bMA();
                     return;
                 } else {
                     LiveTabFriendSubFragment.this.showToast(R.string.data_load_error);
@@ -70,23 +70,23 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
             LiveTabFriendSubFragment.this.showToast(R.string.data_load_error);
         }
     };
-    private f.c fUA = new f.c() { // from class: com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabFriendSubFragment.2
+    private f.c geE = new f.c() { // from class: com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabFriendSubFragment.2
         @Override // com.baidu.tbadk.core.view.f.c
         public void onListPullRefresh(boolean z) {
             if (j.isNetWorkAvailable()) {
-                LiveTabFriendSubFragment.this.fUx.refresh();
+                LiveTabFriendSubFragment.this.geB.refresh();
             } else {
-                LiveTabFriendSubFragment.this.bKf();
+                LiveTabFriendSubFragment.this.bMH();
             }
         }
     };
-    private BdListView.e fUB = new BdListView.e() { // from class: com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabFriendSubFragment.3
+    private BdListView.e geF = new BdListView.e() { // from class: com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabFriendSubFragment.3
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
             if (!l.isNetOk()) {
-                LiveTabFriendSubFragment.this.bKg();
+                LiveTabFriendSubFragment.this.bMI();
             } else {
-                LiveTabFriendSubFragment.this.fUx.bJG();
+                LiveTabFriendSubFragment.this.geB.bMi();
             }
         }
     };
@@ -94,11 +94,19 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
         @Override // android.support.v7.widget.RecyclerView.OnScrollListener
         public void onScrolled(RecyclerView recyclerView, int i, int i2) {
             super.onScrolled(recyclerView, i, i2);
-            if (i2 >= 4 && !LiveTabFriendSubFragment.this.fUr) {
-                LiveTabFriendSubFragment.this.bKd();
+            if (i2 >= 4 && !LiveTabFriendSubFragment.this.gev) {
+                LiveTabFriendSubFragment.this.bMF();
             }
         }
     };
+
+    public static LiveTabFriendSubFragment lv(boolean z) {
+        Bundle bundle = new Bundle();
+        LiveTabFriendSubFragment liveTabFriendSubFragment = new LiveTabFriendSubFragment();
+        bundle.putBoolean("arg_after_lazy_loaded", z);
+        liveTabFriendSubFragment.setArguments(bundle);
+        return liveTabFriendSubFragment;
+    }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
@@ -106,14 +114,14 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
         this.mContext = getPageContext().getPageActivity();
         Bundle arguments = getArguments();
         if (arguments != null) {
-            this.fTL = arguments.getBoolean("arg_after_lazy_loaded", false);
+            this.gdO = arguments.getBoolean("arg_after_lazy_loaded", false);
         }
-        if (this.fUx == null) {
-            this.fUx = new AlaLiveTabFriendModel(getPageContext(), this.fUz);
-            this.fTL = true;
+        if (this.geB == null) {
+            this.geB = new AlaLiveTabFriendModel(getPageContext(), this.geD);
+            this.gdO = true;
         }
-        this.fUx.init();
-        registerListener(this.fUt);
+        this.geB.init();
+        registerListener(this.gex);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -121,43 +129,43 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
         if (this.mRootView == null) {
             this.mRootView = layoutInflater.inflate(R.layout.live_tab_sub_tab_layout, (ViewGroup) null);
             initView();
-            this.fUy = (((viewGroup.getHeight() - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()) - l.getDimens(getContext(), R.dimen.tbds304)) / 2) - (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2);
+            this.geC = (((viewGroup.getHeight() - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()) - l.getDimens(getContext(), R.dimen.tbds304)) / 2) - (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2);
         }
-        if (this.fTL) {
+        if (this.gdO) {
             loadData();
         }
         return this.mRootView;
     }
 
     private void initView() {
-        this.fUv = (BdSwipeRefreshLayout) this.mRootView.findViewById(R.id.live_tab_refresh_layout);
-        this.fUp = (LinearLayout) this.mRootView.findViewById(R.id.top_container);
+        this.gez = (BdSwipeRefreshLayout) this.mRootView.findViewById(R.id.live_tab_refresh_layout);
+        this.get = (LinearLayout) this.mRootView.findViewById(R.id.top_container);
         this.mPullView = new g(getPageContext());
-        this.fUv.setProgressView(this.mPullView);
-        this.Xc = (BdTypeRecyclerView) this.mRootView.findViewById(R.id.live_tab_list_view);
-        this.Xc.setLayoutManager(new LinearLayoutManager(this.mContext));
-        this.Xc.setFadingEdgeLength(0);
-        this.Xc.setOverScrollMode(2);
-        this.fUw = new a(getPageContext(), this.Xc, 103);
-        this.fTv = new PbListView(this.mContext);
-        this.fTv.createView();
-        this.fTv.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
-        this.fTv.setHeight(l.getDimens(this.mContext, R.dimen.tbds182));
-        this.fTv.setLineGone();
-        this.fTv.setTextSize(R.dimen.tbfontsize33);
-        this.fTv.setTextColor(ap.getColor(R.color.cp_cont_j));
-        this.fTv.setNoMoreTextColorId(R.color.cp_cont_e);
-        this.fTv.getView().setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+        this.gez.setProgressView(this.mPullView);
+        this.Xe = (BdTypeRecyclerView) this.mRootView.findViewById(R.id.live_tab_list_view);
+        this.Xe.setLayoutManager(new LinearLayoutManager(this.mContext));
+        this.Xe.setFadingEdgeLength(0);
+        this.Xe.setOverScrollMode(2);
+        this.geA = new a(getPageContext(), this.Xe, 103);
+        this.gdy = new PbListView(this.mContext);
+        this.gdy.createView();
+        this.gdy.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
+        this.gdy.setHeight(l.getDimens(this.mContext, R.dimen.tbds182));
+        this.gdy.setLineGone();
+        this.gdy.setTextSize(R.dimen.tbfontsize33);
+        this.gdy.setTextColor(ap.getColor(R.color.cp_cont_j));
+        this.gdy.setNoMoreTextColorId(R.color.cp_cont_e);
+        this.gdy.getView().setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         this.mPullView.setTag(getPageContext().getUniqueId());
-        this.Xc.addOnScrollListener(this.mOnScrollListener);
-        setListPullRefreshListener(this.fUA);
-        a(this.fUB);
+        this.Xe.addOnScrollListener(this.mOnScrollListener);
+        setListPullRefreshListener(this.geE);
+        a(this.geF);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setData(List<q> list) {
-        this.fUw.setData(list);
+        this.geA.setData(list);
     }
 
     private void setListPullRefreshListener(f.c cVar) {
@@ -167,47 +175,47 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
     }
 
     private void a(BdListView.e eVar) {
-        if (this.Xc != null) {
-            this.Xc.setOnSrollToBottomListener(eVar);
+        if (this.Xe != null) {
+            this.Xe.setOnSrollToBottomListener(eVar);
         }
     }
 
     private void startPullRefresh() {
-        this.fUv.setRefreshing(true);
+        this.gez.setRefreshing(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bKf() {
-        this.fUv.setRefreshing(false);
+    public void bMH() {
+        this.gez.setRefreshing(false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bJU() {
-        if (this.fTv != null) {
-            if (this.fTv.getView().getParent() == null) {
-                this.Xc.setNextPage(this.fTv);
+    public void bMw() {
+        if (this.gdy != null) {
+            if (this.gdy.getView().getParent() == null) {
+                this.Xe.setNextPage(this.gdy);
             }
-            this.fTv.setHeight(l.getDimens(this.mContext, R.dimen.tbds182));
-            this.fTv.setText(this.mContext.getResources().getString(R.string.list_no_more));
-            this.fTv.endLoadData();
+            this.gdy.setHeight(l.getDimens(this.mContext, R.dimen.tbds182));
+            this.gdy.setText(this.mContext.getResources().getString(R.string.list_no_more));
+            this.gdy.endLoadData();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bJV() {
-        if (this.fTv != null) {
-            if (this.fTv.getView().getParent() == null) {
-                this.Xc.setNextPage(this.fTv);
+    public void bMx() {
+        if (this.gdy != null) {
+            if (this.gdy.getView().getParent() == null) {
+                this.Xe.setNextPage(this.gdy);
             }
-            this.fTv.setHeight(l.getDimens(this.mContext, R.dimen.tbds182));
-            this.fTv.setText(this.mContext.getResources().getString(R.string.loading));
-            this.fTv.startLoadData();
+            this.gdy.setHeight(l.getDimens(this.mContext, R.dimen.tbds182));
+            this.gdy.setText(this.mContext.getResources().getString(R.string.loading));
+            this.gdy.startLoadData();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bKg() {
-        this.Xc.setNextPage(null);
+    public void bMI() {
+        this.Xe.setNextPage(null);
     }
 
     @Override // com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabBaseSubFragment, com.baidu.tbadk.core.BaseFragment
@@ -216,69 +224,69 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
         if (this.mPullView != null) {
             this.mPullView.changeSkin(i);
         }
-        if (this.fTv != null) {
-            this.fTv.setTextColor(ap.getColor(R.color.cp_cont_d));
-            this.fTv.changeSkin(i);
+        if (this.gdy != null) {
+            this.gdy.setTextColor(ap.getColor(R.color.cp_cont_d));
+            this.gdy.changeSkin(i);
         }
-        if (this.fUw != null) {
-            this.fUw.notifyDataSetChanged();
+        if (this.geA != null) {
+            this.geA.notifyDataSetChanged();
         }
-        ap.setBackgroundColor(this.fUv, R.color.cp_bg_line_e);
-        ap.setBackgroundColor(this.Xc, R.color.cp_bg_line_d);
+        ap.setBackgroundColor(this.gez, R.color.cp_bg_line_e);
+        ap.setBackgroundColor(this.Xe, R.color.cp_bg_line_d);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.Xc != null) {
-            this.Xc.removeOnScrollListener(this.mOnScrollListener);
-            this.Xc.setOnSrollToBottomListener(null);
+        if (this.Xe != null) {
+            this.Xe.removeOnScrollListener(this.mOnScrollListener);
+            this.Xe.setOnSrollToBottomListener(null);
         }
         if (this.mPullView != null) {
             this.mPullView.setListPullRefreshListener(null);
             this.mPullView.release();
         }
-        if (this.fUx != null) {
-            this.fUx.onDestroy();
+        if (this.geB != null) {
+            this.geB.onDestroy();
         }
     }
 
     @Override // com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabBaseSubFragment
     public void loadData() {
-        if (this.fUx != null) {
-            SK();
+        if (this.geB != null) {
+            TK();
             showLoadingView();
-            this.fUx.refresh();
+            this.geB.refresh();
         }
     }
 
     @Override // com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabBaseSubFragment
-    public void Qi() {
-        this.Xc.setSelection(0);
+    public void Rd() {
+        this.Xe.setSelection(0);
         startPullRefresh();
     }
 
     @Override // com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabBaseSubFragment
-    public void bKe() {
-        if (this.fUw != null) {
-            this.fUw.notifyDataSetChanged();
+    public void bMG() {
+        if (this.geA != null) {
+            this.geA.notifyDataSetChanged();
         }
     }
 
     private void showLoadingView() {
-        this.fUp.setVisibility(0);
-        super.showLoadingView(this.fUp, false, this.fUy);
+        this.get.setVisibility(0);
+        super.showLoadingView(this.get, false, this.geC);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideLoadingView() {
-        this.fUp.setVisibility(8);
-        super.hideLoadingView(this.fUp);
+        this.get.setVisibility(8);
+        super.hideLoadingView(this.get);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bJY() {
-        this.fUp.setVisibility(0);
+    public void bMA() {
+        this.get.setVisibility(0);
         if (this.mRefreshView == null) {
             this.mRefreshView = new h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabFriendSubFragment.5
                 @Override // android.view.View.OnClickListener
@@ -292,17 +300,17 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
         this.mRefreshView.showRefreshButton();
         this.mRefreshView.setSubText(null);
         this.mRefreshView.setTitle(getResources().getString(R.string.refresh_view_title_text));
-        this.mRefreshView.ri(R.drawable.new_pic_emotion_08);
-        this.mRefreshView.rk(0);
+        this.mRefreshView.rt(R.drawable.new_pic_emotion_08);
+        this.mRefreshView.rv(0);
         this.mRefreshView.onChangeSkinType();
-        this.mRefreshView.attachView(this.fUp, false);
+        this.mRefreshView.attachView(this.get, false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void SK() {
-        this.fUp.setVisibility(8);
+    public void TK() {
+        this.get.setVisibility(8);
         if (this.mRefreshView != null) {
-            this.mRefreshView.dettachView(this.fUp);
+            this.mRefreshView.dettachView(this.get);
             this.mRefreshView = null;
         }
     }

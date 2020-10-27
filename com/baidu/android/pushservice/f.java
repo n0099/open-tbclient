@@ -33,7 +33,7 @@ public class f {
     private static ConnectivityManager.NetworkCallback m;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f1078a = -1;
+    public static int f1075a = -1;
     public static String b = null;
     public static String c = null;
     public static String d = null;
@@ -66,40 +66,40 @@ public class f {
     public static class b implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private Context f1084a;
+        private Context f1081a;
 
         public b(Context context) {
-            this.f1084a = context;
+            this.f1081a = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             String str = null;
-            long currentTimeMillis = System.currentTimeMillis() - com.baidu.android.pushservice.i.j.a(this.f1084a);
-            if (com.baidu.android.pushservice.b.d.k(this.f1084a)) {
-                str = com.baidu.android.pushservice.i.j.c(this.f1084a);
+            long currentTimeMillis = System.currentTimeMillis() - com.baidu.android.pushservice.i.j.a(this.f1081a);
+            if (com.baidu.android.pushservice.b.d.k(this.f1081a)) {
+                str = com.baidu.android.pushservice.i.j.c(this.f1081a);
                 if (currentTimeMillis > -1702967296) {
                     str = "";
                 }
-            } else if (com.baidu.android.pushservice.b.d.l(this.f1084a)) {
-                str = com.baidu.android.pushservice.i.j.b(this.f1084a);
+            } else if (com.baidu.android.pushservice.b.d.l(this.f1081a)) {
+                str = com.baidu.android.pushservice.i.j.b(this.f1081a);
                 if (currentTimeMillis > 86400000) {
                     str = "";
                 }
-            } else if (com.baidu.android.pushservice.b.d.j(this.f1084a)) {
-                str = com.baidu.android.pushservice.i.j.d(this.f1084a);
+            } else if (com.baidu.android.pushservice.b.d.j(this.f1081a)) {
+                str = com.baidu.android.pushservice.i.j.d(this.f1081a);
                 if (currentTimeMillis > 172800000) {
                     str = "";
                 }
             }
             if (!TextUtils.isEmpty(str)) {
-                f.a(this.f1084a, str);
+                f.a(this.f1081a, str);
                 return;
             }
             if (!f.j.isEmpty()) {
                 f.j.poll();
             }
-            f.k(this.f1084a);
+            f.k(this.f1081a);
         }
     }
 
@@ -423,7 +423,7 @@ public class f {
         if (m(context)) {
             return null;
         }
-        int b2 = f1078a != -1 ? f1078a : com.baidu.android.pushservice.i.i.b(context, "com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 0);
+        int b2 = f1075a != -1 ? f1075a : com.baidu.android.pushservice.i.i.b(context, "com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 0);
         String q = q(context);
         if (TextUtils.isEmpty(q)) {
             com.baidu.android.pushservice.f.a.b("PushManagerHandler", "Can not acquire loginValue, please check if there is a right loginValue", context);
@@ -686,7 +686,7 @@ public class f {
             return false;
         }
         k++;
-        b(context, true, f1078a);
+        b(context, true, f1075a);
         return true;
     }
 

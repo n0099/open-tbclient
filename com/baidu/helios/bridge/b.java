@@ -1,7 +1,7 @@
 package com.baidu.helios.bridge;
 /* loaded from: classes18.dex */
 public class b {
-    private a awx;
+    private a awy;
 
     /* loaded from: classes18.dex */
     public interface a {
@@ -9,10 +9,10 @@ public class b {
     }
 
     public b(a aVar) {
-        this.awx = aVar;
+        this.awy = aVar;
     }
 
     public com.baidu.helios.bridge.a Ae() {
-        return this.awx.Ae();
+        return this.awy.Ae();
     }
 }

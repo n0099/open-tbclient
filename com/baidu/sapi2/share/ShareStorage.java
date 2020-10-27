@@ -227,12 +227,12 @@ public class ShareStorage {
 
         /* renamed from: com.baidu.sapi2.share.ShareStorage$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        class RunnableC0316a implements Runnable {
+        class RunnableC0330a implements Runnable {
 
             /* renamed from: a  reason: collision with root package name */
             final /* synthetic */ StorageModel f3509a;
 
-            RunnableC0316a(StorageModel storageModel) {
+            RunnableC0330a(StorageModel storageModel) {
                 this.f3509a = storageModel;
             }
 
@@ -268,7 +268,7 @@ public class ShareStorage {
 
         @Override // com.baidu.sapi2.share.ShareStorage.b
         public void a(StorageModel storageModel) {
-            ThreadPoolService.getInstance().run(new TPRunnable(new RunnableC0316a(storageModel)));
+            ThreadPoolService.getInstance().run(new TPRunnable(new RunnableC0330a(storageModel)));
         }
     }
 

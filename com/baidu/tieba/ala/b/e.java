@@ -7,70 +7,70 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes4.dex */
 public class e {
-    private b geb = null;
-    private b gec = null;
-    private Set<j> ged = new HashSet();
-    private Set<j> gee = null;
-    private boolean gef = false;
+    private b gof = null;
+    private b gog = null;
+    private Set<j> goh = new HashSet();
+    private Set<j> goi = null;
+    private boolean goj = false;
     private Context mContext;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void bLz();
+        void bOb();
 
         void onCancel();
     }
 
     public e(Context context) {
         this.mContext = context;
-        bLx();
+        bNZ();
     }
 
-    private void bLx() {
-        this.gec = new b("so");
-        this.ged.add(this.gec);
-        this.geb = new b("source");
-        this.ged.add(this.geb);
+    private void bNZ() {
+        this.gog = new b("so");
+        this.goh.add(this.gog);
+        this.gof = new b("source");
+        this.goh.add(this.gof);
     }
 
-    public boolean bLy() {
-        if (this.gee == null) {
-            this.gee = new HashSet();
-            for (j jVar : this.ged) {
+    public boolean bOa() {
+        if (this.goi == null) {
+            this.goi = new HashSet();
+            for (j jVar : this.goh) {
                 if (!jVar.isReady()) {
-                    this.gee.add(jVar);
+                    this.goi.add(jVar);
                 }
             }
-            if (this.gee.size() > 0) {
-                this.gef = true;
+            if (this.goi.size() > 0) {
+                this.goj = true;
             } else {
-                this.gef = false;
+                this.goj = false;
             }
         }
-        return this.gef;
+        return this.goj;
     }
 
     public void a(final a aVar) {
-        if (!bLy()) {
-            aVar.bLz();
+        if (!bOa()) {
+            aVar.bOb();
             return;
         }
         ArrayList arrayList = new ArrayList();
-        for (j jVar : this.gee) {
+        for (j jVar : this.goi) {
             jVar.load();
-            arrayList.add(jVar.bLo());
+            arrayList.add(jVar.bNQ());
         }
         f.a(this.mContext, new com.baidu.tieba.ala.b.a((g[]) arrayList.toArray(new g[0]))).p(new Runnable() { // from class: com.baidu.tieba.ala.b.e.3
             @Override // java.lang.Runnable
             public void run() {
-                aVar.bLz();
+                aVar.bOb();
             }
         }).q(new Runnable() { // from class: com.baidu.tieba.ala.b.e.2
             @Override // java.lang.Runnable
             public void run() {
                 aVar.onCancel();
             }
-        }).d(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.b.e.1
+        }).e(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.b.e.1
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
             }

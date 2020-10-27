@@ -44,7 +44,7 @@ import java.util.UUID;
 public class ScreenCapEditActivity extends Activity implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f3723a = b() + "/ufo/ufo_screen.jpeg";
+    public static String f3721a = b() + "/ufo/ufo_screen.jpeg";
     public static int b = SupportMenu.CATEGORY_MASK;
     public static int d = 0;
     private float A;
@@ -381,9 +381,9 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
         String str = b() + "/ufo";
         try {
             File file = new File(str);
-            f3723a = str + "/ufo_" + System.currentTimeMillis() + ".jpeg";
-            com.baidu.ufosdk.f.c.b("--savePic--" + f3723a);
-            File file2 = new File(f3723a);
+            f3721a = str + "/ufo_" + System.currentTimeMillis() + ".jpeg";
+            com.baidu.ufosdk.f.c.b("--savePic--" + f3721a);
+            File file2 = new File(f3721a);
             if (!file.exists()) {
                 file.mkdirs();
             }

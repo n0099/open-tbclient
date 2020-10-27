@@ -9,7 +9,7 @@ import java.util.RandomAccess;
 @kotlin.h
 /* loaded from: classes10.dex */
 public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
-    public static final a oRe = new a(null);
+    public static final a pIB = new a(null);
 
     @Override // java.util.List
     public void add(int i, E e) {
@@ -50,36 +50,36 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
 
     @Override // java.util.List
     public List<E> subList(int i, int i2) {
-        return new C0985d(this, i, i2);
+        return new C1057d(this, i, i2);
     }
 
     @kotlin.h
     /* renamed from: kotlin.collections.d$d  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    private static final class C0985d<E> extends d<E> implements RandomAccess {
-        private int oRg;
-        private final d<E> oRh;
-        private final int oRi;
+    private static final class C1057d<E> extends d<E> implements RandomAccess {
+        private int pID;
+        private final d<E> pIE;
+        private final int pIF;
 
         /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: kotlin.collections.d<? extends E> */
         /* JADX WARN: Multi-variable type inference failed */
-        public C0985d(d<? extends E> dVar, int i, int i2) {
+        public C1057d(d<? extends E> dVar, int i, int i2) {
             kotlin.jvm.internal.q.n(dVar, "list");
-            this.oRh = dVar;
-            this.oRi = i;
-            d.oRe.al(this.oRi, i2, this.oRh.size());
-            this.oRg = i2 - this.oRi;
+            this.pIE = dVar;
+            this.pIF = i;
+            d.pIB.am(this.pIF, i2, this.pIE.size());
+            this.pID = i2 - this.pIF;
         }
 
         @Override // kotlin.collections.d, java.util.List
         public E get(int i) {
-            d.oRe.eb(i, this.oRg);
-            return this.oRh.get(this.oRi + i);
+            d.pIB.ej(i, this.pID);
+            return this.pIE.get(this.pIF + i);
         }
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return this.oRg;
+            return this.pID;
         }
     }
 
@@ -89,14 +89,14 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
             return true;
         }
         if (obj instanceof List) {
-            return oRe.a(this, (Collection) obj);
+            return pIB.a(this, (Collection) obj);
         }
         return false;
     }
 
     @Override // java.util.Collection, java.util.List
     public int hashCode() {
-        return oRe.n(this);
+        return pIB.n(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -154,7 +154,7 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
 
         public c(int i) {
             super();
-            d.oRe.ec(i, d.this.size());
+            d.pIB.ek(i, d.this.size());
             setIndex(i);
         }
 
@@ -194,19 +194,19 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
             this();
         }
 
-        public final void eb(int i, int i2) {
+        public final void ej(int i, int i2) {
             if (i < 0 || i >= i2) {
                 throw new IndexOutOfBoundsException("index: " + i + ", size: " + i2);
             }
         }
 
-        public final void ec(int i, int i2) {
+        public final void ek(int i, int i2) {
             if (i < 0 || i > i2) {
                 throw new IndexOutOfBoundsException("index: " + i + ", size: " + i2);
             }
         }
 
-        public final void al(int i, int i2, int i3) {
+        public final void am(int i, int i2, int i3) {
             if (i < 0 || i2 > i3) {
                 throw new IndexOutOfBoundsException("fromIndex: " + i + ", toIndex: " + i2 + ", size: " + i3);
             }

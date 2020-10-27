@@ -17,43 +17,43 @@ public class b {
 
     /* loaded from: classes6.dex */
     static class a extends com.baidu.poly.a.a.a<String> {
-        final /* synthetic */ com.baidu.poly.a.k.a bPi;
+        final /* synthetic */ com.baidu.poly.a.k.a bXF;
 
         a(com.baidu.poly.a.k.a aVar) {
-            this.bPi = aVar;
+            this.bXF = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.poly.a.a.a
         /* renamed from: b */
         public void a(String str) {
-            a.C0283a c0283a = new a.C0283a();
+            a.C0297a c0297a = new a.C0297a();
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 if (jSONObject.optInt(BaseJsonData.TAG_ERRNO) == 0) {
-                    c0283a.statusCode = 0;
-                    c0283a.message = jSONObject.optString("msg");
+                    c0297a.statusCode = 0;
+                    c0297a.message = jSONObject.optString("msg");
                     JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                    c0283a.bPf = optJSONObject.optLong("totalAmount");
-                    c0283a.bPg = optJSONObject.optLong("userPayAmount");
-                    c0283a.bPh = optJSONObject.optString("usedhostMarketingDetail");
+                    c0297a.bXC = optJSONObject.optLong("totalAmount");
+                    c0297a.bXD = optJSONObject.optLong("userPayAmount");
+                    c0297a.bXE = optJSONObject.optString("usedhostMarketingDetail");
                 } else {
-                    c0283a.statusCode = jSONObject.optInt("errorLevel", 2);
-                    c0283a.message = jSONObject.optString("msg");
+                    c0297a.statusCode = jSONObject.optInt("errorLevel", 2);
+                    c0297a.message = jSONObject.optString("msg");
                 }
             } catch (Exception e) {
-                c0283a.statusCode = 2;
-                c0283a.message = g.WY().getResources().getString(b.g.calculate_price_default_error);
+                c0297a.statusCode = 2;
+                c0297a.message = g.YS().getResources().getString(b.g.calculate_price_default_error);
             }
-            this.bPi.a(c0283a);
+            this.bXF.a(c0297a);
         }
 
         @Override // com.baidu.poly.a.a.a
         public void a(Throwable th, String str) {
-            a.C0283a c0283a = new a.C0283a();
-            c0283a.statusCode = 2;
-            c0283a.message = g.WY().getResources().getString(b.g.calculate_price_default_error);
-            this.bPi.a(c0283a);
+            a.C0297a c0297a = new a.C0297a();
+            c0297a.statusCode = 2;
+            c0297a.message = g.YS().getResources().getString(b.g.calculate_price_default_error);
+            this.bXF.a(c0297a);
         }
     }
 

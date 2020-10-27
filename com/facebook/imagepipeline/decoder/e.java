@@ -6,24 +6,24 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes18.dex */
 public class e {
-    private final com.facebook.common.memory.a nKJ;
-    private boolean nWc;
-    private int nVY = 0;
-    private int nVX = 0;
-    private int nVZ = 0;
-    private int nWb = 0;
-    private int nWa = 0;
-    private int nVW = 0;
+    private final com.facebook.common.memory.a oCc;
+    private boolean oNu;
+    private int oNq = 0;
+    private int oNp = 0;
+    private int oNr = 0;
+    private int oNt = 0;
+    private int oNs = 0;
+    private int oNo = 0;
 
     public e(com.facebook.common.memory.a aVar) {
-        this.nKJ = (com.facebook.common.memory.a) g.checkNotNull(aVar);
+        this.oCc = (com.facebook.common.memory.a) g.checkNotNull(aVar);
     }
 
     public boolean a(com.facebook.imagepipeline.g.e eVar) {
-        if (this.nVW != 6 && eVar.getSize() > this.nVY) {
-            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(eVar.getInputStream(), this.nKJ.get(16384), this.nKJ);
+        if (this.oNo != 6 && eVar.getSize() > this.oNq) {
+            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(eVar.getInputStream(), this.oCc.get(16384), this.oCc);
             try {
-                com.facebook.common.util.c.a(fVar, this.nVY);
+                com.facebook.common.util.c.a(fVar, this.oNq);
                 return v(fVar);
             } catch (IOException e) {
                 l.v(e);
@@ -38,88 +38,88 @@ public class e {
     private boolean v(InputStream inputStream) {
         int read;
         boolean z = true;
-        int i = this.nWa;
-        while (this.nVW != 6 && (read = inputStream.read()) != -1) {
+        int i = this.oNs;
+        while (this.oNo != 6 && (read = inputStream.read()) != -1) {
             try {
-                this.nVY++;
-                if (this.nWc) {
-                    this.nVW = 6;
-                    this.nWc = false;
+                this.oNq++;
+                if (this.oNu) {
+                    this.oNo = 6;
+                    this.oNu = false;
                     return false;
                 }
-                switch (this.nVW) {
+                switch (this.oNo) {
                     case 0:
                         if (read == 255) {
-                            this.nVW = 1;
+                            this.oNo = 1;
                             break;
                         } else {
-                            this.nVW = 6;
+                            this.oNo = 6;
                             break;
                         }
                     case 1:
                         if (read == 216) {
-                            this.nVW = 2;
+                            this.oNo = 2;
                             break;
                         } else {
-                            this.nVW = 6;
+                            this.oNo = 6;
                             break;
                         }
                     case 2:
                         if (read != 255) {
                             break;
                         } else {
-                            this.nVW = 3;
+                            this.oNo = 3;
                             break;
                         }
                     case 3:
                         if (read == 255) {
-                            this.nVW = 3;
+                            this.oNo = 3;
                             break;
                         } else if (read == 0) {
-                            this.nVW = 2;
+                            this.oNo = 2;
                             break;
                         } else if (read == 217) {
-                            this.nWc = true;
-                            MX(this.nVY - 2);
-                            this.nVW = 2;
+                            this.oNu = true;
+                            OO(this.oNq - 2);
+                            this.oNo = 2;
                             break;
                         } else {
                             if (read == 218) {
-                                MX(this.nVY - 2);
+                                OO(this.oNq - 2);
                             }
-                            if (MW(read)) {
-                                this.nVW = 4;
+                            if (ON(read)) {
+                                this.oNo = 4;
                                 break;
                             } else {
-                                this.nVW = 2;
+                                this.oNo = 2;
                                 break;
                             }
                         }
                     case 4:
-                        this.nVW = 5;
+                        this.oNo = 5;
                         break;
                     case 5:
-                        int i2 = ((this.nVX << 8) + read) - 2;
+                        int i2 = ((this.oNp << 8) + read) - 2;
                         com.facebook.common.util.c.a(inputStream, i2);
-                        this.nVY = i2 + this.nVY;
-                        this.nVW = 2;
+                        this.oNq = i2 + this.oNq;
+                        this.oNo = 2;
                         break;
                     default:
                         g.checkState(false);
                         break;
                 }
-                this.nVX = read;
+                this.oNp = read;
             } catch (IOException e) {
                 l.v(e);
             }
         }
-        if (this.nVW == 6 || this.nWa == i) {
+        if (this.oNo == 6 || this.oNs == i) {
             z = false;
         }
         return z;
     }
 
-    private static boolean MW(int i) {
+    private static boolean ON(int i) {
         boolean z = true;
         if (i == 1) {
             return false;
@@ -133,24 +133,24 @@ public class e {
         return false;
     }
 
-    private void MX(int i) {
-        if (this.nVZ > 0) {
-            this.nWb = i;
+    private void OO(int i) {
+        if (this.oNr > 0) {
+            this.oNt = i;
         }
-        int i2 = this.nVZ;
-        this.nVZ = i2 + 1;
-        this.nWa = i2;
+        int i2 = this.oNr;
+        this.oNr = i2 + 1;
+        this.oNs = i2;
     }
 
-    public int ebV() {
-        return this.nWb;
+    public int elT() {
+        return this.oNt;
     }
 
-    public int ebW() {
-        return this.nWa;
+    public int elU() {
+        return this.oNs;
     }
 
-    public boolean ebX() {
-        return this.nWc;
+    public boolean elV() {
+        return this.oNu;
     }
 }

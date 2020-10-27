@@ -15,7 +15,7 @@ public class i extends com.baidu.adp.widget.ListView.a<z, aa> {
     private int mSkinType;
 
     public i(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), z.Xr);
+        super(tbPageContext.getPageActivity(), z.Xs);
         this.mSkinType = 3;
     }
 

@@ -9,22 +9,22 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes7.dex */
 public final class a extends MessageMicro {
-    private boolean aqA;
-    private boolean aqC;
-    private boolean aqE;
-    private boolean aqt;
-    private boolean aqv;
-    private boolean aqx;
+    private boolean aqB;
+    private boolean aqD;
+    private boolean aqF;
+    private boolean aqu;
+    private boolean aqw;
     private boolean aqy;
-    private int aqu = 0;
-    private String aqw = "";
+    private boolean aqz;
+    private int aqv = 0;
+    private String aqx = "";
     private int level_ = 0;
-    private String aqz = "";
-    private boolean aqB = false;
-    private boolean aqD = false;
-    private String aqF = "";
-    private List<Integer> aqG = Collections.emptyList();
-    private int aqH = -1;
+    private String aqA = "";
+    private boolean aqC = false;
+    private boolean aqE = false;
+    private String aqG = "";
+    private List<Integer> aqH = Collections.emptyList();
+    private int aqI = -1;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.protobuf.micro.MessageMicro
@@ -71,65 +71,65 @@ public final class a extends MessageMicro {
     }
 
     public a aS(boolean z) {
-        this.aqA = true;
-        this.aqB = z;
+        this.aqB = true;
+        this.aqC = z;
         return this;
     }
 
     public a aT(boolean z) {
-        this.aqC = true;
-        this.aqD = z;
+        this.aqD = true;
+        this.aqE = z;
         return this;
     }
 
     public a bJ(int i) {
-        this.aqt = true;
-        this.aqu = i;
+        this.aqu = true;
+        this.aqv = i;
         return this;
     }
 
     public a bK(int i) {
-        this.aqx = true;
+        this.aqy = true;
         this.level_ = i;
         return this;
     }
 
     public a bL(int i) {
-        if (this.aqG.isEmpty()) {
-            this.aqG = new ArrayList();
+        if (this.aqH.isEmpty()) {
+            this.aqH = new ArrayList();
         }
-        this.aqG.add(Integer.valueOf(i));
+        this.aqH.add(Integer.valueOf(i));
         return this;
     }
 
     public a eh(String str) {
-        this.aqv = true;
-        this.aqw = str;
+        this.aqw = true;
+        this.aqx = str;
         return this;
     }
 
     public a ei(String str) {
-        this.aqy = true;
-        this.aqz = str;
+        this.aqz = true;
+        this.aqA = str;
         return this;
     }
 
     public a ej(String str) {
-        this.aqE = true;
-        this.aqF = str;
+        this.aqF = true;
+        this.aqG = str;
         return this;
     }
 
     @Override // com.google.protobuf.micro.MessageMicro
     public int getCachedSize() {
-        if (this.aqH < 0) {
+        if (this.aqI < 0) {
             getSerializedSize();
         }
-        return this.aqH;
+        return this.aqI;
     }
 
     public int getCode() {
-        return this.aqu;
+        return this.aqv;
     }
 
     public int getLevel() {
@@ -137,7 +137,7 @@ public final class a extends MessageMicro {
     }
 
     public String getName() {
-        return this.aqz;
+        return this.aqA;
     }
 
     @Override // com.google.protobuf.micro.MessageMicro
@@ -164,56 +164,56 @@ public final class a extends MessageMicro {
             i += CodedOutputStreamMicro.computeSInt32SizeNoTag(num.intValue());
         }
         int size = computeStringSize + i + (vM().size() * 1);
-        this.aqH = size;
+        this.aqI = size;
         return size;
     }
 
     public String getUid() {
-        return this.aqF;
+        return this.aqG;
     }
 
     public boolean hasLevel() {
-        return this.aqx;
-    }
-
-    public boolean hasName() {
         return this.aqy;
     }
 
+    public boolean hasName() {
+        return this.aqz;
+    }
+
     public boolean vE() {
-        return this.aqt;
+        return this.aqu;
     }
 
     public String vF() {
-        return this.aqw;
+        return this.aqx;
     }
 
     public boolean vG() {
-        return this.aqv;
+        return this.aqw;
     }
 
     public boolean vH() {
-        return this.aqB;
-    }
-
-    public boolean vI() {
-        return this.aqA;
-    }
-
-    public boolean vJ() {
-        return this.aqD;
-    }
-
-    public boolean vK() {
         return this.aqC;
     }
 
-    public boolean vL() {
+    public boolean vI() {
+        return this.aqB;
+    }
+
+    public boolean vJ() {
         return this.aqE;
     }
 
+    public boolean vK() {
+        return this.aqD;
+    }
+
+    public boolean vL() {
+        return this.aqF;
+    }
+
     public List<Integer> vM() {
-        return this.aqG;
+        return this.aqH;
     }
 
     @Override // com.google.protobuf.micro.MessageMicro

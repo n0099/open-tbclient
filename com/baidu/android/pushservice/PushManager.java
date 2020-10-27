@@ -252,7 +252,7 @@ public class PushManager {
         if (f.m(context)) {
             return;
         }
-        f.f1078a = i;
+        f.f1075a = i;
         f.b = str;
         h.b(context);
         String f = m.f(context, str);

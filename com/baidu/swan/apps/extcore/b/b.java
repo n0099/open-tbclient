@@ -10,52 +10,52 @@ import com.baidu.swan.apps.extcore.model.ExtensionCore;
 public abstract class b<P extends com.baidu.swan.apps.extcore.d.b, R extends com.baidu.swan.apps.extcore.e.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     @NonNull
-    private P cFo;
+    private P cNK;
     @NonNull
-    private R cFp;
+    private R cNL;
 
     @Nullable
-    public abstract ExtensionCore anJ();
+    public abstract ExtensionCore apE();
 
     public b(@NonNull P p, @NonNull R r) {
-        this.cFo = p;
-        this.cFp = r;
+        this.cNK = p;
+        this.cNL = r;
     }
 
     public void n(@Nullable com.baidu.swan.apps.ap.e.b<Exception> bVar) {
-        this.cFo.o(bVar);
+        this.cNK.o(bVar);
     }
 
-    public void apD() {
-        this.cFo.apD();
+    public void arx() {
+        this.cNK.arx();
     }
 
     public <T extends com.baidu.swan.apps.extcore.model.a> Exception a(T t) {
-        return t == null ? new Exception("ExtCore-Manager doRemoteUpdate: null updateInfo") : this.cFp.b(t);
+        return t == null ? new Exception("ExtCore-Manager doRemoteUpdate: null updateInfo") : this.cNL.b(t);
     }
 
     @NonNull
-    public P apE() {
-        return this.cFo;
+    public P ary() {
+        return this.cNK;
     }
 
     @NonNull
-    public R apF() {
-        return this.cFp;
+    public R arz() {
+        return this.cNL;
     }
 
     @NonNull
-    public ExtensionCore apG() {
+    public ExtensionCore arA() {
         String path;
-        int apR = this.cFo.cFn.apR();
-        if (com.baidu.swan.apps.extcore.f.a.ik(apR)) {
+        int arL = this.cNK.cNJ.arL();
+        if (com.baidu.swan.apps.extcore.f.a.iv(arL)) {
             ExtensionCore extensionCore = new ExtensionCore();
             extensionCore.extensionCoreVersionCode = 0L;
-            extensionCore.extensionCoreVersionName = com.baidu.swan.apps.extcore.f.a.bh(0L);
-            if (apR == 1) {
-                path = com.baidu.swan.games.h.a.b.apK().getPath();
+            extensionCore.extensionCoreVersionName = com.baidu.swan.apps.extcore.f.a.bj(0L);
+            if (arL == 1) {
+                path = com.baidu.swan.games.h.a.b.arE().getPath();
             } else {
-                path = com.baidu.swan.apps.extcore.c.b.apK().getPath();
+                path = com.baidu.swan.apps.extcore.c.b.arE().getPath();
             }
             extensionCore.extensionCorePath = path;
             extensionCore.extensionCoreType = 2;
@@ -64,18 +64,18 @@ public abstract class b<P extends com.baidu.swan.apps.extcore.d.b, R extends com
             }
             return extensionCore;
         }
-        ExtensionCore apT = this.cFo.apT();
-        ExtensionCore apT2 = this.cFp.apT();
-        if (apT.extensionCoreVersionCode >= apT2.extensionCoreVersionCode) {
+        ExtensionCore arN = this.cNK.arN();
+        ExtensionCore arN2 = this.cNL.arN();
+        if (arN.extensionCoreVersionCode >= arN2.extensionCoreVersionCode) {
             if (DEBUG) {
-                Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: preset=>" + apT.toString());
-                return apT;
+                Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: preset=>" + arN.toString());
+                return arN;
             }
-            return apT;
+            return arN;
         }
         if (DEBUG) {
-            Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: remote=>" + apT2.toString());
+            Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: remote=>" + arN2.toString());
         }
-        return apT2;
+        return arN2;
     }
 }

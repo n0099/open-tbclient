@@ -5,61 +5,61 @@ import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.b.o;
 /* loaded from: classes16.dex */
 public class l implements com.tb.airbnb.lottie.model.content.b {
-    private final d oIA;
+    private final e pzT;
+    private final m<PointF, PointF> pzU;
+    private final g pzV;
+    private final b pzW;
+    private final d pzX;
     @Nullable
-    private final b oIB;
+    private final b pzY;
     @Nullable
-    private final b oIC;
-    private final e oIw;
-    private final m<PointF, PointF> oIx;
-    private final g oIy;
-    private final b oIz;
+    private final b pzZ;
 
     public l() {
         this(new e(), new e(), new g(), new b(), new d(), new b(), new b());
     }
 
     public l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.oIw = eVar;
-        this.oIx = mVar;
-        this.oIy = gVar;
-        this.oIz = bVar;
-        this.oIA = dVar;
-        this.oIB = bVar2;
-        this.oIC = bVar3;
+        this.pzT = eVar;
+        this.pzU = mVar;
+        this.pzV = gVar;
+        this.pzW = bVar;
+        this.pzX = dVar;
+        this.pzY = bVar2;
+        this.pzZ = bVar3;
     }
 
-    public e ekY() {
-        return this.oIw;
+    public e euY() {
+        return this.pzT;
     }
 
-    public m<PointF, PointF> ekZ() {
-        return this.oIx;
+    public m<PointF, PointF> euZ() {
+        return this.pzU;
     }
 
-    public g ela() {
-        return this.oIy;
+    public g eva() {
+        return this.pzV;
     }
 
-    public b elb() {
-        return this.oIz;
+    public b evb() {
+        return this.pzW;
     }
 
-    public d elc() {
-        return this.oIA;
-    }
-
-    @Nullable
-    public b eld() {
-        return this.oIB;
+    public d evc() {
+        return this.pzX;
     }
 
     @Nullable
-    public b ele() {
-        return this.oIC;
+    public b evd() {
+        return this.pzY;
     }
 
-    public o elf() {
+    @Nullable
+    public b eve() {
+        return this.pzZ;
+    }
+
+    public o evf() {
         return new o(this);
     }
 

@@ -11,13 +11,13 @@ import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.view.AppletsCellView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.aa;
+import com.baidu.tieba.card.ab;
 /* loaded from: classes21.dex */
 public class ShareSmartAppLayout extends LinearLayout implements p<AbsThreadDataSupport> {
-    private AbsThreadDataSupport afH;
-    private aa<AbsThreadDataSupport> ahu;
-    private boolean akj;
-    public AppletsCellView alz;
+    private AbsThreadDataSupport afI;
+    private ab<AbsThreadDataSupport> ahv;
+    private boolean akk;
+    public AppletsCellView alA;
 
     public ShareSmartAppLayout(Context context) {
         this(context, null);
@@ -25,8 +25,8 @@ public class ShareSmartAppLayout extends LinearLayout implements p<AbsThreadData
 
     public ShareSmartAppLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.akj = true;
-        this.afH = null;
+        this.akk = true;
+        this.afI = null;
         initUI();
     }
 
@@ -34,36 +34,36 @@ public class ShareSmartAppLayout extends LinearLayout implements p<AbsThreadData
         LayoutInflater.from(getContext()).inflate(R.layout.share_smart_app_layout, (ViewGroup) this, true);
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.alz = (AppletsCellView) findViewById(R.id.card_home_page_normal_thread_share_info);
+        this.alA = (AppletsCellView) findViewById(R.id.card_home_page_normal_thread_share_info);
     }
 
     public void setFromCDN(boolean z) {
-        this.akj = z;
+        this.akk = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
     public void H(AbsThreadDataSupport absThreadDataSupport) {
-        if (absThreadDataSupport == null || absThreadDataSupport.bfG() == null || absThreadDataSupport.bfG().biW() == null) {
+        if (absThreadDataSupport == null || absThreadDataSupport.bhz() == null || absThreadDataSupport.bhz().bkP() == null) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        this.afH = absThreadDataSupport;
-        bw bfG = absThreadDataSupport.bfG();
-        this.alz.setData(bfG.biW());
-        this.alz.setForumId(String.valueOf(bfG.getFid()));
-        AppletsCellView appletsCellView = this.alz;
-        AppletsCellView appletsCellView2 = this.alz;
+        this.afI = absThreadDataSupport;
+        bw bhz = absThreadDataSupport.bhz();
+        this.alA.setData(bhz.bkP());
+        this.alA.setForumId(String.valueOf(bhz.getFid()));
+        AppletsCellView appletsCellView = this.alA;
+        AppletsCellView appletsCellView2 = this.alA;
         appletsCellView.setFrom("frs_card");
     }
 
-    public aa<AbsThreadDataSupport> getSubClickListener() {
-        return this.ahu;
+    public ab<AbsThreadDataSupport> getSubClickListener() {
+        return this.ahv;
     }
 
-    public void setSubClickListener(aa<AbsThreadDataSupport> aaVar) {
-        this.ahu = aaVar;
+    public void setSubClickListener(ab<AbsThreadDataSupport> abVar) {
+        this.ahv = abVar;
     }
 }

@@ -1,19 +1,19 @@
 package com.baidu.swan.pms.c.a.d;
 /* loaded from: classes15.dex */
 public class d {
-    private static d dTP;
-    private com.baidu.swan.pms.c.a.c.b dTQ = new com.baidu.swan.pms.c.a.c.b();
+    private static d ecl;
+    private com.baidu.swan.pms.c.a.c.b ecm = new com.baidu.swan.pms.c.a.c.b();
 
-    public static d aXp() {
-        if (dTP != null) {
-            return dTP;
+    public static d aZi() {
+        if (ecl != null) {
+            return ecl;
         }
         synchronized (d.class) {
-            if (dTP == null) {
-                dTP = new d();
+            if (ecl == null) {
+                ecl = new d();
             }
         }
-        return dTP;
+        return ecl;
     }
 
     private d() {
@@ -27,23 +27,23 @@ public class d {
     }
 
     public synchronized <T> void j(f<T> fVar) {
-        fVar.hy(false);
-        this.dTQ.b(fVar);
+        fVar.hL(false);
+        this.ecm.b(fVar);
     }
 
-    public synchronized boolean xC(String str) {
-        return this.dTQ.xC(str);
+    public synchronized boolean xV(String str) {
+        return this.ecm.xV(str);
     }
 
-    public synchronized boolean xD(String str) {
-        return this.dTQ.xD(str);
+    public synchronized boolean xW(String str) {
+        return this.ecm.xW(str);
     }
 
     public synchronized void c(b bVar) {
-        this.dTQ.a(bVar);
+        this.ecm.a(bVar);
     }
 
     public synchronized void d(b bVar) {
-        this.dTQ.b(bVar);
+        this.ecm.b(bVar);
     }
 }

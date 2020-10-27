@@ -5,7 +5,7 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 /* loaded from: classes10.dex */
 public class d {
-    private static Uri cDf;
+    private static Uri cLB;
 
     public static void y(@NonNull SQLiteDatabase sQLiteDatabase) {
         try {
@@ -16,13 +16,13 @@ public class d {
     }
 
     @NonNull
-    public static synchronized Uri aoy() {
+    public static synchronized Uri aqt() {
         Uri uri;
         synchronized (d.class) {
-            if (cDf == null) {
-                cDf = b.CONTENT_URI.buildUpon().appendPath("user_behavior").build();
+            if (cLB == null) {
+                cLB = b.CONTENT_URI.buildUpon().appendPath("user_behavior").build();
             }
-            uri = cDf;
+            uri = cLB;
         }
         return uri;
     }

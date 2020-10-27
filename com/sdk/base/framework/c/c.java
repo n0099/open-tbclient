@@ -6,7 +6,7 @@ import java.util.List;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private List<d> f4484a = new ArrayList();
+    private List<d> f4482a = new ArrayList();
     private List<String> b = new ArrayList();
     private List<String> c = new ArrayList();
     private String d = "";
@@ -20,11 +20,11 @@ public final class c {
     }
 
     public final void a(List<d> list) {
-        this.f4484a = list;
+        this.f4482a = list;
     }
 
     public final List<d> b() {
-        return this.f4484a;
+        return this.f4482a;
     }
 
     public final void b(List<String> list) {
@@ -44,6 +44,6 @@ public final class c {
     }
 
     public final String toString() {
-        return "StatusBean{_$101005=" + this.f4484a + ", _$302001=" + this.b + ", _$302002=" + this.c + ", _$302003='" + this.d + "'}";
+        return "StatusBean{_$101005=" + this.f4482a + ", _$302001=" + this.b + ", _$302002=" + this.c + ", _$302003='" + this.d + "'}";
     }
 }

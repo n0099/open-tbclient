@@ -6,16 +6,16 @@ import com.baidu.util.LogUtil;
 public class a implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ClientUpdater f1315a;
+    final /* synthetic */ ClientUpdater f1312a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(ClientUpdater clientUpdater) {
-        this.f1315a = clientUpdater;
+        this.f1312a = clientUpdater;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         LogUtil.logD("ClientUpdater", "background Check ClientUpdate!");
-        this.f1315a.b();
+        this.f1312a.b();
     }
 }

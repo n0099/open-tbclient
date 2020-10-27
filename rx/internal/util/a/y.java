@@ -3,27 +3,27 @@ package rx.internal.util.a;
 import java.util.Iterator;
 /* loaded from: classes16.dex */
 public class y<E> extends aa<E> {
-    static final int oOn = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
-    private static final Object oOt = new Object();
-    private static final long pio;
-    private static final int pip;
-    private static final long pir;
-    private static final long pis;
+    static final int pFK = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
+    private static final Object pFQ = new Object();
+    private static final long pZE;
+    private static final int pZF;
+    private static final long pZH;
+    private static final long pZI;
 
     static {
-        int Q = ae.piy.Q(Object[].class);
+        int Q = ae.pZO.Q(Object[].class);
         if (4 == Q) {
-            pip = 2;
+            pZF = 2;
         } else if (8 == Q) {
-            pip = 3;
+            pZF = 3;
         } else {
             throw new IllegalStateException("Unknown pointer size");
         }
-        pio = ae.piy.R(Object[].class);
+        pZE = ae.pZO.R(Object[].class);
         try {
-            pis = ae.piy.b(ad.class.getDeclaredField("producerIndex"));
+            pZI = ae.pZO.b(ad.class.getDeclaredField("producerIndex"));
             try {
-                pir = ae.piy.b(aa.class.getDeclaredField("consumerIndex"));
+                pZH = ae.pZO.b(aa.class.getDeclaredField("consumerIndex"));
             } catch (NoSuchFieldException e) {
                 InternalError internalError = new InternalError();
                 internalError.initCause(e);
@@ -37,14 +37,14 @@ public class y<E> extends aa<E> {
     }
 
     public y(int i) {
-        int Pc = h.Pc(i);
-        long j = Pc - 1;
-        E[] eArr = (E[]) new Object[Pc + 1];
-        this.pix = eArr;
-        this.piw = j;
-        OZ(Pc);
-        this.piv = eArr;
-        this.piu = j;
+        int QT = h.QT(i);
+        long j = QT - 1;
+        E[] eArr = (E[]) new Object[QT + 1];
+        this.pZN = eArr;
+        this.pZM = j;
+        QQ(QT);
+        this.pZL = eArr;
+        this.pZK = j;
         this.producerLookAhead = j - 1;
         soProducerIndex(0L);
     }
@@ -59,21 +59,21 @@ public class y<E> extends aa<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        E[] eArr = this.pix;
+        E[] eArr = this.pZN;
         long j = this.producerIndex;
-        long j2 = this.piw;
-        long W = W(j, j2);
+        long j2 = this.pZM;
+        long X = X(j, j2);
         if (j < this.producerLookAhead) {
-            return a(eArr, e, j, W);
+            return a(eArr, e, j, X);
         }
-        int i = this.oOo;
-        if (b(eArr, W(i + j, j2)) == null) {
+        int i = this.pFL;
+        if (b(eArr, X(i + j, j2)) == null) {
             this.producerLookAhead = (i + j) - 1;
-            return a(eArr, e, j, W);
-        } else if (b(eArr, W(1 + j, j2)) != null) {
-            return a(eArr, e, j, W);
+            return a(eArr, e, j, X);
+        } else if (b(eArr, X(1 + j, j2)) != null) {
+            return a(eArr, e, j, X);
         } else {
-            a(eArr, j, W, e, j2);
+            a(eArr, j, X, e, j2);
             return true;
         }
     }
@@ -86,32 +86,32 @@ public class y<E> extends aa<E> {
 
     private void a(E[] eArr, long j, long j2, E e, long j3) {
         E[] eArr2 = (E[]) new Object[eArr.length];
-        this.pix = eArr2;
+        this.pZN = eArr2;
         this.producerLookAhead = (j + j3) - 1;
         b(eArr2, j2, e);
         b(eArr, eArr2);
-        b(eArr, j2, oOt);
+        b(eArr, j2, pFQ);
         soProducerIndex(j + 1);
     }
 
     private void b(E[] eArr, E[] eArr2) {
-        b(eArr, hN(eArr.length - 1), eArr2);
+        b(eArr, id(eArr.length - 1), eArr2);
     }
 
     private E[] T(E[] eArr) {
-        return (E[]) ((Object[]) b(eArr, hN(eArr.length - 1)));
+        return (E[]) ((Object[]) b(eArr, id(eArr.length - 1)));
     }
 
     @Override // java.util.Queue
     public final E poll() {
-        E[] eArr = this.piv;
+        E[] eArr = this.pZL;
         long j = this.consumerIndex;
-        long j2 = this.piu;
-        long W = W(j, j2);
-        E e = (E) b(eArr, W);
-        boolean z = e == oOt;
+        long j2 = this.pZK;
+        long X = X(j, j2);
+        E e = (E) b(eArr, X);
+        boolean z = e == pFQ;
         if (e != null && !z) {
-            b(eArr, W, (Object) null);
+            b(eArr, X, (Object) null);
             soConsumerIndex(j + 1);
             return e;
         } else if (z) {
@@ -122,80 +122,80 @@ public class y<E> extends aa<E> {
     }
 
     private E a(E[] eArr, long j, long j2) {
-        this.piv = eArr;
-        long W = W(j, j2);
-        E e = (E) b(eArr, W);
+        this.pZL = eArr;
+        long X = X(j, j2);
+        E e = (E) b(eArr, X);
         if (e == null) {
             return null;
         }
-        b(eArr, W, (Object) null);
+        b(eArr, X, (Object) null);
         soConsumerIndex(1 + j);
         return e;
     }
 
     @Override // java.util.Queue
     public final E peek() {
-        E[] eArr = this.piv;
+        E[] eArr = this.pZL;
         long j = this.consumerIndex;
-        long j2 = this.piu;
-        E e = (E) b(eArr, W(j, j2));
-        if (e == oOt) {
+        long j2 = this.pZK;
+        E e = (E) b(eArr, X(j, j2));
+        if (e == pFQ) {
             return b(T(eArr), j, j2);
         }
         return e;
     }
 
     private E b(E[] eArr, long j, long j2) {
-        this.piv = eArr;
-        return (E) b(eArr, W(j, j2));
+        this.pZL = eArr;
+        return (E) b(eArr, X(j, j2));
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public final int size() {
-        long enb = enb();
+        long exb = exb();
         while (true) {
-            long ena = ena();
-            long enb2 = enb();
-            if (enb == enb2) {
-                return (int) (ena - enb2);
+            long exa = exa();
+            long exb2 = exb();
+            if (exb == exb2) {
+                return (int) (exa - exb2);
             }
-            enb = enb2;
+            exb = exb2;
         }
     }
 
-    private void OZ(int i) {
-        this.oOo = Math.min(i / 4, oOn);
+    private void QQ(int i) {
+        this.pFL = Math.min(i / 4, pFK);
     }
 
-    private long ena() {
-        return ae.piy.e(this, pis);
+    private long exa() {
+        return ae.pZO.e(this, pZI);
     }
 
-    private long enb() {
-        return ae.piy.e(this, pir);
+    private long exb() {
+        return ae.pZO.e(this, pZH);
     }
 
     private void soProducerIndex(long j) {
-        ae.piy.a(this, pis, j);
+        ae.pZO.a(this, pZI, j);
     }
 
     private void soConsumerIndex(long j) {
-        ae.piy.a(this, pir, j);
+        ae.pZO.a(this, pZH, j);
     }
 
-    private static long W(long j, long j2) {
-        return hN(j & j2);
+    private static long X(long j, long j2) {
+        return id(j & j2);
     }
 
-    private static long hN(long j) {
-        return pio + (j << pip);
+    private static long id(long j) {
+        return pZE + (j << pZF);
     }
 
     private static void b(Object[] objArr, long j, Object obj) {
-        ae.piy.b(objArr, j, obj);
+        ae.pZO.b(objArr, j, obj);
     }
 
     private static <E> Object b(E[] eArr, long j) {
-        return ae.piy.d(eArr, j);
+        return ae.pZO.d(eArr, j);
     }
 }

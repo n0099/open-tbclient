@@ -13,10 +13,10 @@ public class SwanJSVersionUpdateEvent {
     private final String mVersionString;
 
     private SwanJSVersionUpdateEvent() {
-        SwanCoreVersion kl = com.baidu.swan.apps.swancore.b.kl(0);
-        if (kl != null) {
-            this.mVersionNum = kl.swanCoreVersion;
-            this.mVersionString = com.baidu.swan.apps.swancore.b.bU(this.mVersionNum);
+        SwanCoreVersion kw = com.baidu.swan.apps.swancore.b.kw(0);
+        if (kw != null) {
+            this.mVersionNum = kw.swanCoreVersion;
+            this.mVersionString = com.baidu.swan.apps.swancore.b.bW(this.mVersionNum);
             return;
         }
         this.mVersionNum = 0L;
@@ -34,7 +34,7 @@ public class SwanJSVersionUpdateEvent {
     public static void sendEvent(long j) {
         SwanJSVersionUpdateEvent swanJSVersionUpdateEvent = new SwanJSVersionUpdateEvent();
         if (swanJSVersionUpdateEvent.mVersionString != null) {
-            com.baidu.swan.apps.t.a.asP().a(swanJSVersionUpdateEvent);
+            com.baidu.swan.apps.t.a.auJ().a(swanJSVersionUpdateEvent);
             if (DEBUG) {
                 Log.d(TAG, "send SwanJSVersionUpdateEvent, downVersion:" + j + ", getVersion:" + swanJSVersionUpdateEvent.getVersionString() + "(" + swanJSVersionUpdateEvent.getVersionNum() + ")");
             }

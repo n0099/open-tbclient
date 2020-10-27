@@ -18,48 +18,48 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.ap.ak;
 /* loaded from: classes10.dex */
 public class b extends PopupWindow {
-    private String[] cHR;
-    private a cIO;
-    private SwanAppActivity cpO;
-    private int cpR;
+    private String[] cQn;
+    private a cRk;
+    private SwanAppActivity cyp;
+    private int cys;
     private EditText mEditText;
 
     /* loaded from: classes10.dex */
     public interface a {
-        void agF();
+        void aiz();
 
-        void hn(int i);
+        void hy(int i);
     }
 
     public b(@NonNull SwanAppActivity swanAppActivity, @NonNull EditText editText, int i, int i2) {
         super(swanAppActivity);
-        this.cHR = new String[12];
-        io(i);
+        this.cQn = new String[12];
+        iz(i);
         a(swanAppActivity, editText, i2);
     }
 
-    private void io(int i) {
+    private void iz(int i) {
         for (int i2 = 0; i2 < 9; i2++) {
-            this.cHR[i2] = String.valueOf(i2 + 1);
+            this.cQn[i2] = String.valueOf(i2 + 1);
         }
         if (i == 1) {
-            this.cHR[9] = "X";
+            this.cQn[9] = "X";
         } else if (i == 0) {
-            this.cHR[9] = "";
+            this.cQn[9] = "";
         } else if (i == 2) {
-            this.cHR[9] = ".";
+            this.cQn[9] = ".";
         }
-        this.cHR[10] = "0";
+        this.cQn[10] = "0";
     }
 
     private void a(@NonNull SwanAppActivity swanAppActivity, @NonNull EditText editText, final int i) {
-        this.cpO = swanAppActivity;
+        this.cyp = swanAppActivity;
         this.mEditText = editText;
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(swanAppActivity).inflate(a.g.aiapps_keyboard_layout, (ViewGroup) null);
-        this.cpR = swanAppActivity.getResources().getDimensionPixelOffset(a.d.aiapps_keyboard_total_height);
+        this.cys = swanAppActivity.getResources().getDimensionPixelOffset(a.d.aiapps_keyboard_total_height);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         final GridView gridView = (GridView) linearLayout.findViewById(a.f.keyboard_grid_view);
-        gridView.setAdapter((ListAdapter) new com.baidu.swan.apps.q.a.a(swanAppActivity, this.cHR));
+        gridView.setAdapter((ListAdapter) new com.baidu.swan.apps.q.a.a(swanAppActivity, this.cQn));
         final AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.swan.apps.q.a.b.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
@@ -72,9 +72,9 @@ public class b extends PopupWindow {
                         b.this.mEditText.setSelection(selectionStart - 1);
                     }
                 } else if (text.length() < i || i < 0) {
-                    text.insert(selectionStart, b.this.cHR[i2]);
+                    text.insert(selectionStart, b.this.cQn[i2]);
                     b.this.mEditText.setText(text);
-                    b.this.mEditText.setSelection(selectionStart + b.this.cHR[i2].length());
+                    b.this.mEditText.setSelection(selectionStart + b.this.cQn[i2].length());
                 }
             }
         };
@@ -111,28 +111,28 @@ public class b extends PopupWindow {
         imageView.setClickable(true);
         setContentView(linearLayout);
         setWidth(-1);
-        setHeight(this.cpR);
+        setHeight(this.cys);
         setBackgroundDrawable(new BitmapDrawable());
     }
 
     @Override // android.widget.PopupWindow
     public void dismiss() {
         super.dismiss();
-        if (this.cIO != null) {
-            this.cIO.agF();
+        if (this.cRk != null) {
+            this.cRk.aiz();
         }
     }
 
     public void show() {
         if (!isShowing()) {
-            showAtLocation(this.cpO.getWindow().getDecorView(), 80, 0, 0);
-            if (this.cIO != null) {
-                this.cIO.hn(this.cpR);
+            showAtLocation(this.cyp.getWindow().getDecorView(), 80, 0, 0);
+            if (this.cRk != null) {
+                this.cRk.hy(this.cys);
             }
         }
     }
 
     public void a(@NonNull a aVar) {
-        this.cIO = aVar;
+        this.cRk = aVar;
     }
 }

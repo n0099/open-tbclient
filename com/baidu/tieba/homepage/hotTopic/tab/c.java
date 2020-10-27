@@ -24,20 +24,19 @@ public class c {
         if (hotThreadListResIdl == null || hotThreadListResIdl.data == null || y.isEmpty(hotThreadListResIdl.data.thread_info)) {
             return null;
         }
-        boolean bdw = d.bdw();
-        boolean z = !bdw && d.bdx();
+        boolean bfp = d.bfp();
+        boolean z = !bfp && d.bfq();
         List<ThreadInfo> list = hotThreadListResIdl.data.thread_info;
-        if (bdw) {
-            return m40do(list);
+        if (bfp) {
+            return dx(list);
         }
         if (z) {
-            return dq(list);
+            return dz(list);
         }
-        return dp(list);
+        return dy(list);
     }
 
-    /* renamed from: do  reason: not valid java name */
-    private static List<q> m40do(List<ThreadInfo> list) {
+    private static List<q> dx(List<ThreadInfo> list) {
         int i;
         if (list == null) {
             return null;
@@ -60,7 +59,7 @@ public class c {
         return arrayList;
     }
 
-    private static List<q> dp(List<ThreadInfo> list) {
+    private static List<q> dy(List<ThreadInfo> list) {
         int i;
         if (list == null) {
             return null;
@@ -83,31 +82,31 @@ public class c {
         return arrayList;
     }
 
-    private static List<q> dq(List<ThreadInfo> list) {
+    private static List<q> dz(List<ThreadInfo> list) {
         if (list == null) {
             return null;
         }
         ArrayList arrayList = new ArrayList(list.size());
         for (ThreadInfo threadInfo : list) {
             bw bwVar = new bw();
-            bwVar.esE = true;
+            bwVar.eBe = true;
             bwVar.a(threadInfo);
             az(bwVar);
             arrayList.add(bwVar);
         }
-        return dr(arrayList);
+        return dA(arrayList);
     }
 
     private static void az(bw bwVar) {
-        String bhE = bwVar.bhE();
-        String cW = at.cW(bwVar.bia() * 1000);
-        if (!TextUtils.isEmpty(bhE) && !TextUtils.isEmpty(cW)) {
-            bhE = bhE + "   " + cW;
+        String bjx = bwVar.bjx();
+        String cY = at.cY(bwVar.bjT() * 1000);
+        if (!TextUtils.isEmpty(bjx) && !TextUtils.isEmpty(cY)) {
+            bjx = bjx + "   " + cY;
         }
-        bwVar.As(bhE);
+        bwVar.AL(bjx);
     }
 
-    public static List<q> dr(List<bw> list) {
+    public static List<q> dA(List<bw> list) {
         int i;
         if (list == null) {
             return null;
@@ -116,49 +115,49 @@ public class c {
         int i2 = 0;
         for (bw bwVar : list) {
             int[] imageWidthAndHeight = bwVar.getImageWidthAndHeight();
-            if (bwVar.getType() == bw.epl) {
+            if (bwVar.getType() == bw.exJ) {
                 bwVar.position = i2;
                 bv bvVar = new bv();
-                bvVar.eji = bwVar;
+                bvVar.erH = bwVar;
                 bvVar.position = i2;
-                bvVar.eph = true;
+                bvVar.exF = true;
                 arrayList.add(bvVar);
                 bv bvVar2 = new bv();
-                bvVar2.eji = bwVar;
+                bvVar2.erH = bwVar;
                 bvVar2.position = i2;
-                if (bwVar.bkc()) {
-                    bvVar2.eoW = true;
-                } else if (bwVar.bjn() == 1) {
-                    bvVar2.eoU = true;
-                    bvVar2.epi = imageWidthAndHeight[0];
-                    bvVar2.epj = imageWidthAndHeight[1];
-                } else if (bwVar.bjn() >= 2) {
-                    bvVar2.eoV = true;
+                if (bwVar.blV()) {
+                    bvVar2.exu = true;
+                } else if (bwVar.blg() == 1) {
+                    bvVar2.exr = true;
+                    bvVar2.exG = imageWidthAndHeight[0];
+                    bvVar2.exH = imageWidthAndHeight[1];
+                } else if (bwVar.blg() >= 2) {
+                    bvVar2.exs = true;
                 } else {
-                    bvVar2.eoS = true;
+                    bvVar2.exp = true;
                 }
                 arrayList.add(bvVar2);
                 bv bvVar3 = new bv();
-                bvVar3.eoX = true;
-                bvVar3.eji = bwVar;
+                bvVar3.exv = true;
+                bvVar3.erH = bwVar;
                 bvVar3.position = i2;
                 arrayList.add(bvVar3);
                 i = i2 + 1;
-            } else if (bwVar.getType() == bw.epH) {
+            } else if (bwVar.getType() == bw.eyg) {
                 bwVar.position = i2;
                 bv bvVar4 = new bv();
-                bvVar4.eji = bwVar;
+                bvVar4.erH = bwVar;
                 bvVar4.position = i2;
-                bvVar4.eph = true;
+                bvVar4.exF = true;
                 arrayList.add(bvVar4);
                 bv bvVar5 = new bv();
-                bvVar5.eji = bwVar;
+                bvVar5.erH = bwVar;
                 bvVar5.position = i2;
-                bvVar5.eoZ = true;
+                bvVar5.exx = true;
                 arrayList.add(bvVar5);
                 bv bvVar6 = new bv();
-                bvVar6.eoX = true;
-                bvVar6.eji = bwVar;
+                bvVar6.exv = true;
+                bvVar6.erH = bwVar;
                 bvVar6.position = i2;
                 arrayList.add(bvVar6);
                 i = i2 + 1;
@@ -170,7 +169,7 @@ public class c {
         return arrayList;
     }
 
-    public static com.baidu.tieba.homepage.hotTopic.tab.b.b ds(List<FrsTabInfo> list) {
+    public static com.baidu.tieba.homepage.hotTopic.tab.b.b dB(List<FrsTabInfo> list) {
         FrsTabInfoData frsTabInfoData = new FrsTabInfoData();
         ArrayList arrayList = new ArrayList();
         frsTabInfoData.tabList = arrayList;

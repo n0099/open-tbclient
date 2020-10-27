@@ -14,16 +14,16 @@ import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class h {
     private static boolean b = false;
-    c adK;
-    private com.baidu.b.b.c adN;
-    private a.C0092a ada;
+    c adL;
+    private com.baidu.b.b.c adO;
+    private a.C0092a adb;
     private Context c;
 
     /* loaded from: classes7.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String[] f1271a = {ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "O", "0"};
+        public static final String[] f1268a = {ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "O", "0"};
         private String b;
         private String c;
         private String d;
@@ -96,9 +96,9 @@ public class h {
             throw new NullPointerException("context should not be null!!!");
         }
         this.c = context.getApplicationContext();
-        this.ada = aVar.sO().cX("bohrium");
-        this.ada.a();
-        this.adK = cVar;
+        this.adb = aVar.sO().cX("bohrium");
+        this.adb.a();
+        this.adL = cVar;
         a(aVar);
     }
 
@@ -139,14 +139,14 @@ public class h {
     private void a(com.baidu.b.e.a aVar) {
         com.baidu.b.b.c cVar = new com.baidu.b.b.c(new com.baidu.b.a());
         a.C0090a c0090a = new a.C0090a();
-        c0090a.f1247a = this.c;
-        c0090a.acV = aVar;
+        c0090a.f1244a = this.c;
+        c0090a.acW = aVar;
         a.c cVar2 = new a.c();
         for (com.baidu.b.b.a aVar2 : cVar.a()) {
             aVar2.a(c0090a);
             aVar2.a(cVar2);
         }
-        this.adN = cVar;
+        this.adO = cVar;
     }
 
     private static String c(String str) {
@@ -181,17 +181,17 @@ public class h {
 
     public a a() {
         a.d dVar = new a.d();
-        dVar.f1248a = true;
-        List<com.baidu.b.b.a> a2 = this.adN.a();
-        Collections.sort(a2, com.baidu.b.b.a.acU);
-        List<b> N = this.adK.N(this.c);
+        dVar.f1245a = true;
+        List<com.baidu.b.b.a> a2 = this.adO.a();
+        Collections.sort(a2, com.baidu.b.b.a.acV);
+        List<b> N = this.adL.N(this.c);
         if (N != null) {
             for (b bVar : N) {
                 if (!bVar.d && bVar.c) {
                     for (com.baidu.b.b.a aVar : a2) {
-                        a.e a3 = aVar.a(bVar.acR.packageName, dVar);
-                        if (a3 != null && a3.a() && a3.acX != null) {
-                            return a3.acX;
+                        a.e a3 = aVar.a(bVar.acS.packageName, dVar);
+                        if (a3 != null && a3.a() && a3.acY != null) {
+                            return a3.acY;
                         }
                     }
                     continue;
@@ -211,9 +211,9 @@ public class h {
         aVar.g = 1;
         try {
             aVar.c = fVar.b.substring(0, 1);
-            aVar.b = fVar.f1267a;
-            aVar.d = c(fVar.f1267a);
-            String[] strArr = a.f1271a;
+            aVar.b = fVar.f1264a;
+            aVar.d = c(fVar.f1264a);
+            String[] strArr = a.f1268a;
             int length = strArr.length;
             int i = 0;
             while (true) {

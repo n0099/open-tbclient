@@ -9,7 +9,7 @@ public interface a {
 
     /* renamed from: com.baidu.swan.game.ad.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes14.dex */
-    public interface InterfaceC0490a {
+    public interface InterfaceC0504a {
         void a(CommandType commandType, Uri uri);
     }
 
@@ -17,18 +17,18 @@ public interface a {
     public interface b {
         void a(AdElementInfo adElementInfo);
 
-        void uV(String str);
+        void vo(String str);
     }
 
     /* loaded from: classes14.dex */
     public interface c {
-        void aE(View view);
+        void aF(View view);
     }
 
     /* loaded from: classes14.dex */
     public interface d {
-        void aF(View view);
+        void aG(View view);
 
-        void cH(String str, String str2);
+        void cO(String str, String str2);
     }
 }

@@ -16,73 +16,73 @@ import java.util.Arrays;
 public abstract class m extends Drawable implements j, q {
     @Nullable
     private r mTransformCallback;
-    private final Drawable nOC;
     @Nullable
-    Matrix nOP;
+    float[] oFL;
     @Nullable
-    float[] nOs;
+    RectF oFQ;
     @Nullable
-    RectF nOx;
+    Matrix oFR;
+    private final Drawable oFV;
     @Nullable
-    Matrix nOy;
-    protected boolean fly = false;
-    protected boolean nOD = false;
+    Matrix oGi;
+    protected boolean ftZ = false;
+    protected boolean oFW = false;
     protected float mBorderWidth = 0.0f;
     protected final Path mPath = new Path();
-    protected boolean nOE = true;
+    protected boolean oFX = true;
     protected int mBorderColor = 0;
-    protected final Path nOu = new Path();
-    private final float[] nOF = new float[8];
-    final float[] nOr = new float[8];
-    final RectF nOG = new RectF();
-    final RectF nOH = new RectF();
-    final RectF nOI = new RectF();
-    final RectF nOJ = new RectF();
-    final Matrix nOK = new Matrix();
-    final Matrix nOL = new Matrix();
-    final Matrix nOM = new Matrix();
-    final Matrix nON = new Matrix();
-    final Matrix nOO = new Matrix();
+    protected final Path oFN = new Path();
+    private final float[] oFY = new float[8];
+    final float[] oFK = new float[8];
+    final RectF oFZ = new RectF();
+    final RectF oGa = new RectF();
+    final RectF oGb = new RectF();
+    final RectF oGc = new RectF();
+    final Matrix oGd = new Matrix();
+    final Matrix oGe = new Matrix();
+    final Matrix oGf = new Matrix();
+    final Matrix oGg = new Matrix();
+    final Matrix oGh = new Matrix();
     final Matrix mTransform = new Matrix();
     private float mPadding = 0.0f;
-    private boolean nOt = false;
-    private boolean nOQ = true;
+    private boolean oFM = false;
+    private boolean oGj = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(Drawable drawable) {
-        this.nOC = drawable;
+        this.oFV = drawable;
     }
 
     @Override // com.facebook.drawee.drawable.j
-    public void yN(boolean z) {
-        this.fly = z;
-        this.nOQ = true;
+    public void zV(boolean z) {
+        this.ftZ = z;
+        this.oGj = true;
         invalidateSelf();
     }
 
     @Override // com.facebook.drawee.drawable.j
     public void setRadius(float f) {
         com.facebook.common.internal.g.checkState(f >= 0.0f);
-        Arrays.fill(this.nOF, f);
-        this.nOD = f != 0.0f;
-        this.nOQ = true;
+        Arrays.fill(this.oFY, f);
+        this.oFW = f != 0.0f;
+        this.oGj = true;
         invalidateSelf();
     }
 
     @Override // com.facebook.drawee.drawable.j
     public void z(float[] fArr) {
         if (fArr == null) {
-            Arrays.fill(this.nOF, 0.0f);
-            this.nOD = false;
+            Arrays.fill(this.oFY, 0.0f);
+            this.oFW = false;
         } else {
             com.facebook.common.internal.g.checkArgument(fArr.length == 8, "radii should have exactly 8 values");
-            System.arraycopy(fArr, 0, this.nOF, 0, 8);
-            this.nOD = false;
+            System.arraycopy(fArr, 0, this.oFY, 0, 8);
+            this.oFW = false;
             for (int i = 0; i < 8; i++) {
-                this.nOD = (fArr[i] > 0.0f) | this.nOD;
+                this.oFW = (fArr[i] > 0.0f) | this.oFW;
             }
         }
-        this.nOQ = true;
+        this.oGj = true;
         invalidateSelf();
     }
 
@@ -91,25 +91,25 @@ public abstract class m extends Drawable implements j, q {
         if (this.mBorderColor != i || this.mBorderWidth != f) {
             this.mBorderColor = i;
             this.mBorderWidth = f;
-            this.nOQ = true;
+            this.oGj = true;
             invalidateSelf();
         }
     }
 
     @Override // com.facebook.drawee.drawable.j
-    public void aS(float f) {
+    public void bj(float f) {
         if (this.mPadding != f) {
             this.mPadding = f;
-            this.nOQ = true;
+            this.oGj = true;
             invalidateSelf();
         }
     }
 
     @Override // com.facebook.drawee.drawable.j
-    public void yO(boolean z) {
-        if (this.nOt != z) {
-            this.nOt = z;
-            this.nOQ = true;
+    public void zW(boolean z) {
+        if (this.oFM != z) {
+            this.oFM = z;
+            this.oGj = true;
             invalidateSelf();
         }
     }
@@ -120,153 +120,153 @@ public abstract class m extends Drawable implements j, q {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void dYk() {
+    public void eii() {
         if (this.mTransformCallback != null) {
-            this.mTransformCallback.getTransform(this.nOM);
-            this.mTransformCallback.getRootBounds(this.nOG);
+            this.mTransformCallback.getTransform(this.oGf);
+            this.mTransformCallback.getRootBounds(this.oFZ);
         } else {
-            this.nOM.reset();
-            this.nOG.set(getBounds());
+            this.oGf.reset();
+            this.oFZ.set(getBounds());
         }
-        this.nOI.set(0.0f, 0.0f, getIntrinsicWidth(), getIntrinsicHeight());
-        this.nOJ.set(this.nOC.getBounds());
-        this.nOK.setRectToRect(this.nOI, this.nOJ, Matrix.ScaleToFit.FILL);
-        if (this.nOt) {
-            if (this.nOx == null) {
-                this.nOx = new RectF(this.nOG);
+        this.oGb.set(0.0f, 0.0f, getIntrinsicWidth(), getIntrinsicHeight());
+        this.oGc.set(this.oFV.getBounds());
+        this.oGd.setRectToRect(this.oGb, this.oGc, Matrix.ScaleToFit.FILL);
+        if (this.oFM) {
+            if (this.oFQ == null) {
+                this.oFQ = new RectF(this.oFZ);
             } else {
-                this.nOx.set(this.nOG);
+                this.oFQ.set(this.oFZ);
             }
-            this.nOx.inset(this.mBorderWidth, this.mBorderWidth);
-            if (this.nOy == null) {
-                this.nOy = new Matrix();
+            this.oFQ.inset(this.mBorderWidth, this.mBorderWidth);
+            if (this.oFR == null) {
+                this.oFR = new Matrix();
             }
-            this.nOy.setRectToRect(this.nOG, this.nOx, Matrix.ScaleToFit.FILL);
-        } else if (this.nOy != null) {
-            this.nOy.reset();
+            this.oFR.setRectToRect(this.oFZ, this.oFQ, Matrix.ScaleToFit.FILL);
+        } else if (this.oFR != null) {
+            this.oFR.reset();
         }
-        if (!this.nOM.equals(this.nON) || !this.nOK.equals(this.nOL) || (this.nOy != null && !this.nOy.equals(this.nOP))) {
-            this.nOE = true;
-            this.nOM.invert(this.nOO);
-            this.mTransform.set(this.nOM);
-            if (this.nOt) {
-                this.mTransform.postConcat(this.nOy);
+        if (!this.oGf.equals(this.oGg) || !this.oGd.equals(this.oGe) || (this.oFR != null && !this.oFR.equals(this.oGi))) {
+            this.oFX = true;
+            this.oGf.invert(this.oGh);
+            this.mTransform.set(this.oGf);
+            if (this.oFM) {
+                this.mTransform.postConcat(this.oFR);
             }
-            this.mTransform.preConcat(this.nOK);
-            this.nON.set(this.nOM);
-            this.nOL.set(this.nOK);
-            if (this.nOt) {
-                if (this.nOP == null) {
-                    this.nOP = new Matrix(this.nOy);
+            this.mTransform.preConcat(this.oGd);
+            this.oGg.set(this.oGf);
+            this.oGe.set(this.oGd);
+            if (this.oFM) {
+                if (this.oGi == null) {
+                    this.oGi = new Matrix(this.oFR);
                 } else {
-                    this.nOP.set(this.nOy);
+                    this.oGi.set(this.oFR);
                 }
-            } else if (this.nOP != null) {
-                this.nOP.reset();
+            } else if (this.oGi != null) {
+                this.oGi.reset();
             }
         }
-        if (!this.nOG.equals(this.nOH)) {
-            this.nOQ = true;
-            this.nOH.set(this.nOG);
+        if (!this.oFZ.equals(this.oGa)) {
+            this.oGj = true;
+            this.oGa.set(this.oFZ);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void dYj() {
-        if (this.nOQ) {
-            this.nOu.reset();
-            this.nOG.inset(this.mBorderWidth / 2.0f, this.mBorderWidth / 2.0f);
-            if (this.fly) {
-                this.nOu.addCircle(this.nOG.centerX(), this.nOG.centerY(), Math.min(this.nOG.width(), this.nOG.height()) / 2.0f, Path.Direction.CW);
+    public void eih() {
+        if (this.oGj) {
+            this.oFN.reset();
+            this.oFZ.inset(this.mBorderWidth / 2.0f, this.mBorderWidth / 2.0f);
+            if (this.ftZ) {
+                this.oFN.addCircle(this.oFZ.centerX(), this.oFZ.centerY(), Math.min(this.oFZ.width(), this.oFZ.height()) / 2.0f, Path.Direction.CW);
             } else {
-                for (int i = 0; i < this.nOr.length; i++) {
-                    this.nOr[i] = (this.nOF[i] + this.mPadding) - (this.mBorderWidth / 2.0f);
+                for (int i = 0; i < this.oFK.length; i++) {
+                    this.oFK[i] = (this.oFY[i] + this.mPadding) - (this.mBorderWidth / 2.0f);
                 }
-                this.nOu.addRoundRect(this.nOG, this.nOr, Path.Direction.CW);
+                this.oFN.addRoundRect(this.oFZ, this.oFK, Path.Direction.CW);
             }
-            this.nOG.inset((-this.mBorderWidth) / 2.0f, (-this.mBorderWidth) / 2.0f);
+            this.oFZ.inset((-this.mBorderWidth) / 2.0f, (-this.mBorderWidth) / 2.0f);
             this.mPath.reset();
-            float f = this.mPadding + (this.nOt ? this.mBorderWidth : 0.0f);
-            this.nOG.inset(f, f);
-            if (this.fly) {
-                this.mPath.addCircle(this.nOG.centerX(), this.nOG.centerY(), Math.min(this.nOG.width(), this.nOG.height()) / 2.0f, Path.Direction.CW);
-            } else if (this.nOt) {
-                if (this.nOs == null) {
-                    this.nOs = new float[8];
+            float f = this.mPadding + (this.oFM ? this.mBorderWidth : 0.0f);
+            this.oFZ.inset(f, f);
+            if (this.ftZ) {
+                this.mPath.addCircle(this.oFZ.centerX(), this.oFZ.centerY(), Math.min(this.oFZ.width(), this.oFZ.height()) / 2.0f, Path.Direction.CW);
+            } else if (this.oFM) {
+                if (this.oFL == null) {
+                    this.oFL = new float[8];
                 }
-                for (int i2 = 0; i2 < this.nOr.length; i2++) {
-                    this.nOs[i2] = this.nOF[i2] - this.mBorderWidth;
+                for (int i2 = 0; i2 < this.oFK.length; i2++) {
+                    this.oFL[i2] = this.oFY[i2] - this.mBorderWidth;
                 }
-                this.mPath.addRoundRect(this.nOG, this.nOs, Path.Direction.CW);
+                this.mPath.addRoundRect(this.oFZ, this.oFL, Path.Direction.CW);
             } else {
-                this.mPath.addRoundRect(this.nOG, this.nOF, Path.Direction.CW);
+                this.mPath.addRoundRect(this.oFZ, this.oFY, Path.Direction.CW);
             }
-            this.nOG.inset(-f, -f);
+            this.oFZ.inset(-f, -f);
             this.mPath.setFillType(Path.FillType.WINDING);
-            this.nOQ = false;
+            this.oGj = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean dYi() {
-        return this.fly || this.nOD || this.mBorderWidth > 0.0f;
+    public boolean eig() {
+        return this.ftZ || this.oFW || this.mBorderWidth > 0.0f;
     }
 
     @Override // android.graphics.drawable.Drawable
     protected void onBoundsChange(Rect rect) {
-        this.nOC.setBounds(rect);
+        this.oFV.setBounds(rect);
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        return this.nOC.getIntrinsicWidth();
+        return this.oFV.getIntrinsicWidth();
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
-        return this.nOC.getIntrinsicHeight();
+        return this.oFV.getIntrinsicHeight();
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getOpacity() {
-        return this.nOC.getOpacity();
+        return this.oFV.getOpacity();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(int i, @NonNull PorterDuff.Mode mode) {
-        this.nOC.setColorFilter(i, mode);
+        this.oFV.setColorFilter(i, mode);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(@Nullable ColorFilter colorFilter) {
-        this.nOC.setColorFilter(colorFilter);
+        this.oFV.setColorFilter(colorFilter);
     }
 
     @Override // android.graphics.drawable.Drawable
     @RequiresApi(api = 21)
     @Nullable
     public ColorFilter getColorFilter() {
-        return this.nOC.getColorFilter();
+        return this.oFV.getColorFilter();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void clearColorFilter() {
-        this.nOC.clearColorFilter();
+        this.oFV.clearColorFilter();
     }
 
     @Override // android.graphics.drawable.Drawable
     @RequiresApi(api = 19)
     public int getAlpha() {
-        return this.nOC.getAlpha();
+        return this.oFV.getAlpha();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i) {
-        this.nOC.setAlpha(i);
+        this.oFV.setAlpha(i);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void draw(@NonNull Canvas canvas) {
-        this.nOC.draw(canvas);
+        this.oFV.draw(canvas);
     }
 }

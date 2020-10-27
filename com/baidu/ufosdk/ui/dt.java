@@ -5,7 +5,7 @@ import android.widget.TextView;
 public final class dt {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f3840a;
+    public TextView f3838a;
     public TextView b;
     public TextView c;
     public TextView d;

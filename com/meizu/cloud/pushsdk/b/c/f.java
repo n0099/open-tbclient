@@ -16,7 +16,7 @@ import org.apache.http.HttpHost;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final char[] f4326a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    private static final char[] f4324a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     private final String b;
     private final String c;
     private final String d;
@@ -33,27 +33,27 @@ public class f {
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        static final /* synthetic */ int[] f4327a = new int[a.EnumC0936a.values().length];
+        static final /* synthetic */ int[] f4325a = new int[a.EnumC1008a.values().length];
 
         static {
             try {
-                f4327a[a.EnumC0936a.SUCCESS.ordinal()] = 1;
+                f4325a[a.EnumC1008a.SUCCESS.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                f4327a[a.EnumC0936a.INVALID_HOST.ordinal()] = 2;
+                f4325a[a.EnumC1008a.INVALID_HOST.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                f4327a[a.EnumC0936a.UNSUPPORTED_SCHEME.ordinal()] = 3;
+                f4325a[a.EnumC1008a.UNSUPPORTED_SCHEME.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
             try {
-                f4327a[a.EnumC0936a.MISSING_SCHEME.ordinal()] = 4;
+                f4325a[a.EnumC1008a.MISSING_SCHEME.ordinal()] = 4;
             } catch (NoSuchFieldError e4) {
             }
             try {
-                f4327a[a.EnumC0936a.INVALID_PORT.ordinal()] = 5;
+                f4325a[a.EnumC1008a.INVALID_PORT.ordinal()] = 5;
             } catch (NoSuchFieldError e5) {
             }
         }
@@ -63,7 +63,7 @@ public class f {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        String f4328a;
+        String f4326a;
         String d;
         List<String> g;
         String h;
@@ -75,7 +75,7 @@ public class f {
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.meizu.cloud.pushsdk.b.c.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public enum EnumC0936a {
+        public enum EnumC1008a {
             SUCCESS,
             MISSING_SCHEME,
             UNSUPPORTED_SCHEME,
@@ -391,32 +391,32 @@ public class f {
         }
 
         int a() {
-            return this.e != -1 ? this.e : f.a(this.f4328a);
+            return this.e != -1 ? this.e : f.a(this.f4326a);
         }
 
-        EnumC0936a a(f fVar, String str) {
+        EnumC1008a a(f fVar, String str) {
             int i;
             int a2 = m.a(str, 0, str.length());
             int b = m.b(str, a2, str.length());
             if (b(str, a2, b) != -1) {
                 if (str.regionMatches(true, a2, UrlSchemaHelper.SCHEMA_TYPE_HTTPS, 0, 6)) {
-                    this.f4328a = "https";
+                    this.f4326a = "https";
                     a2 += UrlSchemaHelper.SCHEMA_TYPE_HTTPS.length();
                 } else if (!str.regionMatches(true, a2, UrlSchemaHelper.SCHEMA_TYPE_HTTP, 0, 5)) {
-                    return EnumC0936a.UNSUPPORTED_SCHEME;
+                    return EnumC1008a.UNSUPPORTED_SCHEME;
                 } else {
-                    this.f4328a = HttpHost.DEFAULT_SCHEME_NAME;
+                    this.f4326a = HttpHost.DEFAULT_SCHEME_NAME;
                     a2 += UrlSchemaHelper.SCHEMA_TYPE_HTTP.length();
                 }
             } else if (fVar == null) {
-                return EnumC0936a.MISSING_SCHEME;
+                return EnumC1008a.MISSING_SCHEME;
             } else {
-                this.f4328a = fVar.b;
+                this.f4326a = fVar.b;
             }
             boolean z = false;
             boolean z2 = false;
             int c = c(str, a2, b);
-            if (c >= 2 || fVar == null || !fVar.b.equals(this.f4328a)) {
+            if (c >= 2 || fVar == null || !fVar.b.equals(this.f4326a)) {
                 int i2 = a2 + c;
                 while (true) {
                     boolean z3 = z2;
@@ -434,17 +434,17 @@ public class f {
                                 this.d = e(str, i3, d);
                                 this.e = g(str, d + 1, a3);
                                 if (this.e == -1) {
-                                    return EnumC0936a.INVALID_PORT;
+                                    return EnumC1008a.INVALID_PORT;
                                 }
                             } else {
                                 this.d = e(str, i3, d);
-                                this.e = f.a(this.f4328a);
+                                this.e = f.a(this.f4326a);
                             }
                             if (this.d != null) {
                                 a2 = a3;
                                 break;
                             } else {
-                                return EnumC0936a.INVALID_HOST;
+                                return EnumC1008a.INVALID_HOST;
                             }
                         case '@':
                             if (z3) {
@@ -494,7 +494,7 @@ public class f {
             if (i < b && str.charAt(i) == '#') {
                 this.h = f.a(str, i + 1, b, "", true, false, false, false);
             }
-            return EnumC0936a.SUCCESS;
+            return EnumC1008a.SUCCESS;
         }
 
         public a a(String str) {
@@ -515,7 +515,7 @@ public class f {
         }
 
         public f b() {
-            if (this.f4328a == null) {
+            if (this.f4326a == null) {
                 throw new IllegalStateException("scheme == null");
             }
             if (this.d == null) {
@@ -526,7 +526,7 @@ public class f {
 
         public String toString() {
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f4328a);
+            sb.append(this.f4326a);
             sb.append("://");
             if (!this.b.isEmpty() || !this.c.isEmpty()) {
                 sb.append(this.b);
@@ -544,7 +544,7 @@ public class f {
                 sb.append(this.d);
             }
             int a2 = a();
-            if (a2 != f.a(this.f4328a)) {
+            if (a2 != f.a(this.f4326a)) {
                 sb.append(':');
                 sb.append(a2);
             }
@@ -562,7 +562,7 @@ public class f {
     }
 
     private f(a aVar) {
-        this.b = aVar.f4328a;
+        this.b = aVar.f4326a;
         this.c = a(aVar.b, false);
         this.d = a(aVar.c, false);
         this.e = aVar.d;
@@ -662,8 +662,8 @@ public class f {
                     while (!bVar2.c()) {
                         int f = bVar2.f() & 255;
                         bVar.b(37);
-                        bVar.b((int) f4326a[(f >> 4) & 15]);
-                        bVar.b((int) f4326a[f & 15]);
+                        bVar.b((int) f4324a[(f >> 4) & 15]);
+                        bVar.b((int) f4324a[f & 15]);
                     }
                 } else {
                     bVar.a(codePointAt);
@@ -746,7 +746,7 @@ public class f {
 
     public static f c(String str) {
         a aVar = new a();
-        if (aVar.a((f) null, str) == a.EnumC0936a.SUCCESS) {
+        if (aVar.a((f) null, str) == a.EnumC1008a.SUCCESS) {
             return aVar.b();
         }
         return null;
@@ -805,7 +805,7 @@ public class f {
 
     public a g() {
         a aVar = new a();
-        aVar.f4328a = this.b;
+        aVar.f4326a = this.b;
         aVar.b = b();
         aVar.c = c();
         aVar.d = this.e;

@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.be;
 import com.baidu.tieba.R;
 /* loaded from: classes23.dex */
 public class o extends com.baidu.tieba.frs.k<p, q> {
-    private static final int ilG = R.id.assist_apply_tip;
-    private com.baidu.tbadk.coreExtra.view.b eNM;
+    private static final int iye = R.id.assist_apply_tip;
+    private com.baidu.tbadk.coreExtra.view.b eWi;
     private View.OnClickListener mClickListener;
 
     public o(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -25,11 +25,11 @@ public class o extends com.baidu.tieba.frs.k<p, q> {
         this.mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.member.o.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                Object tag = view.getTag(o.ilG);
+                Object tag = view.getTag(o.iye);
                 if (TbadkCoreApplication.isLogin() && StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
                     o.this.i(TbadkCoreApplication.getCurrentAccountInfo());
                 } else {
-                    be.bmY().b((TbPageContext) com.baidu.adp.base.i.I(o.this.mContext), new String[]{tag.toString()});
+                    be.boR().b((TbPageContext) com.baidu.adp.base.i.I(o.this.mContext), new String[]{tag.toString()});
                 }
             }
         };
@@ -53,23 +53,23 @@ public class o extends com.baidu.tieba.frs.k<p, q> {
                 qVar.mRootLayout.setVisibility(8);
             } else {
                 if (qVar.mSkinType != this.mSkinType) {
-                    ap.setViewTextColor(qVar.ilP, R.color.cp_cont_d, 1);
-                    ap.setViewTextColor(qVar.ilO, R.color.cp_cont_b, 1);
-                    ap.setBackgroundResource(qVar.ilQ, R.drawable.frs_member_manito_bg);
+                    ap.setViewTextColor(qVar.iyn, R.color.cp_cont_d, 1);
+                    ap.setViewTextColor(qVar.iym, R.color.cp_cont_b, 1);
+                    ap.setBackgroundResource(qVar.iyo, R.drawable.frs_member_manito_bg);
                 }
-                int cra = pVar.cra();
-                if (cra > 0) {
-                    qVar.ilP.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), at.numberUniformFormat(cra)));
-                    qVar.ilQ.setTag(ilG, pVar.crb());
-                    qVar.ilQ.setOnClickListener(this.mClickListener);
-                    qVar.ilQ.setEnabled(true);
-                    qVar.ilQ.setClickable(true);
+                int cuh = pVar.cuh();
+                if (cuh > 0) {
+                    qVar.iyn.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), at.numberUniformFormat(cuh)));
+                    qVar.iyo.setTag(iye, pVar.cui());
+                    qVar.iyo.setOnClickListener(this.mClickListener);
+                    qVar.iyo.setEnabled(true);
+                    qVar.iyo.setClickable(true);
                 } else {
-                    qVar.ilP.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
-                    qVar.ilQ.setEnabled(false);
-                    qVar.ilQ.setClickable(false);
+                    qVar.iyn.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
+                    qVar.iyo.setEnabled(false);
+                    qVar.iyo.setClickable(false);
                 }
-                qVar.ilP.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                qVar.iyn.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                 qVar.mSkinType = this.mSkinType;
             }
         }
@@ -85,17 +85,17 @@ public class o extends com.baidu.tieba.frs.k<p, q> {
         } else {
             activity = ((TbPageContext) I).getPageActivity();
         }
-        if (this.eNM == null) {
-            this.eNM = new com.baidu.tbadk.coreExtra.view.b(activity);
+        if (this.eWi == null) {
+            this.eWi = new com.baidu.tbadk.coreExtra.view.b(activity);
         }
-        this.eNM.btz();
-        this.eNM.setAccountData(accountData);
-        this.eNM.qy(1);
+        this.eWi.bvs();
+        this.eWi.setAccountData(accountData);
+        this.eWi.qJ(1);
     }
 
     public void onDestroy() {
-        if (this.eNM != null) {
-            this.eNM.onDestroy();
+        if (this.eWi != null) {
+            this.eWi.onDestroy();
         }
     }
 }

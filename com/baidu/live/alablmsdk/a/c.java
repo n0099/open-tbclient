@@ -8,9 +8,9 @@ import java.util.Date;
 import java.util.Locale;
 /* loaded from: classes4.dex */
 public class c {
-    private static a aAq;
+    private static a aAv;
     private static boolean isDebug = false;
-    private static StringBuilder aAp = new StringBuilder();
+    private static StringBuilder aAu = new StringBuilder();
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -18,12 +18,12 @@ public class c {
     }
 
     public static void a(a aVar) {
-        aAq = aVar;
+        aAv = aVar;
     }
 
     public static void Bg() {
-        if (aAq != null) {
-            aAq = null;
+        if (aAv != null) {
+            aAv = null;
         }
     }
 
@@ -39,8 +39,8 @@ public class c {
 
     public static void fJ(String str) {
         String f = f(4000, str);
-        if (aAq != null) {
-            aAq.fI(f);
+        if (aAv != null) {
+            aAv.fI(f);
         }
     }
 
@@ -52,13 +52,13 @@ public class c {
         String Bh;
         synchronized (c.class) {
             try {
-                if (aAp == null) {
-                    aAp = new StringBuilder();
+                if (aAu == null) {
+                    aAu = new StringBuilder();
                 }
-                if (aAp.length() != 0) {
-                    aAp.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                if (aAu.length() != 0) {
+                    aAu.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
-                aAp.append("[").append(b(System.currentTimeMillis(), "HH:mm:ss.SSS")).append("|").append(i).append("|").append(str).append("]");
+                aAu.append("[").append(b(System.currentTimeMillis(), "HH:mm:ss.SSS")).append("|").append(i).append("|").append(str).append("]");
             } catch (Exception e) {
             }
             Bh = Bh();
@@ -69,14 +69,14 @@ public class c {
     public static synchronized String Bh() {
         String sb;
         synchronized (c.class) {
-            if (aAp == null) {
+            if (aAu == null) {
                 sb = "";
             } else {
-                sb = aAp.toString();
+                sb = aAu.toString();
                 try {
-                    aAp.delete(0, aAp.length());
+                    aAu.delete(0, aAu.length());
                 } catch (Exception e) {
-                    aAp = new StringBuilder();
+                    aAu = new StringBuilder();
                 }
                 if (!TextUtils.isEmpty(sb)) {
                     d(sb);

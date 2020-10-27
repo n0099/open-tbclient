@@ -4,33 +4,33 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaGetRankListEntryResposeMessage extends JsonHttpResponsedMessage {
-    public int hgl;
-    public int hgm;
-    public int hgn;
-    public int hgo;
-    public int hgp;
-    public int hgq;
+    public int hsk;
+    public int hsl;
+    public int hsm;
+    public int hsn;
+    public int hso;
+    public int hsp;
 
     public AlaGetRankListEntryResposeMessage() {
         super(1021069);
-        this.hgl = -1;
-        this.hgm = -1;
-        this.hgn = -1;
-        this.hgo = -1;
-        this.hgp = -1;
-        this.hgq = -1;
+        this.hsk = -1;
+        this.hsl = -1;
+        this.hsm = -1;
+        this.hsn = -1;
+        this.hso = -1;
+        this.hsp = -1;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && getError() == 0) {
-            this.hgl = jSONObject.optInt("game-day");
-            this.hgm = jSONObject.optInt("flower-week");
-            this.hgn = jSONObject.optInt("rich-week");
-            this.hgo = jSONObject.optInt("hot-week");
-            this.hgp = jSONObject.optInt("charm-week");
-            this.hgq = jSONObject.optInt("pk_rank_no");
+            this.hsk = jSONObject.optInt("game-day");
+            this.hsl = jSONObject.optInt("flower-week");
+            this.hsm = jSONObject.optInt("rich-week");
+            this.hsn = jSONObject.optInt("hot-week");
+            this.hso = jSONObject.optInt("charm-week");
+            this.hsp = jSONObject.optInt("pk_rank_no");
         }
     }
 }

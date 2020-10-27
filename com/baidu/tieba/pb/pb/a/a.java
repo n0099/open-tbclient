@@ -9,7 +9,7 @@ public interface a {
 
     void S(View.OnClickListener onClickListener);
 
-    void hp(String str);
+    void hx(String str);
 
     void setData(f fVar);
 
@@ -21,9 +21,9 @@ public interface a {
 
     void setOnLongClickListener(View.OnLongClickListener onLongClickListener);
 
-    void tt(boolean z);
+    void tK(boolean z);
 
-    void tu(boolean z);
+    void tL(boolean z);
 
-    void tv(boolean z);
+    void tM(boolean z);
 }

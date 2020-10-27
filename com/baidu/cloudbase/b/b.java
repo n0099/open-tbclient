@@ -8,29 +8,29 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes9.dex */
 public class b {
-    public static String and;
     public static String ane;
+    public static String anf;
 
     public static String Y(Context context) {
         return z(context, "rtc");
     }
 
     public static String Z(Context context) {
-        if (TextUtils.isEmpty(and)) {
+        if (TextUtils.isEmpty(ane)) {
             uI();
         }
-        return y(context, and) + File.separator + "jniLibs" + File.separator + getCPUType();
+        return y(context, ane) + File.separator + "jniLibs" + File.separator + getCPUType();
     }
 
     public static void du(String str) {
         if (TextUtils.isEmpty(str)) {
             str = "armeabi-v7a";
         }
-        ane = str;
+        anf = str;
     }
 
     public static String getCPUType() {
-        return TextUtils.isEmpty(ane) ? "armeabi-v7a" : ane;
+        return TextUtils.isEmpty(anf) ? "armeabi-v7a" : anf;
     }
 
     public static String m(Context context, String str, String str2) {
@@ -69,8 +69,8 @@ public class b {
     }
 
     public static String uI() {
-        and = "https://b.bdstatic.com/searchbox/androidvideo/" + uJ();
-        return and;
+        ane = "https://b.bdstatic.com/searchbox/androidvideo/" + uJ();
+        return ane;
     }
 
     public static String uJ() {

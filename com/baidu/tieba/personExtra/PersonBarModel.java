@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes24.dex */
 public class PersonBarModel extends BdBaseModel {
-    private static final String fGx = TbConfig.SERVER_ADDRESS + Config.FORUM_LIKE_ADDRESS;
-    private static TbHttpMessageTask task = new TbHttpMessageTask(1002002, fGx);
-    private int lGb;
+    private static final String fOS = TbConfig.SERVER_ADDRESS + Config.FORUM_LIKE_ADDRESS;
+    private static TbHttpMessageTask task = new TbHttpMessageTask(1002002, fOS);
+    private int lSx;
     private b mData;
     private String mId;
     private boolean mIsHost;
@@ -42,26 +42,26 @@ public class PersonBarModel extends BdBaseModel {
         this.mSex = i;
     }
 
-    public boolean SR() {
+    public boolean TQ() {
         return this.mIsHost;
     }
 
-    public void Gq(int i) {
-        this.lGb = i;
+    public void GJ(int i) {
+        this.lSx = i;
     }
 
-    public b doN() {
+    public b drU() {
         return this.mData;
     }
 
-    public void doL() {
+    public void drS() {
         super.sendMessage(new PersonBarByUidLocalMessage());
     }
 
     public void a(boolean z, String str, int i, int i2) {
         HttpMessage httpMessage = new HttpMessage(1002002);
         httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-        if (!SR()) {
+        if (!TQ()) {
             httpMessage.addParam("friend_uid", str);
             httpMessage.addParam("is_guest", String.valueOf(1));
             httpMessage.setExtra(str);
@@ -81,17 +81,17 @@ public class PersonBarModel extends BdBaseModel {
         return false;
     }
 
-    public void PJ(String str) {
-        if (this.lGb == 1 && this.mIsHost) {
+    public void Qh(String str) {
+        if (this.lSx == 1 && this.mIsHost) {
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 str2 = TbadkCoreApplication.getCurrentAccountObj().getID();
             }
             if (str != null) {
                 try {
-                    l<String> AF = com.baidu.tbadk.core.c.a.bkE().AF("tb.my_pages");
-                    if (AF != null) {
-                        AF.set(str2, str, 604800000L);
+                    l<String> AY = com.baidu.tbadk.core.c.a.bmx().AY("tb.my_pages");
+                    if (AY != null) {
+                        AY.set(str2, str, 604800000L);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

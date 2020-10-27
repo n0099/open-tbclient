@@ -10,11 +10,11 @@ import java.util.Map;
 final class cj implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ci f3804a;
+    final /* synthetic */ ci f3802a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cj(ci ciVar) {
-        this.f3804a = ciVar;
+        this.f3802a = ciVar;
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Object : 0x003b: INVOKE  (r0v31 java.lang.Object A[REMOVE]) = 
@@ -36,20 +36,20 @@ final class cj implements Runnable {
     public final void run() {
         Handler handler;
         Context context;
-        if (((Map) this.f3804a.b.f3801a.h.get(this.f3804a.f3803a)).containsKey("chatId")) {
-            this.f3804a.b.f3801a.f = new StringBuilder().append(((Map) this.f3804a.b.f3801a.h.get(this.f3804a.f3803a)).get("chatId")).toString();
+        if (((Map) this.f3802a.b.f3799a.h.get(this.f3802a.f3801a)).containsKey("chatId")) {
+            this.f3802a.b.f3799a.f = new StringBuilder().append(((Map) this.f3802a.b.f3799a.h.get(this.f3802a.f3801a)).get("chatId")).toString();
         }
-        com.baidu.ufosdk.e.a.a(this.f3804a.b.f3801a.f, 11);
+        com.baidu.ufosdk.e.a.a(this.f3802a.b.f3799a.f, 11);
         try {
             HashMap hashMap = new HashMap();
             hashMap.put("appid", UfoSDK.appid);
-            hashMap.put("id", this.f3804a.b.f3801a.e);
+            hashMap.put("id", this.f3802a.b.f3799a.e);
             String a2 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=getEvaluationToast", "sdk_encrypt=" + URLEncoder.encode(com.baidu.ufosdk.f.k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
-            handler = this.f3804a.b.f3801a.aK;
+            handler = this.f3802a.b.f3799a.aK;
             handler.obtainMessage(7, a2).sendToTarget();
-            context = this.f3804a.b.b;
+            context = this.f3802a.b.b;
             String str = UfoSDK.clientid;
-            com.baidu.ufosdk.e.a.a(context, this.f3804a.b.f3801a.e, UfoSDK.appid);
+            com.baidu.ufosdk.e.a.a(context, this.f3802a.b.f3799a.e, UfoSDK.appid);
         } catch (Exception e) {
             e.printStackTrace();
         }

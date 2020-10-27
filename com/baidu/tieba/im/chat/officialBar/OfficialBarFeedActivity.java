@@ -13,10 +13,10 @@ import com.baidu.tieba.im.model.OfficialBarFeedMsglistModel;
 import java.util.List;
 /* loaded from: classes26.dex */
 public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivity> implements OfficialBarFeedMsglistModel.IFeedHeadLoadCallback {
-    private boolean jFA = false;
-    private int jFB = 3;
-    private OfficialBarFeedMsglistView jFy;
-    private OfficialBarFeedMsglistModel jFz;
+    private OfficialBarFeedMsglistView jRX;
+    private OfficialBarFeedMsglistModel jRY;
+    private boolean jRZ = false;
+    private int jSa = 3;
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
@@ -27,11 +27,11 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        if (this.jFB != i) {
-            this.jFB = i;
+        if (this.jSa != i) {
+            this.jSa = i;
             super.onChangeSkinType(i);
-            if (this.jFy != null) {
-                this.jFy.onChangeSkinType(i);
+            if (this.jRX != null) {
+                this.jRX.onChangeSkinType(i);
             }
         }
     }
@@ -40,12 +40,12 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.jFz != null && this.jFA) {
-            this.jFz.LoadData(false);
+        if (this.jRY != null && this.jRZ) {
+            this.jRY.LoadData(false);
         }
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(TbEnum.CustomGroupId.OFFICIAL_MERGE, -8)));
         aq aqVar = new aq("c13861");
-        aqVar.dK("uid", TbadkCoreApplication.getCurrentAccount());
+        aqVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
         TiebaStatic.log(aqVar);
     }
 
@@ -53,9 +53,9 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.jFA = true;
-        if (this.jFz != null) {
-            this.jFz.cancelLoadData();
+        this.jRZ = true;
+        if (this.jRY != null) {
+            this.jRY.cancelLoadData();
         }
     }
 
@@ -63,32 +63,32 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.jFz != null) {
-            this.jFz.onDestroy();
+        if (this.jRY != null) {
+            this.jRY.onDestroy();
         }
     }
 
     private void initData() {
         try {
-            this.jFz = new OfficialBarFeedMsglistModel(getPageContext());
-            this.jFz.setHeadLoadCallback(this);
-            this.jFz.LoadData(true);
+            this.jRY = new OfficialBarFeedMsglistModel(getPageContext());
+            this.jRY.setHeadLoadCallback(this);
+            this.jRY.LoadData(true);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     private void initView() {
-        this.jFy = new OfficialBarFeedMsglistView(this);
+        this.jRX = new OfficialBarFeedMsglistView(this);
     }
 
     @Override // com.baidu.tieba.im.model.OfficialBarFeedMsglistModel.IFeedHeadLoadCallback
     public void onListDataLoad(List<com.baidu.tieba.im.message.chat.b> list, List<com.baidu.tieba.im.db.pojo.a> list2) {
-        this.jFy.v(list, list2);
+        this.jRX.y(list, list2);
     }
 
     @Override // com.baidu.tieba.im.model.OfficialBarFeedMsglistModel.IFeedHeadLoadCallback
     public void onReadCountLoad(LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> longSparseArray) {
-        this.jFy.a(longSparseArray);
+        this.jRX.a(longSparseArray);
     }
 }

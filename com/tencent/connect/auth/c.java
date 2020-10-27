@@ -19,13 +19,13 @@ import java.util.Iterator;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private AuthAgent f4547a;
+    private AuthAgent f4545a;
     private QQToken b;
 
     private c(String str, Context context) {
         f.c("openSDK_LOG.QQAuth", "new QQAuth() --start");
         this.b = new QQToken(str);
-        this.f4547a = new AuthAgent(this.b);
+        this.f4545a = new AuthAgent(this.b);
         com.tencent.connect.a.a.c(context, this.b);
         f.c("openSDK_LOG.QQAuth", "new QQAuth() --end");
     }
@@ -92,7 +92,7 @@ public class c {
         }
         f.b("openSDK_LOG.QQAuth", "-->login channelId is null ");
         BaseApi.isOEM = false;
-        return this.f4547a.doLogin(activity, str, iUiListener, false, fragment);
+        return this.f4545a.doLogin(activity, str, iUiListener, false, fragment);
     }
 
     @Deprecated
@@ -111,20 +111,20 @@ public class c {
         BaseApi.installChannel = str3;
         BaseApi.registerChannel = str2;
         BaseApi.businessId = str4;
-        return this.f4547a.doLogin(activity, str, iUiListener);
+        return this.f4545a.doLogin(activity, str, iUiListener);
     }
 
     public int b(Activity activity, String str, IUiListener iUiListener) {
         f.c("openSDK_LOG.QQAuth", "reAuth()");
-        return this.f4547a.doLogin(activity, str, iUiListener, true, null);
+        return this.f4545a.doLogin(activity, str, iUiListener, true, null);
     }
 
     public void a() {
-        this.f4547a.a((IUiListener) null);
+        this.f4545a.a((IUiListener) null);
     }
 
     public void a(IUiListener iUiListener) {
-        this.f4547a.b(iUiListener);
+        this.f4545a.b(iUiListener);
     }
 
     public QQToken b() {

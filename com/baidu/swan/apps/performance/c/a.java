@@ -7,6 +7,6 @@ public class a implements com.baidu.swan.apps.ap.e.b<HybridUbcFlow> {
     @Override // com.baidu.swan.apps.ap.e.b
     /* renamed from: a */
     public void M(HybridUbcFlow hybridUbcFlow) {
-        hybridUbcFlow.qg("670").cb("with_preload", "0");
+        hybridUbcFlow.qz("670").ci("with_preload", "0");
     }
 }

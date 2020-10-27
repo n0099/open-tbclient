@@ -8,7 +8,6 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.SystemClock;
 import android.support.annotation.CallSuper;
@@ -16,7 +15,6 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.view.AbsSavedState;
 import android.support.v4.view.AccessibilityDelegateCompat;
 import android.support.v4.view.OnApplyWindowInsetsListener;
 import android.support.v4.view.PagerAdapter;
@@ -1001,84 +999,6 @@ public class SlideRatioViewPager extends ViewGroup {
             i8++;
         }
         this.mNeedCalculatePageOffsets = false;
-    }
-
-    /* loaded from: classes4.dex */
-    public static class SavedState extends AbsSavedState {
-        public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.baidu.live.tbadk.widget.SlideRatioViewPager.SavedState.1
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // android.os.Parcelable.ClassLoaderCreator
-            public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
-                return new SavedState(parcel, classLoader);
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // android.os.Parcelable.Creator
-            public SavedState createFromParcel(Parcel parcel) {
-                return new SavedState(parcel, null);
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // android.os.Parcelable.Creator
-            public SavedState[] newArray(int i) {
-                return new SavedState[i];
-            }
-        };
-        Parcelable adapterState;
-        ClassLoader loader;
-        int position;
-
-        public SavedState(Parcelable parcelable) {
-            super(parcelable);
-        }
-
-        SavedState(Parcel parcel, ClassLoader classLoader) {
-            super(parcel, classLoader);
-            classLoader = classLoader == null ? getClass().getClassLoader() : classLoader;
-            this.position = parcel.readInt();
-            this.adapterState = parcel.readParcelable(classLoader);
-            this.loader = classLoader;
-        }
-
-        @Override // android.support.v4.view.AbsSavedState, android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
-            super.writeToParcel(parcel, i);
-            parcel.writeInt(this.position);
-            parcel.writeParcelable(this.adapterState, i);
-        }
-
-        public String toString() {
-            return "FragmentPager.SavedState{" + Integer.toHexString(System.identityHashCode(this)) + " position=" + this.position + "}";
-        }
-    }
-
-    @Override // android.view.View
-    public Parcelable onSaveInstanceState() {
-        SavedState savedState = new SavedState(super.onSaveInstanceState());
-        savedState.position = this.mCurItem;
-        if (this.mAdapter != null) {
-            savedState.adapterState = this.mAdapter.saveState();
-        }
-        return savedState;
-    }
-
-    @Override // android.view.View
-    public void onRestoreInstanceState(Parcelable parcelable) {
-        if (!(parcelable instanceof SavedState)) {
-            super.onRestoreInstanceState(parcelable);
-            return;
-        }
-        SavedState savedState = (SavedState) parcelable;
-        super.onRestoreInstanceState(savedState.getSuperState());
-        if (this.mAdapter != null) {
-            this.mAdapter.restoreState(savedState.adapterState, savedState.loader);
-            setCurrentItemInternal(savedState.position, false, true);
-            return;
-        }
-        this.mRestoredCurItem = savedState.position;
-        this.mRestoredAdapterState = savedState.adapterState;
-        this.mRestoredClassLoader = savedState.loader;
     }
 
     @Override // android.view.ViewGroup

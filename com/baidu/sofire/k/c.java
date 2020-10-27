@@ -12,12 +12,12 @@ public interface c extends IInterface {
 
         /* renamed from: com.baidu.sofire.k.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes15.dex */
-        static class C0334a implements c {
+        static class C0348a implements c {
 
             /* renamed from: a  reason: collision with root package name */
             private IBinder f3653a;
 
-            C0334a(IBinder iBinder) {
+            C0348a(IBinder iBinder) {
                 this.f3653a = iBinder;
             }
 
@@ -62,7 +62,7 @@ public interface c extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof c)) ? new C0334a(iBinder) : (c) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof c)) ? new C0348a(iBinder) : (c) queryLocalInterface;
         }
 
         @Override // android.os.Binder

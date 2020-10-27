@@ -10,25 +10,25 @@ import java.lang.reflect.Field;
 import tv.chushou.zues.utils.e;
 /* loaded from: classes6.dex */
 public class b extends LinearLayoutManager {
-    private static boolean pmT = true;
-    private static Field pmU = null;
-    private final Rect idC;
+    private static boolean qeh = true;
+    private static Field qei = null;
+    private final Rect iqa;
     private int overScrollMode;
-    private final int[] pmV;
-    private int pmW;
-    private boolean pmX;
+    private final int[] qej;
+    private int qek;
+    private boolean qel;
     private final RecyclerView view;
 
     public b(Context context, int i, boolean z) {
         super(context, i, z);
-        this.pmV = new int[2];
-        this.pmW = 100;
+        this.qej = new int[2];
+        this.qek = 100;
         this.overScrollMode = 0;
-        this.idC = new Rect();
+        this.iqa = new Rect();
         this.view = null;
     }
 
-    public static int euk() {
+    public static int eEi() {
         return View.MeasureSpec.makeMeasureSpec(0, 0);
     }
 
@@ -47,7 +47,7 @@ public class b extends LinearLayoutManager {
         boolean z2 = mode2 != 0;
         boolean z3 = mode == 1073741824;
         boolean z4 = mode2 == 1073741824;
-        int euk = euk();
+        int eEi = eEi();
         if (z3 && z4) {
             super.onMeasure(recycler, state, i, i2);
             return;
@@ -66,15 +66,15 @@ public class b extends LinearLayoutManager {
                 i4 = i6;
                 break;
             } else if (z5) {
-                if (!this.pmX) {
+                if (!this.qel) {
                     if (i8 < itemCount) {
-                        a(recycler, i8, size, euk, this.pmV);
+                        a(recycler, i8, size, eEi, this.qej);
                     } else {
-                        PU(i8);
+                        RL(i8);
                     }
                 }
-                i5 = this.pmV[1] + i7;
-                i4 = i8 == 0 ? this.pmV[0] : i6;
+                i5 = this.qej[1] + i7;
+                i4 = i8 == 0 ? this.qej[0] : i6;
                 if (z2 && i5 >= size2) {
                     i3 = i5;
                     break;
@@ -83,15 +83,15 @@ public class b extends LinearLayoutManager {
                 i7 = i5;
                 i6 = i4;
             } else {
-                if (!this.pmX) {
+                if (!this.qel) {
                     if (i8 < itemCount) {
-                        a(recycler, i8, euk, size2, this.pmV);
+                        a(recycler, i8, eEi, size2, this.qej);
                     } else {
-                        PU(i8);
+                        RL(i8);
                     }
                 }
-                i4 = i6 + this.pmV[0];
-                i5 = i8 == 0 ? this.pmV[1] : i7;
+                i4 = i6 + this.qej[0];
+                i5 = i8 == 0 ? this.qej[1] : i7;
                 if (z && i4 >= size) {
                     i3 = i5;
                     break;
@@ -121,27 +121,27 @@ public class b extends LinearLayoutManager {
         }
     }
 
-    private void PU(int i) {
+    private void RL(int i) {
         e.w("WrapContentManager", "Can't measure child #" + i + ", previously used dimensions will be reused.To remove this message either use #setChildSize() method or don't run RecyclerView animations");
     }
 
     private void o(int i, int i2, boolean z) {
-        if (this.pmV[0] == 0 && this.pmV[1] == 0) {
+        if (this.qej[0] == 0 && this.qej[1] == 0) {
             if (z) {
-                this.pmV[0] = i;
-                this.pmV[1] = this.pmW;
+                this.qej[0] = i;
+                this.qej[1] = this.qek;
                 return;
             }
-            this.pmV[0] = this.pmW;
-            this.pmV[1] = i2;
+            this.qej[0] = this.qek;
+            this.qej[1] = i2;
         }
     }
 
     @Override // android.support.v7.widget.LinearLayoutManager
     public void setOrientation(int i) {
-        if (this.pmV != null && getOrientation() != i) {
-            this.pmV[0] = 0;
-            this.pmV[1] = 0;
+        if (this.qej != null && getOrientation() != i) {
+            this.qej[0] = 0;
+            this.qej[1] = 0;
         }
         super.setOrientation(i);
     }
@@ -155,7 +155,7 @@ public class b extends LinearLayoutManager {
             int i4 = layoutParams.leftMargin + layoutParams.rightMargin;
             int i5 = layoutParams.topMargin + layoutParams.bottomMargin;
             a(layoutParams);
-            calculateItemDecorationsForChild(viewForPosition, this.idC);
+            calculateItemDecorationsForChild(viewForPosition, this.iqa);
             viewForPosition.measure(getChildMeasureSpec(i2, paddingLeft + i4 + getRightDecorationWidth(viewForPosition) + getLeftDecorationWidth(viewForPosition), layoutParams.width, canScrollHorizontally()), getChildMeasureSpec(i3, paddingTop + i5 + getTopDecorationHeight(viewForPosition) + getBottomDecorationHeight(viewForPosition), layoutParams.height, canScrollVertically()));
             iArr[0] = getDecoratedMeasuredWidth(viewForPosition) + layoutParams.leftMargin + layoutParams.rightMargin;
             iArr[1] = getDecoratedMeasuredHeight(viewForPosition) + layoutParams.bottomMargin + layoutParams.topMargin;
@@ -167,21 +167,21 @@ public class b extends LinearLayoutManager {
     }
 
     private static void a(RecyclerView.LayoutParams layoutParams) {
-        if (pmT) {
+        if (qeh) {
             try {
-                if (pmU == null) {
-                    pmU = RecyclerView.LayoutParams.class.getDeclaredField("mInsetsDirty");
-                    pmU.setAccessible(true);
+                if (qei == null) {
+                    qei = RecyclerView.LayoutParams.class.getDeclaredField("mInsetsDirty");
+                    qei.setAccessible(true);
                 }
-                pmU.set(layoutParams, true);
+                qei.set(layoutParams, true);
             } catch (Exception e) {
-                eul();
+                eEj();
             }
         }
     }
 
-    private static void eul() {
-        pmT = false;
+    private static void eEj() {
+        qeh = false;
         e.w("WrapContentManager", "Can't make LayoutParams insets dirty, decorations measurements might be incorrect");
     }
 

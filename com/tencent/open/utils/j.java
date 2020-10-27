@@ -40,7 +40,7 @@ public class j {
     private static String f;
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f4621a = "";
+    private static String f4619a = "";
     private static String b = "";
     private static String c = "";
     private static String d = "";
@@ -115,15 +115,15 @@ public class j {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f4622a;
+        public String f4620a;
         public long b;
         public long c;
 
         public a(String str, int i) {
-            this.f4622a = str;
+            this.f4620a = str;
             this.b = i;
-            if (this.f4622a != null) {
-                this.c = this.f4622a.length();
+            if (this.f4620a != null) {
+                this.c = this.f4620a.length();
             }
         }
     }
@@ -438,7 +438,7 @@ public class j {
             try {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 0);
                 b = packageInfo.versionName;
-                f4621a = b.substring(0, b.lastIndexOf(46));
+                f4619a = b.substring(0, b.lastIndexOf(46));
                 d = b.substring(b.lastIndexOf(46) + 1, b.length());
                 e = packageInfo.versionCode;
             } catch (PackageManager.NameNotFoundException e2) {
@@ -462,7 +462,7 @@ public class j {
             return "";
         }
         b(context, str);
-        return f4621a;
+        return f4619a;
     }
 
     public static String e(Context context, String str) {

@@ -1,24 +1,18 @@
 package com.baidu.live.gift;
 
-import android.content.DialogInterface;
-import com.baidu.live.tbadk.TbPageContext;
+import android.view.View;
+import com.baidu.live.data.AlaLiveInfoData;
+import com.baidu.live.data.AlaLiveUserInfoData;
+import com.baidu.live.tbadk.core.data.AlaBroadcastGiftToastData;
 /* loaded from: classes4.dex */
 public interface aa {
-    void d(com.baidu.live.data.u uVar);
+    View GG();
 
-    void initView();
+    void a(AlaLiveInfoData alaLiveInfoData, AlaLiveUserInfoData alaLiveUserInfoData);
 
-    boolean isShowing();
+    void a(AlaBroadcastGiftToastData alaBroadcastGiftToastData);
 
-    void resize();
+    void dX(int i);
 
-    void setGiftItem(g gVar);
-
-    void setOnDismissListener(DialogInterface.OnDismissListener onDismissListener);
-
-    void setOtherParams(String str);
-
-    void setPageContext(TbPageContext tbPageContext);
-
-    void show();
+    void onDestroy();
 }

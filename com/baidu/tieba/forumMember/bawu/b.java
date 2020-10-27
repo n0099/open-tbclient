@@ -4,45 +4,45 @@ import java.util.ArrayList;
 import tbclient.BawuRoleInfoPub;
 /* loaded from: classes23.dex */
 public class b implements i {
-    private String ikc;
+    private String iwA;
     private ArrayList<BawuRoleInfoPub> mMembers = new ArrayList<>();
-    private boolean ika = false;
-    private boolean ikb = false;
+    private boolean iwy = false;
+    private boolean iwz = false;
 
     @Override // com.baidu.tieba.forumMember.bawu.i
-    public int cqO() {
+    public int ctV() {
         return 1;
     }
 
-    public ArrayList<BawuRoleInfoPub> cqP() {
+    public ArrayList<BawuRoleInfoPub> ctW() {
         return this.mMembers;
     }
 
-    public void au(ArrayList<BawuRoleInfoPub> arrayList) {
+    public void av(ArrayList<BawuRoleInfoPub> arrayList) {
         this.mMembers = arrayList;
     }
 
     public boolean isLast() {
-        return this.ika;
+        return this.iwy;
     }
 
-    public void oH(boolean z) {
-        this.ika = z;
+    public void oZ(boolean z) {
+        this.iwy = z;
     }
 
-    public boolean cqQ() {
-        return this.ikb;
+    public boolean ctX() {
+        return this.iwz;
     }
 
-    public void oI(boolean z) {
-        this.ikb = z;
+    public void pa(boolean z) {
+        this.iwz = z;
     }
 
-    public String cqR() {
-        return this.ikc;
+    public String ctY() {
+        return this.iwA;
     }
 
-    public void Jp(String str) {
-        this.ikc = str;
+    public void JO(String str) {
+        this.iwA = str;
     }
 }

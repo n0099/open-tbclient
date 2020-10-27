@@ -16,19 +16,19 @@ import java.util.List;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1270a;
-    private c adM;
+    private Context f1267a;
+    private c adN;
 
     public g(Context context, c cVar) {
-        this.f1270a = context;
-        this.adM = cVar;
+        this.f1267a = context;
+        this.adN = cVar;
     }
 
     private f O(Context context) {
         String str;
         f fVar;
         f fVar2 = null;
-        List<b> N = this.adM.N(context);
+        List<b> N = this.adN.N(context);
         if (N != null) {
             File filesDir = context.getFilesDir();
             if (com.baidu.fsg.face.base.b.c.g.equals(filesDir.getName())) {
@@ -39,7 +39,7 @@ public class g {
             }
             for (b bVar : N) {
                 if (!bVar.d) {
-                    File file = new File(new File(bVar.acR.dataDir, str), "libcuid.so");
+                    File file = new File(new File(bVar.acS.dataDir, str), "libcuid.so");
                     if (file.exists()) {
                         fVar = f.cY(com.baidu.b.f.c.a(file));
                         if (fVar != null) {
@@ -57,12 +57,12 @@ public class g {
     }
 
     private boolean b(String str) {
-        return this.f1270a.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
+        return this.f1267a.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
     }
 
     private String c(String str) {
         try {
-            return Settings.System.getString(this.f1270a.getContentResolver(), str);
+            return Settings.System.getString(this.f1267a.getContentResolver(), str);
         } catch (Exception e) {
             com.baidu.b.f.c.a(e);
             return null;
@@ -118,7 +118,7 @@ public class g {
     }
 
     public f da(String str) {
-        f O = 0 == 0 ? O(this.f1270a) : null;
+        f O = 0 == 0 ? O(this.f1267a) : null;
         if (O == null) {
             O = f.cY(c("com.baidu.deviceid.v2"));
         }

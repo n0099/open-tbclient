@@ -15,19 +15,19 @@ public class FrsMemberStatic {
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(ForumMemberActivityConfig.class, ForumMemberActivity.class);
-        aj.cuH().yA(3);
+        aj.cxO().yT(3);
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_FRS_ADD_ADAPTER) { // from class: com.baidu.tieba.forumMember.member.FrsMemberStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                     AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                    absDelegateAdapterList.add(new i(null, j.ilg));
-                    absDelegateAdapterList.add(new l(null, m.ilr));
-                    absDelegateAdapterList.add(new g(null, com.baidu.tieba.frs.n.ioF));
-                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.a.a(null, com.baidu.tieba.forumMember.a.b.ikJ));
-                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.a.d(null, com.baidu.tieba.forumMember.a.e.ikM));
-                    absDelegateAdapterList.add(new o(null, p.ilI));
+                    absDelegateAdapterList.add(new i(null, j.ixE));
+                    absDelegateAdapterList.add(new l(null, m.ixP));
+                    absDelegateAdapterList.add(new g(null, com.baidu.tieba.frs.n.iBb));
+                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.a.a(null, com.baidu.tieba.forumMember.a.b.ixh));
+                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.a.d(null, com.baidu.tieba.forumMember.a.e.ixk));
+                    absDelegateAdapterList.add(new o(null, p.iyg));
                 }
             }
         });
@@ -38,7 +38,7 @@ public class FrsMemberStatic {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof ai)) {
                     ai aiVar = (ai) customResponsedMessage.getData();
                     e eVar = new e();
-                    eVar.setTag(aiVar.fey);
+                    eVar.setTag(aiVar.fmX);
                     aiVar.a(3, eVar);
                 }
             }

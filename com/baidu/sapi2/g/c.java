@@ -57,8 +57,8 @@ public class c extends FingerprintManager.AuthenticationCallback {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.sapi2.g.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC0310c implements View.OnClickListener {
-        View$OnClickListenerC0310c() {
+    public class View$OnClickListenerC0324c implements View.OnClickListener {
+        View$OnClickListenerC0324c() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -100,7 +100,7 @@ public class c extends FingerprintManager.AuthenticationCallback {
 
     private void c() {
         a((Activity) this.c, (Dialog) this.h);
-        this.h.a("再试一次", "请验证已有手机指纹").a(2).a(PayHelper.STATUS_CANCEL_DESC, new d()).b("换个登录方式", new View$OnClickListenerC0310c()).b();
+        this.h.a("再试一次", "请验证已有手机指纹").a(2).a(PayHelper.STATUS_CANCEL_DESC, new d()).b("换个登录方式", new View$OnClickListenerC0324c()).b();
     }
 
     private void d() {

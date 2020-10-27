@@ -11,40 +11,40 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes15.dex */
 public class e {
-    private static e dUO;
-    private a dUP = new a();
-    private String dUQ = AppRuntime.getAppContext().getString(e.a.swan_launch_failed_default_dialog_msg);
-    private String dUR = AppRuntime.getAppContext().getString(e.a.swan_launch_failed_default_toast_msg);
+    private static e edk;
+    private a edl = new a();
+    private String edm = AppRuntime.getAppContext().getString(e.a.swan_launch_failed_default_dialog_msg);
+    private String edn = AppRuntime.getAppContext().getString(e.a.swan_launch_failed_default_toast_msg);
 
-    public static e aXZ() {
-        if (dUO == null) {
+    public static e aZS() {
+        if (edk == null) {
             synchronized (e.class) {
-                if (dUO == null) {
-                    dUO = new e();
+                if (edk == null) {
+                    edk = new e();
                 }
             }
         }
-        return dUO;
+        return edk;
     }
 
     private e() {
     }
 
     public String getVersion() {
-        return this.dUP.getString("tips_config_version", "0");
+        return this.edl.getString("tips_config_version", "0");
     }
 
-    public String cx(long j) {
-        return this.dUP.getString(String.format("%04d", Long.valueOf(j)), this.dUQ);
+    public String cz(long j) {
+        return this.edl.getString(String.format("%04d", Long.valueOf(j)), this.edm);
     }
 
-    public String cy(long j) {
-        return this.dUP.getString(String.format("%04d", Long.valueOf(j)), this.dUR);
+    public String cA(long j) {
+        return this.edl.getString(String.format("%04d", Long.valueOf(j)), this.edn);
     }
 
     public void b(HashMap<String, String> hashMap, String str) {
         if (hashMap != null && !hashMap.isEmpty() && !TextUtils.isEmpty(str)) {
-            SharedPreferences.Editor edit = this.dUP.edit();
+            SharedPreferences.Editor edit = this.edl.edit();
             edit.clear();
             edit.putString("tips_config_version", str);
             for (Map.Entry<String, String> entry : hashMap.entrySet()) {
@@ -54,7 +54,7 @@ public class e {
         }
     }
 
-    public void cJ(JSONObject jSONObject) {
+    public void cM(JSONObject jSONObject) {
         JSONArray optJSONArray;
         if (jSONObject != null) {
             String optString = jSONObject.optString("version");

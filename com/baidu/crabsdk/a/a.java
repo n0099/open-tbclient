@@ -9,23 +9,23 @@ import java.util.Map;
 public final class a {
     public static int W = 2000;
     public static int X = 1;
-    static a anH = null;
+    static a anI = null;
     private long Z;
     private long aa;
     private long ab;
-    private long anE;
-    private StringBuilder anF = new StringBuilder();
-    public ArrayList<String> anG = new ArrayList<>();
+    private long anF;
+    private StringBuilder anG = new StringBuilder();
+    public ArrayList<String> anH = new ArrayList<>();
 
     private a() {
     }
 
     private String g() {
-        Iterator<String> it = this.anG.iterator();
+        Iterator<String> it = this.anH.iterator();
         while (it.hasNext()) {
             String next = it.next();
             com.baidu.crabsdk.c.a.v("===== stackEntry ===== \n" + next);
-            this.anF.append(next);
+            this.anG.append(next);
             String[] split = next.split("\r\n");
             if (split != null && split.length > 0) {
                 for (String str : split) {
@@ -44,18 +44,18 @@ public final class a {
     }
 
     public static a ve() {
-        if (anH == null) {
+        if (anI == null) {
             synchronized (a.class) {
-                if (anH == null) {
-                    anH = new a();
+                if (anI == null) {
+                    anI = new a();
                 }
             }
         }
-        return anH;
+        return anI;
     }
 
     public final a a(long j, long j2, long j3, long j4) {
-        this.anE = j2 - j;
+        this.anF = j2 - j;
         this.Z = j4 - j3;
         this.aa = j;
         this.ab = j2;
@@ -66,7 +66,7 @@ public final class a {
         HashMap hashMap = new HashMap();
         long j = this.aa;
         long j2 = this.ab;
-        long j3 = this.anE;
+        long j3 = this.anF;
         long j4 = this.Z;
         String g = g();
         if (TextUtils.isEmpty(g)) {
@@ -78,10 +78,10 @@ public final class a {
         hashMap.put("blockEndTime", Long.valueOf(j2));
         hashMap.put("blockCostTime", Long.valueOf(j3));
         hashMap.put("blockThreadTime", Long.valueOf(j4));
-        hashMap.put("errorTrace", this.anF.toString());
+        hashMap.put("errorTrace", this.anG.toString());
         hashMap.put("errorLine", g);
         hashMap.put("errorOriLine", g);
-        this.anF.setLength(0);
+        this.anG.setLength(0);
         return hashMap;
     }
 }

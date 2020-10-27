@@ -18,12 +18,12 @@ import java.util.List;
 public class a extends RecyclerView.Adapter<b> {
     private Context mContext;
     private List<String> mDataList;
-    private InterfaceC0816a mxg = null;
-    private int mxh = 0;
+    private InterfaceC0831a mJQ = null;
+    private int mJR = 0;
 
     /* renamed from: com.baidu.tieba.square.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes22.dex */
-    public interface InterfaceC0816a {
+    public interface InterfaceC0831a {
         void a(View view, int i, String str);
     }
 
@@ -45,32 +45,32 @@ public class a extends RecyclerView.Adapter<b> {
     public void onBindViewHolder(@NonNull final b bVar, final int i) {
         final String str = this.mDataList.get(i);
         bVar.itemView.setTag(Integer.valueOf(i));
-        bVar.mxk.setText(str);
-        if (this.mxh == i) {
-            bVar.mxl.setVisibility(0);
-            ap.setBackgroundColor(bVar.mxl, R.color.cp_link_tip_e);
+        bVar.mJU.setText(str);
+        if (this.mJR == i) {
+            bVar.mJV.setVisibility(0);
+            ap.setBackgroundColor(bVar.mJV, R.color.cp_link_tip_e);
             ap.setBackgroundColor(bVar.itemView, R.color.cp_bg_line_e);
-            ap.setViewTextColor(bVar.mxk, R.color.cp_cont_b);
+            ap.setViewTextColor(bVar.mJU, R.color.cp_cont_b);
         } else {
-            bVar.mxl.setVisibility(8);
+            bVar.mJV.setVisibility(8);
             ap.setBackgroundColor(bVar.itemView, R.color.cp_bg_line_c);
-            ap.setViewTextColor(bVar.mxk, R.color.cp_cont_j);
+            ap.setViewTextColor(bVar.mJU, R.color.cp_cont_j);
         }
-        if ("推荐".equals(dCA())) {
+        if ("推荐".equals(dFI())) {
             aq aqVar = new aq("c13641");
-            aqVar.u("uid", TbadkApplication.getCurrentAccountId());
+            aqVar.w("uid", TbadkApplication.getCurrentAccountId());
             aqVar.aj("obj_locate", 3);
             TiebaStatic.log(aqVar);
         }
         bVar.itemView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.IH(i);
-                if (a.this.mxg != null) {
-                    a.this.mxg.a(bVar.itemView, i, str);
+                a.this.uE(i);
+                if (a.this.mJQ != null) {
+                    a.this.mJQ.a(bVar.itemView, i, str);
                 }
                 aq aqVar2 = new aq("c13649");
-                aqVar2.dK("resource_id", str);
+                aqVar2.dR("resource_id", str);
                 TiebaStatic.log(aqVar2);
             }
         });
@@ -84,42 +84,42 @@ public class a extends RecyclerView.Adapter<b> {
         return this.mDataList.size();
     }
 
-    public void b(InterfaceC0816a interfaceC0816a) {
-        this.mxg = interfaceC0816a;
+    public void b(InterfaceC0831a interfaceC0831a) {
+        this.mJQ = interfaceC0831a;
     }
 
     public void p(int i, List<String> list) {
-        this.mxh = i;
+        this.mJR = i;
         this.mDataList = list;
         notifyDataSetChanged();
     }
 
-    public void IH(int i) {
-        this.mxh = i;
+    public void uE(int i) {
+        this.mJR = i;
         notifyDataSetChanged();
     }
 
-    public String dCA() {
-        return II(this.mxh);
+    public String dFI() {
+        return Ja(this.mJR);
     }
 
-    public String II(int i) {
+    public String Ja(int i) {
         return (String) y.getItem(this.mDataList, i);
     }
 
-    public int RF(String str) {
+    public int Se(String str) {
         return y.getPosition(this.mDataList, str);
     }
 
     /* loaded from: classes22.dex */
     public class b extends RecyclerView.ViewHolder {
-        private TextView mxk;
-        private View mxl;
+        private TextView mJU;
+        private View mJV;
 
         public b(@NonNull View view) {
             super(view);
-            this.mxk = (TextView) view.findViewById(R.id.tv_class_name);
-            this.mxl = view.findViewById(R.id.tv_line);
+            this.mJU = (TextView) view.findViewById(R.id.tv_class_name);
+            this.mJV = view.findViewById(R.id.tv_line);
         }
     }
 }

@@ -36,11 +36,11 @@ public class d extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
 
     /* loaded from: classes4.dex */
     public static class a extends TypeAdapter.ViewHolder {
-        public d hjm;
+        public d hvi;
 
         public a(d dVar) {
             super(dVar.getView());
-            this.hjm = dVar;
+            this.hvi = dVar;
         }
     }
 }

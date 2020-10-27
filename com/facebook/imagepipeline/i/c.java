@@ -15,7 +15,7 @@ import java.lang.reflect.Method;
 import javax.annotation.Nullable;
 /* loaded from: classes18.dex */
 public class c extends b {
-    private static Method nXo;
+    private static Method oOG;
 
     @Override // com.facebook.imagepipeline.i.b, com.facebook.imagepipeline.i.e
     public /* bridge */ /* synthetic */ com.facebook.common.references.a a(com.facebook.imagepipeline.g.e eVar, Bitmap.Config config, @Nullable Rect rect) {
@@ -28,8 +28,8 @@ public class c extends b {
     }
 
     @Override // com.facebook.imagepipeline.i.b
-    public /* bridge */ /* synthetic */ com.facebook.common.references.a ag(Bitmap bitmap) {
-        return super.ag(bitmap);
+    public /* bridge */ /* synthetic */ com.facebook.common.references.a ak(Bitmap bitmap) {
+        return super.ak(bitmap);
     }
 
     @Override // com.facebook.imagepipeline.i.b
@@ -39,7 +39,7 @@ public class c extends b {
 
     @Override // com.facebook.imagepipeline.i.b
     protected Bitmap a(com.facebook.common.references.a<PooledByteBuffer> aVar, int i, BitmapFactory.Options options) {
-        return a(aVar, i, b(aVar, i) ? null : nXm, options);
+        return a(aVar, i, b(aVar, i) ? null : oOE, options);
     }
 
     private static MemoryFile a(com.facebook.common.references.a<PooledByteBuffer> aVar, int i, @Nullable byte[] bArr) throws IOException {
@@ -92,20 +92,20 @@ public class c extends b {
         }
     }
 
-    private synchronized Method ede() {
-        if (nXo == null) {
+    private synchronized Method enc() {
+        if (oOG == null) {
             try {
-                nXo = MemoryFile.class.getDeclaredMethod("getFileDescriptor", new Class[0]);
+                oOG = MemoryFile.class.getDeclaredMethod("getFileDescriptor", new Class[0]);
             } catch (Exception e) {
                 throw l.v(e);
             }
         }
-        return nXo;
+        return oOG;
     }
 
     private FileDescriptor a(MemoryFile memoryFile) {
         try {
-            return (FileDescriptor) ede().invoke(memoryFile, new Object[0]);
+            return (FileDescriptor) enc().invoke(memoryFile, new Object[0]);
         } catch (Exception e) {
             throw l.v(e);
         }
@@ -116,7 +116,7 @@ public class c extends b {
         try {
             try {
                 memoryFile = a(aVar, i, bArr);
-                return (Bitmap) g.checkNotNull(com.facebook.common.g.c.nLl.a(a(memoryFile), null, options), "BitmapFactory returned null");
+                return (Bitmap) g.checkNotNull(com.facebook.common.g.c.oCE.a(a(memoryFile), null, options), "BitmapFactory returned null");
             } catch (IOException e) {
                 throw l.v(e);
             }

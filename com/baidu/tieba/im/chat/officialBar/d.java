@@ -16,8 +16,8 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes26.dex */
 public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private ArrayList<com.baidu.tbadk.mvc.b.a> aiJ = new ArrayList<>();
-    private c jFC;
+    private ArrayList<com.baidu.tbadk.mvc.b.a> aiK = new ArrayList<>();
+    private c jSb;
     private TbPageContext<?> mPageContext;
 
     /* loaded from: classes26.dex */
@@ -28,13 +28,13 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(TbPageContext<?> tbPageContext, c cVar) {
         this.mPageContext = tbPageContext;
-        this.jFC = cVar;
+        this.jSb = cVar;
     }
 
     public void setData(ArrayList<? extends com.baidu.tbadk.mvc.b.a> arrayList) {
         if (arrayList != null) {
-            this.aiJ.clear();
-            this.aiJ.addAll(arrayList);
+            this.aiK.clear();
+            this.aiK.addAll(arrayList);
             notifyDataSetChanged();
         }
     }
@@ -47,8 +47,8 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        if (this.aiJ != null && this.aiJ.size() > 0) {
-            com.baidu.tbadk.mvc.b.a aVar = this.aiJ.get(i);
+        if (this.aiK != null && this.aiK.size() > 0) {
+            com.baidu.tbadk.mvc.b.a aVar = this.aiK.get(i);
             if ((viewHolder instanceof b) && (aVar instanceof a)) {
                 ((b) viewHolder).b(aVar);
             }
@@ -62,55 +62,55 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.aiJ == null) {
+        if (this.aiK == null) {
             return 0;
         }
-        return this.aiJ.size();
+        return this.aiK.size();
     }
 
     /* loaded from: classes26.dex */
     class b extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private TextView iTP;
-        private BarImageView jFE;
-        private View jFF;
-        private a jFG;
+        private BarImageView jSd;
+        private View jSe;
+        private a jSf;
+        private TextView jgl;
 
         b(View view) {
             super(view);
-            this.jFE = (BarImageView) view.findViewById(R.id.official_bar_image);
-            this.iTP = (TextView) view.findViewById(R.id.official_bar_name);
-            this.jFF = view.findViewById(R.id.official_bar_feed_red_dot);
-            this.jFE.setShowOval(true);
-            this.jFE.setPlaceHolder(2);
-            this.jFE.setShowOuterBorder(false);
-            this.jFE.setShowInnerBorder(true);
-            this.jFE.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            this.jSd = (BarImageView) view.findViewById(R.id.official_bar_image);
+            this.jgl = (TextView) view.findViewById(R.id.official_bar_name);
+            this.jSe = view.findViewById(R.id.official_bar_feed_red_dot);
+            this.jSd.setShowOval(true);
+            this.jSd.setPlaceHolder(2);
+            this.jSd.setShowOuterBorder(false);
+            this.jSd.setShowInnerBorder(true);
+            this.jSd.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
         }
 
         void b(com.baidu.tbadk.mvc.b.a aVar) {
-            this.jFG = (a) aVar;
-            ap.setViewTextColor(this.iTP, R.color.cp_cont_b);
-            ap.setBackgroundResource(this.jFF, R.drawable.icon_official_bar_red_dot);
-            this.jFE.setStrokeColorResId(R.color.cp_border_a);
-            this.jFE.startLoad(this.jFG.cJv(), 10, false);
-            if (at.getChineseAndEnglishLength(this.jFG.cDs()) <= 10) {
-                this.iTP.setText(this.jFG.cDs());
+            this.jSf = (a) aVar;
+            ap.setViewTextColor(this.jgl, R.color.cp_cont_b);
+            ap.setBackgroundResource(this.jSe, R.drawable.icon_official_bar_red_dot);
+            this.jSd.setStrokeColorResId(R.color.cp_border_a);
+            this.jSd.startLoad(this.jSf.cMC(), 10, false);
+            if (at.getChineseAndEnglishLength(this.jSf.cGz()) <= 10) {
+                this.jgl.setText(this.jSf.cGz());
             } else {
-                this.iTP.setText(at.cutChineseAndEnglishWithSuffix(this.jFG.cDs(), 8, StringHelper.STRING_MORE));
+                this.jgl.setText(at.cutChineseAndEnglishWithSuffix(this.jSf.cGz(), 8, StringHelper.STRING_MORE));
             }
-            this.jFE.setOnClickListener(this);
-            if (this.jFG.getUnReadCount() > 0 && (this.jFG.cJw() <= 0 || System.currentTimeMillis() - this.jFG.cJw() < 864000000)) {
-                this.jFF.setVisibility(0);
+            this.jSd.setOnClickListener(this);
+            if (this.jSf.getUnReadCount() > 0 && (this.jSf.cMD() <= 0 || System.currentTimeMillis() - this.jSf.cMD() < 864000000)) {
+                this.jSe.setVisibility(0);
             } else {
-                this.jFF.setVisibility(8);
+                this.jSe.setVisibility(8);
             }
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.jFF.setVisibility(8);
-            if (d.this.jFC != null) {
-                d.this.jFC.a(view, this.jFG, getAdapterPosition(), getItemId());
+            this.jSe.setVisibility(8);
+            if (d.this.jSb != null) {
+                d.this.jSb.a(view, this.jSf, getAdapterPosition(), getItemId());
             }
         }
     }
@@ -118,20 +118,20 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes26.dex */
     public static class a implements com.baidu.tbadk.mvc.b.a {
-        private long cDo;
+        private long cLK;
         private long groupId;
-        private String jFD;
-        private String jeI;
+        private String jSc;
+        private String jrg;
         private int unReadCount;
         private int userType;
 
-        String cJv() {
-            return this.jFD;
+        String cMC() {
+            return this.jSc;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String cDs() {
-            return this.jeI;
+        public String cGz() {
+            return this.jrg;
         }
 
         int getUnReadCount() {
@@ -139,13 +139,13 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void Lp(String str) {
-            this.jFD = str;
+        public void LN(String str) {
+            this.jSc = str;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void Lq(String str) {
-            this.jeI = str;
+        public void LO(String str) {
+            this.jrg = str;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -165,12 +165,12 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             return this.groupId;
         }
 
-        public long cJw() {
-            return this.cDo;
+        public long cMD() {
+            return this.cLK;
         }
 
-        public void fH(long j) {
-            this.cDo = j;
+        public void fI(long j) {
+            this.cLK = j;
         }
     }
 }

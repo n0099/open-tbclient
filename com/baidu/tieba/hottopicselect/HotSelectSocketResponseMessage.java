@@ -63,7 +63,7 @@ public class HotSelectSocketResponseMessage extends SocketResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         super.afterDispatchInBackGround(i, (int) bArr);
         if (bArr != null && bArr.length > 0 && getError() == 0) {
-            com.baidu.tbadk.core.c.a.bkE().dA("topic_select_space", TbadkCoreApplication.getCurrentAccount()).asyncSetForever("topic_select_user", bArr);
+            com.baidu.tbadk.core.c.a.bmx().dH("topic_select_space", TbadkCoreApplication.getCurrentAccount()).asyncSetForever("topic_select_user", bArr);
         }
     }
 }

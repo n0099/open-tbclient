@@ -28,33 +28,33 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class HotTopicTabThreadItemView extends RelativeLayout {
-    private f<com.baidu.tieba.homepage.hotTopic.tab.b.f> aiL;
-    private TextView ajk;
+    private f<com.baidu.tieba.homepage.hotTopic.tab.b.f> aiM;
     private TextView ajl;
-    private TextView egP;
-    private View jiN;
-    private int jjB;
-    private TbImageView jjJ;
-    private View jjK;
-    private View jjL;
-    private ImageView jjM;
-    private TextView jjN;
-    private View jjO;
-    private TextView jjR;
-    private com.baidu.tieba.homepage.hotTopic.tab.b.f jjS;
+    private TextView ajm;
+    private TextView epn;
+    private int jvY;
+    private View jvk;
+    private TbImageView jwg;
+    private View jwh;
+    private View jwi;
+    private ImageView jwj;
+    private TextView jwk;
+    private View jwl;
+    private TextView jwo;
+    private com.baidu.tieba.homepage.hotTopic.tab.b.f jwp;
     private final View.OnClickListener mOnClickListener;
 
     public HotTopicTabThreadItemView(Context context) {
         super(context);
-        this.jjB = 3;
+        this.jvY = 3;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabThreadItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (HotTopicTabThreadItemView.this.jjS != null && HotTopicTabThreadItemView.this.jjS.eji != null) {
-                    bw bwVar = HotTopicTabThreadItemView.this.jjS.eji;
-                    if (view == HotTopicTabThreadItemView.this.jjO) {
-                        if (HotTopicTabThreadItemView.this.aiL != null) {
-                            HotTopicTabThreadItemView.this.aiL.a(view, HotTopicTabThreadItemView.this.jjS, HotTopicTabThreadItemView.this.jjS.index, HotTopicTabThreadItemView.this.jjS.index);
+                if (HotTopicTabThreadItemView.this.jwp != null && HotTopicTabThreadItemView.this.jwp.erH != null) {
+                    bw bwVar = HotTopicTabThreadItemView.this.jwp.erH;
+                    if (view == HotTopicTabThreadItemView.this.jwl) {
+                        if (HotTopicTabThreadItemView.this.aiM != null) {
+                            HotTopicTabThreadItemView.this.aiM.a(view, HotTopicTabThreadItemView.this.jwp, HotTopicTabThreadItemView.this.jwp.index, HotTopicTabThreadItemView.this.jwp.index);
                         }
                         ay.a((AbsThreadDataSupport) bwVar, view.getContext(), 0, false, true);
                     }
@@ -66,15 +66,15 @@ public class HotTopicTabThreadItemView extends RelativeLayout {
 
     public HotTopicTabThreadItemView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jjB = 3;
+        this.jvY = 3;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabThreadItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (HotTopicTabThreadItemView.this.jjS != null && HotTopicTabThreadItemView.this.jjS.eji != null) {
-                    bw bwVar = HotTopicTabThreadItemView.this.jjS.eji;
-                    if (view == HotTopicTabThreadItemView.this.jjO) {
-                        if (HotTopicTabThreadItemView.this.aiL != null) {
-                            HotTopicTabThreadItemView.this.aiL.a(view, HotTopicTabThreadItemView.this.jjS, HotTopicTabThreadItemView.this.jjS.index, HotTopicTabThreadItemView.this.jjS.index);
+                if (HotTopicTabThreadItemView.this.jwp != null && HotTopicTabThreadItemView.this.jwp.erH != null) {
+                    bw bwVar = HotTopicTabThreadItemView.this.jwp.erH;
+                    if (view == HotTopicTabThreadItemView.this.jwl) {
+                        if (HotTopicTabThreadItemView.this.aiM != null) {
+                            HotTopicTabThreadItemView.this.aiM.a(view, HotTopicTabThreadItemView.this.jwp, HotTopicTabThreadItemView.this.jwp.index, HotTopicTabThreadItemView.this.jwp.index);
                         }
                         ay.a((AbsThreadDataSupport) bwVar, view.getContext(), 0, false, true);
                     }
@@ -86,15 +86,15 @@ public class HotTopicTabThreadItemView extends RelativeLayout {
 
     public HotTopicTabThreadItemView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jjB = 3;
+        this.jvY = 3;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabThreadItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (HotTopicTabThreadItemView.this.jjS != null && HotTopicTabThreadItemView.this.jjS.eji != null) {
-                    bw bwVar = HotTopicTabThreadItemView.this.jjS.eji;
-                    if (view == HotTopicTabThreadItemView.this.jjO) {
-                        if (HotTopicTabThreadItemView.this.aiL != null) {
-                            HotTopicTabThreadItemView.this.aiL.a(view, HotTopicTabThreadItemView.this.jjS, HotTopicTabThreadItemView.this.jjS.index, HotTopicTabThreadItemView.this.jjS.index);
+                if (HotTopicTabThreadItemView.this.jwp != null && HotTopicTabThreadItemView.this.jwp.erH != null) {
+                    bw bwVar = HotTopicTabThreadItemView.this.jwp.erH;
+                    if (view == HotTopicTabThreadItemView.this.jwl) {
+                        if (HotTopicTabThreadItemView.this.aiM != null) {
+                            HotTopicTabThreadItemView.this.aiM.a(view, HotTopicTabThreadItemView.this.jwp, HotTopicTabThreadItemView.this.jwp.index, HotTopicTabThreadItemView.this.jwp.index);
                         }
                         ay.a((AbsThreadDataSupport) bwVar, view.getContext(), 0, false, true);
                     }
@@ -106,96 +106,96 @@ public class HotTopicTabThreadItemView extends RelativeLayout {
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(R.layout.hot_topic_tab_thread_item_view_a, (ViewGroup) this, true);
-        this.jjJ = (TbImageView) findViewById(R.id.coverView);
-        this.jjK = findViewById(R.id.coverGradientMask);
-        this.jjL = findViewById(R.id.videoTimeContainer);
-        this.jjM = (ImageView) findViewById(R.id.videoPlayIcon);
-        this.jjN = (TextView) findViewById(R.id.videoPlayTime);
-        this.ajk = (TextView) findViewById(R.id.indexView);
-        this.egP = (TextView) findViewById(R.id.titleView);
-        this.ajl = (TextView) findViewById(R.id.tagView);
-        this.jjR = (TextView) findViewById(R.id.forumView);
-        this.jiN = findViewById(R.id.dividerView);
-        this.jjJ.setDrawBorder(true);
-        this.jjJ.setBorderSurroundContent(true);
-        this.jjJ.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
-        this.jjJ.setBorderColor(ap.getColor(R.color.cp_border_a));
-        this.jjJ.setPlaceHolder(2);
-        this.jjJ.setRadius(l.getDimens(getContext(), R.dimen.tbds21));
-        this.jjJ.setConrers(15);
-        this.jjO = findViewById(R.id.rootLayout);
-        this.jjO.setOnClickListener(this.mOnClickListener);
+        this.jwg = (TbImageView) findViewById(R.id.coverView);
+        this.jwh = findViewById(R.id.coverGradientMask);
+        this.jwi = findViewById(R.id.videoTimeContainer);
+        this.jwj = (ImageView) findViewById(R.id.videoPlayIcon);
+        this.jwk = (TextView) findViewById(R.id.videoPlayTime);
+        this.ajl = (TextView) findViewById(R.id.indexView);
+        this.epn = (TextView) findViewById(R.id.titleView);
+        this.ajm = (TextView) findViewById(R.id.tagView);
+        this.jwo = (TextView) findViewById(R.id.forumView);
+        this.jvk = findViewById(R.id.dividerView);
+        this.jwg.setDrawBorder(true);
+        this.jwg.setBorderSurroundContent(true);
+        this.jwg.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
+        this.jwg.setBorderColor(ap.getColor(R.color.cp_border_a));
+        this.jwg.setPlaceHolder(2);
+        this.jwg.setRadius(l.getDimens(getContext(), R.dimen.tbds21));
+        this.jwg.setConrers(15);
+        this.jwl = findViewById(R.id.rootLayout);
+        this.jwl.setOnClickListener(this.mOnClickListener);
     }
 
     public void setOnItemCoverListener(f<com.baidu.tieba.homepage.hotTopic.tab.b.f> fVar) {
-        this.aiL = fVar;
+        this.aiM = fVar;
     }
 
     public void a(com.baidu.tieba.homepage.hotTopic.tab.b.f fVar) {
         if (fVar != null) {
-            this.jjS = fVar;
+            this.jwp = fVar;
             if (TextUtils.isEmpty(fVar.cover)) {
-                this.jjJ.setVisibility(8);
-                this.jjK.setVisibility(8);
-                this.jjL.setVisibility(8);
+                this.jwg.setVisibility(8);
+                this.jwh.setVisibility(8);
+                this.jwi.setVisibility(8);
             } else {
-                this.jjJ.startLoad(fVar.cover, 10, false);
-                this.jjJ.setVisibility(0);
+                this.jwg.startLoad(fVar.cover, 10, false);
+                this.jwg.setVisibility(0);
                 if (fVar.time > 0) {
-                    this.jjL.setVisibility(0);
-                    this.jjK.setVisibility(0);
-                    this.jjN.setText(StringUtils.translateSecondsToString(fVar.time));
+                    this.jwi.setVisibility(0);
+                    this.jwh.setVisibility(0);
+                    this.jwk.setText(StringUtils.translateSecondsToString(fVar.time));
                 } else {
-                    this.jjL.setVisibility(8);
-                    this.jjK.setVisibility(8);
+                    this.jwi.setVisibility(8);
+                    this.jwh.setVisibility(8);
                 }
             }
-            this.egP.setText(fVar.title);
+            this.epn.setText(fVar.title);
             if (!TextUtils.isEmpty(fVar.forumName)) {
-                this.jjR.setVisibility(0);
-                this.jjR.setText(UtilHelper.getForumNameWithBar(fVar.forumName, 7, true));
+                this.jwo.setVisibility(0);
+                this.jwo.setText(UtilHelper.getForumNameWithBar(fVar.forumName, 7, true));
             } else {
-                this.jjR.setVisibility(8);
+                this.jwo.setVisibility(8);
             }
-            this.ajl.setText(this.ajl.getContext().getResources().getString(R.string.hot_topic_thread_item_tag, at.da(fVar.esS >= 1000 ? fVar.esS : 1000)));
-            this.ajk.setText(String.valueOf(fVar.index));
-            cEX();
-            if (this.aiL != null && fVar != null) {
-                this.aiL.b(this, fVar, fVar.index, fVar.index);
+            this.ajm.setText(this.ajm.getContext().getResources().getString(R.string.hot_topic_thread_item_tag, at.dc(fVar.eBs >= 1000 ? fVar.eBs : 1000)));
+            this.ajl.setText(String.valueOf(fVar.index));
+            cIe();
+            if (this.aiM != null && fVar != null) {
+                this.aiM.b(this, fVar, fVar.index, fVar.index);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void cEX() {
-        if (this.jjS != null) {
-            int oJ = TagTextHelper.oJ(this.jjS.index);
-            Drawable background = this.ajk.getBackground();
-            DrawableCompat.setTint(background, ap.getColor(oJ));
-            this.ajk.setBackgroundDrawable(background);
-            this.ajl.setCompoundDrawablePadding(l.getDimens(getContext(), R.dimen.tbds8));
-            int color = ap.getColor(oJ);
+    private void cIe() {
+        if (this.jwp != null) {
+            int oU = TagTextHelper.oU(this.jwp.index);
+            Drawable background = this.ajl.getBackground();
+            DrawableCompat.setTint(background, ap.getColor(oU));
+            this.ajl.setBackgroundDrawable(background);
+            this.ajm.setCompoundDrawablePadding(l.getDimens(getContext(), R.dimen.tbds8));
+            int color = ap.getColor(oU);
             Drawable mutate = ap.getDrawable(R.drawable.icon_pure_topic_hot).mutate();
             int dimens = l.getDimens(getContext(), R.dimen.tbds31);
             mutate.setBounds(0, 0, dimens, dimens);
             DrawableCompat.setTint(mutate, color);
-            this.ajl.setCompoundDrawables(mutate, null, null, null);
-            this.ajl.setBackgroundDrawable(null);
-            ap.setViewTextColor(this.ajl, oJ);
+            this.ajm.setCompoundDrawables(mutate, null, null, null);
+            this.ajm.setBackgroundDrawable(null);
+            ap.setViewTextColor(this.ajm, oU);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.jjB != i) {
-            com.baidu.tbadk.core.util.e.a.g(this.jjO, R.color.cp_bg_line_e, R.color.cp_bg_line_c);
-            ap.setViewTextColor(this.egP, R.color.cp_cont_b);
-            ap.setViewTextColor(this.ajk, R.color.cp_cont_a);
-            ap.setViewTextColor(this.jjN, R.color.cp_cont_a);
-            ap.setViewTextColor(this.jjR, R.color.cp_cont_d);
-            ap.setBackgroundColor(this.jiN, R.color.cp_bg_line_b);
-            SvgManager.bmU().a(this.jjM, R.drawable.ic_icon_pure_video_play12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
-            cEX();
-            this.jjB = i;
+        if (this.jvY != i) {
+            com.baidu.tbadk.core.util.e.a.g(this.jwl, R.color.cp_bg_line_e, R.color.cp_bg_line_c);
+            ap.setViewTextColor(this.epn, R.color.cp_cont_b);
+            ap.setViewTextColor(this.ajl, R.color.cp_cont_a);
+            ap.setViewTextColor(this.jwk, R.color.cp_cont_a);
+            ap.setViewTextColor(this.jwo, R.color.cp_cont_d);
+            ap.setBackgroundColor(this.jvk, R.color.cp_bg_line_b);
+            SvgManager.boN().a(this.jwj, R.drawable.ic_icon_pure_video_play12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
+            cIe();
+            this.jvY = i;
         }
     }
 }

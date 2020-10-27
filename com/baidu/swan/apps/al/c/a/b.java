@@ -45,11 +45,11 @@ public abstract class b extends aa {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public JSONObject a(@NonNull a.C0350a c0350a) {
+    public JSONObject a(@NonNull a.C0364a c0364a) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("level", String.valueOf(c0350a.level <= 100 ? c0350a.level : 100));
-            jSONObject.put("isCharging", c0350a.dnj);
+            jSONObject.put("level", String.valueOf(c0364a.level <= 100 ? c0364a.level : 100));
+            jSONObject.put("isCharging", c0364a.dvL);
             return jSONObject;
         } catch (JSONException e) {
             return null;

@@ -10,8 +10,8 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 /* loaded from: classes4.dex */
 public class CommonWebView extends WebView {
-    private boolean bFh;
-    private boolean bFi;
+    private boolean bIg;
+    private boolean bIh;
 
     public CommonWebView(Context context) {
         super(context);
@@ -19,11 +19,11 @@ public class CommonWebView extends WebView {
     }
 
     public void setVerticalScrollEnabled(boolean z) {
-        this.bFh = z;
+        this.bIg = z;
     }
 
     public void setHorizontalScrollEnabled(boolean z) {
-        this.bFi = z;
+        this.bIh = z;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -35,25 +35,25 @@ public class CommonWebView extends WebView {
     @Override // android.webkit.WebView, android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (!this.bFh && !this.bFi) {
+        if (!this.bIg && !this.bIh) {
             scrollTo(0, 0);
-        } else if (!this.bFh) {
+        } else if (!this.bIg) {
             scrollTo(i, 0);
-        } else if (!this.bFi) {
+        } else if (!this.bIh) {
             scrollTo(0, i2);
         }
     }
 
     @Override // android.webkit.WebView
     public void loadUrl(String str) {
-        i.I(getContext(), str);
         i.J(getContext(), str);
+        i.K(getContext(), str);
         super.loadUrl(str);
     }
 
     private void init() {
-        this.bFh = true;
-        this.bFi = true;
+        this.bIg = true;
+        this.bIh = true;
         setBackgroundColor(0);
         if (getBackground() != null) {
             getBackground().setAlpha(0);

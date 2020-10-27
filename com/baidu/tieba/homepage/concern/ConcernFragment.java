@@ -31,11 +31,11 @@ import java.util.List;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes22.dex */
 public class ConcernFragment extends BaseFragment implements aq {
-    private boolean ihJ;
-    private ConcernPageView jcW;
-    private ConcernPageView.a jcX;
-    private boolean jcY = false;
-    private CustomMessageListener iqs = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.homepage.concern.ConcernFragment.1
+    private boolean iuh;
+    private ConcernPageView jps;
+    private ConcernPageView.a jpt;
+    private boolean jpu = false;
+    private CustomMessageListener iCO = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.homepage.concern.ConcernFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -43,8 +43,8 @@ public class ConcernFragment extends BaseFragment implements aq {
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null && (message = updateAttentionMessage.getmOrginalMessage()) != null && message.getTag() != null && message.getTag().equals(ConcernFragment.this.getUniqueId())) {
-                    if (updateAttentionMessage.getData().eQq != null) {
-                        if (AntiHelper.a(ConcernFragment.this.getActivity(), updateAttentionMessage.getData().eQq, ConcernFragment.this.iqr) != null) {
+                    if (updateAttentionMessage.getData().eYM != null) {
+                        if (AntiHelper.a(ConcernFragment.this.getActivity(), updateAttentionMessage.getData().eYM, ConcernFragment.this.iCN) != null) {
                             TiebaStatic.log(new com.baidu.tbadk.core.util.aq(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).aj("obj_locate", ax.a.LOCATE_LIKE_PERSON));
                         }
                     } else if (updateAttentionMessage.getData().isSucc && updateAttentionMessage.getData().isAttention) {
@@ -54,7 +54,7 @@ public class ConcernFragment extends BaseFragment implements aq {
             }
         }
     };
-    private final AntiHelper.a iqr = new AntiHelper.a() { // from class: com.baidu.tieba.homepage.concern.ConcernFragment.2
+    private final AntiHelper.a iCN = new AntiHelper.a() { // from class: com.baidu.tieba.homepage.concern.ConcernFragment.2
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
         public void onPositiveButtonClick(com.baidu.tbadk.core.dialog.a aVar) {
             TiebaStatic.log(new com.baidu.tbadk.core.util.aq(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).aj("obj_locate", ax.a.LOCATE_LIKE_PERSON));
@@ -65,12 +65,12 @@ public class ConcernFragment extends BaseFragment implements aq {
             TiebaStatic.log(new com.baidu.tbadk.core.util.aq(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).aj("obj_locate", ax.a.LOCATE_LIKE_PERSON));
         }
     };
-    private CustomMessageListener iqL = new CustomMessageListener(2921414) { // from class: com.baidu.tieba.homepage.concern.ConcernFragment.3
+    private CustomMessageListener iDh = new CustomMessageListener(2921414) { // from class: com.baidu.tieba.homepage.concern.ConcernFragment.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (ConcernFragment.this.jcW != null) {
-                ConcernFragment.this.jcW.FS();
+            if (ConcernFragment.this.jps != null) {
+                ConcernFragment.this.jps.Gh();
             }
         }
     };
@@ -80,26 +80,26 @@ public class ConcernFragment extends BaseFragment implements aq {
 
     @SuppressLint({"ValidFragment"})
     public ConcernFragment(Context context) {
-        this.jcW = new ConcernPageView(context);
-        this.jcW.bQI();
-        registerListener(this.iqs);
-        registerListener(this.iqL);
+        this.jps = new ConcernPageView(context);
+        this.jps.bTF();
+        registerListener(this.iCO);
+        registerListener(this.iDh);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        if (this.jcW.getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.jcW.getParent()).removeView(this.jcW);
-            if (this.jcX != null) {
-                this.jcW.setCallback(this.jcX);
+        if (this.jps.getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.jps.getParent()).removeView(this.jps);
+            if (this.jpt != null) {
+                this.jps.setCallback(this.jpt);
             }
         }
-        this.jcW.setPageUniqueId(getUniqueId());
-        if (this.jcY) {
-            this.jcW.bQI();
-            this.jcY = false;
+        this.jps.setPageUniqueId(getUniqueId());
+        if (this.jpu) {
+            this.jps.bTF();
+            this.jpu = false;
         }
-        return this.jcW;
+        return this.jps;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -108,15 +108,15 @@ public class ConcernFragment extends BaseFragment implements aq {
     }
 
     public void setScrollFragmentTabHost(ScrollFragmentTabHost scrollFragmentTabHost) {
-        if (this.jcW != null) {
-            this.jcW.setScrollFragmentTabHost(scrollFragmentTabHost);
+        if (this.jps != null) {
+            this.jps.setScrollFragmentTabHost(scrollFragmentTabHost);
         }
     }
 
     @Override // com.baidu.tieba.frs.aq
     public void setRecommendFrsNavigationAnimDispatcher(ab abVar) {
-        if (this.jcW != null) {
-            this.jcW.setRecommendFrsNavigationAnimDispatcher(abVar);
+        if (this.jps != null) {
+            this.jps.setRecommendFrsNavigationAnimDispatcher(abVar);
         }
     }
 
@@ -132,15 +132,15 @@ public class ConcernFragment extends BaseFragment implements aq {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.jcW != null) {
-            this.jcW.onResume();
+        if (this.jps != null) {
+            this.jps.onResume();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        this.jcW.setTabInForeBackgroundState(true);
+        this.jps.setTabInForeBackgroundState(true);
     }
 
     @Override // android.support.v4.app.Fragment
@@ -150,73 +150,73 @@ public class ConcernFragment extends BaseFragment implements aq {
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDetach() {
-        MessageManager.getInstance().unRegisterListener(this.iqs);
-        MessageManager.getInstance().unRegisterListener(this.iqL);
+        MessageManager.getInstance().unRegisterListener(this.iCO);
+        MessageManager.getInstance().unRegisterListener(this.iDh);
         super.onDetach();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.jcW.onDestroy();
-        this.jcY = true;
+        this.jps.onDestroy();
+        this.jpu = true;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            if (!this.ihJ) {
-                if (this.jcW != null) {
-                    this.jcW.cCS();
+            if (!this.iuh) {
+                if (this.jps != null) {
+                    this.jps.cFZ();
                 }
-                this.ihJ = true;
+                this.iuh = true;
             }
-            this.jcW.setViewForeground();
+            this.jps.setViewForeground();
             return;
         }
-        this.jcW.cCY();
+        this.jps.cGf();
         completePullRefresh();
     }
 
     public void completePullRefresh() {
-        this.jcW.completePullRefresh();
+        this.jps.completePullRefresh();
     }
 
     public void setCallback(ConcernPageView.a aVar) {
-        this.jcX = aVar;
-        this.jcW.setCallback(aVar);
+        this.jpt = aVar;
+        this.jps.setCallback(aVar);
     }
 
-    public void aR(String str, int i) {
-        this.jcW.aR(str, i);
+    public void aS(String str, int i) {
+        this.jps.aS(str, i);
     }
 
     public void a(DataRes dataRes, boolean z) {
-        if (this.jcW != null) {
-            this.jcW.a(dataRes, z);
+        if (this.jps != null) {
+            this.jps.a(dataRes, z);
         }
     }
 
-    public void cCR() {
-        if (this.jcW != null) {
-            this.jcW.cCT();
-        }
-    }
-
-    @Override // com.baidu.tieba.frs.aq
-    public void Qi() {
-        if (this.ihJ) {
-            this.jcW.reload();
+    public void cFY() {
+        if (this.jps != null) {
+            this.jps.cGa();
         }
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void bKa() {
+    public void Rd() {
+        if (this.iuh) {
+            this.jps.reload();
+        }
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void bKb() {
+    public void bMC() {
+    }
+
+    @Override // com.baidu.tieba.frs.aq
+    public void bMD() {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.m.a
@@ -241,12 +241,12 @@ public class ConcernFragment extends BaseFragment implements aq {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.jcW.onChangeSkinType(i);
+        this.jps.onChangeSkinType(i);
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void bok() {
+    public void bqd() {
         changeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.jcW.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        this.jps.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 }

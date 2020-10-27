@@ -11,25 +11,25 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    String Qe;
-    String crp;
-    String crq;
-    String crr;
-    String crs;
-    JSONArray crt;
+    String Qf;
+    String czP;
+    String czQ;
+    String czR;
+    String czS;
+    JSONArray czT;
     String mAppKey;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static c aY(JSONObject jSONObject) {
+    public static c bb(JSONObject jSONObject) {
         c cVar = new c();
         try {
             cVar.mAppKey = jSONObject.getString("appKey");
-            cVar.crp = jSONObject.getString("appUrl") + "?swanJsVersion" + ETAG.EQUAL + com.baidu.swan.apps.swancore.b.kk(0) + ETAG.ITEM_SEPARATOR + "appVersion" + ETAG.EQUAL + ak.getVersionName();
-            cVar.Qe = jSONObject.getString("wsUrl");
-            cVar.crq = jSONObject.optString("notInHistory", "1");
-            cVar.crr = jSONObject.optString("masterPreload");
-            cVar.crs = jSONObject.optString("slavePreload");
-            cVar.crt = jSONObject.optJSONArray("hosts");
+            cVar.czP = jSONObject.getString("appUrl") + "?swanJsVersion" + ETAG.EQUAL + com.baidu.swan.apps.swancore.b.kv(0) + ETAG.ITEM_SEPARATOR + "appVersion" + ETAG.EQUAL + ak.getVersionName();
+            cVar.Qf = jSONObject.getString("wsUrl");
+            cVar.czQ = jSONObject.optString("notInHistory", "1");
+            cVar.czR = jSONObject.optString("masterPreload");
+            cVar.czS = jSONObject.optString("slavePreload");
+            cVar.czT = jSONObject.optJSONArray("hosts");
             return cVar;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -43,19 +43,19 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String hs(int i) {
-        return ab(i, this.crp);
+    public String hD(int i) {
+        return ad(i, this.czP);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String ht(int i) {
-        return ab(i, this.Qe);
+    public String hE(int i) {
+        return ad(i, this.Qf);
     }
 
-    private String ab(int i, String str) {
-        if (this.crt != null && !TextUtils.isEmpty(str) && i >= 0 && i < this.crt.length()) {
+    private String ad(int i, String str) {
+        if (this.czT != null && !TextUtils.isEmpty(str) && i >= 0 && i < this.czT.length()) {
             Uri parse = Uri.parse(str);
-            String optString = this.crt.optString(i);
+            String optString = this.czT.optString(i);
             if (!TextUtils.isEmpty(optString) && parse.getHost() != null) {
                 return str.replace(parse.getHost(), optString);
             }
@@ -66,6 +66,6 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isInvalid() {
-        return TextUtils.isEmpty(this.mAppKey) || TextUtils.isEmpty(this.crp) || TextUtils.isEmpty(this.Qe);
+        return TextUtils.isEmpty(this.mAppKey) || TextUtils.isEmpty(this.czP) || TextUtils.isEmpty(this.Qf);
     }
 }

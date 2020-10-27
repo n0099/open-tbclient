@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.Md5;
 import com.baidu.live.adp.lib.util.StringUtils;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.FileHelper;
 import java.io.File;
 /* loaded from: classes4.dex */
@@ -41,20 +42,29 @@ public class a {
     }
 
     public static void cleanDir(File file) {
-        try {
-            if (file.exists() && file.isDirectory()) {
-                File[] listFiles = file.listFiles();
-                int length = listFiles.length;
-                for (int i = 0; i < length; i++) {
-                    if (listFiles[i].isFile()) {
-                        listFiles[i].delete();
-                    } else {
-                        cleanDir(listFiles[i]);
+        if (file != null) {
+            String absolutePath = file.getAbsolutePath();
+            if (!TextUtils.isEmpty(absolutePath)) {
+                if (!absolutePath.startsWith(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath()) && !absolutePath.startsWith(TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath())) {
+                    BdLog.w("warning!! clean illegal dir=" + absolutePath);
+                    return;
+                }
+                try {
+                    if (file.exists() && file.isDirectory()) {
+                        File[] listFiles = file.listFiles();
+                        int length = listFiles.length;
+                        for (int i = 0; i < length; i++) {
+                            if (listFiles[i].isFile()) {
+                                listFiles[i].delete();
+                            } else {
+                                cleanDir(listFiles[i]);
+                            }
+                        }
                     }
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
                 }
             }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
         }
     }
 }

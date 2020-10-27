@@ -4,45 +4,45 @@ import com.facebook.drawee.a.a.a.h;
 import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes18.dex */
 public class c extends com.facebook.imagepipeline.h.a {
-    private final h nME;
-    private final com.facebook.common.time.b nML;
+    private final h oDX;
+    private final com.facebook.common.time.b oEe;
 
     public c(com.facebook.common.time.b bVar, h hVar) {
-        this.nML = bVar;
-        this.nME = hVar;
+        this.oEe = bVar;
+        this.oDX = hVar;
     }
 
     @Override // com.facebook.imagepipeline.h.a, com.facebook.imagepipeline.h.c
     public void a(ImageRequest imageRequest, Object obj, String str, boolean z) {
-        this.nME.gX(this.nML.now());
-        this.nME.setImageRequest(imageRequest);
-        this.nME.bg(obj);
-        this.nME.setRequestId(str);
-        this.nME.yI(z);
+        this.oDX.hn(this.oEe.now());
+        this.oDX.setImageRequest(imageRequest);
+        this.oDX.bk(obj);
+        this.oDX.setRequestId(str);
+        this.oDX.zQ(z);
     }
 
     @Override // com.facebook.imagepipeline.h.a, com.facebook.imagepipeline.h.c
     public void a(ImageRequest imageRequest, String str, boolean z) {
-        this.nME.gY(this.nML.now());
-        this.nME.setImageRequest(imageRequest);
-        this.nME.setRequestId(str);
-        this.nME.yI(z);
-        this.nME.yH(true);
+        this.oDX.ho(this.oEe.now());
+        this.oDX.setImageRequest(imageRequest);
+        this.oDX.setRequestId(str);
+        this.oDX.zQ(z);
+        this.oDX.zP(true);
     }
 
     @Override // com.facebook.imagepipeline.h.a, com.facebook.imagepipeline.h.c
     public void a(ImageRequest imageRequest, String str, Throwable th, boolean z) {
-        this.nME.gY(this.nML.now());
-        this.nME.setImageRequest(imageRequest);
-        this.nME.setRequestId(str);
-        this.nME.yI(z);
-        this.nME.yH(false);
+        this.oDX.ho(this.oEe.now());
+        this.oDX.setImageRequest(imageRequest);
+        this.oDX.setRequestId(str);
+        this.oDX.zQ(z);
+        this.oDX.zP(false);
     }
 
     @Override // com.facebook.imagepipeline.h.a, com.facebook.imagepipeline.h.c
-    public void VQ(String str) {
-        this.nME.gY(this.nML.now());
-        this.nME.setRequestId(str);
-        this.nME.yG(true);
+    public void XD(String str) {
+        this.oDX.ho(this.oEe.now());
+        this.oDX.setRequestId(str);
+        this.oDX.zO(true);
     }
 }

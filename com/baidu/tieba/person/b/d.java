@@ -17,32 +17,32 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes24.dex */
 public class d extends af.a {
-    public int ajp;
-    public TextView egP;
-    public View jiN;
-    public HTypeListView lCi;
-    public e lCj;
+    public int ajq;
+    public TextView epn;
+    public View jvk;
+    public HTypeListView lOF;
+    public e lOG;
     public TbPageContext mPageContext;
     public View rootView;
 
     public d(View view, TbPageContext tbPageContext) {
         super(view);
-        this.ajp = 3;
+        this.ajq = 3;
         this.rootView = view;
         this.mPageContext = tbPageContext;
-        this.jiN = view.findViewById(R.id.divider_view_under_photo_album);
-        this.egP = (TextView) view.findViewById(R.id.text_view_photo_album);
-        this.lCi = (HTypeListView) view.findViewById(R.id.listview_photo_album);
-        this.lCj = new e(this.mPageContext, this.lCi);
+        this.jvk = view.findViewById(R.id.divider_view_under_photo_album);
+        this.epn = (TextView) view.findViewById(R.id.text_view_photo_album);
+        this.lOF = (HTypeListView) view.findViewById(R.id.listview_photo_album);
+        this.lOG = new e(this.mPageContext, this.lOF);
     }
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.lCj.setDatas(eR(fVar.getPhotoAlbum()));
+            this.lOG.setDatas(fa(fVar.getPhotoAlbum()));
         }
     }
 
-    private List<q> eR(List<q> list) {
+    private List<q> fa(List<q> list) {
         if (y.getCount(list) > 0) {
             ArrayList arrayList = new ArrayList(list);
             com.baidu.tieba.person.d dVar = new com.baidu.tieba.person.d(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds32), l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds120));
@@ -53,13 +53,13 @@ public class d extends af.a {
         return list;
     }
 
-    public void dnH() {
-        if (this.ajp != TbadkCoreApplication.getInst().getSkinType()) {
-            this.ajp = TbadkCoreApplication.getInst().getSkinType();
+    public void dqO() {
+        if (this.ajq != TbadkCoreApplication.getInst().getSkinType()) {
+            this.ajq = TbadkCoreApplication.getInst().getSkinType();
             ap.setBackgroundColor(this.rootView, R.color.cp_bg_line_d);
-            ap.setBackgroundColor(this.jiN, R.color.cp_bg_line_c);
-            ap.setViewTextColor(this.egP, R.color.cp_cont_d, 1);
-            this.lCj.notifyDataSetChanged();
+            ap.setBackgroundColor(this.jvk, R.color.cp_bg_line_c);
+            ap.setViewTextColor(this.epn, R.color.cp_cont_d, 1);
+            this.lOG.notifyDataSetChanged();
         }
     }
 }

@@ -27,7 +27,7 @@ import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.data.AlaLiveInfoData;
-import com.baidu.live.data.bz;
+import com.baidu.live.data.ce;
 import com.baidu.live.im.b.b;
 import com.baidu.live.im.b.c;
 import com.baidu.live.im.b.d;
@@ -51,35 +51,35 @@ import java.util.Locale;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class ALALiveTextView extends LinearLayout implements com.baidu.live.view.input.a {
-    private Map<String, Integer> aUa;
-    private int aYE;
-    public CustomMessageListener bbC;
-    private FrameLayout bjD;
-    private FrameLayout bjE;
-    private b bjF;
-    private com.baidu.live.im.d.a bjG;
-    private c bjH;
-    private FrameLayout bjI;
-    private FrameLayout bjJ;
-    private Switch bjK;
-    private EditText bjL;
-    private GradientEnableTextView bjM;
-    private com.baidu.live.im.d.b bjN;
-    private a.InterfaceC0214a bjO;
-    private long bjP;
-    private int bjQ;
-    private int bjR;
-    private boolean bjS;
-    private boolean bjT;
-    private int bjU;
-    private BdPageContext bjV;
-    private int bjW;
-    private String bjX;
-    private int bjY;
-    private AlaLiveInfoData bjZ;
-    private boolean bka;
-    public CustomMessageListener bkb;
-    private View.OnClickListener bkc;
+    private Map<String, Integer> aVk;
+    private int bab;
+    public CustomMessageListener bcQ;
+    private FrameLayout bkY;
+    private FrameLayout bkZ;
+    private b bla;
+    private com.baidu.live.im.d.a blb;
+    private c blc;
+    private FrameLayout bld;
+    private FrameLayout ble;
+    private Switch blf;
+    private EditText blg;
+    private GradientEnableTextView blh;
+    private com.baidu.live.im.d.b bli;
+    private a.InterfaceC0220a blj;
+    private long blk;
+    private int bll;
+    private int blm;
+    private boolean bln;
+    private boolean blo;
+    private int blp;
+    private BdPageContext blq;
+    private int blr;
+    private String bls;
+    private int blt;
+    private AlaLiveInfoData blu;
+    private boolean blv;
+    public CustomMessageListener blw;
+    private View.OnClickListener blx;
     private Handler handler;
     private Context mContext;
     private BdAlertDialog mDialog;
@@ -98,12 +98,12 @@ public class ALALiveTextView extends LinearLayout implements com.baidu.live.view
     public void a(ImForbiddenStateData imForbiddenStateData) {
         String format;
         if (imForbiddenStateData.globalBan == 1) {
-            if (imForbiddenStateData.foreverInfo != null && imForbiddenStateData.foreverInfo.biW == 1) {
+            if (imForbiddenStateData.foreverInfo != null && imForbiddenStateData.foreverInfo.bkr == 1) {
                 format = getContext().getResources().getString(a.i.ala_forbidden_words_ueg_block);
             } else {
-                format = String.format(getContext().getResources().getString(a.i.ala_forbidden_words_ueg_forever), imForbiddenStateData.foreverInfo.biX);
+                format = String.format(getContext().getResources().getString(a.i.ala_forbidden_words_ueg_forever), imForbiddenStateData.foreverInfo.bks);
             }
-            this.mDialog = new BdAlertDialog(this.bjV.getPageActivity());
+            this.mDialog = new BdAlertDialog(this.blq.getPageActivity());
             this.mDialog.setMessage(format);
             this.mDialog.setPositiveButton(getContext().getResources().getString(a.i.ala_forbidden_words_btn_ok), new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.im.view.ALALiveTextView.10
                 @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
@@ -129,7 +129,7 @@ public class ALALiveTextView extends LinearLayout implements com.baidu.live.view
                 this.mDialog.setPositiveButtonTextColor(ViewCompat.MEASURED_STATE_MASK);
                 this.mDialog.setNagetiveButtonTextColor(ViewCompat.MEASURED_STATE_MASK);
             }
-            this.mDialog.create(this.bjV);
+            this.mDialog.create(this.blq);
             this.mDialog.setCanceledOnTouchOutside(false);
             this.mDialog.show();
         } else if (imForbiddenStateData.anchorBan == 1) {
@@ -140,56 +140,56 @@ public class ALALiveTextView extends LinearLayout implements com.baidu.live.view
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Me() {
+    public void My() {
         long currentTimeMillis = System.currentTimeMillis();
-        String obj = this.bjL.getText().toString();
-        if (obj.length() > this.bjR) {
-            obj = obj.subSequence(0, this.bjR).toString();
+        String obj = this.blg.getText().toString();
+        if (obj.length() > this.blm) {
+            obj = obj.subSequence(0, this.blm).toString();
         }
         if (!TextUtils.isEmpty(obj.trim())) {
-            if (currentTimeMillis - this.bjP >= 2000) {
-                this.bjP = currentTimeMillis;
-                this.bka = false;
-                s(obj, false);
-            } else if (!this.bka) {
+            if (currentTimeMillis - this.blk >= 2000) {
+                this.blk = currentTimeMillis;
+                this.blv = false;
+                t(obj, false);
+            } else if (!this.blv) {
                 Toast.makeText(getContext(), a.i.ala_click_too_fast, 0).show();
-                this.bka = true;
+                this.blv = true;
             }
         }
     }
 
     public ALALiveTextView(Context context) {
         super(context);
-        this.bjW = 0;
-        this.bka = false;
+        this.blr = 0;
+        this.blv = false;
         this.handler = new Handler();
-        this.bkb = new CustomMessageListener(2913193) { // from class: com.baidu.live.im.view.ALALiveTextView.1
+        this.blw = new CustomMessageListener(2913193) { // from class: com.baidu.live.im.view.ALALiveTextView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null) {
-                    if (ALALiveTextView.this.bjW == 3 || ALALiveTextView.this.bjW == 4) {
+                    if (ALALiveTextView.this.blr == 3 || ALALiveTextView.this.blr == 4) {
                         if (customResponsedMessage.getData() instanceof ImForbiddenStateData) {
                             ImForbiddenStateData imForbiddenStateData = (ImForbiddenStateData) customResponsedMessage.getData();
                             if (imForbiddenStateData.errno != 0) {
                                 BdUtilHelper.showToast(ALALiveTextView.this.getContext(), ALALiveTextView.this.getContext().getResources().getString(a.i.ala_im_ban_no_net_tips));
                                 return;
                             } else if (imForbiddenStateData.banState == 0) {
-                                if (ALALiveTextView.this.bjW == 3) {
-                                    ALALiveTextView.this.Me();
-                                } else if (ALALiveTextView.this.bjW == 4) {
-                                    ALALiveTextView.this.D(ALALiveTextView.this.bjX, ALALiveTextView.this.bjY);
+                                if (ALALiveTextView.this.blr == 3) {
+                                    ALALiveTextView.this.My();
+                                } else if (ALALiveTextView.this.blr == 4) {
+                                    ALALiveTextView.this.D(ALALiveTextView.this.bls, ALALiveTextView.this.blt);
                                 }
                             } else {
                                 ALALiveTextView.this.a(imForbiddenStateData);
                             }
                         }
-                        ALALiveTextView.this.bjW = 0;
+                        ALALiveTextView.this.blr = 0;
                     }
                 }
             }
         };
-        this.bbC = new CustomMessageListener(2913097) { // from class: com.baidu.live.im.view.ALALiveTextView.8
+        this.bcQ = new CustomMessageListener(2913097) { // from class: com.baidu.live.im.view.ALALiveTextView.8
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -198,34 +198,34 @@ public class ALALiveTextView extends LinearLayout implements com.baidu.live.view
                 }
             }
         };
-        this.bkc = new View.OnClickListener() { // from class: com.baidu.live.im.view.ALALiveTextView.9
+        this.blx = new View.OnClickListener() { // from class: com.baidu.live.im.view.ALALiveTextView.9
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (com.baidu.live.x.a.OS().blo.aLK == 1 && !LoginManager.getInstance(ALALiveTextView.this.mContext).isIMLogined()) {
+                if (com.baidu.live.z.a.Pq().bmJ.aMo == 1 && !LoginManager.getInstance(ALALiveTextView.this.mContext).isIMLogined()) {
                     BdUtilHelper.showToast(ALALiveTextView.this.getContext(), ALALiveTextView.this.getContext().getResources().getString(a.i.ala_forbidden_words_im_link_disconnect));
-                } else if (com.baidu.live.x.a.OS().blo.aLJ == 1) {
-                    if (ALALiveTextView.this.bjT) {
-                        ALALiveTextView.this.bjW = 3;
+                } else if (com.baidu.live.z.a.Pq().bmJ.aMn == 1) {
+                    if (ALALiveTextView.this.blo) {
+                        ALALiveTextView.this.blr = 3;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913192));
                         return;
                     }
-                    ALALiveTextView.this.Me();
+                    ALALiveTextView.this.My();
                 } else {
-                    ALALiveTextView.this.Me();
+                    ALALiveTextView.this.My();
                 }
             }
         };
         this.mTextWatcher = new TextWatcher() { // from class: com.baidu.live.im.view.ALALiveTextView.12
-            private CharSequence bkf;
+            private CharSequence blA;
 
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                this.bkf = charSequence.subSequence(0, charSequence.length());
+                this.blA = charSequence.subSequence(0, charSequence.length());
             }
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                ALALiveTextView.this.a(this.bkf, i);
+                ALALiveTextView.this.a(this.blA, i);
             }
 
             @Override // android.text.TextWatcher
@@ -237,36 +237,36 @@ public class ALALiveTextView extends LinearLayout implements com.baidu.live.view
 
     public ALALiveTextView(Context context, BdPageContext bdPageContext) {
         super(context);
-        this.bjW = 0;
-        this.bka = false;
+        this.blr = 0;
+        this.blv = false;
         this.handler = new Handler();
-        this.bkb = new CustomMessageListener(2913193) { // from class: com.baidu.live.im.view.ALALiveTextView.1
+        this.blw = new CustomMessageListener(2913193) { // from class: com.baidu.live.im.view.ALALiveTextView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null) {
-                    if (ALALiveTextView.this.bjW == 3 || ALALiveTextView.this.bjW == 4) {
+                    if (ALALiveTextView.this.blr == 3 || ALALiveTextView.this.blr == 4) {
                         if (customResponsedMessage.getData() instanceof ImForbiddenStateData) {
                             ImForbiddenStateData imForbiddenStateData = (ImForbiddenStateData) customResponsedMessage.getData();
                             if (imForbiddenStateData.errno != 0) {
                                 BdUtilHelper.showToast(ALALiveTextView.this.getContext(), ALALiveTextView.this.getContext().getResources().getString(a.i.ala_im_ban_no_net_tips));
                                 return;
                             } else if (imForbiddenStateData.banState == 0) {
-                                if (ALALiveTextView.this.bjW == 3) {
-                                    ALALiveTextView.this.Me();
-                                } else if (ALALiveTextView.this.bjW == 4) {
-                                    ALALiveTextView.this.D(ALALiveTextView.this.bjX, ALALiveTextView.this.bjY);
+                                if (ALALiveTextView.this.blr == 3) {
+                                    ALALiveTextView.this.My();
+                                } else if (ALALiveTextView.this.blr == 4) {
+                                    ALALiveTextView.this.D(ALALiveTextView.this.bls, ALALiveTextView.this.blt);
                                 }
                             } else {
                                 ALALiveTextView.this.a(imForbiddenStateData);
                             }
                         }
-                        ALALiveTextView.this.bjW = 0;
+                        ALALiveTextView.this.blr = 0;
                     }
                 }
             }
         };
-        this.bbC = new CustomMessageListener(2913097) { // from class: com.baidu.live.im.view.ALALiveTextView.8
+        this.bcQ = new CustomMessageListener(2913097) { // from class: com.baidu.live.im.view.ALALiveTextView.8
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -275,76 +275,76 @@ public class ALALiveTextView extends LinearLayout implements com.baidu.live.view
                 }
             }
         };
-        this.bkc = new View.OnClickListener() { // from class: com.baidu.live.im.view.ALALiveTextView.9
+        this.blx = new View.OnClickListener() { // from class: com.baidu.live.im.view.ALALiveTextView.9
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (com.baidu.live.x.a.OS().blo.aLK == 1 && !LoginManager.getInstance(ALALiveTextView.this.mContext).isIMLogined()) {
+                if (com.baidu.live.z.a.Pq().bmJ.aMo == 1 && !LoginManager.getInstance(ALALiveTextView.this.mContext).isIMLogined()) {
                     BdUtilHelper.showToast(ALALiveTextView.this.getContext(), ALALiveTextView.this.getContext().getResources().getString(a.i.ala_forbidden_words_im_link_disconnect));
-                } else if (com.baidu.live.x.a.OS().blo.aLJ == 1) {
-                    if (ALALiveTextView.this.bjT) {
-                        ALALiveTextView.this.bjW = 3;
+                } else if (com.baidu.live.z.a.Pq().bmJ.aMn == 1) {
+                    if (ALALiveTextView.this.blo) {
+                        ALALiveTextView.this.blr = 3;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913192));
                         return;
                     }
-                    ALALiveTextView.this.Me();
+                    ALALiveTextView.this.My();
                 } else {
-                    ALALiveTextView.this.Me();
+                    ALALiveTextView.this.My();
                 }
             }
         };
         this.mTextWatcher = new TextWatcher() { // from class: com.baidu.live.im.view.ALALiveTextView.12
-            private CharSequence bkf;
+            private CharSequence blA;
 
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                this.bkf = charSequence.subSequence(0, charSequence.length());
+                this.blA = charSequence.subSequence(0, charSequence.length());
             }
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                ALALiveTextView.this.a(this.bkf, i);
+                ALALiveTextView.this.a(this.blA, i);
             }
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
             }
         };
-        this.bjV = bdPageContext;
+        this.blq = bdPageContext;
         init(context);
     }
 
     public ALALiveTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bjW = 0;
-        this.bka = false;
+        this.blr = 0;
+        this.blv = false;
         this.handler = new Handler();
-        this.bkb = new CustomMessageListener(2913193) { // from class: com.baidu.live.im.view.ALALiveTextView.1
+        this.blw = new CustomMessageListener(2913193) { // from class: com.baidu.live.im.view.ALALiveTextView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null) {
-                    if (ALALiveTextView.this.bjW == 3 || ALALiveTextView.this.bjW == 4) {
+                    if (ALALiveTextView.this.blr == 3 || ALALiveTextView.this.blr == 4) {
                         if (customResponsedMessage.getData() instanceof ImForbiddenStateData) {
                             ImForbiddenStateData imForbiddenStateData = (ImForbiddenStateData) customResponsedMessage.getData();
                             if (imForbiddenStateData.errno != 0) {
                                 BdUtilHelper.showToast(ALALiveTextView.this.getContext(), ALALiveTextView.this.getContext().getResources().getString(a.i.ala_im_ban_no_net_tips));
                                 return;
                             } else if (imForbiddenStateData.banState == 0) {
-                                if (ALALiveTextView.this.bjW == 3) {
-                                    ALALiveTextView.this.Me();
-                                } else if (ALALiveTextView.this.bjW == 4) {
-                                    ALALiveTextView.this.D(ALALiveTextView.this.bjX, ALALiveTextView.this.bjY);
+                                if (ALALiveTextView.this.blr == 3) {
+                                    ALALiveTextView.this.My();
+                                } else if (ALALiveTextView.this.blr == 4) {
+                                    ALALiveTextView.this.D(ALALiveTextView.this.bls, ALALiveTextView.this.blt);
                                 }
                             } else {
                                 ALALiveTextView.this.a(imForbiddenStateData);
                             }
                         }
-                        ALALiveTextView.this.bjW = 0;
+                        ALALiveTextView.this.blr = 0;
                     }
                 }
             }
         };
-        this.bbC = new CustomMessageListener(2913097) { // from class: com.baidu.live.im.view.ALALiveTextView.8
+        this.bcQ = new CustomMessageListener(2913097) { // from class: com.baidu.live.im.view.ALALiveTextView.8
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -353,34 +353,34 @@ public class ALALiveTextView extends LinearLayout implements com.baidu.live.view
                 }
             }
         };
-        this.bkc = new View.OnClickListener() { // from class: com.baidu.live.im.view.ALALiveTextView.9
+        this.blx = new View.OnClickListener() { // from class: com.baidu.live.im.view.ALALiveTextView.9
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (com.baidu.live.x.a.OS().blo.aLK == 1 && !LoginManager.getInstance(ALALiveTextView.this.mContext).isIMLogined()) {
+                if (com.baidu.live.z.a.Pq().bmJ.aMo == 1 && !LoginManager.getInstance(ALALiveTextView.this.mContext).isIMLogined()) {
                     BdUtilHelper.showToast(ALALiveTextView.this.getContext(), ALALiveTextView.this.getContext().getResources().getString(a.i.ala_forbidden_words_im_link_disconnect));
-                } else if (com.baidu.live.x.a.OS().blo.aLJ == 1) {
-                    if (ALALiveTextView.this.bjT) {
-                        ALALiveTextView.this.bjW = 3;
+                } else if (com.baidu.live.z.a.Pq().bmJ.aMn == 1) {
+                    if (ALALiveTextView.this.blo) {
+                        ALALiveTextView.this.blr = 3;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913192));
                         return;
                     }
-                    ALALiveTextView.this.Me();
+                    ALALiveTextView.this.My();
                 } else {
-                    ALALiveTextView.this.Me();
+                    ALALiveTextView.this.My();
                 }
             }
         };
         this.mTextWatcher = new TextWatcher() { // from class: com.baidu.live.im.view.ALALiveTextView.12
-            private CharSequence bkf;
+            private CharSequence blA;
 
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                this.bkf = charSequence.subSequence(0, charSequence.length());
+                this.blA = charSequence.subSequence(0, charSequence.length());
             }
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                ALALiveTextView.this.a(this.bkf, i);
+                ALALiveTextView.this.a(this.blA, i);
             }
 
             @Override // android.text.TextWatcher
@@ -392,36 +392,36 @@ public class ALALiveTextView extends LinearLayout implements com.baidu.live.view
 
     public ALALiveTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bjW = 0;
-        this.bka = false;
+        this.blr = 0;
+        this.blv = false;
         this.handler = new Handler();
-        this.bkb = new CustomMessageListener(2913193) { // from class: com.baidu.live.im.view.ALALiveTextView.1
+        this.blw = new CustomMessageListener(2913193) { // from class: com.baidu.live.im.view.ALALiveTextView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null) {
-                    if (ALALiveTextView.this.bjW == 3 || ALALiveTextView.this.bjW == 4) {
+                    if (ALALiveTextView.this.blr == 3 || ALALiveTextView.this.blr == 4) {
                         if (customResponsedMessage.getData() instanceof ImForbiddenStateData) {
                             ImForbiddenStateData imForbiddenStateData = (ImForbiddenStateData) customResponsedMessage.getData();
                             if (imForbiddenStateData.errno != 0) {
                                 BdUtilHelper.showToast(ALALiveTextView.this.getContext(), ALALiveTextView.this.getContext().getResources().getString(a.i.ala_im_ban_no_net_tips));
                                 return;
                             } else if (imForbiddenStateData.banState == 0) {
-                                if (ALALiveTextView.this.bjW == 3) {
-                                    ALALiveTextView.this.Me();
-                                } else if (ALALiveTextView.this.bjW == 4) {
-                                    ALALiveTextView.this.D(ALALiveTextView.this.bjX, ALALiveTextView.this.bjY);
+                                if (ALALiveTextView.this.blr == 3) {
+                                    ALALiveTextView.this.My();
+                                } else if (ALALiveTextView.this.blr == 4) {
+                                    ALALiveTextView.this.D(ALALiveTextView.this.bls, ALALiveTextView.this.blt);
                                 }
                             } else {
                                 ALALiveTextView.this.a(imForbiddenStateData);
                             }
                         }
-                        ALALiveTextView.this.bjW = 0;
+                        ALALiveTextView.this.blr = 0;
                     }
                 }
             }
         };
-        this.bbC = new CustomMessageListener(2913097) { // from class: com.baidu.live.im.view.ALALiveTextView.8
+        this.bcQ = new CustomMessageListener(2913097) { // from class: com.baidu.live.im.view.ALALiveTextView.8
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -430,34 +430,34 @@ public class ALALiveTextView extends LinearLayout implements com.baidu.live.view
                 }
             }
         };
-        this.bkc = new View.OnClickListener() { // from class: com.baidu.live.im.view.ALALiveTextView.9
+        this.blx = new View.OnClickListener() { // from class: com.baidu.live.im.view.ALALiveTextView.9
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (com.baidu.live.x.a.OS().blo.aLK == 1 && !LoginManager.getInstance(ALALiveTextView.this.mContext).isIMLogined()) {
+                if (com.baidu.live.z.a.Pq().bmJ.aMo == 1 && !LoginManager.getInstance(ALALiveTextView.this.mContext).isIMLogined()) {
                     BdUtilHelper.showToast(ALALiveTextView.this.getContext(), ALALiveTextView.this.getContext().getResources().getString(a.i.ala_forbidden_words_im_link_disconnect));
-                } else if (com.baidu.live.x.a.OS().blo.aLJ == 1) {
-                    if (ALALiveTextView.this.bjT) {
-                        ALALiveTextView.this.bjW = 3;
+                } else if (com.baidu.live.z.a.Pq().bmJ.aMn == 1) {
+                    if (ALALiveTextView.this.blo) {
+                        ALALiveTextView.this.blr = 3;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913192));
                         return;
                     }
-                    ALALiveTextView.this.Me();
+                    ALALiveTextView.this.My();
                 } else {
-                    ALALiveTextView.this.Me();
+                    ALALiveTextView.this.My();
                 }
             }
         };
         this.mTextWatcher = new TextWatcher() { // from class: com.baidu.live.im.view.ALALiveTextView.12
-            private CharSequence bkf;
+            private CharSequence blA;
 
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i2, int i22, int i3) {
-                this.bkf = charSequence.subSequence(0, charSequence.length());
+                this.blA = charSequence.subSequence(0, charSequence.length());
             }
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i2, int i22, int i3) {
-                ALALiveTextView.this.a(this.bkf, i2);
+                ALALiveTextView.this.a(this.blA, i2);
             }
 
             @Override // android.text.TextWatcher
@@ -473,80 +473,80 @@ public class ALALiveTextView extends LinearLayout implements com.baidu.live.view
         setClickable(true);
         setOrientation(1);
         LayoutInflater.from(context).inflate(a.h.ala_im_input_layout, (ViewGroup) this, true);
-        Mf();
-        Mg();
-        Mh();
-        this.bjR = 50;
+        Mz();
+        MA();
+        MB();
+        this.blm = 50;
     }
 
-    private void Mf() {
-        this.bjK = (Switch) findViewById(a.g.switch_barrage);
-        this.bjI = (FrameLayout) findViewById(a.g.hlv_barrage_option);
-        this.bjJ = (FrameLayout) findViewById(a.g.barrage_preview);
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913216, c.class, this.bjV);
+    private void Mz() {
+        this.blf = (Switch) findViewById(a.g.switch_barrage);
+        this.bld = (FrameLayout) findViewById(a.g.hlv_barrage_option);
+        this.ble = (FrameLayout) findViewById(a.g.barrage_preview);
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913216, c.class, this.blq);
         if (runTask != null) {
-            this.bjH = (c) runTask.getData();
+            this.blc = (c) runTask.getData();
         }
-        if (this.bjH != null) {
-            this.bjI.addView(this.bjH.getView());
+        if (this.blc != null) {
+            this.bld.addView(this.blc.getView());
         }
-        CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(2913215, b.class, this.bjV);
+        CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(2913215, b.class, this.blq);
         if (runTask2 != null) {
-            this.bjF = (b) runTask2.getData();
+            this.bla = (b) runTask2.getData();
         }
-        if (this.bjF != null) {
-            this.bjJ.addView(this.bjF.getView());
+        if (this.bla != null) {
+            this.ble.addView(this.bla.getView());
         }
-        if (this.bjH != null) {
-            this.bjH.setCallback(new e() { // from class: com.baidu.live.im.view.ALALiveTextView.13
+        if (this.blc != null) {
+            this.blc.setCallback(new e() { // from class: com.baidu.live.im.view.ALALiveTextView.13
                 @Override // com.baidu.live.im.b.e
-                public boolean Ls() {
-                    return ALALiveTextView.this.bjO != null && ALALiveTextView.this.bjO.KW();
+                public boolean LN() {
+                    return ALALiveTextView.this.blj != null && ALALiveTextView.this.blj.Lq();
                 }
 
                 @Override // com.baidu.live.im.b.e
-                public void eh(int i) {
-                    ALALiveTextView.this.Mq();
-                    ALALiveTextView.this.bZ(false);
+                public void ei(int i) {
+                    ALALiveTextView.this.MK();
+                    ALALiveTextView.this.cb(false);
                 }
 
                 @Override // com.baidu.live.im.b.e
-                public int KX() {
-                    if (ALALiveTextView.this.bjO != null) {
-                        return ALALiveTextView.this.bjO.KX();
+                public int Lr() {
+                    if (ALALiveTextView.this.blj != null) {
+                        return ALALiveTextView.this.blj.Lr();
                     }
                     return 0;
                 }
             });
         }
-        this.bjK.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.live.im.view.ALALiveTextView.14
+        this.blf.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.live.im.view.ALALiveTextView.14
             @Override // android.widget.CompoundButton.OnCheckedChangeListener
             public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-                ALALiveTextView.this.bY(z);
+                ALALiveTextView.this.ca(z);
             }
         });
     }
 
-    private void Mg() {
-        this.bjL = (EditText) findViewById(a.g.edit_text);
-        this.bjL.addTextChangedListener(this.mTextWatcher);
-        this.bjL.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.live.im.view.ALALiveTextView.15
+    private void MA() {
+        this.blg = (EditText) findViewById(a.g.edit_text);
+        this.blg.addTextChangedListener(this.mTextWatcher);
+        this.blg.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.live.im.view.ALALiveTextView.15
             @Override // android.widget.TextView.OnEditorActionListener
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == 4) {
-                    ALALiveTextView.this.Me();
+                    ALALiveTextView.this.My();
                     return true;
                 }
                 return false;
             }
         });
-        this.bjM = (GradientEnableTextView) findViewById(a.g.tv_send);
-        this.bjM.setCheckStrEquals(false);
+        this.blh = (GradientEnableTextView) findViewById(a.g.tv_send);
+        this.blh.setCheckStrEquals(false);
         if (TbadkCoreApplication.getInst().isHaokan()) {
             try {
                 Field declaredField = TextView.class.getDeclaredField("mCursorDrawableRes");
                 declaredField.setAccessible(true);
-                declaredField.set(this.bjL, Integer.valueOf(a.f.sdk_cursor_hk_bg));
+                declaredField.set(this.blg, Integer.valueOf(a.f.sdk_cursor_hk_bg));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -554,41 +554,41 @@ public class ALALiveTextView extends LinearLayout implements com.baidu.live.view
             try {
                 Field declaredField2 = TextView.class.getDeclaredField("mCursorDrawableRes");
                 declaredField2.setAccessible(true);
-                declaredField2.set(this.bjL, Integer.valueOf(a.f.sdk_cursor_qm_bg));
+                declaredField2.set(this.blg, Integer.valueOf(a.f.sdk_cursor_qm_bg));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
         }
-        this.bjM.setOnClickListener(this.bkc);
-        this.bjM.setClickable(false);
+        this.blh.setOnClickListener(this.blx);
+        this.blh.setClickable(false);
     }
 
     public void b(boolean z, int i, int i2, String str) {
-        this.bjT = z;
-        this.bjU = i;
-        this.aYE = i2;
+        this.blo = z;
+        this.blp = i;
+        this.bab = i2;
         this.mUserName = str;
     }
 
-    private void Mh() {
-        this.bjD = (FrameLayout) findViewById(a.g.quick_input_header);
-        this.bjE = (FrameLayout) findViewById(a.g.quick_input_panel);
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913217, com.baidu.live.im.d.b.class, this.bjV);
+    private void MB() {
+        this.bkY = (FrameLayout) findViewById(a.g.quick_input_header);
+        this.bkZ = (FrameLayout) findViewById(a.g.quick_input_panel);
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913217, com.baidu.live.im.d.b.class, this.blq);
         if (runTask != null) {
-            this.bjN = (com.baidu.live.im.d.b) runTask.getData();
+            this.bli = (com.baidu.live.im.d.b) runTask.getData();
         }
-        if (this.bjN != null) {
-            this.bjE.addView(this.bjN.getView());
-            this.bjN.setCallback(new b.a() { // from class: com.baidu.live.im.view.ALALiveTextView.2
+        if (this.bli != null) {
+            this.bkZ.addView(this.bli.getView());
+            this.bli.setCallback(new b.a() { // from class: com.baidu.live.im.view.ALALiveTextView.2
                 @Override // com.baidu.live.im.d.b.a
                 public void C(String str, int i) {
-                    if (com.baidu.live.x.a.OS().blo.aLK == 1 && !LoginManager.getInstance(ALALiveTextView.this.mContext).isIMLogined()) {
+                    if (com.baidu.live.z.a.Pq().bmJ.aMo == 1 && !LoginManager.getInstance(ALALiveTextView.this.mContext).isIMLogined()) {
                         BdUtilHelper.showToast(ALALiveTextView.this.getContext(), ALALiveTextView.this.getContext().getResources().getString(a.i.ala_forbidden_words_im_link_disconnect));
-                    } else if (com.baidu.live.x.a.OS().blo.aLJ == 1) {
-                        if (ALALiveTextView.this.bjT) {
-                            ALALiveTextView.this.bjX = str;
-                            ALALiveTextView.this.bjY = i;
-                            ALALiveTextView.this.bjW = 4;
+                    } else if (com.baidu.live.z.a.Pq().bmJ.aMn == 1) {
+                        if (ALALiveTextView.this.blo) {
+                            ALALiveTextView.this.bls = str;
+                            ALALiveTextView.this.blt = i;
+                            ALALiveTextView.this.blr = 4;
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913192));
                             return;
                         }
@@ -599,22 +599,22 @@ public class ALALiveTextView extends LinearLayout implements com.baidu.live.view
                 }
             });
         }
-        CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(2913218, com.baidu.live.im.d.a.class, this.bjV);
+        CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(2913218, com.baidu.live.im.d.a.class, this.blq);
         if (runTask2 != null) {
-            this.bjG = (com.baidu.live.im.d.a) runTask2.getData();
+            this.blb = (com.baidu.live.im.d.a) runTask2.getData();
         }
-        if (this.bjG != null) {
-            this.bjD.addView(this.bjG.getView());
-            this.bjG.setCallback(new a.InterfaceC0186a() { // from class: com.baidu.live.im.view.ALALiveTextView.3
-                @Override // com.baidu.live.im.d.a.InterfaceC0186a
+        if (this.blb != null) {
+            this.bkY.addView(this.blb.getView());
+            this.blb.setCallback(new a.InterfaceC0187a() { // from class: com.baidu.live.im.view.ALALiveTextView.3
+                @Override // com.baidu.live.im.d.a.InterfaceC0187a
                 public void C(String str, int i) {
-                    if (com.baidu.live.x.a.OS().blo.aLK == 1 && !LoginManager.getInstance(ALALiveTextView.this.mContext).isIMLogined()) {
+                    if (com.baidu.live.z.a.Pq().bmJ.aMo == 1 && !LoginManager.getInstance(ALALiveTextView.this.mContext).isIMLogined()) {
                         BdUtilHelper.showToast(ALALiveTextView.this.getContext(), ALALiveTextView.this.getContext().getResources().getString(a.i.ala_forbidden_words_im_link_disconnect));
-                    } else if (com.baidu.live.x.a.OS().blo.aLJ == 1) {
-                        if (ALALiveTextView.this.bjT) {
-                            ALALiveTextView.this.bjX = str;
-                            ALALiveTextView.this.bjY = i;
-                            ALALiveTextView.this.bjW = 4;
+                    } else if (com.baidu.live.z.a.Pq().bmJ.aMn == 1) {
+                        if (ALALiveTextView.this.blo) {
+                            ALALiveTextView.this.bls = str;
+                            ALALiveTextView.this.blt = i;
+                            ALALiveTextView.this.blr = 4;
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913192));
                             return;
                         }
@@ -624,10 +624,10 @@ public class ALALiveTextView extends LinearLayout implements com.baidu.live.view
                     }
                 }
 
-                @Override // com.baidu.live.im.d.a.InterfaceC0186a
-                public void LP() {
-                    if (ALALiveTextView.this.bjO != null) {
-                        ALALiveTextView.this.bjO.KU();
+                @Override // com.baidu.live.im.d.a.InterfaceC0187a
+                public void Mj() {
+                    if (ALALiveTextView.this.blj != null) {
+                        ALALiveTextView.this.blj.Lo();
                     }
                     LogManager.getCommonLogger().doClickQuickImMoreLog(ALALiveTextView.this.mVid, ALALiveTextView.this.mOtherParams);
                 }
@@ -637,7 +637,7 @@ public class ALALiveTextView extends LinearLayout implements com.baidu.live.view
 
     /* JADX INFO: Access modifiers changed from: private */
     public void D(String str, int i) {
-        s(str, true);
+        t(str, true);
         LogManager.getCommonLogger().doClickQuickImPanelLog(this.mVid, String.valueOf(i), str, this.mOtherParams);
     }
 
@@ -647,33 +647,33 @@ public class ALALiveTextView extends LinearLayout implements com.baidu.live.view
     }
 
     public void setFromMaster(boolean z) {
-        this.bjS = z;
+        this.bln = z;
     }
 
     @Override // com.baidu.live.view.input.a
-    public boolean Mi() {
-        return this.bjK != null && this.bjK.isChecked();
+    public boolean MC() {
+        return this.blf != null && this.blf.isChecked();
     }
 
     @Override // com.baidu.live.view.input.a
-    public boolean Mj() {
-        return !Mn() && this.bjD.getVisibility() == 0;
+    public boolean MD() {
+        return !MH() && this.bkY.getVisibility() == 0;
     }
 
-    public bz getBarrageInfo() {
-        if (this.bjH != null) {
-            return this.bjH.getSelectInfo();
+    public ce getBarrageInfo() {
+        if (this.blc != null) {
+            return this.blc.getSelectInfo();
         }
         return null;
     }
 
     @Override // com.baidu.live.view.input.a
     public boolean hasText() {
-        return !TextUtils.isEmpty(this.bjL.getText().toString());
+        return !TextUtils.isEmpty(this.blg.getText().toString());
     }
 
-    public void setMsHandler(a.InterfaceC0214a interfaceC0214a) {
-        this.bjO = interfaceC0214a;
+    public void setMsHandler(a.InterfaceC0220a interfaceC0220a) {
+        this.blj = interfaceC0220a;
     }
 
     public void setLogData(String str, String str2) {
@@ -687,7 +687,7 @@ public class ALALiveTextView extends LinearLayout implements com.baidu.live.view
         this.mOtherParams = str2;
     }
 
-    public void hy(String str) {
+    public void hF(String str) {
         if (str == null) {
             str = "";
         }
@@ -695,22 +695,22 @@ public class ALALiveTextView extends LinearLayout implements com.baidu.live.view
     }
 
     @Override // com.baidu.live.view.input.a
-    public boolean Mk() {
-        return getView().getVisibility() == 0 && this.bjE.getVisibility() == 0;
+    public boolean ME() {
+        return getView().getVisibility() == 0 && this.bkZ.getVisibility() == 0;
     }
 
     @Override // com.baidu.live.view.input.a
     public void setQuickInputPanelVisible(boolean z) {
         if (z) {
-            this.bjE.setVisibility(0);
-            if (this.bjQ < TbadkCoreApplication.getInst().getKeyboardHeight()) {
-                if (this.bjN != null) {
-                    this.bjN.LR();
+            this.bkZ.setVisibility(0);
+            if (this.bll < TbadkCoreApplication.getInst().getKeyboardHeight()) {
+                if (this.bli != null) {
+                    this.bli.Ml();
                 }
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bjE.getLayoutParams();
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bkZ.getLayoutParams();
                 if (layoutParams.height != TbadkCoreApplication.getInst().getKeyboardHeight()) {
                     layoutParams.height = TbadkCoreApplication.getInst().getKeyboardHeight();
-                    this.bjE.setLayoutParams(layoutParams);
+                    this.bkZ.setLayoutParams(layoutParams);
                 }
             }
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) getView().getLayoutParams();
@@ -719,9 +719,9 @@ public class ALALiveTextView extends LinearLayout implements com.baidu.live.view
             LogManager.getCommonLogger().doDisplayQuickImPanelLog(this.mVid, this.mOtherParams);
             return;
         }
-        this.bjE.setVisibility(8);
-        if (this.bjL != null) {
-            this.bjL.requestFocus();
+        this.bkZ.setVisibility(8);
+        if (this.blg != null) {
+            this.blg.requestFocus();
             if (TbadkCoreApplication.getInst().getKeyboardHeight() > 0) {
                 RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) getView().getLayoutParams();
                 layoutParams3.bottomMargin = TbadkCoreApplication.getInst().getKeyboardHeight();
@@ -731,30 +731,30 @@ public class ALALiveTextView extends LinearLayout implements com.baidu.live.view
     }
 
     @Override // com.baidu.live.view.input.a
-    public void Ml() {
-        if (this.bjL != null) {
-            BdUtilHelper.showSoftKeyPad(getContext(), this.bjL);
+    public void MF() {
+        if (this.blg != null) {
+            BdUtilHelper.showSoftKeyPad(getContext(), this.blg);
         }
     }
 
     @Override // com.baidu.live.view.input.a
     public int getQuickInputPanelExpandHeight() {
-        return this.bjQ - TbadkCoreApplication.getInst().getKeyboardHeight();
+        return this.bll - TbadkCoreApplication.getInst().getKeyboardHeight();
     }
 
     public void setBdPageContext(BdPageContext bdPageContext) {
-        this.bjV = bdPageContext;
+        this.blq = bdPageContext;
     }
 
-    public void Mm() {
-        this.bjL.setText("");
+    public void MG() {
+        this.blg.setText("");
     }
 
     @Override // com.baidu.live.view.input.a
     public void setEditText(String str) {
         if (str != null) {
-            int selectionStart = this.bjL.getSelectionStart();
-            Editable editableText = this.bjL.getEditableText();
+            int selectionStart = this.blg.getSelectionStart();
+            Editable editableText = this.blg.getEditableText();
             if (selectionStart < 0 || selectionStart >= editableText.length()) {
                 editableText.append((CharSequence) str);
             } else {
@@ -764,68 +764,68 @@ public class ALALiveTextView extends LinearLayout implements com.baidu.live.view
     }
 
     public void setHintText(int i) {
-        this.bjL.setHint(i);
+        this.blg.setHint(i);
     }
 
     @Override // com.baidu.live.view.input.a
     public void a(List<String> list, Map<String, Integer> map, AlaLiveInfoData alaLiveInfoData) {
-        this.bjZ = alaLiveInfoData;
+        this.blu = alaLiveInfoData;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913169, true));
         ViewGroup viewGroup = (ViewGroup) getParent();
         if (viewGroup != null && viewGroup.indexOfChild(this) != viewGroup.getChildCount() - 1) {
             bringToFront();
         }
         setVisibility(4);
-        this.aUa = map;
-        Mp();
-        this.bjL.requestFocus();
-        if (this.bjL != null) {
+        this.aVk = map;
+        MJ();
+        this.blg.requestFocus();
+        if (this.blg != null) {
             this.handler.postDelayed(new Runnable() { // from class: com.baidu.live.im.view.ALALiveTextView.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    ALALiveTextView.this.bjL.requestFocus();
+                    ALALiveTextView.this.blg.requestFocus();
                     if (TbadkCoreApplication.getInst().getKeyboardHeight() > 0) {
                         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) ALALiveTextView.this.getView().getLayoutParams();
                         layoutParams.bottomMargin = TbadkCoreApplication.getInst().getKeyboardHeight();
                         ALALiveTextView.this.getView().setLayoutParams(layoutParams);
                     }
                     ALALiveTextView.this.getView().setVisibility(0);
-                    BdUtilHelper.showSoftKeyPad(ALALiveTextView.this.getContext(), ALALiveTextView.this.bjL);
+                    BdUtilHelper.showSoftKeyPad(ALALiveTextView.this.getContext(), ALALiveTextView.this.blg);
                 }
             }, 50L);
         }
-        boolean Mn = Mn();
-        if (list == null || list.isEmpty() || Mn) {
-            if (this.bjG != null) {
-                this.bjG.setData(list);
+        boolean MH = MH();
+        if (list == null || list.isEmpty() || MH) {
+            if (this.blb != null) {
+                this.blb.setData(list);
             }
-            this.bjE.setVisibility(8);
+            this.bkZ.setVisibility(8);
             return;
         }
         ArrayList arrayList = new ArrayList(list);
-        if (this.bjG != null) {
+        if (this.blb != null) {
             if (arrayList.size() >= 3) {
-                this.bjG.setData(arrayList.subList(0, 3));
+                this.blb.setData(arrayList.subList(0, 3));
             } else {
-                this.bjG.setData(arrayList);
+                this.blb.setData(arrayList);
             }
         }
-        this.bjD.setVisibility(Mi() ? 8 : 0);
-        this.bjE.setVisibility(0);
-        if (this.bjN != null) {
-            this.bjN.LQ();
+        this.bkY.setVisibility(MC() ? 8 : 0);
+        this.bkZ.setVisibility(0);
+        if (this.bli != null) {
+            this.bli.Mk();
         }
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bjE.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bkZ.getLayoutParams();
         layoutParams.height = -2;
-        this.bjE.setLayoutParams(layoutParams);
-        if (this.bjN != null) {
-            this.bjN.setData(arrayList);
+        this.bkZ.setLayoutParams(layoutParams);
+        if (this.bli != null) {
+            this.bli.setData(arrayList);
         }
         this.handler.post(new Runnable() { // from class: com.baidu.live.im.view.ALALiveTextView.5
             @Override // java.lang.Runnable
             public void run() {
-                ALALiveTextView.this.bjQ = ALALiveTextView.this.bjE.getHeight();
-                ALALiveTextView.this.bjE.setVisibility(8);
+                ALALiveTextView.this.bll = ALALiveTextView.this.bkZ.getHeight();
+                ALALiveTextView.this.bkZ.setVisibility(8);
             }
         });
     }
@@ -838,63 +838,63 @@ public class ALALiveTextView extends LinearLayout implements com.baidu.live.view
     @Override // com.baidu.live.view.input.a
     public void hide() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913169, false));
-        this.bjL.clearFocus();
-        if (this.bjF != null) {
-            this.bjF.release();
+        this.blg.clearFocus();
+        if (this.bla != null) {
+            this.bla.release();
         }
         setVisibility(8);
     }
 
     public void g(Map<String, Integer> map) {
-        if (getVisibility() == 0 && this.bjH != null) {
-            this.bjH.f(map);
+        if (getVisibility() == 0 && this.blc != null) {
+            this.blc.f(map);
         }
     }
 
-    private boolean Mn() {
-        return (this.bjZ == null || this.bjZ.mAlaLiveSwitchData == null || !this.bjZ.mAlaLiveSwitchData.isQuickChatUnabled()) ? false : true;
+    private boolean MH() {
+        return (this.blu == null || this.blu.mAlaLiveSwitchData == null || !this.blu.mAlaLiveSwitchData.isQuickChatUnabled()) ? false : true;
     }
 
-    private boolean Mo() {
-        return (this.bjZ == null || this.bjZ.mAlaLiveSwitchData == null || !this.bjZ.mAlaLiveSwitchData.isPayBarrageUnabled()) ? false : true;
+    private boolean MI() {
+        return (this.blu == null || this.blu.mAlaLiveSwitchData == null || !this.blu.mAlaLiveSwitchData.isPayBarrageUnabled()) ? false : true;
     }
 
-    private void Mp() {
-        if (this.bjS || Mo()) {
-            this.bjK.setVisibility(8);
+    private void MJ() {
+        if (this.bln || MI()) {
+            this.blf.setVisibility(8);
             return;
         }
-        final bz[] e = d.Lm().e(this.bjO != null && this.bjO.KW(), this.bjO != null ? this.bjO.KX() : 0);
+        final ce[] e = d.LG().e(this.blj != null && this.blj.Lq(), this.blj != null ? this.blj.Lr() : 0);
         if (e == null || e.length <= 0) {
-            if (this.bjK.isChecked()) {
-                this.bjK.setChecked(false, false);
+            if (this.blf.isChecked()) {
+                this.blf.setChecked(false, false);
             } else {
-                bY(false);
+                ca(false);
             }
-            this.bjK.setVisibility(8);
+            this.blf.setVisibility(8);
             return;
         }
-        this.bjK.setVisibility(0);
-        if (this.bjH != null) {
-            if (this.bjH.getView().getWidth() <= 0) {
-                this.bjI.setVisibility(0);
+        this.blf.setVisibility(0);
+        if (this.blc != null) {
+            if (this.blc.getView().getWidth() <= 0) {
+                this.bld.setVisibility(0);
             }
             this.handler.post(new Runnable() { // from class: com.baidu.live.im.view.ALALiveTextView.6
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (d.Lm().Lo()) {
-                        ALALiveTextView.this.bjH.setData(e, ALALiveTextView.this.aUa, 0);
-                        if (ALALiveTextView.this.bjK.isChecked()) {
-                            ALALiveTextView.this.bjH.setSelectId(d.Lm().Lp());
-                            ALALiveTextView.this.Mq();
-                            ALALiveTextView.this.bZ(true);
+                    if (d.LG().LJ()) {
+                        ALALiveTextView.this.blc.setData(e, ALALiveTextView.this.aVk, 0);
+                        if (ALALiveTextView.this.blf.isChecked()) {
+                            ALALiveTextView.this.blc.setSelectId(d.LG().LK());
+                            ALALiveTextView.this.MK();
+                            ALALiveTextView.this.cb(true);
                         } else {
-                            ALALiveTextView.this.bjK.setChecked(true, false);
+                            ALALiveTextView.this.blf.setChecked(true, false);
                         }
-                    } else if (ALALiveTextView.this.bjK.isChecked()) {
-                        ALALiveTextView.this.bjK.setChecked(false, false);
+                    } else if (ALALiveTextView.this.blf.isChecked()) {
+                        ALALiveTextView.this.blf.setChecked(false, false);
                     }
-                    ALALiveTextView.this.bjI.setVisibility(ALALiveTextView.this.bjK.isChecked() ? 0 : 8);
+                    ALALiveTextView.this.bld.setVisibility(ALALiveTextView.this.blf.isChecked() ? 0 : 8);
                 }
             });
         }
@@ -902,48 +902,48 @@ public class ALALiveTextView extends LinearLayout implements com.baidu.live.view
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(CharSequence charSequence, int i) {
-        if (this.bjM != null) {
-            if (TextUtils.isEmpty(this.bjL.getText())) {
-                this.bjM.setEnabled(false);
+        if (this.blh != null) {
+            if (TextUtils.isEmpty(this.blg.getText())) {
+                this.blh.setEnabled(false);
             } else {
-                this.bjM.setEnabled(true);
-                this.bjM.setClickable(true);
+                this.blh.setEnabled(true);
+                this.blh.setClickable(true);
             }
         }
-        if (this.bjL.getText().length() > this.bjR) {
-            BdUtilHelper.showToast(getContext(), String.format(getResources().getString(a.i.sdk_send_im_over_max), Integer.valueOf(this.bjR)));
-            if (charSequence.length() > this.bjR) {
-                this.bjL.setText(charSequence.subSequence(0, this.bjR));
-                this.bjL.setSelection(this.bjL.getText().length());
+        if (this.blg.getText().length() > this.blm) {
+            BdUtilHelper.showToast(getContext(), String.format(getResources().getString(a.i.sdk_send_im_over_max), Integer.valueOf(this.blm)));
+            if (charSequence.length() > this.blm) {
+                this.blg.setText(charSequence.subSequence(0, this.blm));
+                this.blg.setSelection(this.blg.getText().length());
                 return;
             }
-            this.bjL.setText(charSequence);
+            this.blg.setText(charSequence);
             if (i <= charSequence.length()) {
-                this.bjL.setSelection(i);
+                this.blg.setSelection(i);
             } else {
-                this.bjL.setSelection(charSequence.length());
+                this.blg.setSelection(charSequence.length());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Mq() {
-        if (this.bjH != null) {
-            bz selectInfo = this.bjH.getSelectInfo();
-            if (this.bjL != null && selectInfo != null) {
+    public void MK() {
+        if (this.blc != null) {
+            ce selectInfo = this.blc.getSelectInfo();
+            if (this.blg != null && selectInfo != null) {
                 switch (selectInfo.type) {
                     case 1:
-                        this.bjL.setHint(String.format(Locale.getDefault(), getResources().getString(a.i.sdk_im_sendmessage_to_host_barrage), Integer.valueOf(selectInfo.price)));
+                        this.blg.setHint(String.format(Locale.getDefault(), getResources().getString(a.i.sdk_im_sendmessage_to_host_barrage), Integer.valueOf(selectInfo.price)));
                         return;
                     case 16:
-                        this.bjL.setHint(getResources().getString(a.i.sdk_input_hint_barrage_throne));
+                        this.blg.setHint(getResources().getString(a.i.sdk_input_hint_barrage_throne));
                         return;
                     case 17:
-                        if (selectInfo.aPF == 7) {
-                            this.bjL.setHint(getResources().getString(a.i.sdk_im_sendmessage_noble_king_barrage));
+                        if (selectInfo.aQp == 7) {
+                            this.blg.setHint(getResources().getString(a.i.sdk_im_sendmessage_noble_king_barrage));
                             return;
                         } else {
-                            this.bjL.setHint(getResources().getString(a.i.sdk_im_sendmessage_noble_barrage));
+                            this.blg.setHint(getResources().getString(a.i.sdk_im_sendmessage_noble_barrage));
                             return;
                         }
                     default:
@@ -954,75 +954,75 @@ public class ALALiveTextView extends LinearLayout implements com.baidu.live.view
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bY(boolean z) {
-        if (z && this.bjO != null && !this.bjO.KS()) {
-            this.bjK.setChecked(false, false);
+    public void ca(boolean z) {
+        if (z && this.blj != null && !this.blj.Lm()) {
+            this.blf.setChecked(false, false);
             return;
         }
-        this.bjR = z ? 20 : 50;
-        if (z && this.bjL != null && this.bjL.getText() != null && this.bjL.getText().length() > this.bjR) {
-            BdUtilHelper.showToast(getContext(), String.format(getResources().getString(a.i.sdk_send_im_over_max), Integer.valueOf(this.bjR)));
+        this.blm = z ? 20 : 50;
+        if (z && this.blg != null && this.blg.getText() != null && this.blg.getText().length() > this.blm) {
+            BdUtilHelper.showToast(getContext(), String.format(getResources().getString(a.i.sdk_send_im_over_max), Integer.valueOf(this.blm)));
         }
-        if (this.bjH != null) {
+        if (this.blc != null) {
             if (z) {
-                this.bjH.setData(d.Lm().e(this.bjO != null && this.bjO.KW(), this.bjO != null ? this.bjO.KX() : 0), this.aUa, 0);
-                this.bjH.setSwitchStatus(true);
-                if (!TextUtils.isEmpty(d.Lm().Lp())) {
-                    this.bjH.setSelectId(d.Lm().Lp());
+                this.blc.setData(d.LG().e(this.blj != null && this.blj.Lq(), this.blj != null ? this.blj.Lr() : 0), this.aVk, 0);
+                this.blc.setSwitchStatus(true);
+                if (!TextUtils.isEmpty(d.LG().LK())) {
+                    this.blc.setSelectId(d.LG().LK());
                 } else {
-                    this.bjH.setSelectPos(0);
+                    this.blc.setSelectPos(0);
                 }
-                if (this.bjI != null) {
-                    this.bjI.setVisibility(0);
+                if (this.bld != null) {
+                    this.bld.setVisibility(0);
                 }
-                bZ(true);
-                this.bjD.setVisibility(8);
-                Mq();
+                cb(true);
+                this.bkY.setVisibility(8);
+                MK();
                 setQuickInputPanelVisible(false);
-                if (this.bjV != null && this.bjV.getPageActivity() != null && this.bjL != null) {
-                    BdUtilHelper.showSoftKeyPad(this.bjV.getPageActivity(), this.bjL);
+                if (this.blq != null && this.blq.getPageActivity() != null && this.blg != null) {
+                    BdUtilHelper.showSoftKeyPad(this.blq.getPageActivity(), this.blg);
                 }
             } else {
-                this.bjH.setSwitchStatus(false);
-                if (this.bjJ != null) {
-                    this.bjJ.setVisibility(8);
+                this.blc.setSwitchStatus(false);
+                if (this.ble != null) {
+                    this.ble.setVisibility(8);
                 }
-                if (this.bjI != null) {
-                    this.bjI.setVisibility(8);
+                if (this.bld != null) {
+                    this.bld.setVisibility(8);
                 }
-                if (!Mn()) {
-                    this.bjD.setVisibility(0);
+                if (!MH()) {
+                    this.bkY.setVisibility(0);
                 }
-                if (this.bjL != null) {
-                    this.bjL.setHint(a.i.sdk_im_sendmessage_to_host);
+                if (this.blg != null) {
+                    this.blg.setHint(a.i.sdk_im_sendmessage_to_host);
                 }
             }
-            if (this.bjO != null) {
-                this.bjO.KV();
+            if (this.blj != null) {
+                this.blj.Lp();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bZ(boolean z) {
-        if (z && this.bjF != null) {
-            this.bjF.setPreview();
+    public void cb(boolean z) {
+        if (z && this.bla != null) {
+            this.bla.setPreview();
         }
-        if (this.bjF != null && this.bjH != null) {
-            this.bjF.setUIInfo(this.bjH.getSelectInfo(), z);
+        if (this.bla != null && this.blc != null) {
+            this.bla.setUIInfo(this.blc.getSelectInfo(), z);
         }
         if (UtilHelper.getRealScreenOrientation(getContext()) == 2) {
-            if (this.bjJ != null) {
-                this.bjJ.setVisibility(8);
+            if (this.ble != null) {
+                this.ble.setVisibility(8);
             }
-        } else if (this.bjK != null && this.bjK.isChecked() && this.bjJ != null) {
-            this.bjJ.setVisibility(0);
+        } else if (this.blf != null && this.blf.isChecked() && this.ble != null) {
+            this.ble.setVisibility(0);
         }
     }
 
-    private void s(String str, boolean z) {
-        if (this.bjO != null) {
-            this.bjO.r(str, z);
+    private void t(String str, boolean z) {
+        if (this.blj != null) {
+            this.blj.s(str, z);
         }
     }
 
@@ -1031,22 +1031,22 @@ public class ALALiveTextView extends LinearLayout implements com.baidu.live.view
         super.onConfigurationChanged(configuration);
         if (configuration != null) {
             if (configuration.orientation == 2) {
-                if (this.bjJ != null) {
-                    this.bjJ.setVisibility(8);
+                if (this.ble != null) {
+                    this.ble.setVisibility(8);
                 }
-            } else if (this.bjK != null && this.bjK.isChecked() && this.bjJ != null) {
-                this.bjJ.setVisibility(0);
+            } else if (this.blf != null && this.blf.isChecked() && this.ble != null) {
+                this.ble.setVisibility(0);
             }
         }
     }
 
     @Override // com.baidu.live.view.input.a
-    public void Mr() {
-        if (this.bjL != null) {
+    public void ML() {
+        if (this.blg != null) {
             this.handler.post(new Runnable() { // from class: com.baidu.live.im.view.ALALiveTextView.7
                 @Override // java.lang.Runnable
                 public void run() {
-                    ALALiveTextView.this.bjL.requestFocus();
+                    ALALiveTextView.this.blg.requestFocus();
                 }
             });
         }

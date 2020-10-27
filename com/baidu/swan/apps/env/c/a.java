@@ -7,52 +7,52 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 class a implements b.a {
-    private final String cET;
-    private JSONObject cEU = new JSONObject();
+    private final String cNp;
+    private JSONObject cNq = new JSONObject();
 
     private a(String str, boolean z) {
-        this.cET = str;
+        this.cNp = str;
         try {
-            this.cEU.put("pkg_id", this.cET);
+            this.cNq.put("pkg_id", this.cNp);
             if (z) {
                 update();
             }
         } catch (JSONException e) {
-            if (b.cEV) {
+            if (b.cNr) {
                 e.printStackTrace();
             }
         }
     }
 
-    public static a nA(String str) {
+    public static a nT(String str) {
         return new a(str, true);
     }
 
     @Override // com.baidu.swan.apps.env.c.b.a
-    public String apr() {
-        return this.cET;
+    public String arl() {
+        return this.cNp;
     }
 
     @Override // com.baidu.swan.apps.env.c.b.a
     public JSONObject toJSONObject() {
-        return this.cEU;
+        return this.cNq;
     }
 
     @Override // com.baidu.swan.apps.env.c.b.a
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.cET);
+        return !TextUtils.isEmpty(this.cNp);
     }
 
     private void update() throws JSONException {
-        PMSAppInfo xF;
-        if (isValid() && (xF = com.baidu.swan.pms.database.a.aWO().xF(this.cET)) != null) {
-            this.cEU.put("app_name", xF.appName);
-            this.cEU.put("pkg_vername", xF.versionName);
-            this.cEU.put("pkg_vercode", xF.versionCode);
-            this.cEU.put("create_time", xF.createTime);
-            this.cEU.put("last_launch_time", xF.getLastLaunchTime());
-            this.cEU.put("launch_count", xF.aIw());
-            this.cEU.put("install_src", xF.ami());
+        PMSAppInfo xY;
+        if (isValid() && (xY = com.baidu.swan.pms.database.a.aYH().xY(this.cNp)) != null) {
+            this.cNq.put("app_name", xY.appName);
+            this.cNq.put("pkg_vername", xY.versionName);
+            this.cNq.put("pkg_vercode", xY.versionCode);
+            this.cNq.put("create_time", xY.createTime);
+            this.cNq.put("last_launch_time", xY.getLastLaunchTime());
+            this.cNq.put("launch_count", xY.aKq());
+            this.cNq.put("install_src", xY.aoc());
         }
     }
 }

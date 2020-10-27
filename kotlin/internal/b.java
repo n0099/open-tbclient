@@ -10,7 +10,7 @@ public class b {
         q.n(th2, "exception");
     }
 
-    public kotlin.random.d enX() {
+    public kotlin.random.d exW() {
         return new kotlin.random.b();
     }
 }

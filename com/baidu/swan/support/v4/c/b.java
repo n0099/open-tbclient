@@ -9,20 +9,20 @@ class b {
 
     /* loaded from: classes6.dex */
     static class a implements LayoutInflater.Factory {
-        final e dWO;
+        final e efk;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public a(e eVar) {
-            this.dWO = eVar;
+            this.efk = eVar;
         }
 
         @Override // android.view.LayoutInflater.Factory
         public View onCreateView(String str, Context context, AttributeSet attributeSet) {
-            return this.dWO.onCreateView(null, str, context, attributeSet);
+            return this.efk.onCreateView(null, str, context, attributeSet);
         }
 
         public String toString() {
-            return getClass().getName() + "{" + this.dWO + "}";
+            return getClass().getName() + "{" + this.efk + "}";
         }
     }
 

@@ -9,7 +9,7 @@ public class a {
     public static final String ALBUM_ID_VIDEO = String.valueOf(2147483646);
     private String albumId;
     private int count;
-    private MediaFileInfo efR;
+    private MediaFileInfo eoq;
     private List<MediaFileInfo> fileList;
     private String name;
 
@@ -41,19 +41,19 @@ public class a {
         this.count++;
     }
 
-    public ImageFileInfo bdU() {
-        if (this.efR instanceof ImageFileInfo) {
-            return (ImageFileInfo) this.efR;
+    public ImageFileInfo bfN() {
+        if (this.eoq instanceof ImageFileInfo) {
+            return (ImageFileInfo) this.eoq;
         }
         return null;
     }
 
     public void a(MediaFileInfo mediaFileInfo) {
-        this.efR = mediaFileInfo;
+        this.eoq = mediaFileInfo;
     }
 
-    public MediaFileInfo bdV() {
-        return this.efR;
+    public MediaFileInfo bfO() {
+        return this.eoq;
     }
 
     public List<MediaFileInfo> getFileList() {

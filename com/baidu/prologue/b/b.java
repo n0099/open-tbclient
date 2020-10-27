@@ -1,7 +1,7 @@
 package com.baidu.prologue.b;
 /* loaded from: classes19.dex */
 public interface b {
-    boolean T(int i, int i2);
+    boolean U(int i, int i2);
 
     void onBufferingUpdate(int i);
 

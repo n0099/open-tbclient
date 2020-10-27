@@ -28,63 +28,63 @@ import com.baidu.tbadk.core.view.SingleLineEllipsizeTextView;
 import com.baidu.tieba.R;
 /* loaded from: classes21.dex */
 public class CardForumHeadLayout extends RelativeLayout implements View.OnClickListener {
-    private BarImageView ajg;
-    private SingleLineEllipsizeTextView ajh;
-    private TextView aji;
+    private BarImageView ajh;
+    private SingleLineEllipsizeTextView aji;
     private TextView ajj;
     private TextView ajk;
     private TextView ajl;
     private TextView ajm;
-    private String ajn;
-    private View.OnClickListener ajo;
-    private int ajp;
-    private bw ajq;
+    private TextView ajn;
+    private String ajo;
+    private View.OnClickListener ajp;
+    private int ajq;
+    private bw ajr;
 
     public CardForumHeadLayout(Context context) {
         super(context);
-        this.ajp = 3;
+        this.ajq = 3;
         init(context);
     }
 
     public CardForumHeadLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ajp = 3;
+        this.ajq = 3;
         init(context);
     }
 
     public CardForumHeadLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ajp = 3;
+        this.ajq = 3;
         init(context);
     }
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.card_forum_head_layout, (ViewGroup) this, true);
-        this.ajg = (BarImageView) findViewById(R.id.forum_head_image);
-        this.ajh = (SingleLineEllipsizeTextView) findViewById(R.id.forum_head_barname);
-        this.aji = (TextView) findViewById(R.id.forum_head_info_attention);
-        this.ajj = (TextView) findViewById(R.id.forum_head_info_thread);
-        this.ajk = (TextView) findViewById(R.id.hot_rank_index);
-        this.ajl = (TextView) findViewById(R.id.hot_rank_num);
-        this.ajm = (TextView) findViewById(R.id.thread_extend_info);
-        this.ajg.setShowOval(true);
-        this.ajg.setAutoChangeStyle(true);
-        this.ajg.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-        this.ajg.setStrokeColorResId(R.color.cp_border_a);
-        this.ajg.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.ajg.setOnClickListener(this);
+        this.ajh = (BarImageView) findViewById(R.id.forum_head_image);
+        this.aji = (SingleLineEllipsizeTextView) findViewById(R.id.forum_head_barname);
+        this.ajj = (TextView) findViewById(R.id.forum_head_info_attention);
+        this.ajk = (TextView) findViewById(R.id.forum_head_info_thread);
+        this.ajl = (TextView) findViewById(R.id.hot_rank_index);
+        this.ajm = (TextView) findViewById(R.id.hot_rank_num);
+        this.ajn = (TextView) findViewById(R.id.thread_extend_info);
+        this.ajh.setShowOval(true);
+        this.ajh.setAutoChangeStyle(true);
+        this.ajh.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+        this.ajh.setStrokeColorResId(R.color.cp_border_a);
+        this.ajh.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.ajh.setOnClickListener(this);
         this.aji.setOnClickListener(this);
         this.ajj.setOnClickListener(this);
-        this.ajh.setEllipsisSuffix(getResources().getString(R.string.ellipsis_suffix_bar));
+        this.ajk.setOnClickListener(this);
+        this.aji.setEllipsisSuffix(getResources().getString(R.string.ellipsis_suffix_bar));
         onChangeSkinType();
     }
 
     private void uh() {
-        this.ajg.setVisibility(8);
         this.ajh.setVisibility(8);
-        this.ajj.setVisibility(8);
         this.aji.setVisibility(8);
+        this.ajk.setVisibility(8);
+        this.ajj.setVisibility(8);
     }
 
     public void setData(String str, String str2, int i, int i2) {
@@ -92,120 +92,120 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
             uh();
             return;
         }
-        this.ajg.setPlaceHolder(1);
-        this.ajg.setVisibility(0);
+        this.ajh.setPlaceHolder(1);
         this.ajh.setVisibility(0);
-        this.ajn = str;
-        this.ajh.setText(String.format(getContext().getString(R.string.chosen_pb_original_bar), this.ajn));
-        this.ajg.startLoad(str2, 10, false);
-        this.ajj.setText(String.format(getContext().getString(R.string.forum_thread_number), at.numberUniformFormatExtra(i)));
-        this.aji.setText(String.format(getContext().getString(R.string.concern), at.numberUniformFormatExtra(i2)));
-        com.baidu.tbadk.a.b.a.a(this.ajh);
+        this.aji.setVisibility(0);
+        this.ajo = str;
+        this.aji.setText(String.format(getContext().getString(R.string.chosen_pb_original_bar), this.ajo));
+        this.ajh.startLoad(str2, 10, false);
+        this.ajk.setText(String.format(getContext().getString(R.string.forum_thread_number), at.numberUniformFormatExtra(i)));
+        this.ajj.setText(String.format(getContext().getString(R.string.concern), at.numberUniformFormatExtra(i2)));
+        com.baidu.tbadk.a.b.a.a(this.aji);
     }
 
     public void setData(bw bwVar) {
-        this.ajq = bwVar;
-        if (bwVar == null || bwVar.bjV() == null) {
+        this.ajr = bwVar;
+        if (bwVar == null || bwVar.blO() == null) {
             uh();
-        } else if (bwVar.esE) {
+        } else if (bwVar.eBe) {
+            this.ajk.setVisibility(8);
             this.ajj.setVisibility(8);
-            this.aji.setVisibility(8);
-            this.ajk.setVisibility(0);
             this.ajl.setVisibility(0);
             this.ajm.setVisibility(0);
-            this.ajm.setText(bwVar.bhF());
-            int i = bwVar.esS >= 1000 ? bwVar.esS : 1000;
-            this.ajl.setVisibility(0);
-            this.ajl.setText(this.ajl.getContext().getResources().getString(R.string.thread_rank_tag, at.da(i)));
+            this.ajn.setVisibility(0);
+            this.ajn.setText(bwVar.bjy());
+            int i = bwVar.eBs >= 1000 ? bwVar.eBs : 1000;
+            this.ajm.setVisibility(0);
+            this.ajm.setText(this.ajm.getContext().getResources().getString(R.string.thread_rank_tag, at.dc(i)));
             int i2 = bwVar.position + 1;
-            this.ajk.setText(i2 >= 10 ? String.valueOf(i2) : "0" + i2);
+            this.ajl.setText(i2 >= 10 ? String.valueOf(i2) : "0" + i2);
             ui();
-            bs bjV = bwVar.bjV();
-            this.ajg.setPlaceHolder(1);
-            this.ajg.setVisibility(0);
-            this.ajg.startLoad(bjV.getAvatar(), 10, false);
+            bs blO = bwVar.blO();
+            this.ajh.setPlaceHolder(1);
             this.ajh.setVisibility(0);
-            this.ajn = bjV.forumName;
-            this.ajh.setText(String.format(getContext().getString(R.string.chosen_pb_original_bar), this.ajn));
-            com.baidu.tbadk.a.b.a.a(this.ajh);
+            this.ajh.startLoad(blO.getAvatar(), 10, false);
+            this.aji.setVisibility(0);
+            this.ajo = blO.forumName;
+            this.aji.setText(String.format(getContext().getString(R.string.chosen_pb_original_bar), this.ajo));
+            com.baidu.tbadk.a.b.a.a(this.aji);
         } else {
-            if (bwVar.bjZ()) {
+            if (bwVar.blS()) {
+                this.ajk.setVisibility(8);
                 this.ajj.setVisibility(8);
-                this.aji.setVisibility(8);
-                this.ajk.setVisibility(8);
                 this.ajl.setVisibility(8);
-                this.ajm.setVisibility(0);
-                this.ajm.setText(bwVar.bhF());
-            } else {
                 this.ajm.setVisibility(8);
-                this.ajk.setVisibility(8);
+                this.ajn.setVisibility(0);
+                this.ajn.setText(bwVar.bjy());
+            } else {
+                this.ajn.setVisibility(8);
                 this.ajl.setVisibility(8);
+                this.ajm.setVisibility(8);
+                this.ajk.setVisibility(0);
                 this.ajj.setVisibility(0);
-                this.aji.setVisibility(0);
             }
-            setData(bwVar.bjV().forumName, bwVar.bjV().getAvatar(), bwVar.bjV().postNum, bwVar.bjV().memberNum);
-            if (bwVar.bfQ()) {
-                if (bwVar.bih() != null && !StringUtils.isNull(bwVar.bih().getName_show())) {
-                    this.aji.setText(bwVar.bih().getName_show());
+            setData(bwVar.blO().forumName, bwVar.blO().getAvatar(), bwVar.blO().postNum, bwVar.blO().memberNum);
+            if (bwVar.bhJ()) {
+                if (bwVar.bka() != null && !StringUtils.isNull(bwVar.bka().getName_show())) {
+                    this.ajj.setText(bwVar.bka().getName_show());
                 } else {
-                    this.aji.setText(R.string.user_name_default_txt);
+                    this.ajj.setText(R.string.user_name_default_txt);
                 }
-                this.ajj.setText(bwVar.bhF());
+                this.ajk.setText(bwVar.bjy());
             }
         }
     }
 
     private void ui() {
-        if (this.ajq != null) {
-            int oJ = TagTextHelper.oJ(this.ajq.position + 1);
-            this.ajk.setCompoundDrawablePadding(l.getDimens(getContext(), R.dimen.tbds10));
-            int color = ap.getColor(oJ);
+        if (this.ajr != null) {
+            int oU = TagTextHelper.oU(this.ajr.position + 1);
+            this.ajl.setCompoundDrawablePadding(l.getDimens(getContext(), R.dimen.tbds10));
+            int color = ap.getColor(oU);
             Drawable mutate = ap.getDrawable(R.drawable.icon_pure_topic_hot).mutate();
             int dimens = l.getDimens(getContext(), R.dimen.tbds42);
             mutate.setBounds(0, 0, dimens, dimens);
             DrawableCompat.setTint(mutate, color);
-            this.ajk.setCompoundDrawables(mutate, null, null, null);
-            this.ajk.setBackgroundDrawable(null);
-            ap.setViewTextColor(this.ajk, oJ);
-            ap.setViewTextColor(this.ajl, oJ);
+            this.ajl.setCompoundDrawables(mutate, null, null, null);
+            this.ajl.setBackgroundDrawable(null);
+            ap.setViewTextColor(this.ajl, oU);
+            ap.setViewTextColor(this.ajm, oU);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!StringUtils.isNull(this.ajn)) {
-            FrsActivityConfig createNormalCfg = new FrsActivityConfig(getContext()).createNormalCfg(this.ajn, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
+        if (!StringUtils.isNull(this.ajo)) {
+            FrsActivityConfig createNormalCfg = new FrsActivityConfig(getContext()).createNormalCfg(this.ajo, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
             createNormalCfg.setCallFrom(14);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, createNormalCfg));
-            if (this.ajo != null) {
-                this.ajo.onClick(view);
+            if (this.ajp != null) {
+                this.ajp.onClick(view);
             }
         }
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType != this.ajp) {
-            this.ajp = skinType;
-            Drawable a2 = SvgManager.bmU().a(R.drawable.icon_pure_card_ba16_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
+        if (skinType != this.ajq) {
+            this.ajq = skinType;
+            Drawable a2 = SvgManager.boN().a(R.drawable.icon_pure_card_ba16_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
             int dimens = l.getDimens(getContext(), R.dimen.tbds42);
             a2.setBounds(0, 0, dimens, dimens);
-            this.ajh.setCompoundDrawables(null, null, a2, null);
-            this.ajh.setCompoundDrawablePadding(l.getDimens(getContext(), R.dimen.tbds10));
-            ap.setViewTextColor(this.ajh, R.color.cp_cont_b);
-            ap.setViewTextColor(this.aji, R.color.cp_cont_d);
+            this.aji.setCompoundDrawables(null, null, a2, null);
+            this.aji.setCompoundDrawablePadding(l.getDimens(getContext(), R.dimen.tbds10));
+            ap.setViewTextColor(this.aji, R.color.cp_cont_b);
             ap.setViewTextColor(this.ajj, R.color.cp_cont_d);
-            ap.setViewTextColor(this.ajm, R.color.cp_cont_d);
+            ap.setViewTextColor(this.ajk, R.color.cp_cont_d);
+            ap.setViewTextColor(this.ajn, R.color.cp_cont_d);
             uj();
             ui();
         }
     }
 
     private void uj() {
-        com.baidu.tbadk.a.b.a.b(this.ajh);
+        com.baidu.tbadk.a.b.a.b(this.aji);
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.ajo = onClickListener;
+        this.ajp = onClickListener;
     }
 }

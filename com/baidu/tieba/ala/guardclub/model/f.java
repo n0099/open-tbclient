@@ -23,7 +23,7 @@ public class f extends HttpMessage {
     }
 
     public void setParams() {
-        addParam("scene_from", p.Gv());
+        addParam("scene_from", p.GQ());
         addParam("ps", this.ps);
         addParam(Config.PACKAGE_NAME, this.pn);
     }

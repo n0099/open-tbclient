@@ -8,13 +8,13 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 /* loaded from: classes10.dex */
 final class a {
-    private static final a nFG = new a();
+    private static final a oii = new a();
     private boolean ac;
-    private final Set<InterfaceC0864a> nFH = new LinkedHashSet();
+    private final Set<InterfaceC0914a> oij = new LinkedHashSet();
 
     /* renamed from: com.baidu.ubs.analytics.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC0864a {
+    public interface InterfaceC0914a {
         void T();
 
         void U();
@@ -28,26 +28,26 @@ final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a dUd() {
-        return nFG;
+    public static a dZV() {
+        return oii;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final Set<InterfaceC0864a> dUe() {
-        return this.nFH;
+    public final Set<InterfaceC0914a> dZW() {
+        return this.oij;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void a(InterfaceC0864a interfaceC0864a) {
-        synchronized (this.nFH) {
-            this.nFH.add(interfaceC0864a);
+    public final void a(InterfaceC0914a interfaceC0914a) {
+        synchronized (this.oij) {
+            this.oij.add(interfaceC0914a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void S() {
-        synchronized (this.nFH) {
-            this.nFH.clear();
+        synchronized (this.oij) {
+            this.oij.clear();
         }
     }
 

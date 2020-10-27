@@ -11,35 +11,35 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class k {
+    PkRankInView hIv;
+    public ArrayList<PropsInfoData> hIw;
+    public ArrayList<PropsInfoData> hIx;
     Handler handler;
-    PkRankInView hvY;
-    public ArrayList<PropsInfoData> hvZ;
-    public ArrayList<PropsInfoData> hwa;
 
     public k(final PkRankInView pkRankInView) {
-        this.hvY = pkRankInView;
+        this.hIv = pkRankInView;
         this.handler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.ala.view.k.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
                         k.this.m(false);
-                        pkRankInView.cgA();
+                        pkRankInView.cjH();
                         return;
                     case 2:
-                        pkRankInView.nI(true);
+                        pkRankInView.oa(true);
                         return;
                     case 3:
-                        pkRankInView.nI(false);
+                        pkRankInView.oa(false);
                         return;
                     case 10:
-                        pkRankInView.cgE();
+                        pkRankInView.cjL();
                         return;
                     case 20:
-                        pkRankInView.nJ(true);
+                        pkRankInView.ob(true);
                         return;
                     case 30:
-                        pkRankInView.nJ(false);
+                        pkRankInView.ob(false);
                         return;
                     default:
                         return;
@@ -49,45 +49,45 @@ public class k {
     }
 
     public void f(PkInfoData pkInfoData) {
-        this.hvZ = pkInfoData.myPkData.propsInfos;
-        this.hwa = pkInfoData.otherPkData.propsInfos;
-        if (this.hvZ != null && this.hvZ.size() > 0) {
-            Iterator<PropsInfoData> it = this.hvZ.iterator();
+        this.hIw = pkInfoData.myPkData.propsInfos;
+        this.hIx = pkInfoData.otherPkData.propsInfos;
+        if (this.hIw != null && this.hIw.size() > 0) {
+            Iterator<PropsInfoData> it = this.hIw.iterator();
             while (it.hasNext()) {
                 PropsInfoData next = it.next();
                 if (next.propsType.equals(String.valueOf(1))) {
                     m(true);
-                    this.hvY.cgz();
+                    this.hIv.cjG();
                     x(1, next.endTime - next.nowTime);
                 } else if (next.propsType.equals(String.valueOf(2))) {
                     PropsInfoData.a aVar = null;
                     Iterator<PropsInfoData.a> it2 = next.propsUserDataList.iterator();
                     while (it2.hasNext()) {
                         PropsInfoData.a next2 = it2.next();
-                        if (!this.hvY.gjB.isHost && next2.gkM != this.hvY.gjB.aIT.aIf.userId) {
+                        if (!this.hIv.gtC.isHost && next2.guT != this.hIv.gtC.aJv.aIA.userId) {
                             next2 = aVar;
                         }
                         aVar = next2;
                     }
                     if (aVar != null) {
-                        this.hvY.cgB();
+                        this.hIv.cjI();
                         x(2, aVar.endTime - next.nowTime);
                     } else {
-                        this.hvY.cgC();
+                        this.hIv.cjJ();
                     }
                     x(3, next.endTime - next.nowTime);
                 }
             }
         }
-        if (this.hwa != null && this.hwa.size() > 0) {
-            Iterator<PropsInfoData> it3 = this.hwa.iterator();
+        if (this.hIx != null && this.hIx.size() > 0) {
+            Iterator<PropsInfoData> it3 = this.hIx.iterator();
             while (it3.hasNext()) {
                 PropsInfoData next3 = it3.next();
                 if (next3.propsType.equals(String.valueOf(1))) {
-                    this.hvY.cgD();
+                    this.hIv.cjK();
                     x(10, next3.endTime - next3.nowTime);
                 } else if (next3.propsType.equals(String.valueOf(2))) {
-                    this.hvY.cgF();
+                    this.hIv.cjM();
                     x(30, next3.endTime - next3.nowTime);
                 }
             }

@@ -3,9 +3,9 @@ package com.baidu.live.videochat.e;
 import com.baidu.live.data.AlaLiveInfoData;
 /* loaded from: classes4.dex */
 public interface c {
-    void G(int i, String str);
+    void I(int i, String str);
 
-    void RJ();
+    void SJ();
 
     void a(int i, String str, AlaLiveInfoData alaLiveInfoData, com.baidu.live.videochat.b.a aVar, com.baidu.live.videochat.b.c cVar);
 

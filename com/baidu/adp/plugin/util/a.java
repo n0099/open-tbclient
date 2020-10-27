@@ -22,7 +22,7 @@ public class a {
     /* renamed from: com.baidu.adp.plugin.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0029a {
-        public boolean UM;
+        public boolean UN;
         public String mErrMsg;
     }
 
@@ -293,7 +293,7 @@ public class a {
 
     private static C0029a a(boolean z, Throwable th) {
         C0029a c0029a = new C0029a();
-        c0029a.UM = z;
+        c0029a.UN = z;
         c0029a.mErrMsg = th != null ? th.getLocalizedMessage() : null;
         return c0029a;
     }

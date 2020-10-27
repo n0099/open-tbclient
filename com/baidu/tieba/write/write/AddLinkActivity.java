@@ -28,28 +28,28 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.write.write.FindNewLinkBubbleController;
 /* loaded from: classes3.dex */
 public class AddLinkActivity extends BaseActivity {
-    private ViewGroup beQ;
-    private TextView bwx;
-    private TextView fPx;
-    private TextView iGw;
+    private ViewGroup bgg;
+    private TextView byL;
+    private TextView fYQ;
+    private TextView iSS;
     private ViewGroup mContentLayout;
-    private ViewGroup nsl;
-    private EditText nsm;
-    private ImageView nsn;
-    private TextView nso;
-    private String nsp;
-    private boolean nsq;
-    private String nsr;
-    private FindNewLinkBubbleController nss;
-    private FindNewLinkBubbleController.a nst = new FindNewLinkBubbleController.a() { // from class: com.baidu.tieba.write.write.AddLinkActivity.1
+    private ViewGroup nEK;
+    private EditText nEL;
+    private ImageView nEM;
+    private TextView nEN;
+    private String nEO;
+    private boolean nEP;
+    private String nEQ;
+    private FindNewLinkBubbleController nER;
+    private FindNewLinkBubbleController.a nES = new FindNewLinkBubbleController.a() { // from class: com.baidu.tieba.write.write.AddLinkActivity.1
         @Override // com.baidu.tieba.write.write.FindNewLinkBubbleController.a
         public void f(View view, String str) {
-            if (AddLinkActivity.this.nsm != null && AddLinkActivity.this.nss != null) {
+            if (AddLinkActivity.this.nEL != null && AddLinkActivity.this.nER != null) {
                 TiebaStatic.log("c13802");
-                AddLinkActivity.this.nss.SU();
+                AddLinkActivity.this.nER.TT();
                 UtilHelper.clearClipBoard();
-                AddLinkActivity.this.nsm.setText(str);
-                AddLinkActivity.this.nsm.setSelection(AddLinkActivity.this.nsm.getText().length());
+                AddLinkActivity.this.nEL.setText(str);
+                AddLinkActivity.this.nEL.setSelection(AddLinkActivity.this.nEL.getText().length());
             }
         }
     };
@@ -58,7 +58,7 @@ public class AddLinkActivity extends BaseActivity {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                AddLinkActivity.this.Uf(UtilHelper.getClipBoardContent());
+                AddLinkActivity.this.UE(UtilHelper.getClipBoardContent());
             }
         }
     };
@@ -74,9 +74,9 @@ public class AddLinkActivity extends BaseActivity {
 
     private void initData() {
         if (getIntent() != null) {
-            this.nsp = getIntent().getStringExtra(AddLinkActivityConfig.ORIGINAL_LINK_CONTENT);
-            this.nsq = getIntent().getBooleanExtra(AddLinkActivityConfig.IS_SHOW_FIND_NEW_LINK_BUBBLE, false);
-            this.nsr = getIntent().getStringExtra(AddLinkActivityConfig.BUBBLE_NEW_LINK_CONTENT);
+            this.nEO = getIntent().getStringExtra(AddLinkActivityConfig.ORIGINAL_LINK_CONTENT);
+            this.nEP = getIntent().getBooleanExtra(AddLinkActivityConfig.IS_SHOW_FIND_NEW_LINK_BUBBLE, false);
+            this.nEQ = getIntent().getStringExtra(AddLinkActivityConfig.BUBBLE_NEW_LINK_CONTENT);
         }
     }
 
@@ -84,43 +84,43 @@ public class AddLinkActivity extends BaseActivity {
         setContentView(R.layout.add_link_activity);
         setActivityBgTransparent();
         setSwipeBackEnabled(false);
-        this.beQ = (ViewGroup) findViewById(R.id.add_link_activity_layout);
+        this.bgg = (ViewGroup) findViewById(R.id.add_link_activity_layout);
         this.mContentLayout = (ViewGroup) findViewById(R.id.add_link_content_layout);
-        this.iGw = (TextView) findViewById(R.id.tv_cancel_add_link);
-        this.bwx = (TextView) findViewById(R.id.tv_title_add_link);
-        this.fPx = (TextView) findViewById(R.id.tv_complete_add_link);
-        this.nsl = (ViewGroup) findViewById(R.id.add_link_edit_layout);
-        this.nsm = (EditText) findViewById(R.id.et_edit_link);
-        this.nsn = (ImageView) findViewById(R.id.iv_del_edit_link);
-        this.nso = (TextView) findViewById(R.id.add_link_tip);
-        this.beQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.AddLinkActivity.3
+        this.iSS = (TextView) findViewById(R.id.tv_cancel_add_link);
+        this.byL = (TextView) findViewById(R.id.tv_title_add_link);
+        this.fYQ = (TextView) findViewById(R.id.tv_complete_add_link);
+        this.nEK = (ViewGroup) findViewById(R.id.add_link_edit_layout);
+        this.nEL = (EditText) findViewById(R.id.et_edit_link);
+        this.nEM = (ImageView) findViewById(R.id.iv_del_edit_link);
+        this.nEN = (TextView) findViewById(R.id.add_link_tip);
+        this.bgg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.AddLinkActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AddLinkActivity.this.dOY();
+                AddLinkActivity.this.dSg();
             }
         });
         this.mContentLayout.setClickable(true);
-        this.iGw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.AddLinkActivity.4
+        this.iSS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.AddLinkActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AddLinkActivity.this.dOY();
+                AddLinkActivity.this.dSg();
             }
         });
-        this.fPx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.AddLinkActivity.5
+        this.fYQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.AddLinkActivity.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (AddLinkActivity.this.nsm != null && AddLinkActivity.this.nsm.getText() != null) {
-                    String obj = AddLinkActivity.this.nsm.getText().toString();
-                    if (!at.isEmpty(obj) && be.bmY().k(obj)) {
-                        AddLinkActivity.this.Ue(obj);
+                if (AddLinkActivity.this.nEL != null && AddLinkActivity.this.nEL.getText() != null) {
+                    String obj = AddLinkActivity.this.nEL.getText().toString();
+                    if (!at.isEmpty(obj) && be.boR().k(obj)) {
+                        AddLinkActivity.this.UD(obj);
                     } else {
                         AddLinkActivity.this.showToast(R.string.link_invalid_cant_add);
                     }
                 }
             }
         });
-        this.nsl.setClickable(true);
-        this.nsm.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.write.write.AddLinkActivity.6
+        this.nEK.setClickable(true);
+        this.nEL.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.write.write.AddLinkActivity.6
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -128,46 +128,46 @@ public class AddLinkActivity extends BaseActivity {
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
                 if (charSequence == null || charSequence.length() == 0) {
-                    AddLinkActivity.this.fPx.setEnabled(false);
-                    AddLinkActivity.this.nsn.setVisibility(8);
+                    AddLinkActivity.this.fYQ.setEnabled(false);
+                    AddLinkActivity.this.nEM.setVisibility(8);
                     return;
                 }
-                AddLinkActivity.this.nsn.setVisibility(0);
+                AddLinkActivity.this.nEM.setVisibility(0);
                 for (int i4 = 0; i4 < charSequence.length(); i4++) {
                     if (!Character.isWhitespace(charSequence.charAt(i4))) {
-                        AddLinkActivity.this.fPx.setEnabled(true);
+                        AddLinkActivity.this.fYQ.setEnabled(true);
                         return;
                     }
                 }
-                AddLinkActivity.this.fPx.setEnabled(false);
+                AddLinkActivity.this.fYQ.setEnabled(false);
             }
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
             }
         });
-        this.nsm.setText(this.nsp);
-        this.nsm.setSelection(this.nsm.getText().length());
-        this.nsn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.AddLinkActivity.7
+        this.nEL.setText(this.nEO);
+        this.nEL.setSelection(this.nEL.getText().length());
+        this.nEM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.AddLinkActivity.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AddLinkActivity.this.nsm.setText("");
-                AddLinkActivity.this.nsm.setSelection(0);
+                AddLinkActivity.this.nEL.setText("");
+                AddLinkActivity.this.nEL.setSelection(0);
             }
         });
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         addGlobalLayoutListener();
         adjustResizeForSoftInput(R.color.black_alpha70, true);
-        ShowSoftKeyPadDelay(this.nsm);
-        this.nsm.setSelection(this.nsm.length());
-        if (this.nsq) {
-            this.nsm.post(new Runnable() { // from class: com.baidu.tieba.write.write.AddLinkActivity.8
+        ShowSoftKeyPadDelay(this.nEL);
+        this.nEL.setSelection(this.nEL.length());
+        if (this.nEP) {
+            this.nEL.post(new Runnable() { // from class: com.baidu.tieba.write.write.AddLinkActivity.8
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (at.isEmpty(AddLinkActivity.this.nsr)) {
-                        AddLinkActivity.this.Uf(UtilHelper.getClipBoardContent());
+                    if (at.isEmpty(AddLinkActivity.this.nEQ)) {
+                        AddLinkActivity.this.UE(UtilHelper.getClipBoardContent());
                     } else {
-                        AddLinkActivity.this.Uf(AddLinkActivity.this.nsr);
+                        AddLinkActivity.this.UE(AddLinkActivity.this.nEQ);
                     }
                 }
             });
@@ -179,19 +179,19 @@ public class AddLinkActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         ap.setBackgroundResource(this.mContentLayout, R.drawable.bg_add_link_content);
-        this.iGw.setTextColor(ap.oD(R.color.cp_cont_b));
-        ap.setViewTextColor(this.bwx, R.color.cp_cont_b);
-        dOX();
-        ap.setViewTextColor(this.nsm, R.color.cp_cont_b);
-        this.nsm.setHintTextColor(ap.getColor(R.color.cp_cont_d));
-        ap.setBackgroundResource(this.nsl, R.drawable.bg_add_link_edit_area);
-        SvgManager.bmU().a(this.nsn, R.drawable.icon_pure_search_empty16_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        ap.setViewTextColor(this.nso, R.color.cp_cont_e);
+        this.iSS.setTextColor(ap.oO(R.color.cp_cont_b));
+        ap.setViewTextColor(this.byL, R.color.cp_cont_b);
+        dSf();
+        ap.setViewTextColor(this.nEL, R.color.cp_cont_b);
+        this.nEL.setHintTextColor(ap.getColor(R.color.cp_cont_d));
+        ap.setBackgroundResource(this.nEK, R.drawable.bg_add_link_edit_area);
+        SvgManager.boN().a(this.nEM, R.drawable.icon_pure_search_empty16_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        ap.setViewTextColor(this.nEN, R.color.cp_cont_e);
     }
 
-    private void dOX() {
+    private void dSf() {
         int color = ap.getColor(R.color.cp_link_tip_a);
-        this.fPx.setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{com.baidu.tieba.tbadkCore.c.m(color, 0.3f), com.baidu.tieba.tbadkCore.c.m(color, 0.5f), color}));
+        this.fYQ.setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{com.baidu.tieba.tbadkCore.c.m(color, 0.3f), com.baidu.tieba.tbadkCore.c.m(color, 0.5f), color}));
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -205,13 +205,13 @@ public class AddLinkActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dOY() {
+    public void dSg() {
         setResult(0);
         finish();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ue(String str) {
+    public void UD(String str) {
         Intent intent = new Intent();
         intent.putExtra(AddLinkActivityConfig.NEW_LINK_CONTENT, str);
         setResult(-1, intent);
@@ -219,15 +219,15 @@ public class AddLinkActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Uf(final String str) {
-        if (this.nsm != null && !at.isEmpty(str) && be.bmY().k(str)) {
-            this.nsm.post(new Runnable() { // from class: com.baidu.tieba.write.write.AddLinkActivity.9
+    public void UE(final String str) {
+        if (this.nEL != null && !at.isEmpty(str) && be.boR().k(str)) {
+            this.nEL.post(new Runnable() { // from class: com.baidu.tieba.write.write.AddLinkActivity.9
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (AddLinkActivity.this.nss == null) {
-                        AddLinkActivity.this.nss = new FindNewLinkBubbleController(AddLinkActivity.this.getPageContext(), AddLinkActivity.this.nst);
+                    if (AddLinkActivity.this.nER == null) {
+                        AddLinkActivity.this.nER = new FindNewLinkBubbleController(AddLinkActivity.this.getPageContext(), AddLinkActivity.this.nES);
                     }
-                    AddLinkActivity.this.nss.a(AddLinkActivity.this.nsm, str, FindNewLinkBubbleController.ANCHOR_VIEW_FROM.FROM_EDIT_TEXT);
+                    AddLinkActivity.this.nER.a(AddLinkActivity.this.nEL, str, FindNewLinkBubbleController.ANCHOR_VIEW_FROM.FROM_EDIT_TEXT);
                 }
             });
         }

@@ -4,10 +4,10 @@ import com.tb.airbnb.lottie.a.a.r;
 /* loaded from: classes16.dex */
 public class ShapeTrimPath implements b {
     private final String name;
-    private final Type oHS;
-    private final com.tb.airbnb.lottie.model.a.b oIY;
-    private final com.tb.airbnb.lottie.model.a.b oJb;
-    private final com.tb.airbnb.lottie.model.a.b oJc;
+    private final com.tb.airbnb.lottie.model.a.b pAv;
+    private final com.tb.airbnb.lottie.model.a.b pAy;
+    private final com.tb.airbnb.lottie.model.a.b pAz;
+    private final Type pzp;
 
     /* loaded from: classes16.dex */
     public enum Type {
@@ -28,30 +28,30 @@ public class ShapeTrimPath implements b {
 
     public ShapeTrimPath(String str, Type type, com.tb.airbnb.lottie.model.a.b bVar, com.tb.airbnb.lottie.model.a.b bVar2, com.tb.airbnb.lottie.model.a.b bVar3) {
         this.name = str;
-        this.oHS = type;
-        this.oJb = bVar;
-        this.oJc = bVar2;
-        this.oIY = bVar3;
+        this.pzp = type;
+        this.pAy = bVar;
+        this.pAz = bVar2;
+        this.pAv = bVar3;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public Type ekM() {
-        return this.oHS;
+    public Type euM() {
+        return this.pzp;
     }
 
-    public com.tb.airbnb.lottie.model.a.b elE() {
-        return this.oJc;
+    public com.tb.airbnb.lottie.model.a.b evE() {
+        return this.pAz;
     }
 
-    public com.tb.airbnb.lottie.model.a.b elF() {
-        return this.oJb;
+    public com.tb.airbnb.lottie.model.a.b evF() {
+        return this.pAy;
     }
 
-    public com.tb.airbnb.lottie.model.a.b elA() {
-        return this.oIY;
+    public com.tb.airbnb.lottie.model.a.b evA() {
+        return this.pAv;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b
@@ -60,6 +60,6 @@ public class ShapeTrimPath implements b {
     }
 
     public String toString() {
-        return "Trim Path: {start: " + this.oJb + ", end: " + this.oJc + ", offset: " + this.oIY + "}";
+        return "Trim Path: {start: " + this.pAy + ", end: " + this.pAz + ", offset: " + this.pAv + "}";
     }
 }

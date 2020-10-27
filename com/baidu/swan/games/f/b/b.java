@@ -9,11 +9,11 @@ public class b {
         this.mV8Engine = v8Engine;
     }
 
-    public void cO(String str, String str2) {
+    public void cV(String str, String str2) {
         this.mV8Engine.requireJSFileForOpenData(str, str2);
     }
 
-    public void aQF() {
+    public void aSz() {
         this.mV8Engine.destroyOpenDataContext();
     }
 }

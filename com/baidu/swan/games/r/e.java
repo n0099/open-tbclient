@@ -11,43 +11,43 @@ public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     @V8JavascriptField
     public JsObject canvas = null;
-    private com.baidu.swan.games.f.b dCG;
+    private com.baidu.swan.games.f.b dLd;
 
     public e(com.baidu.swan.games.f.b bVar) {
-        this.dCG = bVar;
-        aSe();
-        aSf();
+        this.dLd = bVar;
+        aTY();
+        aTZ();
     }
 
-    private boolean aSe() {
-        return db(this.dCG.getInitBasePath(), "swan-game-open-data.js");
+    private boolean aTY() {
+        return di(this.dLd.getInitBasePath(), "swan-game-open-data.js");
     }
 
-    private boolean aSf() {
-        String avb = com.baidu.swan.apps.v.f.avu().avb();
-        String aSi = f.aSg().aSi();
+    private boolean aTZ() {
+        String awV = com.baidu.swan.apps.v.f.axo().awV();
+        String aUc = f.aUa().aUc();
         if (DEBUG) {
-            Log.d("SwanGameOpenDataContext", "baseFilePath: " + avb);
-            Log.d("SwanGameOpenDataContext", "openDataJSFile: " + aSi);
+            Log.d("SwanGameOpenDataContext", "baseFilePath: " + awV);
+            Log.d("SwanGameOpenDataContext", "openDataJSFile: " + aUc);
         }
-        return db(avb, aSi);
+        return di(awV, aUc);
     }
 
     @JavascriptInterface
     public void destroyOpenDataContext() {
-        this.dCG.aQt().aQF();
+        this.dLd.aSn().aSz();
     }
 
     @JavascriptInterface
     public void postMessage(JsObject jsObject) {
-        this.dCG.aQw().dispatchEvent(new JSEvent("postmessage", jsObject));
+        this.dLd.aSq().dispatchEvent(new JSEvent("postmessage", jsObject));
     }
 
-    private boolean db(String str, String str2) {
-        if (!f.aSg().aSh() || TextUtils.isEmpty(str)) {
+    private boolean di(String str, String str2) {
+        if (!f.aUa().aUb() || TextUtils.isEmpty(str)) {
             return false;
         }
-        this.dCG.aQt().cO(str, str2);
+        this.dLd.aSn().cV(str, str2);
         return true;
     }
 }

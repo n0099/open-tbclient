@@ -5,75 +5,75 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 /* loaded from: classes15.dex */
 public class a {
-    InterfaceC0880a nPI;
-    final float nPJ;
-    boolean nPK;
-    boolean nPL;
-    long nPM;
-    float nPN;
-    float nPO;
+    InterfaceC0952a oHb;
+    final float oHc;
+    boolean oHd;
+    boolean oHe;
+    long oHf;
+    float oHg;
+    float oHh;
 
     /* renamed from: com.facebook.drawee.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    public interface InterfaceC0880a {
-        boolean dXK();
+    public interface InterfaceC0952a {
+        boolean ehI();
     }
 
     public a(Context context) {
-        this.nPJ = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.oHc = ViewConfiguration.get(context).getScaledTouchSlop();
         init();
     }
 
-    public static a gE(Context context) {
+    public static a gY(Context context) {
         return new a(context);
     }
 
     public void init() {
-        this.nPI = null;
+        this.oHb = null;
         reset();
     }
 
     public void reset() {
-        this.nPK = false;
-        this.nPL = false;
+        this.oHd = false;
+        this.oHe = false;
     }
 
-    public void a(InterfaceC0880a interfaceC0880a) {
-        this.nPI = interfaceC0880a;
+    public void a(InterfaceC0952a interfaceC0952a) {
+        this.oHb = interfaceC0952a;
     }
 
-    public boolean dYN() {
-        return this.nPK;
+    public boolean eiL() {
+        return this.oHd;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.nPK = true;
-                this.nPL = true;
-                this.nPM = motionEvent.getEventTime();
-                this.nPN = motionEvent.getX();
-                this.nPO = motionEvent.getY();
+                this.oHd = true;
+                this.oHe = true;
+                this.oHf = motionEvent.getEventTime();
+                this.oHg = motionEvent.getX();
+                this.oHh = motionEvent.getY();
                 break;
             case 1:
-                this.nPK = false;
-                if (Math.abs(motionEvent.getX() - this.nPN) > this.nPJ || Math.abs(motionEvent.getY() - this.nPO) > this.nPJ) {
-                    this.nPL = false;
+                this.oHd = false;
+                if (Math.abs(motionEvent.getX() - this.oHg) > this.oHc || Math.abs(motionEvent.getY() - this.oHh) > this.oHc) {
+                    this.oHe = false;
                 }
-                if (this.nPL && motionEvent.getEventTime() - this.nPM <= ViewConfiguration.getLongPressTimeout() && this.nPI != null) {
-                    this.nPI.dXK();
+                if (this.oHe && motionEvent.getEventTime() - this.oHf <= ViewConfiguration.getLongPressTimeout() && this.oHb != null) {
+                    this.oHb.ehI();
                 }
-                this.nPL = false;
+                this.oHe = false;
                 break;
             case 2:
-                if (Math.abs(motionEvent.getX() - this.nPN) > this.nPJ || Math.abs(motionEvent.getY() - this.nPO) > this.nPJ) {
-                    this.nPL = false;
+                if (Math.abs(motionEvent.getX() - this.oHg) > this.oHc || Math.abs(motionEvent.getY() - this.oHh) > this.oHc) {
+                    this.oHe = false;
                     break;
                 }
                 break;
             case 3:
-                this.nPK = false;
-                this.nPL = false;
+                this.oHd = false;
+                this.oHe = false;
                 break;
         }
         return true;

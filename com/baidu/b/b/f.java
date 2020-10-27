@@ -5,11 +5,11 @@ import java.util.Comparator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes7.dex */
 public class f implements Comparator<e.c.a> {
-    final /* synthetic */ e.c adk;
+    final /* synthetic */ e.c adl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e.c cVar) {
-        this.adk = cVar;
+        this.adl = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,8 +18,8 @@ public class f implements Comparator<e.c.a> {
     public int compare(e.c.a aVar, e.c.a aVar2) {
         int i;
         int i2;
-        i = aVar.f1251a;
-        i2 = aVar2.f1251a;
+        i = aVar.f1248a;
+        i2 = aVar2.f1248a;
         return i - i2;
     }
 }

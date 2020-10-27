@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class x extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.rtcroom.c.b> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String arf() {
+    public String ata() {
         return "setRemoteAudioPlayState";
     }
 
@@ -21,8 +21,8 @@ public class x extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
             if (jSONObject.has("status") && jSONObject.has(TbEnum.SystemMessage.KEY_USER_ID)) {
                 long optLong = jSONObject.optLong(TbEnum.SystemMessage.KEY_USER_ID, -1L);
                 boolean optBoolean = jSONObject.optBoolean("status");
-                if (com.baidu.swan.apps.inlinewidget.rtcroom.b.a.bi(optLong)) {
-                    bVar.e(optLong, optBoolean);
+                if (com.baidu.swan.apps.inlinewidget.rtcroom.b.a.bk(optLong)) {
+                    bVar.f(optLong, optBoolean);
                 }
             }
         }

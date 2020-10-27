@@ -35,14 +35,14 @@ public class d extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
             return false;
         } else {
-            final boolean bM = com.baidu.swan.apps.setting.oauth.c.bM(optParamsAsJo);
-            eVar.aDm().a(context, "ppcert", bM, new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.extensions.a.d.1
+            final boolean bP = com.baidu.swan.apps.setting.oauth.c.bP(optParamsAsJo);
+            eVar.aFg().a(context, "ppcert", bP, new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.extensions.a.d.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ap.e.b
                 /* renamed from: a */
                 public void M(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
                     if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
-                        d.this.a((Activity) context, bM, callbackHandler, optString);
+                        d.this.a((Activity) context, bP, callbackHandler, optString);
                     } else {
                         com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, optString);
                     }
@@ -61,10 +61,10 @@ public class d extends aa {
             /* renamed from: a */
             public void M(com.baidu.swan.apps.setting.b.a aVar) {
                 com.baidu.swan.apps.console.c.i("OpenData", "onOpenDataCallback:: " + aVar.toString());
-                if (!aVar.aFu()) {
+                if (!aVar.aHo()) {
                     com.baidu.swan.apps.setting.oauth.c.a(aVar, callbackHandler, str);
                 } else {
-                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(aVar.djN, 0).toString());
+                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(aVar.dsn, 0).toString());
                 }
             }
         });

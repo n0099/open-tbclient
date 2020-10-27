@@ -9,37 +9,37 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes17.dex */
 public class TurbonetConfig {
-    private String nCN;
-    private boolean nCO = false;
-    private JSONObject nCM = new JSONObject();
+    private String ofp;
+    private boolean ofq = false;
+    private JSONObject ofo = new JSONObject();
 
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes17.dex */
     public @interface HttpCacheSetting {
     }
 
-    public void yt(boolean z) {
+    public void zj(boolean z) {
         e(SchemeCollecter.CLASSIFY_BASE, "http2_enabled", Boolean.valueOf(z));
     }
 
-    public void yu(boolean z) {
+    public void zk(boolean z) {
         e(SchemeCollecter.CLASSIFY_BASE, ETAG.KEY_QUIC_ENABLED, Boolean.valueOf(z));
     }
 
-    public void Uy(String str) {
+    public void VM(String str) {
         if (!new File(str).isDirectory()) {
             throw new IllegalArgumentException("Storage path must be set to existing directory");
         }
-        this.nCN = str;
+        this.ofp = str;
     }
 
-    public void C(int i, long j) {
+    public void D(int i, long j) {
         if (i == 3 || i == 2) {
-            if (dSI() == null) {
+            if (dYA() == null) {
                 throw new IllegalArgumentException("Storage path must be set");
             }
-            this.nCO = true;
-        } else if (dSI() != null) {
+            this.ofq = true;
+        } else if (dYA() != null) {
             throw new IllegalArgumentException("Storage path must not be set");
         }
         e(SchemeCollecter.CLASSIFY_BASE, "http_cache_enabled", Boolean.valueOf(i == 0 || i == 2 ? false : true));
@@ -60,15 +60,15 @@ public class TurbonetConfig {
         e(SchemeCollecter.CLASSIFY_BASE, "http_cache_size", Long.valueOf(j));
     }
 
-    public void yv(boolean z) {
+    public void zl(boolean z) {
         e("conn", "preconnect_enabled", Boolean.valueOf(z));
     }
 
-    public void Uz(String str) {
+    public void VN(String str) {
         e("conn", "preconnect_app_hosts", str);
     }
 
-    public void yw(boolean z) {
+    public void zm(boolean z) {
         e("bdns", "baidu_dns_enabled", Boolean.valueOf(z));
     }
 
@@ -80,28 +80,28 @@ public class TurbonetConfig {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public JSONObject dSH() {
-        return this.nCM;
+    public JSONObject dYz() {
+        return this.ofo;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String dSI() {
-        return this.nCN;
+    public String dYA() {
+        return this.ofp;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean dSJ() {
-        return this.nCO;
+    public boolean dYB() {
+        return this.ofq;
     }
 
     public void e(String str, String str2, Object obj) {
         try {
-            JSONObject optJSONObject = this.nCM.optJSONObject(str);
+            JSONObject optJSONObject = this.ofo.optJSONObject(str);
             if (optJSONObject == null) {
                 optJSONObject = new JSONObject();
             }
             optJSONObject.put(str2, obj);
-            this.nCM.put(str, optJSONObject);
+            this.ofo.put(str, optJSONObject);
         } catch (JSONException e) {
             throw new IllegalStateException("JSON expcetion:", e);
         }

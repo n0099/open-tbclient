@@ -1,7 +1,7 @@
 package com.kascend.chushou.widget;
 /* loaded from: classes6.dex */
 public class a {
-    public static int OE(int i) {
+    public static int Qv(int i) {
         if (i == 401) {
             return 5;
         }

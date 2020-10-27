@@ -6,7 +6,7 @@ import org.json.JSONArray;
 public class a implements Serializable {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1316a;
+    public String f1313a;
     public String b;
     public String c;
     public String d;
@@ -22,7 +22,7 @@ public class a implements Serializable {
     public a(String str, String str2, String str3, String str4, JSONArray jSONArray, JSONArray jSONArray2, JSONArray jSONArray3, JSONArray jSONArray4, JSONArray jSONArray5) {
         this.b = str;
         this.d = str2;
-        this.f1316a = str3;
+        this.f1313a = str3;
         this.c = str4;
         this.e = jSONArray;
         this.f = jSONArray2;
@@ -32,11 +32,11 @@ public class a implements Serializable {
     }
 
     public String a() {
-        return this.f1316a;
+        return this.f1313a;
     }
 
     public void a(String str) {
-        this.f1316a = str;
+        this.f1313a = str;
     }
 
     public String b() {
@@ -64,6 +64,6 @@ public class a implements Serializable {
     }
 
     public String toString() {
-        return "LogModel{sessioninfo='" + this.f1316a + "', ug='" + this.b + "', nm='" + this.c + "', flag='" + this.d + "', stm=" + this.e + ", sc=" + this.f + ", etm=" + this.g + ", mg=" + this.h + ", ex=" + this.i + '}';
+        return "LogModel{sessioninfo='" + this.f1313a + "', ug='" + this.b + "', nm='" + this.c + "', flag='" + this.d + "', stm=" + this.e + ", sc=" + this.f + ", etm=" + this.g + ", mg=" + this.h + ", ex=" + this.i + '}';
     }
 }

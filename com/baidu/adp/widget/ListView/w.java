@@ -11,19 +11,19 @@ import com.baidu.tieba.R;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class w extends com.baidu.adp.widget.ListView.a<x, a> {
-    private final LinkedList<Pair<RelativeLayout, com.baidu.tbadk.k.g>> Xm;
-    private int Xn;
+    private final LinkedList<Pair<RelativeLayout, com.baidu.tbadk.k.g>> Xn;
     private int Xo;
+    private int Xp;
 
     private int aT(int i) {
         return com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), i);
     }
 
     public w(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), x.Xq);
-        this.Xm = new LinkedList<>();
-        this.Xn = aT(R.dimen.tbds304);
-        this.Xo = aT(R.dimen.tbds198);
+        super(tbPageContext.getPageActivity(), x.Xr);
+        this.Xn = new LinkedList<>();
+        this.Xo = aT(R.dimen.tbds304);
+        this.Xp = aT(R.dimen.tbds198);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,17 +39,17 @@ public class w extends com.baidu.adp.widget.ListView.a<x, a> {
         relativeLayout.setGravity(1);
         com.baidu.tbadk.k.g gVar = new com.baidu.tbadk.k.g(this.mContext, 0);
         gVar.attachView(relativeLayout);
-        gVar.setTopMargin(this.Xn);
-        gVar.br(this.Xo);
+        gVar.setTopMargin(this.Xo);
+        gVar.br(this.Xp);
         View view = gVar.getView();
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
         layoutParams.width = -1;
         layoutParams.height = -2;
         layoutParams.addRule(14);
         view.setLayoutParams(layoutParams);
-        this.Xm.add(new Pair<>(relativeLayout, gVar));
+        this.Xn.add(new Pair<>(relativeLayout, gVar));
         a aVar = new a(relativeLayout);
-        aVar.Xp = gVar;
+        aVar.Xq = gVar;
         return aVar;
     }
 
@@ -57,15 +57,15 @@ public class w extends com.baidu.adp.widget.ListView.a<x, a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, x xVar, a aVar) {
-        if (aVar != null && aVar.Xp != null) {
-            aVar.Xp.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        if (aVar != null && aVar.Xq != null) {
+            aVar.Xq.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
         return view;
     }
 
     /* loaded from: classes.dex */
     public static class a extends af.a {
-        public com.baidu.tbadk.k.g Xp;
+        public com.baidu.tbadk.k.g Xq;
 
         public a(View view) {
             super(view);

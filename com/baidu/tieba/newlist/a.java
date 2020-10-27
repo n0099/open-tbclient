@@ -8,9 +8,9 @@ public class a {
         if (obj instanceof com.baidu.tieba.newlist.b.b) {
             aq aqVar = new aq(str);
             aqVar.aj("obj_locate", i);
-            aqVar.u("topic_id", ((com.baidu.tieba.newlist.b.b) obj).topicId);
-            aqVar.dK("uid", TbadkCoreApplication.getCurrentAccount());
-            aqVar.bmR();
+            aqVar.w("topic_id", ((com.baidu.tieba.newlist.b.b) obj).topicId);
+            aqVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
+            aqVar.boK();
         }
     }
 }

@@ -38,22 +38,22 @@ public class a implements com.baidu.swan.veloce.a {
     }
 
     @Override // com.baidu.swan.veloce.a
-    public void bab() {
-        p.aIg();
-        p.aIf();
-        p.aIh();
+    public void bbU() {
+        p.aKa();
+        p.aJZ();
+        p.aKb();
         try {
             new UnitedSchemeMainDispatcher();
-            SwanLauncher.aoP();
-            e.aBy();
+            SwanLauncher.aqK();
+            e.aDs();
         } catch (Exception e) {
         }
     }
 
     @Override // com.baidu.swan.veloce.a
-    public void yH(String str) {
+    public void za(String str) {
         if (!TextUtils.isEmpty(str)) {
-            com.baidu.swan.facade.b.b.uy(str);
+            com.baidu.swan.facade.b.b.uR(str);
         }
     }
 }

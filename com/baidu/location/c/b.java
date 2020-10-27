@@ -48,7 +48,7 @@ public class b {
     private com.baidu.location.c.a e = new com.baidu.location.c.a();
     private com.baidu.location.c.a f = null;
     private List<com.baidu.location.c.a> g = null;
-    private C0221b h = null;
+    private C0235b h = null;
     private boolean i = false;
     private boolean j = false;
     private long m = 0;
@@ -79,8 +79,8 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.location.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C0221b extends PhoneStateListener {
-        public C0221b() {
+    public class C0235b extends PhoneStateListener {
+        public C0235b() {
         }
 
         @Override // android.telephony.PhoneStateListener
@@ -665,7 +665,7 @@ public class b {
         if (!this.i && com.baidu.location.f.isServing) {
             this.d = (TelephonyManager) com.baidu.location.f.getServiceContext().getSystemService("phone");
             this.g = new LinkedList();
-            this.h = new C0221b();
+            this.h = new C0235b();
             i();
             if (this.d != null && this.h != null) {
                 if (Build.VERSION.SDK_INT < 29) {

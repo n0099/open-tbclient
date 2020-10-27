@@ -6,17 +6,17 @@ import org.json.JSONObject;
 public class cj {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f4838a;
+    public int f4836a;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f164a;
+    public long f161a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f165a;
+    private String f162a;
     public int b;
 
     /* renamed from: b  reason: collision with other field name */
-    public long f166b;
+    public long f163b;
     public int c;
     public int d;
     public int e;
@@ -26,43 +26,43 @@ public class cj {
     }
 
     public cj(cj cjVar) {
-        this.f164a = cjVar.f164a;
-        this.f4838a = cjVar.f4838a;
+        this.f161a = cjVar.f161a;
+        this.f4836a = cjVar.f4836a;
         this.h = cjVar.h;
         this.b = cjVar.b;
         this.c = cjVar.c;
-        this.f166b = cjVar.f166b;
+        this.f163b = cjVar.f163b;
         this.d = cjVar.d;
-        this.f165a = cjVar.f165a;
+        this.f162a = cjVar.f162a;
         this.e = cjVar.e;
     }
 
     public Bundle a() {
         Bundle bundle = new Bundle();
-        bundle.putLong("id", this.f164a);
-        bundle.putInt("showType", this.f4838a);
+        bundle.putLong("id", this.f161a);
+        bundle.putInt("showType", this.f4836a);
         bundle.putInt("nonsense", this.b);
         bundle.putInt("receiveUpperBound", this.c);
-        bundle.putLong("lastShowTime", this.f166b);
+        bundle.putLong("lastShowTime", this.f163b);
         bundle.putInt("multi", this.e);
         return bundle;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m202a() {
-        return this.f165a;
+    public String m201a() {
+        return this.f162a;
     }
 
     public void a(String str) {
-        this.f165a = str;
+        this.f162a = str;
     }
 
     public void a(JSONObject jSONObject) {
-        this.f164a = jSONObject.optLong("id");
-        this.f4838a = jSONObject.optInt("showType");
+        this.f161a = jSONObject.optLong("id");
+        this.f4836a = jSONObject.optInt("showType");
         this.b = jSONObject.optInt("nonsense");
         this.c = jSONObject.optInt("receiveUpperBound");
-        this.f166b = jSONObject.optLong("lastShowTime");
+        this.f163b = jSONObject.optLong("lastShowTime");
         this.e = jSONObject.optInt("multi");
     }
 

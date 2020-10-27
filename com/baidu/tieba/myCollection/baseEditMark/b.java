@@ -6,55 +6,55 @@ import com.baidu.tbadk.baseEditMark.a;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes24.dex */
 public class b extends com.baidu.tbadk.baseEditMark.a {
-    private MarkModel kIs;
+    private MarkModel kUP;
 
     public b(BaseActivity baseActivity) {
-        this.kIs = null;
-        this.kIs = new MarkModel(baseActivity);
+        this.kUP = null;
+        this.kUP = new MarkModel(baseActivity);
     }
 
     public b(BaseFragmentActivity baseFragmentActivity) {
-        this.kIs = null;
-        this.kIs = new MarkModel(baseFragmentActivity);
+        this.kUP = null;
+        this.kUP = new MarkModel(baseFragmentActivity);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void hU(boolean z) {
-        this.kIs.hU(z);
+    public void ih(boolean z) {
+        this.kUP.ih(z);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public String beb() {
-        return this.kIs.beb();
+    public String bfU() {
+        return this.kUP.bfU();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void a(a.InterfaceC0547a interfaceC0547a) {
-        this.kIs.a(interfaceC0547a);
+    public void a(a.InterfaceC0561a interfaceC0561a) {
+        this.kUP.a(interfaceC0561a);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void bed() {
-        this.kIs.bed();
+    public void bfW() {
+        this.kUP.bfW();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void bee() {
-        this.kIs.bee();
+    public void bfX() {
+        this.kUP.bfX();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public MarkData bef() {
-        return this.kIs.bef();
+    public MarkData bfY() {
+        return this.kUP.bfY();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public void a(MarkData markData) {
-        this.kIs.a(markData);
+        this.kUP.a(markData);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public boolean bec() {
-        return this.kIs.bec();
+    public boolean bfV() {
+        return this.kUP.bfV();
     }
 }

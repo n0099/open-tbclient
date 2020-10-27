@@ -6,28 +6,28 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 /* loaded from: classes11.dex */
 public final class p {
-    private static PackageManager aoK;
-    private static PackageInfo aoL;
-    private static String aoM;
+    private static PackageManager aoL;
+    private static PackageInfo aoM;
+    private static String aoN;
     private static Context mContext;
 
     public static String L() {
-        return TextUtils.isEmpty(com.baidu.crabsdk.a.o) ? aoL == null ? "N/A" : aoL.versionName : com.baidu.crabsdk.a.o;
+        return TextUtils.isEmpty(com.baidu.crabsdk.a.o) ? aoM == null ? "N/A" : aoM.versionName : com.baidu.crabsdk.a.o;
     }
 
     public static int M() {
-        if (aoL == null) {
+        if (aoM == null) {
             return 0;
         }
-        return aoL.versionCode;
+        return aoM.versionCode;
     }
 
     public static void e(Context context) {
         if (mContext == null) {
             mContext = context;
-            aoK = context.getPackageManager();
+            aoL = context.getPackageManager();
             try {
-                aoL = aoK.getPackageInfo(mContext.getPackageName(), 0);
+                aoM = aoL.getPackageInfo(mContext.getPackageName(), 0);
             } catch (PackageManager.NameNotFoundException e) {
                 com.baidu.crabsdk.c.a.a("PackageCollector.init fail.", e);
             }
@@ -39,12 +39,12 @@ public final class p {
     }
 
     public static String vp() {
-        if (aoM == null) {
-            if (aoL == null) {
+        if (aoN == null) {
+            if (aoM == null) {
                 return "N/A";
             }
-            aoM = aoL.applicationInfo.loadLabel(aoK).toString();
+            aoN = aoM.applicationInfo.loadLabel(aoL).toString();
         }
-        return aoM;
+        return aoN;
     }
 }

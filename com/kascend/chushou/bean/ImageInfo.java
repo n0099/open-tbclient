@@ -35,7 +35,7 @@ public class ImageInfo implements Parcelable {
     public int width;
 
     public ImageInfo() {
-        this.type = c.nRP.getName().toLowerCase();
+        this.type = c.oJh.getName().toLowerCase();
         this.width = -1;
         this.height = -1;
         this.frameCount = 0;
@@ -44,7 +44,7 @@ public class ImageInfo implements Parcelable {
     }
 
     protected ImageInfo(Parcel parcel) {
-        this.type = c.nRP.getName().toLowerCase();
+        this.type = c.oJh.getName().toLowerCase();
         this.width = -1;
         this.height = -1;
         this.frameCount = 0;
@@ -88,7 +88,7 @@ public class ImageInfo implements Parcelable {
         if (!file.exists() || file.isDirectory()) {
             return imageInfo;
         }
-        c cVar = c.nRP;
+        c cVar = c.oJh;
         try {
             fileInputStream = new FileInputStream(file);
             try {
@@ -98,7 +98,7 @@ public class ImageInfo implements Parcelable {
             } catch (Exception e) {
                 a.b(fileInputStream);
                 imageInfo.type = cVar.getName().toLowerCase();
-                if (cVar != c.nRP) {
+                if (cVar != c.oJh) {
                 }
             } catch (Throwable th) {
                 th = th;
@@ -112,10 +112,10 @@ public class ImageInfo implements Parcelable {
             fileInputStream = null;
         }
         imageInfo.type = cVar.getName().toLowerCase();
-        if (cVar != c.nRP) {
+        if (cVar != c.oJh) {
             return imageInfo;
         }
-        if (cVar == b.nRH) {
+        if (cVar == b.oIZ) {
             try {
                 GifDrawable gifDrawable = new GifDrawable(file);
                 imageInfo.frameCount = gifDrawable.getNumberOfFrames();
@@ -124,7 +124,7 @@ public class ImageInfo implements Parcelable {
             } catch (Throwable th3) {
             }
             return imageInfo;
-        } else if (cVar == b.nRN) {
+        } else if (cVar == b.oJf) {
             return imageInfo;
         } else {
             BitmapFactory.Options options = new BitmapFactory.Options();

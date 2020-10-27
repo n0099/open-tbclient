@@ -5,30 +5,30 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes26.dex */
 public class g {
-    protected h mbU = new h();
-    protected i mbV = new i();
-    private LinkedList<e> Md = new LinkedList<>();
-    private e mbW = null;
+    protected h mot = new h();
+    protected i mou = new i();
+    private LinkedList<e> Me = new LinkedList<>();
+    private e mov = null;
 
-    public h duU() {
-        return this.mbU;
+    public h dyb() {
+        return this.mot;
     }
 
-    public i duV() {
-        return this.mbV;
+    public i dyc() {
+        return this.mou;
     }
 
     public List<e> mz() {
-        return Collections.unmodifiableList(this.Md);
+        return Collections.unmodifiableList(this.Me);
     }
 
     public void a(e eVar) {
         if (eVar != null) {
-            this.Md.add(eVar);
+            this.Me.add(eVar);
         }
     }
 
     public void b(e eVar) {
-        this.mbW = eVar;
+        this.mov = eVar;
     }
 }

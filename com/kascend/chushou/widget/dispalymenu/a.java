@@ -10,11 +10,11 @@ public class a extends b {
     @Override // com.kascend.chushou.widget.dispalymenu.b
     public int a(int i, int i2) {
         int i3 = 0;
-        for (int i4 = 0; i4 < this.f4268a.getChildCount(); i4++) {
-            View childAt = this.f4268a.getChildAt(i4);
+        for (int i4 = 0; i4 < this.f4266a.getChildCount(); i4++) {
+            View childAt = this.f4266a.getChildAt(i4);
             if (childAt.getVisibility() != 8) {
                 i3 += childAt.getMeasuredHeight();
-                if (i4 != this.f4268a.getChildCount() - 1) {
+                if (i4 != this.f4266a.getChildCount() - 1) {
                     i3 += this.d;
                 }
             }
@@ -33,16 +33,16 @@ public class a extends b {
     }
 
     @Override // com.kascend.chushou.widget.dispalymenu.b
-    public int dY(int i, int i2) {
+    public int eg(int i, int i2) {
         return i2;
     }
 
     @Override // com.kascend.chushou.widget.dispalymenu.b
     public void b(boolean z, int i, int i2, int i3, int i4) {
         int i5 = (i3 - i) / 2;
-        int paddingTop = this.f4268a.getPaddingTop();
-        for (int i6 = 0; i6 < this.f4268a.getChildCount(); i6++) {
-            View childAt = this.f4268a.getChildAt(i6);
+        int paddingTop = this.f4266a.getPaddingTop();
+        for (int i6 = 0; i6 < this.f4266a.getChildCount(); i6++) {
+            View childAt = this.f4266a.getChildAt(i6);
             if (childAt.getVisibility() != 8 && childAt != this.b) {
                 childAt.setTranslationX(0.0f);
                 int measuredWidth = i5 - (childAt.getMeasuredWidth() / 2);
@@ -56,10 +56,10 @@ public class a extends b {
     @Override // com.kascend.chushou.widget.dispalymenu.b
     public void a(int i, int i2, boolean z, int i3, int i4, int i5, int i6) {
         int i7 = (i5 - i3) / 2;
-        int paddingTop = this.f4268a.getPaddingTop();
+        int paddingTop = this.f4266a.getPaddingTop();
         boolean z2 = false;
-        for (int i8 = 0; i8 < this.f4268a.getChildCount(); i8++) {
-            View childAt = this.f4268a.getChildAt(i8);
+        for (int i8 = 0; i8 < this.f4266a.getChildCount(); i8++) {
+            View childAt = this.f4266a.getChildAt(i8);
             if (childAt.getVisibility() != 8) {
                 if (childAt == this.b || childAt == this.c) {
                     int measuredWidth = i7 - (childAt.getMeasuredWidth() / 2);
@@ -70,12 +70,12 @@ public class a extends b {
                     childAt.setTranslationY(0.0f);
                     if (z2) {
                         int measuredWidth2 = i7 - (childAt.getMeasuredWidth() / 2);
-                        int paddingTop2 = this.f4268a.getPaddingTop();
+                        int paddingTop2 = this.f4266a.getPaddingTop();
                         childAt.layout(measuredWidth2, paddingTop2, childAt.getMeasuredWidth() + measuredWidth2, childAt.getMeasuredHeight() + paddingTop2);
                         childAt.setTranslationX(i);
                     } else {
                         int measuredWidth3 = i7 - (childAt.getMeasuredWidth() / 2);
-                        int paddingTop3 = this.f4268a.getPaddingTop();
+                        int paddingTop3 = this.f4266a.getPaddingTop();
                         childAt.layout(measuredWidth3, paddingTop3, childAt.getMeasuredWidth() + measuredWidth3, childAt.getMeasuredHeight() + paddingTop3);
                         z2 = true;
                     }
@@ -88,8 +88,8 @@ public class a extends b {
     public void a(ArrayList<Animator> arrayList, ArrayList<Animator> arrayList2, AnimatorSet animatorSet, int i, int i2) {
         boolean z = false;
         int i3 = 0;
-        for (int i4 = 0; i4 < this.f4268a.getChildCount(); i4++) {
-            View childAt = this.f4268a.getChildAt(i4);
+        for (int i4 = 0; i4 < this.f4266a.getChildCount(); i4++) {
+            View childAt = this.f4266a.getChildAt(i4);
             if (childAt == this.c && this.c.getVisibility() != 8) {
                 i3 = (i3 - this.c.getMeasuredHeight()) - this.d;
             } else if (childAt == this.b) {

@@ -13,13 +13,13 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes17.dex */
 public class ApplicationStatus {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static Object nyK;
-    private static Integer nyL;
-    private static Activity nyM;
-    private static c nyN;
-    private static final Map<Activity, a> nyO;
-    private static final com.baidu.turbonet.base.b<b> nyP;
-    private static final com.baidu.turbonet.base.b<c> nyQ;
+    private static Object obk;
+    private static Integer obl;
+    private static Activity obm;
+    private static c obn;
+    private static final Map<Activity, a> obo;
+    private static final com.baidu.turbonet.base.b<b> obp;
+    private static final com.baidu.turbonet.base.b<c> obq;
 
     /* loaded from: classes17.dex */
     public interface b {
@@ -28,7 +28,7 @@ public class ApplicationStatus {
 
     /* loaded from: classes17.dex */
     public interface c {
-        void Lj(int i);
+        void Ml(int i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -36,21 +36,21 @@ public class ApplicationStatus {
 
     static {
         $assertionsDisabled = !ApplicationStatus.class.desiredAssertionStatus();
-        nyK = new Object();
-        nyO = new ConcurrentHashMap();
-        nyP = new com.baidu.turbonet.base.b<>();
-        nyQ = new com.baidu.turbonet.base.b<>();
+        obk = new Object();
+        obo = new ConcurrentHashMap();
+        obp = new com.baidu.turbonet.base.b<>();
+        obq = new com.baidu.turbonet.base.b<>();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes17.dex */
     public static class a {
         private int mStatus;
-        private com.baidu.turbonet.base.b<b> nyS;
+        private com.baidu.turbonet.base.b<b> obs;
 
         private a() {
             this.mStatus = 6;
-            this.nyS = new com.baidu.turbonet.base.b<>();
+            this.obs = new com.baidu.turbonet.base.b<>();
         }
 
         public int getStatus() {
@@ -61,8 +61,8 @@ public class ApplicationStatus {
             this.mStatus = i;
         }
 
-        public com.baidu.turbonet.base.b<b> dRD() {
-            return this.nyS;
+        public com.baidu.turbonet.base.b<b> dXv() {
+            return this.obs;
         }
     }
 
@@ -73,9 +73,9 @@ public class ApplicationStatus {
         baseChromiumApplication.a(new BaseChromiumApplication.b() { // from class: com.baidu.turbonet.base.ApplicationStatus.1
             @Override // com.baidu.turbonet.base.BaseChromiumApplication.b
             public void m(Activity activity, boolean z) {
-                int az;
-                if (z && activity != ApplicationStatus.nyM && (az = ApplicationStatus.az(activity)) != 6 && az != 5) {
-                    Activity unused = ApplicationStatus.nyM = activity;
+                int aC;
+                if (z && activity != ApplicationStatus.obm && (aC = ApplicationStatus.aC(activity)) != 6 && aC != 5) {
+                    Activity unused = ApplicationStatus.obm = activity;
                 }
             }
         });
@@ -121,46 +121,46 @@ public class ApplicationStatus {
         if (activity == null) {
             throw new IllegalArgumentException("null activity is not supported");
         }
-        if (nyM == null || i == 1 || i == 3 || i == 2) {
-            nyM = activity;
+        if (obm == null || i == 1 || i == 3 || i == 2) {
+            obm = activity;
         }
         int stateForApplication = getStateForApplication();
         if (i == 1) {
-            if (!$assertionsDisabled && nyO.containsKey(activity)) {
+            if (!$assertionsDisabled && obo.containsKey(activity)) {
                 throw new AssertionError();
             }
-            nyO.put(activity, new a());
+            obo.put(activity, new a());
         }
-        synchronized (nyK) {
-            nyL = null;
+        synchronized (obk) {
+            obl = null;
         }
-        a aVar = nyO.get(activity);
+        a aVar = obo.get(activity);
         aVar.setStatus(i);
-        Iterator<b> it = aVar.dRD().iterator();
+        Iterator<b> it = aVar.dXv().iterator();
         while (it.hasNext()) {
             it.next().k(activity, i);
         }
-        Iterator<b> it2 = nyP.iterator();
+        Iterator<b> it2 = obp.iterator();
         while (it2.hasNext()) {
             it2.next().k(activity, i);
         }
         int stateForApplication2 = getStateForApplication();
         if (stateForApplication2 != stateForApplication) {
-            Iterator<c> it3 = nyQ.iterator();
+            Iterator<c> it3 = obq.iterator();
             while (it3.hasNext()) {
-                it3.next().Lj(stateForApplication2);
+                it3.next().Ml(stateForApplication2);
             }
         }
         if (i == 6) {
-            nyO.remove(activity);
-            if (activity == nyM) {
-                nyM = null;
+            obo.remove(activity);
+            if (activity == obm) {
+                obm = null;
             }
         }
     }
 
-    public static int az(Activity activity) {
-        a aVar = nyO.get(activity);
+    public static int aC(Activity activity) {
+        a aVar = obo.get(activity);
         if (aVar != null) {
             return aVar.getStatus();
         }
@@ -170,17 +170,17 @@ public class ApplicationStatus {
     @CalledByNative
     public static int getStateForApplication() {
         int intValue;
-        synchronized (nyK) {
-            if (nyL == null) {
-                nyL = Integer.valueOf(dRA());
+        synchronized (obk) {
+            if (obl == null) {
+                obl = Integer.valueOf(dXs());
             }
-            intValue = nyL.intValue();
+            intValue = obl.intValue();
         }
         return intValue;
     }
 
     public static void a(c cVar) {
-        nyQ.aR(cVar);
+        obq.aS(cVar);
     }
 
     @CalledByNative
@@ -188,25 +188,25 @@ public class ApplicationStatus {
         ThreadUtils.runOnUiThread(new Runnable() { // from class: com.baidu.turbonet.base.ApplicationStatus.3
             @Override // java.lang.Runnable
             public void run() {
-                if (ApplicationStatus.nyN == null) {
-                    c unused = ApplicationStatus.nyN = new c() { // from class: com.baidu.turbonet.base.ApplicationStatus.3.1
+                if (ApplicationStatus.obn == null) {
+                    c unused = ApplicationStatus.obn = new c() { // from class: com.baidu.turbonet.base.ApplicationStatus.3.1
                         @Override // com.baidu.turbonet.base.ApplicationStatus.c
-                        public void Lj(int i) {
+                        public void Ml(int i) {
                             ApplicationStatus.nativeOnApplicationStateChange(i);
                         }
                     };
-                    ApplicationStatus.a(ApplicationStatus.nyN);
+                    ApplicationStatus.a(ApplicationStatus.obn);
                 }
             }
         });
     }
 
-    private static int dRA() {
+    private static int dXs() {
         boolean z;
         boolean z2;
         boolean z3 = false;
         boolean z4 = false;
-        for (a aVar : nyO.values()) {
+        for (a aVar : obo.values()) {
             int status = aVar.getStatus();
             if (status != 4 && status != 5 && status != 6) {
                 return 1;

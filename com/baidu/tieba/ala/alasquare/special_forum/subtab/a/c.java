@@ -10,18 +10,18 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.special_forum.data.e> {
-    private a gbh;
+    private a gll;
 
     public c(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.gbh = new a(getView());
+        this.gll = new a(getView());
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ap.setViewTextColor(this.gbh.textView, R.color.cp_cont_d);
-        ap.setBackgroundColor(this.gbh.euA, R.color.cp_bg_line_c);
+        ap.setViewTextColor(this.gll.textView, R.color.cp_cont_d);
+        ap.setBackgroundColor(this.gll.eCZ, R.color.cp_bg_line_c);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -40,15 +40,15 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.spec
 
     /* loaded from: classes4.dex */
     public static class a extends af.a {
-        public View dNm;
-        public View euA;
+        public View dVJ;
+        public View eCZ;
         public TextView textView;
 
         public a(View view) {
             super(view);
-            this.dNm = view;
-            this.textView = (TextView) this.dNm.findViewById(R.id.tv_empty);
-            this.euA = this.dNm.findViewById(R.id.devider_line);
+            this.dVJ = view;
+            this.textView = (TextView) this.dVJ.findViewById(R.id.tv_empty);
+            this.eCZ = this.dVJ.findViewById(R.id.devider_line);
         }
     }
 }

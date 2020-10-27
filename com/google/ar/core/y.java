@@ -7,45 +7,45 @@ import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationExceptio
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f4050a = false;
-    final /* synthetic */ InstallActivity ocb;
+    boolean f4048a = false;
+    final /* synthetic */ InstallActivity oTs;
 
     public void a(p pVar) {
-        synchronized (this.ocb) {
-            if (!this.f4050a) {
-                InstallActivity.a(this.ocb, pVar);
+        synchronized (this.oTs) {
+            if (!this.f4048a) {
+                InstallActivity.a(this.oTs, pVar);
                 switch (pVar.ordinal()) {
                     case 0:
                         return;
                     case 1:
-                        InstallActivity.a(this.ocb, new UnavailableUserDeclinedInstallationException());
+                        InstallActivity.a(this.oTs, new UnavailableUserDeclinedInstallationException());
                         break;
                     case 2:
-                        if (!InstallActivity.d(this.ocb)) {
-                            InstallActivity.e(this.ocb);
+                        if (!InstallActivity.d(this.oTs)) {
+                            InstallActivity.e(this.oTs);
                         }
-                        InstallActivity.a(this.ocb, (Exception) null);
+                        InstallActivity.a(this.oTs, (Exception) null);
                         break;
                 }
-                this.f4050a = true;
+                this.f4048a = true;
             }
         }
     }
 
     public void a(Exception exc) {
-        synchronized (this.ocb) {
-            if (!this.f4050a) {
-                this.f4050a = true;
-                InstallActivity.a(this.ocb, p.CANCELLED);
+        synchronized (this.oTs) {
+            if (!this.f4048a) {
+                this.f4048a = true;
+                InstallActivity.a(this.oTs, p.CANCELLED);
                 if (!(exc instanceof UnavailableException)) {
                 }
-                InstallActivity.a(this.ocb, exc);
+                InstallActivity.a(this.oTs, exc);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(InstallActivity installActivity) {
-        this.ocb = installActivity;
+        this.oTs = installActivity;
     }
 }

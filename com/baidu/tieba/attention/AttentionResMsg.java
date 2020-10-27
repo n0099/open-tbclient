@@ -39,14 +39,14 @@ public class AttentionResMsg extends JsonHttpResponsedMessage {
                 if (optJSONObject2 != null) {
                     i iVar = new i();
                     iVar.forumId = optJSONObject2.optString("id");
-                    iVar.bed = optJSONObject2.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
+                    iVar.bfv = optJSONObject2.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
                     iVar.forumName = optJSONObject2.optString("name");
                     iVar.level = optJSONObject2.optInt("level_id");
-                    iVar.eXT = optJSONObject2.optInt("this_week_post") == 1;
+                    iVar.fgp = optJSONObject2.optInt("this_week_post") == 1;
                     JSONObject optJSONObject3 = optJSONObject2.optJSONObject("block_pop_info");
                     if (optJSONObject3 != null) {
-                        iVar.eXU = optJSONObject3.optInt("can_post") == 1;
-                        iVar.eXV = optJSONObject3.optString("block_info");
+                        iVar.fgq = optJSONObject3.optInt("can_post") == 1;
+                        iVar.fgr = optJSONObject3.optString("block_info");
                     }
                     JSONArray optJSONArray = optJSONObject2.optJSONArray("tab_info");
                     if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -70,8 +70,8 @@ public class AttentionResMsg extends JsonHttpResponsedMessage {
                         }
                     }
                     if (optJSONObject2.optInt("has_postpre") == 1 && (optJSONObject = optJSONObject2.optJSONObject("post_prefix")) != null) {
-                        iVar.eXW = new PostPrefixData();
-                        iVar.eXW.parserJson(optJSONObject);
+                        iVar.fgs = new PostPrefixData();
+                        iVar.fgs.parserJson(optJSONObject);
                     }
                     this.mSelectForumDataList.add(iVar);
                 }

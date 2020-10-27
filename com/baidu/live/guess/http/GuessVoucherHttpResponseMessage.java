@@ -6,17 +6,17 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class GuessVoucherHttpResponseMessage extends JsonHttpResponsedMessage {
-    private boolean bey;
-    private String bez;
+    private boolean bfO;
+    private String bfP;
     private boolean isFollow;
     private int voucherNum;
 
     public GuessVoucherHttpResponseMessage() {
         super(1021215);
-        this.bey = false;
+        this.bfO = false;
         this.voucherNum = 0;
         this.isFollow = false;
-        this.bez = "";
+        this.bfP = "";
     }
 
     public int getVoucherNum() {
@@ -28,7 +28,7 @@ public class GuessVoucherHttpResponseMessage extends JsonHttpResponsedMessage {
     }
 
     public String getTaskUrl() {
-        return this.bez;
+        return this.bfP;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -42,8 +42,8 @@ public class GuessVoucherHttpResponseMessage extends JsonHttpResponsedMessage {
             if (optJSONObject != null) {
                 this.voucherNum = optJSONObject.optInt("total_quiz_ticket", 0);
                 this.isFollow = optJSONObject.optInt("is_follow") != 0;
-                this.bez = optJSONObject.optString("task_url");
-                this.bey = this.voucherNum > 0;
+                this.bfP = optJSONObject.optString("task_url");
+                this.bfO = this.voucherNum > 0;
             } else if (jSONObject.has(BaseJsonData.TAG_ERRNO) && jSONObject.has(BaseJsonData.TAG_ERRMSG)) {
                 setError(-1);
                 setErrorString(jSONObject.optString(BaseJsonData.TAG_ERRMSG));

@@ -3,11 +3,11 @@ package com.sdk.base.framework.c;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4485a = "";
+    private String f4483a = "";
     private long b;
 
     public final String a() {
-        return this.f4485a;
+        return this.f4483a;
     }
 
     public final void a(long j) {
@@ -15,7 +15,7 @@ public final class d {
     }
 
     public final void a(String str) {
-        this.f4485a = str;
+        this.f4483a = str;
     }
 
     public final long b() {
@@ -23,6 +23,6 @@ public final class d {
     }
 
     public final String toString() {
-        return "_$101005Bean{url='" + this.f4485a + "', time=" + this.b + '}';
+        return "_$101005Bean{url='" + this.f4483a + "', time=" + this.b + '}';
     }
 }

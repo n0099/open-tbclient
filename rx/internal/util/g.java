@@ -9,7 +9,7 @@ import rx.k;
 /* loaded from: classes16.dex */
 public class g implements k {
     public static final int SIZE;
-    public volatile Object phW;
+    public volatile Object pZp;
     private Queue<Object> queue;
     private final int size;
 
@@ -29,12 +29,12 @@ public class g implements k {
         SIZE = i;
     }
 
-    public static g esp() {
-        return ae.esy() ? new g(false, SIZE) : new g();
+    public static g eCn() {
+        return ae.eCw() ? new g(false, SIZE) : new g();
     }
 
-    public static g esq() {
-        return ae.esy() ? new g(true, SIZE) : new g();
+    public static g eCo() {
+        return ae.eCw() ? new g(true, SIZE) : new g();
     }
 
     private g(Queue<Object> queue, int i) {
@@ -80,8 +80,8 @@ public class g implements k {
     }
 
     public void onCompleted() {
-        if (this.phW == null) {
-            this.phW = NotificationLite.erS();
+        if (this.pZp == null) {
+            this.pZp = NotificationLite.eBQ();
         }
     }
 
@@ -96,9 +96,9 @@ public class g implements k {
             Queue<Object> queue = this.queue;
             if (queue != null) {
                 Object poll = queue.poll();
-                obj = this.phW;
+                obj = this.pZp;
                 if (poll == null && obj != null && queue.peek() == null) {
-                    this.phW = null;
+                    this.pZp = null;
                 } else {
                     obj = poll;
                 }
@@ -115,7 +115,7 @@ public class g implements k {
                 obj = null;
             } else {
                 Object peek = queue.peek();
-                obj = this.phW;
+                obj = this.pZp;
                 if (peek != null || obj == null || queue.peek() != null) {
                     obj = peek;
                 }
@@ -124,8 +124,8 @@ public class g implements k {
         return obj;
     }
 
-    public boolean cc(Object obj) {
-        return NotificationLite.cc(obj);
+    public boolean cg(Object obj) {
+        return NotificationLite.cg(obj);
     }
 
     public Object getValue(Object obj) {

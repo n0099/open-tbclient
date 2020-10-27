@@ -3,7 +3,7 @@ package com.kascend.chushou.player.ui.h5.c;
 public class a extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f4173a;
+    public int f4171a;
     public String b;
     public int c;
     public int d;

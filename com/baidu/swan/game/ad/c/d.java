@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public class d {
     public static void a(AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar) {
         if (adElementInfo != null) {
-            for (String str : adElementInfo.aMp()) {
+            for (String str : adElementInfo.aOj()) {
                 a(a(str, (b) null), bVar);
             }
         }
@@ -28,7 +28,7 @@ public class d {
 
     public static void a(b bVar, AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar2) {
         if (adElementInfo != null) {
-            for (String str : adElementInfo.aMr()) {
+            for (String str : adElementInfo.aOl()) {
                 a(a(str, bVar), bVar2);
             }
         }
@@ -44,18 +44,18 @@ public class d {
 
     public static String a(String str, b bVar) {
         if (bVar != null) {
-            return str.replaceAll("\\{REQ_WIDTH\\}", bVar.dzz).replaceAll("\\{REQ_HEIGHT\\}", bVar.dzA).replaceAll("\\{WIDTH\\}", bVar.dzB).replaceAll("\\{HEIGHT\\}", bVar.dzC).replaceAll("\\{DOWN_X\\}", bVar.dzD).replaceAll("\\{DOWN_Y\\}", bVar.dzE).replaceAll("\\{UP_X\\}", bVar.dzF).replaceAll("\\{UP_Y\\}", bVar.dzG).replaceAll("\\{VIDEO_TIME\\}", bVar.dzH).replaceAll("\\{BEGIN_TIME\\}", bVar.dzI).replaceAll("\\{END_TIME\\}", bVar.mEndTime).replaceAll("\\{PLAY_FIRST_FRAME\\}", bVar.dzJ).replaceAll("\\{PLAY_LAST_FRAME\\}", bVar.dzK).replaceAll("\\{SCENE\\}", bVar.dzL).replaceAll("\\{TYPE\\}", bVar.mType).replaceAll("\\{BEHAVIOR\\}", bVar.dzM).replaceAll("\\{STATUS\\}", bVar.mStatus).replaceAll("\\{CONVERSION_ACTION\\}", bVar.dzN).replaceAll("\\{CLICK_ID\\}", bVar.mClickId);
+            return str.replaceAll("\\{REQ_WIDTH\\}", bVar.dHW).replaceAll("\\{REQ_HEIGHT\\}", bVar.dHX).replaceAll("\\{WIDTH\\}", bVar.dHY).replaceAll("\\{HEIGHT\\}", bVar.dHZ).replaceAll("\\{DOWN_X\\}", bVar.dIa).replaceAll("\\{DOWN_Y\\}", bVar.dIb).replaceAll("\\{UP_X\\}", bVar.dIc).replaceAll("\\{UP_Y\\}", bVar.dId).replaceAll("\\{VIDEO_TIME\\}", bVar.dIe).replaceAll("\\{BEGIN_TIME\\}", bVar.dIf).replaceAll("\\{END_TIME\\}", bVar.mEndTime).replaceAll("\\{PLAY_FIRST_FRAME\\}", bVar.dIg).replaceAll("\\{PLAY_LAST_FRAME\\}", bVar.dIh).replaceAll("\\{SCENE\\}", bVar.dIi).replaceAll("\\{TYPE\\}", bVar.mType).replaceAll("\\{BEHAVIOR\\}", bVar.dIj).replaceAll("\\{STATUS\\}", bVar.mStatus).replaceAll("\\{CONVERSION_ACTION\\}", bVar.dIk).replaceAll("\\{CLICK_ID\\}", bVar.mClickId);
         }
         return str;
     }
 
     private static void a(String str, com.baidu.swan.game.ad.a.b bVar) {
-        bVar.uW(str);
+        bVar.vp(str);
     }
 
     public static void a(b bVar, AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar2, final a.d dVar) {
-        if (adElementInfo != null && !TextUtils.isEmpty(adElementInfo.aMk())) {
-            String a2 = a(adElementInfo.aMk(), bVar);
+        if (adElementInfo != null && !TextUtils.isEmpty(adElementInfo.aOe())) {
+            String a2 = a(adElementInfo.aOe(), bVar);
             ResponseCallback<a> responseCallback = new ResponseCallback<a>() { // from class: com.baidu.swan.game.ad.c.d.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -78,7 +78,7 @@ public class d {
                                 }
                                 a aVar = new a();
                                 aVar.mClickId = optJSONObject.optString("clickid");
-                                aVar.dzy = optJSONObject.optString("dstlink");
+                                aVar.dHV = optJSONObject.optString("dstlink");
                                 return aVar;
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -97,7 +97,7 @@ public class d {
                 /* renamed from: a */
                 public void onSuccess(a aVar, int i) {
                     if (aVar != null && a.d.this != null) {
-                        a.d.this.cH(aVar.mClickId, aVar.dzy);
+                        a.d.this.cO(aVar.mClickId, aVar.dHV);
                     }
                 }
 

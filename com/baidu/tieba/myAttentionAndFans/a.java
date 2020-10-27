@@ -6,23 +6,23 @@ import android.view.animation.Transformation;
 import android.widget.FrameLayout;
 /* loaded from: classes23.dex */
 public class a extends Animation {
-    private View kGx;
-    private int kGy;
+    private View kSU;
+    private int kSV;
     private FrameLayout.LayoutParams mLayoutParams;
     private int mType;
 
     public a(View view, int i, int i2) {
         if (view != null) {
-            this.kGx = view;
-            if (this.kGx.getVisibility() == 8 && i2 > 0) {
-                this.kGy = i2;
+            this.kSU = view;
+            if (this.kSU.getVisibility() == 8 && i2 > 0) {
+                this.kSV = i2;
             } else {
-                this.kGy = this.kGx.getMeasuredHeight();
+                this.kSV = this.kSU.getMeasuredHeight();
             }
             this.mLayoutParams = (FrameLayout.LayoutParams) view.getLayoutParams();
             this.mType = i;
             if (this.mType == 0) {
-                this.mLayoutParams.bottomMargin = -this.kGy;
+                this.mLayoutParams.bottomMargin = -this.kSV;
                 return;
             }
             this.mLayoutParams.bottomMargin = 0;
@@ -34,19 +34,19 @@ public class a extends Animation {
         super.applyTransformation(f, transformation);
         if (f < 1.0f) {
             if (this.mType == 0) {
-                this.mLayoutParams.bottomMargin = (-this.kGy) + ((int) (this.kGy * f));
+                this.mLayoutParams.bottomMargin = (-this.kSV) + ((int) (this.kSV * f));
             } else {
-                this.mLayoutParams.bottomMargin = -((int) (this.kGy * f));
+                this.mLayoutParams.bottomMargin = -((int) (this.kSV * f));
             }
-            this.kGx.requestLayout();
+            this.kSU.requestLayout();
         } else if (this.mType == 0) {
             this.mLayoutParams.bottomMargin = 0;
-            this.kGx.requestLayout();
-            this.kGy = this.kGx.getMeasuredHeight();
+            this.kSU.requestLayout();
+            this.kSV = this.kSU.getMeasuredHeight();
         } else {
-            this.mLayoutParams.bottomMargin = -this.kGy;
-            this.kGx.setVisibility(8);
-            this.kGx.requestLayout();
+            this.mLayoutParams.bottomMargin = -this.kSV;
+            this.kSU.setVisibility(8);
+            this.kSU.requestLayout();
         }
     }
 }

@@ -8,7 +8,7 @@ import java.io.IOException;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f3947a;
+    private static boolean f3945a;
     private static int b = -1;
 
     public static synchronized void a() {
@@ -23,9 +23,9 @@ public final class b {
 
     public static synchronized int b() {
         synchronized (b.class) {
-            if (!f3947a) {
+            if (!f3945a) {
                 b = new File(WebViewFactory.getContext().getFilesDir(), new StringBuilder().append(WebKitFactory.getProcessTypeString()).append("zeus_init_model_opt").toString()).exists() ? 1 : -1;
-                f3947a = true;
+                f3945a = true;
             }
         }
         return 1;

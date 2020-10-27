@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.share.single.interfaces.IShareCallback;
 import com.baidu.tieba.ala.liveroom.views.e;
 /* loaded from: classes4.dex */
 public class d {
-    private com.baidu.tieba.ala.liveroom.views.c gOE;
+    private com.baidu.tieba.ala.liveroom.views.c has;
     private TbPageContext mPageContext;
     private View mRootView;
 
@@ -17,19 +17,19 @@ public class d {
     }
 
     private void init() {
-        this.gOE = new com.baidu.tieba.ala.liveroom.views.c(this.mPageContext);
-        this.gOE.f(this.mPageContext);
-        this.mRootView = this.gOE.getView();
+        this.has = new com.baidu.tieba.ala.liveroom.views.c(this.mPageContext);
+        this.has.setTbPageContext(this.mPageContext);
+        this.mRootView = this.has.getView();
     }
 
     public void a(IShareCallback iShareCallback) {
-        if (this.gOE != null) {
-            this.gOE.a(iShareCallback);
+        if (this.has != null) {
+            this.has.a(iShareCallback);
         }
     }
 
-    private void bVF() {
-        this.gOE.bVF();
+    private void bYE() {
+        this.has.bYE();
     }
 
     public View getView() {
@@ -37,40 +37,40 @@ public class d {
     }
 
     public void a(AlaLiveRecorder alaLiveRecorder, int i) {
-        this.gOE.b(alaLiveRecorder);
-        bVF();
+        this.has.b(alaLiveRecorder);
+        bYE();
     }
 
-    public boolean bVG() {
-        return this.gOE.bVG();
+    public boolean bYF() {
+        return this.has.bYF();
     }
 
-    public boolean bVH() {
-        return this.gOE.bVH();
+    public boolean bYG() {
+        return this.has.bYG();
     }
 
     public String getLiveTitle() {
-        return this.gOE.getLiveTitle();
+        return this.has.getLiveTitle();
     }
 
-    public boolean bVI() {
-        return this.gOE.bVI();
+    public boolean bYH() {
+        return this.has.bYH();
     }
 
-    public boolean bVJ() {
-        return this.gOE.bVJ();
+    public boolean bYI() {
+        return this.has.bYI();
     }
 
-    public void mF(boolean z) {
-        this.gOE.mF(z);
+    public void mV(boolean z) {
+        this.has.mV(z);
     }
 
-    public void bVK() {
-        this.gOE.hcx = false;
+    public void bYJ() {
+        this.has.hon = false;
     }
 
-    public String bVL() {
-        return this.gOE.bVL();
+    public String bYK() {
+        return this.has.bYK();
     }
 
     public void setVisibility(int i) {
@@ -82,68 +82,68 @@ public class d {
     }
 
     public void a(e.b bVar) {
-        this.gOE.a(bVar);
+        this.has.a(bVar);
     }
 
-    public void M(boolean z, boolean z2) {
+    public void P(boolean z, boolean z2) {
         if (z) {
-            this.gOE.onKeyboardVisibilityChanged(false);
+            this.has.onKeyboardVisibilityChanged(false);
         } else {
-            this.gOE.onKeyboardVisibilityChanged(z2);
+            this.has.onKeyboardVisibilityChanged(z2);
         }
     }
 
     public void a(e.a aVar) {
-        this.gOE.a(aVar);
+        this.has.a(aVar);
     }
 
-    public void Hg(String str) {
-        this.gOE.Hg(str);
+    public void HF(String str) {
+        this.has.HF(str);
     }
 
     public void onResume() {
-        this.gOE.onResume();
+        this.has.onResume();
     }
 
     public void onRefresh() {
-        this.gOE.onRefresh();
+        this.has.onRefresh();
     }
 
-    public boolean bVM() {
-        return this.gOE.bVM();
+    public boolean bYL() {
+        return this.has.bYL();
     }
 
-    public void bVN() {
-        this.gOE.bVN();
+    public void bYM() {
+        this.has.bYM();
     }
 
     public void release() {
-        this.gOE.release();
+        this.has.release();
     }
 
     public void destroy() {
-        this.gOE.destroy();
+        this.has.destroy();
     }
 
-    public void mG(boolean z) {
-        this.gOE.mG(z);
+    public void mW(boolean z) {
+        this.has.mW(z);
     }
 
-    public void bVO() {
-        if (this.gOE != null) {
-            this.gOE.bVO();
+    public void bYN() {
+        if (this.has != null) {
+            this.has.bYN();
         }
     }
 
-    public void mH(boolean z) {
-        if (this.gOE != null) {
-            this.gOE.mH(z);
+    public void mX(boolean z) {
+        if (this.has != null) {
+            this.has.mX(z);
         }
     }
 
-    public void a(com.baidu.live.j.a aVar) {
-        if (this.gOE != null) {
-            this.gOE.a(aVar);
+    public void a(com.baidu.live.k.a aVar) {
+        if (this.has != null) {
+            this.has.a(aVar);
         }
     }
 }

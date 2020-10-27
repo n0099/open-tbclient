@@ -127,8 +127,8 @@ public class LoginActivity extends BaseActivity {
     public void onActivityResult(int i, int i2, Intent intent) {
         int intExtra;
         super.onActivityResult(i, i2, intent);
-        new b().a(new b.AbstractC0317b() { // from class: com.baidu.sapi2.activity.LoginActivity.7
-            @Override // com.baidu.sapi2.share.b.AbstractC0317b
+        new b().a(new b.AbstractC0331b() { // from class: com.baidu.sapi2.activity.LoginActivity.7
+            @Override // com.baidu.sapi2.share.b.AbstractC0331b
             public void onSuccess() {
                 LoginActivity.this.a(AccountType.NORMAL, false);
             }

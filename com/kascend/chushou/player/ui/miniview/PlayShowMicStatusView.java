@@ -14,7 +14,7 @@ import tv.chushou.zues.utils.h;
 public class PlayShowMicStatusView extends RelativeLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f4185a;
+    private TextView f4183a;
     private Context b;
     private boolean c;
     private String d;
@@ -38,8 +38,8 @@ public class PlayShowMicStatusView extends RelativeLayout implements View.OnClic
 
     private void a(Context context) {
         this.b = context;
-        this.f4185a = (TextView) LayoutInflater.from(context).inflate(a.h.view_playshow_mic_status, (ViewGroup) this, true).findViewById(a.f.tv_mic_count);
-        this.f4185a.setOnClickListener(this);
+        this.f4183a = (TextView) LayoutInflater.from(context).inflate(a.h.view_playshow_mic_status, (ViewGroup) this, true).findViewById(a.f.tv_mic_count);
+        this.f4183a.setOnClickListener(this);
     }
 
     public void a(String str, boolean z, MicStatus micStatus, String str2) {
@@ -48,8 +48,8 @@ public class PlayShowMicStatusView extends RelativeLayout implements View.OnClic
             this.e = micStatus.micGameActionType;
         }
         this.c = z;
-        if (this.f4185a != null) {
-            this.f4185a.setText(String.format(this.b.getString(a.i.mic_play_together), Integer.valueOf(micStatus.onlineCount)));
+        if (this.f4183a != null) {
+            this.f4183a.setText(String.format(this.b.getString(a.i.mic_play_together), Integer.valueOf(micStatus.onlineCount)));
         }
     }
 

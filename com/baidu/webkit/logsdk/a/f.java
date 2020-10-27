@@ -5,20 +5,20 @@ import java.io.File;
 final class f implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f3954a;
+    final /* synthetic */ b f3952a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(b bVar) {
-        this.f3954a = bVar;
+        this.f3952a = bVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        if (this.f3954a.b()) {
-            com.baidu.webkit.logsdk.c.b c = this.f3954a.h().c();
+        if (this.f3952a.b()) {
+            com.baidu.webkit.logsdk.c.b c = this.f3952a.h().c();
             com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "handleUploadLongTimeLog");
-            for (String str : c.f3959a.keySet()) {
-                if (c.f3959a.get(str).booleanValue()) {
+            for (String str : c.f3957a.keySet()) {
+                if (c.f3957a.get(str).booleanValue()) {
                     com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "createUploadTask: " + str);
                     try {
                         String c2 = com.baidu.webkit.logsdk.d.c.c(str, "upload");

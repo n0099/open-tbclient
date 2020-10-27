@@ -7,7 +7,7 @@ import android.text.TextUtils;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f3948a;
+    public static boolean f3946a;
     public static boolean b;
 
     public static void a(String str, String str2) {

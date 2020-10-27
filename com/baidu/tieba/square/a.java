@@ -16,153 +16,153 @@ import java.util.List;
 /* loaded from: classes22.dex */
 public class a implements d {
     private final Context mContext;
+    private ForumSquareModel mJA;
+    public b mJB;
+    private c mJC;
+    private String mJD = "";
     private final TbPageContext mTbPageContext;
-    private ForumSquareModel mwQ;
-    public b mwR;
-    private c mwS;
-    private String mwT = "";
 
     public a(Context context, TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
         this.mContext = context;
-        this.mwQ = new ForumSquareModel(context, this);
-        this.mwR = new b(context, this.mTbPageContext);
+        this.mJA = new ForumSquareModel(context, this);
+        this.mJB = new b(context, this.mTbPageContext);
     }
 
     public void startLoadData() {
-        this.mwS = new c(this.mContext, this, this.mwR);
-        this.mwS.dCx();
-        cyg();
+        this.mJC = new c(this.mContext, this, this.mJB);
+        this.mJC.dFF();
+        cBn();
     }
 
-    private void cyg() {
-        this.mwR.dCr();
-        this.mwQ.RI(this.mwT);
+    private void cBn() {
+        this.mJB.dFz();
+        this.mJA.Sh(this.mJD);
     }
 
-    public void dCl() {
-        this.mwR.dCl();
+    public void dFt() {
+        this.mJB.dFt();
     }
 
     @Override // com.baidu.tieba.square.d
     public void d(String str, List<String> list, List<q> list2) {
         boolean z = true;
-        if (this.mwQ != null && this.mwR != null) {
-            if (TextUtils.isEmpty(str) || str.equals(this.mwT)) {
-                String dCo = this.mwR.dCo();
-                if (TextUtils.isEmpty(str) || str.equals(dCo)) {
+        if (this.mJA != null && this.mJB != null) {
+            if (TextUtils.isEmpty(str) || str.equals(this.mJD)) {
+                String dFw = this.mJB.dFw();
+                if (TextUtils.isEmpty(str) || str.equals(dFw)) {
                     z = false;
                 }
             }
-            this.mwT = str;
-            this.mwR.dCs();
-            this.mwR.c(str, list, z);
-            this.mwR.u(list2, this.mwQ.v(list2, 300));
+            this.mJD = str;
+            this.mJB.dFA();
+            this.mJB.c(str, list, z);
+            this.mJB.v(list2, this.mJA.w(list2, 300));
             q(str, list2);
         }
     }
 
     private void q(String str, List<q> list) {
-        if (this.mwR != null && this.mwQ != null) {
+        if (this.mJB != null && this.mJA != null) {
             if (y.isEmpty(list)) {
-                this.mwR.bKU();
+                this.mJB.bNw();
             } else if (y.getCount(list) < 10) {
-                this.mwR.dCv();
+                this.mJB.dFD();
             } else {
-                this.mwR.wJ(this.mwQ.RJ(str));
+                this.mJB.xa(this.mJA.Si(str));
             }
         }
     }
 
     @Override // com.baidu.tieba.square.d
     public void a(String str, ErrorData errorData) {
-        if (this.mwR != null && this.mwQ != null) {
-            this.mwR.dCs();
-            com.baidu.tieba.square.data.c RH = this.mwQ.RH(str);
-            if (RH == null || (RH.hasMore && y.isEmpty(RH.getDataList()))) {
-                this.mwR.bKU();
-                this.mwR.dCp();
+        if (this.mJB != null && this.mJA != null) {
+            this.mJB.dFA();
+            com.baidu.tieba.square.data.c Sg = this.mJA.Sg(str);
+            if (Sg == null || (Sg.hasMore && y.isEmpty(Sg.getDataList()))) {
+                this.mJB.bNw();
+                this.mJB.dFx();
                 return;
             }
-            this.mwR.fo(RH.getDataList());
-            q(str, RH.getDataList());
+            this.mJB.fx(Sg.getDataList());
+            q(str, Sg.getDataList());
         }
     }
 
     @Override // com.baidu.tieba.square.d
     public void e(ErrorData errorData) {
-        if (this.mwR != null) {
-            this.mwR.dCq();
+        if (this.mJB != null) {
+            this.mJB.dFy();
         }
     }
 
-    public void bOx() {
+    public void bRc() {
         String className = getClassName();
-        if (this.mwQ != null && this.mwR != null) {
-            boolean isLoading = this.mwQ.isLoading();
-            boolean wJ = this.mwR.wJ(this.mwQ.RJ(className));
-            if (!isLoading && wJ) {
-                this.mwQ.RI(className);
+        if (this.mJA != null && this.mJB != null) {
+            boolean isLoading = this.mJA.isLoading();
+            boolean xa = this.mJB.xa(this.mJA.Si(className));
+            if (!isLoading && xa) {
+                this.mJA.Sh(className);
             }
         }
     }
 
-    public void dCm() {
-        if (this.mwR != null) {
-            this.mwR.dCr();
+    public void dFu() {
+        if (this.mJB != null) {
+            this.mJB.dFz();
         }
-        if (this.mwQ != null) {
-            this.mwQ.RI(getClassName());
+        if (this.mJA != null) {
+            this.mJA.Sh(getClassName());
         }
     }
 
-    public void RB(String str) {
-        RC(this.mwT);
-        this.mwT = str;
-        if (this.mwQ != null && this.mwR != null) {
-            com.baidu.tieba.square.data.c RH = this.mwQ.RH(str);
-            if (RH == null || (RH.hasMore && y.isEmpty(RH.getDataList()))) {
-                this.mwR.dCt();
+    public void Sa(String str) {
+        Sb(this.mJD);
+        this.mJD = str;
+        if (this.mJA != null && this.mJB != null) {
+            com.baidu.tieba.square.data.c Sg = this.mJA.Sg(str);
+            if (Sg == null || (Sg.hasMore && y.isEmpty(Sg.getDataList()))) {
+                this.mJB.dFB();
                 q(str, null);
-                this.mwQ.RI(str);
-                this.mwR.scrollToPositionWithOffset(0, 0);
+                this.mJA.Sh(str);
+                this.mJB.scrollToPositionWithOffset(0, 0);
                 return;
             }
-            this.mwR.dCs();
-            q(str, RH.getDataList());
-            this.mwR.fo(RH.getDataList());
-            this.mwR.scrollToPositionWithOffset(RH.mxr, RH.scrollOffset);
+            this.mJB.dFA();
+            q(str, Sg.getDataList());
+            this.mJB.fx(Sg.getDataList());
+            this.mJB.scrollToPositionWithOffset(Sg.mKb, Sg.scrollOffset);
         }
     }
 
-    public void RC(String str) {
-        com.baidu.tieba.square.data.c RH;
-        Pair<Integer, Integer> dCn;
-        if (this.mwR != null && this.mwQ != null && !TextUtils.isEmpty(str) && (RH = this.mwQ.RH(str)) != null && (dCn = this.mwR.dCn()) != null) {
-            RH.mxr = ((Integer) dCn.first).intValue();
-            RH.scrollOffset = ((Integer) dCn.second).intValue();
+    public void Sb(String str) {
+        com.baidu.tieba.square.data.c Sg;
+        Pair<Integer, Integer> dFv;
+        if (this.mJB != null && this.mJA != null && !TextUtils.isEmpty(str) && (Sg = this.mJA.Sg(str)) != null && (dFv = this.mJB.dFv()) != null) {
+            Sg.mKb = ((Integer) dFv.first).intValue();
+            Sg.scrollOffset = ((Integer) dFv.second).intValue();
         }
     }
 
     public String getClassName() {
-        return this.mwT;
+        return this.mJD;
     }
 
     public void V(Intent intent) {
         Uri uri;
         if (intent != null) {
-            this.mwT = intent.getStringExtra(ForumSquareActivityConfig.FORUM_CLASS_NAME);
-            if (TextUtils.isEmpty(this.mwT) && (uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI)) != null) {
-                this.mwT = uri.getQueryParameter("tab_name");
+            this.mJD = intent.getStringExtra(ForumSquareActivityConfig.FORUM_CLASS_NAME);
+            if (TextUtils.isEmpty(this.mJD) && (uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI)) != null) {
+                this.mJD = uri.getQueryParameter("tab_name");
             }
-            this.mwR.wI(intent.getIntExtra(ForumSquareActivityConfig.SHOW_CREATE_BAR, 0) == 0);
+            this.mJB.wZ(intent.getIntExtra(ForumSquareActivityConfig.SHOW_CREATE_BAR, 0) == 0);
         }
     }
 
-    public void RD(String str) {
+    public void Sc(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.mwR.RE(str);
-            RB(str);
+            this.mJB.Sd(str);
+            Sa(str);
         }
     }
 }

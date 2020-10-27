@@ -69,8 +69,8 @@ public class ArCoreApk {
         void a(Availability availability);
     }
 
-    public static ArCoreApk eeD() {
-        return o.eeL();
+    public static ArCoreApk eoD() {
+        return o.eoL();
     }
 
     /* loaded from: classes11.dex */
@@ -140,7 +140,7 @@ public class ArCoreApk {
         }
     }
 
-    public Availability gK(Context context) {
+    public Availability he(Context context) {
         throw new UnsupportedOperationException("Stub");
     }
 }

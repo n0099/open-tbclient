@@ -16,7 +16,7 @@ import com.tencent.connect.common.Constants;
 public final class j extends Dialog {
 
     /* renamed from: a */
-    private final int f3880a;
+    private final int f3878a;
     private final int b;
     private final int c;
     private final int d;
@@ -27,7 +27,7 @@ public final class j extends Dialog {
 
     public j(Context context) {
         super(context);
-        this.f3880a = R.xml.fileprovider_paths;
+        this.f3878a = R.xml.fileprovider_paths;
         this.b = R.xml.network_security_config;
         this.c = R.xml.null_network_security_config;
         this.d = R.xml.pass_sdk_file_provider;

@@ -4,18 +4,18 @@ import android.content.Context;
 /* loaded from: classes11.dex */
 public class d {
     public static String a(Context context, String str) {
-        return b.gw(context).a(str);
+        return b.gR(context).a(str);
     }
 
     public static boolean a(Context context) {
-        return b.gw(context).a();
+        return b.gR(context).a();
     }
 
     public static String b(Context context) {
-        return b.gw(context).b();
+        return b.gR(context).b();
     }
 
     public static String b(Context context, String str) {
-        return b.gw(context).b(str);
+        return b.gR(context).b(str);
     }
 }

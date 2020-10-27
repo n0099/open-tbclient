@@ -13,19 +13,19 @@ import java.nio.channels.FileLock;
 public abstract class ed extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f4872a;
+    protected int f4870a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected Context f232a;
+    protected Context f229a;
 
     public ed(Context context, int i) {
-        this.f4872a = i;
-        this.f232a = context;
+        this.f4870a = i;
+        this.f229a = context;
     }
 
     public static void a(Context context, hu huVar) {
-        dp m233a = dq.a().m233a();
-        String a2 = m233a == null ? "" : m233a.a();
+        dp m232a = dq.a().m232a();
+        String a2 = m232a == null ? "" : m232a.a();
         if (TextUtils.isEmpty(a2) || TextUtils.isEmpty(huVar.a())) {
             return;
         }
@@ -46,10 +46,10 @@ public abstract class ed extends ai.a {
         if (b == null || b.length == 0) {
             return;
         }
-        synchronized (dv.f4867a) {
+        synchronized (dv.f4865a) {
             try {
                 File file = new File(context.getExternalFilesDir(null), "push_cdata.lock");
-                y.m591a(file);
+                y.m590a(file);
                 randomAccessFile = new RandomAccessFile(file, "rw");
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
@@ -136,17 +136,17 @@ public abstract class ed extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public abstract ho mo167a();
+    public abstract ho mo166a();
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public abstract String mo167a();
+    public abstract String mo166a();
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public boolean mo167a() {
-        return du.a(this.f232a, String.valueOf(mo167a()), this.f4872a);
+    public boolean mo166a() {
+        return du.a(this.f229a, String.valueOf(mo166a()), this.f4870a);
     }
 
     protected boolean b() {
@@ -155,23 +155,23 @@ public abstract class ed extends ai.a {
 
     @Override // java.lang.Runnable
     public void run() {
-        if (mo167a()) {
-            com.xiaomi.channel.commonutils.logger.b.m55a("DC run job mutual: " + mo167a());
+        if (mo166a()) {
+            com.xiaomi.channel.commonutils.logger.b.m54a("DC run job mutual: " + mo166a());
             return;
         }
-        dp m233a = dq.a().m233a();
-        String a2 = m233a == null ? "" : m233a.a();
+        dp m232a = dq.a().m232a();
+        String a2 = m232a == null ? "" : m232a.a();
         if (TextUtils.isEmpty(a2) || !b()) {
             return;
         }
-        String mo167a = mo167a();
-        if (TextUtils.isEmpty(mo167a)) {
+        String mo166a = mo166a();
+        if (TextUtils.isEmpty(mo166a)) {
             return;
         }
         hu huVar = new hu();
-        huVar.a(mo167a);
+        huVar.a(mo166a);
         huVar.a(System.currentTimeMillis());
-        huVar.a(mo167a());
-        a(this.f232a, huVar, a2);
+        huVar.a(mo166a());
+        a(this.f229a, huVar, a2);
     }
 }

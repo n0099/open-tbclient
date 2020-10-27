@@ -19,7 +19,7 @@ public class c extends com.baidu.adp.widget.ListView.a<s, com.baidu.tieba.pb.vid
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cv */
+    /* renamed from: cw */
     public com.baidu.tieba.pb.videopb.e.a c(ViewGroup viewGroup) {
         FrameLayout frameLayout = new FrameLayout(this.mContext);
         CardForumHeadLayout cardForumHeadLayout = new CardForumHeadLayout(this.mContext);
@@ -37,9 +37,9 @@ public class c extends com.baidu.adp.widget.ListView.a<s, com.baidu.tieba.pb.vid
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, s sVar, com.baidu.tieba.pb.videopb.e.a aVar) {
         if (sVar != null) {
-            aVar.setData(sVar.eji);
+            aVar.setData(sVar.erH);
         }
-        aVar.bok();
+        aVar.bqd();
         return view;
     }
 }

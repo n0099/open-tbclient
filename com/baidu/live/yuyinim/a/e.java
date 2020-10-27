@@ -1,0 +1,96 @@
+package com.baidu.live.yuyinim.a;
+
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
+import com.baidu.live.adp.widget.CenterImageSpan;
+import com.baidu.live.sdk.a;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
+public class e extends b {
+    public e(Context context) {
+        super(context, com.baidu.live.im.a.bfU);
+    }
+
+    @Override // com.baidu.live.yuyinim.a.b
+    protected void LB() {
+        if (LC()) {
+            LD();
+        } else {
+            LE();
+        }
+    }
+
+    @Override // com.baidu.live.yuyinim.a.b
+    protected int getColor() {
+        return TbadkCoreApplication.getInst().getResources().getColor(a.d.sdk_cp_other_b);
+    }
+
+    @Override // com.baidu.live.yuyinim.a.b
+    protected SpannableStringBuilder a(com.baidu.live.im.data.a aVar, com.baidu.live.yuyinim.a aVar2) {
+        Drawable drawable;
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        a A = A(aVar);
+        if (A != null) {
+            String str = A.shareText;
+            SpannableString valueOf = SpannableString.valueOf(str);
+            if (LC()) {
+                if (A.shareType != 3) {
+                    valueOf.setSpan(new ForegroundColorSpan(-6574339), 0, valueOf.length(), 33);
+                } else {
+                    valueOf.setSpan(new ForegroundColorSpan(getColor()), 0, valueOf.length(), 33);
+                }
+            } else {
+                valueOf.setSpan(new ForegroundColorSpan(getColor()), 0, valueOf.length(), 33);
+            }
+            spannableStringBuilder.append((CharSequence) valueOf);
+            String string = this.mContext.getString(a.i.sdk_share_blue_zhuan);
+            if (A.shareType == 2 && str.contains(string) && (drawable = TbadkCoreApplication.getInst().getResources().getDrawable(a.f.sdk_icon_live_blue_diamond)) != null) {
+                drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+                CenterImageSpan centerImageSpan = new CenterImageSpan(drawable, 1);
+                SpannableString spannableString = new SpannableString(" [img]");
+                spannableString.setSpan(centerImageSpan, 1, spannableString.length(), 33);
+                spannableStringBuilder.append((CharSequence) spannableString);
+            }
+            if (A.shareType != 3) {
+                a(spannableStringBuilder, aVar.LO(), aVar2, false, false);
+                if (LC()) {
+                    LD();
+                }
+            }
+            aVar2.bgh.setText(spannableStringBuilder);
+        }
+        return spannableStringBuilder;
+    }
+
+    private a A(com.baidu.live.im.data.a aVar) {
+        JSONObject jSONObject;
+        try {
+            if (aVar.getObjContent() instanceof JSONObject) {
+                jSONObject = (JSONObject) aVar.getObjContent();
+            } else {
+                jSONObject = new JSONObject(aVar.getContent());
+            }
+            a aVar2 = new a();
+            aVar2.shareText = jSONObject.optString("share_content");
+            aVar2.shareType = jSONObject.optInt("share_type", 1);
+            return aVar2;
+        } catch (JSONException e) {
+            return null;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes4.dex */
+    public static class a {
+        public String shareText;
+        public int shareType;
+
+        private a() {
+        }
+    }
+}

@@ -11,8 +11,8 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class AlaListEmptyView extends LinearLayout {
-    private ImageView bCN;
-    private TextView bCO;
+    private ImageView bFJ;
+    private TextView bFK;
 
     public AlaListEmptyView(@NonNull Context context) {
         super(context);
@@ -31,31 +31,31 @@ public class AlaListEmptyView extends LinearLayout {
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(a.h.sdk_list_empty_view_layout, this);
-        this.bCN = (ImageView) findViewById(a.g.ala_empty_view_img);
-        this.bCO = (TextView) findViewById(a.g.ala_empty_view_text);
+        this.bFJ = (ImageView) findViewById(a.g.ala_empty_view_img);
+        this.bFK = (TextView) findViewById(a.g.ala_empty_view_text);
     }
 
     public void setParams(int i, int i2) {
         if (i <= 0) {
-            this.bCN.setVisibility(8);
+            this.bFJ.setVisibility(8);
         } else {
-            this.bCN.setVisibility(0);
-            this.bCN.setImageResource(i);
+            this.bFJ.setVisibility(0);
+            this.bFJ.setImageResource(i);
         }
         if (i2 <= 0) {
-            this.bCO.setVisibility(8);
+            this.bFK.setVisibility(8);
             return;
         }
-        this.bCO.setVisibility(0);
-        this.bCO.setText(i2);
+        this.bFK.setVisibility(0);
+        this.bFK.setText(i2);
     }
 
     public void setImageRes(int i) {
         if (i <= 0) {
-            this.bCN.setVisibility(8);
+            this.bFJ.setVisibility(8);
             return;
         }
-        this.bCN.setVisibility(0);
-        this.bCN.setImageResource(i);
+        this.bFJ.setVisibility(0);
+        this.bFJ.setImageResource(i);
     }
 }

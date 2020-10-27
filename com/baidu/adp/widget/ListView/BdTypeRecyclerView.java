@@ -13,51 +13,51 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BdTypeRecyclerView extends BdRecyclerView implements v<BdTypeRecyclerView> {
-    private HashMap<BdUniqueId, a> Wt;
-    private HashMap<BdUniqueId, j> Wu;
-    ad Ww;
+    private HashMap<BdUniqueId, a> Wu;
+    private HashMap<BdUniqueId, j> Wv;
+    ad Wx;
 
     public BdTypeRecyclerView(Context context) {
         super(context);
-        this.Ww = null;
+        this.Wx = null;
         init();
     }
 
     public BdTypeRecyclerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Ww = null;
+        this.Wx = null;
         init();
     }
 
     public BdTypeRecyclerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.Ww = null;
+        this.Wx = null;
         init();
     }
 
     private void init() {
-        if (this.Ww == null) {
-            this.Ww = new ad();
-        }
-        if (this.Wt == null) {
-            this.Wt = new HashMap<>();
+        if (this.Wx == null) {
+            this.Wx = new ad();
         }
         if (this.Wu == null) {
             this.Wu = new HashMap<>();
         }
+        if (this.Wv == null) {
+            this.Wv = new HashMap<>();
+        }
         super.setOnItemClickListener(new BdRecyclerView.a() { // from class: com.baidu.adp.widget.ListView.BdTypeRecyclerView.1
             @Override // com.baidu.adp.widget.ListView.BdRecyclerView.a
             public void a(ViewGroup viewGroup, View view, Object obj, int i, long j) {
-                if (BdTypeRecyclerView.this.Ww != null) {
-                    BdTypeRecyclerView.this.Ww.onItemClick(viewGroup, view, i, j);
+                if (BdTypeRecyclerView.this.Wx != null) {
+                    BdTypeRecyclerView.this.Wx.onItemClick(viewGroup, view, i, j);
                 }
             }
         });
         super.setOnItemLongClickListener(new BdRecyclerView.b() { // from class: com.baidu.adp.widget.ListView.BdTypeRecyclerView.2
             @Override // com.baidu.adp.widget.ListView.BdRecyclerView.b
             public boolean b(ViewGroup viewGroup, View view, Object obj, int i, long j) {
-                if (BdTypeRecyclerView.this.Ww != null) {
-                    return BdTypeRecyclerView.this.Ww.onItemLongClick(viewGroup, view, i, j);
+                if (BdTypeRecyclerView.this.Wx != null) {
+                    return BdTypeRecyclerView.this.Wx.onItemLongClick(viewGroup, view, i, j);
                 }
                 return false;
             }
@@ -89,48 +89,48 @@ public class BdTypeRecyclerView extends BdRecyclerView implements v<BdTypeRecycl
                 BdUniqueId bdUniqueId = null;
                 if (aVar.qJ() != null) {
                     bdUniqueId = aVar.qJ();
-                    if (!this.Wu.containsKey(bdUniqueId)) {
+                    if (!this.Wv.containsKey(bdUniqueId)) {
                         j jVar = new j(aVar.mContext, bdUniqueId, aVar.mPageId);
                         jVar.a(aVar);
-                        this.Ww.addAdapter(jVar);
-                        this.Wu.put(bdUniqueId, jVar);
+                        this.Wx.addAdapter(jVar);
+                        this.Wv.put(bdUniqueId, jVar);
                     }
                 }
                 if (aVar.qK() != null) {
                     bdUniqueId = aVar.qK();
-                    if (!this.Wu.containsKey(bdUniqueId)) {
+                    if (!this.Wv.containsKey(bdUniqueId)) {
                         j jVar2 = new j(aVar.mContext, bdUniqueId, aVar.mPageId);
                         jVar2.a(aVar);
-                        this.Ww.addAdapter(jVar2);
-                        this.Wu.put(bdUniqueId, jVar2);
+                        this.Wx.addAdapter(jVar2);
+                        this.Wv.put(bdUniqueId, jVar2);
                     }
                 }
                 if (aVar.qL() != null) {
                     bdUniqueId = aVar.qL();
-                    if (!this.Wu.containsKey(bdUniqueId)) {
+                    if (!this.Wv.containsKey(bdUniqueId)) {
                         j jVar3 = new j(aVar.mContext, bdUniqueId, aVar.mPageId);
                         jVar3.a(aVar);
-                        this.Ww.addAdapter(jVar3);
-                        this.Wu.put(bdUniqueId, jVar3);
+                        this.Wx.addAdapter(jVar3);
+                        this.Wv.put(bdUniqueId, jVar3);
                     }
                 }
                 if (aVar.qM() != null) {
                     bdUniqueId = aVar.qM();
-                    if (!this.Wu.containsKey(bdUniqueId)) {
+                    if (!this.Wv.containsKey(bdUniqueId)) {
                         j jVar4 = new j(aVar.mContext, bdUniqueId, aVar.mPageId);
                         jVar4.a(aVar);
-                        this.Ww.addAdapter(jVar4);
-                        this.Wu.put(bdUniqueId, jVar4);
+                        this.Wx.addAdapter(jVar4);
+                        this.Wv.put(bdUniqueId, jVar4);
                     }
                 }
                 if (bdUniqueId == null) {
-                    this.Ww.addAdapter(aVar);
+                    this.Wx.addAdapter(aVar);
                 } else {
-                    this.Wt.put(aVar.Vv, aVar);
+                    this.Wu.put(aVar.Vw, aVar);
                 }
             }
         }
-        setAdapter(this.Ww);
+        setAdapter(this.Wx);
     }
 
     @Override // com.baidu.adp.widget.ListView.v
@@ -138,8 +138,8 @@ public class BdTypeRecyclerView extends BdRecyclerView implements v<BdTypeRecycl
         ArrayList arrayList = new ArrayList();
         for (q qVar : list) {
             if (qVar != null) {
-                if (this.Wt.containsKey(qVar.getType())) {
-                    a aVar = this.Wt.get(qVar.getType());
+                if (this.Wu.containsKey(qVar.getType())) {
+                    a aVar = this.Wu.get(qVar.getType());
                     if (aVar.qJ() != null) {
                         i iVar = new i();
                         iVar.g(aVar.qJ());
@@ -169,32 +169,32 @@ public class BdTypeRecyclerView extends BdRecyclerView implements v<BdTypeRecycl
                 }
             }
         }
-        this.Ww.setData(arrayList);
+        this.Wx.setData(arrayList);
     }
 
     public void setDataWithPartChange(List<q> list, int i, int i2) {
-        this.Ww.a(list, i, i2);
+        this.Wx.a(list, i, i2);
     }
 
     public void removeItem(int i) {
-        this.Ww.q(i, getHeaderViewsCount());
+        this.Wx.q(i, getHeaderViewsCount());
     }
 
     public void o(int i, int i2) {
-        this.Ww.k(i, i2, getHeaderViewsCount());
+        this.Wx.k(i, i2, getHeaderViewsCount());
     }
 
     @Override // com.baidu.adp.widget.ListView.v
     public List<q> getData() {
-        return this.Ww.getData();
+        return this.Wx.getData();
     }
 
     public q getItem(int i) {
-        return this.Ww.getItem(i);
+        return this.Wx.getItem(i);
     }
 
     public int getCount() {
-        return this.Ww.getCount();
+        return this.Wx.getCount();
     }
 
     @Override // android.support.v7.widget.RecyclerView, android.view.View

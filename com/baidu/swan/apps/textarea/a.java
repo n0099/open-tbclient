@@ -5,5 +5,5 @@ public interface a {
 
     void L(String str, int i);
 
-    void lD(String str);
+    void lW(String str);
 }

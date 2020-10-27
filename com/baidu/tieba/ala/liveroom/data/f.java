@@ -3,68 +3,69 @@ package com.baidu.tieba.ala.liveroom.data;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.ala.recorder.AlaLiveRecorder;
+import com.baidu.live.ar.i;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.ala.liveroom.views.AlaLiveView;
 /* loaded from: classes4.dex */
 public class f {
-    public com.baidu.tieba.ala.liveroom.q.d gON;
-    public AlaLiveView gOO;
-    public AlaLiveRecorder gPm;
-    public FrameLayout gPn;
-    public ViewGroup gPo;
-    public com.baidu.tieba.ala.liveroom.master.a.d gPp;
-    public com.baidu.live.ar.h gPq;
-    public AlaLiveRecorderPerfData gPr;
-    public com.baidu.live.tieba.e.b gPs;
-    public com.baidu.live.liveroom.middleware.a gPt;
+    public com.baidu.tieba.ala.liveroom.q.d haB;
+    public AlaLiveView haC;
+    public AlaLiveRecorder hba;
+    public FrameLayout hbb;
+    public ViewGroup hbc;
+    public com.baidu.tieba.ala.liveroom.master.a.d hbd;
+    public i hbe;
+    public AlaLiveRecorderPerfData hbf;
+    public com.baidu.live.tieba.e.b hbg;
+    public com.baidu.live.liveroom.middleware.a hbh;
     private int liveType;
     public TbPageContext pageContext;
     public ViewGroup rootView;
 
-    public int bVQ() {
+    public int bYP() {
         return this.liveType;
     }
 
-    public void uU(int i) {
+    public void vo(int i) {
         this.liveType = i;
-        if (this.gPp != null) {
-            this.gPp.vw(i);
+        if (this.hbd != null) {
+            this.hbd.vQ(i);
         }
     }
 
-    public void f(short s) {
-        if (this.gPp != null) {
-            this.gPp.f(s);
+    public void g(short s) {
+        if (this.hbd != null) {
+            this.hbd.g(s);
         }
     }
 
-    public void ST() {
-        if (this.gPp != null) {
-            this.gPp.ST();
+    public void TS() {
+        if (this.hbd != null) {
+            this.hbd.TS();
         }
     }
 
-    public void bbd() {
-        if (this.gPp != null) {
-            this.gPp.bbd();
+    public void bcW() {
+        if (this.hbd != null) {
+            this.hbd.bcW();
         }
     }
 
-    public void bVR() {
-        if (this.gPp != null) {
-            this.gPp.bVR();
+    public void bYQ() {
+        if (this.hbd != null) {
+            this.hbd.bYQ();
         }
     }
 
-    public void bVS() {
-        if (this.gPp != null) {
-            this.gPp.bVS();
+    public void bYR() {
+        if (this.hbd != null) {
+            this.hbd.bYR();
         }
     }
 
-    public void bVT() {
-        if (this.gPp != null) {
-            this.gPp.bVT();
+    public void bYS() {
+        if (this.hbd != null) {
+            this.hbd.bYS();
         }
     }
 }

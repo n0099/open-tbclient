@@ -14,113 +14,113 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class c {
-    private final AlbumActivity bvI;
-    private String bvV;
-    private WriteImagesInfo bwb;
-    private VideoFileInfo bwc;
-    private ImageFileInfo bwd;
-    private List<ImageFileInfo> bwe;
+    private final AlbumActivity bxW;
+    private String byj;
+    private WriteImagesInfo byp;
+    private VideoFileInfo byq;
+    private ImageFileInfo byr;
+    private List<ImageFileInfo> bys;
     private int maxImagesAllowed = 10;
-    private final List<AlbumData> bwf = new ArrayList();
+    private final List<AlbumData> byt = new ArrayList();
 
     public c(AlbumActivity albumActivity) {
-        this.bvI = albumActivity;
+        this.bxW = albumActivity;
     }
 
     public void a(VideoFileInfo videoFileInfo) {
-        this.bwc = videoFileInfo;
+        this.byq = videoFileInfo;
     }
 
-    public boolean Qs() {
-        return !ListUtils.isEmpty(Qv());
+    public boolean Rn() {
+        return !ListUtils.isEmpty(Rq());
     }
 
-    public boolean Qt() {
-        return this.bwc != null;
+    public boolean Ro() {
+        return this.byq != null;
     }
 
     public boolean b(VideoFileInfo videoFileInfo) {
-        return (this.bwc == null || videoFileInfo == null || this.bwc.videoId != videoFileInfo.videoId) ? false : true;
+        return (this.byq == null || videoFileInfo == null || this.byq.videoId != videoFileInfo.videoId) ? false : true;
     }
 
     public void d(ImageFileInfo imageFileInfo) {
-        this.bwd = imageFileInfo;
+        this.byr = imageFileInfo;
     }
 
     public void addChooseFile(ImageFileInfo imageFileInfo) {
-        if (this.bwb == null) {
-            this.bwb = new WriteImagesInfo(this.maxImagesAllowed);
+        if (this.byp == null) {
+            this.byp = new WriteImagesInfo(this.maxImagesAllowed);
         }
-        this.bwb.addChooseFile(imageFileInfo);
+        this.byp.addChooseFile(imageFileInfo);
     }
 
     public void delChooseFile(ImageFileInfo imageFileInfo) {
-        if (this.bwb != null) {
-            this.bwb.delChooseFile(imageFileInfo);
+        if (this.byp != null) {
+            this.byp.delChooseFile(imageFileInfo);
         }
     }
 
-    public void Qu() {
-        if (this.bwb != null) {
-            this.bwb.clear();
+    public void Rp() {
+        if (this.byp != null) {
+            this.byp.clear();
         }
     }
 
     public boolean isAdded(ImageFileInfo imageFileInfo) {
-        if (this.bwb == null) {
+        if (this.byp == null) {
             return false;
         }
-        return this.bwb.isAdded(imageFileInfo);
+        return this.byp.isAdded(imageFileInfo);
     }
 
-    public List<ImageFileInfo> Qv() {
-        if (this.bwb != null) {
-            return this.bwb.getChosedFiles();
+    public List<ImageFileInfo> Rq() {
+        if (this.byp != null) {
+            return this.byp.getChosedFiles();
         }
         return null;
     }
 
-    public WriteImagesInfo Qw() {
-        return this.bwb;
+    public WriteImagesInfo Rr() {
+        return this.byp;
     }
 
     public void a(WriteImagesInfo writeImagesInfo) {
-        this.bwb = writeImagesInfo;
+        this.byp = writeImagesInfo;
     }
 
     public String getLastAlbumId() {
-        if (this.bwb != null) {
-            return this.bwb.getLastAlbumId();
+        if (this.byp != null) {
+            return this.byp.getLastAlbumId();
         }
         return null;
     }
 
     public void setLastAlbumId(String str) {
-        if (this.bwb == null) {
-            this.bwb = new WriteImagesInfo(this.maxImagesAllowed);
+        if (this.byp == null) {
+            this.byp = new WriteImagesInfo(this.maxImagesAllowed);
         }
-        this.bwb.setLastAlbumId(str);
+        this.byp.setLastAlbumId(str);
     }
 
     public int getMaxImagesAllowed() {
-        if (this.bwb != null) {
-            return this.bwb.getMaxImagesAllowed();
+        if (this.byp != null) {
+            return this.byp.getMaxImagesAllowed();
         }
         return 0;
     }
 
-    public String Qx() {
-        return this.bvV;
+    public String Rs() {
+        return this.byj;
     }
 
-    public void hM(String str) {
-        this.bvV = str;
-        hN(str);
+    public void ic(String str) {
+        this.byj = str;
+        id(str);
     }
 
-    private void hN(String str) {
-        if (this.bwf != null && !StringUtils.isNull(str)) {
-            for (AlbumData albumData : this.bwf) {
+    private void id(String str) {
+        if (this.byt != null && !StringUtils.isNull(str)) {
+            for (AlbumData albumData : this.byt) {
                 if (albumData != null && TextUtils.equals(str, albumData.getAlbumId())) {
                     ArrayList arrayList = new ArrayList();
                     if (albumData.getFileList() != null) {
@@ -130,25 +130,25 @@ public class c {
                             }
                         }
                     }
-                    this.bwe = arrayList;
+                    this.bys = arrayList;
                 }
             }
         }
     }
 
-    public List<ImageFileInfo> Qy() {
-        return this.bwe;
+    public List<ImageFileInfo> Rt() {
+        return this.bys;
     }
 
-    public List<AlbumData> Qz() {
-        return this.bwf;
+    public List<AlbumData> Ru() {
+        return this.byt;
     }
 
-    public List<MediaFileInfo> hO(String str) {
-        if (this.bwf == null || StringUtils.isNull(str)) {
+    public List<MediaFileInfo> ie(String str) {
+        if (this.byt == null || StringUtils.isNull(str)) {
             return null;
         }
-        for (AlbumData albumData : this.bwf) {
+        for (AlbumData albumData : this.byt) {
             if (albumData != null && TextUtils.equals(str, albumData.getAlbumId())) {
                 return albumData.getFileList();
             }
@@ -160,59 +160,59 @@ public class c {
         if (resutMediaStore != null) {
             List<MediaFileInfo> list = resutMediaStore.allList;
             ArrayList arrayList = new ArrayList();
-            arrayList.add(X(list));
+            arrayList.add(Y(list));
             if (!ListUtils.isEmpty(resutMediaStore.videoFileList)) {
-                arrayList.add(Y(resutMediaStore.videoFileList));
+                arrayList.add(Z(resutMediaStore.videoFileList));
             }
             if (!ListUtils.isEmpty(resutMediaStore.albumList)) {
                 arrayList.addAll(resutMediaStore.albumList);
             }
-            this.bwf.clear();
-            this.bwf.addAll(arrayList);
+            this.byt.clear();
+            this.byt.addAll(arrayList);
         }
     }
 
     public int size() {
-        if (this.bwb == null) {
+        if (this.byp == null) {
             return 0;
         }
-        return this.bwb.size();
+        return this.byp.size();
     }
 
     public void setOriginalImg(boolean z) {
-        if (this.bwb != null) {
-            this.bwb.setOriginalImg(z);
+        if (this.byp != null) {
+            this.byp.setOriginalImg(z);
         }
     }
 
     public boolean isOriginalImg() {
-        if (this.bwb != null) {
-            return this.bwb.isOriginalImg();
+        if (this.byp != null) {
+            return this.byp.isOriginalImg();
         }
         return false;
     }
 
     public int getCurrentIndex() {
-        if (this.bwd == null || TextUtils.isEmpty(this.bwd.getFilePath())) {
+        if (this.byr == null || TextUtils.isEmpty(this.byr.getFilePath())) {
             return 0;
         }
-        if (this.bwe == null || this.bwe.size() == 0) {
+        if (this.bys == null || this.bys.size() == 0) {
             return 0;
         }
-        int size = this.bwe.size();
+        int size = this.bys.size();
         for (int i = 0; i < size; i++) {
-            ImageFileInfo imageFileInfo = this.bwe.get(i);
-            if (imageFileInfo != null && this.bwd.getFilePath().equals(imageFileInfo.getFilePath())) {
+            ImageFileInfo imageFileInfo = this.bys.get(i);
+            if (imageFileInfo != null && this.byr.getFilePath().equals(imageFileInfo.getFilePath())) {
                 return i;
             }
         }
         return 0;
     }
 
-    public AlbumData X(List<MediaFileInfo> list) {
+    public AlbumData Y(List<MediaFileInfo> list) {
         AlbumData albumData = new AlbumData();
         albumData.setAlbumId(AlbumData.ALBUM_ID_ALL);
-        albumData.setName(this.bvI.getPageContext().getString(a.i.sdk_ph_album_all_media));
+        albumData.setName(this.bxW.getPageContext().getString(a.i.sdk_ph_album_all_media));
         int count = ListUtils.getCount(list);
         albumData.setFileList(list);
         albumData.setCount(String.valueOf(count));
@@ -225,10 +225,10 @@ public class c {
         return albumData;
     }
 
-    public AlbumData Y(List<VideoFileInfo> list) {
+    public AlbumData Z(List<VideoFileInfo> list) {
         AlbumData albumData = new AlbumData();
         albumData.setAlbumId(AlbumData.ALBUM_ID_VIDEO);
-        albumData.setName(this.bvI.getPageContext().getString(a.i.sdk_ph_album_all_video));
+        albumData.setName(this.bxW.getPageContext().getString(a.i.sdk_ph_album_all_video));
         int count = ListUtils.getCount(list);
         albumData.setCount(String.valueOf(count));
         ArrayList arrayList = new ArrayList();

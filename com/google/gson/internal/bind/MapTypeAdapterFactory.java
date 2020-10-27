@@ -28,7 +28,7 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
     @Override // com.google.gson.TypeAdapterFactory
     public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
         Type type = aVar.getType();
-        if (!Map.class.isAssignableFrom(aVar.efA())) {
+        if (!Map.class.isAssignableFrom(aVar.epA())) {
             return null;
         }
         Type[] b = C$Gson$Types.b(type, C$Gson$Types.f(type));
@@ -36,37 +36,37 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
     }
 
     private TypeAdapter<?> a(Gson gson, Type type) {
-        return (type == Boolean.TYPE || type == Boolean.class) ? TypeAdapters.odY : gson.getAdapter(com.google.gson.b.a.k(type));
+        return (type == Boolean.TYPE || type == Boolean.class) ? TypeAdapters.oVo : gson.getAdapter(com.google.gson.b.a.k(type));
     }
 
     /* loaded from: classes17.dex */
     private final class Adapter<K, V> extends TypeAdapter<Map<K, V>> {
-        private final e<? extends Map<K, V>> odj;
-        private final TypeAdapter<K> odu;
-        private final TypeAdapter<V> odv;
+        private final TypeAdapter<K> oUK;
+        private final TypeAdapter<V> oUL;
+        private final e<? extends Map<K, V>> oUz;
 
         public Adapter(Gson gson, Type type, TypeAdapter<K> typeAdapter, Type type2, TypeAdapter<V> typeAdapter2, e<? extends Map<K, V>> eVar) {
-            this.odu = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, type);
-            this.odv = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter2, type2);
-            this.odj = eVar;
+            this.oUK = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, type);
+            this.oUL = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter2, type2);
+            this.oUz = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: c */
         public Map<K, V> read(com.google.gson.stream.a aVar) throws IOException {
-            JsonToken efh = aVar.efh();
-            if (efh == JsonToken.NULL) {
-                aVar.efm();
+            JsonToken eph = aVar.eph();
+            if (eph == JsonToken.NULL) {
+                aVar.epm();
                 return null;
             }
-            Map<K, V> construct = this.odj.construct();
-            if (efh == JsonToken.BEGIN_ARRAY) {
-                aVar.eff();
+            Map<K, V> construct = this.oUz.construct();
+            if (eph == JsonToken.BEGIN_ARRAY) {
+                aVar.epf();
                 while (aVar.hasNext()) {
-                    aVar.eff();
-                    K read = this.odu.read(aVar);
-                    if (construct.put(read, this.odv.read(aVar)) != null) {
+                    aVar.epf();
+                    K read = this.oUK.read(aVar);
+                    if (construct.put(read, this.oUL.read(aVar)) != null) {
                         throw new JsonSyntaxException("duplicate key: " + read);
                     }
                     aVar.endArray();
@@ -74,11 +74,11 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
                 aVar.endArray();
                 return construct;
             }
-            aVar.efg();
+            aVar.epg();
             while (aVar.hasNext()) {
-                d.ocB.a(aVar);
-                K read2 = this.odu.read(aVar);
-                if (construct.put(read2, this.odv.read(aVar)) != null) {
+                d.oTR.a(aVar);
+                K read2 = this.oUK.read(aVar);
+                if (construct.put(read2, this.oUL.read(aVar)) != null) {
                     throw new JsonSyntaxException("duplicate key: " + read2);
                 }
             }
@@ -95,45 +95,45 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
         public void write(com.google.gson.stream.b bVar, Map<K, V> map) throws IOException {
             int i = 0;
             if (map == null) {
-                bVar.efw();
+                bVar.epw();
             } else if (!MapTypeAdapterFactory.this.complexMapKeySerialization) {
-                bVar.efu();
+                bVar.epu();
                 for (Map.Entry<K, V> entry : map.entrySet()) {
-                    bVar.Wi(String.valueOf(entry.getKey()));
-                    this.odv.write(bVar, entry.getValue());
+                    bVar.XV(String.valueOf(entry.getKey()));
+                    this.oUL.write(bVar, entry.getValue());
                 }
-                bVar.efv();
+                bVar.epv();
             } else {
                 ArrayList arrayList = new ArrayList(map.size());
                 ArrayList arrayList2 = new ArrayList(map.size());
                 boolean z = false;
                 for (Map.Entry<K, V> entry2 : map.entrySet()) {
-                    JsonElement jsonTree = this.odu.toJsonTree(entry2.getKey());
+                    JsonElement jsonTree = this.oUK.toJsonTree(entry2.getKey());
                     arrayList.add(jsonTree);
                     arrayList2.add(entry2.getValue());
                     z = (jsonTree.isJsonArray() || jsonTree.isJsonObject()) | z;
                 }
                 if (z) {
-                    bVar.efs();
+                    bVar.eps();
                     int size = arrayList.size();
                     while (i < size) {
-                        bVar.efs();
+                        bVar.eps();
                         h.a((JsonElement) arrayList.get(i), bVar);
-                        this.odv.write(bVar, arrayList2.get(i));
-                        bVar.eft();
+                        this.oUL.write(bVar, arrayList2.get(i));
+                        bVar.ept();
                         i++;
                     }
-                    bVar.eft();
+                    bVar.ept();
                     return;
                 }
-                bVar.efu();
+                bVar.epu();
                 int size2 = arrayList.size();
                 while (i < size2) {
-                    bVar.Wi(b((JsonElement) arrayList.get(i)));
-                    this.odv.write(bVar, arrayList2.get(i));
+                    bVar.XV(b((JsonElement) arrayList.get(i)));
+                    this.oUL.write(bVar, arrayList2.get(i));
                     i++;
                 }
-                bVar.efv();
+                bVar.epv();
             }
         }
 

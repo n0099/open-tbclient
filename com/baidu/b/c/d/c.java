@@ -14,14 +14,14 @@ import javax.crypto.spec.PSource;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final byte[] f1263a = new byte[0];
-    private f adC;
-    private d adE;
+    private static final byte[] f1260a = new byte[0];
+    private f adD;
+    private d adF;
     private int b;
     private byte[] f;
     private int g;
     private int h;
-    private OAEPParameterSpec adD = null;
+    private OAEPParameterSpec adE = null;
     private String j = "SHA-1";
     private String c = "PKCS1Padding";
 
@@ -44,23 +44,23 @@ public final class c {
             throw new InvalidKeyException("only support helios key");
         }
         this.b = z ? 1 : 4;
-        this.adE = dVar;
-        int a2 = b.a(this.adE.sM());
+        this.adF = dVar;
+        int a2 = b.a(this.adF.sM());
         this.h = a2;
         this.g = 0;
         if (this.c == "NoPadding") {
             if (algorithmParameterSpec != null) {
                 throw new InvalidAlgorithmParameterException("Parameters not supported");
             }
-            this.adC = f.a(3, a2, secureRandom);
+            this.adD = f.a(3, a2, secureRandom);
             this.f = new byte[a2];
         } else if (this.c == "PKCS1Padding") {
             if (algorithmParameterSpec != null) {
                 throw new InvalidAlgorithmParameterException("Parameters not supported");
             }
-            this.adC = f.a(this.b <= 2 ? 2 : 1, a2, secureRandom);
+            this.adD = f.a(this.b <= 2 ? 2 : 1, a2, secureRandom);
             if (z) {
-                this.f = new byte[this.adC.a()];
+                this.f = new byte[this.adD.a()];
             } else {
                 this.f = new byte[a2];
             }
@@ -74,9 +74,9 @@ public final class c {
             } else {
                 oAEPParameterSpec = (OAEPParameterSpec) algorithmParameterSpec;
             }
-            this.adC = f.a(4, a2, secureRandom, oAEPParameterSpec);
+            this.adD = f.a(4, a2, secureRandom, oAEPParameterSpec);
             if (z) {
-                this.f = new byte[this.adC.a()];
+                this.f = new byte[this.adD.a()];
             } else {
                 this.f = new byte[a2];
             }
@@ -91,14 +91,14 @@ public final class c {
         try {
             switch (this.b) {
                 case 1:
-                    a2 = b.a(this.adC.k(this.f, 0, this.g), this.adE);
+                    a2 = b.a(this.adD.k(this.f, 0, this.g), this.adF);
                     break;
                 case 2:
                     throw new UnsupportedOperationException("only verify supported");
                 case 3:
                     throw new UnsupportedOperationException("only verify supported");
                 case 4:
-                    a2 = this.adC.b(b.a(b.k(this.f, 0, this.g), this.adE));
+                    a2 = this.adD.b(b.a(b.k(this.f, 0, this.g), this.adF));
                     break;
                 default:
                     throw new AssertionError("Internal error");

@@ -16,7 +16,7 @@ import java.util.concurrent.Executors;
 public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f1272a = false;
+    private boolean f1269a = false;
     private boolean b = true;
     private boolean c = true;
     private String d = "";
@@ -87,8 +87,8 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
         String str;
         RuntimeException e;
         ConnectivityManager connectivityManager;
-        if (!this.f1272a) {
-            this.f1272a = true;
+        if (!this.f1269a) {
+            this.f1269a = true;
             return;
         }
         try {

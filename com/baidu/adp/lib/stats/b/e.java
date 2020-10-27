@@ -4,7 +4,7 @@ package com.baidu.adp.lib.stats.b;
 public class e extends com.baidu.adp.lib.stats.base.a {
     public e(j jVar) {
         super(jVar);
-        this.Oq = 50;
-        this.Or = "pf";
+        this.Or = 50;
+        this.Os = "pf";
     }
 }

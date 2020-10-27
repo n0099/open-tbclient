@@ -9,43 +9,33 @@ public interface b extends c {
     public interface a {
     }
 
-    void KG();
+    void La();
 
     void a(@NonNull a aVar);
 
     void a(com.baidu.swan.apps.inlinewidget.rtcroom.model.b bVar);
 
-    ArrayList<com.baidu.swan.apps.inlinewidget.rtcroom.model.c> arr();
+    ArrayList<com.baidu.swan.apps.inlinewidget.rtcroom.model.c> atm();
 
-    ArrayList<com.baidu.swan.apps.inlinewidget.rtcroom.model.a> ars();
+    ArrayList<com.baidu.swan.apps.inlinewidget.rtcroom.model.a> atn();
 
-    void art();
+    void ato();
 
-    void aru();
+    void atp();
 
-    void arv();
+    void atq();
 
-    void arw();
+    void atr();
 
-    void arx();
+    void ats();
 
-    void bj(long j);
+    void bl(long j);
 
-    void bk(long j);
-
-    void d(long j, boolean z);
+    void bm(long j);
 
     void e(long j, boolean z);
 
-    void eM(boolean z);
-
-    void eN(boolean z);
-
-    void eO(boolean z);
-
-    void eP(boolean z);
-
-    void eQ(boolean z);
+    void eZ(boolean z);
 
     void enableAgc(boolean z);
 
@@ -53,23 +43,33 @@ public interface b extends c {
 
     void enableZoom(boolean z);
 
-    void iq(int i);
+    void f(long j, boolean z);
 
-    void ir(int i);
+    void fa(boolean z);
 
-    void is(int i);
+    void fb(boolean z);
 
-    void it(int i);
+    void fc(boolean z);
 
-    void iu(int i);
+    void fd(boolean z);
 
-    void iv(int i);
+    void iB(int i);
 
-    void iw(int i);
+    void iC(int i);
 
-    void nX(String str);
+    void iD(int i);
 
-    void nY(String str);
+    void iE(int i);
+
+    void iF(int i);
+
+    void iG(int i);
+
+    void iH(int i);
+
+    void os(String str);
+
+    void ot(String str);
 
     void setCameraFace(boolean z);
 

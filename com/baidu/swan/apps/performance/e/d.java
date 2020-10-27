@@ -4,50 +4,50 @@ import android.text.TextUtils;
 import java.util.HashMap;
 /* loaded from: classes10.dex */
 public final class d {
-    private static volatile d cVM;
-    private HashMap<String, e> cVN;
-    private HashMap<String, e> cVO;
-    private HashMap<String, e> cVP;
+    private static volatile d dem;
+    private HashMap<String, e> den;
+    private HashMap<String, e> deo;
+    private HashMap<String, e> dep;
 
     private d() {
-        azV();
+        aBP();
     }
 
-    public static d azU() {
-        if (cVM == null) {
+    public static d aBO() {
+        if (dem == null) {
             synchronized (d.class) {
-                if (cVM == null) {
-                    cVM = new d();
+                if (dem == null) {
+                    dem = new d();
                 }
             }
         }
-        return cVM;
+        return dem;
     }
 
     public static synchronized void releaseInstance() {
         synchronized (d.class) {
-            if (cVM != null) {
-                cVM.release();
-                cVM = null;
+            if (dem != null) {
+                dem.release();
+                dem = null;
             }
         }
     }
 
     private void release() {
-        if (this.cVN != null) {
-            this.cVN.clear();
+        if (this.den != null) {
+            this.den.clear();
         }
-        if (this.cVO != null) {
-            this.cVO.clear();
+        if (this.deo != null) {
+            this.deo.clear();
         }
-        if (this.cVP != null) {
-            this.cVP.clear();
+        if (this.dep != null) {
+            this.dep.clear();
         }
     }
 
     public void d(String str, String str2, long j) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && j >= 0) {
-            azV();
+            aBP();
             char c = 65535;
             switch (str2.hashCode()) {
                 case -1880922749:
@@ -104,15 +104,15 @@ public final class d {
         }
     }
 
-    private void azV() {
-        if (this.cVN == null) {
-            this.cVN = new HashMap<>();
+    private void aBP() {
+        if (this.den == null) {
+            this.den = new HashMap<>();
         }
-        if (this.cVO == null) {
-            this.cVO = new HashMap<>();
+        if (this.deo == null) {
+            this.deo = new HashMap<>();
         }
-        if (this.cVP == null) {
-            this.cVP = new HashMap<>();
+        if (this.dep == null) {
+            this.dep = new HashMap<>();
         }
     }
 
@@ -142,26 +142,26 @@ public final class d {
             }
             switch (c) {
                 case 0:
-                    eVar = this.cVN.get(str);
+                    eVar = this.den.get(str);
                     if (eVar == null) {
                         eVar = new b();
-                        this.cVN.put(str, eVar);
+                        this.den.put(str, eVar);
                         break;
                     }
                     break;
                 case 1:
-                    eVar = this.cVO.get(str);
+                    eVar = this.deo.get(str);
                     if (eVar == null) {
                         eVar = new a();
-                        this.cVO.put(str, eVar);
+                        this.deo.put(str, eVar);
                         break;
                     }
                     break;
                 case 2:
-                    eVar = this.cVP.get(str);
+                    eVar = this.dep.get(str);
                     if (eVar == null) {
                         eVar = new c();
-                        this.cVP.put(str, eVar);
+                        this.dep.put(str, eVar);
                         break;
                     }
                     break;
@@ -198,23 +198,23 @@ public final class d {
             }
             switch (c) {
                 case 0:
-                    eVar = this.cVN.remove(str);
+                    eVar = this.den.remove(str);
                     break;
                 case 1:
-                    eVar = this.cVO.remove(str);
+                    eVar = this.deo.remove(str);
                     break;
                 case 2:
-                    eVar = this.cVP.remove(str);
+                    eVar = this.dep.remove(str);
                     break;
             }
             if (eVar != null) {
                 eVar.setEnd(j);
-                p(eVar.getType(), eVar.alE());
+                r(eVar.getType(), eVar.any());
             }
         }
     }
 
-    private void p(String str, long j) {
+    private void r(String str, long j) {
         if (!TextUtils.isEmpty(str)) {
             char c = 65535;
             switch (str.hashCode()) {
@@ -239,13 +239,13 @@ public final class d {
             }
             switch (c) {
                 case 0:
-                    com.baidu.swan.apps.am.e.dou.aa(Long.valueOf(j));
+                    com.baidu.swan.apps.am.e.dwU.aa(Long.valueOf(j));
                     return;
                 case 1:
-                    com.baidu.swan.apps.am.e.dov.aa(Long.valueOf(j));
+                    com.baidu.swan.apps.am.e.dwV.aa(Long.valueOf(j));
                     return;
                 case 2:
-                    com.baidu.swan.apps.am.e.dow.aa(Long.valueOf(j));
+                    com.baidu.swan.apps.am.e.dwW.aa(Long.valueOf(j));
                     return;
                 default:
                     return;

@@ -5,10 +5,10 @@ import org.json.JSONObject;
 /* loaded from: classes15.dex */
 public class a {
     public static void a(int i, String str, String str2, int i2, JSONObject jSONObject) {
-        d.aWI().a(mC(i), str, str2, i2, jSONObject);
+        d.aYB().a(mN(i), str, str2, i2, jSONObject);
     }
 
-    private static String mC(int i) {
+    private static String mN(int i) {
         switch (i) {
             case 0:
                 return "swan";

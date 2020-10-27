@@ -10,20 +10,20 @@ import com.baidu.tbadk.core.data.bw;
 import com.baidu.tieba.R;
 /* loaded from: classes21.dex */
 public class ar extends d implements p<bw>, q {
-    private static final int agM = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds124);
-    private Align agO;
-    public UnfollowedDecorView aim;
+    private static final int agN = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds124);
+    private Align agP;
+    public UnfollowedDecorView ain;
 
     public ar(TbPageContext tbPageContext, Align align) {
         setInsertIndex(-1);
-        this.aim = new UnfollowedDecorView(tbPageContext.getPageActivity());
-        this.aim.setId(R.id.decor_item_right_id);
-        H((View) this.aim);
+        this.ain = new UnfollowedDecorView(tbPageContext.getPageActivity());
+        this.ain.setId(R.id.decor_item_right_id);
+        H((View) this.ain);
         a(align);
     }
 
     public void a(Align align) {
-        if (align != this.agO) {
+        if (align != this.agP) {
             if (align == Align.ALIGN_RIGHT_TOP) {
                 int dimens = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds90);
                 int dimens2 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds14);
@@ -35,9 +35,9 @@ public class ar extends d implements p<bw>, q {
                 layoutParams.rightMargin = dimens3;
                 layoutParams.topMargin = dimens4;
                 a(layoutParams);
-                this.aim.setSvgResId(R.drawable.icon_home_delete_n, R.color.cp_cont_g);
-                this.aim.setPadding(dimens2, dimens2, dimens2, dimens2);
-                this.aim.setLayoutParams(layoutParams);
+                this.ain.setSvgResId(R.drawable.icon_home_delete_n, R.color.cp_cont_g);
+                this.ain.setPadding(dimens2, dimens2, dimens2, dimens2);
+                this.ain.setLayoutParams(layoutParams);
             } else if (align == Align.ALIGN_RIGHT_CENTER) {
                 int dimens5 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds90);
                 int dimens6 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds14);
@@ -48,11 +48,11 @@ public class ar extends d implements p<bw>, q {
                 layoutParams2.rightMargin = dimens7;
                 layoutParams2.bottomMargin = 0;
                 a(layoutParams2);
-                this.aim.setSvgResId(R.drawable.icon_home_delete_n, R.color.cp_cont_g);
-                this.aim.setPadding(dimens6, dimens6, dimens6, dimens6);
-                this.aim.setLayoutParams(layoutParams2);
+                this.ain.setSvgResId(R.drawable.icon_home_delete_n, R.color.cp_cont_g);
+                this.ain.setPadding(dimens6, dimens6, dimens6, dimens6);
+                this.ain.setLayoutParams(layoutParams2);
             } else if (align == Align.ALIGN_RIGHT_BOTTOM) {
-                int i = agM;
+                int i = agN;
                 int dimens8 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds30);
                 int dimens9 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds14);
                 int dimens10 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds20);
@@ -62,20 +62,20 @@ public class ar extends d implements p<bw>, q {
                 layoutParams3.rightMargin = dimens9;
                 layoutParams3.bottomMargin = dimens10;
                 a(layoutParams3);
-                this.aim.setSvgResId(R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g);
-                this.aim.setPadding(dimens8, dimens8, dimens8, dimens8);
-                this.aim.setLayoutParams(layoutParams3);
+                this.ain.setSvgResId(R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g);
+                this.ain.setPadding(dimens8, dimens8, dimens8, dimens8);
+                this.ain.setLayoutParams(layoutParams3);
             }
-            this.agO = align;
+            this.agP = align;
         }
     }
 
     public void g(AbsThreadDataSupport absThreadDataSupport) {
-        if (absThreadDataSupport.bfK()) {
+        if (absThreadDataSupport.bhD()) {
             a(Align.ALIGN_RIGHT_TOP);
-        } else if (absThreadDataSupport.bfL()) {
-            if (this.afM != null) {
-                this.afM.a(this);
+        } else if (absThreadDataSupport.bhE()) {
+            if (this.afN != null) {
+                this.afN.a(this);
             }
         } else {
             a(Align.ALIGN_RIGHT_TOP);
@@ -86,11 +86,11 @@ public class ar extends d implements p<bw>, q {
     @Override // com.baidu.card.p
     /* renamed from: a */
     public void H(bw bwVar) {
-        this.aim.r(bwVar);
+        this.ain.r(bwVar);
     }
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.aim.onChangeSkinType();
+        this.ain.onChangeSkinType();
     }
 }

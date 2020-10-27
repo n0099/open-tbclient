@@ -16,8 +16,8 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class AutoBannerView extends RelativeLayout {
-    private CoverFlowView<com.baidu.tieba.personCenter.c.a> aiV;
-    private com.baidu.tbadk.h.c aiW;
+    private CoverFlowView<com.baidu.tieba.personCenter.c.a> aiW;
+    private com.baidu.tbadk.h.c aiX;
     private List<com.baidu.tieba.personCenter.c.a> mData;
 
     public AutoBannerView(Context context) {
@@ -30,13 +30,13 @@ public class AutoBannerView extends RelativeLayout {
 
     public AutoBannerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aiV = null;
+        this.aiW = null;
         this.mData = null;
         initUI();
     }
 
     private void initUI() {
-        this.aiV = new CoverFlowView<>(getContext());
+        this.aiW = new CoverFlowView<>(getContext());
         com.baidu.tbadk.core.flow.a.b bVar = new com.baidu.tbadk.core.flow.a.b() { // from class: com.baidu.tieba.personCenter.view.AutoBannerView.1
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
             public com.baidu.tbadk.core.flow.a.e uf() {
@@ -60,24 +60,24 @@ public class AutoBannerView extends RelativeLayout {
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
             public com.baidu.tbadk.core.flow.a.c ug() {
                 com.baidu.tbadk.core.flow.a.c cVar = new com.baidu.tbadk.core.flow.a.c();
-                cVar.oq(R.drawable.icon_banner_gray_n);
-                cVar.or(R.drawable.icon_banner_s);
+                cVar.oB(R.drawable.icon_banner_gray_n);
+                cVar.oC(R.drawable.icon_banner_s);
                 cVar.setGravity(81);
-                cVar.os(R.dimen.tbds26);
+                cVar.oD(R.dimen.tbds26);
                 cVar.setSpacing(R.dimen.tbds10);
                 return cVar;
             }
         };
-        this.aiV.setIndicatorNoOffet(false);
-        this.aiV.setDisableParentEvent(false);
-        this.aiV.setCoverFlowFactory(bVar);
-        this.aiV.setIndicatorVisible(0);
-        this.aiV.setIsAutoPlayDragging(false);
-        addView(this.aiV);
+        this.aiW.setIndicatorNoOffet(false);
+        this.aiW.setDisableParentEvent(false);
+        this.aiW.setCoverFlowFactory(bVar);
+        this.aiW.setIndicatorVisible(0);
+        this.aiW.setIsAutoPlayDragging(false);
+        addView(this.aiW);
     }
 
     public CoverFlowView getCoverFlowView() {
-        return this.aiV;
+        return this.aiW;
     }
 
     public boolean checkIndex(int i) {
@@ -87,51 +87,51 @@ public class AutoBannerView extends RelativeLayout {
     public void dl(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
-                be.bmY().b((TbPageContext) i.I(getContext()), new String[]{str});
+                be.boR().b((TbPageContext) i.I(getContext()), new String[]{str});
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void bpt() {
-        if (this.aiV != null) {
-            this.aiV.blh();
+    public void brm() {
+        if (this.aiW != null) {
+            this.aiW.bna();
         }
     }
 
     public void setIndicatorVisible(int i) {
-        if (this.aiV != null) {
-            this.aiV.setIndicatorVisible(i);
+        if (this.aiW != null) {
+            this.aiW.setIndicatorVisible(i);
         }
     }
 
     public void r(List<com.baidu.tieba.personCenter.c.a> list) {
         this.mData = list;
-        this.aiV.setData(list);
+        this.aiW.setData(list);
     }
 
     public void setIWindowChangedListener(com.baidu.tbadk.h.c cVar) {
-        this.aiW = cVar;
+        this.aiX = cVar;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.aiV != null) {
-            this.aiV.onChangeSkinType();
+        if (this.aiW != null) {
+            this.aiW.onChangeSkinType();
         }
     }
 
     public void setMarqueenTime(long j) {
-        if (this.aiV != null) {
-            this.aiV.setMarqueenTime(j);
+        if (this.aiW != null) {
+            this.aiW.setMarqueenTime(j);
         }
     }
 
     @Override // android.view.View
     protected void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
-        if (this.aiW != null) {
-            this.aiW.a(this, i == 0, null);
+        if (this.aiX != null) {
+            this.aiX.a(this, i == 0, null);
         }
     }
 }

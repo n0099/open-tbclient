@@ -147,7 +147,7 @@ public final class ai {
         return str;
     }
 
-    public static String tN(String str) {
+    public static String ug(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (str.startsWith(File.separator)) {
                 str = str.substring(1);
@@ -160,8 +160,8 @@ public final class ai {
         return str;
     }
 
-    public static String tO(String str) {
-        return tN(delAllParamsFromUrl(str));
+    public static String uh(String str) {
+        return ug(delAllParamsFromUrl(str));
     }
 
     public static String getParams(String str) {
@@ -319,7 +319,7 @@ public final class ai {
         return z;
     }
 
-    public static String cB(String str, String str2) {
+    public static String cI(String str, String str2) {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("errcode", str);

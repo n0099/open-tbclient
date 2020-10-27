@@ -1,14 +1,14 @@
 package com.baidu.live.ac;
 
-import android.content.Context;
-import com.baidu.live.sdk.a;
+import com.baidu.live.data.w;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class a {
-    public static int a(Context context, boolean z, boolean z2, boolean z3) {
-        return b.c(z, z2, z3) + context.getResources().getDimensionPixelSize(a.e.sdk_tbds130) + context.getResources().getDimensionPixelOffset(a.e.sdk_ds80) + context.getResources().getDimensionPixelOffset(a.e.sdk_ds20) + context.getResources().getDimensionPixelOffset(a.e.sdk_ds6);
-    }
+public interface a {
+    void R(JSONObject jSONObject);
 
-    public static int h(boolean z, boolean z2) {
-        return b.c(z, z2, false) + b.cH(z);
-    }
+    void cy(boolean z);
+
+    void j(w wVar);
+
+    void onDestroy();
 }

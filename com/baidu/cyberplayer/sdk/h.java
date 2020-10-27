@@ -12,7 +12,7 @@ import com.baidu.cyberplayer.sdk.i;
 public class h extends TextureView implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    private a f1390a;
+    private a f1387a;
     private SurfaceTexture b;
     private Surface c;
     private i.a d;
@@ -67,8 +67,8 @@ public class h extends TextureView implements i {
 
     public h(Context context) {
         super(context);
-        this.f1390a = new a();
-        setSurfaceTextureListener(this.f1390a);
+        this.f1387a = new a();
+        setSurfaceTextureListener(this.f1387a);
         this.e = new f();
         this.f = false;
     }

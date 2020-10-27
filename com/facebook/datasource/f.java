@@ -10,28 +10,28 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes6.dex */
 public class f<T> implements j<b<T>> {
-    private final List<j<b<T>>> nLB;
-    private final boolean nLG;
+    private final List<j<b<T>>> oCU;
+    private final boolean oCZ;
 
     private f(List<j<b<T>>> list, boolean z) {
         com.facebook.common.internal.g.checkArgument(!list.isEmpty(), "List of suppliers is empty!");
-        this.nLB = list;
-        this.nLG = z;
+        this.oCU = list;
+        this.oCZ = z;
     }
 
-    public static <T> f<T> w(List<j<b<T>>> list, boolean z) {
+    public static <T> f<T> x(List<j<b<T>>> list, boolean z) {
         return new f<>(list, z);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.j
-    /* renamed from: dWU */
+    /* renamed from: egS */
     public b<T> get() {
         return new a();
     }
 
     public int hashCode() {
-        return this.nLB.hashCode();
+        return this.oCU.hashCode();
     }
 
     public boolean equals(Object obj) {
@@ -41,11 +41,11 @@ public class f<T> implements j<b<T>> {
         if (!(obj instanceof f)) {
             return false;
         }
-        return com.facebook.common.internal.f.equal(this.nLB, ((f) obj).nLB);
+        return com.facebook.common.internal.f.equal(this.oCU, ((f) obj).oCU);
     }
 
     public String toString() {
-        return com.facebook.common.internal.f.aV(this).F("list", this.nLB).toString();
+        return com.facebook.common.internal.f.aZ(this).F("list", this.oCU).toString();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -54,34 +54,34 @@ public class f<T> implements j<b<T>> {
     public class a extends AbstractDataSource<T> {
         @GuardedBy("IncreasingQualityDataSource.this")
         @Nullable
-        private ArrayList<b<T>> nLH;
+        private ArrayList<b<T>> oDa;
         @GuardedBy("IncreasingQualityDataSource.this")
-        private int nLI;
-        private int nLJ;
-        private AtomicInteger nLK;
+        private int oDb;
+        private int oDc;
+        private AtomicInteger oDd;
         @Nullable
-        private Throwable nLL;
+        private Throwable oDe;
 
         public a() {
-            if (!f.this.nLG) {
-                dWY();
+            if (!f.this.oCZ) {
+                egW();
             }
         }
 
-        private void dWY() {
-            if (this.nLK == null) {
+        private void egW() {
+            if (this.oDd == null) {
                 synchronized (this) {
-                    if (this.nLK == null) {
-                        this.nLK = new AtomicInteger(0);
-                        int size = f.this.nLB.size();
-                        this.nLJ = size;
-                        this.nLI = size;
-                        this.nLH = new ArrayList<>(size);
+                    if (this.oDd == null) {
+                        this.oDd = new AtomicInteger(0);
+                        int size = f.this.oCU.size();
+                        this.oDc = size;
+                        this.oDb = size;
+                        this.oDa = new ArrayList<>(size);
                         for (int i = 0; i < size; i++) {
-                            b<T> bVar = (b) ((j) f.this.nLB.get(i)).get();
-                            this.nLH.add(bVar);
-                            bVar.a(new C0878a(i), com.facebook.common.b.a.dWi());
-                            if (bVar.dWO()) {
+                            b<T> bVar = (b) ((j) f.this.oCU.get(i)).get();
+                            this.oDa.add(bVar);
+                            bVar.a(new C0950a(i), com.facebook.common.b.a.egg());
+                            if (bVar.egM()) {
                                 break;
                             }
                         }
@@ -91,60 +91,60 @@ public class f<T> implements j<b<T>> {
         }
 
         @Nullable
-        private synchronized b<T> Mi(int i) {
-            return (this.nLH == null || i >= this.nLH.size()) ? null : this.nLH.get(i);
+        private synchronized b<T> NZ(int i) {
+            return (this.oDa == null || i >= this.oDa.size()) ? null : this.oDa.get(i);
         }
 
         @Nullable
-        private synchronized b<T> Mj(int i) {
+        private synchronized b<T> Oa(int i) {
             b<T> bVar = null;
             synchronized (this) {
-                if (this.nLH != null && i < this.nLH.size()) {
-                    bVar = this.nLH.set(i, null);
+                if (this.oDa != null && i < this.oDa.size()) {
+                    bVar = this.oDa.set(i, null);
                 }
             }
             return bVar;
         }
 
         @Nullable
-        private synchronized b<T> dWX() {
-            return Mi(this.nLI);
+        private synchronized b<T> egV() {
+            return NZ(this.oDb);
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
         @Nullable
         public synchronized T getResult() {
-            b<T> dWX;
-            if (f.this.nLG) {
-                dWY();
+            b<T> egV;
+            if (f.this.oCZ) {
+                egW();
             }
-            dWX = dWX();
-            return dWX != null ? dWX.getResult() : null;
+            egV = egV();
+            return egV != null ? egV.getResult() : null;
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
-        public synchronized boolean dWO() {
+        public synchronized boolean egM() {
             boolean z;
-            if (f.this.nLG) {
-                dWY();
+            if (f.this.oCZ) {
+                egW();
             }
-            b<T> dWX = dWX();
-            if (dWX != null) {
-                z = dWX.dWO();
+            b<T> egV = egV();
+            if (egV != null) {
+                z = egV.egM();
             }
             return z;
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
-        public boolean akV() {
+        public boolean amP() {
             int i = 0;
-            if (f.this.nLG) {
-                dWY();
+            if (f.this.oCZ) {
+                egW();
             }
             synchronized (this) {
-                if (super.akV()) {
-                    ArrayList<b<T>> arrayList = this.nLH;
-                    this.nLH = null;
+                if (super.amP()) {
+                    ArrayList<b<T>> arrayList = this.oDa;
+                    this.oDa = null;
                     if (arrayList != null) {
                         while (true) {
                             int i2 = i;
@@ -164,38 +164,38 @@ public class f<T> implements j<b<T>> {
         /* JADX INFO: Access modifiers changed from: private */
         public void a(int i, b<T> bVar) {
             a(i, bVar, bVar.isFinished());
-            if (bVar == dWX()) {
+            if (bVar == egV()) {
                 b((a) null, i == 0 && bVar.isFinished());
             }
-            dWZ();
+            egX();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void b(int i, b<T> bVar) {
             l(c(i, bVar));
             if (i == 0) {
-                this.nLL = bVar.dWQ();
+                this.oDe = bVar.egO();
             }
-            dWZ();
+            egX();
         }
 
-        private void dWZ() {
-            if (this.nLK.incrementAndGet() == this.nLJ && this.nLL != null) {
-                x(this.nLL);
+        private void egX() {
+            if (this.oDd.incrementAndGet() == this.oDc && this.oDe != null) {
+                x(this.oDe);
             }
         }
 
         private void a(int i, b<T> bVar, boolean z) {
             synchronized (this) {
-                int i2 = this.nLI;
-                if (bVar == Mi(i) && i != this.nLI) {
-                    if (dWX() == null || (z && i < this.nLI)) {
-                        this.nLI = i;
+                int i2 = this.oDb;
+                if (bVar == NZ(i) && i != this.oDb) {
+                    if (egV() == null || (z && i < this.oDb)) {
+                        this.oDb = i;
                     } else {
                         i = i2;
                     }
-                    for (int i3 = this.nLI; i3 > i; i3--) {
-                        l(Mj(i3));
+                    for (int i3 = this.oDb; i3 > i; i3--) {
+                        l(Oa(i3));
                     }
                 }
             }
@@ -203,33 +203,33 @@ public class f<T> implements j<b<T>> {
 
         @Nullable
         private synchronized b<T> c(int i, b<T> bVar) {
-            if (bVar == dWX()) {
+            if (bVar == egV()) {
                 bVar = null;
-            } else if (bVar == Mi(i)) {
-                bVar = Mj(i);
+            } else if (bVar == NZ(i)) {
+                bVar = Oa(i);
             }
             return bVar;
         }
 
         private void l(b<T> bVar) {
             if (bVar != null) {
-                bVar.akV();
+                bVar.amP();
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.facebook.datasource.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0878a implements d<T> {
+        public class C0950a implements d<T> {
             private int mIndex;
 
-            public C0878a(int i) {
+            public C0950a(int i) {
                 this.mIndex = i;
             }
 
             @Override // com.facebook.datasource.d
             public void d(b<T> bVar) {
-                if (bVar.dWO()) {
+                if (bVar.egM()) {
                     a.this.a(this.mIndex, bVar);
                 } else if (bVar.isFinished()) {
                     a.this.b(this.mIndex, bVar);
@@ -248,7 +248,7 @@ public class f<T> implements j<b<T>> {
             @Override // com.facebook.datasource.d
             public void f(b<T> bVar) {
                 if (this.mIndex == 0) {
-                    a.this.aP(bVar.getProgress());
+                    a.this.bg(bVar.getProgress());
                 }
             }
         }

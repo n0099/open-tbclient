@@ -31,14 +31,14 @@ public abstract class b extends aa {
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.runtime.e eVar) {
         boolean e;
-        String rR = rR("insert");
-        String rR2 = rR(IMTrack.DbBuilder.ACTION_UPDATE);
-        String rR3 = rR("remove");
-        if (TextUtils.equals(rR, str)) {
+        String sk = sk("insert");
+        String sk2 = sk(IMTrack.DbBuilder.ACTION_UPDATE);
+        String sk3 = sk("remove");
+        if (TextUtils.equals(sk, str)) {
             e = a(context, unitedSchemeEntity, callbackHandler, str, eVar);
-        } else if (TextUtils.equals(rR2, str)) {
+        } else if (TextUtils.equals(sk2, str)) {
             e = b(context, unitedSchemeEntity, callbackHandler, str, eVar);
-        } else if (TextUtils.equals(rR3, str)) {
+        } else if (TextUtils.equals(sk3, str)) {
             e = c(context, unitedSchemeEntity, callbackHandler, str, eVar);
         } else {
             e = e(context, unitedSchemeEntity, callbackHandler, str, eVar);
@@ -71,7 +71,7 @@ public abstract class b extends aa {
         return jSONObject;
     }
 
-    private String rR(String str) {
+    private String sk(String str) {
         return getModuleName() + "/" + str;
     }
 

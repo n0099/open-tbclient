@@ -12,24 +12,24 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static volatile a cTP;
+    public static volatile a dcn;
     public String appId;
-    public String cTN;
-    public String cTO;
-    public com.baidu.l.a.a cTQ;
+    public String dcl;
+    public String dcm;
+    public com.baidu.l.a.a dco;
 
     private a() {
     }
 
-    public static a ayK() {
-        if (cTP == null) {
+    public static a aAE() {
+        if (dcn == null) {
             synchronized (a.class) {
-                if (cTP == null) {
-                    cTP = new a();
+                if (dcn == null) {
+                    dcn = new a();
                 }
             }
         }
-        return cTP;
+        return dcn;
     }
 
     public boolean a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
@@ -38,11 +38,11 @@ public class a {
             com.baidu.swan.apps.console.c.i("SwanAppPayLaunchMsg", "wxPay: url is empty");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
-        } else if (!com.baidu.l.b.Wt().aO(context)) {
+        } else if (!com.baidu.l.b.Yn().aO(context)) {
             com.baidu.swan.apps.res.widget.b.d.a(context, context.getText(a.h.aiapps_wx_not_install_toast_msg)).showToast();
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1002, "had not installed WeChat");
             return false;
-        } else if (!i.b("wxPay", com.baidu.swan.apps.model.b.bU(a2, a2))) {
+        } else if (!i.b("wxPay", com.baidu.swan.apps.model.b.cb(a2, a2))) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else {
@@ -73,7 +73,7 @@ public class a {
         }
     }
 
-    public static int jj(int i) {
+    public static int ju(int i) {
         switch (i) {
             case -2:
                 return 2;

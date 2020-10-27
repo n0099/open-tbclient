@@ -15,30 +15,30 @@ import com.baidu.tieba.view.ImageOverlayView;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class HotUserRankImageOverlayView extends ViewGroup {
-    private int hYe;
-    private int hYf;
-    private int hYg;
-    private int hYh;
-    private ImageOverlayView.a hYi;
-    private boolean hYj;
-    private int hYk;
-    private int hYl;
-    public final View.OnClickListener hYm;
-    private int hzt;
+    private int hLP;
+    private int ikE;
+    private int ikF;
+    private int ikG;
+    private int ikH;
+    private ImageOverlayView.a ikI;
+    private boolean ikJ;
+    private int ikK;
+    private int ikL;
+    public final View.OnClickListener ikM;
     private int mImageHeight;
     private int mImageWidth;
     private Paint mStrokePaint;
 
     public HotUserRankImageOverlayView(Context context) {
         super(context);
-        this.hzt = 10;
-        this.hYj = false;
-        this.hYl = 1;
-        this.hYm = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.tabfeed.view.HotUserRankImageOverlayView.1
+        this.hLP = 10;
+        this.ikJ = false;
+        this.ikL = 1;
+        this.ikM = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.tabfeed.view.HotUserRankImageOverlayView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (HotUserRankImageOverlayView.this.hYi != null) {
-                    HotUserRankImageOverlayView.this.hYi.dMX();
+                if (HotUserRankImageOverlayView.this.ikI != null) {
+                    HotUserRankImageOverlayView.this.ikI.dQf();
                 }
             }
         };
@@ -47,14 +47,14 @@ public class HotUserRankImageOverlayView extends ViewGroup {
 
     public HotUserRankImageOverlayView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hzt = 10;
-        this.hYj = false;
-        this.hYl = 1;
-        this.hYm = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.tabfeed.view.HotUserRankImageOverlayView.1
+        this.hLP = 10;
+        this.ikJ = false;
+        this.ikL = 1;
+        this.ikM = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.tabfeed.view.HotUserRankImageOverlayView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (HotUserRankImageOverlayView.this.hYi != null) {
-                    HotUserRankImageOverlayView.this.hYi.dMX();
+                if (HotUserRankImageOverlayView.this.ikI != null) {
+                    HotUserRankImageOverlayView.this.ikI.dQf();
                 }
             }
         };
@@ -63,14 +63,14 @@ public class HotUserRankImageOverlayView extends ViewGroup {
 
     public HotUserRankImageOverlayView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hzt = 10;
-        this.hYj = false;
-        this.hYl = 1;
-        this.hYm = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.tabfeed.view.HotUserRankImageOverlayView.1
+        this.hLP = 10;
+        this.ikJ = false;
+        this.ikL = 1;
+        this.ikM = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.tabfeed.view.HotUserRankImageOverlayView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (HotUserRankImageOverlayView.this.hYi != null) {
-                    HotUserRankImageOverlayView.this.hYi.dMX();
+                if (HotUserRankImageOverlayView.this.ikI != null) {
+                    HotUserRankImageOverlayView.this.ikI.dQf();
                 }
             }
         };
@@ -78,21 +78,21 @@ public class HotUserRankImageOverlayView extends ViewGroup {
     }
 
     public void j(int i, int i2, int i3, int i4, int i5, int i6) {
-        this.hYe = i;
+        this.ikE = i;
         this.mImageWidth = i2;
         this.mImageHeight = i3;
-        this.hYf = i4;
-        this.hYg = i5;
-        this.hYh = i6;
-        cny();
+        this.ikF = i4;
+        this.ikG = i5;
+        this.ikH = i6;
+        cqF();
     }
 
     public void setFirstImageStrokeColor(@ColorRes int i) {
-        this.hYk = i;
+        this.ikK = i;
     }
 
     public void setStrokeStyle(int i) {
-        this.hYl = i;
+        this.ikL = i;
     }
 
     private void sw() {
@@ -101,8 +101,8 @@ public class HotUserRankImageOverlayView extends ViewGroup {
         this.mStrokePaint.setStyle(Paint.Style.STROKE);
     }
 
-    private void cny() {
-        for (int i = 0; i < this.hYe; i++) {
+    private void cqF() {
+        for (int i = 0; i < this.ikE; i++) {
             HeadImageView headImageView = new HeadImageView(getContext());
             headImageView.setLayoutParams(new ViewGroup.LayoutParams(this.mImageWidth, this.mImageHeight));
             headImageView.setIsRound(true);
@@ -118,35 +118,35 @@ public class HotUserRankImageOverlayView extends ViewGroup {
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        int i3 = this.hYf;
-        if (this.hYl == 1) {
-            i3 = this.hYf * 2;
+        int i3 = this.ikF;
+        if (this.ikL == 1) {
+            i3 = this.ikF * 2;
         }
-        setMeasuredDimension(resolveSize(((i3 + (getPaddingLeft() + getPaddingRight())) + (this.hYe * this.mImageWidth)) - ((this.hYe - 1) * this.hYh), i), resolveSize(getPaddingTop() + getPaddingBottom() + this.mImageHeight + (this.hYf * 2), i2));
+        setMeasuredDimension(resolveSize(((i3 + (getPaddingLeft() + getPaddingRight())) + (this.ikE * this.mImageWidth)) - ((this.ikE - 1) * this.ikH), i), resolveSize(getPaddingTop() + getPaddingBottom() + this.mImageHeight + (this.ikF * 2), i2));
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         View childAt;
-        int paddingLeft = this.hYf + getPaddingLeft() + ((this.hYe - 1) * (this.mImageWidth - this.hYh));
-        int paddingTop = this.hYf + getPaddingTop();
-        for (int i5 = 0; i5 < this.hYe && i5 < getChildCount() && (childAt = getChildAt(i5)) != null; i5++) {
+        int paddingLeft = this.ikF + getPaddingLeft() + ((this.ikE - 1) * (this.mImageWidth - this.ikH));
+        int paddingTop = this.ikF + getPaddingTop();
+        for (int i5 = 0; i5 < this.ikE && i5 < getChildCount() && (childAt = getChildAt(i5)) != null; i5++) {
             childAt.layout(paddingLeft, paddingTop, this.mImageWidth + paddingLeft, this.mImageHeight + paddingTop);
-            paddingLeft -= this.mImageWidth - this.hYh;
+            paddingLeft -= this.mImageWidth - this.ikH;
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        this.mStrokePaint.setColor(ap.getColor(this.hYg));
-        this.mStrokePaint.setStrokeWidth(this.hYf);
-        this.hYk = this.hYk <= 0 ? this.hYg : this.hYk;
-        float f = this.hYf * 0.5f;
+        this.mStrokePaint.setColor(ap.getColor(this.ikG));
+        this.mStrokePaint.setStrokeWidth(this.ikF);
+        this.ikK = this.ikK <= 0 ? this.ikG : this.ikK;
+        float f = this.ikF * 0.5f;
         float f2 = this.mImageWidth / 2.0f;
-        float acos = ((float) ((Math.acos((((f2 * 2.0f) - this.hYh) / 2.0f) / f2) / 3.141592653589793d) * 180.0d)) - 180.0f;
+        float acos = ((float) ((Math.acos((((f2 * 2.0f) - this.ikH) / 2.0f) / f2) / 3.141592653589793d) * 180.0d)) - 180.0f;
         float abs = Math.abs(acos * 2.0f);
-        int childCount = this.hYj ? 0 : getChildCount() - 1;
+        int childCount = this.ikJ ? 0 : getChildCount() - 1;
         int i = 0;
         while (i < getChildCount()) {
             View childAt = getChildAt(i);
@@ -156,9 +156,9 @@ public class HotUserRankImageOverlayView extends ViewGroup {
                 float right = childAt.getRight() + f;
                 float bottom = childAt.getBottom() + f;
                 if (i == childCount) {
-                    this.mStrokePaint.setColor(ap.getColor(this.hYk));
+                    this.mStrokePaint.setColor(ap.getColor(this.ikK));
                 } else {
-                    this.mStrokePaint.setColor(ap.getColor(this.hYg));
+                    this.mStrokePaint.setColor(ap.getColor(this.ikG));
                 }
                 canvas.drawArc(left, top, right, bottom, i == childCount ? 0.0f : acos, i == childCount ? 360.0f : abs, false, this.mStrokePaint);
             }
@@ -169,7 +169,7 @@ public class HotUserRankImageOverlayView extends ViewGroup {
     public void setData(List<String> list) {
         boolean z;
         if (!y.isEmpty(list)) {
-            for (int i = this.hYe - 1; i >= 0; i--) {
+            for (int i = this.ikE - 1; i >= 0; i--) {
                 HeadImageView headImageView = (HeadImageView) getChildAt(i);
                 if (headImageView != null) {
                     String str = null;
@@ -183,7 +183,7 @@ public class HotUserRankImageOverlayView extends ViewGroup {
                         headImageView.setVisibility(4);
                     } else {
                         headImageView.setVisibility(0);
-                        if (this.hzt == 12) {
+                        if (this.hLP == 12) {
                             headImageView.a(str, 12, this.mImageWidth, this.mImageHeight, false);
                         } else {
                             headImageView.a(str, 10, this.mImageWidth, this.mImageHeight, false);
@@ -197,7 +197,7 @@ public class HotUserRankImageOverlayView extends ViewGroup {
     }
 
     public void onChangeSkinType() {
-        this.mStrokePaint.setColor(ap.getColor(this.hYg));
+        this.mStrokePaint.setColor(ap.getColor(this.ikG));
         int i = 0;
         while (true) {
             int i2 = i;
@@ -214,10 +214,10 @@ public class HotUserRankImageOverlayView extends ViewGroup {
     }
 
     public void setImageClickListener(ImageOverlayView.a aVar) {
-        this.hYi = aVar;
+        this.ikI = aVar;
     }
 
     public void setLoadImageType(int i) {
-        this.hzt = i;
+        this.hLP = i;
     }
 }

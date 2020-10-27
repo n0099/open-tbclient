@@ -1,16 +1,16 @@
 package com.baidu.live.guess;
 
 import android.app.Activity;
-import com.baidu.live.data.u;
+import com.baidu.live.data.w;
 /* loaded from: classes4.dex */
 public interface a {
-    void JT();
+    void Kn();
 
-    void b(u uVar);
+    void b(w wVar);
 
-    void eF(int i);
+    void eG(int i);
 
-    void f(u uVar);
+    void f(w wVar);
 
     void onDestroy();
 

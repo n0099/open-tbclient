@@ -21,14 +21,14 @@ import com.baidu.live.tbadk.core.atomdata.BuyTBeanActivityConfig;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.data.RedPktSendHttpResponseMessage;
-import com.baidu.tieba.ala.data.q;
+import com.baidu.tieba.ala.data.s;
 /* loaded from: classes4.dex */
 public class d {
     private Activity activity;
-    private e giD;
+    private e gsE;
     private String liveId;
     private String roomId;
-    private HttpMessageListener giE = new HttpMessageListener(1021159) { // from class: com.baidu.tieba.ala.d.d.1
+    private HttpMessageListener gsF = new HttpMessageListener(1021159) { // from class: com.baidu.tieba.ala.d.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -44,14 +44,14 @@ public class d {
                 long logId = redPktSendHttpResponseMessage.getLogId();
                 AlaStatsItem alaStatsItem = new AlaStatsItem();
                 alaStatsItem.addValue(BaseJsonData.TAG_ERRNO, Integer.valueOf(redPktSendHttpResponseMessage.getError()));
-                alaStatsItem.addValue("redpacketId", Long.valueOf(redPktSendHttpResponseMessage.gkR));
+                alaStatsItem.addValue("redpacketId", Long.valueOf(redPktSendHttpResponseMessage.guW));
                 AlaStatManager.getInstance().debug("redpacket_send_result", logId, "", alaStatsItem);
             }
             if ((httpResponsedMessage instanceof RedPktSendHttpResponseMessage) && httpResponsedMessage.getError() == 0) {
-                com.baidu.live.n.a.a(d.this.liveId, ((RedPktSendHttpResponseMessage) httpResponsedMessage).gkR, ((RedPktSendHttpResponseMessage) httpResponsedMessage).gkS, "send_redpacket");
+                com.baidu.live.o.a.a(d.this.liveId, ((RedPktSendHttpResponseMessage) httpResponsedMessage).guW, ((RedPktSendHttpResponseMessage) httpResponsedMessage).guX, "send_redpacket");
                 d.this.activity.finish();
                 try {
-                    com.baidu.live.m.a.b(Long.parseLong(d.this.liveId), 8);
+                    com.baidu.live.n.a.b(Long.parseLong(d.this.liveId), 8);
                     return;
                 } catch (NumberFormatException e) {
                     e.printStackTrace();
@@ -63,8 +63,8 @@ public class d {
             } else if (!TextUtils.isEmpty(httpResponsedMessage.getErrorString())) {
                 BdUtilHelper.showToast(d.this.activity, httpResponsedMessage.getErrorString());
             }
-            if (d.this.giD != null) {
-                d.this.giD.lC(true);
+            if (d.this.gsE != null) {
+                d.this.gsE.lT(true);
             }
         }
     };
@@ -86,7 +86,7 @@ public class d {
     public d(Activity activity) {
         this.activity = activity;
         initView();
-        bMy();
+        bPa();
     }
 
     private void initView() {
@@ -95,10 +95,10 @@ public class d {
             this.liveId = intent.getStringExtra("live_id");
             this.roomId = intent.getStringExtra("room_id");
         }
-        this.giD = new e(this.activity, this);
+        this.gsE = new e(this.activity, this);
     }
 
-    private static void bMx() {
+    private static void bOZ() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021159, TbConfig.SERVER_HOST + "liveserver/redpacket/send");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -108,46 +108,46 @@ public class d {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void bMy() {
-        bMx();
-        MessageManager.getInstance().registerListener(this.giE);
+    private void bPa() {
+        bOZ();
+        MessageManager.getInstance().registerListener(this.gsF);
         MessageManager.getInstance().registerListener(this.notifyDialogDismissListener);
     }
 
     public void destroy() {
         MessageManager.getInstance().unRegisterTask(1021159);
-        MessageManager.getInstance().unRegisterListener(this.giE);
+        MessageManager.getInstance().unRegisterListener(this.gsF);
         MessageManager.getInstance().unRegisterListener(this.notifyDialogDismissListener);
     }
 
     public View getView() {
-        if (this.giD != null) {
-            return this.giD.getView();
+        if (this.gsE != null) {
+            return this.gsE.getView();
         }
         return null;
     }
 
-    public void a(q qVar) {
-        if (qVar != null) {
-            qVar.gx(this.liveId);
-            qVar.hx(this.roomId);
-            qVar.setParams();
-            MessageManager.getInstance().sendMessage(qVar);
-            if (this.giD != null) {
-                this.giD.lC(false);
+    public void a(s sVar) {
+        if (sVar != null) {
+            sVar.setLiveId(this.liveId);
+            sVar.setRoomId(this.roomId);
+            sVar.setParams();
+            MessageManager.getInstance().sendMessage(sVar);
+            if (this.gsE != null) {
+                this.gsE.lT(false);
             }
         }
     }
 
-    public void GM() {
-        if (this.giD != null) {
-            this.giD.GM();
+    public void Hi() {
+        if (this.gsE != null) {
+            this.gsE.Hi();
         }
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.giD != null) {
-            this.giD.onKeyboardVisibilityChanged(z);
+        if (this.gsE != null) {
+            this.gsE.onKeyboardVisibilityChanged(z);
         }
     }
 }

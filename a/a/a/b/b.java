@@ -3,7 +3,7 @@ package a.a.a.b;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f954a = 10;
+    public int f951a = 10;
     public int b = 2;
 
     public int a() {

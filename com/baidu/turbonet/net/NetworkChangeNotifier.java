@@ -11,18 +11,18 @@ import java.util.Iterator;
 /* loaded from: classes17.dex */
 public class NetworkChangeNotifier {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static NetworkChangeNotifier nBW;
+    private static NetworkChangeNotifier oex;
     private final Context mContext;
-    private NetworkChangeNotifierAutoDetect nBT;
-    private int nBU = 0;
-    private double nBV = Double.POSITIVE_INFINITY;
-    private int mMaxBandwidthConnectionType = this.nBU;
-    private final ArrayList<Long> nBR = new ArrayList<>();
-    private final com.baidu.turbonet.base.b<ConnectionTypeObserver> nBS = new com.baidu.turbonet.base.b<>();
+    private NetworkChangeNotifierAutoDetect oeu;
+    private int oev = 0;
+    private double oew = Double.POSITIVE_INFINITY;
+    private int mMaxBandwidthConnectionType = this.oev;
+    private final ArrayList<Long> oes = new ArrayList<>();
+    private final com.baidu.turbonet.base.b<ConnectionTypeObserver> oet = new com.baidu.turbonet.base.b<>();
 
     /* loaded from: classes17.dex */
     public interface ConnectionTypeObserver {
-        void Ly(int i);
+        void MA(int i);
     }
 
     private static native double nativeGetMaxBandwidthForConnectionSubtype(int i);
@@ -55,102 +55,102 @@ public class NetworkChangeNotifier {
 
     @CalledByNative
     public static NetworkChangeNotifier init(Context context) {
-        if (nBW == null) {
-            nBW = new NetworkChangeNotifier(context);
+        if (oex == null) {
+            oex = new NetworkChangeNotifier(context);
         }
-        return nBW;
+        return oex;
     }
 
     @CalledByNative
     public int getCurrentConnectionType() {
-        return this.nBU;
+        return this.oev;
     }
 
     @CalledByNative
     public int getCurrentConnectionSubtype() {
-        if (this.nBT == null) {
+        if (this.oeu == null) {
             return 0;
         }
-        return this.nBT.getCurrentConnectionSubtype(this.nBT.getCurrentNetworkState());
+        return this.oeu.getCurrentConnectionSubtype(this.oeu.getCurrentNetworkState());
     }
 
     @CalledByNative
     public double getCurrentMaxBandwidthInMbps() {
-        return this.nBV;
+        return this.oew;
     }
 
     @CalledByNative
     public int getCurrentDefaultNetId() {
-        if (this.nBT == null) {
+        if (this.oeu == null) {
             return -1;
         }
-        return this.nBT.getDefaultNetId();
+        return this.oeu.getDefaultNetId();
     }
 
     @CalledByNative
     public int[] getCurrentNetworksAndTypes() {
-        return this.nBT == null ? new int[0] : this.nBT.getNetworksAndTypes();
+        return this.oeu == null ? new int[0] : this.oeu.getNetworksAndTypes();
     }
 
-    public static double Lt(int i) {
+    public static double Mv(int i) {
         return nativeGetMaxBandwidthForConnectionSubtype(i);
     }
 
     @CalledByNative
     public void addNativeObserver(long j) {
-        this.nBR.add(Long.valueOf(j));
+        this.oes.add(Long.valueOf(j));
     }
 
     @CalledByNative
     public void removeNativeObserver(long j) {
-        this.nBR.remove(Long.valueOf(j));
+        this.oes.remove(Long.valueOf(j));
     }
 
-    public static NetworkChangeNotifier dSr() {
-        if ($assertionsDisabled || nBW != null) {
-            return nBW;
+    public static NetworkChangeNotifier dYj() {
+        if ($assertionsDisabled || oex != null) {
+            return oex;
         }
         throw new AssertionError();
     }
 
-    public static void dSs() {
-        dSr().a(true, (NetworkChangeNotifierAutoDetect.RegistrationPolicy) new RegistrationPolicyAlwaysRegister());
+    public static void dYk() {
+        dYj().a(true, (NetworkChangeNotifierAutoDetect.RegistrationPolicy) new RegistrationPolicyAlwaysRegister());
     }
 
-    private void dSt() {
-        if (this.nBT != null) {
-            this.nBT.destroy();
-            this.nBT = null;
+    private void dYl() {
+        if (this.oeu != null) {
+            this.oeu.destroy();
+            this.oeu = null;
         }
     }
 
     private void a(boolean z, NetworkChangeNotifierAutoDetect.RegistrationPolicy registrationPolicy) {
         if (z) {
-            if (this.nBT == null) {
-                this.nBT = new NetworkChangeNotifierAutoDetect(new NetworkChangeNotifierAutoDetect.Observer() { // from class: com.baidu.turbonet.net.NetworkChangeNotifier.1
+            if (this.oeu == null) {
+                this.oeu = new NetworkChangeNotifierAutoDetect(new NetworkChangeNotifierAutoDetect.Observer() { // from class: com.baidu.turbonet.net.NetworkChangeNotifier.1
                     @Override // com.baidu.turbonet.net.NetworkChangeNotifierAutoDetect.Observer
-                    public void Ly(int i) {
-                        NetworkChangeNotifier.this.Lu(i);
+                    public void MA(int i) {
+                        NetworkChangeNotifier.this.Mw(i);
                     }
 
                     @Override // com.baidu.turbonet.net.NetworkChangeNotifierAutoDetect.Observer
-                    public void M(double d) {
-                        NetworkChangeNotifier.this.K(d);
+                    public void N(double d) {
+                        NetworkChangeNotifier.this.L(d);
                     }
 
                     @Override // com.baidu.turbonet.net.NetworkChangeNotifierAutoDetect.Observer
-                    public void dF(int i, int i2) {
-                        NetworkChangeNotifier.this.dE(i, i2);
+                    public void dJ(int i, int i2) {
+                        NetworkChangeNotifier.this.dI(i, i2);
                     }
 
                     @Override // com.baidu.turbonet.net.NetworkChangeNotifierAutoDetect.Observer
-                    public void Lz(int i) {
-                        NetworkChangeNotifier.this.Lw(i);
+                    public void MB(int i) {
+                        NetworkChangeNotifier.this.My(i);
                     }
 
                     @Override // com.baidu.turbonet.net.NetworkChangeNotifierAutoDetect.Observer
-                    public void LA(int i) {
-                        NetworkChangeNotifier.this.Lx(i);
+                    public void MC(int i) {
+                        NetworkChangeNotifier.this.Mz(i);
                     }
 
                     @Override // com.baidu.turbonet.net.NetworkChangeNotifierAutoDetect.Observer
@@ -158,118 +158,118 @@ public class NetworkChangeNotifier {
                         NetworkChangeNotifier.this.k(iArr);
                     }
                 }, this.mContext, registrationPolicy);
-                NetworkChangeNotifierAutoDetect.c currentNetworkState = this.nBT.getCurrentNetworkState();
-                Lu(this.nBT.getCurrentConnectionType(currentNetworkState));
-                K(this.nBT.getCurrentMaxBandwidthInMbps(currentNetworkState));
+                NetworkChangeNotifierAutoDetect.c currentNetworkState = this.oeu.getCurrentNetworkState();
+                Mw(this.oeu.getCurrentConnectionType(currentNetworkState));
+                L(this.oeu.getCurrentMaxBandwidthInMbps(currentNetworkState));
                 return;
             }
             return;
         }
-        dSt();
+        dYl();
     }
 
     @CalledByNative
     public static void forceConnectivityState(boolean z) {
-        dSr().ys(z);
+        dYj().zi(z);
     }
 
-    private void ys(boolean z) {
-        if ((this.nBU != 6) != z) {
-            Lu(z ? 0 : 6);
-            K(z ? Double.POSITIVE_INFINITY : 0.0d);
+    private void zi(boolean z) {
+        if ((this.oev != 6) != z) {
+            Mw(z ? 0 : 6);
+            L(z ? Double.POSITIVE_INFINITY : 0.0d);
         }
     }
 
     @CalledByNative
     public static void fakeNetworkConnected(int i, int i2) {
-        dSr().dE(i, i2);
+        dYj().dI(i, i2);
     }
 
     @CalledByNative
     public static void fakeNetworkSoonToBeDisconnected(int i) {
-        dSr().Lw(i);
+        dYj().My(i);
     }
 
     @CalledByNative
     public static void fakeNetworkDisconnected(int i) {
-        dSr().Lx(i);
+        dYj().Mz(i);
     }
 
     @CalledByNative
     public static void fakePurgeActiveNetworkList(int[] iArr) {
-        dSr().k(iArr);
+        dYj().k(iArr);
     }
 
     @CalledByNative
     public static void fakeDefaultNetwork(int i, int i2) {
-        dSr().dD(i2, i);
+        dYj().dH(i2, i);
     }
 
     @CalledByNative
     public static void fakeMaxBandwidthChanged(double d) {
-        dSr().L(d);
+        dYj().M(d);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Lu(int i) {
-        this.nBU = i;
-        Lv(i);
+    public void Mw(int i) {
+        this.oev = i;
+        Mx(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void K(double d) {
-        if (d != this.nBV || this.nBU != this.mMaxBandwidthConnectionType) {
-            this.nBV = d;
-            this.mMaxBandwidthConnectionType = this.nBU;
-            L(d);
+    public void L(double d) {
+        if (d != this.oew || this.oev != this.mMaxBandwidthConnectionType) {
+            this.oew = d;
+            this.mMaxBandwidthConnectionType = this.oev;
+            M(d);
         }
     }
 
-    void Lv(int i) {
-        dD(i, getCurrentDefaultNetId());
+    void Mx(int i) {
+        dH(i, getCurrentDefaultNetId());
     }
 
-    private void dD(int i, int i2) {
-        Iterator<Long> it = this.nBR.iterator();
+    private void dH(int i, int i2) {
+        Iterator<Long> it = this.oes.iterator();
         while (it.hasNext()) {
             nativeNotifyConnectionTypeChanged(it.next().longValue(), i, i2);
         }
-        Iterator<ConnectionTypeObserver> it2 = this.nBS.iterator();
+        Iterator<ConnectionTypeObserver> it2 = this.oet.iterator();
         while (it2.hasNext()) {
-            it2.next().Ly(i);
+            it2.next().MA(i);
         }
     }
 
-    void L(double d) {
-        Iterator<Long> it = this.nBR.iterator();
+    void M(double d) {
+        Iterator<Long> it = this.oes.iterator();
         while (it.hasNext()) {
             nativeNotifyMaxBandwidthChanged(it.next().longValue(), d);
         }
     }
 
-    void dE(int i, int i2) {
-        Iterator<Long> it = this.nBR.iterator();
+    void dI(int i, int i2) {
+        Iterator<Long> it = this.oes.iterator();
         while (it.hasNext()) {
             nativeNotifyOfNetworkConnect(it.next().longValue(), i, i2);
         }
     }
 
-    void Lw(int i) {
-        Iterator<Long> it = this.nBR.iterator();
+    void My(int i) {
+        Iterator<Long> it = this.oes.iterator();
         while (it.hasNext()) {
             nativeNotifyOfNetworkSoonToDisconnect(it.next().longValue(), i);
         }
     }
 
-    void Lx(int i) {
-        Iterator<Long> it = this.nBR.iterator();
+    void Mz(int i) {
+        Iterator<Long> it = this.oes.iterator();
         while (it.hasNext()) {
             nativeNotifyOfNetworkDisconnect(it.next().longValue(), i);
         }
     }
 
     void k(int[] iArr) {
-        Iterator<Long> it = this.nBR.iterator();
+        Iterator<Long> it = this.oes.iterator();
         while (it.hasNext()) {
             nativeNotifyPurgeActiveNetworkList(it.next().longValue(), iArr);
         }

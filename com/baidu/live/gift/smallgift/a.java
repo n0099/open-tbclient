@@ -13,8 +13,8 @@ import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.gift.a.c;
 import com.baidu.live.gift.g;
 import com.baidu.live.gift.k;
-import com.baidu.live.gift.r;
 import com.baidu.live.gift.smallgift.b;
+import com.baidu.live.gift.w;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.UtilHelper;
@@ -34,24 +34,24 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    private boolean aRV;
-    private k aUo;
-    private int aZu;
-    private int aZv;
-    private int aZw;
-    private boolean baY;
-    private ArrayList<c> baZ;
-    private b bbZ;
-    private b bca;
-    private AlaSmallGiftView bcb;
-    private AlaSmallGiftView bcc;
-    private b.a bcd;
+    private boolean aSQ;
+    private k aVJ;
+    private int baS;
+    private int baT;
+    private int baU;
+    private boolean bcl;
+    private ArrayList<c> bcm;
+    private b bdn;
+    private b bdo;
+    private AlaSmallGiftView bdp;
+    private AlaSmallGiftView bdq;
+    private b.a bdr;
     private Context mContext;
     private View mRootView;
 
     public a(Context context, k kVar) {
-        this.baY = false;
-        this.bcd = new b.a() { // from class: com.baidu.live.gift.smallgift.a.1
+        this.bcl = false;
+        this.bdr = new b.a() { // from class: com.baidu.live.gift.smallgift.a.1
             @Override // com.baidu.live.gift.smallgift.b.a
             public void u(c cVar) {
                 if (cVar != null) {
@@ -60,18 +60,18 @@ public class a {
             }
 
             @Override // com.baidu.live.gift.smallgift.b.a
-            public void Jc() {
-                if (!a.this.Jb()) {
-                    a.this.GI();
+            public void Jv() {
+                if (!a.this.Ju()) {
+                    a.this.He();
                 }
             }
 
             @Override // com.baidu.live.gift.smallgift.b.a
             public void v(c cVar) {
-                if (cVar != null && cVar.aYu < cVar.aYt) {
+                if (cVar != null && cVar.aZQ < cVar.aZP) {
                     a.this.i(cVar);
-                    cVar.aYA = true;
-                    if (a.this.aUo.a(cVar)) {
+                    cVar.aZY = true;
+                    if (a.this.aVJ.a(cVar)) {
                         if (cVar.userId.equals(TbadkCoreApplication.getCurrentAccount())) {
                             cVar.priority = 10;
                         } else {
@@ -87,40 +87,40 @@ public class a {
             }
         };
         this.mContext = context;
-        this.aUo = kVar;
+        this.aVJ = kVar;
         initData();
         initView();
     }
 
     public a(Context context, k kVar, boolean z) {
         this(context, kVar);
-        this.aRV = z;
-        this.bcb.setMode(z);
-        this.bcc.setMode(z);
+        this.aSQ = z;
+        this.bdp.setMode(z);
+        this.bdq.setMode(z);
     }
 
     private void initData() {
-        this.baZ = new ArrayList<>();
+        this.bcm = new ArrayList<>();
         Resources resources = this.mContext.getResources();
-        this.aZu = (int) resources.getDimension(a.e.sdk_ds650);
-        this.aZv = resources.getDimensionPixelOffset(a.e.sdk_ds12) + (resources.getDimensionPixelOffset(a.e.sdk_ds136) * 2) + resources.getDimensionPixelOffset(a.e.sdk_ds46);
+        this.baS = (int) resources.getDimension(a.e.sdk_ds650);
+        this.baT = resources.getDimensionPixelOffset(a.e.sdk_ds12) + (resources.getDimensionPixelOffset(a.e.sdk_ds136) * 2) + resources.getDimensionPixelOffset(a.e.sdk_ds46);
     }
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(a.h.ala_small_gift_panel_layout, (ViewGroup) null);
-        this.bcb = (AlaSmallGiftView) this.mRootView.findViewById(a.g.alaSmallGift1);
-        this.bcc = (AlaSmallGiftView) this.mRootView.findViewById(a.g.alaSmallGift2);
-        this.bbZ = new b(this.bcb);
-        this.bbZ.a(this.bcd);
-        this.bca = new b(this.bcc);
-        this.bca.a(this.bcd);
+        this.bdp = (AlaSmallGiftView) this.mRootView.findViewById(a.g.alaSmallGift1);
+        this.bdq = (AlaSmallGiftView) this.mRootView.findViewById(a.g.alaSmallGift2);
+        this.bdn = new b(this.bdp);
+        this.bdn.a(this.bdr);
+        this.bdo = new b(this.bdq);
+        this.bdo.a(this.bdr);
         setRootViewParam(UtilHelper.getRealScreenOrientation(this.mContext));
-        this.aUo.M(this.mRootView);
+        this.aVJ.M(this.mRootView);
     }
 
     private void setRootViewParam(int i) {
         if (i == 2) {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.aZu, this.aZv);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.baS, this.baT);
             if (Build.VERSION.SDK_INT >= 17) {
                 layoutParams.removeRule(12);
             } else {
@@ -131,7 +131,7 @@ public class a {
             layoutParams.topMargin = (int) this.mContext.getResources().getDimension(a.e.sdk_ds160);
             this.mRootView.setLayoutParams(layoutParams);
         } else if (i == 1) {
-            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, this.aZv);
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, this.baT);
             if (Build.VERSION.SDK_INT >= 17) {
                 layoutParams2.removeRule(10);
             } else {
@@ -139,68 +139,68 @@ public class a {
             }
             layoutParams2.topMargin = 0;
             layoutParams2.addRule(12);
-            layoutParams2.bottomMargin = this.aZw;
+            layoutParams2.bottomMargin = this.baU;
             this.mRootView.setLayoutParams(layoutParams2);
         }
     }
 
-    public void ev(int i) {
-        this.aZw = i;
+    public void ew(int i) {
+        this.baU = i;
         ViewGroup.LayoutParams layoutParams = this.mRootView.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-            ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin = this.aZw;
+            ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin = this.baU;
             this.mRootView.setLayoutParams(layoutParams);
         }
     }
 
-    public void GM() {
+    public void Hi() {
         setRootViewParam(UtilHelper.getRealScreenOrientation(this.mContext));
-        if (this.bbZ != null) {
-            this.bbZ.GM();
+        if (this.bdn != null) {
+            this.bdn.Hi();
         }
-        if (this.bca != null) {
-            this.bca.GM();
+        if (this.bdo != null) {
+            this.bdo.Hi();
         }
     }
 
-    public void FM() {
-        this.baY = true;
-        if (this.bbZ != null) {
-            this.bbZ.FM();
+    public void Gb() {
+        this.bcl = true;
+        if (this.bdn != null) {
+            this.bdn.Gb();
         }
-        if (this.bca != null) {
-            this.bca.FM();
+        if (this.bdo != null) {
+            this.bdo.Gb();
         }
-        this.aUo.FO();
+        this.aVJ.Gd();
     }
 
-    public void FN() {
-        this.baY = false;
-        this.aUo.M(this.mRootView);
-        if (this.bbZ != null) {
-            this.bbZ.FN();
+    public void Gc() {
+        this.bcl = false;
+        this.aVJ.M(this.mRootView);
+        if (this.bdn != null) {
+            this.bdn.Gc();
         }
-        if (this.bca != null) {
-            this.bca.FN();
+        if (this.bdo != null) {
+            this.bdo.Gc();
         }
     }
 
     private void c(c cVar, boolean z) {
         if (cVar != null) {
-            g gVar = cVar.aYo;
-            if (!cVar.aYy && !cVar.aYz) {
-                if (cVar.aYv || cVar.aYn) {
+            g gVar = cVar.aZJ;
+            if (!cVar.aZU && !cVar.aZV) {
+                if (cVar.aZR || cVar.aZI) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.putOpt(LogConfig.LOG_GIFT_ID, gVar.Fd());
-                        jSONObject.putOpt("gift_name", gVar.Fe());
+                        jSONObject.putOpt(LogConfig.LOG_GIFT_ID, gVar.Fs());
+                        jSONObject.putOpt("gift_name", gVar.Ft());
                         jSONObject.putOpt(LogConfig.LOG_GIFT_VALUE, gVar.getPrice());
-                        jSONObject.putOpt("gift_num", Long.valueOf(cVar.aYt));
+                        jSONObject.putOpt("gift_num", Long.valueOf(cVar.aZP));
                         jSONObject.putOpt("is_down", Integer.valueOf(z ? 1 : 0));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", cVar.aYv ? UbcStatConstant.Page.AUTHOR_LIVE_ROOM : "liveroom", "giftplay_show").setContentExt(null, MapController.POPUP_LAYER_TAG, jSONObject));
+                    UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", cVar.aZR ? UbcStatConstant.Page.AUTHOR_LIVE_ROOM : "liveroom", "giftplay_show").setContentExt(null, MapController.POPUP_LAYER_TAG, jSONObject));
                 }
             }
         }
@@ -209,9 +209,9 @@ public class a {
     public void d(c cVar) {
         if (cVar != null && !StringUtils.isNull(cVar.userId) && !StringUtils.isNull(cVar.giftId)) {
             boolean z = false;
-            if (this.bbZ.z(cVar)) {
+            if (this.bdn.z(cVar)) {
                 z = true;
-            } else if (this.bca.z(cVar)) {
+            } else if (this.bdo.z(cVar)) {
                 z = true;
             }
             c(cVar, true);
@@ -224,7 +224,7 @@ public class a {
     private void q(c cVar) {
         boolean z;
         boolean z2 = false;
-        Iterator<c> it = this.baZ.iterator();
+        Iterator<c> it = this.bcm.iterator();
         while (true) {
             z = z2;
             if (!it.hasNext()) {
@@ -243,13 +243,13 @@ public class a {
     }
 
     public static boolean c(c cVar, c cVar2) {
-        return cVar != null && !StringUtils.isNull(cVar.aYp) && cVar.aYp.equals(cVar2.aYp) && Math.abs(cVar2.HE() - cVar.HE()) <= IMConnection.RETRY_DELAY_TIMES && cVar2.aYt <= 99;
+        return cVar != null && !StringUtils.isNull(cVar.aZK) && cVar.aZK.equals(cVar2.aZK) && Math.abs(cVar2.HZ() - cVar.HZ()) <= IMConnection.RETRY_DELAY_TIMES && cVar2.aZP <= 99;
     }
 
     public static void d(c cVar, c cVar2) {
-        r.a(cVar, cVar2);
-        cVar.aYt += cVar2.aYt;
-        cVar.af(cVar2.HE());
+        w.a(cVar, cVar2);
+        cVar.aZP += cVar2.aZP;
+        cVar.ag(cVar2.HZ());
     }
 
     private void r(c cVar) {
@@ -257,28 +257,28 @@ public class a {
             s(cVar);
             return;
         }
-        this.baZ.add(cVar);
-        if (cVar.aYv) {
-            LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_ENTER_LIST, cVar.aHY, cVar.aHZ, cVar.giftId, "");
+        this.bcm.add(cVar);
+        if (cVar.aZR) {
+            LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_ENTER_LIST, cVar.chatMCastId, cVar.ensureMCastId, cVar.giftId, "");
         }
         try {
-            GF();
+            Hb();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        GI();
+        He();
     }
 
     public void s(c cVar) {
-        if (this.baY) {
+        if (this.bcl) {
             t(cVar);
-        } else if (!this.bbZ.Jq() && this.bbZ.w(cVar)) {
-            this.bbZ.y(cVar);
-        } else if (!this.bca.Jq() && this.bca.w(cVar)) {
-            this.bca.y(cVar);
+        } else if (!this.bdn.JJ() && this.bdn.w(cVar)) {
+            this.bdn.y(cVar);
+        } else if (!this.bdo.JJ() && this.bdo.w(cVar)) {
+            this.bdo.y(cVar);
         } else {
             t(cVar);
-            GI();
+            He();
         }
     }
 
@@ -288,81 +288,81 @@ public class a {
         int i2 = 0;
         while (true) {
             i = i2;
-            if (i >= this.baZ.size()) {
+            if (i >= this.bcm.size()) {
                 i = -1;
                 break;
-            } else if (cVar.priority > this.baZ.get(i).priority) {
+            } else if (cVar.priority > this.bcm.get(i).priority) {
                 break;
             } else {
                 i2 = i + 1;
             }
         }
         if (i == -1) {
-            this.baZ.add(cVar);
+            this.bcm.add(cVar);
         } else {
-            this.baZ.add(i, cVar);
+            this.bcm.add(i, cVar);
         }
         try {
-            GF();
+            Hb();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void GF() {
-        if (this.baZ != null) {
-            int i = com.baidu.live.x.a.OS().blo != null ? com.baidu.live.x.a.OS().blo.aLB : 0;
-            if (i > 0 && this.baZ.size() >= i) {
-                Collections.sort(this.baZ, new c.a());
-                ArrayList arrayList = new ArrayList(this.baZ.subList(0, Math.max((int) (i * 0.7f), 1)));
-                this.baZ.clear();
-                this.baZ.addAll(arrayList);
+    private void Hb() {
+        if (this.bcm != null) {
+            int i = com.baidu.live.z.a.Pq().bmJ != null ? com.baidu.live.z.a.Pq().bmJ.aMf : 0;
+            if (i > 0 && this.bcm.size() >= i) {
+                Collections.sort(this.bcm, new c.a());
+                ArrayList arrayList = new ArrayList(this.bcm.subList(0, Math.max((int) (i * 0.7f), 1)));
+                this.bcm.clear();
+                this.bcm.addAll(arrayList);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void GI() {
-        if (!this.baZ.isEmpty() && !this.baY) {
-            if (this.bbZ.isReady() || this.bca.isReady()) {
-                c remove = this.baZ.remove(0);
+    public void He() {
+        if (!this.bcm.isEmpty() && !this.bcl) {
+            if (this.bdn.isReady() || this.bdo.isReady()) {
+                c remove = this.bcm.remove(0);
                 if (remove != null) {
-                    remove.af(System.currentTimeMillis());
+                    remove.ag(System.currentTimeMillis());
                     n(remove);
-                    GI();
+                    He();
                     return;
                 }
-                GI();
+                He();
             }
         }
     }
 
     private void n(c cVar) {
-        if (this.bbZ.isReady()) {
-            this.bbZ.x(cVar);
-        } else if (this.bca.isReady()) {
-            this.bca.x(cVar);
+        if (this.bdn.isReady()) {
+            this.bdn.x(cVar);
+        } else if (this.bdo.isReady()) {
+            this.bdo.x(cVar);
         }
-        if (cVar.aYv) {
-            LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_SHOW, cVar.aHY, cVar.aHZ, cVar.giftId, "");
+        if (cVar.aZR) {
+            LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_SHOW, cVar.chatMCastId, cVar.ensureMCastId, cVar.giftId, "");
         }
     }
 
-    public boolean Jb() {
-        return this.baZ.isEmpty();
+    public boolean Ju() {
+        return this.bcm.isEmpty();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void i(c cVar) {
-        if (cVar != null && cVar.aYv) {
+        if (cVar != null && cVar.aZR) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(LogConfig.LOG_GIFT_ID, cVar.giftId);
-                jSONObject.put("gift_count", cVar.aYu);
+                jSONObject.put("gift_count", cVar.aZQ);
                 jSONObject.put("sender_uk", EncryptionHelper.getEncryptionUserId(cVar.userId));
-                jSONObject.put("show_stime", cVar.HE());
+                jSONObject.put("show_stime", cVar.HZ());
                 jSONObject.put("show_ctime", System.currentTimeMillis());
-                if (cVar.aYA) {
+                if (cVar.aZY) {
                     jSONObject.put("from_recovery", 1);
                 }
             } catch (JSONException e) {
@@ -372,20 +372,20 @@ public class a {
         }
     }
 
-    public View FR() {
+    public View Gg() {
         return this.mRootView;
     }
 
     public void onDestroy() {
-        this.baY = false;
-        if (this.baZ != null) {
-            this.baZ.clear();
+        this.bcl = false;
+        if (this.bcm != null) {
+            this.bcm.clear();
         }
-        if (this.bbZ != null) {
-            this.bbZ.onDestroy();
+        if (this.bdn != null) {
+            this.bdn.onDestroy();
         }
-        if (this.bca != null) {
-            this.bca.onDestroy();
+        if (this.bdo != null) {
+            this.bdo.onDestroy();
         }
         this.mContext = null;
     }

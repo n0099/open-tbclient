@@ -11,26 +11,26 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private boolean lRE;
-    private boolean lRF;
-    private HashMap<String, Integer> lRG;
+    private boolean mec;
+    private boolean med;
+    private HashMap<String, Integer> mee;
 
-    public void ek(JSONObject jSONObject) {
+    public void eq(JSONObject jSONObject) {
         if (jSONObject != null) {
-            boolean z = this.lRE;
-            this.lRE = jSONObject.optInt("switch", 0) == 1;
-            this.lRF = jSONObject.optInt("p2p_config", 0) == 1;
+            boolean z = this.mec;
+            this.mec = jSONObject.optInt("switch", 0) == 1;
+            this.med = jSONObject.optInt("p2p_config", 0) == 1;
             JSONArray optJSONArray = jSONObject.optJSONArray("domain_list");
             if (optJSONArray != null) {
-                this.lRG = new HashMap<>();
+                this.mee = new HashMap<>();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     String optString = optJSONArray.optString(i);
                     if (!StringUtils.isNull(optString)) {
-                        this.lRG.put(optString, 0);
+                        this.mee.put(optString, 0);
                     }
                 }
             }
-            if (this.lRE) {
+            if (this.mec) {
                 c.init();
                 if (!z) {
                     Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), CyberRemotePlayerService.class);
@@ -47,21 +47,21 @@ public class a {
         }
     }
 
-    public boolean drA() {
-        if (this.lRE) {
+    public boolean duH() {
+        if (this.mec) {
             c.init();
         }
-        return this.lRE;
+        return this.mec;
     }
 
-    public boolean drB() {
-        return this.lRF;
+    public boolean duI() {
+        return this.med;
     }
 
     public boolean y(Uri uri) {
-        if (this.lRG == null || uri == null) {
+        if (this.mee == null || uri == null) {
             return false;
         }
-        return this.lRG.containsKey(uri.getHost());
+        return this.mee.containsKey(uri.getHost());
     }
 }

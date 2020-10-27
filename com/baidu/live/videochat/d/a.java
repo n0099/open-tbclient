@@ -3,29 +3,29 @@ package com.baidu.live.videochat.d;
 import android.content.Context;
 import android.view.View;
 import com.baidu.ala.recorder.AlaLiveRecorder;
-import com.baidu.live.data.u;
+import com.baidu.live.data.w;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public interface a {
-    int Sa();
+    int Ta();
 
-    void Sh();
+    void Th();
 
-    com.baidu.live.alablmsdk.module.c Si();
+    com.baidu.live.alablmsdk.module.c Ti();
 
-    JSONObject Sj();
-
-    void Y(JSONObject jSONObject);
-
-    void Z(JSONObject jSONObject);
+    JSONObject Tj();
 
     void a(AlaLiveRecorder alaLiveRecorder);
 
     void a(f fVar);
 
+    void aa(JSONObject jSONObject);
+
+    void ab(JSONObject jSONObject);
+
     boolean b(com.baidu.live.alablmsdk.module.c cVar, String str);
 
-    void cP(boolean z);
+    void cV(boolean z);
 
     View getPlayerView();
 
@@ -33,7 +33,7 @@ public interface a {
 
     void onDestroy();
 
-    void s(u uVar);
+    void r(w wVar);
 
     void setMute(boolean z);
 }

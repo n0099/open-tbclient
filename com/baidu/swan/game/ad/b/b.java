@@ -3,86 +3,86 @@ package com.baidu.swan.game.ad.b;
 import com.baidu.swan.apps.ap.ah;
 /* loaded from: classes14.dex */
 public class b {
-    private int Zr;
-    private String dyU;
-    private String dyV;
-    private String dyW;
-    private int dyX;
-    private int dyY;
+    private int Zs;
+    private String dHr;
+    private String dHs;
+    private String dHt;
+    private int dHu;
+    private int dHv;
 
     private b(a aVar) {
-        this.dyV = aVar.dyV;
-        this.dyU = aVar.dyU;
-        this.dyX = aVar.dyX;
-        this.dyY = aVar.dyY;
-        this.dyW = aVar.dyW;
-        this.Zr = aVar.Zr;
+        this.dHs = aVar.dHs;
+        this.dHr = aVar.dHr;
+        this.dHu = aVar.dHu;
+        this.dHv = aVar.dHv;
+        this.dHt = aVar.dHt;
+        this.Zs = aVar.Zs;
     }
 
-    public int aMx() {
-        return this.dyX;
+    public int aOr() {
+        return this.dHu;
     }
 
-    public int aMy() {
-        return this.dyY;
+    public int aOs() {
+        return this.dHv;
     }
 
     public String getAppSid() {
-        return this.dyV;
+        return this.dHs;
     }
 
-    public String aMz() {
-        return this.dyU;
+    public String aOt() {
+        return this.dHr;
     }
 
-    public String aMA() {
-        return this.dyW;
+    public String aOu() {
+        return this.dHt;
     }
 
     public int rT() {
-        return this.Zr;
+        return this.Zs;
     }
 
     /* loaded from: classes14.dex */
     public static class a {
-        private int Zr;
-        private String dyU;
-        private String dyV;
-        private String dyW;
-        private int dyX;
-        private int dyY;
+        private int Zs;
+        private String dHr;
+        private String dHs;
+        private String dHt;
+        private int dHu;
+        private int dHv;
 
-        public a vb(String str) {
-            this.dyV = str;
+        public a vu(String str) {
+            this.dHs = str;
             return this;
         }
 
-        public a vc(String str) {
-            this.dyU = str;
+        public a vv(String str) {
+            this.dHr = str;
             return this;
         }
 
-        public a vd(String str) {
-            this.dyW = str;
+        public a vw(String str) {
+            this.dHt = str;
             return this;
         }
 
-        public a lu(int i) {
-            this.dyX = ah.J(i);
+        public a lF(int i) {
+            this.dHu = ah.L(i);
             return this;
         }
 
-        public a lv(int i) {
-            this.dyY = ah.J(i);
+        public a lG(int i) {
+            this.dHv = ah.L(i);
             return this;
         }
 
-        public a lw(int i) {
-            this.Zr = i;
+        public a lH(int i) {
+            this.Zs = i;
             return this;
         }
 
-        public b aMB() {
+        public b aOv() {
             return new b(this);
         }
     }

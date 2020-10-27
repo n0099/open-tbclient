@@ -13,50 +13,50 @@ import com.xiaomi.push.service.XMJobService;
 public class fe implements fc.a {
 
     /* renamed from: a  reason: collision with root package name */
-    JobScheduler f4899a;
+    JobScheduler f4897a;
 
     /* renamed from: a  reason: collision with other field name */
-    Context f317a;
+    Context f314a;
 
     /* renamed from: a  reason: collision with other field name */
-    private boolean f318a = false;
+    private boolean f315a = false;
 
     fe(Context context) {
-        this.f317a = context;
-        this.f4899a = (JobScheduler) context.getSystemService("jobscheduler");
+        this.f314a = context;
+        this.f4897a = (JobScheduler) context.getSystemService("jobscheduler");
     }
 
     @Override // com.xiaomi.push.fc.a
     public void a() {
-        this.f318a = false;
-        this.f4899a.cancel(1);
+        this.f315a = false;
+        this.f4897a.cancel(1);
     }
 
     void a(long j) {
-        JobInfo.Builder builder = new JobInfo.Builder(1, new ComponentName(this.f317a.getPackageName(), XMJobService.class.getName()));
+        JobInfo.Builder builder = new JobInfo.Builder(1, new ComponentName(this.f314a.getPackageName(), XMJobService.class.getName()));
         builder.setMinimumLatency(j);
         builder.setOverrideDeadline(j);
         builder.setRequiredNetworkType(1);
         builder.setPersisted(false);
         com.xiaomi.channel.commonutils.logger.b.c("schedule Job = " + builder.build().getId() + " in " + j);
-        this.f4899a.schedule(builder.build());
+        this.f4897a.schedule(builder.build());
     }
 
     @Override // com.xiaomi.push.fc.a
     public void a(boolean z) {
-        if (z || this.f318a) {
+        if (z || this.f315a) {
             long b = fy.b();
             if (z) {
                 a();
                 b -= SystemClock.elapsedRealtime() % b;
             }
-            this.f318a = true;
+            this.f315a = true;
             a(b);
         }
     }
 
     @Override // com.xiaomi.push.fc.a
     public boolean a() {
-        return this.f318a;
+        return this.f315a;
     }
 }

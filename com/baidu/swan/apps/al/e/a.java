@@ -10,61 +10,61 @@ import com.baidu.platform.comapi.map.MapController;
 import com.baidu.swan.apps.console.c;
 /* loaded from: classes10.dex */
 public class a {
-    private static volatile a dnl;
-    private SensorManager buw;
-    private SensorEventListener dmV;
-    private Sensor dmW;
-    private SensorEventListener dnm;
-    private Sensor dnn;
-    private InterfaceC0352a dnr;
+    private static volatile a dvN;
+    private SensorManager bwC;
+    private SensorEventListener dvO;
+    private Sensor dvP;
+    private InterfaceC0366a dvT;
+    private SensorEventListener dvx;
+    private Sensor dvy;
     private Context mContext;
-    private float[] dno = new float[3];
-    private float[] dnp = new float[3];
-    private int dnq = -100;
-    private boolean dmZ = false;
-    private long dna = 0;
+    private float[] dvQ = new float[3];
+    private float[] dvR = new float[3];
+    private int dvS = -100;
+    private boolean dvB = false;
+    private long dvC = 0;
 
     /* renamed from: com.baidu.swan.apps.al.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC0352a {
+    public interface InterfaceC0366a {
         void b(float f, int i);
     }
 
     private a() {
     }
 
-    public static a aGX() {
-        if (dnl == null) {
+    public static a aIR() {
+        if (dvN == null) {
             synchronized (a.class) {
-                if (dnl == null) {
-                    dnl = new a();
+                if (dvN == null) {
+                    dvN = new a();
                 }
             }
         }
-        return dnl;
+        return dvN;
     }
 
     public void init(Context context) {
         this.mContext = context;
     }
 
-    public void a(InterfaceC0352a interfaceC0352a) {
-        this.dnr = interfaceC0352a;
+    public void a(InterfaceC0366a interfaceC0366a) {
+        this.dvT = interfaceC0366a;
     }
 
-    public void aGY() {
+    public void aIS() {
         if (this.mContext == null) {
             c.e(MapController.COMPASS_LAYER_TAG, "start error, none context");
-        } else if (this.dmZ) {
+        } else if (this.dvB) {
             c.w(MapController.COMPASS_LAYER_TAG, "has already start");
         } else {
-            this.buw = (SensorManager) this.mContext.getSystemService("sensor");
-            if (this.buw != null) {
-                this.dmW = this.buw.getDefaultSensor(1);
-                this.dnn = this.buw.getDefaultSensor(2);
-                this.buw.registerListener(aGT(), this.dmW, 1);
-                this.buw.registerListener(aHa(), this.dnn, 1);
-                this.dmZ = true;
+            this.bwC = (SensorManager) this.mContext.getSystemService("sensor");
+            if (this.bwC != null) {
+                this.dvy = this.bwC.getDefaultSensor(1);
+                this.dvP = this.bwC.getDefaultSensor(2);
+                this.bwC.registerListener(aIN(), this.dvy, 1);
+                this.bwC.registerListener(aIU(), this.dvP, 1);
+                this.dvB = true;
                 c.i(MapController.COMPASS_LAYER_TAG, "start listen");
                 return;
             }
@@ -72,60 +72,60 @@ public class a {
         }
     }
 
-    public void aGZ() {
-        if (!this.dmZ) {
+    public void aIT() {
+        if (!this.dvB) {
             c.w(MapController.COMPASS_LAYER_TAG, "has already stop");
             return;
         }
         c.i(MapController.COMPASS_LAYER_TAG, "stop listen");
-        if (this.dmV != null && this.buw != null) {
-            this.buw.unregisterListener(this.dmV);
-            this.dmV = null;
+        if (this.dvx != null && this.bwC != null) {
+            this.bwC.unregisterListener(this.dvx);
+            this.dvx = null;
         }
-        if (this.dnm != null && this.buw != null) {
-            this.buw.unregisterListener(this.dnm);
-            this.dnm = null;
+        if (this.dvO != null && this.bwC != null) {
+            this.bwC.unregisterListener(this.dvO);
+            this.dvO = null;
         }
-        this.buw = null;
-        this.dnn = null;
-        this.dmW = null;
-        this.dmZ = false;
+        this.bwC = null;
+        this.dvP = null;
+        this.dvy = null;
+        this.dvB = false;
     }
 
     public static void release() {
-        if (dnl != null) {
-            dnl.aGS();
+        if (dvN != null) {
+            dvN.aIM();
         }
     }
 
-    private void aGS() {
+    private void aIM() {
         c.i(MapController.COMPASS_LAYER_TAG, "release");
-        if (this.dmZ) {
-            aGZ();
+        if (this.dvB) {
+            aIT();
         }
-        this.buw = null;
-        this.dnn = null;
-        this.dmW = null;
-        this.dmV = null;
-        this.dnm = null;
-        this.dnr = null;
+        this.bwC = null;
+        this.dvP = null;
+        this.dvy = null;
+        this.dvx = null;
+        this.dvO = null;
+        this.dvT = null;
         this.mContext = null;
-        dnl = null;
+        dvN = null;
     }
 
-    private SensorEventListener aGT() {
+    private SensorEventListener aIN() {
         c.i(MapController.COMPASS_LAYER_TAG, "get Accelerometer listener");
-        if (this.dmV != null) {
-            return this.dmV;
+        if (this.dvx != null) {
+            return this.dvx;
         }
-        this.dmV = new SensorEventListener() { // from class: com.baidu.swan.apps.al.e.a.1
+        this.dvx = new SensorEventListener() { // from class: com.baidu.swan.apps.al.e.a.1
             @Override // android.hardware.SensorEventListener
             public void onSensorChanged(SensorEvent sensorEvent) {
                 if (sensorEvent != null && sensorEvent.sensor != null && sensorEvent.sensor.getType() == 1) {
-                    a.this.dno = sensorEvent.values;
-                    a.this.dnq = sensorEvent.accuracy;
-                    c.d("SwanAppCompassManager", "accelerometer changed accuracy: " + a.this.dnq);
-                    a.this.aHc();
+                    a.this.dvQ = sensorEvent.values;
+                    a.this.dvS = sensorEvent.accuracy;
+                    c.d("SwanAppCompassManager", "accelerometer changed accuracy: " + a.this.dvS);
+                    a.this.aIW();
                     return;
                 }
                 c.w(MapController.COMPASS_LAYER_TAG, "illegal accelerometer event");
@@ -135,22 +135,22 @@ public class a {
             public void onAccuracyChanged(Sensor sensor, int i) {
             }
         };
-        return this.dmV;
+        return this.dvx;
     }
 
-    private SensorEventListener aHa() {
+    private SensorEventListener aIU() {
         c.i(MapController.COMPASS_LAYER_TAG, "get MagneticFiled listener");
-        if (this.dnm != null) {
-            return this.dnm;
+        if (this.dvO != null) {
+            return this.dvO;
         }
-        this.dnm = new SensorEventListener() { // from class: com.baidu.swan.apps.al.e.a.2
+        this.dvO = new SensorEventListener() { // from class: com.baidu.swan.apps.al.e.a.2
             @Override // android.hardware.SensorEventListener
             public void onSensorChanged(SensorEvent sensorEvent) {
                 if (sensorEvent != null && sensorEvent.sensor != null && sensorEvent.sensor.getType() == 2) {
-                    a.this.dnp = sensorEvent.values;
-                    a.this.dnq = sensorEvent.accuracy;
-                    c.d("SwanAppCompassManager", "magneticFiled changed accuracy: " + a.this.dnq);
-                    a.this.aHc();
+                    a.this.dvR = sensorEvent.values;
+                    a.this.dvS = sensorEvent.accuracy;
+                    c.d("SwanAppCompassManager", "magneticFiled changed accuracy: " + a.this.dvS);
+                    a.this.aIW();
                     return;
                 }
                 c.w(MapController.COMPASS_LAYER_TAG, "illegal magnetic filed event");
@@ -160,28 +160,28 @@ public class a {
             public void onAccuracyChanged(Sensor sensor, int i) {
             }
         };
-        return this.dnm;
+        return this.dvO;
     }
 
-    private float aHb() {
+    private float aIV() {
         float[] fArr = new float[3];
         float[] fArr2 = new float[9];
-        SensorManager.getRotationMatrix(fArr2, null, this.dno, this.dnp);
+        SensorManager.getRotationMatrix(fArr2, null, this.dvQ, this.dvR);
         SensorManager.getOrientation(fArr2, fArr);
         return (((float) Math.toDegrees(fArr[0])) + 360.0f) % 360.0f;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aHc() {
-        if (this.dnr != null && System.currentTimeMillis() - this.dna > 200) {
-            float aHb = aHb();
-            c.d("SwanAppCompassManager", "orientation changed, orientation : " + aHb);
-            this.dnr.b(aHb, this.dnq);
-            this.dna = System.currentTimeMillis();
+    public void aIW() {
+        if (this.dvT != null && System.currentTimeMillis() - this.dvC > 200) {
+            float aIV = aIV();
+            c.d("SwanAppCompassManager", "orientation changed, orientation : " + aIV);
+            this.dvT.b(aIV, this.dvS);
+            this.dvC = System.currentTimeMillis();
         }
     }
 
-    public static String kH(int i) {
+    public static String kS(int i) {
         switch (i) {
             case -1:
                 return "no-contact";

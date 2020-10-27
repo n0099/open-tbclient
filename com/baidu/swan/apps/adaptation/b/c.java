@@ -21,24 +21,24 @@ public interface c<T extends d> extends ao, e<T> {
 
     boolean a(com.baidu.swan.apps.scheme.actions.m.d dVar);
 
-    boolean aee();
+    boolean afY();
 
-    PullToRefreshBaseWebView aef();
+    PullToRefreshBaseWebView afZ();
 
-    f aeg();
+    f aga();
 
-    boolean aeh();
+    boolean agb();
 
-    void aei();
+    void agc();
 
     @Nullable
-    com.baidu.swan.apps.component.c.a aej();
+    com.baidu.swan.apps.component.c.a agd();
 
-    boolean aek();
+    boolean age();
 
-    com.baidu.swan.apps.adaptation.b.a.d ael();
+    com.baidu.swan.apps.adaptation.b.a.d agf();
 
-    String aem();
+    String agg();
 
     void b(FrameLayout frameLayout, com.baidu.swan.apps.runtime.config.c cVar);
 
@@ -46,11 +46,11 @@ public interface c<T extends d> extends ao, e<T> {
 
     boolean c(com.baidu.swan.apps.scheme.actions.m.d dVar);
 
-    void gZ(int i);
+    void hk(int i);
 
-    boolean ha(int i);
+    boolean hl(int i);
 
-    void jO(String str);
+    void kh(String str);
 
-    void jP(String str);
+    void ki(String str);
 }

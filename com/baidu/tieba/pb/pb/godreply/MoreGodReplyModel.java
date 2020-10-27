@@ -15,25 +15,25 @@ import java.util.List;
 /* loaded from: classes22.dex */
 public class MoreGodReplyModel extends BdBaseModel<e> {
     private boolean isLoading;
-    private PbModel kWR;
-    private int kWS;
-    private int kWT;
-    private ai.a kWU;
-    private final ai.a kWV;
+    private PbModel ljq;
+    private int ljr;
+    private int ljs;
+    private ai.a ljt;
+    private final ai.a lju;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public MoreGodReplyModel(e eVar, PbModel pbModel) {
         super(eVar);
         this.isLoading = false;
-        this.kWS = -1;
-        this.kWT = -1;
-        this.kWV = new ai.a() { // from class: com.baidu.tieba.pb.pb.godreply.MoreGodReplyModel.1
+        this.ljr = -1;
+        this.ljs = -1;
+        this.lju = new ai.a() { // from class: com.baidu.tieba.pb.pb.godreply.MoreGodReplyModel.1
             @Override // com.baidu.tieba.pb.pb.main.ai.a
-            public void bk(List<PostData> list) {
-                r dcO;
+            public void aa(List<PostData> list) {
+                r dfW;
                 MoreGodReplyModel.this.isLoading = false;
-                if (MoreGodReplyModel.this.kWR != null && MoreGodReplyModel.this.kWR.getPbData() != null && (dcO = MoreGodReplyModel.this.kWR.getPbData().dcO()) != null) {
-                    List<PostData> list2 = dcO.kWd;
+                if (MoreGodReplyModel.this.ljq != null && MoreGodReplyModel.this.ljq.getPbData() != null && (dfW = MoreGodReplyModel.this.ljq.getPbData().dfW()) != null) {
+                    List<PostData> list2 = dfW.liC;
                     int size = list2.size();
                     if (!y.isEmpty(list)) {
                         for (PostData postData : list) {
@@ -42,29 +42,29 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
                             }
                         }
                     }
-                    MoreGodReplyModel.this.kWR.a(MoreGodReplyModel.this.kWR.getPbData(), size);
+                    MoreGodReplyModel.this.ljq.a(MoreGodReplyModel.this.ljq.getPbData(), size);
                 }
-                if (MoreGodReplyModel.this.kWS > 0) {
-                    MoreGodReplyModel.this.kWT = MoreGodReplyModel.this.kWS;
+                if (MoreGodReplyModel.this.ljr > 0) {
+                    MoreGodReplyModel.this.ljs = MoreGodReplyModel.this.ljr;
                 }
-                if (MoreGodReplyModel.this.kWU != null) {
-                    MoreGodReplyModel.this.kWU.bk(list);
+                if (MoreGodReplyModel.this.ljt != null) {
+                    MoreGodReplyModel.this.ljt.aa(list);
                 }
             }
 
             @Override // com.baidu.tieba.pb.pb.main.ai.a
             public void n(int i, String str, String str2) {
                 MoreGodReplyModel.this.isLoading = false;
-                if (MoreGodReplyModel.this.kWU != null) {
-                    MoreGodReplyModel.this.kWU.n(i, str, str2);
+                if (MoreGodReplyModel.this.ljt != null) {
+                    MoreGodReplyModel.this.ljt.n(i, str, str2);
                 }
             }
         };
         if (pbModel != null) {
-            this.kWR = pbModel;
-            ai dgs = pbModel.dgs();
-            if (dgs != null) {
-                dgs.b(this.kWV);
+            this.ljq = pbModel;
+            ai djz = pbModel.djz();
+            if (djz != null) {
+                djz.b(this.lju);
             }
         }
     }
@@ -86,25 +86,25 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
         return false;
     }
 
-    public boolean ddP() {
-        r dcO;
-        f pbData = this.kWR.getPbData();
-        if (pbData == null || (dcO = pbData.dcO()) == null) {
+    public boolean dgW() {
+        r dfW;
+        f pbData = this.ljq.getPbData();
+        if (pbData == null || (dfW = pbData.dfW()) == null) {
             return false;
         }
-        if (this.kWT < 0) {
-            this.kWT = dcO.getCount();
+        if (this.ljs < 0) {
+            this.ljs = dfW.getCount();
         }
-        List<Long> list = dcO.kWe;
+        List<Long> list = dfW.liD;
         int size = list.size();
-        int i = this.kWT;
-        if (size <= i || dcO.kWd.size() >= 100) {
+        int i = this.ljs;
+        if (size <= i || dfW.liC.size() >= 100) {
             return false;
         }
         int min = Math.min(100, Math.min(i + 20, size));
-        this.kWS = min;
+        this.ljr = min;
         this.isLoading = true;
-        this.kWR.dgs().eM(list.subList(i, min));
+        this.ljq.djz().eV(list.subList(i, min));
         Log.d("more_god_reply", "load from " + i + " to " + min);
         return true;
     }
@@ -113,25 +113,25 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
         return this.isLoading;
     }
 
-    public PbModel ddQ() {
-        return this.kWR;
+    public PbModel dgX() {
+        return this.ljq;
     }
 
-    public List<q> ddR() {
+    public List<q> dgY() {
         f pbData;
-        if (this.kWR == null || (pbData = this.kWR.getPbData()) == null || pbData.dcO() == null || y.isEmpty(pbData.dcO().kWd)) {
+        if (this.ljq == null || (pbData = this.ljq.getPbData()) == null || pbData.dfW() == null || y.isEmpty(pbData.dfW().liC)) {
             return null;
         }
-        r dcO = pbData.dcO();
+        r dfW = pbData.dfW();
         ArrayList arrayList = new ArrayList();
-        List<PostData> list = dcO.kWd;
+        List<PostData> list = dfW.liC;
         int size = list.size();
         int i = 0;
         while (i < size) {
             PostData postData = list.get(i);
             if (postData != null) {
                 arrayList.add(postData);
-                postData.mEQ = i < size + (-1);
+                postData.mRx = i < size + (-1);
             }
             i++;
         }
@@ -150,19 +150,19 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
     }
 
     public void a(ai.a aVar) {
-        this.kWU = aVar;
+        this.ljt = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean aCp() {
+    public boolean aEj() {
         f pbData;
-        r dcO;
-        if (this.kWR == null || (pbData = this.kWR.getPbData()) == null || (dcO = pbData.dcO()) == null) {
+        r dfW;
+        if (this.ljq == null || (pbData = this.ljq.getPbData()) == null || (dfW = pbData.dfW()) == null) {
             return false;
         }
-        if (this.kWT < 0) {
-            this.kWT = dcO.getCount();
+        if (this.ljs < 0) {
+            this.ljs = dfW.getCount();
         }
-        return dcO.kWe.size() > this.kWT && dcO.kWd.size() < 100;
+        return dfW.liD.size() > this.ljs && dfW.liC.size() < 100;
     }
 }

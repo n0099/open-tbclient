@@ -12,7 +12,6 @@ import com.baidu.live.tbadk.ubc.UbcStatisticItem;
 import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.live.utils.p;
-import com.baidu.live.utils.s;
 import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.PushMessageHelper;
 import java.util.ArrayList;
@@ -20,8 +19,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b extends BdBaseModel {
-    private a aZK;
-    private HttpMessageListener aZL;
+    private a bbh;
+    private HttpMessageListener bbi;
     private boolean isHost;
 
     /* loaded from: classes4.dex */
@@ -37,11 +36,11 @@ public class b extends BdBaseModel {
                 int i2 = i;
                 if (i2 < arrayList2.size()) {
                     com.baidu.live.gift.b bVar = arrayList2.get(i2);
-                    if (bVar != null && bVar.aRO != null) {
+                    if (bVar != null && bVar.aSJ != null) {
                         com.baidu.live.gift.c cVar = new com.baidu.live.gift.c();
-                        cVar.aRR = s.hZ(bVar.aRO.zipName);
-                        cVar.upZipDirPath = s.ia(bVar.aRO.zipName);
-                        cVar.aRQ = bVar;
+                        cVar.aSM = com.baidu.live.ab.b.hV(bVar.aSJ.zipName);
+                        cVar.upZipDirPath = com.baidu.live.ab.b.hW(bVar.aSJ.zipName);
+                        cVar.aSL = bVar;
                         arrayList.add(cVar);
                     }
                     i = i2 + 1;
@@ -54,39 +53,42 @@ public class b extends BdBaseModel {
 
     public b(BdPageContext bdPageContext) {
         super(bdPageContext);
-        this.aZL = new HttpMessageListener(1021089) { // from class: com.baidu.live.gift.giftList.b.1
+        this.bbi = new HttpMessageListener(1021089) { // from class: com.baidu.live.gift.giftList.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaDynamicGiftListHttpResponseMessage)) {
                     AlaDynamicGiftListHttpResponseMessage alaDynamicGiftListHttpResponseMessage = (AlaDynamicGiftListHttpResponseMessage) httpResponsedMessage;
-                    ArrayList<com.baidu.live.gift.b> If = alaDynamicGiftListHttpResponseMessage.If();
+                    ArrayList<com.baidu.live.gift.b> IA = alaDynamicGiftListHttpResponseMessage.IA();
                     ArrayList<com.baidu.live.gift.c> arrayList = new ArrayList<>();
-                    if (If != null) {
-                        b.this.d(arrayList, If);
+                    if (IA != null) {
+                        b.this.d(arrayList, IA);
                     }
-                    if (b.this.aZK != null) {
-                        b.this.aZK.n(arrayList);
+                    if (b.this.bbh != null) {
+                        b.this.bbh.n(arrayList);
                     }
                     b.this.a(alaDynamicGiftListHttpResponseMessage);
                 }
             }
         };
-        registerListener(this.aZL);
+        registerListener(this.bbi);
     }
 
     public void setHost(boolean z) {
         this.isHost = z;
     }
 
-    @Override // com.baidu.live.adp.base.BdBaseModel
-    public boolean loadData() {
-        com.baidu.live.gift.giftList.a aVar = new com.baidu.live.gift.giftList.a(this.isHost);
+    public void hp(String str) {
+        com.baidu.live.gift.giftList.a aVar = new com.baidu.live.gift.giftList.a(this.isHost, str);
         aVar.addParam("need_dynamic_gift", "1");
         aVar.addParam("need_sticker_gift", "0");
-        aVar.addParam("scene_from", p.QW());
+        aVar.addParam("scene_from", p.Sc());
         sendMessage(aVar);
         UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_GIFT_LIST_REQ, "dynamic_list", this.isHost ? UbcStatConstant.Page.AUTHOR_LIVE_ROOM : "liveroom", ""));
+    }
+
+    @Override // com.baidu.live.adp.base.BdBaseModel
+    public boolean loadData() {
         return false;
     }
 
@@ -96,11 +98,11 @@ public class b extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.aZL);
+        MessageManager.getInstance().unRegisterListener(this.bbi);
     }
 
     public void a(a aVar) {
-        this.aZK = aVar;
+        this.bbh = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -117,7 +119,7 @@ public class b extends BdBaseModel {
                 BdLog.e(e);
                 jSONObject2 = jSONObject3;
             }
-        } else if (alaDynamicGiftListHttpResponseMessage.If() == null || alaDynamicGiftListHttpResponseMessage.If().isEmpty()) {
+        } else if (alaDynamicGiftListHttpResponseMessage.IA() == null || alaDynamicGiftListHttpResponseMessage.IA().isEmpty()) {
             JSONObject jSONObject4 = new JSONObject();
             try {
                 jSONObject4.put(PushMessageHelper.ERROR_TYPE, "list_empty");
@@ -129,7 +131,7 @@ public class b extends BdBaseModel {
             }
         }
         if (jSONObject2 != null) {
-            UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_GIFT_LIST_RESP, "dynamic_list", alaDynamicGiftListHttpResponseMessage.EH() ? UbcStatConstant.Page.AUTHOR_LIVE_ROOM : "liveroom", "").setContentExt(jSONObject), alaDynamicGiftListHttpResponseMessage, true);
+            UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_GIFT_LIST_RESP, "dynamic_list", alaDynamicGiftListHttpResponseMessage.EW() ? UbcStatConstant.Page.AUTHOR_LIVE_ROOM : "liveroom", "").setContentExt(jSONObject), alaDynamicGiftListHttpResponseMessage, true);
         }
     }
 }

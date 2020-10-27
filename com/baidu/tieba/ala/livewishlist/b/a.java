@@ -15,20 +15,20 @@ import com.baidu.live.utils.l;
 import com.baidu.tieba.ala.data.d;
 /* loaded from: classes4.dex */
 public class a {
-    public long fMk;
-    public TbImageView hfR;
-    public TextView hfS;
-    public boolean hfW;
-    public TextView hfX;
-    public TextView hfY;
-    public HeadImageView hfZ;
-    public HeadImageView hga;
-    public HeadImageView hgb;
-    public TextView hgc;
-    public TextView hgd;
-    public TextView hge;
-    public AlaLiveWishListData hgf;
-    public d hgg;
+    public long fUB;
+    public TbImageView hrQ;
+    public TextView hrR;
+    public boolean hrV;
+    public TextView hrW;
+    public TextView hrX;
+    public HeadImageView hrY;
+    public HeadImageView hrZ;
+    public HeadImageView hsa;
+    public TextView hsb;
+    public TextView hsc;
+    public TextView hsd;
+    public AlaLiveWishListData hse;
+    public d hsf;
     public Context mContext;
     public ProgressBar mProgress;
     public View mRootView;
@@ -36,114 +36,114 @@ public class a {
     public a(Context context, View view) {
         this.mContext = context;
         this.mRootView = view;
-        this.hfX = (TextView) this.mRootView.findViewById(a.g.rank_tv);
-        this.hfR = (TbImageView) this.mRootView.findViewById(a.g.gift_thumbnail);
+        this.hrW = (TextView) this.mRootView.findViewById(a.g.rank_tv);
+        this.hrQ = (TbImageView) this.mRootView.findViewById(a.g.gift_thumbnail);
         this.mProgress = (ProgressBar) this.mRootView.findViewById(a.g.progess_bar);
-        this.hfY = (TextView) this.mRootView.findViewById(a.g.punishment_tv);
-        this.hfS = (TextView) this.mRootView.findViewById(a.g.wish_count_tv);
-        this.hfZ = (HeadImageView) this.mRootView.findViewById(a.g.one_financier_iv);
-        this.hga = (HeadImageView) this.mRootView.findViewById(a.g.two_financier_iv);
-        this.hgb = (HeadImageView) this.mRootView.findViewById(a.g.three_financier_iv);
-        this.hgc = (TextView) this.mRootView.findViewById(a.g.end_time_tv);
-        this.hgd = (TextView) this.mRootView.findViewById(a.g.go_wish);
-        this.hge = (TextView) this.mRootView.findViewById(a.g.go_wish_succ);
+        this.hrX = (TextView) this.mRootView.findViewById(a.g.punishment_tv);
+        this.hrR = (TextView) this.mRootView.findViewById(a.g.wish_count_tv);
+        this.hrY = (HeadImageView) this.mRootView.findViewById(a.g.one_financier_iv);
+        this.hrZ = (HeadImageView) this.mRootView.findViewById(a.g.two_financier_iv);
+        this.hsa = (HeadImageView) this.mRootView.findViewById(a.g.three_financier_iv);
+        this.hsb = (TextView) this.mRootView.findViewById(a.g.end_time_tv);
+        this.hsc = (TextView) this.mRootView.findViewById(a.g.go_wish);
+        this.hsd = (TextView) this.mRootView.findViewById(a.g.go_wish_succ);
     }
 
     public void a(AlaLiveWishListData alaLiveWishListData) {
-        this.hgf = alaLiveWishListData;
+        this.hse = alaLiveWishListData;
     }
 
-    public void ns(boolean z) {
-        this.hfW = z;
+    public void nJ(boolean z) {
+        this.hrV = z;
     }
 
-    public void eF(long j) {
-        this.fMk = j;
+    public void eH(long j) {
+        this.fUB = j;
     }
 
     public void a(int i, SparseArray<CountDownTimer> sparseArray, d dVar) {
         long j;
-        this.hgg = dVar;
+        this.hsf = dVar;
         if (dVar != null) {
-            this.hfX.setText(String.format(this.mContext.getResources().getString(a.i.ala_wish_rank), Integer.valueOf(i + 1)));
-            this.hfR.setDefaultBgResource(a.f.icon_live_gift_default);
-            this.hfR.setDefaultErrorResource(a.f.icon_live_gift_default);
-            this.hfR.setAutoChangeStyle(false);
-            this.hfR.startLoad(dVar.gke, 10, false);
-            this.mProgress.setMax(dVar.gkg);
-            this.mProgress.setProgress(dVar.gkf);
-            this.hfZ.setIsRound(true);
-            this.hga.setIsRound(true);
-            this.hgb.setIsRound(true);
-            l.a(this.hfZ, TextUtils.isEmpty(dVar.gkh) ? "null" : dVar.gkh, true, false);
-            l.a(this.hga, TextUtils.isEmpty(dVar.gki) ? "null" : dVar.gki, true, false);
-            l.a(this.hgb, TextUtils.isEmpty(dVar.gkj) ? "null" : dVar.gkj, true, false);
-            this.hfY.setText(String.format("%s%s", this.mContext.getText(a.i.ala_wish_thank_mode), dVar.mDesc));
-            if (this.hgf != null) {
-                this.hfS.setText(this.hgf.process_num + "/" + this.hgf.finish_num);
-                this.mProgress.setMax(this.hgf.finish_num);
-                this.mProgress.setProgress(this.hgf.process_num);
+            this.hrW.setText(String.format(this.mContext.getResources().getString(a.i.ala_wish_rank), Integer.valueOf(i + 1)));
+            this.hrQ.setDefaultBgResource(a.f.icon_live_gift_default);
+            this.hrQ.setDefaultErrorResource(a.f.icon_live_gift_default);
+            this.hrQ.setAutoChangeStyle(false);
+            this.hrQ.startLoad(dVar.gui, 10, false);
+            this.mProgress.setMax(dVar.guk);
+            this.mProgress.setProgress(dVar.guj);
+            this.hrY.setIsRound(true);
+            this.hrZ.setIsRound(true);
+            this.hsa.setIsRound(true);
+            l.a(this.hrY, TextUtils.isEmpty(dVar.gul) ? "null" : dVar.gul, true, false);
+            l.a(this.hrZ, TextUtils.isEmpty(dVar.gum) ? "null" : dVar.gum, true, false);
+            l.a(this.hsa, TextUtils.isEmpty(dVar.gun) ? "null" : dVar.gun, true, false);
+            this.hrX.setText(String.format("%s%s", this.mContext.getText(a.i.ala_wish_thank_mode), dVar.mDesc));
+            if (this.hse != null) {
+                this.hrR.setText(this.hse.process_num + "/" + this.hse.finish_num);
+                this.mProgress.setMax(this.hse.finish_num);
+                this.mProgress.setProgress(this.hse.process_num);
             }
-            CountDownTimer countDownTimer = sparseArray.get(this.hgc.hashCode());
+            CountDownTimer countDownTimer = sparseArray.get(this.hsb.hashCode());
             if (countDownTimer != null) {
                 countDownTimer.cancel();
             }
-            long j2 = dVar.Mr * 1000;
-            if (this.fMk <= 0) {
+            long j2 = dVar.Ms * 1000;
+            if (this.fUB <= 0) {
                 j = j2 - System.currentTimeMillis();
             } else {
-                j = j2 - (this.fMk * 1000);
+                j = j2 - (this.fUB * 1000);
             }
-            if (this.hgf != null) {
-                dVar.gkf = this.hgf.process_num;
-                dVar.gkg = this.hgf.finish_num;
+            if (this.hse != null) {
+                dVar.guj = this.hse.process_num;
+                dVar.guk = this.hse.finish_num;
             }
-            if (this.hfW) {
-                this.hge.setVisibility(8);
-                this.hgd.setVisibility(0);
-                if (dVar.gkf >= dVar.gkg) {
+            if (this.hrV) {
+                this.hsd.setVisibility(8);
+                this.hsc.setVisibility(0);
+                if (dVar.guj >= dVar.guk) {
                     if (j <= 0) {
-                        this.hge.setVisibility(0);
-                        this.hgd.setVisibility(8);
-                        this.hge.setText(a.i.ala_go_wish_overdue);
+                        this.hsd.setVisibility(0);
+                        this.hsc.setVisibility(8);
+                        this.hsd.setText(a.i.ala_go_wish_overdue);
                     }
-                    this.hge.setVisibility(0);
-                    this.hgd.setVisibility(8);
-                    this.hge.setText(a.i.ala_go_wish_success);
-                    this.hgc.setVisibility(8);
+                    this.hsd.setVisibility(0);
+                    this.hsc.setVisibility(8);
+                    this.hsd.setText(a.i.ala_go_wish_success);
+                    this.hsb.setVisibility(8);
                     return;
                 }
-                this.hge.setVisibility(8);
-                this.hgd.setVisibility(0);
+                this.hsd.setVisibility(8);
+                this.hsc.setVisibility(0);
                 if (j <= 0) {
-                    this.hge.setVisibility(0);
-                    this.hgd.setVisibility(8);
-                    this.hge.setText(a.i.ala_go_wish_overdue);
-                    this.hgc.setVisibility(8);
+                    this.hsd.setVisibility(0);
+                    this.hsc.setVisibility(8);
+                    this.hsd.setText(a.i.ala_go_wish_overdue);
+                    this.hsb.setVisibility(8);
                     return;
                 }
                 a(sparseArray, dVar, j);
                 return;
             }
-            this.hge.setVisibility(0);
-            this.hgd.setVisibility(8);
-            if (dVar.gkf >= dVar.gkg) {
+            this.hsd.setVisibility(0);
+            this.hsc.setVisibility(8);
+            if (dVar.guj >= dVar.guk) {
                 if (j <= 0) {
-                    this.hge.setVisibility(0);
-                    this.hgd.setVisibility(8);
-                    this.hge.setText(a.i.ala_go_wish_overdue);
-                    this.hgc.setVisibility(8);
+                    this.hsd.setVisibility(0);
+                    this.hsc.setVisibility(8);
+                    this.hsd.setText(a.i.ala_go_wish_overdue);
+                    this.hsb.setVisibility(8);
                 }
-                this.hge.setText(a.i.ala_go_wish_success);
-                this.hgc.setVisibility(8);
+                this.hsd.setText(a.i.ala_go_wish_success);
+                this.hsb.setVisibility(8);
                 return;
             }
-            this.hge.setText(a.i.ala_go_wish_ing);
+            this.hsd.setText(a.i.ala_go_wish_ing);
             if (j <= 0) {
-                this.hge.setVisibility(0);
-                this.hgd.setVisibility(8);
-                this.hge.setText(a.i.ala_go_wish_overdue);
-                this.hgc.setVisibility(8);
+                this.hsd.setVisibility(0);
+                this.hsc.setVisibility(8);
+                this.hsd.setText(a.i.ala_go_wish_overdue);
+                this.hsb.setVisibility(8);
                 return;
             }
             a(sparseArray, dVar, j);
@@ -152,20 +152,20 @@ public class a {
 
     /* JADX WARN: Type inference failed for: r0v0, types: [com.baidu.tieba.ala.livewishlist.b.a$1] */
     private void a(SparseArray<CountDownTimer> sparseArray, final d dVar, long j) {
-        sparseArray.put(this.hgc.hashCode(), new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.ala.livewishlist.b.a.1
+        sparseArray.put(this.hsb.hashCode(), new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.ala.livewishlist.b.a.1
             @Override // android.os.CountDownTimer
             public void onTick(long j2) {
-                a.this.hgc.setVisibility(0);
-                a.this.hgc.setText(String.format("%s%s", a.this.mContext.getText(a.i.ala_wish_expire_time), com.baidu.tieba.ala.i.a.eN(j2)));
+                a.this.hsb.setVisibility(0);
+                a.this.hsb.setText(String.format("%s%s", a.this.mContext.getText(a.i.ala_wish_expire_time), com.baidu.tieba.ala.i.a.eO(j2)));
             }
 
             @Override // android.os.CountDownTimer
             public void onFinish() {
-                a.this.hgc.setVisibility(8);
-                a.this.hge.setVisibility(0);
-                a.this.hgd.setVisibility(8);
-                a.this.hge.setText(a.i.ala_go_wish_overdue);
-                dVar.Mr = 0L;
+                a.this.hsb.setVisibility(8);
+                a.this.hsd.setVisibility(0);
+                a.this.hsc.setVisibility(8);
+                a.this.hsd.setText(a.i.ala_go_wish_overdue);
+                dVar.Ms = 0L;
             }
         }.start());
     }

@@ -6,7 +6,7 @@ import android.util.Log;
 import com.baidu.q.a.e;
 /* loaded from: classes7.dex */
 public class c {
-    private static c nGF;
+    private static c ojh;
     private Context mCtx;
     private static String TAG = "UnionIDHelper";
     private static boolean DEBUG = false;
@@ -15,24 +15,24 @@ public class c {
         this.mCtx = context.getApplicationContext();
     }
 
-    public static c go(Context context) {
-        if (nGF == null) {
+    public static c gq(Context context) {
+        if (ojh == null) {
             synchronized (c.class) {
-                if (nGF == null) {
-                    nGF = new c(context);
-                    com.baidu.q.a.a.gp(context);
+                if (ojh == null) {
+                    ojh = new c(context);
+                    com.baidu.q.a.a.gr(context);
                 }
             }
         }
-        return nGF;
+        return ojh;
     }
 
     public void a(b bVar) {
-        a(new d().LQ(1).yB(false), bVar, Looper.getMainLooper());
+        a(new d().MS(1).zr(false), bVar, Looper.getMainLooper());
     }
 
     public void a(d dVar, final b bVar, Looper looper) {
-        e.dUJ().a(this.mCtx, looper, new com.baidu.q.a.a.b() { // from class: com.baidu.q.c.1
+        e.eaB().a(this.mCtx, looper, new com.baidu.q.a.a.b() { // from class: com.baidu.q.c.1
             @Override // com.baidu.q.a.a.b
             public void a(com.baidu.q.a.a.c cVar) {
                 if (c.DEBUG) {
@@ -40,20 +40,20 @@ public class c {
                     Log.d(c.TAG, "异步回调 (listener != null):" + (bVar != null));
                 }
                 if (bVar != null) {
-                    bVar.a(0, cVar == null ? null : new a(cVar.dUD(), cVar.isSupport(), cVar.getOAID(), cVar.getAAID(), cVar.getVAID(), cVar.getStatusCode()));
+                    bVar.a(0, cVar == null ? null : new a(cVar.eav(), cVar.isSupport(), cVar.getOAID(), cVar.getAAID(), cVar.getVAID(), cVar.getStatusCode()));
                 }
             }
         });
     }
 
-    public a dUF() {
-        com.baidu.q.a.a.c gr = e.dUJ().gr(this.mCtx);
+    public a eax() {
+        com.baidu.q.a.a.c gt = e.eaB().gt(this.mCtx);
         if (DEBUG) {
-            Log.d(TAG, "同步 结果:" + gr);
+            Log.d(TAG, "同步 结果:" + gt);
         }
-        if (gr == null) {
+        if (gt == null) {
             return null;
         }
-        return new a(gr.dUD(), gr.isSupport(), gr.getOAID(), gr.getAAID(), gr.getVAID(), gr.getStatusCode());
+        return new a(gt.eav(), gt.isSupport(), gt.getOAID(), gt.getAAID(), gt.getVAID(), gt.getStatusCode());
     }
 }

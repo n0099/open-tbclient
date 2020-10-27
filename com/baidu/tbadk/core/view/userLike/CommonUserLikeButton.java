@@ -11,42 +11,42 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class CommonUserLikeButton extends TextView implements b {
-    protected String eLk;
-    protected String eLl;
-    protected boolean eLm;
-    private View.OnClickListener eLn;
-    private boolean eLo;
-    private a eMo;
+    protected String eTG;
+    protected String eTH;
+    protected boolean eTI;
+    private View.OnClickListener eTJ;
+    private boolean eTK;
+    private a eUK;
 
     /* loaded from: classes.dex */
     public interface a {
-        void pX(int i);
+        void qi(int i);
     }
 
     public CommonUserLikeButton(Context context) {
         super(context);
-        this.eLk = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.eLl = TbadkCoreApplication.getInst().getString(R.string.attention);
-        this.eLm = false;
-        this.eLo = false;
+        this.eTG = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        this.eTH = TbadkCoreApplication.getInst().getString(R.string.attention);
+        this.eTI = false;
+        this.eTK = false;
         init();
     }
 
     public CommonUserLikeButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eLk = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.eLl = TbadkCoreApplication.getInst().getString(R.string.attention);
-        this.eLm = false;
-        this.eLo = false;
+        this.eTG = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        this.eTH = TbadkCoreApplication.getInst().getString(R.string.attention);
+        this.eTI = false;
+        this.eTK = false;
         init();
     }
 
     public CommonUserLikeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.eLk = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.eLl = TbadkCoreApplication.getInst().getString(R.string.attention);
-        this.eLm = false;
-        this.eLo = false;
+        this.eTG = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        this.eTH = TbadkCoreApplication.getInst().getString(R.string.attention);
+        this.eTI = false;
+        this.eTK = false;
         init();
     }
 
@@ -59,14 +59,14 @@ public class CommonUserLikeButton extends TextView implements b {
     }
 
     public void aN(boolean z) {
-        this.eLm = z;
+        this.eTI = z;
         if (z) {
             setClickable(false);
-            setText(this.eLk);
+            setText(this.eTG);
             setPadding(0, 0, 0, 0);
         } else {
             setClickable(true);
-            setText(this.eLl);
+            setText(this.eTH);
             setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds18), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds10), 0);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -77,16 +77,16 @@ public class CommonUserLikeButton extends TextView implements b {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void pW(int i) {
-        if (this.eMo != null) {
-            this.eMo.pX(i);
+    public void qh(int i) {
+        if (this.eUK != null) {
+            this.eUK.qi(i);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void bq(View view) {
-        if (this.eLn != null) {
-            this.eLn.onClick(view);
+    public void br(View view) {
+        if (this.eTJ != null) {
+            this.eTJ.onClick(view);
         }
     }
 
@@ -96,7 +96,7 @@ public class CommonUserLikeButton extends TextView implements b {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.eLm) {
+        if (this.eTI) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             ap.setViewTextColor(this, R.color.cp_cont_d);
             setBackgroundDrawable(null);
@@ -104,7 +104,7 @@ public class CommonUserLikeButton extends TextView implements b {
         }
         setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(R.drawable.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
         ap.setViewTextColor(this, R.color.btn_forum_focus_color);
-        if (this.eLo) {
+        if (this.eTK) {
             ap.setBackgroundResource(this, R.drawable.btn_transparent_focus_border_bg);
         } else {
             ap.setBackgroundResource(this, R.drawable.btn_focus_border_bg);
@@ -117,15 +117,15 @@ public class CommonUserLikeButton extends TextView implements b {
     }
 
     public void setFanNumCallBack(a aVar) {
-        this.eMo = aVar;
+        this.eUK = aVar;
     }
 
     public void setAfterOnClickListener(View.OnClickListener onClickListener) {
-        this.eLn = onClickListener;
+        this.eTJ = onClickListener;
     }
 
     public void setBackGroundIsTransMode(boolean z) {
-        this.eLo = z;
+        this.eTK = z;
         ap.setBackgroundResource(this, R.drawable.btn_transparent_focus_border_bg);
     }
 }

@@ -8,8 +8,8 @@ import android.text.TextUtils;
 import org.json.JSONArray;
 /* loaded from: classes10.dex */
 public class ao extends a {
-    private float cot = -1.0f;
-    private float cou = 0.0f;
+    private float cwV = -1.0f;
+    private float cwW = 0.0f;
     private float mStrokeWidth = 1.0f;
     private String mText;
     private int mX;
@@ -20,12 +20,12 @@ public class ao extends a {
         try {
             if (jSONArray.length() > 2) {
                 this.mText = jSONArray.optString(0);
-                this.mX = com.baidu.swan.apps.ap.ah.J((float) jSONArray.optDouble(1));
-                this.mY = com.baidu.swan.apps.ap.ah.J((float) jSONArray.optDouble(2));
+                this.mX = com.baidu.swan.apps.ap.ah.L((float) jSONArray.optDouble(1));
+                this.mY = com.baidu.swan.apps.ap.ah.L((float) jSONArray.optDouble(2));
                 if (jSONArray.length() > 3) {
-                    this.cot = com.baidu.swan.apps.ap.ah.J((float) jSONArray.optDouble(3));
+                    this.cwV = com.baidu.swan.apps.ap.ah.L((float) jSONArray.optDouble(3));
                 }
-                this.mStrokeWidth = com.baidu.swan.apps.ap.ah.J(1.0f);
+                this.mStrokeWidth = com.baidu.swan.apps.ap.ah.L(1.0f);
             }
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {
@@ -39,8 +39,8 @@ public class ao extends a {
         float f;
         Rect rect;
         if (!TextUtils.isEmpty(this.mText)) {
-            TextPaint textPaint = bVar.cnz;
-            int i = bVar.cnE;
+            TextPaint textPaint = bVar.cwc;
+            int i = bVar.cwh;
             Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
             float f2 = fontMetrics.top + this.mY;
             float f3 = fontMetrics.ascent + this.mY;
@@ -59,12 +59,12 @@ public class ao extends a {
                     f = this.mY;
                     break;
             }
-            if (this.cou == 0.0d) {
+            if (this.cwW == 0.0d) {
                 textPaint.getTextBounds(this.mText, 0, this.mText.length(), new Rect());
-                if (this.cot == -1.0f || rect.width() <= this.cot) {
-                    this.cou = 1.0f;
+                if (this.cwV == -1.0f || rect.width() <= this.cwV) {
+                    this.cwW = 1.0f;
                 } else {
-                    this.cou = this.cot / rect.width();
+                    this.cwW = this.cwV / rect.width();
                 }
             }
             canvas.save();
@@ -74,7 +74,7 @@ public class ao extends a {
             textPaint.setStrokeWidth(this.mStrokeWidth);
             textPaint.setColor(bVar.mStrokeColor);
             bVar.a(textPaint);
-            canvas.scale(this.cou, 1.0f);
+            canvas.scale(this.cwW, 1.0f);
             canvas.drawText(this.mText, this.mX, f, textPaint);
             textPaint.setStyle(Paint.Style.FILL);
             textPaint.setAlpha(alpha);

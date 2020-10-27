@@ -8,7 +8,7 @@ import org.aspectj.lang.a;
 /* loaded from: classes11.dex */
 public class SubtitleMediaHeaderBox extends AbstractMediaHeaderBox {
     public static final String TYPE = "sthd";
-    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1069a ajc$tjp_0 = null;
 
     static {
         ajc$preClinit();

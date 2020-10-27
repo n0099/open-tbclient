@@ -32,25 +32,25 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes24.dex */
 public class g extends BaseAdapter implements AbsListView.OnScrollListener, SignSingleModel.a {
-    private SignAllForumActivity mvE;
-    private c mvg;
-    private boolean mvt;
-    private ArrayList<d> hOy = new ArrayList<>();
-    private HashMap<String, SignSingleModel> mvF = new HashMap<>();
-    private boolean ieq = true;
+    private c mHM;
+    private boolean mHZ;
+    private SignAllForumActivity mIl;
+    private ArrayList<d> iaV = new ArrayList<>();
+    private HashMap<String, SignSingleModel> mIm = new HashMap<>();
+    private boolean iqO = true;
 
     public g(SignAllForumActivity signAllForumActivity, TextView textView) {
-        this.mvE = signAllForumActivity;
+        this.mIl = signAllForumActivity;
     }
 
     public void c(c cVar) {
         if (cVar != null) {
-            this.mvg = cVar;
-            this.hOy = cVar.dBr();
-            if (this.hOy.size() == 0) {
-                this.ieq = false;
+            this.mHM = cVar;
+            this.iaV = cVar.dEz();
+            if (this.iaV.size() == 0) {
+                this.iqO = false;
             } else {
-                this.ieq = true;
+                this.iqO = true;
             }
             notifyDataSetChanged();
         }
@@ -68,16 +68,16 @@ public class g extends BaseAdapter implements AbsListView.OnScrollListener, Sign
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.ieq) {
-            return this.hOy.size();
+        if (this.iqO) {
+            return this.iaV.size();
         }
         return 1;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.hOy.size() > i) {
-            return this.hOy.get(i);
+        if (this.iaV.size() > i) {
+            return this.iaV.get(i);
         }
         return null;
     }
@@ -87,40 +87,40 @@ public class g extends BaseAdapter implements AbsListView.OnScrollListener, Sign
         return i;
     }
 
-    private View IG(int i) {
+    private View IZ(int i) {
         if (i == 0) {
-            View inflate = LayoutInflater.from(this.mvE.getPageContext().getPageActivity()).inflate(R.layout.signallforum_item, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.mIl.getPageContext().getPageActivity()).inflate(R.layout.signallforum_item, (ViewGroup) null);
             b bVar = new b();
-            bVar.mvL = (BarImageView) inflate.findViewById(R.id.signallforum_item_avatar);
-            bVar.mvL.setIsRound(false);
-            bVar.mvL.setGifIconSupport(false);
-            bVar.mvN = (TextView) inflate.findViewById(R.id.signallforum_item_name);
-            bVar.fEU = (ImageView) inflate.findViewById(R.id.signallforum_item_level);
-            bVar.mvO = (TextView) inflate.findViewById(R.id.signallforum_item_exp);
-            bVar.mvP = (FrameLayout) inflate.findViewById(R.id.signallforum_item_res_container);
-            bVar.mvQ = (TextView) inflate.findViewById(R.id.signallforum_item_days);
-            bVar.mvR = (RelativeLayout) inflate.findViewById(R.id.signallforum_item_resign_container);
-            bVar.mvS = (ImageView) inflate.findViewById(R.id.signallforum_item_resign_icon);
-            bVar.mvT = (ProgressBar) inflate.findViewById(R.id.signallforum_item_resign_progress);
-            bVar.mvU = (TextView) inflate.findViewById(R.id.signallforum_item_resign_text);
-            bVar.mvV = (TextView) inflate.findViewById(R.id.signallforum_item_error);
-            bVar.mvM = (LinearLayout) inflate.findViewById(R.id.signallforum_item_level_container);
-            bVar.mvW = (TextView) inflate.findViewById(R.id.signallforum_item_increaseexp);
+            bVar.mIu = (BarImageView) inflate.findViewById(R.id.signallforum_item_avatar);
+            bVar.mIu.setIsRound(false);
+            bVar.mIu.setGifIconSupport(false);
+            bVar.mIw = (TextView) inflate.findViewById(R.id.signallforum_item_name);
+            bVar.fNp = (ImageView) inflate.findViewById(R.id.signallforum_item_level);
+            bVar.mIx = (TextView) inflate.findViewById(R.id.signallforum_item_exp);
+            bVar.mIy = (FrameLayout) inflate.findViewById(R.id.signallforum_item_res_container);
+            bVar.mIz = (TextView) inflate.findViewById(R.id.signallforum_item_days);
+            bVar.mIA = (RelativeLayout) inflate.findViewById(R.id.signallforum_item_resign_container);
+            bVar.mIB = (ImageView) inflate.findViewById(R.id.signallforum_item_resign_icon);
+            bVar.mIC = (ProgressBar) inflate.findViewById(R.id.signallforum_item_resign_progress);
+            bVar.mIE = (TextView) inflate.findViewById(R.id.signallforum_item_resign_text);
+            bVar.mIF = (TextView) inflate.findViewById(R.id.signallforum_item_error);
+            bVar.mIv = (LinearLayout) inflate.findViewById(R.id.signallforum_item_level_container);
+            bVar.mIG = (TextView) inflate.findViewById(R.id.signallforum_item_increaseexp);
             inflate.setTag(bVar);
             return inflate;
         }
-        View inflate2 = LayoutInflater.from(this.mvE.getPageContext().getPageActivity()).inflate(R.layout.signallforum_header, (ViewGroup) null);
+        View inflate2 = LayoutInflater.from(this.mIl.getPageContext().getPageActivity()).inflate(R.layout.signallforum_header, (ViewGroup) null);
         a aVar = new a();
-        aVar.mvJ = (TextView) inflate2.findViewById(R.id.signallforum_head_title);
-        aVar.mvK = (TextView) inflate2.findViewById(R.id.signallforum_head_res);
+        aVar.mIr = (TextView) inflate2.findViewById(R.id.signallforum_head_title);
+        aVar.mIt = (TextView) inflate2.findViewById(R.id.signallforum_head_res);
         inflate2.setTag(aVar);
         return inflate2;
     }
 
     private void a(View view, View view2, int i) {
         String str;
-        this.mvE.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.mvE.getLayoutMode().onModeChanged(view);
+        this.mIl.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.mIl.getLayoutMode().onModeChanged(view);
         final b bVar = (b) view.getTag();
         final d dVar = (d) getItem(i);
         if (dVar != null) {
@@ -141,75 +141,75 @@ public class g extends BaseAdapter implements AbsListView.OnScrollListener, Sign
                 }
             }
             str = forumName;
-            bVar.mvN.setText(str);
-            ap.setImageResource(bVar.fEU, BitmapHelper.getSmallGradeResourceIdNew(dVar.dBE()));
-            bVar.mvO.setText(dVar.dBF() + "/" + dVar.dBG());
-            bVar.mvW.clearAnimation();
-            if (dVar.bKJ()) {
-                bVar.mvM.setVisibility(0);
-                bVar.mvV.setVisibility(8);
-                bVar.mvQ.setVisibility(0);
-                bVar.mvR.setVisibility(8);
-                bVar.mvQ.setText(String.format(this.mvE.getPageContext().getString(R.string.signallforum_days), Integer.valueOf(dVar.dBD())));
-                if (dVar.dBK()) {
-                    bVar.mvO.setText(this.mvE.getPageContext().getString(R.string.signallforum_uplevel));
-                    bVar.mvW.setVisibility(8);
+            bVar.mIw.setText(str);
+            ap.setImageResource(bVar.fNp, BitmapHelper.getSmallGradeResourceIdNew(dVar.dEM()));
+            bVar.mIx.setText(dVar.dEN() + "/" + dVar.dEO());
+            bVar.mIG.clearAnimation();
+            if (dVar.bNl()) {
+                bVar.mIv.setVisibility(0);
+                bVar.mIF.setVisibility(8);
+                bVar.mIz.setVisibility(0);
+                bVar.mIA.setVisibility(8);
+                bVar.mIz.setText(String.format(this.mIl.getPageContext().getString(R.string.signallforum_days), Integer.valueOf(dVar.dEL())));
+                if (dVar.dES()) {
+                    bVar.mIx.setText(this.mIl.getPageContext().getString(R.string.signallforum_uplevel));
+                    bVar.mIG.setVisibility(8);
                 } else {
-                    bVar.mvO.setText(dVar.dBF() + "/" + dVar.dBG());
-                    bVar.mvW.setVisibility(0);
+                    bVar.mIx.setText(dVar.dEN() + "/" + dVar.dEO());
+                    bVar.mIG.setVisibility(0);
                 }
-                int dBJ = dVar.dBJ();
-                if (dBJ > 0) {
-                    bVar.mvW.setVisibility(0);
-                    bVar.mvW.setText("+" + dBJ);
+                int dER = dVar.dER();
+                if (dER > 0) {
+                    bVar.mIG.setVisibility(0);
+                    bVar.mIG.setText("+" + dER);
                 } else {
-                    bVar.mvW.setVisibility(8);
+                    bVar.mIG.setVisibility(8);
                 }
-            } else if (dVar.dBH()) {
-                bVar.mvM.setVisibility(0);
-                bVar.mvV.setVisibility(8);
-                bVar.mvW.setVisibility(8);
-                bVar.mvQ.setVisibility(8);
-                bVar.mvR.setVisibility(0);
-                if (dVar.dBI()) {
-                    bVar.mvS.setVisibility(4);
-                    bVar.mvT.setVisibility(0);
-                    bVar.mvU.setText(R.string.signallforum_resigning);
+            } else if (dVar.dEP()) {
+                bVar.mIv.setVisibility(0);
+                bVar.mIF.setVisibility(8);
+                bVar.mIG.setVisibility(8);
+                bVar.mIz.setVisibility(8);
+                bVar.mIA.setVisibility(0);
+                if (dVar.dEQ()) {
+                    bVar.mIB.setVisibility(4);
+                    bVar.mIC.setVisibility(0);
+                    bVar.mIE.setText(R.string.signallforum_resigning);
                 } else {
-                    bVar.mvS.setVisibility(0);
-                    bVar.mvT.setVisibility(4);
-                    bVar.mvU.setText(R.string.signallforum_resign);
+                    bVar.mIB.setVisibility(0);
+                    bVar.mIC.setVisibility(4);
+                    bVar.mIE.setText(R.string.signallforum_resign);
                 }
-                bVar.mvR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.signall.g.1
+                bVar.mIA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.signall.g.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view3) {
-                        if (!dVar.dBI()) {
-                            bVar.mvS.setVisibility(4);
-                            bVar.mvT.setVisibility(0);
-                            bVar.mvU.setText(R.string.signallforum_resigning);
-                            dVar.wF(true);
-                            SignSingleModel signSingleModel = new SignSingleModel(g.this.mvE);
+                        if (!dVar.dEQ()) {
+                            bVar.mIB.setVisibility(4);
+                            bVar.mIC.setVisibility(0);
+                            bVar.mIE.setText(R.string.signallforum_resigning);
+                            dVar.wW(true);
+                            SignSingleModel signSingleModel = new SignSingleModel(g.this.mIl);
                             signSingleModel.a(g.this);
                             String str2 = dVar.getForumId() + "";
                             synchronized (g.this) {
-                                g.this.mvF.put(str2, signSingleModel);
+                                g.this.mIm.put(str2, signSingleModel);
                             }
-                            signSingleModel.gf(dVar.getForumName(), str2);
+                            signSingleModel.gk(dVar.getForumName(), str2);
                             TiebaStatic.log("signall_resign_click");
                         }
                     }
                 });
             } else {
-                bVar.mvQ.setVisibility(8);
-                bVar.mvR.setVisibility(8);
-                bVar.mvW.setVisibility(8);
-                bVar.mvM.setVisibility(0);
-                bVar.mvV.setVisibility(8);
+                bVar.mIz.setVisibility(8);
+                bVar.mIA.setVisibility(8);
+                bVar.mIG.setVisibility(8);
+                bVar.mIv.setVisibility(0);
+                bVar.mIF.setVisibility(8);
             }
             String avatar = dVar.getAvatar();
-            bVar.mvL.setTag(avatar);
-            bVar.mvL.setPlaceHolder(1);
-            bVar.mvL.startLoad(avatar, 10, false);
+            bVar.mIu.setTag(avatar);
+            bVar.mIu.setPlaceHolder(1);
+            bVar.mIu.startLoad(avatar, 10, false);
         }
     }
 
@@ -217,31 +217,31 @@ public class g extends BaseAdapter implements AbsListView.OnScrollListener, Sign
     public View getView(int i, View view, ViewGroup viewGroup) {
         View view2;
         a aVar;
-        if (!this.ieq) {
-            return cpv();
+        if (!this.iqO) {
+            return csC();
         }
         int itemViewType = getItemViewType(i);
-        View IG = view == null ? IG(itemViewType) : view;
+        View IZ = view == null ? IZ(itemViewType) : view;
         if (itemViewType == 1) {
-            if (IG.getTag() != null && (IG.getTag() instanceof a)) {
-                view2 = IG;
-                aVar = (a) IG.getTag();
+            if (IZ.getTag() != null && (IZ.getTag() instanceof a)) {
+                view2 = IZ;
+                aVar = (a) IZ.getTag();
             } else {
-                View IG2 = IG(itemViewType);
-                view2 = IG2;
-                aVar = (a) IG2.getTag();
+                View IZ2 = IZ(itemViewType);
+                view2 = IZ2;
+                aVar = (a) IZ2.getTag();
             }
-            this.mvE.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-            this.mvE.getLayoutMode().onModeChanged(view2.findViewById(R.id.sign_all_forum_tip));
-            aVar.mvJ.setText(((com.baidu.tieba.signall.b) getItem(i)).getTitle());
-            j(aVar.mvK, i);
+            this.mIl.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+            this.mIl.getLayoutMode().onModeChanged(view2.findViewById(R.id.sign_all_forum_tip));
+            aVar.mIr.setText(((com.baidu.tieba.signall.b) getItem(i)).getTitle());
+            j(aVar.mIt, i);
             return view2;
         }
-        if (IG.getTag() == null || !(IG.getTag() instanceof b)) {
-            IG = IG(itemViewType);
+        if (IZ.getTag() == null || !(IZ.getTag() instanceof b)) {
+            IZ = IZ(itemViewType);
         }
-        a(IG, viewGroup, i);
-        return IG;
+        a(IZ, viewGroup, i);
+        return IZ;
     }
 
     private void j(TextView textView, int i) {
@@ -250,14 +250,14 @@ public class g extends BaseAdapter implements AbsListView.OnScrollListener, Sign
         int i4;
         int i5;
         String format;
-        int level = this.mvg == null ? 7 : this.mvg.getLevel();
-        if (this.hOy == null || this.hOy.size() <= 0) {
+        int level = this.mHM == null ? 7 : this.mHM.getLevel();
+        if (this.iaV == null || this.iaV.size() <= 0) {
             i2 = 0;
             i3 = 0;
             i4 = 0;
             i5 = 0;
         } else {
-            Iterator<d> it = this.hOy.iterator();
+            Iterator<d> it = this.iaV.iterator();
             i2 = 0;
             i3 = 0;
             i4 = 0;
@@ -265,13 +265,13 @@ public class g extends BaseAdapter implements AbsListView.OnScrollListener, Sign
             while (it.hasNext()) {
                 d next = it.next();
                 if (!TextUtils.isEmpty(next.getForumName())) {
-                    if (next.dBE() >= level) {
-                        if (next.bKJ()) {
+                    if (next.dEM() >= level) {
+                        if (next.bNl()) {
                             i5++;
                         } else {
                             i4++;
                         }
-                    } else if (next.bKJ()) {
+                    } else if (next.bNl()) {
                         i3++;
                     } else {
                         i2++;
@@ -284,20 +284,20 @@ public class g extends BaseAdapter implements AbsListView.OnScrollListener, Sign
             }
         }
         if (i == 0 && i5 + i4 > 0) {
-            format = String.format(this.mvE.getPageContext().getString(R.string.signallforum_res), Integer.valueOf(i5), Integer.valueOf(i4));
+            format = String.format(this.mIl.getPageContext().getString(R.string.signallforum_res), Integer.valueOf(i5), Integer.valueOf(i4));
         } else {
-            format = String.format(this.mvE.getPageContext().getString(R.string.signallforum_res), Integer.valueOf(i3), Integer.valueOf(i2));
+            format = String.format(this.mIl.getPageContext().getString(R.string.signallforum_res), Integer.valueOf(i3), Integer.valueOf(i2));
         }
         textView.setText(format);
     }
 
-    private View cpv() {
-        View inflate = LayoutInflater.from(this.mvE.getPageContext().getPageActivity()).inflate(R.layout.sign_all_forum_nodata_item, (ViewGroup) null);
-        NoDataView a2 = NoDataViewFactory.a(this.mvE.getPageContext().getPageActivity(), (LinearLayout) inflate.findViewById(R.id.sign_all_forum_no_data_view), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.FINDBAR, this.mvE.getResources().getDimensionPixelSize(R.dimen.tbds90)), NoDataViewFactory.d.dL(null, this.mvE.getResources().getString(R.string.no_bar_attentioned)), null);
+    private View csC() {
+        View inflate = LayoutInflater.from(this.mIl.getPageContext().getPageActivity()).inflate(R.layout.sign_all_forum_nodata_item, (ViewGroup) null);
+        NoDataView a2 = NoDataViewFactory.a(this.mIl.getPageContext().getPageActivity(), (LinearLayout) inflate.findViewById(R.id.sign_all_forum_no_data_view), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.FINDBAR, this.mIl.getResources().getDimensionPixelSize(R.dimen.tbds90)), NoDataViewFactory.d.dS(null, this.mIl.getResources().getString(R.string.no_bar_attentioned)), null);
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        this.mvE.getLayoutMode().setNightMode(skinType == 1);
-        this.mvE.getLayoutMode().onModeChanged(inflate);
-        a2.onChangeSkinType(this.mvE.getPageContext(), skinType);
+        this.mIl.getLayoutMode().setNightMode(skinType == 1);
+        this.mIl.getLayoutMode().onModeChanged(inflate);
+        a2.onChangeSkinType(this.mIl.getPageContext(), skinType);
         a2.setVisibility(0);
         a2.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
         return inflate;
@@ -317,19 +317,19 @@ public class g extends BaseAdapter implements AbsListView.OnScrollListener, Sign
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes24.dex */
     public class b {
-        public ImageView fEU;
-        public BarImageView mvL;
-        public LinearLayout mvM;
-        public TextView mvN;
-        public TextView mvO;
-        public FrameLayout mvP;
-        public TextView mvQ;
-        public RelativeLayout mvR;
-        public ImageView mvS;
-        public ProgressBar mvT;
-        public TextView mvU;
-        public TextView mvV;
-        public TextView mvW;
+        public ImageView fNp;
+        public RelativeLayout mIA;
+        public ImageView mIB;
+        public ProgressBar mIC;
+        public TextView mIE;
+        public TextView mIF;
+        public TextView mIG;
+        public BarImageView mIu;
+        public LinearLayout mIv;
+        public TextView mIw;
+        public TextView mIx;
+        public FrameLayout mIy;
+        public TextView mIz;
 
         b() {
         }
@@ -338,8 +338,8 @@ public class g extends BaseAdapter implements AbsListView.OnScrollListener, Sign
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes24.dex */
     public class a {
-        public TextView mvJ;
-        public TextView mvK;
+        public TextView mIr;
+        public TextView mIt;
 
         a() {
         }
@@ -349,44 +349,44 @@ public class g extends BaseAdapter implements AbsListView.OnScrollListener, Sign
     public void c(SignData signData) {
         String str = signData.forumId;
         synchronized (this) {
-            this.mvF.remove(str);
+            this.mIm.remove(str);
         }
         a(str, true, signData, null);
     }
 
     @Override // com.baidu.tieba.signall.SignSingleModel.a
-    public void ge(String str, String str2) {
+    public void gj(String str, String str2) {
         if (!TextUtils.isEmpty(str2)) {
-            l.showToast(this.mvE.getPageContext().getPageActivity(), str2);
+            l.showToast(this.mIl.getPageContext().getPageActivity(), str2);
         }
         synchronized (this) {
-            this.mvF.remove(str);
+            this.mIm.remove(str);
         }
         a(str, false, null, str2);
     }
 
     private void a(String str, boolean z, SignData signData, String str2) {
-        int size = this.hOy.size();
+        int size = this.iaV.size();
         for (int i = 0; i < size; i++) {
-            d dVar = this.hOy.get(i);
+            d dVar = this.iaV.get(i);
             if ((dVar.getForumId() + "").equals(str)) {
-                dVar.wD(z);
-                dVar.wE(!z);
-                dVar.wF(false);
+                dVar.wU(z);
+                dVar.wV(!z);
+                dVar.wW(false);
                 if (z) {
-                    dVar.ID(signData.count_sign_num);
-                    dVar.IF(signData.sign_bonus_point);
-                    dVar.IC(1);
+                    dVar.IW(signData.count_sign_num);
+                    dVar.IY(signData.sign_bonus_point);
+                    dVar.IV(1);
                     TbadkApplication.getInst().addSignedForum(dVar.getForumName(), signData.sign_bonus_point, -1);
-                    ArrayList<d> dBu = this.mvg.dBu();
-                    if (dBu.contains(dVar)) {
-                        dBu.remove(dVar);
-                        this.mvg.dBt().add(dVar);
+                    ArrayList<d> dEC = this.mHM.dEC();
+                    if (dEC.contains(dVar)) {
+                        dEC.remove(dVar);
+                        this.mHM.dEB().add(dVar);
                     }
                 } else {
                     dVar.setErrorMsg(str2);
                 }
-                if (!this.mvt) {
+                if (!this.mHZ) {
                     notifyDataSetChanged();
                     return;
                 }
@@ -395,14 +395,14 @@ public class g extends BaseAdapter implements AbsListView.OnScrollListener, Sign
         }
     }
 
-    public void dBQ() {
-        this.mvt = true;
+    public void dEY() {
+        this.mHZ = true;
         synchronized (this) {
             try {
-                for (Map.Entry<String, SignSingleModel> entry : this.mvF.entrySet()) {
-                    entry.getValue().dCj();
+                for (Map.Entry<String, SignSingleModel> entry : this.mIm.entrySet()) {
+                    entry.getValue().dFr();
                 }
-                this.mvF.clear();
+                this.mIm.clear();
             }
         }
     }

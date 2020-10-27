@@ -21,7 +21,7 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bL */
+    /* renamed from: bM */
     public com.baidu.tieba.hottopic.a.c c(ViewGroup viewGroup) {
         return new com.baidu.tieba.hottopic.a.c(LayoutInflater.from(this.mContext).inflate(R.layout.hot_topic_interval, viewGroup, false));
     }
@@ -40,24 +40,24 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
     private void a(com.baidu.tieba.hottopic.a.c cVar, View view) {
         if (cVar != null) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            if (cVar.ajp != this.mSkinType) {
-                cVar.ajp = this.mSkinType;
+            if (cVar.ajq != this.mSkinType) {
+                cVar.ajq = this.mSkinType;
                 ap.setBackgroundColor(cVar.getView(), R.color.cp_bg_line_d);
-                ap.setBackgroundColor(cVar.jyj, R.color.cp_bg_line_c);
-                ap.setViewTextColor(cVar.jyk, R.color.cp_cont_c, 1);
+                ap.setBackgroundColor(cVar.jKI, R.color.cp_bg_line_c);
+                ap.setViewTextColor(cVar.jKJ, R.color.cp_cont_c, 1);
             }
         }
     }
 
     private void a(com.baidu.tieba.hottopic.a.c cVar, com.baidu.tieba.hottopic.data.g gVar) {
-        if (cVar == null || gVar == null || StringUtils.isNull(gVar.jwF)) {
+        if (cVar == null || gVar == null || StringUtils.isNull(gVar.jJe)) {
             if (cVar != null) {
-                cVar.jyk.setVisibility(8);
+                cVar.jKJ.setVisibility(8);
                 return;
             }
             return;
         }
-        cVar.jyk.setVisibility(0);
-        cVar.jyk.setText(gVar.jwF);
+        cVar.jKJ.setVisibility(0);
+        cVar.jKJ.setText(gVar.jJe);
     }
 }

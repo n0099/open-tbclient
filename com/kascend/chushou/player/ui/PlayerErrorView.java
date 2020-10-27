@@ -11,7 +11,7 @@ import com.kascend.chushou.a;
 public class PlayerErrorView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f4144a;
+    private Context f4142a;
 
     public PlayerErrorView(Context context) {
         this(context, null);
@@ -19,7 +19,7 @@ public class PlayerErrorView extends RelativeLayout {
 
     public PlayerErrorView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f4144a = context;
+        this.f4142a = context;
         a(context);
     }
 
@@ -30,7 +30,7 @@ public class PlayerErrorView extends RelativeLayout {
     public void setText(int i) {
         TextView textView = (TextView) findViewById(a.f.tv_desc);
         if (textView != null) {
-            textView.setText(this.f4144a.getString(i));
+            textView.setText(this.f4142a.getString(i));
         }
     }
 }

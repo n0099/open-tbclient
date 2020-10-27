@@ -55,12 +55,12 @@ public class AdvertisingIdClient {
             Log.i(getTag(), "bind ok");
             try {
                 try {
-                    if (aVar.f4061a) {
+                    if (aVar.f4059a) {
                         throw new IllegalStateException();
                     }
-                    aVar.f4061a = true;
-                    b.a.C0896a c0896a = new b.a.C0896a(aVar.b.take());
-                    return new Info(c0896a.a(), c0896a.b());
+                    aVar.f4059a = true;
+                    b.a.C0968a c0968a = new b.a.C0968a(aVar.b.take());
+                    return new Info(c0968a.a(), c0968a.b());
                 } catch (RemoteException e) {
                     Log.e(getTag(), "bind hms service RemoteException");
                     throw new IOException("bind hms service RemoteException");

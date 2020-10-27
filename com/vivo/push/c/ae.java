@@ -7,7 +7,7 @@ import java.util.List;
 final class ae implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f4658a;
+    final /* synthetic */ int f4656a;
     final /* synthetic */ List b;
     final /* synthetic */ List c;
     final /* synthetic */ String d;
@@ -16,7 +16,7 @@ final class ae implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(ac acVar, int i, List list, List list2, String str) {
         this.e = acVar;
-        this.f4658a = i;
+        this.f4656a = i;
         this.b = list;
         this.c = list2;
         this.d = str;
@@ -26,7 +26,7 @@ final class ae implements Runnable {
     public final void run() {
         Context context;
         PushMessageCallback pushMessageCallback = this.e.b;
-        context = this.e.f4714a;
-        pushMessageCallback.onSetAlias(context, this.f4658a, this.b, this.c, this.d);
+        context = this.e.f4712a;
+        pushMessageCallback.onSetAlias(context, this.f4656a, this.b, this.c, this.d);
     }
 }

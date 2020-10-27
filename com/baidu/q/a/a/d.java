@@ -5,11 +5,11 @@ import android.content.Context;
 public abstract class d implements c {
     protected Context mCtx;
     protected int mStatusCode = -200;
-    protected boolean nGA;
-    protected String nGC;
-    protected String nGD;
-    protected String nGE;
-    protected boolean nHd;
+    protected boolean ojF;
+    protected boolean ojc;
+    protected String oje;
+    protected String ojf;
+    protected String ojg;
 
     public d(Context context) {
         if (context != null) {
@@ -18,28 +18,28 @@ public abstract class d implements c {
     }
 
     @Override // com.baidu.q.a.a.c
-    public boolean dUD() {
-        return this.nGA;
+    public boolean eav() {
+        return this.ojc;
     }
 
     @Override // com.baidu.q.a.a.c
     public boolean isSupport() {
-        return this.nHd;
+        return this.ojF;
     }
 
     @Override // com.baidu.q.a.a.c
     public String getOAID() {
-        return this.nGC;
+        return this.oje;
     }
 
     @Override // com.baidu.q.a.a.c
     public String getAAID() {
-        return this.nGD;
+        return this.ojf;
     }
 
     @Override // com.baidu.q.a.a.c
     public String getVAID() {
-        return this.nGE;
+        return this.ojg;
     }
 
     @Override // com.baidu.q.a.a.c
@@ -48,32 +48,32 @@ public abstract class d implements c {
     }
 
     @Override // com.baidu.q.a.a.c
-    public void yC(boolean z) {
-        this.nGA = z;
+    public void zs(boolean z) {
+        this.ojc = z;
     }
 
     @Override // com.baidu.q.a.a.c
-    public void yD(boolean z) {
-        this.nHd = z;
+    public void zt(boolean z) {
+        this.ojF = z;
     }
 
     @Override // com.baidu.q.a.a.c
-    public void Vq(String str) {
-        this.nGC = str;
+    public void WE(String str) {
+        this.oje = str;
     }
 
     @Override // com.baidu.q.a.a.c
-    public void Vr(String str) {
-        this.nGD = str;
+    public void WF(String str) {
+        this.ojf = str;
     }
 
     @Override // com.baidu.q.a.a.c
-    public void Vs(String str) {
-        this.nGE = str;
+    public void WG(String str) {
+        this.ojg = str;
     }
 
     @Override // com.baidu.q.a.a.c
-    public void LT(int i) {
+    public void MV(int i) {
         this.mStatusCode = i;
     }
 }

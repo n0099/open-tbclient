@@ -30,7 +30,7 @@ public class DuFaceItem extends FaceItem {
         Exception e;
         try {
             FileUtils.unzipFile(new File(str), getFilePath());
-            z = a.iK(getFilePath());
+            z = a.jd(getFilePath());
             if (!z) {
             }
             if (!z) {

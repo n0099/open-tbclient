@@ -12,7 +12,7 @@ public interface g {
     public interface b {
         void a(a aVar);
 
-        void aqb();
+        void arV();
 
         void d(List<com.baidu.tieba.card.data.b> list, boolean z, boolean z2);
 

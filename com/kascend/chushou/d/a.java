@@ -19,28 +19,28 @@ public class a {
     public static void a(Context context, String str, String str2, String str3, String str4, JSONObject jSONObject) {
         boolean z;
         String str5;
-        com.kascend.chushou.player.b egv;
+        com.kascend.chushou.player.b eqv;
         boolean z2 = false;
         a(context);
         VideoPlayer videoPlayer = null;
-        Activity gP = f.gP(context);
-        if (gP instanceof FragmentActivity) {
-            videoPlayer = (FragmentActivity) gP;
+        Activity hj = f.hj(context);
+        if (hj instanceof FragmentActivity) {
+            videoPlayer = (FragmentActivity) hj;
         }
         if (videoPlayer != null) {
             if (videoPlayer instanceof VideoPlayer) {
                 z = true;
                 VideoPlayer videoPlayer2 = videoPlayer;
-                if (tv.chushou.zues.utils.h.isEmpty(str) && (egv = videoPlayer2.egv()) != null) {
-                    str = egv.f4119a;
+                if (tv.chushou.zues.utils.h.isEmpty(str) && (eqv = videoPlayer2.eqv()) != null) {
+                    str = eqv.f4117a;
                 }
-                z2 = videoPlayer2.egI();
+                z2 = videoPlayer2.eqI();
                 str5 = str;
             } else {
                 z = false;
                 str5 = str;
             }
-            com.kascend.chushou.view.b.b.a.oxa.a(str2, str5, str3, z, z2).show(videoPlayer.getSupportFragmentManager(), "UserCardDialog");
+            com.kascend.chushou.view.b.b.a.pou.a(str2, str5, str3, z, z2).show(videoPlayer.getSupportFragmentManager(), "UserCardDialog");
         }
     }
 
@@ -48,7 +48,7 @@ public class a {
         boolean z2;
         boolean z3;
         String str4;
-        com.kascend.chushou.player.b egv;
+        com.kascend.chushou.player.b eqv;
         if (!tv.chushou.zues.utils.h.isEmpty(str2)) {
             if (!tv.chushou.zues.utils.h.isEmpty(str3) && str3.equals(str2)) {
                 z = false;
@@ -61,23 +61,23 @@ public class a {
                 e.a(context, listItem, jSONObject);
                 return;
             }
-            Activity gP = f.gP(context);
-            VideoPlayer videoPlayer = gP instanceof FragmentActivity ? (FragmentActivity) gP : null;
+            Activity hj = f.hj(context);
+            VideoPlayer videoPlayer = hj instanceof FragmentActivity ? (FragmentActivity) hj : null;
             if (videoPlayer != null) {
                 if (videoPlayer instanceof VideoPlayer) {
                     z3 = true;
                     VideoPlayer videoPlayer2 = videoPlayer;
-                    if (tv.chushou.zues.utils.h.isEmpty(str) && (egv = videoPlayer2.egv()) != null) {
-                        str = egv.f4119a;
+                    if (tv.chushou.zues.utils.h.isEmpty(str) && (eqv = videoPlayer2.eqv()) != null) {
+                        str = eqv.f4117a;
                     }
-                    z2 = videoPlayer2.egI();
+                    z2 = videoPlayer2.eqI();
                     str4 = str;
                 } else {
                     z2 = false;
                     z3 = false;
                     str4 = str;
                 }
-                com.kascend.chushou.view.b.b.a.oxa.a(str2, str4, null, z3, z2).show(videoPlayer.getSupportFragmentManager(), "UserCardDialog");
+                com.kascend.chushou.view.b.b.a.pou.a(str2, str4, null, z3, z2).show(videoPlayer.getSupportFragmentManager(), "UserCardDialog");
             }
         }
     }
@@ -119,7 +119,7 @@ public class a {
         bundle.putBoolean("mCanBack", true);
         bundle.putBoolean("mEnableRefresh", z);
         intent.putExtra("extra", bundle);
-        if (f.gP(context) == null) {
+        if (f.hj(context) == null) {
             intent.addFlags(268435456);
         }
         context.startActivity(intent);
@@ -134,10 +134,10 @@ public class a {
     }
 
     public static void b(Context context, String str) {
-        com.kascend.cstvsdk.utils.a.oBY.a(context);
+        com.kascend.cstvsdk.utils.a.ptu.a(context);
     }
 
     public static void c(Context context, String str) {
-        com.kascend.cstvsdk.utils.a.oBY.c(context);
+        com.kascend.cstvsdk.utils.a.ptu.c(context);
     }
 }

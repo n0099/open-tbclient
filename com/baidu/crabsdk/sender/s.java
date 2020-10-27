@@ -8,15 +8,15 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class s extends FileObserver {
-    private String aqr;
-    private JSONObject aqs;
+    private String aqs;
+    private JSONObject aqt;
     private Context mContext;
 
     public s(Context context, String str) {
         super(str, 8);
-        this.aqs = null;
+        this.aqt = null;
         this.mContext = context;
-        this.aqr = str;
+        this.aqs = str;
     }
 
     @Override // android.os.FileObserver
@@ -28,7 +28,7 @@ public final class s extends FileObserver {
             com.baidu.crabsdk.c.a.w("file path is null!");
             return;
         }
-        com.baidu.crabsdk.c.a.dA("File name is: " + (this.aqr + "/" + str));
+        com.baidu.crabsdk.c.a.dA("File name is: " + (this.aqs + "/" + str));
         if (str.endsWith(".ydg")) {
             com.baidu.crabsdk.c.a.dA("Delete .ydg file: " + i.deleteFile(str2));
             str = str.substring(4);
@@ -49,16 +49,16 @@ public final class s extends FileObserver {
             String c = com.baidu.crabsdk.b.s.c(dz);
             com.baidu.crabsdk.c.a.dA("Key stack is:\n" + c);
             try {
-                this.aqs = g.a(System.currentTimeMillis(), true);
-                this.aqs.put("javaLine", c);
-                this.aqs.put("errorTrace", b);
+                this.aqt = g.a(System.currentTimeMillis(), true);
+                this.aqt.put("javaLine", c);
+                this.aqt.put("errorTrace", b);
             } catch (Exception e) {
                 com.baidu.crabsdk.c.a.a("Wrap java stack info error!", e);
             }
         }
         if (str.endsWith(".dmp")) {
             com.baidu.crabsdk.c.a.dA("Dump file is created!");
-            if (this.aqs == null || (dF = com.baidu.crabsdk.c.d.dF(this.aqs.toString())) == null) {
+            if (this.aqt == null || (dF = com.baidu.crabsdk.c.d.dF(this.aqt.toString())) == null) {
                 return;
             }
             com.baidu.crabsdk.c.a.dA("Write .ldg file here!");

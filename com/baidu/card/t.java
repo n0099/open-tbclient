@@ -13,16 +13,16 @@ import com.baidu.tbadk.core.view.ThreadLinkView;
 import com.baidu.tieba.R;
 /* loaded from: classes21.dex */
 public class t extends b<AbsThreadDataSupport> {
-    private AbsThreadDataSupport afH;
-    private ThreadLinkView agn;
-    private TextView ago;
+    private AbsThreadDataSupport afI;
+    private ThreadLinkView ago;
+    private TextView agp;
     private View mRootView;
 
     public t(Context context) {
         super(context);
         this.mRootView = LayoutInflater.from(context).inflate(R.layout.card_link_layout, (ViewGroup) null, true);
-        this.agn = (ThreadLinkView) this.mRootView.findViewById(R.id.link_thread_root);
-        this.ago = (TextView) this.mRootView.findViewById(R.id.link_seg_title);
+        this.ago = (ThreadLinkView) this.mRootView.findViewById(R.id.link_thread_root);
+        this.agp = (TextView) this.mRootView.findViewById(R.id.link_seg_title);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -35,27 +35,27 @@ public class t extends b<AbsThreadDataSupport> {
     @Override // com.baidu.card.p
     /* renamed from: b */
     public void H(AbsThreadDataSupport absThreadDataSupport) {
-        if (absThreadDataSupport == null || absThreadDataSupport.bfG() == null) {
+        if (absThreadDataSupport == null || absThreadDataSupport.bhz() == null) {
             getView().setVisibility(8);
             return;
         }
-        this.afH = absThreadDataSupport;
-        bw bfG = absThreadDataSupport.bfG();
-        com.baidu.tieba.card.m.a(bfG, this.ago);
-        this.agn.setData(bfG);
+        this.afI = absThreadDataSupport;
+        bw bhz = absThreadDataSupport.bhz();
+        com.baidu.tieba.card.n.a(bhz, this.agp);
+        this.ago.setData(bhz);
     }
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.agn.onChangeSkinType();
-        if (this.afH != null && this.afH.bfG() != null) {
-            com.baidu.tieba.card.m.a(this.ago, this.afH.bfG().getId(), R.color.cp_cont_b, R.color.cp_cont_d);
+        this.ago.onChangeSkinType();
+        if (this.afI != null && this.afI.bhz() != null) {
+            com.baidu.tieba.card.n.a(this.agp, this.afI.bhz().getId(), R.color.cp_cont_b, R.color.cp_cont_d);
         }
     }
 
     @Override // com.baidu.card.b
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         super.setPageUniqueId(bdUniqueId);
-        this.agn.setTag(bdUniqueId);
+        this.ago.setTag(bdUniqueId);
     }
 }

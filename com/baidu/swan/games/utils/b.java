@@ -16,18 +16,18 @@ public class b {
     }
 
     public static void a(com.baidu.swan.games.f.b bVar, JSTypeMismatchException jSTypeMismatchException) {
-        bVar.throwJSException(JSExceptionType.TypeError, String.format("The \"%s\" argument must be %s. Received type %s", jSTypeMismatchException.name, lQ(jSTypeMismatchException.requiredType), lQ(jSTypeMismatchException.actualType)));
+        bVar.throwJSException(JSExceptionType.TypeError, String.format("The \"%s\" argument must be %s. Received type %s", jSTypeMismatchException.name, mb(jSTypeMismatchException.requiredType), mb(jSTypeMismatchException.actualType)));
     }
 
     public static String a(@NonNull String str, @NonNull JSTypeMismatchException jSTypeMismatchException) {
-        return String.format("%s:fail parameter error: parameter.%s should be %s instead of %s", str, jSTypeMismatchException.name, lQ(jSTypeMismatchException.requiredType), lQ(jSTypeMismatchException.actualType));
+        return String.format("%s:fail parameter error: parameter.%s should be %s instead of %s", str, jSTypeMismatchException.name, mb(jSTypeMismatchException.requiredType), mb(jSTypeMismatchException.actualType));
     }
 
-    public static String de(@NonNull String str, @NonNull String str2) {
+    public static String dl(@NonNull String str, @NonNull String str2) {
         return String.format("%s: %s", str, str2);
     }
 
-    private static String lQ(int i) {
+    private static String mb(int i) {
         switch (i) {
             case 1:
                 return "boolean";

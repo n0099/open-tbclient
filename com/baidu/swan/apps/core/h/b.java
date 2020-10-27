@@ -19,14 +19,14 @@ import java.io.File;
 /* loaded from: classes10.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private boolean cAl;
+    private boolean cIH;
 
     private b() {
-        this.cAl = false;
+        this.cIH = false;
     }
 
-    public static b amB() {
-        return a.cAm;
+    public static b aov() {
+        return a.cII;
     }
 
     /* JADX WARN: Type inference failed for: r0v10, types: [com.baidu.swan.apps.adaptation.b.d] */
@@ -37,90 +37,90 @@ public final class b {
                 Log.d("AppLaunchMessenger", "dispatchLaunchEvent");
                 Log.d("SwanPrelink", "start dispatch launch event");
             }
-            if (!this.cAl) {
-                String a2 = com.baidu.swan.apps.scheme.actions.k.c.a(f.avu(), bVar, swanAppConfigData);
-                String rs = swanAppConfigData.rs(a2);
+            if (!this.cIH) {
+                String a2 = com.baidu.swan.apps.scheme.actions.k.c.a(f.axo(), bVar, swanAppConfigData);
+                String rL = swanAppConfigData.rL(a2);
                 com.baidu.swan.apps.core.turbo.a aVar2 = new com.baidu.swan.apps.core.turbo.a();
-                aVar2.appConfig = swanAppConfigData.dfo;
-                swanAppConfigData.dfo = null;
-                if (fVar != null && !TextUtils.isEmpty(fVar.cIX)) {
-                    aVar2.appPath = fVar.cIX;
+                aVar2.appConfig = swanAppConfigData.dnO;
+                swanAppConfigData.dnO = null;
+                if (fVar != null && !TextUtils.isEmpty(fVar.cRt)) {
+                    aVar2.appPath = fVar.cRt;
                 } else {
-                    aVar2.appPath = d.C0438d.bG(bVar.getAppId(), bVar.getVersion()).getPath() + File.separator;
+                    aVar2.appPath = d.C0452d.bN(bVar.getAppId(), bVar.getVersion()).getPath() + File.separator;
                 }
-                aVar2.cBC = cVar.aep();
+                aVar2.cJY = cVar.agj();
                 aVar2.pageUrl = a2;
-                aVar2.cBE = String.valueOf(com.baidu.swan.apps.console.a.ahb());
-                aVar2.cBF = com.baidu.swan.apps.core.turbo.a.b(e.aDa(), a2);
-                aVar2.pageType = rs;
-                if (!DEBUG && !f.avu().auY()) {
+                aVar2.cKa = String.valueOf(com.baidu.swan.apps.console.a.aiV());
+                aVar2.cKb = com.baidu.swan.apps.core.turbo.a.b(e.aEU(), a2);
+                aVar2.pageType = rL;
+                if (!DEBUG && !f.axo().awS()) {
                     z = false;
                 }
-                aVar2.cBG = z;
-                aVar2.cBH = cVar.aek();
-                if (com.baidu.swan.apps.ad.a.a.aAx()) {
-                    aVar2.cBI = com.baidu.swan.apps.console.debugger.b.ahj();
+                aVar2.cKc = z;
+                aVar2.cKd = cVar.age();
+                if (com.baidu.swan.apps.ad.a.a.aCr()) {
+                    aVar2.cKe = com.baidu.swan.apps.console.debugger.b.ajd();
                 }
-                Bundle auo = bVar.auo();
-                if (auo != null) {
-                    String string = auo.getString("extraData");
+                Bundle awi = bVar.awi();
+                if (awi != null) {
+                    String string = awi.getString("extraData");
                     if (!TextUtils.isEmpty(string)) {
-                        aVar2.cBD = string;
+                        aVar2.cJZ = string;
                     }
                 }
                 if (DEBUG) {
                     Log.d("AppLaunchMessenger", aVar2.toString());
                 }
-                i.azm().f(new UbcFlowEvent("master_dispatch_start"));
-                com.baidu.swan.apps.ak.a.aFy().sk("master_dispatch_start");
+                i.aBg().f(new UbcFlowEvent("master_dispatch_start"));
+                com.baidu.swan.apps.ak.a.aHs().sE("master_dispatch_start");
                 aVar.a(aVar2);
-                com.baidu.swan.apps.core.turbo.d.ann().b(com.baidu.swan.apps.core.turbo.a.b(aVar2));
-                com.baidu.swan.apps.core.turbo.d.ann().eE(aVar2.cBH);
-                if (com.baidu.swan.apps.ad.a.a.qK(bVar.auy())) {
-                    com.baidu.swan.apps.console.debugger.a.d.ahx();
-                    com.baidu.swan.apps.console.debugger.a.d.ahs().lO("appready");
+                com.baidu.swan.apps.core.turbo.d.aph().b(com.baidu.swan.apps.core.turbo.a.b(aVar2));
+                com.baidu.swan.apps.core.turbo.d.aph().eR(aVar2.cKd);
+                if (com.baidu.swan.apps.ad.a.a.rd(bVar.aws())) {
+                    com.baidu.swan.apps.console.debugger.a.d.ajr();
+                    com.baidu.swan.apps.console.debugger.a.d.ajm().mh("appready");
                 }
-                com.baidu.swan.apps.runtime.config.c pe = f.avu().pe(j.sc(ai.delAllParamsFromUrl(a2)));
+                com.baidu.swan.apps.runtime.config.c px = f.axo().px(j.sw(ai.delAllParamsFromUrl(a2)));
                 com.baidu.swan.apps.core.turbo.b bVar2 = new com.baidu.swan.apps.core.turbo.b();
-                if (fVar != null && !TextUtils.isEmpty(fVar.cIX)) {
-                    bVar2.appPath = fVar.cIX;
+                if (fVar != null && !TextUtils.isEmpty(fVar.cRt)) {
+                    bVar2.appPath = fVar.cRt;
                 } else {
-                    bVar2.appPath = d.C0438d.bG(bVar.getAppId(), bVar.getVersion()).getPath() + File.separator;
+                    bVar2.appPath = d.C0452d.bN(bVar.getAppId(), bVar.getVersion()).getPath() + File.separator;
                 }
-                bVar2.cBJ = a2;
-                bVar2.cBK = pe.cBK;
-                bVar2.pageType = rs;
-                bVar2.cBF = aVar2.cBF;
-                bVar2.cBE = String.valueOf(bVar.auv());
-                bVar2.cBG = z;
-                bVar2.cBH = cVar.aek();
-                if (com.baidu.swan.apps.ad.a.a.aAx()) {
-                    bVar2.cBI = com.baidu.swan.apps.console.debugger.b.ahi();
+                bVar2.cKf = a2;
+                bVar2.cKg = px.cKg;
+                bVar2.pageType = rL;
+                bVar2.cKb = aVar2.cKb;
+                bVar2.cKa = String.valueOf(bVar.awp());
+                bVar2.cKc = z;
+                bVar2.cKd = cVar.age();
+                if (com.baidu.swan.apps.ad.a.a.aCr()) {
+                    bVar2.cKe = com.baidu.swan.apps.console.debugger.b.ajc();
                 }
-                if (com.baidu.swan.apps.ad.a.a.qK(bVar.auy())) {
-                    com.baidu.swan.apps.console.debugger.a.d.ahs().lO("pageready");
+                if (com.baidu.swan.apps.ad.a.a.rd(bVar.aws())) {
+                    com.baidu.swan.apps.console.debugger.a.d.ajm().mh("pageready");
                 }
                 if (DEBUG) {
                     Log.d("AppLaunchMessenger", bVar2.toString());
                 }
-                i.azm().f(new UbcFlowEvent("slave_dispatch_start"));
-                com.baidu.swan.apps.ak.a.aFy().sk("slave_dispatch_start");
+                i.aBg().f(new UbcFlowEvent("slave_dispatch_start"));
+                com.baidu.swan.apps.ak.a.aHs().sE("slave_dispatch_start");
                 cVar.a(bVar2);
-                ab.aIn();
-                cVar.aen().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, a2);
-                cVar.jP(a2);
-                com.baidu.swan.apps.core.turbo.d.ann().a(cVar.aep(), com.baidu.swan.apps.core.turbo.b.b(bVar2));
-                com.baidu.swan.apps.statistic.e.cq(cVar.aep(), bVar2.cBJ);
+                ab.aKh();
+                cVar.agh().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, a2);
+                cVar.ki(a2);
+                com.baidu.swan.apps.core.turbo.d.aph().a(cVar.agj(), com.baidu.swan.apps.core.turbo.b.b(bVar2));
+                com.baidu.swan.apps.statistic.e.cx(cVar.agj(), bVar2.cKf);
                 if (DEBUG) {
                     Log.d("AppLaunchMessenger", "app path: " + aVar2.appPath);
-                    Log.d("AppLaunchMessenger", "webviewId: " + cVar.aep());
+                    Log.d("AppLaunchMessenger", "webviewId: " + cVar.agj());
                     Log.d("AppLaunchMessenger", "pageUrl: " + a2);
-                    Log.d("AppLaunchMessenger", "pagePath: " + bVar2.cBJ);
-                    Log.d("AppLaunchMessenger", "onReachBottomDistance: " + bVar2.cBK);
-                    Log.d("AppLaunchMessenger", "sConsole:" + bVar2.cBE);
+                    Log.d("AppLaunchMessenger", "pagePath: " + bVar2.cKf);
+                    Log.d("AppLaunchMessenger", "onReachBottomDistance: " + bVar2.cKg);
+                    Log.d("AppLaunchMessenger", "sConsole:" + bVar2.cKa);
                 }
                 a(swanAppConfigData);
-                this.cAl = true;
+                this.cIH = true;
             }
         }
     }
@@ -129,16 +129,16 @@ public final class b {
         if (DEBUG) {
             Log.d("AppLaunchMessenger", "afterLaunchEventSent: start");
         }
-        com.baidu.swan.apps.core.i.a.amD().b(swanAppConfigData);
+        com.baidu.swan.apps.core.i.a.aox().b(swanAppConfigData);
     }
 
     public synchronized void reset() {
-        this.cAl = false;
+        this.cIH = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes10.dex */
     public static class a {
-        private static final b cAm = new b();
+        private static final b cII = new b();
     }
 }

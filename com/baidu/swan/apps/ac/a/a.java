@@ -3,9 +3,9 @@ package com.baidu.swan.apps.ac.a;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import com.baidu.swan.apps.ap.ae;
-import com.baidu.swan.apps.core.f.b;
 import com.baidu.swan.apps.core.pms.j;
 import com.baidu.swan.apps.r.d;
+import com.baidu.swan.pms.a.b;
 import com.baidu.swan.pms.a.c;
 import com.baidu.swan.pms.model.h;
 import com.baidu.swan.pms.utils.f;
@@ -13,10 +13,7 @@ import java.io.File;
 import java.util.Set;
 /* loaded from: classes10.dex */
 public class a extends j {
-    private b<Boolean> cVW;
-    private String cVX;
-    private String cVY;
-    private c<h> cVZ = new com.baidu.swan.pms.a.b<h>() { // from class: com.baidu.swan.apps.ac.a.a.1
+    private c<h> deA = new b<h>() { // from class: com.baidu.swan.apps.ac.a.a.1
         @Override // com.baidu.swan.pms.a.e
         @NonNull
         public Bundle a(@NonNull Bundle bundle, Set<String> set) {
@@ -27,7 +24,7 @@ public class a extends j {
         @Override // com.baidu.swan.pms.a.c
         /* renamed from: a */
         public String U(h hVar) {
-            return d.C0438d.arZ().getAbsolutePath();
+            return d.C0452d.atU().getAbsolutePath();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -36,7 +33,7 @@ public class a extends j {
         public void S(h hVar) {
             super.S(hVar);
             if (hVar != null) {
-                com.baidu.swan.apps.ac.d.a.print("plugin download start: bundleId = " + hVar.dTs);
+                com.baidu.swan.apps.ac.d.a.print("plugin download start: bundleId = " + hVar.ebO);
             }
         }
 
@@ -54,7 +51,7 @@ public class a extends j {
             if (aVar != null) {
                 com.baidu.swan.apps.ac.d.a.print("plugin download error: " + aVar.toString());
             }
-            a.this.cVW.O(false);
+            a.this.dex.O(false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -64,62 +61,65 @@ public class a extends j {
             super.Q(hVar);
             if (hVar == null) {
                 com.baidu.swan.apps.ac.d.a.print("download finish, plugin is null");
-                a.this.cVW.O(false);
+                a.this.dex.O(false);
             } else if (!ae.e(new File(hVar.filePath), hVar.sign)) {
                 com.baidu.swan.apps.ac.d.a.print("download finish, check zip sign failure");
-                a.this.cVW.O(false);
+                a.this.dex.O(false);
             } else {
-                File bD = d.bD(hVar.dTs, String.valueOf(com.baidu.swan.apps.swancore.b.ti(hVar.versionName)));
-                com.baidu.swan.c.d.ensureDirectoryExist(bD);
-                if (bD == null || !bD.exists()) {
-                    com.baidu.swan.apps.ac.d.a.print("download finish, create file failure, name = " + hVar.dTs + " ; version = " + hVar.versionCode);
-                    a.this.cVW.O(false);
+                File bK = d.bK(hVar.ebO, String.valueOf(com.baidu.swan.apps.swancore.b.tB(hVar.versionName)));
+                com.baidu.swan.c.d.ensureDirectoryExist(bK);
+                if (bK == null || !bK.exists()) {
+                    com.baidu.swan.apps.ac.d.a.print("download finish, create file failure, name = " + hVar.ebO + " ; version = " + hVar.versionCode);
+                    a.this.dex.O(false);
                     return;
                 }
-                boolean unzipFile = com.baidu.swan.c.d.unzipFile(hVar.filePath, bD.getAbsolutePath());
-                hVar.createTime = hVar.aXa();
-                hVar.updateTime = hVar.aXa();
-                com.baidu.swan.pms.database.a.aWO().c(hVar);
+                boolean unzipFile = com.baidu.swan.c.d.unzipFile(hVar.filePath, bK.getAbsolutePath());
+                hVar.createTime = hVar.aYT();
+                hVar.updateTime = hVar.aYT();
+                com.baidu.swan.pms.database.a.aYH().c(hVar);
                 com.baidu.swan.c.d.deleteFile(hVar.filePath);
                 com.baidu.swan.apps.ac.d.a.print("download finish, unZipSuccess = " + unzipFile);
-                a.this.cVW.O(Boolean.valueOf(unzipFile));
+                a.this.dex.O(Boolean.valueOf(unzipFile));
             }
         }
     };
+    private com.baidu.swan.apps.core.f.b<Boolean> dex;
+    private String dey;
+    private String dez;
 
-    public a(String str, String str2, b<Boolean> bVar) {
-        this.cVW = bVar;
-        this.cVX = str;
-        this.cVY = str2;
+    public a(String str, String str2, com.baidu.swan.apps.core.f.b<Boolean> bVar) {
+        this.dex = bVar;
+        this.dey = str;
+        this.dez = str2;
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void alR() {
-        super.alR();
+    public void anL() {
+        super.anL();
         com.baidu.swan.apps.ac.d.a.print("fetch plugin success");
     }
 
     @Override // com.baidu.swan.pms.a.g
     public void b(com.baidu.swan.pms.model.a aVar) {
-        h dk;
+        h dr;
         super.b(aVar);
         if (aVar != null) {
-            if (aVar.errorNo == 1010 && (dk = com.baidu.swan.pms.database.a.aWO().dk(this.cVX, this.cVY)) != null) {
-                dk.updateTime = dk.aXa();
-                com.baidu.swan.pms.database.a.aWO().g(dk);
+            if (aVar.errorNo == 1010 && (dr = com.baidu.swan.pms.database.a.aYH().dr(this.dey, this.dez)) != null) {
+                dr.updateTime = dr.aYT();
+                com.baidu.swan.pms.database.a.aYH().g(dr);
             }
             com.baidu.swan.apps.ac.d.a.print("fetch plugin error: " + aVar.toString());
         } else {
             com.baidu.swan.apps.ac.d.a.print("fetch plugin error");
         }
-        this.cVW.O(false);
+        this.dex.O(false);
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void aiW() {
-        super.aiW();
+    public void akQ() {
+        super.akQ();
         com.baidu.swan.apps.ac.d.a.print("no package");
-        this.cVW.O(false);
+        this.dex.O(false);
     }
 
     @Override // com.baidu.swan.pms.a.g
@@ -128,7 +128,7 @@ public class a extends j {
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public c<h> azX() {
-        return this.cVZ;
+    public c<h> aBR() {
+        return this.deA;
     }
 }

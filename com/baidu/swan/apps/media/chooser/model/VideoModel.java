@@ -15,7 +15,7 @@ public class VideoModel extends MediaModel {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: iW */
+        /* renamed from: jh */
         public MediaModel[] newArray(int i) {
             return new MediaModel[i];
         }

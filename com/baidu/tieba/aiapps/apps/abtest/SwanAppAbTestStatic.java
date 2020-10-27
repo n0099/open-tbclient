@@ -46,23 +46,23 @@ import java.util.List;
 /* loaded from: classes25.dex */
 public class SwanAppAbTestStatic {
     public static String Tag = "tag";
-    private static boolean fHW = false;
-    private static h fHX = new h<PrivacyPolicyEvent>() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.1
+    private static boolean fQr = false;
+    private static h fQs = new h<PrivacyPolicyEvent>() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.mutiprocess.b
         public boolean a(PrivacyPolicyEvent privacyPolicyEvent) {
             if (privacyPolicyEvent != null) {
-                SwanAppAbTestStatic.bGv();
+                SwanAppAbTestStatic.bIo();
             }
             return true;
         }
     };
 
     static {
-        if (ae.bmC()) {
-            bGv();
+        if (ae.bov()) {
+            bIo();
         } else {
-            g.bxb().a(PrivacyPolicyEvent.class, fHX, BdUniqueId.gen());
+            g.byU().a(PrivacyPolicyEvent.class, fQs, BdUniqueId.gen());
         }
         CustomMessageTask customMessageTask = new CustomMessageTask(2921361, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -72,7 +72,7 @@ public class SwanAppAbTestStatic {
                         l.showToast(TbadkCoreApplication.getInst(), R.string.ai_apps_not_support);
                     } else {
                         aq aqVar = new aq("c13606");
-                        aqVar.dK("obj_id", customMessage.getData());
+                        aqVar.dR("obj_id", customMessage.getData());
                         TiebaStatic.log(aqVar);
                         if (a.lg().currentActivity() != null) {
                             Uri parse = Uri.parse(customMessage.getData());
@@ -109,7 +109,7 @@ public class SwanAppAbTestStatic {
                 }
             }
         });
-        be.bmY().a(new be.a() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.4
+        be.boR().a(new be.a() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.4
             @Override // com.baidu.tbadk.core.util.be.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 String str;
@@ -134,7 +134,7 @@ public class SwanAppAbTestStatic {
                             } catch (Exception e2) {
                                 e = e2;
                                 e.printStackTrace();
-                                TiebaStatic.log(new aq("c13274").dK("uid", TbadkCoreApplication.getCurrentAccount()).dK("obj_id", str).dK("obj_source", "web_search").dK("obj_name", str3));
+                                TiebaStatic.log(new aq("c13274").dR("uid", TbadkCoreApplication.getCurrentAccount()).dR("obj_id", str).dR("obj_source", "web_search").dR("obj_name", str3));
                                 return 0;
                             }
                         }
@@ -142,7 +142,7 @@ public class SwanAppAbTestStatic {
                         str = "";
                         e = e3;
                     }
-                    TiebaStatic.log(new aq("c13274").dK("uid", TbadkCoreApplication.getCurrentAccount()).dK("obj_id", str).dK("obj_source", "web_search").dK("obj_name", str3));
+                    TiebaStatic.log(new aq("c13274").dR("uid", TbadkCoreApplication.getCurrentAccount()).dR("obj_id", str).dR("obj_source", "web_search").dR("obj_name", str3));
                 }
                 return 0;
             }
@@ -159,7 +159,7 @@ public class SwanAppAbTestStatic {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SAPI_INIT, TbadkCoreApplication.getInst().getApp()));
                 }
                 if (!SapiAccountManager.getInstance().isLogin()) {
-                    com.baidu.tieba.aiapps.apps.a.a.bGw().a((GetUserInfoResult) null);
+                    com.baidu.tieba.aiapps.apps.a.a.bIp().a((GetUserInfoResult) null);
                 }
                 SapiAccountManager.getInstance().getAccountService().getUserInfo(new GetUserInfoCallback() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.5.1
                     /* JADX DEBUG: Method merged with bridge method */
@@ -170,12 +170,12 @@ public class SwanAppAbTestStatic {
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.sapi2.callback.SapiCallback
                     public void onSuccess(GetUserInfoResult getUserInfoResult) {
-                        com.baidu.swan.apps.storage.c.h.aGy().putString("bd_box_display_name", getUserInfoResult.displayname);
-                        com.baidu.swan.apps.storage.c.h.aGy().putString("bd_box_uid", getUserInfoResult.uid);
-                        com.baidu.swan.apps.storage.c.h.aGy().putString("bd_box_avatar_url", getUserInfoResult.portraitHttps);
-                        com.baidu.swan.apps.storage.c.h.aGy().putString("bd_box_bduss", SapiAccountManager.getInstance().getSession().bduss);
-                        com.baidu.swan.apps.storage.c.h.aGy().putString("bd_box_ptoken", SapiAccountManager.getInstance().getSession().getPtoken());
-                        com.baidu.tieba.aiapps.apps.a.a.bGw().a(getUserInfoResult);
+                        com.baidu.swan.apps.storage.c.h.aIs().putString("bd_box_display_name", getUserInfoResult.displayname);
+                        com.baidu.swan.apps.storage.c.h.aIs().putString("bd_box_uid", getUserInfoResult.uid);
+                        com.baidu.swan.apps.storage.c.h.aIs().putString("bd_box_avatar_url", getUserInfoResult.portraitHttps);
+                        com.baidu.swan.apps.storage.c.h.aIs().putString("bd_box_bduss", SapiAccountManager.getInstance().getSession().bduss);
+                        com.baidu.swan.apps.storage.c.h.aIs().putString("bd_box_ptoken", SapiAccountManager.getInstance().getSession().getPtoken());
+                        com.baidu.tieba.aiapps.apps.a.a.bIp().a(getUserInfoResult);
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -196,17 +196,17 @@ public class SwanAppAbTestStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void bGv() {
-        if (!fHW) {
-            fHW = true;
+    public static void bIo() {
+        if (!fQr) {
+            fQr = true;
             SwanAppInitHelper.initModules(TbadkCoreApplication.getInst(), false);
             if (Build.VERSION.SDK_INT > 21 && !TbadkCoreApplication.getInst().isRemoteProcess()) {
-                com.baidu.tieba.aiapps.apps.i.a.bHk();
-                if (ProcessUtils.isMainProcess() && !c.dXi()) {
+                com.baidu.tieba.aiapps.apps.i.a.bJd();
+                if (ProcessUtils.isMainProcess() && !c.ehg()) {
                     c.initialize(AppRuntime.getAppContext());
                 }
-                com.baidu.tieba.aiapps.apps.a.a.bGw().init(TbadkCoreApplication.getInst());
-                com.baidu.tieba.aiapps.apps.share.c.bHi().eT(TbadkCoreApplication.getInst());
+                com.baidu.tieba.aiapps.apps.a.a.bIp().init(TbadkCoreApplication.getInst());
+                com.baidu.tieba.aiapps.apps.share.c.bJb().eT(TbadkCoreApplication.getInst());
                 b.aj(TbadkCoreApplication.getInst()).b(new com.baidu.helios.c<String>() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.6
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.helios.c
@@ -221,7 +221,7 @@ public class SwanAppAbTestStatic {
                 ak.c(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.7
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.baidu.swan.facade.requred.webview.b.aLn();
+                        com.baidu.swan.facade.requred.webview.b.aNh();
                     }
                 }, IMConnection.RETRY_DELAY_TIMES);
             }

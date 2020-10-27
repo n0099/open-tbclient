@@ -7,16 +7,16 @@ import com.baidu.swan.pms.model.PMSAppInfo;
 /* loaded from: classes10.dex */
 public final class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.apps.core.prefetch.a cAf;
-    private b cAg;
+    private com.baidu.swan.apps.core.prefetch.a cIB;
+    private b cIC;
 
     private d() {
-        this.cAf = new com.baidu.swan.apps.core.prefetch.a();
-        this.cAg = new b();
+        this.cIB = new com.baidu.swan.apps.core.prefetch.a();
+        this.cIC = new b();
     }
 
-    public static d amu() {
-        return a.cAi;
+    public static d aoo() {
+        return a.cIE;
     }
 
     public void d(final PrefetchEvent prefetchEvent) {
@@ -28,14 +28,14 @@ public final class d {
                 Log.d("SwanAppPrefetchManager", "firePrefetchEvent event: " + prefetchEvent);
             }
             if (TextUtils.equals("show", prefetchEvent.state)) {
-                this.cAf.a(prefetchEvent, new a.b() { // from class: com.baidu.swan.apps.core.prefetch.d.1
+                this.cIB.a(prefetchEvent, new a.b() { // from class: com.baidu.swan.apps.core.prefetch.d.1
                     @Override // com.baidu.swan.apps.core.prefetch.a.b
                     public void a(com.baidu.swan.apps.process.messaging.service.c cVar, PMSAppInfo pMSAppInfo) {
-                        d.this.cAg.a(prefetchEvent, cVar, pMSAppInfo);
+                        d.this.cIC.a(prefetchEvent, cVar, pMSAppInfo);
                     }
                 });
             } else {
-                this.cAg.d(prefetchEvent);
+                this.cIC.d(prefetchEvent);
             }
         }
     }
@@ -46,6 +46,6 @@ public final class d {
 
     /* loaded from: classes10.dex */
     private static class a {
-        private static final d cAi = new d();
+        private static final d cIE = new d();
     }
 }

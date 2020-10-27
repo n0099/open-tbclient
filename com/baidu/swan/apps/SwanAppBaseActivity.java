@@ -12,14 +12,14 @@ import com.baidu.swan.support.v4.app.FragmentActivity;
 /* loaded from: classes10.dex */
 public class SwanAppBaseActivity extends FragmentActivity {
     private static final boolean DEBUG = b.DEBUG;
-    private com.baidu.swan.apps.aj.b cgc = null;
-    private com.baidu.swan.apps.ab.c cgd;
+    private com.baidu.swan.apps.aj.b coC = null;
+    private com.baidu.swan.apps.ab.c coD;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
     public void onPostCreate(Bundle bundle) {
         super.onPostCreate(bundle);
-        boolean nightModeSwitcherState = com.baidu.swan.apps.t.a.asC().getNightModeSwitcherState();
+        boolean nightModeSwitcherState = com.baidu.swan.apps.t.a.auw().getNightModeSwitcherState();
         com.baidu.swan.apps.u.a.a.h(Boolean.valueOf(nightModeSwitcherState));
         k(nightModeSwitcherState, false);
     }
@@ -41,33 +41,33 @@ public class SwanAppBaseActivity extends FragmentActivity {
             }
             return;
         }
-        if (this.cgc == null) {
-            this.cgc = new com.baidu.swan.apps.aj.b();
+        if (this.coC == null) {
+            this.coC = new com.baidu.swan.apps.aj.b();
         }
         ViewGroup viewGroup = (ViewGroup) window.getDecorView();
         if (z) {
-            this.cgc.D(viewGroup);
+            this.coC.E(viewGroup);
         } else {
-            this.cgc.E(viewGroup);
+            this.coC.F(viewGroup);
         }
         if (z2) {
-            com.baidu.swan.apps.process.messaging.a.aAK().a(new com.baidu.swan.apps.process.messaging.c(5).fK(true));
+            com.baidu.swan.apps.process.messaging.a.aCE().a(new com.baidu.swan.apps.process.messaging.c(5).fX(true));
         }
     }
 
-    public com.baidu.swan.apps.aj.b abE() {
-        return this.cgc;
+    public com.baidu.swan.apps.aj.b ady() {
+        return this.coC;
     }
 
     public void a(int i, @NonNull String[] strArr, c.a aVar) {
-        this.cgd = com.baidu.swan.apps.ab.c.azW();
-        this.cgd.a(this, i, strArr, aVar);
+        this.coD = com.baidu.swan.apps.ab.c.aBQ();
+        this.coD.a(this, i, strArr, aVar);
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, com.baidu.swan.support.v4.app.a.InterfaceC0533a
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, com.baidu.swan.support.v4.app.a.InterfaceC0547a
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        if (this.cgd != null) {
-            this.cgd.a(this, i, strArr, iArr);
+        if (this.coD != null) {
+            this.coD.a(this, i, strArr, iArr);
         } else {
             b(i, strArr, iArr);
         }

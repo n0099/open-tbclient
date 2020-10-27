@@ -8,11 +8,11 @@ public class f implements Runnable {
     /* renamed from: a  reason: collision with root package name */
     final /* synthetic */ boolean f2978a;
     final /* synthetic */ h b;
-    final /* synthetic */ b.C0263b c;
+    final /* synthetic */ b.C0277b c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(b.C0263b c0263b, boolean z, h hVar) {
-        this.c = c0263b;
+    public f(b.C0277b c0277b, boolean z, h hVar) {
+        this.c = c0277b;
         this.f2978a = z;
         this.b = hVar;
     }

@@ -1,18 +1,32 @@
 package com.baidu.live.data;
 
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.live.tbadk.core.data.BaseData;
+import com.baidu.mobstat.Config;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class t {
-    public String aIe;
-    public String imgUrl;
-    public String subTitle;
+public class t extends BaseData {
+    public boolean aIs = true;
+    public List<s> aIt;
+    public int pn;
 
-    public void parseJson(JSONObject jSONObject) {
+    @Override // com.baidu.live.tbadk.core.data.BaseData
+    public void parserJson(JSONObject jSONObject) {
+        JSONObject optJSONObject;
         if (jSONObject != null) {
-            this.aIe = jSONObject.optString("main_title");
-            this.subTitle = jSONObject.optString("subtitle");
-            this.imgUrl = jSONObject.optString(BigdayActivityConfig.IMG_URL);
+            this.pn = jSONObject.optInt(Config.PACKAGE_NAME);
+            this.aIs = jSONObject.optInt("has_more") == 1;
+            this.aIt = new ArrayList();
+            JSONArray optJSONArray = jSONObject.optJSONArray("live");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length() && (optJSONObject = optJSONArray.optJSONObject(i)) != null; i++) {
+                    s sVar = new s();
+                    sVar.parserJson(optJSONObject);
+                    this.aIt.add(sVar);
+                }
+            }
         }
     }
 }

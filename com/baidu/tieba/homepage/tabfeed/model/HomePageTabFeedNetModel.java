@@ -14,11 +14,11 @@ import com.baidu.tieba.homepage.tabfeed.message.TabFeedListRequestMessage;
 import com.baidu.tieba.homepage.tabfeed.message.TabFeedListSocketResponsedMessage;
 /* loaded from: classes22.dex */
 public class HomePageTabFeedNetModel extends BdBaseModel {
-    private boolean fzJ;
-    private int hXv;
+    private boolean fIe;
+    private int ijV;
     private boolean isLoading;
-    private c jqm;
-    private a jqn;
+    private c jCM;
+    private a jCN;
     private com.baidu.adp.framework.listener.a netMessageListener;
     private String tabCode;
     private String tabName;
@@ -26,18 +26,18 @@ public class HomePageTabFeedNetModel extends BdBaseModel {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.homepage.tabfeed.data.a aVar) {
         if (aVar != null) {
-            this.hXv = aVar.cGc();
+            this.ijV = aVar.cJj();
         }
-        if (this.jqm != null) {
-            this.jqm.a(this.jqn.a(this.fzJ, aVar));
+        if (this.jCM != null) {
+            this.jCM.a(this.jCN.a(this.fIe, aVar));
         }
     }
 
     public HomePageTabFeedNetModel(TbPageContext tbPageContext, c cVar) {
         super(tbPageContext);
-        this.fzJ = true;
+        this.fIe = true;
         this.isLoading = false;
-        this.hXv = 1;
+        this.ijV = 1;
         this.netMessageListener = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, 309655) { // from class: com.baidu.tieba.homepage.tabfeed.model.HomePageTabFeedNetModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
@@ -54,9 +54,9 @@ public class HomePageTabFeedNetModel extends BdBaseModel {
                     ErrorData errorData = new ErrorData();
                     errorData.setError_code(HomePageTabFeedNetModel.this.mErrorCode);
                     errorData.setError_msg(HomePageTabFeedNetModel.this.mErrorString);
-                    if (HomePageTabFeedNetModel.this.jqm != null) {
+                    if (HomePageTabFeedNetModel.this.jCM != null) {
                         if (HomePageTabFeedNetModel.this.mErrorCode != 0 || aVar == null) {
-                            HomePageTabFeedNetModel.this.jqm.a(errorData);
+                            HomePageTabFeedNetModel.this.jCM.a(errorData);
                         } else {
                             HomePageTabFeedNetModel.this.a(aVar);
                         }
@@ -66,8 +66,8 @@ public class HomePageTabFeedNetModel extends BdBaseModel {
         };
         com.baidu.tieba.tbadkCore.a.a.a(309655, TabFeedListSocketResponsedMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309655, CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, TbConfig.URL_TAB_ACTIVITY_TAB, TabFeedListHttpResponsedMessage.class, false, false, true, false);
-        this.jqn = new a();
-        this.jqm = cVar;
+        this.jCN = new a();
+        this.jCM = cVar;
     }
 
     public void l(BdUniqueId bdUniqueId) {
@@ -81,35 +81,35 @@ public class HomePageTabFeedNetModel extends BdBaseModel {
     public void destory() {
         MessageManager.getInstance().unRegisterListener(this.netMessageListener);
         this.isLoading = false;
-        this.fzJ = true;
+        this.fIe = true;
     }
 
-    public void eH(String str, String str2) {
+    public void eM(String str, String str2) {
         this.tabCode = str;
         this.tabName = str2;
     }
 
-    public void bJG() {
+    public void bMi() {
         if (!this.isLoading) {
-            this.fzJ = false;
-            xp(2);
+            this.fIe = false;
+            xI(2);
         }
     }
 
     public void refresh() {
         if (!this.isLoading) {
-            this.fzJ = true;
-            xp(1);
+            this.fIe = true;
+            xI(1);
         }
     }
 
-    private void xp(int i) {
+    private void xI(int i) {
         TabFeedListRequestMessage tabFeedListRequestMessage = new TabFeedListRequestMessage();
         tabFeedListRequestMessage.loadType = i;
         tabFeedListRequestMessage.tabCode = this.tabCode;
         tabFeedListRequestMessage.tabName = this.tabName;
         if (i == 2) {
-            tabFeedListRequestMessage.pn = this.hXv + 1;
+            tabFeedListRequestMessage.pn = this.ijV + 1;
         } else if (i == 1) {
             tabFeedListRequestMessage.pn = 1;
         } else {
@@ -137,9 +137,9 @@ public class HomePageTabFeedNetModel extends BdBaseModel {
     }
 
     public boolean hasData() {
-        if (this.jqn == null) {
+        if (this.jCN == null) {
             return false;
         }
-        return this.jqn.hasData();
+        return this.jCN.hasData();
     }
 }

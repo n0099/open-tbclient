@@ -6,7 +6,7 @@ public class f {
     private int j;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1387a = 0;
+    private int f1384a = 0;
     private int b = 0;
     private int c = 1;
     private int d = 1;
@@ -25,7 +25,7 @@ public class f {
     }
 
     public void a() {
-        this.f1387a = 0;
+        this.f1384a = 0;
         this.b = 0;
         this.c = 1;
         this.d = 1;
@@ -49,10 +49,10 @@ public class f {
     }
 
     public boolean a(int i, int i2) {
-        if (this.f1387a == i && this.b == i2) {
+        if (this.f1384a == i && this.b == i2) {
             return false;
         }
-        this.f1387a = i;
+        this.f1384a = i;
         this.b = i2;
         return true;
     }
@@ -77,11 +77,11 @@ public class f {
         float f;
         float f2;
         float f3 = 1.0f;
-        if (this.f1387a == 0 || this.b == 0 || this.h == 0 || this.i == 0) {
+        if (this.f1384a == 0 || this.b == 0 || this.h == 0 || this.i == 0) {
             return;
         }
         boolean z = this.j == 0 || this.j == 2;
-        float f4 = (this.b * 1.0f) / this.f1387a;
+        float f4 = (this.b * 1.0f) / this.f1384a;
         float f5 = (this.i * 1.0f) / this.h;
         if ((this.g == 90 || this.g == 270) && this.i != 0) {
             f5 = (this.h * 1.0f) / this.i;
@@ -95,7 +95,7 @@ public class f {
             }
             f = f5;
         }
-        CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.h + " mVideoHeight:" + this.i + " mVideoSarNum:" + this.c + " mVideoSarDen:" + this.d + " mSurfaceWidth:" + this.f1387a + " mSurfaceHeight:" + this.b + " mDisplayMode:" + this.j);
+        CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.h + " mVideoHeight:" + this.i + " mVideoSarNum:" + this.c + " mVideoSarDen:" + this.d + " mSurfaceWidth:" + this.f1384a + " mSurfaceHeight:" + this.b + " mDisplayMode:" + this.j);
         switch (this.j) {
             case 0:
                 if (f <= f4) {
@@ -147,7 +147,7 @@ public class f {
                 }
             case 6:
                 f2 = (this.i * 1.0f) / this.b;
-                f3 = (this.h * 1.0f) / this.f1387a;
+                f3 = (this.h * 1.0f) / this.f1384a;
                 break;
             default:
                 if (f <= f4) {
@@ -198,7 +198,7 @@ public class f {
     }
 
     public int g() {
-        return this.f1387a;
+        return this.f1384a;
     }
 
     public int h() {

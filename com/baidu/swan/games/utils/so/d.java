@@ -8,81 +8,81 @@ import java.util.Iterator;
 /* loaded from: classes10.dex */
 public final class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static long dLR = -1;
+    private static long dUo = -1;
 
-    public static f aTu() {
-        if (!com.baidu.swan.apps.t.a.asT().adZ()) {
-            return com.baidu.swan.apps.core.k.a.ex(false);
+    public static f aVo() {
+        if (!com.baidu.swan.apps.t.a.auN().afT()) {
+            return com.baidu.swan.apps.core.k.a.eK(false);
         }
-        if (!aTw()) {
+        if (!aVq()) {
             return SoLoader.loadV8EngineSo(AppRuntime.getAppContext());
         }
-        com.baidu.swan.apps.t.a.asX().aT(a.dLS);
-        return f.aTF();
+        com.baidu.swan.apps.t.a.auR().aV(a.dUp);
+        return f.aVz();
     }
 
-    public static boolean aTv() {
+    public static boolean aVp() {
         return SoLoader.load(AppRuntime.getAppContext(), "audioengine");
     }
 
-    private static boolean aTw() {
-        boolean z = a.dLS > -1;
+    private static boolean aVq() {
+        boolean z = a.dUp > -1;
         if (DEBUG) {
             Log.d("SwanSoLoader", "isNeedToLoadNewV8So: " + z);
         }
         return z;
     }
 
-    public static void aTx() {
-        com.baidu.swan.apps.t.a.asX().ads();
+    public static void aVr() {
+        com.baidu.swan.apps.t.a.auR().afm();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:5:0x0012  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void aTy() {
-        Iterator<com.baidu.swan.apps.process.messaging.service.c> it = com.baidu.swan.apps.process.messaging.service.e.aBy().aBA().iterator();
+    public static void aVs() {
+        Iterator<com.baidu.swan.apps.process.messaging.service.c> it = com.baidu.swan.apps.process.messaging.service.e.aDs().aDu().iterator();
         while (it.hasNext()) {
             com.baidu.swan.apps.process.messaging.service.c next = it.next();
-            if (next.aBl() || next.aBi()) {
+            if (next.aDf() || next.aDc()) {
                 return;
             }
             while (it.hasNext()) {
             }
         }
-        com.baidu.swan.apps.t.a.asX().adt();
+        com.baidu.swan.apps.t.a.auR().afn();
     }
 
-    public static String aTz() {
-        return com.baidu.swan.apps.t.a.asX().aU(a.dLS);
+    public static String aVt() {
+        return com.baidu.swan.apps.t.a.auR().aW(a.dUp);
     }
 
     public static void Y(Bundle bundle) {
-        bundle.putLong("bundle_key_new_v8_so_switch", com.baidu.swan.apps.t.a.asX().adu());
+        bundle.putLong("bundle_key_new_v8_so_switch", com.baidu.swan.apps.t.a.auR().afo());
     }
 
     public static void z(Intent intent) {
         if (intent != null && intent.hasExtra("bundle_key_new_v8_so_switch")) {
-            dLR = intent.getLongExtra("bundle_key_new_v8_so_switch", dLR);
+            dUo = intent.getLongExtra("bundle_key_new_v8_so_switch", dUo);
         }
         if (DEBUG) {
-            Log.i("SwanSoLoader", "updateNewV8SoEnabled: " + dLR);
+            Log.i("SwanSoLoader", "updateNewV8SoEnabled: " + dUo);
         }
     }
 
-    public static long adu() {
-        return a.dLS;
+    public static long afo() {
+        return a.dUp;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes10.dex */
     public static class a {
-        private static final long dLS = d.dLR;
+        private static final long dUp = d.dUo;
 
         static {
             if (d.DEBUG) {
-                Log.i("SwanSoLoader", "CURRENT_V8_SO_VERSION: " + dLS);
+                Log.i("SwanSoLoader", "CURRENT_V8_SO_VERSION: " + dUp);
             }
         }
     }

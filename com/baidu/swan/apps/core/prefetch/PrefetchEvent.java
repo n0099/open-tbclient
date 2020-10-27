@@ -23,7 +23,7 @@ public class PrefetchEvent extends SwanAppIPCData {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: hT */
+        /* renamed from: ie */
         public PrefetchEvent[] newArray(int i) {
             return new PrefetchEvent[i];
         }
@@ -115,30 +115,30 @@ public class PrefetchEvent extends SwanAppIPCData {
 
     /* loaded from: classes10.dex */
     public static class a {
-        private PrefetchEvent cAc = new PrefetchEvent();
+        private PrefetchEvent cIy = new PrefetchEvent();
 
-        public a mN(@NonNull String str) {
-            this.cAc.appId = str;
+        public a ng(@NonNull String str) {
+            this.cIy.appId = str;
             return this;
         }
 
-        public a mO(@NonNull String str) {
-            this.cAc.schema = str;
+        public a nh(@NonNull String str) {
+            this.cIy.schema = str;
             return this;
         }
 
-        public a mP(String str) {
-            this.cAc.state = str;
+        public a ni(String str) {
+            this.cIy.state = str;
             return this;
         }
 
-        public a mQ(@NonNull String str) {
-            this.cAc.scene = str;
+        public a nj(@NonNull String str) {
+            this.cIy.scene = str;
             return this;
         }
 
-        public PrefetchEvent amt() {
-            return this.cAc;
+        public PrefetchEvent aon() {
+            return this.cIy;
         }
     }
 

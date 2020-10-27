@@ -29,7 +29,7 @@ public class c {
 
     public static void g(Context context, String str, String str2, String str3) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.post_write_or_reply_lay, (ViewGroup) null);
-        inflate.setBackgroundDrawable(ap.aN(l.getDimens(context, R.dimen.tbds32), ap.getColor(R.color.cp_hud_a)));
+        inflate.setBackgroundDrawable(ap.aO(l.getDimens(context, R.dimen.tbds32), ap.getColor(R.color.cp_hud_a)));
         View findViewById = inflate.findViewById(R.id.experience_score);
         TextView textView = (TextView) inflate.findViewById(R.id.success_text);
         ap.setViewTextColor(textView, R.color.cp_cont_a);
@@ -39,7 +39,7 @@ public class c {
         ap.setViewTextColor(textView3, R.color.cp_link_tip_d);
         ImageView imageView = (ImageView) inflate.findViewById(R.id.success_img);
         if (imageView != null) {
-            imageView.setBackgroundDrawable(SvgManager.bmU().a(R.drawable.icon_pure_toast_succeed40_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null));
+            imageView.setBackgroundDrawable(SvgManager.boN().a(R.drawable.icon_pure_toast_succeed40_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null));
         }
         if (StringUtils.isNull(str)) {
             str = context.getString(R.string.send_success);
@@ -61,7 +61,7 @@ public class c {
                 aaVar.addPostData("lat", String.valueOf(address.getLatitude()));
                 aaVar.addPostData("lng", String.valueOf(address.getLongitude()));
             }
-            LocationData locationData = com.baidu.tieba.tbadkCore.location.b.dES().getLocationData();
+            LocationData locationData = com.baidu.tieba.tbadkCore.location.b.dIa().getLocationData();
             if (locationData != null) {
                 aaVar.addPostData("name", locationData.getFormatted_address());
                 aaVar.addPostData(IXAdRequestInfo.SN, locationData.getSn());

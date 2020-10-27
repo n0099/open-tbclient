@@ -45,11 +45,11 @@ public class c extends a {
 
     @Override // com.baidu.platform.comapi.map.b.b.a
     public void b(com.baidu.platform.comapi.map.b.a.b bVar) {
-        a.C0255a c0255a = bVar.b;
-        a.C0255a c0255a2 = bVar.c;
+        a.C0269a c0269a = bVar.b;
+        a.C0269a c0269a2 = bVar.c;
         MapStatus mapStatus = this.f2905a.getMapStatus();
-        double d = c0255a2.f2899a.b - c0255a.f2899a.b;
-        double d2 = c0255a2.b.b - c0255a.b.b;
+        double d = c0269a2.f2899a.b - c0269a.f2899a.b;
+        double d2 = c0269a2.b.b - c0269a.b.b;
         if (d * d2 > 0.0d) {
             a(d, mapStatus);
         } else if (d * d2 == 0.0d) {

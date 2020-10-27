@@ -11,6 +11,7 @@ public class UbcStatConstant {
     public static final String KEY_CONTENT_EXT_LOC = "loc";
     public static final String KEY_CONTENT_EXT_ROOM_ID = "room_id";
     public static final String KEY_CONTENT_EXT_SID = "sid";
+    public static final String KEY_CONTENT_EXT_STATUS = "status";
     public static final String KEY_CONTENT_EXT_SUBPAGE = "subpage";
     public static final String KEY_CONTENT_EXT_VID = "vid";
     public static final String KEY_CONTENT_FROM = "from";
@@ -112,6 +113,7 @@ public class UbcStatConstant {
         public static final String AUTHOR_LIVE_ROOM = "author_liveroom";
         public static final String LIVE_ACTION = "liveaction";
         public static final String LIVE_END = "live_end";
+        public static final String LIVE_RECOMMEND = "your_recommend";
         public static final String LIVE_ROOM = "liveroom";
         public static final String VOICE_CREATE_ROOM = "create_room";
         public static final String VOICE_ROOM = "voiceroom";

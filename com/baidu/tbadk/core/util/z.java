@@ -8,7 +8,7 @@ import com.baidu.android.util.media.MimeType;
 /* loaded from: classes.dex */
 public class z implements MediaScannerConnection.MediaScannerConnectionClient {
     private boolean completed;
-    private a eyr;
+    private a eGN;
     private int length;
     private MediaScannerConnection mConnection;
     private Context mContext;
@@ -85,8 +85,8 @@ public class z implements MediaScannerConnection.MediaScannerConnectionClient {
                 this.completed = false;
             }
         }
-        if (this.completed && this.eyr != null) {
-            this.eyr.onScanCompeted();
+        if (this.completed && this.eGN != null) {
+            this.eGN.onScanCompeted();
         }
     }
 }

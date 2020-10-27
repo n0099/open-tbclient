@@ -14,33 +14,33 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public final class AutoZone extends Zone {
-    public static final AutoZone oEw = new AutoZone();
-    private final String oEx;
-    private Map<ZoneIndex, ZoneInfo> oEy;
-    private Client oEz;
+    public static final AutoZone pvS = new AutoZone();
+    private final String pvT;
+    private Map<ZoneIndex, ZoneInfo> pvU;
+    private Client pvV;
 
     public AutoZone() {
         this("https://uc.qbox.me");
     }
 
     AutoZone(String str) {
-        this.oEy = new ConcurrentHashMap();
-        this.oEz = new Client();
-        this.oEx = str;
+        this.pvU = new ConcurrentHashMap();
+        this.pvV = new Client();
+        this.pvT = str;
     }
 
     private void a(ZoneIndex zoneIndex, CompletionHandler completionHandler) {
-        this.oEz.a(this.oEx + "/v2/query?ak=" + zoneIndex.oED + "&bucket=" + zoneIndex.bucket, null, UpToken.oGa, completionHandler);
+        this.pvV.a(this.pvT + "/v2/query?ak=" + zoneIndex.pvZ + "&bucket=" + zoneIndex.bucket, null, UpToken.pxx, completionHandler);
     }
 
-    ZoneInfo gK(String str, String str2) {
-        return this.oEy.get(new ZoneIndex(str, str2));
+    ZoneInfo ha(String str, String str2) {
+        return this.pvU.get(new ZoneIndex(str, str2));
     }
 
-    ZoneInfo WG(String str) {
+    ZoneInfo Yt(String str) {
         try {
             String[] split = str.split(":");
-            return gK(split[0], new JSONObject(new String(UrlSafeBase64.decode(split[2]), "utf-8")).getString("scope").split(":")[0]);
+            return ha(split[0], new JSONObject(new String(UrlSafeBase64.decode(split[2]), "utf-8")).getString("scope").split(":")[0]);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -50,15 +50,15 @@ public final class AutoZone extends Zone {
     void a(final ZoneIndex zoneIndex, final Zone.QueryHandler queryHandler) {
         if (zoneIndex == null) {
             queryHandler.onFailure(-5);
-        } else if (this.oEy.get(zoneIndex) != null) {
+        } else if (this.pvU.get(zoneIndex) != null) {
             queryHandler.onSuccess();
         } else {
             a(zoneIndex, new CompletionHandler() { // from class: com.qiniu.android.common.AutoZone.1
                 @Override // com.qiniu.android.http.CompletionHandler
                 public void a(ResponseInfo responseInfo, JSONObject jSONObject) {
-                    if (responseInfo.ejW() && jSONObject != null) {
+                    if (responseInfo.etW() && jSONObject != null) {
                         try {
-                            AutoZone.this.oEy.put(zoneIndex, ZoneInfo.eS(jSONObject));
+                            AutoZone.this.pvU.put(zoneIndex, ZoneInfo.fa(jSONObject));
                             queryHandler.onSuccess();
                             return;
                         } catch (JSONException e) {
@@ -75,34 +75,34 @@ public final class AutoZone extends Zone {
 
     @Override // com.qiniu.android.common.Zone
     public synchronized String d(String str, boolean z, String str2) {
-        ZoneInfo WG;
-        WG = WG(str);
-        return WG != null ? super.a(WG, z, str2) : null;
+        ZoneInfo Yt;
+        Yt = Yt(str);
+        return Yt != null ? super.a(Yt, z, str2) : null;
     }
 
     @Override // com.qiniu.android.common.Zone
     public void a(String str, Zone.QueryHandler queryHandler) {
-        a(ZoneIndex.WI(str), queryHandler);
+        a(ZoneIndex.Yv(str), queryHandler);
     }
 
     @Override // com.qiniu.android.common.Zone
-    public synchronized void WH(String str) {
+    public synchronized void Yu(String str) {
         ZoneInfo zoneInfo;
         if (str != null) {
             String host = URI.create(str).getHost();
-            Iterator<Map.Entry<ZoneIndex, ZoneInfo>> it = this.oEy.entrySet().iterator();
+            Iterator<Map.Entry<ZoneIndex, ZoneInfo>> it = this.pvU.entrySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     zoneInfo = null;
                     break;
                 }
                 zoneInfo = it.next().getValue();
-                if (zoneInfo.oEL.contains(host)) {
+                if (zoneInfo.pwi.contains(host)) {
                     break;
                 }
             }
             if (zoneInfo != null) {
-                zoneInfo.WH(host);
+                zoneInfo.Yu(host);
             }
         }
     }
@@ -111,14 +111,14 @@ public final class AutoZone extends Zone {
     /* loaded from: classes6.dex */
     public static class ZoneIndex {
         final String bucket;
-        final String oED;
+        final String pvZ;
 
         ZoneIndex(String str, String str2) {
-            this.oED = str;
+            this.pvZ = str;
             this.bucket = str2;
         }
 
-        static ZoneIndex WI(String str) {
+        static ZoneIndex Yv(String str) {
             String[] split = str.split(":");
             try {
                 return new ZoneIndex(split[0], new JSONObject(new String(UrlSafeBase64.decode(split[2]), "utf-8")).getString("scope").split(":")[0]);
@@ -129,11 +129,11 @@ public final class AutoZone extends Zone {
         }
 
         public int hashCode() {
-            return (this.oED.hashCode() * 37) + this.bucket.hashCode();
+            return (this.pvZ.hashCode() * 37) + this.bucket.hashCode();
         }
 
         public boolean equals(Object obj) {
-            return obj == this || (obj != null && (obj instanceof ZoneIndex) && ((ZoneIndex) obj).oED.equals(this.oED) && ((ZoneIndex) obj).bucket.equals(this.bucket));
+            return obj == this || (obj != null && (obj instanceof ZoneIndex) && ((ZoneIndex) obj).pvZ.equals(this.pvZ) && ((ZoneIndex) obj).bucket.equals(this.bucket));
         }
     }
 }

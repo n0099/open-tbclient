@@ -1,9 +1,13 @@
 package com.baidu.live.gift;
 /* loaded from: classes4.dex */
-public interface y {
-    void Gx();
+public class y {
+    public String aTB;
+    public int aVi;
+    public String itemId;
 
-    void gS(String str);
-
-    void release();
+    public y(String str, String str2, int i) {
+        this.itemId = str;
+        this.aTB = str2;
+        this.aVi = i;
+    }
 }

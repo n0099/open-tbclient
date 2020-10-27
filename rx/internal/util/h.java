@@ -6,7 +6,7 @@ import rx.h;
 public final class h<T> extends rx.h<T> {
     final T value;
 
-    public static <T> h<T> ci(T t) {
+    public static <T> h<T> cm(T t) {
         return new h<>(t);
     }
 
@@ -29,11 +29,11 @@ public final class h<T> extends rx.h<T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes16.dex */
     public static final class a<T> implements h.a<T> {
-        private final rx.internal.schedulers.b pig;
+        private final rx.internal.schedulers.b pZx;
         private final T value;
 
         a(rx.internal.schedulers.b bVar, T t) {
-            this.pig = bVar;
+            this.pZx = bVar;
             this.value = t;
         }
 
@@ -41,7 +41,7 @@ public final class h<T> extends rx.h<T> {
         @Override // rx.functions.b
         /* renamed from: b */
         public void call(rx.i<? super T> iVar) {
-            iVar.add(this.pig.g(new c(iVar, this.value)));
+            iVar.add(this.pZx.g(new c(iVar, this.value)));
         }
     }
 
@@ -69,11 +69,11 @@ public final class h<T> extends rx.h<T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes16.dex */
     public static final class c<T> implements rx.functions.a {
-        private final rx.i<? super T> pih;
+        private final rx.i<? super T> pZy;
         private final T value;
 
         c(rx.i<? super T> iVar, T t) {
-            this.pih = iVar;
+            this.pZy = iVar;
             this.value = t;
         }
 
@@ -81,9 +81,9 @@ public final class h<T> extends rx.h<T> {
         @Override // rx.functions.a
         public void call() {
             try {
-                this.pih.onSuccess((T) this.value);
+                this.pZy.onSuccess((T) this.value);
             } catch (Throwable th) {
-                this.pih.onError(th);
+                this.pZy.onError(th);
             }
         }
     }

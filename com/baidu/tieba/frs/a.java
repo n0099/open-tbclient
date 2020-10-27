@@ -13,25 +13,25 @@ import org.json.JSONObject;
 import tbclient.FrsTabInfo;
 /* loaded from: classes.dex */
 public class a {
-    private boolean inA;
-    private int inB;
-    private List<FrsTabInfo> inC;
-    private SparseArray<FrsTabInfo> inD;
-    private ay inE;
-    private final List<bw> inz;
+    private ay iAa;
+    private final List<bw> izV;
+    private boolean izW;
+    private int izX;
+    private List<FrsTabInfo> izY;
+    private SparseArray<FrsTabInfo> izZ;
     private String mForumId;
 
     private a() {
-        this.inB = -1;
-        this.inz = new ArrayList();
+        this.izX = -1;
+        this.izV = new ArrayList();
     }
 
-    public static a crx() {
-        return C0694a.inF;
+    public static a cuE() {
+        return C0710a.iAb;
     }
 
-    public boolean cry() {
-        return this.inA;
+    public boolean cuF() {
+        return this.izW;
     }
 
     public void setForumId(String str) {
@@ -42,44 +42,44 @@ public class a {
         return this.mForumId;
     }
 
-    public void xS(int i) {
-        this.inB = i;
+    public void yl(int i) {
+        this.izX = i;
     }
 
-    public int crz() {
-        return this.inB;
+    public int cuG() {
+        return this.izX;
     }
 
-    public void cK(List<FrsTabInfo> list) {
-        this.inC = new ArrayList(list);
-        this.inD = new SparseArray<>();
-        for (FrsTabInfo frsTabInfo : this.inC) {
+    public void cT(List<FrsTabInfo> list) {
+        this.izY = new ArrayList(list);
+        this.izZ = new SparseArray<>();
+        for (FrsTabInfo frsTabInfo : this.izY) {
             if (frsTabInfo != null) {
-                this.inD.append(frsTabInfo.tab_id.intValue(), frsTabInfo);
+                this.izZ.append(frsTabInfo.tab_id.intValue(), frsTabInfo);
             }
         }
     }
 
-    public List<FrsTabInfo> crA() {
-        return this.inC;
+    public List<FrsTabInfo> cuH() {
+        return this.izY;
     }
 
-    public List<bw> crB() {
-        return this.inz;
+    public List<bw> cuI() {
+        return this.izV;
     }
 
-    public boolean xT(int i) {
-        return this.inD.get(i) != null && this.inD.get(i).is_general_tab.intValue() == 1;
+    public boolean ym(int i) {
+        return this.izZ.get(i) != null && this.izZ.get(i).is_general_tab.intValue() == 1;
     }
 
     public void a(ay ayVar) {
-        this.inE = ayVar;
+        this.iAa = ayVar;
     }
 
-    public void S(boolean z, boolean z2) {
-        this.inA = z;
-        if (this.inE != null) {
-            this.inE.d(this.inA, z2, 2);
+    public void V(boolean z, boolean z2) {
+        this.izW = z;
+        if (this.iAa != null) {
+            this.iAa.d(this.izW, z2, 2);
         }
     }
 
@@ -87,32 +87,32 @@ public class a {
         if (bwVar == null) {
             return false;
         }
-        if (this.inz.size() > 29) {
-            if (this.inE != null) {
-                this.inE.yb(2);
+        if (this.izV.size() > 29) {
+            if (this.iAa != null) {
+                this.iAa.yu(2);
                 return false;
             }
             return false;
         }
-        this.inz.add(bwVar);
-        if (this.inE != null) {
-            this.inE.ci(this.inz.size(), 2);
+        this.izV.add(bwVar);
+        if (this.iAa != null) {
+            this.iAa.ck(this.izV.size(), 2);
         }
         return true;
     }
 
     public void ak(bw bwVar) {
-        this.inz.remove(bwVar);
-        if (this.inE != null) {
-            this.inE.ci(this.inz.size(), 2);
+        this.izV.remove(bwVar);
+        if (this.iAa != null) {
+            this.iAa.ck(this.izV.size(), 2);
         }
     }
 
-    public void cg(int i, int i2) {
+    public void ci(int i, int i2) {
         try {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_MOVE_AREA);
             JSONArray jSONArray = new JSONArray();
-            for (bw bwVar : crx().crB()) {
+            for (bw bwVar : cuE().cuI()) {
                 if (bwVar != null) {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("thread_id", bwVar.getId());
@@ -122,54 +122,54 @@ public class a {
                 }
             }
             httpMessage.addParam("threads", jSONArray.toString());
-            httpMessage.addParam("forum_id", crx().getForumId());
+            httpMessage.addParam("forum_id", cuE().getForumId());
             MessageManager.getInstance().sendMessage(httpMessage);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    public void crC() {
-        if (!com.baidu.tbadk.core.util.y.isEmpty(this.inz)) {
-            this.inz.clear();
-            if (this.inE != null) {
-                this.inE.ci(this.inz.size(), 2);
+    public void cuJ() {
+        if (!com.baidu.tbadk.core.util.y.isEmpty(this.izV)) {
+            this.izV.clear();
+            if (this.iAa != null) {
+                this.iAa.ck(this.izV.size(), 2);
             }
         }
     }
 
     public void clearData() {
-        for (bw bwVar : this.inz) {
+        for (bw bwVar : this.izV) {
             if (bwVar != null) {
-                bwVar.iv(false);
+                bwVar.iI(false);
             }
         }
-        this.inz.clear();
-        if (this.inE != null) {
-            this.inE.ci(0, 2);
+        this.izV.clear();
+        if (this.iAa != null) {
+            this.iAa.ck(0, 2);
         }
     }
 
     public void reset() {
-        S(false, false);
+        V(false, false);
         clearData();
     }
 
     public void destory() {
         this.mForumId = null;
-        this.inB = -1;
-        if (this.inC != null) {
-            this.inC.clear();
+        this.izX = -1;
+        if (this.izY != null) {
+            this.izY.clear();
         }
-        if (this.inD != null) {
-            this.inD.clear();
+        if (this.izZ != null) {
+            this.izZ.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.frs.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0694a {
-        private static a inF = new a();
+    public static class C0710a {
+        private static a iAb = new a();
     }
 }

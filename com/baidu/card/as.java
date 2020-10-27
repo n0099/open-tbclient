@@ -12,14 +12,14 @@ import com.baidu.tieba.R;
 import tbclient.VideoInfo;
 /* loaded from: classes21.dex */
 public class as extends i {
-    private static final int ain = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds88);
-    private static int aio = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
-    private static int aip = aio;
-    private static int aiq = aip / 2;
-    private static int air = aip / 3;
-    private AbsThreadDataSupport afH;
-    private VideoImageNoPlayerLayout ais;
-    private com.baidu.card.view.a ait;
+    private static final int aio = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds88);
+    private static int aip = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
+    private static int aiq = aip;
+    private static int air = aiq / 2;
+    private static int ais = aiq / 3;
+    private AbsThreadDataSupport afI;
+    private VideoImageNoPlayerLayout ait;
+    private com.baidu.card.view.a aiu;
     private Context mContext;
     private String mFrom;
     private int mLastScreenWidth;
@@ -30,13 +30,13 @@ public class as extends i {
         this.mLastScreenWidth = 0;
         this.mSkinType = 3;
         this.mContext = context;
-        this.ais = new VideoImageNoPlayerLayout(context);
+        this.ait = new VideoImageNoPlayerLayout(context);
         b((Boolean) true);
     }
 
     @Override // com.baidu.card.b
     public View getView() {
-        return this.ais;
+        return this.ait;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -47,32 +47,32 @@ public class as extends i {
         boolean z2 = true;
         int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
         if (equipmentWidth != this.mLastScreenWidth) {
-            aio = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
-            aip = aio;
-            aiq = aip / 2;
-            air = aip / 3;
+            aip = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
+            aiq = aip;
+            air = aiq / 2;
+            ais = aiq / 3;
             this.mLastScreenWidth = equipmentWidth;
         }
-        this.afH = absThreadDataSupport;
-        if (this.afH == null || this.afH.bfG() == null || this.afH.bfG().erY == null || this.afH.bfG().erY.emx) {
-            this.ais.setVisibility(8);
+        this.afI = absThreadDataSupport;
+        if (this.afI == null || this.afI.bhz() == null || this.afI.bhz().eAy == null || this.afI.bhz().eAy.euX) {
+            this.ait.setVisibility(8);
             return;
         }
-        this.ais.setVisibility(0);
-        this.ais.H(absThreadDataSupport);
-        ViewGroup.LayoutParams layoutParams = this.ais.getLayoutParams();
-        ViewGroup.LayoutParams layoutParams2 = this.ais.alP.getLayoutParams();
+        this.ait.setVisibility(0);
+        this.ait.H(absThreadDataSupport);
+        ViewGroup.LayoutParams layoutParams = this.ait.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams2 = this.ait.alQ.getLayoutParams();
         int i = layoutParams.width;
         int i2 = layoutParams.height;
-        if (this.afH.bfG().erY.videoInfo.is_vertical.intValue() == 1) {
-            VideoInfo videoInfo = this.afH.bfG().erY.videoInfo;
+        if (this.afI.bhz().eAy.videoInfo.is_vertical.intValue() == 1) {
+            VideoInfo videoInfo = this.afI.bhz().eAy.videoInfo;
             if (videoInfo != null) {
-                int i3 = (aiq / 9) * 16;
-                int i4 = air;
+                int i3 = (air / 9) * 16;
+                int i4 = ais;
                 int intValue = videoInfo.video_width.intValue();
                 int intValue2 = videoInfo.video_height.intValue();
-                layoutParams.width = aip;
-                layoutParams2.width = aiq;
+                layoutParams.width = aiq;
+                layoutParams2.width = air;
                 boolean z3 = i != layoutParams.width;
                 if (intValue == 0 || intValue2 == 0) {
                     layoutParams.height = i3;
@@ -84,7 +84,7 @@ public class as extends i {
                     z = z3;
                     z2 = com.baidu.tbadk.a.b.a.a(layoutParams, layoutParams2, i, i2, z);
                 } else {
-                    int i5 = (int) (((1.0f * intValue2) / intValue) * aiq);
+                    int i5 = (int) (((1.0f * intValue2) / intValue) * air);
                     if (i5 >= i4) {
                         i4 = i5 > i3 ? i3 : i5;
                     }
@@ -101,41 +101,41 @@ public class as extends i {
                 return;
             }
         } else {
-            layoutParams.width = aip;
-            layoutParams2.width = aip;
-            layoutParams.height = ((aip / 16) * 9) - com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
-            layoutParams2.height = ((aip / 16) * 9) - com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+            layoutParams.width = aiq;
+            layoutParams2.width = aiq;
+            layoutParams.height = ((aiq / 16) * 9) - com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+            layoutParams2.height = ((aiq / 16) * 9) - com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
             if (i2 == layoutParams.height && i == layoutParams.width) {
                 z2 = false;
             }
         }
         if (z2) {
-            this.ais.setLayoutParams(layoutParams);
-            this.ais.alP.setLayoutParams(layoutParams2);
+            this.ait.setLayoutParams(layoutParams);
+            this.ait.alQ.setLayoutParams(layoutParams2);
         }
-        this.ais.setJumpToPbListener(new View.OnClickListener() { // from class: com.baidu.card.as.1
+        this.ait.setJumpToPbListener(new View.OnClickListener() { // from class: com.baidu.card.as.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (as.this.afF != null) {
-                    as.this.afF.a(as.this.afH);
+                if (as.this.afG != null) {
+                    as.this.afG.a(as.this.afI);
                 }
             }
         });
-        this.ais.setData(this.afH);
+        this.ait.setData(this.afI);
         if (tB() != null) {
         }
     }
 
     @Override // com.baidu.card.b
-    public void setOnCardSubClickListener(com.baidu.tieba.card.aa<AbsThreadDataSupport> aaVar) {
-        super.setOnCardSubClickListener(aaVar);
-        this.ais.setOnCardSubClickListener(aaVar);
+    public void setOnCardSubClickListener(com.baidu.tieba.card.ab<AbsThreadDataSupport> abVar) {
+        super.setOnCardSubClickListener(abVar);
+        this.ait.setOnCardSubClickListener(abVar);
     }
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            this.ais.onChangeSkinType(tbPageContext, i);
+            this.ait.onChangeSkinType(tbPageContext, i);
         }
         this.mSkinType = i;
     }
@@ -145,23 +145,23 @@ public class as extends i {
     }
 
     public void a(b.a aVar) {
-        this.afF = aVar;
+        this.afG = aVar;
     }
 
     public void setVideoAreaClickListener(com.baidu.card.view.a aVar) {
-        this.ait = aVar;
+        this.aiu = aVar;
         if (aVar != null) {
             ub();
         }
     }
 
     private void ub() {
-        if (this.ais != null) {
-            this.ais.setVideoAreaClickListener(new com.baidu.card.view.a() { // from class: com.baidu.card.as.2
+        if (this.ait != null) {
+            this.ait.setVideoAreaClickListener(new com.baidu.card.view.a() { // from class: com.baidu.card.as.2
                 @Override // com.baidu.card.view.a
                 public void a(AbsThreadDataSupport absThreadDataSupport) {
-                    if (as.this.ait != null) {
-                        as.this.ait.a(as.this.afH);
+                    if (as.this.aiu != null) {
+                        as.this.aiu.a(as.this.afI);
                     }
                 }
             });

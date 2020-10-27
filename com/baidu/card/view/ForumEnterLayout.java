@@ -24,15 +24,15 @@ import com.baidu.tbadk.core.view.ThreadForumEnterGoodsButton;
 import com.baidu.tieba.R;
 /* loaded from: classes21.dex */
 public class ForumEnterLayout extends RelativeLayout {
-    private AbsThreadDataSupport afH;
-    private int ahw;
-    private View.OnClickListener ajT;
-    private ThreadForumEnterButton ajX;
-    private ThreadForumEnterGoodsButton ajY;
-    private TextView ajZ;
-    private Drawable aka;
-    private final int akb;
-    private int akc;
+    private AbsThreadDataSupport afI;
+    private int ahx;
+    private View.OnClickListener ajU;
+    private ThreadForumEnterButton ajY;
+    private ThreadForumEnterGoodsButton ajZ;
+    private TextView aka;
+    private Drawable akb;
+    private final int akc;
+    private int akd;
     private Context mContext;
     private final int mMargin;
     private final View.OnClickListener mOnClickListener;
@@ -40,18 +40,18 @@ public class ForumEnterLayout extends RelativeLayout {
     public ForumEnterLayout(Context context) {
         super(context);
         this.mMargin = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds44);
-        this.akb = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds60);
-        this.ahw = 0;
+        this.akc = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds60);
+        this.ahx = 0;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.card.view.ForumEnterLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == ForumEnterLayout.this.ajZ) {
-                    ay.a(ForumEnterLayout.this.afH, view.getContext(), ForumEnterLayout.this.ahw, 2);
-                } else if (view == ForumEnterLayout.this.ajX && ForumEnterLayout.this.ajT != null) {
-                    ForumEnterLayout.this.ajT.onClick(view);
+                if (view == ForumEnterLayout.this.aka) {
+                    ay.a(ForumEnterLayout.this.afI, view.getContext(), ForumEnterLayout.this.ahx, 2);
+                } else if (view == ForumEnterLayout.this.ajY && ForumEnterLayout.this.ajU != null) {
+                    ForumEnterLayout.this.ajU.onClick(view);
                 }
-                if (ForumEnterLayout.this.afH != null) {
-                    ForumEnterLayout.this.a(view, ForumEnterLayout.this.afH.bfG());
+                if (ForumEnterLayout.this.afI != null) {
+                    ForumEnterLayout.this.a(view, ForumEnterLayout.this.afI.bhz());
                 }
             }
         };
@@ -61,18 +61,18 @@ public class ForumEnterLayout extends RelativeLayout {
     public ForumEnterLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mMargin = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds44);
-        this.akb = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds60);
-        this.ahw = 0;
+        this.akc = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds60);
+        this.ahx = 0;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.card.view.ForumEnterLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == ForumEnterLayout.this.ajZ) {
-                    ay.a(ForumEnterLayout.this.afH, view.getContext(), ForumEnterLayout.this.ahw, 2);
-                } else if (view == ForumEnterLayout.this.ajX && ForumEnterLayout.this.ajT != null) {
-                    ForumEnterLayout.this.ajT.onClick(view);
+                if (view == ForumEnterLayout.this.aka) {
+                    ay.a(ForumEnterLayout.this.afI, view.getContext(), ForumEnterLayout.this.ahx, 2);
+                } else if (view == ForumEnterLayout.this.ajY && ForumEnterLayout.this.ajU != null) {
+                    ForumEnterLayout.this.ajU.onClick(view);
                 }
-                if (ForumEnterLayout.this.afH != null) {
-                    ForumEnterLayout.this.a(view, ForumEnterLayout.this.afH.bfG());
+                if (ForumEnterLayout.this.afI != null) {
+                    ForumEnterLayout.this.a(view, ForumEnterLayout.this.afI.bhz());
                 }
             }
         };
@@ -82,18 +82,18 @@ public class ForumEnterLayout extends RelativeLayout {
     public ForumEnterLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mMargin = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds44);
-        this.akb = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds60);
-        this.ahw = 0;
+        this.akc = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds60);
+        this.ahx = 0;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.card.view.ForumEnterLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == ForumEnterLayout.this.ajZ) {
-                    ay.a(ForumEnterLayout.this.afH, view.getContext(), ForumEnterLayout.this.ahw, 2);
-                } else if (view == ForumEnterLayout.this.ajX && ForumEnterLayout.this.ajT != null) {
-                    ForumEnterLayout.this.ajT.onClick(view);
+                if (view == ForumEnterLayout.this.aka) {
+                    ay.a(ForumEnterLayout.this.afI, view.getContext(), ForumEnterLayout.this.ahx, 2);
+                } else if (view == ForumEnterLayout.this.ajY && ForumEnterLayout.this.ajU != null) {
+                    ForumEnterLayout.this.ajU.onClick(view);
                 }
-                if (ForumEnterLayout.this.afH != null) {
-                    ForumEnterLayout.this.a(view, ForumEnterLayout.this.afH.bfG());
+                if (ForumEnterLayout.this.afI != null) {
+                    ForumEnterLayout.this.a(view, ForumEnterLayout.this.afI.bhz());
                 }
             }
         };
@@ -103,23 +103,23 @@ public class ForumEnterLayout extends RelativeLayout {
     private void init(Context context) {
         this.mContext = context;
         View inflate = LayoutInflater.from(context).inflate(R.layout.card_home_page_forum_enter_item, (ViewGroup) this, true);
-        this.ajZ = (TextView) inflate.findViewById(R.id.text_post);
-        this.ajZ.setCompoundDrawablePadding(l.getDimens(context, R.dimen.tbds10));
-        this.ajX = (ThreadForumEnterButton) inflate.findViewById(R.id.forum_enter_button);
-        this.ajY = (ThreadForumEnterGoodsButton) inflate.findViewById(R.id.forum_enter_goods_button);
-        this.ajX.setAfterClickListener(this.mOnClickListener);
+        this.aka = (TextView) inflate.findViewById(R.id.text_post);
+        this.aka.setCompoundDrawablePadding(l.getDimens(context, R.dimen.tbds10));
+        this.ajY = (ThreadForumEnterButton) inflate.findViewById(R.id.forum_enter_button);
+        this.ajZ = (ThreadForumEnterGoodsButton) inflate.findViewById(R.id.forum_enter_goods_button);
         this.ajY.setAfterClickListener(this.mOnClickListener);
-        this.ajZ.setOnClickListener(this.mOnClickListener);
+        this.ajZ.setAfterClickListener(this.mOnClickListener);
+        this.aka.setOnClickListener(this.mOnClickListener);
     }
 
     public void up() {
-        int equipmentWidth = (l.getEquipmentWidth(this.mContext) - (this.mMargin * 2)) - this.akb;
+        int equipmentWidth = (l.getEquipmentWidth(this.mContext) - (this.mMargin * 2)) - this.akc;
         if (equipmentWidth > 0) {
-            this.akc = equipmentWidth / 2;
+            this.akd = equipmentWidth / 2;
         } else {
-            this.akc = l.getDimens(this.mContext, R.dimen.tbds540);
+            this.akd = l.getDimens(this.mContext, R.dimen.tbds540);
         }
-        this.ajZ.setMaxWidth(this.akc);
+        this.aka.setMaxWidth(this.akd);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -133,7 +133,7 @@ public class ForumEnterLayout extends RelativeLayout {
                 str = "c13695";
             }
             int i = 0;
-            switch (this.ahw) {
+            switch (this.ahx) {
                 case 1:
                     i = 2;
                     break;
@@ -153,68 +153,68 @@ public class ForumEnterLayout extends RelativeLayout {
     public void setData(AbsThreadDataSupport absThreadDataSupport) {
         boolean z;
         boolean z2 = true;
-        this.afH = absThreadDataSupport;
+        this.afI = absThreadDataSupport;
         up();
-        bw bfG = absThreadDataSupport.bfG();
-        if ((absThreadDataSupport.bfM() || !bfG.esz) && !StringUtils.isNull(bfG.bil()) && !c(bfG)) {
-            this.ajX.setVisibility(0);
-            this.ajX.a(bfG, this.akc);
-            z = true;
-        } else {
-            this.ajX.setVisibility(8);
-            z = false;
-        }
-        if (!c(absThreadDataSupport) && !d(absThreadDataSupport) && absThreadDataSupport.bfN() && absThreadDataSupport.bfG().bkp()) {
+        bw bhz = absThreadDataSupport.bhz();
+        if ((absThreadDataSupport.bhF() || !bhz.eAZ) && !StringUtils.isNull(bhz.bke()) && !c(bhz)) {
             this.ajY.setVisibility(0);
-            this.ajY.r(bfG);
+            this.ajY.a(bhz, this.akd);
             z = true;
         } else {
             this.ajY.setVisibility(8);
+            z = false;
         }
-        if (ay.x(bfG) && bfG.isPrivacy) {
+        if (!c(absThreadDataSupport) && !d(absThreadDataSupport) && absThreadDataSupport.bhG() && absThreadDataSupport.bhz().bmi()) {
             this.ajZ.setVisibility(0);
-            this.ajZ.setTextSize(0, l.getDimens(getContext(), R.dimen.tbds32));
-            this.ajZ.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-            ap.setViewTextColor(this.ajZ, R.color.cp_cont_d);
-            this.ajZ.setText(R.string.private_desc);
-            this.ajZ.setOnClickListener(null);
+            this.ajZ.r(bhz);
+            z = true;
         } else {
             this.ajZ.setVisibility(8);
+        }
+        if (ay.x(bhz) && bhz.isPrivacy) {
+            this.aka.setVisibility(0);
+            this.aka.setTextSize(0, l.getDimens(getContext(), R.dimen.tbds32));
+            this.aka.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+            ap.setViewTextColor(this.aka, R.color.cp_cont_d);
+            this.aka.setText(R.string.private_desc);
+            this.aka.setOnClickListener(null);
+        } else {
+            this.aka.setVisibility(8);
             z2 = z;
         }
         setVisibility(z2 ? 0 : 8);
     }
 
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.ajX.onChangeSkinType();
         this.ajY.onChangeSkinType();
-        this.aka = getArrowRight();
+        this.ajZ.onChangeSkinType();
+        this.akb = getArrowRight();
     }
 
     private Drawable getArrowRight() {
-        if (this.aka == null || this.aka.mutate() == null) {
-            this.aka = SvgManager.bmU().a(R.drawable.icon_pure_arrow12_right_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        if (this.akb == null || this.akb.mutate() == null) {
+            this.akb = SvgManager.boN().a(R.drawable.icon_pure_arrow12_right_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
-        return this.aka;
+        return this.akb;
     }
 
     public void setSourceForPb(int i) {
-        this.ahw = i;
+        this.ahx = i;
     }
 
     public void setOnAfterClickListener(View.OnClickListener onClickListener) {
-        this.ajT = onClickListener;
+        this.ajU = onClickListener;
     }
 
     private boolean c(AbsThreadDataSupport absThreadDataSupport) {
-        return (absThreadDataSupport == null || absThreadDataSupport.bfG() == null || absThreadDataSupport.bfG().bkm() == null || absThreadDataSupport.bfG().bkm().getOptions() == null || absThreadDataSupport.bfG().bkm().getOptions().size() <= 0) ? false : true;
+        return (absThreadDataSupport == null || absThreadDataSupport.bhz() == null || absThreadDataSupport.bhz().bmf() == null || absThreadDataSupport.bhz().bmf().getOptions() == null || absThreadDataSupport.bhz().bmf().getOptions().size() <= 0) ? false : true;
     }
 
     private boolean c(bw bwVar) {
-        return (bwVar == null || bwVar.bih() == null || !bwVar.esA || !d.bdK() || bwVar.bih().hadConcerned() || ay.x(bwVar)) ? false : true;
+        return (bwVar == null || bwVar.bka() == null || !bwVar.eBa || !d.bfD() || bwVar.bka().hadConcerned() || ay.x(bwVar)) ? false : true;
     }
 
     private boolean d(AbsThreadDataSupport absThreadDataSupport) {
-        return (absThreadDataSupport == null || absThreadDataSupport.bfG() == null || !absThreadDataSupport.bfG().bgN() || absThreadDataSupport.bfG().biz() == null) ? false : true;
+        return (absThreadDataSupport == null || absThreadDataSupport.bhz() == null || !absThreadDataSupport.bhz().biG() || absThreadDataSupport.bhz().bks() == null) ? false : true;
     }
 }

@@ -6,31 +6,31 @@ import com.tb.airbnb.lottie.model.a.l;
 /* loaded from: classes16.dex */
 public class g implements b {
     private final String name;
-    private final com.tb.airbnb.lottie.model.a.b oIX;
-    private final com.tb.airbnb.lottie.model.a.b oIY;
-    private final l oIZ;
+    private final com.tb.airbnb.lottie.model.a.b pAu;
+    private final com.tb.airbnb.lottie.model.a.b pAv;
+    private final l pAw;
 
     public g(String str, com.tb.airbnb.lottie.model.a.b bVar, com.tb.airbnb.lottie.model.a.b bVar2, l lVar) {
         this.name = str;
-        this.oIX = bVar;
-        this.oIY = bVar2;
-        this.oIZ = lVar;
+        this.pAu = bVar;
+        this.pAv = bVar2;
+        this.pAw = lVar;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public com.tb.airbnb.lottie.model.a.b elz() {
-        return this.oIX;
+    public com.tb.airbnb.lottie.model.a.b evz() {
+        return this.pAu;
     }
 
-    public com.tb.airbnb.lottie.model.a.b elA() {
-        return this.oIY;
+    public com.tb.airbnb.lottie.model.a.b evA() {
+        return this.pAv;
     }
 
-    public l elB() {
-        return this.oIZ;
+    public l evB() {
+        return this.pAw;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b

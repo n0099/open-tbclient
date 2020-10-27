@@ -19,7 +19,7 @@ public class d extends AbsDelegateAdapter<e, a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
-    /* renamed from: cM */
+    /* renamed from: cN */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         return new a(LayoutInflater.from(this.mContext).inflate(a.h.ala_recommend_live_type_item_layout, viewGroup, false));
     }
@@ -35,26 +35,26 @@ public class d extends AbsDelegateAdapter<e, a> {
                 string = this.mContext.getString(a.i.recommend_live_attention_no_count);
                 break;
             default:
-                string = this.mContext.getString(a.i.recommend_live_recommend);
+                string = eVar.title;
                 break;
         }
-        aVar.mjw.setText(string);
+        aVar.mvW.setText(string);
         int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds16);
         if (i != 0) {
-            aVar.mjw.setPadding(0, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds48), 0, dimensionPixelSize);
+            aVar.mvW.setPadding(0, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds48), 0, dimensionPixelSize);
         } else {
-            aVar.mjw.setPadding(0, dimensionPixelSize, 0, dimensionPixelSize);
+            aVar.mvW.setPadding(0, dimensionPixelSize, 0, dimensionPixelSize);
         }
         return view;
     }
 
     /* loaded from: classes4.dex */
     public static class a extends TypeAdapter.ViewHolder {
-        private TextView mjw;
+        private TextView mvW;
 
         private a(View view) {
             super(view);
-            this.mjw = (TextView) view.findViewById(a.g.ala_recommend_live_type);
+            this.mvW = (TextView) view.findViewById(a.g.ala_recommend_live_type);
         }
     }
 }

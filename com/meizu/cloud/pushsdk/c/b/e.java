@@ -6,12 +6,12 @@ import java.util.LinkedList;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private final boolean f4391a;
+    private final boolean f4389a;
     private final i b;
     private final LinkedList<Long> c;
 
     public e(boolean z, i iVar, LinkedList<Long> linkedList) {
-        this.f4391a = z;
+        this.f4389a = z;
         this.b = iVar;
         this.c = linkedList;
     }
@@ -25,6 +25,6 @@ public class e {
     }
 
     public boolean c() {
-        return this.f4391a;
+        return this.f4389a;
     }
 }

@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4496a = a.class.getName();
+    private static final String f4494a = a.class.getName();
     private static final boolean b = f.b;
 
     public static String a(Object obj) {
@@ -51,7 +51,7 @@ public class a {
             }
             return jSONObject.toString();
         } catch (Exception e) {
-            c.b(f4496a, e.getMessage(), Boolean.valueOf(b));
+            c.b(f4494a, e.getMessage(), Boolean.valueOf(b));
             return null;
         }
     }

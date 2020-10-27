@@ -8,13 +8,13 @@ import android.os.Message;
 public final class d extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BdNetEngine f3972a;
+    final /* synthetic */ BdNetEngine f3970a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(BdNetEngine bdNetEngine, Looper looper) {
         super(looper);
-        this.f3972a = bdNetEngine;
+        this.f3970a = bdNetEngine;
     }
 
     @Override // android.os.Handler
@@ -24,20 +24,20 @@ public final class d extends Handler {
         BdNetTask bdNetTask2;
         switch (message.what) {
             case 1:
-                this.f3972a.mIsWorking = true;
-                this.f3972a.mNetTask = this.f3972a.performTask((BdNetTask) message.obj);
-                bdNetTask = this.f3972a.mNetTask;
+                this.f3970a.mIsWorking = true;
+                this.f3970a.mNetTask = this.f3970a.performTask((BdNetTask) message.obj);
+                bdNetTask = this.f3970a.mNetTask;
                 if (bdNetTask == null) {
-                    this.f3972a.recycle();
+                    this.f3970a.recycle();
                 } else {
-                    handler = this.f3972a.mPrivateHandler;
-                    bdNetTask2 = this.f3972a.mNetTask;
+                    handler = this.f3970a.mPrivateHandler;
+                    bdNetTask2 = this.f3970a.mNetTask;
                     handler.obtainMessage(1, bdNetTask2).sendToTarget();
                 }
-                this.f3972a.mIsWorking = false;
+                this.f3970a.mIsWorking = false;
                 return;
             case 2:
-                this.f3972a.stopDownloadInner();
+                this.f3970a.stopDownloadInner();
                 return;
             default:
                 return;

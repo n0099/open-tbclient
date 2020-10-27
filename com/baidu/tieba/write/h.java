@@ -5,54 +5,54 @@ import android.graphics.Rect;
 import android.view.View;
 /* loaded from: classes.dex */
 public abstract class h {
-    protected View exv;
+    protected View eFT;
     protected View mAnchorView;
     protected Context mContext;
-    protected com.baidu.tieba.write.a nme;
-    protected a nmj;
+    protected com.baidu.tieba.write.a nyF;
+    protected a nyK;
     protected int mState = 4;
-    protected Rect nmo = new Rect();
-    protected Rect nmp = new Rect();
+    protected Rect nyP = new Rect();
+    protected Rect nyQ = new Rect();
 
     /* loaded from: classes.dex */
     public interface a {
-        void KG(int i);
+        void KY(int i);
     }
 
-    public abstract void awh();
+    public abstract void ayb();
 
-    public abstract void dNr();
+    public abstract void dQA();
 
-    public abstract void dNs();
+    public abstract void dQz();
 
     public abstract void onDestroy();
 
     public h(Context context, com.baidu.tieba.write.a aVar) {
         this.mContext = context;
-        this.nme = aVar;
+        this.nyF = aVar;
     }
 
     public void a(a aVar) {
-        this.nmj = aVar;
+        this.nyK = aVar;
     }
 
     public void d(View view, View view2) {
         this.mAnchorView = view;
-        this.exv = view2;
-        if (this.exv != null) {
-            this.exv.getGlobalVisibleRect(this.nmo);
+        this.eFT = view2;
+        if (this.eFT != null) {
+            this.eFT.getGlobalVisibleRect(this.nyP);
         }
     }
 
     public void show() {
-        dNr();
+        dQz();
     }
 
-    public void fL(boolean z) {
+    public void fY(boolean z) {
         if (z) {
-            awh();
+            ayb();
         } else {
-            dNs();
+            dQA();
         }
     }
 }

@@ -495,7 +495,6 @@ public class UtilHelper {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [844=4] */
     public static boolean isARM() {
         RandomAccessFile randomAccessFile;
         byte[] bArr;
@@ -525,18 +524,18 @@ public class UtilHelper {
                 CloseUtil.close(randomAccessFile);
                 throw th;
             }
-            if (randomAccessFile.read(bArr) < 1) {
+            if (randomAccessFile.read(bArr) >= 1) {
+                String str = new String(bArr);
+                int indexOf = str.indexOf(0);
+                if (indexOf != -1) {
+                    str = str.substring(0, indexOf);
+                }
+                if (str.toLowerCase().contains("arm")) {
+                    CloseUtil.close(randomAccessFile);
+                    return true;
+                }
                 CloseUtil.close(randomAccessFile);
                 return false;
-            }
-            String str = new String(bArr);
-            int indexOf = str.indexOf(0);
-            if (indexOf != -1) {
-                str = str.substring(0, indexOf);
-            }
-            if (str.toLowerCase().contains("arm")) {
-                CloseUtil.close(randomAccessFile);
-                return true;
             }
             CloseUtil.close(randomAccessFile);
             return false;

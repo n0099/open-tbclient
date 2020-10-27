@@ -16,17 +16,17 @@ public class a extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        SwanEditText arS = b.arR().arS();
-        if (arS == null) {
+        SwanEditText atN = b.atM().atN();
+        if (atN == null) {
             com.baidu.swan.apps.console.c.e("closeInput", "input组件不存在");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "input组件不存在");
             return false;
-        } else if (f.avu().abs() == null) {
+        } else if (f.axo().adm() == null) {
             com.baidu.swan.apps.console.c.e("closeInput", "fragmentManager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else {
-            arS.clearFocus();
+            atN.clearFocus();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
             return true;
         }

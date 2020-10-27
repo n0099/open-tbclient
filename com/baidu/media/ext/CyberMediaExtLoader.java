@@ -20,7 +20,7 @@ public class CyberMediaExtLoader {
             return;
         }
         String str = b.c() + File.separator + "libs";
-        File file = new File(e.VB().gj(2048).c());
+        File file = new File(e.Xv().gv(2048).c());
         if (file == null || !file.exists()) {
             CyberLog.e("CyberMediaExtInvoker", "dexFile = null or dexFile not exist!");
         } else {

@@ -9,10 +9,10 @@ import java.nio.ByteBuffer;
 /* loaded from: classes17.dex */
 public final class a extends f {
     private ByteBuffer mBuffer;
-    private final int nDE;
-    private final d nDF;
-    private final UploadDataProvider nDc = new C0862a();
-    private boolean nCg = false;
+    private final int ogg;
+    private final d ogh;
+    private final UploadDataProvider ofE = new C0912a();
+    private boolean oeH = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(d dVar, long j) {
@@ -25,9 +25,9 @@ public final class a extends f {
         if (j < 0) {
             throw new IllegalArgumentException("Content length < 0.");
         }
-        this.nDF = dVar;
-        this.nDE = (int) j;
-        this.mBuffer = ByteBuffer.allocate(this.nDE);
+        this.ogh = dVar;
+        this.ogg = (int) j;
+        this.mBuffer = ByteBuffer.allocate(this.ogg);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -35,33 +35,33 @@ public final class a extends f {
         if (dVar == null) {
             throw new NullPointerException();
         }
-        this.nDF = dVar;
-        this.nDE = -1;
+        this.ogh = dVar;
+        this.ogg = -1;
         this.mBuffer = ByteBuffer.allocate(16384);
     }
 
     @Override // java.io.OutputStream
     public void write(int i) throws IOException {
         checkNotClosed();
-        LI(1);
+        MK(1);
         this.mBuffer.put((byte) i);
     }
 
     @Override // java.io.OutputStream
     public void write(byte[] bArr, int i, int i2) throws IOException {
         checkNotClosed();
-        LI(i2);
+        MK(i2);
         this.mBuffer.put(bArr, i, i2);
     }
 
-    private void LI(int i) throws IOException {
-        if (this.nDE != -1 && this.mBuffer.position() + i > this.nDE) {
-            throw new ProtocolException("exceeded content-length limit of " + this.nDE + " bytes");
+    private void MK(int i) throws IOException {
+        if (this.ogg != -1 && this.mBuffer.position() + i > this.ogg) {
+            throw new ProtocolException("exceeded content-length limit of " + this.ogg + " bytes");
         }
-        if (this.nCg) {
+        if (this.oeH) {
             throw new IllegalStateException("Cannot write after being connected.");
         }
-        if (this.nDE == -1 && this.mBuffer.limit() - this.mBuffer.position() <= i) {
+        if (this.ogg == -1 && this.mBuffer.limit() - this.mBuffer.position() <= i) {
             ByteBuffer allocate = ByteBuffer.allocate(Math.max(this.mBuffer.capacity() * 2, this.mBuffer.capacity() + i));
             this.mBuffer.flip();
             allocate.put(this.mBuffer);
@@ -71,9 +71,9 @@ public final class a extends f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public void dTj() throws IOException {
-        this.nCg = true;
-        if (this.mBuffer.position() < this.nDE) {
+    public void dZb() throws IOException {
+        this.oeH = true;
+        if (this.mBuffer.position() < this.ogg) {
             throw new ProtocolException("Content received is less than Content-Length");
         }
         this.mBuffer.flip();
@@ -81,27 +81,27 @@ public final class a extends f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public void dTk() throws IOException {
+    public void dZc() throws IOException {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public UploadDataProvider dTl() {
-        return this.nDc;
+    public UploadDataProvider dZd() {
+        return this.ofE;
     }
 
     /* renamed from: com.baidu.turbonet.net.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes17.dex */
-    private class C0862a extends UploadDataProvider {
-        private C0862a() {
+    private class C0912a extends UploadDataProvider {
+        private C0912a() {
         }
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
         public long getLength() {
-            if (a.this.nDE == -1) {
-                return a.this.nCg ? a.this.mBuffer.limit() : a.this.mBuffer.position();
+            if (a.this.ogg == -1) {
+                return a.this.oeH ? a.this.mBuffer.limit() : a.this.mBuffer.position();
             }
-            return a.this.nDE;
+            return a.this.ogg;
         }
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
@@ -113,13 +113,13 @@ public final class a extends f {
             } else {
                 byteBuffer.put(a.this.mBuffer);
             }
-            uploadDataSink.yq(false);
+            uploadDataSink.zg(false);
         }
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
         public void a(UploadDataSink uploadDataSink) {
             a.this.mBuffer.position(0);
-            uploadDataSink.dRX();
+            uploadDataSink.dXP();
         }
     }
 }

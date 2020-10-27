@@ -8,13 +8,13 @@ import com.xiaomi.push.service.ak;
 public class f extends ak.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f4766a;
+    final /* synthetic */ e f4764a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(e eVar, int i, String str) {
         super(i, str);
-        this.f4766a = eVar;
+        this.f4764a = eVar;
     }
 
     @Override // com.xiaomi.push.service.ak.a
@@ -22,12 +22,12 @@ public class f extends ak.a {
         Context context;
         boolean z;
         Context context2;
-        context = this.f4766a.f73a;
+        context = this.f4764a.f70a;
         boolean a2 = com.xiaomi.push.service.ak.a(context).a(hr.AggregatePushSwitch.a(), true);
-        z = this.f4766a.f76a;
+        z = this.f4764a.f73a;
         if (z != a2) {
-            this.f4766a.f76a = a2;
-            context2 = this.f4766a.f73a;
+            this.f4764a.f73a = a2;
+            context2 = this.f4764a.f70a;
             h.b(context2);
         }
     }

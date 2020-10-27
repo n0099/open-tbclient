@@ -25,106 +25,106 @@ import tbclient.UserBfbInfo;
 /* loaded from: classes24.dex */
 public class a {
     private UserBfbInfo bfbInfo;
-    private NoNetworkView fjl;
     private String forumName;
-    private TextView ixw;
-    private CreateBarGuideActivity jbQ;
-    private View jbR;
-    private NoDataView jbS;
-    private TextView jbT;
-    private TextView jbU;
-    private LinearLayout jbV;
-    private TbImageView jbW;
+    private NoNetworkView frK;
+    private TextView iJS;
+    private CreateBarGuideActivity jol;
+    private View jom;
+    private NoDataView jon;
+    private TextView joo;
+    private TextView jop;
+    private LinearLayout joq;
+    private TbImageView jor;
     private NavigationBar mNavigationBar;
     private View mRoot;
 
     public a(CreateBarGuideActivity createBarGuideActivity) {
-        this.jbQ = createBarGuideActivity;
-        this.mRoot = LayoutInflater.from(this.jbQ.getPageContext().getPageActivity()).inflate(R.layout.create_bar_guide_activity, (ViewGroup) null);
-        this.jbQ.setContentView(this.mRoot);
-        this.jbR = this.mRoot.findViewById(R.id.body_view);
+        this.jol = createBarGuideActivity;
+        this.mRoot = LayoutInflater.from(this.jol.getPageContext().getPageActivity()).inflate(R.layout.create_bar_guide_activity, (ViewGroup) null);
+        this.jol.setContentView(this.mRoot);
+        this.jom = this.mRoot.findViewById(R.id.body_view);
         this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(R.string.create_bar);
-        this.fjl = (NoNetworkView) this.mRoot.findViewById(R.id.view_no_network);
-        this.ixw = (TextView) this.mRoot.findViewById(R.id.text_forum_name);
-        this.jbT = (TextView) this.mRoot.findViewById(R.id.text_forum_create);
-        this.jbW = (TbImageView) this.mRoot.findViewById(R.id.status_icon);
-        this.jbT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.home.a.1
+        this.frK = (NoNetworkView) this.mRoot.findViewById(R.id.view_no_network);
+        this.iJS = (TextView) this.mRoot.findViewById(R.id.text_forum_name);
+        this.joo = (TextView) this.mRoot.findViewById(R.id.text_forum_create);
+        this.jor = (TbImageView) this.mRoot.findViewById(R.id.status_icon);
+        this.joo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.home.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (a.this.bfbInfo != null) {
                     if (a.this.bfbInfo.res_no.intValue() == 9528) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CreateForumActivityConfig(a.this.jbQ.getActivity(), a.this.forumName, true)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CreateForumActivityConfig(a.this.jol.getActivity(), a.this.forumName, true)));
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CreateBarActivityConfig(a.this.jbQ.getActivity(), a.this.forumName, true)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CreateBarActivityConfig(a.this.jol.getActivity(), a.this.forumName, true)));
                     }
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CreateBarActivityConfig(a.this.jbQ.getActivity(), a.this.forumName, true)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CreateBarActivityConfig(a.this.jol.getActivity(), a.this.forumName, true)));
                 }
                 TiebaStatic.log("c11223");
-                a.this.jbQ.finish();
+                a.this.jol.finish();
             }
         });
-        this.jbU = (TextView) this.mRoot.findViewById(R.id.text_create_need);
-        this.jbV = (LinearLayout) this.mRoot.findViewById(R.id.need_desc_layout);
+        this.jop = (TextView) this.mRoot.findViewById(R.id.text_create_need);
+        this.joq = (LinearLayout) this.mRoot.findViewById(R.id.need_desc_layout);
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_BIND_CARD_SUCCESS) { // from class: com.baidu.tieba.home.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (a.this.bfbInfo != null) {
                     if (a.this.bfbInfo.res_no.intValue() == 9528) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CreateForumActivityConfig(a.this.jbQ.getActivity(), a.this.forumName, true)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CreateForumActivityConfig(a.this.jol.getActivity(), a.this.forumName, true)));
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CreateBarActivityConfig(a.this.jbQ.getActivity(), a.this.forumName, true)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CreateBarActivityConfig(a.this.jol.getActivity(), a.this.forumName, true)));
                     }
                 }
             }
         });
     }
 
-    public void cCL() {
-        this.jbR.setVisibility(8);
+    public void cFS() {
+        this.jom.setVisibility(8);
     }
 
-    public void cCM() {
-        this.jbR.setVisibility(0);
+    public void cFT() {
+        this.jom.setVisibility(0);
     }
 
     public void a(String str, UserBfbInfo userBfbInfo) {
         this.forumName = str;
         this.bfbInfo = userBfbInfo;
-        if (this.jbS == null) {
-            int dimens = l.getDimens(this.jbQ.getActivity(), R.dimen.ds100);
-            this.jbS = NoDataViewFactory.a(this.jbQ.getPageContext().getPageActivity(), (LinearLayout) this.mRoot.findViewById(R.id.emotion_layout), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.CREATE, dimens), null, null);
-            this.jbS.setVisibility(0);
-            btm();
+        if (this.jon == null) {
+            int dimens = l.getDimens(this.jol.getActivity(), R.dimen.ds100);
+            this.jon = NoDataViewFactory.a(this.jol.getPageContext().getPageActivity(), (LinearLayout) this.mRoot.findViewById(R.id.emotion_layout), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.CREATE, dimens), null, null);
+            this.jon.setVisibility(0);
+            bvf();
         }
-        this.ixw.setText(this.forumName + "吧");
+        this.iJS.setText(this.forumName + "吧");
         if (this.bfbInfo != null && this.bfbInfo.res_no.intValue() == 9528) {
             if (this.bfbInfo.activity_status.intValue() == 0) {
-                this.jbW.setImageResource(R.drawable.icon_create_attention_n);
+                this.jor.setImageResource(R.drawable.icon_create_attention_n);
             } else {
-                this.jbW.setImageResource(R.drawable.icon_create_complete_n);
+                this.jor.setImageResource(R.drawable.icon_create_complete_n);
             }
         } else {
-            this.jbU.setVisibility(4);
-            this.jbV.setVisibility(4);
+            this.jop.setVisibility(4);
+            this.joq.setVisibility(4);
         }
-        this.jbU.setVisibility(8);
-        this.jbV.setVisibility(8);
+        this.jop.setVisibility(8);
+        this.joq.setVisibility(8);
     }
 
-    public void btm() {
-        com.baidu.tbadk.r.a.a(this.jbQ.getPageContext(), this.mRoot);
+    public void bvf() {
+        com.baidu.tbadk.r.a.a(this.jol.getPageContext(), this.mRoot);
         if (this.mNavigationBar != null) {
-            this.mNavigationBar.onChangeSkinType(this.jbQ.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            this.mNavigationBar.onChangeSkinType(this.jol.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
-        if (this.fjl != null) {
-            this.fjl.onChangeSkinType(this.jbQ.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        if (this.frK != null) {
+            this.frK.onChangeSkinType(this.jol.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
-        if (this.jbS != null) {
-            this.jbS.onChangeSkinType(this.jbQ.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        if (this.jon != null) {
+            this.jon.onChangeSkinType(this.jol.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
     }
 

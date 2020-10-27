@@ -11,19 +11,19 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class v {
-    private CustomMessageListener OP;
+    private CustomMessageListener OQ;
     private static final byte[] mlock = new byte[1];
-    private static v fky = null;
+    private static v fsX = null;
 
-    public static v bzt() {
-        if (fky == null) {
+    public static v bBm() {
+        if (fsX == null) {
             synchronized (mlock) {
-                if (fky == null) {
-                    fky = new v();
+                if (fsX == null) {
+                    fsX = new v();
                 }
             }
         }
-        return fky;
+        return fsX;
     }
 
     private v() {
@@ -32,17 +32,17 @@ public class v {
 
     public void registerNetworkChangedListener() {
         try {
-            if (this.OP == null) {
-                this.OP = bzu();
-                MessageManager.getInstance().registerListener(this.OP);
+            if (this.OQ == null) {
+                this.OQ = bBn();
+                MessageManager.getInstance().registerListener(this.OQ);
             }
         } catch (Exception e) {
-            this.OP = null;
+            this.OQ = null;
             BdLog.e(e.getMessage());
         }
     }
 
-    private CustomMessageListener bzu() {
+    private CustomMessageListener bBn() {
         return new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tbadk.util.v.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -60,10 +60,10 @@ public class v {
             boolean isNetWorkAvailable = com.baidu.adp.lib.util.j.isNetWorkAvailable();
             if (isNetWorkAvailable) {
                 if (com.baidu.adp.lib.util.j.isWifiNet()) {
-                    au.bmV().setNetworkIsWifi(true);
-                    com.baidu.tieba.recapp.d.a.dvt().dvv();
+                    au.boO().setNetworkIsWifi(true);
+                    com.baidu.tieba.recapp.d.a.dyA().dyC();
                 } else if (com.baidu.adp.lib.util.j.isMobileNet()) {
-                    au.bmV().setNetworkIsWifi(false);
+                    au.boO().setNetworkIsWifi(false);
                 }
             }
             NoNetworkView.setIsHasNetwork(isNetWorkAvailable);

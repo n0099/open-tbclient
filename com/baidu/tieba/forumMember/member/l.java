@@ -32,8 +32,8 @@ public class l extends com.baidu.tieba.frs.k<m, n> {
                 } else if (view.getId() == R.id.title_text_view) {
                     Object tag = view.getTag();
                     m mVar = ((tag instanceof Integer) && (l.this.getItem(((Integer) tag).intValue()) instanceof m)) ? (m) l.this.getItem(((Integer) tag).intValue()) : null;
-                    if (mVar != null && mVar.cqZ() != null) {
-                        String[] split = !StringUtils.isNull(mVar.cqZ().member_group_type) ? mVar.cqZ().member_group_type.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) : null;
+                    if (mVar != null && mVar.cug() != null) {
+                        String[] split = !StringUtils.isNull(mVar.cug().member_group_type) ? mVar.cug().member_group_type.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) : null;
                         if (split == null || split.length != 2) {
                             str = "";
                         } else {
@@ -61,18 +61,18 @@ public class l extends com.baidu.tieba.frs.k<m, n> {
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, m mVar, n nVar) {
         super.a(i, view, viewGroup, (ViewGroup) mVar, (m) nVar);
-        if (mVar != null && mVar.cqZ() != null) {
-            MemberGroupInfo cqZ = mVar.cqZ();
-            if (cqZ.member_group_list != null && cqZ.member_group_list.size() > 0 && !StringUtils.isNull(cqZ.member_group_type)) {
+        if (mVar != null && mVar.cug() != null) {
+            MemberGroupInfo cug = mVar.cug();
+            if (cug.member_group_list != null && cug.member_group_list.size() > 0 && !StringUtils.isNull(cug.member_group_type)) {
                 nVar.mTitleView.setTag(Integer.valueOf(i));
                 String str = "";
-                String[] split = !StringUtils.isNull(cqZ.member_group_type) ? cqZ.member_group_type.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) : null;
+                String[] split = !StringUtils.isNull(cug.member_group_type) ? cug.member_group_type.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) : null;
                 if (split != null && split.length == 2) {
                     str = split[1];
                 }
-                nVar.mTitleView.setText(str + "(" + cqZ.member_group_num + ")");
+                nVar.mTitleView.setText(str + "(" + cug.member_group_num + ")");
                 int i2 = 0;
-                for (BawuRoleInfoPub bawuRoleInfoPub : cqZ.member_group_list) {
+                for (BawuRoleInfoPub bawuRoleInfoPub : cug.member_group_list) {
                     if (i2 > 3) {
                         break;
                     } else if (bawuRoleInfoPub != null) {
@@ -80,13 +80,13 @@ public class l extends com.baidu.tieba.frs.k<m, n> {
                         i2++;
                     }
                 }
-                nVar.oJ(this.mSkinType == 1);
-                ap.setBackgroundColor(nVar.ilF, R.color.cp_bg_line_d);
+                nVar.pb(this.mSkinType == 1);
+                ap.setBackgroundColor(nVar.iyd, R.color.cp_bg_line_d);
                 ap.setViewTextColor(nVar.mTitleView, R.color.cp_cont_b, 1);
-                ap.setViewTextColor(nVar.ilB, R.color.cp_cont_f, 1);
-                ap.setViewTextColor(nVar.ilC, R.color.cp_cont_f, 1);
-                ap.setViewTextColor(nVar.ilD, R.color.cp_cont_f, 1);
-                ap.setViewTextColor(nVar.ilE, R.color.cp_cont_f, 1);
+                ap.setViewTextColor(nVar.ixZ, R.color.cp_cont_f, 1);
+                ap.setViewTextColor(nVar.iya, R.color.cp_cont_f, 1);
+                ap.setViewTextColor(nVar.iyb, R.color.cp_cont_f, 1);
+                ap.setViewTextColor(nVar.iyc, R.color.cp_cont_f, 1);
                 nVar.mTitleView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
             }
         }

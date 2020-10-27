@@ -221,11 +221,11 @@ public class HttpClient extends com.baidu.adp.framework.client.a<HttpMessage, Ht
                 String str = "";
                 if (this.Iv.mz().size() > 0) {
                     String str2 = this.Iv.mz().get(this.Iv.mz().size() - 1).exception;
-                    this.It.setEncodedBinarySize(this.Iv.mz().get(this.Iv.mz().size() - 1).LH);
+                    this.It.setEncodedBinarySize(this.Iv.mz().get(this.Iv.mz().size() - 1).LI);
                     str = str2;
                 }
                 newInstance.setStatusCode(this.Iv.my().responseCode, str);
-                newInstance.setHeader(this.Iv.my().Mo);
+                newInstance.setHeader(this.Iv.my().Mp);
                 newInstance.setContentEncoding(this.Iv.my().contentEncoding);
                 newInstance.setContentLength(this.Iv.my().contentLength);
                 newInstance.setContentType(this.Iv.my().contentType);

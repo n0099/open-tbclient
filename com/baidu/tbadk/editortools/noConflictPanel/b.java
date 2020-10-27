@@ -3,7 +3,7 @@ package com.baidu.tbadk.editortools.noConflictPanel;
 public interface b {
     int getHeight();
 
-    void jK(boolean z);
+    void jX(boolean z);
 
-    void qV(int i);
+    void rg(int i);
 }

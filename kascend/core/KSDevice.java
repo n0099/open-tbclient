@@ -20,9 +20,9 @@ public class KSDevice {
 
     public String getDS() {
         if (this.mCache != null) {
-            String enA = this.mCache.enA();
-            this.mCache.Xt(enA);
-            return enA;
+            String exz = this.mCache.exz();
+            this.mCache.Zg(exz);
+            return exz;
         }
         return getDeviceId();
     }

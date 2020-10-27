@@ -8,9 +8,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes25.dex */
 public class a extends ShareItem {
-    /* renamed from: do  reason: not valid java name */
-    public void m39do(JSONObject jSONObject) throws JSONException {
-        this.eSZ = true;
+    public void dr(JSONObject jSONObject) throws JSONException {
+        this.fbv = true;
         this.title = jSONObject.getString("title");
         this.linkUrl = jSONObject.getString("linkUrl");
         this.content = jSONObject.optString("content");
@@ -20,34 +19,34 @@ public class a extends ShareItem {
         this.imageUri = Uri.parse(this.imageUrl);
         JSONObject optJSONObject = jSONObject.optJSONObject("categoryInfo");
         if (optJSONObject != null) {
-            this.eTa = optJSONObject.optString("source2");
-            this.eTc = optJSONObject.optString("source3");
+            this.fbw = optJSONObject.optString("source2");
+            this.fby = optJSONObject.optString("source3");
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("command");
         if (optJSONObject2 != null) {
-            this.eTb = 2;
-            this.eTg = optJSONObject2.optJSONArray("cmd_pannel");
-            this.eTh = optJSONObject2.optJSONObject("info");
-            if (this.eTh != null) {
-                this.eTe = this.eTh.optString("key");
-                this.eTf = this.eTh.optString("content");
+            this.fbx = 2;
+            this.fbC = optJSONObject2.optJSONArray("cmd_pannel");
+            this.fbD = optJSONObject2.optJSONObject("info");
+            if (this.fbD != null) {
+                this.fbA = this.fbD.optString("key");
+                this.fbB = this.fbD.optString("content");
                 return;
             }
             return;
         }
-        this.eTb = "url".equals(jSONObject.optString("type")) ? 1 : 3;
+        this.fbx = "url".equals(jSONObject.optString("type")) ? 1 : 3;
     }
 
-    public JSONArray bHd() {
-        return this.eTg;
+    public JSONArray bIW() {
+        return this.fbC;
     }
 
-    public String bHe() {
-        return this.eTe;
+    public String bIX() {
+        return this.fbA;
     }
 
-    public String bHf() {
-        return this.eTf;
+    public String bIY() {
+        return this.fbB;
     }
 
     public String getMediaType() {

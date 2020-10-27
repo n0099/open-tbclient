@@ -10,147 +10,147 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class LiveUIConfigInitialize {
-    private Map<String, String> buH = new HashMap();
+    private Map<String, String> bwN = new HashMap();
 
     private LiveUIConfigInitialize() {
         init();
     }
 
     public void init() {
-        String PT = PT();
-        if (!TextUtils.isEmpty(PT)) {
-            hL(PT);
+        String QM = QM();
+        if (!TextUtils.isEmpty(QM)) {
+            ib(QM);
         }
     }
 
-    private void hL(String str) {
+    private void ib(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
             if (jSONObject != null) {
                 JSONObject optJSONObject = jSONObject.optJSONObject("gift_panel");
                 if (optJSONObject != null) {
-                    W(optJSONObject);
+                    Y(optJSONObject);
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("im_panel");
                 if (optJSONObject2 != null) {
-                    X(optJSONObject2);
+                    Z(optJSONObject2);
                 }
-                this.buH.put("charm_enter_view_bg", jSONObject.optString("charm_enter_view_bg"));
-                this.buH.put("ranklist_enter_view_bg", jSONObject.optString("ranklist_enter_view_bg"));
-                this.buH.put("audience_end_live_unfollow_btn_bg", jSONObject.optString("audience_end_live_unfollow_btn_bg"));
-                this.buH.put("audience_end_live_followed_btn_bg", jSONObject.optString("audience_end_live_followed_btn_bg"));
-                this.buH.put("host_end_live_view_charm_count_txt_color", jSONObject.optString("host_end_live_view_charm_count_txt_color"));
-                this.buH.put("start_live_btn_bg", jSONObject.optString("start_live_btn_bg"));
-                this.buH.put("ranklist_bottom_btn_bg", jSONObject.optString("ranklist_bottom_btn_bg"));
+                this.bwN.put("charm_enter_view_bg", jSONObject.optString("charm_enter_view_bg"));
+                this.bwN.put("ranklist_enter_view_bg", jSONObject.optString("ranklist_enter_view_bg"));
+                this.bwN.put("audience_end_live_unfollow_btn_bg", jSONObject.optString("audience_end_live_unfollow_btn_bg"));
+                this.bwN.put("audience_end_live_followed_btn_bg", jSONObject.optString("audience_end_live_followed_btn_bg"));
+                this.bwN.put("host_end_live_view_charm_count_txt_color", jSONObject.optString("host_end_live_view_charm_count_txt_color"));
+                this.bwN.put("start_live_btn_bg", jSONObject.optString("start_live_btn_bg"));
+                this.bwN.put("ranklist_bottom_btn_bg", jSONObject.optString("ranklist_bottom_btn_bg"));
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("person_card");
                 if (optJSONObject3 != null) {
-                    V(optJSONObject3);
+                    X(optJSONObject3);
                 }
                 JSONObject optJSONObject4 = jSONObject.optJSONObject("tab_indicator");
                 if (optJSONObject4 != null) {
-                    U(optJSONObject4);
+                    W(optJSONObject4);
                 }
                 JSONObject optJSONObject5 = jSONObject.optJSONObject("attention_btn");
                 if (optJSONObject5 != null) {
-                    T(optJSONObject5);
+                    V(optJSONObject5);
                 }
-                this.buH.put("host_header_attention_btn_bg", jSONObject.optString("host_header_attention_btn_bg"));
+                this.bwN.put("host_header_attention_btn_bg", jSONObject.optString("host_header_attention_btn_bg"));
                 JSONObject optJSONObject6 = jSONObject.optJSONObject("top_tip_panel");
                 if (optJSONObject6 != null) {
-                    S(optJSONObject6);
+                    U(optJSONObject6);
                 }
                 JSONObject optJSONObject7 = jSONObject.optJSONObject("bottom_dialog");
                 if (optJSONObject7 != null) {
-                    R(optJSONObject7);
+                    T(optJSONObject7);
                 }
                 JSONObject optJSONObject8 = jSONObject.optJSONObject("function_btn_bg_res");
                 if (optJSONObject8 != null) {
-                    Q(optJSONObject8);
+                    S(optJSONObject8);
                 }
-                this.buH.put("user_sex_male_icon", jSONObject.optString("user_sex_male_icon"));
-                this.buH.put("user_sex_female_icon", jSONObject.optString("user_sex_female_icon"));
-                this.buH.put("default_user_header_icon", jSONObject.optString("default_user_header_icon"));
-                this.buH.put("no_list_tip_img", jSONObject.optString("no_list_tip_img"));
-                this.buH.put("no_data_tip_img", jSONObject.optString("no_data_tip_img"));
-                this.buH.put("no_network_tip_img", jSONObject.optString("no_network_tip_img"));
-                this.buH.put("data_err_tip_img", jSONObject.optString("data_err_tip_img"));
-                this.buH.put("no_fans_tip_img", jSONObject.optString("no_fans_tip_img"));
+                this.bwN.put("user_sex_male_icon", jSONObject.optString("user_sex_male_icon"));
+                this.bwN.put("user_sex_female_icon", jSONObject.optString("user_sex_female_icon"));
+                this.bwN.put("default_user_header_icon", jSONObject.optString("default_user_header_icon"));
+                this.bwN.put("no_list_tip_img", jSONObject.optString("no_list_tip_img"));
+                this.bwN.put("no_data_tip_img", jSONObject.optString("no_data_tip_img"));
+                this.bwN.put("no_network_tip_img", jSONObject.optString("no_network_tip_img"));
+                this.bwN.put("data_err_tip_img", jSONObject.optString("data_err_tip_img"));
+                this.bwN.put("no_fans_tip_img", jSONObject.optString("no_fans_tip_img"));
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    private void Q(JSONObject jSONObject) {
-        this.buH.put("light_switch_normal", jSONObject.optString("light_switch_normal"));
-        this.buH.put("light_switch_pressed", jSONObject.optString("light_switch_pressed"));
-        this.buH.put("exchange_camera_normal", jSONObject.optString("exchange_camera_normal"));
-        this.buH.put("exchange_camera_pressed", jSONObject.optString("exchange_camera_pressed"));
-        this.buH.put("beauty_normal", jSONObject.optString("beauty_normal"));
-        this.buH.put("beauty_pressed", jSONObject.optString("beauty_pressed"));
-        this.buH.put("prepare_close_normal", jSONObject.optString("prepare_close_normal"));
-        this.buH.put("prepare_close_pressed", jSONObject.optString("prepare_close_pressed"));
-        this.buH.put("pk_normal", jSONObject.optString("pk_normal"));
-        this.buH.put("pk_pressed", jSONObject.optString("pk_pressed"));
-        this.buH.put("more_normal", jSONObject.optString("more_normal"));
-        this.buH.put("more_pressed", jSONObject.optString("more_pressed"));
-        this.buH.put("send_msg_normal", jSONObject.optString("send_msg_normal"));
-        this.buH.put("send_msg_pressed", jSONObject.optString("send_msg_pressed"));
-        this.buH.put("share_normal", jSONObject.optString("share_normal"));
-        this.buH.put("share_pressed", jSONObject.optString("share_pressed"));
-        this.buH.put("send_gift_normal", jSONObject.optString("send_gift_normal"));
-        this.buH.put("send_gift_pressed", jSONObject.optString("send_gift_pressed"));
-        this.buH.put("zan_normal", jSONObject.optString("zan_normal"));
-        this.buH.put("zan_pressed", jSONObject.optString("zan_pressed"));
-    }
-
-    private void R(JSONObject jSONObject) {
-        this.buH.put("bottom_tip_panel_bg", jSONObject.optString("bottom_tip_panel_bg"));
-        this.buH.put("bottom_tip_panel_item_bg", jSONObject.optString("bottom_tip_panel_item_bg"));
-        this.buH.put("bottom_tip_panel_item_txt_color", jSONObject.optString("bottom_tip_panel_item_txt_color"));
-        this.buH.put("bottom_tip_panel_title_item_bg", jSONObject.optString("bottom_tip_panel_title_item_bg"));
-        this.buH.put("bottom_tip_panel_title_item_txt_color", jSONObject.optString("bottom_tip_panel_title_item_txt_color"));
-    }
-
     private void S(JSONObject jSONObject) {
-        this.buH.put("top_tip_bg", jSONObject.optString("top_tip_bg"));
-        this.buH.put("top_tip_txt_color", jSONObject.optString("top_tip_txt_color"));
-        this.buH.put("top_tip_btn_bg", jSONObject.optString("top_tip_btn_bg"));
-        this.buH.put("top_tip_btn_txt_color", jSONObject.optString("top_tip_btn_txt_color"));
+        this.bwN.put("light_switch_normal", jSONObject.optString("light_switch_normal"));
+        this.bwN.put("light_switch_pressed", jSONObject.optString("light_switch_pressed"));
+        this.bwN.put("exchange_camera_normal", jSONObject.optString("exchange_camera_normal"));
+        this.bwN.put("exchange_camera_pressed", jSONObject.optString("exchange_camera_pressed"));
+        this.bwN.put("beauty_normal", jSONObject.optString("beauty_normal"));
+        this.bwN.put("beauty_pressed", jSONObject.optString("beauty_pressed"));
+        this.bwN.put("prepare_close_normal", jSONObject.optString("prepare_close_normal"));
+        this.bwN.put("prepare_close_pressed", jSONObject.optString("prepare_close_pressed"));
+        this.bwN.put("pk_normal", jSONObject.optString("pk_normal"));
+        this.bwN.put("pk_pressed", jSONObject.optString("pk_pressed"));
+        this.bwN.put("more_normal", jSONObject.optString("more_normal"));
+        this.bwN.put("more_pressed", jSONObject.optString("more_pressed"));
+        this.bwN.put("send_msg_normal", jSONObject.optString("send_msg_normal"));
+        this.bwN.put("send_msg_pressed", jSONObject.optString("send_msg_pressed"));
+        this.bwN.put("share_normal", jSONObject.optString("share_normal"));
+        this.bwN.put("share_pressed", jSONObject.optString("share_pressed"));
+        this.bwN.put("send_gift_normal", jSONObject.optString("send_gift_normal"));
+        this.bwN.put("send_gift_pressed", jSONObject.optString("send_gift_pressed"));
+        this.bwN.put("zan_normal", jSONObject.optString("zan_normal"));
+        this.bwN.put("zan_pressed", jSONObject.optString("zan_pressed"));
     }
 
     private void T(JSONObject jSONObject) {
-        this.buH.put("attention_btn_unfollow_bg", jSONObject.optString("attention_btn_unfollow_bg"));
-        this.buH.put("attention_btn_unfollow_text_color", jSONObject.optString("attention_btn_unfollow_text_color"));
-        this.buH.put("attention_btn_followed_bg", jSONObject.optString("attention_btn_followed_bg"));
-        this.buH.put("attention_btn_followed_text_color", jSONObject.optString("attention_btn_followed_text_color"));
+        this.bwN.put("bottom_tip_panel_bg", jSONObject.optString("bottom_tip_panel_bg"));
+        this.bwN.put("bottom_tip_panel_item_bg", jSONObject.optString("bottom_tip_panel_item_bg"));
+        this.bwN.put("bottom_tip_panel_item_txt_color", jSONObject.optString("bottom_tip_panel_item_txt_color"));
+        this.bwN.put("bottom_tip_panel_title_item_bg", jSONObject.optString("bottom_tip_panel_title_item_bg"));
+        this.bwN.put("bottom_tip_panel_title_item_txt_color", jSONObject.optString("bottom_tip_panel_title_item_txt_color"));
     }
 
     private void U(JSONObject jSONObject) {
-        this.buH.put("tab_indicator_start_color", jSONObject.optString("tab_indicator_start_color"));
-        this.buH.put("tab_indicator_end_color", jSONObject.optString("tab_indicator_end_color"));
+        this.bwN.put("top_tip_bg", jSONObject.optString("top_tip_bg"));
+        this.bwN.put("top_tip_txt_color", jSONObject.optString("top_tip_txt_color"));
+        this.bwN.put("top_tip_btn_bg", jSONObject.optString("top_tip_btn_bg"));
+        this.bwN.put("top_tip_btn_txt_color", jSONObject.optString("top_tip_btn_txt_color"));
     }
 
     private void V(JSONObject jSONObject) {
-        this.buH.put("person_card_follow_txt_unfollow_color", jSONObject.optString("person_card_follow_txt_unfollow_color"));
-        this.buH.put("person_card_follow_txt_followed_color", jSONObject.optString("person_card_follow_txt_followed_color"));
+        this.bwN.put("attention_btn_unfollow_bg", jSONObject.optString("attention_btn_unfollow_bg"));
+        this.bwN.put("attention_btn_unfollow_text_color", jSONObject.optString("attention_btn_unfollow_text_color"));
+        this.bwN.put("attention_btn_followed_bg", jSONObject.optString("attention_btn_followed_bg"));
+        this.bwN.put("attention_btn_followed_text_color", jSONObject.optString("attention_btn_followed_text_color"));
     }
 
     private void W(JSONObject jSONObject) {
-        this.buH.put("gift_send_btn_bg", jSONObject.optString("gift_send_btn_bg"));
-        this.buH.put("gift_label_common_bg", jSONObject.optString("gift_label_common_bg"));
-        this.buH.put("gift_label_fans_bg", jSONObject.optString("gift_label_fans_bg"));
-        this.buH.put("gift_num_btn_bg", jSONObject.optString("gift_num_btn_bg"));
-        this.buH.put("gift_num_edit_cursor_color", jSONObject.optString("gift_num_edit_cursor_color"));
+        this.bwN.put("tab_indicator_start_color", jSONObject.optString("tab_indicator_start_color"));
+        this.bwN.put("tab_indicator_end_color", jSONObject.optString("tab_indicator_end_color"));
     }
 
     private void X(JSONObject jSONObject) {
-        this.buH.put("im_send_btn_bg", jSONObject.optString("im_send_btn_bg"));
-        this.buH.put("im_edit_hint_txt", jSONObject.optString("im_edit_hint_txt"));
-        this.buH.put("im_edit_hint_txt_color", jSONObject.optString("im_edit_hint_txt_color"));
-        this.buH.put("im_edit_cursor_color", jSONObject.optString("im_edit_cursor_color"));
-        this.buH.put("im_msg_common_bg", jSONObject.optString("im_msg_common_bg"));
-        this.buH.put("im_msg_fans_bg", jSONObject.optString("im_msg_fans_bg"));
+        this.bwN.put("person_card_follow_txt_unfollow_color", jSONObject.optString("person_card_follow_txt_unfollow_color"));
+        this.bwN.put("person_card_follow_txt_followed_color", jSONObject.optString("person_card_follow_txt_followed_color"));
+    }
+
+    private void Y(JSONObject jSONObject) {
+        this.bwN.put("gift_send_btn_bg", jSONObject.optString("gift_send_btn_bg"));
+        this.bwN.put("gift_label_common_bg", jSONObject.optString("gift_label_common_bg"));
+        this.bwN.put("gift_label_fans_bg", jSONObject.optString("gift_label_fans_bg"));
+        this.bwN.put("gift_num_btn_bg", jSONObject.optString("gift_num_btn_bg"));
+        this.bwN.put("gift_num_edit_cursor_color", jSONObject.optString("gift_num_edit_cursor_color"));
+    }
+
+    private void Z(JSONObject jSONObject) {
+        this.bwN.put("im_send_btn_bg", jSONObject.optString("im_send_btn_bg"));
+        this.bwN.put("im_edit_hint_txt", jSONObject.optString("im_edit_hint_txt"));
+        this.bwN.put("im_edit_hint_txt_color", jSONObject.optString("im_edit_hint_txt_color"));
+        this.bwN.put("im_edit_cursor_color", jSONObject.optString("im_edit_cursor_color"));
+        this.bwN.put("im_msg_common_bg", jSONObject.optString("im_msg_common_bg"));
+        this.bwN.put("im_msg_fans_bg", jSONObject.optString("im_msg_fans_bg"));
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [297=4] */
@@ -158,7 +158,7 @@ public class LiveUIConfigInitialize {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private String PT() {
+    private String QM() {
         BufferedInputStream bufferedInputStream;
         Throwable th;
         String str = null;

@@ -27,204 +27,204 @@ import com.baidu.tieba.hottopic.view.indicator.c;
 import java.util.List;
 /* loaded from: classes21.dex */
 public class b {
-    private CustomViewPager ewX;
-    private NoNetworkView fRL;
-    private HotRanklistActivity jyQ;
-    private com.baidu.tieba.hottopic.view.indicator.a jyR;
-    private ScrollFragmentAdapter jyS;
-    private FrameLayout jyT;
-    private com.baidu.tieba.hottopic.view.indicator.c jyU;
-    private ImageView jyW;
+    private CustomViewPager eFw;
+    private NoNetworkView gbO;
+    private HotRanklistActivity jLp;
+    private com.baidu.tieba.hottopic.view.indicator.a jLq;
+    private ScrollFragmentAdapter jLr;
+    private FrameLayout jLs;
+    private com.baidu.tieba.hottopic.view.indicator.c jLt;
+    private ImageView jLv;
     private View rootView;
     private int topHeight;
     private NavigationBar mNavigationBar = null;
-    private ImageView jrA = null;
-    public boolean jyV = true;
-    private NoNetworkView.a ime = null;
-    private View.OnClickListener jyX = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.b.1
+    private ImageView jEa = null;
+    public boolean jLu = true;
+    private NoNetworkView.a iyC = null;
+    private View.OnClickListener jLw = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.cHC()) {
-                b.this.bEe();
+            if (b.this.cKJ()) {
+                b.this.bFX();
                 view.setContentDescription("展开");
                 return;
             }
-            b.this.cHE();
+            b.this.cKL();
             view.setContentDescription("折叠");
         }
     };
-    private final com.baidu.tbadk.widget.layout.e frT = new com.baidu.tbadk.widget.layout.e() { // from class: com.baidu.tieba.hottopic.view.b.2
+    private final com.baidu.tbadk.widget.layout.e fAq = new com.baidu.tbadk.widget.layout.e() { // from class: com.baidu.tieba.hottopic.view.b.2
         @Override // com.baidu.tbadk.widget.layout.e
         public void d(View view, int i, int i2, int i3, int i4) {
             b.this.topHeight = i2;
-            if (b.this.jyS != null) {
-                b.this.jyS.f(view, i, i2, i3, i4);
+            if (b.this.jLr != null) {
+                b.this.jLr.f(view, i, i2, i3, i4);
             }
-            if (b.this.jyU != null) {
-                b.this.jyU.BK(i2);
+            if (b.this.jLt != null) {
+                b.this.jLt.Cd(i2);
             }
         }
     };
-    private c.a jyY = new c.a() { // from class: com.baidu.tieba.hottopic.view.b.3
+    private c.a jLx = new c.a() { // from class: com.baidu.tieba.hottopic.view.b.3
         @Override // com.baidu.tieba.hottopic.view.indicator.c.a
-        public void cHI() {
-            if (b.this.jyR != null) {
-                b.this.jyR.cIa();
+        public void cKP() {
+            if (b.this.jLq != null) {
+                b.this.jLq.cLh();
             }
-            if (b.this.jyU != null) {
-                b.this.jyU.a((c.a) null);
-                b.this.jyV = true;
-                b.this.jyU = null;
+            if (b.this.jLt != null) {
+                b.this.jLt.a((c.a) null);
+                b.this.jLu = true;
+                b.this.jLt = null;
             }
         }
     };
 
-    public boolean cHC() {
-        return this.jyU != null && this.jyU.isShowing();
+    public boolean cKJ() {
+        return this.jLt != null && this.jLt.isShowing();
     }
 
     public b(HotRanklistActivity hotRanklistActivity) {
-        this.jyQ = hotRanklistActivity;
+        this.jLp = hotRanklistActivity;
         initView();
     }
 
     public void onChangeSkinType(int i) {
-        this.mNavigationBar.onChangeSkinType(this.jyQ.getPageContext(), i);
-        ap.setImageResource(this.jrA, R.drawable.icon_nav_hot_share_selector);
-        SvgManager.bmU().a(this.jrA, R.drawable.icon_pure_topbar_share44_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        this.jyR.onChangeSkinType(i);
-        this.jyQ.getLayoutMode().setNightMode(i == 1);
-        this.jyQ.getLayoutMode().onModeChanged(this.rootView);
-        this.fRL.onChangeSkinType(this.jyQ.getPageContext(), i);
-        this.jyS.dB(null);
-        ap.setBackgroundColor(this.jyW, R.color.cp_bg_line_c);
-        ap.setBackgroundColor(this.jyT, R.color.cp_bg_line_d);
+        this.mNavigationBar.onChangeSkinType(this.jLp.getPageContext(), i);
+        ap.setImageResource(this.jEa, R.drawable.icon_nav_hot_share_selector);
+        SvgManager.boN().a(this.jEa, R.drawable.icon_pure_topbar_share44_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.jLq.onChangeSkinType(i);
+        this.jLp.getLayoutMode().setNightMode(i == 1);
+        this.jLp.getLayoutMode().onModeChanged(this.rootView);
+        this.gbO.onChangeSkinType(this.jLp.getPageContext(), i);
+        this.jLr.dK(null);
+        ap.setBackgroundColor(this.jLv, R.color.cp_bg_line_c);
+        ap.setBackgroundColor(this.jLs, R.color.cp_bg_line_d);
     }
 
     private void initView() {
-        if (this.jyQ != null) {
-            this.rootView = LayoutInflater.from(this.jyQ.getActivity()).inflate(R.layout.topic_scroll_fragment_tabhost, (ViewGroup) null);
-            this.jyQ.setContentView(this.rootView);
-            this.jyT = (FrameLayout) this.jyQ.findViewById(R.id.topic_tab_widget_content_container);
-            this.mNavigationBar = (NavigationBar) this.jyQ.findViewById(R.id.topic_fragment_navigation_bar);
+        if (this.jLp != null) {
+            this.rootView = LayoutInflater.from(this.jLp.getActivity()).inflate(R.layout.topic_scroll_fragment_tabhost, (ViewGroup) null);
+            this.jLp.setContentView(this.rootView);
+            this.jLs = (FrameLayout) this.jLp.findViewById(R.id.topic_tab_widget_content_container);
+            this.mNavigationBar = (NavigationBar) this.jLp.findViewById(R.id.topic_fragment_navigation_bar);
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.jrA = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.hot_topic_share, new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.b.4
+            this.jEa = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.hot_topic_share, new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.b.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (!j.isNetWorkAvailable()) {
-                        b.this.jyQ.showToast(R.string.topic_share_no_network);
-                    } else if (ShareSwitch.isOn() || bg.checkUpIsLogin(b.this.jyQ)) {
-                        TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).dK("obj_param1", "6"));
-                        b.this.jyQ.cGR();
+                        b.this.jLp.showToast(R.string.topic_share_no_network);
+                    } else if (ShareSwitch.isOn() || bg.checkUpIsLogin(b.this.jLp)) {
+                        TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).dR("obj_param1", "6"));
+                        b.this.jLp.cJY();
                     }
                 }
             });
             this.mNavigationBar.setCenterTextTitle(TbadkCoreApplication.getInst().getString(R.string.hot_topic_card_title));
-            this.fRL = (NoNetworkView) this.jyQ.findViewById(R.id.topic_view_no_network);
-            this.jyW = (ImageView) this.rootView.findViewById(R.id.topic_tab_bottom_line);
-            this.jyR = new com.baidu.tieba.hottopic.view.indicator.a(this.jyQ.getActivity(), this.jyQ.findViewById(R.id.topic_tab_container));
-            this.jyR.D(this.jyX);
-            ((ObservedChangeLinearLayout) this.jyQ.findViewById(R.id.topic_fragment_tab_layout)).setOnSizeChangeListener(this.frT);
-            this.ewX = (CustomViewPager) this.jyQ.findViewById(R.id.topic_tab_widget_view_pager);
-            this.jyS = new ScrollFragmentAdapter(this.jyQ.getActivity());
-            this.ewX.setAdapter(this.jyS);
+            this.gbO = (NoNetworkView) this.jLp.findViewById(R.id.topic_view_no_network);
+            this.jLv = (ImageView) this.rootView.findViewById(R.id.topic_tab_bottom_line);
+            this.jLq = new com.baidu.tieba.hottopic.view.indicator.a(this.jLp.getActivity(), this.jLp.findViewById(R.id.topic_tab_container));
+            this.jLq.D(this.jLw);
+            ((ObservedChangeLinearLayout) this.jLp.findViewById(R.id.topic_fragment_tab_layout)).setOnSizeChangeListener(this.fAq);
+            this.eFw = (CustomViewPager) this.jLp.findViewById(R.id.topic_tab_widget_view_pager);
+            this.jLr = new ScrollFragmentAdapter(this.jLp.getActivity());
+            this.eFw.setAdapter(this.jLr);
         }
     }
 
-    public void cHD() {
-        this.jyR.setViewPager(this.ewX);
+    public void cKK() {
+        this.jLq.setViewPager(this.eFw);
     }
 
     public int a(p pVar) {
-        if (this.jyS == null) {
+        if (this.jLr == null) {
             return -1;
         }
-        return this.jyS.b(pVar);
+        return this.jLr.b(pVar);
     }
 
     public void setCurrentTab(int i) {
-        if (i >= 0 && i < this.jyS.getCount()) {
-            this.ewX.setCurrentItem(i, false);
+        if (i >= 0 && i < this.jLr.getCount()) {
+            this.eFw.setCurrentItem(i, false);
         }
     }
 
     public int getCurrentTab() {
-        return this.ewX.getCurrentItem();
+        return this.eFw.getCurrentItem();
     }
 
-    public void cHE() {
+    public void cKL() {
         com.baidu.tieba.hottopic.data.j jVar;
-        if (this.jyU == null) {
-            this.jyU = new com.baidu.tieba.hottopic.view.indicator.c(this.jyT);
-            this.jyU.a(this.jyY);
+        if (this.jLt == null) {
+            this.jLt = new com.baidu.tieba.hottopic.view.indicator.c(this.jLs);
+            this.jLt.a(this.jLx);
         }
-        this.jyU.BL(this.topHeight);
-        if (!this.jyU.isShowing() && (jVar = (com.baidu.tieba.hottopic.data.j) y.getItem(this.jyS.cHZ(), 0)) != null) {
-            this.jyU.a(this.jyQ.getActivity(), jVar.jxt, this.ewX.getCurrentItem());
-            if (this.jyR != null) {
-                this.jyR.beZ();
+        this.jLt.Ce(this.topHeight);
+        if (!this.jLt.isShowing() && (jVar = (com.baidu.tieba.hottopic.data.j) y.getItem(this.jLr.cLg(), 0)) != null) {
+            this.jLt.a(this.jLp.getActivity(), jVar.jJS, this.eFw.getCurrentItem());
+            if (this.jLq != null) {
+                this.jLq.bgS();
             }
         }
     }
 
-    public void bEe() {
-        if (this.jyU != null) {
-            this.jyU.fp(this.jyQ.getActivity());
+    public void bFX() {
+        if (this.jLt != null) {
+            this.jLt.fq(this.jLp.getActivity());
         }
     }
 
-    public void Bz(int i) {
-        if (this.fRL != null) {
-            this.fRL.setVisibility(i);
+    public void BS(int i) {
+        if (this.gbO != null) {
+            this.gbO.setVisibility(i);
         }
     }
 
     public void g(NoNetworkView.a aVar) {
-        this.ime = aVar;
-        if (this.fRL != null) {
-            this.fRL.a(this.ime);
+        this.iyC = aVar;
+        if (this.gbO != null) {
+            this.gbO.a(this.iyC);
         }
     }
 
-    public View cHF() {
-        return this.jyT;
+    public View cKM() {
+        return this.jLs;
     }
 
-    public void dF(List<com.baidu.tieba.hottopic.data.j> list) {
-        this.jyS.dB(list);
+    public void dO(List<com.baidu.tieba.hottopic.data.j> list) {
+        this.jLr.dK(list);
     }
 
-    public void cHG() {
-        if (this.fRL != null && this.ime != null) {
-            this.fRL.b(this.ime);
+    public void cKN() {
+        if (this.gbO != null && this.iyC != null) {
+            this.gbO.b(this.iyC);
         }
     }
 
-    public void BA(int i) {
-        this.ewX.setVisibility(i);
+    public void BT(int i) {
+        this.eFw.setVisibility(i);
     }
 
-    public void BB(int i) {
-        if (this.jyR != null) {
-            this.jyR.setVisibility(i);
+    public void BU(int i) {
+        if (this.jLq != null) {
+            this.jLq.setVisibility(i);
         }
     }
 
-    public void SK() {
-        this.jyS.SK();
+    public void TK() {
+        this.jLr.TK();
     }
 
     public void showLoadingView() {
-        this.jyS.showLoadingView();
+        this.jLr.showLoadingView();
     }
 
-    public void cHH() {
-        this.jyS.qL(false);
+    public void cKO() {
+        this.jLr.rd(false);
     }
 
     public boolean onKeyBack() {
-        if (cHC()) {
-            bEe();
+        if (cKJ()) {
+            bFX();
             return true;
         }
         return false;

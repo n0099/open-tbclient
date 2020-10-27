@@ -18,25 +18,25 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class a implements l {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private Boolean cTL = null;
+    private Boolean dcj = null;
     private Context mContext = AppRuntime.getAppContext();
 
     @Override // com.baidu.swan.ubc.l
-    public m adW() {
-        return com.baidu.swan.apps.t.a.asM().adW();
+    public m afQ() {
+        return com.baidu.swan.apps.t.a.auG().afQ();
     }
 
     @Override // com.baidu.swan.ubc.l
-    public String ayF() {
-        d asi = com.baidu.swan.apps.t.a.asi();
-        return asi != null ? asi.acd() : "";
+    public String aAz() {
+        d aud = com.baidu.swan.apps.t.a.aud();
+        return aud != null ? aud.adX() : "";
     }
 
     @Override // com.baidu.swan.ubc.l
-    public boolean pW(String str) {
+    public boolean qp(String str) {
         int i;
-        d asi = com.baidu.swan.apps.t.a.asi();
-        String str2 = asi != null ? asi.getSwitch("ANDROID_UBC_SAMPLE_" + str, "") : "";
+        d aud = com.baidu.swan.apps.t.a.aud();
+        String str2 = aud != null ? aud.getSwitch("ANDROID_UBC_SAMPLE_" + str, "") : "";
         if (TextUtils.isEmpty(str2)) {
             return false;
         }
@@ -50,56 +50,56 @@ public class a implements l {
     }
 
     @Override // com.baidu.swan.ubc.l
-    public boolean ayG() {
-        return DEBUG && PreferenceManager.getDefaultSharedPreferences(com.baidu.swan.apps.t.a.asf()).getBoolean("KEY_UBC_DEBUG", true);
+    public boolean aAA() {
+        return DEBUG && PreferenceManager.getDefaultSharedPreferences(com.baidu.swan.apps.t.a.aua()).getBoolean("KEY_UBC_DEBUG", true);
     }
 
     @Override // com.baidu.swan.ubc.l
-    public boolean ayH() {
-        return com.baidu.swan.apps.ad.a.a.ayH() && (ayG() || com.baidu.swan.apps.b.cgi);
+    public boolean aAB() {
+        return com.baidu.swan.apps.ad.a.a.aAB() && (aAA() || com.baidu.swan.apps.b.coI);
     }
 
     @Override // com.baidu.swan.ubc.l
-    public boolean ayI() {
-        if (this.cTL == null) {
-            this.cTL = Boolean.valueOf(com.baidu.swan.apps.t.a.asi().getSwitch("swan_ceres_add_counter", false));
+    public boolean aAC() {
+        if (this.dcj == null) {
+            this.dcj = Boolean.valueOf(com.baidu.swan.apps.t.a.aud().getSwitch("swan_ceres_add_counter", false));
         }
-        return this.cTL.booleanValue();
+        return this.dcj.booleanValue();
     }
 
     @Override // com.baidu.swan.ubc.l
     public void a(String str, String str2, int i, String str3, int i2) {
-        com.baidu.swan.apps.t.a.asN().a(str, str2, i, str3, i2);
+        com.baidu.swan.apps.t.a.auH().a(str, str2, i, str3, i2);
     }
 
     @Override // com.baidu.swan.ubc.l
     public void a(String str, String str2, int i, String str3, long j, int i2) {
-        com.baidu.swan.apps.t.a.asN().a(str, str2, i, str3, j, i2);
+        com.baidu.swan.apps.t.a.auH().a(str, str2, i, str3, j, i2);
     }
 
     @Override // com.baidu.swan.ubc.l
     public void h(String str, int i, String str2) {
-        com.baidu.swan.apps.t.a.asN().h(str, i, str2);
+        com.baidu.swan.apps.t.a.auH().h(str, i, str2);
     }
 
     @Override // com.baidu.swan.ubc.l
     public void a(String str, int i, JSONArray jSONArray) {
-        com.baidu.swan.apps.t.a.asN().a(str, i, jSONArray);
+        com.baidu.swan.apps.t.a.auH().a(str, i, jSONArray);
     }
 
     @Override // com.baidu.swan.ubc.l
     public void I(String str, int i) {
-        com.baidu.swan.apps.t.a.asN().I(str, i);
+        com.baidu.swan.apps.t.a.auH().I(str, i);
     }
 
     @Override // com.baidu.swan.ubc.l
     public String getDeviceId(Context context) {
-        return com.baidu.swan.apps.t.a.ask().bq(com.baidu.swan.apps.t.a.asf());
+        return com.baidu.swan.apps.t.a.auf().bq(com.baidu.swan.apps.t.a.aua());
     }
 
     @Override // com.baidu.swan.ubc.l
     public String getHostName() {
-        return com.baidu.swan.apps.t.a.asS().getHostName();
+        return com.baidu.swan.apps.t.a.auM().getHostName();
     }
 
     @Override // com.baidu.swan.ubc.l
@@ -109,38 +109,38 @@ public class a implements l {
 
     @Override // com.baidu.swan.ubc.l
     public String getUserId(Context context) {
-        return com.baidu.swan.apps.t.a.ask().bp(com.baidu.swan.apps.t.a.asf());
+        return com.baidu.swan.apps.t.a.auf().bp(com.baidu.swan.apps.t.a.aua());
     }
 
     @Override // com.baidu.swan.ubc.l
     public String getAppId() {
-        e ajI = f.avu().ajI();
-        return ajI != null ? ajI.id : "";
+        e alC = f.axo().alC();
+        return alC != null ? alC.id : "";
     }
 
     @Override // com.baidu.swan.ubc.l
     public String getAppVersion() {
-        e ajI = f.avu().ajI();
-        return ajI != null ? ajI.abu().getVersion() : "";
+        e alC = f.axo().alC();
+        return alC != null ? alC.ado().getVersion() : "";
     }
 
     @Override // com.baidu.swan.ubc.l
-    public String att() {
-        return com.baidu.swan.apps.swancore.b.kk(abk());
+    public String avn() {
+        return com.baidu.swan.apps.swancore.b.kv(ade());
     }
 
     @Override // com.baidu.swan.ubc.l
-    public String ats() {
+    public String avm() {
         return c.getVersion();
     }
 
     @Override // com.baidu.swan.ubc.l
-    public int abk() {
-        return com.baidu.swan.apps.runtime.d.aCW().abk();
+    public int ade() {
+        return com.baidu.swan.apps.runtime.d.aEQ().ade();
     }
 
     @Override // com.baidu.swan.ubc.l
-    public ExecutorService adx() {
-        return com.baidu.swan.apps.t.a.asN().adx();
+    public ExecutorService afr() {
+        return com.baidu.swan.apps.t.a.auH().afr();
     }
 }

@@ -1,26 +1,26 @@
 package com.baidu.adp.lib.network.http.a;
 /* loaded from: classes.dex */
 public class c {
-    private int LU;
-    private String MA;
-    private int MC;
-    private long MD;
-    private String Mx;
+    private int LV;
+    private String MC;
+    private int MD;
+    private long ME;
+    private String My;
     private String exception;
-    private boolean My = false;
     private boolean Mz = false;
+    private boolean MA = false;
     private int LD = 0;
 
     public void am(boolean z) {
-        this.My = z;
+        this.Mz = z;
     }
 
     public boolean mJ() {
-        return this.Mz;
+        return this.MA;
     }
 
     public void an(boolean z) {
-        this.Mz = z;
+        this.MA = z;
     }
 
     public void setException(String str) {
@@ -36,34 +36,34 @@ public class c {
     }
 
     public void bM(String str) {
-        this.MA = str;
+        this.MC = str;
     }
 
     public String mL() {
-        return this.MA;
+        return this.MC;
     }
 
     public void as(int i) {
-        this.MC = i;
+        this.MD = i;
     }
 
     public void G(long j) {
-        this.MD = j;
+        this.ME = j;
     }
 
     public String toString() {
-        return "isFromNet_" + this.My + "-statType_" + this.MC + "-dnsErr_" + this.exception + "-hasRetry_" + this.LD + "-cost_" + this.MD + "-ipIndex_" + this.LU + "-ipResult_" + this.Mx;
+        return "isFromNet_" + this.Mz + "-statType_" + this.MD + "-dnsErr_" + this.exception + "-hasRetry_" + this.LD + "-cost_" + this.ME + "-ipIndex_" + this.LV + "-ipResult_" + this.My;
     }
 
     public String mM() {
-        return this.Mx;
+        return this.My;
     }
 
     public void bN(String str) {
-        this.Mx = str;
+        this.My = str;
     }
 
     public void ao(int i) {
-        this.LU = i;
+        this.LV = i;
     }
 }

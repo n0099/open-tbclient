@@ -11,13 +11,13 @@ import com.baidu.tbadk.core.util.be;
 import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class h extends b<com.baidu.tieba.e.e> {
-    private View hEp;
-    private View hEq;
-    private TextView hEs;
-    private TextView hEt;
-    private TextView hEu;
-    private TextView hEv;
-    private TextView hEw;
+    private View hQL;
+    private View hQM;
+    private TextView hQO;
+    private TextView hQP;
+    private TextView hQQ;
+    private TextView hQR;
+    private TextView hQS;
     private String mForumId;
 
     public h(TbPageContext<?> tbPageContext) {
@@ -26,17 +26,17 @@ public class h extends b<com.baidu.tieba.e.e> {
     }
 
     private void init(View view) {
-        this.hEs = (TextView) view.findViewById(R.id.card_frs_game_hot_title);
-        this.hEt = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_1);
-        this.hEu = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_2);
-        this.hEv = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_3);
-        this.hEw = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_4);
-        this.hEt.setOnClickListener(this);
-        this.hEu.setOnClickListener(this);
-        this.hEv.setOnClickListener(this);
-        this.hEw.setOnClickListener(this);
-        this.hEp = view.findViewById(R.id.divider_line_1);
-        this.hEq = view.findViewById(R.id.divider_line_2);
+        this.hQO = (TextView) view.findViewById(R.id.card_frs_game_hot_title);
+        this.hQP = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_1);
+        this.hQQ = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_2);
+        this.hQR = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_3);
+        this.hQS = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_4);
+        this.hQP.setOnClickListener(this);
+        this.hQQ.setOnClickListener(this);
+        this.hQR.setOnClickListener(this);
+        this.hQS.setOnClickListener(this);
+        this.hQL = view.findViewById(R.id.divider_line_1);
+        this.hQM = view.findViewById(R.id.divider_line_2);
     }
 
     public void setForumId(String str) {
@@ -46,13 +46,13 @@ public class h extends b<com.baidu.tieba.e.e> {
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         ap.setBackgroundResource(getView(), R.color.cp_bg_line_d);
-        ap.setBackgroundResource(this.hEp, R.color.cp_bg_line_e);
-        ap.setBackgroundResource(this.hEq, R.color.cp_bg_line_e);
-        ap.setViewTextColor(this.hEs, R.color.cp_cont_f, 1);
-        ap.setViewTextColor(this.hEt, R.color.cp_cont_b, 1);
-        ap.setViewTextColor(this.hEu, R.color.cp_cont_b, 1);
-        ap.setViewTextColor(this.hEv, R.color.cp_cont_b, 1);
-        ap.setViewTextColor(this.hEw, R.color.cp_cont_b, 1);
+        ap.setBackgroundResource(this.hQL, R.color.cp_bg_line_e);
+        ap.setBackgroundResource(this.hQM, R.color.cp_bg_line_e);
+        ap.setViewTextColor(this.hQO, R.color.cp_cont_f, 1);
+        ap.setViewTextColor(this.hQP, R.color.cp_cont_b, 1);
+        ap.setViewTextColor(this.hQQ, R.color.cp_cont_b, 1);
+        ap.setViewTextColor(this.hQR, R.color.cp_cont_b, 1);
+        ap.setViewTextColor(this.hQS, R.color.cp_cont_b, 1);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -63,42 +63,42 @@ public class h extends b<com.baidu.tieba.e.e> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.e.e eVar) {
-        if (eVar != null && eVar.cke() != null) {
-            if (!TextUtils.isEmpty(eVar.cke().title)) {
-                this.hEs.setText(eVar.cke().title);
+        if (eVar != null && eVar.cnl() != null) {
+            if (!TextUtils.isEmpty(eVar.cnl().title)) {
+                this.hQO.setText(eVar.cnl().title);
             }
-            this.hEt.setVisibility(8);
-            this.hEu.setVisibility(8);
-            this.hEv.setVisibility(8);
-            this.hEw.setVisibility(8);
-            if (eVar.cke().sub_nodes.size() >= 1) {
-                this.hEt.setVisibility(0);
-                this.hEt.setTag(eVar.cke().sub_nodes.get(0).url);
-                this.hEt.setText(eVar.cke().sub_nodes.get(0).title);
+            this.hQP.setVisibility(8);
+            this.hQQ.setVisibility(8);
+            this.hQR.setVisibility(8);
+            this.hQS.setVisibility(8);
+            if (eVar.cnl().sub_nodes.size() >= 1) {
+                this.hQP.setVisibility(0);
+                this.hQP.setTag(eVar.cnl().sub_nodes.get(0).url);
+                this.hQP.setText(eVar.cnl().sub_nodes.get(0).title);
             }
-            if (eVar.cke().sub_nodes.size() >= 2) {
-                this.hEu.setVisibility(0);
-                this.hEu.setTag(eVar.cke().sub_nodes.get(1).url);
-                this.hEu.setText(eVar.cke().sub_nodes.get(1).title);
+            if (eVar.cnl().sub_nodes.size() >= 2) {
+                this.hQQ.setVisibility(0);
+                this.hQQ.setTag(eVar.cnl().sub_nodes.get(1).url);
+                this.hQQ.setText(eVar.cnl().sub_nodes.get(1).title);
             }
-            if (eVar.cke().sub_nodes.size() >= 3) {
-                this.hEv.setVisibility(0);
-                this.hEv.setTag(eVar.cke().sub_nodes.get(2).url);
-                this.hEv.setText(eVar.cke().sub_nodes.get(2).title);
+            if (eVar.cnl().sub_nodes.size() >= 3) {
+                this.hQR.setVisibility(0);
+                this.hQR.setTag(eVar.cnl().sub_nodes.get(2).url);
+                this.hQR.setText(eVar.cnl().sub_nodes.get(2).title);
             }
-            if (eVar.cke().sub_nodes.size() >= 4) {
-                this.hEw.setVisibility(0);
-                this.hEw.setTag(eVar.cke().sub_nodes.get(3).url);
-                this.hEw.setText(eVar.cke().sub_nodes.get(3).title);
+            if (eVar.cnl().sub_nodes.size() >= 4) {
+                this.hQS.setVisibility(0);
+                this.hQS.setTag(eVar.cnl().sub_nodes.get(3).url);
+                this.hQS.setText(eVar.cnl().sub_nodes.get(3).title);
             }
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.hEt || view == this.hEu || view == this.hEv || view == this.hEw) {
-            TiebaStatic.log(new aq("c13047").aj("obj_locate", 8).dK("fid", this.mForumId));
-            be.bmY().a((TbPageContext) com.baidu.adp.base.i.I(this.mTbPageContext.getPageActivity()), new String[]{(String) view.getTag()}, true);
+        if (view == this.hQP || view == this.hQQ || view == this.hQR || view == this.hQS) {
+            TiebaStatic.log(new aq("c13047").aj("obj_locate", 8).dR("fid", this.mForumId));
+            be.boR().a((TbPageContext) com.baidu.adp.base.i.I(this.mTbPageContext.getPageActivity()), new String[]{(String) view.getTag()}, true);
         }
     }
 }

@@ -11,11 +11,11 @@ import com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class e extends aa {
-    private com.baidu.swan.apps.c.b cgH;
+    private com.baidu.swan.apps.c.b cph;
 
     public e(j jVar) {
         super(jVar, "/swanAPI/rewardedVideoAd");
-        this.cgH = null;
+        this.cph = null;
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
@@ -28,17 +28,17 @@ public class e extends aa {
         String optString2 = b2.optString("action");
         b bVar = new b(callbackHandler, optString);
         a aVar = new a(unitedSchemeEntity, callbackHandler);
-        if (this.cgH == null) {
-            this.cgH = com.baidu.swan.apps.t.a.asJ().a(b2, bVar, aVar);
-            if (this.cgH == null) {
-                this.cgH = new com.baidu.swan.apps.c.a();
+        if (this.cph == null) {
+            this.cph = com.baidu.swan.apps.t.a.auD().a(b2, bVar, aVar);
+            if (this.cph == null) {
+                this.cph = new com.baidu.swan.apps.c.a();
             }
         }
         if (TextUtils.equals(optString2, "show")) {
-            this.cgH.a(b2, aVar);
+            this.cph.a(b2, aVar);
             return true;
         } else if (TextUtils.equals(optString2, TrackLoadSettingsAtom.TYPE)) {
-            this.cgH.a(b2, aVar, bVar);
+            this.cph.a(b2, aVar, bVar);
             return true;
         } else {
             return true;
@@ -47,23 +47,23 @@ public class e extends aa {
 
     /* loaded from: classes10.dex */
     private class a implements c {
-        private final UnitedSchemeEntity cgI;
-        private final CallbackHandler cgJ;
+        private final UnitedSchemeEntity cpi;
+        private final CallbackHandler cpj;
 
         public a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-            this.cgI = unitedSchemeEntity;
-            this.cgJ = callbackHandler;
+            this.cpi = unitedSchemeEntity;
+            this.cpj = callbackHandler;
         }
     }
 
     /* loaded from: classes10.dex */
     private class b implements d {
-        private final CallbackHandler cgJ;
-        private final String cgL;
+        private final CallbackHandler cpj;
+        private final String cpl;
 
         public b(CallbackHandler callbackHandler, String str) {
-            this.cgJ = callbackHandler;
-            this.cgL = str;
+            this.cpj = callbackHandler;
+            this.cpl = str;
         }
     }
 }

@@ -14,9 +14,9 @@ import com.tb.airbnb.lottie.j;
 /* loaded from: classes16.dex */
 public class c extends a {
     private final Rect dst;
-    @Nullable
-    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> oHu;
     private final Paint paint;
+    @Nullable
+    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> pyR;
     private final Rect src;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -33,8 +33,8 @@ public class c extends a {
         if (bitmap != null && !bitmap.isRecycled()) {
             float lb = com.tb.airbnb.lottie.d.f.lb();
             this.paint.setAlpha(i);
-            if (this.oHu != null) {
-                this.paint.setColorFilter(this.oHu.getValue());
+            if (this.pyR != null) {
+                this.paint.setColorFilter(this.pyR.getValue());
             }
             canvas.save();
             canvas.concat(matrix);
@@ -57,7 +57,7 @@ public class c extends a {
 
     @Nullable
     private Bitmap getBitmap() {
-        return this.lottieDrawable.bf(this.oJd.getRefId());
+        return this.lottieDrawable.bf(this.pAA.getRefId());
     }
 
     @Override // com.tb.airbnb.lottie.model.layer.a, com.tb.airbnb.lottie.model.f
@@ -65,9 +65,9 @@ public class c extends a {
         super.a((c) t, (com.tb.airbnb.lottie.e.c<c>) cVar);
         if (t == j.Cs) {
             if (cVar == null) {
-                this.oHu = null;
+                this.pyR = null;
             } else {
-                this.oHu = new p(cVar);
+                this.pyR = new p(cVar);
             }
         }
     }

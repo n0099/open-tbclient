@@ -29,7 +29,7 @@ public class c {
         if (es == null) {
             return null;
         }
-        return es.bxL();
+        return es.bzE();
     }
 
     public static TbPageTag eu(Context context) {
@@ -56,11 +56,11 @@ public class c {
     }
 
     public static aq a(aq aqVar, b bVar) {
-        return (bVar == null || aqVar == null) ? aqVar : a(aqVar, bVar.getPrePageTag(), bVar.bxL());
+        return (bVar == null || aqVar == null) ? aqVar : a(aqVar, bVar.getPrePageTag(), bVar.bzE());
     }
 
     public static aq b(aq aqVar, b bVar) {
-        return (bVar == null || aqVar == null) ? aqVar : b(aqVar, bVar.getPrePageTag(), bVar.bxL());
+        return (bVar == null || aqVar == null) ? aqVar : b(aqVar, bVar.getPrePageTag(), bVar.bzE());
     }
 
     public static aq a(aq aqVar, TbPageTag tbPageTag, TbPageTag tbPageTag2) {
@@ -69,12 +69,12 @@ public class c {
         }
         if (tbPageTag2 != null) {
             if (!TextUtils.isEmpty(tbPageTag2.locatePage)) {
-                aqVar.dK("obj_tab", tbPageTag2.locatePage);
+                aqVar.dR("obj_tab", tbPageTag2.locatePage);
             }
             aqVar.aj("sort_tab", tbPageTag2.sortType);
         }
         if (tbPageTag != null && !TextUtils.isEmpty(tbPageTag.locatePage)) {
-            aqVar.dK(GuildActivityConfig.FROM_PAGE, tbPageTag.locatePage);
+            aqVar.dR(GuildActivityConfig.FROM_PAGE, tbPageTag.locatePage);
             return aqVar;
         }
         return aqVar;
@@ -86,12 +86,12 @@ public class c {
         }
         if (tbPageTag2 != null) {
             if (!TextUtils.isEmpty(tbPageTag2.locatePage)) {
-                aqVar.dK("obj_page", tbPageTag2.locatePage);
+                aqVar.dR("obj_page", tbPageTag2.locatePage);
             }
             aqVar.aj("sort_tab", tbPageTag2.sortType);
         }
         if (tbPageTag != null && !TextUtils.isEmpty(tbPageTag.locatePage)) {
-            aqVar.dK("obj_tab", tbPageTag.locatePage);
+            aqVar.dR("obj_tab", tbPageTag.locatePage);
             return aqVar;
         }
         return aqVar;
@@ -102,7 +102,7 @@ public class c {
             return null;
         }
         if (!TextUtils.isEmpty(tbPageTag.locatePage)) {
-            aqVar.dK("obj_tab", tbPageTag.locatePage);
+            aqVar.dR("obj_tab", tbPageTag.locatePage);
         }
         aqVar.aj("sort_tab", tbPageTag.sortType);
         return aqVar;
@@ -115,7 +115,7 @@ public class c {
         TbPageTag eu = eu(context);
         if (eu != null) {
             if (!TextUtils.isEmpty(eu.locatePage)) {
-                aqVar.dK("obj_tab", eu.locatePage);
+                aqVar.dR("obj_tab", eu.locatePage);
             }
             aqVar.aj("sort_tab", eu.sortType);
             return aqVar;
@@ -128,11 +128,11 @@ public class c {
             return null;
         }
         aq aqVar = new aq(str);
-        aqVar.dK("tid", bwVar.getId()).u("fid", bwVar.getFid()).aj(IntentConfig.CARD_TYPE, bwVar.bkg()).dK("nid", bwVar.getNid());
+        aqVar.dR("tid", bwVar.getId()).w("fid", bwVar.getFid()).aj(IntentConfig.CARD_TYPE, bwVar.blZ()).dR("nid", bwVar.getNid());
         if (bwVar.getBaijiahaoData() != null && !at.isEmpty(bwVar.getBaijiahaoData().oriUgcVid)) {
-            aqVar.dK("obj_param6", bwVar.getBaijiahaoData().oriUgcVid);
+            aqVar.dR("obj_param6", bwVar.getBaijiahaoData().oriUgcVid);
         }
-        aqVar.dK("weight", bwVar.mRecomWeight).dK("ab_tag", bwVar.mRecomAbTag).dK("extra", bwVar.mRecomExtra).dK("source", bwVar.mRecomSource);
+        aqVar.dR("weight", bwVar.mRecomWeight).dR("ab_tag", bwVar.mRecomAbTag).dR("extra", bwVar.mRecomExtra).dR("source", bwVar.mRecomSource);
         c(context, aqVar);
         return aqVar;
     }

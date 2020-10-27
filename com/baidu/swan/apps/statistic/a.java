@@ -3,13 +3,13 @@ package com.baidu.swan.apps.statistic;
 import com.baidu.swan.ubc.Flow;
 /* loaded from: classes10.dex */
 public class a {
-    private final Flow dlc;
+    private final Flow dtE;
 
     public a(Flow flow) {
-        this.dlc = flow;
+        this.dtE = flow;
     }
 
-    public Flow aFH() {
-        return this.dlc;
+    public Flow aHB() {
+        return this.dtE;
     }
 }

@@ -10,13 +10,13 @@ import java.util.concurrent.TimeUnit;
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ExecutorService f4027a = new ThreadPoolExecutor(0, 30, 60, TimeUnit.SECONDS, new SynchronousQueue());
+    private static ExecutorService f4025a = new ThreadPoolExecutor(0, 30, 60, TimeUnit.SECONDS, new SynchronousQueue());
 
     public static void a(a aVar) {
         try {
-            f4027a.execute(aVar);
+            f4025a.execute(aVar);
         } catch (Exception e) {
-            aVar.f4028a.uncaughtException(Thread.currentThread(), e);
+            aVar.f4026a.uncaughtException(Thread.currentThread(), e);
         }
     }
 
@@ -24,13 +24,13 @@ public class o {
     public static abstract class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private Thread.UncaughtExceptionHandler f4028a;
+        private Thread.UncaughtExceptionHandler f4026a;
 
         protected abstract void a();
 
         /* JADX INFO: Access modifiers changed from: protected */
         public a() {
-            this.f4028a = new Thread.UncaughtExceptionHandler() { // from class: com.cmic.sso.sdk.e.o.a.1
+            this.f4026a = new Thread.UncaughtExceptionHandler() { // from class: com.cmic.sso.sdk.e.o.a.1
                 @Override // java.lang.Thread.UncaughtExceptionHandler
                 public void uncaughtException(Thread thread, Throwable th) {
                     th.printStackTrace();
@@ -40,18 +40,18 @@ public class o {
 
         /* JADX INFO: Access modifiers changed from: protected */
         public a(final Context context, final com.cmic.sso.sdk.a aVar) {
-            this.f4028a = new Thread.UncaughtExceptionHandler() { // from class: com.cmic.sso.sdk.e.o.a.2
+            this.f4026a = new Thread.UncaughtExceptionHandler() { // from class: com.cmic.sso.sdk.e.o.a.2
                 @Override // java.lang.Thread.UncaughtExceptionHandler
                 public void uncaughtException(Thread thread, Throwable th) {
-                    com.cmic.sso.sdk.d.a.nIz.add(th);
-                    com.cmic.sso.sdk.b.a.gy(context).a("200025", "发生未知错误", aVar, null);
+                    com.cmic.sso.sdk.d.a.ozS.add(th);
+                    com.cmic.sso.sdk.b.a.gT(context).a("200025", "发生未知错误", aVar, null);
                 }
             };
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Thread.currentThread().setUncaughtExceptionHandler(this.f4028a);
+            Thread.currentThread().setUncaughtExceptionHandler(this.f4026a);
             a();
             Thread.currentThread().setUncaughtExceptionHandler(null);
         }

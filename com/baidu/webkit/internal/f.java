@@ -6,11 +6,11 @@ import com.baidu.webkit.sdk.WebView;
 public final class f implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f3939a;
+    final /* synthetic */ e f3937a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.f3939a = eVar;
+        this.f3937a = eVar;
     }
 
     @Override // java.lang.Runnable
@@ -24,18 +24,18 @@ public final class f implements Runnable {
                 return;
             }
             try {
-                webView = this.f3939a.c;
+                webView = this.f3937a.c;
             } catch (Exception e) {
                 e.printStackTrace();
             }
             if (webView == null) {
                 return;
             }
-            webView2 = this.f3939a.c;
+            webView2 = this.f3937a.c;
             if (webView2.isDestroyed()) {
                 return;
             }
-            this.f3939a.e();
+            this.f3937a.e();
             Thread.sleep(20L);
             i = i2 + 1;
         }

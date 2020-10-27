@@ -12,37 +12,37 @@ import tbclient.Abstract;
 import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class b {
-    private static b mfO;
-    private List<JSONObject> mfP;
-    private List<JSONObject> mfQ;
-    private List<JSONObject> mfR;
+    private static b msn;
+    private List<JSONObject> mso;
+    private List<JSONObject> msp;
+    private List<JSONObject> msq;
 
-    public static b dvA() {
-        if (mfO == null) {
+    public static b dyH() {
+        if (msn == null) {
             synchronized (b.class) {
-                if (mfO == null) {
-                    mfO = new b();
+                if (msn == null) {
+                    msn = new b();
                 }
             }
         }
-        return mfO;
+        return msn;
     }
 
-    public synchronized void fh(List<JSONObject> list) {
-        if (this.mfP == null) {
-            this.mfP = new ArrayList();
+    public synchronized void fq(List<JSONObject> list) {
+        if (this.mso == null) {
+            this.mso = new ArrayList();
         }
-        this.mfP.clear();
-        this.mfP.addAll(list);
+        this.mso.clear();
+        this.mso.addAll(list);
     }
 
-    public String dvB() {
+    public String dyI() {
         synchronized (this) {
-            if (y.isEmpty(this.mfP)) {
+            if (y.isEmpty(this.mso)) {
                 return "";
             }
             JSONArray jSONArray = new JSONArray();
-            for (JSONObject jSONObject : this.mfP) {
+            for (JSONObject jSONObject : this.mso) {
                 if (jSONObject != null) {
                     jSONArray.put(jSONObject);
                 }
@@ -56,21 +56,21 @@ public class b {
         }
     }
 
-    public synchronized void fi(List<JSONObject> list) {
-        if (this.mfQ == null) {
-            this.mfQ = new ArrayList();
+    public synchronized void fr(List<JSONObject> list) {
+        if (this.msp == null) {
+            this.msp = new ArrayList();
         }
-        this.mfQ.clear();
-        this.mfQ.addAll(list);
+        this.msp.clear();
+        this.msp.addAll(list);
     }
 
-    public String dvC() {
+    public String dyJ() {
         synchronized (this) {
-            if (y.isEmpty(this.mfQ)) {
+            if (y.isEmpty(this.msp)) {
                 return "";
             }
             JSONArray jSONArray = new JSONArray();
-            for (JSONObject jSONObject : this.mfQ) {
+            for (JSONObject jSONObject : this.msp) {
                 if (jSONObject != null) {
                     jSONArray.put(jSONObject);
                 }
@@ -84,21 +84,21 @@ public class b {
         }
     }
 
-    public synchronized void fj(List<JSONObject> list) {
-        if (this.mfR == null) {
-            this.mfR = new ArrayList();
+    public synchronized void fs(List<JSONObject> list) {
+        if (this.msq == null) {
+            this.msq = new ArrayList();
         }
-        this.mfR.clear();
-        this.mfR.addAll(list);
+        this.msq.clear();
+        this.msq.addAll(list);
     }
 
-    public String dvD() {
+    public String dyK() {
         synchronized (this) {
-            if (y.isEmpty(this.mfR)) {
+            if (y.isEmpty(this.msq)) {
                 return "";
             }
             JSONArray jSONArray = new JSONArray();
-            for (JSONObject jSONObject : this.mfR) {
+            for (JSONObject jSONObject : this.msq) {
                 if (jSONObject != null) {
                     jSONArray.put(jSONObject);
                 }
@@ -112,10 +112,10 @@ public class b {
         }
     }
 
-    public synchronized void dvE() {
-        if (this.mfR != null) {
-            this.mfR.clear();
-            this.mfR = null;
+    public synchronized void dyL() {
+        if (this.msq != null) {
+            this.msq.clear();
+            this.msq = null;
         }
     }
 

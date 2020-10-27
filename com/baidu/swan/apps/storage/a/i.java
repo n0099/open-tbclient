@@ -24,13 +24,13 @@ public class i extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
             return false;
         }
-        String aK = com.baidu.swan.apps.api.module.i.a.aK(optParamsAsJo);
-        if (aK == null) {
+        String aN = com.baidu.swan.apps.api.module.i.a.aN(optParamsAsJo);
+        if (aN == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        eVar.aDl().aGi().remove(aK);
-        com.baidu.swan.apps.am.e.doy.update();
+        eVar.aFf().aIc().remove(aN);
+        com.baidu.swan.apps.am.e.dwY.update();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }

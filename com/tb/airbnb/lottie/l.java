@@ -23,7 +23,7 @@ public class l<T> {
     private final FutureTask<k<T>> Cx;
     private final Handler handler;
     @Nullable
-    private volatile k<T> oHn;
+    private volatile k<T> pyK;
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public l(Callable<k<T>> callable) {
@@ -35,7 +35,7 @@ public class l<T> {
         this.Cv = new LinkedHashSet(1);
         this.Cw = new LinkedHashSet(1);
         this.handler = new Handler(Looper.getMainLooper());
-        this.oHn = null;
+        this.pyK = null;
         this.Cx = new FutureTask<>(callable);
         if (z) {
             try {
@@ -52,16 +52,16 @@ public class l<T> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@Nullable k<T> kVar) {
-        if (this.oHn != null) {
+        if (this.pyK != null) {
             throw new IllegalStateException("A task may only be set once.");
         }
-        this.oHn = kVar;
+        this.pyK = kVar;
         iP();
     }
 
     public synchronized l<T> a(h<T> hVar) {
-        if (this.oHn != null && this.oHn.getValue() != null) {
-            hVar.onResult(this.oHn.getValue());
+        if (this.pyK != null && this.pyK.getValue() != null) {
+            hVar.onResult(this.pyK.getValue());
         }
         this.Cv.add(hVar);
         iQ();
@@ -75,8 +75,8 @@ public class l<T> {
     }
 
     public synchronized l<T> c(h<Throwable> hVar) {
-        if (this.oHn != null && this.oHn.iO() != null) {
-            hVar.onResult(this.oHn.iO());
+        if (this.pyK != null && this.pyK.iO() != null) {
+            hVar.onResult(this.pyK.iO());
         }
         this.Cw.add(hVar);
         iQ();
@@ -93,8 +93,8 @@ public class l<T> {
         this.handler.post(new Runnable() { // from class: com.tb.airbnb.lottie.l.1
             @Override // java.lang.Runnable
             public void run() {
-                if (l.this.oHn != null && !l.this.Cx.isCancelled()) {
-                    k kVar = l.this.oHn;
+                if (l.this.pyK != null && !l.this.Cx.isCancelled()) {
+                    k kVar = l.this.pyK;
                     if (kVar.getValue() != null) {
                         l.this.o(kVar.getValue());
                     } else {
@@ -125,7 +125,7 @@ public class l<T> {
     }
 
     private synchronized void iQ() {
-        if (!iS() && this.oHn == null) {
+        if (!iS() && this.pyK == null) {
             this.Cu = new Thread("LottieTaskObserver") { // from class: com.tb.airbnb.lottie.l.2
                 private boolean CB = false;
 
@@ -151,7 +151,7 @@ public class l<T> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void iR() {
-        if (iS() && (this.Cv.isEmpty() || this.oHn != null)) {
+        if (iS() && (this.Cv.isEmpty() || this.pyK != null)) {
             this.Cu.interrupt();
             this.Cu = null;
             c.debug("Stopping TaskObserver thread");

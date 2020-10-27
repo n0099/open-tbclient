@@ -1,6 +1,6 @@
 package com.baidu.live.videochat.d;
 
-import com.baidu.live.data.u;
+import com.baidu.live.data.w;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import org.json.JSONException;
@@ -8,42 +8,42 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d {
     public static String KEY_TYPE = "type";
-    public static String bzF = "sender_room_id";
-    public static String bzG = "sender_portrait";
-    public static String bzH = "sender_name";
-    public static String bzI = "sender_user_id";
-    public static String bzJ = "sender_live_id";
-    public static String bzK = "receiver_portrait";
-    public static String bzL = "receiver_room_id";
-    public static String bzM = "receiver_name";
-    public static String bzN = "receiver_user_id";
-    public static String bzO = "receiver_live_id";
-    public static String bzP = "create";
-    public static String bzQ = UbcStatConstant.ContentType.UBC_TYPE_PK_ACCPET;
-    public static String bzR = "accept_time_out";
-    public static String bzS = "reject";
+    public static String bCB = "sender_room_id";
+    public static String bCC = "sender_portrait";
+    public static String bCD = "sender_name";
+    public static String bCE = "sender_user_id";
+    public static String bCF = "sender_live_id";
+    public static String bCG = "receiver_portrait";
+    public static String bCH = "receiver_room_id";
+    public static String bCI = "receiver_name";
+    public static String bCJ = "receiver_user_id";
+    public static String bCK = "receiver_live_id";
+    public static String bCL = "create";
+    public static String bCM = UbcStatConstant.ContentType.UBC_TYPE_PK_ACCPET;
+    public static String bCN = "accept_time_out";
+    public static String bCO = "reject";
 
-    public static String a(u uVar, com.baidu.live.videochat.panel.a.a aVar, String str) {
+    public static String a(w wVar, com.baidu.live.videochat.panel.a.a aVar, String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt(KEY_TYPE, str);
-            if (uVar != null) {
-                if (uVar.aHD != null) {
-                    jSONObject.putOpt(bzH, uVar.aHD.userName);
-                    jSONObject.putOpt(bzG, uVar.aHD.portrait);
-                    jSONObject.putOpt(bzI, Long.valueOf(uVar.aHD.userId));
+            if (wVar != null) {
+                if (wVar.aIe != null) {
+                    jSONObject.putOpt(bCD, wVar.aIe.userName);
+                    jSONObject.putOpt(bCC, wVar.aIe.portrait);
+                    jSONObject.putOpt(bCE, Long.valueOf(wVar.aIe.userId));
                 }
-                if (uVar.mLiveInfo != null) {
-                    jSONObject.putOpt(bzF, Long.valueOf(uVar.mLiveInfo.room_id));
-                    jSONObject.putOpt(bzJ, Long.valueOf(uVar.mLiveInfo.live_id));
+                if (wVar.mLiveInfo != null) {
+                    jSONObject.putOpt(bCB, Long.valueOf(wVar.mLiveInfo.room_id));
+                    jSONObject.putOpt(bCF, Long.valueOf(wVar.mLiveInfo.live_id));
                 }
             }
             if (aVar != null) {
-                jSONObject.putOpt(bzM, aVar.userName);
-                jSONObject.putOpt(bzK, aVar.portrait);
-                jSONObject.putOpt(bzN, aVar.userId);
-                jSONObject.putOpt(bzL, aVar.roomId);
-                jSONObject.putOpt(bzO, aVar.liveId);
+                jSONObject.putOpt(bCI, aVar.userName);
+                jSONObject.putOpt(bCG, aVar.portrait);
+                jSONObject.putOpt(bCJ, aVar.userId);
+                jSONObject.putOpt(bCH, aVar.roomId);
+                jSONObject.putOpt(bCK, aVar.liveId);
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -51,16 +51,16 @@ public class d {
         return jSONObject.toString();
     }
 
-    public static e ik(String str) {
+    public static e iv(String str) {
         e eVar = new e();
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                eVar.userName = jSONObject.optString(bzH);
-                eVar.roomId = jSONObject.optString(bzF);
-                eVar.userId = jSONObject.optString(bzI);
-                eVar.portrait = jSONObject.optString(bzG);
-                eVar.liveId = jSONObject.optString(bzJ);
+                eVar.userName = jSONObject.optString(bCD);
+                eVar.roomId = jSONObject.optString(bCB);
+                eVar.userId = jSONObject.optString(bCE);
+                eVar.portrait = jSONObject.optString(bCC);
+                eVar.liveId = jSONObject.optString(bCF);
                 eVar.type = jSONObject.optString(KEY_TYPE);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -69,15 +69,15 @@ public class d {
         return eVar;
     }
 
-    public static e aa(JSONObject jSONObject) {
+    public static e ac(JSONObject jSONObject) {
         e eVar = new e();
         if (jSONObject != null) {
             try {
-                eVar.userName = jSONObject.optString(bzM);
-                eVar.roomId = jSONObject.optString(bzL);
-                eVar.userId = jSONObject.optString(bzN);
-                eVar.portrait = jSONObject.optString(bzK);
-                eVar.liveId = jSONObject.optString(bzO);
+                eVar.userName = jSONObject.optString(bCI);
+                eVar.roomId = jSONObject.optString(bCH);
+                eVar.userId = jSONObject.optString(bCJ);
+                eVar.portrait = jSONObject.optString(bCG);
+                eVar.liveId = jSONObject.optString(bCK);
                 eVar.type = jSONObject.optString(KEY_TYPE);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -86,35 +86,35 @@ public class d {
         return eVar;
     }
 
-    public static JSONObject a(e eVar, u uVar, String str) {
+    public static JSONObject a(e eVar, w wVar, String str) {
         JSONObject jSONObject = new JSONObject();
         if (eVar != null) {
             try {
-                jSONObject.putOpt(bzF, eVar.roomId);
-                jSONObject.putOpt(bzI, eVar.userId);
-                jSONObject.putOpt(bzJ, eVar.liveId);
-                jSONObject.putOpt(bzH, eVar.userName);
-                jSONObject.putOpt(bzG, eVar.portrait);
+                jSONObject.putOpt(bCB, eVar.roomId);
+                jSONObject.putOpt(bCE, eVar.userId);
+                jSONObject.putOpt(bCF, eVar.liveId);
+                jSONObject.putOpt(bCD, eVar.userName);
+                jSONObject.putOpt(bCC, eVar.portrait);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         jSONObject.putOpt(KEY_TYPE, str);
-        if (uVar != null) {
-            if (uVar.aHD != null) {
-                jSONObject.putOpt(bzM, uVar.aHD.userName);
-                jSONObject.putOpt(bzK, uVar.aHD.portrait);
-                jSONObject.putOpt(bzN, Long.valueOf(uVar.aHD.userId));
+        if (wVar != null) {
+            if (wVar.aIe != null) {
+                jSONObject.putOpt(bCI, wVar.aIe.userName);
+                jSONObject.putOpt(bCG, wVar.aIe.portrait);
+                jSONObject.putOpt(bCJ, Long.valueOf(wVar.aIe.userId));
             }
-            if (uVar.mLiveInfo != null) {
-                jSONObject.putOpt(bzL, Long.valueOf(uVar.mLiveInfo.room_id));
-                jSONObject.putOpt(bzO, Long.valueOf(uVar.mLiveInfo.live_id));
+            if (wVar.mLiveInfo != null) {
+                jSONObject.putOpt(bCH, Long.valueOf(wVar.mLiveInfo.room_id));
+                jSONObject.putOpt(bCK, Long.valueOf(wVar.mLiveInfo.live_id));
             }
         }
         return jSONObject;
     }
 
-    public static JSONObject il(String str) {
+    public static JSONObject iw(String str) {
         try {
             return new JSONObject(str);
         } catch (JSONException e) {
@@ -123,17 +123,17 @@ public class d {
         }
     }
 
-    public static b ab(JSONObject jSONObject) {
+    public static b ad(JSONObject jSONObject) {
         b bVar = new b();
         if (jSONObject != null) {
             bVar.type = jSONObject.optString(KEY_TYPE);
-            bVar.bzl = ik(jSONObject.toString());
-            bVar.bzm = aa(jSONObject);
+            bVar.bCh = iv(jSONObject.toString());
+            bVar.bCi = ac(jSONObject);
         }
         return bVar;
     }
 
-    public static String aL(String str, String str2) {
+    public static String aR(String str, String str2) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt(TiebaInitialize.LogFields.REASON, str);

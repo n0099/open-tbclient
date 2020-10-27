@@ -29,7 +29,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bJ */
+    /* renamed from: bK */
     public com.baidu.tieba.hottopic.a.a c(ViewGroup viewGroup) {
         return new com.baidu.tieba.hottopic.a.a(LayoutInflater.from(this.mContext).inflate(R.layout.hot_topic_ranklist_head, viewGroup, false));
     }
@@ -47,22 +47,22 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
 
     private void a(com.baidu.tieba.hottopic.a.a aVar, final com.baidu.tieba.hottopic.data.b bVar) {
         if (aVar != null && bVar != null) {
-            String string = StringUtils.isNull(bVar.cHl()) ? this.mContext.getResources().getString(R.string.hot_topic_hot_trend) : bVar.cHl();
-            aVar.jxV.setText(bVar.cHk());
-            aVar.jxT.setText(string);
-            aVar.jxZ.startLoad(bVar.cHj(), 10, false);
+            String string = StringUtils.isNull(bVar.cKs()) ? this.mContext.getResources().getString(R.string.hot_topic_hot_trend) : bVar.cKs();
+            aVar.jKu.setText(bVar.cKr());
+            aVar.jKs.setText(string);
+            aVar.jKy.startLoad(bVar.cKq(), 10, false);
             if (StringUtils.isNull(bVar.getName())) {
-                aVar.jxU.setVisibility(8);
-                aVar.jxV.setPadding(0, 0, 0, 0);
+                aVar.jKt.setVisibility(8);
+                aVar.jKu.setPadding(0, 0, 0, 0);
             } else {
-                aVar.jxU.setVisibility(0);
-                aVar.jxU.setText(bVar.getName());
+                aVar.jKt.setVisibility(0);
+                aVar.jKt.setText(bVar.getName());
             }
-            aVar.jya.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.c.1
+            aVar.jKz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.c.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotTopicActivityConfig(view.getContext()).createNormalConfig(String.valueOf(bVar.getId()), bVar.getName(), "5")));
-                    TiebaStatic.log(new aq("c10811").dK("obj_name", "" + bVar.getName()));
+                    TiebaStatic.log(new aq("c10811").dR("obj_name", "" + bVar.getName()));
                 }
             });
         }
@@ -71,15 +71,15 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
     private void a(com.baidu.tieba.hottopic.a.a aVar) {
         if (aVar != null) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            if (aVar.ajp != this.mSkinType) {
-                aVar.ajp = this.mSkinType;
+            if (aVar.ajq != this.mSkinType) {
+                aVar.ajq = this.mSkinType;
                 ap.setBackgroundColor(aVar.getView(), R.color.cp_bg_line_d);
-                ap.setViewTextColor(aVar.jxT, R.color.cp_cont_d, 1);
-                ap.setViewTextColor(aVar.jxU, R.color.cp_cont_b, 1);
-                ap.setViewTextColor(aVar.jxV, R.color.cp_cont_c, 1);
-                ap.setBackgroundColor(aVar.jxX, R.color.cp_bg_line_c);
-                ap.setBackgroundColor(aVar.jxY, R.color.cp_bg_line_c);
-                ap.setBackgroundResource(aVar.jya, R.drawable.hot_topic_ranklist_bg);
+                ap.setViewTextColor(aVar.jKs, R.color.cp_cont_d, 1);
+                ap.setViewTextColor(aVar.jKt, R.color.cp_cont_b, 1);
+                ap.setViewTextColor(aVar.jKu, R.color.cp_cont_c, 1);
+                ap.setBackgroundColor(aVar.jKw, R.color.cp_bg_line_c);
+                ap.setBackgroundColor(aVar.jKx, R.color.cp_bg_line_c);
+                ap.setBackgroundResource(aVar.jKz, R.drawable.hot_topic_ranklist_bg);
             }
         }
     }

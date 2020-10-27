@@ -16,7 +16,7 @@ public final class b {
     public static String c = "1_0";
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3956a;
+    public String f3954a;
     public HashMap<String, a> d = new HashMap<>();
     public HashMap<String, String> e = new HashMap<>();
     private HashMap<String, c> f = new HashMap<>();

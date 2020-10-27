@@ -1,10 +1,10 @@
 package com.baidu.live.a;
 
 import android.view.ViewGroup;
-import com.baidu.live.data.u;
+import com.baidu.live.data.w;
 /* loaded from: classes4.dex */
 public interface a {
-    void a(u uVar);
+    void a(w wVar);
 
     void b(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams);
 

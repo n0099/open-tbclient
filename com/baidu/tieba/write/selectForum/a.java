@@ -19,11 +19,11 @@ public class a extends BaseAdapter {
     private final Context mContext;
     private List<HotTopicBussinessData> mData;
     private ViewGroup mParent = null;
-    private HotTopicChangeFourmActivity npx;
+    private HotTopicChangeFourmActivity nBW;
 
     public a(HotTopicChangeFourmActivity hotTopicChangeFourmActivity) {
-        this.npx = hotTopicChangeFourmActivity;
-        this.mContext = this.npx.getPageContext().getContext();
+        this.nBW = hotTopicChangeFourmActivity;
+        this.mContext = this.nBW.getPageContext().getContext();
     }
 
     public void setData(List<HotTopicBussinessData> list) {
@@ -40,7 +40,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: KO */
+    /* renamed from: Lg */
     public HotTopicBussinessData getItem(int i) {
         if (this.mData != null && i < this.mData.size()) {
             return this.mData.get(i);
@@ -48,7 +48,7 @@ public class a extends BaseAdapter {
         return null;
     }
 
-    private String TV(String str) {
+    private String Uu(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -65,62 +65,62 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0849a c0849a;
+        C0864a c0864a;
         if (this.mParent == null) {
             this.mParent = viewGroup;
         }
         HotTopicBussinessData item = getItem(i);
         if (item != null) {
-            c0849a = a(view != null ? view.getTag() : null, item);
+            c0864a = a(view != null ? view.getTag() : null, item);
         } else {
-            c0849a = null;
+            c0864a = null;
         }
-        if (c0849a != null) {
-            return c0849a.mRootView;
+        if (c0864a != null) {
+            return c0864a.mRootView;
         }
         return null;
     }
 
-    private C0849a a(Object obj, HotTopicBussinessData hotTopicBussinessData) {
-        C0849a c0849a;
+    private C0864a a(Object obj, HotTopicBussinessData hotTopicBussinessData) {
+        C0864a c0864a;
         if (obj == null) {
-            c0849a = dOn();
+            c0864a = dRv();
         } else {
-            c0849a = (C0849a) obj;
+            c0864a = (C0864a) obj;
         }
-        c0849a.npz.setText(TV(hotTopicBussinessData.mForumName));
-        c0849a.npy.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
-        ap.setBackgroundResource(c0849a.mRootView, R.drawable.select_forum_item_bg);
-        ap.setViewTextColor(c0849a.npz, R.color.cp_cont_b);
-        ap.setBackgroundColor(c0849a.iBp, R.color.cp_bg_line_e);
-        return c0849a;
+        c0864a.nBY.setText(Uu(hotTopicBussinessData.mForumName));
+        c0864a.nBX.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
+        ap.setBackgroundResource(c0864a.mRootView, R.drawable.select_forum_item_bg);
+        ap.setViewTextColor(c0864a.nBY, R.color.cp_cont_b);
+        ap.setBackgroundColor(c0864a.iNL, R.color.cp_bg_line_e);
+        return c0864a;
     }
 
-    private C0849a dOn() {
-        C0849a c0849a = new C0849a();
-        c0849a.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.hot_topic_change_item, (ViewGroup) null);
-        ap.setBackgroundResource(c0849a.mRootView, R.drawable.select_forum_item_bg);
-        ap.setViewTextColor(c0849a.npz, R.color.cp_cont_b);
-        c0849a.npz = (TextView) c0849a.mRootView.findViewById(R.id.fourm_tv);
-        c0849a.iBp = c0849a.mRootView.findViewById(R.id.line_view);
-        c0849a.npy = (TbImageView) c0849a.mRootView.findViewById(R.id.icon_img);
-        c0849a.npy.setDefaultBgResource(R.color.cp_bg_line_e);
-        c0849a.npy.setDefaultResource(R.drawable.transparent_bg);
-        c0849a.npy.setDefaultErrorResource(R.drawable.icon_default_ba_120);
-        c0849a.mRootView.setTag(c0849a);
-        return c0849a;
+    private C0864a dRv() {
+        C0864a c0864a = new C0864a();
+        c0864a.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.hot_topic_change_item, (ViewGroup) null);
+        ap.setBackgroundResource(c0864a.mRootView, R.drawable.select_forum_item_bg);
+        ap.setViewTextColor(c0864a.nBY, R.color.cp_cont_b);
+        c0864a.nBY = (TextView) c0864a.mRootView.findViewById(R.id.fourm_tv);
+        c0864a.iNL = c0864a.mRootView.findViewById(R.id.line_view);
+        c0864a.nBX = (TbImageView) c0864a.mRootView.findViewById(R.id.icon_img);
+        c0864a.nBX.setDefaultBgResource(R.color.cp_bg_line_e);
+        c0864a.nBX.setDefaultResource(R.drawable.transparent_bg);
+        c0864a.nBX.setDefaultErrorResource(R.drawable.icon_default_ba_120);
+        c0864a.mRootView.setTag(c0864a);
+        return c0864a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.write.selectForum.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0849a {
-        public View iBp;
+    public class C0864a {
+        public View iNL;
         public View mRootView;
-        public TbImageView npy;
-        public TextView npz;
+        public TbImageView nBX;
+        public TextView nBY;
 
-        private C0849a() {
+        private C0864a() {
         }
     }
 }

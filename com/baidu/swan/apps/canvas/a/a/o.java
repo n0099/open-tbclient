@@ -5,11 +5,11 @@ import android.graphics.Typeface;
 import org.json.JSONArray;
 /* loaded from: classes10.dex */
 public class o extends a {
-    String cnW = "sans-serif";
-    float cnX = com.baidu.swan.apps.ap.ah.J(10.0f);
-    boolean cnY = false;
+    String cwz = "sans-serif";
+    float cwA = com.baidu.swan.apps.ap.ah.L(10.0f);
+    boolean cwB = false;
     boolean mItalic = false;
-    boolean cnZ = true;
+    boolean cwC = true;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
@@ -22,9 +22,9 @@ public class o extends a {
                     } else if (str.contains("oblique")) {
                         this.mItalic = true;
                     } else if (str.contains("bold")) {
-                        this.cnY = true;
+                        this.cwB = true;
                     } else if (str.contains("normal")) {
-                        this.cnZ = true;
+                        this.cwC = true;
                     } else if (Character.isDigit(str.charAt(0))) {
                         int length = str.length();
                         int i = 0;
@@ -38,9 +38,9 @@ public class o extends a {
                                 i++;
                             }
                         }
-                        this.cnX = com.baidu.swan.apps.ap.ah.J(Float.parseFloat(str.substring(0, i)));
+                        this.cwA = com.baidu.swan.apps.ap.ah.L(Float.parseFloat(str.substring(0, i)));
                     } else {
-                        this.cnW = str;
+                        this.cwz = str;
                     }
                 }
             }
@@ -54,14 +54,14 @@ public class o extends a {
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
         int i = 0;
-        if (this.cnY && this.mItalic) {
+        if (this.cwB && this.mItalic) {
             i = 3;
-        } else if (this.cnY) {
+        } else if (this.cwB) {
             i = 1;
         } else if (this.mItalic) {
             i = 2;
         }
-        bVar.cnz.setTypeface(Typeface.create(this.cnW, i));
-        bVar.cnz.setTextSize(this.cnX);
+        bVar.cwc.setTypeface(Typeface.create(this.cwz, i));
+        bVar.cwc.setTextSize(this.cwA);
     }
 }

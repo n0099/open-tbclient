@@ -8,16 +8,16 @@ import android.view.animation.Transformation;
 public class a extends Animation {
 
     /* renamed from: a  reason: collision with root package name */
-    private float f4262a;
+    private float f4260a;
     private float b;
     private float c;
     private float d;
     private float e;
     private float f;
-    private Camera ozu;
+    private Camera pqP;
 
     public a(float f, float f2, float f3, float f4, float f5, float f6) {
-        this.f4262a = f;
+        this.f4260a = f;
         this.b = f2;
         this.e = f3;
         this.f = f4;
@@ -28,19 +28,19 @@ public class a extends Animation {
     @Override // android.view.animation.Animation
     public void initialize(int i, int i2, int i3, int i4) {
         super.initialize(i, i2, i3, i4);
-        this.ozu = new Camera();
+        this.pqP = new Camera();
     }
 
     @Override // android.view.animation.Animation
     protected void applyTransformation(float f, Transformation transformation) {
-        float f2 = this.f4262a + ((this.b - this.f4262a) * f);
+        float f2 = this.f4260a + ((this.b - this.f4260a) * f);
         float f3 = this.c;
         float f4 = this.d;
         Matrix matrix = transformation.getMatrix();
-        this.ozu.save();
-        this.ozu.rotateY(f2);
-        this.ozu.getMatrix(matrix);
-        this.ozu.restore();
+        this.pqP.save();
+        this.pqP.rotateY(f2);
+        this.pqP.getMatrix(matrix);
+        this.pqP.restore();
         matrix.preTranslate(-f3, -f4);
         matrix.postTranslate(f3, f4);
     }

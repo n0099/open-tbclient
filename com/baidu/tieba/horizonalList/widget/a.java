@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class a {
-    private static ArrayList<a> bsL = new ArrayList<>(5);
-    public int bsP;
-    public int bsQ;
-    int bsR;
+    private static ArrayList<a> buT = new ArrayList<>(5);
+    public int buX;
+    public int buY;
+    int buZ;
     public int type;
 
     private void resetState() {
-        this.bsP = 0;
-        this.bsQ = 0;
-        this.bsR = 0;
+        this.buX = 0;
+        this.buY = 0;
+        this.buZ = 0;
         this.type = 0;
     }
 
@@ -21,30 +21,30 @@ class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long PF() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.bsP, this.bsQ) : ExpandableListView.getPackedPositionForGroup(this.bsP);
+    public long Qy() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.buX, this.buY) : ExpandableListView.getPackedPositionForGroup(this.buX);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a Bq(int i) {
-        return C(2, i, 0, 0);
+    public static a BJ(int i) {
+        return D(2, i, 0, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a C(int i, int i2, int i3, int i4) {
-        a cGI = cGI();
-        cGI.type = i;
-        cGI.bsP = i2;
-        cGI.bsQ = i3;
-        cGI.bsR = i4;
-        return cGI;
+    public static a D(int i, int i2, int i3, int i4) {
+        a cJP = cJP();
+        cJP.type = i;
+        cJP.buX = i2;
+        cJP.buY = i3;
+        cJP.buZ = i4;
+        return cJP;
     }
 
-    private static a cGI() {
+    private static a cJP() {
         a aVar;
-        synchronized (bsL) {
-            if (bsL.size() > 0) {
-                aVar = bsL.remove(0);
+        synchronized (buT) {
+            if (buT.size() > 0) {
+                aVar = buT.remove(0);
                 aVar.resetState();
             } else {
                 aVar = new a();
@@ -54,9 +54,9 @@ class a {
     }
 
     public void recycle() {
-        synchronized (bsL) {
-            if (bsL.size() < 5) {
-                bsL.add(this);
+        synchronized (buT) {
+            if (buT.size() < 5) {
+                buT.add(this);
             }
         }
     }

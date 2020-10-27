@@ -6,7 +6,7 @@ import android.content.Context;
 public class CommonParam {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final boolean f992a = false;
+    private static final boolean f989a = false;
     private static final String b = CommonParam.class.getSimpleName();
 
     @Deprecated

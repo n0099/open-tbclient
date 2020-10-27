@@ -9,16 +9,16 @@ public class a {
 
     /* renamed from: com.baidu.tieba.imMessageCenter.im.stranger.a$a  reason: collision with other inner class name */
     /* loaded from: classes22.dex */
-    public static class C0742a {
+    public static class C0758a {
         public String fName;
-        public String iHi;
-        public int kaN;
-        public String kaO;
-        public String kaP;
-        public int kaQ;
-        public String kaR;
-        public String kaS;
-        public String kaq;
+        public String iTE;
+        public String kmQ;
+        public int knm;
+        public String knn;
+        public String kno;
+        public int knp;
+        public String knq;
+        public String knr;
         public String postId;
         public String threadId;
         public int threadType;
@@ -26,37 +26,37 @@ public class a {
         public int type;
     }
 
-    public static C0742a MF(String str) {
+    public static C0758a Nd(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        C0742a c0742a = new C0742a();
+        C0758a c0758a = new C0758a();
         try {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(0);
-                c0742a.kaO = optJSONObject.optString("title");
-                c0742a.kaq = optJSONObject.optString("content");
-                c0742a.kaR = optJSONObject.optString("quote_content");
-                c0742a.fName = optJSONObject.optString("fname");
-                c0742a.threadId = optJSONObject.optString("thread_id");
-                c0742a.postId = optJSONObject.optString("post_id");
-                c0742a.type = optJSONObject.optInt("type");
-                c0742a.title = optJSONObject.optString("title");
-                c0742a.threadType = optJSONObject.optInt("thread_type");
+                c0758a.knn = optJSONObject.optString("title");
+                c0758a.kmQ = optJSONObject.optString("content");
+                c0758a.knq = optJSONObject.optString("quote_content");
+                c0758a.fName = optJSONObject.optString("fname");
+                c0758a.threadId = optJSONObject.optString("thread_id");
+                c0758a.postId = optJSONObject.optString("post_id");
+                c0758a.type = optJSONObject.optInt("type");
+                c0758a.title = optJSONObject.optString("title");
+                c0758a.threadType = optJSONObject.optInt("thread_type");
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("quote_user");
                 if (optJSONObject2 != null) {
-                    c0742a.kaP = optJSONObject2.optString("id");
-                    c0742a.kaS = optJSONObject2.optString("portrait");
-                    c0742a.kaQ = optJSONObject2.optInt("gender");
+                    c0758a.kno = optJSONObject2.optString("id");
+                    c0758a.knr = optJSONObject2.optString("portrait");
+                    c0758a.knp = optJSONObject2.optInt("gender");
                 }
                 JSONObject optJSONObject3 = optJSONObject.optJSONObject("replyer");
                 if (optJSONObject3 != null) {
-                    c0742a.iHi = optJSONObject3.optString("id");
-                    c0742a.kaN = optJSONObject3.optInt("gender");
+                    c0758a.iTE = optJSONObject3.optString("id");
+                    c0758a.knm = optJSONObject3.optInt("gender");
                 }
             }
-            return c0742a;
+            return c0758a;
         } catch (JSONException e) {
             e.printStackTrace();
             return null;

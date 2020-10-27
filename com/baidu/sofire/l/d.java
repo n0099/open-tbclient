@@ -17,7 +17,7 @@ public final class d implements ServiceConnection {
 
     @Override // android.content.ServiceConnection
     public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        this.f3657a.f3655a = a.AbstractBinderC0335a.a(iBinder);
+        this.f3657a.f3655a = a.AbstractBinderC0349a.a(iBinder);
     }
 
     @Override // android.content.ServiceConnection

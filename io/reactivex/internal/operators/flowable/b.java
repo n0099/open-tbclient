@@ -21,7 +21,7 @@ public final class b<T> extends io.reactivex.internal.operators.flowable.a<T, T>
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.oLT.a((j) new a(this.delayError ? cVar : new io.reactivex.subscribers.b<>(cVar), this.delay, this.unit, this.scheduler.emL(), this.delayError));
+        this.pDq.a((j) new a(this.delayError ? cVar : new io.reactivex.subscribers.b<>(cVar), this.delay, this.unit, this.scheduler.ewL(), this.delayError));
     }
 
     /* loaded from: classes17.dex */
@@ -56,12 +56,12 @@ public final class b<T> extends io.reactivex.internal.operators.flowable.a<T, T>
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            this.w.c(new RunnableC0979b(th), this.delayError ? this.delay : 0L, this.unit);
+            this.w.c(new RunnableC1051b(th), this.delayError ? this.delay : 0L, this.unit);
         }
 
         @Override // org.a.c
         public void onComplete() {
-            this.w.c(new RunnableC0978a(), this.delay, this.unit);
+            this.w.c(new RunnableC1050a(), this.delay, this.unit);
         }
 
         @Override // org.a.d
@@ -92,17 +92,17 @@ public final class b<T> extends io.reactivex.internal.operators.flowable.a<T, T>
 
         /* renamed from: io.reactivex.internal.operators.flowable.b$a$b  reason: collision with other inner class name */
         /* loaded from: classes17.dex */
-        final class RunnableC0979b implements Runnable {
-            private final Throwable axG;
+        final class RunnableC1051b implements Runnable {
+            private final Throwable axH;
 
-            RunnableC0979b(Throwable th) {
-                this.axG = th;
+            RunnableC1051b(Throwable th) {
+                this.axH = th;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    a.this.actual.onError(this.axG);
+                    a.this.actual.onError(this.axH);
                 } finally {
                     a.this.w.dispose();
                 }
@@ -111,8 +111,8 @@ public final class b<T> extends io.reactivex.internal.operators.flowable.a<T, T>
 
         /* renamed from: io.reactivex.internal.operators.flowable.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes17.dex */
-        final class RunnableC0978a implements Runnable {
-            RunnableC0978a() {
+        final class RunnableC1050a implements Runnable {
+            RunnableC1050a() {
             }
 
             @Override // java.lang.Runnable

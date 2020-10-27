@@ -10,8 +10,8 @@ import java.util.concurrent.CountDownLatch;
 /* loaded from: classes10.dex */
 public class c extends HandlerThread {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private CountDownLatch cJp;
-    private File cJq;
+    private CountDownLatch cRL;
+    private File cRM;
 
     /* loaded from: classes10.dex */
     public static class a {
@@ -26,18 +26,18 @@ public class c extends HandlerThread {
 
     private c(String str, int i, File file, CountDownLatch countDownLatch) {
         super(str, i);
-        this.cJq = file;
-        this.cJp = countDownLatch;
+        this.cRM = file;
+        this.cRL = countDownLatch;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Handler ase() {
+    public Handler atZ() {
         return new Handler(getLooper()) { // from class: com.baidu.swan.apps.r.a.c.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 if (message.what == 100) {
                     a aVar = (a) message.obj;
-                    File file = new File(c.this.cJq + aVar.path);
+                    File file = new File(c.this.cRM + aVar.path);
                     try {
                         if (!file.exists()) {
                             file.getParentFile().mkdirs();
@@ -52,8 +52,8 @@ public class c extends HandlerThread {
                         }
                     }
                 } else if (message.what == 200) {
-                    if (c.this.cJp != null) {
-                        c.this.cJp.countDown();
+                    if (c.this.cRL != null) {
+                        c.this.cRL.countDown();
                     }
                     c.this.quit();
                 }

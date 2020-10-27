@@ -13,15 +13,15 @@ import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 /* loaded from: classes22.dex */
 public class e {
-    private final com.baidu.tieba.pb.videopb.b llp;
-    private final HttpMessageListener llq = new HttpMessageListener(1001601, true) { // from class: com.baidu.tieba.pb.pb.main.adapter.e.1
+    private final com.baidu.tieba.pb.videopb.b lxS;
+    private final HttpMessageListener lxT = new HttpMessageListener(1001601, true) { // from class: com.baidu.tieba.pb.pb.main.adapter.e.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             e.this.a(httpResponsedMessage, 1001601);
         }
     };
-    private final HttpMessageListener llr = new HttpMessageListener(1001604) { // from class: com.baidu.tieba.pb.pb.main.adapter.e.2
+    private final HttpMessageListener lxU = new HttpMessageListener(1001604) { // from class: com.baidu.tieba.pb.pb.main.adapter.e.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -33,24 +33,24 @@ public class e {
         if (bVar == null) {
             throw new NullPointerException("PbActivity is NullPointerException");
         }
-        this.llp = bVar;
-        djb();
+        this.lxS = bVar;
+        dmi();
     }
 
     public void onDestroy() {
-        dja();
+        dmh();
     }
 
-    private boolean dja() {
-        MessageManager.getInstance().unRegisterListener(this.llq);
-        MessageManager.getInstance().unRegisterListener(this.llr);
+    private boolean dmh() {
+        MessageManager.getInstance().unRegisterListener(this.lxT);
+        MessageManager.getInstance().unRegisterListener(this.lxU);
         return true;
     }
 
-    public boolean djb() {
-        if (this.llp != null) {
-            this.llp.registerListener(this.llq);
-            this.llp.registerListener(this.llr);
+    public boolean dmi() {
+        if (this.lxS != null) {
+            this.lxS.registerListener(this.lxT);
+            this.lxS.registerListener(this.lxU);
             return true;
         }
         return true;
@@ -59,10 +59,10 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(HttpResponsedMessage httpResponsedMessage, int i) {
         PbFloorAgreeResponseMessage pbFloorAgreeResponseMessage;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == i && (httpResponsedMessage instanceof PbFloorAgreeResponseMessage) && (pbFloorAgreeResponseMessage = (PbFloorAgreeResponseMessage) httpResponsedMessage) != null && !pbFloorAgreeResponseMessage.hasError() && this.llp != null && pbFloorAgreeResponseMessage.getActivityDialogData() != null) {
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == i && (httpResponsedMessage instanceof PbFloorAgreeResponseMessage) && (pbFloorAgreeResponseMessage = (PbFloorAgreeResponseMessage) httpResponsedMessage) != null && !pbFloorAgreeResponseMessage.hasError() && this.lxS != null && pbFloorAgreeResponseMessage.getActivityDialogData() != null) {
             CustomDialogData activityDialogData = pbFloorAgreeResponseMessage.getActivityDialogData();
             activityDialogData.type = 0;
-            com.baidu.tieba.pb.interactionpopupwindow.c.a(this.llp.getPageContext(), activityDialogData).show();
+            com.baidu.tieba.pb.interactionpopupwindow.c.a(this.lxS.getPageContext(), activityDialogData).show();
         }
     }
 
@@ -78,14 +78,14 @@ public class e {
                     agreeData.agreeType = 2;
                     agreeData.hasAgree = true;
                     agreeData.agreeNum++;
-                    com.baidu.tieba.o.a.duk().G(this.llp.getPageContext());
+                    com.baidu.tieba.o.a.dxr().G(this.lxS.getPageContext());
                     i = 0;
                 }
             } else {
                 agreeData.agreeType = 2;
                 agreeData.hasAgree = true;
                 agreeData.agreeNum++;
-                com.baidu.tieba.o.a.duk().G(this.llp.getPageContext());
+                com.baidu.tieba.o.a.dxr().G(this.lxS.getPageContext());
                 i = 0;
             }
             HttpMessage httpMessage = new HttpMessage(1001601);
@@ -115,7 +115,7 @@ public class e {
     }
 
     public BdUniqueId getPageId() {
-        TbPageContext pageContext = this.llp.getPageContext();
+        TbPageContext pageContext = this.lxS.getPageContext();
         if (pageContext != null) {
             return pageContext.getUniqueId();
         }

@@ -7,51 +7,51 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes15.dex */
 public class a {
-    private static a nMM = null;
-    private final Runnable nMO = new Runnable() { // from class: com.facebook.drawee.components.a.1
+    private static a oEf = null;
+    private final Runnable oEh = new Runnable() { // from class: com.facebook.drawee.components.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.dXA();
-            for (InterfaceC0881a interfaceC0881a : a.this.nMN) {
-                interfaceC0881a.release();
+            a.ehy();
+            for (InterfaceC0953a interfaceC0953a : a.this.oEg) {
+                interfaceC0953a.release();
             }
-            a.this.nMN.clear();
+            a.this.oEg.clear();
         }
     };
-    private final Set<InterfaceC0881a> nMN = new HashSet();
+    private final Set<InterfaceC0953a> oEg = new HashSet();
     private final Handler mUiHandler = new Handler(Looper.getMainLooper());
 
     /* renamed from: com.facebook.drawee.components.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    public interface InterfaceC0881a {
+    public interface InterfaceC0953a {
         void release();
     }
 
-    public static synchronized a dXz() {
+    public static synchronized a ehx() {
         a aVar;
         synchronized (a.class) {
-            if (nMM == null) {
-                nMM = new a();
+            if (oEf == null) {
+                oEf = new a();
             }
-            aVar = nMM;
+            aVar = oEf;
         }
         return aVar;
     }
 
-    public void a(InterfaceC0881a interfaceC0881a) {
-        dXA();
-        if (this.nMN.add(interfaceC0881a) && this.nMN.size() == 1) {
-            this.mUiHandler.post(this.nMO);
+    public void a(InterfaceC0953a interfaceC0953a) {
+        ehy();
+        if (this.oEg.add(interfaceC0953a) && this.oEg.size() == 1) {
+            this.mUiHandler.post(this.oEh);
         }
     }
 
-    public void b(InterfaceC0881a interfaceC0881a) {
-        dXA();
-        this.nMN.remove(interfaceC0881a);
+    public void b(InterfaceC0953a interfaceC0953a) {
+        ehy();
+        this.oEg.remove(interfaceC0953a);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void dXA() {
+    public static void ehy() {
         g.checkState(Looper.getMainLooper().getThread() == Thread.currentThread());
     }
 }

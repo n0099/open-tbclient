@@ -23,11 +23,11 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
     }
 
     public SubjectSubscriptionManager() {
-        super(a.pjJ);
+        super(a.qaZ);
         this.active = true;
-        this.onStart = Actions.erP();
-        this.onAdded = Actions.erP();
-        this.onTerminated = Actions.erP();
+        this.onStart = Actions.eBN();
+        this.onAdded = Actions.eBN();
+        this.onTerminated = Actions.eBN();
     }
 
     public void call(j<? super T> jVar) {
@@ -59,7 +59,7 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
     }
 
     b<T>[] observers() {
-        return get().pjG;
+        return get().qaW;
     }
 
     boolean add(b<T> bVar) {
@@ -89,34 +89,34 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
     /* JADX INFO: Access modifiers changed from: package-private */
     public b<T>[] next(Object obj) {
         setLatest(obj);
-        return get().pjG;
+        return get().qaW;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b<T>[] terminate(Object obj) {
         setLatest(obj);
         this.active = false;
-        return get().terminated ? a.pjH : getAndSet(a.pjI).pjG;
+        return get().terminated ? a.qaX : getAndSet(a.qaY).qaW;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes16.dex */
     public static final class a<T> {
-        static final b[] pjH = new b[0];
-        static final a pjI = new a(true, pjH);
-        static final a pjJ = new a(false, pjH);
-        final b[] pjG;
+        static final b[] qaX = new b[0];
+        static final a qaY = new a(true, qaX);
+        static final a qaZ = new a(false, qaX);
+        final b[] qaW;
         final boolean terminated;
 
         public a(boolean z, b[] bVarArr) {
             this.terminated = z;
-            this.pjG = bVarArr;
+            this.qaW = bVarArr;
         }
 
         public a b(b bVar) {
-            int length = this.pjG.length;
+            int length = this.qaW.length;
             b[] bVarArr = new b[length + 1];
-            System.arraycopy(this.pjG, 0, bVarArr, 0, length);
+            System.arraycopy(this.qaW, 0, bVarArr, 0, length);
             bVarArr[length] = bVar;
             return new a(this.terminated, bVarArr);
         }
@@ -124,10 +124,10 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
         public a c(b bVar) {
             b[] bVarArr;
             int i;
-            b[] bVarArr2 = this.pjG;
+            b[] bVarArr2 = this.qaW;
             int length = bVarArr2.length;
             if (length == 1 && bVarArr2[0] == bVar) {
-                return pjJ;
+                return qaZ;
             }
             if (length != 0) {
                 b[] bVarArr3 = new b[length - 1];
@@ -147,7 +147,7 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
                     i3 = i;
                 }
                 if (i3 == 0) {
-                    return pjJ;
+                    return qaZ;
                 }
                 if (i3 < length - 1) {
                     bVarArr = new b[i3];
@@ -190,7 +190,7 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void cm(Object obj) {
+        public void cq(Object obj) {
             if (!this.fastPath) {
                 synchronized (this) {
                     this.first = false;
@@ -208,7 +208,7 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void cn(Object obj) {
+        public void cr(Object obj) {
             synchronized (this) {
                 if (this.first && !this.emitting) {
                     this.first = false;

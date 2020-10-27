@@ -6,8 +6,8 @@ import java.util.ArrayList;
 class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f1274a;
-    private final LruCache<String, a> aei = new LruCache<>(((int) Runtime.getRuntime().maxMemory()) / 16);
+    private final String f1271a;
+    private final LruCache<String, a> aej = new LruCache<>(((int) Runtime.getRuntime().maxMemory()) / 16);
     private boolean c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +15,7 @@ class h {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private ArrayList<String> f1275a;
+        private ArrayList<String> f1272a;
         private ArrayList<String> b;
         private long c;
         private long d;
@@ -25,7 +25,7 @@ class h {
         }
 
         public void a(ArrayList<String> arrayList) {
-            this.f1275a = arrayList;
+            this.f1272a = arrayList;
         }
 
         public boolean a() {
@@ -33,7 +33,7 @@ class h {
         }
 
         public ArrayList<String> b() {
-            return this.f1275a;
+            return this.f1272a;
         }
 
         public void b(long j) {
@@ -60,14 +60,14 @@ class h {
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(String str, boolean z) {
         this.c = false;
-        this.f1274a = str;
+        this.f1271a = str;
         this.c = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
-        this.aei.evictAll();
-        l.a("Clear %s cache", this.f1274a);
+        this.aej.evictAll();
+        l.a("Clear %s cache", this.f1271a);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -77,9 +77,9 @@ class h {
         if ((b == null || b.isEmpty()) && (c == null || c.isEmpty())) {
             return;
         }
-        this.aei.put(str, aVar);
+        this.aej.put(str, aVar);
         Object[] objArr = new Object[5];
-        objArr[0] = this.f1274a;
+        objArr[0] = this.f1271a;
         objArr[1] = str;
         objArr[2] = b != null ? b.toString() : null;
         objArr[3] = c != null ? c.toString() : null;
@@ -95,7 +95,7 @@ class h {
     /* JADX INFO: Access modifiers changed from: package-private */
     public ArrayList<String> b() {
         ArrayList<String> arrayList = new ArrayList<>();
-        for (String str : this.aei.snapshot().keySet()) {
+        for (String str : this.aej.snapshot().keySet()) {
             arrayList.add(str);
         }
         return arrayList;
@@ -107,16 +107,16 @@ class h {
         if (dh == null || !dh.a()) {
             return;
         }
-        this.aei.remove(str);
-        l.a("Remove expired entry from %s cache, host(%s)", this.f1274a, str);
+        this.aej.remove(str);
+        l.a("Remove expired entry from %s cache, host(%s)", this.f1271a, str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a dh(String str) {
-        a aVar = this.aei.get(str);
+        a aVar = this.aej.get(str);
         if (aVar != null && aVar.a() && this.c) {
-            this.aei.remove(str);
-            l.a("Remove expired entry from %s cache while reading, host(%s)", this.f1274a, str);
+            this.aej.remove(str);
+            l.a("Remove expired entry from %s cache while reading, host(%s)", this.f1271a, str);
             return null;
         }
         return aVar;

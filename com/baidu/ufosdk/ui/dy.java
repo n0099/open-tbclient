@@ -8,11 +8,11 @@ import java.util.List;
 public final class dy implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackReportActivity f3845a;
+    final /* synthetic */ FeedbackReportActivity f3843a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dy(FeedbackReportActivity feedbackReportActivity) {
-        this.f3845a = feedbackReportActivity;
+        this.f3843a = feedbackReportActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,30 +25,30 @@ public final class dy implements View.OnClickListener {
         byte[] bArr2;
         TextView textView;
         List list4;
-        z = this.f3845a.B;
+        z = this.f3843a.B;
         if (z) {
             return;
         }
-        list = this.f3845a.x;
+        list = this.f3843a.x;
         list.remove(((Integer) view.getTag()).intValue());
-        list2 = this.f3845a.x;
+        list2 = this.f3843a.x;
         if (list2.size() == 1) {
-            byte[] b = com.baidu.ufosdk.f.m.b(this.f3845a.getApplicationContext());
+            byte[] b = com.baidu.ufosdk.f.m.b(this.f3843a.getApplicationContext());
             if (b == null) {
                 return;
             }
-            list4 = this.f3845a.x;
+            list4 = this.f3843a.x;
             list4.set(0, b);
         }
-        bArr = this.f3845a.j;
+        bArr = this.f3843a.j;
         if (bArr != null) {
-            list3 = this.f3845a.x;
-            bArr2 = this.f3845a.j;
+            list3 = this.f3843a.x;
+            bArr2 = this.f3843a.j;
             if (!list3.contains(bArr2)) {
-                textView = this.f3845a.r;
+                textView = this.f3843a.r;
                 textView.setText("上传截图");
             }
         }
-        this.f3845a.c();
+        this.f3843a.c();
     }
 }

@@ -11,21 +11,21 @@ import rx.internal.schedulers.h;
 import rx.internal.schedulers.j;
 /* loaded from: classes16.dex */
 public final class Schedulers {
-    private static final AtomicReference<Schedulers> pcY = new AtomicReference<>();
-    private final g pjj;
-    private final g pjk;
-    private final g pjl;
+    private static final AtomicReference<Schedulers> pUr = new AtomicReference<>();
+    private final g qaA;
+    private final g qaB;
+    private final g qaz;
 
-    private static Schedulers esV() {
+    private static Schedulers eCT() {
         Schedulers schedulers;
         while (true) {
-            schedulers = pcY.get();
+            schedulers = pUr.get();
             if (schedulers == null) {
                 schedulers = new Schedulers();
-                if (pcY.compareAndSet(null, schedulers)) {
+                if (pUr.compareAndSet(null, schedulers)) {
                     break;
                 }
-                schedulers.esX();
+                schedulers.eCV();
             } else {
                 break;
             }
@@ -34,45 +34,45 @@ public final class Schedulers {
     }
 
     private Schedulers() {
-        rx.c.g esM = f.esH().esM();
-        g esQ = esM.esQ();
-        if (esQ != null) {
-            this.pjj = esQ;
+        rx.c.g eCK = f.eCF().eCK();
+        g eCO = eCK.eCO();
+        if (eCO != null) {
+            this.qaz = eCO;
         } else {
-            this.pjj = rx.c.g.esN();
+            this.qaz = rx.c.g.eCL();
         }
-        g esR = esM.esR();
-        if (esR != null) {
-            this.pjk = esR;
+        g eCP = eCK.eCP();
+        if (eCP != null) {
+            this.qaA = eCP;
         } else {
-            this.pjk = rx.c.g.esO();
+            this.qaA = rx.c.g.eCM();
         }
-        g esS = esM.esS();
-        if (esS != null) {
-            this.pjl = esS;
+        g eCQ = eCK.eCQ();
+        if (eCQ != null) {
+            this.qaB = eCQ;
         } else {
-            this.pjl = rx.c.g.esP();
+            this.qaB = rx.c.g.eCN();
         }
     }
 
     public static g immediate() {
-        return e.phn;
+        return e.pYG;
     }
 
     public static g trampoline() {
-        return j.phL;
+        return j.pZe;
     }
 
     public static g newThread() {
-        return c.k(esV().pjl);
+        return c.k(eCT().qaB);
     }
 
     public static g computation() {
-        return c.i(esV().pjj);
+        return c.i(eCT().qaz);
     }
 
     public static g io() {
-        return c.j(esV().pjk);
+        return c.j(eCT().qaA);
     }
 
     public static TestScheduler test() {
@@ -84,49 +84,49 @@ public final class Schedulers {
     }
 
     public static void reset() {
-        Schedulers andSet = pcY.getAndSet(null);
+        Schedulers andSet = pUr.getAndSet(null);
         if (andSet != null) {
-            andSet.esX();
+            andSet.eCV();
         }
     }
 
     public static void start() {
-        Schedulers esV = esV();
-        esV.esW();
-        synchronized (esV) {
-            d.phl.start();
+        Schedulers eCT = eCT();
+        eCT.eCU();
+        synchronized (eCT) {
+            d.pYE.start();
         }
     }
 
     public static void shutdown() {
-        Schedulers esV = esV();
-        esV.esX();
-        synchronized (esV) {
-            d.phl.shutdown();
+        Schedulers eCT = eCT();
+        eCT.eCV();
+        synchronized (eCT) {
+            d.pYE.shutdown();
         }
     }
 
-    synchronized void esW() {
-        if (this.pjj instanceof h) {
-            ((h) this.pjj).start();
+    synchronized void eCU() {
+        if (this.qaz instanceof h) {
+            ((h) this.qaz).start();
         }
-        if (this.pjk instanceof h) {
-            ((h) this.pjk).start();
+        if (this.qaA instanceof h) {
+            ((h) this.qaA).start();
         }
-        if (this.pjl instanceof h) {
-            ((h) this.pjl).start();
+        if (this.qaB instanceof h) {
+            ((h) this.qaB).start();
         }
     }
 
-    synchronized void esX() {
-        if (this.pjj instanceof h) {
-            ((h) this.pjj).shutdown();
+    synchronized void eCV() {
+        if (this.qaz instanceof h) {
+            ((h) this.qaz).shutdown();
         }
-        if (this.pjk instanceof h) {
-            ((h) this.pjk).shutdown();
+        if (this.qaA instanceof h) {
+            ((h) this.qaA).shutdown();
         }
-        if (this.pjl instanceof h) {
-            ((h) this.pjl).shutdown();
+        if (this.qaB instanceof h) {
+            ((h) this.qaB).shutdown();
         }
     }
 }

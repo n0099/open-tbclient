@@ -12,7 +12,7 @@ public class a {
         this.mV8Engine = v8Engine;
     }
 
-    public void cO(String str, String str2) {
+    public void cV(String str, String str2) {
         this.mV8Engine.requireJSFile(str, str2);
     }
 

@@ -10,16 +10,16 @@ import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes17.dex */
 public final class ObservablePublishSelector<T, R> extends io.reactivex.internal.operators.observable.a<T, R> {
-    final h<? super q<T>, ? extends t<R>> oMv;
+    final h<? super q<T>, ? extends t<R>> pDS;
 
     @Override // io.reactivex.q
     protected void a(u<? super R> uVar) {
-        PublishSubject enx = PublishSubject.enx();
+        PublishSubject exw = PublishSubject.exw();
         try {
-            t tVar = (t) io.reactivex.internal.functions.a.l(this.oMv.apply(enx), "The selector returned a null ObservableSource");
+            t tVar = (t) io.reactivex.internal.functions.a.l(this.pDS.apply(exw), "The selector returned a null ObservableSource");
             TargetObserver targetObserver = new TargetObserver(uVar);
             tVar.subscribe(targetObserver);
-            this.source.subscribe(new a(enx, targetObserver));
+            this.source.subscribe(new a(exw, targetObserver));
         } catch (Throwable th) {
             io.reactivex.exceptions.a.J(th);
             EmptyDisposable.error(th, uVar);
@@ -28,32 +28,32 @@ public final class ObservablePublishSelector<T, R> extends io.reactivex.internal
 
     /* loaded from: classes17.dex */
     static final class a<T, R> implements u<T> {
-        final PublishSubject<T> oNB;
-        final AtomicReference<io.reactivex.disposables.b> oNC;
+        final PublishSubject<T> pEY;
+        final AtomicReference<io.reactivex.disposables.b> pEZ;
 
         a(PublishSubject<T> publishSubject, AtomicReference<io.reactivex.disposables.b> atomicReference) {
-            this.oNB = publishSubject;
-            this.oNC = atomicReference;
+            this.pEY = publishSubject;
+            this.pEZ = atomicReference;
         }
 
         @Override // io.reactivex.u
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            DisposableHelper.setOnce(this.oNC, bVar);
+            DisposableHelper.setOnce(this.pEZ, bVar);
         }
 
         @Override // io.reactivex.u
         public void onNext(T t) {
-            this.oNB.onNext(t);
+            this.pEY.onNext(t);
         }
 
         @Override // io.reactivex.u
         public void onError(Throwable th) {
-            this.oNB.onError(th);
+            this.pEY.onError(th);
         }
 
         @Override // io.reactivex.u
         public void onComplete() {
-            this.oNB.onComplete();
+            this.pEY.onComplete();
         }
     }
 

@@ -14,58 +14,58 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.y;
+import com.baidu.tieba.card.z;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes4.dex */
-public class b extends com.baidu.tieba.card.b<bw> implements y {
-    private bw agw;
-    private View drD;
-    private TbPageContext<?> etO;
-    private RelativeLayout gAC;
-    private View gBf;
-    private TextView gBg;
-    private TextView gBh;
-    private TextView gBi;
-    private RelativeLayout gBj;
-    private final View.OnClickListener gBk;
+public class b extends com.baidu.tieba.card.b<bw> implements z {
+    private bw agx;
+    private View dAc;
+    private TbPageContext<?> eCn;
+    private View gMT;
+    private TextView gMU;
+    private TextView gMV;
+    private TextView gMW;
+    private RelativeLayout gMX;
+    private final View.OnClickListener gMY;
+    private RelativeLayout gMq;
     private View mDivider;
     private String mForumName;
 
     public b(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.gBk = new View.OnClickListener() { // from class: com.baidu.tieba.ala.livecard.b.b.1
+        this.gMY = new View.OnClickListener() { // from class: com.baidu.tieba.ala.livecard.b.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.agw != null && b.this.cil() != null) {
-                    b.this.cil().a(view, b.this.agw);
-                    TiebaStatic.log(new aq("c11844").dK("uid", TbadkCoreApplication.getCurrentAccount()).u("fid", b.this.agw.getFid()));
+                if (b.this.agx != null && b.this.cls() != null) {
+                    b.this.cls().a(view, b.this.agx);
+                    TiebaStatic.log(new aq("c11844").dR("uid", TbadkCoreApplication.getCurrentAccount()).w("fid", b.this.agx.getFid()));
                 }
             }
         };
-        this.etO = tbPageContext;
+        this.eCn = tbPageContext;
         View view = getView();
         this.mDivider = view.findViewById(R.id.divider);
-        this.gBf = view.findViewById(R.id.recommend_left_line);
-        this.drD = view.findViewById(R.id.recommend_right_line);
-        this.gAC = (RelativeLayout) view.findViewById(R.id.ala_live_empty_layout_root);
-        this.gBg = (TextView) view.findViewById(R.id.ala_live_title);
-        this.gBh = (TextView) view.findViewById(R.id.start_live_btn);
-        this.gBj = (RelativeLayout) view.findViewById(R.id.ala_bottom_container);
-        this.gBi = (TextView) view.findViewById(R.id.ala_recommend_live);
+        this.gMT = view.findViewById(R.id.recommend_left_line);
+        this.dAc = view.findViewById(R.id.recommend_right_line);
+        this.gMq = (RelativeLayout) view.findViewById(R.id.ala_live_empty_layout_root);
+        this.gMU = (TextView) view.findViewById(R.id.ala_live_title);
+        this.gMV = (TextView) view.findViewById(R.id.start_live_btn);
+        this.gMX = (RelativeLayout) view.findViewById(R.id.ala_bottom_container);
+        this.gMW = (TextView) view.findViewById(R.id.ala_recommend_live);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ap.setBackgroundResource(this.gBh, R.drawable.ala_live_card_start_live_selector);
-            ap.setViewTextColor(this.gBh, R.color.cp_cont_a);
-            ap.setBackgroundColor(this.gAC, R.color.cp_bg_line_d);
+            ap.setBackgroundResource(this.gMV, R.drawable.ala_live_card_start_live_selector);
+            ap.setViewTextColor(this.gMV, R.color.cp_cont_a);
+            ap.setBackgroundColor(this.gMq, R.color.cp_bg_line_d);
             ap.setBackgroundColor(this.mDivider, R.color.cp_bg_line_c);
-            ap.setBackgroundColor(this.gBf, R.color.cp_bg_line_c);
-            ap.setBackgroundColor(this.drD, R.color.cp_bg_line_c);
-            ap.setViewTextColor(this.gBg, R.color.cp_cont_d);
-            ap.setViewTextColor(this.gBi, R.color.cp_cont_c);
-            ap.setBackgroundColor(this.gBj, R.color.cp_bg_line_d);
+            ap.setBackgroundColor(this.gMT, R.color.cp_bg_line_c);
+            ap.setBackgroundColor(this.dAc, R.color.cp_bg_line_c);
+            ap.setViewTextColor(this.gMU, R.color.cp_cont_d);
+            ap.setViewTextColor(this.gMW, R.color.cp_cont_c);
+            ap.setBackgroundColor(this.gMX, R.color.cp_bg_line_d);
             this.mSkinType = i;
         }
     }
@@ -78,17 +78,17 @@ public class b extends com.baidu.tieba.card.b<bw> implements y {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(bw bwVar) {
-        this.agw = bwVar;
+        this.agx = bwVar;
         refreshView();
     }
 
-    @Override // com.baidu.tieba.card.y
+    @Override // com.baidu.tieba.card.z
     public void setForumName(String str) {
         this.mForumName = str;
     }
 
-    @Override // com.baidu.tieba.card.y
-    public void ux(int i) {
+    @Override // com.baidu.tieba.card.z
+    public void uQ(int i) {
     }
 
     @Override // android.view.View.OnClickListener
@@ -96,25 +96,25 @@ public class b extends com.baidu.tieba.card.b<bw> implements y {
     }
 
     private void refreshView() {
-        if (!this.agw.erN) {
-            this.gBi.setVisibility(8);
-            this.gBf.setVisibility(8);
-            this.drD.setVisibility(8);
-            ViewGroup.LayoutParams layoutParams = this.gBj.getLayoutParams();
-            layoutParams.height = l.getEquipmentHeight(this.etO.getPageActivity()) / 4;
-            this.gBj.setLayoutParams(layoutParams);
+        if (!this.agx.eAn) {
+            this.gMW.setVisibility(8);
+            this.gMT.setVisibility(8);
+            this.dAc.setVisibility(8);
+            ViewGroup.LayoutParams layoutParams = this.gMX.getLayoutParams();
+            layoutParams.height = l.getEquipmentHeight(this.eCn.getPageActivity()) / 4;
+            this.gMX.setLayoutParams(layoutParams);
         } else {
-            this.gBi.setVisibility(0);
-            this.gBf.setVisibility(0);
-            this.drD.setVisibility(0);
-            ViewGroup.LayoutParams layoutParams2 = this.gBj.getLayoutParams();
-            layoutParams2.height = this.etO.getPageActivity().getResources().getDimensionPixelSize(R.dimen.ds30);
-            this.gBj.setLayoutParams(layoutParams2);
+            this.gMW.setVisibility(0);
+            this.gMT.setVisibility(0);
+            this.dAc.setVisibility(0);
+            ViewGroup.LayoutParams layoutParams2 = this.gMX.getLayoutParams();
+            layoutParams2.height = this.eCn.getPageActivity().getResources().getDimensionPixelSize(R.dimen.ds30);
+            this.gMX.setLayoutParams(layoutParams2);
         }
-        onChangeSkinType(this.etO, TbadkCoreApplication.getInst().getSkinType());
+        onChangeSkinType(this.eCn, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void o(BdUniqueId bdUniqueId) {
-        this.gBh.setOnClickListener(this.gBk);
+        this.gMV.setOnClickListener(this.gMY);
     }
 }

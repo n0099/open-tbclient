@@ -7,7 +7,7 @@ import com.xiaomi.mipush.sdk.Constants;
 public class ec extends ed {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4871a = "";
+    public static String f4869a = "";
     public static String b = "";
 
     public ec(Context context, int i) {
@@ -34,23 +34,23 @@ public class ec extends ed {
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo167a() {
+    public int mo166a() {
         return 12;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public ho mo167a() {
+    public ho mo166a() {
         return ho.BroadcastAction;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo167a() {
+    public String mo166a() {
         String str = "";
-        if (!TextUtils.isEmpty(f4871a)) {
-            str = "" + a(dv.f230a, f4871a);
-            f4871a = "";
+        if (!TextUtils.isEmpty(f4869a)) {
+            str = "" + a(dv.f227a, f4869a);
+            f4869a = "";
         }
         if (TextUtils.isEmpty(b)) {
             return str;

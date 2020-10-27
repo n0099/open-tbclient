@@ -23,7 +23,7 @@ import tv.chushou.zues.widget.fresco.b;
 public class MicStatusView extends RelativeLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f4184a;
+    private TextView f4182a;
     private Context b;
     private String c;
     private boolean d;
@@ -32,8 +32,8 @@ public class MicStatusView extends RelativeLayout implements View.OnClickListene
     private boolean i;
     private String j;
     private int k;
-    private NoClickRecyclerView ouK;
-    private tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem> ouL;
+    private NoClickRecyclerView pmb;
+    private tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem> pmc;
 
     public MicStatusView(Context context) {
         super(context);
@@ -65,22 +65,22 @@ public class MicStatusView extends RelativeLayout implements View.OnClickListene
     private void a(Context context) {
         this.b = context;
         View inflate = LayoutInflater.from(context).inflate(a.h.view_mic_status, (ViewGroup) this, true);
-        this.f4184a = (TextView) inflate.findViewById(a.f.mic_txt);
-        this.ouK = (NoClickRecyclerView) inflate.findViewById(a.f.recycler_view);
-        this.ouK.setLayoutManager(new b(this.b, 0, false));
-        this.ouL = new tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem>(this.e, a.h.item_mic_user, new d() { // from class: com.kascend.chushou.player.ui.miniview.MicStatusView.1
+        this.f4182a = (TextView) inflate.findViewById(a.f.mic_txt);
+        this.pmb = (NoClickRecyclerView) inflate.findViewById(a.f.recycler_view);
+        this.pmb.setLayoutManager(new b(this.b, 0, false));
+        this.pmc = new tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem>(this.e, a.h.item_mic_user, new d() { // from class: com.kascend.chushou.player.ui.miniview.MicStatusView.1
             @Override // tv.chushou.zues.widget.adapterview.d
-            public void E(View view, int i) {
+            public void I(View view, int i) {
                 tv.chushou.zues.a.a.post(new com.kascend.chushou.b.a.a.a());
             }
         }) { // from class: com.kascend.chushou.player.ui.miniview.MicStatusView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // tv.chushou.zues.widget.adapterview.recyclerview.a.a
-            public void a(a.View$OnLongClickListenerC1029a view$OnLongClickListenerC1029a, FanItem fanItem) {
-                view$OnLongClickListenerC1029a.a(a.f.iv_image, fanItem.mAvatar, com.kascend.chushou.view.a.a(fanItem.mGender), b.a.pnM, b.a.pnM);
+            public void a(a.View$OnLongClickListenerC1101a view$OnLongClickListenerC1101a, FanItem fanItem) {
+                view$OnLongClickListenerC1101a.a(a.f.iv_image, fanItem.mAvatar, com.kascend.chushou.view.a.a(fanItem.mGender), b.a.qfa, b.a.qfa);
             }
         };
-        this.ouK.setAdapter(this.ouL);
+        this.pmb.setAdapter(this.pmc);
     }
 
     @Override // android.view.View
@@ -92,14 +92,14 @@ public class MicStatusView extends RelativeLayout implements View.OnClickListene
         this.d = true;
         this.c = str;
         setVisibility(0);
-        startAnimation(AnimationUtils.loadAnimation(this.b, a.C0897a.slide_in_top_danmu_anim));
-        tv.chushou.zues.a.a.post(new com.kascend.chushou.player.ui.button.a(1, 0).Wq(this.c));
+        startAnimation(AnimationUtils.loadAnimation(this.b, a.C0969a.slide_in_top_danmu_anim));
+        tv.chushou.zues.a.a.post(new com.kascend.chushou.player.ui.button.a(1, 0).Yd(this.c));
     }
 
     public void a() {
         this.d = false;
         setVisibility(8);
-        tv.chushou.zues.a.a.post(new com.kascend.chushou.player.ui.button.a(1, 8).zp(false).Wq(this.c));
+        tv.chushou.zues.a.a.post(new com.kascend.chushou.player.ui.button.a(1, 8).Ax(false).Yd(this.c));
     }
 
     public void a(List<FanItem> list, String str, boolean z, MicStatus micStatus, String str2) {
@@ -108,13 +108,13 @@ public class MicStatusView extends RelativeLayout implements View.OnClickListene
             this.k = micStatus.micGameActionType;
         }
         this.i = z;
-        if (this.f4184a != null) {
-            this.f4184a.setText(String.format(this.b.getString(a.i.mic_play_together), Integer.valueOf(micStatus.onlineCount)));
+        if (this.f4182a != null) {
+            this.f4182a.setText(String.format(this.b.getString(a.i.mic_play_together), Integer.valueOf(micStatus.onlineCount)));
         }
-        if (this.ouL != null && !h.isEmpty(list)) {
+        if (this.pmc != null && !h.isEmpty(list)) {
             this.e.clear();
             this.e.addAll(list);
-            this.ouL.notifyDataSetChanged();
+            this.pmc.notifyDataSetChanged();
         }
     }
 

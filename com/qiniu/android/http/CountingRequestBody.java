@@ -13,15 +13,15 @@ import okio.Sink;
 /* loaded from: classes6.dex */
 public final class CountingRequestBody extends RequestBody {
     private final RequestBody body;
-    private final ProgressHandler oEX;
-    private final long oEY;
-    private final CancellationHandler oEZ;
+    private final ProgressHandler pwu;
+    private final long pwv;
+    private final CancellationHandler pww;
 
     public CountingRequestBody(RequestBody requestBody, ProgressHandler progressHandler, long j, CancellationHandler cancellationHandler) {
         this.body = requestBody;
-        this.oEX = progressHandler;
-        this.oEY = j;
-        this.oEZ = cancellationHandler;
+        this.pwu = progressHandler;
+        this.pwv = j;
+        this.pww = cancellationHandler;
     }
 
     @Override // okhttp3.RequestBody
@@ -43,26 +43,26 @@ public final class CountingRequestBody extends RequestBody {
 
     /* loaded from: classes6.dex */
     protected final class CountingSink extends ForwardingSink {
-        private int oFa;
+        private int pwx;
 
         public CountingSink(Sink sink) {
             super(sink);
-            this.oFa = 0;
+            this.pwx = 0;
         }
 
         @Override // okio.ForwardingSink, okio.Sink
         public void write(Buffer buffer, long j) throws IOException {
-            if (CountingRequestBody.this.oEZ != null || CountingRequestBody.this.oEX != null) {
-                if (CountingRequestBody.this.oEZ != null && CountingRequestBody.this.oEZ.isCancelled()) {
+            if (CountingRequestBody.this.pww != null || CountingRequestBody.this.pwu != null) {
+                if (CountingRequestBody.this.pww != null && CountingRequestBody.this.pww.isCancelled()) {
                     throw new CancellationHandler.CancellationException();
                 }
                 super.write(buffer, j);
-                this.oFa = (int) (this.oFa + j);
-                if (CountingRequestBody.this.oEX != null) {
-                    AsyncRun.E(new Runnable() { // from class: com.qiniu.android.http.CountingRequestBody.CountingSink.1
+                this.pwx = (int) (this.pwx + j);
+                if (CountingRequestBody.this.pwu != null) {
+                    AsyncRun.G(new Runnable() { // from class: com.qiniu.android.http.CountingRequestBody.CountingSink.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            CountingRequestBody.this.oEX.onProgress(CountingSink.this.oFa, CountingRequestBody.this.oEY);
+                            CountingRequestBody.this.pwu.onProgress(CountingSink.this.pwx, CountingRequestBody.this.pwv);
                         }
                     });
                     return;

@@ -10,84 +10,96 @@ import java.util.Map;
 public class MediaInstanceState {
     public static final int INSTANCE_STATE_ACTIVE = 1;
     public static final int INSTANCE_STATE_INACTIVE = 0;
+    private Map<String, String> A;
 
     /* renamed from: a  reason: collision with root package name */
-    private CyberPlayerManager.OnPreparedListener f1351a;
+    private CyberPlayerManager.OnPreparedListener f1348a;
     private CyberPlayerManager.OnCompletionListener b;
     private CyberPlayerManager.OnBufferingUpdateListener c;
     private CyberPlayerManager.OnSeekCompleteListener d;
     private CyberPlayerManager.OnVideoSizeChangedListener e;
     private CyberPlayerManager.OnInfoListener f;
-    private Surface g;
-    private CyberPlayerManager.HttpDNS h;
-    private int i = -1;
-    private int j = 0;
-    private float k = -1.0f;
+    private CyberPlayerManager.OnMediaSourceChangedListener g;
+    private Surface h;
+    private CyberPlayerManager.HttpDNS i;
+    private Uri z;
+    private int j = -1;
+    private int k = 0;
     private float l = -1.0f;
-    private long m = 0;
+    private float m = -1.0f;
     private long n = 0;
-    private int o = 0;
-    private Context p = null;
-    private boolean q = false;
+    private long o = 0;
+    private int p = 0;
+    private Context q = null;
     private boolean r = false;
     private boolean s = false;
-    private int t = 0;
-    private boolean u = false;
-    private int v = -1;
-    private int w = 0;
+    private boolean t = false;
+    private int u = 0;
+    private boolean v = false;
+    private int w = -1;
     private int x = 0;
-    private Uri y;
-    private Map<String, String> z;
+    private int y = 0;
+    private int B = Integer.MIN_VALUE;
+    private String C = null;
+    private String D = null;
 
     public CyberPlayerManager.HttpDNS dns() {
-        return this.h;
-    }
-
-    public int getCurrentPosition() {
         return this.i;
     }
 
-    public int getDecoderMode() {
-        return this.o;
+    public String getClarityInfo() {
+        return this.C;
     }
 
-    public long getDownLoadSpeed() {
-        return this.n;
-    }
-
-    public int getDuration() {
+    public int getCurrentPosition() {
         return this.j;
     }
 
-    public Context getInstanceContext() {
+    public int getDecoderMode() {
         return this.p;
     }
 
+    public long getDownLoadSpeed() {
+        return this.o;
+    }
+
+    public int getDuration() {
+        return this.k;
+    }
+
+    public Context getInstanceContext() {
+        return this.q;
+    }
+
     public Map<String, String> getInstanceHeader() {
-        return this.z;
+        return this.A;
     }
 
     public int getInstanceStaticsCount(boolean z) {
         if (z) {
-            int i = this.w + 1;
-            this.w = i;
+            int i = this.x + 1;
+            this.x = i;
             return i;
         }
-        int i2 = this.x + 1;
-        this.x = i2;
+        int i2 = this.y + 1;
+        this.y = i2;
         return i2;
     }
 
     public Surface getInstanceSurface() {
-        return this.g;
+        return this.h;
     }
 
     public Uri getInstanceUri() {
-        return this.y;
+        return this.z;
     }
 
     public float getLRVolume() {
-        return this.k > this.l ? this.k : this.l;
+        return this.l > this.m ? this.l : this.m;
+    }
+
+    public int getMediaSourceRank() {
+        return this.B;
     }
 
     public CyberPlayerManager.OnBufferingUpdateListener getOnBufferingUpdateListener() {
@@ -102,8 +114,12 @@ public class MediaInstanceState {
         return this.f;
     }
 
+    public CyberPlayerManager.OnMediaSourceChangedListener getOnMediaSourceChangedListener() {
+        return this.g;
+    }
+
     public CyberPlayerManager.OnPreparedListener getOnPreparedListener() {
-        return this.f1351a;
+        return this.f1348a;
     }
 
     public CyberPlayerManager.OnSeekCompleteListener getOnSeekCompleteListener() {
@@ -114,43 +130,56 @@ public class MediaInstanceState {
         return this.e;
     }
 
+    public String getPlayJson() {
+        return this.D;
+    }
+
     public boolean getPlayStateByType(int i) {
         if (i == 0) {
-            return this.q;
+            return this.r;
         }
         if (i == 1) {
-            return this.r;
+            return this.s;
         }
         return false;
     }
 
     public long getPlayedTime() {
-        return this.m;
+        return this.n;
     }
 
     public boolean getPlayingStatus() {
-        return this.s;
+        return this.t;
     }
 
     public boolean isRemote() {
-        return this.u;
+        return this.v;
     }
 
     public boolean needActiveInstance() {
-        return this.v == 0;
+        return this.w == 0;
     }
 
     public void release() {
-        this.f1351a = null;
+        this.f1348a = null;
         this.f = null;
         this.d = null;
         this.c = null;
         this.e = null;
-        this.f1351a = null;
+        this.f1348a = null;
         this.g = null;
         this.h = null;
+        this.i = null;
+        this.A = null;
         this.z = null;
-        this.y = null;
+    }
+
+    public void setClarityInfo(String str) {
+        this.C = str;
+    }
+
+    public void setMediaSourceRank(int i) {
+        this.B = i;
     }
 
     public void setOnBufferingUpdateListener(CyberPlayerManager.OnBufferingUpdateListener onBufferingUpdateListener) {
@@ -165,8 +194,12 @@ public class MediaInstanceState {
         this.f = onInfoListener;
     }
 
+    public void setOnMediaSourceChangedListener(CyberPlayerManager.OnMediaSourceChangedListener onMediaSourceChangedListener) {
+        this.g = onMediaSourceChangedListener;
+    }
+
     public void setOnPreparedListener(CyberPlayerManager.OnPreparedListener onPreparedListener) {
-        this.f1351a = onPreparedListener;
+        this.f1348a = onPreparedListener;
     }
 
     public void setOnSeekCompleteListener(CyberPlayerManager.OnSeekCompleteListener onSeekCompleteListener) {
@@ -177,62 +210,66 @@ public class MediaInstanceState {
         this.e = onVideoSizeChangedListener;
     }
 
+    public void setPlayJson(String str) {
+        this.D = str;
+    }
+
     public void updateDataSource(Context context, Uri uri, Map<String, String> map) {
-        this.p = context;
-        this.y = uri;
-        this.z = map;
+        this.q = context;
+        this.z = uri;
+        this.A = map;
     }
 
     public void updateDecoderMode(int i) {
-        this.o = i;
+        this.p = i;
     }
 
     public void updateDns(CyberPlayerManager.HttpDNS httpDNS) {
-        this.h = httpDNS;
+        this.i = httpDNS;
     }
 
     public void updateDownLoadSpeed(long j) {
-        this.n = j;
+        this.o = j;
     }
 
     public void updateInstanceDecodeMode(int i) {
-        this.o = i;
+        this.p = i;
     }
 
     public void updateInstanceState(int i) {
-        this.v = i;
+        this.w = i;
     }
 
     public void updatePlayStateByType(int i, boolean z) {
         if (i == 0) {
-            this.q = z;
-        } else if (i == 1) {
             this.r = z;
+        } else if (i == 1) {
+            this.s = z;
         }
     }
 
     public void updatePlayedTime(long j) {
-        this.m = j;
+        this.n = j;
     }
 
     public void updatePlayingStatus(boolean z) {
-        this.s = z;
+        this.t = z;
     }
 
     public void updateRemote(boolean z) {
-        this.u = z;
+        this.v = z;
     }
 
     public void updateSeekPos(int i, int i2) {
         if (i >= i2 - 100) {
-            this.i = 0;
+            this.j = 0;
         } else {
-            this.i = i;
+            this.j = i;
         }
-        this.j = i2;
+        this.k = i2;
     }
 
     public void updateSurface(Surface surface) {
-        this.g = surface;
+        this.h = surface;
     }
 }

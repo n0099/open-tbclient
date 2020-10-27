@@ -5,69 +5,69 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.down.manage.DownloadConstants;
 /* loaded from: classes22.dex */
 class c {
-    protected int lAk;
-    protected byte[] lAl;
-    protected int lAm;
-    protected int lAn;
-    protected int[] lAp = new int[256];
-    protected int[] lAq = new int[256];
-    protected int[] lAr = new int[256];
-    protected int[] lAs = new int[32];
-    protected int[][] lAo = new int[256];
+    protected int lMH;
+    protected byte[] lMI;
+    protected int lMJ;
+    protected int lMK;
+    protected int[] lMM = new int[256];
+    protected int[] lMN = new int[256];
+    protected int[] lMO = new int[256];
+    protected int[] lMP = new int[32];
+    protected int[][] lML = new int[256];
 
     public c(byte[] bArr, int i, int i2) {
-        this.lAl = bArr;
-        this.lAm = i;
-        this.lAn = i2;
+        this.lMI = bArr;
+        this.lMJ = i;
+        this.lMK = i2;
         for (int i3 = 0; i3 < 256; i3++) {
-            this.lAo[i3] = new int[4];
-            int[] iArr = this.lAo[i3];
+            this.lML[i3] = new int[4];
+            int[] iArr = this.lML[i3];
             int i4 = (i3 << 12) / 256;
             iArr[2] = i4;
             iArr[1] = i4;
             iArr[0] = i4;
-            this.lAr[i3] = 256;
-            this.lAq[i3] = 0;
+            this.lMO[i3] = 256;
+            this.lMN[i3] = 0;
         }
     }
 
-    public byte[] dnj() {
+    public byte[] dqr() {
         byte[] bArr = new byte[768];
         int[] iArr = new int[256];
         for (int i = 0; i < 256; i++) {
-            iArr[this.lAo[i][3]] = i;
+            iArr[this.lML[i][3]] = i;
         }
         int i2 = 0;
         for (int i3 = 0; i3 < 256; i3++) {
             int i4 = iArr[i3];
             int i5 = i2 + 1;
-            bArr[i2] = (byte) this.lAo[i4][0];
+            bArr[i2] = (byte) this.lML[i4][0];
             int i6 = i5 + 1;
-            bArr[i5] = (byte) this.lAo[i4][1];
+            bArr[i5] = (byte) this.lML[i4][1];
             i2 = i6 + 1;
-            bArr[i6] = (byte) this.lAo[i4][2];
+            bArr[i6] = (byte) this.lML[i4][2];
         }
         return bArr;
     }
 
-    public void dnk() {
+    public void dqs() {
         int i;
         int i2;
         int i3 = 0;
         int i4 = 0;
         int i5 = 0;
         while (i5 < 256) {
-            int[] iArr = this.lAo[i5];
+            int[] iArr = this.lML[i5];
             int i6 = iArr[1];
             int i7 = i5;
             for (int i8 = i5 + 1; i8 < 256; i8++) {
-                int[] iArr2 = this.lAo[i8];
+                int[] iArr2 = this.lML[i8];
                 if (iArr2[1] < i6) {
                     i6 = iArr2[1];
                     i7 = i8;
                 }
             }
-            int[] iArr3 = this.lAo[i7];
+            int[] iArr3 = this.lML[i7];
             if (i5 != i7) {
                 int i9 = iArr3[0];
                 iArr3[0] = iArr[0];
@@ -83,9 +83,9 @@ class c {
                 iArr[3] = i12;
             }
             if (i6 != i4) {
-                this.lAp[i4] = (i3 + i5) >> 1;
+                this.lMM[i4] = (i3 + i5) >> 1;
                 for (int i13 = i4 + 1; i13 < i6; i13++) {
-                    this.lAp[i13] = i5;
+                    this.lMM[i13] = i5;
                 }
                 i2 = i6;
                 i = i5;
@@ -97,32 +97,32 @@ class c {
             i3 = i;
             i4 = i2;
         }
-        this.lAp[i4] = (i3 + 255) >> 1;
+        this.lMM[i4] = (i3 + 255) >> 1;
         for (int i14 = i4 + 1; i14 < 256; i14++) {
-            this.lAp[i14] = 255;
+            this.lMM[i14] = 255;
         }
     }
 
-    public void dnl() {
+    public void dqt() {
         int i;
-        if (this.lAm < 1509) {
-            this.lAn = 1;
+        if (this.lMJ < 1509) {
+            this.lMK = 1;
         }
-        this.lAk = ((this.lAn - 1) / 3) + 30;
-        byte[] bArr = this.lAl;
-        int i2 = this.lAm;
-        int i3 = this.lAm / (this.lAn * 3);
+        this.lMH = ((this.lMK - 1) / 3) + 30;
+        byte[] bArr = this.lMI;
+        int i2 = this.lMJ;
+        int i3 = this.lMJ / (this.lMK * 3);
         int i4 = i3 / 100;
         for (int i5 = 0; i5 < 32; i5++) {
-            this.lAs[i5] = (((1024 - (i5 * i5)) * 256) / 1024) * 1024;
+            this.lMP[i5] = (((1024 - (i5 * i5)) * 256) / 1024) * 1024;
         }
-        if (this.lAm < 1509) {
+        if (this.lMJ < 1509) {
             i = 3;
-        } else if (this.lAm % DownloadConstants.STATUS_DEVICE_NOT_FOUND_ERROR != 0) {
+        } else if (this.lMJ % DownloadConstants.STATUS_DEVICE_NOT_FOUND_ERROR != 0) {
             i = 1497;
-        } else if (this.lAm % 491 != 0) {
+        } else if (this.lMJ % 491 != 0) {
             i = 1473;
-        } else if (this.lAm % 487 != 0) {
+        } else if (this.lMJ % 487 != 0) {
             i = 1461;
         } else {
             i = 1509;
@@ -136,24 +136,24 @@ class c {
             int i11 = (bArr[i6 + 0] & 255) << 4;
             int i12 = (bArr[i6 + 1] & 255) << 4;
             int i13 = (bArr[i6 + 2] & 255) << 4;
-            int W = W(i11, i12, i13);
-            g(i10, W, i11, i12, i13);
+            int X = X(i11, i12, i13);
+            g(i10, X, i11, i12, i13);
             if (i7 != 0) {
-                f(i7, W, i11, i12, i13);
+                f(i7, X, i11, i12, i13);
             }
             int i14 = i6 + i;
-            int i15 = i14 >= i2 ? i14 - this.lAm : i14;
+            int i15 = i14 >= i2 ? i14 - this.lMJ : i14;
             int i16 = i9 + 1;
             int i17 = i4 == 0 ? 1 : i4;
             if (i16 % i17 == 0) {
-                int i18 = i10 - (i10 / this.lAk);
+                int i18 = i10 - (i10 / this.lMH);
                 int i19 = i8 - (i8 / 30);
                 int i20 = i19 >> 6;
                 if (i20 <= 1) {
                     i20 = 0;
                 }
                 for (int i21 = 0; i21 < i20; i21++) {
-                    this.lAs[i21] = ((((i20 * i20) - (i21 * i21)) * 256) / (i20 * i20)) * i18;
+                    this.lMP[i21] = ((((i20 * i20) - (i21 * i21)) * 256) / (i20 * i20)) * i18;
                 }
                 i6 = i15;
                 i4 = i17;
@@ -169,11 +169,11 @@ class c {
         }
     }
 
-    public int V(int i, int i2, int i3) {
+    public int W(int i, int i2, int i3) {
         int i4;
         int i5;
         int i6;
-        int i7 = this.lAp[i2];
+        int i7 = this.lMM[i2];
         int i8 = -1;
         int i9 = 1000;
         int i10 = i7 - 1;
@@ -181,7 +181,7 @@ class c {
         while (true) {
             if (i11 < 256 || i10 >= 0) {
                 if (i11 < 256) {
-                    int[] iArr = this.lAo[i11];
+                    int[] iArr = this.lML[i11];
                     int i12 = iArr[1] - i2;
                     if (i12 >= i9) {
                         i5 = i9;
@@ -216,7 +216,7 @@ class c {
                     i6 = i8;
                 }
                 if (i10 >= 0) {
-                    int[] iArr2 = this.lAo[i10];
+                    int[] iArr2 = this.lML[i10];
                     int i16 = i2 - iArr2[1];
                     if (i16 >= i5) {
                         i8 = i6;
@@ -256,22 +256,22 @@ class c {
         }
     }
 
-    public byte[] dnm() {
-        dnl();
-        dnn();
-        dnk();
-        return dnj();
+    public byte[] dqu() {
+        dqt();
+        dqv();
+        dqs();
+        return dqr();
     }
 
-    public void dnn() {
+    public void dqv() {
         for (int i = 0; i < 256; i++) {
-            int[] iArr = this.lAo[i];
+            int[] iArr = this.lML[i];
             iArr[0] = iArr[0] >> 4;
-            int[] iArr2 = this.lAo[i];
+            int[] iArr2 = this.lML[i];
             iArr2[1] = iArr2[1] >> 4;
-            int[] iArr3 = this.lAo[i];
+            int[] iArr3 = this.lML[i];
             iArr3[2] = iArr3[2] >> 4;
-            this.lAo[i][3] = i;
+            this.lML[i][3] = i;
         }
     }
 
@@ -289,10 +289,10 @@ class c {
         while (true) {
             if (i12 < i9 || i10 > i8) {
                 int i13 = i11 + 1;
-                int i14 = this.lAs[i11];
+                int i14 = this.lMP[i11];
                 if (i12 < i9) {
                     i6 = i12 + 1;
-                    int[] iArr = this.lAo[i12];
+                    int[] iArr = this.lML[i12];
                     try {
                         iArr[0] = iArr[0] - (((iArr[0] - i3) * i14) / 262144);
                         iArr[1] = iArr[1] - (((iArr[1] - i4) * i14) / 262144);
@@ -305,7 +305,7 @@ class c {
                 }
                 if (i10 > i8) {
                     int i15 = i10 - 1;
-                    int[] iArr2 = this.lAo[i10];
+                    int[] iArr2 = this.lML[i10];
                     try {
                         iArr2[0] = iArr2[0] - (((iArr2[0] - i3) * i14) / 262144);
                         iArr2[1] = iArr2[1] - (((iArr2[1] - i4) * i14) / 262144);
@@ -330,13 +330,13 @@ class c {
     }
 
     protected void g(int i, int i2, int i3, int i4, int i5) {
-        int[] iArr = this.lAo[i2];
+        int[] iArr = this.lML[i2];
         iArr[0] = iArr[0] - (((iArr[0] - i3) * i) / 1024);
         iArr[1] = iArr[1] - (((iArr[1] - i4) * i) / 1024);
         iArr[2] = iArr[2] - (((iArr[2] - i5) * i) / 1024);
     }
 
-    protected int W(int i, int i2, int i3) {
+    protected int X(int i, int i2, int i3) {
         int i4;
         int i5;
         int i6;
@@ -346,7 +346,7 @@ class c {
         int i10 = -1;
         int i11 = 0;
         while (i11 < 256) {
-            int[] iArr = this.lAo[i11];
+            int[] iArr = this.lML[i11];
             int i12 = iArr[0] - i;
             if (i12 < 0) {
                 i12 = -i12;
@@ -368,17 +368,17 @@ class c {
                 i4 = i9;
                 i5 = i10;
             }
-            int i17 = i16 - (this.lAq[i11] >> 12);
+            int i17 = i16 - (this.lMN[i11] >> 12);
             if (i17 < i7) {
                 i6 = i11;
             } else {
                 i17 = i7;
                 i6 = i8;
             }
-            int i18 = this.lAr[i11] >> 10;
-            int[] iArr2 = this.lAr;
+            int i18 = this.lMO[i11] >> 10;
+            int[] iArr2 = this.lMO;
             iArr2[i11] = iArr2[i11] - i18;
-            int[] iArr3 = this.lAq;
+            int[] iArr3 = this.lMN;
             iArr3[i11] = (i18 << 10) + iArr3[i11];
             i11++;
             i7 = i17;
@@ -386,9 +386,9 @@ class c {
             i10 = i5;
             i9 = i4;
         }
-        int[] iArr4 = this.lAr;
+        int[] iArr4 = this.lMO;
         iArr4[i10] = iArr4[i10] + 64;
-        int[] iArr5 = this.lAq;
+        int[] iArr5 = this.lMN;
         iArr5[i10] = iArr5[i10] - 65536;
         return i8;
     }

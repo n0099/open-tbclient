@@ -6,69 +6,69 @@ import android.support.annotation.NonNull;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes19.dex */
 public interface a {
-    public static final AtomicReference<a> bSV = new AtomicReference<>();
+    public static final AtomicReference<a> cbs = new AtomicReference<>();
 
-    boolean XA();
+    String ZA();
 
-    @NonNull
-    String XB();
-
-    boolean XC();
-
-    String XD();
-
-    String XE();
-
-    String[] XF();
-
-    String XG();
-
-    String XH();
+    String ZB();
 
     @IdRes
-    int XI();
+    int ZC();
 
     @IdRes
-    int XJ();
+    int ZD();
 
     @IdRes
-    int XK();
+    int ZE();
 
-    String XL();
+    String ZF();
 
-    int XM();
+    int ZG();
 
-    String XN();
-
-    @NonNull
-    Context Xq();
+    String ZH();
 
     @NonNull
-    String Xr();
+    Context Zk();
 
     @NonNull
-    String Xs();
+    String Zl();
 
     @NonNull
-    String Xt();
+    String Zm();
 
     @NonNull
-    String Xu();
+    String Zn();
 
     @NonNull
-    String Xv();
+    String Zo();
 
     @NonNull
-    String Xw();
+    String Zp();
 
     @NonNull
-    String Xx();
+    String Zq();
 
     @NonNull
-    String Xy();
+    String Zr();
 
     @NonNull
-    String Xz();
+    String Zs();
+
+    @NonNull
+    String Zt();
+
+    boolean Zu();
+
+    @NonNull
+    String Zv();
+
+    boolean Zw();
+
+    String Zx();
+
+    String Zy();
+
+    String[] Zz();
 
     boolean a(String str, com.baidu.prologue.c.b bVar);
 

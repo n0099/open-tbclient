@@ -11,10 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b {
-    private List<com.baidu.adp.widget.ListView.a> bhH;
-    private BdTypeListView fSo;
-    private com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a hpn;
-    private c hpo;
+    private List<com.baidu.adp.widget.ListView.a> bje;
+    private BdTypeListView gcr;
+    private com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a hBi;
+    private c hBj;
     private List<q> mDataList;
     private TbPageContext mPageContext;
 
@@ -24,27 +24,27 @@ public class b {
 
     public b(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
         this.mPageContext = tbPageContext;
-        this.fSo = bdTypeListView;
-        Le();
+        this.gcr = bdTypeListView;
+        Ly();
     }
 
-    private void Le() {
-        this.bhH = new ArrayList();
-        this.hpn = new com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a(this.mPageContext.getPageActivity());
-        this.bhH.add(this.hpn);
-        this.hpo = new c(this.mPageContext.getPageActivity());
-        this.bhH.add(this.hpo);
-        this.fSo.addAdapters(this.bhH);
+    private void Ly() {
+        this.bje = new ArrayList();
+        this.hBi = new com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a(this.mPageContext.getPageActivity());
+        this.bje.add(this.hBi);
+        this.hBj = new c(this.mPageContext.getPageActivity());
+        this.bje.add(this.hBj);
+        this.gcr.addAdapters(this.bje);
     }
 
     public void setData(List<q> list) {
         if (!y.isEmpty(list)) {
-            this.fSo.setData(list);
-            this.mDataList = this.fSo.getData();
+            this.gcr.setData(list);
+            this.mDataList = this.gcr.getData();
         }
     }
 
-    public void aB(String str, boolean z) {
+    public void aD(String str, boolean z) {
         if (!TextUtils.isEmpty(str) && this.mDataList != null) {
             for (q qVar : this.mDataList) {
                 if (qVar instanceof AlaEnterEffectData) {
@@ -60,7 +60,7 @@ public class b {
         }
     }
 
-    public void aC(String str, boolean z) {
+    public void aE(String str, boolean z) {
         if (!TextUtils.isEmpty(str) && this.mDataList != null) {
             for (q qVar : this.mDataList) {
                 if (qVar instanceof AlaEnterEffectData) {
@@ -75,7 +75,7 @@ public class b {
         }
     }
 
-    public void aI(String str, int i) {
+    public void aJ(String str, int i) {
         if (!StringUtils.isNull(str) && this.mDataList != null) {
             for (q qVar : this.mDataList) {
                 if (qVar instanceof AlaEnterEffectData) {
@@ -90,7 +90,7 @@ public class b {
     }
 
     public void notifyDataSetChanged() {
-        for (com.baidu.adp.widget.ListView.a aVar : this.bhH) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.bje) {
             aVar.notifyDataSetChanged();
         }
     }

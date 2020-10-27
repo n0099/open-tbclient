@@ -5,7 +5,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import rx.d;
 /* loaded from: classes16.dex */
 public final class BufferUntilSubscriber<T> extends rx.subjects.c<T, T> {
-    static final rx.e pdg = new rx.e() { // from class: rx.internal.operators.BufferUntilSubscriber.1
+    static final rx.e pUz = new rx.e() { // from class: rx.internal.operators.BufferUntilSubscriber.1
         @Override // rx.e
         public void onCompleted() {
         }
@@ -18,10 +18,10 @@ public final class BufferUntilSubscriber<T> extends rx.subjects.c<T, T> {
         public void onNext(Object obj) {
         }
     };
-    final State<T> pde;
-    private boolean pdf;
+    final State<T> pUx;
+    private boolean pUy;
 
-    public static <T> BufferUntilSubscriber<T> erR() {
+    public static <T> BufferUntilSubscriber<T> eBP() {
         return new BufferUntilSubscriber<>(new State());
     }
 
@@ -43,7 +43,7 @@ public final class BufferUntilSubscriber<T> extends rx.subjects.c<T, T> {
 
     /* loaded from: classes16.dex */
     static final class a<T> implements d.a<T> {
-        final State<T> pde;
+        final State<T> pUx;
 
         @Override // rx.functions.b
         public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -51,36 +51,36 @@ public final class BufferUntilSubscriber<T> extends rx.subjects.c<T, T> {
         }
 
         public a(State<T> state) {
-            this.pde = state;
+            this.pUx = state;
         }
 
         public void call(rx.j<? super T> jVar) {
             boolean z = true;
-            if (this.pde.casObserverRef(null, jVar)) {
+            if (this.pUx.casObserverRef(null, jVar)) {
                 jVar.add(rx.subscriptions.e.l(new rx.functions.a() { // from class: rx.internal.operators.BufferUntilSubscriber.a.1
                     @Override // rx.functions.a
                     public void call() {
-                        a.this.pde.set(BufferUntilSubscriber.pdg);
+                        a.this.pUx.set(BufferUntilSubscriber.pUz);
                     }
                 }));
-                synchronized (this.pde.guard) {
-                    if (this.pde.emitting) {
+                synchronized (this.pUx.guard) {
+                    if (this.pUx.emitting) {
                         z = false;
                     } else {
-                        this.pde.emitting = true;
+                        this.pUx.emitting = true;
                     }
                 }
                 if (!z) {
                     return;
                 }
                 while (true) {
-                    Object poll = this.pde.buffer.poll();
+                    Object poll = this.pUx.buffer.poll();
                     if (poll != null) {
-                        NotificationLite.a(this.pde.get(), poll);
+                        NotificationLite.a(this.pUx.get(), poll);
                     } else {
-                        synchronized (this.pde.guard) {
-                            if (this.pde.buffer.isEmpty()) {
-                                this.pde.emitting = false;
+                        synchronized (this.pUx.guard) {
+                            if (this.pUx.buffer.isEmpty()) {
+                                this.pUx.emitting = false;
                                 return;
                             }
                         }
@@ -94,24 +94,24 @@ public final class BufferUntilSubscriber<T> extends rx.subjects.c<T, T> {
 
     private BufferUntilSubscriber(State<T> state) {
         super(new a(state));
-        this.pde = state;
+        this.pUx = state;
     }
 
-    private void cb(Object obj) {
-        synchronized (this.pde.guard) {
-            this.pde.buffer.add(obj);
-            if (this.pde.get() != null && !this.pde.emitting) {
-                this.pdf = true;
-                this.pde.emitting = true;
+    private void cf(Object obj) {
+        synchronized (this.pUx.guard) {
+            this.pUx.buffer.add(obj);
+            if (this.pUx.get() != null && !this.pUx.emitting) {
+                this.pUy = true;
+                this.pUx.emitting = true;
             }
         }
-        if (!this.pdf) {
+        if (!this.pUy) {
             return;
         }
         while (true) {
-            Object poll = this.pde.buffer.poll();
+            Object poll = this.pUx.buffer.poll();
             if (poll != null) {
-                NotificationLite.a(this.pde.get(), poll);
+                NotificationLite.a(this.pUx.get(), poll);
             } else {
                 return;
             }
@@ -120,28 +120,28 @@ public final class BufferUntilSubscriber<T> extends rx.subjects.c<T, T> {
 
     @Override // rx.e
     public void onCompleted() {
-        if (this.pdf) {
-            this.pde.get().onCompleted();
+        if (this.pUy) {
+            this.pUx.get().onCompleted();
         } else {
-            cb(NotificationLite.erS());
+            cf(NotificationLite.eBQ());
         }
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        if (this.pdf) {
-            this.pde.get().onError(th);
+        if (this.pUy) {
+            this.pUx.get().onError(th);
         } else {
-            cb(NotificationLite.error(th));
+            cf(NotificationLite.error(th));
         }
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        if (this.pdf) {
-            this.pde.get().onNext(t);
+        if (this.pUy) {
+            this.pUx.get().onNext(t);
         } else {
-            cb(NotificationLite.next(t));
+            cf(NotificationLite.next(t));
         }
     }
 }

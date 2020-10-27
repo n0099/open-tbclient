@@ -284,12 +284,12 @@ public class PropertyValuesHolder implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public PropertyValuesHolder m54clone() {
+    public PropertyValuesHolder m53clone() {
         try {
             PropertyValuesHolder propertyValuesHolder = (PropertyValuesHolder) super.clone();
             propertyValuesHolder.mPropertyName = this.mPropertyName;
             propertyValuesHolder.mProperty = this.mProperty;
-            propertyValuesHolder.mKeyframeSet = this.mKeyframeSet.m53clone();
+            propertyValuesHolder.mKeyframeSet = this.mKeyframeSet.m52clone();
             propertyValuesHolder.mEvaluator = this.mEvaluator;
             return propertyValuesHolder;
         } catch (CloneNotSupportedException e) {
@@ -424,7 +424,7 @@ public class PropertyValuesHolder implements Cloneable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.nineoldandroids.animation.PropertyValuesHolder
         public IntPropertyValuesHolder clone() {
-            IntPropertyValuesHolder intPropertyValuesHolder = (IntPropertyValuesHolder) super.m54clone();
+            IntPropertyValuesHolder intPropertyValuesHolder = (IntPropertyValuesHolder) super.m53clone();
             intPropertyValuesHolder.mIntKeyframeSet = (IntKeyframeSet) intPropertyValuesHolder.mKeyframeSet;
             return intPropertyValuesHolder;
         }
@@ -510,7 +510,7 @@ public class PropertyValuesHolder implements Cloneable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.nineoldandroids.animation.PropertyValuesHolder
         public FloatPropertyValuesHolder clone() {
-            FloatPropertyValuesHolder floatPropertyValuesHolder = (FloatPropertyValuesHolder) super.m54clone();
+            FloatPropertyValuesHolder floatPropertyValuesHolder = (FloatPropertyValuesHolder) super.m53clone();
             floatPropertyValuesHolder.mFloatKeyframeSet = (FloatKeyframeSet) floatPropertyValuesHolder.mKeyframeSet;
             return floatPropertyValuesHolder;
         }

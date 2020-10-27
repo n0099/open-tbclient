@@ -22,26 +22,26 @@ import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class aa {
-    private boolean eyv;
-    private com.baidu.tbadk.core.util.a.a eys = null;
-    private s eyt = null;
-    private aa eyu = null;
-    private ad.a eyw = null;
+    private boolean eGR;
+    private com.baidu.tbadk.core.util.a.a eGO = null;
+    private s eGP = null;
+    private aa eGQ = null;
+    private ad.a eGS = null;
     private int mErrorNums = 0;
 
     private void initNetWork() {
-        this.eys = new com.baidu.tbadk.core.util.a.a();
-        this.eyt = ac.bmy().a(this.eys);
-        this.eyu = null;
-        this.eys.bna().bne().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
+        this.eGO = new com.baidu.tbadk.core.util.a.a();
+        this.eGP = ac.bor().a(this.eGO);
+        this.eGQ = null;
+        this.eGO.boT().boX().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
         com.baidu.adp.lib.network.a.a.setCuid(TbadkCoreApplication.getInst().getCuid());
         com.baidu.adp.lib.network.a.a.bQ(TbadkCoreApplication.getInst().getCuidGalaxy2());
         com.baidu.adp.lib.network.a.a.bR(TbadkCoreApplication.getInst().getCuidGalaxy3());
         com.baidu.adp.lib.network.a.a.bS(TbadkCoreApplication.getInst().getCuidGid());
     }
 
-    public com.baidu.tbadk.core.util.a.a bmu() {
-        return this.eys;
+    public com.baidu.tbadk.core.util.a.a bon() {
+        return this.eGO;
     }
 
     public aa() {
@@ -50,31 +50,31 @@ public class aa {
 
     public aa(String str) {
         initNetWork();
-        this.eys.bna().bne().mUrl = str;
+        this.eGO.boT().boX().mUrl = str;
     }
 
     public void setUrl(String str) {
-        this.eys.bna().bne().mUrl = str;
+        this.eGO.boT().boX().mUrl = str;
     }
 
     public void ak(boolean z) {
-        this.eys.bna().Mj = z;
+        this.eGO.boT().Mk = z;
     }
 
     public void setPostData(ArrayList<BasicNameValuePair> arrayList) {
-        this.eyt.setPostData(arrayList);
+        this.eGP.setPostData(arrayList);
     }
 
     public void addPostData(String str, String str2) {
-        this.eyt.addPostData(str, str2);
+        this.eGP.addPostData(str, str2);
     }
 
     public void addPostData(BasicNameValuePair basicNameValuePair) {
-        this.eyt.addPostData(basicNameValuePair);
+        this.eGP.addPostData(basicNameValuePair);
     }
 
     public void addPostData(String str, byte[] bArr) {
-        this.eyt.addPostData(str, bArr);
+        this.eGP.addPostData(str, bArr);
     }
 
     private void modSessionData() {
@@ -82,7 +82,7 @@ public class aa {
         BasicNameValuePair basicNameValuePair = new BasicNameValuePair("BDUSS", currentBduss);
         BasicNameValuePair basicNameValuePair2 = new BasicNameValuePair("tbs", TbadkCoreApplication.getInst().isMainProcess(false) ? TbadkCoreApplication.getInst().getTbs() : com.baidu.tbadk.mutiprocess.f.getTbs());
         if (currentBduss != null) {
-            ArrayList<BasicNameValuePair> postData = this.eyt.getPostData();
+            ArrayList<BasicNameValuePair> postData = this.eGP.getPostData();
             int size = postData.size();
             for (int i = 0; i < size; i++) {
                 BasicNameValuePair basicNameValuePair3 = postData.get(i);
@@ -96,63 +96,63 @@ public class aa {
     }
 
     private void addStatisticsDataParam() {
-        if (this.eyw == null) {
-            this.eyw = ad.bmz();
+        if (this.eGS == null) {
+            this.eGS = ad.bos();
         }
-        if (this.eyw != null) {
-            this.eyt.addPostData("stTime", String.valueOf(this.eyw.mTime));
-            this.eyt.addPostData("stSize", String.valueOf(this.eyw.mSize));
-            this.eyt.addPostData("stTimesNum", String.valueOf(this.eyw.mTimesNum));
-            this.eyt.addPostData("stMode", String.valueOf(this.eyw.mMode));
-            this.eyt.addPostData("stMethod", String.valueOf(this.eyw.mMethod));
+        if (this.eGS != null) {
+            this.eGP.addPostData("stTime", String.valueOf(this.eGS.mTime));
+            this.eGP.addPostData("stSize", String.valueOf(this.eGS.mSize));
+            this.eGP.addPostData("stTimesNum", String.valueOf(this.eGS.mTimesNum));
+            this.eGP.addPostData("stMode", String.valueOf(this.eGS.mMode));
+            this.eGP.addPostData("stMethod", String.valueOf(this.eGS.mMethod));
         }
         this.mErrorNums = ad.getErrorNumsAndSet(0);
-        if (this.mErrorNums == 0 && this.eyw != null) {
-            this.mErrorNums = this.eyw.mTimesNum;
+        if (this.mErrorNums == 0 && this.eGS != null) {
+            this.mErrorNums = this.eGS.mTimesNum;
         }
-        this.eyt.addPostData("stErrorNums", String.valueOf(this.mErrorNums));
+        this.eGP.addPostData("stErrorNums", String.valueOf(this.mErrorNums));
     }
 
     public boolean isNetSuccess() {
-        return this.eys.bnb().isNetSuccess();
+        return this.eGO.boU().isNetSuccess();
     }
 
     public int getServerErrorCode() {
-        return this.eys.bnb().mServerErrorCode;
+        return this.eGO.boU().mServerErrorCode;
     }
 
     public int getNetErrorCode() {
-        return this.eys.bnb().mNetErrorCode;
+        return this.eGO.boU().mNetErrorCode;
     }
 
-    public String bmv() {
-        return this.eys.bnb().mException;
+    public String boo() {
+        return this.eGO.boU().mException;
     }
 
     public String getErrorString() {
-        return this.eys.bnb().mErrorString;
+        return this.eGO.boU().mErrorString;
     }
 
     public void cancelNetConnect() {
-        if (this.eyt != null) {
-            this.eyt.cancelNetConnect();
+        if (this.eGP != null) {
+            this.eGP.cancelNetConnect();
         }
-        if (this.eyu != null) {
-            this.eyu.cancelNetConnect();
+        if (this.eGQ != null) {
+            this.eGQ.cancelNetConnect();
         }
     }
 
     public void setCancel() {
-        if (this.eyt != null) {
-            this.eyt.setCancel();
+        if (this.eGP != null) {
+            this.eGP.setCancel();
         }
-        if (this.eyu != null) {
-            this.eyu.setCancel();
+        if (this.eGQ != null) {
+            this.eGQ.setCancel();
         }
     }
 
-    public void iE(boolean z) {
-        this.eyv = z;
+    public void iR(boolean z) {
+        this.eGR = z;
     }
 
     private com.baidu.tbadk.core.data.an v(String str, String str2, boolean z) {
@@ -165,30 +165,30 @@ public class aa {
             TbadkCoreApplication.setCurrentAccount(null, TbadkCoreApplication.getInst().getApp().getApplicationContext());
             StringBuilder sb = new StringBuilder(32);
             sb.append(TbConfig.LOGIN_FULL_ADDRESS);
-            if (this.eyu == null) {
-                this.eyu = new aa(sb.toString());
+            if (this.eGQ == null) {
+                this.eGQ = new aa(sb.toString());
             } else {
-                this.eyu.cancelNetConnect();
+                this.eGQ.cancelNetConnect();
             }
-            this.eyu.bmu().bna().mIsNeedAddCommenParam = false;
-            this.eyu.bmu().bna().mIsUseCurrentBDUSS = false;
-            this.eyu.bmu().bna().mNeedBackgroundLogin = false;
-            this.eyu.addPostData("un", str);
-            this.eyu.addPostData("passwd", str2);
-            this.eyu.addPostData("isphone", "0");
-            this.eyu.addPostData(SharedPrefConfig.CHANNEL_ID, TbadkCoreApplication.getInst().getPushChannelId());
-            this.eyu.addPostData("channel_uid", TbadkCoreApplication.getInst().getPushChannelUserId());
-            this.eyu.bmu().bna().bne().mRequestGzip = true;
-            postNetData = this.eyu.postNetData();
+            this.eGQ.bon().boT().mIsNeedAddCommenParam = false;
+            this.eGQ.bon().boT().mIsUseCurrentBDUSS = false;
+            this.eGQ.bon().boT().mNeedBackgroundLogin = false;
+            this.eGQ.addPostData("un", str);
+            this.eGQ.addPostData("passwd", str2);
+            this.eGQ.addPostData("isphone", "0");
+            this.eGQ.addPostData(SharedPrefConfig.CHANNEL_ID, TbadkCoreApplication.getInst().getPushChannelId());
+            this.eGQ.addPostData("channel_uid", TbadkCoreApplication.getInst().getPushChannelUserId());
+            this.eGQ.bon().boT().boX().mRequestGzip = true;
+            postNetData = this.eGQ.postNetData();
         } catch (Exception e) {
             BdLog.detailException(e);
         }
-        if (this.eyu.bmu().bnb().isRequestSuccess() && postNetData != null) {
+        if (this.eGQ.bon().boU().isRequestSuccess() && postNetData != null) {
             com.baidu.tbadk.core.data.an anVar = new com.baidu.tbadk.core.data.an();
             anVar.parserJson(postNetData);
             String userId = anVar.getUser().getUserId();
             if (userId == null || userId.length() <= 0) {
-                this.eys.bnb().mErrorString = TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.neterror);
+                this.eGO.boU().mErrorString = TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.neterror);
                 return null;
             }
             AccountData accountData = new AccountData();
@@ -214,8 +214,8 @@ public class aa {
             TbadkCoreApplication.setCurrentAccount(accountData, TbadkCoreApplication.getInst().getApp().getApplicationContext());
             return anVar;
         }
-        if (this.eyu.isNetSuccess()) {
-            switch (this.eyu.getServerErrorCode()) {
+        if (this.eGQ.isNetSuccess()) {
+            switch (this.eGQ.getServerErrorCode()) {
                 case 1:
                 case 2:
                 case 5:
@@ -231,15 +231,15 @@ public class aa {
     }
 
     public byte[] getNetData() {
-        if (!this.eys.bna().mIsFromCDN) {
-            this.eys.bna().b(this.eyt);
+        if (!this.eGO.boT().mIsFromCDN) {
+            this.eGO.boT().b(this.eGP);
         }
-        return this.eyt.getNetData();
+        return this.eGP.getNetData();
     }
 
     private void addSign() {
         StringBuffer stringBuffer = new StringBuffer(1024);
-        ArrayList<BasicNameValuePair> postData = this.eyt.getPostData();
+        ArrayList<BasicNameValuePair> postData = this.eGP.getPostData();
         for (int i = 0; postData != null && i < postData.size(); i++) {
             BasicNameValuePair basicNameValuePair = postData.get(i);
             if (basicNameValuePair != null) {
@@ -250,79 +250,79 @@ public class aa {
             }
         }
         stringBuffer.append("tiebaclient!!!");
-        this.eyt.addPostData("sign", com.baidu.adp.lib.util.s.toMd5(stringBuffer.toString()));
-        if (this.eys.bna().eyv) {
-            this.eyt.addPostData("sig", StringU.Eo(stringBuffer.toString()));
+        this.eGP.addPostData("sign", com.baidu.adp.lib.util.s.toMd5(stringBuffer.toString()));
+        if (this.eGO.boT().eGR) {
+            this.eGP.addPostData("sig", StringU.EH(stringBuffer.toString()));
         }
     }
 
     private String process(int i) {
         String postMultiNetData;
-        this.eys.bna().eyv = this.eyv && EncSigNewSwitch.isOn();
+        this.eGO.boT().eGR = this.eGR && EncSigNewSwitch.isOn();
         switch (i) {
             case 1:
-                if (bmu().bna().mIsNeedAddCommenParam) {
-                    this.eys.bna().b(this.eyt);
+                if (bon().boT().mIsNeedAddCommenParam) {
+                    this.eGO.boT().b(this.eGP);
                 }
                 addStatisticsDataParam();
-                postMultiNetData = this.eyt.getNetString();
+                postMultiNetData = this.eGP.getNetString();
                 break;
             case 2:
-                if (bmu().bna().mIsUseCurrentBDUSS) {
-                    bmu().bna().a(this.eyt);
+                if (bon().boT().mIsUseCurrentBDUSS) {
+                    bon().boT().a(this.eGP);
                 }
-                if (bmu().bna().mIsNeedAddCommenParam) {
-                    this.eys.bna().b(this.eyt);
+                if (bon().boT().mIsNeedAddCommenParam) {
+                    this.eGO.boT().b(this.eGP);
                 }
                 addStatisticsDataParam();
-                postMultiNetData = this.eyt.postNetData();
+                postMultiNetData = this.eGP.postNetData();
                 break;
             case 3:
-                if (bmu().bna().mIsUseCurrentBDUSS) {
-                    bmu().bna().a(this.eyt);
+                if (bon().boT().mIsUseCurrentBDUSS) {
+                    bon().boT().a(this.eGP);
                 }
-                if (bmu().bna().mIsNeedAddCommenParam) {
-                    this.eys.bna().b(this.eyt);
+                if (bon().boT().mIsNeedAddCommenParam) {
+                    this.eGO.boT().b(this.eGP);
                 }
                 addSign();
-                postMultiNetData = this.eyt.postMultiNetData();
+                postMultiNetData = this.eGP.postMultiNetData();
                 break;
             default:
                 return null;
         }
-        if (!this.eys.bnb().isNetSuccess()) {
-            ad.a(this.eyw);
+        if (!this.eGO.boU().isNetSuccess()) {
+            ad.a(this.eGS);
             ad.addErrorNumsAndGet(this.mErrorNums);
             return postMultiNetData;
-        } else if (!this.eys.bnb().isRequestSuccess()) {
-            if (this.eys.bnb().mServerErrorCode == 1 && this.eys.bna().mNeedBackgroundLogin) {
-                String str = this.eys.bnb().mErrorString;
-                this.eys.bnb().mErrorString = "";
+        } else if (!this.eGO.boU().isRequestSuccess()) {
+            if (this.eGO.boU().mServerErrorCode == 1 && this.eGO.boT().mNeedBackgroundLogin) {
+                String str = this.eGO.boU().mErrorString;
+                this.eGO.boU().mErrorString = "";
                 AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
                 if (currentAccountObj == null) {
-                    currentAccountObj = com.baidu.tbadk.core.a.b.bfs();
+                    currentAccountObj = com.baidu.tbadk.core.a.b.bhl();
                 }
                 if (currentAccountObj == null || (TextUtils.isEmpty(currentAccountObj.getAccount()) && TextUtils.isEmpty(currentAccountObj.getAccountNameShow()))) {
-                    bmw();
+                    bop();
                     return null;
                 }
-                com.baidu.tbadk.core.a.b.zV(currentAccountObj.getID());
-                if (ReloginManager.blG().blJ()) {
+                com.baidu.tbadk.core.a.b.Ao(currentAccountObj.getID());
+                if (ReloginManager.bnz().bnC()) {
                     f(currentAccountObj);
-                    ReloginManager.blG().e(null);
+                    ReloginManager.bnz().e(null);
                     return null;
                 }
                 com.baidu.tbadk.core.data.an v = v(currentAccountObj.getAccount(), currentAccountObj.getPassword(), true);
                 f(currentAccountObj);
                 if (v == null) {
-                    if (this.eyu != null) {
-                        this.eys.bnb().mErrorString = this.eyu.getErrorString();
+                    if (this.eGQ != null) {
+                        this.eGO.boU().mErrorString = this.eGQ.getErrorString();
                         return null;
                     }
-                    this.eys.bnb().mErrorString = str;
+                    this.eGO.boU().mErrorString = str;
                     return postMultiNetData;
                 }
-                postMultiNetData = ow(i);
+                postMultiNetData = oH(i);
             }
             com.baidu.tieba.j.a.b(this);
             return postMultiNetData;
@@ -332,35 +332,35 @@ public class aa {
     }
 
     private void f(AccountData accountData) {
-        com.baidu.tbadk.coreExtra.a.c bpN;
-        if (!TextUtils.isEmpty(accountData.getID()) && (bpN = com.baidu.tbadk.coreExtra.a.a.bpN()) != null) {
-            bpN.f(accountData);
+        com.baidu.tbadk.coreExtra.a.c brG;
+        if (!TextUtils.isEmpty(accountData.getID()) && (brG = com.baidu.tbadk.coreExtra.a.a.brG()) != null) {
+            brG.f(accountData);
         }
     }
 
-    private String ow(int i) {
+    private String oH(int i) {
         String postMultiNetData;
         modSessionData();
         switch (i) {
             case 1:
-                postMultiNetData = this.eyt.getNetString();
+                postMultiNetData = this.eGP.getNetString();
                 break;
             case 2:
-                postMultiNetData = this.eyt.postNetData();
+                postMultiNetData = this.eGP.postNetData();
                 break;
             case 3:
-                postMultiNetData = this.eyt.postMultiNetData();
+                postMultiNetData = this.eGP.postMultiNetData();
                 break;
             default:
                 return null;
         }
-        if (this.eys.bnb().isNetSuccess()) {
-            switch (this.eys.bnb().mServerErrorCode) {
+        if (this.eGO.boU().isNetSuccess()) {
+            switch (this.eGO.boU().mServerErrorCode) {
                 case 1:
                 case 2:
                 case 5:
-                    bmw();
-                    this.eys.bnb().mErrorString = "";
+                    bop();
+                    this.eGO.boU().mErrorString = "";
                     return null;
                 case 3:
                 case 4:
@@ -371,7 +371,7 @@ public class aa {
         return postMultiNetData;
     }
 
-    private void bmw() {
+    private void bop() {
         Handler handler = TbadkCoreApplication.getInst().handler;
         handler.sendMessage(handler.obtainMessage(1));
     }
@@ -388,7 +388,7 @@ public class aa {
         return process(3);
     }
 
-    public String Bi(String str) throws IOException {
+    public String BB(String str) throws IOException {
         byte[] bArr;
         try {
             InputStream GetStreamFromFile = n.GetStreamFromFile(str);
@@ -412,7 +412,7 @@ public class aa {
         return postMultiNetData();
     }
 
-    public String dJ(String str, String str2) {
+    public String dQ(String str, String str2) {
         byte[] bArr;
         try {
             InputStream GetStreamFromTmpFile = n.GetStreamFromTmpFile(str2);
@@ -445,7 +445,7 @@ public class aa {
     }
 
     public boolean downloadFile(String str, Handler handler, int i, int i2, int i3, boolean z) {
-        bmu().bna().a(this.eyt);
-        return this.eyt.downloadFile(str, handler, i, i2, i3, z);
+        bon().boT().a(this.eGP);
+        return this.eGP.downloadFile(str, handler, i, i2, i3, z);
     }
 }

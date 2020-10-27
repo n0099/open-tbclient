@@ -131,8 +131,8 @@ public final class CompositeException extends RuntimeException {
                 appendStackTrace(sb, it.next(), "\t");
                 i = i2 + 1;
             } else {
-                synchronized (aVar.erN()) {
-                    aVar.bI(sb.toString());
+                synchronized (aVar.eBL()) {
+                    aVar.bM(sb.toString());
                 }
                 return;
             }
@@ -153,9 +153,9 @@ public final class CompositeException extends RuntimeException {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes16.dex */
     public static abstract class a {
-        abstract void bI(Object obj);
+        abstract void bM(Object obj);
 
-        abstract Object erN();
+        abstract Object eBL();
 
         a() {
         }
@@ -164,39 +164,39 @@ public final class CompositeException extends RuntimeException {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes16.dex */
     public static final class b extends a {
-        private final PrintStream oLu;
+        private final PrintStream pCR;
 
         b(PrintStream printStream) {
-            this.oLu = printStream;
+            this.pCR = printStream;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        Object erN() {
-            return this.oLu;
+        Object eBL() {
+            return this.pCR;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        void bI(Object obj) {
-            this.oLu.println(obj);
+        void bM(Object obj) {
+            this.pCR.println(obj);
         }
     }
 
     /* loaded from: classes16.dex */
     static final class c extends a {
-        private final PrintWriter oLv;
+        private final PrintWriter pCS;
 
         c(PrintWriter printWriter) {
-            this.oLv = printWriter;
+            this.pCS = printWriter;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        Object erN() {
-            return this.oLv;
+        Object eBL() {
+            return this.pCS;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        void bI(Object obj) {
-            this.oLv.println(obj);
+        void bM(Object obj) {
+            this.pCS.println(obj);
         }
     }
 

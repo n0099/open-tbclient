@@ -12,27 +12,27 @@ public class e extends f {
     }
 
     @Override // com.baidu.swan.apps.core.pms.j
-    protected int alQ() {
+    protected int anK() {
         return 3;
     }
 
     @Override // com.baidu.swan.apps.core.pms.f, com.baidu.swan.pms.a.g
     public void a(com.baidu.swan.pms.utils.f fVar) {
         super.a(fVar);
-        if (fVar != null && fVar.aYg()) {
-            P("checkForUpdate", true);
+        if (fVar != null && fVar.aZZ()) {
+            R("checkForUpdate", true);
         }
     }
 
     @Override // com.baidu.swan.pms.a.g
     public void N(String str, int i) {
         super.N(str, i);
-        com.baidu.swan.pms.c.c xK = com.baidu.swan.pms.c.c.xK(str);
-        if (xK != null) {
-            boolean cW = com.baidu.swan.pms.utils.e.cW(xK.getData());
-            com.baidu.swan.apps.console.c.i("SwanAppPkgAsyncDownloadCallback", "resetCore: " + cW);
-            if (cW) {
-                com.baidu.swan.apps.process.messaging.a.aAK().a(new com.baidu.swan.apps.process.messaging.c(129).fK(true));
+        com.baidu.swan.pms.c.c yd = com.baidu.swan.pms.c.c.yd(str);
+        if (yd != null) {
+            boolean cZ = com.baidu.swan.pms.utils.e.cZ(yd.getData());
+            com.baidu.swan.apps.console.c.i("SwanAppPkgAsyncDownloadCallback", "resetCore: " + cZ);
+            if (cZ) {
+                com.baidu.swan.apps.process.messaging.a.aCE().a(new com.baidu.swan.apps.process.messaging.c(129).fX(true));
             }
         }
     }
@@ -43,37 +43,37 @@ public class e extends f {
         if (DEBUG) {
             Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: onFetchError: " + aVar.toString());
         }
-        P("checkForUpdate", false);
-        hO(aVar.errorNo);
+        R("checkForUpdate", false);
+        hZ(aVar.errorNo);
         if (com.baidu.swan.apps.core.pms.d.a.c(aVar)) {
-            com.baidu.swan.apps.core.pms.d.a.mI(this.mAppId);
+            com.baidu.swan.apps.core.pms.d.a.nb(this.mAppId);
         }
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void aiW() {
-        super.aiW();
-        if (this.cyN != null) {
-            amd();
-            P("checkForUpdate", false);
-            com.baidu.swan.apps.core.pms.d.a.mI(this.mAppId);
+    public void akQ() {
+        super.akQ();
+        if (this.cHj != null) {
+            anX();
+            R("checkForUpdate", false);
+            com.baidu.swan.apps.core.pms.d.a.nb(this.mAppId);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.pms.f
-    public void alU() {
-        super.alU();
-        this.cyO.add(new UbcFlowEvent("na_start_update_db"));
-        com.baidu.swan.apps.am.a amc = amc();
-        this.cyO.add(new UbcFlowEvent("na_end_update_db"));
-        if (amc == null) {
+    public void anO() {
+        super.anO();
+        this.cHk.add(new UbcFlowEvent("na_start_update_db"));
+        com.baidu.swan.apps.am.a anW = anW();
+        this.cHk.add(new UbcFlowEvent("na_end_update_db"));
+        if (anW == null) {
             if (DEBUG) {
                 Log.d("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 异步更新-> DB 存储成功");
             }
-            P("updateReady", true);
-            br("main_async_download", "0");
-            com.baidu.swan.apps.core.pms.d.a.mI(this.mAppId);
+            R("updateReady", true);
+            by("main_async_download", "0");
+            com.baidu.swan.apps.core.pms.d.a.nb(this.mAppId);
         } else if (DEBUG) {
             Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 异步更新-> DB 存储失败");
         }
@@ -81,7 +81,7 @@ public class e extends f {
 
     @Override // com.baidu.swan.apps.core.pms.f
     protected void o(Throwable th) {
-        P("updateFailed", false);
+        R("updateFailed", false);
         if (th instanceof PkgDownloadError) {
             PkgDownloadError pkgDownloadError = (PkgDownloadError) th;
             if (DEBUG) {
@@ -93,11 +93,11 @@ public class e extends f {
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
-    protected PMSDownloadType alV() {
+    protected PMSDownloadType anP() {
         return PMSDownloadType.ASYNC;
     }
 
-    private void P(String str, boolean z) {
+    private void R(String str, boolean z) {
         if (!TextUtils.isEmpty(this.mAppId)) {
             h.j(str, this.mAppId, z);
         }

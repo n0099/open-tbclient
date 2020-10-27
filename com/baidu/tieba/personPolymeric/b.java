@@ -1,26 +1,26 @@
 package com.baidu.tieba.personPolymeric;
 /* loaded from: classes24.dex */
 public class b {
-    private static b lIx = new b();
+    private static b lUT = new b();
     private long creatTime = 0;
-    private long lIy = 0;
-    private long lIz = 0;
-    private long fgW = 0;
+    private long lUU = 0;
+    private long lUV = 0;
+    private long fpw = 0;
     private long beginTime = 0;
-    private long lIA = 0;
-    private long lIB = 0;
+    private long lUW = 0;
+    private long lUX = 0;
 
     private b() {
     }
 
     public void reset() {
         this.creatTime = 0L;
-        this.lIy = 0L;
-        this.lIz = 0L;
-        this.fgW = 0L;
+        this.lUU = 0L;
+        this.lUV = 0L;
+        this.fpw = 0L;
         this.beginTime = 0L;
-        this.lIA = 0L;
-        this.lIB = 0L;
+        this.lUW = 0L;
+        this.lUX = 0L;
     }
 
     public String toString() {
@@ -30,18 +30,18 @@ public class b {
         stringBuffer.append(" creatTime:");
         stringBuffer.append(this.creatTime);
         stringBuffer.append(" refreshStartTime:");
-        stringBuffer.append(this.lIB);
+        stringBuffer.append(this.lUX);
         stringBuffer.append(" refrehTime:");
-        stringBuffer.append(this.lIA);
+        stringBuffer.append(this.lUW);
         stringBuffer.append(" drawTime:");
-        stringBuffer.append(this.fgW);
+        stringBuffer.append(this.fpw);
         stringBuffer.append(" profileTime:");
-        stringBuffer.append(this.lIz);
+        stringBuffer.append(this.lUV);
         return stringBuffer.toString();
     }
 
-    public static b dpu() {
-        return lIx;
+    public static b dsB() {
+        return lUT;
     }
 
     public long getCreateTime() {
@@ -52,55 +52,55 @@ public class b {
         this.creatTime = j;
     }
 
-    public long aZs() {
+    public long bbl() {
         return this.beginTime;
     }
 
-    public void cz(long j) {
+    public void cB(long j) {
         this.beginTime = j;
     }
 
-    public long dnL() {
-        return this.fgW;
-    }
-
-    public void go(long j) {
-        this.fgW = j;
-    }
-
-    public long getRefreshTime() {
-        return this.lIA;
-    }
-
-    public void setRefreshTime(long j) {
-        this.lIA = j;
-    }
-
-    public long dnM() {
-        return this.lIB;
+    public long dqS() {
+        return this.fpw;
     }
 
     public void gp(long j) {
-        if (this.lIB == 0) {
-            this.lIB = j;
+        this.fpw = j;
+    }
+
+    public long getRefreshTime() {
+        return this.lUW;
+    }
+
+    public void setRefreshTime(long j) {
+        this.lUW = j;
+    }
+
+    public long dqT() {
+        return this.lUX;
+    }
+
+    public void gq(long j) {
+        if (this.lUX == 0) {
+            this.lUX = j;
         }
     }
 
-    public long dpv() {
-        return this.lIy;
-    }
-
-    public void gr(long j) {
-        if (this.lIy == 0) {
-            this.lIy = j;
-        }
-    }
-
-    public long dpw() {
-        return this.lIz;
+    public long dsC() {
+        return this.lUU;
     }
 
     public void gs(long j) {
-        this.lIz = j;
+        if (this.lUU == 0) {
+            this.lUU = j;
+        }
+    }
+
+    public long dsD() {
+        return this.lUV;
+    }
+
+    public void gt(long j) {
+        this.lUV = j;
     }
 }

@@ -47,36 +47,36 @@ public final class a {
 
     /* renamed from: com.baidu.swan.apps.ai.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC0347a {
-        void ka(int i);
+    public interface InterfaceC0361a {
+        void kl(int i);
     }
 
     public static void a(Context context, com.baidu.swan.apps.u.c.b bVar) {
-        a(context, bVar, (InterfaceC0347a) null);
+        a(context, bVar, (InterfaceC0361a) null);
     }
 
-    public static void a(Context context, com.baidu.swan.apps.u.c.b bVar, InterfaceC0347a interfaceC0347a) {
-        a(context, bVar, 0, interfaceC0347a);
+    public static void a(Context context, com.baidu.swan.apps.u.c.b bVar, InterfaceC0361a interfaceC0361a) {
+        a(context, bVar, 0, interfaceC0361a);
     }
 
-    public static void a(Context context, final com.baidu.swan.apps.u.c.b bVar, final int i, final InterfaceC0347a interfaceC0347a) {
+    public static void a(Context context, final com.baidu.swan.apps.u.c.b bVar, final int i, final InterfaceC0361a interfaceC0361a) {
         Uri uri;
         String iconUrl = bVar.getIconUrl();
         if (!TextUtils.isEmpty(iconUrl) && (uri = ak.getUri(iconUrl)) != null) {
             m(bVar);
-            final c.a aVar = (c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) new c.a().oJ(bVar.getAppId())).oM(bVar.auj())).oQ(bVar.aur())).oO(bVar.getPage())).oP(bVar.auq())).eZ(bVar.isDebug())).oR(bVar.auu())).iJ(bVar.getAppFrameType())).iI(bVar.getOrientation())).oN(c.e(bVar.getAppId(), bVar.auj(), bVar.getAppFrameType()));
+            final c.a aVar = (c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) new c.a().pc(bVar.getAppId())).pf(bVar.awd())).pj(bVar.awl())).ph(bVar.getPage())).pi(bVar.awk())).fm(bVar.isDebug())).pk(bVar.awo())).iU(bVar.getAppFrameType())).iT(bVar.getOrientation())).pg(c.e(bVar.getAppId(), bVar.awd(), bVar.getAppFrameType()));
             if (s.i(uri)) {
                 a(context, bVar, aVar, s.b(uri, context), i);
-                b(context, bVar, interfaceC0347a);
+                b(context, bVar, interfaceC0361a);
                 return;
             }
             com.baidu.swan.apps.core.pms.f.c.a(iconUrl, aVar.getAppFrameType(), new c.a() { // from class: com.baidu.swan.apps.ai.a.1
                 @Override // com.baidu.swan.apps.core.pms.f.c.a
                 public void k(Bitmap bitmap) {
-                    if (e.aDa() != null) {
-                        SwanAppActivity aCU = d.aCW().aCU();
-                        a.a(aCU, com.baidu.swan.apps.u.c.b.this, aVar, bitmap, i);
-                        a.b(aCU, com.baidu.swan.apps.u.c.b.this, interfaceC0347a);
+                    if (e.aEU() != null) {
+                        SwanAppActivity aEO = d.aEQ().aEO();
+                        a.a(aEO, com.baidu.swan.apps.u.c.b.this, aVar, bitmap, i);
+                        a.b(aEO, com.baidu.swan.apps.u.c.b.this, interfaceC0361a);
                     }
                 }
             });
@@ -88,23 +88,23 @@ public final class a {
         if (context != null) {
             if (bitmap == null) {
                 Toast.makeText(context, a.h.aiapps_common_emptyview_detail_text, 0).show();
-            } else if (e.aDb() != null) {
-                final b.a aDe = e.aDb().aDe();
+            } else if (e.aEV() != null) {
+                final b.a aEY = e.aEV().aEY();
                 ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.swan.apps.ai.a.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        h atl = com.baidu.swan.apps.t.a.atl();
-                        String aub = com.baidu.swan.apps.u.c.b.this.aub();
-                        if (!TextUtils.isEmpty(aub) && atl.P(context, aub)) {
-                            a.si("click");
-                            if (atl.Q(context, aub)) {
+                        h avf = com.baidu.swan.apps.t.a.avf();
+                        String avV = com.baidu.swan.apps.u.c.b.this.avV();
+                        if (!TextUtils.isEmpty(avV) && avf.Q(context, avV)) {
+                            a.sC("click");
+                            if (avf.R(context, avV)) {
                                 if (i != 1) {
                                     a.cx(context);
                                     return;
                                 }
                                 return;
-                            } else if (atl.R(context, aub)) {
-                                a.si("show");
+                            } else if (avf.S(context, avV)) {
+                                a.sC("show");
                                 if (i != 1) {
                                     a.cx(context);
                                     return;
@@ -113,9 +113,9 @@ public final class a {
                             }
                         }
                         if (com.baidu.swan.apps.ap.c.hasOreo()) {
-                            a.a(context, bVar.getAppId(), bVar.aoj(), bitmap, com.baidu.swan.apps.u.c.c.a(context, cVar));
+                            a.a(context, bVar.getAppId(), bVar.aqe(), bitmap, com.baidu.swan.apps.u.c.c.a(context, cVar));
                         } else {
-                            context.sendBroadcast(a.a(bVar.aoj(), bitmap, com.baidu.swan.apps.u.c.c.a(context, cVar)));
+                            context.sendBroadcast(a.a(bVar.aqe(), bitmap, com.baidu.swan.apps.u.c.c.a(context, cVar)));
                         }
                         if (i != 1) {
                             a.cx(context);
@@ -127,20 +127,20 @@ public final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void si(String str) {
+    public static void sC(String str) {
         com.baidu.swan.apps.statistic.a.e eVar = new com.baidu.swan.apps.statistic.a.e();
-        eVar.mAppId = d.aCW().getAppId();
+        eVar.mAppId = d.aEQ().getAppId();
         eVar.mType = str;
-        eVar.mFrom = com.baidu.swan.apps.statistic.h.kd(d.aCW().abk());
-        if (e.aDb() != null && e.aDb().aDe() != null) {
-            eVar.mSource = e.aDb().aDe().auj();
+        eVar.mFrom = com.baidu.swan.apps.statistic.h.ko(d.aEQ().ade());
+        if (e.aEV() != null && e.aEV().aEY() != null) {
+            eVar.mSource = e.aEV().aEY().awd();
         }
         com.baidu.swan.apps.statistic.h.a("1591", eVar);
     }
 
     private static void m(com.baidu.swan.apps.u.c.b bVar) {
-        bVar.oO(null);
-        bVar.oM("1230000000000000");
+        bVar.ph(null);
+        bVar.pf("1230000000000000");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -156,14 +156,14 @@ public final class a {
             public void run() {
                 g.a aVar = new g.a(context);
                 aVar.a(new com.baidu.swan.apps.view.c.a());
-                g alu = aVar.alu();
-                aVar.hK(a.h.aiapps_add_shortcut_note_dialog_title).a(a.a(context, alu)).aCE().e(a.h.aiapps_add_shortcut_note_dialog_button, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.ai.a.3.1
+                g ano = aVar.ano();
+                aVar.hV(a.h.aiapps_add_shortcut_note_dialog_title).a(a.a(context, ano)).aEy().e(a.h.aiapps_add_shortcut_note_dialog_button, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.ai.a.3.1
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i) {
                     }
-                }).fW(com.baidu.swan.apps.t.a.asC().getNightModeSwitcherState()).aCD();
-                alu.setCancelable(false);
-                alu.show();
+                }).gj(com.baidu.swan.apps.t.a.auw().getNightModeSwitcherState()).aEx();
+                ano.setCancelable(false);
+                ano.show();
             }
         });
     }
@@ -221,15 +221,15 @@ public final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void b(final Context context, final com.baidu.swan.apps.u.c.b bVar, final InterfaceC0347a interfaceC0347a) {
-        if (interfaceC0347a != null) {
+    public static void b(final Context context, final com.baidu.swan.apps.u.c.b bVar, final InterfaceC0361a interfaceC0361a) {
+        if (interfaceC0361a != null) {
             if (context == null) {
-                interfaceC0347a.ka(-1);
+                interfaceC0361a.kl(-1);
             } else {
                 p.a(new Runnable() { // from class: com.baidu.swan.apps.ai.a.5
                     @Override // java.lang.Runnable
                     public void run() {
-                        InterfaceC0347a.this.ka(a.r(context, bVar.aoj(), bVar.getAppId()));
+                        InterfaceC0361a.this.kl(a.r(context, bVar.aqe(), bVar.getAppId()));
                     }
                 }, "SwanAppShortcutHelper", 1000L, TimeUnit.MILLISECONDS);
             }

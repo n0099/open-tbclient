@@ -11,49 +11,49 @@ import com.tencent.tauth.IUiListener;
 import java.util.ArrayList;
 /* loaded from: classes24.dex */
 public class c extends b {
-    private IUiListener mso;
-    private final com.baidu.adp.lib.e.b<f.a> msq;
+    private IUiListener mES;
+    private final com.baidu.adp.lib.e.b<f.a> mEU;
 
     public c(Context context) {
         super(context);
-        this.msq = new com.baidu.adp.lib.e.b<f.a>() { // from class: com.baidu.tieba.sharesdk.a.c.1
+        this.mEU = new com.baidu.adp.lib.e.b<f.a>() { // from class: com.baidu.tieba.sharesdk.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.b
             /* renamed from: a */
             public void onLoaded(f.a aVar, String str, int i) {
                 super.onLoaded(aVar, str, i);
-                if (aVar == null || aVar.eBj == null || TextUtils.isEmpty(aVar.path)) {
-                    c.this.dk(2, 4);
+                if (aVar == null || aVar.eJF == null || TextUtils.isEmpty(aVar.path)) {
+                    c.this.dm(2, 4);
                 }
-                c.this.Rs(aVar.path);
+                c.this.RR(aVar.path);
             }
 
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.b
             public void onCancelled(String str) {
                 super.onCancelled(str);
-                c.this.dk(3, 4);
+                c.this.dm(3, 4);
             }
         };
-        this.msf = 4;
+        this.mEK = 4;
     }
 
     @Override // com.baidu.tieba.sharesdk.a.b, com.baidu.tieba.sharesdk.b.a
     public void a(ShareEntity shareEntity, com.baidu.tieba.sharesdk.b.b bVar) {
-        if (shareEntity == null || this.msn == null) {
-            dk(2, 4);
+        if (shareEntity == null || this.mER == null) {
+            dm(2, 4);
             if (bVar != null) {
-                bVar.dj(0, 2);
+                bVar.dl(0, 2);
             }
         } else if (this.context == null || !(this.context instanceof Activity)) {
-            dk(2, 4);
+            dm(2, 4);
             if (bVar != null) {
-                bVar.dj(0, 2);
+                bVar.dl(0, 2);
             }
         } else {
-            this.mso = new b.a(bVar);
-            if (shareEntity.dAi() != 0) {
+            this.mES = new b.a(bVar);
+            if (shareEntity.dDq() != 0) {
                 b(shareEntity);
             } else {
                 c(shareEntity);
@@ -62,23 +62,23 @@ public class c extends b {
     }
 
     private void b(ShareEntity shareEntity) {
-        if (Cu(shareEntity.dAg())) {
-            Rs(shareEntity.dAg());
+        if (CN(shareEntity.dDo())) {
+            RR(shareEntity.dDo());
         } else if (u(shareEntity.getImageUri())) {
-            Rs(shareEntity.getImageUri().getPath());
+            RR(shareEntity.getImageUri().getPath());
         } else {
-            com.baidu.adp.lib.e.c.mS().a(shareEntity.bgd(), 34, this.msq, 0, 0, getPageId(), new Object[0]);
+            com.baidu.adp.lib.e.c.mS().a(shareEntity.bhW(), 34, this.mEU, 0, 0, getPageId(), new Object[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Rs(String str) {
+    public void RR(String str) {
         Bundle bundle = new Bundle();
         bundle.putString("imageLocalUrl", str);
         bundle.putInt("req_type", 5);
         bundle.putInt("cflag", 1);
-        if (this.mso != null) {
-            this.msn.shareToQQ((Activity) this.context, bundle, this.mso);
+        if (this.mES != null) {
+            this.mER.shareToQQ((Activity) this.context, bundle, this.mES);
         }
     }
 
@@ -89,12 +89,12 @@ public class c extends b {
         bundle.putString("summary", shareEntity.getContent());
         bundle.putString("targetUrl", shareEntity.getLinkUrl());
         ArrayList<String> arrayList = new ArrayList<>();
-        if (!TextUtils.isEmpty(shareEntity.bgd())) {
-            arrayList.add(shareEntity.bgd());
+        if (!TextUtils.isEmpty(shareEntity.bhW())) {
+            arrayList.add(shareEntity.bhW());
         }
         bundle.putStringArrayList("imageUrl", arrayList);
-        if (this.mso != null) {
-            this.msn.shareToQzone((Activity) this.context, bundle, this.mso);
+        if (this.mES != null) {
+            this.mER.shareToQzone((Activity) this.context, bundle, this.mES);
         }
     }
 }

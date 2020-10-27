@@ -62,21 +62,21 @@ public class a extends aa {
             return;
         }
         boolean z = eVar.forbidden;
-        int aIw = aj.aIw();
-        long aIx = aj.aIx();
-        List<String> list = eVar.djx;
+        int aKq = aj.aKq();
+        long aKr = aj.aKr();
+        List<String> list = eVar.drX;
         JSONArray jSONArray = new JSONArray();
         JSONObject jSONObject = new JSONObject();
         try {
             for (String str2 : list) {
                 jSONArray.put(str2);
             }
-            jSONObject.put("launchCount", aIw);
-            jSONObject.put("visitDuration", aIx);
+            jSONObject.put("launchCount", aKq);
+            jSONObject.put("visitDuration", aKr);
             jSONObject.put("forbidden", z);
             jSONObject.put("ext", jSONArray);
             if (DEBUG) {
-                Log.i("GetBehaviorInfoAction", "launchCount:" + aIw + " visitDuration:" + aIx + " forbidden:" + z + " ext:" + jSONArray.toString());
+                Log.i("GetBehaviorInfoAction", "launchCount:" + aKq + " visitDuration:" + aKr + " forbidden:" + z + " ext:" + jSONArray.toString());
             }
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
         } catch (JSONException e) {

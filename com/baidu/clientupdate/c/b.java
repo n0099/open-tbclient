@@ -9,10 +9,10 @@ import java.net.URLEncoder;
 class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private StringBuilder f1325a;
+    private StringBuilder f1322a;
 
     public b(String str) {
-        this.f1325a = new StringBuilder(str);
+        this.f1322a = new StringBuilder(str);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -20,9 +20,9 @@ class b {
         if (TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f1325a.append(ETAG.ITEM_SEPARATOR + str + ETAG.EQUAL);
+        this.f1322a.append(ETAG.ITEM_SEPARATOR + str + ETAG.EQUAL);
         byte[] b64Encode = Base64Encoder.b64Encode(URLEncoder.encode(str2).getBytes());
-        this.f1325a.append(new String(b64Encode));
+        this.f1322a.append(new String(b64Encode));
         LogUtil.logD("ClientUpdateUriHelper", "key: " + str + ", value: " + str2);
         LogUtil.logD("ClientUpdateUriHelper", "b64encode key: " + str + ", value: " + new String(b64Encode));
     }
@@ -32,13 +32,13 @@ class b {
         if (TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f1325a.append(ETAG.ITEM_SEPARATOR + str + ETAG.EQUAL);
-        this.f1325a.append(URLEncoder.encode(str2));
+        this.f1322a.append(ETAG.ITEM_SEPARATOR + str + ETAG.EQUAL);
+        this.f1322a.append(URLEncoder.encode(str2));
         LogUtil.logD("ClientUpdateUriHelper", "key: " + str + ", value: " + str2);
         LogUtil.logD("ClientUpdateUriHelper", "b64encode key: " + str + ", value: " + str2);
     }
 
     public String toString() {
-        return this.f1325a.toString();
+        return this.f1322a.toString();
     }
 }

@@ -11,16 +11,16 @@ public interface a extends IInterface {
 
     /* renamed from: com.baidu.mapframework.open.aidl.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static abstract class AbstractBinderC0228a extends Binder implements a {
+    public static abstract class AbstractBinderC0242a extends Binder implements a {
 
         /* renamed from: com.baidu.mapframework.open.aidl.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        private static class C0229a implements a {
+        private static class C0243a implements a {
 
             /* renamed from: a  reason: collision with root package name */
             private IBinder f2183a;
 
-            C0229a(IBinder iBinder) {
+            C0243a(IBinder iBinder) {
                 this.f2183a = iBinder;
             }
 
@@ -50,7 +50,7 @@ public interface a extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.mapframework.open.aidl.IMapOpenService");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0229a(iBinder) : (a) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0243a(iBinder) : (a) queryLocalInterface;
         }
 
         @Override // android.os.Binder

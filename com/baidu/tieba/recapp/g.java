@@ -24,7 +24,7 @@ public interface g {
     public interface d {
     }
 
-    boolean Ew(String str);
+    boolean EP(String str);
 
     void a(Context context, String[] strArr, boolean z);
 

@@ -6,7 +6,7 @@ import com.baidu.mapapi.http.HttpClient;
 import com.baidu.platform.comapi.pano.a;
 import com.baidu.platform.comapi.pano.c;
 /* loaded from: classes7.dex */
-final class a implements a.InterfaceC0258a<c> {
+final class a implements a.InterfaceC0272a<c> {
 
     /* renamed from: a  reason: collision with root package name */
     final /* synthetic */ Context f2162a;
@@ -16,7 +16,7 @@ final class a implements a.InterfaceC0258a<c> {
         this.f2162a = context;
     }
 
-    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0258a
+    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0272a
     public void a(HttpClient.HttpStateError httpStateError) {
         switch (httpStateError) {
             case NETWORK_ERROR:
@@ -31,7 +31,7 @@ final class a implements a.InterfaceC0258a<c> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0258a
+    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0272a
     public void a(c cVar) {
         if (cVar == null) {
             Log.d("baidumapsdk", "pano info is null");

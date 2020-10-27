@@ -3,26 +3,26 @@ package com.baidu.tbadk.coreExtra.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class m {
-    private n eOA;
-    private int eOz;
+    private int eWV;
+    private n eWW;
 
-    public void di(JSONObject jSONObject) {
+    public void dl(JSONObject jSONObject) {
         JSONObject optJSONObject = jSONObject.optJSONObject("common");
         if (optJSONObject != null) {
-            this.eOz = optJSONObject.optInt("version");
+            this.eWV = optJSONObject.optInt("version");
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("special");
         if (optJSONObject2 != null) {
-            this.eOA = new n();
-            this.eOA.di(optJSONObject2);
+            this.eWW = new n();
+            this.eWW.dl(optJSONObject2);
         }
     }
 
-    public int bqm() {
-        return this.eOz;
+    public int bsf() {
+        return this.eWV;
     }
 
-    public n bqn() {
-        return this.eOA;
+    public n bsg() {
+        return this.eWW;
     }
 }

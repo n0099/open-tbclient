@@ -26,7 +26,7 @@ public class a {
         this.title = str3;
     }
 
-    public JSONObject aeM() {
+    public JSONObject agG() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("url", this.url);

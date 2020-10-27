@@ -3,41 +3,41 @@ package com.baidu.live.videochat.b;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b {
-    private long byO;
-    private int byP;
-    private long byQ;
-    private long byR;
-    private long byS;
-    private long byT;
+    private long bBK;
+    private int bBL;
+    private long bBM;
+    private long bBN;
+    private long bBO;
+    private long bBP;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.byO = jSONObject.optLong("chat_id");
-            this.byP = jSONObject.optInt("chat_status");
-            this.byQ = jSONObject.optLong("user_id1");
-            this.byR = jSONObject.optLong("live_id1");
-            this.byS = jSONObject.optLong("user_id2");
-            this.byT = jSONObject.optLong("live_id2");
+            this.bBK = jSONObject.optLong("chat_id");
+            this.bBL = jSONObject.optInt("chat_status");
+            this.bBM = jSONObject.optLong("user_id1");
+            this.bBN = jSONObject.optLong("live_id1");
+            this.bBO = jSONObject.optLong("user_id2");
+            this.bBP = jSONObject.optLong("live_id2");
         }
     }
 
-    public boolean RX() {
-        return this.byP == 2;
+    public boolean SX() {
+        return this.bBL == 2;
     }
 
-    public boolean RY() {
-        return this.byP == 3 || this.byP == 4;
+    public boolean SY() {
+        return this.bBL == 3 || this.bBL == 4;
     }
 
-    public long RZ() {
-        return this.byO;
+    public long SZ() {
+        return this.bBK;
     }
 
-    public int Sa() {
-        return this.byP;
+    public int Ta() {
+        return this.bBL;
     }
 
-    public long Sb() {
-        return this.byQ;
+    public long Tb() {
+        return this.bBM;
     }
 }

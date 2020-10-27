@@ -5,7 +5,7 @@ import com.sdk.base.framework.f.d.a;
 public class KInfo {
 
     /* renamed from: cn  reason: collision with root package name */
-    private String f4480cn;
+    private String f4478cn;
     private String ic;
     private boolean idfd;
     private boolean idfs;
@@ -15,7 +15,7 @@ public class KInfo {
     private int sid;
 
     public String getCn() {
-        return this.f4480cn;
+        return this.f4478cn;
     }
 
     public String getIc() {
@@ -47,7 +47,7 @@ public class KInfo {
     }
 
     public void setCn(String str) {
-        this.f4480cn = str;
+        this.f4478cn = str;
     }
 
     public void setIc(String str) {

@@ -13,13 +13,13 @@ import com.baidu.live.utils.j;
 /* loaded from: classes4.dex */
 public class b {
     private long count;
-    private com.baidu.tieba.ala.liveroom.operation.b gEx;
-    private TextView gGR;
-    private ImageView gGS;
+    private com.baidu.tieba.ala.liveroom.operation.b gQm;
+    private TextView gSG;
+    private ImageView gSH;
     private boolean isHost;
     private Context mContext;
     private View mView = null;
-    private boolean gdU = true;
+    private boolean gnY = true;
 
     public b(Context context, boolean z) {
         this.isHost = false;
@@ -32,18 +32,18 @@ public class b {
         this.mView = View.inflate(this.mContext, a.h.ala_liveroom_audience_count_layout, null);
         this.mView.setMinimumWidth(this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds90));
         this.mView.setId(a.g.ala_liveroom_audience_count_layout);
-        this.gGR = (TextView) this.mView.findViewById(a.g.ala_live_room_audience_count);
-        this.gGS = (ImageView) this.mView.findViewById(a.g.close_imageView);
+        this.gSG = (TextView) this.mView.findViewById(a.g.ala_live_room_audience_count);
+        this.gSH = (ImageView) this.mView.findViewById(a.g.close_imageView);
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo() || TbadkCoreApplication.getInst().isTieba() || TbadkCoreApplication.getInst().isMobileBaidu()) {
-            this.gGS.setVisibility(4);
+            this.gSH.setVisibility(4);
         } else {
-            this.gGS.setVisibility(8);
+            this.gSH.setVisibility(8);
         }
-        this.gGR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.b.1
+        this.gSG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.gEx != null) {
-                    b.this.gEx.o(view, 14);
+                if (b.this.gQm != null) {
+                    b.this.gQm.p(view, 14);
                 }
             }
         });
@@ -53,7 +53,7 @@ public class b {
         if (this.mView.getParent() != null) {
             ((ViewGroup) this.mView.getParent()).removeView(this.mView);
         }
-        dY(j);
+        ea(j);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds72));
         layoutParams.addRule(11);
         layoutParams.addRule(8, i);
@@ -62,27 +62,27 @@ public class b {
     }
 
     public void setVisible(int i) {
-        if (this.gdU) {
+        if (this.gnY) {
             this.mView.setVisibility(i);
         } else {
             this.mView.setVisibility(8);
         }
     }
 
-    public void mw(boolean z) {
+    public void mM(boolean z) {
         if (z) {
-            this.gGS.setVisibility(4);
+            this.gSH.setVisibility(4);
         } else {
-            this.gGS.setVisibility(8);
+            this.gSH.setVisibility(8);
         }
     }
 
-    public void dY(long j) {
+    public void ea(long j) {
         if (j < 0) {
             j = 0;
         }
         this.count = j;
-        this.gGR.setText(j.numFormatOverWanNaForAudienceNum(j));
+        this.gSG.setText(j.numFormatOverWanNaForAudienceNum(j));
     }
 
     public long getCount() {
@@ -90,12 +90,12 @@ public class b {
     }
 
     public void a(com.baidu.tieba.ala.liveroom.operation.b bVar) {
-        this.gEx = bVar;
+        this.gQm = bVar;
     }
 
-    public void mx(boolean z) {
-        if (this.gGR != null) {
-            this.gGR.setEnabled(z);
+    public void mN(boolean z) {
+        if (this.gSG != null) {
+            this.gSG.setEnabled(z);
         }
     }
 }

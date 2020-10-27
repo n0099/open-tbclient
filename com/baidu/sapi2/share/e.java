@@ -394,13 +394,13 @@ public final class e {
         throw new IllegalArgumentException("loginActivity can't be null");
     }
 
-    public static void a(b.AbstractC0317b abstractC0317b, int i, int i2, Intent intent, com.baidu.sapi2.share.b bVar, List<PassNameValuePair> list) {
+    public static void a(b.AbstractC0331b abstractC0331b, int i, int i2, Intent intent, com.baidu.sapi2.share.b bVar, List<PassNameValuePair> list) {
         String str;
         int i3;
         String str2;
         String str3;
         if (i == 20001) {
-            if (abstractC0317b != null) {
+            if (abstractC0331b != null) {
                 Context context = SapiAccountManager.getInstance().getConfignation().context;
                 String stringExtra = intent != null ? intent.getStringExtra(com.baidu.sapi2.share.b.c) : "";
                 if (i2 == -1 && intent != null) {
@@ -430,14 +430,14 @@ public final class e {
                             }
                         }
                         sapiContext.put(SapiContext.KEY_PRE_LOGIN_TYPE, com.baidu.sapi2.share.b.k);
-                        abstractC0317b.onSuccess();
+                        abstractC0331b.onSuccess();
                         str3 = str4;
                         str2 = "";
                         i3 = 0;
                     } else {
                         i3 = 1;
                         Toast.makeText(context, "互通登录失败,请稍后再试", 0).show();
-                        abstractC0317b.onFailed(-207, "互通登录失败,请稍后再试");
+                        abstractC0331b.onFailed(-207, "互通登录失败,请稍后再试");
                         str2 = "互通登录失败,请稍后再试";
                         str3 = "";
                     }
@@ -448,7 +448,7 @@ public final class e {
                     } else {
                         str = "result data is null";
                     }
-                    abstractC0317b.onFailed(-207, "互通登录失败,请稍后再试");
+                    abstractC0331b.onFailed(-207, "互通登录失败,请稍后再试");
                     i3 = 2;
                     str2 = str;
                     str3 = "";

@@ -44,7 +44,7 @@ public class FeedbackHotActivity extends Activity {
     private Timer q;
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f3735a = R.string.abc_action_bar_up_description;
+    private final int f3733a = R.string.abc_action_bar_up_description;
     private final int b = R.string.abc_action_menu_overflow_description;
     private final int c = R.string.abc_action_mode_done;
     private final int d = R.string.abc_activity_chooser_view_see_all;

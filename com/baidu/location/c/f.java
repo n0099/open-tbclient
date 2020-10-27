@@ -56,7 +56,7 @@ public class f {
     public static String b = "";
     private static float N = -1.0f;
     private LocationManager f = null;
-    private C0222f h = null;
+    private C0236f h = null;
     private h i = null;
     private d m = null;
     private GpsStatus.NmeaListener o = null;
@@ -403,11 +403,11 @@ public class f {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.location.c.f$f  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C0222f implements LocationListener {
-        private C0222f() {
+    public class C0236f implements LocationListener {
+        private C0236f() {
         }
 
-        /* synthetic */ C0222f(f fVar, com.baidu.location.c.g gVar) {
+        /* synthetic */ C0236f(f fVar, com.baidu.location.c.g gVar) {
             this();
         }
 
@@ -915,7 +915,7 @@ public class f {
             return;
         }
         try {
-            this.h = new C0222f(this, null);
+            this.h = new C0236f(this, null);
             try {
                 this.f.sendExtraCommand("gps", "force_xtra_injection", new Bundle());
             } catch (Exception e2) {

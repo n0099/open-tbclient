@@ -11,8 +11,8 @@ import com.baidu.tieba.personExtra.RecommendGodSocketResponseMessage;
 import com.baidu.tieba.personPolymeric.c.q;
 /* loaded from: classes24.dex */
 public class c {
-    private a kEK;
-    private boolean kEL;
+    private a kRh;
+    private boolean kRi;
     private q recommendGodData;
     private BdUniqueId uniqueId;
     private int pageNum = 0;
@@ -28,18 +28,18 @@ public class c {
                         c.this.recommendGodData = ((RecommendGodHttpResponseMessage) responsedMessage).recommendGodData;
                     }
                     if (c.this.recommendGodData != null) {
-                        c.this.pageNum = c.this.recommendGodData.grS;
+                        c.this.pageNum = c.this.recommendGodData.gBW;
                     }
                     int error = responsedMessage.getError();
                     if (error == 0 && c.this.recommendGodData != null) {
-                        if (y.isEmpty(c.this.recommendGodData.lLk)) {
-                            error = c.this.kEL ? 3 : 2;
+                        if (y.isEmpty(c.this.recommendGodData.lXG)) {
+                            error = c.this.kRi ? 3 : 2;
                         }
                     } else {
                         error = 1;
                     }
-                    if (c.this.kEK != null) {
-                        c.this.kEK.a(c.this.recommendGodData, error);
+                    if (c.this.kRh != null) {
+                        c.this.kRh.a(c.this.recommendGodData, error);
                     }
                 }
             }
@@ -61,16 +61,16 @@ public class c {
         RecommendGodReqMsg recommendGodReqMsg = new RecommendGodReqMsg();
         recommendGodReqMsg.portrait = str;
         if (this.pageNum == 0) {
-            this.kEL = false;
+            this.kRi = false;
         } else {
-            this.kEL = true;
+            this.kRi = true;
         }
         recommendGodReqMsg.pageNum = this.pageNum + 1;
         recommendGodReqMsg.setTag(this.uniqueId);
         MessageManager.getInstance().sendMessage(recommendGodReqMsg);
     }
 
-    public void bs(String str, int i) {
+    public void bt(String str, int i) {
         this.pageNum = i;
         request(str);
     }
@@ -81,6 +81,6 @@ public class c {
     }
 
     public void a(a aVar) {
-        this.kEK = aVar;
+        this.kRh = aVar;
     }
 }

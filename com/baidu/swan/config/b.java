@@ -10,10 +10,10 @@ public class b extends i {
 
     /* loaded from: classes9.dex */
     private static final class a {
-        private static final b dvC = new b();
+        private static final b dDZ = new b();
     }
 
-    public static b aKs() {
-        return a.dvC;
+    public static b aMm() {
+        return a.dDZ;
     }
 }

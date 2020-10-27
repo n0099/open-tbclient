@@ -10,10 +10,10 @@ import com.baidu.tieba.square.message.ForumSquareSocketResponsedMessage;
 public class ForumSquareStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(ForumSquareActivityConfig.class, ForumSquareActivity.class);
-        cWy();
+        cZG();
     }
 
-    private static void cWy() {
+    private static void cZG() {
         com.baidu.tieba.tbadkCore.a.a.a(309653, ForumSquareSocketResponsedMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309653, CmdConfigHttp.CMD_FORUM_SQUARE, TbConfig.URL_FORUM_SQUARE, ForumSquareHttpResponsedMessage.class, false, false, true, false);
     }

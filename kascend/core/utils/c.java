@@ -20,16 +20,16 @@ public class c {
         }
     }
 
-    public byte[] enC() {
+    public byte[] exB() {
         byte[] bArr = null;
         try {
             bArr = getContent().getBytes("UTF-8");
         } catch (UnsupportedEncodingException e) {
         }
-        return enD().digest(bArr);
+        return exC().digest(bArr);
     }
 
-    private MessageDigest enD() {
+    private MessageDigest exC() {
         return this.md5;
     }
 
@@ -54,7 +54,7 @@ public class c {
     }
 
     public String toString() {
-        String bigInteger = new BigInteger(1, enC()).toString(16);
+        String bigInteger = new BigInteger(1, exB()).toString(16);
         while (bigInteger.length() < 32) {
             bigInteger = "0" + bigInteger;
         }
@@ -69,7 +69,7 @@ public class c {
         this.charset = charset;
     }
 
-    public static String Xw(String str) {
+    public static String Zj(String str) {
         return g(str, new String[0]).toString();
     }
 }

@@ -6,21 +6,21 @@ import com.baidu.live.utils.p;
 /* loaded from: classes4.dex */
 public class b extends HttpMessage {
     private long anchorId;
-    private boolean bdL;
-    private int bdM;
+    private boolean bfc;
+    private int bfd;
 
     public b() {
         super(1021137);
-        this.bdM = 2;
-        this.bdL = false;
+        this.bfd = 2;
+        this.bfc = false;
     }
 
-    public boolean JI() {
-        return this.bdL;
+    public boolean Kb() {
+        return this.bfc;
     }
 
-    public void JJ() {
-        this.bdL = true;
+    public void Kc() {
+        this.bfc = true;
     }
 
     public void setAnchorId(long j) {
@@ -28,8 +28,8 @@ public class b extends HttpMessage {
     }
 
     public void setParams() {
-        addParam("scene_from", p.Gv());
+        addParam("scene_from", p.GQ());
         addParam("anchor_id", EncryptionHelper.getEncryptionUserId(this.anchorId + ""));
-        addParam("client_type", this.bdM);
+        addParam("client_type", this.bfd);
     }
 }

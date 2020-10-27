@@ -21,7 +21,7 @@ public class j extends f<PointF> {
         }
         PointF pointF2 = aVar.Hn;
         PointF pointF3 = aVar.Ho;
-        if (this.oHW == null || (pointF = (PointF) this.oHW.b(aVar.Bo, aVar.Hq.floatValue(), pointF2, pointF3, f, jj(), getProgress())) == null) {
+        if (this.pzt == null || (pointF = (PointF) this.pzt.b(aVar.Bo, aVar.Hq.floatValue(), pointF2, pointF3, f, jj(), getProgress())) == null) {
             this.DW.set(pointF2.x + ((pointF3.x - pointF2.x) * f), pointF2.y + ((pointF3.y - pointF2.y) * f));
             return this.DW;
         }

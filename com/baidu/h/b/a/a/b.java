@@ -8,28 +8,28 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes15.dex */
 public class b implements com.baidu.h.a.b.a.b {
-    private d bHR;
+    private d bQm;
     private Context mContext;
-    private boolean bHQ = false;
-    private final Map<String, a> bHS = new ConcurrentHashMap();
+    private boolean bQl = false;
+    private final Map<String, a> bQn = new ConcurrentHashMap();
 
     public b(Context context, d dVar) {
         this.mContext = context;
-        this.bHR = dVar;
+        this.bQm = dVar;
     }
 
     private a h(String str, String str2, boolean z) {
-        a aVar = new a(this.bHR.c(this.mContext, str, str2, z));
-        this.bHS.put(str, aVar);
+        a aVar = new a(this.bQm.c(this.mContext, str, str2, z));
+        this.bQn.put(str, aVar);
         return aVar;
     }
 
-    public a iA(String str) {
-        return this.bHS.get(str);
+    public a iT(String str) {
+        return this.bQn.get(str);
     }
 
-    public com.baidu.h.a.b.c iB(String str) {
-        return this.bHS.get(str).TY();
+    public com.baidu.h.a.b.c iU(String str) {
+        return this.bQn.get(str).VS();
     }
 
     @Override // com.baidu.h.a.b.a.b
@@ -39,73 +39,73 @@ public class b implements com.baidu.h.a.b.a.b {
     }
 
     @Override // com.baidu.h.a.b.a.b
-    public synchronized void iz(String str) {
-        a iA = iA(str);
-        if (iA != null) {
-            iA.iz(str);
-            this.bHS.remove(str);
+    public synchronized void iS(String str) {
+        a iT = iT(str);
+        if (iT != null) {
+            iT.iS(str);
+            this.bQn.remove(str);
         }
     }
 
     @Override // com.baidu.h.a.b.a.b
-    public synchronized void KG() {
+    public synchronized void La() {
         try {
-            for (Map.Entry<String, a> entry : this.bHS.entrySet()) {
+            for (Map.Entry<String, a> entry : this.bQn.entrySet()) {
                 String key = entry.getKey();
-                a aVar = this.bHS.get(key);
+                a aVar = this.bQn.get(key);
                 if (aVar != null) {
-                    if (aVar.TZ()) {
-                        aVar.KG();
+                    if (aVar.VT()) {
+                        aVar.La();
                     }
-                    this.bHS.remove(key);
+                    this.bQn.remove(key);
                 }
             }
-            this.bHR.unregisterConnectListener();
-            this.bHQ = false;
+            this.bQm.unregisterConnectListener();
+            this.bQl = false;
         } catch (Exception e) {
         }
     }
 
     @Override // com.baidu.h.a.b.a.b
     public synchronized void a(String str, e eVar, f fVar) {
-        a iA = iA(str);
-        if (iA != null) {
-            iA.a(str, eVar, fVar);
+        a iT = iT(str);
+        if (iT != null) {
+            iT.a(str, eVar, fVar);
         }
     }
 
     @Override // com.baidu.h.a.b.a.b
     public void a(String str, com.baidu.h.a.b.a.d dVar) {
-        a iA = iA(str);
-        if (iA != null) {
-            iA.a(str, dVar);
+        a iT = iT(str);
+        if (iT != null) {
+            iT.a(str, dVar);
         }
     }
 
     private void register() {
-        if (!this.bHQ) {
-            this.bHR.unregisterConnectListener();
-            this.bHR.a(new com.baidu.h.a.b.a() { // from class: com.baidu.h.b.a.a.b.1
+        if (!this.bQl) {
+            this.bQm.unregisterConnectListener();
+            this.bQm.a(new com.baidu.h.a.b.a() { // from class: com.baidu.h.b.a.a.b.1
                 @Override // com.baidu.h.a.b.a
                 public void onResult(int i) {
                     if (i == 0) {
                         b.this.reconnect();
                     } else if (1 == i) {
-                        b.this.bHR.TN();
+                        b.this.bQm.VH();
                     }
                 }
             });
-            this.bHQ = true;
+            this.bQl = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void reconnect() {
         try {
-            for (Map.Entry<String, a> entry : this.bHS.entrySet()) {
-                a aVar = this.bHS.get(entry.getKey());
+            for (Map.Entry<String, a> entry : this.bQn.entrySet()) {
+                a aVar = this.bQn.get(entry.getKey());
                 if (aVar != null) {
-                    aVar.CD();
+                    aVar.CJ();
                 }
             }
         } catch (Exception e) {

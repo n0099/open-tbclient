@@ -8,25 +8,25 @@ import com.tb.airbnb.lottie.model.content.ShapeStroke;
 /* loaded from: classes16.dex */
 public class q extends a {
     private final String name;
-    private final com.tb.airbnb.lottie.a.b.a<Integer, Integer> oHA;
-    private final com.tb.airbnb.lottie.model.layer.a oHq;
+    private final com.tb.airbnb.lottie.model.layer.a pyN;
     @Nullable
-    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> oHu;
+    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> pyR;
+    private final com.tb.airbnb.lottie.a.b.a<Integer, Integer> pyX;
 
     public q(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, ShapeStroke shapeStroke) {
-        super(fVar, aVar, shapeStroke.elm().toPaintCap(), shapeStroke.eln().toPaintJoin(), shapeStroke.jZ(), shapeStroke.elc(), shapeStroke.ell(), shapeStroke.jX(), shapeStroke.elo());
-        this.oHq = aVar;
+        super(fVar, aVar, shapeStroke.evm().toPaintCap(), shapeStroke.evn().toPaintJoin(), shapeStroke.jZ(), shapeStroke.evc(), shapeStroke.evl(), shapeStroke.jX(), shapeStroke.evo());
+        this.pyN = aVar;
         this.name = shapeStroke.getName();
-        this.oHA = shapeStroke.elC().ekW();
-        this.oHA.b(this);
-        aVar.a(this.oHA);
+        this.pyX = shapeStroke.evC().euW();
+        this.pyX.b(this);
+        aVar.a(this.pyX);
     }
 
     @Override // com.tb.airbnb.lottie.a.a.a, com.tb.airbnb.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i) {
-        this.paint.setColor(this.oHA.getValue().intValue());
-        if (this.oHu != null) {
-            this.paint.setColorFilter(this.oHu.getValue());
+        this.paint.setColor(this.pyX.getValue().intValue());
+        if (this.pyR != null) {
+            this.paint.setColorFilter(this.pyR.getValue());
         }
         super.a(canvas, matrix, i);
     }
@@ -40,15 +40,15 @@ public class q extends a {
     public <T> void a(T t, @Nullable com.tb.airbnb.lottie.e.c<T> cVar) {
         super.a((q) t, (com.tb.airbnb.lottie.e.c<q>) cVar);
         if (t == com.tb.airbnb.lottie.j.BW) {
-            this.oHA.a(cVar);
+            this.pyX.a(cVar);
         } else if (t == com.tb.airbnb.lottie.j.Cs) {
             if (cVar == null) {
-                this.oHu = null;
+                this.pyR = null;
                 return;
             }
-            this.oHu = new com.tb.airbnb.lottie.a.b.p(cVar);
-            this.oHu.b(this);
-            this.oHq.a(this.oHA);
+            this.pyR = new com.tb.airbnb.lottie.a.b.p(cVar);
+            this.pyR.b(this);
+            this.pyN.a(this.pyX);
         }
     }
 }

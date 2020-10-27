@@ -13,16 +13,16 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
 /* loaded from: classes24.dex */
 public class f {
-    private PostSearchActivity lVD;
-    private PostSearchListFragment lWp;
-    private PostSearchListFragment lWq;
-    private PostSearchListFragment lWr;
     private ViewPager.OnPageChangeListener mOnPageChangeListener;
     private View mRootView;
     private FragmentTabHost mTabHost;
+    private PostSearchListFragment miQ;
+    private PostSearchListFragment miR;
+    private PostSearchListFragment miS;
+    private PostSearchActivity mic;
 
     public f(PostSearchActivity postSearchActivity, View view) {
-        this.lVD = postSearchActivity;
+        this.mic = postSearchActivity;
         this.mRootView = view;
     }
 
@@ -30,16 +30,16 @@ public class f {
         return this.mTabHost.getCurrentTabType();
     }
 
-    public void GZ(int i) {
+    public void Hs(int i) {
         if (this.mTabHost == null) {
-            Ha(1);
+            Ht(1);
             return;
         }
-        dti();
+        dwp();
         if (this.mTabHost.getCurrentTabType() == i) {
-            PostSearchListFragment Hc = Hc(i);
-            if (Hc != null) {
-                Hc.requestData(true);
+            PostSearchListFragment Hv = Hv(i);
+            if (Hv != null) {
+                Hv.requestData(true);
                 return;
             }
             return;
@@ -59,9 +59,9 @@ public class f {
 
     public void a(int i, b bVar, boolean z) {
         setVisibility(true);
-        PostSearchListFragment Hc = Hc(i);
-        if (Hc != null) {
-            Hc.a(bVar, z);
+        PostSearchListFragment Hv = Hv(i);
+        if (Hv != null) {
+            Hv.a(bVar, z);
         }
     }
 
@@ -74,14 +74,14 @@ public class f {
         }
     }
 
-    private void Ha(int i) {
+    private void Ht(int i) {
         View inflate = ((ViewStub) this.mRootView.findViewById(R.id.search_tab_host_viewstub)).inflate();
         inflate.setVisibility(0);
         this.mTabHost = (FragmentTabHost) inflate.findViewById(R.id.post_search_tab_host);
-        this.mTabHost.setup(this.lVD.getSupportFragmentManager());
-        this.mTabHost.setTabWidgetViewHeight((int) this.lVD.getResources().getDimension(R.dimen.ds80));
+        this.mTabHost.setup(this.mic.getSupportFragmentManager());
+        this.mTabHost.setTabWidgetViewHeight((int) this.mic.getResources().getDimension(R.dimen.ds80));
         this.mTabHost.setShouldDrawIndicatorLine(true);
-        dth();
+        dwo();
         this.mTabHost.initViewPager(3);
         this.mTabHost.setCurrentTabByType(i);
         this.mTabHost.setNeedShowThemeStyle(false);
@@ -98,54 +98,54 @@ public class f {
         }
     }
 
-    private void dth() {
+    private void dwo() {
         FragmentTabHost.b bVar = new FragmentTabHost.b();
-        this.lWp = new PostSearchListFragment(1);
-        bVar.mContentFragment = this.lWp;
-        bVar.exe = Hb(R.string.searching_time_tab);
+        this.miQ = new PostSearchListFragment(1);
+        bVar.mContentFragment = this.miQ;
+        bVar.eFD = Hu(R.string.searching_time_tab);
         bVar.mType = 1;
         this.mTabHost.a(bVar);
         FragmentTabHost.b bVar2 = new FragmentTabHost.b();
-        this.lWq = new PostSearchListFragment(2);
-        bVar2.mContentFragment = this.lWq;
-        bVar2.exe = Hb(R.string.searching_relative_tab);
+        this.miR = new PostSearchListFragment(2);
+        bVar2.mContentFragment = this.miR;
+        bVar2.eFD = Hu(R.string.searching_relative_tab);
         bVar2.mType = 2;
         this.mTabHost.a(bVar2);
         FragmentTabHost.b bVar3 = new FragmentTabHost.b();
-        this.lWr = new PostSearchListFragment(3);
-        bVar3.mContentFragment = this.lWr;
-        bVar3.exe = Hb(R.string.searching_only_thread_tab);
+        this.miS = new PostSearchListFragment(3);
+        bVar3.mContentFragment = this.miS;
+        bVar3.eFD = Hu(R.string.searching_only_thread_tab);
         bVar3.mType = 3;
         this.mTabHost.a(bVar3);
     }
 
-    private FragmentTabIndicator Hb(int i) {
-        int equipmentWidth = (l.getEquipmentWidth(this.lVD.getPageContext().getContext()) - (this.lVD.getResources().getDimensionPixelSize(R.dimen.ds34) * 2)) / 3;
-        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(this.lVD.getPageContext().getPageActivity()).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+    private FragmentTabIndicator Hu(int i) {
+        int equipmentWidth = (l.getEquipmentWidth(this.mic.getPageContext().getContext()) - (this.mic.getResources().getDimensionPixelSize(R.dimen.ds34) * 2)) / 3;
+        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(this.mic.getPageContext().getPageActivity()).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
         fragmentTabIndicator.setText(i);
-        fragmentTabIndicator.setTextSize(0, this.lVD.getResources().getDimensionPixelSize(R.dimen.ds32));
+        fragmentTabIndicator.setTextSize(0, this.mic.getResources().getDimensionPixelSize(R.dimen.ds32));
         fragmentTabIndicator.dayTextColorResId = R.color.s_actionbar_text_color;
-        fragmentTabIndicator.setContentTvTopMargin(this.lVD.getResources().getDimensionPixelSize(R.dimen.ds4));
+        fragmentTabIndicator.setContentTvTopMargin(this.mic.getResources().getDimensionPixelSize(R.dimen.ds4));
         fragmentTabIndicator.setWidth(equipmentWidth);
         return fragmentTabIndicator;
     }
 
-    private PostSearchListFragment Hc(int i) {
+    private PostSearchListFragment Hv(int i) {
         switch (i) {
             case 1:
-                return this.lWp;
+                return this.miQ;
             case 2:
-                return this.lWq;
+                return this.miR;
             case 3:
-                return this.lWr;
+                return this.miS;
             default:
                 return null;
         }
     }
 
-    private void dti() {
-        this.lWp.dsZ();
-        this.lWq.dsZ();
-        this.lWr.dsZ();
+    private void dwp() {
+        this.miQ.dwg();
+        this.miR.dwg();
+        this.miS.dwg();
     }
 }

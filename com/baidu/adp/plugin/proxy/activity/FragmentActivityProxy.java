@@ -1573,15 +1573,15 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         if (stringExtra != null) {
             aVar = com.baidu.adp.plugin.d.pi().cm(stringExtra);
         }
-        if (aVar == null || aVar.Se == null) {
+        if (aVar == null || aVar.Sf == null) {
             BdLog.d("service stop error!" + intent.toString());
             return false;
         } else if (com.baidu.adp.plugin.d.pi().pj() == 1) {
             com.baidu.adp.plugin.d.pi().cn(stringExtra);
-            aVar.Se.stopSelf();
+            aVar.Sf.stopSelf();
             return true;
         } else {
-            aVar.Se.onDestroy();
+            aVar.Sf.onDestroy();
             com.baidu.adp.plugin.d.pi().cn(stringExtra);
             return true;
         }

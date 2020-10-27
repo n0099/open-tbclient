@@ -17,7 +17,7 @@ public class ad extends RecyclerView.Adapter<af.a> implements u<q> {
     private SparseArray<Integer> mViewTypes = new SparseArray<>();
     private List<q> mLists = new ArrayList();
     private RecyclerView mRecyclerView = null;
-    private int Xs = -1;
+    private int Xt = -1;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
@@ -28,7 +28,7 @@ public class ad extends RecyclerView.Adapter<af.a> implements u<q> {
         if (this.mRecyclerView == null) {
             this.mRecyclerView = (RecyclerView) viewGroup;
         }
-        q item = getItem(this.Xs);
+        q item = getItem(this.Xt);
         if (this.mDelegateAdapters == null || (aVar = this.mDelegateAdapters.get(i)) == null) {
             return null;
         }
@@ -66,7 +66,7 @@ public class ad extends RecyclerView.Adapter<af.a> implements u<q> {
         q item;
         BdUniqueId type;
         Integer num;
-        this.Xs = i;
+        this.Xt = i;
         if (this.mDelegateAdapters == null || this.mDelegateAdapters.size() == 0 || (item = getItem(i)) == null || (type = item.getType()) == null || (num = this.mViewTypes.get(type.getId())) == null) {
             return -1;
         }

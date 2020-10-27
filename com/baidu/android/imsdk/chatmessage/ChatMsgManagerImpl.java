@@ -76,6 +76,7 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.android.util.media.MimeType;
+import com.baidu.cyberplayer.sdk.dlna.DlnaManager;
 import com.baidu.imsdk.a;
 import com.baidu.tieba.imMessageCenter.mention.FeedData;
 import java.util.ArrayList;
@@ -358,7 +359,7 @@ public class ChatMsgManagerImpl {
             return -1005;
         }
         if (getPaid() == -2) {
-            return -1017;
+            return DlnaManager.DLNA_ERROR_CREATE_SSDP_THREAD_FIAL;
         }
         if (AccountManager.isLogin(mContext)) {
             int deleteMsgBatch = ChatMessageDBManager.getInstance(mContext).deleteMsgBatch(getChatObject(i, j, getPaid()), jArr);
@@ -460,7 +461,7 @@ public class ChatMsgManagerImpl {
         }
         String addListener = ListenerManager.getInstance().addListener(iSendMessageListener);
         if (AccountManager.isLogin(mContext)) {
-            if (a.azA && chatMsg.getCategory() == 4) {
+            if (a.azB && chatMsg.getCategory() == 4) {
                 creatMethodIntent = Utility.createMcastMethodIntent(mContext, 55);
             } else {
                 creatMethodIntent = Utility.creatMethodIntent(mContext, 55);
@@ -972,7 +973,7 @@ public class ChatMsgManagerImpl {
         if (j2 < 0 || j3 < 0) {
             onFetchMsgByIdResult(context, 1005, Constants.ERROR_MSG_PARAMETER_ERROR, i, j, j2, j3, i2, -1, 0L, null, null, addListener);
         } else if (AccountManager.isLogin(context)) {
-            if (a.azA && i == 4) {
+            if (a.azB && i == 4) {
                 creatMethodIntent = Utility.createMcastMethodIntent(context, 93);
             } else {
                 creatMethodIntent = Utility.creatMethodIntent(context, 93);
@@ -1037,10 +1038,7 @@ public class ChatMsgManagerImpl {
     }
 
     public int getNewMsgCount() {
-        if (getPaid() == -2) {
-            return -1017;
-        }
-        return ChatMessageDBManager.getInstance(mContext).getNewMsgCount(getPaid());
+        return getPaid() == -2 ? DlnaManager.DLNA_ERROR_CREATE_SSDP_THREAD_FIAL : ChatMessageDBManager.getInstance(mContext).getNewMsgCount(getPaid());
     }
 
     public int getNewMsgCountByPaid(long j) {
@@ -1052,7 +1050,7 @@ public class ChatMsgManagerImpl {
             return -1;
         }
         if (getPaid() == -2) {
-            return -1017;
+            return DlnaManager.DLNA_ERROR_CREATE_SSDP_THREAD_FIAL;
         }
         deleteDraftMsg(chatMsg.getCategory(), chatMsg.getContacter());
         if (chatMsg instanceof TextMsg) {
@@ -1071,7 +1069,7 @@ public class ChatMsgManagerImpl {
 
     public int deleteDraftMsg(int i, long j) {
         if (getPaid() == -2) {
-            return -1017;
+            return DlnaManager.DLNA_ERROR_CREATE_SSDP_THREAD_FIAL;
         }
         return ChatMessageDBManager.getInstance(mContext).deleteDraftMsg(getChatObject(i, j, getPaid()));
     }
@@ -1082,7 +1080,10 @@ public class ChatMsgManagerImpl {
 
     public int deleteMsgs(ChatMsg chatMsg) {
         if (chatMsg.getStatus() != 0) {
-            return ((long) ChatMessageDBManager.getInstance(mContext).deleteChatMsg(chatMsg)) < 0 ? -1009 : 0;
+            if (ChatMessageDBManager.getInstance(mContext).deleteChatMsg(chatMsg) < 0) {
+                return DlnaManager.DLNA_ERROR_GET_POSITION_INFO_ACTION_NOT_FOUND;
+            }
+            return 0;
         }
         deleteMsgs(chatMsg.getCategory(), chatMsg.getContacter(), new long[]{chatMsg.getMsgId()}, chatMsg.isZhida());
         return 0;

@@ -19,10 +19,10 @@ public class c extends com.meizu.cloud.pushsdk.notification.a {
         AppIconSetting appIconSetting = messageV3.getmAppIconSetting();
         if (appIconSetting != null) {
             if (!appIconSetting.isDefaultLargeIcon()) {
-                if (Thread.currentThread() != this.f4423a.getMainLooper().getThread()) {
+                if (Thread.currentThread() != this.f4421a.getMainLooper().getThread()) {
                     Bitmap a3 = a(appIconSetting.getLargeIconUrl());
                     if (a3 == null) {
-                        builder.setLargeIcon(a(this.f4423a, messageV3.getUploadDataPackageName()));
+                        builder.setLargeIcon(a(this.f4421a, messageV3.getUploadDataPackageName()));
                         return;
                     }
                     com.meizu.cloud.a.a.i("AbstractPushNotification", "On other Thread down load largeIcon image success");
@@ -32,13 +32,13 @@ public class c extends com.meizu.cloud.pushsdk.notification.a {
                 return;
             }
             if (this.b != null && this.b.getmLargIcon() != 0) {
-                a2 = BitmapFactory.decodeResource(this.f4423a.getResources(), this.b.getmLargIcon());
+                a2 = BitmapFactory.decodeResource(this.f4421a.getResources(), this.b.getmLargIcon());
                 com.meizu.cloud.a.a.i("AbstractPushNotification", "set largeIcon by resource id");
             } else if (this.b.getAppLargeIcon() != null) {
                 a2 = this.b.getAppLargeIcon();
                 com.meizu.cloud.a.a.i("AbstractPushNotification", "set largeIcon by bitmap provided by user setting");
             } else {
-                a2 = a(this.f4423a, messageV3.getUploadDataPackageName());
+                a2 = a(this.f4421a, messageV3.getUploadDataPackageName());
                 com.meizu.cloud.a.a.i("AbstractPushNotification", "set largeIcon by package default large icon");
             }
             builder.setLargeIcon(a2);

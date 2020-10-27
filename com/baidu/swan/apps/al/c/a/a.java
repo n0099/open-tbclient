@@ -37,13 +37,13 @@ public class a extends b {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            a.C0350a cA = com.baidu.swan.apps.al.c.a.cA(context);
+            a.C0364a cA = com.baidu.swan.apps.al.c.a.cA(context);
             if (cA == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "sticky broadcast receive error");
                 return false;
             }
             if (DEBUG) {
-                Log.d("battery", "/swanAPI/getBatteryInfo = level: " + cA.level + " ; plugged: " + cA.dnj);
+                Log.d("battery", "/swanAPI/getBatteryInfo = level: " + cA.level + " ; plugged: " + cA.dvL);
             }
             JSONObject a2 = a(cA);
             if (a2 == null) {

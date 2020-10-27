@@ -5,7 +5,7 @@ import android.graphics.Rect;
 import javax.annotation.Nullable;
 /* loaded from: classes14.dex */
 public interface c {
-    boolean a(int i, Bitmap bitmap);
+    boolean b(int i, Bitmap bitmap);
 
     int getIntrinsicHeight();
 

@@ -3,15 +3,15 @@ package com.baidu.android.pushservice.message;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1180a;
+    private int f1177a;
     private byte[] b;
 
     public int a() {
-        return this.f1180a;
+        return this.f1177a;
     }
 
     public void a(int i) {
-        this.f1180a = i;
+        this.f1177a = i;
     }
 
     public void a(byte[] bArr) {

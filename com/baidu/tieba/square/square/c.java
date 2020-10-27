@@ -5,19 +5,19 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes23.dex */
 public class c extends com.baidu.tieba.square.data.a {
-    private ArrayList<e> mzG = new ArrayList<>();
+    private ArrayList<e> mMq = new ArrayList<>();
 
-    public ArrayList<e> dCV() {
-        return this.mzG;
+    public ArrayList<e> dGd() {
+        return this.mMq;
     }
 
-    public void bd(ArrayList<e> arrayList) {
-        this.mzG = arrayList;
+    public void bg(ArrayList<e> arrayList) {
+        this.mMq = arrayList;
         setErrorMsg(null);
     }
 
     @Override // com.baidu.tieba.square.data.a
-    protected void en(JSONObject jSONObject) throws Exception {
+    protected void et(JSONObject jSONObject) throws Exception {
         ArrayList<e> arrayList = new ArrayList<>();
         JSONArray optJSONArray = jSONObject.optJSONArray("forum_dir");
         if (optJSONArray != null) {
@@ -27,6 +27,6 @@ public class c extends com.baidu.tieba.square.data.a {
                 arrayList.add(eVar);
             }
         }
-        bd(arrayList);
+        bg(arrayList);
     }
 }

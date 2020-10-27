@@ -12,13 +12,13 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class TextLineView extends TextView {
-    private int bcX;
-    private int bcY;
-    private int beH;
-    private int lpk;
-    private int lpl;
-    private int lpm;
-    private int lpn;
+    private int bem;
+    private int ben;
+    private int bfX;
+    private int lBJ;
+    private int lBK;
+    private int lBL;
+    private int lBM;
     private int mHeight;
     private int mMargin;
     private Paint mPaint;
@@ -32,42 +32,42 @@ public class TextLineView extends TextView {
     public TextLineView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.TextLineView);
-        this.lpk = obtainStyledAttributes.getDimensionPixelSize(R.styleable.TextLineView_bottom_line_height, 0);
-        this.lpl = obtainStyledAttributes.getDimensionPixelSize(R.styleable.TextLineView_bottom_line_top_margin, 0);
-        this.lpm = obtainStyledAttributes.getDimensionPixelSize(R.styleable.TextLineView_bottom_line_bottom_margin, 0);
-        this.bcX = obtainStyledAttributes.getColor(R.styleable.TextLineView_text_selected_color, ap.getColor(R.color.cp_cont_b));
-        this.bcY = obtainStyledAttributes.getColor(R.styleable.TextLineView_text_unselected_color, ap.getColor(R.color.cp_cont_j));
-        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.lpl + this.lpk + this.lpm);
-        setTextColor(this.bcX);
-        this.lpn = l.getDimens(context, R.dimen.ds56);
+        this.lBJ = obtainStyledAttributes.getDimensionPixelSize(R.styleable.TextLineView_bottom_line_height, 0);
+        this.lBK = obtainStyledAttributes.getDimensionPixelSize(R.styleable.TextLineView_bottom_line_top_margin, 0);
+        this.lBL = obtainStyledAttributes.getDimensionPixelSize(R.styleable.TextLineView_bottom_line_bottom_margin, 0);
+        this.bem = obtainStyledAttributes.getColor(R.styleable.TextLineView_text_selected_color, ap.getColor(R.color.cp_cont_b));
+        this.ben = obtainStyledAttributes.getColor(R.styleable.TextLineView_text_unselected_color, ap.getColor(R.color.cp_cont_j));
+        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.lBK + this.lBJ + this.lBL);
+        setTextColor(this.bem);
+        this.lBM = l.getDimens(context, R.dimen.ds56);
         this.mRectF = new RectF();
-        this.beH = l.getDimens(getContext(), R.dimen.ds4);
+        this.bfX = l.getDimens(getContext(), R.dimen.ds4);
         obtainStyledAttributes.recycle();
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        djE();
+        dmL();
         if (this.mRectF == null) {
             this.mRectF = new RectF();
         }
-        this.mRectF.set(this.mMargin + 0, (this.mHeight - this.lpm) - this.lpk, this.mWidth - this.mMargin, this.mHeight - this.lpm);
-        canvas.drawRoundRect(this.mRectF, this.beH, this.beH, this.mPaint);
+        this.mRectF.set(this.mMargin + 0, (this.mHeight - this.lBL) - this.lBJ, this.mWidth - this.mMargin, this.mHeight - this.lBL);
+        canvas.drawRoundRect(this.mRectF, this.bfX, this.bfX, this.mPaint);
     }
 
     @Override // android.widget.TextView, android.view.View
     public void setSelected(boolean z) {
         super.setSelected(z);
         if (z) {
-            setTextColor(this.bcX);
+            setTextColor(this.bem);
         } else {
-            setTextColor(this.bcY);
+            setTextColor(this.ben);
         }
         invalidate();
     }
 
-    private void djE() {
+    private void dmL() {
         if (this.mPaint == null) {
             this.mPaint = new Paint();
         }
@@ -81,14 +81,14 @@ public class TextLineView extends TextView {
     }
 
     public void onChangeSkinType(int i) {
-        this.bcX = ap.getColor(R.color.cp_cont_b);
-        this.bcY = ap.getColor(R.color.cp_cont_j);
+        this.bem = ap.getColor(R.color.cp_cont_b);
+        this.ben = ap.getColor(R.color.cp_cont_j);
         if (isSelected()) {
-            setTextColor(this.bcX);
+            setTextColor(this.bem);
         } else {
-            setTextColor(this.bcY);
+            setTextColor(this.ben);
         }
-        djE();
+        dmL();
         invalidate();
     }
 
@@ -97,6 +97,6 @@ public class TextLineView extends TextView {
         super.onSizeChanged(i, i2, i3, i4);
         this.mWidth = i;
         this.mHeight = i2;
-        this.mMargin = (this.mWidth - this.lpn) / 2;
+        this.mMargin = (this.mWidth - this.lBM) / 2;
     }
 }

@@ -1,12 +1,12 @@
 package com.baidu.live.im.e;
 /* loaded from: classes4.dex */
 public class a {
-    public boolean bjf = false;
-    public boolean bjg = true;
+    public boolean bkA = false;
+    public boolean bkB = true;
     public boolean isNormal = true;
-    public boolean bjh = false;
-    public boolean bji = false;
-    public boolean bjj = false;
-    public boolean bjk = false;
-    public boolean bjl = false;
+    public boolean bkC = false;
+    public boolean bkD = false;
+    public boolean bkE = false;
+    public boolean bkF = false;
+    public boolean bkG = false;
 }

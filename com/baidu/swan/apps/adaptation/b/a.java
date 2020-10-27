@@ -5,15 +5,15 @@ import android.view.ViewGroup;
 import com.baidu.swan.apps.adaptation.b.d;
 /* loaded from: classes10.dex */
 public interface a<T extends d> extends e<T> {
-    void A(ViewGroup viewGroup);
+    void B(ViewGroup viewGroup);
 
-    void aZ(String str, String str2);
+    void afW();
 
-    void aec();
+    void afX();
 
-    void aed();
+    void al(View view);
 
-    void aj(View view);
+    void bg(String str, String str2);
 
-    void dR(boolean z);
+    void ee(boolean z);
 }

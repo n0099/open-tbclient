@@ -5,37 +5,37 @@ import android.text.TextUtils;
 import android.view.View;
 /* loaded from: classes26.dex */
 public class a implements b {
-    private static volatile a auC = null;
-    private b auD;
+    private static volatile a auD = null;
+    private b auE;
 
     public static a zq() {
-        if (auC == null) {
+        if (auD == null) {
             synchronized (a.class) {
-                if (auC == null) {
-                    auC = new a();
+                if (auD == null) {
+                    auD = new a();
                 }
             }
         }
-        return auC;
+        return auD;
     }
 
     public void b(b bVar) {
-        this.auD = bVar;
+        this.auE = bVar;
     }
 
     @Override // com.baidu.g.a.b.b
     public View C(Context context, String str) {
-        if (this.auD == null || str == null || TextUtils.isEmpty(str)) {
+        if (this.auE == null || str == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.auD.C(context, str);
+        return this.auE.C(context, str);
     }
 
     @Override // com.baidu.g.a.b.b
     public boolean a(String str, View view, com.baidu.g.a.a.a aVar, boolean z) {
-        if (this.auD == null || view == null || aVar == null) {
+        if (this.auE == null || view == null || aVar == null) {
             return false;
         }
-        return this.auD.a(str, view, aVar, z);
+        return this.auE.a(str, view, aVar, z);
     }
 }

@@ -16,48 +16,48 @@ public class c {
         int[] iArr = new int[2];
         switch (routeGuideKind) {
             case NE_Maneuver_Kind_OverlineBridge:
-                iArr[0] = R.drawable.ala_bg_guard_club_qm;
-                iArr[1] = R.drawable.ala_bg_guard_club_bd;
+                iArr[0] = R.drawable.ala_bg_guard_club_bd;
+                iArr[1] = R.drawable.ala_bg_guard_club;
                 break;
             case NE_Maneuver_Kind_UndergroundPassage:
-                iArr[0] = R.drawable.ala_bg_rectangle_stroke_blue;
-                iArr[1] = R.drawable.ala_bg_guide_follow_float;
+                iArr[0] = R.drawable.ala_bg_guide_follow_float;
+                iArr[1] = R.drawable.ala_bg_guard_club_qm;
                 break;
             case NE_Maneuver_Kind_Park:
-                iArr[0] = R.drawable.ala_bg_round_rectangle_alpha80_hk;
-                iArr[1] = R.drawable.ala_bg_round_rectangle_alpha20;
+                iArr[0] = R.drawable.ala_bg_round_rectangle_alpha20;
+                iArr[1] = R.drawable.ala_bg_rectangle_stroke_blue;
                 break;
             case NE_Maneuver_Kind_Square:
-                iArr[0] = R.drawable.ala_bg_round_rectangle_blue;
-                iArr[1] = R.drawable.ala_bg_round_rectangle_alpha80_qm;
+                iArr[0] = R.drawable.ala_bg_round_rectangle_alpha80_qm;
+                iArr[1] = R.drawable.ala_bg_round_rectangle_alpha80_hk;
                 break;
             case NE_Maneuver_Kind_Ladder:
-                iArr[0] = R.drawable.ala_bg_round_rectangle_blue_qm;
-                iArr[1] = R.drawable.ala_bg_round_rectangle_blue_hk;
+                iArr[0] = R.drawable.ala_bg_round_rectangle_blue_hk;
+                iArr[1] = R.drawable.ala_bg_round_rectangle_blue;
                 break;
             case NE_Maneuver_Kind_Ferry:
-                iArr[0] = R.drawable.ala_bg_round_rectangle_white_up;
-                iArr[1] = R.drawable.ala_bg_round_rectangle_white;
+                iArr[0] = R.drawable.ala_bg_round_rectangle_white;
+                iArr[1] = R.drawable.ala_bg_round_rectangle_blue_qm;
                 break;
             case NE_Maneuver_Kind_Bridge:
-                iArr[0] = R.drawable.ala_bg_ver_guide_follow_float;
-                iArr[1] = R.drawable.ala_bg_ver_guide_follow_button;
+                iArr[0] = R.drawable.ala_bg_ver_guide_follow_button;
+                iArr[1] = R.drawable.ala_bg_round_rectangle_white_up;
                 break;
             case NE_Maneuver_Kind_Ring:
-                iArr[0] = R.drawable.ala_bitmap_default_color_bg_1;
-                iArr[1] = R.drawable.ala_bitmap_default_color_bg;
+                iArr[0] = R.drawable.ala_bitmap_default_color_bg;
+                iArr[1] = R.drawable.ala_bg_ver_guide_follow_float;
                 break;
             case NE_Maneuver_Kind_SideWalk:
-                iArr[0] = R.drawable.ala_banner_view_dot_unselected;
-                iArr[1] = R.drawable.ala_banner_view_dot_selected_2;
+                iArr[0] = R.drawable.ala_banner_view_dot_selected_2;
+                iArr[1] = R.drawable.ala_banner_view_dot_selected_1;
                 break;
             case NE_Maneuver_Kind_Sightseeing_Bus:
-                iArr[0] = R.drawable.ala_banner_view_dot_unselected_2;
-                iArr[1] = R.drawable.ala_banner_view_dot_unselected_1;
+                iArr[0] = R.drawable.ala_banner_view_dot_unselected_1;
+                iArr[1] = R.drawable.ala_banner_view_dot_unselected;
                 break;
             case NE_Maneuver_Kind_Telpher:
-                iArr[0] = R.drawable.ala_bg_guard_club;
-                iArr[1] = R.drawable.ala_beauty_item_red_dot;
+                iArr[0] = R.drawable.ala_beauty_item_red_dot;
+                iArr[1] = R.drawable.ala_banner_view_dot_unselected_2;
                 break;
         }
         return iArr;

@@ -10,7 +10,7 @@ public class a implements b<BackBaiduBoxViewEvent> {
         if (backBaiduBoxViewEvent == null) {
             return false;
         }
-        e.byY().kk(backBaiduBoxViewEvent.isShow);
+        e.bAR().kx(backBaiduBoxViewEvent.isShow);
         return true;
     }
 }

@@ -9,31 +9,31 @@ import java.util.ArrayList;
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile s f4778a;
+    private static volatile s f4776a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final Object f80a = new Object();
+    private static final Object f77a = new Object();
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f81a;
+    private Context f78a;
 
     private s(Context context) {
-        this.f81a = context;
+        this.f78a = context;
     }
 
     public static s a(Context context) {
-        if (f4778a == null) {
+        if (f4776a == null) {
             synchronized (s.class) {
-                if (f4778a == null) {
-                    f4778a = new s(context);
+                if (f4776a == null) {
+                    f4776a = new s(context);
                 }
             }
         }
-        return f4778a;
+        return f4776a;
     }
 
     private File a(String str) {
-        File file = new File(this.f81a.getFilesDir() + "/crash");
+        File file = new File(this.f78a.getFilesDir() + "/crash");
         if (!file.exists()) {
             file.mkdirs();
             return null;
@@ -57,7 +57,7 @@ public class s {
 
     public ArrayList<File> a() {
         ArrayList<File> arrayList = new ArrayList<>();
-        File file = new File(this.f81a.getFilesDir() + "/crash");
+        File file = new File(this.f78a.getFilesDir() + "/crash");
         if (!file.exists()) {
             file.mkdirs();
             return arrayList;
@@ -78,17 +78,17 @@ public class s {
         if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str)) {
             return;
         }
-        synchronized (f80a) {
+        synchronized (f77a) {
             File a2 = a(str2);
             if (a2 != null) {
                 if (a2.getName().split(":").length < 2) {
                     return;
                 }
-                a2.renameTo(new File(this.f81a.getFilesDir() + "/crash/" + str2 + ":" + String.valueOf(Integer.parseInt(split[1]) + 1)));
+                a2.renameTo(new File(this.f78a.getFilesDir() + "/crash/" + str2 + ":" + String.valueOf(Integer.parseInt(split[1]) + 1)));
             } else {
                 FileOutputStream fileOutputStream2 = null;
                 try {
-                    fileOutputStream = new FileOutputStream(new File(this.f81a.getFilesDir() + "/crash/" + str2 + ":1"));
+                    fileOutputStream = new FileOutputStream(new File(this.f78a.getFilesDir() + "/crash/" + str2 + ":1"));
                     try {
                         try {
                             fileOutputStream.write(str.getBytes());

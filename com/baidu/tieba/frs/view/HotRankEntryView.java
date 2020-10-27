@@ -23,10 +23,10 @@ import tbclient.HotUserRankEntry;
 import tbclient.ShortUserInfo;
 /* loaded from: classes22.dex */
 public class HotRankEntryView extends RelativeLayout {
-    private ImageView iWp;
-    private ImageOverlayView iWq;
-    private TextView iWr;
-    private boolean iyw;
+    private boolean iKS;
+    private ImageView jiM;
+    private ImageOverlayView jiN;
+    private TextView jiO;
     private ImageView mArrow;
     private int mSkinType;
 
@@ -42,15 +42,15 @@ public class HotRankEntryView extends RelativeLayout {
 
     private void init(final Context context) {
         LayoutInflater.from(context).inflate(R.layout.hot_rank_entry, (ViewGroup) this, true);
-        this.iWp = (ImageView) findViewById(R.id.first_tag);
+        this.jiM = (ImageView) findViewById(R.id.first_tag);
         int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds62);
         int dimensionPixelOffset2 = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds1);
         int dimensionPixelOffset3 = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds20);
-        this.iWq = (ImageOverlayView) findViewById(R.id.image_group);
-        this.iWq.j(3, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset2, R.color.cp_mask_c_alpha50, dimensionPixelOffset3);
-        this.iWq.setStrokeStyle(1);
-        this.iWq.setLoadImageType(12);
-        this.iWr = (TextView) findViewById(R.id.entry_describe);
+        this.jiN = (ImageOverlayView) findViewById(R.id.image_group);
+        this.jiN.j(3, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset2, R.color.cp_mask_c_alpha50, dimensionPixelOffset3);
+        this.jiN.setStrokeStyle(1);
+        this.jiN.setLoadImageType(12);
+        this.jiO = (TextView) findViewById(R.id.entry_describe);
         this.mArrow = (ImageView) findViewById(R.id.arrow);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.HotRankEntryView.1
             @Override // android.view.View.OnClickListener
@@ -69,9 +69,9 @@ public class HotRankEntryView extends RelativeLayout {
                     arrayList.add(shortUserInfo.portrait);
                 }
             }
-            this.iWq.setData(arrayList);
-            this.iyw = z;
-            this.iWr.setText(!at.isEmpty(hotUserRankEntry.module_name) ? hotUserRankEntry.module_name : getResources().getString(R.string.hot_rank));
+            this.jiN.setData(arrayList);
+            this.iKS = z;
+            this.jiO.setText(!at.isEmpty(hotUserRankEntry.module_name) ? hotUserRankEntry.module_name : getResources().getString(R.string.hot_rank));
             ap.setBackgroundResource(this, z ? R.drawable.frs_red_list_entrance_bg_black : R.drawable.frs_red_list_entrance_bg_white);
         }
     }
@@ -79,11 +79,11 @@ public class HotRankEntryView extends RelativeLayout {
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            ap.setBackgroundResource(this, this.iyw ? R.drawable.frs_red_list_entrance_bg_black : R.drawable.frs_red_list_entrance_bg_white);
-            SvgManager.bmU().a(this.iWp, R.drawable.svg_icon_mask_first16, SvgManager.SvgResourceStateType.NORMAL);
-            this.iWq.onChangeSkinType();
-            ap.setViewTextColor(this.iWr, R.color.cp_cont_a);
-            SvgManager.bmU().a(this.mArrow, R.drawable.icon_pure_arrow12_right_svg, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL);
+            ap.setBackgroundResource(this, this.iKS ? R.drawable.frs_red_list_entrance_bg_black : R.drawable.frs_red_list_entrance_bg_white);
+            SvgManager.boN().a(this.jiM, R.drawable.svg_icon_mask_first16, SvgManager.SvgResourceStateType.NORMAL);
+            this.jiN.onChangeSkinType();
+            ap.setViewTextColor(this.jiO, R.color.cp_cont_a);
+            SvgManager.boN().a(this.mArrow, R.drawable.icon_pure_arrow12_right_svg, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL);
         }
     }
 }

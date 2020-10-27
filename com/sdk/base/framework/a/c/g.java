@@ -20,12 +20,12 @@ public final class g extends Handler {
         f fVar = (f) message.obj;
         switch (message.what) {
             case 1:
-                c cVar = fVar.f4466a;
+                c cVar = fVar.f4464a;
                 Object obj = fVar.b[0];
                 cVar.f.get();
                 return;
             case 2:
-                fVar.f4466a.a((Object[]) fVar.b);
+                fVar.f4464a.a((Object[]) fVar.b);
                 return;
             default:
                 return;

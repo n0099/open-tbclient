@@ -23,7 +23,7 @@ public class g implements com.baidu.swan.apps.adaptation.a.u {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.u
-    public boolean S(Context context, String str) {
+    public boolean T(Context context, String str) {
         return true;
     }
 

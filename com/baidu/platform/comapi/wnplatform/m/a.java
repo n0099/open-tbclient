@@ -23,7 +23,7 @@ public class a extends com.baidu.platform.comapi.walknavi.a {
     private static final Long j = -1L;
     private boolean e = false;
     private int f = 0;
-    private C0270a g = null;
+    private C0284a g = null;
     private com.baidu.platform.comapi.wnplatform.c.b h = null;
     private Object i = new Object();
     private boolean k = true;
@@ -55,7 +55,7 @@ public class a extends com.baidu.platform.comapi.walknavi.a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.wnplatform.m.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C0270a extends Thread {
+    public class C0284a extends Thread {
 
         /* renamed from: a  reason: collision with root package name */
         final /* synthetic */ a f3126a;

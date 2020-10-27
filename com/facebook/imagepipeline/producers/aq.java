@@ -4,43 +4,43 @@ import java.util.Map;
 /* loaded from: classes18.dex */
 public abstract class aq<T> extends com.facebook.common.b.h<T> {
     private final String mRequestId;
-    private final k<T> nXP;
-    private final am nXt;
-    private final String nZa;
+    private final am oOL;
+    private final k<T> oPh;
+    private final String oQs;
 
     @Override // com.facebook.common.b.h
-    protected abstract void aU(T t);
+    protected abstract void aY(T t);
 
     public aq(k<T> kVar, am amVar, String str, String str2) {
-        this.nXP = kVar;
-        this.nXt = amVar;
-        this.nZa = str;
+        this.oPh = kVar;
+        this.oOL = amVar;
+        this.oQs = str;
         this.mRequestId = str2;
-        this.nXt.gH(this.mRequestId, this.nZa);
+        this.oOL.gX(this.mRequestId, this.oQs);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.common.b.h
     public void onSuccess(T t) {
-        this.nXt.a(this.mRequestId, this.nZa, this.nXt.VV(this.mRequestId) ? bw(t) : null);
-        this.nXP.h(t, 1);
+        this.oOL.a(this.mRequestId, this.oQs, this.oOL.XI(this.mRequestId) ? bA(t) : null);
+        this.oPh.h(t, 1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.common.b.h
     public void onFailure(Exception exc) {
-        this.nXt.a(this.mRequestId, this.nZa, exc, this.nXt.VV(this.mRequestId) ? D(exc) : null);
-        this.nXP.E(exc);
+        this.oOL.a(this.mRequestId, this.oQs, exc, this.oOL.XI(this.mRequestId) ? D(exc) : null);
+        this.oPh.E(exc);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.common.b.h
-    public void dWm() {
-        this.nXt.b(this.mRequestId, this.nZa, this.nXt.VV(this.mRequestId) ? edT() : null);
-        this.nXP.dWm();
+    public void egk() {
+        this.oOL.b(this.mRequestId, this.oQs, this.oOL.XI(this.mRequestId) ? enS() : null);
+        this.oPh.egk();
     }
 
-    protected Map<String, String> bw(T t) {
+    protected Map<String, String> bA(T t) {
         return null;
     }
 
@@ -48,7 +48,7 @@ public abstract class aq<T> extends com.facebook.common.b.h<T> {
         return null;
     }
 
-    protected Map<String, String> edT() {
+    protected Map<String, String> enS() {
         return null;
     }
 }

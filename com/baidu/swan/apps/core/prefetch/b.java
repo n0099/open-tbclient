@@ -9,21 +9,21 @@ import com.baidu.swan.pms.model.PMSAppInfo;
 /* loaded from: classes10.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private c cAd = c.cAe;
+    private c cIz = c.cIA;
 
     public void a(@NonNull PrefetchEvent prefetchEvent, @NonNull com.baidu.swan.apps.process.messaging.service.c cVar, @Nullable PMSAppInfo pMSAppInfo) {
         a(cVar, prefetchEvent, pMSAppInfo);
         cVar.g(prefetchEvent);
         if (DEBUG) {
             Log.d("PrefetchMessenger", "onPrefetchReady event: " + prefetchEvent);
-            Log.d("PrefetchMessenger", "onPrefetchReady client id: " + cVar.cXG.index);
+            Log.d("PrefetchMessenger", "onPrefetchReady client id: " + cVar.dgh.index);
         }
     }
 
     public void d(@NonNull PrefetchEvent prefetchEvent) {
         com.baidu.swan.apps.process.messaging.service.c c = a.c(prefetchEvent);
         if (c != null) {
-            if ((c.aBj() && TextUtils.equals(c.mAppId, prefetchEvent.appId)) || c.aBi()) {
+            if ((c.aDd() && TextUtils.equals(c.mAppId, prefetchEvent.appId)) || c.aDc()) {
                 a(c, prefetchEvent, (PMSAppInfo) null);
             }
         }
@@ -34,12 +34,12 @@ public final class b {
         bundle.setClassLoader(PrefetchEvent.class.getClassLoader());
         bundle.putParcelable("swan_app_bundle_prefetch", prefetchEvent);
         if (pMSAppInfo == null) {
-            pMSAppInfo = com.baidu.swan.pms.database.a.aWO().xF(prefetchEvent.appId);
+            pMSAppInfo = com.baidu.swan.pms.database.a.aYH().xY(prefetchEvent.appId);
         }
         if (pMSAppInfo != null) {
             bundle.putParcelable("swan_app_prefetch_pms_info", pMSAppInfo);
-            if (this.cAd.a(prefetchEvent, pMSAppInfo, bundle)) {
-                com.baidu.swan.apps.process.messaging.a.aAK().a(new com.baidu.swan.apps.process.messaging.c(120, bundle).a(cVar.cXG).fJ(true));
+            if (this.cIz.a(prefetchEvent, pMSAppInfo, bundle)) {
+                com.baidu.swan.apps.process.messaging.a.aCE().a(new com.baidu.swan.apps.process.messaging.c(120, bundle).a(cVar.dgh).fW(true));
             }
         }
     }

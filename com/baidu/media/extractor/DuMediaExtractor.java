@@ -15,8 +15,8 @@ import java.lang.ref.WeakReference;
 import java.util.Map;
 /* loaded from: classes16.dex */
 public class DuMediaExtractor implements b {
-    private b.a bKN;
-    private a bKO;
+    private b.a bTj;
+    private a bTk;
     @Keep
     private long mNativeDuMediaExtractor;
 
@@ -51,14 +51,14 @@ public class DuMediaExtractor implements b {
     private void c() {
         Looper myLooper = Looper.myLooper();
         if (myLooper != null) {
-            this.bKO = new a(this, myLooper);
+            this.bTk = new a(this, myLooper);
             return;
         }
         Looper mainLooper = Looper.getMainLooper();
         if (mainLooper != null) {
-            this.bKO = new a(this, mainLooper);
+            this.bTk = new a(this, mainLooper);
         } else {
-            this.bKO = null;
+            this.bTk = null;
         }
     }
 
@@ -79,7 +79,7 @@ public class DuMediaExtractor implements b {
     @Keep
     private static boolean onNativeInvoke(Object obj, int i, Bundle bundle) {
         if (obj == null || !(obj instanceof WeakReference)) {
-            throw new IllegalStateException("<null weakThiz>.onNativeInvoke()");
+            CyberLog.e("DuMediaExtractor", "<null weakThiz>.onNativeInvoke()");
         }
         return false;
     }
@@ -87,8 +87,8 @@ public class DuMediaExtractor implements b {
     public void a() {
         synchronized (this) {
             nativeRelease();
-            this.bKN = null;
-            this.bKO = null;
+            this.bTj = null;
+            this.bTk = null;
             this.mNativeDuMediaExtractor = 0L;
         }
     }

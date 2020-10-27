@@ -11,8 +11,8 @@ import com.baidu.swan.apps.res.ui.SliderBar;
 import com.baidu.swan.menu.BaseMenuView;
 /* loaded from: classes10.dex */
 public class FontSizeSettingMenuView extends BaseMenuView {
-    private SliderBar cRw;
-    private SliderBar.b cRx;
+    private SliderBar cZS;
+    private SliderBar.b cZT;
     private Context mContext;
 
     public FontSizeSettingMenuView(@NonNull Context context) {
@@ -31,18 +31,18 @@ public class FontSizeSettingMenuView extends BaseMenuView {
 
     private void init() {
         setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
-        this.cRw = (SliderBar) inflate(this.mContext, a.g.swan_app_font_setting, null);
-        this.cRw.jr(b.axy());
-        a(this.cRw, new FrameLayout.LayoutParams(-1, (int) this.mContext.getResources().getDimension(a.d.font_setting_font_slider_bar_height_pop)));
+        this.cZS = (SliderBar) inflate(this.mContext, a.g.swan_app_font_setting, null);
+        this.cZS.jC(b.azs());
+        a(this.cZS, new FrameLayout.LayoutParams(-1, (int) this.mContext.getResources().getDimension(a.d.font_setting_font_slider_bar_height_pop)));
     }
 
     @Override // com.baidu.swan.menu.BaseMenuView
-    public boolean axA() {
+    public boolean azu() {
         return false;
     }
 
     public void setOnSliderBarChangeListener(SliderBar.b bVar) {
-        this.cRx = bVar;
-        this.cRw.a(this.cRx);
+        this.cZT = bVar;
+        this.cZS.a(this.cZT);
     }
 }

@@ -8,15 +8,15 @@ import java.util.List;
 public final class ae implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ List f5046a;
+    final /* synthetic */ List f5044a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ boolean f840a;
+    final /* synthetic */ boolean f837a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(List list, boolean z) {
-        this.f5046a = list;
-        this.f840a = z;
+        this.f5044a = list;
+        this.f837a = z;
     }
 
     @Override // java.lang.Runnable
@@ -24,7 +24,7 @@ public final class ae implements Runnable {
         boolean b;
         boolean b2;
         b = ad.b("www.baidu.com:80");
-        Iterator it = this.f5046a.iterator();
+        Iterator it = this.f5044a.iterator();
         while (true) {
             boolean z = b;
             if (!it.hasNext()) {
@@ -36,7 +36,7 @@ public final class ae implements Runnable {
                 b2 = ad.b(str);
                 if (!b2) {
                     b = false;
-                    if (!b && !this.f840a) {
+                    if (!b && !this.f837a) {
                         break;
                     }
                 }

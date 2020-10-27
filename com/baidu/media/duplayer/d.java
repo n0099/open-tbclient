@@ -5,7 +5,7 @@ public class d {
     /* renamed from: a  reason: collision with root package name */
     private int f2258a;
     private String b;
-    private a bKJ;
+    private a bTf;
     private String c;
     private String d;
 
@@ -19,16 +19,16 @@ public class d {
         this.f2258a = i;
         this.b = str;
         this.c = str2;
-        this.bKJ = a.LIB_TYPE_SO;
+        this.bTf = a.LIB_TYPE_SO;
     }
 
     public d(int i, String str, String str2, a aVar) {
         this(i, str, str2);
-        this.bKJ = aVar;
+        this.bTf = aVar;
     }
 
-    public a VA() {
-        return this.bKJ;
+    public a Xu() {
+        return this.bTf;
     }
 
     public String a() {

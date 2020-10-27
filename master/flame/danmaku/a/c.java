@@ -15,89 +15,89 @@ import tv.cjump.jni.DeviceUtils;
 /* loaded from: classes6.dex */
 public class c extends Handler {
     private boolean mReady;
-    private DanmakuContext oTT;
-    private long oTU;
-    private boolean oTV;
-    private long oTW;
-    private a oTX;
-    private master.flame.danmaku.danmaku.model.f oTY;
-    private master.flame.danmaku.danmaku.a.a oTZ;
-    public h oUa;
-    private g oUb;
-    private boolean oUc;
-    private master.flame.danmaku.danmaku.model.b oUd;
-    private final a.b oUe;
-    private LinkedList<Long> oUf;
-    private i oUg;
-    private final boolean oUh;
-    private long oUi;
-    private long oUj;
-    private long oUk;
-    private long oUl;
-    private long oUm;
-    private boolean oUn;
-    private long oUo;
-    private long oUp;
-    private boolean oUq;
-    private boolean oUr;
-    private boolean oUs;
+    private final a.b pLA;
+    private LinkedList<Long> pLB;
+    private i pLC;
+    private final boolean pLD;
+    private long pLE;
+    private long pLF;
+    private long pLG;
+    private long pLH;
+    private long pLI;
+    private boolean pLJ;
+    private long pLK;
+    private long pLL;
+    private boolean pLM;
+    private boolean pLN;
+    private boolean pLO;
+    private DanmakuContext pLp;
+    private long pLq;
+    private boolean pLr;
+    private long pLs;
+    private a pLt;
+    private master.flame.danmaku.danmaku.model.f pLu;
+    private master.flame.danmaku.danmaku.a.a pLv;
+    public h pLw;
+    private g pLx;
+    private boolean pLy;
+    private master.flame.danmaku.danmaku.model.b pLz;
 
     /* loaded from: classes6.dex */
     public interface a {
         void b(master.flame.danmaku.danmaku.model.f fVar);
 
-        void epb();
+        void eyZ();
 
-        void epc();
+        void eza();
 
         void j(master.flame.danmaku.danmaku.model.d dVar);
     }
 
     public c(Looper looper, g gVar, boolean z) {
         super(looper);
-        this.oTU = 0L;
-        this.oTV = true;
-        this.oTY = new master.flame.danmaku.danmaku.model.f();
-        this.oUc = true;
-        this.oUe = new a.b();
-        this.oUf = new LinkedList<>();
-        this.oUi = 30L;
-        this.oUj = 60L;
-        this.oUk = 16L;
-        this.oUh = Runtime.getRuntime().availableProcessors() > 3;
-        this.oUs = DeviceUtils.isProblemBoxDevice() ? false : true;
+        this.pLq = 0L;
+        this.pLr = true;
+        this.pLu = new master.flame.danmaku.danmaku.model.f();
+        this.pLy = true;
+        this.pLA = new a.b();
+        this.pLB = new LinkedList<>();
+        this.pLE = 30L;
+        this.pLF = 60L;
+        this.pLG = 16L;
+        this.pLD = Runtime.getRuntime().availableProcessors() > 3;
+        this.pLO = DeviceUtils.isProblemBoxDevice() ? false : true;
         a(gVar);
         if (z) {
-            i((Long) null);
+            j((Long) null);
         } else {
-            zG(false);
+            AO(false);
         }
-        this.oUc = z;
+        this.pLy = z;
     }
 
     private void a(g gVar) {
-        this.oUb = gVar;
+        this.pLx = gVar;
     }
 
     public void a(DanmakuContext danmakuContext) {
-        this.oTT = danmakuContext;
+        this.pLp = danmakuContext;
     }
 
     public void a(master.flame.danmaku.danmaku.a.a aVar) {
-        this.oTZ = aVar;
+        this.pLv = aVar;
     }
 
     public void setCallback(a aVar) {
-        this.oTX = aVar;
+        this.pLt = aVar;
     }
 
     public void quit() {
-        this.oTV = true;
+        this.pLr = true;
         sendEmptyMessage(6);
     }
 
     public boolean isStop() {
-        return this.oTV;
+        return this.pLr;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:101:? A[RETURN, SYNTHETIC] */
@@ -122,36 +122,36 @@ public class c extends Handler {
             case 1:
                 l = (Long) message.obj;
                 if (l == null) {
-                    this.oTU = l.longValue();
+                    this.pLq = l.longValue();
                 } else {
-                    this.oTU = 0L;
+                    this.pLq = 0L;
                 }
                 if (i == 4) {
-                    this.oTV = true;
-                    eoP();
+                    this.pLr = true;
+                    eyN();
                     Long l2 = (Long) message.obj;
-                    this.oTW -= l2.longValue() - this.oTY.oVs;
-                    this.oTY.hD(l2.longValue());
-                    this.oTT.oXb.epE();
-                    if (this.oUa != null) {
-                        this.oUa.seek(l2.longValue());
+                    this.pLs -= l2.longValue() - this.pLu.pMO;
+                    this.pLu.hT(l2.longValue());
+                    this.pLp.pOx.ezC();
+                    if (this.pLw != null) {
+                        this.pLw.seek(l2.longValue());
                     }
-                    this.oTU = l2.longValue();
+                    this.pLq = l2.longValue();
                 }
                 removeMessages(7);
-                this.oTV = false;
+                this.pLr = false;
                 if (!this.mReady) {
-                    this.oUe.reset();
-                    this.oUf.clear();
-                    this.oTW = master.flame.danmaku.danmaku.c.c.eqy() - this.oTU;
-                    this.oTY.hD(this.oTU);
+                    this.pLA.reset();
+                    this.pLB.clear();
+                    this.pLs = master.flame.danmaku.danmaku.c.c.eAw() - this.pLq;
+                    this.pLu.hT(this.pLq);
                     removeMessages(3);
                     sendEmptyMessage(2);
-                    this.oUa.start();
-                    eoV();
-                    this.oUn = false;
-                    if (this.oUa != null) {
-                        this.oUa.Pm(1);
+                    this.pLw.start();
+                    eyT();
+                    this.pLJ = false;
+                    if (this.pLw != null) {
+                        this.pLw.Rd(1);
                         return;
                     }
                     return;
@@ -159,16 +159,16 @@ public class c extends Handler {
                 sendEmptyMessageDelayed(3, 100L);
                 return;
             case 2:
-                if (this.oUh) {
-                    eoR();
+                if (this.pLD) {
+                    eyP();
                     return;
                 } else {
-                    eoQ();
+                    eyO();
                     return;
                 }
             case 3:
                 removeMessages(7);
-                this.oTV = false;
+                this.pLr = false;
                 if (!this.mReady) {
                 }
                 break;
@@ -176,23 +176,23 @@ public class c extends Handler {
                 if (i == 4) {
                 }
                 removeMessages(7);
-                this.oTV = false;
+                this.pLr = false;
                 if (!this.mReady) {
                 }
                 break;
             case 5:
-                this.oTW = master.flame.danmaku.danmaku.c.c.eqy();
-                if (this.oTZ == null || !this.oUb.epg()) {
+                this.pLs = master.flame.danmaku.danmaku.c.c.eAw();
+                if (this.pLv == null || !this.pLx.eze()) {
                     sendEmptyMessageDelayed(5, 100L);
                     return;
                 } else {
-                    J(new Runnable() { // from class: master.flame.danmaku.a.c.1
+                    L(new Runnable() { // from class: master.flame.danmaku.a.c.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            c.this.oTU = 0L;
+                            c.this.pLq = 0L;
                             c.this.mReady = true;
-                            if (c.this.oTX != null) {
-                                c.this.oTX.epb();
+                            if (c.this.pLt != null) {
+                                c.this.pLt.eyZ();
                             }
                         }
                     });
@@ -202,19 +202,19 @@ public class c extends Handler {
                 if (i == 6) {
                     removeCallbacksAndMessages(null);
                 }
-                this.oTV = true;
-                eoS();
-                this.oTU = this.oTY.oVs;
-                if (this.oUg != null) {
-                    eoV();
-                    eoP();
+                this.pLr = true;
+                eyQ();
+                this.pLq = this.pLu.pMO;
+                if (this.pLC != null) {
+                    eyT();
+                    eyN();
                 }
                 if (i == 6) {
-                    if (this.oUa != null) {
-                        this.oUa.quit();
+                    if (this.pLw != null) {
+                        this.pLw.quit();
                     }
-                    if (this.oTZ != null) {
-                        this.oTZ.release();
+                    if (this.pLv != null) {
+                        this.pLv.release();
                     }
                     if (getLooper() != Looper.getMainLooper()) {
                         getLooper().quit();
@@ -226,38 +226,38 @@ public class c extends Handler {
             case 7:
                 removeMessages(3);
                 removeMessages(2);
-                if (this.oUa != null) {
-                    this.oUa.Pm(2);
+                if (this.pLw != null) {
+                    this.pLw.Rd(2);
                 }
                 if (i == 6) {
                 }
-                this.oTV = true;
-                eoS();
-                this.oTU = this.oTY.oVs;
-                if (this.oUg != null) {
+                this.pLr = true;
+                eyQ();
+                this.pLq = this.pLu.pMO;
+                if (this.pLC != null) {
                 }
                 if (i == 6) {
                 }
                 break;
             case 8:
-                this.oUc = true;
+                this.pLy = true;
                 Long l3 = (Long) message.obj;
-                if (this.oUa == null) {
+                if (this.pLw == null) {
                     z = false;
                 } else if (l3 == null) {
-                    this.oTY.hD(getCurrentTime());
-                    this.oUa.epd();
+                    this.pLu.hT(getCurrentTime());
+                    this.pLw.ezb();
                     z = false;
                 } else {
-                    this.oUa.start();
-                    this.oUa.seek(l3.longValue());
-                    this.oUa.epd();
+                    this.pLw.start();
+                    this.pLw.seek(l3.longValue());
+                    this.pLw.ezb();
                     z = true;
                 }
-                if (this.oTV && this.oUb != null) {
-                    this.oUb.eph();
+                if (this.pLr && this.pLx != null) {
+                    this.pLx.ezf();
                 }
-                eoV();
+                eyT();
                 if (!z) {
                     return;
                 }
@@ -267,64 +267,64 @@ public class c extends Handler {
                 if (i == 4) {
                 }
                 removeMessages(7);
-                this.oTV = false;
+                this.pLr = false;
                 if (!this.mReady) {
                 }
                 break;
             case 9:
-                this.oUc = false;
-                if (this.oUb != null) {
-                    this.oUb.clear();
+                this.pLy = false;
+                if (this.pLx != null) {
+                    this.pLx.clear();
                 }
-                if (this.oUa != null) {
-                    this.oUa.epd();
-                    this.oUa.epf();
+                if (this.pLw != null) {
+                    this.pLw.ezb();
+                    this.pLw.ezd();
                 }
                 Boolean bool = (Boolean) message.obj;
-                if (bool.booleanValue() && this.oUa != null) {
-                    this.oUa.quit();
+                if (bool.booleanValue() && this.pLw != null) {
+                    this.pLw.quit();
                 }
                 if (!bool.booleanValue()) {
                     return;
                 }
                 removeMessages(3);
                 removeMessages(2);
-                if (this.oUa != null) {
+                if (this.pLw != null) {
                 }
                 if (i == 6) {
                 }
-                this.oTV = true;
-                eoS();
-                this.oTU = this.oTY.oVs;
-                if (this.oUg != null) {
+                this.pLr = true;
+                eyQ();
+                this.pLq = this.pLu.pMO;
+                if (this.pLC != null) {
                 }
                 if (i == 6) {
                 }
                 break;
             case 10:
-                this.oTT.oXd.b(this.oTT);
+                this.pLp.pOz.b(this.pLp);
                 Boolean bool2 = (Boolean) message.obj;
                 if (bool2 != null && bool2.booleanValue()) {
-                    this.oTT.oXb.epE();
-                    this.oTT.oXb.epD();
-                    this.oUa.epe();
+                    this.pLp.pOx.ezC();
+                    this.pLp.pOx.ezB();
+                    this.pLw.ezc();
                     return;
                 }
                 return;
             case 11:
-                eoV();
+                eyT();
                 return;
             case 12:
-                if (this.oTV && this.oUb != null) {
-                    this.oUa.epd();
-                    this.oUb.eph();
-                    eoV();
+                if (this.pLr && this.pLx != null) {
+                    this.pLw.ezb();
+                    this.pLx.ezf();
+                    eyT();
                     return;
                 }
                 return;
             case 13:
-                if (this.oUa != null) {
-                    this.oUa.hz(getCurrentTime());
+                if (this.pLw != null) {
+                    this.pLw.hP(getCurrentTime());
                     return;
                 }
                 return;
@@ -333,12 +333,12 @@ public class c extends Handler {
         }
     }
 
-    private void eoP() {
-        if (this.oUg != null) {
-            i iVar = this.oUg;
-            this.oUg = null;
-            synchronized (this.oUa) {
-                this.oUa.notifyAll();
+    private void eyN() {
+        if (this.pLC != null) {
+            i iVar = this.pLC;
+            this.pLC = null;
+            synchronized (this.pLw) {
+                this.pLw.notifyAll();
             }
             iVar.quit();
             try {
@@ -349,168 +349,168 @@ public class c extends Handler {
         }
     }
 
-    private void eoQ() {
-        if (!this.oTV) {
-            long hw = hw(master.flame.danmaku.danmaku.c.c.eqy());
-            if (hw < 0) {
+    private void eyO() {
+        if (!this.pLr) {
+            long hM = hM(master.flame.danmaku.danmaku.c.c.eAw());
+            if (hM < 0) {
                 removeMessages(2);
-                sendEmptyMessageDelayed(2, 60 - hw);
+                sendEmptyMessageDelayed(2, 60 - hM);
                 return;
             }
-            long eph = this.oUb.eph();
+            long ezf = this.pLx.ezf();
             removeMessages(2);
-            if (eph > this.oUj) {
-                this.oTY.hE(eph);
-                this.oUf.clear();
+            if (ezf > this.pLF) {
+                this.pLu.hU(ezf);
+                this.pLB.clear();
             }
-            if (!this.oUc) {
-                hx(10000000L);
+            if (!this.pLy) {
+                hN(10000000L);
                 return;
             }
-            if (this.oUe.oYd && this.oUs) {
-                long j = this.oUe.endTime - this.oTY.oVs;
+            if (this.pLA.pPz && this.pLO) {
+                long j = this.pLA.endTime - this.pLu.pMO;
                 if (j > 500) {
-                    hx(j - 10);
+                    hN(j - 10);
                     return;
                 }
             }
-            if (eph < this.oUk) {
-                sendEmptyMessageDelayed(2, this.oUk - eph);
+            if (ezf < this.pLG) {
+                sendEmptyMessageDelayed(2, this.pLG - ezf);
             } else {
                 sendEmptyMessage(2);
             }
         }
     }
 
-    private void eoR() {
-        if (this.oUg == null) {
-            this.oUg = new i("DFM Update") { // from class: master.flame.danmaku.a.c.2
+    private void eyP() {
+        if (this.pLC == null) {
+            this.pLC = new i("DFM Update") { // from class: master.flame.danmaku.a.c.2
                 @Override // master.flame.danmaku.a.i, java.lang.Thread, java.lang.Runnable
                 public void run() {
-                    long eqy = master.flame.danmaku.danmaku.c.c.eqy();
-                    while (!epj() && !c.this.oTV) {
-                        long eqy2 = master.flame.danmaku.danmaku.c.c.eqy();
-                        if (c.this.oUk - (master.flame.danmaku.danmaku.c.c.eqy() - eqy) <= 1) {
-                            long hw = c.this.hw(eqy2);
-                            if (hw >= 0) {
-                                long eph = c.this.oUb.eph();
-                                if (eph > c.this.oUj) {
-                                    c.this.oTY.hE(eph);
-                                    c.this.oUf.clear();
+                    long eAw = master.flame.danmaku.danmaku.c.c.eAw();
+                    while (!ezh() && !c.this.pLr) {
+                        long eAw2 = master.flame.danmaku.danmaku.c.c.eAw();
+                        if (c.this.pLG - (master.flame.danmaku.danmaku.c.c.eAw() - eAw) <= 1) {
+                            long hM = c.this.hM(eAw2);
+                            if (hM >= 0) {
+                                long ezf = c.this.pLx.ezf();
+                                if (ezf > c.this.pLF) {
+                                    c.this.pLu.hU(ezf);
+                                    c.this.pLB.clear();
                                 }
-                                if (!c.this.oUc) {
-                                    c.this.hx(10000000L);
-                                } else if (c.this.oUe.oYd && c.this.oUs) {
-                                    long j = c.this.oUe.endTime - c.this.oTY.oVs;
+                                if (!c.this.pLy) {
+                                    c.this.hN(10000000L);
+                                } else if (c.this.pLA.pPz && c.this.pLO) {
+                                    long j = c.this.pLA.endTime - c.this.pLu.pMO;
                                     if (j > 500) {
-                                        c.this.eoV();
-                                        c.this.hx(j - 10);
+                                        c.this.eyT();
+                                        c.this.hN(j - 10);
                                     }
                                 }
-                                eqy = eqy2;
+                                eAw = eAw2;
                             } else {
-                                master.flame.danmaku.danmaku.c.c.hF(60 - hw);
-                                eqy = eqy2;
+                                master.flame.danmaku.danmaku.c.c.hV(60 - hM);
+                                eAw = eAw2;
                             }
                         } else {
-                            master.flame.danmaku.danmaku.c.c.hF(1L);
+                            master.flame.danmaku.danmaku.c.c.hV(1L);
                         }
                     }
                 }
             };
-            this.oUg.start();
+            this.pLC.start();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final long hw(long j) {
+    public final long hM(long j) {
         long j2;
         long j3 = 0;
-        if (this.oUn || this.oUq) {
+        if (this.pLJ || this.pLM) {
             return 0L;
         }
-        this.oUq = true;
-        long j4 = j - this.oTW;
-        if (!this.oUc || this.oUe.oYd || this.oUr) {
-            this.oTY.hD(j4);
-            this.oUp = 0L;
+        this.pLM = true;
+        long j4 = j - this.pLs;
+        if (!this.pLy || this.pLA.pPz || this.pLN) {
+            this.pLu.hT(j4);
+            this.pLL = 0L;
             j2 = 0;
         } else {
-            j2 = j4 - this.oTY.oVs;
-            long max = Math.max(this.oUk, eoW());
-            if (j2 <= 2000 && this.oUe.oYc <= this.oUi && max <= this.oUi) {
-                long min = Math.min(this.oUi, Math.max(this.oUk, (j2 / this.oUk) + max));
-                long j5 = min - this.oUm;
-                if (j5 > 3 && j5 < 8 && this.oUm >= this.oUk && this.oUm <= this.oUi) {
-                    min = this.oUm;
+            j2 = j4 - this.pLu.pMO;
+            long max = Math.max(this.pLG, eyU());
+            if (j2 <= 2000 && this.pLA.pPy <= this.pLE && max <= this.pLE) {
+                long min = Math.min(this.pLE, Math.max(this.pLG, (j2 / this.pLG) + max));
+                long j5 = min - this.pLI;
+                if (j5 > 3 && j5 < 8 && this.pLI >= this.pLG && this.pLI <= this.pLE) {
+                    min = this.pLI;
                 }
                 long j6 = j2 - min;
-                this.oUm = min;
+                this.pLI = min;
                 j2 = min;
                 j3 = j6;
             }
-            this.oUp = j3;
-            this.oTY.hE(j2);
+            this.pLL = j3;
+            this.pLu.hU(j2);
         }
-        if (this.oTX != null) {
-            this.oTX.b(this.oTY);
+        if (this.pLt != null) {
+            this.pLt.b(this.pLu);
         }
-        this.oUq = false;
+        this.pLM = false;
         return j2;
     }
 
-    private void eoS() {
-        if (this.oUr) {
-            hw(master.flame.danmaku.danmaku.c.c.eqy());
+    private void eyQ() {
+        if (this.pLN) {
+            hM(master.flame.danmaku.danmaku.c.c.eAw());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eoT() {
-        this.oUi = Math.max(33L, ((float) 16) * 2.5f);
-        this.oUj = ((float) this.oUi) * 2.5f;
-        this.oUk = Math.max(16L, (16 / 15) * 15);
-        this.oUl = this.oUk + 3;
+    public void eyR() {
+        this.pLE = Math.max(33L, ((float) 16) * 2.5f);
+        this.pLF = ((float) this.pLE) * 2.5f;
+        this.pLG = Math.max(16L, (16 / 15) * 15);
+        this.pLH = this.pLG + 3;
     }
 
-    private void J(final Runnable runnable) {
-        if (this.oUa == null) {
-            this.oUa = a(this.oUb.epi(), this.oTY, this.oUb.getContext(), this.oUb.getWidth(), this.oUb.getHeight(), this.oUb.isHardwareAccelerated(), new h.a() { // from class: master.flame.danmaku.a.c.3
+    private void L(final Runnable runnable) {
+        if (this.pLw == null) {
+            this.pLw = a(this.pLx.ezg(), this.pLu, this.pLx.getContext(), this.pLx.getWidth(), this.pLx.getHeight(), this.pLx.isHardwareAccelerated(), new h.a() { // from class: master.flame.danmaku.a.c.3
                 @Override // master.flame.danmaku.a.h.a
-                public void eoY() {
-                    c.this.eoT();
+                public void eyW() {
+                    c.this.eyR();
                     runnable.run();
                 }
 
                 @Override // master.flame.danmaku.a.h.a
                 public void h(master.flame.danmaku.danmaku.model.d dVar) {
-                    if (!dVar.epr()) {
-                        long epB = dVar.epB() - c.this.getCurrentTime();
-                        if (epB < c.this.oTT.oXd.oXi && (c.this.oUr || c.this.oUe.oYd)) {
-                            c.this.eoV();
-                        } else if (epB > 0 && epB <= c.this.oTT.oXd.oXi) {
-                            c.this.sendEmptyMessageDelayed(11, epB);
+                    if (!dVar.ezp()) {
+                        long ezz = dVar.ezz() - c.this.getCurrentTime();
+                        if (ezz < c.this.pLp.pOz.pOE && (c.this.pLN || c.this.pLA.pPz)) {
+                            c.this.eyT();
+                        } else if (ezz > 0 && ezz <= c.this.pLp.pOz.pOE) {
+                            c.this.sendEmptyMessageDelayed(11, ezz);
                         }
                     }
                 }
 
                 @Override // master.flame.danmaku.a.h.a
                 public void i(master.flame.danmaku.danmaku.model.d dVar) {
-                    if (c.this.oTX != null) {
-                        c.this.oTX.j(dVar);
+                    if (c.this.pLt != null) {
+                        c.this.pLt.j(dVar);
                     }
                 }
 
                 @Override // master.flame.danmaku.a.h.a
-                public void eoZ() {
-                    if (c.this.oTX != null) {
-                        c.this.oTX.epc();
+                public void eyX() {
+                    if (c.this.pLt != null) {
+                        c.this.pLt.eza();
                     }
                 }
 
                 @Override // master.flame.danmaku.a.h.a
-                public void epa() {
-                    c.this.eoU();
+                public void eyY() {
+                    c.this.eyS();
                 }
             });
         } else {
@@ -523,24 +523,24 @@ public class c extends Handler {
     }
 
     private h a(boolean z, master.flame.danmaku.danmaku.model.f fVar, Context context, int i, int i2, boolean z2, h.a aVar) {
-        this.oUd = this.oTT.epZ();
-        this.oUd.setSize(i, i2);
+        this.pLz = this.pLp.ezX();
+        this.pLz.setSize(i, i2);
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-        this.oUd.a(displayMetrics.density, displayMetrics.densityDpi, displayMetrics.scaledDensity);
-        this.oUd.bd(this.oTT.oWB);
-        this.oUd.zI(z2);
-        h aVar2 = z ? new master.flame.danmaku.a.a(fVar, this.oTT, aVar, (1048576 * master.flame.danmaku.danmaku.c.a.getMemoryClass(context)) / 3) : new e(fVar, this.oTT, aVar);
-        aVar2.a(this.oTZ);
+        this.pLz.a(displayMetrics.density, displayMetrics.densityDpi, displayMetrics.scaledDensity);
+        this.pLz.bu(this.pLp.pNX);
+        this.pLz.AQ(z2);
+        h aVar2 = z ? new master.flame.danmaku.a.a(fVar, this.pLp, aVar, (1048576 * master.flame.danmaku.danmaku.c.a.getMemoryClass(context)) / 3) : new e(fVar, this.pLp, aVar);
+        aVar2.a(this.pLv);
         aVar2.prepare();
         obtainMessage(10, false).sendToTarget();
         return aVar2;
     }
 
     public void a(master.flame.danmaku.danmaku.model.d dVar) {
-        if (this.oUa != null) {
-            dVar.oVo = this.oTT.oXb;
-            dVar.c(this.oTY);
-            this.oUa.a(dVar);
+        if (this.pLw != null) {
+            dVar.pMK = this.pLp.pOx;
+            dVar.c(this.pLu);
+            this.pLw.a(dVar);
             obtainMessage(11).sendToTarget();
         }
     }
@@ -557,104 +557,104 @@ public class c extends Handler {
 
     public void pause() {
         removeMessages(3);
-        eoS();
+        eyQ();
         sendEmptyMessage(7);
     }
 
-    public void i(Long l) {
-        if (!this.oUc) {
-            this.oUc = true;
+    public void j(Long l) {
+        if (!this.pLy) {
+            this.pLy = true;
             removeMessages(8);
             removeMessages(9);
             obtainMessage(8, l).sendToTarget();
         }
     }
 
-    public long zG(boolean z) {
-        if (!this.oUc) {
-            return this.oTY.oVs;
+    public long AO(boolean z) {
+        if (!this.pLy) {
+            return this.pLu.pMO;
         }
-        this.oUc = false;
+        this.pLy = false;
         removeMessages(8);
         removeMessages(9);
         obtainMessage(9, Boolean.valueOf(z)).sendToTarget();
-        return this.oTY.oVs;
+        return this.pLu.pMO;
     }
 
-    public a.b as(Canvas canvas) {
+    public a.b au(Canvas canvas) {
         master.flame.danmaku.danmaku.model.a aVar;
-        boolean epn;
-        if (this.oUa == null) {
-            return this.oUe;
+        boolean ezl;
+        if (this.pLw == null) {
+            return this.pLA;
         }
-        if (!this.oUr && (aVar = this.oTT.oWP) != null && ((epn = aVar.epn()) || this.oTV)) {
-            int epl = aVar.epl();
-            if (epl == 2) {
-                long j = this.oTY.oVs;
-                long epk = aVar.epk();
-                long j2 = epk - j;
-                if (Math.abs(j2) > aVar.epm()) {
-                    if (epn && this.oTV) {
+        if (!this.pLN && (aVar = this.pLp.pOl) != null && ((ezl = aVar.ezl()) || this.pLr)) {
+            int ezj = aVar.ezj();
+            if (ezj == 2) {
+                long j = this.pLu.pMO;
+                long ezi = aVar.ezi();
+                long j2 = ezi - j;
+                if (Math.abs(j2) > aVar.ezk()) {
+                    if (ezl && this.pLr) {
                         resume();
                     }
-                    this.oUa.k(j, epk, j2);
-                    this.oTY.hD(epk);
-                    this.oTW = master.flame.danmaku.danmaku.c.c.eqy() - epk;
-                    this.oUp = 0L;
+                    this.pLw.k(j, ezi, j2);
+                    this.pLu.hT(ezi);
+                    this.pLs = master.flame.danmaku.danmaku.c.c.eAw() - ezi;
+                    this.pLL = 0L;
                 }
-            } else if (epl == 1 && epn && !this.oTV) {
+            } else if (ezj == 1 && ezl && !this.pLr) {
                 pause();
             }
         }
-        this.oUd.setExtraData(canvas);
-        this.oUe.b(this.oUa.a(this.oUd));
-        eoX();
-        return this.oUe;
+        this.pLz.setExtraData(canvas);
+        this.pLA.b(this.pLw.a(this.pLz));
+        eyV();
+        return this.pLA;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eoU() {
-        if (this.oTV && this.oUc) {
+    public void eyS() {
+        if (this.pLr && this.pLy) {
             removeMessages(12);
             sendEmptyMessageDelayed(12, 100L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eoV() {
-        if (this.oUr) {
-            if (this.oUa != null) {
-                this.oUa.epd();
+    public void eyT() {
+        if (this.pLN) {
+            if (this.pLw != null) {
+                this.pLw.ezb();
             }
-            if (this.oUh) {
+            if (this.pLD) {
                 synchronized (this) {
-                    this.oUf.clear();
+                    this.pLB.clear();
                 }
-                synchronized (this.oUa) {
-                    this.oUa.notifyAll();
+                synchronized (this.pLw) {
+                    this.pLw.notifyAll();
                 }
             } else {
-                this.oUf.clear();
+                this.pLB.clear();
                 removeMessages(2);
                 sendEmptyMessage(2);
             }
-            this.oUr = false;
+            this.pLN = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void hx(long j) {
-        if (!isStop() && isPrepared() && !this.oUn) {
-            this.oUe.gkv = master.flame.danmaku.danmaku.c.c.eqy();
-            this.oUr = true;
-            if (this.oUh) {
-                if (this.oUg != null) {
+    public void hN(long j) {
+        if (!isStop() && isPrepared() && !this.pLJ) {
+            this.pLA.guz = master.flame.danmaku.danmaku.c.c.eAw();
+            this.pLN = true;
+            if (this.pLD) {
+                if (this.pLC != null) {
                     try {
-                        synchronized (this.oUa) {
+                        synchronized (this.pLw) {
                             if (j == 10000000) {
-                                this.oUa.wait();
+                                this.pLw.wait();
                             } else {
-                                this.oUa.wait(j);
+                                this.pLw.wait(j);
                             }
                             sendEmptyMessage(11);
                         }
@@ -673,44 +673,44 @@ public class c extends Handler {
         }
     }
 
-    private synchronized long eoW() {
+    private synchronized long eyU() {
         long longValue;
-        int size = this.oUf.size();
+        int size = this.pLB.size();
         if (size <= 0) {
             longValue = 0;
         } else {
-            Long peekFirst = this.oUf.peekFirst();
-            Long peekLast = this.oUf.peekLast();
+            Long peekFirst = this.pLB.peekFirst();
+            Long peekLast = this.pLB.peekLast();
             longValue = (peekFirst == null || peekLast == null) ? 0L : (peekLast.longValue() - peekFirst.longValue()) / size;
         }
         return longValue;
     }
 
-    private synchronized void eoX() {
-        this.oUf.addLast(Long.valueOf(master.flame.danmaku.danmaku.c.c.eqy()));
-        if (this.oUf.size() > 500) {
-            this.oUf.removeFirst();
+    private synchronized void eyV() {
+        this.pLB.addLast(Long.valueOf(master.flame.danmaku.danmaku.c.c.eAw()));
+        if (this.pLB.size() > 500) {
+            this.pLB.removeFirst();
         }
     }
 
-    public void eo(int i, int i2) {
-        if (this.oUd != null) {
-            if (this.oUd.getWidth() != i || this.oUd.getHeight() != i2) {
-                this.oUd.setSize(i, i2);
+    public void ew(int i, int i2) {
+        if (this.pLz != null) {
+            if (this.pLz.getWidth() != i || this.pLz.getHeight() != i2) {
+                this.pLz.setSize(i, i2);
                 obtainMessage(10, true).sendToTarget();
             }
         }
     }
 
-    public void zC(boolean z) {
-        if (this.oUa != null) {
-            this.oUa.zC(z);
+    public void AK(boolean z) {
+        if (this.pLw != null) {
+            this.pLw.AK(z);
         }
     }
 
     public l getCurrentVisibleDanmakus() {
-        if (this.oUa != null) {
-            return this.oUa.hy(getCurrentTime());
+        if (this.pLw != null) {
+            return this.pLw.hO(getCurrentTime());
         }
         return null;
     }
@@ -719,16 +719,16 @@ public class c extends Handler {
         if (!this.mReady) {
             return 0L;
         }
-        if (this.oUn) {
-            return this.oUo;
+        if (this.pLJ) {
+            return this.pLK;
         }
-        if (this.oTV || !this.oUr) {
-            return this.oTY.oVs - this.oUp;
+        if (this.pLr || !this.pLN) {
+            return this.pLu.pMO - this.pLL;
         }
-        return master.flame.danmaku.danmaku.c.c.eqy() - this.oTW;
+        return master.flame.danmaku.danmaku.c.c.eAw() - this.pLs;
     }
 
     public DanmakuContext getConfig() {
-        return this.oTT;
+        return this.pLp;
     }
 }

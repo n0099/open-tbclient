@@ -18,8 +18,8 @@ public class c extends g {
 
     @Override // com.baidu.swan.apps.media.b.a.g
     public boolean a(com.baidu.swan.apps.media.b.a aVar, com.baidu.swan.apps.media.b.c cVar, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        com.baidu.swan.apps.console.c.i("video", "open, video id:" + cVar.cMu + " slave id: " + cVar.cpq);
-        aVar.atM();
+        com.baidu.swan.apps.console.c.i("video", "open, video id:" + cVar.cUQ + " slave id: " + cVar.cxS);
+        aVar.avG();
         a(aVar, cVar, unitedSchemeEntity, callbackHandler);
         return true;
     }
@@ -34,12 +34,12 @@ public class c extends g {
         if (TextUtils.isEmpty(str3)) {
             return null;
         }
-        com.baidu.swan.apps.media.a H = com.baidu.swan.apps.media.b.H(str, str2, str3);
-        if (H == null) {
+        com.baidu.swan.apps.media.a O = com.baidu.swan.apps.media.b.O(str, str2, str3);
+        if (O == null) {
             return new com.baidu.swan.apps.media.b.a(context, com.baidu.swan.apps.media.b.c.a(jSONObject, new com.baidu.swan.apps.media.b.c()));
         }
-        if (H.avO() instanceof com.baidu.swan.apps.media.b.a) {
-            return (com.baidu.swan.apps.media.b.a) H.avO();
+        if (O.axI() instanceof com.baidu.swan.apps.media.b.a) {
+            return (com.baidu.swan.apps.media.b.a) O.axI();
         }
         return null;
     }

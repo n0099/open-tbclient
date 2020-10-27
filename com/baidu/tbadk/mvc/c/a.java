@@ -5,7 +5,7 @@ import com.baidu.adp.BdUniqueId;
 public interface a {
     boolean a(b bVar);
 
-    boolean bxi();
+    boolean bzb();
 
     BdUniqueId getUniqueId();
 }

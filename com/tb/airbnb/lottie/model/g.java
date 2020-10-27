@@ -8,11 +8,11 @@ import com.baidu.android.common.logging.Log;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes16.dex */
 public class g {
-    private static final g oIp = new g();
+    private static final g pzM = new g();
     private final LruCache<String, com.tb.airbnb.lottie.d> EM = new LruCache<>(Log.FILE_LIMETE);
 
-    public static g ekV() {
-        return oIp;
+    public static g euV() {
+        return pzM;
     }
 
     @VisibleForTesting
@@ -20,7 +20,7 @@ public class g {
     }
 
     @Nullable
-    public com.tb.airbnb.lottie.d WV(@Nullable String str) {
+    public com.tb.airbnb.lottie.d YI(@Nullable String str) {
         if (str == null) {
             return null;
         }

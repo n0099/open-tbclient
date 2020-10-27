@@ -13,8 +13,8 @@ import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes17.dex */
 public class a extends com.baidu.helios.channels.a {
-    a.C0153a awJ;
-    private C0149a axn;
+    a.C0153a awK;
+    private C0149a axo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.helios.channels.a.a$a  reason: collision with other inner class name */
@@ -72,7 +72,7 @@ public class a extends com.baidu.helios.channels.a {
             Context context;
             this.i = false;
             try {
-                context = a.this.awZ.applicationContext.createPackageContext(str, 0);
+                context = a.this.axa.applicationContext.createPackageContext(str, 0);
             } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
                 context = null;
@@ -92,7 +92,7 @@ public class a extends com.baidu.helios.channels.a {
         }
 
         public boolean c() {
-            return c(a.this.awJ.q("pub.dat", true));
+            return c(a.this.awK.q("pub.dat", true));
         }
 
         public boolean d() {
@@ -103,7 +103,7 @@ public class a extends com.baidu.helios.channels.a {
                         jSONObject.put("pub_id", this.g);
                         jSONObject.put("pub_lst_ts", this.f);
                         jSONObject.put("d_form_ver", 1);
-                        a.this.awJ.d("pub.dat", jSONObject.toString(), true);
+                        a.this.awK.d("pub.dat", jSONObject.toString(), true);
                         this.h = false;
                         return true;
                     } catch (Exception e) {
@@ -116,7 +116,7 @@ public class a extends com.baidu.helios.channels.a {
 
         public boolean e() {
             try {
-                File file = new File(a.this.awZ.applicationContext.getExternalCacheDir(), "com.baidu.helios" + File.separator + "esc-es");
+                File file = new File(a.this.axa.applicationContext.getExternalCacheDir(), "com.baidu.helios" + File.separator + "esc-es");
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("pub_id", this.g);
                 jSONObject.put("pub_lst_ts", this.f);
@@ -139,7 +139,7 @@ public class a extends com.baidu.helios.channels.a {
         private String n;
 
         public b(String str) {
-            super(a.this.awJ, str);
+            super(a.this.awK, str);
         }
 
         public boolean Q(long j) {
@@ -227,18 +227,18 @@ public class a extends com.baidu.helios.channels.a {
 
     public a() {
         super("esc-es", 7000000L);
-        this.axn = new C0149a();
+        this.axo = new C0149a();
     }
 
     private a.e b(a.d dVar) {
-        String AI = this.awZ.axd.fE("aid").AI();
-        if (AI.equals(this.axn.b())) {
+        String AI = this.axa.axe.fE("aid").AI();
+        if (AI.equals(this.axo.b())) {
             return a.e.Aj();
         }
-        this.axn.a(AI);
-        this.axn.a(System.currentTimeMillis());
-        this.axn.d();
-        return this.axn.e() ? a.e.Aj() : a.e.Ak();
+        this.axo.a(AI);
+        this.axo.a(System.currentTimeMillis());
+        this.axo.d();
+        return this.axo.e() ? a.e.Aj() : a.e.Ak();
     }
 
     @Override // com.baidu.helios.channels.a
@@ -246,11 +246,11 @@ public class a extends com.baidu.helios.channels.a {
         if (Build.VERSION.SDK_INT >= 28) {
             return a.e.Ak();
         }
-        this.axn.c();
+        this.axo.c();
         try {
             return b(dVar);
         } finally {
-            this.axn.d();
+            this.axo.d();
         }
     }
 
@@ -258,7 +258,7 @@ public class a extends com.baidu.helios.channels.a {
     public a.g a(String str, a.f fVar) {
         PackageInfo packageInfo;
         b bVar = null;
-        Context context = this.awZ.applicationContext;
+        Context context = this.axa.applicationContext;
         try {
             packageInfo = context.getPackageManager().getPackageInfo(str, 0);
         } catch (PackageManager.NameNotFoundException e) {
@@ -296,6 +296,6 @@ public class a extends com.baidu.helios.channels.a {
 
     @Override // com.baidu.helios.channels.a
     public void a(a.c cVar) {
-        this.awJ = this.axa.fD("esc-es");
+        this.awK = this.axb.fD("esc-es");
     }
 }

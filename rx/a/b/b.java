@@ -27,8 +27,8 @@ public class b extends g {
     /* loaded from: classes16.dex */
     static class a extends g.a {
         private final Handler handler;
-        private final rx.a.a.b pda = rx.a.a.a.erH().erI();
-        private volatile boolean pdb;
+        private final rx.a.a.b pUt = rx.a.a.a.eBF().eBG();
+        private volatile boolean pUu;
 
         a(Handler handler) {
             this.handler = handler;
@@ -36,29 +36,29 @@ public class b extends g {
 
         @Override // rx.k
         public void unsubscribe() {
-            this.pdb = true;
+            this.pUu = true;
             this.handler.removeCallbacksAndMessages(this);
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.pdb;
+            return this.pUu;
         }
 
         @Override // rx.g.a
         public k a(rx.functions.a aVar, long j, TimeUnit timeUnit) {
-            if (this.pdb) {
-                return e.etl();
+            if (this.pUu) {
+                return e.eDj();
             }
-            RunnableC1001b runnableC1001b = new RunnableC1001b(this.pda.d(aVar), this.handler);
-            Message obtain = Message.obtain(this.handler, runnableC1001b);
+            RunnableC1073b runnableC1073b = new RunnableC1073b(this.pUt.d(aVar), this.handler);
+            Message obtain = Message.obtain(this.handler, runnableC1073b);
             obtain.obj = this;
             this.handler.sendMessageDelayed(obtain, timeUnit.toMillis(j));
-            if (this.pdb) {
-                this.handler.removeCallbacks(runnableC1001b);
-                return e.etl();
+            if (this.pUu) {
+                this.handler.removeCallbacks(runnableC1073b);
+                return e.eDj();
             }
-            return runnableC1001b;
+            return runnableC1073b;
         }
 
         @Override // rx.g.a
@@ -70,12 +70,12 @@ public class b extends g {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: rx.a.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes16.dex */
-    public static final class RunnableC1001b implements Runnable, k {
+    public static final class RunnableC1073b implements Runnable, k {
         private final rx.functions.a action;
         private final Handler handler;
-        private volatile boolean pdb;
+        private volatile boolean pUu;
 
-        RunnableC1001b(rx.functions.a aVar, Handler handler) {
+        RunnableC1073b(rx.functions.a aVar, Handler handler) {
             this.action = aVar;
             this.handler = handler;
         }
@@ -91,7 +91,7 @@ public class b extends g {
                 } else {
                     illegalStateException = new IllegalStateException("Fatal Exception thrown on Scheduler.Worker thread.", th);
                 }
-                f.esH().esI().F(illegalStateException);
+                f.eCF().eCG().F(illegalStateException);
                 Thread currentThread = Thread.currentThread();
                 currentThread.getUncaughtExceptionHandler().uncaughtException(currentThread, illegalStateException);
             }
@@ -99,13 +99,13 @@ public class b extends g {
 
         @Override // rx.k
         public void unsubscribe() {
-            this.pdb = true;
+            this.pUu = true;
             this.handler.removeCallbacks(this);
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.pdb;
+            return this.pUu;
         }
     }
 }

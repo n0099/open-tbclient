@@ -13,34 +13,34 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class a {
-    private final List<bw> jqp = new ArrayList();
+    private final List<bw> jCP = new ArrayList();
 
     public c a(boolean z, com.baidu.tieba.homepage.tabfeed.data.a aVar) {
         c cVar = new c();
-        cVar.fzJ = z;
+        cVar.fIe = z;
         cVar.hasMore = aVar.hasMore();
-        cVar.jqk = aVar.cGf();
-        cVar.jql = aVar.cGg();
-        ArrayList<bw> cnm = aVar.cnm();
+        cVar.jCK = aVar.cJm();
+        cVar.jCL = aVar.cJn();
+        ArrayList<bw> cqt = aVar.cqt();
         if (z) {
-            if (!y.isEmpty(cnm)) {
-                this.jqp.clear();
-                this.jqp.addAll(cnm);
+            if (!y.isEmpty(cqt)) {
+                this.jCP.clear();
+                this.jCP.addAll(cqt);
             }
-        } else if (!y.isEmpty(cnm)) {
-            this.jqp.addAll(cnm);
+        } else if (!y.isEmpty(cqt)) {
+            this.jCP.addAll(cqt);
         }
         ArrayList<q> arrayList = new ArrayList<>();
-        arrayList.addAll(this.jqp);
-        a(arrayList, aVar.cGd());
-        a(arrayList, aVar.cGe());
-        a(arrayList, aVar.cGh());
-        a(arrayList, aVar.cGi());
-        cVar.jqj = aG(arrayList);
+        arrayList.addAll(this.jCP);
+        a(arrayList, aVar.cJk());
+        a(arrayList, aVar.cJl());
+        a(arrayList, aVar.cJo());
+        a(arrayList, aVar.cJp());
+        cVar.jCJ = aH(arrayList);
         return cVar;
     }
 
-    private ArrayList<q> aG(ArrayList<q> arrayList) {
+    private ArrayList<q> aH(ArrayList<q> arrayList) {
         ArrayList<q> arrayList2 = new ArrayList<>();
         Iterator<q> it = arrayList.iterator();
         int i = 0;
@@ -49,84 +49,84 @@ public class a {
             if (next instanceof bw) {
                 bw bwVar = (bw) next;
                 int[] imageWidthAndHeight = bwVar.getImageWidthAndHeight();
-                if (bwVar.getType() == bw.epl) {
+                if (bwVar.getType() == bw.exJ) {
                     bv bvVar = new bv();
-                    bvVar.eji = bwVar;
+                    bvVar.erH = bwVar;
                     bvVar.position = i;
-                    bvVar.eoR = true;
+                    bvVar.exo = true;
                     arrayList2.add(bvVar);
                     bv bvVar2 = new bv();
-                    bvVar2.eji = bwVar;
+                    bvVar2.erH = bwVar;
                     bvVar2.position = i;
-                    if (bwVar.bkc()) {
-                        bvVar2.eoW = true;
-                    } else if (bwVar.bjn() == 1) {
-                        bvVar2.eoU = true;
-                        bvVar2.epi = imageWidthAndHeight[0];
-                        bvVar2.epj = imageWidthAndHeight[1];
-                    } else if (bwVar.bjn() >= 2) {
-                        bvVar2.eoV = true;
+                    if (bwVar.blV()) {
+                        bvVar2.exu = true;
+                    } else if (bwVar.blg() == 1) {
+                        bvVar2.exr = true;
+                        bvVar2.exG = imageWidthAndHeight[0];
+                        bvVar2.exH = imageWidthAndHeight[1];
+                    } else if (bwVar.blg() >= 2) {
+                        bvVar2.exs = true;
                     } else {
-                        bvVar2.eoS = true;
+                        bvVar2.exp = true;
                     }
                     arrayList2.add(bvVar2);
-                    if (bwVar.bkk() != null) {
+                    if (bwVar.bmd() != null) {
                         bv bvVar3 = new bv();
-                        bvVar3.epd = true;
-                        bvVar3.eji = bwVar;
+                        bvVar3.exB = true;
+                        bvVar3.erH = bwVar;
                         bvVar3.position = i;
                         arrayList2.add(bvVar3);
                     }
-                    if (!y.isEmpty(bwVar.bkn()) || !y.isEmpty(bwVar.bko())) {
+                    if (!y.isEmpty(bwVar.bmg()) || !y.isEmpty(bwVar.bmh())) {
                         bv bvVar4 = new bv();
-                        bvVar4.eji = bwVar;
+                        bvVar4.erH = bwVar;
                         bvVar4.position = i;
-                        if (y.getCount(bwVar.bkn()) + y.getCount(bwVar.bko()) == 1) {
-                            bvVar4.epf = true;
-                        } else if (y.getCount(bwVar.bkn()) + y.getCount(bwVar.bko()) > 1) {
-                            bvVar4.epg = true;
+                        if (y.getCount(bwVar.bmg()) + y.getCount(bwVar.bmh()) == 1) {
+                            bvVar4.exD = true;
+                        } else if (y.getCount(bwVar.bmg()) + y.getCount(bwVar.bmh()) > 1) {
+                            bvVar4.exE = true;
                         }
                         arrayList2.add(bvVar4);
                     }
                     bv bvVar5 = new bv();
-                    bvVar5.epc = true;
-                    bvVar5.eji = bwVar;
+                    bvVar5.exA = true;
+                    bvVar5.erH = bwVar;
                     bvVar5.position = i;
                     arrayList2.add(bvVar5);
                     bv bvVar6 = new bv();
-                    bvVar6.eoX = true;
-                    bvVar6.eji = bwVar;
+                    bvVar6.exv = true;
+                    bvVar6.erH = bwVar;
                     bvVar6.position = i;
                     arrayList2.add(bvVar6);
-                } else if (bwVar.getType() == bw.epH) {
+                } else if (bwVar.getType() == bw.eyg) {
                     bv bvVar7 = new bv();
-                    bvVar7.eji = bwVar;
+                    bvVar7.erH = bwVar;
                     bvVar7.position = i;
-                    bvVar7.eoR = true;
+                    bvVar7.exo = true;
                     arrayList2.add(bvVar7);
                     bv bvVar8 = new bv();
-                    bvVar8.eji = bwVar;
+                    bvVar8.erH = bwVar;
                     bvVar8.position = i;
-                    bvVar8.eoZ = true;
+                    bvVar8.exx = true;
                     arrayList2.add(bvVar8);
-                    if (bwVar.bkk() != null) {
+                    if (bwVar.bmd() != null) {
                         bv bvVar9 = new bv();
-                        bvVar9.epd = true;
-                        bvVar9.eji = bwVar;
+                        bvVar9.exB = true;
+                        bvVar9.erH = bwVar;
                         bvVar9.position = i;
                         arrayList2.add(bvVar9);
                     }
                     bv bvVar10 = new bv();
-                    bvVar10.epc = true;
-                    bvVar10.eji = bwVar;
+                    bvVar10.exA = true;
+                    bvVar10.erH = bwVar;
                     bvVar10.position = i;
                     arrayList2.add(bvVar10);
                     bv bvVar11 = new bv();
-                    bvVar11.eoX = true;
-                    bvVar11.eji = bwVar;
+                    bvVar11.exv = true;
+                    bvVar11.erH = bwVar;
                     bvVar11.position = i;
                     arrayList2.add(bvVar11);
-                } else if (bwVar.getType() == bw.epz && bwVar.bgP()) {
+                } else if (bwVar.getType() == bw.exX && bwVar.biI()) {
                     bwVar.position = i;
                     arrayList2.add(bwVar);
                 } else if (k.ab(bwVar)) {
@@ -135,7 +135,7 @@ public class a {
                     arrayList2.add(kVar);
                 } else {
                     bv bvVar12 = new bv();
-                    bvVar12.eji = bwVar;
+                    bvVar12.erH = bwVar;
                     bvVar12.position = i;
                     arrayList2.add(bvVar12);
                 }
@@ -147,7 +147,7 @@ public class a {
             }
             i++;
         }
-        com.baidu.tbadk.a.a.a.aN(arrayList2);
+        com.baidu.tbadk.a.a.a.aX(arrayList2);
         return arrayList2;
     }
 
@@ -174,6 +174,6 @@ public class a {
     }
 
     public boolean hasData() {
-        return (this.jqp == null || y.isEmpty(this.jqp)) ? false : true;
+        return (this.jCP == null || y.isEmpty(this.jCP)) ? false : true;
     }
 }

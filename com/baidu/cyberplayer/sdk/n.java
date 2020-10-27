@@ -47,7 +47,7 @@ import org.json.JSONTokener;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1404a = ".video_cache";
+    public static String f1401a = ".video_cache";
     public static String b = "last_file_cache_time";
     public static long c = 86400000;
     public static long d = 536870912;
@@ -256,7 +256,7 @@ public class n {
         }
         String str = map.get("User-Agent");
         if (TextUtils.isEmpty(str)) {
-            str = "dumedia/7.10.2.20";
+            str = "dumedia/7.12.2.49";
         } else if (str.indexOf("dumedia") == -1) {
             str = str + " dumedia/" + SDKVersion.VERSION;
         }

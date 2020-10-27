@@ -12,15 +12,15 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.l;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.s;
+import com.baidu.tieba.card.t;
 import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnItemData;
 /* loaded from: classes22.dex */
 public class b {
-    public static void Ld(String str) {
+    public static void LB(String str) {
         aq aqVar = new aq(str);
         aqVar.aj("obj_type", 1);
-        aqVar.dK("uid", TbadkCoreApplication.getCurrentAccount());
-        s.ciJ().e(aqVar);
+        aqVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
+        t.clQ().e(aqVar);
     }
 
     public static void b(String str, Object obj, int i) {
@@ -29,29 +29,29 @@ public class b {
             aq aqVar = new aq(str);
             aqVar.aj("obj_type", 1);
             aqVar.aj("obj_locate", i);
-            aqVar.dK("uid", TbadkCoreApplication.getCurrentAccount());
-            aqVar.u("tid", specialColumnItemData.threadId);
-            aqVar.u("obj_id", specialColumnItemData.liveId);
-            s.ciJ().e(aqVar);
+            aqVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
+            aqVar.w("tid", specialColumnItemData.threadId);
+            aqVar.w("obj_id", specialColumnItemData.liveId);
+            t.clQ().e(aqVar);
         } else if (obj instanceof MetaData) {
             aq aqVar2 = new aq(str);
             aqVar2.aj("obj_type", 1);
             aqVar2.aj("obj_locate", i);
-            aqVar2.u("uid", ((MetaData) obj).getUserIdLong());
-            s.ciJ().e(aqVar2);
+            aqVar2.w("uid", ((MetaData) obj).getUserIdLong());
+            t.clQ().e(aqVar2);
         } else if (obj instanceof bi) {
             aq aqVar3 = new aq(str);
             aqVar3.aj("obj_type", 1);
             aqVar3.aj("obj_locate", i);
-            aqVar3.u("fid", ((bi) obj).getForumId());
-            s.ciJ().e(aqVar3);
+            aqVar3.w("fid", ((bi) obj).getForumId());
+            t.clQ().e(aqVar3);
         } else if (obj instanceof j) {
             aq aqVar4 = new aq(str);
             aqVar4.aj("obj_type", 1);
-            aqVar4.dK("uid", TbadkCoreApplication.getCurrentAccount());
+            aqVar4.dR("uid", TbadkCoreApplication.getCurrentAccount());
             aqVar4.aj("obj_locate", i);
-            aqVar4.dK("obj_param1", ((j) obj).bge());
-            s.ciJ().e(aqVar4);
+            aqVar4.dR("obj_param1", ((j) obj).bhX());
+            t.clQ().e(aqVar4);
         }
     }
 
@@ -60,76 +60,76 @@ public class b {
             aq aqVar = new aq(str);
             aqVar.aj("obj_type", 2);
             aqVar.aj("obj_locate", i);
-            aqVar.dK("uid", TbadkCoreApplication.getCurrentAccount());
-            aqVar.u("topic_id", ((com.baidu.tieba.homepage.hotTopic.tab.b.c) obj).topicId);
-            aqVar.bmR();
+            aqVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
+            aqVar.w("topic_id", ((com.baidu.tieba.homepage.hotTopic.tab.b.c) obj).topicId);
+            aqVar.boK();
         }
         if (obj instanceof SpecialColumnItemData) {
             SpecialColumnItemData specialColumnItemData = (SpecialColumnItemData) obj;
             aq aqVar2 = new aq(str);
             aqVar2.aj("obj_type", 2);
             aqVar2.aj("obj_locate", i);
-            aqVar2.dK("uid", TbadkCoreApplication.getCurrentAccount());
-            aqVar2.u("tid", specialColumnItemData.threadId);
-            aqVar2.u("obj_id", specialColumnItemData.liveId);
-            aqVar2.bmR();
+            aqVar2.dR("uid", TbadkCoreApplication.getCurrentAccount());
+            aqVar2.w("tid", specialColumnItemData.threadId);
+            aqVar2.w("obj_id", specialColumnItemData.liveId);
+            aqVar2.boK();
         } else if (obj instanceof MetaData) {
             aq aqVar3 = new aq(str);
             aqVar3.aj("obj_type", 2);
             aqVar3.aj("obj_locate", i);
-            aqVar3.u("uid", ((MetaData) obj).getUserIdLong());
-            aqVar3.bmR();
+            aqVar3.w("uid", ((MetaData) obj).getUserIdLong());
+            aqVar3.boK();
         } else if (obj instanceof bi) {
             aq aqVar4 = new aq(str);
             aqVar4.aj("obj_type", 2);
             aqVar4.aj("obj_locate", i);
-            aqVar4.u("fid", ((bi) obj).getForumId());
-            aqVar4.bmR();
+            aqVar4.w("fid", ((bi) obj).getForumId());
+            aqVar4.boK();
         } else if (obj instanceof j) {
             aq aqVar5 = new aq(str);
             aqVar5.aj("obj_type", 2);
-            aqVar5.dK("uid", TbadkCoreApplication.getCurrentAccount());
+            aqVar5.dR("uid", TbadkCoreApplication.getCurrentAccount());
             aqVar5.aj("obj_locate", i);
-            aqVar5.dK("obj_param1", ((j) obj).bge());
-            aqVar5.bmR();
+            aqVar5.dR("obj_param1", ((j) obj).bhX());
+            aqVar5.boK();
         } else if (obj instanceof Boolean) {
             aq aqVar6 = new aq(str);
-            aqVar6.dK("uid", TbadkCoreApplication.getCurrentAccount());
+            aqVar6.dR("uid", TbadkCoreApplication.getCurrentAccount());
             aqVar6.aj("obj_locate", i);
-            aqVar6.bmR();
+            aqVar6.boK();
         }
     }
 
     public static void a(View view, AbsThreadDataSupport absThreadDataSupport, String str) {
-        if (absThreadDataSupport != null && absThreadDataSupport.bfG() != null) {
-            bw bfG = absThreadDataSupport.bfG();
-            if (bfG.bgN()) {
-                TiebaStatic.log(l.f(bfG, str));
+        if (absThreadDataSupport != null && absThreadDataSupport.bhz() != null) {
+            bw bhz = absThreadDataSupport.bhz();
+            if (bhz.biG()) {
+                TiebaStatic.log(l.f(bhz, str));
                 return;
             }
             int id = view.getId();
             if (view.getId() == R.id.thread_card_root || id == R.id.thread_info_commont_container) {
-                TiebaStatic.log(l.d(bfG, str));
+                TiebaStatic.log(l.d(bhz, str));
             } else if (id == R.id.user_avatar) {
-                TiebaStatic.log(l.c(bfG, str));
+                TiebaStatic.log(l.c(bhz, str));
             } else if (id == R.id.user_name) {
-                TiebaStatic.log(l.c(bfG, str));
+                TiebaStatic.log(l.c(bhz, str));
             } else if (id == R.id.forum_name_text) {
-                TiebaStatic.log(l.g(bfG, str));
+                TiebaStatic.log(l.g(bhz, str));
             } else if (id == R.id.thread_info_commont_container) {
-                TiebaStatic.log(l.d(bfG, str));
+                TiebaStatic.log(l.d(bhz, str));
             } else if (view instanceof TbImageView) {
-                TiebaStatic.log(l.e(bfG, str));
+                TiebaStatic.log(l.e(bhz, str));
             }
         }
     }
 
     public static void a(AbsThreadDataSupport absThreadDataSupport, String str) {
-        if (absThreadDataSupport != null && absThreadDataSupport.bfG() != null) {
-            if (absThreadDataSupport.bfG().bgN()) {
-                s.ciJ().e(l.b(absThreadDataSupport.bfG(), str));
+        if (absThreadDataSupport != null && absThreadDataSupport.bhz() != null) {
+            if (absThreadDataSupport.bhz().biG()) {
+                t.clQ().e(l.b(absThreadDataSupport.bhz(), str));
             } else {
-                s.ciJ().e(l.a(absThreadDataSupport.bfG(), str));
+                t.clQ().e(l.a(absThreadDataSupport.bhz(), str));
             }
         }
     }

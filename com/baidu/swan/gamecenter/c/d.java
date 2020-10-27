@@ -9,6 +9,6 @@ public class d implements aw {
     @Override // com.baidu.swan.apps.adaptation.a.aw
     @Nullable
     public com.baidu.swan.apps.api.c.b a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.o.b bVar) {
-        return c.aNZ().a(str, jSONObject, bVar);
+        return c.aPT().a(str, jSONObject, bVar);
     }
 }

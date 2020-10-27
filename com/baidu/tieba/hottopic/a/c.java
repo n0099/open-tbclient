@@ -6,22 +6,22 @@ import com.baidu.adp.widget.ListView.af;
 import com.baidu.tieba.R;
 /* loaded from: classes21.dex */
 public class c extends af.a {
-    public int ajp;
-    public View jyj;
-    public TextView jyk;
+    public int ajq;
+    public View jKI;
+    public TextView jKJ;
 
     public c(View view) {
         super(view);
-        this.ajp = 3;
-        this.jyj = null;
-        this.jyk = null;
-        cG(view);
+        this.ajq = 3;
+        this.jKI = null;
+        this.jKJ = null;
+        cK(view);
     }
 
-    private void cG(View view) {
+    private void cK(View view) {
         if (view != null) {
-            this.jyj = view.findViewById(R.id.top_divider_line);
-            this.jyk = (TextView) view.findViewById(R.id.item_theme_title);
+            this.jKI = view.findViewById(R.id.top_divider_line);
+            this.jKJ = (TextView) view.findViewById(R.id.item_theme_title);
         }
     }
 }

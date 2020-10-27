@@ -6,134 +6,134 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes24.dex */
 public class a {
-    private static b egk = null;
-    private static a egm = null;
-    private static boolean egn = false;
-    private static String ego = "";
-    private static transient List<String> egp = new ArrayList(5);
+    private static b eoJ = null;
+    private static a eoK = null;
+    private static boolean eoL = false;
+    private static String eoM = "";
+    private static transient List<String> eoN = new ArrayList(5);
 
     private a() {
     }
 
     public static a b(BaseFragmentActivity baseFragmentActivity) {
-        if (egm == null) {
+        if (eoK == null) {
             synchronized (a.class) {
-                if (egm == null) {
-                    egm = new a();
-                    egk = b.c(baseFragmentActivity);
+                if (eoK == null) {
+                    eoK = new a();
+                    eoJ = b.c(baseFragmentActivity);
                 }
             }
-        } else if (egk != null) {
-            egk.a(baseFragmentActivity.getPageContext());
+        } else if (eoJ != null) {
+            eoJ.a(baseFragmentActivity.getPageContext());
         }
-        if (egn && egk != null) {
-            egk.ben();
-            egk.beo();
-            egn = false;
+        if (eoL && eoJ != null) {
+            eoJ.bgg();
+            eoJ.bgh();
+            eoL = false;
         }
-        return egm;
+        return eoK;
     }
 
     public void a(boolean z, boolean z2, boolean z3, b.a aVar) {
-        bek();
+        bgd();
         if (z) {
-            beg();
+            bfZ();
         }
         if (z2) {
-            beh();
+            bga();
         }
-        hV(z3);
+        ii(z3);
         a(aVar);
     }
 
-    public void beg() {
-        bek();
-        if (egk != null) {
-            egk.ben();
-            egn = false;
+    public void bfZ() {
+        bgd();
+        if (eoJ != null) {
+            eoJ.bgg();
+            eoL = false;
         }
     }
 
-    public void beh() {
-        bek();
-        if (egk != null) {
-            egk.beo();
-            egn = false;
+    public void bga() {
+        bgd();
+        if (eoJ != null) {
+            eoJ.bgh();
+            eoL = false;
         }
     }
 
-    public void hV(boolean z) {
-        bek();
-        if (egk != null) {
-            egk.hV(z);
+    public void ii(boolean z) {
+        bgd();
+        if (eoJ != null) {
+            eoJ.ii(z);
         }
     }
 
     public void a(b.a aVar) {
-        bek();
-        if (egk != null) {
-            egk.c(aVar);
+        bgd();
+        if (eoJ != null) {
+            eoJ.c(aVar);
         }
     }
 
     public void b(b.a aVar) {
-        bek();
-        if (egk != null) {
-            if (egk.bel()) {
-                egk.c(aVar);
+        bgd();
+        if (eoJ != null) {
+            if (eoJ.bge()) {
+                eoJ.c(aVar);
             }
-            egk.bem();
+            eoJ.bgf();
         }
     }
 
     public void a(int i, b.a aVar) {
-        bek();
-        if (egk != null) {
-            if (egk.bel()) {
-                egk.c(aVar);
+        bgd();
+        if (eoJ != null) {
+            if (eoJ.bge()) {
+                eoJ.c(aVar);
             }
-            egk.no(i);
+            eoJ.nz(i);
         }
     }
 
-    public void bei() {
-        bek();
-        if (egk != null) {
-            egk.bei();
-            egn = true;
+    public void bgb() {
+        bgd();
+        if (eoJ != null) {
+            eoJ.bgb();
+            eoL = true;
         }
     }
 
     public void resetContext() {
-        bek();
-        if (egk != null) {
-            egk.resetContext();
+        bgd();
+        if (eoJ != null) {
+            eoJ.resetContext();
         }
     }
 
-    public void bej() {
-        bek();
+    public void bgc() {
+        bgd();
         resetContext();
-        bei();
+        bgb();
     }
 
-    private void bek() {
-        if (egk == null) {
+    private void bgd() {
+        if (eoJ == null) {
         }
     }
 
     public static void resetAll() {
         try {
-            if (egk != null) {
-                if (egm != null) {
-                    egm.bej();
+            if (eoJ != null) {
+                if (eoK != null) {
+                    eoK.bgc();
                 }
-                egk.removeCallBack();
-                egk.bep();
-                egk = null;
+                eoJ.removeCallBack();
+                eoJ.bgi();
+                eoJ = null;
             }
-            if (egm != null) {
-                egm = null;
+            if (eoK != null) {
+                eoK = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();

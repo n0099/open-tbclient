@@ -7,39 +7,39 @@ import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes6.dex */
 public class SharedReference<T> {
     @GuardedBy("itself")
-    private static final Map<Object, Integer> nKP = new IdentityHashMap();
+    private static final Map<Object, Integer> oCi = new IdentityHashMap();
     @GuardedBy("this")
     private int mRefCount = 1;
     @GuardedBy("this")
     private T mValue;
-    private final c<T> nKD;
+    private final c<T> oBW;
 
     public SharedReference(T t, c<T> cVar) {
         this.mValue = (T) g.checkNotNull(t);
-        this.nKD = (c) g.checkNotNull(cVar);
-        aY(t);
+        this.oBW = (c) g.checkNotNull(cVar);
+        bc(t);
     }
 
-    private static void aY(Object obj) {
-        synchronized (nKP) {
-            Integer num = nKP.get(obj);
+    private static void bc(Object obj) {
+        synchronized (oCi) {
+            Integer num = oCi.get(obj);
             if (num == null) {
-                nKP.put(obj, 1);
+                oCi.put(obj, 1);
             } else {
-                nKP.put(obj, Integer.valueOf(num.intValue() + 1));
+                oCi.put(obj, Integer.valueOf(num.intValue() + 1));
             }
         }
     }
 
-    private static void aZ(Object obj) {
-        synchronized (nKP) {
-            Integer num = nKP.get(obj);
+    private static void bd(Object obj) {
+        synchronized (oCi) {
+            Integer num = oCi.get(obj);
             if (num == null) {
                 com.facebook.common.c.a.k("SharedReference", "No entry in sLiveObjects for value of type %s", obj.getClass());
             } else if (num.intValue() == 1) {
-                nKP.remove(obj);
+                oCi.remove(obj);
             } else {
-                nKP.put(obj, Integer.valueOf(num.intValue() - 1));
+                oCi.put(obj, Integer.valueOf(num.intValue() - 1));
             }
         }
     }
@@ -56,31 +56,31 @@ public class SharedReference<T> {
         return sharedReference != null && sharedReference.isValid();
     }
 
-    public synchronized void dWD() {
-        dWG();
+    public synchronized void egB() {
+        egE();
         this.mRefCount++;
     }
 
-    public void dWE() {
+    public void egC() {
         T t;
-        if (dWF() == 0) {
+        if (egD() == 0) {
             synchronized (this) {
                 t = this.mValue;
                 this.mValue = null;
             }
-            this.nKD.release(t);
-            aZ(t);
+            this.oBW.release(t);
+            bd(t);
         }
     }
 
-    private synchronized int dWF() {
-        dWG();
+    private synchronized int egD() {
+        egE();
         g.checkArgument(this.mRefCount > 0);
         this.mRefCount--;
         return this.mRefCount;
     }
 
-    private void dWG() {
+    private void egE() {
         if (!a(this)) {
             throw new NullReferenceException();
         }

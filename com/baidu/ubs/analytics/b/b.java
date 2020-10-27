@@ -29,7 +29,7 @@ public final class b {
 
     /* loaded from: classes10.dex */
     public interface a<T> {
-        void Vh(String str);
+        void Wv(String str);
 
         void a(T t);
     }
@@ -62,7 +62,7 @@ public final class b {
             httpURLConnection.setReadTimeout(20000);
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setDoInput(true);
-            httpURLConnection.setRequestProperty("token", d.dUa().k());
+            httpURLConnection.setRequestProperty("token", d.dZS().k());
             PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(httpURLConnection.getOutputStream(), "utf-8"));
             printWriter.write(str2);
             printWriter.flush();
@@ -109,7 +109,7 @@ public final class b {
                 httpURLConnection.setRequestProperty("Accept-Charset", "utf-8");
                 httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
                 httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + uuid);
-                httpURLConnection.setRequestProperty("token", d.dUa().k());
+                httpURLConnection.setRequestProperty("token", d.dZS().k());
                 if (file != null) {
                     DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
                     StringBuffer stringBuffer = new StringBuffer();
@@ -227,7 +227,7 @@ public final class b {
             httpURLConnection.setRequestProperty("Content-Length", String.valueOf(str.toString().getBytes("UTF-8").length));
             httpURLConnection.setReadTimeout(20000);
             httpURLConnection.setConnectTimeout(10000);
-            httpURLConnection.setRequestProperty("token", d.dUa().k());
+            httpURLConnection.setRequestProperty("token", d.dZS().k());
             httpURLConnection.connect();
             OutputStream outputStream = httpURLConnection.getOutputStream();
             outputStream.write(str.getBytes("UTF-8"));
@@ -267,7 +267,7 @@ public final class b {
         }
         if (str == null) {
             if (aVar != null) {
-                aVar.Vh("-1");
+                aVar.Wv("-1");
                 return false;
             }
             return false;
@@ -285,18 +285,18 @@ public final class b {
             return true;
         } else if (jSONObject.getString("status").equals("1")) {
             if (aVar != null) {
-                aVar.Vh(jSONObject.optString("status"));
+                aVar.Wv(jSONObject.optString("status"));
             }
             com.baidu.ubs.analytics.d.b.I("net status  error ");
             return false;
         } else {
             if (jSONObject.getString("status").equals("2")) {
-                g.d(d.dUa().getContext());
+                g.d(d.dZS().getContext());
                 com.baidu.ubs.analytics.d.b.I("net  token error ");
                 return false;
             }
             if (aVar != null) {
-                aVar.Vh("-1");
+                aVar.Wv("-1");
                 return false;
             }
             return false;

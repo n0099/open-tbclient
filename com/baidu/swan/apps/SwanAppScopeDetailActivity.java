@@ -15,8 +15,8 @@ import com.baidu.swan.apps.ap.u;
 /* loaded from: classes10.dex */
 public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     private static final boolean DEBUG = b.DEBUG;
-    private d cgj;
-    private boolean cgk = true;
+    private d coJ;
+    private boolean coK = true;
     private int mEnterAnimWhenFinishing = 0;
     private int mExitAnimWhenFinishing = 0;
     private String mUrl;
@@ -24,7 +24,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.swan.support.v4.app.f, android.app.Activity
     public void onCreate(Bundle bundle) {
-        ad(a.C0343a.aiapps_hold, a.C0343a.aiapps_slide_out_to_right);
+        ae(a.C0357a.aiapps_hold, a.C0357a.aiapps_slide_out_to_right);
         super.onCreate(bundle);
         setContentView(a.g.swanapp_scope_detail_activity);
         ah.S(this);
@@ -70,20 +70,20 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
             f bB = new com.baidu.swan.apps.adaptation.b.a.b().bB(this);
             bB.a(new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.SwanAppScopeDetailActivity.2
                 @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.d
-                public void ir(String str) {
-                    super.ir(str);
-                    if (SwanAppScopeDetailActivity.this.cgk) {
+                public void iC(String str) {
+                    super.iC(str);
+                    if (SwanAppScopeDetailActivity.this.coK) {
                         SwanAppScopeDetailActivity.this.setTitle(str);
                     }
                 }
             });
-            this.cgj = bB.aen();
+            this.coJ = bB.agh();
             bB.loadUrl(this.mUrl);
-            bB.a((FrameLayout) findViewById(a.f.webview_container), this.cgj.covertToView());
+            bB.a((FrameLayout) findViewById(a.f.webview_container), this.coJ.covertToView());
         }
     }
 
-    public void ad(int i, int i2) {
+    public void ae(int i, int i2) {
         this.mEnterAnimWhenFinishing = i;
         this.mExitAnimWhenFinishing = i2;
     }
@@ -106,9 +106,9 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.cgj != null) {
-            this.cgj.destroy();
-            this.cgj = null;
+        if (this.coJ != null) {
+            this.coJ.destroy();
+            this.coJ = null;
         }
         this.mUrl = null;
     }

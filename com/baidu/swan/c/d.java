@@ -313,7 +313,7 @@ public final class d {
         }
     }
 
-    public static boolean yy(String str) {
+    public static boolean yR(String str) {
         return !TextUtils.isEmpty(str) && safeDeleteFile(new File(str));
     }
 
@@ -357,11 +357,11 @@ public final class d {
     }
 
     public static boolean unzipFile(String str, String str2) {
-        return dr(str, str2) == null;
+        return dy(str, str2) == null;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [975=4] */
-    public static Exception dr(String str, String str2) {
+    public static Exception dy(String str, String str2) {
         ZipFile zipFile;
         BufferedOutputStream bufferedOutputStream;
         BufferedInputStream bufferedInputStream;
@@ -385,7 +385,7 @@ public final class d {
                 while (entries.hasMoreElements()) {
                     try {
                         ZipEntry nextElement = entries.nextElement();
-                        if (!TextUtils.isEmpty(nextElement.getName()) && !yB(nextElement.getName())) {
+                        if (!TextUtils.isEmpty(nextElement.getName()) && !yU(nextElement.getName())) {
                             File file = new File(str2 + "/" + nextElement.getName());
                             if (!nextElement.isDirectory()) {
                                 if (!file.exists()) {
@@ -490,7 +490,7 @@ public final class d {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1045=4] */
-    public static boolean ds(String str, String str2) {
+    public static boolean dz(String str, String str2) {
         ZipInputStream zipInputStream;
         InputStream inputStream;
         InputStream inputStream2;
@@ -529,7 +529,7 @@ public final class d {
                     closeSafely(inputStream);
                     closeSafely(zipInputStream);
                     return true;
-                } else if (!TextUtils.isEmpty(nextEntry.getName()) && !yB(nextEntry.getName())) {
+                } else if (!TextUtils.isEmpty(nextEntry.getName()) && !yU(nextEntry.getName())) {
                     File file2 = new File(str2 + File.separator + nextEntry.getName());
                     if (nextEntry.isDirectory()) {
                         if (!file2.exists()) {
@@ -594,7 +594,7 @@ public final class d {
 
     @CheckResult
     @Nullable
-    public static String yz(@Nullable String str) {
+    public static String yS(@Nullable String str) {
         int lastIndexOf;
         if (TextUtils.isEmpty(str) || (lastIndexOf = str.lastIndexOf(46)) <= -1 || lastIndexOf >= str.length() - 1) {
             return null;
@@ -614,7 +614,7 @@ public final class d {
         return str;
     }
 
-    public static String yA(String str) {
+    public static String yT(String str) {
         int lastIndexOf;
         String fileNameFromPath = getFileNameFromPath(str);
         if (TextUtils.isEmpty(fileNameFromPath) || (lastIndexOf = fileNameFromPath.lastIndexOf(".")) == INVALID_INDEX || lastIndexOf == fileNameFromPath.length() - 1) {
@@ -721,7 +721,7 @@ public final class d {
         }
     }
 
-    public static boolean yB(String str) {
+    public static boolean yU(String str) {
         return str.contains("../");
     }
 
@@ -821,7 +821,7 @@ public final class d {
         }
     }
 
-    public static long yC(String str) {
+    public static long yV(String str) {
         long j = -1;
         if (!TextUtils.isEmpty(str)) {
             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();

@@ -19,29 +19,29 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes26.dex */
 public class g extends com.baidu.adp.base.c<OfficialBarTipActivity> {
-    private TextView fCC;
-    private NoNetworkView fTu;
-    private BdListView jGE;
-    private OfficialBarTipListAdapter jGF;
-    private OfficialBarTipActivity jGG;
-    private boolean jGH;
-    private RelativeLayout jGI;
-    private TextView jGJ;
-    private boolean jGK;
-    private TextView jGL;
-    private View jGM;
-    private TextView jGN;
+    private TextView fKX;
+    private NoNetworkView gdx;
+    private BdListView jTd;
+    private OfficialBarTipListAdapter jTe;
+    private OfficialBarTipActivity jTf;
+    private boolean jTg;
+    private RelativeLayout jTh;
+    private TextView jTi;
+    private boolean jTj;
+    private TextView jTk;
+    private View jTl;
+    private TextView jTm;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
     private ViewGroup mRootView;
 
     public g(OfficialBarTipActivity officialBarTipActivity) {
         super(officialBarTipActivity.getPageContext());
-        this.jGH = false;
-        this.jGI = null;
-        this.jGK = false;
+        this.jTg = false;
+        this.jTh = null;
+        this.jTj = false;
         officialBarTipActivity.setContentView(R.layout.officialbar_msg_activity);
-        this.jGG = officialBarTipActivity;
+        this.jTf = officialBarTipActivity;
         j(officialBarTipActivity);
         k(officialBarTipActivity);
         l(officialBarTipActivity);
@@ -58,20 +58,20 @@ public class g extends com.baidu.adp.base.c<OfficialBarTipActivity> {
         });
         this.mNavigationBar.showBottomLine();
         this.mRootView = (ViewGroup) officialBarTipActivity.findViewById(R.id.root_view);
-        this.fTu = (NoNetworkView) this.mRootView.findViewById(R.id.no_network_view);
-        this.jGM = LayoutInflater.from(this.jGG.getBaseContext()).inflate(R.layout.im_ba_btn, (ViewGroup) null);
-        this.jGM.setVisibility(8);
-        this.jGN = (TextView) this.jGM.findViewById(R.id.all_read);
-        this.jGN.setVisibility(8);
-        this.fCC = (TextView) this.jGM.findViewById(R.id.edit);
-        this.fCC.setVisibility(0);
-        this.jGM = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.jGM, (View.OnClickListener) null);
-        this.fCC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.g.2
+        this.gdx = (NoNetworkView) this.mRootView.findViewById(R.id.no_network_view);
+        this.jTl = LayoutInflater.from(this.jTf.getBaseContext()).inflate(R.layout.im_ba_btn, (ViewGroup) null);
+        this.jTl.setVisibility(8);
+        this.jTm = (TextView) this.jTl.findViewById(R.id.all_read);
+        this.jTm.setVisibility(8);
+        this.fKX = (TextView) this.jTl.findViewById(R.id.edit);
+        this.fKX.setVisibility(0);
+        this.jTl = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.jTl, (View.OnClickListener) null);
+        this.fKX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.g.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (!g.this.jGH) {
-                    if (g.this.jGG.cJE()) {
-                        g.this.jGN.setVisibility(0);
+                if (!g.this.jTg) {
+                    if (g.this.jTf.cML()) {
+                        g.this.jTm.setVisibility(0);
                     }
                     g.this.a(officialBarTipActivity, true);
                     return;
@@ -82,128 +82,128 @@ public class g extends com.baidu.adp.base.c<OfficialBarTipActivity> {
     }
 
     public void onChangeSkinType(int i) {
-        this.jGG.getLayoutMode().setNightMode(i == 1);
-        this.jGG.getLayoutMode().onModeChanged(this.mRootView);
-        this.mNavigationBar.onChangeSkinType(this.jGG.getPageContext(), i);
-        ap.setNavbarTitleColor(this.fCC, R.color.navi_op_text, R.color.navi_op_text_skin);
-        ap.setNavbarTitleColor(this.jGN, R.color.navi_op_text, R.color.navi_op_text_skin);
+        this.jTf.getLayoutMode().setNightMode(i == 1);
+        this.jTf.getLayoutMode().onModeChanged(this.mRootView);
+        this.mNavigationBar.onChangeSkinType(this.jTf.getPageContext(), i);
+        ap.setNavbarTitleColor(this.fKX, R.color.navi_op_text, R.color.navi_op_text_skin);
+        ap.setNavbarTitleColor(this.jTm, R.color.navi_op_text, R.color.navi_op_text_skin);
         if (this.mNoDataView != null) {
-            this.mNoDataView.onChangeSkinType(this.jGG.getPageContext(), i);
+            this.mNoDataView.onChangeSkinType(this.jTf.getPageContext(), i);
         }
-        if (this.fTu != null) {
-            this.fTu.onChangeSkinType(this.jGG.getPageContext(), i);
+        if (this.gdx != null) {
+            this.gdx.onChangeSkinType(this.jTf.getPageContext(), i);
         }
-        this.jGF.notifyDataSetChanged();
+        this.jTe.notifyDataSetChanged();
     }
 
     private void k(OfficialBarTipActivity officialBarTipActivity) {
-        this.jGE = (BdListView) officialBarTipActivity.findViewById(R.id.msg_list);
-        this.jGF = new OfficialBarTipListAdapter(officialBarTipActivity);
-        this.jGE.setAdapter((ListAdapter) this.jGF);
-        this.mNoDataView = NoDataViewFactory.a(officialBarTipActivity.getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.pv(R.string.official_message_activity_no_data), null);
+        this.jTd = (BdListView) officialBarTipActivity.findViewById(R.id.msg_list);
+        this.jTe = new OfficialBarTipListAdapter(officialBarTipActivity);
+        this.jTd.setAdapter((ListAdapter) this.jTe);
+        this.mNoDataView = NoDataViewFactory.a(officialBarTipActivity.getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.pG(R.string.official_message_activity_no_data), null);
     }
 
     private void l(final OfficialBarTipActivity officialBarTipActivity) {
-        this.jGI = (RelativeLayout) officialBarTipActivity.findViewById(R.id.tip_footer);
-        this.jGL = (TextView) this.jGI.findViewById(R.id.delete_txt);
-        this.jGL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.g.3
+        this.jTh = (RelativeLayout) officialBarTipActivity.findViewById(R.id.tip_footer);
+        this.jTk = (TextView) this.jTh.findViewById(R.id.delete_txt);
+        this.jTk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.g.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                officialBarTipActivity.cJB();
+                officialBarTipActivity.cMI();
                 g.this.a(officialBarTipActivity, false);
             }
         });
-        this.jGJ = (TextView) this.jGI.findViewById(R.id.select_all_txt);
-        int dimens = l.getDimens(this.jGG.getPageContext().getPageActivity(), R.dimen.ds40);
+        this.jTi = (TextView) this.jTh.findViewById(R.id.select_all_txt);
+        int dimens = l.getDimens(this.jTf.getPageContext().getPageActivity(), R.dimen.ds40);
         Drawable drawable = ap.getDrawable(R.drawable.btn_bgb_choice_n);
         drawable.setBounds(0, 0, dimens, dimens);
-        this.jGJ.setText(this.jGG.getPageContext().getString(R.string.select_all));
-        this.jGJ.setCompoundDrawables(drawable, null, null, null);
-        this.jGJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.g.4
+        this.jTi.setText(this.jTf.getPageContext().getString(R.string.select_all));
+        this.jTi.setCompoundDrawables(drawable, null, null, null);
+        this.jTi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.g.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (!g.this.jGK) {
-                    g.this.rc(true);
+                if (!g.this.jTj) {
+                    g.this.ru(true);
                 } else {
-                    g.this.rc(false);
+                    g.this.ru(false);
                 }
             }
         });
     }
 
-    public BdListView cJH() {
-        return this.jGE;
+    public BdListView cMO() {
+        return this.jTd;
     }
 
-    public OfficialBarTipListAdapter cJI() {
-        return this.jGF;
+    public OfficialBarTipListAdapter cMP() {
+        return this.jTe;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final OfficialBarTipActivity officialBarTipActivity, boolean z) {
         if (z) {
-            this.jGI.setVisibility(0);
-            this.jGF.qX(true);
-            this.jGF.notifyDataSetChanged();
-            if (officialBarTipActivity.cJC()) {
-                rb(true);
+            this.jTh.setVisibility(0);
+            this.jTe.rp(true);
+            this.jTe.notifyDataSetChanged();
+            if (officialBarTipActivity.cMJ()) {
+                rt(true);
             } else {
-                rb(false);
+                rt(false);
             }
-            this.fCC.setText(officialBarTipActivity.getPageContext().getString(R.string.cancel));
-            this.jGN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.g.5
+            this.fKX.setText(officialBarTipActivity.getPageContext().getString(R.string.cancel));
+            this.jTm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.g.5
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    g.this.jGG.cJD();
+                    g.this.jTf.cMK();
                     g.this.a(officialBarTipActivity, false);
                 }
             });
-            this.jGH = true;
+            this.jTg = true;
             return;
         }
-        this.jGI.setVisibility(8);
-        this.jGN.setVisibility(8);
-        this.jGF.qX(false);
-        this.jGF.notifyDataSetChanged();
-        this.fCC.setText(officialBarTipActivity.getPageContext().getString(R.string.edit));
-        this.jGH = false;
+        this.jTh.setVisibility(8);
+        this.jTm.setVisibility(8);
+        this.jTe.rp(false);
+        this.jTe.notifyDataSetChanged();
+        this.fKX.setText(officialBarTipActivity.getPageContext().getString(R.string.edit));
+        this.jTg = false;
     }
 
-    public void rb(boolean z) {
+    public void rt(boolean z) {
         if (z) {
-            this.jGL.setAlpha(1.0f);
-            this.jGL.setEnabled(true);
+            this.jTk.setAlpha(1.0f);
+            this.jTk.setEnabled(true);
             return;
         }
-        this.jGL.setAlpha(0.3f);
-        this.jGL.setEnabled(false);
+        this.jTk.setAlpha(0.3f);
+        this.jTk.setEnabled(false);
     }
 
     public void setData(List<ImMessageCenterShowItemData> list) {
-        this.jGF.setData(list);
+        this.jTe.setData(list);
         if (list != null && list.size() <= 0) {
-            this.fCC.setVisibility(8);
+            this.fKX.setVisibility(8);
         }
     }
 
-    public void rc(boolean z) {
-        int dimens = l.getDimens(this.jGG.getPageContext().getPageActivity(), R.dimen.ds40);
+    public void ru(boolean z) {
+        int dimens = l.getDimens(this.jTf.getPageContext().getPageActivity(), R.dimen.ds40);
         if (z) {
             Drawable drawable = ap.getDrawable(R.drawable.btn_bgb_choice_s);
             drawable.setBounds(0, 0, dimens, dimens);
-            this.jGJ.setText(this.jGG.getPageContext().getString(R.string.cancel_select_all));
-            this.jGJ.setCompoundDrawables(drawable, null, null, null);
-            rb(true);
-            this.jGK = true;
-            this.jGG.updateEditStatus(true);
+            this.jTi.setText(this.jTf.getPageContext().getString(R.string.cancel_select_all));
+            this.jTi.setCompoundDrawables(drawable, null, null, null);
+            rt(true);
+            this.jTj = true;
+            this.jTf.updateEditStatus(true);
             return;
         }
         Drawable drawable2 = ap.getDrawable(R.drawable.btn_bgb_choice_n);
         drawable2.setBounds(0, 0, dimens, dimens);
-        this.jGJ.setText(this.jGG.getPageContext().getString(R.string.select_all));
-        this.jGJ.setCompoundDrawables(drawable2, null, null, null);
-        rb(false);
-        this.jGK = false;
-        this.jGG.updateEditStatus(false);
+        this.jTi.setText(this.jTf.getPageContext().getString(R.string.select_all));
+        this.jTi.setCompoundDrawables(drawable2, null, null, null);
+        rt(false);
+        this.jTj = false;
+        this.jTf.updateEditStatus(false);
     }
 }

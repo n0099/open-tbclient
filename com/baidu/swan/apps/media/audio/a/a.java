@@ -40,17 +40,17 @@ public class a extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        JSONObject pm = pm(unitedSchemeEntity.getParam("params"));
-        if (pm == null) {
+        JSONObject pF = pF(unitedSchemeEntity.getParam("params"));
+        if (pF == null) {
             c.e("backgroundAudio", "param is null!");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        d aDr = eVar.aDr();
+        d aFl = eVar.aFl();
         if (TextUtils.equals(str, "/swanAPI/backgroundAudio/open")) {
-            a2 = com.baidu.swan.apps.media.audio.a.a(pm, new com.baidu.swan.apps.media.audio.a());
+            a2 = com.baidu.swan.apps.media.audio.a.a(pF, new com.baidu.swan.apps.media.audio.a());
         } else {
-            a2 = com.baidu.swan.apps.media.audio.a.a(pm, aDr.avX());
+            a2 = com.baidu.swan.apps.media.audio.a.a(pF, aFl.axR());
         }
         if (DEBUG) {
             Log.d("AudioBGPlayerAction", "subAction is : " + str);
@@ -102,45 +102,45 @@ public class a extends aa {
         }
         switch (c) {
             case 0:
-                c.i("backgroundAudio", "open, audioId " + a2.cMu);
-                aDr.a(a2, callbackHandler);
+                c.i("backgroundAudio", "open, audioId " + a2.cUQ);
+                aFl.a(a2, callbackHandler);
                 jSONObject = null;
                 z = true;
                 break;
             case 1:
-                c.i("backgroundAudio", "update, audioId " + a2.cMu);
-                aDr.a(a2);
+                c.i("backgroundAudio", "update, audioId " + a2.cUQ);
+                aFl.a(a2);
                 jSONObject = null;
                 z = true;
                 break;
             case 2:
-                c.i("backgroundAudio", "play, audioId " + a2.cMu);
-                aDr.resume();
+                c.i("backgroundAudio", "play, audioId " + a2.cUQ);
+                aFl.resume();
                 jSONObject = null;
                 z = true;
                 break;
             case 3:
-                c.i("backgroundAudio", "pause, audioId " + a2.cMu);
-                aDr.pause();
+                c.i("backgroundAudio", "pause, audioId " + a2.cUQ);
+                aFl.pause();
                 jSONObject = null;
                 z = true;
                 break;
             case 4:
-                c.i("backgroundAudio", "seek, audioId " + a2.cMu + " position " + a2.mPos);
-                aDr.seekTo(a2.mPos);
+                c.i("backgroundAudio", "seek, audioId " + a2.cUQ + " position " + a2.mPos);
+                aFl.seekTo(a2.mPos);
                 jSONObject = null;
                 z = true;
                 break;
             case 5:
-                c.i("backgroundAudio", "stop, audioId " + a2.cMu);
-                aDr.stop();
+                c.i("backgroundAudio", "stop, audioId " + a2.cUQ);
+                aFl.stop();
                 jSONObject = null;
                 z = true;
                 break;
             case 6:
                 JSONObject jSONObject2 = new JSONObject();
                 try {
-                    jSONObject2.putOpt(a2.cMz, aDr.pl(a2.cMz));
+                    jSONObject2.putOpt(a2.cUV, aFl.pE(a2.cUV));
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0);
                     return true;
                 } catch (JSONException e) {
@@ -164,7 +164,7 @@ public class a extends aa {
         return super.d(context, unitedSchemeEntity, callbackHandler, str, eVar);
     }
 
-    private JSONObject pm(String str) {
+    private JSONObject pF(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 return new JSONObject(str);

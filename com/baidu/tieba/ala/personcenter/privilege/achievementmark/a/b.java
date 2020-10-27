@@ -10,14 +10,14 @@ public class b {
     private String description;
     private String end_time;
     private int height;
-    private String hnS;
-    private int hnU;
-    private int hnV;
-    private int hnW;
-    private int hnX;
-    private String hnY;
-    private String hnZ;
-    private String hoa;
+    private String hzN;
+    private int hzP;
+    private int hzQ;
+    private int hzR;
+    private int hzS;
+    private String hzT;
+    private String hzU;
+    private String hzV;
     private String mark_name;
     private String mark_pic;
     public String nobilityName;
@@ -29,22 +29,22 @@ public class b {
     private int weight;
     private int width;
     public int propId = -1;
-    private List<d> hob = new ArrayList();
+    private List<d> hzW = new ArrayList();
 
     public void parserJson(JSONObject jSONObject) {
         this.type = jSONObject.optInt("type");
-        this.hnV = jSONObject.optInt("mark_id");
+        this.hzQ = jSONObject.optInt("mark_id");
         this.mark_name = jSONObject.optString("mark_name");
         this.description = jSONObject.optString("description");
-        this.hnX = jSONObject.optInt("wear_status");
+        this.hzS = jSONObject.optInt("wear_status");
         this.mark_pic = jSONObject.optString("mark_pic");
-        this.hnW = jSONObject.optInt("mark_rank");
+        this.hzR = jSONObject.optInt("mark_rank");
         this.width = jSONObject.optInt("width");
         this.height = jSONObject.optInt("height");
         this.weight = jSONObject.optInt("weight");
-        this.hnZ = jSONObject.optString("next_level_diff");
-        this.hnY = jSONObject.optString("mark_dir_level");
-        this.hoa = jSONObject.optString("expire_text");
+        this.hzU = jSONObject.optString("next_level_diff");
+        this.hzT = jSONObject.optString("mark_dir_level");
+        this.hzV = jSONObject.optString("expire_text");
         this.start_time = jSONObject.optString("begin_time");
         this.end_time = jSONObject.optString("end_time");
         JSONArray optJSONArray = jSONObject.optJSONArray("mark_other");
@@ -52,7 +52,7 @@ public class b {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 d dVar = new d();
                 dVar.parseJson(optJSONArray.optJSONObject(i));
-                this.hob.add(dVar);
+                this.hzW.add(dVar);
             }
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("props_info");
@@ -69,70 +69,70 @@ public class b {
         }
     }
 
-    public List<d> ceg() {
-        if (this.hob == null) {
-            this.hob = new ArrayList();
+    public List<d> chi() {
+        if (this.hzW == null) {
+            this.hzW = new ArrayList();
         }
-        return this.hob;
+        return this.hzW;
     }
 
-    public boolean ceh() {
-        return this.hnU == 1;
+    public boolean chj() {
+        return this.hzP == 1;
     }
 
-    public void vR(int i) {
-        this.hnU = i;
+    public void wl(int i) {
+        this.hzP = i;
     }
 
-    public String cef() {
-        return this.hnS;
+    public String chh() {
+        return this.hzN;
     }
 
-    public void HR(String str) {
-        this.hnS = str;
+    public void Iq(String str) {
+        this.hzN = str;
     }
 
-    public int cei() {
-        return this.hnV;
+    public int chk() {
+        return this.hzQ;
     }
 
-    public String cej() {
+    public String chl() {
         return this.mark_name;
     }
 
-    public String cek() {
+    public String chm() {
         return this.mark_pic;
     }
 
-    public int cel() {
-        return this.hnX;
+    public int chn() {
+        return this.hzS;
     }
 
-    public void vS(int i) {
-        this.hnX = i;
+    public void wm(int i) {
+        this.hzS = i;
     }
 
     public String getDescription() {
         return this.description;
     }
 
-    public String cem() {
-        return this.hnZ;
+    public String cho() {
+        return this.hzU;
     }
 
-    public int cen() {
-        return this.hnW;
+    public int chp() {
+        return this.hzR;
     }
 
-    public String ceo() {
-        return this.hoa;
+    public String chq() {
+        return this.hzV;
     }
 
-    public boolean cep() {
+    public boolean chr() {
         return this.type == 10;
     }
 
-    public boolean ceq() {
+    public boolean chs() {
         return this.type == 9;
     }
 }

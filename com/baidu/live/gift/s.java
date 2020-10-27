@@ -1,41 +1,28 @@
 package com.baidu.live.gift;
 
-import android.text.TextUtils;
-import java.util.HashSet;
-import java.util.Set;
+import com.baidu.live.tbadk.log.LogConfig;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class s {
-    private Set<String> aTU;
+    public String aSV;
+    public int aSW;
+    public long aUR;
+    public String aUT;
+    public long aUW;
+    public String aUX;
+    public int aUY;
+    public String giftName;
+    public String portrait;
 
-    public static s Ge() {
-        return a.aTV;
-    }
-
-    public boolean gC(String str) {
-        if (TextUtils.isEmpty(str) || this.aTU == null || this.aTU.isEmpty()) {
-            return false;
-        }
-        return this.aTU.contains(str);
-    }
-
-    public void gD(String str) {
-        if (this.aTU == null) {
-            this.aTU = new HashSet();
-        }
-        this.aTU.add(str);
-    }
-
-    public void release() {
-        if (this.aTU != null) {
-            this.aTU.clear();
-        }
-    }
-
-    private s() {
-    }
-
-    /* loaded from: classes4.dex */
-    private static class a {
-        private static s aTV = new s();
+    public void parserJson(JSONObject jSONObject) {
+        this.aUW = jSONObject.optLong(LogConfig.LOG_GIFT_ID);
+        this.aSV = jSONObject.optString("tying_tag");
+        this.aSW = jSONObject.optInt("tying_tag_type");
+        this.aUX = jSONObject.optString("thumbnail_url");
+        this.giftName = jSONObject.optString("gift_name");
+        this.aUY = jSONObject.optInt(LogConfig.VALUE_IM_GIFT);
+        this.aUR = jSONObject.optLong("pay_userid");
+        this.aUT = jSONObject.optString("pay_username");
+        this.portrait = jSONObject.optString("bd_portrait");
     }
 }

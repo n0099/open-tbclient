@@ -17,18 +17,18 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class i extends BaseAdapter {
-    private AlbumActivity bvI;
-    private c bwk;
-    private f bwm;
-    private g bwn;
+    private AlbumActivity bxW;
+    private f byA;
+    private g byB;
+    private c byy;
     private LayoutInflater mLayoutInflater;
     private final List<MediaFileInfo> mDataList = new ArrayList();
-    private boolean bwl = false;
+    private boolean byz = false;
 
     public i(AlbumActivity albumActivity, c cVar) {
-        this.bvI = albumActivity;
-        this.bwk = cVar;
-        this.mLayoutInflater = LayoutInflater.from(this.bvI.getPageContext().getPageActivity());
+        this.bxW = albumActivity;
+        this.byy = cVar;
+        this.mLayoutInflater = LayoutInflater.from(this.bxW.getPageContext().getPageActivity());
     }
 
     public void setData(List<MediaFileInfo> list) {
@@ -46,7 +46,7 @@ public class i extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: fL */
+    /* renamed from: fN */
     public MediaFileInfo getItem(int i) {
         return (MediaFileInfo) ListUtils.getItem(this.mDataList, i);
     }
@@ -87,35 +87,35 @@ public class i extends BaseAdapter {
                 b bVar2 = new b();
                 view = this.mLayoutInflater.inflate(a.h.sdk_ph_album_image_item_view, viewGroup, false);
                 bVar2.rootView = view;
-                bVar2.bwq = (TbImageView) view.findViewById(a.g.pic);
-                bVar2.bwq.setDefaultResource(0);
-                bVar2.bwq.setDefaultErrorResource(0);
-                bVar2.bwq.setTagPaddingDis(8, 8);
-                bVar2.bwq.setGifIconSupport(true);
-                bVar2.bwq.setLongIconSupport(true);
-                bVar2.bwr = (ImageView) view.findViewById(a.g.select_icon);
-                bVar2.bws = (RelativeLayout) view.findViewById(a.g.lay_select);
+                bVar2.byE = (TbImageView) view.findViewById(a.g.pic);
+                bVar2.byE.setDefaultResource(0);
+                bVar2.byE.setDefaultErrorResource(0);
+                bVar2.byE.setTagPaddingDis(8, 8);
+                bVar2.byE.setGifIconSupport(true);
+                bVar2.byE.setLongIconSupport(true);
+                bVar2.byF = (ImageView) view.findViewById(a.g.select_icon);
+                bVar2.byG = (RelativeLayout) view.findViewById(a.g.lay_select);
                 view.setTag(bVar2);
                 bVar = bVar2;
             } else {
                 bVar = (b) view.getTag();
             }
-            bVar.bwq.setIsLongPic(imageFileInfo.isLong());
-            bVar.bwq.startLoad(TbImageView.getUrlWithResizeTag(imageFileInfo.getFilePath(), 200, 200), 35, false);
-            a(bVar.bwr, mediaFileInfo);
+            bVar.byE.setIsLongPic(imageFileInfo.isLong());
+            bVar.byE.startLoad(TbImageView.getUrlWithResizeTag(imageFileInfo.getFilePath(), 200, 200), 35, false);
+            a(bVar.byF, mediaFileInfo);
             a aVar = new a(mediaFileInfo, i);
-            bVar.bwq.setOnClickListener(aVar);
-            bVar.bws.setOnClickListener(aVar);
+            bVar.byE.setOnClickListener(aVar);
+            bVar.byG.setOnClickListener(aVar);
         }
         return view;
     }
 
     private void a(ImageView imageView, MediaFileInfo mediaFileInfo) {
         boolean z = false;
-        if (this.bwk != null && (mediaFileInfo instanceof ImageFileInfo)) {
-            z = this.bwk.isAdded((ImageFileInfo) mediaFileInfo);
-        } else if (this.bwk != null && (mediaFileInfo instanceof VideoFileInfo)) {
-            z = this.bwk.b((VideoFileInfo) mediaFileInfo);
+        if (this.byy != null && (mediaFileInfo instanceof ImageFileInfo)) {
+            z = this.byy.isAdded((ImageFileInfo) mediaFileInfo);
+        } else if (this.byy != null && (mediaFileInfo instanceof VideoFileInfo)) {
+            z = this.byy.b((VideoFileInfo) mediaFileInfo);
         }
         b(imageView, z);
     }
@@ -123,11 +123,11 @@ public class i extends BaseAdapter {
     public void b(ImageView imageView, boolean z) {
         if (imageView != null) {
             if (z) {
-                imageView.setContentDescription(this.bvI.getResources().getString(a.i.sdk_ph_check_box_checked));
+                imageView.setContentDescription(this.bxW.getResources().getString(a.i.sdk_ph_check_box_checked));
                 SkinManager.setImageResource(imageView, a.f.sdk_ph_icon_list_select_ok_n);
                 return;
             }
-            imageView.setContentDescription(this.bvI.getResources().getString(a.i.sdk_ph_check_box_not_checked));
+            imageView.setContentDescription(this.bxW.getResources().getString(a.i.sdk_ph_check_box_not_checked));
             SkinManager.setImageResource(imageView, a.f.sdk_ph_icon_list_select_n);
         }
     }
@@ -135,48 +135,48 @@ public class i extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
-        private MediaFileInfo bwo;
+        private MediaFileInfo byC;
         private int position;
 
         public a(MediaFileInfo mediaFileInfo, int i) {
-            this.bwo = mediaFileInfo;
+            this.byC = mediaFileInfo;
             this.position = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getId() == a.g.pic) {
-                if (i.this.bwm != null && this.bwo != null) {
-                    i.this.bwm.a(this.position, this.bwo);
+                if (i.this.byA != null && this.byC != null) {
+                    i.this.byA.a(this.position, this.byC);
                 }
-            } else if (view.getId() == a.g.lay_select && this.bwo != null && i.this.bwn != null) {
-                i.this.bwn.b(this.position, this.bwo);
+            } else if (view.getId() == a.g.lay_select && this.byC != null && i.this.byB != null) {
+                i.this.byB.b(this.position, this.byC);
             }
         }
     }
 
     public boolean isScroll() {
-        return this.bwl;
+        return this.byz;
     }
 
-    public void cG(boolean z) {
-        this.bwl = z;
+    public void cM(boolean z) {
+        this.byz = z;
     }
 
     public void a(f fVar) {
-        this.bwm = fVar;
+        this.byA = fVar;
     }
 
     public void a(g gVar) {
-        this.bwn = gVar;
+        this.byB = gVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public class b {
-        TbImageView bwq;
-        ImageView bwr;
-        RelativeLayout bws;
+        TbImageView byE;
+        ImageView byF;
+        RelativeLayout byG;
         View rootView;
 
         private b() {

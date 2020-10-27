@@ -7,17 +7,17 @@ public final class h {
         if (str2.length() > 2001) {
             for (int i = 0; i < str2.length(); i += 2001) {
                 if (i + 2001 < str2.length()) {
-                    c(3, str, str2.substring(i, i + 2001));
+                    d(3, str, str2.substring(i, i + 2001));
                 } else {
-                    c(3, str, str2.substring(i));
+                    d(3, str, str2.substring(i));
                 }
             }
             return;
         }
-        c(3, str, str2);
+        d(3, str, str2);
     }
 
-    private static void c(int i, String str, String str2) {
+    private static void d(int i, String str, String str2) {
         switch (i) {
             case 2:
                 Log.v(str, str2);

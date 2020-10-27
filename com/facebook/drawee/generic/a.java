@@ -16,25 +16,25 @@ import javax.annotation.Nullable;
 public class a implements com.facebook.drawee.d.c {
     private final Resources mResources;
     @Nullable
-    private RoundingParams nPe;
-    private final d nPf;
-    private final f nPg;
-    private final Drawable nPd = new ColorDrawable(0);
-    private final g nPh = new g(this.nPd);
+    private RoundingParams oGx;
+    private final d oGy;
+    private final f oGz;
+    private final Drawable oGw = new ColorDrawable(0);
+    private final g oGA = new g(this.oGw);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(b bVar) {
         int i = 0;
         this.mResources = bVar.getResources();
-        this.nPe = bVar.dYp();
-        int size = (bVar.getOverlays() != null ? bVar.getOverlays().size() : 1) + (bVar.dYE() != null ? 1 : 0);
+        this.oGx = bVar.ein();
+        int size = (bVar.getOverlays() != null ? bVar.getOverlays().size() : 1) + (bVar.eiC() != null ? 1 : 0);
         Drawable[] drawableArr = new Drawable[size + 6];
         drawableArr[0] = a(bVar.getBackground(), (p.b) null);
-        drawableArr[1] = a(bVar.dYt(), bVar.dYu());
-        drawableArr[2] = a(this.nPh, bVar.dYB(), bVar.dYC(), bVar.dYD());
-        drawableArr[3] = a(bVar.dYz(), bVar.dYA());
-        drawableArr[4] = a(bVar.dYv(), bVar.dYw());
-        drawableArr[5] = a(bVar.dYx(), bVar.dYy());
+        drawableArr[1] = a(bVar.eir(), bVar.eis());
+        drawableArr[2] = a(this.oGA, bVar.eiz(), bVar.eiA(), bVar.eiB());
+        drawableArr[3] = a(bVar.eix(), bVar.eiy());
+        drawableArr[4] = a(bVar.eit(), bVar.eiu());
+        drawableArr[5] = a(bVar.eiv(), bVar.eiw());
         if (size > 0) {
             if (bVar.getOverlays() != null) {
                 for (Drawable drawable : bVar.getOverlays()) {
@@ -44,16 +44,16 @@ public class a implements com.facebook.drawee.d.c {
             } else {
                 i = 1;
             }
-            if (bVar.dYE() != null) {
-                drawableArr[i + 6] = a(bVar.dYE(), (p.b) null);
+            if (bVar.eiC() != null) {
+                drawableArr[i + 6] = a(bVar.eiC(), (p.b) null);
             }
         }
-        this.nPg = new f(drawableArr);
-        this.nPg.Ms(bVar.dYq());
-        this.nPf = new d(e.a(this.nPg, this.nPe));
-        this.nPf.yQ(bVar.dYr());
-        this.nPf.mutate();
-        dYn();
+        this.oGz = new f(drawableArr);
+        this.oGz.Oj(bVar.eio());
+        this.oGy = new d(e.a(this.oGz, this.oGx));
+        this.oGy.zY(bVar.eip());
+        this.oGy.mutate();
+        eil();
     }
 
     @Nullable
@@ -64,57 +64,57 @@ public class a implements com.facebook.drawee.d.c {
 
     @Nullable
     private Drawable a(@Nullable Drawable drawable, @Nullable p.b bVar) {
-        return e.f(e.a(drawable, this.nPe, this.mResources), bVar);
+        return e.f(e.a(drawable, this.oGx, this.mResources), bVar);
     }
 
-    private void dYm() {
-        this.nPh.setDrawable(this.nPd);
+    private void eik() {
+        this.oGA.setDrawable(this.oGw);
     }
 
-    private void dYn() {
-        if (this.nPg != null) {
-            this.nPg.dYc();
-            this.nPg.dYe();
-            dYo();
-            Mt(1);
-            this.nPg.dYf();
-            this.nPg.dYd();
+    private void eil() {
+        if (this.oGz != null) {
+            this.oGz.eia();
+            this.oGz.eic();
+            eim();
+            Ok(1);
+            this.oGz.eid();
+            this.oGz.eib();
         }
     }
 
-    private void dYo() {
-        Mu(1);
-        Mu(2);
-        Mu(3);
-        Mu(4);
-        Mu(5);
+    private void eim() {
+        Ol(1);
+        Ol(2);
+        Ol(3);
+        Ol(4);
+        Ol(5);
     }
 
-    private void Mt(int i) {
+    private void Ok(int i) {
         if (i >= 0) {
-            this.nPg.Mt(i);
+            this.oGz.Ok(i);
         }
     }
 
-    private void Mu(int i) {
+    private void Ol(int i) {
         if (i >= 0) {
-            this.nPg.Mu(i);
+            this.oGz.Ol(i);
         }
     }
 
     private void setProgress(float f) {
-        Drawable drawable = this.nPg.getDrawable(3);
+        Drawable drawable = this.oGz.getDrawable(3);
         if (drawable != null) {
             if (f >= 0.999f) {
                 if (drawable instanceof Animatable) {
                     ((Animatable) drawable).stop();
                 }
-                Mu(3);
+                Ol(3);
             } else {
                 if (drawable instanceof Animatable) {
                     ((Animatable) drawable).start();
                 }
-                Mt(3);
+                Ok(3);
             }
             drawable.setLevel(Math.round(10000.0f * f));
         }
@@ -122,111 +122,111 @@ public class a implements com.facebook.drawee.d.c {
 
     @Override // com.facebook.drawee.d.b
     public Drawable getTopLevelDrawable() {
-        return this.nPf;
+        return this.oGy;
     }
 
     @Override // com.facebook.drawee.d.c
     public void reset() {
-        dYm();
-        dYn();
+        eik();
+        eil();
     }
 
     @Override // com.facebook.drawee.d.c
     public void a(Drawable drawable, float f, boolean z) {
-        Drawable a2 = e.a(drawable, this.nPe, this.mResources);
+        Drawable a2 = e.a(drawable, this.oGx, this.mResources);
         a2.mutate();
-        this.nPh.setDrawable(a2);
-        this.nPg.dYc();
-        dYo();
-        Mt(2);
+        this.oGA.setDrawable(a2);
+        this.oGz.eia();
+        eim();
+        Ok(2);
         setProgress(f);
         if (z) {
-            this.nPg.dYf();
+            this.oGz.eid();
         }
-        this.nPg.dYd();
+        this.oGz.eib();
     }
 
     @Override // com.facebook.drawee.d.c
     public void c(float f, boolean z) {
-        if (this.nPg.getDrawable(3) != null) {
-            this.nPg.dYc();
+        if (this.oGz.getDrawable(3) != null) {
+            this.oGz.eia();
             setProgress(f);
             if (z) {
-                this.nPg.dYf();
+                this.oGz.eid();
             }
-            this.nPg.dYd();
+            this.oGz.eib();
         }
     }
 
     @Override // com.facebook.drawee.d.c
     public void B(Throwable th) {
-        this.nPg.dYc();
-        dYo();
-        if (this.nPg.getDrawable(5) != null) {
-            Mt(5);
+        this.oGz.eia();
+        eim();
+        if (this.oGz.getDrawable(5) != null) {
+            Ok(5);
         } else {
-            Mt(1);
+            Ok(1);
         }
-        this.nPg.dYd();
+        this.oGz.eib();
     }
 
     @Override // com.facebook.drawee.d.c
     public void C(Throwable th) {
-        this.nPg.dYc();
-        dYo();
-        if (this.nPg.getDrawable(4) != null) {
-            Mt(4);
+        this.oGz.eia();
+        eim();
+        if (this.oGz.getDrawable(4) != null) {
+            Ok(4);
         } else {
-            Mt(1);
+            Ok(1);
         }
-        this.nPg.dYd();
+        this.oGz.eib();
     }
 
     @Override // com.facebook.drawee.d.c
-    public void j(@Nullable Drawable drawable) {
-        this.nPf.j(drawable);
+    public void o(@Nullable Drawable drawable) {
+        this.oGy.o(drawable);
     }
 
-    private com.facebook.drawee.drawable.c Mv(int i) {
-        com.facebook.drawee.drawable.c Mp = this.nPg.Mp(i);
-        if (Mp.getDrawable() instanceof h) {
-            Mp = (h) Mp.getDrawable();
+    private com.facebook.drawee.drawable.c Om(int i) {
+        com.facebook.drawee.drawable.c Og = this.oGz.Og(i);
+        if (Og.getDrawable() instanceof h) {
+            Og = (h) Og.getDrawable();
         }
-        if (Mp.getDrawable() instanceof o) {
-            return (o) Mp.getDrawable();
+        if (Og.getDrawable() instanceof o) {
+            return (o) Og.getDrawable();
         }
-        return Mp;
+        return Og;
     }
 
     private void b(int i, @Nullable Drawable drawable) {
         if (drawable == null) {
-            this.nPg.a(i, null);
+            this.oGz.a(i, null);
             return;
         }
-        Mv(i).setDrawable(e.a(drawable, this.nPe, this.mResources));
+        Om(i).setDrawable(e.a(drawable, this.oGx, this.mResources));
     }
 
-    private o Mw(int i) {
-        com.facebook.drawee.drawable.c Mv = Mv(i);
-        return Mv instanceof o ? (o) Mv : e.a(Mv, p.b.nOT);
+    private o On(int i) {
+        com.facebook.drawee.drawable.c Om = Om(i);
+        return Om instanceof o ? (o) Om : e.a(Om, p.b.oGm);
     }
 
     public void b(p.b bVar) {
         com.facebook.common.internal.g.checkNotNull(bVar);
-        Mw(2).a(bVar);
+        On(2).a(bVar);
     }
 
-    public void m(@Nullable Drawable drawable) {
+    public void r(@Nullable Drawable drawable) {
         b(1, drawable);
     }
 
     public void b(Drawable drawable, p.b bVar) {
         b(1, drawable);
-        Mw(1).a(bVar);
+        On(1).a(bVar);
     }
 
-    public void Mx(int i) {
-        m(this.mResources.getDrawable(i));
+    public void Oo(int i) {
+        r(this.mResources.getDrawable(i));
     }
 
     public void a(int i, p.b bVar) {
@@ -239,33 +239,33 @@ public class a implements com.facebook.drawee.d.c {
 
     public void c(Drawable drawable, p.b bVar) {
         b(5, drawable);
-        Mw(5).a(bVar);
+        On(5).a(bVar);
     }
 
-    public void My(int i) {
+    public void Op(int i) {
         setFailureImage(this.mResources.getDrawable(i));
     }
 
     public void d(Drawable drawable, p.b bVar) {
         b(4, drawable);
-        Mw(4).a(bVar);
+        On(4).a(bVar);
     }
 
     public void e(Drawable drawable, p.b bVar) {
         b(3, drawable);
-        Mw(3).a(bVar);
+        On(3).a(bVar);
     }
 
     public void a(@Nullable RoundingParams roundingParams) {
-        this.nPe = roundingParams;
-        e.a((com.facebook.drawee.drawable.c) this.nPf, this.nPe);
-        for (int i = 0; i < this.nPg.dXZ(); i++) {
-            e.a(Mv(i), this.nPe, this.mResources);
+        this.oGx = roundingParams;
+        e.a((com.facebook.drawee.drawable.c) this.oGy, this.oGx);
+        for (int i = 0; i < this.oGz.ehX(); i++) {
+            e.a(Om(i), this.oGx, this.mResources);
         }
     }
 
     @Nullable
-    public RoundingParams dYp() {
-        return this.nPe;
+    public RoundingParams ein() {
+        return this.oGx;
     }
 }

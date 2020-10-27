@@ -4,7 +4,7 @@ import org.json.JSONObject;
 import tbclient.VideoDesc;
 /* loaded from: classes.dex */
 public class ce {
-    public static VideoDesc dd(JSONObject jSONObject) {
+    public static VideoDesc dg(JSONObject jSONObject) {
         VideoDesc.Builder builder = new VideoDesc.Builder();
         if (jSONObject != null) {
             builder.video_id = Integer.valueOf(jSONObject.optInt("video_id"));

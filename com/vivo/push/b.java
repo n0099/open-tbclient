@@ -18,7 +18,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public final class b implements ServiceConnection {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Object f4632a = new Object();
+    private static final Object f4630a = new Object();
     private static Map<String, b> b = new HashMap();
     private boolean c;
     private String d;
@@ -48,7 +48,7 @@ public final class b implements ServiceConnection {
     public static b a(Context context, String str) {
         b bVar = b.get(str);
         if (bVar == null) {
-            synchronized (f4632a) {
+            synchronized (f4630a) {
                 bVar = b.get(str);
                 if (bVar == null) {
                     bVar = new b(context, str);

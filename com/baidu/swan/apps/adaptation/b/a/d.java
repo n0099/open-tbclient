@@ -5,19 +5,19 @@ import android.util.Log;
 /* loaded from: classes10.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public long chl;
-    public long chm;
-    public volatile long chn;
-    public long cho;
-    public long chp;
-    private long chq;
-    public String chr = "1";
+    public long cpM;
+    public long cpN;
+    public volatile long cpO;
+    public long cpP;
+    public long cpQ;
+    private long cpR;
+    public String cpS = "1";
 
-    public long aeA() {
-        if (this.chq > 0) {
-            return this.chq;
+    public long agu() {
+        if (this.cpR > 0) {
+            return this.cpR;
         }
-        long[] jArr = {this.cho, this.chp, this.chm};
+        long[] jArr = {this.cpP, this.cpQ, this.cpN};
         int length = jArr.length;
         int i = 0;
         long j = Long.MAX_VALUE;
@@ -30,42 +30,42 @@ public class d {
             j = j2;
         }
         if (j != Long.MAX_VALUE) {
-            this.chq = j;
+            this.cpR = j;
         }
-        return this.chq;
+        return this.cpR;
     }
 
-    public final void aeB() {
-        if (this.chn > 0 && this.chn != this.cho && this.chn != this.chp && this.chn != this.chm) {
+    public final void agv() {
+        if (this.cpO > 0 && this.cpO != this.cpP && this.cpO != this.cpQ && this.cpO != this.cpN) {
             if (DEBUG) {
-                Log.d("WebViewPaintTiming", "tryCalibrateFmp: miss with real fmp=" + this.chn);
+                Log.d("WebViewPaintTiming", "tryCalibrateFmp: miss with real fmp=" + this.cpO);
             }
-        } else if (this.cho > 0) {
+        } else if (this.cpP > 0) {
             if (DEBUG) {
-                Log.d("WebViewPaintTiming", "tryCalibrateFmp: hit with ftp=" + this.cho);
+                Log.d("WebViewPaintTiming", "tryCalibrateFmp: hit with ftp=" + this.cpP);
             }
-            this.chn = this.cho;
-            this.chr = "2";
-        } else if (this.chp > 0) {
+            this.cpO = this.cpP;
+            this.cpS = "2";
+        } else if (this.cpQ > 0) {
             if (DEBUG) {
-                Log.d("WebViewPaintTiming", "tryCalibrateFmp: hit with fip=" + this.chp);
+                Log.d("WebViewPaintTiming", "tryCalibrateFmp: hit with fip=" + this.cpQ);
             }
-            this.chn = this.chp;
-            this.chr = "3";
-        } else if (this.chm > 0) {
+            this.cpO = this.cpQ;
+            this.cpS = "3";
+        } else if (this.cpN > 0) {
             if (DEBUG) {
-                Log.d("WebViewPaintTiming", "tryCalibrateFmp: hit with fcp=" + this.chm);
+                Log.d("WebViewPaintTiming", "tryCalibrateFmp: hit with fcp=" + this.cpN);
             }
-            this.chn = this.chm;
-            this.chr = "1";
+            this.cpO = this.cpN;
+            this.cpS = "1";
         } else if (DEBUG) {
             throw new RuntimeException("ftp fcp fip 至少收到上述一个回调才能校准 fmp \n" + toString());
         }
     }
 
     @NonNull
-    public String aeC() {
-        String str = this.chr;
+    public String agw() {
+        String str = this.cpS;
         char c = 65535;
         switch (str.hashCode()) {
             case 48:
@@ -107,20 +107,20 @@ public class d {
         }
     }
 
-    public String aV(long j) {
-        if (j == this.cho) {
+    public String aX(long j) {
+        if (j == this.cpP) {
             return "2";
         }
-        if (j == this.chp) {
+        if (j == this.cpQ) {
             return "3";
         }
-        if (j != this.chm && j == this.chn) {
+        if (j != this.cpN && j == this.cpO) {
             return "0";
         }
         return "1";
     }
 
     public String toString() {
-        return "WebViewPaintTiming{fp=" + this.chl + ", fcp=" + this.chm + ", fmp=" + this.chn + ", ftp=" + this.cho + ", fip=" + this.chp + ", mMinCache=" + this.chq + ", fmpType='" + this.chr + "', fmpTypeName='" + aeC() + "'}";
+        return "WebViewPaintTiming{fp=" + this.cpM + ", fcp=" + this.cpN + ", fmp=" + this.cpO + ", ftp=" + this.cpP + ", fip=" + this.cpQ + ", mMinCache=" + this.cpR + ", fmpType='" + this.cpS + "', fmpTypeName='" + agw() + "'}";
     }
 }

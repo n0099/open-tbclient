@@ -7,7 +7,7 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class GetNuomiOrderHttpResponsedMessage extends JsonHttpResponsedMessage {
-    private HashMap<String, String> gxB;
+    private HashMap<String, String> gJp;
     private String orderId;
 
     public GetNuomiOrderHttpResponsedMessage() {
@@ -18,28 +18,28 @@ public class GetNuomiOrderHttpResponsedMessage extends JsonHttpResponsedMessage 
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            this.gxB = new HashMap<>();
+            this.gJp = new HashMap<>();
             this.orderId = jSONObject.optString("tpOrderId");
-            this.gxB.put("dealId", jSONObject.optString("dealId"));
-            this.gxB.put("appKey", jSONObject.optString("appKey"));
-            this.gxB.put("tpOrderId", jSONObject.optString("tpOrderId"));
-            this.gxB.put("timestamp", jSONObject.optString("timestamp"));
-            this.gxB.put("totalAmount", jSONObject.optString("totalAmount"));
-            this.gxB.put(CashierData.RETURN_URL, jSONObject.optString(CashierData.RETURN_URL));
-            this.gxB.put(TbEnum.SystemMessage.KEY_USER_ID, jSONObject.optString(TbEnum.SystemMessage.KEY_USER_ID));
-            this.gxB.put(CashierData.NOTIFY_URL, jSONObject.optString(CashierData.NOTIFY_URL));
-            this.gxB.put("dealTitle", jSONObject.optString("dealTitle"));
-            this.gxB.put("returnData", jSONObject.optString("returnData"));
-            this.gxB.put("nativeAppId", jSONObject.optString("nativeAppId"));
-            this.gxB.put("channel", jSONObject.optString("channel"));
-            this.gxB.put(CashierData.DEVICE_TYPE, jSONObject.optString(CashierData.DEVICE_TYPE));
-            this.gxB.put("rsaSign", jSONObject.optString("rsaSign"));
-            this.gxB.put("bizInfo", jSONObject.optString("bizInfo"));
+            this.gJp.put("dealId", jSONObject.optString("dealId"));
+            this.gJp.put("appKey", jSONObject.optString("appKey"));
+            this.gJp.put("tpOrderId", jSONObject.optString("tpOrderId"));
+            this.gJp.put("timestamp", jSONObject.optString("timestamp"));
+            this.gJp.put("totalAmount", jSONObject.optString("totalAmount"));
+            this.gJp.put(CashierData.RETURN_URL, jSONObject.optString(CashierData.RETURN_URL));
+            this.gJp.put(TbEnum.SystemMessage.KEY_USER_ID, jSONObject.optString(TbEnum.SystemMessage.KEY_USER_ID));
+            this.gJp.put(CashierData.NOTIFY_URL, jSONObject.optString(CashierData.NOTIFY_URL));
+            this.gJp.put("dealTitle", jSONObject.optString("dealTitle"));
+            this.gJp.put("returnData", jSONObject.optString("returnData"));
+            this.gJp.put("nativeAppId", jSONObject.optString("nativeAppId"));
+            this.gJp.put("channel", jSONObject.optString("channel"));
+            this.gJp.put(CashierData.DEVICE_TYPE, jSONObject.optString(CashierData.DEVICE_TYPE));
+            this.gJp.put("rsaSign", jSONObject.optString("rsaSign"));
+            this.gJp.put("bizInfo", jSONObject.optString("bizInfo"));
         }
     }
 
-    public HashMap<String, String> bPK() {
-        return this.gxB;
+    public HashMap<String, String> bSH() {
+        return this.gJp;
     }
 
     public String getOrderId() {

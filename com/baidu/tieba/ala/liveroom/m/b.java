@@ -13,81 +13,81 @@ import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tieba.ala.liveroom.m.a;
 /* loaded from: classes4.dex */
 public class b {
-    private Activity bFt;
-    private CustomMessageListener bFv;
-    private a.InterfaceC0649a gRn;
-    private a gRp;
+    private Activity bIs;
+    private CustomMessageListener bIu;
+    private a.InterfaceC0665a hda;
+    private a hdc;
 
     public b(Activity activity) {
-        this.bFt = activity;
-        Ty();
+        this.bIs = activity;
+        Uy();
     }
 
-    public void eo(String str, String str2) {
-        this.gRp = new a(this.bFt);
-        this.gRp.a(this.gRn);
-        this.gRp.Tz().setBackgroundColor(hH(str));
+    public void ev(String str, String str2) {
+        this.hdc = new a(this.bIs);
+        this.hdc.a(this.hda);
+        this.hdc.Uz().setBackgroundColor(hP(str));
         g gVar = new g();
-        gVar.x(this.bFt).a(this.gRp).a(this.gRp.Tz().getSchemeCallback());
-        com.baidu.live.view.web.a[] Tx = gVar.Tx();
-        for (com.baidu.live.view.web.a aVar : Tx) {
-            this.gRp.Tz().addJavascriptInterface(aVar, aVar.getName());
+        gVar.x(this.bIs).a(this.hdc).a(this.hdc.Uz().getSchemeCallback());
+        com.baidu.live.view.web.a[] Ux = gVar.Ux();
+        for (com.baidu.live.view.web.a aVar : Ux) {
+            this.hdc.Uz().addJavascriptInterface(aVar, aVar.getName());
         }
-        if (!this.gRp.isShowing()) {
-            this.gRp.en(str, str2);
+        if (!this.hdc.isShowing()) {
+            this.hdc.eu(str, str2);
         }
     }
 
     public void resume() {
-        if (this.gRp != null && this.gRp.isShowing() && this.gRp.Tz() != null) {
-            this.gRp.Tz().onResume();
+        if (this.hdc != null && this.hdc.isShowing() && this.hdc.Uz() != null) {
+            this.hdc.Uz().onResume();
         }
     }
 
     public void pause() {
-        if (this.gRp != null && this.gRp.isShowing() && this.gRp.Tz() != null) {
-            this.gRp.Tz().onPause();
+        if (this.hdc != null && this.hdc.isShowing() && this.hdc.Uz() != null) {
+            this.hdc.Uz().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.gRp != null) {
-            this.gRp.TA();
+        if (this.hdc != null) {
+            this.hdc.UA();
         }
     }
 
     public void dI(int i) {
-        if (this.gRp != null && this.gRp.isShowing()) {
-            this.gRp.dI(i);
+        if (this.hdc != null && this.hdc.isShowing()) {
+            this.hdc.dI(i);
         }
     }
 
-    public void Gx() {
+    public void GS() {
         dismiss();
     }
 
     public void release() {
-        Gx();
-        MessageManager.getInstance().unRegisterListener(this.bFv);
-        this.bFv = null;
+        GS();
+        MessageManager.getInstance().unRegisterListener(this.bIu);
+        this.bIu = null;
     }
 
-    private void Ty() {
-        if (this.bFv == null) {
-            this.bFv = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.m.b.1
+    private void Uy() {
+        if (this.bIu == null) {
+            this.bIu = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.m.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (b.this.gRp != null && b.this.gRp.isShowing()) {
-                        b.this.gRp.dismiss();
+                    if (b.this.hdc != null && b.this.hdc.isShowing()) {
+                        b.this.hdc.dismiss();
                     }
                 }
             };
-            MessageManager.getInstance().registerListener(this.bFv);
+            MessageManager.getInstance().registerListener(this.bIu);
         }
     }
 
-    private int hH(String str) {
+    private int hP(String str) {
         int indexOf;
         String queryParameter = Uri.parse(str).getQueryParameter("background");
         if ((TextUtils.isEmpty(queryParameter) || queryParameter.length() != 8) && (indexOf = str.indexOf("background=")) >= 0 && indexOf + 19 <= str.length()) {
@@ -104,11 +104,11 @@ public class b {
         }
     }
 
-    public void a(a.InterfaceC0649a interfaceC0649a) {
-        this.gRn = interfaceC0649a;
+    public void a(a.InterfaceC0665a interfaceC0665a) {
+        this.hda = interfaceC0665a;
     }
 
-    public a.InterfaceC0649a bWI() {
-        return this.gRn;
+    public a.InterfaceC0665a bZH() {
+        return this.hda;
     }
 }

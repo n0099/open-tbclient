@@ -8,56 +8,36 @@ import com.baidu.ar.arplay.core.engine.ARPScriptEnvironment;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 /* loaded from: classes.dex */
 public class a {
-    private String Oc;
-    protected String Or;
-    protected String Ou;
-    protected j Ow;
-    private StringBuffer Od = new StringBuffer();
+    private String Od;
+    protected String Os;
+    protected String Ov;
+    protected j Ox;
     private StringBuffer Oe = new StringBuffer();
     private StringBuffer Of = new StringBuffer();
-    private int Og = 0;
+    private StringBuffer Og = new StringBuffer();
     private int Oh = 0;
     private int Oi = 0;
-    private long NP = 0;
-    private long Oj = 0;
+    private int Oj = 0;
+    private long NQ = 0;
     private long Ok = 0;
-    protected long Ol = 0;
-    private long Om = 0;
+    private long Ol = 0;
+    protected long Om = 0;
     private long Oo = 0;
     private long Op = 0;
-    protected int Oq = 50;
-    protected final String Os = BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
+    private long Oq = 0;
+    protected int Or = 50;
+    protected final String Ot = BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
     protected boolean mUseSdCard = false;
-    protected boolean Ot = false;
+    protected boolean Ou = false;
     protected boolean mMustSuccess = false;
     private boolean isUploading = false;
-    private boolean Ov = false;
+    private boolean Ow = false;
 
     public a(j jVar) {
-        this.Ow = jVar;
+        this.Ox = jVar;
     }
 
     public synchronized void a(com.baidu.adp.lib.stats.a aVar) {
-        if (aVar != null) {
-            try {
-                try {
-                    this.Od.append(aVar.toString());
-                    this.Od.append("\r\n");
-                    this.Og++;
-                } catch (Exception e) {
-                    BdLog.e(e);
-                }
-            } catch (OutOfMemoryError e2) {
-                e2.printStackTrace();
-            }
-        }
-        if (this.Ow != null) {
-            this.Ow.o(this);
-        }
-        this.NP = System.currentTimeMillis();
-    }
-
-    public synchronized void b(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
             try {
                 try {
@@ -71,19 +51,39 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        if (this.Ow != null) {
-            this.Ow.o(this);
+        if (this.Ox != null) {
+            this.Ox.o(this);
         }
-        this.Oj = System.currentTimeMillis();
+        this.NQ = System.currentTimeMillis();
+    }
+
+    public synchronized void b(com.baidu.adp.lib.stats.a aVar) {
+        if (aVar != null) {
+            try {
+                try {
+                    this.Of.append(aVar.toString());
+                    this.Of.append("\r\n");
+                    this.Oi++;
+                } catch (Exception e) {
+                    BdLog.e(e);
+                }
+            } catch (OutOfMemoryError e2) {
+                e2.printStackTrace();
+            }
+        }
+        if (this.Ox != null) {
+            this.Ox.o(this);
+        }
+        this.Ok = System.currentTimeMillis();
     }
 
     public synchronized void c(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
             try {
                 if (aVar.nb() != null) {
-                    this.Of.append(aVar.nb().no().toString());
-                    this.Of.append("\r\n");
-                    this.Oi++;
+                    this.Og.append(aVar.nb().no().toString());
+                    this.Og.append("\r\n");
+                    this.Oj++;
                 }
             } catch (Exception e) {
                 BdLog.e(e);
@@ -91,59 +91,59 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        if (this.Ow != null) {
-            this.Ow.o(this);
+        if (this.Ox != null) {
+            this.Ox.o(this);
         }
-        this.Ok = System.currentTimeMillis();
+        this.Ol = System.currentTimeMillis();
     }
 
     public int nq() {
-        return this.Og;
-    }
-
-    public int nr() {
         return this.Oh;
     }
 
-    public int ns() {
+    public int nr() {
         return this.Oi;
     }
 
-    public long nt() {
-        return this.Ol;
-    }
-
-    public void J(long j) {
-        this.Ol = j;
-    }
-
-    public long nu() {
-        return this.NP;
-    }
-
-    public long nv() {
+    public int ns() {
         return this.Oj;
     }
 
-    public long nw() {
+    public long nt() {
+        return this.Om;
+    }
+
+    public void J(long j) {
+        this.Om = j;
+    }
+
+    public long nu() {
+        return this.NQ;
+    }
+
+    public long nv() {
         return this.Ok;
     }
 
+    public long nw() {
+        return this.Ol;
+    }
+
     public String nx() {
-        if (TextUtils.isEmpty(this.Ou)) {
+        if (TextUtils.isEmpty(this.Ov)) {
             StringBuilder sb = new StringBuilder(30);
-            sb.append(this.Or);
+            sb.append(this.Os);
             sb.append(BdStatisticsManager.getInstance().getProcessName());
             sb.append("Writing");
             sb.append(BdStatsConstant.StatsFile.LOG_FILE_SUFFIX);
-            this.Ou = sb.toString();
+            this.Ov = sb.toString();
         }
-        return this.Ou;
+        return this.Ov;
     }
 
     public String ny() {
         StringBuilder sb = new StringBuilder(40);
-        sb.append(this.Or);
+        sb.append(this.Os);
         sb.append(System.currentTimeMillis());
         sb.append(BdStatisticsManager.getInstance().getProcessName());
         sb.append("Uploading");
@@ -152,55 +152,55 @@ public class a {
     }
 
     public long nz() {
-        return this.Om;
-    }
-
-    public long nA() {
         return this.Oo;
     }
 
-    public long nB() {
+    public long nA() {
         return this.Op;
     }
 
-    public void K(long j) {
-        this.Om = j;
+    public long nB() {
+        return this.Oq;
     }
 
-    public void L(long j) {
+    public void K(long j) {
         this.Oo = j;
     }
 
-    public void M(long j) {
+    public void L(long j) {
         this.Op = j;
     }
 
-    public synchronized void nC() {
-        this.Od = new StringBuffer();
-        this.Og = 0;
-        this.Om = 0L;
+    public void M(long j) {
+        this.Oq = j;
     }
 
-    public synchronized void nD() {
+    public synchronized void nC() {
         this.Oe = new StringBuffer();
         this.Oh = 0;
         this.Oo = 0L;
     }
 
-    public synchronized void nE() {
+    public synchronized void nD() {
         this.Of = new StringBuffer();
         this.Oi = 0;
         this.Op = 0L;
     }
 
+    public synchronized void nE() {
+        this.Og = new StringBuffer();
+        this.Oj = 0;
+        this.Oq = 0L;
+    }
+
     public void cb(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.Oc = str;
+            this.Od = str;
         }
     }
 
     public String nF() {
-        return this.Oc;
+        return this.Od;
     }
 
     public boolean nG() {
@@ -212,11 +212,11 @@ public class a {
     }
 
     public boolean nH() {
-        return this.Ov;
+        return this.Ow;
     }
 
     public void as(boolean z) {
-        this.Ov = z;
+        this.Ow = z;
     }
 
     public String nI() {
@@ -228,15 +228,15 @@ public class a {
     }
 
     public StringBuffer nK() {
-        return this.Od;
-    }
-
-    public StringBuffer nL() {
         return this.Oe;
     }
 
-    public StringBuffer nM() {
+    public StringBuffer nL() {
         return this.Of;
+    }
+
+    public StringBuffer nM() {
+        return this.Og;
     }
 
     public boolean nN() {
@@ -244,7 +244,7 @@ public class a {
     }
 
     public boolean nO() {
-        return this.Ot;
+        return this.Ou;
     }
 
     public boolean nP() {
@@ -252,7 +252,7 @@ public class a {
     }
 
     public String nQ() {
-        return this.Or;
+        return this.Os;
     }
 
     public static String cc(String str) {

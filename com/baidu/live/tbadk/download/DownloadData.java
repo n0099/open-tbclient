@@ -4,6 +4,7 @@ import java.io.Serializable;
 /* loaded from: classes4.dex */
 public class DownloadData implements Serializable, Cloneable {
     public static final int FILE_DOWNLOAD_STATUS_CANCEL = 4;
+    public static final int FILE_DOWNLOAD_STATUS_CANCEL_STORAGE_OPT = 6;
     public static final int FILE_DOWNLOAD_STATUS_DOWNLOADING = 1;
     public static final int FILE_DOWNLOAD_STATUS_EXIST = 3;
     public static final int FILE_DOWNLOAD_STATUS_FAILED = 2;
@@ -11,7 +12,6 @@ public class DownloadData implements Serializable, Cloneable {
     public static final int FILE_DOWNLOAD_STATUS_INSTALLED = 8;
     public static final int FILE_DOWNLOAD_STATUS_PAUSE = 7;
     public static final int FILE_DOWNLOAD_STATUS_SUCEED = 0;
-    public static final int FILE_DOWNLOAD_STATUS_UNDOWNLOAD = 6;
     public static final int FILE_DOWNLOAD_TYPE_ALA_IM_RECORD = 16;
     public static final int FILE_DOWNLOAD_TYPE_APP = 12;
     public static final int FILE_DOWNLOAD_TYPE_DYNAMIC = 19;

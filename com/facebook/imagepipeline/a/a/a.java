@@ -6,6 +6,6 @@ import okhttp3.OkHttpClient;
 /* loaded from: classes19.dex */
 public class a {
     public static h.a a(Context context, OkHttpClient okHttpClient) {
-        return h.gI(context).a(new b(okHttpClient));
+        return h.hc(context).a(new b(okHttpClient));
     }
 }

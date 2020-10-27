@@ -17,13 +17,13 @@ import java.util.Iterator;
 public class b implements a.a.a.b.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f955a;
+    public final String f952a;
     public volatile int c;
     public volatile long d;
     public final a.InterfaceC0000a yx;
 
     public b(String str, a.InterfaceC0000a interfaceC0000a) {
-        this.f955a = str;
+        this.f952a = str;
         this.yx = interfaceC0000a;
     }
 
@@ -34,7 +34,7 @@ public class b implements a.a.a.b.a.a {
         try {
             try {
                 try {
-                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.f955a).openConnection();
+                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.f952a).openConnection();
                     try {
                         httpURLConnection2.setConnectTimeout(4000);
                         httpURLConnection2.setReadTimeout(4000);

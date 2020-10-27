@@ -7,13 +7,13 @@ import java.io.File;
 import java.io.FileOutputStream;
 /* loaded from: classes10.dex */
 public final class BdLog {
-    private static FileOutputStream afg;
+    private static FileOutputStream afh;
     private static boolean sDebug = true;
-    private static boolean afh = false;
-    private static String afi = Environment.getExternalStorageDirectory() + File.separator + "baidu" + File.separator + "flyflow" + File.separator + TbConfig.TMP_LOG_DIR_NAME + File.separator;
-    private static String afj = afi + "baiduliulanqi_log.txt";
-    private static String afk = afi + "baiduliulanqi_lasttime_log.txt";
-    private static boolean afl = false;
+    private static boolean afi = false;
+    private static String afj = Environment.getExternalStorageDirectory() + File.separator + "baidu" + File.separator + "flyflow" + File.separator + TbConfig.TMP_LOG_DIR_NAME + File.separator;
+    private static String afk = afj + "baiduliulanqi_log.txt";
+    private static String afl = afj + "baiduliulanqi_lasttime_log.txt";
+    private static boolean afm = false;
 
     /* loaded from: classes10.dex */
     private enum LogLevel {
@@ -88,7 +88,7 @@ public final class BdLog {
                     break;
                 }
         }
-        if (afh) {
+        if (afi) {
             R(str, str2);
         }
     }
@@ -96,15 +96,15 @@ public final class BdLog {
     private static void R(String str, String str2) {
         if (Environment.getExternalStorageState().equals("mounted")) {
             try {
-                File file = new File(afi);
+                File file = new File(afj);
                 if (!file.exists()) {
                     file.mkdirs();
                 }
-                if (afg == null) {
-                    afg = new FileOutputStream(afj);
+                if (afh == null) {
+                    afh = new FileOutputStream(afk);
                 }
-                afg.write((str + " : " + str2).getBytes("UTF-8"));
-                afg.write("\n".getBytes());
+                afh.write((str + " : " + str2).getBytes("UTF-8"));
+                afh.write("\n".getBytes());
             } catch (Exception e) {
                 e.printStackTrace();
             }

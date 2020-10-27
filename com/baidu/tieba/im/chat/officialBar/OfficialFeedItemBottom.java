@@ -12,8 +12,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.message.chat.a;
 /* loaded from: classes26.dex */
 public class OfficialFeedItemBottom extends LinearLayout {
-    private TextView jGT;
-    private TextView jGU;
+    private TextView jTs;
+    private TextView jTt;
     private Context mContext;
 
     public OfficialFeedItemBottom(Context context) {
@@ -29,31 +29,31 @@ public class OfficialFeedItemBottom extends LinearLayout {
     private void initView() {
         setOrientation(1);
         LayoutInflater.from(this.mContext).inflate(R.layout.official_feed_item_bottom, (ViewGroup) this, true);
-        this.jGT = (TextView) findViewById(R.id.message_no_image_title);
-        this.jGU = (TextView) findViewById(R.id.message_info);
-        cJJ();
+        this.jTs = (TextView) findViewById(R.id.message_no_image_title);
+        this.jTt = (TextView) findViewById(R.id.message_info);
+        cMQ();
     }
 
-    public void cJJ() {
-        ap.setViewTextColor(this.jGU, R.color.cp_cont_j);
-        ap.setViewTextColor(this.jGT, R.color.cp_cont_b);
+    public void cMQ() {
+        ap.setViewTextColor(this.jTt, R.color.cp_cont_j);
+        ap.setViewTextColor(this.jTs, R.color.cp_cont_b);
     }
 
-    public void setData(a.C0734a c0734a, boolean z) {
-        int i = TextUtils.isEmpty(c0734a.text) ? 8 : 0;
-        this.jGT.setText(c0734a.title);
-        this.jGU.setText(c0734a.text);
-        this.jGU.setVisibility(i);
+    public void setData(a.C0750a c0750a, boolean z) {
+        int i = TextUtils.isEmpty(c0750a.text) ? 8 : 0;
+        this.jTs.setText(c0750a.title);
+        this.jTt.setText(c0750a.text);
+        this.jTt.setVisibility(i);
         if (z) {
-            this.jGT.setVisibility(8);
+            this.jTs.setVisibility(8);
         } else {
-            this.jGT.setVisibility(0);
+            this.jTs.setVisibility(0);
         }
     }
 
-    public void BW(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.jGU.getLayoutParams();
+    public void Cp(int i) {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.jTt.getLayoutParams();
         layoutParams.topMargin = i;
-        this.jGU.setLayoutParams(layoutParams);
+        this.jTt.setLayoutParams(layoutParams);
     }
 }

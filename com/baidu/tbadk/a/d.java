@@ -10,118 +10,118 @@ import com.baidu.tbadk.a.a.k;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
-    private static Boolean efA = null;
+    private static Boolean enY = null;
 
     public static boolean a(BdUniqueId bdUniqueId, String... strArr) {
         return a(j(bdUniqueId), strArr);
     }
 
     public static boolean a(e eVar, String... strArr) {
-        if (eVar == null || TextUtils.isEmpty(eVar.efB)) {
+        if (eVar == null || TextUtils.isEmpty(eVar.enZ)) {
             return false;
         }
         for (String str : strArr) {
-            if (eVar.efB.equalsIgnoreCase(str)) {
+            if (eVar.enZ.equalsIgnoreCase(str)) {
                 return true;
             }
         }
         return false;
     }
 
-    public static boolean zh(String str) {
-        e zg = c.bdk().zg(str);
-        return (zg == null || TextUtils.isEmpty(zg.efB) || !zg.efB.equalsIgnoreCase(str)) ? false : true;
+    public static boolean zA(String str) {
+        e zz = c.bfd().zz(str);
+        return (zz == null || TextUtils.isEmpty(zz.enZ) || !zz.enZ.equalsIgnoreCase(str)) ? false : true;
     }
 
-    public static Map<BdUniqueId, e> bdl() {
-        return c.bdk().bdl();
+    public static Map<BdUniqueId, e> bfe() {
+        return c.bfd().bfe();
     }
 
     public static e j(BdUniqueId bdUniqueId) {
-        return c.bdk().j(bdUniqueId);
+        return c.bfd().j(bdUniqueId);
     }
 
-    public static boolean bdq() {
-        return k.D("70_3");
+    public static boolean bfj() {
+        return k.E("70_3");
     }
 
-    public static boolean bdr() {
-        return a(h.efC, "11_7_pb_b");
+    public static boolean bfk() {
+        return a(h.eoa, "11_7_pb_b");
     }
 
-    public static boolean bds() {
-        return a(h.efC, "11_7_pb_c");
+    public static boolean bfl() {
+        return a(h.eoa, "11_7_pb_c");
     }
 
-    public static boolean bdt() {
-        return a(h.efC, "11_7_pb_d");
+    public static boolean bfm() {
+        return a(h.eoa, "11_7_pb_d");
     }
 
-    public static boolean bdu() {
+    public static boolean bfn() {
         return true;
     }
 
-    public static boolean bdv() {
-        return a(com.baidu.tbadk.a.a.e.efC, "11_7_index_b");
+    public static boolean bfo() {
+        return a(com.baidu.tbadk.a.a.e.eoa, "11_7_index_b");
     }
 
-    public static boolean bdw() {
-        return a(f.efC, "11_8_hot_a");
+    public static boolean bfp() {
+        return a(f.eoa, "11_8_hot_a");
     }
 
-    public static boolean bdx() {
-        return a(f.efC, "11_8_hot_b");
+    public static boolean bfq() {
+        return a(f.eoa, "11_8_hot_b");
     }
 
-    public static boolean bdy() {
-        return a(i.efC, "11_9_pb_gif_size_a");
+    public static boolean bfr() {
+        return a(i.eoa, "11_9_pb_gif_size_a");
     }
 
-    public static boolean bdz() {
-        return a(com.baidu.tbadk.a.a.b.efC, "11_9_backuser_a");
+    public static boolean bfs() {
+        return a(com.baidu.tbadk.a.a.b.eoa, "11_9_backuser_a");
     }
 
-    public static boolean bdA() {
-        return zh("11_9_post_thread_title_out_a");
+    public static boolean bft() {
+        return zA("11_9_post_thread_title_out_a");
     }
 
-    public static boolean bdB() {
-        return bdu();
+    public static boolean bfu() {
+        return bfn();
     }
 
-    public static boolean bdC() {
+    public static boolean bfv() {
         return false;
     }
 
-    public static boolean bdD() {
-        return bdr() || bds();
+    public static boolean bfw() {
+        return bfk() || bfl();
     }
 
-    public static boolean bdE() {
+    public static boolean bfx() {
         return true;
     }
 
-    public static boolean bdF() {
+    public static boolean bfy() {
         return true;
     }
 
-    public static boolean bdG() {
-        return a(com.baidu.tbadk.a.a.d.efC, "11_9_frs_page_guide_a");
+    public static boolean bfz() {
+        return a(com.baidu.tbadk.a.a.d.eoa, "11_9_frs_page_guide_a");
     }
 
-    public static boolean bdH() {
-        return bdI() || bdJ();
+    public static boolean bfA() {
+        return bfB() || bfC();
     }
 
-    public static boolean bdI() {
-        return a(j.efC, "11_9_discover_hot_card_slogan");
+    public static boolean bfB() {
+        return a(j.eoa, "11_9_discover_hot_card_slogan");
     }
 
-    public static boolean bdJ() {
-        return a(j.efC, "11_9_discover_hot_card_hot_text");
+    public static boolean bfC() {
+        return a(j.eoa, "11_9_discover_hot_card_hot_text");
     }
 
-    public static boolean bdK() {
-        return a(com.baidu.tbadk.a.a.c.efC, "11_10_user_like_tab_a") || a(com.baidu.tbadk.a.a.c.efC, "11_10_user_like_tab_b");
+    public static boolean bfD() {
+        return a(com.baidu.tbadk.a.a.c.eoa, "11_10_user_like_tab_a") || a(com.baidu.tbadk.a.a.c.eoa, "11_10_user_like_tab_b");
     }
 }

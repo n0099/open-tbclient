@@ -11,8 +11,8 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes6.dex */
 public final class a<T> implements Closeable, Cloneable {
-    private static Class<a> nJf = a.class;
-    private static final c<Closeable> nKL = new c<Closeable>() { // from class: com.facebook.common.references.a.1
+    private static Class<a> oAy = a.class;
+    private static final c<Closeable> oCe = new c<Closeable>() { // from class: com.facebook.common.references.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.common.references.c
         /* renamed from: f */
@@ -24,16 +24,16 @@ public final class a<T> implements Closeable, Cloneable {
         }
     };
     @GuardedBy("this")
-    private boolean QB = false;
-    private final SharedReference<T> nKK;
+    private boolean QC = false;
+    private final SharedReference<T> oCd;
 
     private a(SharedReference<T> sharedReference) {
-        this.nKK = (SharedReference) g.checkNotNull(sharedReference);
-        sharedReference.dWD();
+        this.oCd = (SharedReference) g.checkNotNull(sharedReference);
+        sharedReference.egB();
     }
 
     private a(T t, c<T> cVar) {
-        this.nKK = new SharedReference<>(t, cVar);
+        this.oCd = new SharedReference<>(t, cVar);
     }
 
     /* JADX WARN: Incorrect types in method signature: <T::Ljava/io/Closeable;>(TT;)Lcom/facebook/common/references/a<TT;>; */
@@ -41,7 +41,7 @@ public final class a<T> implements Closeable, Cloneable {
         if (closeable == null) {
             return null;
         }
-        return new a(closeable, nKL);
+        return new a(closeable, oCe);
     }
 
     public static <T> a<T> a(@PropagatesNullable T t, c<T> cVar) {
@@ -52,29 +52,29 @@ public final class a<T> implements Closeable, Cloneable {
     }
 
     public synchronized T get() {
-        g.checkState(!this.QB);
-        return this.nKK.get();
+        g.checkState(!this.QC);
+        return this.oCd.get();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: dWA */
+    /* renamed from: egy */
     public synchronized a<T> clone() {
         g.checkState(isValid());
-        return new a<>(this.nKK);
+        return new a<>(this.oCd);
     }
 
     @Nullable
-    public synchronized a<T> dWB() {
+    public synchronized a<T> egz() {
         return isValid() ? clone() : null;
     }
 
     public synchronized boolean isValid() {
-        return !this.QB;
+        return !this.QC;
     }
 
-    public int dWC() {
+    public int egA() {
         if (isValid()) {
-            return System.identityHashCode(this.nKK.get());
+            return System.identityHashCode(this.oCd.get());
         }
         return 0;
     }
@@ -82,9 +82,9 @@ public final class a<T> implements Closeable, Cloneable {
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
         synchronized (this) {
-            if (!this.QB) {
-                this.QB = true;
-                this.nKK.dWE();
+            if (!this.QC) {
+                this.QC = true;
+                this.oCd.egC();
             }
         }
     }
@@ -96,7 +96,7 @@ public final class a<T> implements Closeable, Cloneable {
     @Nullable
     public static <T> a<T> b(@Nullable a<T> aVar) {
         if (aVar != null) {
-            return aVar.dWB();
+            return aVar.egz();
         }
         return null;
     }
@@ -129,8 +129,8 @@ public final class a<T> implements Closeable, Cloneable {
     protected void finalize() throws Throwable {
         try {
             synchronized (this) {
-                if (!this.QB) {
-                    com.facebook.common.c.a.c(nJf, "Finalized without closing: %x %x (type = %s)", Integer.valueOf(System.identityHashCode(this)), Integer.valueOf(System.identityHashCode(this.nKK)), this.nKK.get().getClass().getName());
+                if (!this.QC) {
+                    com.facebook.common.c.a.c(oAy, "Finalized without closing: %x %x (type = %s)", Integer.valueOf(System.identityHashCode(this)), Integer.valueOf(System.identityHashCode(this.oCd)), this.oCd.get().getClass().getName());
                     close();
                 }
             }

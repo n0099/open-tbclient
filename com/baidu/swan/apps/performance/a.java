@@ -16,10 +16,10 @@ public class a implements com.baidu.swan.apps.ap.e.b<HybridUbcFlow> {
         if (DEBUG) {
             Log.i("FlowJarToH5Reporter", "report: flow=" + hybridUbcFlow);
         }
-        if (com.baidu.swan.apps.v.f.avu().avw()) {
-            if (DEBUG || com.baidu.swan.apps.v.f.avu().auY()) {
+        if (com.baidu.swan.apps.v.f.axo().axq()) {
+            if (DEBUG || com.baidu.swan.apps.v.f.axo().awS()) {
                 try {
-                    k.azp().bm(c(hybridUbcFlow));
+                    k.aBj().bp(c(hybridUbcFlow));
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -31,15 +31,15 @@ public class a implements com.baidu.swan.apps.ap.e.b<HybridUbcFlow> {
 
     private JSONObject c(HybridUbcFlow hybridUbcFlow) throws JSONException {
         JSONObject jSONObject = new JSONObject();
-        if (hybridUbcFlow != null && !hybridUbcFlow.cUr.isEmpty()) {
-            jSONObject.put("flowId", hybridUbcFlow.ayP());
+        if (hybridUbcFlow != null && !hybridUbcFlow.dcQ.isEmpty()) {
+            jSONObject.put("flowId", hybridUbcFlow.aAJ());
             JSONArray jSONArray = new JSONArray();
-            for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.cUr) {
-                if (!ubcFlowEvent.azs() && !TextUtils.isEmpty(ubcFlowEvent.id)) {
+            for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.dcQ) {
+                if (!ubcFlowEvent.aBm() && !TextUtils.isEmpty(ubcFlowEvent.id)) {
                     if (DEBUG) {
                         Log.i("FlowJarToH5Reporter", "buildJoMsg: event=" + ubcFlowEvent);
                     }
-                    jSONArray.put(new JSONObject().put("actionId", ubcFlowEvent.id).put("timestamp", ubcFlowEvent.azq()));
+                    jSONArray.put(new JSONObject().put("actionId", ubcFlowEvent.id).put("timestamp", ubcFlowEvent.aBk()));
                 }
             }
             jSONObject.put("data", jSONArray);

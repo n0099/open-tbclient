@@ -7,53 +7,53 @@ import com.baidu.swan.games.bdtls.model.i;
 import java.io.IOException;
 /* loaded from: classes10.dex */
 public abstract class b {
-    protected boolean dEd = false;
-    protected int dEe = 0;
-    private String dEf;
+    protected boolean dMA = false;
+    protected int dMB = 0;
+    private String dMC;
 
     public abstract void Y(byte[] bArr);
 
     public abstract void b(IOException iOException);
 
-    public abstract void lH(int i);
+    public abstract void lS(int i);
 
     public final String Z(byte[] bArr) {
         String str = new String(bArr);
         if (com.baidu.swan.games.bdtls.a.DEBUG) {
             Log.d("BDTLS", "processResponseData encodeResponseData=" + str);
         }
-        if (this.dEd) {
-            i a2 = com.baidu.swan.games.bdtls.d.aOG().a(e.aOH().aOI(), bArr);
+        if (this.dMA) {
+            i a2 = com.baidu.swan.games.bdtls.d.aQA().a(e.aQB().aQC(), bArr);
             if (a2 != null) {
                 if (!TextUtils.isEmpty(a2.getResponseMessage())) {
                     str = a2.getResponseMessage();
                 }
-                this.dEe = a2.aPF().intValue();
+                this.dMB = a2.aRz().intValue();
             } else {
-                this.dEe = -1;
+                this.dMB = -1;
             }
-            e.aOH().aOI().lG(this.dEe);
-            if (this.dEe == -1) {
-                com.baidu.swan.games.bdtls.c.aOF().setEnable(false);
+            e.aQB().aQC().lR(this.dMB);
+            if (this.dMB == -1) {
+                com.baidu.swan.games.bdtls.c.aQz().setEnable(false);
             }
         }
         return str;
     }
 
-    public final void vO(String str) {
-        this.dEe = 0;
-        com.baidu.swan.games.bdtls.c.aOF().a(str, this);
+    public final void wh(String str) {
+        this.dMB = 0;
+        com.baidu.swan.games.bdtls.c.aQz().a(str, this);
     }
 
-    public void gW(boolean z) {
-        this.dEd = z;
+    public void hj(boolean z) {
+        this.dMA = z;
     }
 
     public String getMethod() {
-        return this.dEf;
+        return this.dMC;
     }
 
-    public void vP(String str) {
-        this.dEf = str;
+    public void wi(String str) {
+        this.dMC = str;
     }
 }

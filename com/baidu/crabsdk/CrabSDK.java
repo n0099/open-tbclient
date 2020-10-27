@@ -279,7 +279,7 @@ public class CrabSDK {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        com.baidu.crabsdk.b.h.aoB = str;
+        com.baidu.crabsdk.b.h.aoC = str;
     }
 
     public static void setDebugAnrExpUrl(String str) {
@@ -295,7 +295,7 @@ public class CrabSDK {
     }
 
     public static void setDeveloperName(String str) {
-        a.f1336a = str;
+        a.f1333a = str;
     }
 
     public static void setEnableLog(boolean z) {
@@ -414,7 +414,7 @@ public class CrabSDK {
             str3 = "";
         }
         if (!TextUtils.isEmpty(str2)) {
-            com.baidu.crabsdk.b.h.aoB = str2;
+            com.baidu.crabsdk.b.h.aoC = str2;
         }
         return k.b(str.trim(), onUploadFilesCallback, "", "", str3);
     }

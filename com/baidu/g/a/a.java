@@ -7,12 +7,12 @@ import com.baidu.g.a.b.c;
 import com.baidu.g.a.b.d;
 /* loaded from: classes26.dex */
 public class a {
-    private static boolean aus;
     private static boolean aut;
+    private static boolean auu;
 
     public static void init(Context context) {
-        aus = h.oj().loadLibrary("criusbase", 2);
-        aut = h.oj().loadLibrary("crius", 2);
+        aut = h.oj().loadLibrary("criusbase", 2);
+        auu = h.oj().loadLibrary("crius", 2);
     }
 
     public static void a(b bVar) {

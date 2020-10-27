@@ -33,9 +33,9 @@ public class d extends BroadcastReceiver {
             }
         }
         if (z) {
-            a Wz = e.eiK().Wz(intent.getStringExtra("openIdType"));
-            if (Wz != null) {
-                Wz.b();
+            a Ym = e.esK().Ym(intent.getStringExtra("openIdType"));
+            if (Ym != null) {
+                Ym.b();
             }
         }
     }

@@ -4,22 +4,22 @@ import com.baidu.swan.apps.adaptation.a.az;
 /* loaded from: classes16.dex */
 public class c implements az {
     @Override // com.baidu.swan.apps.adaptation.a.az
-    public boolean adZ() {
-        return !b.aLm().isNeedDownload();
+    public boolean afT() {
+        return !b.aNg().isNeedDownload();
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.az
-    public boolean aea() {
-        return adZ() || com.baidu.swan.apps.env.b.c.cEo.ns("zeus");
+    public boolean afU() {
+        return afT() || com.baidu.swan.apps.env.b.c.cMK.nL("zeus");
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.az
     public void a(boolean z, com.baidu.swan.apps.core.k.c cVar) {
-        b.aLm().b(z, cVar);
+        b.aNg().b(z, cVar);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.az
-    public com.baidu.swan.pms.e.b aeb() {
-        return b.aLm().aeb();
+    public com.baidu.swan.pms.e.b afV() {
+        return b.aNg().afV();
     }
 }

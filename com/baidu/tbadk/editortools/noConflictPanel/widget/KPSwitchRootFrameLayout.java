@@ -7,7 +7,7 @@ import android.widget.FrameLayout;
 import com.baidu.tbadk.editortools.noConflictPanel.a.c;
 /* loaded from: classes.dex */
 public class KPSwitchRootFrameLayout extends FrameLayout {
-    private c fbi;
+    private c fjH;
 
     public KPSwitchRootFrameLayout(Context context) {
         super(context);
@@ -25,12 +25,12 @@ public class KPSwitchRootFrameLayout extends FrameLayout {
     }
 
     private void init() {
-        this.fbi = new c(this);
+        this.fjH = new c(this);
     }
 
     @Override // android.widget.FrameLayout, android.view.View
     protected void onMeasure(int i, int i2) {
-        this.fbi.ab(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
+        this.fjH.ac(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
         super.onMeasure(i, i2);
     }
 }

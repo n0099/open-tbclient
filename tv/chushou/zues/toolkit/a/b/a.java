@@ -8,11 +8,11 @@ import java.util.Map;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes6.dex */
 public class a<T> {
-    private final LruCache<String, T> pme;
-    private final Map<String, WeakReference<T>> pmf = new ArrayMap();
+    private final LruCache<String, T> qdt;
+    private final Map<String, WeakReference<T>> qdu = new ArrayMap();
 
     public a(int i, final b<T> bVar) {
-        this.pme = new LruCache<String, T>(i <= 0 ? 8388608 : i) { // from class: tv.chushou.zues.toolkit.a.b.a.1
+        this.qdt = new LruCache<String, T>(i <= 0 ? 8388608 : i) { // from class: tv.chushou.zues.toolkit.a.b.a.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // android.support.v4.util.LruCache
@@ -30,7 +30,7 @@ public class a<T> {
             /* renamed from: a */
             public void entryRemoved(boolean z, String str, T t, T t2) {
                 if (z && t != null) {
-                    a.this.pmf.put(str, new WeakReference(t));
+                    a.this.qdu.put(str, new WeakReference(t));
                 }
             }
         };
@@ -39,7 +39,7 @@ public class a<T> {
     public void put(String str, T t) {
         if (!h.isEmpty(str) && t != null) {
             synchronized (this) {
-                this.pme.put(str, t);
+                this.qdt.put(str, t);
             }
         }
     }
@@ -52,15 +52,15 @@ public class a<T> {
             return null;
         }
         synchronized (this) {
-            T t2 = this.pme.get(str);
-            if (t2 != null || (weakReference = this.pmf.get(str)) == null) {
+            T t2 = this.qdt.get(str);
+            if (t2 != null || (weakReference = this.qdu.get(str)) == null) {
                 t = t2;
             } else {
                 t = weakReference.get();
                 if (t != null) {
-                    this.pme.put(str, t);
+                    this.qdt.put(str, t);
                 } else {
-                    this.pmf.remove(str);
+                    this.qdu.remove(str);
                 }
             }
         }
@@ -69,8 +69,8 @@ public class a<T> {
 
     public void clear() {
         synchronized (this) {
-            this.pme.evictAll();
-            this.pmf.clear();
+            this.qdt.evictAll();
+            this.qdu.clear();
         }
     }
 }

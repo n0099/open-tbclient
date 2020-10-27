@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.liveroom.u;
 /* loaded from: classes4.dex */
 public class a {
-    public String fDh;
+    public String fLC;
     public long mUserId;
 
     public a() {
@@ -9,14 +9,14 @@ public class a {
 
     public a(long j, String str) {
         this.mUserId = j;
-        this.fDh = str;
+        this.fLC = str;
     }
 
     public long getUserId() {
         return this.mUserId;
     }
 
-    public String DH() {
-        return this.fDh;
+    public String DP() {
+        return this.fLC;
     }
 }

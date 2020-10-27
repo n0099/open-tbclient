@@ -63,7 +63,7 @@ public class a extends com.baidu.platform.comapi.walknavi.g.c.b implements View.
     private boolean I = true;
     private a.b J = null;
     private boolean K = false;
-    private a.C0225a L = null;
+    private a.C0239a L = null;
     private boolean M = false;
 
     public a(Context context, com.baidu.platform.comapi.bikenavi.c.b bVar, View view) {
@@ -78,7 +78,7 @@ public class a extends com.baidu.platform.comapi.walknavi.g.c.b implements View.
         b(view);
         e(view);
         this.h.setOnClickListener(this);
-        this.p.setOnClickListener(new View$OnClickListenerC0253a());
+        this.p.setOnClickListener(new View$OnClickListenerC0267a());
         this.i.setOnClickListener(new com.baidu.platform.comapi.bikenavi.widget.b(this));
         i();
     }
@@ -399,8 +399,8 @@ public class a extends com.baidu.platform.comapi.walknavi.g.c.b implements View.
         this.J = bVar;
     }
 
-    public void a(a.C0225a c0225a) {
-        this.L = c0225a;
+    public void a(a.C0239a c0239a) {
+        this.L = c0239a;
     }
 
     private void i() {
@@ -425,8 +425,8 @@ public class a extends com.baidu.platform.comapi.walknavi.g.c.b implements View.
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.platform.comapi.bikenavi.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class View$OnClickListenerC0253a implements View.OnClickListener {
-        View$OnClickListenerC0253a() {
+    public class View$OnClickListenerC0267a implements View.OnClickListener {
+        View$OnClickListenerC0267a() {
         }
 
         @Override // android.view.View.OnClickListener

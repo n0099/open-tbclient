@@ -15,15 +15,15 @@ public class OpenSettingButton extends ApiButton {
 
     @Override // com.baidu.swan.games.view.button.base.ApiButton, android.view.View.OnClickListener
     public void onClick(View view) {
-        axv();
+        azp();
     }
 
-    public void axv() {
-        f abs = com.baidu.swan.apps.v.f.avu().abs();
-        if (abs == null) {
+    public void azp() {
+        f adm = com.baidu.swan.apps.v.f.axo().adm();
+        if (adm == null) {
             d.k(AppRuntime.getAppContext(), a.h.aiapps_open_fragment_failed_toast).showToast();
         } else {
-            abs.mt("navigateTo").ak(f.cwD, f.cwF).a("authority", null).commit();
+            adm.mM("navigateTo").al(f.cEZ, f.cFb).a("authority", null).commit();
         }
     }
 }

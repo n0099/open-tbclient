@@ -14,12 +14,12 @@ import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes22.dex */
 public class j implements com.baidu.tbadk.mvc.b.j {
     protected boolean isSucc;
-    protected ArrayList<FeedData> kcM = new ArrayList<>();
+    protected ArrayList<FeedData> kpl = new ArrayList<>();
     protected av page = new av();
-    protected h kcN = new h();
+    protected h kpm = new h();
 
-    public ArrayList<FeedData> cRh() {
-        return this.kcM;
+    public ArrayList<FeedData> cUo() {
+        return this.kpl;
     }
 
     public av getPage() {
@@ -35,13 +35,13 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                 for (int i = 0; i < optJSONArray2.length(); i++) {
                     FeedData feedData = new FeedData();
                     feedData.parserJson(optJSONArray2.optJSONObject(i));
-                    this.kcM.add(feedData);
+                    this.kpl.add(feedData);
                     if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && y.getCount(feedData.getPraiseList()) == 0) {
-                        this.kcM.remove(feedData);
+                        this.kpl.remove(feedData);
                     }
                 }
             }
-            this.kcN.parserJson(jSONObject.optJSONObject("message"));
+            this.kpm.parserJson(jSONObject.optJSONObject("message"));
             this.page.parserJson(jSONObject.optJSONObject("page"));
             this.isSucc = true;
         } catch (Exception e) {
@@ -60,9 +60,9 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                     for (int i = 0; i < list.size(); i++) {
                         FeedData feedData = new FeedData();
                         feedData.parserProtoBuf(list.get(i));
-                        this.kcM.add(feedData);
+                        this.kpl.add(feedData);
                         if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && y.getCount(feedData.getPraiseList()) == 0) {
-                            this.kcM.remove(feedData);
+                            this.kpl.remove(feedData);
                         }
                     }
                 }

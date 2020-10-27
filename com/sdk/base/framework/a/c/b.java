@@ -6,7 +6,7 @@ public final class b extends Enum<b> {
     private static int d = 3;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f4463a = 4;
+    public static final int f4461a = 4;
     private static int e = 5;
     private static int f = 6;
     private static int g = 7;

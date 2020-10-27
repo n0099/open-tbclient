@@ -1,64 +1,64 @@
 package com.baidu.tieba.ala.liveroom.challenge.message;
 
-import com.baidu.live.data.ag;
+import com.baidu.live.data.aj;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaGetQualifyingResultResponseMessage extends JsonHttpResponsedMessage {
-    private int gIB;
-    private boolean gIC;
-    private int gID;
-    private int gIE;
-    private String gIF;
+    private int gUq;
+    private boolean gUr;
+    private int gUs;
+    private int gUt;
+    private String gUu;
 
     public AlaGetQualifyingResultResponseMessage() {
         super(1021209);
-        this.gIB = 0;
-        this.gIC = false;
-        this.gID = 0;
+        this.gUq = 0;
+        this.gUr = false;
+        this.gUs = 0;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject;
-        ag agVar;
+        aj ajVar;
         super.decodeLogicInBackGround(i, jSONObject);
-        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null && (agVar = com.baidu.live.x.a.OS().blo) != null && agVar.aLS != null) {
-            this.gIC = agVar.aLS.aOP;
-            if (this.gIC) {
+        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null && (ajVar = com.baidu.live.z.a.Pq().bmJ) != null && ajVar.aMw != null) {
+            this.gUr = ajVar.aMw.aPu;
+            if (this.gUr) {
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("season_info");
                 if (optJSONObject2 != null) {
-                    this.gIB = 1;
-                    this.gIF = optJSONObject2.optString("show_last_time");
-                    if (this.gIF == null || this.gIF.isEmpty()) {
-                        this.gID = 0;
+                    this.gUq = 1;
+                    this.gUu = optJSONObject2.optString("show_last_time");
+                    if (this.gUu == null || this.gUu.isEmpty()) {
+                        this.gUs = 0;
                         return;
                     } else {
-                        this.gID = 1;
+                        this.gUs = 1;
                         return;
                     }
                 }
-                this.gIB = 0;
+                this.gUq = 0;
                 return;
             }
-            this.gIB = 0;
+            this.gUq = 0;
         }
     }
 
-    public boolean bUo() {
-        return this.gIB == 1;
+    public boolean bXn() {
+        return this.gUq == 1;
     }
 
-    public boolean bUp() {
-        return this.gID == 1;
+    public boolean bXo() {
+        return this.gUs == 1;
     }
 
-    public long bUq() {
+    public long bXp() {
         try {
-            this.gIE = Integer.parseInt(this.gIF);
+            this.gUt = Integer.parseInt(this.gUu);
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
-        return this.gIE * 1000;
+        return this.gUt * 1000;
     }
 }

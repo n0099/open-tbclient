@@ -1,17 +1,17 @@
 package com.facebook.imagepipeline.memory;
 /* loaded from: classes18.dex */
 public interface s {
-    void Nq(int i);
+    void Ph(int i);
 
-    void Nr(int i);
+    void Pi(int i);
 
-    void Ns(int i);
+    void Pj(int i);
 
-    void Nt(int i);
+    void Pk(int i);
 
     void a(BasePool basePool);
 
-    void ecL();
+    void emJ();
 
-    void ecM();
+    void emK();
 }

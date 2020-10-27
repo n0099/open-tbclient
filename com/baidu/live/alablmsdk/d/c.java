@@ -15,39 +15,39 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class c implements BaiduRtcRoom.a, g.d {
-    private com.baidu.live.alablmsdk.config.a aBA;
-    private boolean aBB;
-    private d aBC;
-    private com.baidu.live.alablmsdk.c.b.a aBF;
-    private boolean aBL;
-    private BaiduRtcRoom aBt;
-    private String aBu;
-    private String aBv;
-    private String aBw;
-    private long aBx;
+    private String aBA;
+    private long aBB;
+    private com.baidu.live.alablmsdk.config.a aBE;
+    private boolean aBF;
+    private d aBG;
+    private com.baidu.live.alablmsdk.c.b.a aBJ;
+    private boolean aBP;
+    private String aBy;
+    private String aBz;
     private boolean isMute;
+    private BaiduRtcRoom mBaiduRtcRoom;
     private Context mContext;
-    private RtcParameterSettings aBy = RtcParameterSettings.ZA();
-    private boolean aBz = false;
-    private List<RTCVideoView> aBD = new ArrayList();
-    private BLMRtcState aBE = BLMRtcState.DEFAULT;
-    private int aBG = 1;
-    private boolean aBH = false;
-    private final int aBI = 2;
-    private int aBJ = 0;
-    private int aBK = 0;
-    Runnable aBM = new Runnable() { // from class: com.baidu.live.alablmsdk.d.c.3
+    private RtcParameterSettings aBC = RtcParameterSettings.abt();
+    private boolean aBD = false;
+    private List<RTCVideoView> aBH = new ArrayList();
+    private BLMRtcState aBI = BLMRtcState.DEFAULT;
+    private int aBK = 1;
+    private boolean aBL = false;
+    private final int aBM = 2;
+    private int aBN = 0;
+    private int aBO = 0;
+    Runnable aBQ = new Runnable() { // from class: com.baidu.live.alablmsdk.d.c.3
         @Override // java.lang.Runnable
         public void run() {
-            if (!c.this.aBL) {
+            if (!c.this.aBP) {
                 c.this.fP("没有回调推流成功");
             }
         }
     };
-    private Runnable aBN = new Runnable() { // from class: com.baidu.live.alablmsdk.d.c.4
+    private Runnable aBR = new Runnable() { // from class: com.baidu.live.alablmsdk.d.c.4
         @Override // java.lang.Runnable
         public void run() {
-            c.this.d(c.this.aBu, c.this.aBv, c.this.aBw, c.this.aBx);
+            c.this.d(c.this.aBy, c.this.aBz, c.this.aBA, c.this.aBB);
         }
     };
 
@@ -56,7 +56,7 @@ public class c implements BaiduRtcRoom.a, g.d {
     }
 
     public void a(com.baidu.live.alablmsdk.c.b.a aVar) {
-        this.aBF = aVar;
+        this.aBJ = aVar;
     }
 
     public void v(HashMap<String, Object> hashMap) {
@@ -72,61 +72,61 @@ public class c implements BaiduRtcRoom.a, g.d {
         Object obj10;
         if (hashMap != null) {
             if (hashMap.containsKey("is_auto_publish") && (obj10 = hashMap.get("is_auto_publish")) != null) {
-                this.aBy.AutoPublish = ((Boolean) obj10).booleanValue();
+                this.aBC.AutoPublish = ((Boolean) obj10).booleanValue();
             }
             if (hashMap.containsKey("is_auto_subscribe") && (obj9 = hashMap.get("is_auto_subscribe")) != null) {
-                this.aBy.AutoSubScribe = ((Boolean) obj9).booleanValue();
+                this.aBC.AutoSubScribe = ((Boolean) obj9).booleanValue();
             }
             if (hashMap.containsKey("encode_bitrate") && (obj8 = hashMap.get("encode_bitrate")) != null) {
-                this.aBy.VideoMaxkbps = ((Integer) obj8).intValue();
+                this.aBC.VideoMaxkbps = ((Integer) obj8).intValue();
             }
             if (hashMap.containsKey("encode_min_bitrate") && (obj7 = hashMap.get("encode_min_bitrate")) != null) {
-                this.aBy.VideoMinkbps = ((Integer) obj7).intValue();
+                this.aBC.VideoMinkbps = ((Integer) obj7).intValue();
             }
             if (hashMap.containsKey("has_audio") && (obj6 = hashMap.get("has_audio")) != null) {
-                this.aBy.HasAudio = ((Boolean) obj6).booleanValue();
+                this.aBC.HasAudio = ((Boolean) obj6).booleanValue();
             }
             if (hashMap.containsKey("has_video") && (obj5 = hashMap.get("has_video")) != null) {
-                this.aBy.HasVideo = ((Boolean) obj5).booleanValue();
+                this.aBC.HasVideo = ((Boolean) obj5).booleanValue();
             }
             if (hashMap.containsKey("internal_capture_video_frame_rate") && (obj4 = hashMap.get("internal_capture_video_frame_rate")) != null) {
-                this.aBy.VideoFps = ((Integer) obj4).intValue();
+                this.aBC.VideoFps = ((Integer) obj4).intValue();
             }
             if (hashMap.containsKey("internal_capture_video_width") && (obj3 = hashMap.get("internal_capture_video_width")) != null) {
-                this.aBy.VideoWidth = ((Integer) obj3).intValue();
+                this.aBC.VideoWidth = ((Integer) obj3).intValue();
             }
             if (hashMap.containsKey("internal_capture_video_height") && (obj2 = hashMap.get("internal_capture_video_height")) != null) {
-                this.aBy.VideoHeight = ((Integer) obj2).intValue();
+                this.aBC.VideoHeight = ((Integer) obj2).intValue();
             }
             if (hashMap.containsKey("external_audio_capture") && (obj = hashMap.get("external_audio_capture")) != null) {
-                this.aBz = ((Boolean) obj).booleanValue();
+                this.aBD = ((Boolean) obj).booleanValue();
             }
         }
     }
 
     public void a(com.baidu.live.alablmsdk.config.a aVar) {
-        this.aBA = aVar;
+        this.aBE = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(d dVar) {
-        this.aBC = dVar;
+        this.aBG = dVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void t(List<RTCVideoView> list) {
-        this.aBD.clear();
-        this.aBD.addAll(list);
+        this.aBH.clear();
+        this.aBH.addAll(list);
     }
 
     public RTCVideoView[] BL() {
-        if (!com.baidu.live.alablmsdk.a.a.isEmpty(this.aBD)) {
-            int size = this.aBD.size();
+        if (!com.baidu.live.alablmsdk.a.a.isEmpty(this.aBH)) {
+            int size = this.aBH.size();
             com.baidu.live.alablmsdk.a.c.d(" getRTCVideoViewArray size = " + size);
             com.baidu.live.alablmsdk.a.c.fJ(" getRTCVideoViewArray size " + size);
             RTCVideoView[] rTCVideoViewArr = new RTCVideoView[size];
             for (int i = 0; i < size; i++) {
-                rTCVideoViewArr[i] = this.aBD.get(i);
+                rTCVideoViewArr[i] = this.aBH.get(i);
                 com.baidu.live.alablmsdk.a.c.d(" getRTCVideoViewArray array[0] " + rTCVideoViewArr[i]);
             }
             return rTCVideoViewArr;
@@ -137,14 +137,14 @@ public class c implements BaiduRtcRoom.a, g.d {
     }
 
     public void c(String str, String str2, String str3, long j) {
-        this.aBG = 1;
-        this.aBE = BLMRtcState.DEFAULT;
-        this.aBH = false;
-        this.aBB = false;
-        this.aBu = str;
-        this.aBv = str2;
-        this.aBw = str3;
-        this.aBx = j;
+        this.aBK = 1;
+        this.aBI = BLMRtcState.DEFAULT;
+        this.aBL = false;
+        this.aBF = false;
+        this.aBy = str;
+        this.aBz = str2;
+        this.aBA = str3;
+        this.aBB = j;
         c(false, 0L);
     }
 
@@ -158,65 +158,65 @@ public class c implements BaiduRtcRoom.a, g.d {
                     com.baidu.live.alablmsdk.a.c.d(" join rtc Room param: roomId=" + str + " , token=" + str2 + " , appId=" + str3 + " , imUk=" + j);
                 }
                 com.baidu.live.alablmsdk.a.c.fJ("joinRtcRoomInner");
-                c.this.aBE = BLMRtcState.JOINING;
-                c.this.aBt = BaiduRtcRoom.p(c.this.mContext, str3, str2);
-                if (c.this.aBt == null) {
+                c.this.aBI = BLMRtcState.JOINING;
+                c.this.mBaiduRtcRoom = BaiduRtcRoom.p(c.this.mContext, str3, str2);
+                if (c.this.mBaiduRtcRoom == null) {
                     com.baidu.live.alablmsdk.a.c.d(" initWithAppID failed ");
                     com.baidu.live.alablmsdk.a.c.fJ(" initWithAppID failed ");
                     c.this.dB(-1);
                     return;
                 }
                 if (com.baidu.live.alablmsdk.a.c.isDebug()) {
-                    BaiduRtcRoom unused = c.this.aBt;
-                    BaiduRtcRoom.du(true);
+                    BaiduRtcRoom unused = c.this.mBaiduRtcRoom;
+                    BaiduRtcRoom.dI(true);
                 } else {
-                    BaiduRtcRoom unused2 = c.this.aBt;
-                    BaiduRtcRoom.du(false);
+                    BaiduRtcRoom unused2 = c.this.mBaiduRtcRoom;
+                    BaiduRtcRoom.dI(false);
                 }
-                c.this.aBt.a((BaiduRtcRoom.a) c.this);
-                c.this.aBt.a((g.d) c.this);
-                c.this.aBy.VideoResolution = c.this.BN();
-                c.this.aBy.ConnectionTimeoutMs = 5000;
-                c.this.aBy.ReadTimeoutMs = 5000;
+                c.this.mBaiduRtcRoom.a((BaiduRtcRoom.a) c.this);
+                c.this.mBaiduRtcRoom.a((g.d) c.this);
+                c.this.aBC.VideoResolution = c.this.BN();
+                c.this.aBC.ConnectionTimeoutMs = 5000;
+                c.this.aBC.ReadTimeoutMs = 5000;
                 if (Build.MANUFACTURER.contains("Ainemo") || Build.MODEL.contains("NV6001") || Build.MODEL.contains("NV6101") || Build.MODEL.contains("NV2001") || Build.MODEL.contains("NV5001")) {
-                    c.this.aBy.AudioFrequency = 16000;
-                    c.this.aBy.AudioChannel = 2;
-                    c.this.aBy.AudioContentType = 2;
+                    c.this.aBC.AudioFrequency = 16000;
+                    c.this.aBC.AudioChannel = 2;
+                    c.this.aBC.AudioContentType = 2;
                 }
-                c.this.aBy.bXM = true;
-                c.this.aBy.bXL = true;
-                c.this.aBt.a(c.this.aBy, RtcParameterSettings.RtcParamSettingType.RTC_PARAM_SETTINGS_ALL);
-                if (c.this.aBA != null && !TextUtils.isEmpty(c.this.aBA.aAz)) {
-                    c.this.aBt.a(c.this.aBA.aAz, c.this.aBA.aAA, false, c.this.BM(), BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION);
+                c.this.aBC.cgl = true;
+                c.this.aBC.cgk = true;
+                c.this.mBaiduRtcRoom.a(c.this.aBC, RtcParameterSettings.RtcParamSettingType.RTC_PARAM_SETTINGS_ALL);
+                if (c.this.aBE != null && !TextUtils.isEmpty(c.this.aBE.aAE)) {
+                    c.this.mBaiduRtcRoom.a(c.this.aBE.aAE, c.this.aBE.aAF, false, c.this.BM(), BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION);
                 }
                 RTCVideoView[] BL = c.this.BL();
                 if (BL != null) {
-                    c.this.aBt.a(BL);
+                    c.this.mBaiduRtcRoom.a(BL);
                 } else {
                     com.baidu.live.alablmsdk.a.c.d(" setRemoteDisplayGroup array == null ");
                     com.baidu.live.alablmsdk.a.c.fJ(" setRemoteDisplayGroup array == null ");
                 }
-                if (c.this.aBz) {
+                if (c.this.aBD) {
                     com.baidu.live.alablmsdk.a.c.d(" 开启外部采集逻辑 ");
                     com.baidu.live.alablmsdk.a.c.fJ(" open external capture ");
-                    c.this.aBt.enableExternalVideoCapturer(true);
-                    c.this.aBt.a(c.this.aBC);
+                    c.this.mBaiduRtcRoom.enableExternalVideoCapturer(true);
+                    c.this.mBaiduRtcRoom.a(c.this.aBG);
                 }
-                if (c.this.aBB) {
+                if (c.this.aBF) {
                     com.baidu.live.alablmsdk.a.c.d(" isReLogin yes");
                     com.baidu.live.alablmsdk.a.c.fJ(" isReLogin yes");
-                    loginRtcRoomWithRoomName = c.this.aBt.a(str, j, "tom", true);
+                    loginRtcRoomWithRoomName = c.this.mBaiduRtcRoom.loginRtcRoomWithRoomName(str, j, "tom", true);
                 } else {
                     com.baidu.live.alablmsdk.a.c.d(" isReLogin no");
                     com.baidu.live.alablmsdk.a.c.fJ(" isReLogin no");
-                    loginRtcRoomWithRoomName = c.this.aBt.loginRtcRoomWithRoomName(str, j, "tom", true, true);
+                    loginRtcRoomWithRoomName = c.this.mBaiduRtcRoom.loginRtcRoomWithRoomName(str, j, "tom", true, true);
                 }
                 com.baidu.live.alablmsdk.a.c.d(" loginRtcRoomWithRoomName isLoginSuccess=" + loginRtcRoomWithRoomName);
                 com.baidu.live.alablmsdk.a.c.fJ(" loginRtcRoomWithRoomName isLoginSuccess " + loginRtcRoomWithRoomName);
                 com.baidu.live.alablmsdk.a.c.d(" isMute=" + c.this.isMute);
                 com.baidu.live.alablmsdk.a.c.fJ(" isMute " + c.this.isMute);
-                c.this.aBt.muteMicphone(c.this.isMute);
-                if (c.this.aBF != null && !loginRtcRoomWithRoomName) {
+                c.this.mBaiduRtcRoom.muteMicphone(c.this.isMute);
+                if (c.this.aBJ != null && !loginRtcRoomWithRoomName) {
                     com.baidu.live.alablmsdk.a.c.d(" loginRtcRoomWithRoomName fail");
                     com.baidu.live.alablmsdk.a.c.fJ(" loginRtcRoomWithRoomName fail");
                     c.this.dB(-1);
@@ -227,7 +227,7 @@ public class c implements BaiduRtcRoom.a, g.d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public String BM() {
-        return (this.aBA == null || TextUtils.isEmpty(this.aBA.aAB)) ? "" : this.aBA.aAB;
+        return (this.aBE == null || TextUtils.isEmpty(this.aBE.aAG)) ? "" : this.aBE.aAG;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -237,9 +237,9 @@ public class c implements BaiduRtcRoom.a, g.d {
 
     @Override // com.baidu.rtc.g.d
     public void a(g gVar) {
-        BaiduRtcRoom.c[] Zk;
-        if (this.aBt != null && (Zk = this.aBt.Zk()) != null) {
-            for (BaiduRtcRoom.c cVar : Zk) {
+        BaiduRtcRoom.c[] abc;
+        if (this.mBaiduRtcRoom != null && (abc = this.mBaiduRtcRoom.abc()) != null) {
+            for (BaiduRtcRoom.c cVar : abc) {
                 if (cVar != null) {
                 }
             }
@@ -247,27 +247,27 @@ public class c implements BaiduRtcRoom.a, g.d {
     }
 
     public void W(long j) {
-        if (this.aBt != null) {
-            this.aBt.aM(j);
+        if (this.mBaiduRtcRoom != null) {
+            this.mBaiduRtcRoom.aO(j);
         }
     }
 
     public void aY(boolean z) {
         this.isMute = z;
-        if (this.aBt != null) {
+        if (this.mBaiduRtcRoom != null) {
             com.baidu.live.alablmsdk.a.c.d(" muteMicrophone mute" + z);
             com.baidu.live.alablmsdk.a.c.fJ(" muteMicrophone mute" + z);
-            this.aBt.muteMicphone(z);
+            this.mBaiduRtcRoom.muteMicphone(z);
         }
     }
 
     public void BO() {
         com.baidu.live.alablmsdk.a.c.d(" rtc closeRoom ");
         com.baidu.live.alablmsdk.a.c.fJ(" rtc closeRoom ");
-        if (this.aBt != null) {
+        if (this.mBaiduRtcRoom != null) {
             com.baidu.live.alablmsdk.a.c.d(" rtc disbandRoom ");
             com.baidu.live.alablmsdk.a.c.fJ(" rtc disbandRoom ");
-            this.aBt.Zj();
+            this.mBaiduRtcRoom.disbandRoom();
         }
         BP();
     }
@@ -275,35 +275,35 @@ public class c implements BaiduRtcRoom.a, g.d {
     public void BP() {
         com.baidu.live.alablmsdk.a.c.d(" rtc leaveRoom ");
         com.baidu.live.alablmsdk.a.c.fJ(" rtc leaveRoom ");
-        com.baidu.live.alablmsdk.a.d.Bi().removeCallbacks(this.aBN);
-        com.baidu.live.alablmsdk.a.d.Bi().removeCallbacks(this.aBM);
-        if (this.aBt != null) {
+        com.baidu.live.alablmsdk.a.d.Bi().removeCallbacks(this.aBR);
+        com.baidu.live.alablmsdk.a.d.Bi().removeCallbacks(this.aBQ);
+        if (this.mBaiduRtcRoom != null) {
             com.baidu.live.alablmsdk.a.c.d(" rtc logoutRtcRoom ");
             com.baidu.live.alablmsdk.a.c.fJ(" rtc logoutRtcRoom ");
-            this.aBt.logoutRtcRoom();
+            this.mBaiduRtcRoom.logoutRtcRoom();
         }
-        if (this.aBt != null) {
+        if (this.mBaiduRtcRoom != null) {
             com.baidu.live.alablmsdk.a.c.d(" rtc destroy ");
             com.baidu.live.alablmsdk.a.c.fJ(" rtc destroy ");
-            this.aBt.destroy();
+            this.mBaiduRtcRoom.destroy();
         }
-        this.aBE = BLMRtcState.LEAVE;
-        this.aBL = false;
-        this.aBt = null;
+        this.aBI = BLMRtcState.LEAVE;
+        this.aBP = false;
+        this.mBaiduRtcRoom = null;
     }
 
     private void BQ() {
-        if (this.aBt != null) {
+        if (this.mBaiduRtcRoom != null) {
             com.baidu.live.alablmsdk.a.c.d(" rtc closeRoomInner logoutRtcRoom ");
             com.baidu.live.alablmsdk.a.c.fJ(" rtc closeRoomInner logoutRtcRoom ");
-            this.aBt.logoutRtcRoom();
+            this.mBaiduRtcRoom.logoutRtcRoom();
         }
-        if (this.aBt != null) {
+        if (this.mBaiduRtcRoom != null) {
             com.baidu.live.alablmsdk.a.c.d(" rtc closeRoomInner destroy ");
             com.baidu.live.alablmsdk.a.c.fJ(" rtc closeRoomInner destroy ");
-            this.aBt.destroy();
+            this.mBaiduRtcRoom.destroy();
         }
-        this.aBt = null;
+        this.mBaiduRtcRoom = null;
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom.a
@@ -320,7 +320,7 @@ public class c implements BaiduRtcRoom.a, g.d {
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom.a
-    public void l(ByteBuffer byteBuffer) {
+    public void onRoomDataMessage(ByteBuffer byteBuffer) {
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom.a
@@ -328,8 +328,8 @@ public class c implements BaiduRtcRoom.a, g.d {
         com.baidu.live.alablmsdk.a.c.d(" RTC 监听 : onRoomEventUpdate roomEvents = " + i + " , data = " + j + " , extra_info = " + str);
         if (i == 106 || i == 107 || i == 300 || i == 301) {
             com.baidu.live.alablmsdk.a.c.fJ("rtc onRoomEventUpdate roomEvents " + i);
-            if (this.aBF != null) {
-                this.aBF.onRoomEventUpdate(i, j, str);
+            if (this.aBJ != null) {
+                this.aBJ.onRoomEventUpdate(i, j, str);
             }
         }
         com.baidu.live.alablmsdk.a.d.Bi().post(new Runnable() { // from class: com.baidu.live.alablmsdk.d.c.2
@@ -362,20 +362,20 @@ public class c implements BaiduRtcRoom.a, g.d {
     /* JADX INFO: Access modifiers changed from: private */
     public void dB(int i) {
         if (com.baidu.live.alablmsdk.a.c.isDebug()) {
-            com.baidu.live.alablmsdk.a.c.d("rtcError errEvent = " + i + " mRTCRoomState = " + this.aBE);
+            com.baidu.live.alablmsdk.a.c.d("rtcError errEvent = " + i + " mRTCRoomState = " + this.aBI);
         }
         com.baidu.live.alablmsdk.a.c.fJ(" rtcError errEvent " + i);
-        if (this.aBE == BLMRtcState.STREAM) {
-            this.aBG = 2;
+        if (this.aBI == BLMRtcState.STREAM) {
+            this.aBK = 2;
         }
-        if (!this.aBL && i == 117) {
-            com.baidu.live.alablmsdk.a.d.Bi().removeCallbacks(this.aBM);
+        if (!this.aBP && i == 117) {
+            com.baidu.live.alablmsdk.a.d.Bi().removeCallbacks(this.aBQ);
         }
-        com.baidu.live.alablmsdk.a.c.d(" mConnectType = " + this.aBG);
-        com.baidu.live.alablmsdk.a.c.fJ(" mConnectType " + this.aBG);
-        if (this.aBG == 1) {
+        com.baidu.live.alablmsdk.a.c.d(" mConnectType = " + this.aBK);
+        com.baidu.live.alablmsdk.a.c.fJ(" mConnectType " + this.aBK);
+        if (this.aBK == 1) {
             c(true, 2000L);
-        } else if (this.aBG == 2) {
+        } else if (this.aBK == 2) {
             c(true, 5000L);
         }
     }
@@ -383,26 +383,26 @@ public class c implements BaiduRtcRoom.a, g.d {
     private void BR() {
         com.baidu.live.alablmsdk.a.c.d(" rtcSuccess ");
         com.baidu.live.alablmsdk.a.c.fJ(" rtcSuccess ");
-        if (!this.aBL) {
-            this.aBL = true;
+        if (!this.aBP) {
+            this.aBP = true;
         }
-        if (this.aBG == 2) {
+        if (this.aBK == 2) {
         }
-        this.aBJ = 0;
-        this.aBK = 0;
-        this.aBH = false;
-        this.aBG = 2;
-        this.aBE = BLMRtcState.STREAM;
-        com.baidu.live.alablmsdk.a.d.Bi().removeCallbacks(this.aBN);
-        com.baidu.live.alablmsdk.a.d.Bi().removeCallbacks(this.aBM);
+        this.aBN = 0;
+        this.aBO = 0;
+        this.aBL = false;
+        this.aBK = 2;
+        this.aBI = BLMRtcState.STREAM;
+        com.baidu.live.alablmsdk.a.d.Bi().removeCallbacks(this.aBR);
+        com.baidu.live.alablmsdk.a.d.Bi().removeCallbacks(this.aBQ);
         fO("rtcPublishSuccess");
     }
 
     private void fO(String str) {
         com.baidu.live.alablmsdk.a.c.d("rtc 成功回调");
         com.baidu.live.alablmsdk.a.c.fJ("rtc callback success");
-        if (this.aBF != null) {
-            this.aBF.g(0, str);
+        if (this.aBJ != null) {
+            this.aBJ.g(0, str);
         }
     }
 
@@ -410,73 +410,73 @@ public class c implements BaiduRtcRoom.a, g.d {
     public void fP(String str) {
         com.baidu.live.alablmsdk.a.c.d("rtc 失败回调" + str);
         com.baidu.live.alablmsdk.a.c.fJ("rtc callback fail " + str);
-        com.baidu.live.alablmsdk.a.d.Bi().removeCallbacks(this.aBM);
-        if (this.aBF != null) {
-            this.aBF.g(-1, str);
+        com.baidu.live.alablmsdk.a.d.Bi().removeCallbacks(this.aBQ);
+        if (this.aBJ != null) {
+            this.aBJ.g(-1, str);
         }
     }
 
     public void BS() {
         if (com.baidu.live.alablmsdk.a.c.isDebug()) {
-            com.baidu.live.alablmsdk.a.c.d("mConnectType =" + this.aBG + " mRTCRoomState = " + this.aBE + " mIsRetrying " + this.aBH);
+            com.baidu.live.alablmsdk.a.c.d("mConnectType =" + this.aBK + " mRTCRoomState = " + this.aBI + " mIsRetrying " + this.aBL);
         }
         com.baidu.live.alablmsdk.a.c.fJ(" reTryRtc ");
-        if (this.aBE == BLMRtcState.LEAVE) {
+        if (this.aBI == BLMRtcState.LEAVE) {
             com.baidu.live.alablmsdk.a.c.d(" reTry Rtc room 的时候，发现 mRTCRoomState==LEAVE， return; ");
             com.baidu.live.alablmsdk.a.c.fJ(" reTry Rtc room mRTCRoomState==LEAVE return ");
-        } else if (this.aBH) {
+        } else if (this.aBL) {
             com.baidu.live.alablmsdk.a.c.d(" reTryRtc 当前正在尝试，return ");
             com.baidu.live.alablmsdk.a.c.fJ(" reTryRtc Is Retrying return ");
-        } else if (this.aBG == 1) {
-            this.aBJ++;
-            if (this.aBJ <= 2) {
+        } else if (this.aBK == 1) {
+            this.aBN++;
+            if (this.aBN <= 2) {
                 c(true, 2000L);
-                com.baidu.live.alablmsdk.a.c.d("init join rtc room , mRTCInitRetryCount=" + this.aBJ);
-                com.baidu.live.alablmsdk.a.c.fJ("init join rtc room mRTCInitRetryCount " + this.aBJ);
+                com.baidu.live.alablmsdk.a.c.d("init join rtc room , mRTCInitRetryCount=" + this.aBN);
+                com.baidu.live.alablmsdk.a.c.fJ("init join rtc room mRTCInitRetryCount " + this.aBN);
                 return;
             }
             com.baidu.live.alablmsdk.a.c.d("init join rtc room fail. callback");
             com.baidu.live.alablmsdk.a.c.fJ("init join rtc room fail. callback");
             fP(" init join rtc room fail. ");
-        } else if (this.aBG == 2) {
-            this.aBK++;
+        } else if (this.aBK == 2) {
+            this.aBO++;
             c(true, 2000L);
-            com.baidu.live.alablmsdk.a.c.d(" re join rtc room fail. mRTCReTryCount = " + this.aBK);
-            com.baidu.live.alablmsdk.a.c.fJ(" re join rtc room fail. mRTCReTryCount " + this.aBK);
+            com.baidu.live.alablmsdk.a.c.d(" re join rtc room fail. mRTCReTryCount = " + this.aBO);
+            com.baidu.live.alablmsdk.a.c.fJ(" re join rtc room fail. mRTCReTryCount " + this.aBO);
         }
     }
 
     private void c(boolean z, long j) {
         com.baidu.live.alablmsdk.a.c.d("joinRtcChat isRetry = " + z + " , delayTime=" + j);
-        com.baidu.live.alablmsdk.a.c.fJ("joinRtcChat isRetry " + z + " delayTime " + j + " mConnectType " + this.aBG);
+        com.baidu.live.alablmsdk.a.c.fJ("joinRtcChat isRetry " + z + " delayTime " + j + " mConnectType " + this.aBK);
         if (z) {
-            this.aBB = z;
-            if (!this.aBH && this.aBF != null && this.aBG == 2) {
-                this.aBF.dy(2);
+            this.aBF = z;
+            if (!this.aBL && this.aBJ != null && this.aBK == 2) {
+                this.aBJ.dy(2);
             }
-            this.aBH = true;
+            this.aBL = true;
             BQ();
-            com.baidu.live.alablmsdk.a.d.Bi().removeCallbacks(this.aBN);
+            com.baidu.live.alablmsdk.a.d.Bi().removeCallbacks(this.aBR);
             if (j < 2000) {
                 j = 2000;
             }
-            com.baidu.live.alablmsdk.a.d.Bi().postDelayed(this.aBN, j);
+            com.baidu.live.alablmsdk.a.d.Bi().postDelayed(this.aBR, j);
             return;
         }
-        com.baidu.live.alablmsdk.a.d.Bi().postDelayed(this.aBM, 20000L);
-        com.baidu.live.alablmsdk.a.d.Bi().post(this.aBN);
+        com.baidu.live.alablmsdk.a.d.Bi().postDelayed(this.aBQ, 20000L);
+        com.baidu.live.alablmsdk.a.d.Bi().post(this.aBR);
     }
 
     public void release() {
         com.baidu.live.alablmsdk.a.c.d(" BLMRtcRoom release ");
         com.baidu.live.alablmsdk.a.c.fJ(" BLMRtcRoom release ");
-        this.aBF = null;
-        com.baidu.live.alablmsdk.a.d.Bi().removeCallbacks(this.aBN);
-        com.baidu.live.alablmsdk.a.d.Bi().removeCallbacks(this.aBM);
-        com.baidu.live.alablmsdk.module.a fL = com.baidu.live.alablmsdk.module.b.BE().fL(this.aBu);
+        this.aBJ = null;
+        com.baidu.live.alablmsdk.a.d.Bi().removeCallbacks(this.aBR);
+        com.baidu.live.alablmsdk.a.d.Bi().removeCallbacks(this.aBQ);
+        com.baidu.live.alablmsdk.module.a fL = com.baidu.live.alablmsdk.module.b.BE().fL(this.aBy);
         UserPermission userPermission = UserPermission.VISITER;
         if (fL != null) {
-            userPermission = fL.aBe;
+            userPermission = fL.aBj;
         }
         if (userPermission == UserPermission.OWNER) {
             BO();

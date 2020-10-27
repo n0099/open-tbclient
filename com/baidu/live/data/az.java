@@ -1,56 +1,26 @@
 package com.baidu.live.data;
 
-import android.text.TextUtils;
-import com.baidu.live.adp.lib.util.StringUtils;
-import org.json.JSONException;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class az {
-    public int aNd;
-    public int aNe;
-    public String id;
-    public String intro;
-    public int live_status;
-    public String metaKey;
-    public String name;
-    public String name_show;
-    public String portrait;
+    public String aND;
+    public String aNE;
+    public long endTime;
+    public int flag;
+    public long serverTime;
+    public long startTime;
+    public int type;
 
-    public void parserJson(JSONObject jSONObject) {
+    public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.id = jSONObject.optString("id");
-            this.metaKey = jSONObject.optString("meta_key");
-            this.name = jSONObject.optString("name");
-            this.name_show = jSONObject.optString("name_show");
-            this.portrait = jSONObject.optString("bd_portrait");
-            if (StringUtils.isNull(this.portrait)) {
-                this.portrait = jSONObject.optString("portrait");
-            }
-            this.intro = jSONObject.optString("intro");
-            this.live_status = jSONObject.optInt("live_status");
-            this.aNd = jSONObject.optInt("live_id");
-            this.aNe = jSONObject.optInt("has_concerned");
+            this.type = jSONObject.optInt("type");
+            this.aND = jSONObject.optString(AlaLiveStickerInfo.STICKER_ID);
+            this.startTime = jSONObject.optLong("start_time");
+            this.endTime = jSONObject.optLong("end_time");
+            this.serverTime = jSONObject.optLong("server_time");
+            this.aNE = jSONObject.optString("punish_key");
+            this.flag = jSONObject.optInt(FrsActivityConfig.FLAG);
         }
-    }
-
-    public String getNameShow() {
-        return TextUtils.isEmpty(this.name_show) ? this.name : this.name_show;
-    }
-
-    public String toString() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("id", this.id);
-            jSONObject.put("name", this.name);
-            jSONObject.put("name_show", this.name_show);
-            jSONObject.put("portrait", this.portrait);
-            jSONObject.put("intro", this.intro);
-            jSONObject.put("live_status", this.live_status);
-            jSONObject.put("live_id", this.aNd);
-            jSONObject.put("has_concerned", this.aNe);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return jSONObject.toString();
     }
 }

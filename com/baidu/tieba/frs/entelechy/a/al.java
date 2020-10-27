@@ -14,17 +14,17 @@ public interface al {
 
     void b(ArrayList<com.baidu.adp.widget.ListView.q> arrayList, FrsViewData frsViewData);
 
-    HashMap<Integer, bw> cws();
+    int czA();
 
-    int cwt();
+    void czB();
 
-    void cwu();
+    int czC();
 
-    int cwv();
+    int czD();
 
-    int cww();
+    void czE();
 
-    void cwx();
+    HashMap<Integer, bw> czz();
 
     List<com.baidu.adp.widget.ListView.q> getDatas();
 
@@ -32,7 +32,7 @@ public interface al {
 
     void onDestory();
 
-    void pA(boolean z);
+    void pS(boolean z);
 
     boolean r(BdUniqueId bdUniqueId);
 

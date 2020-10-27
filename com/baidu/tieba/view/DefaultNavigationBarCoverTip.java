@@ -17,33 +17,33 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.view.NavigationBarCoverTip;
 /* loaded from: classes.dex */
 public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
-    private String emn;
-    private final com.baidu.tbadk.h.g ffd;
-    private View iuc;
+    private String euN;
+    private final com.baidu.tbadk.h.g fnC;
+    private View iGy;
     private Activity mActivity;
-    private View.OnClickListener ngC;
-    private NavigationBarCoverTip.a ngD;
+    private View.OnClickListener ntd;
+    private NavigationBarCoverTip.a nte;
 
     public static DefaultNavigationBarCoverTip c(Activity activity, String str, String str2) {
         if (activity == null) {
             activity = TbadkCoreApplication.getInst().getCurrentActivity();
         }
-        return new DefaultNavigationBarCoverTip(activity).gz(str, str2);
+        return new DefaultNavigationBarCoverTip(activity).gE(str, str2);
     }
 
     private DefaultNavigationBarCoverTip(Activity activity) {
         super(activity);
-        this.ngC = new View.OnClickListener() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.1
+        this.ntd = new View.OnClickListener() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TbPageContext<?> tbPageContext;
                 DefaultNavigationBarCoverTip.this.hideTip();
-                if (DefaultNavigationBarCoverTip.this.mActivity != null && !TextUtils.isEmpty(DefaultNavigationBarCoverTip.this.emn) && (tbPageContext = UtilHelper.getTbPageContext(DefaultNavigationBarCoverTip.this.mActivity)) != null) {
-                    be.bmY().b(tbPageContext, new String[]{DefaultNavigationBarCoverTip.this.emn});
+                if (DefaultNavigationBarCoverTip.this.mActivity != null && !TextUtils.isEmpty(DefaultNavigationBarCoverTip.this.euN) && (tbPageContext = UtilHelper.getTbPageContext(DefaultNavigationBarCoverTip.this.mActivity)) != null) {
+                    be.boR().b(tbPageContext, new String[]{DefaultNavigationBarCoverTip.this.euN});
                 }
             }
         };
-        this.ffd = new com.baidu.tbadk.h.g() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.2
+        this.fnC = new com.baidu.tbadk.h.g() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.2
             @Override // com.baidu.tbadk.h.g, android.app.Application.ActivityLifecycleCallbacks
             public void onActivityDestroyed(Activity activity2) {
                 if (activity2 == DefaultNavigationBarCoverTip.this.mActivity) {
@@ -52,44 +52,44 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
                 }
             }
         };
-        this.ngD = new NavigationBarCoverTip.a() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.3
+        this.nte = new NavigationBarCoverTip.a() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.3
             @Override // com.baidu.tieba.view.NavigationBarCoverTip.a
-            public void Oe() {
+            public void OC() {
             }
 
             @Override // com.baidu.tieba.view.NavigationBarCoverTip.a
-            public void dMP() {
+            public void dPX() {
                 DefaultNavigationBarCoverTip.this.detach();
             }
         };
         this.mActivity = activity;
-        bHq();
-        setCoverTipListener(this.ngD);
+        bJj();
+        setCoverTipListener(this.nte);
     }
 
     public void show() {
         ViewGroup viewGroup;
-        if (this.mActivity != null && this.iuc != null && (viewGroup = (ViewGroup) this.mActivity.findViewById(16908290)) != null) {
+        if (this.mActivity != null && this.iGy != null && (viewGroup = (ViewGroup) this.mActivity.findViewById(16908290)) != null) {
             viewGroup.addView(this, new ViewGroup.LayoutParams(-1, -2));
-            e(this.mActivity, this.iuc);
+            e(this.mActivity, this.iGy);
         }
     }
 
-    private DefaultNavigationBarCoverTip gz(String str, String str2) {
+    private DefaultNavigationBarCoverTip gE(String str, String str2) {
         if (!TextUtils.isEmpty(str)) {
             Context context = getContext();
-            this.emn = str2;
-            this.iuc = View.inflate(context, R.layout.write_thread_share_guide, null);
-            TextView textView = (TextView) this.iuc.findViewById(R.id.write_thread_success_tips);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.iuc.findViewById(R.id.share_icon);
+            this.euN = str2;
+            this.iGy = View.inflate(context, R.layout.write_thread_share_guide, null);
+            TextView textView = (TextView) this.iGy.findViewById(R.id.write_thread_success_tips);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.iGy.findViewById(R.id.share_icon);
             tBSpecificationBtn.setTextSize(R.dimen.tbds34);
             com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
-            cVar.boU();
+            cVar.bqN();
             tBSpecificationBtn.setConfig(cVar);
             textView.setSingleLine();
             textView.setEllipsize(TextUtils.TruncateAt.END);
             textView.setText(str);
-            tBSpecificationBtn.setOnClickListener(this.ngC);
+            tBSpecificationBtn.setOnClickListener(this.ntd);
             if (TextUtils.isEmpty(str2)) {
                 tBSpecificationBtn.setVisibility(8);
             } else {
@@ -97,15 +97,15 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
                 tBSpecificationBtn.setText(context.getString(R.string.jump_link));
             }
             ap.setViewTextColor(textView, R.color.cp_cont_a);
-            tBSpecificationBtn.bok();
+            tBSpecificationBtn.bqd();
             ap.setBackgroundColor(this, R.color.cp_link_tip_a_alpha95);
         }
         return this;
     }
 
-    private void bHq() {
+    private void bJj() {
         try {
-            TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(this.ffd);
+            TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(this.fnC);
         } catch (Exception e) {
             e.printStackTrace();
         }

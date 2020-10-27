@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static final Uri f4586a = Uri.parse("content://telephony/carriers/preferapn");
+    protected static final Uri f4584a = Uri.parse("content://telephony/carriers/preferapn");
 
     public static String a(Context context) {
         int d = d(context);
@@ -56,7 +56,7 @@ public class a {
 
     public static String b(Context context) {
         try {
-            Cursor query = context.getContentResolver().query(f4586a, null, null, null, null);
+            Cursor query = context.getContentResolver().query(f4584a, null, null, null, null);
             if (query == null) {
                 return null;
             }
@@ -84,7 +84,7 @@ public class a {
 
     public static String c(Context context) {
         try {
-            Cursor query = context.getContentResolver().query(f4586a, null, null, null, null);
+            Cursor query = context.getContentResolver().query(f4584a, null, null, null, null);
             if (query == null) {
                 return null;
             }

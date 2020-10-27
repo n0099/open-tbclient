@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.adaptation.a;
 /* loaded from: classes10.dex */
 public interface ak {
-    void adX();
+    boolean D(String str, String str2, String str3);
 
-    boolean u(String str, String str2, String str3);
+    void afR();
 }

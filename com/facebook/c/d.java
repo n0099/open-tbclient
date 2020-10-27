@@ -9,45 +9,45 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes12.dex */
 public class d {
-    private static d nRR;
-    private int nRS;
+    private static d oJj;
+    private int oJk;
     @Nullable
-    private List<c.a> nRT;
-    private final c.a nRU = new a();
+    private List<c.a> oJl;
+    private final c.a oJm = new a();
 
     private d() {
-        dZm();
+        ejk();
     }
 
-    public void fU(@Nullable List<c.a> list) {
-        this.nRT = list;
-        dZm();
+    public void gq(@Nullable List<c.a> list) {
+        this.oJl = list;
+        ejk();
     }
 
     public c s(InputStream inputStream) throws IOException {
         g.checkNotNull(inputStream);
-        byte[] bArr = new byte[this.nRS];
-        int a2 = a(this.nRS, inputStream, bArr);
-        c p = this.nRU.p(bArr, a2);
-        if (p == null || p == c.nRP) {
-            if (this.nRT != null) {
-                for (c.a aVar : this.nRT) {
+        byte[] bArr = new byte[this.oJk];
+        int a2 = a(this.oJk, inputStream, bArr);
+        c p = this.oJm.p(bArr, a2);
+        if (p == null || p == c.oJh) {
+            if (this.oJl != null) {
+                for (c.a aVar : this.oJl) {
                     c p2 = aVar.p(bArr, a2);
-                    if (p2 != null && p2 != c.nRP) {
+                    if (p2 != null && p2 != c.oJh) {
                         return p2;
                     }
                 }
             }
-            return c.nRP;
+            return c.oJh;
         }
         return p;
     }
 
-    private void dZm() {
-        this.nRS = this.nRU.getHeaderSize();
-        if (this.nRT != null) {
-            for (c.a aVar : this.nRT) {
-                this.nRS = Math.max(this.nRS, aVar.getHeaderSize());
+    private void ejk() {
+        this.oJk = this.oJm.getHeaderSize();
+        if (this.oJl != null) {
+            for (c.a aVar : this.oJl) {
+                this.oJk = Math.max(this.oJk, aVar.getHeaderSize());
             }
         }
     }
@@ -67,19 +67,19 @@ public class d {
         return com.facebook.common.internal.a.a(inputStream, bArr, 0, i);
     }
 
-    public static synchronized d dZn() {
+    public static synchronized d ejl() {
         d dVar;
         synchronized (d.class) {
-            if (nRR == null) {
-                nRR = new d();
+            if (oJj == null) {
+                oJj = new d();
             }
-            dVar = nRR;
+            dVar = oJj;
         }
         return dVar;
     }
 
     public static c t(InputStream inputStream) throws IOException {
-        return dZn().s(inputStream);
+        return ejl().s(inputStream);
     }
 
     public static c u(InputStream inputStream) {

@@ -4,6 +4,6 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 /* loaded from: classes21.dex */
 public class f extends b {
     public f() {
-        super(com.baidu.tieba.im.settingcache.b.cPw(), CmdConfigCustom.CMD_SAVE_DRAFT_GROUP);
+        super(com.baidu.tieba.im.settingcache.b.cSD(), CmdConfigCustom.CMD_SAVE_DRAFT_GROUP);
     }
 }

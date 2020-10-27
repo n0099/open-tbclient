@@ -5,18 +5,18 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.ufosdk.UfoSDK;
 /* loaded from: classes22.dex */
 public class b {
-    private static b lCN;
+    private static b lPk;
     private Context context;
 
-    public static b dnN() {
-        if (lCN == null) {
+    public static b dqU() {
+        if (lPk == null) {
             synchronized (b.class) {
-                if (lCN == null) {
-                    lCN = new b(TbadkCoreApplication.getInst());
+                if (lPk == null) {
+                    lPk = new b(TbadkCoreApplication.getInst());
                 }
             }
         }
-        return lCN;
+        return lPk;
     }
 
     public b(Context context) {
@@ -26,7 +26,7 @@ public class b {
         UfoSDK.setContactDialogSwitch(false);
     }
 
-    public void dnO() {
+    public void dqV() {
         TbadkCoreApplication.getInst();
         if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
             TbadkCoreApplication.getInst();

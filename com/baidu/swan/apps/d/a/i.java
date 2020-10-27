@@ -9,7 +9,7 @@ public class i extends SwanAppSimpleH5Widget {
     }
 
     @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.swan.apps.adaptation.b.e
-    public String aeo() {
+    public String agi() {
         return "swan_app_alliance_login_widget";
     }
 }

@@ -9,6 +9,7 @@ import android.util.AttributeSet;
 import android.view.Surface;
 import android.view.View;
 import android.widget.FrameLayout;
+import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayer;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.ICyberVideoView;
@@ -44,7 +45,7 @@ public class a extends FrameLayout implements ICyberVideoView {
     private int W;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1362a;
+    private int f1359a;
     private int aa;
     private boolean ab;
     private float ac;
@@ -136,7 +137,7 @@ public class a extends FrameLayout implements ICyberVideoView {
         this.m = null;
         this.n = null;
         this.p = false;
-        this.f1362a = 0;
+        this.f1359a = 0;
         this.T = "0.0.0.0";
         this.U = true;
         this.V = 0;
@@ -164,7 +165,7 @@ public class a extends FrameLayout implements ICyberVideoView {
         this.m = null;
         this.n = null;
         this.p = false;
-        this.f1362a = 0;
+        this.f1359a = 0;
         this.T = "0.0.0.0";
         this.U = true;
         this.V = 0;
@@ -189,7 +190,7 @@ public class a extends FrameLayout implements ICyberVideoView {
         this.m = null;
         this.n = null;
         this.p = false;
-        this.f1362a = 0;
+        this.f1359a = 0;
         this.T = "0.0.0.0";
         this.U = true;
         this.V = 0;
@@ -227,10 +228,11 @@ public class a extends FrameLayout implements ICyberVideoView {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(Context context) {
-        if (context == null) {
-            throw new RuntimeException("Context not be null");
+        if (context != null) {
+            this.b = context.getApplicationContext();
+        } else {
+            CyberLog.e("VrMovieView", "Context not be null");
         }
-        this.b = context.getApplicationContext();
     }
 
     protected void a(boolean z) {
@@ -684,6 +686,10 @@ public class a extends FrameLayout implements ICyberVideoView {
         e(i2);
     }
 
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setClarityInfo(String str) {
+    }
+
     protected void setCurPlayerState(h hVar) {
         this.G = hVar;
     }
@@ -753,6 +759,10 @@ public class a extends FrameLayout implements ICyberVideoView {
         this.w = onInfoListener;
     }
 
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setOnMediaSourceChangedListener(CyberPlayerManager.OnMediaSourceChangedListener onMediaSourceChangedListener) {
+    }
+
     public void setOnPitchYawRollListener(d dVar) {
         this.F = dVar;
     }
@@ -806,6 +816,13 @@ public class a extends FrameLayout implements ICyberVideoView {
         }
     }
 
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setPlayJson(String str) {
+        if (this.h != null) {
+            this.h.setPlayJson(str);
+        }
+    }
+
     public void setPlayerType(int i2) {
         this.i = i2;
     }
@@ -816,7 +833,7 @@ public class a extends FrameLayout implements ICyberVideoView {
     }
 
     public void setScaleType(int i2) {
-        this.f1362a = i2;
+        this.f1359a = i2;
     }
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
@@ -900,6 +917,10 @@ public class a extends FrameLayout implements ICyberVideoView {
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public void stopPlayback() {
         stop();
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void switchMediaSource(int i2) {
     }
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView

@@ -15,13 +15,13 @@ public class a extends d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b qB(String str) {
-        com.baidu.swan.apps.ac.c.b.b qE = qE(str);
-        if (qE.azY()) {
-            com.baidu.swan.apps.ac.d.a.print(qE.toString());
-            return qE.cWo;
+    public com.baidu.swan.apps.api.c.b qU(String str) {
+        com.baidu.swan.apps.ac.c.b.b qX = qX(str);
+        if (qX.aBS()) {
+            com.baidu.swan.apps.ac.d.a.print(qX.toString());
+            return qX.deP;
         }
-        return new e().c(qE, new com.baidu.swan.apps.core.f.b<com.baidu.swan.apps.ac.c.c.a>() { // from class: com.baidu.swan.apps.ac.c.a.a.1
+        return new e().c(qX, new com.baidu.swan.apps.core.f.b<com.baidu.swan.apps.ac.c.c.a>() { // from class: com.baidu.swan.apps.ac.c.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.core.f.b
             /* renamed from: b */
@@ -31,13 +31,13 @@ public class a extends d {
         });
     }
 
-    public com.baidu.swan.apps.api.c.b qC(String str) {
-        com.baidu.swan.apps.ac.c.b.b qE = qE(str);
-        if (qE.azY()) {
-            com.baidu.swan.apps.ac.d.a.print(qE.toString());
-            return qE.cWo;
+    public com.baidu.swan.apps.api.c.b qV(String str) {
+        com.baidu.swan.apps.ac.c.b.b qX = qX(str);
+        if (qX.aBS()) {
+            com.baidu.swan.apps.ac.d.a.print(qX.toString());
+            return qX.deP;
         }
-        return new c().c(qE, new com.baidu.swan.apps.core.f.b<com.baidu.swan.apps.ac.c.c.a>() { // from class: com.baidu.swan.apps.ac.c.a.a.2
+        return new c().c(qX, new com.baidu.swan.apps.core.f.b<com.baidu.swan.apps.ac.c.c.a>() { // from class: com.baidu.swan.apps.ac.c.a.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.core.f.b
             /* renamed from: b */
@@ -47,13 +47,13 @@ public class a extends d {
         });
     }
 
-    public com.baidu.swan.apps.api.c.b qD(String str) {
-        com.baidu.swan.apps.ac.c.b.b qE = qE(str);
-        if (qE.azY()) {
-            com.baidu.swan.apps.ac.d.a.print(qE.toString());
-            return qE.cWo;
+    public com.baidu.swan.apps.api.c.b qW(String str) {
+        com.baidu.swan.apps.ac.c.b.b qX = qX(str);
+        if (qX.aBS()) {
+            com.baidu.swan.apps.ac.d.a.print(qX.toString());
+            return qX.deP;
         }
-        return new com.baidu.swan.apps.ac.c.d.d().c(qE, new com.baidu.swan.apps.core.f.b<com.baidu.swan.apps.ac.c.c.a>() { // from class: com.baidu.swan.apps.ac.c.a.a.3
+        return new com.baidu.swan.apps.ac.c.d.d().c(qX, new com.baidu.swan.apps.core.f.b<com.baidu.swan.apps.ac.c.c.a>() { // from class: com.baidu.swan.apps.ac.c.a.a.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.core.f.b
             /* renamed from: b */
@@ -66,40 +66,40 @@ public class a extends d {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.swan.apps.ac.c.c.a aVar) {
         if (aVar != null) {
-            aVar.aAa();
+            aVar.aBU();
         }
     }
 
-    private com.baidu.swan.apps.ac.c.b.b qE(String str) {
+    private com.baidu.swan.apps.ac.c.b.b qX(String str) {
         com.baidu.swan.apps.ac.c.b.b bVar = new com.baidu.swan.apps.ac.c.b.b();
-        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bc = com.baidu.swan.apps.api.d.b.bc("Api-Base", str);
-        bVar.cWo = (com.baidu.swan.apps.api.c.b) bc.first;
-        JSONObject jSONObject = (JSONObject) bc.second;
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bj = com.baidu.swan.apps.api.d.b.bj("Api-Base", str);
+        bVar.deP = (com.baidu.swan.apps.api.c.b) bj.first;
+        JSONObject jSONObject = (JSONObject) bj.second;
         if (jSONObject == null) {
             return bVar;
         }
         String optString = jSONObject.optString("pluginProvider");
         if (TextUtils.isEmpty(optString)) {
-            bVar.cWo = new com.baidu.swan.apps.api.c.b(201, "pluginProvider is empty");
+            bVar.deP = new com.baidu.swan.apps.api.c.b(201, "pluginProvider is empty");
             return bVar;
         }
-        h qG = com.baidu.swan.apps.ac.g.b.qG(optString);
-        if (qG != null) {
-            String str2 = qG.appKey;
+        h qZ = com.baidu.swan.apps.ac.g.b.qZ(optString);
+        if (qZ != null) {
+            String str2 = qZ.appKey;
             if (!TextUtils.isEmpty(str2)) {
                 String optString2 = jSONObject.optString("providerRootPath");
                 if (TextUtils.isEmpty(optString2)) {
-                    bVar.cWo = new com.baidu.swan.apps.api.c.b(201, "providerRootPath is empty");
+                    bVar.deP = new com.baidu.swan.apps.api.c.b(201, "providerRootPath is empty");
                     return bVar;
                 }
                 String optString3 = jSONObject.optString("slaveId");
                 if (TextUtils.isEmpty(optString3)) {
-                    bVar.cWo = new com.baidu.swan.apps.api.c.b(201, "slaveId is empty");
+                    bVar.deP = new com.baidu.swan.apps.api.c.b(201, "slaveId is empty");
                     return bVar;
                 }
                 String optString4 = jSONObject.optString("componentId");
                 if (TextUtils.isEmpty(optString4)) {
-                    bVar.cWo = new com.baidu.swan.apps.api.c.b(201, "componentId is empty");
+                    bVar.deP = new com.baidu.swan.apps.api.c.b(201, "componentId is empty");
                     return bVar;
                 }
                 String optString5 = jSONObject.optString("pluginVersion", "release");
@@ -108,18 +108,18 @@ public class a extends d {
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("args");
                 String optString6 = jSONObject.optString("cb");
-                bVar.cWk = str2;
-                bVar.cWl = optString;
-                bVar.cWm = optString2;
-                bVar.cWn = optString5;
-                bVar.cpq = optString3;
-                bVar.cpp = optString4;
+                bVar.deL = str2;
+                bVar.deM = optString;
+                bVar.deN = optString2;
+                bVar.deO = optString5;
+                bVar.cxS = optString3;
+                bVar.cxR = optString4;
                 bVar.pageParams = optJSONObject;
-                bVar.cgL = optString6;
+                bVar.cpl = optString6;
                 return bVar;
             }
         }
-        bVar.cWo = new com.baidu.swan.apps.api.c.b(201, "pluginProvider exchange for truth app key，but empty");
+        bVar.deP = new com.baidu.swan.apps.api.c.b(201, "pluginProvider exchange for truth app key，but empty");
         return bVar;
     }
 }

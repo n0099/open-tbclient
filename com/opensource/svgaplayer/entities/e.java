@@ -5,9 +5,9 @@ import kotlin.h;
 @h
 /* loaded from: classes15.dex */
 public final class e {
-    private static final Path oDA = new Path();
+    private static final Path puW = new Path();
 
-    public static final Path ejG() {
-        return oDA;
+    public static final Path etG() {
+        return puW;
     }
 }

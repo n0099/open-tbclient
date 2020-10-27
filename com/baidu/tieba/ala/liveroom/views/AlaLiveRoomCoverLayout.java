@@ -12,7 +12,7 @@ import com.facebook.drawee.drawable.p;
 import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes4.dex */
 public class AlaLiveRoomCoverLayout extends FrameLayout {
-    public SimpleDraweeView hee;
+    public SimpleDraweeView hqa;
 
     public AlaLiveRoomCoverLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -21,7 +21,7 @@ public class AlaLiveRoomCoverLayout extends FrameLayout {
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(a.h.ala_liveroom_cover_layout, (ViewGroup) this, true);
-        this.hee = (SimpleDraweeView) findViewById(a.g.ala_liveroom_background_img);
-        this.hee.getHierarchy().a(a.f.bg_live_cover_default, p.b.nOZ);
+        this.hqa = (SimpleDraweeView) findViewById(a.g.ala_liveroom_background_img);
+        this.hqa.getHierarchy().a(a.f.bg_live_cover_default, p.b.oGs);
     }
 }

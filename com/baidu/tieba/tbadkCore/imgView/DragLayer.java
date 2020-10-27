@@ -7,8 +7,8 @@ import android.view.MotionEvent;
 import android.widget.FrameLayout;
 /* loaded from: classes.dex */
 public class DragLayer extends FrameLayout {
-    private b mGA;
-    private a mGd;
+    private a mSL;
+    private b mTi;
 
     public DragLayer(Context context) {
         super(context);
@@ -30,38 +30,38 @@ public class DragLayer extends FrameLayout {
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        return this.mGd.onInterceptTouchEvent(motionEvent);
+        return this.mSL.onInterceptTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return this.mGd.onTouchEvent(motionEvent);
+        return this.mSL.onTouchEvent(motionEvent);
     }
 
     public a getDragController() {
-        return this.mGd;
+        return this.mSL;
     }
 
     public void setDragController(a aVar) {
-        this.mGd = aVar;
+        this.mSL = aVar;
     }
 
     public void setDragObject(b bVar) {
-        this.mGA = bVar;
+        this.mTi = bVar;
         invalidate();
     }
 
     public b getDragObject() {
-        return this.mGA;
+        return this.mTi;
     }
 
-    public void dEQ() {
-        if (this.mGA != null) {
-            if (this.mGA.bm != null) {
-                this.mGA.bm.recycle();
-                this.mGA.bm = null;
+    public void dHY() {
+        if (this.mTi != null) {
+            if (this.mTi.bm != null) {
+                this.mTi.bm.recycle();
+                this.mTi.bm = null;
             }
-            this.mGA = null;
+            this.mTi = null;
         }
     }
 
@@ -73,14 +73,14 @@ public class DragLayer extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.mGA != null && this.mGd.mFU) {
-            this.mGA.draw(canvas);
+        if (this.mTi != null && this.mSL.mSB) {
+            this.mTi.draw(canvas);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        dEQ();
+        dHY();
     }
 }

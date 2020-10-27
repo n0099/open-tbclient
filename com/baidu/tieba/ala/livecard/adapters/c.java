@@ -8,20 +8,20 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.bw;
-import com.baidu.tieba.card.aa;
-import com.baidu.tieba.card.y;
+import com.baidu.tieba.card.ab;
+import com.baidu.tieba.card.z;
 import com.baidu.tieba.frs.k;
 /* loaded from: classes4.dex */
-public class c extends k<bw, com.baidu.tieba.ala.livecard.a.a> implements y {
-    private com.baidu.tieba.ala.livecard.b.b gAm;
-    private aa<bw> gAn;
+public class c extends k<bw, com.baidu.tieba.ala.livecard.a.a> implements z {
+    private com.baidu.tieba.ala.livecard.b.b gMa;
+    private ab<bw> gMb;
     private String mForumName;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.gAn = new aa<bw>() { // from class: com.baidu.tieba.ala.livecard.adapters.c.1
+        this.gMb = new ab<bw>() { // from class: com.baidu.tieba.ala.livecard.adapters.c.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.aa
+            @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
             public void a(View view, bw bwVar) {
                 if (view != null && bwVar != null) {
@@ -44,31 +44,31 @@ public class c extends k<bw, com.baidu.tieba.ala.livecard.a.a> implements y {
         if (this.mPageContext == null) {
             return null;
         }
-        this.gAm = new com.baidu.tieba.ala.livecard.b.b(this.mPageContext);
-        this.gAm.o(this.mPageId);
-        this.gAm.setForumName(this.mForumName);
-        return new com.baidu.tieba.ala.livecard.a.a(this.gAm);
+        this.gMa = new com.baidu.tieba.ala.livecard.b.b(this.mPageContext);
+        this.gMa.o(this.mPageId);
+        this.gMa.setForumName(this.mForumName);
+        return new com.baidu.tieba.ala.livecard.a.a(this.gMa);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bw bwVar, com.baidu.tieba.ala.livecard.a.a aVar) {
-        aVar.gAz.a(bwVar);
-        aVar.gAz.setForumName(this.mForumName);
-        aVar.gAz.c(this.gAn);
+        aVar.gMn.a(bwVar);
+        aVar.gMn.setForumName(this.mForumName);
+        aVar.gMn.c(this.gMb);
         if (bwVar != null) {
-            bwVar.bjt();
+            bwVar.blm();
         }
         return aVar.getView();
     }
 
-    @Override // com.baidu.tieba.card.y
+    @Override // com.baidu.tieba.card.z
     public void setForumName(String str) {
         this.mForumName = str;
     }
 
-    @Override // com.baidu.tieba.card.y
-    public void ux(int i) {
+    @Override // com.baidu.tieba.card.z
+    public void uQ(int i) {
     }
 }

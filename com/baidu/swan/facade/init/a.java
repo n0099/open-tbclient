@@ -10,7 +10,7 @@ public class a {
     private Context mContext;
     private static final String TAG = a.class.getSimpleName();
     private static final boolean DEBUG = b.DEBUG;
-    private static SharedPreferences dvH = null;
+    private static SharedPreferences dEe = null;
 
     private a(Context context) {
         this.mContext = null;
@@ -22,10 +22,10 @@ public class a {
     }
 
     private static SharedPreferences dx(Context context) {
-        if (dvH == null) {
-            dvH = context.getSharedPreferences("downgradefile", 0);
+        if (dEe == null) {
+            dEe = context.getSharedPreferences("downgradefile", 0);
         }
-        return dvH;
+        return dEe;
     }
 
     private int dy(Context context) {
@@ -56,42 +56,42 @@ public class a {
         edit.apply();
     }
 
-    public void aKB() {
+    public void aMv() {
         int dz = dz(this.mContext);
         int dy = dy(this.mContext);
         if (DEBUG) {
             Log.d(TAG, "处理升级逻辑：newVersionCode=" + dz + " /oldVersionCode=" + dy);
         }
         if (dy == 0) {
-            ll(dz);
+            lw(dz);
             n(this.mContext, dz);
             o(this.mContext, dy);
         } else if (dz > dy) {
-            as(dz, dy);
+            at(dz, dy);
             n(this.mContext, dz);
             o(this.mContext, dy);
         } else if (dz < dy) {
-            au(dz, dy);
+            av(dz, dy);
             n(this.mContext, dz);
             o(this.mContext, dy);
         } else {
-            aKC();
+            aMw();
         }
     }
 
-    private void as(int i, int i2) {
-        com.baidu.swan.apps.ao.a.as(i2, i);
-        com.baidu.swan.d.a.baQ();
+    private void at(int i, int i2) {
+        com.baidu.swan.apps.ao.a.at(i2, i);
+        com.baidu.swan.d.a.bcJ();
     }
 
-    private void au(int i, int i2) {
+    private void av(int i, int i2) {
     }
 
-    private void ll(int i) {
-        com.baidu.swan.apps.ao.a.as(0, i);
+    private void lw(int i) {
+        com.baidu.swan.apps.ao.a.at(0, i);
     }
 
-    private void aKC() {
+    private void aMw() {
         if (DEBUG) {
             Log.d(TAG, "新旧版本一样:" + dy(this.mContext));
         }

@@ -7,42 +7,42 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private String boR;
-    private String bpa;
-    private String bpb;
-    private String elR;
+    private String bqE;
+    private String bqN;
+    private String bqO;
+    private String eur;
     private boolean isSelected;
-    private String jbb;
-    private b jbc;
-    private String jbd;
-    private String jbe;
-    private String jbf;
-    private String jbg;
-    private String jbh;
-    private List<C0720a> jbi;
+    private String jnA;
+    private String jnB;
+    private String jnC;
+    private List<C0736a> jnD;
+    private String jnw;
+    private b jnx;
+    private String jny;
+    private String jnz;
     private String nid;
     private String originalPrice;
     private String price;
     private String title;
     private String userName;
 
-    public void Kv(String str) {
-        this.jbb = str;
+    public void KT(String str) {
+        this.jnw = str;
     }
 
-    public String cCq() {
-        return this.boR;
+    public String cFx() {
+        return this.bqE;
     }
 
-    public void Kw(String str) {
-        this.boR = str;
+    public void KU(String str) {
+        this.bqE = str;
     }
 
     public void setTitle(String str) {
         this.title = str;
     }
 
-    public void Kx(String str) {
+    public void KV(String str) {
         this.originalPrice = str;
     }
 
@@ -54,104 +54,104 @@ public class a {
         this.price = str;
     }
 
-    public b cCr() {
-        return this.jbc;
+    public b cFy() {
+        return this.jnx;
     }
 
     public void a(b bVar) {
-        this.jbc = bVar;
+        this.jnx = bVar;
     }
 
-    public void Ky(String str) {
-        this.jbd = str;
+    public void KW(String str) {
+        this.jny = str;
     }
 
-    public String cCs() {
-        return this.jbe;
+    public String cFz() {
+        return this.jnz;
     }
 
-    public void Kz(String str) {
-        this.jbe = str;
+    public void KX(String str) {
+        this.jnz = str;
     }
 
     public void setUserName(String str) {
         this.userName = str;
     }
 
-    public void KA(String str) {
-        this.jbf = str;
+    public void KY(String str) {
+        this.jnA = str;
     }
 
-    public void KB(String str) {
-        this.jbg = str;
+    public void KZ(String str) {
+        this.jnB = str;
     }
 
-    public void KC(String str) {
-        this.bpb = str;
+    public void La(String str) {
+        this.bqO = str;
     }
 
-    public void KD(String str) {
-        this.bpa = str;
+    public void Lb(String str) {
+        this.bqN = str;
     }
 
-    public void KE(String str) {
-        this.jbh = str;
+    public void Lc(String str) {
+        this.jnC = str;
     }
 
     public void setNid(String str) {
         this.nid = str;
     }
 
-    public String cCt() {
-        return this.elR;
+    public String cFA() {
+        return this.eur;
     }
 
-    public void KF(String str) {
-        this.elR = str;
+    public void Ld(String str) {
+        this.eur = str;
     }
 
-    public void qi(boolean z) {
+    public void qA(boolean z) {
         this.isSelected = z;
     }
 
-    public List<C0720a> getImageList() {
-        return this.jbi;
+    public List<C0736a> getImageList() {
+        return this.jnD;
     }
 
-    public void dj(List<C0720a> list) {
-        this.jbi = list;
+    public void ds(List<C0736a> list) {
+        this.jnD = list;
     }
 
     /* loaded from: classes.dex */
     public static class b {
-        private String jbj;
-        private String jbk;
-        private String jbl;
+        private String jnE;
+        private String jnF;
+        private String jnG;
 
-        public void KG(String str) {
-            this.jbj = str;
+        public void Le(String str) {
+            this.jnE = str;
         }
 
-        public String cCu() {
-            return this.jbk;
+        public String cFB() {
+            return this.jnF;
         }
 
-        public void KH(String str) {
-            this.jbk = str;
+        public void Lf(String str) {
+            this.jnF = str;
         }
 
-        public String cCv() {
-            return this.jbl;
+        public String cFC() {
+            return this.jnG;
         }
 
-        public void KI(String str) {
-            this.jbl = str;
+        public void Lg(String str) {
+            this.jnG = str;
         }
     }
 
     /* renamed from: com.baidu.tieba.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0720a {
+    public static class C0736a {
         private String src;
 
         public String getSrc() {
@@ -163,44 +163,44 @@ public class a {
         }
     }
 
-    public static a dV(JSONObject jSONObject) throws Exception {
+    public static a eb(JSONObject jSONObject) throws Exception {
         if (jSONObject == null) {
             return null;
         }
         a aVar = new a();
-        aVar.Ky(jSONObject.optString("commission"));
-        aVar.KC(jSONObject.optString("coupon"));
-        aVar.KF(jSONObject.optString("goodsId"));
-        aVar.KA(jSONObject.optString("goodsStatus"));
+        aVar.KW(jSONObject.optString("commission"));
+        aVar.La(jSONObject.optString("coupon"));
+        aVar.Ld(jSONObject.optString("goodsId"));
+        aVar.KY(jSONObject.optString("goodsStatus"));
         JSONArray optJSONArray = jSONObject.optJSONArray("imageList");
         if (optJSONArray != null && optJSONArray.length() > 0) {
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < optJSONArray.length(); i++) {
-                C0720a c0720a = new C0720a();
+                C0736a c0736a = new C0736a();
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
-                    c0720a.setSrc(optJSONObject.optString("src"));
-                    arrayList.add(c0720a);
+                    c0736a.setSrc(optJSONObject.optString("src"));
+                    arrayList.add(c0736a);
                 }
             }
-            aVar.dj(arrayList);
+            aVar.ds(arrayList);
         }
-        aVar.KE(jSONObject.optString("isBindingVideo"));
-        aVar.qi(jSONObject.optBoolean("isSelected"));
+        aVar.Lc(jSONObject.optString("isBindingVideo"));
+        aVar.qA(jSONObject.optBoolean("isSelected"));
         aVar.setNid(jSONObject.optString("nid"));
-        aVar.Kv(jSONObject.optString("originalGoodsId"));
-        aVar.Kx(jSONObject.optString("originalPrice"));
-        aVar.Kw(jSONObject.optString("originalTitle"));
-        aVar.Kz(jSONObject.optString("tpName"));
+        aVar.KT(jSONObject.optString("originalGoodsId"));
+        aVar.KV(jSONObject.optString("originalPrice"));
+        aVar.KU(jSONObject.optString("originalTitle"));
+        aVar.KX(jSONObject.optString("tpName"));
         aVar.setPrice(jSONObject.optString("price"));
-        aVar.KD(jSONObject.optString("saleNum"));
-        aVar.KB(jSONObject.optString("shareStatus"));
+        aVar.Lb(jSONObject.optString("saleNum"));
+        aVar.KZ(jSONObject.optString("shareStatus"));
         JSONObject optJSONObject2 = jSONObject.optJSONObject("slink");
         if (optJSONObject2 != null) {
             b bVar = new b();
-            bVar.KH(optJSONObject2.optString("Android"));
-            bVar.KG(optJSONObject2.optString("IOS"));
-            bVar.KI(optJSONObject2.optString("h5"));
+            bVar.Lf(optJSONObject2.optString("Android"));
+            bVar.Le(optJSONObject2.optString("IOS"));
+            bVar.Lg(optJSONObject2.optString("h5"));
             aVar.a(bVar);
         }
         aVar.setTitle(jSONObject.optString("title"));

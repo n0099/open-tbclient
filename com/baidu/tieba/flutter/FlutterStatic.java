@@ -80,19 +80,19 @@ public class FlutterStatic {
             public CustomResponsedMessage<m> run(CustomMessage<m> customMessage) {
                 if (customMessage != null && customMessage.getData() != null) {
                     Context context = customMessage.getData().getContext();
-                    String dEc = customMessage.getData().dEc();
+                    String dHk = customMessage.getData().dHk();
                     HashMap params = customMessage.getData().getParams();
                     if (params == null || params.isEmpty()) {
                         params = new HashMap();
                     }
-                    if (context != null && !TextUtils.isEmpty(dEc) && params != null && !params.isEmpty()) {
-                        OpenFlutter.openFlutterPage(context, dEc, params);
+                    if (context != null && !TextUtils.isEmpty(dHk) && params != null && !params.isEmpty()) {
+                        OpenFlutter.openFlutterPage(context, dHk, params);
                     }
                 }
                 return null;
             }
         }));
-        be.bmY().a(new be.a() { // from class: com.baidu.tieba.flutter.FlutterStatic.5
+        be.boR().a(new be.a() { // from class: com.baidu.tieba.flutter.FlutterStatic.5
             @Override // com.baidu.tbadk.core.util.be.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {

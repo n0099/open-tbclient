@@ -5,50 +5,50 @@ import java.nio.ByteBuffer;
 public abstract class ji {
 
     /* renamed from: a  reason: collision with root package name */
-    protected js f5003a;
+    protected js f5001a;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ji(js jsVar) {
-        this.f5003a = jsVar;
+        this.f5001a = jsVar;
     }
 
     public abstract byte a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract double m483a();
+    public abstract double m482a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract int m484a();
+    public abstract int m483a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract long m485a();
+    public abstract long m484a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract jf m486a();
+    public abstract jf m485a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract jg m487a();
+    public abstract jg m486a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract jh m488a();
+    public abstract jh m487a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract jm m489a();
+    public abstract jm m488a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract jn m490a();
+    public abstract jn m489a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract String m491a();
+    public abstract String m490a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract ByteBuffer m492a();
+    public abstract ByteBuffer m491a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract short m493a();
+    public abstract short m492a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract void m494a();
+    public abstract void m493a();
 
     public abstract void a(byte b);
 
@@ -73,7 +73,7 @@ public abstract class ji {
     public abstract void a(boolean z);
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract boolean m495a();
+    public abstract boolean m494a();
 
     public abstract void b();
 

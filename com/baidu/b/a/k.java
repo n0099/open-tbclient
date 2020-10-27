@@ -3,7 +3,7 @@ package com.baidu.b.a;
 class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private final byte[] f1246a;
+    private final byte[] f1243a;
     private final int[] b;
     private final byte[] c;
     private final int d;
@@ -16,7 +16,7 @@ class k {
     }
 
     protected k(int i) {
-        this.f1246a = new byte[1];
+        this.f1243a = new byte[1];
         this.b = new int[4];
         this.c = new byte[16];
         this.d = i;

@@ -8,9 +8,9 @@ import com.baidu.tieba.R;
 public class a extends m {
     public a(Context context, int i) {
         super(context, TbadkCoreApplication.getInst().getString(R.string.pb_vote_text), 32, i);
-        this.eZM = R.drawable.ic_icon_pure_more_vote60_svg;
-        this.eZP = true;
-        this.eZR = true;
-        this.eZV = new int[]{22};
+        this.fij = R.drawable.ic_icon_pure_more_vote60_svg;
+        this.fim = true;
+        this.fio = true;
+        this.fit = new int[]{22};
     }
 }

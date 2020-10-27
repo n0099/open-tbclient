@@ -10,9 +10,11 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.data.g;
-import com.baidu.live.data.w;
+import com.baidu.live.data.h;
+import com.baidu.live.data.j;
+import com.baidu.live.data.y;
 import com.baidu.live.gift.container.e;
+import com.baidu.live.gift.g;
 import com.baidu.live.gift.i;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
@@ -26,57 +28,57 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d extends c {
-    private CustomMessageListener aXH;
-    private com.baidu.live.gift.container.e bbS;
-    private CustomMessageListener bbT;
-    private long bbQ = 0;
-    private long bbR = 0;
-    private e.a aWE = new e.a() { // from class: com.baidu.live.gift.panel.d.3
+    private CustomMessageListener aZc;
+    private com.baidu.live.gift.container.e bdg;
+    private CustomMessageListener bdh;
+    private long bde = 0;
+    private long bdf = 0;
+    private e.a aXZ = new e.a() { // from class: com.baidu.live.gift.panel.d.3
         @Override // com.baidu.live.gift.container.e.a
-        public void b(int i, String str, boolean z, ArrayList<i> arrayList, ArrayList<g> arrayList2, ArrayList<com.baidu.live.data.i> arrayList3, w wVar) {
+        public void b(int i, String str, boolean z, ArrayList<i> arrayList, ArrayList<h> arrayList2, ArrayList<j> arrayList3, y yVar) {
             if (i != 0 && !StringUtils.isNull(str)) {
                 BdUtilHelper.showToast(TbadkCoreApplication.getInst(), str);
             }
-            d.this.bbM.a(z, arrayList, arrayList2, arrayList3, i == 0, i);
-            d.this.bbM.b(wVar);
+            d.this.bda.a(z, arrayList, arrayList2, arrayList3, i == 0, i);
+            d.this.bda.b(yVar);
         }
     };
 
     @Override // com.baidu.live.gift.panel.c, com.baidu.live.tbadk.core.fragment.LazyLoadFragment
     protected void onInflate(View view, Bundle bundle) {
         super.onInflate(view, bundle);
-        this.bbM.setType(0);
-        this.bbM.aWW.setText("赠送");
+        this.bda.setType(0);
+        this.bda.aYr.setText("赠送");
     }
 
     @Override // com.baidu.live.gift.panel.c, com.baidu.live.tbadk.core.fragment.LazyLoadFragment
     protected void onInitial() {
         super.onInitial();
-        this.bbQ = TbadkCoreApplication.getInst().currentAccountTdouNum;
-        this.bbR = TbadkCoreApplication.getInst().currentAccountFlowerNum;
-        IY();
-        IZ();
-        this.bbS = new com.baidu.live.gift.container.e(getPageContext(), this.bby.aYG);
-        this.bbS.a(this.aWE);
-        this.bbS.gW(this.bby.aYF);
+        this.bde = TbadkCoreApplication.getInst().currentAccountTdouNum;
+        this.bdf = TbadkCoreApplication.getInst().currentAccountFlowerNum;
+        Jr();
+        Js();
+        this.bdg = new com.baidu.live.gift.container.e(getPageContext(), this.bcM.bad);
+        this.bdg.a(this.aXZ);
+        this.bdg.hh(this.bcM.bac);
     }
 
     @Override // com.baidu.live.gift.panel.c, com.baidu.live.tbadk.core.fragment.LazyLoadFragment, com.baidu.live.tbadk.core.fragment.SupportXFragment
     public void onDestroy() {
         super.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.bbT);
-        MessageManager.getInstance().unRegisterListener(this.aXH);
+        MessageManager.getInstance().unRegisterListener(this.bdh);
+        MessageManager.getInstance().unRegisterListener(this.aZc);
     }
 
     @Override // com.baidu.live.gift.panel.c
-    protected boolean IU() {
+    protected boolean Jn() {
         return true;
     }
 
-    private boolean b(com.baidu.live.gift.g gVar) {
-        if (com.baidu.live.x.a.OS().bqJ != null && com.baidu.live.x.a.OS().bqJ.aNU != null) {
-            String str = com.baidu.live.x.a.OS().bqJ.aNU.aNg;
-            if (!TextUtils.isEmpty(str) && str.equals(String.valueOf(gVar.Fz()))) {
+    private boolean b(g gVar) {
+        if (com.baidu.live.z.a.Pq().bsy != null && com.baidu.live.z.a.Pq().bsy.aOz != null) {
+            String str = com.baidu.live.z.a.Pq().bsy.aOz.aNL;
+            if (!TextUtils.isEmpty(str) && str.equals(String.valueOf(gVar.FO()))) {
                 return true;
             }
         }
@@ -84,114 +86,114 @@ public class d extends c {
     }
 
     @Override // com.baidu.live.gift.panel.c
-    protected boolean IV() {
-        com.baidu.live.gift.g Hw = this.bbM.Hw();
-        if (Hw == null) {
+    protected boolean Jo() {
+        g HR = this.bda.HR();
+        if (HR == null) {
             return false;
         }
-        if (b(Hw) && !this.aWI) {
+        if (b(HR) && !this.aYd) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913179));
             return false;
         }
-        int i = this.bby.aVm;
-        if (Hw.FD()) {
-            if (Hw.Fz() == 6 && i < 3) {
+        int i = this.bcM.aWH;
+        if (HR.FS()) {
+            if (HR.FO() == 6 && i < 3) {
                 return false;
             }
-            if (Hw.Fz() == 7 && i < 7) {
+            if (HR.FO() == 7 && i < 7) {
                 return false;
             }
-            if (Hw.Fz() == 8 && i < 13) {
+            if (HR.FO() == 8 && i < 13) {
                 return false;
             }
-            if (Hw.Fz() == 9 && i < 22) {
+            if (HR.FO() == 9 && i < 22) {
                 return false;
             }
-            if (Hw.Fz() == 10 && i < 29) {
+            if (HR.FO() == 10 && i < 29) {
                 return false;
             }
-            if (Hw.Fz() == 11 && i < 39) {
+            if (HR.FO() == 11 && i < 39) {
                 return false;
             }
-            if (Hw.Fz() == 12 && i < 47) {
+            if (HR.FO() == 12 && i < 47) {
                 return false;
             }
         }
-        int Hx = this.bbM.Hx();
+        int HS = this.bda.HS();
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.putOpt("gift_num", Integer.valueOf(Hx));
-            jSONObject.putOpt(LogConfig.LOG_GIFT_ID, Hw.Fd());
-            jSONObject.putOpt("gift_name", Hw.Fe());
-            jSONObject.putOpt(LogConfig.LOG_GIFT_VALUE, Hw.getPrice());
+            jSONObject.putOpt("gift_num", Integer.valueOf(HS));
+            jSONObject.putOpt(LogConfig.LOG_GIFT_ID, HR.Fs());
+            jSONObject.putOpt("gift_name", HR.Ft());
+            jSONObject.putOpt(LogConfig.LOG_GIFT_VALUE, HR.getPrice());
         } catch (JSONException e) {
             e.printStackTrace();
         }
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1395, "display", "liveroom", "giftsend_clk").setContentExt(null, MapController.POPUP_LAYER_TAG, jSONObject));
-        if (a(Hw, Hx)) {
-            if (Hw.Fk()) {
-                if (this.bbQ <= 0 || this.bbQ < JavaTypesHelper.toLong(Hw.getPrice(), 0L) * Hx) {
-                    IQ();
+        if (a(HR, HS)) {
+            if (HR.Fz()) {
+                if (this.bde <= 0 || this.bde < JavaTypesHelper.toLong(HR.getPrice(), 0L) * HS) {
+                    Jj();
                     return false;
                 }
-                Hw.aSz = this.bbN != null ? this.bbN.GY() : null;
-                if (Hw.aSz == null) {
+                HR.aTv = this.bdb != null ? this.bdb.Hu() : null;
+                if (HR.aTv == null) {
                     return false;
                 }
-                Hw.aSz.aTF = Hw.Fh();
-                com.baidu.live.gift.b.b.Ik().a(Hw, Hx, this.bby.mUserId, this.bby.mUserName, this.bby.mLiveId, this.bby.mRoomId, this.bby.mAppId, this.bby.aYD, this.bby.otherParams, 0L);
-                this.bbQ -= JavaTypesHelper.toLong(Hw.getPrice(), 0L) * Hx;
-                this.bbM.ad(this.bbQ);
+                HR.aTv.aUB = HR.Fw();
+                com.baidu.live.gift.b.b.ID().a(HR, HS, this.bcM.mUserId, this.bcM.mUserName, this.bcM.mLiveId, this.bcM.mRoomId, this.bcM.mAppId, this.bcM.baa, this.bcM.otherParams, 0L);
+                this.bde -= JavaTypesHelper.toLong(HR.getPrice(), 0L) * HS;
+                this.bda.ae(this.bde);
                 closeActivity();
-            } else if (Hw.Fn()) {
-                if (this.bbR <= 0 || this.bbR < JavaTypesHelper.toLong(Hw.getPrice(), 0L) * Hx) {
+            } else if (HR.FC()) {
+                if (this.bdf <= 0 || this.bdf < JavaTypesHelper.toLong(HR.getPrice(), 0L) * HS) {
                     BdUtilHelper.showToast(getPageContext().getPageActivity(), getPageContext().getResources().getString(a.i.ala_free_gift_flower_no_enough), 1000);
                     return false;
                 }
-                com.baidu.live.gift.b.b.Ik().a(Hw, Hx, this.bby.mUserId, this.bby.mUserName, this.bby.mLiveId, this.bby.mRoomId, this.bby.mAppId, this.bby.aYD, this.bby.otherParams, 0L);
-                this.bbR -= JavaTypesHelper.toLong(Hw.getPrice(), 0L) * Hx;
-                this.bbM.ae(this.bbR);
-            } else if (this.bbQ <= 0 || this.bbQ < JavaTypesHelper.toLong(Hw.getPrice(), 0L) * Hx) {
-                IQ();
+                com.baidu.live.gift.b.b.ID().a(HR, HS, this.bcM.mUserId, this.bcM.mUserName, this.bcM.mLiveId, this.bcM.mRoomId, this.bcM.mAppId, this.bcM.baa, this.bcM.otherParams, 0L);
+                this.bdf -= JavaTypesHelper.toLong(HR.getPrice(), 0L) * HS;
+                this.bda.af(this.bdf);
+            } else if (this.bde <= 0 || this.bde < JavaTypesHelper.toLong(HR.getPrice(), 0L) * HS) {
+                Jj();
                 return false;
             } else {
-                com.baidu.live.gift.b.b.Ik().a(Hw, Hx, this.bby.mUserId, this.bby.mUserName, this.bby.mLiveId, this.bby.mRoomId, this.bby.mAppId, this.bby.aYD, this.bby.otherParams, 0L);
-                this.bbQ -= JavaTypesHelper.toLong(Hw.getPrice(), 0L) * Hx;
-                this.bbM.ad(this.bbQ);
+                com.baidu.live.gift.b.b.ID().a(HR, HS, this.bcM.mUserId, this.bcM.mUserName, this.bcM.mLiveId, this.bcM.mRoomId, this.bcM.mAppId, this.bcM.baa, this.bcM.otherParams, 0L);
+                this.bde -= JavaTypesHelper.toLong(HR.getPrice(), 0L) * HS;
+                this.bda.ae(this.bde);
             }
         }
         return true;
     }
 
     @Override // com.baidu.live.gift.panel.c
-    protected void IW() {
-        this.bbS.gX(this.bby.aYF);
+    protected void Jp() {
+        this.bdg.hi(this.bcM.bac);
     }
 
-    private void IY() {
-        this.bbT = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_UPDATE_GIFT_PANEL_SCORE_DATA) { // from class: com.baidu.live.gift.panel.d.1
+    private void Jr() {
+        this.bdh = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_UPDATE_GIFT_PANEL_SCORE_DATA) { // from class: com.baidu.live.gift.panel.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (d.this.bbM != null) {
-                    d.this.bbQ = TbadkCoreApplication.getInst().currentAccountTdouNum;
-                    d.this.bbR = TbadkCoreApplication.getInst().currentAccountFlowerNum;
-                    d.this.bbM.ad(TbadkCoreApplication.getInst().currentAccountTdouNum);
-                    d.this.bbM.ae(TbadkCoreApplication.getInst().currentAccountFlowerNum);
+                if (d.this.bda != null) {
+                    d.this.bde = TbadkCoreApplication.getInst().currentAccountTdouNum;
+                    d.this.bdf = TbadkCoreApplication.getInst().currentAccountFlowerNum;
+                    d.this.bda.ae(TbadkCoreApplication.getInst().currentAccountTdouNum);
+                    d.this.bda.af(TbadkCoreApplication.getInst().currentAccountFlowerNum);
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.bbT);
+        MessageManager.getInstance().registerListener(this.bdh);
     }
 
-    private void IZ() {
-        this.aXH = new CustomMessageListener(2913120) { // from class: com.baidu.live.gift.panel.d.2
+    private void Js() {
+        this.aZc = new CustomMessageListener(2913120) { // from class: com.baidu.live.gift.panel.d.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                d.this.aWI = true;
+                d.this.aYd = true;
             }
         };
-        MessageManager.getInstance().registerListener(this.aXH);
+        MessageManager.getInstance().registerListener(this.aZc);
     }
 }

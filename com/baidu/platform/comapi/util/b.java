@@ -6,14 +6,14 @@ import com.baidu.platform.comapi.util.a;
 public class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a.C0259a f2943a;
+    final /* synthetic */ a.C0273a f2943a;
     final /* synthetic */ Object b;
     final /* synthetic */ a c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar, a.C0259a c0259a, Object obj) {
+    public b(a aVar, a.C0273a c0273a, Object obj) {
         this.c = aVar;
-        this.f2943a = c0259a;
+        this.f2943a = c0273a;
         this.b = obj;
     }
 

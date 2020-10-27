@@ -7,15 +7,15 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes17.dex */
 public final class FlowableWithLatestFrom<T, U, R> extends io.reactivex.internal.operators.flowable.a<T, R> {
     final io.reactivex.c.c<? super T, ? super U, ? extends R> combiner;
-    final org.a.b<? extends U> oMs;
+    final org.a.b<? extends U> pDP;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
         WithLatestFromSubscriber withLatestFromSubscriber = new WithLatestFromSubscriber(bVar, this.combiner);
         bVar.onSubscribe(withLatestFromSubscriber);
-        this.oMs.subscribe(new a(withLatestFromSubscriber));
-        this.oLT.a((j) withLatestFromSubscriber);
+        this.pDP.subscribe(new a(withLatestFromSubscriber));
+        this.pDq.a((j) withLatestFromSubscriber);
     }
 
     /* loaded from: classes17.dex */
@@ -96,27 +96,27 @@ public final class FlowableWithLatestFrom<T, U, R> extends io.reactivex.internal
 
     /* loaded from: classes17.dex */
     final class a implements j<U> {
-        private final WithLatestFromSubscriber<T, U, R> oMT;
+        private final WithLatestFromSubscriber<T, U, R> pEq;
 
         a(WithLatestFromSubscriber<T, U, R> withLatestFromSubscriber) {
-            this.oMT = withLatestFromSubscriber;
+            this.pEq = withLatestFromSubscriber;
         }
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(org.a.d dVar) {
-            if (this.oMT.setOther(dVar)) {
+            if (this.pEq.setOther(dVar)) {
                 dVar.request(Long.MAX_VALUE);
             }
         }
 
         @Override // org.a.c
         public void onNext(U u) {
-            this.oMT.lazySet(u);
+            this.pEq.lazySet(u);
         }
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            this.oMT.otherError(th);
+            this.pEq.otherError(th);
         }
 
         @Override // org.a.c

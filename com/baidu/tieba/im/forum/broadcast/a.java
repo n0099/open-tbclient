@@ -11,7 +11,7 @@ public interface a extends f.c {
 
     void a(com.baidu.tieba.im.forum.broadcast.data.a aVar);
 
-    void bJG();
+    void bMi();
 
     void refresh();
 }

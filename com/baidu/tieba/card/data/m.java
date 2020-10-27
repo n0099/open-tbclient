@@ -6,200 +6,200 @@ import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.util.aq;
 /* loaded from: classes21.dex */
 public class m extends c implements com.baidu.tbadk.core.util.f.a {
-    public static final BdUniqueId epH = BdUniqueId.gen();
-    public static String hIZ = "";
-    public static String hJa = "";
-    public static String hJs = "";
-    public static String hIY = "";
-    public static String hJt = "";
-    public static String hJu = "";
-    public static String hJv = "";
-    public boolean hJr = false;
-    public boolean hJw = true;
-    public boolean eoR = false;
-    public boolean hJx = false;
-    public boolean eoX = false;
-    public boolean eoY = false;
-    public boolean hJq = false;
-    public boolean eph = false;
-    public boolean epd = false;
-    public boolean epf = false;
-    public boolean epg = false;
+    public static final BdUniqueId eyg = BdUniqueId.gen();
+    public static String hVw = "";
+    public static String hVx = "";
+    public static String hVP = "";
+    public static String hVv = "";
+    public static String hVQ = "";
+    public static String hVR = "";
+    public static String hVS = "";
+    public boolean hVO = false;
+    public boolean hVT = true;
+    public boolean exo = false;
+    public boolean hVU = false;
+    public boolean exv = false;
+    public boolean exw = false;
+    public boolean hVN = false;
+    public boolean exF = false;
+    public boolean exB = false;
+    public boolean exD = false;
+    public boolean exE = false;
     public int sourceType = 0;
 
     public m(bw bwVar) {
-        this.eji = bwVar;
+        this.erH = bwVar;
     }
 
     public static boolean ab(bw bwVar) {
-        return (bwVar == null || bwVar.biz() == null) ? false : true;
+        return (bwVar == null || bwVar.bks() == null) ? false : true;
     }
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        if (this.eji == null) {
+        if (this.erH == null) {
             return l.TYPE;
         }
-        if (this.eoR) {
-            return l.hJf;
+        if (this.exo) {
+            return l.hVC;
         }
-        if (this.hJx) {
-            return epH;
+        if (this.hVU) {
+            return eyg;
         }
-        if (this.eoX) {
-            return l.hJk;
+        if (this.exv) {
+            return l.hVH;
         }
-        if (this.eoY) {
-            return l.hJm;
+        if (this.exw) {
+            return l.hVJ;
         }
-        if (this.hJq) {
-            return l.hJl;
+        if (this.hVN) {
+            return l.hVI;
         }
-        if (this.eph) {
-            return l.epp;
+        if (this.exF) {
+            return l.exN;
         }
-        if (this.epd) {
-            return l.epB;
+        if (this.exB) {
+            return l.exZ;
         }
-        if (this.epf) {
-            return l.epD;
+        if (this.exD) {
+            return l.eyb;
         }
-        if (this.epg) {
-            return l.epE;
+        if (this.exE) {
+            return l.eyc;
         }
-        return epH;
+        return eyg;
     }
 
     @Override // com.baidu.tieba.card.data.c, com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bw bfG() {
-        if (this.eji == null) {
+    public bw bhz() {
+        if (this.erH == null) {
             return null;
         }
-        if (this.eji.bhV() != 5) {
-            this.eji.nN(1);
+        if (this.erH.bjO() != 5) {
+            this.erH.nY(1);
         }
-        return this.eji;
+        return this.erH;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public String bfH() {
-        if (this.eji == null) {
+    public String bhA() {
+        if (this.erH == null) {
             return null;
         }
-        return this.eji.erE;
+        return this.erH.eAe;
     }
 
-    public aq Ip(String str) {
+    public aq IO(String str) {
         aq aqVar = new aq(str);
-        if (this.eji != null) {
-            aqVar.u("fid", this.eji.getFid());
-            aqVar.dK("tid", this.eji.getTid());
-            if (this.eji.bgQ()) {
+        if (this.erH != null) {
+            aqVar.w("fid", this.erH.getFid());
+            aqVar.dR("tid", this.erH.getTid());
+            if (this.erH.biJ()) {
                 aqVar.aj("obj_type", 8);
-            } else if (this.eji.bkd()) {
+            } else if (this.erH.blW()) {
                 aqVar.aj("obj_type", 9);
-            } else if (this.eji.bgN()) {
+            } else if (this.erH.biG()) {
                 aqVar.aj("obj_type", 2);
             }
-            aqVar.aj("obj_param1", cja() ? 2 : 1);
-            if (this.eji.bih() != null) {
-                aqVar.dK("obj_id", this.eji.bih().getUserId());
+            aqVar.aj("obj_param1", cmh() ? 2 : 1);
+            if (this.erH.bka() != null) {
+                aqVar.dR("obj_id", this.erH.bka().getUserId());
             }
         }
         return aqVar;
     }
 
-    public aq cjh() {
-        aq aG = aG(hJs, true);
-        if (aG != null && bfG() != null) {
-            bw bfG = bfG();
-            aG.aj("obj_name", bfG.bjK() != null && (bfG.bjK().dEr() != null || bfG.bjK().bBy() != null) ? 1 : 0);
-            if (bfG.bih() != null) {
-                aG.aj(TiebaInitialize.Params.AB_TYPE, bfG.bih().hadConcerned() ? 1 : 0);
+    public aq cmo() {
+        aq aI = aI(hVP, true);
+        if (aI != null && bhz() != null) {
+            bw bhz = bhz();
+            aI.aj("obj_name", bhz.blD() != null && (bhz.blD().dHz() != null || bhz.blD().bDr() != null) ? 1 : 0);
+            if (bhz.bka() != null) {
+                aI.aj(TiebaInitialize.Params.AB_TYPE, bhz.bka().hadConcerned() ? 1 : 0);
             }
-            if (bfG.getBaijiahaoData() != null) {
-                aG.dK("obj_param4", bfG.getBaijiahaoData().oriUgcNid);
-                aG.dK("obj_param6", bfG.getBaijiahaoData().oriUgcVid);
+            if (bhz.getBaijiahaoData() != null) {
+                aI.dR("obj_param4", bhz.getBaijiahaoData().oriUgcNid);
+                aI.dR("obj_param6", bhz.getBaijiahaoData().oriUgcVid);
             }
-            aG.aj("obj_param5", af(bfG));
-            if (bfG.bkj()) {
-                aG.aj(TiebaInitialize.Params.OBJ_TO, 2);
+            aI.aj("obj_param5", af(bhz));
+            if (bhz.bmc()) {
+                aI.aj(TiebaInitialize.Params.OBJ_TO, 2);
             } else {
-                aG.aj(TiebaInitialize.Params.OBJ_TO, 1);
+                aI.aj(TiebaInitialize.Params.OBJ_TO, 1);
             }
         }
-        return aG;
+        return aI;
     }
 
     public aq b(bw bwVar, int i) {
-        aq aG = aG(hIY, true);
-        if (aG != null) {
+        aq aI = aI(hVv, true);
+        if (aI != null) {
             if (i != -1) {
-                aG.aj("click_locate", i);
+                aI.aj("click_locate", i);
             }
-            if (bfG() != null) {
-                bw bfG = bfG();
-                if (bfG.getBaijiahaoData() != null) {
-                    aG.dK("obj_param4", bfG.getBaijiahaoData().oriUgcNid);
-                    aG.dK("obj_param6", bfG.getBaijiahaoData().oriUgcVid);
+            if (bhz() != null) {
+                bw bhz = bhz();
+                if (bhz.getBaijiahaoData() != null) {
+                    aI.dR("obj_param4", bhz.getBaijiahaoData().oriUgcNid);
+                    aI.dR("obj_param6", bhz.getBaijiahaoData().oriUgcVid);
                 }
-                aG.aj("obj_param5", af(bfG));
+                aI.aj("obj_param5", af(bhz));
             }
         }
-        return aG;
+        return aI;
     }
 
     public aq ag(bw bwVar) {
         return b(bwVar, -1);
     }
 
-    public aq cjo() {
-        aq aG = aG(hJv, true);
-        if (aG != null && bfG() != null) {
-            bw bfG = bfG();
-            if (bfG.getBaijiahaoData() != null) {
-                aG.dK("obj_param4", bfG.getBaijiahaoData().oriUgcNid);
-                aG.dK("obj_param6", bfG.getBaijiahaoData().oriUgcVid);
+    public aq cmv() {
+        aq aI = aI(hVS, true);
+        if (aI != null && bhz() != null) {
+            bw bhz = bhz();
+            if (bhz.getBaijiahaoData() != null) {
+                aI.dR("obj_param4", bhz.getBaijiahaoData().oriUgcNid);
+                aI.dR("obj_param6", bhz.getBaijiahaoData().oriUgcVid);
             }
-            aG.aj("obj_param5", af(bfG));
-            aG.dK("nid", bfG.getNid());
+            aI.aj("obj_param5", af(bhz));
+            aI.dR("nid", bhz.getNid());
         }
-        return aG;
+        return aI;
     }
 
     public aq ah(bw bwVar) {
-        aq aG = aG(hIZ, true);
-        if (aG != null && bfG() != null) {
-            bw bfG = bfG();
-            if (bfG.getBaijiahaoData() != null) {
-                aG.dK("obj_param4", bfG.getBaijiahaoData().oriUgcNid);
-                aG.dK("obj_param6", bfG.getBaijiahaoData().oriUgcVid);
-                if (bfG.bkj()) {
-                    aG.aj(TiebaInitialize.Params.OBJ_PARAM2, 2);
+        aq aI = aI(hVw, true);
+        if (aI != null && bhz() != null) {
+            bw bhz = bhz();
+            if (bhz.getBaijiahaoData() != null) {
+                aI.dR("obj_param4", bhz.getBaijiahaoData().oriUgcNid);
+                aI.dR("obj_param6", bhz.getBaijiahaoData().oriUgcVid);
+                if (bhz.bmc()) {
+                    aI.aj(TiebaInitialize.Params.OBJ_PARAM2, 2);
                 } else {
-                    aG.aj(TiebaInitialize.Params.OBJ_PARAM2, 1);
+                    aI.aj(TiebaInitialize.Params.OBJ_PARAM2, 1);
                 }
             }
-            aG.aj("obj_param5", af(bfG));
+            aI.aj("obj_param5", af(bhz));
         }
-        return aG;
+        return aI;
     }
 
     @Override // com.baidu.tbadk.core.util.f.a
     public String getVideoUrl() {
-        if (this.eji == null || this.eji.biz() == null || this.eji.biz().video_url == null) {
+        if (this.erH == null || this.erH.bks() == null || this.erH.bks().video_url == null) {
             return null;
         }
-        return this.eji.biz().video_url;
+        return this.erH.bks().video_url;
     }
 
     public int af(bw bwVar) {
         if (bwVar == null) {
             return 1;
         }
-        if (bwVar.bkd() || bwVar.bkc()) {
+        if (bwVar.blW() || bwVar.blV()) {
             return 2;
         }
-        return (bwVar.bgP() || bwVar.bgQ()) ? 3 : 1;
+        return (bwVar.biI() || bwVar.biJ()) ? 3 : 1;
     }
 }

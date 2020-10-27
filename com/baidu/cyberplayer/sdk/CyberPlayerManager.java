@@ -11,6 +11,7 @@ import java.util.Map;
 @Keep
 /* loaded from: classes12.dex */
 public class CyberPlayerManager {
+    public static final int CLARITY_MODE_AUTO = -1;
     public static final int COMMAND_ADD_STAGE_INFO = 1001;
     public static final int COMMAND_ON_FIRST_FRAME_DRAWED = 1002;
     public static final int COMMAND_SET_STATISTIC_INFO = 1003;
@@ -115,6 +116,7 @@ public class CyberPlayerManager {
     public static final String OPT_ENABLE_KERNEL_NET = "kernel-net-enable";
     public static final String OPT_ENABLE_P2P = "p2p-enable";
     public static final String OPT_ENABLE_PCDN = "pcdn-enable";
+    public static final String OPT_ENABLE_PREBUFFER = "prebuffer-enable";
     public static final String OPT_FEED_VIDEO = "is-feed-video";
     public static final String OPT_FILE_MAX_SIZE = "file-max-size";
     public static final String OPT_FILE_MIN_SIZE = "file-min-size";
@@ -163,7 +165,7 @@ public class CyberPlayerManager {
     private static Class<?> i;
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f1344a = false;
+    private static boolean f1341a = false;
     private static OnDeleteListener b = null;
     private static OnVideoFlowListener c = null;
     private static final Object d = new Object();
@@ -221,6 +223,12 @@ public class CyberPlayerManager {
 
     @Keep
     /* loaded from: classes12.dex */
+    public interface OnMediaSourceChangedListener {
+        boolean onMediaSourceChanged(int i, int i2, Object obj);
+    }
+
+    @Keep
+    /* loaded from: classes12.dex */
     public interface OnPreparedListener {
         void onPrepared();
     }
@@ -274,14 +282,14 @@ public class CyberPlayerManager {
     }
 
     public static void deleteVideoCache(OnDeleteListener onDeleteListener) {
-        if (f1344a) {
+        if (f1341a) {
             if (onDeleteListener != null) {
                 onDeleteListener.onDeleteComplete(-2, 0L);
                 return;
             }
             return;
         }
-        f1344a = true;
+        f1341a = true;
         b = onDeleteListener;
         CyberTaskExcutor.getInstance().executeSingleThread(new Runnable() { // from class: com.baidu.cyberplayer.sdk.CyberPlayerManager.1
             @Override // java.lang.Runnable
@@ -295,7 +303,7 @@ public class CyberPlayerManager {
                             CyberPlayerManager.b.onDeleteComplete(0, a2);
                         }
                     }
-                    boolean unused = CyberPlayerManager.f1344a = false;
+                    boolean unused = CyberPlayerManager.f1341a = false;
                     OnDeleteListener unused2 = CyberPlayerManager.b = null;
                 }
             }
@@ -366,13 +374,13 @@ public class CyberPlayerManager {
     }
 
     @Deprecated
-    public static synchronized void install(Context context, String str, String str2) throws NullPointerException, IllegalArgumentException {
+    public static synchronized void install(Context context, String str, String str2) throws Exception {
         synchronized (CyberPlayerManager.class) {
             install(context, str, str2, 7, null, null, null);
         }
     }
 
-    public static synchronized void install(Context context, String str, String str2, int i2, Class<?> cls, Map<String, String> map, InstallListener installListener) throws NullPointerException, IllegalArgumentException {
+    public static synchronized void install(Context context, String str, String str2, int i2, Class<?> cls, Map<String, String> map, InstallListener installListener) throws Exception {
         synchronized (CyberPlayerManager.class) {
             if (context == null) {
                 throw new NullPointerException("context is null");

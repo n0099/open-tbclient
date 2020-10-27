@@ -10,18 +10,18 @@ public class PersonUserData implements Serializable {
     public static final int PERSON_PLAYBACKS_TYPE = 2;
     public AlaLiveInfoData live_info;
     public AlaLocationData location_info;
-    public am login_user_info;
+    public ap login_user_info;
     public d mAnchorTagData;
     public YuyinAlaSdkData mYuyinAlaSdkData;
     public YuyinAlaPersonManagerData mYuyinBanMangerData;
     public AlaRelationData relation_info;
-    public am topContributionUserInfo;
-    public am user_info;
+    public ap topContributionUserInfo;
+    public ap user_info;
 
     public void parserJson(JSONObject jSONObject) {
         JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
         if (optJSONObject != null) {
-            this.user_info = new am();
+            this.user_info = new ap();
             this.user_info.parserJson(optJSONObject);
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject(CashierData.SDK);
@@ -31,7 +31,7 @@ public class PersonUserData implements Serializable {
         }
         JSONObject optJSONObject3 = jSONObject.optJSONObject("login_user_info");
         if (optJSONObject3 != null) {
-            this.login_user_info = new am();
+            this.login_user_info = new ap();
             this.login_user_info.parserJson(optJSONObject3);
         }
         JSONObject optJSONObject4 = jSONObject.optJSONObject("location_info");
@@ -51,7 +51,7 @@ public class PersonUserData implements Serializable {
         }
         JSONObject optJSONObject7 = jSONObject.optJSONObject("top_contribution");
         if (optJSONObject7 != null) {
-            this.topContributionUserInfo = new am();
+            this.topContributionUserInfo = new ap();
             this.topContributionUserInfo.parserJson(optJSONObject7);
         }
         JSONObject optJSONObject8 = jSONObject.optJSONObject("anchor_tags");
@@ -75,11 +75,11 @@ public class PersonUserData implements Serializable {
     }
 
     public boolean isChatOnceBan() {
-        return this.user_info != null && this.user_info.aMw == 1;
+        return this.user_info != null && this.user_info.aNb == 1;
     }
 
     public boolean isChatForeverBan() {
-        return this.user_info != null && this.user_info.aMw == 2;
+        return this.user_info != null && this.user_info.aNb == 2;
     }
 
     public boolean isLandScapeLive() {

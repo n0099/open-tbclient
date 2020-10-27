@@ -4,9 +4,9 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaGetAudioLiveStatusHttpResponseMessage extends JsonHttpResponsedMessage {
-    public String bld;
-    public String ble;
-    public String blf;
+    public String bmA;
+    public String bmy;
+    public String bmz;
     public long liveId;
 
     public AlaGetAudioLiveStatusHttpResponseMessage() {
@@ -19,9 +19,9 @@ public class AlaGetAudioLiveStatusHttpResponseMessage extends JsonHttpResponsedM
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             this.liveId = optJSONObject.optLong("liveId");
-            this.bld = optJSONObject.optString("queryType");
-            this.ble = optJSONObject.optString("queryResult");
-            this.blf = optJSONObject.optString("requestType");
+            this.bmy = optJSONObject.optString("queryType");
+            this.bmz = optJSONObject.optString("queryResult");
+            this.bmA = optJSONObject.optString("requestType");
         }
     }
 }

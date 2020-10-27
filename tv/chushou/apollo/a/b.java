@@ -4,15 +4,15 @@ import android.content.Context;
 /* loaded from: classes6.dex */
 public class b implements tv.chushou.zues.toolkit.richtext.a {
     private Context mContext;
-    private int pkk;
+    private int qbz;
 
     public b(int i, Context context) {
-        this.pkk = i;
+        this.qbz = i;
         this.mContext = context;
     }
 
     @Override // tv.chushou.zues.toolkit.richtext.a
-    public CharSequence Wt(String str) {
+    public CharSequence Yg(String str) {
         return str;
     }
 }

@@ -3,11 +3,11 @@ package com.baidu.rtc.c;
 import android.util.Log;
 /* loaded from: classes9.dex */
 class c {
-    double cdk = 0.0d;
-    long cdn = 0;
-    long cdm = 0;
+    double clI = 0.0d;
+    long clK = 0;
+    long clJ = 0;
 
-    public static int jw(String str) {
+    public static int jP(String str) {
         int i = -1;
         if (str == null) {
             throw new IllegalArgumentException();
@@ -28,24 +28,24 @@ class c {
         return i;
     }
 
-    public static String s(double d) {
+    public static String t(double d) {
         return d > 1000000.0d ? String.format("%.2fMbps", Double.valueOf(1.0E-6d * d)) : d > 1000.0d ? String.format("%.0fKbps", Double.valueOf(0.001d * d)) : String.format("%.0fbps", Double.valueOf(d));
     }
 
-    public void aS(long j) {
+    public void aU(long j) {
         long currentTimeMillis = System.currentTimeMillis();
-        long j2 = currentTimeMillis - this.cdn;
+        long j2 = currentTimeMillis - this.clK;
         if (j2 <= 0) {
             return;
         }
-        if (this.cdn != 0 && j > this.cdm) {
-            this.cdk = (((j - this.cdm) * 8) * 1000) / j2;
+        if (this.clK != 0 && j > this.clJ) {
+            this.clI = (((j - this.clJ) * 8) * 1000) / j2;
         }
-        this.cdm = j;
-        this.cdn = currentTimeMillis;
+        this.clJ = j;
+        this.clK = currentTimeMillis;
     }
 
-    public String aaD() {
-        return s(this.cdk);
+    public String acx() {
+        return t(this.clI);
     }
 }

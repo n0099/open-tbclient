@@ -8,24 +8,24 @@ public class j extends m {
     public j(Context context) {
         super(context, null, 2, 0);
         this.name = TbadkCoreApplication.getInst().getString(R.string.more_function);
-        this.eZM = R.drawable.icon_pure_post_more24_svg;
-        this.eZN = R.drawable.icon_mask_post_more24_selection_svg;
-        this.eZP = true;
-        this.eYZ = new MoreDeskView(context);
-        this.eZU = true;
-        this.eZT = 6;
-        this.eZV = new int[]{1};
+        this.fij = R.drawable.icon_pure_post_more24_svg;
+        this.fik = R.drawable.icon_mask_post_more24_selection_svg;
+        this.fim = true;
+        this.fhv = new MoreDeskView(context);
+        this.fis = true;
+        this.fir = 6;
+        this.fit = new int[]{1};
     }
 
     public j(Context context, boolean z) {
         super(context, null, 2, 0);
         this.name = TbadkCoreApplication.getInst().getString(R.string.more_function);
-        this.eZM = R.drawable.icon_pure_post_more24_svg;
-        this.eZN = R.drawable.icon_mask_post_more24_selection_svg;
-        this.eZP = true;
-        this.eYZ = new MoreDeskView(context, !z);
-        this.eZU = true;
-        this.eZT = 6;
-        this.eZV = new int[]{1};
+        this.fij = R.drawable.icon_pure_post_more24_svg;
+        this.fik = R.drawable.icon_mask_post_more24_selection_svg;
+        this.fim = true;
+        this.fhv = new MoreDeskView(context, !z);
+        this.fis = true;
+        this.fir = 6;
+        this.fit = new int[]{1};
     }
 }

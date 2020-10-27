@@ -11,17 +11,17 @@ import org.aspectj.lang.a;
 /* loaded from: classes11.dex */
 public class TrackExtendsBox extends AbstractFullBox {
     public static final String TYPE = "trex";
-    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC1069a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1069a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1069a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC1069a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1069a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC1069a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC1069a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC1069a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC1069a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC1069a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC1069a ajc$tjp_9 = null;
     private long defaultSampleDescriptionIndex;
     private long defaultSampleDuration;
     private SampleFlags defaultSampleFlags;
@@ -107,22 +107,22 @@ public class TrackExtendsBox extends AbstractFullBox {
     }
 
     public void setTrackId(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_6, this, this, org.aspectj.a.a.a.hG(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_6, this, this, org.aspectj.a.a.a.hW(j)));
         this.trackId = j;
     }
 
     public void setDefaultSampleDescriptionIndex(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.hG(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.hW(j)));
         this.defaultSampleDescriptionIndex = j;
     }
 
     public void setDefaultSampleDuration(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_8, this, this, org.aspectj.a.a.a.hG(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_8, this, this, org.aspectj.a.a.a.hW(j)));
         this.defaultSampleDuration = j;
     }
 
     public void setDefaultSampleSize(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.hG(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.hW(j)));
         this.defaultSampleSize = j;
     }
 

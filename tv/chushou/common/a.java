@@ -1,118 +1,118 @@
 package tv.chushou.common;
 /* loaded from: classes6.dex */
 public final class a {
-    private static final a pln;
-    private static final a plo;
-    private static volatile a plp;
+    private static final a qcC;
+    private static final a qcD;
+    private static volatile a qcE;
     private String ad;
     private String city;
-    private String jbl;
-    private String pkX;
-    private String pkY;
-    private String pkZ;
-    private String pla;
-    private String plb;
-    private String plc;
-    private String pld;
-    private String ple;
-    private String plf;
-    private String plg;
-    private String plh;
-    private String pli;
-    private String plj;
-    private String plk;
-    private int pll;
-    private String plm;
+    private String jnG;
+    private int qcA;
+    private String qcB;
+    private String qcm;
+    private String qcn;
+    private String qco;
+    private String qcp;
+    private String qcq;
+    private String qcr;
+    private String qcs;
+    private String qct;
+    private String qcu;
+    private String qcv;
+    private String qcw;
+    private String qcx;
+    private String qcy;
+    private String qcz;
     private String sdk;
 
     static {
         a aVar = new a();
-        aVar.pkX = "https://api.chushou.tv/";
-        aVar.pkY = "https://bee.kascend.com/";
-        aVar.jbl = "https://chushou.tv/";
-        aVar.pkZ = "https://chat.chushou.tv/";
-        aVar.pla = "https://qos-stat.chushou.tv/";
-        aVar.plb = "im.chushou.tv";
-        aVar.plc = "https://imapi.chushou.tv/";
-        aVar.pld = "https://pay.chushou.tv/kaspay/";
-        aVar.ple = "https://gemini.chushou.tv/";
-        aVar.plf = "https://mic.chushou.tv/";
+        aVar.qcm = "https://api.chushou.tv/";
+        aVar.qcn = "https://bee.kascend.com/";
+        aVar.jnG = "https://chushou.tv/";
+        aVar.qco = "https://chat.chushou.tv/";
+        aVar.qcp = "https://qos-stat.chushou.tv/";
+        aVar.qcq = "im.chushou.tv";
+        aVar.qcr = "https://imapi.chushou.tv/";
+        aVar.qcs = "https://pay.chushou.tv/kaspay/";
+        aVar.qct = "https://gemini.chushou.tv/";
+        aVar.qcu = "https://mic.chushou.tv/";
         aVar.ad = "https://ja.chushou.tv/";
         aVar.city = "https://geo.chushou.tv/";
-        aVar.plg = "https://playground.chushou.tv/";
-        aVar.plh = "https://appstat.chushou.tv/";
-        aVar.pli = "https://luck.chushou.tv/";
-        aVar.plj = "https://gmapi.chushou.tv/";
-        aVar.plk = "https://gm.chushou.tv/";
+        aVar.qcv = "https://playground.chushou.tv/";
+        aVar.qcw = "https://appstat.chushou.tv/";
+        aVar.qcx = "https://luck.chushou.tv/";
+        aVar.qcy = "https://gmapi.chushou.tv/";
+        aVar.qcz = "https://gm.chushou.tv/";
         aVar.sdk = "https://open.chushou.tv/";
-        aVar.pll = 8178;
-        aVar.plm = "rc";
-        pln = aVar;
+        aVar.qcA = 8178;
+        aVar.qcB = "rc";
+        qcC = aVar;
         a aVar2 = new a();
-        aVar2.pkX = "https://api.vchushou.com/";
-        aVar2.pkY = "https://bee.vchushou.com/";
-        aVar2.jbl = "https://vchushou.com/";
-        aVar2.pkZ = "https://chat.vchushou.com/";
-        aVar2.pla = "https://qos-stat.vchushou.com/";
-        aVar2.plb = "im.vchushou.com";
-        aVar2.plc = "https://imapi.vchushou.com/";
-        aVar2.pld = "https://pay.vchushou.com/";
-        aVar2.ple = "https://gemini.vchushou.com/";
-        aVar2.plf = "https://mic.vchushou.com/";
+        aVar2.qcm = "https://api.vchushou.com/";
+        aVar2.qcn = "https://bee.vchushou.com/";
+        aVar2.jnG = "https://vchushou.com/";
+        aVar2.qco = "https://chat.vchushou.com/";
+        aVar2.qcp = "https://qos-stat.vchushou.com/";
+        aVar2.qcq = "im.vchushou.com";
+        aVar2.qcr = "https://imapi.vchushou.com/";
+        aVar2.qcs = "https://pay.vchushou.com/";
+        aVar2.qct = "https://gemini.vchushou.com/";
+        aVar2.qcu = "https://mic.vchushou.com/";
         aVar2.ad = "https://ja.vchushou.com/";
         aVar2.city = "https://geo.vchushou.com/";
-        aVar2.plg = "https://open-game.vchushou.com/";
-        aVar2.plh = "https://vchushou.com/";
-        aVar2.pli = "https://luck.vchushou.com/";
-        aVar2.plj = "https://gamemate.vchushou.com/";
-        aVar2.plk = "https://gamemate.vchushou.com/";
+        aVar2.qcv = "https://open-game.vchushou.com/";
+        aVar2.qcw = "https://vchushou.com/";
+        aVar2.qcx = "https://luck.vchushou.com/";
+        aVar2.qcy = "https://gamemate.vchushou.com/";
+        aVar2.qcz = "https://gamemate.vchushou.com/";
         aVar2.sdk = "https://open.vchushou.com/";
-        aVar2.pll = 8178;
-        aVar2.plm = "https";
-        plo = aVar2;
-        plp = pln;
+        aVar2.qcA = 8178;
+        aVar2.qcB = "https";
+        qcD = aVar2;
+        qcE = qcC;
     }
 
     private a() {
     }
 
-    public static void Yc(String str) {
+    public static void ZP(String str) {
         if ("beta".equals(str)) {
-            plp = plo;
+            qcE = qcD;
         } else {
-            plp = pln;
+            qcE = qcC;
         }
     }
 
-    public static String etE() {
-        return plp.pkX;
+    public static String eDC() {
+        return qcE.qcm;
     }
 
-    public static String etF() {
-        return plp.pkY;
+    public static String eDD() {
+        return qcE.qcn;
     }
 
-    public static String cCv() {
-        return plp.jbl;
+    public static String cFC() {
+        return qcE.jnG;
     }
 
-    public static String etG() {
-        return plp.pkZ;
+    public static String eDE() {
+        return qcE.qco;
     }
 
-    public static String etH() {
-        return plp.plf;
+    public static String eDF() {
+        return qcE.qcu;
     }
 
-    public static String etI() {
-        return plp.ad;
+    public static String eDG() {
+        return qcE.ad;
     }
 
-    public static String etJ() {
-        return plp.pli;
+    public static String eDH() {
+        return qcE.qcx;
     }
 
-    public static String etK() {
-        return plp.sdk;
+    public static String eDI() {
+        return qcE.sdk;
     }
 }

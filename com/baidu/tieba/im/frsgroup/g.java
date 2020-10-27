@@ -14,21 +14,21 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.GroupPermData;
 /* loaded from: classes23.dex */
 public class g extends com.baidu.tieba.frs.k<h, i> {
-    private View.OnClickListener eFW;
+    private View.OnClickListener eOs;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.eFW = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.g.1
+        this.eOs = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view.getTag() instanceof Integer) {
                     int intValue = ((Integer) view.getTag()).intValue();
                     if (g.this.getItem(intValue) instanceof h) {
                         h hVar = (h) g.this.getItem(intValue);
-                        int cMr = hVar.cMr();
-                        if (cMr == 0 && (hVar.ud() instanceof GroupPermData)) {
+                        int cPy = hVar.cPy();
+                        if (cPy == 0 && (hVar.ud() instanceof GroupPermData)) {
                             g.this.a((GroupPermData) hVar.ud());
-                        } else if (cMr == 1) {
+                        } else if (cPy == 1) {
                             bg.checkUpIsLogin(g.this.mPageContext.getPageActivity());
                         }
                     }
@@ -39,9 +39,9 @@ public class g extends com.baidu.tieba.frs.k<h, i> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bU */
+    /* renamed from: bV */
     public i c(ViewGroup viewGroup) {
-        return new i(LayoutInflater.from(this.mContext).inflate(R.layout.net_refresh_view_layout, (ViewGroup) null), this.eFW);
+        return new i(LayoutInflater.from(this.mContext).inflate(R.layout.net_refresh_view_layout, (ViewGroup) null), this.eOs);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -51,8 +51,8 @@ public class g extends com.baidu.tieba.frs.k<h, i> {
         this.mPageContext.getLayoutMode().setNightMode(this.mSkinType == 1);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         if (hVar != null) {
-            iVar.a(hVar.cMs(), hVar.cMo(), hVar.cMp(), hVar.cMq());
-            iVar.ajQ.setTag(Integer.valueOf(i));
+            iVar.a(hVar.cPz(), hVar.cPv(), hVar.cPw(), hVar.cPx());
+            iVar.ajR.setTag(Integer.valueOf(i));
         }
         return view;
     }

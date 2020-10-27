@@ -2,10 +2,10 @@ package com.baidu.live.challenge;
 
 import com.baidu.live.challenge.ChallenfeInfoData;
 import com.baidu.live.data.AlaPersonChallengeData;
-import com.baidu.live.data.ar;
 import com.baidu.live.data.au;
-import com.baidu.live.data.ay;
-import com.baidu.live.data.u;
+import com.baidu.live.data.ax;
+import com.baidu.live.data.bb;
+import com.baidu.live.data.w;
 import java.util.List;
 /* loaded from: classes4.dex */
 public interface i {
@@ -24,13 +24,13 @@ public interface i {
 
     /* loaded from: classes4.dex */
     public interface c {
-        void b(au auVar, ay ayVar, ay ayVar2);
+        void b(ax axVar, bb bbVar, bb bbVar2);
 
-        void c(au auVar, ay ayVar, ay ayVar2);
+        void c(ax axVar, bb bbVar, bb bbVar2);
 
-        void d(au auVar, ay ayVar, ay ayVar2);
+        void d(ax axVar, bb bbVar, bb bbVar2);
 
-        void e(au auVar, ay ayVar, ay ayVar2);
+        void e(ax axVar, bb bbVar, bb bbVar2);
     }
 
     /* loaded from: classes4.dex */
@@ -49,7 +49,7 @@ public interface i {
 
     /* loaded from: classes4.dex */
     public interface f {
-        int Dg();
+        int Dn();
     }
 
     /* loaded from: classes4.dex */
@@ -68,7 +68,7 @@ public interface i {
 
     /* renamed from: com.baidu.live.challenge.i$i  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0174i {
+    public interface InterfaceC0175i {
         void a(com.baidu.live.challenge.b bVar, List<com.baidu.live.challenge.d> list);
 
         void m(int i, String str);
@@ -97,7 +97,7 @@ public interface i {
 
     /* loaded from: classes4.dex */
     public interface m {
-        void Dh();
+        void Do();
 
         void p(int i, String str);
     }
@@ -107,29 +107,31 @@ public interface i {
         void d(boolean z, String str);
     }
 
-    void CN();
+    void CT();
 
-    void CV();
+    void Db();
 
-    void CW();
-
-    void CX();
-
-    void CY();
-
-    void CZ();
-
-    void Da();
-
-    ChallenfeInfoData.ChallengeStatus Db();
-
-    boolean Dc();
+    void Dc();
 
     void Dd();
 
-    long De();
+    void De();
 
     void Df();
+
+    void Dg();
+
+    void Dh();
+
+    ChallenfeInfoData.ChallengeStatus Di();
+
+    boolean Dj();
+
+    void Dk();
+
+    long Dl();
+
+    void Dm();
 
     void X(long j2);
 
@@ -155,7 +157,7 @@ public interface i {
 
     void a(h hVar);
 
-    void a(InterfaceC0174i interfaceC0174i);
+    void a(InterfaceC0175i interfaceC0175i);
 
     void a(j jVar);
 
@@ -169,25 +171,25 @@ public interface i {
 
     void a(AlaPersonChallengeData alaPersonChallengeData);
 
-    void a(ar arVar);
+    void a(au auVar);
 
     void aa(long j2);
 
-    void bj(boolean z);
+    void bk(boolean z);
 
-    void c(u uVar);
+    void c(w wVar);
 
     void dN(int i);
 
     void e(long j2, long j3);
 
-    void f(int i, int i2, String str);
-
-    void gb(String str);
+    void g(int i, int i2, String str);
 
     void gc(String str);
 
     void gd(String str);
+
+    void ge(String str);
 
     void onDestroy();
 

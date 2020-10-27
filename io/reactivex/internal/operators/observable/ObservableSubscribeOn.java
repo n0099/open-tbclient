@@ -12,7 +12,7 @@ public final class ObservableSubscribeOn<T> extends io.reactivex.internal.operat
     public void a(u<? super T> uVar) {
         SubscribeOnObserver subscribeOnObserver = new SubscribeOnObserver(uVar);
         uVar.onSubscribe(subscribeOnObserver);
-        subscribeOnObserver.setDisposable(this.scheduler.F(new a(subscribeOnObserver)));
+        subscribeOnObserver.setDisposable(this.scheduler.H(new a(subscribeOnObserver)));
     }
 
     /* loaded from: classes17.dex */
@@ -63,15 +63,15 @@ public final class ObservableSubscribeOn<T> extends io.reactivex.internal.operat
 
     /* loaded from: classes17.dex */
     final class a implements Runnable {
-        private final SubscribeOnObserver<T> oNJ;
+        private final SubscribeOnObserver<T> pFg;
 
         a(SubscribeOnObserver<T> subscribeOnObserver) {
-            this.oNJ = subscribeOnObserver;
+            this.pFg = subscribeOnObserver;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            ObservableSubscribeOn.this.source.subscribe(this.oNJ);
+            ObservableSubscribeOn.this.source.subscribe(this.pFg);
         }
     }
 }

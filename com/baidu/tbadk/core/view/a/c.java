@@ -10,60 +10,60 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c extends ReplacementSpan {
-    private Drawable eLD;
-    private Drawable eLE;
-    private int eLF;
-    private int eLG;
-    private int eLH;
-    private int eLI;
-    private int eLJ;
-    private int eLL;
-    private boolean eLM;
+    private Drawable eTZ;
+    private Drawable eUa;
+    private int eUb;
+    private int eUc;
+    private int eUd;
+    private int eUe;
+    private int eUf;
+    private int eUh;
+    private boolean eUi;
     private int mSize;
-    private int eLz = R.drawable.icon_pure_evaluation_star24_n;
-    private int eLA = R.color.cp_cont_i;
-    private int eLB = R.drawable.icon_pure_evaluation_star24_n;
-    private int eLC = R.color.cp_link_tip_d;
-    private int eLK = 5;
+    private int eTV = R.drawable.icon_pure_evaluation_star24_n;
+    private int eTW = R.color.cp_cont_i;
+    private int eTX = R.drawable.icon_pure_evaluation_star24_n;
+    private int eTY = R.color.cp_link_tip_d;
+    private int eUg = 5;
 
     public c(int i, int i2, int i3, int i4, int i5, boolean z) {
-        this.eLL = i;
-        this.eLF = i2;
-        this.eLG = i3;
-        this.eLH = i4;
-        this.eLJ = i5;
-        this.eLM = z;
+        this.eUh = i;
+        this.eUb = i2;
+        this.eUc = i3;
+        this.eUd = i4;
+        this.eUf = i5;
+        this.eUi = z;
     }
 
     @Override // android.text.style.ReplacementSpan
     public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
-        this.mSize = (this.eLK * this.eLG) + (this.eLF * (this.eLK - 1)) + this.eLH + this.eLJ;
+        this.mSize = (this.eUg * this.eUc) + (this.eUb * (this.eUg - 1)) + this.eUd + this.eUf;
         if (fontMetricsInt != null) {
-            this.eLI = fontMetricsInt.bottom - fontMetricsInt.top;
+            this.eUe = fontMetricsInt.bottom - fontMetricsInt.top;
         }
         return this.mSize;
     }
 
     @Override // android.text.style.ReplacementSpan
     public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
-        boV();
-        this.eLI = Math.max(this.eLI, (int) paint.getTextSize());
-        int i6 = this.eLJ + ((int) f);
-        int max = i3 + Math.max(0, (this.eLM ? (i5 - i4) / 2 : 0) + ((this.eLI - this.eLG) / 2));
-        for (int i7 = 0; i7 < this.eLL; i7++) {
-            this.eLE.setBounds(i6, max, this.eLG + i6, this.eLG + max);
-            this.eLE.draw(canvas);
-            i6 += this.eLF + this.eLG;
+        bqO();
+        this.eUe = Math.max(this.eUe, (int) paint.getTextSize());
+        int i6 = this.eUf + ((int) f);
+        int max = i3 + Math.max(0, (this.eUi ? (i5 - i4) / 2 : 0) + ((this.eUe - this.eUc) / 2));
+        for (int i7 = 0; i7 < this.eUh; i7++) {
+            this.eUa.setBounds(i6, max, this.eUc + i6, this.eUc + max);
+            this.eUa.draw(canvas);
+            i6 += this.eUb + this.eUc;
         }
-        for (int i8 = this.eLL; i8 < this.eLK; i8++) {
-            this.eLD.setBounds(i6, max, this.eLG + i6, this.eLG + max);
-            this.eLD.draw(canvas);
-            i6 += this.eLF + this.eLG;
+        for (int i8 = this.eUh; i8 < this.eUg; i8++) {
+            this.eTZ.setBounds(i6, max, this.eUc + i6, this.eUc + max);
+            this.eTZ.draw(canvas);
+            i6 += this.eUb + this.eUc;
         }
     }
 
-    private void boV() {
-        this.eLD = SvgManager.bmU().a(this.eLz, this.eLA, (SvgManager.SvgResourceStateType) null);
-        this.eLE = SvgManager.bmU().a(this.eLB, this.eLC, (SvgManager.SvgResourceStateType) null);
+    private void bqO() {
+        this.eTZ = SvgManager.boN().a(this.eTV, this.eTW, (SvgManager.SvgResourceStateType) null);
+        this.eUa = SvgManager.boN().a(this.eTX, this.eTY, (SvgManager.SvgResourceStateType) null);
     }
 }

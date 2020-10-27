@@ -20,7 +20,7 @@ public class b {
     private final Map<String, g> Eu;
     private final Context context;
     @Nullable
-    private com.tb.airbnb.lottie.b oIn;
+    private com.tb.airbnb.lottie.b pzK;
 
     public b(Drawable.Callback callback, String str, com.tb.airbnb.lottie.b bVar, Map<String, g> map) {
         this.Es = str;
@@ -39,7 +39,7 @@ public class b {
     }
 
     public void a(@Nullable com.tb.airbnb.lottie.b bVar) {
-        this.oIn = bVar;
+        this.pzK = bVar;
     }
 
     @Nullable
@@ -63,8 +63,8 @@ public class b {
         if (bitmap != null) {
             return bitmap;
         }
-        if (this.oIn != null) {
-            Bitmap fetchBitmap = this.oIn.fetchBitmap(gVar);
+        if (this.pzK != null) {
+            Bitmap fetchBitmap = this.pzK.fetchBitmap(gVar);
             if (fetchBitmap != null) {
                 b(str, fetchBitmap);
                 return fetchBitmap;

@@ -3,23 +3,23 @@ package com.baidu.tbadk.g;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class e {
-    private ViewGroup egs;
-    private a egu;
-    public b egv;
+    private ViewGroup eoQ;
+    private a eoS;
+    public b eoT;
 
-    public ViewGroup bev() {
-        return this.egs;
+    public ViewGroup bgo() {
+        return this.eoQ;
     }
 
     public void setParentView(ViewGroup viewGroup) {
-        this.egs = viewGroup;
+        this.eoQ = viewGroup;
     }
 
-    public a bex() {
-        return this.egu;
+    public a bgq() {
+        return this.eoS;
     }
 
     public void a(a aVar) {
-        this.egu = aVar;
+        this.eoS = aVar;
     }
 }
