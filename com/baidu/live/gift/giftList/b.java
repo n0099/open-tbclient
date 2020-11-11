@@ -19,8 +19,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b extends BdBaseModel {
-    private a bbh;
-    private HttpMessageListener bbi;
+    private HttpMessageListener bcA;
+    private a bcz;
     private boolean isHost;
 
     /* loaded from: classes4.dex */
@@ -36,11 +36,11 @@ public class b extends BdBaseModel {
                 int i2 = i;
                 if (i2 < arrayList2.size()) {
                     com.baidu.live.gift.b bVar = arrayList2.get(i2);
-                    if (bVar != null && bVar.aSJ != null) {
+                    if (bVar != null && bVar.aUc != null) {
                         com.baidu.live.gift.c cVar = new com.baidu.live.gift.c();
-                        cVar.aSM = com.baidu.live.ab.b.hV(bVar.aSJ.zipName);
-                        cVar.upZipDirPath = com.baidu.live.ab.b.hW(bVar.aSJ.zipName);
-                        cVar.aSL = bVar;
+                        cVar.aUf = com.baidu.live.ac.b.ic(bVar.aUc.zipName);
+                        cVar.upZipDirPath = com.baidu.live.ac.b.id(bVar.aUc.zipName);
+                        cVar.aUe = bVar;
                         arrayList.add(cVar);
                     }
                     i = i2 + 1;
@@ -53,36 +53,36 @@ public class b extends BdBaseModel {
 
     public b(BdPageContext bdPageContext) {
         super(bdPageContext);
-        this.bbi = new HttpMessageListener(1021089) { // from class: com.baidu.live.gift.giftList.b.1
+        this.bcA = new HttpMessageListener(1021089) { // from class: com.baidu.live.gift.giftList.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaDynamicGiftListHttpResponseMessage)) {
                     AlaDynamicGiftListHttpResponseMessage alaDynamicGiftListHttpResponseMessage = (AlaDynamicGiftListHttpResponseMessage) httpResponsedMessage;
-                    ArrayList<com.baidu.live.gift.b> IA = alaDynamicGiftListHttpResponseMessage.IA();
+                    ArrayList<com.baidu.live.gift.b> Jb = alaDynamicGiftListHttpResponseMessage.Jb();
                     ArrayList<com.baidu.live.gift.c> arrayList = new ArrayList<>();
-                    if (IA != null) {
-                        b.this.d(arrayList, IA);
+                    if (Jb != null) {
+                        b.this.d(arrayList, Jb);
                     }
-                    if (b.this.bbh != null) {
-                        b.this.bbh.n(arrayList);
+                    if (b.this.bcz != null) {
+                        b.this.bcz.n(arrayList);
                     }
                     b.this.a(alaDynamicGiftListHttpResponseMessage);
                 }
             }
         };
-        registerListener(this.bbi);
+        registerListener(this.bcA);
     }
 
     public void setHost(boolean z) {
         this.isHost = z;
     }
 
-    public void hp(String str) {
+    public void hw(String str) {
         com.baidu.live.gift.giftList.a aVar = new com.baidu.live.gift.giftList.a(this.isHost, str);
         aVar.addParam("need_dynamic_gift", "1");
         aVar.addParam("need_sticker_gift", "0");
-        aVar.addParam("scene_from", p.Sc());
+        aVar.addParam("scene_from", p.UK());
         sendMessage(aVar);
         UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_GIFT_LIST_REQ, "dynamic_list", this.isHost ? UbcStatConstant.Page.AUTHOR_LIVE_ROOM : "liveroom", ""));
     }
@@ -98,11 +98,11 @@ public class b extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.bbi);
+        MessageManager.getInstance().unRegisterListener(this.bcA);
     }
 
     public void a(a aVar) {
-        this.bbh = aVar;
+        this.bcz = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -119,7 +119,7 @@ public class b extends BdBaseModel {
                 BdLog.e(e);
                 jSONObject2 = jSONObject3;
             }
-        } else if (alaDynamicGiftListHttpResponseMessage.IA() == null || alaDynamicGiftListHttpResponseMessage.IA().isEmpty()) {
+        } else if (alaDynamicGiftListHttpResponseMessage.Jb() == null || alaDynamicGiftListHttpResponseMessage.Jb().isEmpty()) {
             JSONObject jSONObject4 = new JSONObject();
             try {
                 jSONObject4.put(PushMessageHelper.ERROR_TYPE, "list_empty");
@@ -131,7 +131,7 @@ public class b extends BdBaseModel {
             }
         }
         if (jSONObject2 != null) {
-            UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_GIFT_LIST_RESP, "dynamic_list", alaDynamicGiftListHttpResponseMessage.EW() ? UbcStatConstant.Page.AUTHOR_LIVE_ROOM : "liveroom", "").setContentExt(jSONObject), alaDynamicGiftListHttpResponseMessage, true);
+            UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_GIFT_LIST_RESP, "dynamic_list", alaDynamicGiftListHttpResponseMessage.Fx() ? UbcStatConstant.Page.AUTHOR_LIVE_ROOM : "liveroom", "").setContentExt(jSONObject), alaDynamicGiftListHttpResponseMessage, true);
         }
     }
 }

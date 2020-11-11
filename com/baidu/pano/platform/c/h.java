@@ -5,15 +5,15 @@ import android.content.Context;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private static float f2673a = 0.0f;
+    private static float f2675a = 0.0f;
     private static float b = 0.0f;
     private static int c;
 
     public static float a(Context context) {
-        if (f2673a == 0.0f) {
-            f2673a = context.getResources().getDisplayMetrics().density;
+        if (f2675a == 0.0f) {
+            f2675a = context.getResources().getDisplayMetrics().density;
         }
-        return f2673a;
+        return f2675a;
     }
 
     public static int b(Context context) {

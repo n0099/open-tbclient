@@ -5,13 +5,13 @@ import android.os.Bundle;
 public class gl extends gj {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4924a;
+    private int f4926a;
 
     /* renamed from: a  reason: collision with other field name */
-    private a f396a;
+    private a f398a;
 
     /* renamed from: a  reason: collision with other field name */
-    private b f397a;
+    private b f399a;
     private String b;
 
     /* loaded from: classes12.dex */
@@ -37,46 +37,46 @@ public class gl extends gj {
 
     public gl(Bundle bundle) {
         super(bundle);
-        this.f397a = b.available;
+        this.f399a = b.available;
         this.b = null;
-        this.f4924a = Integer.MIN_VALUE;
-        this.f396a = null;
+        this.f4926a = Integer.MIN_VALUE;
+        this.f398a = null;
         if (bundle.containsKey("ext_pres_type")) {
-            this.f397a = b.valueOf(bundle.getString("ext_pres_type"));
+            this.f399a = b.valueOf(bundle.getString("ext_pres_type"));
         }
         if (bundle.containsKey("ext_pres_status")) {
             this.b = bundle.getString("ext_pres_status");
         }
         if (bundle.containsKey("ext_pres_prio")) {
-            this.f4924a = bundle.getInt("ext_pres_prio");
+            this.f4926a = bundle.getInt("ext_pres_prio");
         }
         if (bundle.containsKey("ext_pres_mode")) {
-            this.f396a = a.valueOf(bundle.getString("ext_pres_mode"));
+            this.f398a = a.valueOf(bundle.getString("ext_pres_mode"));
         }
     }
 
     public gl(b bVar) {
-        this.f397a = b.available;
+        this.f399a = b.available;
         this.b = null;
-        this.f4924a = Integer.MIN_VALUE;
-        this.f396a = null;
+        this.f4926a = Integer.MIN_VALUE;
+        this.f398a = null;
         a(bVar);
     }
 
     @Override // com.xiaomi.push.gj
     public Bundle a() {
         Bundle a2 = super.a();
-        if (this.f397a != null) {
-            a2.putString("ext_pres_type", this.f397a.toString());
+        if (this.f399a != null) {
+            a2.putString("ext_pres_type", this.f399a.toString());
         }
         if (this.b != null) {
             a2.putString("ext_pres_status", this.b);
         }
-        if (this.f4924a != Integer.MIN_VALUE) {
-            a2.putInt("ext_pres_prio", this.f4924a);
+        if (this.f4926a != Integer.MIN_VALUE) {
+            a2.putInt("ext_pres_prio", this.f4926a);
         }
-        if (this.f396a != null && this.f396a != a.available) {
-            a2.putString("ext_pres_mode", this.f396a.toString());
+        if (this.f398a != null && this.f398a != a.available) {
+            a2.putString("ext_pres_mode", this.f398a.toString());
         }
         return a2;
     }
@@ -100,18 +100,18 @@ public class gl extends gj {
         if (k() != null) {
             sb.append(" chid=\"").append(gu.a(k())).append("\"");
         }
-        if (this.f397a != null) {
-            sb.append(" type=\"").append(this.f397a).append("\"");
+        if (this.f399a != null) {
+            sb.append(" type=\"").append(this.f399a).append("\"");
         }
         sb.append(">");
         if (this.b != null) {
             sb.append("<status>").append(gu.a(this.b)).append("</status>");
         }
-        if (this.f4924a != Integer.MIN_VALUE) {
-            sb.append("<priority>").append(this.f4924a).append("</priority>");
+        if (this.f4926a != Integer.MIN_VALUE) {
+            sb.append("<priority>").append(this.f4926a).append("</priority>");
         }
-        if (this.f396a != null && this.f396a != a.available) {
-            sb.append("<show>").append(this.f396a).append("</show>");
+        if (this.f398a != null && this.f398a != a.available) {
+            sb.append("<show>").append(this.f398a).append("</show>");
         }
         sb.append(o());
         gn a2 = a();
@@ -126,18 +126,18 @@ public class gl extends gj {
         if (i < -128 || i > 128) {
             throw new IllegalArgumentException("Priority value " + i + " is not valid. Valid range is -128 through 128.");
         }
-        this.f4924a = i;
+        this.f4926a = i;
     }
 
     public void a(a aVar) {
-        this.f396a = aVar;
+        this.f398a = aVar;
     }
 
     public void a(b bVar) {
         if (bVar == null) {
             throw new NullPointerException("Type cannot be null");
         }
-        this.f397a = bVar;
+        this.f399a = bVar;
     }
 
     @Override // com.xiaomi.push.gj

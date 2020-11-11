@@ -8,30 +8,30 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d {
-    private List<String> aGV;
-    private boolean aGW = false;
+    private List<String> aHL;
+    private boolean aHM = false;
 
     public void parse(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aGW = jSONObject.optInt("tags_switch", 0) == 1;
+            this.aHM = jSONObject.optInt("tags_switch", 0) == 1;
             JSONArray optJSONArray = jSONObject.optJSONArray(CommandMessage.TYPE_TAGS);
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.aGV = new ArrayList();
+                this.aHL = new ArrayList();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     if (optJSONObject != null && !StringUtils.isNull(optJSONObject.optString("member"))) {
-                        this.aGV.add(optJSONObject.optString("member"));
+                        this.aHL.add(optJSONObject.optString("member"));
                     }
                 }
             }
         }
     }
 
-    public List<String> DI() {
-        return this.aGV;
+    public List<String> Eb() {
+        return this.aHL;
     }
 
-    public boolean DJ() {
-        return this.aGW;
+    public boolean Ec() {
+        return this.aHM;
     }
 }

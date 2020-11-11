@@ -9,7 +9,7 @@ public interface b {
 
     void a(a aVar);
 
-    void aq(String str, String str2);
+    void ar(String str, String str2);
 
     void release();
 }

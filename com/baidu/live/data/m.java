@@ -8,10 +8,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class m {
-    public String aGY;
-    public long aGZ;
-    public int aHF;
-    public int aHG;
+    public String aHO;
+    public long aHQ;
+    public int aIw;
+    public int aIx;
+    public boolean aIy;
     public String cuid;
     public String customRoomId;
     public int level;
@@ -24,7 +25,6 @@ public class m {
     public String userName;
 
     public void parseJson(JSONObject jSONObject) {
-        int i = 0;
         this.roomId = jSONObject.optString("room_id", "");
         this.customRoomId = jSONObject.optString(UbcStatConstant.KEY_CUSTOM_ROOM_ID, "");
         this.subappType = jSONObject.optString("subapp_type", "");
@@ -34,32 +34,27 @@ public class m {
         this.sex = jSONObject.optInt("sex", 0);
         this.level = jSONObject.optInt("level", 0);
         this.cuid = jSONObject.optString("cuid", "");
-        this.aGY = jSONObject.optString("client_version", "0");
-        this.aHF = jSONObject.optInt("link_status", 0);
-        this.aHG = jSONObject.optInt("living_status", 0);
-        this.aGZ = jSONObject.optLong("app_id", 0L);
+        this.aHO = jSONObject.optString("client_version", "0");
+        this.aIw = jSONObject.optInt("link_status", 0);
+        this.aIx = jSONObject.optInt("living_status", 0);
+        this.aHQ = jSONObject.optLong("app_id", 0L);
+        this.aIy = jSONObject.optInt("forbidden_status", 0) == 0;
         JSONArray optJSONArray = jSONObject.optJSONArray("live_mark_info");
         if (optJSONArray != null && optJSONArray.length() > 0) {
             this.mLiveMarkInfo = new ArrayList();
-            while (true) {
-                int i2 = i;
-                if (i2 < optJSONArray.length()) {
-                    try {
-                        AlaLiveMarkInfoData alaLiveMarkInfoData = new AlaLiveMarkInfoData();
-                        alaLiveMarkInfoData.parseJson((JSONObject) optJSONArray.get(i2));
-                        this.mLiveMarkInfo.add(alaLiveMarkInfoData);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    i = i2 + 1;
-                } else {
-                    return;
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                try {
+                    AlaLiveMarkInfoData alaLiveMarkInfoData = new AlaLiveMarkInfoData();
+                    alaLiveMarkInfoData.parseJson((JSONObject) optJSONArray.get(i));
+                    this.mLiveMarkInfo.add(alaLiveMarkInfoData);
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
         }
     }
 
-    public boolean DQ() {
-        return this.aHG == 1;
+    public boolean Ej() {
+        return this.aIx == 1;
     }
 }

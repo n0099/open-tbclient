@@ -8,14 +8,14 @@ import android.util.Log;
 public class j implements WalkNaviModeSwitchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f3077a;
+    final /* synthetic */ int f3079a;
     final /* synthetic */ boolean b;
     final /* synthetic */ b c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(b bVar, int i, boolean z) {
         this.c = bVar;
-        this.f3077a = i;
+        this.f3079a = i;
         this.b = z;
     }
 
@@ -24,13 +24,13 @@ public class j implements WalkNaviModeSwitchListener {
         com.baidu.platform.comapi.wnplatform.o.a aVar;
         com.baidu.platform.comapi.wnplatform.o.a aVar2;
         com.baidu.platform.comapi.wnplatform.o.a aVar3;
-        this.c.T = this.f3077a;
+        this.c.T = this.f3079a;
         aVar = this.c.p;
         if (aVar != null) {
             aVar2 = this.c.p;
             if (aVar2 instanceof com.baidu.platform.comapi.walknavi.g.a) {
                 aVar3 = this.c.p;
-                ((com.baidu.platform.comapi.walknavi.g.a) aVar3).a(this.f3077a, this.b);
+                ((com.baidu.platform.comapi.walknavi.g.a) aVar3).a(this.f3079a, this.b);
             }
         }
         if (com.baidu.platform.comapi.wnplatform.a.a().b()) {

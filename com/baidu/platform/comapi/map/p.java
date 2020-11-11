@@ -6,19 +6,19 @@ import android.graphics.Bitmap;
 public class p implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Bitmap f2926a;
+    final /* synthetic */ Bitmap f2928a;
     final /* synthetic */ m b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(m mVar, Bitmap bitmap) {
         this.b = mVar;
-        this.f2926a = bitmap;
+        this.f2928a = bitmap;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         c cVar;
         cVar = this.b.j;
-        cVar.a(this.f2926a);
+        cVar.a(this.f2928a);
     }
 }

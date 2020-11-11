@@ -12,7 +12,7 @@ import com.baidu.platform.comjni.engine.NAEngine;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f2230a;
+    private static int f2232a;
     private static Context b = BMapManager.getContext();
 
     static {
@@ -23,7 +23,7 @@ public class j {
     }
 
     public static void a() {
-        if (f2230a == 0) {
+        if (f2232a == 0) {
             if (b == null) {
                 throw new IllegalStateException("BDMapSDKException: you have not supplyed the global app context info from SDKInitializer.initialize(Context) function.");
             }
@@ -36,7 +36,7 @@ public class j {
             SysUpdateObservable.getInstance().addObserver(new SysUpdateUtil());
             SysUpdateObservable.getInstance().init("");
         }
-        f2230a++;
+        f2232a++;
     }
 
     public static void a(boolean z) {
@@ -44,8 +44,8 @@ public class j {
     }
 
     public static void b() {
-        f2230a--;
-        if (f2230a == 0) {
+        f2232a--;
+        if (f2232a == 0) {
             com.baidu.platform.comapi.b.d();
         }
     }

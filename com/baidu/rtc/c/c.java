@@ -3,11 +3,11 @@ package com.baidu.rtc.c;
 import android.util.Log;
 /* loaded from: classes9.dex */
 class c {
-    double clI = 0.0d;
-    long clK = 0;
-    long clJ = 0;
+    double crG = 0.0d;
+    long crI = 0;
+    long crH = 0;
 
-    public static int jP(String str) {
+    public static int ke(String str) {
         int i = -1;
         if (str == null) {
             throw new IllegalArgumentException();
@@ -32,20 +32,20 @@ class c {
         return d > 1000000.0d ? String.format("%.2fMbps", Double.valueOf(1.0E-6d * d)) : d > 1000.0d ? String.format("%.0fKbps", Double.valueOf(0.001d * d)) : String.format("%.0fbps", Double.valueOf(d));
     }
 
-    public void aU(long j) {
+    public String aeX() {
+        return t(this.crG);
+    }
+
+    public void bq(long j) {
         long currentTimeMillis = System.currentTimeMillis();
-        long j2 = currentTimeMillis - this.clK;
+        long j2 = currentTimeMillis - this.crI;
         if (j2 <= 0) {
             return;
         }
-        if (this.clK != 0 && j > this.clJ) {
-            this.clI = (((j - this.clJ) * 8) * 1000) / j2;
+        if (this.crI != 0 && j > this.crH) {
+            this.crG = (((j - this.crH) * 8) * 1000) / j2;
         }
-        this.clJ = j;
-        this.clK = currentTimeMillis;
-    }
-
-    public String acx() {
-        return t(this.clI);
+        this.crH = j;
+        this.crI = currentTimeMillis;
     }
 }

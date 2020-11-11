@@ -15,18 +15,18 @@ import java.util.List;
 public class ei extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f4874a;
+    private Context f4876a;
 
     /* renamed from: a  reason: collision with other field name */
-    private SharedPreferences f230a;
+    private SharedPreferences f232a;
 
     /* renamed from: a  reason: collision with other field name */
-    private com.xiaomi.push.service.ak f231a;
+    private com.xiaomi.push.service.ak f233a;
 
     public ei(Context context) {
-        this.f4874a = context;
-        this.f230a = context.getSharedPreferences("mipush_extra", 0);
-        this.f231a = com.xiaomi.push.service.ak.a(context);
+        this.f4876a = context;
+        this.f232a = context.getSharedPreferences("mipush_extra", 0);
+        this.f233a = com.xiaomi.push.service.ak.a(context);
     }
 
     private List<hu> a(File file) {
@@ -46,9 +46,9 @@ public class ei extends ai.a {
         }
         ArrayList arrayList = new ArrayList();
         byte[] bArr = new byte[4];
-        synchronized (dv.f4865a) {
+        synchronized (dv.f4867a) {
             try {
-                File file2 = new File(this.f4874a.getExternalFilesDir(null), "push_cdata.lock");
+                File file2 = new File(this.f4876a.getExternalFilesDir(null), "push_cdata.lock");
                 y.m590a(file2);
                 randomAccessFile = new RandomAccessFile(file2, "rw");
                 try {
@@ -130,32 +130,32 @@ public class ei extends ai.a {
     }
 
     private void a() {
-        SharedPreferences.Editor edit = this.f230a.edit();
+        SharedPreferences.Editor edit = this.f232a.edit();
         edit.putLong("last_upload_data_timestamp", System.currentTimeMillis() / 1000);
         edit.commit();
     }
 
     /* renamed from: a  reason: collision with other method in class */
     private boolean m237a() {
-        if (az.d(this.f4874a)) {
+        if (az.d(this.f4876a)) {
             return false;
         }
-        if (!az.f(this.f4874a) || c()) {
-            return (az.g(this.f4874a) && !b()) || az.h(this.f4874a);
+        if (!az.f(this.f4876a) || c()) {
+            return (az.g(this.f4876a) && !b()) || az.h(this.f4876a);
         }
         return true;
     }
 
     private boolean b() {
-        if (this.f231a.a(hr.Upload3GSwitch.a(), true)) {
-            return Math.abs((System.currentTimeMillis() / 1000) - this.f230a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f231a.a(hr.Upload3GFrequency.a(), 432000)));
+        if (this.f233a.a(hr.Upload3GSwitch.a(), true)) {
+            return Math.abs((System.currentTimeMillis() / 1000) - this.f232a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f233a.a(hr.Upload3GFrequency.a(), 432000)));
         }
         return false;
     }
 
     private boolean c() {
-        if (this.f231a.a(hr.Upload4GSwitch.a(), true)) {
-            return Math.abs((System.currentTimeMillis() / 1000) - this.f230a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f231a.a(hr.Upload4GFrequency.a(), 259200)));
+        if (this.f233a.a(hr.Upload4GSwitch.a(), true)) {
+            return Math.abs((System.currentTimeMillis() / 1000) - this.f232a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f233a.a(hr.Upload4GFrequency.a(), 259200)));
         }
         return false;
     }
@@ -168,8 +168,8 @@ public class ei extends ai.a {
 
     @Override // java.lang.Runnable
     public void run() {
-        File file = new File(this.f4874a.getExternalFilesDir(null), "push_cdata.data");
-        if (!az.c(this.f4874a)) {
+        File file = new File(this.f4876a.getExternalFilesDir(null), "push_cdata.data");
+        if (!az.c(this.f4876a)) {
             if (file.length() > 1863680) {
                 file.delete();
             }
@@ -185,7 +185,7 @@ public class ei extends ai.a {
                 cif.a(a2);
                 byte[] a3 = y.a(iw.a(cif));
                 il ilVar = new il("-1", false);
-                ilVar.c(hw.DataCollection.f474a);
+                ilVar.c(hw.DataCollection.f476a);
                 ilVar.a(a3);
                 dp m232a = dq.a().m232a();
                 if (m232a != null) {

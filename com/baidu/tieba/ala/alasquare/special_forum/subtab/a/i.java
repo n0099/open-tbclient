@@ -7,24 +7,24 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class i extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.subtablist.b.b> {
-    private b glE;
-    private b glF;
+    private b grr;
+    private b grs;
 
     public i(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.glE = new b(getTbPageContext());
-        this.glF = new b(getTbPageContext());
+        this.grr = new b(getTbPageContext());
+        this.grs = new b(getTbPageContext());
         ViewGroup viewGroup2 = (ViewGroup) getView();
         View view = new View(getContext());
-        viewGroup2.addView(this.glE.getView());
+        viewGroup2.addView(this.grr.getView());
         viewGroup2.addView(view, new LinearLayout.LayoutParams(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds6), -1));
-        viewGroup2.addView(this.glF.getView());
+        viewGroup2.addView(this.grs.getView());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        this.glE.onChangeSkinType(tbPageContext, i);
-        this.glF.onChangeSkinType(tbPageContext, i);
+        this.grr.onChangeSkinType(tbPageContext, i);
+        this.grs.onChangeSkinType(tbPageContext, i);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -36,21 +36,21 @@ public class i extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.subt
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.alasquare.subtablist.b.b bVar) {
         if (bVar != null) {
-            this.glE.b(bVar.gep);
-            this.glF.b(bVar.geq);
+            this.grr.b(bVar.gke);
+            this.grs.b(bVar.gkf);
         }
     }
 
     public void a(com.baidu.tieba.ala.alasquare.subtablist.b.b bVar, int i) {
         if (bVar != null) {
-            this.glE.a(bVar.gep, i);
-            this.glF.a(bVar.geq, i);
+            this.grr.a(bVar.gke, i);
+            this.grs.a(bVar.gkf, i);
         }
     }
 
     public void d(com.baidu.tieba.ala.alasquare.subtablist.c.i iVar) {
-        this.glE.c(iVar);
-        this.glF.c(iVar);
+        this.grr.c(iVar);
+        this.grs.c(iVar);
     }
 
     @Override // android.view.View.OnClickListener

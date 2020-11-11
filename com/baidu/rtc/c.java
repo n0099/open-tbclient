@@ -17,19 +17,13 @@ public interface c {
 
     void a(BigInteger bigInteger, JSONObject jSONObject);
 
-    void aP(long j);
+    void adD();
 
-    void aQ(long j);
+    void adE();
 
-    void aR(long j);
+    void adF();
 
-    void abe();
-
-    void abf();
-
-    void abg();
-
-    void abh();
+    void adG();
 
     void b(BaiduRtcRoom.RtcLiveTransferMode rtcLiveTransferMode, String str);
 
@@ -38,6 +32,12 @@ public interface c {
     void b(BigInteger bigInteger, String str);
 
     void b(BigInteger bigInteger, JSONObject jSONObject);
+
+    void bl(long j);
+
+    void bm(long j);
+
+    void bn(long j);
 
     void c(BaiduRtcRoom.RtcLiveTransferMode rtcLiveTransferMode, String str);
 
@@ -49,7 +49,9 @@ public interface c {
 
     void e(BigInteger bigInteger);
 
-    void gT(int i);
+    void f(BigInteger bigInteger);
 
     void h(boolean z, int i);
+
+    void hd(int i);
 }

@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class bi {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f2581a;
+    private boolean f2583a;
     private List<b> b = new ArrayList();
     private String c;
     private bk d;
@@ -34,10 +34,10 @@ public class bi {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f2581a = ((JSONObject) jSONObject.get(MetaBox.TYPE)).getInt("matchAll") != 0;
+                this.f2583a = ((JSONObject) jSONObject.get(MetaBox.TYPE)).getInt("matchAll") != 0;
             } catch (Exception e) {
             }
-            if (!this.f2581a) {
+            if (!this.f2583a) {
                 try {
                     JSONArray jSONArray = (JSONArray) jSONObject.get("data");
                     for (int i = 0; i < jSONArray.length(); i++) {
@@ -57,7 +57,7 @@ public class bi {
     }
 
     public void a(Activity activity) {
-        if (this.e || this.f2581a || (this.b != null && this.b.size() != 0)) {
+        if (this.e || this.f2583a || (this.b != null && this.b.size() != 0)) {
             View a2 = bj.a(activity);
             a(activity, a2, null, a2);
         }
@@ -67,7 +67,7 @@ public class bi {
         if (view != null && !ai.a(view) && !bj.c(activity, view)) {
             c cVar2 = new c(view, cVar, view2);
             if (cVar != null) {
-                boolean b2 = this.f2581a ? bj.b(view, cVar2.c()) : a(this.b, cVar2.a(), cVar2.b());
+                boolean b2 = this.f2583a ? bj.b(view, cVar2.c()) : a(this.b, cVar2.a(), cVar2.b());
                 if (b2 || this.e) {
                     if (bd.c().b() && b2) {
                         bd.c().a("accumulate view:" + view.getClass().getName() + "; content:" + bj.h(view));
@@ -101,13 +101,13 @@ public class bi {
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f2582a;
+        public String f2584a;
         public String b;
         public boolean c;
         public int d;
 
         public b(String str, String str2, boolean z, int i) {
-            this.f2582a = str;
+            this.f2584a = str;
             this.b = str2;
             this.c = z;
             this.d = i;
@@ -119,14 +119,14 @@ public class bi {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f2583a;
+        public String f2585a;
         public String b;
         public String c;
         public c d;
 
         public c(View view, c cVar, View view2) {
             this.d = cVar;
-            this.f2583a = bj.l(view);
+            this.f2585a = bj.l(view);
             this.b = bj.b(view);
             String c = bj.c(view);
             if (TextUtils.isEmpty(c)) {
@@ -175,7 +175,7 @@ public class bi {
         public String a(boolean z) {
             StringBuilder sb = new StringBuilder();
             sb.append("/");
-            sb.append(this.f2583a);
+            sb.append(this.f2585a);
             if (!z) {
                 sb.append("[");
                 sb.append(this.c);

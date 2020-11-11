@@ -47,24 +47,24 @@ public class HeadImageView extends TbClipImageView {
         this.user_id = null;
         this.user_name = null;
         this.mUrl = null;
-        this.mDefaultId = a.f.sdk_transparent_bg;
-        this.mDefaultBgId = a.d.sdk_cp_bg_line_e;
-        this.mCustomBigViewIconId = a.f.sdk_pic_v_avatar;
+        this.mDefaultId = a.e.sdk_transparent_bg;
+        this.mDefaultBgId = a.c.sdk_cp_bg_line_e;
+        this.mCustomBigViewIconId = a.e.sdk_pic_v_avatar;
         init();
     }
 
     private void init() {
-        this.bigHeadMargin = BdUtilHelper.getDimens(getContext(), a.e.sdk_ds6);
-        this.mIconWidth = BdUtilHelper.getDimens(getContext(), a.e.sdk_tbds42);
+        this.bigHeadMargin = BdUtilHelper.getDimens(getContext(), a.d.sdk_ds6);
+        this.mIconWidth = BdUtilHelper.getDimens(getContext(), a.d.sdk_tbds42);
         setDrawerType(1);
         setGifIconSupport(false);
         setDrawBorder(true);
         setDefaultBgResource(this.mDefaultBgId);
         setDefaultResource(this.mDefaultId);
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            setDefaultErrorResource(a.f.sdk_icon_default_avatar100_hk);
+            setDefaultErrorResource(a.e.sdk_icon_default_avatar100_hk);
         } else {
-            setDefaultErrorResource(a.f.sdk_icon_default_avatar100);
+            setDefaultErrorResource(a.e.sdk_icon_default_avatar100);
         }
     }
 
@@ -86,7 +86,7 @@ public class HeadImageView extends TbClipImageView {
     }
 
     public void setUserName(String str) {
-        setUserName(str, str + getResources().getString(a.i.sdk_somebodys_portrait));
+        setUserName(str, str + getResources().getString(a.h.sdk_somebodys_portrait));
     }
 
     public void setUserName(String str, String str2) {
@@ -116,7 +116,7 @@ public class HeadImageView extends TbClipImageView {
             }
             updateVIcon(canvas);
             if (this.isGodHead && !this.isBigV) {
-                Drawable drawable = this.mCustomGodIcon == null ? SkinManager.getDrawable(a.f.sdk_pic_v_avatar) : this.mCustomGodIcon;
+                Drawable drawable = this.mCustomGodIcon == null ? SkinManager.getDrawable(a.e.sdk_pic_v_avatar) : this.mCustomGodIcon;
                 if (drawable != null) {
                     int width = getWidth();
                     int height = getHeight();

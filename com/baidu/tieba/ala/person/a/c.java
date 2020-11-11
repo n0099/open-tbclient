@@ -1,6 +1,6 @@
 package com.baidu.tieba.ala.person.a;
 
-import com.baidu.live.data.bc;
+import com.baidu.live.data.be;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -9,7 +9,7 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c {
     public int has_more;
-    public List<bc> user_list;
+    public List<be> user_list;
 
     public void parserJson(String str) {
         JSONObject jSONObject;
@@ -30,9 +30,9 @@ public class c {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     if (optJSONObject != null) {
-                        bc bcVar = new bc();
-                        bcVar.parserJson(optJSONObject);
-                        this.user_list.add(bcVar);
+                        be beVar = new be();
+                        beVar.parserJson(optJSONObject);
+                        this.user_list.add(beVar);
                     }
                 }
             }
@@ -44,8 +44,8 @@ public class c {
         JSONObject jSONObject = new JSONObject();
         JSONArray jSONArray = new JSONArray();
         if (this.user_list != null && !this.user_list.isEmpty()) {
-            for (bc bcVar : this.user_list) {
-                jSONArray.put(bcVar.toString());
+            for (be beVar : this.user_list) {
+                jSONArray.put(beVar.toString());
             }
         }
         try {

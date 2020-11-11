@@ -27,7 +27,7 @@ import tv.chushou.zues.widget.fresco.b;
 public class VoiceInteractionView extends FrameLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f4257a;
+    private TextView f4259a;
     private LinearLayout b;
     private List<a> d;
     private boolean f;
@@ -36,8 +36,8 @@ public class VoiceInteractionView extends FrameLayout implements View.OnClickLis
     private final int i;
     private final int j;
     private final int k;
-    private FlexboxLayout pqH;
-    private b pqI;
+    private FlexboxLayout pAc;
+    private b pAd;
 
     /* loaded from: classes6.dex */
     public interface b {
@@ -62,11 +62,11 @@ public class VoiceInteractionView extends FrameLayout implements View.OnClickLis
         this.j = ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT;
         this.k = 100000000;
         LayoutInflater.from(context).inflate(a.h.view_voice_interaction, (ViewGroup) this, true);
-        this.pqH = (FlexboxLayout) findViewById(a.f.fbl_container);
+        this.pAc = (FlexboxLayout) findViewById(a.f.fbl_container);
         this.b = (LinearLayout) findViewById(a.f.ll_rule);
-        this.f4257a = (TextView) findViewById(a.f.tv_current_charts);
+        this.f4259a = (TextView) findViewById(a.f.tv_current_charts);
         this.b.setOnClickListener(this);
-        this.f4257a.setOnClickListener(this);
+        this.f4259a.setOnClickListener(this);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -85,9 +85,9 @@ public class VoiceInteractionView extends FrameLayout implements View.OnClickLis
     public void onVoiceVolumesEvent(r rVar) {
         if (getVisibility() == 0) {
             for (a aVar : this.d) {
-                if (aVar.pqJ != null) {
+                if (aVar.pAe != null) {
                     try {
-                        Integer num = rVar.f4076a.get(Long.valueOf(Long.parseLong(aVar.pqJ.uid)));
+                        Integer num = rVar.f4078a.get(Long.valueOf(Long.parseLong(aVar.pAe.uid)));
                         aVar.a(num != null && num.intValue() > 0);
                     } catch (NumberFormatException e) {
                         e.printStackTrace();
@@ -101,22 +101,22 @@ public class VoiceInteractionView extends FrameLayout implements View.OnClickLis
     public void onClick(View view) {
         int id = view.getId();
         if (id == a.f.ll_rule) {
-            if (this.pqI != null) {
-                this.pqI.a();
+            if (this.pAd != null) {
+                this.pAd.a();
             }
-        } else if (id == a.f.tv_current_charts && this.pqI != null) {
-            this.pqI.b();
+        } else if (id == a.f.tv_current_charts && this.pAd != null) {
+            this.pAd.b();
         }
     }
 
     public void setupCount(int i) {
-        if (i > 0 && this.pqH != null && this.d.size() != i) {
-            this.pqH.removeAllViews();
+        if (i > 0 && this.pAc != null && this.d.size() != i) {
+            this.pAc.removeAllViews();
             this.d.clear();
             for (int i2 = 0; i2 < i; i2++) {
                 View a2 = a();
                 this.d.add(new a(i2, a2));
-                this.pqH.addView(a2, new FlexboxLayout.LayoutParams(tv.chushou.zues.utils.a.dip2px(getContext(), 48.0f), tv.chushou.zues.utils.a.dip2px(getContext(), 64.0f)));
+                this.pAc.addView(a2, new FlexboxLayout.LayoutParams(tv.chushou.zues.utils.a.dip2px(getContext(), 48.0f), tv.chushou.zues.utils.a.dip2px(getContext(), 64.0f)));
             }
         }
     }
@@ -124,7 +124,7 @@ public class VoiceInteractionView extends FrameLayout implements View.OnClickLis
     public void a(boolean z, boolean z2, boolean z3) {
         this.f = z;
         this.g = z3;
-        this.f4257a.setVisibility(z ? 0 : 8);
+        this.f4259a.setVisibility(z ? 0 : 8);
     }
 
     public void a(List<MicMemberInfo> list) {
@@ -145,7 +145,7 @@ public class VoiceInteractionView extends FrameLayout implements View.OnClickLis
     }
 
     public void setOnActionListener(b bVar) {
-        this.pqI = bVar;
+        this.pAd = bVar;
     }
 
     private View a() {
@@ -165,14 +165,14 @@ public class VoiceInteractionView extends FrameLayout implements View.OnClickLis
         private LinearLayout k;
         private ImageView l;
         private TextView m;
-        private FrescoThumbnailView pgD;
-        private MicMemberInfo pqJ;
+        private MicMemberInfo pAe;
+        private FrescoThumbnailView pqe;
 
         a(int i, View view) {
             this.b = i;
             this.e = view;
             view.setOnClickListener(this);
-            this.pgD = (FrescoThumbnailView) view.findViewById(a.f.ftv_avatar);
+            this.pqe = (FrescoThumbnailView) view.findViewById(a.f.ftv_avatar);
             this.g = (FrameLayout) view.findViewById(a.f.fl_nobody);
             this.h = (ImageView) view.findViewById(a.f.iv_nobody);
             this.i = (ImageView) view.findViewById(a.f.iv_voice);
@@ -184,7 +184,7 @@ public class VoiceInteractionView extends FrameLayout implements View.OnClickLis
         }
 
         public void a(MicMemberInfo micMemberInfo) {
-            this.pqJ = micMemberInfo;
+            this.pAe = micMemberInfo;
             if (micMemberInfo == null) {
                 b(false);
                 c(true);
@@ -193,7 +193,7 @@ public class VoiceInteractionView extends FrameLayout implements View.OnClickLis
             }
             c(false);
             b(micMemberInfo.micStatus == 1);
-            this.pgD.j(micMemberInfo.avatar, com.kascend.chushou.view.a.a(micMemberInfo.gender), b.a.small, b.a.small);
+            this.pqe.i(micMemberInfo.avatar, com.kascend.chushou.view.a.a(micMemberInfo.gender), b.a.small, b.a.small);
             this.j.setText(VoiceInteractionView.this.getContext().getString(a.i.str_order_with_name, Integer.valueOf(micMemberInfo.order), micMemberInfo.nickname));
             this.m.setText(VoiceInteractionView.this.getContext().getString(a.i.str_ticket_count, VoiceInteractionView.this.a(micMemberInfo.contributePoint)));
         }
@@ -245,14 +245,14 @@ public class VoiceInteractionView extends FrameLayout implements View.OnClickLis
         public void c(boolean z) {
             this.c = z;
             if (z) {
-                this.pgD.setVisibility(8);
+                this.pqe.setVisibility(8);
                 this.g.setVisibility(0);
                 this.k.setVisibility(8);
                 this.h.setImageResource(VoiceInteractionView.this.f ? a.e.icon_voice_interaction_lock : a.e.icon_voice_interaction_nobody);
                 this.j.setVisibility(VoiceInteractionView.this.f ? 8 : 0);
                 return;
             }
-            this.pgD.setVisibility(0);
+            this.pqe.setVisibility(0);
             this.g.setVisibility(8);
             this.k.setVisibility(VoiceInteractionView.this.g ? 0 : 8);
             this.j.setVisibility(0);
@@ -260,8 +260,8 @@ public class VoiceInteractionView extends FrameLayout implements View.OnClickLis
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!this.c && VoiceInteractionView.this.pqI != null) {
-                VoiceInteractionView.this.pqI.a(this.b, this.pqJ, VoiceInteractionView.this.f);
+            if (!this.c && VoiceInteractionView.this.pAd != null) {
+                VoiceInteractionView.this.pAd.a(this.b, this.pAe, VoiceInteractionView.this.f);
             }
         }
     }

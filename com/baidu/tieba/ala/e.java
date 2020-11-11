@@ -11,57 +11,57 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer;
 /* loaded from: classes4.dex */
-public class e implements com.baidu.live.ac.d {
-    private LiveFreeTaskLayer fUI;
-    private CustomMessageListener fUJ = new CustomMessageListener(2913220) { // from class: com.baidu.tieba.ala.e.1
+public class e implements com.baidu.live.ad.d {
+    private CustomMessageListener gaA = new CustomMessageListener(2913220) { // from class: com.baidu.tieba.ala.e.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            com.baidu.live.ac.e eVar = null;
-            if (customResponsedMessage.getData() instanceof com.baidu.live.ac.e) {
-                eVar = (com.baidu.live.ac.e) customResponsedMessage.getData();
+            com.baidu.live.ad.e eVar = null;
+            if (customResponsedMessage.getData() instanceof com.baidu.live.ad.e) {
+                eVar = (com.baidu.live.ad.e) customResponsedMessage.getData();
             }
             if (eVar != null) {
-                e.this.q(e.this.mTbPageContext.getPageActivity(), eVar.btd);
+                e.this.r(e.this.mTbPageContext.getPageActivity(), eVar.bzq);
             } else {
-                e.this.q(e.this.mTbPageContext.getPageActivity(), false);
+                e.this.r(e.this.mTbPageContext.getPageActivity(), false);
             }
         }
     };
+    private LiveFreeTaskLayer gaz;
     private TbPageContext mTbPageContext;
 
     public e(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
     }
 
-    public void q(Context context, boolean z) {
-        if (this.fUI == null) {
-            this.fUI = new LiveFreeTaskLayer(context);
-            this.fUI.setNeedHideAnim(true);
-            this.fUI.setNeedShowAnim(true);
-            this.fUI.setCanceledOnTouchOutside(true);
+    public void r(Context context, boolean z) {
+        if (this.gaz == null) {
+            this.gaz = new LiveFreeTaskLayer(context);
+            this.gaz.setNeedHideAnim(true);
+            this.gaz.setNeedShowAnim(true);
+            this.gaz.setCanceledOnTouchOutside(true);
         }
-        this.fUI.setIsFromFlowerGuide(z);
+        this.gaz.setIsFromFlowerGuide(z);
         if (UtilHelper.getRealScreenOrientation(this.mTbPageContext.getPageActivity()) == 2) {
-            BdUtilHelper.showToast(context, a.i.ala_task_page_not_support_landscape);
+            BdUtilHelper.showToast(context, a.h.ala_task_page_not_support_landscape);
         } else {
-            com.baidu.live.core.layer.b.DE().d(this.fUI);
+            com.baidu.live.core.layer.b.DX().d(this.gaz);
         }
     }
 
-    @Override // com.baidu.live.ac.d
-    public void f(w wVar) {
-        this.fUJ.setTag(this.mTbPageContext.getUniqueId());
-        MessageManager.getInstance().registerListener(this.fUJ);
+    @Override // com.baidu.live.ad.d
+    public void e(w wVar) {
+        this.gaA.setTag(this.mTbPageContext.getUniqueId());
+        MessageManager.getInstance().registerListener(this.gaA);
     }
 
-    @Override // com.baidu.live.ac.d
-    public void Kn() {
-        MessageManager.getInstance().unRegisterListener(this.fUJ);
+    @Override // com.baidu.live.ad.d
+    public void KN() {
+        MessageManager.getInstance().unRegisterListener(this.gaA);
     }
 
-    @Override // com.baidu.live.ac.d
+    @Override // com.baidu.live.ad.d
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.fUJ);
+        MessageManager.getInstance().unRegisterListener(this.gaA);
     }
 }

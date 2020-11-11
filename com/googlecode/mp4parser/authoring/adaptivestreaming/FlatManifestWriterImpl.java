@@ -102,7 +102,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 createElement3.setAttribute("MaxWidth", Long.toString(aVar.width));
                 createElement3.setAttribute("MaxHeight", Long.toString(aVar.height));
                 createElement3.setAttribute("CodecPrivateData", aVar.codecPrivateData);
-                createElement3.setAttribute("NALUnitLengthField", Integer.toString(aVar.oWT));
+                createElement3.setAttribute("NALUnitLengthField", Integer.toString(aVar.pgo));
                 createElement2.appendChild(createElement3);
             }
             for (int i2 = 0; i2 < this.videoFragmentsDurations.length; i2++) {
@@ -210,9 +210,9 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 case 1:
                     s2 = (short) (s2 + 1);
                     if (entry.num_dep_sub > 0) {
-                        a epP = new a(b2, b, entry).epP();
-                        b2 = (byte) (b2 | epP.epN());
-                        b = (byte) (b | epP.epO());
+                        a etE = new a(b2, b, entry).etE();
+                        b2 = (byte) (b2 | etE.etC());
+                        b = (byte) (b | etE.etD());
                         break;
                     } else {
                         b2 = (byte) (b2 | 32);
@@ -221,9 +221,9 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 case 2:
                     s2 = (short) (s2 + 2);
                     if (entry.num_dep_sub > 0) {
-                        a epP2 = new a(b2, b, entry).epP();
-                        b2 = (byte) (b2 | epP2.epN());
-                        b = (byte) (b | epP2.epO());
+                        a etE2 = new a(b2, b, entry).etE();
+                        b2 = (byte) (b2 | etE2.etC());
+                        b = (byte) (b | etE2.etD());
                         break;
                     } else {
                         b2 = (byte) (b2 | 192);
@@ -232,9 +232,9 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 case 3:
                     s2 = (short) (s2 + 3);
                     if (entry.num_dep_sub > 0) {
-                        a epP3 = new a(b2, b, entry).epP();
-                        b2 = (byte) (b2 | epP3.epN());
-                        b = (byte) (b | epP3.epO());
+                        a etE3 = new a(b2, b, entry).etE();
+                        b2 = (byte) (b2 | etE3.etC());
+                        b = (byte) (b | etE3.etD());
                         break;
                     } else {
                         b2 = (byte) (b2 | 224);
@@ -243,9 +243,9 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 case 4:
                     s2 = (short) (s2 + 3);
                     if (entry.num_dep_sub > 0) {
-                        a epP4 = new a(b2, b, entry).epP();
-                        b2 = (byte) (b2 | epP4.epN());
-                        b = (byte) (b | epP4.epO());
+                        a etE4 = new a(b2, b, entry).etE();
+                        b2 = (byte) (b2 | etE4.etC());
+                        b = (byte) (b | etE4.etD());
                         break;
                     } else {
                         b2 = (byte) (b2 | 192);
@@ -255,9 +255,9 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 case 5:
                     s2 = (short) (s2 + 4);
                     if (entry.num_dep_sub > 0) {
-                        a epP5 = new a(b2, b, entry).epP();
-                        b2 = (byte) (b2 | epP5.epN());
-                        b = (byte) (b | epP5.epO());
+                        a etE5 = new a(b2, b, entry).etE();
+                        b2 = (byte) (b2 | etE5.etC());
+                        b = (byte) (b | etE5.etD());
                         break;
                     } else {
                         b2 = (byte) (b2 | 224);
@@ -267,9 +267,9 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 case 6:
                     s2 = (short) (s2 + 4);
                     if (entry.num_dep_sub > 0) {
-                        a epP6 = new a(b2, b, entry).epP();
-                        b2 = (byte) (b2 | epP6.epN());
-                        b = (byte) (b | epP6.epO());
+                        a etE6 = new a(b2, b, entry).etE();
+                        b2 = (byte) (b2 | etE6.etC());
+                        b = (byte) (b | etE6.etD());
                         break;
                     } else {
                         b2 = (byte) (b2 | 204);
@@ -278,9 +278,9 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 case 7:
                     s2 = (short) (s2 + 5);
                     if (entry.num_dep_sub > 0) {
-                        a epP7 = new a(b2, b, entry).epP();
-                        b2 = (byte) (b2 | epP7.epN());
-                        b = (byte) (b | epP7.epO());
+                        a etE7 = new a(b2, b, entry).etE();
+                        b2 = (byte) (b2 | etE7.etC());
+                        b = (byte) (b | etE7.etD());
                         break;
                     } else {
                         b2 = (byte) (b2 | 236);
@@ -464,7 +464,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
             aVar.fourCC = "AVC1";
             aVar.width = visualSampleEntry.getWidth();
             aVar.height = visualSampleEntry.getHeight();
-            aVar.oWT = avcConfigurationBox.getLengthSizeMinusOne() + 1;
+            aVar.pgo = avcConfigurationBox.getLengthSizeMinusOne() + 1;
             return aVar;
         }
         throw new InternalError("I don't know how to handle video of type " + getFormat(visualSampleEntry));
@@ -496,43 +496,43 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public class a {
-        private byte oWP;
-        private byte oWQ;
-        private EC3SpecificBox.Entry oWR;
+        private byte pgk;
+        private byte pgl;
+        private EC3SpecificBox.Entry pgm;
 
         public a(byte b, byte b2, EC3SpecificBox.Entry entry) {
-            this.oWP = b;
-            this.oWQ = b2;
-            this.oWR = entry;
+            this.pgk = b;
+            this.pgl = b2;
+            this.pgm = entry;
         }
 
-        public byte epN() {
-            return this.oWP;
+        public byte etC() {
+            return this.pgk;
         }
 
-        public byte epO() {
-            return this.oWQ;
+        public byte etD() {
+            return this.pgl;
         }
 
-        public a epP() {
-            switch (this.oWR.chan_loc) {
+        public a etE() {
+            switch (this.pgm.chan_loc) {
                 case 0:
-                    this.oWP = (byte) (this.oWP | 3);
+                    this.pgk = (byte) (this.pgk | 3);
                     break;
                 case 1:
-                    this.oWP = (byte) (this.oWP | 12);
+                    this.pgk = (byte) (this.pgk | 12);
                     break;
                 case 2:
-                    this.oWQ = (byte) (this.oWQ | 128);
+                    this.pgl = (byte) (this.pgl | 128);
                     break;
                 case 3:
-                    this.oWQ = (byte) (this.oWQ | 8);
+                    this.pgl = (byte) (this.pgl | 8);
                     break;
                 case 6:
-                    this.oWQ = (byte) (this.oWQ | 5);
+                    this.pgl = (byte) (this.pgl | 5);
                     break;
                 case 7:
-                    this.oWQ = (byte) (this.oWQ | 2);
+                    this.pgl = (byte) (this.pgl | 2);
                     break;
             }
             return this;

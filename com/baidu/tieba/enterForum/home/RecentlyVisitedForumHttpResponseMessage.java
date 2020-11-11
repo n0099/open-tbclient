@@ -45,7 +45,7 @@ public class RecentlyVisitedForumHttpResponseMessage extends HttpResponsedMessag
                     if (historyForumInfo2 != null && historyForumInfo2.forum_id != null) {
                         VisitedForumData visitedForumData = new VisitedForumData();
                         visitedForumData.a(historyForumInfo2);
-                        visitedForumData.jL(hashMap.containsKey(historyForumInfo2.forum_id));
+                        visitedForumData.jU(hashMap.containsKey(historyForumInfo2.forum_id));
                         this.mForumData.add(visitedForumData);
                     }
                 }

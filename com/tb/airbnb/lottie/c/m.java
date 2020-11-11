@@ -11,14 +11,14 @@ import java.io.IOException;
 public class m {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static com.tb.airbnb.lottie.model.content.d o(JsonReader jsonReader, com.tb.airbnb.lottie.d dVar) throws IOException {
+    public static com.tb.airbnb.lottie.model.content.d o(JsonReader jsonReader, com.tb.airbnb.lottie.e eVar) throws IOException {
         char c;
         boolean z;
         Path.FillType fillType = null;
         com.tb.airbnb.lottie.model.a.f fVar = null;
         com.tb.airbnb.lottie.model.a.f fVar2 = null;
         GradientType gradientType = null;
-        com.tb.airbnb.lottie.model.a.d dVar2 = null;
+        com.tb.airbnb.lottie.model.a.d dVar = null;
         com.tb.airbnb.lottie.model.a.c cVar = null;
         String str = null;
         while (jsonReader.hasNext()) {
@@ -110,7 +110,7 @@ public class m {
                                 i = jsonReader.nextInt();
                                 break;
                             case true:
-                                cVar = d.a(jsonReader, dVar, i);
+                                cVar = d.a(jsonReader, eVar, i);
                                 break;
                             default:
                                 jsonReader.skipValue();
@@ -120,7 +120,7 @@ public class m {
                     jsonReader.endObject();
                     break;
                 case 2:
-                    dVar2 = d.g(jsonReader, dVar);
+                    dVar = d.g(jsonReader, eVar);
                     break;
                 case 3:
                     if (jsonReader.nextInt() != 1) {
@@ -131,10 +131,10 @@ public class m {
                         break;
                     }
                 case 4:
-                    fVar2 = d.h(jsonReader, dVar);
+                    fVar2 = d.h(jsonReader, eVar);
                     break;
                 case 5:
-                    fVar = d.h(jsonReader, dVar);
+                    fVar = d.h(jsonReader, eVar);
                     break;
                 case 6:
                     if (jsonReader.nextInt() != 1) {
@@ -149,6 +149,6 @@ public class m {
                     break;
             }
         }
-        return new com.tb.airbnb.lottie.model.content.d(str, gradientType, fillType, cVar, dVar2, fVar2, fVar, null, null);
+        return new com.tb.airbnb.lottie.model.content.d(str, gradientType, fillType, cVar, dVar, fVar2, fVar, null, null);
     }
 }

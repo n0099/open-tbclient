@@ -1,7 +1,7 @@
 package com.baidu.yuyinala.privatemessage.session;
 /* loaded from: classes4.dex */
 public interface b {
-    void NF(int i);
+    void Oa(int i);
 
-    void v(String str, int i, String str2);
+    void w(String str, int i, String str2);
 }

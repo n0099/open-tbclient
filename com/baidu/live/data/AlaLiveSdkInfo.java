@@ -1,6 +1,7 @@
 package com.baidu.live.data;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.live.tbadk.core.atomdata.YuyinAlaLiveRoomActivityConfig;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,7 +22,7 @@ public class AlaLiveSdkInfo implements Serializable {
 
         public void parseJson(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.chatMCastId = jSONObject.optString("chat_mcast_id");
+                this.chatMCastId = jSONObject.optString(YuyinAlaLiveRoomActivityConfig.SDK_AUDIO_ROOM_CHAT_CAST_ID);
                 this.ensureMCastId = jSONObject.optString("ensure_mcast_id");
                 this.chat_msg_hls_url = jSONObject.optString("chat_msg_hls_url");
                 this.host_msg_hls_url = jSONObject.optString("host_msg_hls_url");
@@ -33,7 +34,7 @@ public class AlaLiveSdkInfo implements Serializable {
         public JSONObject toJsonObject() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("chat_mcast_id", this.chatMCastId);
+                jSONObject.put(YuyinAlaLiveRoomActivityConfig.SDK_AUDIO_ROOM_CHAT_CAST_ID, this.chatMCastId);
                 jSONObject.put("ensure_mcast_id", this.ensureMCastId);
                 jSONObject.put("chat_msg_hls_url", this.chat_msg_hls_url);
                 jSONObject.put("host_msg_hls_url", this.host_msg_hls_url);

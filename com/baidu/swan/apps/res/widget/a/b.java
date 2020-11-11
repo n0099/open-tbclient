@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 /* loaded from: classes10.dex */
 public class b {
-    protected a dmq;
+    protected a dsm;
     protected boolean mChecked;
     protected Context mContext;
     protected boolean mEnabled;
@@ -47,7 +47,7 @@ public class b {
         return null;
     }
 
-    public a aEI() {
-        return this.dmq;
+    public a aHi() {
+        return this.dsm;
     }
 }

@@ -9,85 +9,85 @@ import com.baidu.live.pendantview.PendantParentView;
 import com.baidu.tieba.ala.view.AlaSeriesGiftPendant;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class g implements com.baidu.live.y.a {
-    private PendantParentView gqd;
-    private PendantChildView gqe;
-    protected AlaSeriesGiftPendant gtH;
+public class g implements com.baidu.live.z.a {
+    private PendantParentView gvR;
+    private PendantChildView gvS;
+    protected AlaSeriesGiftPendant gzv;
     private Context mContext;
-    private final int gtE = 1;
-    private final int gtF = 0;
-    private final int gtG = -1;
+    private final int gzs = 1;
+    private final int gzt = 0;
+    private final int gzu = -1;
     private boolean isHost = false;
 
     public g(Context context) {
         this.mContext = context;
     }
 
-    @Override // com.baidu.live.y.a
+    @Override // com.baidu.live.z.a
     public void a(ViewGroup viewGroup, String str) {
         if (viewGroup != null) {
             if (viewGroup instanceof PendantParentView) {
-                this.gqd = (PendantParentView) viewGroup;
-                bOG();
+                this.gvR = (PendantParentView) viewGroup;
+                bRg();
             }
-            if (this.gtH == null || (this.gqe != null && this.gqe.indexOfChild(this.gtH) < 0)) {
-                this.gtH = new AlaSeriesGiftPendant(this.gqe.getContext(), this.isHost, str);
-                this.gqe.addView(this.gtH);
+            if (this.gzv == null || (this.gvS != null && this.gvS.indexOfChild(this.gzv) < 0)) {
+                this.gzv = new AlaSeriesGiftPendant(this.gvS.getContext(), this.isHost, str);
+                this.gvS.addView(this.gzv);
             }
         }
     }
 
-    @Override // com.baidu.live.y.a
+    @Override // com.baidu.live.z.a
     public void a(w wVar) {
     }
 
-    @Override // com.baidu.live.y.a
-    public boolean O(JSONObject jSONObject) {
-        if (dy(jSONObject) == -1) {
+    @Override // com.baidu.live.z.a
+    public boolean R(JSONObject jSONObject) {
+        if (dE(jSONObject) == -1) {
             return false;
         }
-        if (this.gtH != null && (this.gtH.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.gtH.getParent()).removeView(this.gtH);
+        if (this.gzv != null && (this.gzv.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.gzv.getParent()).removeView(this.gzv);
         }
-        this.gtH = new AlaSeriesGiftPendant(this.gqe.getContext(), this.isHost, jSONObject.toString());
-        this.gqe.addView(this.gtH);
+        this.gzv = new AlaSeriesGiftPendant(this.gvS.getContext(), this.isHost, jSONObject.toString());
+        this.gvS.addView(this.gzv);
         return true;
     }
 
-    @Override // com.baidu.live.y.a
+    @Override // com.baidu.live.z.a
     public void setCanVisible(boolean z) {
-        if (this.gtH != null) {
-            this.gtH.setCanVisible(z);
+        if (this.gzv != null) {
+            this.gzv.setCanVisible(z);
         }
     }
 
-    @Override // com.baidu.live.y.a
-    public void cu(boolean z) {
-        if (this.gtH != null && z && !AlaSeriesGiftPendant.hGx) {
-            this.gtH.setCanVisible(true);
+    @Override // com.baidu.live.z.a
+    public void cv(boolean z) {
+        if (this.gzv != null && z && !AlaSeriesGiftPendant.hMu) {
+            this.gzv.setCanVisible(true);
         } else {
-            this.gtH.setCanVisible(false);
+            this.gzv.setCanVisible(false);
         }
     }
 
-    @Override // com.baidu.live.y.a
-    public void Kj() {
-        lt(true);
+    @Override // com.baidu.live.z.a
+    public void KJ() {
+        lC(true);
     }
 
-    @Override // com.baidu.live.y.a
+    @Override // com.baidu.live.z.a
     public void onDestroy() {
-        lt(true);
-        this.gtH.onDestroy();
+        lC(true);
+        this.gzv.onDestroy();
     }
 
-    @Override // com.baidu.live.y.a
+    @Override // com.baidu.live.z.a
     public void setIsHost(boolean z) {
         this.isHost = z;
     }
 
-    private void bOG() {
-        this.gqe = new PendantChildView(this.mContext) { // from class: com.baidu.tieba.ala.d.g.1
+    private void bRg() {
+        this.gvS = new PendantChildView(this.mContext) { // from class: com.baidu.tieba.ala.d.g.1
             @Override // com.baidu.live.pendantview.PendantChildView
             public PendantParentView.Position getVerticalPosition() {
                 return PendantParentView.Position.RIGHT;
@@ -113,24 +113,24 @@ public class g implements com.baidu.live.y.a {
                 return 9;
             }
         };
-        this.gqe.setBackgroundColor(0);
-        if (this.gqd != null) {
-            this.gqd.a(this.gqe, new LinearLayout.LayoutParams(-2, -2));
+        this.gvS.setBackgroundColor(0);
+        if (this.gvR != null) {
+            this.gvR.a(this.gvS, new LinearLayout.LayoutParams(-2, -2));
         }
     }
 
-    private int dy(JSONObject jSONObject) {
+    private int dE(JSONObject jSONObject) {
         String optString;
         return (jSONObject == null || (optString = jSONObject.optString("content_type")) == null || optString.isEmpty() || !optString.equals("tying_gift")) ? -1 : 0;
     }
 
-    private void lt(boolean z) {
-        if (this.gtH != null && (this.gtH.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.gtH.getParent()).removeView(this.gtH);
+    private void lC(boolean z) {
+        if (this.gzv != null && (this.gzv.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.gzv.getParent()).removeView(this.gzv);
         }
-        if (z && this.gqe != null && (this.gqe.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.gqe.getParent()).removeView(this.gqe);
+        if (z && this.gvS != null && (this.gvS.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.gvS.getParent()).removeView(this.gvS);
         }
-        AlaSeriesGiftPendant.hGx = true;
+        AlaSeriesGiftPendant.hMu = true;
     }
 }

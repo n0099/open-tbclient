@@ -8,11 +8,11 @@ import java.util.List;
 public class dn extends al.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ dm f4861a;
+    final /* synthetic */ dm f4863a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dn(dm dmVar) {
-        this.f4861a = dmVar;
+        this.f4863a = dmVar;
     }
 
     @Override // com.xiaomi.push.al.b
@@ -20,19 +20,19 @@ public class dn extends al.b {
         List list;
         String str;
         String str2;
-        list = dm.f221a;
+        list = dm.f223a;
         if (list.isEmpty()) {
             return;
         }
         try {
             if (aa.d()) {
-                this.f4861a.m230a();
+                this.f4863a.m230a();
             } else {
-                str2 = this.f4861a.b;
+                str2 = this.f4863a.b;
                 Log.w(str2, "SDCard is unavailable.");
             }
         } catch (Exception e) {
-            str = this.f4861a.b;
+            str = this.f4863a.b;
             Log.e(str, "", e);
         }
     }

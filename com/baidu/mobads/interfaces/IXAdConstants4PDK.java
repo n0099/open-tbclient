@@ -20,20 +20,20 @@ public interface IXAdConstants4PDK {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f2355a;
+        private final String f2357a;
 
         VideoAssetPlayMode(String str) {
-            this.f2355a = str;
+            this.f2357a = str;
         }
 
         public String getValue() {
-            return this.f2355a;
+            return this.f2357a;
         }
 
         public static VideoAssetPlayMode parse(String str) {
             VideoAssetPlayMode[] values;
             for (VideoAssetPlayMode videoAssetPlayMode : values()) {
-                if (videoAssetPlayMode.f2355a.equalsIgnoreCase(str)) {
+                if (videoAssetPlayMode.f2357a.equalsIgnoreCase(str)) {
                     return videoAssetPlayMode;
                 }
             }
@@ -48,20 +48,20 @@ public interface IXAdConstants4PDK {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f2352a;
+        private final String f2354a;
 
         ScreenSizeMode(String str) {
-            this.f2352a = str;
+            this.f2354a = str;
         }
 
         public String getValue() {
-            return this.f2352a;
+            return this.f2354a;
         }
 
         public static ScreenSizeMode parse(String str) {
             ScreenSizeMode[] values;
             for (ScreenSizeMode screenSizeMode : values()) {
-                if (screenSizeMode.f2352a.equalsIgnoreCase(str)) {
+                if (screenSizeMode.f2354a.equalsIgnoreCase(str)) {
                     return screenSizeMode;
                 }
             }
@@ -78,20 +78,20 @@ public interface IXAdConstants4PDK {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f2356a;
+        private final String f2358a;
 
         VideoState(String str) {
-            this.f2356a = str;
+            this.f2358a = str;
         }
 
         public String getValue() {
-            return this.f2356a;
+            return this.f2358a;
         }
 
         public static VideoState parse(String str) {
             VideoState[] values;
             for (VideoState videoState : values()) {
-                if (videoState.f2356a.equalsIgnoreCase(str)) {
+                if (videoState.f2358a.equalsIgnoreCase(str)) {
                     return videoState;
                 }
             }
@@ -111,20 +111,20 @@ public interface IXAdConstants4PDK {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f2351a;
+        private final String f2353a;
 
         ActivityState(String str) {
-            this.f2351a = str;
+            this.f2353a = str;
         }
 
         public String getValue() {
-            return this.f2351a;
+            return this.f2353a;
         }
 
         public static ActivityState parse(String str) {
             ActivityState[] values;
             for (ActivityState activityState : values()) {
-                if (activityState.f2351a.equalsIgnoreCase(str)) {
+                if (activityState.f2353a.equalsIgnoreCase(str)) {
                     return activityState;
                 }
             }
@@ -144,20 +144,20 @@ public interface IXAdConstants4PDK {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f2353a;
+        private final String f2355a;
 
         SlotState(String str) {
-            this.f2353a = str;
+            this.f2355a = str;
         }
 
         public String getValue() {
-            return this.f2353a;
+            return this.f2355a;
         }
 
         public static SlotState parse(String str) {
             SlotState[] values;
             for (SlotState slotState : values()) {
-                if (slotState.f2353a.equalsIgnoreCase(str)) {
+                if (slotState.f2355a.equalsIgnoreCase(str)) {
                     return slotState;
                 }
             }
@@ -181,20 +181,20 @@ public interface IXAdConstants4PDK {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f2354a;
+        private final String f2356a;
 
         SlotType(String str) {
-            this.f2354a = str;
+            this.f2356a = str;
         }
 
         public String getValue() {
-            return this.f2354a;
+            return this.f2356a;
         }
 
         public static SlotType parse(String str) {
             SlotType[] values;
             for (SlotType slotType : values()) {
-                if (slotType.f2354a.equalsIgnoreCase(str)) {
+                if (slotType.f2356a.equalsIgnoreCase(str)) {
                     return slotType;
                 }
             }
@@ -209,20 +209,20 @@ public interface IXAdConstants4PDK {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f2357a;
+        private final String f2359a;
 
         VisitorAction(String str) {
-            this.f2357a = str;
+            this.f2359a = str;
         }
 
         public String getValue() {
-            return this.f2357a;
+            return this.f2359a;
         }
 
         public static VisitorAction parse(String str) {
             VisitorAction[] values;
             for (VisitorAction visitorAction : values()) {
-                if (visitorAction.f2357a.equalsIgnoreCase(str)) {
+                if (visitorAction.f2359a.equalsIgnoreCase(str)) {
                     return visitorAction;
                 }
             }

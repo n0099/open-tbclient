@@ -4,18 +4,18 @@ package com.baidu.ufosdk.ui;
 public final class bm implements eu {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ er f3778a;
+    final /* synthetic */ er f3780a;
     final /* synthetic */ FeedbackInputActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bm(FeedbackInputActivity feedbackInputActivity, er erVar) {
         this.b = feedbackInputActivity;
-        this.f3778a = erVar;
+        this.f3780a = erVar;
     }
 
     @Override // com.baidu.ufosdk.ui.eu
     public final void a() {
-        this.f3778a.dismiss();
+        this.f3780a.dismiss();
         this.b.s.setVisibility(0);
         this.b.s.bringToFront();
         new Thread(new bp(this)).start();
@@ -24,7 +24,7 @@ public final class bm implements eu {
     @Override // com.baidu.ufosdk.ui.eu
     public final void a(String str) {
         if (str == null || str.trim().length() == 0) {
-            this.f3778a.dismiss();
+            this.f3780a.dismiss();
             this.b.D = true;
             this.b.J.setTextColor(com.baidu.ufosdk.b.y);
             this.b.E.setEnabled(false);
@@ -33,7 +33,7 @@ public final class bm implements eu {
             new Thread(new bo(this)).start();
             return;
         }
-        this.f3778a.dismiss();
+        this.f3780a.dismiss();
         this.b.D = true;
         this.b.J.setTextColor(com.baidu.ufosdk.b.y);
         this.b.E.setEnabled(false);

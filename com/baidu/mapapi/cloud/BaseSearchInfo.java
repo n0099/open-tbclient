@@ -6,7 +6,7 @@ import com.baidu.webkit.internal.ETAG;
 public abstract class BaseSearchInfo {
 
     /* renamed from: a  reason: collision with root package name */
-    String f1981a;
+    String f1983a;
     public String ak;
     public int geoTableId;
     public String sn;
@@ -14,7 +14,7 @@ public abstract class BaseSearchInfo {
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a() {
         StringBuilder sb = new StringBuilder();
-        sb.append(this.f1981a);
+        sb.append(this.f1983a);
         sb.append("?");
         if (this.ak == null || this.ak.equals("") || this.ak.length() > 50) {
             return null;

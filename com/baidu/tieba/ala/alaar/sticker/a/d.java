@@ -12,9 +12,9 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class d {
-    private static File aDY = i.getPrivateCaptureRootChildDir("duFaceFile");
-    private static List<String> fWU = Collections.synchronizedList(new ArrayList());
-    public static String fWV = "";
+    private static File aEO = i.getPrivateCaptureRootChildDir("duFaceFile");
+    private static List<String> gcL = Collections.synchronizedList(new ArrayList());
+    public static String gcM = "";
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -27,34 +27,34 @@ public class d {
         void onStarted();
     }
 
-    public static String FL(String str) {
-        File FO;
-        if (TextUtils.isEmpty(str) || (FO = FO(Md5.toMd5(str))) == null || !FO.exists()) {
+    public static String FZ(String str) {
+        File Gc;
+        if (TextUtils.isEmpty(str) || (Gc = Gc(Md5.toMd5(str))) == null || !Gc.exists()) {
             return null;
         }
         Log.d("ArUpdate", "hasDownload url: " + str);
-        Log.d("ArUpdate", "hasDownload file.getAbsolutePath(): " + FO.getAbsolutePath());
-        return FO.getAbsolutePath();
+        Log.d("ArUpdate", "hasDownload file.getAbsolutePath(): " + Gc.getAbsolutePath());
+        return Gc.getAbsolutePath();
     }
 
-    public static boolean FM(String str) {
-        return !TextUtils.isEmpty(FL(str));
+    public static boolean Ga(String str) {
+        return !TextUtils.isEmpty(FZ(str));
     }
 
     public static void a(final String str, final a aVar) {
         if (!TextUtils.isEmpty(str)) {
-            String FL = FL(str);
-            if (!TextUtils.isEmpty(FL)) {
+            String FZ = FZ(str);
+            if (!TextUtils.isEmpty(FZ)) {
                 if (aVar != null) {
                     Log.d("ArUpdate", "onCompleted 0");
-                    aVar.onCompleted(FP(FL));
+                    aVar.onCompleted(Gd(FZ));
                     return;
                 }
                 return;
             }
             final String md5 = Md5.toMd5(str);
-            fWU.add(str);
-            com.baidu.tieba.ala.alaar.sticker.download.b.bKT().a(str, aDY, md5 + ".tmp", new com.baidu.tieba.ala.alaar.sticker.download.a.a() { // from class: com.baidu.tieba.ala.alaar.sticker.a.d.1
+            gcL.add(str);
+            com.baidu.tieba.ala.alaar.sticker.download.b.bNs().a(str, aEO, md5 + ".tmp", new com.baidu.tieba.ala.alaar.sticker.download.a.a() { // from class: com.baidu.tieba.ala.alaar.sticker.a.d.1
                 @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
                 public void onStarted() {
                     super.onStarted();
@@ -84,16 +84,16 @@ public class d {
                 @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
                 public void onCompleted(String str2) {
                     super.onCompleted(str2);
-                    d.fWU.remove(str);
+                    d.gcL.remove(str);
                     if (!TextUtils.isEmpty(str2) && a.this != null) {
                         File file = new File(str2);
-                        File FN = d.FN(md5);
-                        if (file.exists() && file.renameTo(FN) && FN != null) {
-                            if (d.h(FN, md5)) {
-                                String FL2 = d.FL(str);
-                                if (!TextUtils.isEmpty(FL2)) {
+                        File Gb = d.Gb(md5);
+                        if (file.exists() && file.renameTo(Gb) && Gb != null) {
+                            if (d.h(Gb, md5)) {
+                                String FZ2 = d.FZ(str);
+                                if (!TextUtils.isEmpty(FZ2)) {
                                     Log.d("ArUpdate", "onCompleted 1");
-                                    a.this.onCompleted(d.FP(FL2));
+                                    a.this.onCompleted(d.Gd(FZ2));
                                     return;
                                 }
                                 return;
@@ -117,7 +117,7 @@ public class d {
                 @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
                 public void a(DownloadException downloadException) {
                     int i;
-                    d.fWU.remove(str);
+                    d.gcL.remove(str);
                     super.a(downloadException);
                     if (a.this != null) {
                         String str2 = null;
@@ -135,18 +135,18 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static File FN(String str) {
+    public static File Gb(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return new File(aDY, str + ".zip");
+        return new File(aEO, str + ".zip");
     }
 
-    private static File FO(String str) {
+    private static File Gc(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return new File(aDY, str);
+        return new File(aEO, str);
     }
 
     public static boolean h(File file, String str) {
@@ -154,7 +154,7 @@ public class d {
         Exception e;
         try {
             Log.d("ArUpdate", "onResLoaded file: " + file + ", fileName:" + str);
-            File file2 = new File(aDY, str + ".tmp");
+            File file2 = new File(aEO, str + ".tmp");
             if (file2.exists()) {
                 com.baidu.tieba.ala.alaar.sticker.b.c.deleteFile(file2);
                 try {
@@ -166,19 +166,19 @@ public class d {
             Log.d("ArUpdate", "unzipFile--> loadedFile: " + file + ", unzipingFile:" + file2);
             com.baidu.tieba.ala.alaar.sticker.b.c.d(file, file2);
             Log.d("ArUpdate", "onUnzipFile: " + file2);
-            z = com.baidu.minivideo.arface.a.jd(file2.getAbsolutePath());
+            z = com.baidu.minivideo.arface.a.jq(file2.getAbsolutePath());
             if (!z) {
                 com.baidu.tieba.ala.alaar.sticker.b.c.deleteFile(file2);
             }
-            file2.renameTo(FO(str));
-            Log.d("ArUpdate", "unzipingFile.renameTo: " + FO(str));
+            file2.renameTo(Gc(str));
+            Log.d("ArUpdate", "unzipingFile.renameTo: " + Gc(str));
             try {
                 Log.d("ArUpdate", "result: " + z);
             } catch (Exception e3) {
                 e = e3;
                 Log.e("ArUpdate", "onResLoaded: " + e.getMessage());
                 e.printStackTrace();
-                com.baidu.tieba.ala.alaar.sticker.b.c.deleteFile(FO(str));
+                com.baidu.tieba.ala.alaar.sticker.b.c.deleteFile(Gc(str));
                 return z;
             }
         } catch (Exception e4) {
@@ -186,16 +186,16 @@ public class d {
             e = e4;
             Log.e("ArUpdate", "onResLoaded: " + e.getMessage());
             e.printStackTrace();
-            com.baidu.tieba.ala.alaar.sticker.b.c.deleteFile(FO(str));
+            com.baidu.tieba.ala.alaar.sticker.b.c.deleteFile(Gc(str));
             return z;
         }
         return z;
     }
 
-    public static String FP(String str) {
+    public static String Gd(String str) {
         Z(new File(str));
-        Log.d("ArUpdate", "getTxtPathFromFolder mFaceFile: " + fWV);
-        return fWV;
+        Log.d("ArUpdate", "getTxtPathFromFolder mFaceFile: " + gcM);
+        return gcM;
     }
 
     public static String Z(File file) {
@@ -205,8 +205,8 @@ public class d {
             if (file2.isDirectory()) {
                 Z(file2);
             }
-            if (file2.isFile() && FQ(file2.getName())) {
-                fWV = file2.getPath();
+            if (file2.isFile() && Ge(file2.getName())) {
+                gcM = file2.getPath();
                 return file2.getPath();
             }
         }
@@ -214,7 +214,7 @@ public class d {
     }
 
     @SuppressLint({"DefaultLocale"})
-    public static boolean FQ(String str) {
+    public static boolean Ge(String str) {
         boolean z;
         Log.d("ArUpdate", "checkIsTxtFile fName: " + str);
         String lowerCase = str.substring(str.lastIndexOf(".") + 1, str.length()).toLowerCase();

@@ -6,7 +6,7 @@ import java.util.HashMap;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f2722a = null;
+    private static a f2724a = null;
     public static final String b = "request_data";
     private HashMap<String, PassBiometricDto> c = new HashMap<>();
 
@@ -14,10 +14,10 @@ public class a {
     }
 
     public static a a() {
-        if (f2722a == null) {
-            f2722a = new a();
+        if (f2724a == null) {
+            f2724a = new a();
         }
-        return f2722a;
+        return f2724a;
     }
 
     public void b() {

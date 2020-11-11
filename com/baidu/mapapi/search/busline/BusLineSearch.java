@@ -9,7 +9,7 @@ public class BusLineSearch extends l {
     private boolean b = false;
 
     /* renamed from: a  reason: collision with root package name */
-    IBusLineSearch f2095a = new c();
+    IBusLineSearch f2097a = new c();
 
     BusLineSearch() {
     }
@@ -24,27 +24,27 @@ public class BusLineSearch extends l {
             return;
         }
         this.b = true;
-        this.f2095a.a();
+        this.f2097a.a();
         BMapManager.destroy();
     }
 
     public boolean searchBusLine(BusLineSearchOption busLineSearchOption) {
-        if (this.f2095a == null) {
+        if (this.f2097a == null) {
             throw new IllegalStateException("BDMapSDKException: searcher is null, please call newInstance first.");
         }
         if (busLineSearchOption == null || busLineSearchOption.mCity == null || busLineSearchOption.mUid == null) {
             throw new IllegalArgumentException("BDMapSDKException: option or city or uid can not be null");
         }
-        return this.f2095a.a(busLineSearchOption);
+        return this.f2097a.a(busLineSearchOption);
     }
 
     public void setOnGetBusLineSearchResultListener(OnGetBusLineSearchResultListener onGetBusLineSearchResultListener) {
-        if (this.f2095a == null) {
+        if (this.f2097a == null) {
             throw new IllegalStateException("BDMapSDKException: searcher is null, please call newInstance first.");
         }
         if (onGetBusLineSearchResultListener == null) {
             throw new IllegalArgumentException("BDMapSDKException: listener can not be null");
         }
-        this.f2095a.a(onGetBusLineSearchResultListener);
+        this.f2097a.a(onGetBusLineSearchResultListener);
     }
 }

@@ -12,8 +12,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.message.chat.a;
 /* loaded from: classes26.dex */
 public class OfficialFeedItemBottom extends LinearLayout {
-    private TextView jTs;
-    private TextView jTt;
+    private TextView jZo;
+    private TextView jZp;
     private Context mContext;
 
     public OfficialFeedItemBottom(Context context) {
@@ -29,31 +29,31 @@ public class OfficialFeedItemBottom extends LinearLayout {
     private void initView() {
         setOrientation(1);
         LayoutInflater.from(this.mContext).inflate(R.layout.official_feed_item_bottom, (ViewGroup) this, true);
-        this.jTs = (TextView) findViewById(R.id.message_no_image_title);
-        this.jTt = (TextView) findViewById(R.id.message_info);
-        cMQ();
+        this.jZo = (TextView) findViewById(R.id.message_no_image_title);
+        this.jZp = (TextView) findViewById(R.id.message_info);
+        cPr();
     }
 
-    public void cMQ() {
-        ap.setViewTextColor(this.jTt, R.color.cp_cont_j);
-        ap.setViewTextColor(this.jTs, R.color.cp_cont_b);
+    public void cPr() {
+        ap.setViewTextColor(this.jZp, R.color.cp_cont_j);
+        ap.setViewTextColor(this.jZo, R.color.cp_cont_b);
     }
 
-    public void setData(a.C0750a c0750a, boolean z) {
-        int i = TextUtils.isEmpty(c0750a.text) ? 8 : 0;
-        this.jTs.setText(c0750a.title);
-        this.jTt.setText(c0750a.text);
-        this.jTt.setVisibility(i);
+    public void setData(a.C0764a c0764a, boolean z) {
+        int i = TextUtils.isEmpty(c0764a.text) ? 8 : 0;
+        this.jZo.setText(c0764a.title);
+        this.jZp.setText(c0764a.text);
+        this.jZp.setVisibility(i);
         if (z) {
-            this.jTs.setVisibility(8);
+            this.jZo.setVisibility(8);
         } else {
-            this.jTs.setVisibility(0);
+            this.jZo.setVisibility(0);
         }
     }
 
-    public void Cp(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.jTt.getLayoutParams();
+    public void CC(int i) {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.jZp.getLayoutParams();
         layoutParams.topMargin = i;
-        this.jTt.setLayoutParams(layoutParams);
+        this.jZp.setLayoutParams(layoutParams);
     }
 }

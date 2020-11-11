@@ -4,7 +4,7 @@ import com.baidu.android.imsdk.IMSliceListener;
 import com.baidu.android.imsdk.internal.Constants;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class GetPaInfoSliceListener implements IMSliceListener<PaInfo> {
     private int errorCode;
     private String errorMsg;

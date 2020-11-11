@@ -32,7 +32,7 @@ public class a {
     public static final String p = "achieve_sc_app_data";
 
     /* renamed from: a  reason: collision with root package name */
-    private SapiWebView.InvokeScAppCallback.InvokeScAppResult f3454a;
+    private SapiWebView.InvokeScAppCallback.InvokeScAppResult f3457a;
     private b b;
 
     public int a(Context context, String str, SapiWebView.InvokeScAppCallback invokeScAppCallback) {
@@ -54,26 +54,26 @@ public class a {
     }
 
     public void a(Activity activity, String str, String str2, List<PassNameValuePair> list, SapiWebView.InvokeScAppCallback.InvokeScAppResult invokeScAppResult) {
-        this.f3454a = invokeScAppResult;
+        this.f3457a = invokeScAppResult;
         a aVar = new a();
         if (!aVar.a((Context) activity, g)) {
-            this.f3454a.setInvokeResult(a(b.b, b.d));
+            this.f3457a.setInvokeResult(a(b.b, b.d));
             return;
         }
         try {
             aVar.a(activity, aVar.a(str, str2, list));
         } catch (Exception e2) {
-            this.f3454a.setInvokeResult(a(b.f3455a, b.c));
+            this.f3457a.setInvokeResult(a(b.f3458a, b.c));
         }
     }
 
     public void a(int i2, int i3, Intent intent) {
-        if (this.f3454a != null) {
+        if (this.f3457a != null) {
             String str = null;
             if (intent != null) {
                 str = intent.getExtras().getString(p);
             }
-            this.f3454a.setInvokeResult(str);
+            this.f3457a.setInvokeResult(str);
         }
     }
 

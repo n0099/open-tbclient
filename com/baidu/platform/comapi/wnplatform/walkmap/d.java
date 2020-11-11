@@ -16,7 +16,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     private a c = null;
 
     /* renamed from: a  reason: collision with root package name */
-    SoftReference<View> f3157a = null;
+    SoftReference<View> f3159a = null;
 
     public d() {
         this.b = null;
@@ -24,10 +24,10 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public MapView a() {
-        if (this.f3157a == null) {
+        if (this.f3159a == null) {
             return null;
         }
-        return (MapView) this.f3157a.get();
+        return (MapView) this.f3159a.get();
     }
 
     @Override // com.baidu.platform.comapi.walknavi.a
@@ -50,7 +50,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public void a(Context context, MapView mapView) {
-        this.f3157a = new SoftReference<>(mapView);
+        this.f3159a = new SoftReference<>(mapView);
         if (this.c == null) {
             this.c = new a(mapView);
         } else {

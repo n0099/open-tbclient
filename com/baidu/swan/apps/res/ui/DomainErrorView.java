@@ -24,27 +24,27 @@ public class DomainErrorView extends CommonEmptyView {
         super(context, attributeSet, i);
     }
 
-    public void rw(String str) {
+    public void rK(String str) {
         StringBuffer stringBuffer = new StringBuffer();
         boolean a2 = ai.a(str, stringBuffer);
         final String stringBuffer2 = stringBuffer.toString();
         setIcon(a.e.aiapps_empty_icon_error);
         setTitle(a.h.aiapps_emptyview_domain_error_title);
-        com.baidu.swan.apps.am.a tM = new com.baidu.swan.apps.am.a().bZ(5L).ca(41L).tM("domain not in white list--" + stringBuffer2);
-        final e aEV = e.aEV();
-        if (aEV != null) {
-            final String format = String.format(getContext().getResources().getString(a.h.aiapps_open_failed_detail_format), ak.getVersionName(), com.baidu.swan.apps.swancore.b.a(f.axo().awQ(), aEV.ado().getAppFrameType()), String.valueOf(tM.aJp()));
+        com.baidu.swan.apps.am.a ua = new com.baidu.swan.apps.am.a().cv(5L).cw(41L).ua("domain not in white list--" + stringBuffer2);
+        final e aHv = e.aHv();
+        if (aHv != null) {
+            final String format = String.format(getContext().getResources().getString(a.h.aiapps_open_failed_detail_format), ak.getVersionName(), com.baidu.swan.apps.swancore.b.a(f.azO().azq(), aHv.afO().getAppFrameType()), String.valueOf(ua.aLP()));
             setSubTitle("(" + (a2 ? stringBuffer2 : format) + ")");
-            this.dhE.setVisibility(0);
-            this.dhE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.ui.DomainErrorView.1
+            this.dnA.setVisibility(0);
+            this.dnA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.ui.DomainErrorView.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    com.baidu.swan.apps.t.a.auj().d(aEV.aEO(), aEV.getAppKey(), aEV.getName(), ai.cI(format, stringBuffer2));
+                    com.baidu.swan.apps.t.a.awJ().d(aHv.aHo(), aHv.getAppKey(), aHv.getName(), ai.cI(format, stringBuffer2));
                 }
             });
         }
         this.mTitle.setText(getResources().getText(a.h.swanapp_path_forbidden));
-        this.mSubTitle.setPadding(ah.L(70.0f), 0, ah.L(70.0f), 0);
-        h.b(new com.baidu.swan.apps.statistic.a.d().i(tM).sU(h.ko(0)).sV(e.aEW()).cy("errorDomain", stringBuffer2).cy("path", ak.aKC().getPage()));
+        this.mSubTitle.setPadding(ah.N(70.0f), 0, ah.N(70.0f), 0);
+        h.b(new com.baidu.swan.apps.statistic.a.d().i(ua).ti(h.ky(0)).tj(e.aHw()).cy("errorDomain", stringBuffer2).cy("path", ak.aNc().getPage()));
     }
 }

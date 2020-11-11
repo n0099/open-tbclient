@@ -29,7 +29,7 @@ import java.util.Random;
 import java.util.TreeMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public final class IMConnection {
     public static final int ERROR_LOGIN_FAIL = 20;
     private static final int MAX_RETRY_TIMES = 10;
@@ -188,7 +188,7 @@ public final class IMConnection {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes18.dex */
     private final class ConnectTask implements Runnable {
         Integer mConnectTaskId;
         String mIp;
@@ -377,7 +377,7 @@ public final class IMConnection {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes18.dex */
     public class ReadThread extends Thread {
         ReadThread() {
             setName("IM-IMConnection-readThread");
@@ -425,7 +425,7 @@ public final class IMConnection {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes18.dex */
     public class SendThread extends Thread {
         SendThread() {
             setName("IM-IMConnection-SendThread");
@@ -628,7 +628,7 @@ public final class IMConnection {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes18.dex */
     private class ConnectTimeOutTask implements Runnable {
         Integer mConnectTaskId;
         boolean mTaskStoped = false;
@@ -662,7 +662,7 @@ public final class IMConnection {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes18.dex */
     private class MyHandler extends Handler {
         public MyHandler(Looper looper) {
             super(looper);

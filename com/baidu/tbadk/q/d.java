@@ -10,11 +10,11 @@ public class d extends com.baidu.adp.framework.b.e {
 
     @Override // com.baidu.adp.framework.b.e
     public void b(int i, BdUniqueId bdUniqueId) {
-        ReloginManager.bnz().d(i, bdUniqueId);
+        ReloginManager.bpZ().d(i, bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.b.e
     public void b(BdUniqueId bdUniqueId) {
-        ReloginManager.bnz().k(bdUniqueId);
+        ReloginManager.bpZ().k(bdUniqueId);
     }
 }

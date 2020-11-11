@@ -17,10 +17,10 @@ import java.util.Set;
 public class a extends j {
     private static final boolean DEBUG = b.DEBUG;
     @NonNull
-    private com.baidu.swan.games.c.b dNA;
+    private com.baidu.swan.games.c.b dTs;
     @NonNull
-    private com.baidu.swan.games.c.b.a dNB;
-    private c<h> deA = new com.baidu.swan.pms.a.b<h>() { // from class: com.baidu.swan.games.c.a.a.1
+    private com.baidu.swan.games.c.b.a dTt;
+    private c<h> dkv = new com.baidu.swan.pms.a.b<h>() { // from class: com.baidu.swan.games.c.a.a.1
         @Override // com.baidu.swan.pms.a.e
         @NonNull
         public Bundle a(@NonNull Bundle bundle, Set<String> set) {
@@ -31,7 +31,7 @@ public class a extends j {
         @Override // com.baidu.swan.pms.a.c
         /* renamed from: a */
         public String U(h hVar) {
-            return a.c.atU().getPath();
+            return a.c.awu().getPath();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -61,7 +61,7 @@ public class a extends j {
             if (a.DEBUG) {
                 Log.e("ConsoleJsDownload", "onDownloadError: " + aVar.toString());
             }
-            a.this.dNA.ew(false);
+            a.this.dTs.eF(false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -76,32 +76,32 @@ public class a extends j {
                 if (a.DEBUG) {
                     Log.e("ConsoleJsDownload", "onDownloadFinish: 校验签名失败");
                 }
-                a.this.dNA.ew(false);
+                a.this.dTs.eF(false);
                 return;
             }
-            File alg = a.this.dNB.alg();
-            if (alg.exists()) {
-                d.deleteFile(alg);
+            File anG = a.this.dTt.anG();
+            if (anG.exists()) {
+                d.deleteFile(anG);
             } else {
-                d.ensureDirectoryExist(alg);
+                d.ensureDirectoryExist(anG);
             }
-            boolean unzipFile = d.unzipFile(hVar.filePath, alg.getAbsolutePath());
+            boolean unzipFile = d.unzipFile(hVar.filePath, anG.getAbsolutePath());
             if (unzipFile) {
-                a.this.dNB.mB(hVar.versionName);
+                a.this.dTt.mQ(hVar.versionName);
             }
             d.deleteFile(hVar.filePath);
-            a.this.dNA.ew(unzipFile);
+            a.this.dTs.eF(unzipFile);
         }
     };
 
     public a(@NonNull com.baidu.swan.games.c.b.a aVar, @NonNull com.baidu.swan.games.c.b bVar) {
-        this.dNA = bVar;
-        this.dNB = aVar;
+        this.dTs = bVar;
+        this.dTt = aVar;
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void anL() {
-        super.anL();
+    public void aqm() {
+        super.aqm();
         if (DEBUG) {
             Log.i("ConsoleJsDownload", "onFetchSuccess");
         }
@@ -113,16 +113,16 @@ public class a extends j {
         if (DEBUG) {
             Log.e("ConsoleJsDownload", "onFetchError: " + aVar.toString());
         }
-        this.dNA.ew(false);
+        this.dTs.eF(false);
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void akQ() {
-        super.akQ();
+    public void anq() {
+        super.anq();
         if (DEBUG) {
             Log.i("ConsoleJsDownload", "onNoPackage");
         }
-        this.dNA.ew(false);
+        this.dTs.eF(false);
     }
 
     @Override // com.baidu.swan.pms.a.g
@@ -134,7 +134,7 @@ public class a extends j {
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public c<h> aBR() {
-        return this.deA;
+    public c<h> aEr() {
+        return this.dkv;
     }
 }

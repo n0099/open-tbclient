@@ -17,13 +17,13 @@ import com.baidu.tieba.frs.gamesubpb.model.d;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
-    private View.OnClickListener aYF;
-    private com.baidu.tieba.frs.gamesubpb.view.a iSW;
-    private c iSX;
-    private com.baidu.tieba.frs.gamesubpb.model.a iSY;
-    private boolean iSZ;
-    private boolean iTa;
-    private String iTb;
+    private View.OnClickListener aZX;
+    private com.baidu.tieba.frs.gamesubpb.view.a iYT;
+    private c iYU;
+    private com.baidu.tieba.frs.gamesubpb.model.a iYV;
+    private boolean iYW;
+    private boolean iYX;
+    private String iYY;
     private int mForumId;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -34,121 +34,121 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
         if (getIntent() == null) {
             finish();
         }
-        cgw();
-        if (this.mForumId <= 0 || TextUtils.isEmpty(this.iTb)) {
+        ciY();
+        if (this.mForumId <= 0 || TextUtils.isEmpty(this.iYY)) {
             finish();
         }
-        bTF();
-        this.iSW = new com.baidu.tieba.frs.gamesubpb.view.a(this, this.aYF, this.iTb);
-        setContentView(this.iSW.getRootView());
-        this.iSX = new c(this, this.iSW.getListView(), this.iSW.bQh());
-        this.iSX.cAA();
-        this.iSX.a(new c.a() { // from class: com.baidu.tieba.frs.gamesubpb.FrsGameSubPbActivity.1
-            private boolean iTc = false;
+        bWm();
+        this.iYT = new com.baidu.tieba.frs.gamesubpb.view.a(this, this.aZX, this.iYY);
+        setContentView(this.iYT.getRootView());
+        this.iYU = new c(this, this.iYT.getListView(), this.iYT.bSH());
+        this.iYU.cDb();
+        this.iYU.a(new c.a() { // from class: com.baidu.tieba.frs.gamesubpb.FrsGameSubPbActivity.1
+            private boolean iYZ = false;
 
             @Override // com.baidu.tieba.frs.gamesubpb.c.a
-            public void cAw() {
-                FrsGameSubPbActivity.this.iSW.pX(false);
-                this.iTc = true;
+            public void cCX() {
+                FrsGameSubPbActivity.this.iYT.qg(false);
+                this.iYZ = true;
             }
 
             @Override // com.baidu.tieba.frs.gamesubpb.c.a
-            public void cAx() {
+            public void cCY() {
             }
 
             @Override // com.baidu.tieba.frs.gamesubpb.c.a
-            public boolean cAy() {
-                if (!this.iTc) {
-                    return FrsGameSubPbActivity.this.iSW.cpI() != null && FrsGameSubPbActivity.this.iSW.cpI().getTop() == 0;
+            public boolean cCZ() {
+                if (!this.iYZ) {
+                    return FrsGameSubPbActivity.this.iYT.csj() != null && FrsGameSubPbActivity.this.iYT.csj().getTop() == 0;
                 }
-                this.iTc = false;
+                this.iYZ = false;
                 return false;
             }
         });
-        this.iSW.e(this.iSX);
-        this.iSW.pX(true);
-        this.iSW.b(new BdListView.e() { // from class: com.baidu.tieba.frs.gamesubpb.FrsGameSubPbActivity.2
+        this.iYT.e(this.iYU);
+        this.iYT.qg(true);
+        this.iYT.b(new BdListView.e() { // from class: com.baidu.tieba.frs.gamesubpb.FrsGameSubPbActivity.2
             @Override // com.baidu.adp.widget.ListView.BdListView.e
             public void onScrollToBottom() {
-                if (FrsGameSubPbActivity.this.iSY != null) {
-                    FrsGameSubPbActivity.this.iSY.lF(true);
+                if (FrsGameSubPbActivity.this.iYV != null) {
+                    FrsGameSubPbActivity.this.iYV.lO(true);
                 }
             }
         });
-        this.iSY = new com.baidu.tieba.frs.gamesubpb.model.a(this, this.mForumId, this.iTb);
-        this.iSY.a(new a.InterfaceC0717a() { // from class: com.baidu.tieba.frs.gamesubpb.FrsGameSubPbActivity.3
-            @Override // com.baidu.tieba.frs.gamesubpb.model.a.InterfaceC0717a
+        this.iYV = new com.baidu.tieba.frs.gamesubpb.model.a(this, this.mForumId, this.iYY);
+        this.iYV.a(new a.InterfaceC0731a() { // from class: com.baidu.tieba.frs.gamesubpb.FrsGameSubPbActivity.3
+            @Override // com.baidu.tieba.frs.gamesubpb.model.a.InterfaceC0731a
             public void a(boolean z, int i, String str, boolean z2, boolean z3, com.baidu.tieba.frs.gamesubpb.model.b bVar, List<q> list) {
-                if (FrsGameSubPbActivity.this.iSX != null && FrsGameSubPbActivity.this.iSX.cAB()) {
-                    FrsGameSubPbActivity.this.iSX.zz(R.color.cp_bg_line_k_alpha10_1);
+                if (FrsGameSubPbActivity.this.iYU != null && FrsGameSubPbActivity.this.iYU.cDc()) {
+                    FrsGameSubPbActivity.this.iYU.zM(R.color.cp_bg_line_k_alpha10_1);
                 }
                 if (z) {
-                    FrsGameSubPbActivity.this.hideNetRefreshView(FrsGameSubPbActivity.this.iSW.getRootView());
-                    FrsGameSubPbActivity.this.iSW.a(z2, bVar, list);
+                    FrsGameSubPbActivity.this.hideNetRefreshView(FrsGameSubPbActivity.this.iYT.getRootView());
+                    FrsGameSubPbActivity.this.iYT.a(z2, bVar, list);
                     if (!y.isEmpty(list)) {
                         q qVar = list.get(list.size() - 1);
                         if (qVar instanceof d) {
-                            FrsGameSubPbActivity.this.iSY.Kk(((d) qVar).id);
+                            FrsGameSubPbActivity.this.iYV.KB(((d) qVar).id);
                         }
                     }
                 } else if (!z3) {
                     FrsGameSubPbActivity.this.setNetRefreshViewTopMargin(FrsGameSubPbActivity.this.getResources().getDimensionPixelSize(R.dimen.ds120));
                     FrsGameSubPbActivity frsGameSubPbActivity = FrsGameSubPbActivity.this;
-                    View rootView = FrsGameSubPbActivity.this.iSW.getRootView();
+                    View rootView = FrsGameSubPbActivity.this.iYT.getRootView();
                     if (TextUtils.isEmpty(str)) {
                         str = FrsGameSubPbActivity.this.getPageContext().getString(R.string.refresh_view_title_text);
                     }
                     frsGameSubPbActivity.showNetRefreshView(rootView, str, false);
-                    if (FrsGameSubPbActivity.this.iSX != null) {
-                        FrsGameSubPbActivity.this.iSX.cAz();
+                    if (FrsGameSubPbActivity.this.iYU != null) {
+                        FrsGameSubPbActivity.this.iYU.cDa();
                     }
                 }
             }
 
-            @Override // com.baidu.tieba.frs.gamesubpb.model.a.InterfaceC0717a
+            @Override // com.baidu.tieba.frs.gamesubpb.model.a.InterfaceC0731a
             public void a(boolean z, int i, String str, d dVar) {
-                FrsGameSubPbActivity.this.iSW.a(z, str, dVar);
+                FrsGameSubPbActivity.this.iYT.a(z, str, dVar);
                 if (z) {
-                    FrsGameSubPbActivity.this.iSZ = true;
+                    FrsGameSubPbActivity.this.iYW = true;
                 }
             }
 
-            @Override // com.baidu.tieba.frs.gamesubpb.model.a.InterfaceC0717a
+            @Override // com.baidu.tieba.frs.gamesubpb.model.a.InterfaceC0731a
             public void b(boolean z, int i, String str, d dVar) {
-                FrsGameSubPbActivity.this.iSW.b(z, str, dVar);
+                FrsGameSubPbActivity.this.iYT.b(z, str, dVar);
                 if (z) {
-                    FrsGameSubPbActivity.this.iTa = true;
+                    FrsGameSubPbActivity.this.iYX = true;
                 }
             }
         });
-        this.iSY.lF(false);
+        this.iYV.lO(false);
     }
 
-    private void bTF() {
-        this.aYF = new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamesubpb.FrsGameSubPbActivity.4
+    private void bWm() {
+        this.aZX = new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamesubpb.FrsGameSubPbActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if ((view != null || FrsGameSubPbActivity.this.iSW != null) && view == FrsGameSubPbActivity.this.iSW.cAL() && FrsGameSubPbActivity.this.checkUpIsLogin()) {
-                    if (FrsGameSubPbActivity.this.iSX != null) {
-                        FrsGameSubPbActivity.this.iSX.cAz();
+                if ((view != null || FrsGameSubPbActivity.this.iYT != null) && view == FrsGameSubPbActivity.this.iYT.cDm() && FrsGameSubPbActivity.this.checkUpIsLogin()) {
+                    if (FrsGameSubPbActivity.this.iYU != null) {
+                        FrsGameSubPbActivity.this.iYU.cDa();
                     }
-                    FrsGameSubPbActivity.this.iSW.Km(null);
+                    FrsGameSubPbActivity.this.iYT.KD(null);
                 }
             }
         };
     }
 
-    private void cgw() {
+    private void ciY() {
         Intent intent = getIntent();
         this.mForumId = intent.getIntExtra(FrsGameSubPbActivityConfig.ARG_FORUM_ID, -1);
-        this.iTb = intent.getStringExtra(FrsGameSubPbActivityConfig.ARG_MAIN_TOWER_ID);
+        this.iYY = intent.getStringExtra(FrsGameSubPbActivityConfig.ARG_MAIN_TOWER_ID);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.iSW.onChangeSkinType(i);
+        this.iYT.onChangeSkinType(i);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -165,21 +165,21 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
         super.onNetRefreshButtonClicked();
-        this.iSY.lF(false);
+        this.iYV.lO(false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.iSW != null) {
-            this.iSW.onDestroy();
+        if (this.iYT != null) {
+            this.iYT.onDestroy();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void finish() {
-        if (this.iSZ || this.iTa) {
+        if (this.iYW || this.iYX) {
             setResult(1002);
         }
         super.finish();

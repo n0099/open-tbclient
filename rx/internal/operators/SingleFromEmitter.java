@@ -6,7 +6,7 @@ import rx.internal.subscriptions.CancellableSubscription;
 import rx.internal.subscriptions.SequentialSubscription;
 /* loaded from: classes16.dex */
 public final class SingleFromEmitter<T> implements h.a<T> {
-    final rx.functions.b<Object<T>> pUG;
+    final rx.functions.b<Object<T>> qea;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // rx.functions.b
@@ -15,7 +15,7 @@ public final class SingleFromEmitter<T> implements h.a<T> {
         SingleEmitterImpl singleEmitterImpl = new SingleEmitterImpl(iVar);
         iVar.add(singleEmitterImpl);
         try {
-            this.pUG.call(singleEmitterImpl);
+            this.qea.call(singleEmitterImpl);
         } catch (Throwable th) {
             rx.exceptions.a.J(th);
             singleEmitterImpl.onError(th);

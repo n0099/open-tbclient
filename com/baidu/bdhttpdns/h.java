@@ -6,7 +6,7 @@ import java.util.ArrayList;
 class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f1271a;
+    private final String f1273a;
     private final LruCache<String, a> aej = new LruCache<>(((int) Runtime.getRuntime().maxMemory()) / 16);
     private boolean c;
 
@@ -15,7 +15,7 @@ class h {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private ArrayList<String> f1272a;
+        private ArrayList<String> f1274a;
         private ArrayList<String> b;
         private long c;
         private long d;
@@ -25,7 +25,7 @@ class h {
         }
 
         public void a(ArrayList<String> arrayList) {
-            this.f1272a = arrayList;
+            this.f1274a = arrayList;
         }
 
         public boolean a() {
@@ -33,7 +33,7 @@ class h {
         }
 
         public ArrayList<String> b() {
-            return this.f1272a;
+            return this.f1274a;
         }
 
         public void b(long j) {
@@ -60,14 +60,14 @@ class h {
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(String str, boolean z) {
         this.c = false;
-        this.f1271a = str;
+        this.f1273a = str;
         this.c = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
         this.aej.evictAll();
-        l.a("Clear %s cache", this.f1271a);
+        l.a("Clear %s cache", this.f1273a);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -79,7 +79,7 @@ class h {
         }
         this.aej.put(str, aVar);
         Object[] objArr = new Object[5];
-        objArr[0] = this.f1271a;
+        objArr[0] = this.f1273a;
         objArr[1] = str;
         objArr[2] = b != null ? b.toString() : null;
         objArr[3] = c != null ? c.toString() : null;
@@ -108,7 +108,7 @@ class h {
             return;
         }
         this.aej.remove(str);
-        l.a("Remove expired entry from %s cache, host(%s)", this.f1271a, str);
+        l.a("Remove expired entry from %s cache, host(%s)", this.f1273a, str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -116,7 +116,7 @@ class h {
         a aVar = this.aej.get(str);
         if (aVar != null && aVar.a() && this.c) {
             this.aej.remove(str);
-            l.a("Remove expired entry from %s cache while reading, host(%s)", this.f1271a, str);
+            l.a("Remove expired entry from %s cache while reading, host(%s)", this.f1273a, str);
             return null;
         }
         return aVar;

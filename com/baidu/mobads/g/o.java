@@ -12,7 +12,7 @@ import java.util.Observer;
 public class o implements Observer {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2342a;
+    private Context f2344a;
     private URL b;
     private String c;
     private final e d;
@@ -46,14 +46,14 @@ public class o implements Observer {
     }
 
     private void a(Context context, a aVar) {
-        this.f2342a = context;
+        this.f2344a = context;
         this.e = aVar;
-        this.f = this.f2342a.getSharedPreferences("__xadsdk_downloaded__version__", 0);
+        this.f = this.f2344a.getSharedPreferences("__xadsdk_downloaded__version__", 0);
         this.f.registerOnSharedPreferenceChangeListener(this.g);
     }
 
     public void a(String str, String str2) {
-        IOAdDownloader createSimpleFileDownloader = XAdSDKFoundationFacade.getInstance().getDownloaderManager(this.f2342a).createSimpleFileDownloader(this.c != null ? new URL(this.c) : this.b, str, str2, false);
+        IOAdDownloader createSimpleFileDownloader = XAdSDKFoundationFacade.getInstance().getDownloaderManager(this.f2344a).createSimpleFileDownloader(this.c != null ? new URL(this.c) : this.b, str, str2, false);
         createSimpleFileDownloader.addObserver(this);
         createSimpleFileDownloader.start();
         SharedPreferences.Editor edit = this.f.edit();

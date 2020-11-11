@@ -6,7 +6,7 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 public class ac extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.rtcroom.c.b> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String ata() {
+    public String avA() {
         return "unPublishLocalStream";
     }
 
@@ -14,6 +14,6 @@ public class ac extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.i
     @Override // com.baidu.swan.apps.inlinewidget.a
     public void a(@NonNull ZeusPlugin.Command command, @NonNull com.baidu.swan.apps.inlinewidget.rtcroom.c.b bVar) {
         a(bVar, command.what, null, true);
-        bVar.atp();
+        bVar.avP();
     }
 }

@@ -11,7 +11,7 @@ public class OverlayItem {
     public static final int ALING_CENTER = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    protected GeoPoint f2886a;
+    protected GeoPoint f2888a;
     protected String b;
     protected String c;
     private int e;
@@ -51,7 +51,7 @@ public class OverlayItem {
     }
 
     public OverlayItem(GeoPoint geoPoint, String str, String str2) {
-        this.f2886a = geoPoint;
+        this.f2888a = geoPoint;
         this.b = str;
         this.c = str2;
     }
@@ -120,7 +120,7 @@ public class OverlayItem {
     }
 
     public GeoPoint getPoint() {
-        return this.f2886a;
+        return this.f2888a;
     }
 
     public int getResId() {
@@ -178,7 +178,7 @@ public class OverlayItem {
         if (this.m == null) {
             this.m = new Bundle();
         }
-        switch (aa.f2889a[animEffect.ordinal()]) {
+        switch (aa.f2891a[animEffect.ordinal()]) {
             case 1:
                 this.m.putInt("type", 1);
                 return;
@@ -245,7 +245,7 @@ public class OverlayItem {
     }
 
     public void setGeoPoint(GeoPoint geoPoint) {
-        this.f2886a = geoPoint;
+        this.f2888a = geoPoint;
     }
 
     public void setGeoZ(float f) {

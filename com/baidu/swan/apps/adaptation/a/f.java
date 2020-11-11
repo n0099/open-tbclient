@@ -50,7 +50,7 @@ public interface f {
             }
             com.baidu.swan.apps.ab.a.a("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, context, new com.baidu.swan.apps.ab.b() { // from class: com.baidu.swan.apps.adaptation.a.f.a.1
                 @Override // com.baidu.swan.apps.ab.b
-                public void ke(String str) {
+                public void kt(String str) {
                     DownloadManager.Request request = new DownloadManager.Request(Uri.parse(optString));
                     request.setDestinationInExternalPublicDir("", optString.substring(optString.lastIndexOf("/") + 1));
                     if (!TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3)) {
@@ -71,7 +71,7 @@ public interface f {
                 }
 
                 @Override // com.baidu.swan.apps.ab.b
-                public void ab(int i, String str) {
+                public void af(int i, String str) {
                     if (a.DEBUG) {
                         Log.d("DownloadImpl", "onAuthorizedFailed,  errorCode: " + i + " errorMsg: " + str);
                     }

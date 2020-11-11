@@ -24,27 +24,27 @@ import java.util.concurrent.atomic.AtomicReference;
 public class w {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Queue<Runnable> f4046a;
+    private final Queue<Runnable> f4048a;
     private Context b;
     private volatile int c;
     private BroadcastReceiver e;
     private Context f;
-    private com.google.a.b.a.a.a.a oTp;
-    private final ServiceConnection oTq;
-    private final AtomicReference<l> oTr;
+    private com.google.a.b.a.a.a.a pcK;
+    private final ServiceConnection pcL;
+    private final AtomicReference<l> pcM;
 
     w() {
     }
 
     public synchronized void a(Context context) {
         this.b = context;
-        if (context.bindService(new Intent("com.google.android.play.core.install.BIND_INSTALL_SERVICE").setPackage("com.android.vending"), this.oTq, 1)) {
+        if (context.bindService(new Intent("com.google.android.play.core.install.BIND_INSTALL_SERVICE").setPackage("com.android.vending"), this.pcL, 1)) {
             this.c = al.b;
         } else {
-            this.c = al.f4039a;
+            this.c = al.f4041a;
             this.b = null;
             Log.w("ARCore-InstallService", "bindService returned false.");
-            context.unbindService(this.oTq);
+            context.unbindService(this.pcL);
         }
     }
 
@@ -53,9 +53,9 @@ public class w {
         switch (this.c - 1) {
             case 1:
             case 2:
-                this.b.unbindService(this.oTq);
+                this.b.unbindService(this.pcL);
                 this.b = null;
-                this.c = al.f4039a;
+                this.c = al.f4041a;
                 break;
         }
         if (this.e != null) {
@@ -74,7 +74,7 @@ public class w {
 
     public void a(Activity activity, y yVar) {
         l lVar = new l(activity, yVar);
-        l andSet = this.oTr.getAndSet(lVar);
+        l andSet = this.pcM.getAndSet(lVar);
         if (andSet != null) {
             andSet.a();
         }
@@ -95,10 +95,10 @@ public class w {
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(byte b) {
         this();
-        this.f4046a = new ArrayDeque();
-        this.c = al.f4039a;
-        this.oTq = new z(this);
-        this.oTr = new AtomicReference<>();
+        this.f4048a = new ArrayDeque();
+        this.c = al.f4041a;
+        this.pcL = new z(this);
+        this.pcM = new AtomicReference<>();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -135,7 +135,7 @@ public class w {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        l andSet = this.oTr.getAndSet(null);
+        l andSet = this.pcM.getAndSet(null);
         if (andSet != null) {
             andSet.a();
         }
@@ -145,9 +145,9 @@ public class w {
     public synchronized void a(IBinder iBinder) {
         com.google.a.b.a.a.a.a a2 = com.google.a.b.a.a.a.b.a(iBinder);
         Log.i("ARCore-InstallService", "Install service connected");
-        this.oTp = a2;
+        this.pcK = a2;
         this.c = al.c;
-        for (Runnable runnable : this.f4046a) {
+        for (Runnable runnable : this.f4048a) {
             runnable.run();
         }
     }
@@ -155,8 +155,8 @@ public class w {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void d() {
         Log.i("ARCore-InstallService", "Install service disconnected");
-        this.c = al.f4039a;
-        this.oTp = null;
+        this.c = al.f4041a;
+        this.pcK = null;
         c();
     }
 
@@ -165,7 +165,7 @@ public class w {
             case 0:
                 throw new ab();
             case 1:
-                this.f4046a.offer(runnable);
+                this.f4048a.offer(runnable);
                 break;
             case 2:
                 runnable.run();

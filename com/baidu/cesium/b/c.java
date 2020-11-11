@@ -292,7 +292,7 @@ public class c extends com.baidu.cesium.b.a {
 
     @Override // com.baidu.cesium.b.a
     public a.e a(a.d dVar, g.a aVar) {
-        Context context = this.amb.f1292a;
+        Context context = this.amb.f1294a;
         if (Build.VERSION.SDK_INT < 28 || context.getApplicationInfo().targetSdkVersion < 28) {
             this.ami.c();
             try {
@@ -312,14 +312,14 @@ public class c extends com.baidu.cesium.b.a {
         PackageInfo packageInfo;
         C0100c c0100c = null;
         try {
-            packageInfo = this.amb.f1292a.getPackageManager().getPackageInfo(str, 0);
+            packageInfo = this.amb.f1294a.getPackageManager().getPackageInfo(str, 0);
         } catch (PackageManager.NameNotFoundException e) {
             packageInfo = null;
         }
         if (packageInfo == null) {
             return a.g.bG(-2);
         }
-        if (fVar.f1293a) {
+        if (fVar.f1295a) {
             c0100c = new C0100c(str);
             c0100c.a();
             if (str.equals(c0100c.c()) && packageInfo.lastUpdateTime == c0100c.e()) {
@@ -328,7 +328,7 @@ public class c extends com.baidu.cesium.b.a {
         }
         b bVar = new b();
         if (bVar.a(packageInfo)) {
-            if (fVar.f1293a && c0100c != null) {
+            if (fVar.f1295a && c0100c != null) {
                 c0100c.a(bVar);
                 c0100c.a(System.currentTimeMillis());
                 c0100c.Q(packageInfo.lastUpdateTime);

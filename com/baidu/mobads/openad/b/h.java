@@ -3,7 +3,7 @@ package com.baidu.mobads.openad.b;
 class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2379a;
+    private int f2381a;
     private int b;
     private int c;
     private int d;
@@ -36,11 +36,11 @@ class h {
     }
 
     public int c() {
-        return this.f2379a;
+        return this.f2381a;
     }
 
     public void b(int i) {
-        this.f2379a = i;
+        this.f2381a = i;
     }
 
     public int d() {

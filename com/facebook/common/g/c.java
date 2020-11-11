@@ -8,47 +8,47 @@ import javax.annotation.Nullable;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes6.dex */
 public class c {
-    public static final boolean oCB;
-    public static final boolean oCC;
-    public static final boolean oCD;
+    public static final boolean oLU;
+    public static final boolean oLV;
+    public static final boolean oLW;
     @Nullable
-    public static b oCE;
-    private static boolean oCF;
-    private static final byte[] oCG;
-    private static final byte[] oCH;
-    private static final byte[] oCI;
-    private static final byte[] oCJ;
-    private static final byte[] oCK;
+    public static b oLX;
+    private static boolean oLY;
+    private static final byte[] oLZ;
+    private static final byte[] oMa;
+    private static final byte[] oMb;
+    private static final byte[] oMc;
+    private static final byte[] oMd;
 
     static {
-        oCB = Build.VERSION.SDK_INT <= 17;
-        oCC = Build.VERSION.SDK_INT >= 14;
-        oCD = egL();
-        oCE = null;
-        oCF = false;
-        oCG = Xz("RIFF");
-        oCH = Xz("WEBP");
-        oCI = Xz("VP8 ");
-        oCJ = Xz("VP8L");
-        oCK = Xz("VP8X");
+        oLU = Build.VERSION.SDK_INT <= 17;
+        oLV = Build.VERSION.SDK_INT >= 14;
+        oLW = ekA();
+        oLX = null;
+        oLY = false;
+        oLZ = Yd("RIFF");
+        oMa = Yd("WEBP");
+        oMb = Yd("VP8 ");
+        oMc = Yd("VP8L");
+        oMd = Yd("VP8X");
     }
 
     @Nullable
-    public static b egK() {
+    public static b ekz() {
         b bVar;
-        if (oCF) {
-            return oCE;
+        if (oLY) {
+            return oLX;
         }
         try {
             bVar = (b) Class.forName("com.facebook.webpsupport.WebpBitmapFactoryImpl").newInstance();
         } catch (Throwable th) {
             bVar = null;
         }
-        oCF = true;
+        oLY = true;
         return bVar;
     }
 
-    private static byte[] Xz(String str) {
+    private static byte[] Yd(String str) {
         try {
             return str.getBytes(HTTP.ASCII);
         } catch (UnsupportedEncodingException e) {
@@ -56,7 +56,7 @@ public class c {
         }
     }
 
-    private static boolean egL() {
+    private static boolean ekA() {
         if (Build.VERSION.SDK_INT < 17) {
             return false;
         }
@@ -73,27 +73,27 @@ public class c {
     }
 
     public static boolean l(byte[] bArr, int i) {
-        return b(bArr, i + 12, oCK) && ((bArr[i + 20] & 2) == 2);
+        return b(bArr, i + 12, oMd) && ((bArr[i + 20] & 2) == 2);
     }
 
     public static boolean m(byte[] bArr, int i) {
-        return b(bArr, i + 12, oCI);
+        return b(bArr, i + 12, oMb);
     }
 
     public static boolean n(byte[] bArr, int i) {
-        return b(bArr, i + 12, oCJ);
+        return b(bArr, i + 12, oMc);
     }
 
     public static boolean w(byte[] bArr, int i, int i2) {
-        return i2 >= 21 && b(bArr, i + 12, oCK);
+        return i2 >= 21 && b(bArr, i + 12, oMd);
     }
 
     public static boolean o(byte[] bArr, int i) {
-        return b(bArr, i + 12, oCK) && ((bArr[i + 20] & 16) == 16);
+        return b(bArr, i + 12, oMd) && ((bArr[i + 20] & 16) == 16);
     }
 
     public static boolean x(byte[] bArr, int i, int i2) {
-        return i2 >= 20 && b(bArr, i, oCG) && b(bArr, i + 8, oCH);
+        return i2 >= 20 && b(bArr, i, oLZ) && b(bArr, i + 8, oMa);
     }
 
     private static boolean b(byte[] bArr, int i, byte[] bArr2) {

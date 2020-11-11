@@ -1,39 +1,33 @@
 package com.baidu.live.alablmsdk.d;
 
 import android.os.SystemClock;
-import android.util.Log;
 import com.baidu.rtc.h;
 import com.baidu.rtc.i;
 import com.baidu.rtc.l;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes4.dex */
 public class d extends i {
-    private static final String TAG = d.class.getSimpleName();
-    private i.a aBW = null;
+    private i.a aCA = null;
 
     @Override // com.baidu.rtc.i
     public void a(i.a aVar) {
-        com.baidu.live.alablmsdk.a.c.d(" BLMRtcVideoCaptureProxy  initialize");
-        com.baidu.live.alablmsdk.a.c.fJ(" BLMRtcVideoCaptureProxy  initialize");
-        this.aBW = aVar;
+        com.baidu.live.alablmsdk.a.b.ah(" BLMRtcVideoCaptureProxy  initialize", "");
+        this.aCA = aVar;
     }
 
     @Override // com.baidu.rtc.i, org.webrtc.VideoCapturer
     public void dispose() {
         super.dispose();
-        com.baidu.live.alablmsdk.a.c.d(" BLMRtcVideoCaptureProxy  dispose");
-        com.baidu.live.alablmsdk.a.c.fJ(" BLMRtcVideoCaptureProxy  dispose");
-        this.aBW = null;
+        com.baidu.live.alablmsdk.a.b.ah(" BLMRtcVideoCaptureProxy  dispose", "");
+        this.aCA = null;
     }
 
     @Override // com.baidu.rtc.i, org.webrtc.VideoCapturer
     public void startCapture(int i, int i2, int i3) {
-        Log.i(TAG, "startCapture.");
     }
 
     @Override // com.baidu.rtc.i, org.webrtc.VideoCapturer
     public void stopCapture() {
-        Log.i(TAG, "stopCapture.");
     }
 
     @Override // com.baidu.rtc.i, org.webrtc.VideoCapturer
@@ -47,12 +41,12 @@ public class d extends i {
     public void p(byte[] bArr, int i, int i2) {
         l o = o(bArr, i, i2);
         if (o == null) {
-            com.baidu.live.alablmsdk.a.c.d(" videoFrame == null ");
-            com.baidu.live.alablmsdk.a.c.fJ(" videoFrame == null ");
+            com.baidu.live.alablmsdk.a.b.d(" videoFrame == null ");
+            com.baidu.live.alablmsdk.a.b.fJ(" videoFrame == null ");
             return;
         }
-        if (this.aBW != null) {
-            this.aBW.a(o);
+        if (this.aCA != null) {
+            this.aCA.a(o);
         }
         o.release();
     }

@@ -3,15 +3,15 @@ package com.vivo.push.b;
 public final class d extends com.vivo.push.y {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f4637a;
+    private boolean f4639a;
 
     public d(boolean z) {
         super(100);
-        this.f4637a = z;
+        this.f4639a = z;
     }
 
     public final boolean d() {
-        return this.f4637a;
+        return this.f4639a;
     }
 
     @Override // com.vivo.push.y

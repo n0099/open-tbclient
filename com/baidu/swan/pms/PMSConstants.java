@@ -4,7 +4,7 @@ public class PMSConstants {
 
     /* loaded from: classes15.dex */
     public static final class a {
-        public static String aw(int i, String str) {
+        public static String aA(int i, String str) {
             switch (i) {
                 case 1001:
                     return "system error";

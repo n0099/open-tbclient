@@ -6,7 +6,7 @@ import com.baidu.platform.comjni.JNIBaseApi;
 public class NAWalkPanoData extends JNIBaseApi {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f3185a = 0;
+    private long f3187a = 0;
 
     private static native long nativeCreate();
 

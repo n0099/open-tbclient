@@ -65,14 +65,14 @@ public class f implements b {
     public void setData(z zVar) {
         if (zVar != null && !y.isEmpty(zVar.dataList)) {
             this.mRootView.removeAllViews();
-            if (zVar.mPT == 2) {
+            if (zVar.mVW == 2) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 layoutParams.leftMargin = l.getDimens(this.mContext, R.dimen.tbds44);
                 this.mRootView.addView(fo(this.mContext), layoutParams);
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
                 layoutParams2.leftMargin = l.getDimens(this.mContext, R.dimen.tbds104);
                 this.mRootView.addView(fo(this.mContext), layoutParams2);
-            } else if (zVar.mPT == 3) {
+            } else if (zVar.mVW == 3) {
                 int equipmentWidth = l.getEquipmentWidth(this.mContext) / 3;
                 for (int i = 0; i < 3; i++) {
                     this.mRootView.addView(fo(this.mContext), new LinearLayout.LayoutParams(equipmentWidth, -2));
@@ -84,12 +84,12 @@ public class f implements b {
                     ((TbImageView) this.mRootView.getChildAt(i2).findViewById(R.id.service_img)).startLoad(aaVar.imageUrl, 10, false);
                     ((TextView) this.mRootView.getChildAt(i2).findViewById(R.id.service_name)).setText(at.cutChineseAndEnglishWithSuffix(aaVar.name, 8, ""));
                     final View findViewById = this.mRootView.getChildAt(i2).findViewById(R.id.service_red_dot);
-                    findViewById.setVisibility(aaVar.beq ? 0 : 8);
+                    findViewById.setVisibility(aaVar.bfM ? 0 : 8);
                     this.mRootView.getChildAt(i2).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.servicearea.f.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            if (aaVar != null && aaVar.mPU != null) {
-                                TiebaStatic.log(new aq("c13274").w("uid", TbadkCoreApplication.getCurrentAccountId()).dR("fid", aaVar.forumId).dR("obj_source", "frs_card").dR("obj_id", aaVar.mPU.id).dR("obj_name", aaVar.mPU.name).aj("obj_param1", aaVar.mPU.emo.intValue()));
+                            if (aaVar != null && aaVar.mVX != null) {
+                                TiebaStatic.log(new aq("c13274").w("uid", TbadkCoreApplication.getCurrentAccountId()).dR("fid", aaVar.forumId).dR("obj_source", "frs_card").dR("obj_id", aaVar.mVX.id).dR("obj_name", aaVar.mVX.name).al("obj_param1", aaVar.mVX.esj.intValue()));
                             }
                             e.a(view.getContext(), aaVar, findViewById);
                             e.c(aaVar);

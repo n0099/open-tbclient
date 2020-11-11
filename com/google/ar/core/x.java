@@ -9,53 +9,53 @@ import java.util.concurrent.atomic.AtomicBoolean;
 final class x extends com.google.a.b.a.a.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private final /* synthetic */ AtomicBoolean f4047a;
+    private final /* synthetic */ AtomicBoolean f4049a;
     private final /* synthetic */ aj b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(aj ajVar, AtomicBoolean atomicBoolean) {
         this.b = ajVar;
-        this.f4047a = atomicBoolean;
+        this.f4049a = atomicBoolean;
     }
 
     @Override // com.google.a.b.a.a.a.d
     public final void a(Bundle bundle) throws RemoteException {
-        if (!this.f4047a.getAndSet(true)) {
+        if (!this.f4049a.getAndSet(true)) {
             int i = bundle.getInt("error.code", -100);
             int i2 = bundle.getInt("install.status", 0);
             if (i2 == 4) {
-                this.b.oTh.a(p.COMPLETED);
+                this.b.pcC.a(p.COMPLETED);
             } else if (i != 0) {
                 Log.w("ARCore-InstallService", new StringBuilder(51).append("requestInstall = ").append(i).append(", launching fullscreen.").toString());
-                w wVar = this.b.oTv;
-                w.b(this.b.f4037a, this.b.oTh);
+                w wVar = this.b.pcQ;
+                w.b(this.b.f4039a, this.b.pcC);
             } else if (bundle.containsKey("resolution.intent")) {
-                w wVar2 = this.b.oTv;
-                w.a(this.b.f4037a, bundle, this.b.oTh);
+                w wVar2 = this.b.pcQ;
+                w.a(this.b.f4039a, bundle, this.b.pcC);
             } else {
                 switch (i2) {
                     case 1:
                     case 2:
                     case 3:
-                        this.b.oTh.a(p.ACCEPTED);
+                        this.b.pcC.a(p.ACCEPTED);
                         return;
                     case 4:
-                        this.b.oTh.a(p.COMPLETED);
+                        this.b.pcC.a(p.COMPLETED);
                         return;
                     case 5:
-                        this.b.oTh.a(new FatalException("Unexpected FAILED install status without error."));
+                        this.b.pcC.a(new FatalException("Unexpected FAILED install status without error."));
                         return;
                     case 6:
-                        this.b.oTh.a(p.CANCELLED);
+                        this.b.pcC.a(p.CANCELLED);
                         return;
                     case 7:
                     case 8:
                     case 9:
                     default:
-                        this.b.oTh.a(new FatalException(new StringBuilder(38).append("Unexpected install status: ").append(i2).toString()));
+                        this.b.pcC.a(new FatalException(new StringBuilder(38).append("Unexpected install status: ").append(i2).toString()));
                         return;
                     case 10:
-                        this.b.oTh.a(new FatalException("Unexpected REQUIRES_UI_INTENT install status without an intent."));
+                        this.b.pcC.a(new FatalException("Unexpected REQUIRES_UI_INTENT install status without an intent."));
                         return;
                 }
             }

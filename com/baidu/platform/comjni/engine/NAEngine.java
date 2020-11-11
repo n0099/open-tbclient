@@ -8,7 +8,7 @@ import com.baidu.platform.comjni.NativeComponent;
 public class NAEngine extends NativeComponent {
 
     /* renamed from: a  reason: collision with root package name */
-    private static LongLinkClient f3162a;
+    private static LongLinkClient f3164a;
     private static boolean b = false;
 
     public NAEngine() {
@@ -37,10 +37,10 @@ public class NAEngine extends NativeComponent {
 
     public static boolean b() {
         try {
-            if (f3162a != null) {
-                f3162a.unRegister(null);
-                f3162a.release();
-                f3162a = null;
+            if (f3164a != null) {
+                f3164a.unRegister(null);
+                f3164a.release();
+                f3164a = null;
             }
             return nativeUninitEngine();
         } catch (Throwable th) {
@@ -95,9 +95,9 @@ public class NAEngine extends NativeComponent {
     private static native boolean nativeUninitEngine();
 
     public static void restartLongLink() {
-        if (f3162a != null) {
+        if (f3164a != null) {
             try {
-                f3162a.start();
+                f3164a.start();
             } catch (Exception e) {
             }
         }
@@ -108,9 +108,9 @@ public class NAEngine extends NativeComponent {
     }
 
     public static void stopLongLink() {
-        if (f3162a != null) {
+        if (f3164a != null) {
             try {
-                f3162a.stop();
+                f3164a.stop();
             } catch (Exception e) {
             }
         }

@@ -10,16 +10,16 @@ import com.baidu.tbadk.BdToken.completeTask.CompleteTaskReqMsg;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class p {
-    private static p emw;
-    private b emv;
+    private static p esr;
+    private b esq;
     private CustomMessageListener mLikeForumListener = new CustomMessageListener(CmdConfigCustom.CMD_PERSON_LIKE_FORUM) { // from class: com.baidu.tbadk.BdToken.p.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (p.this.emv != null && customResponsedMessage != null) {
+            if (p.this.esq != null && customResponsedMessage != null) {
                 Object data = customResponsedMessage.getData();
                 if ((data instanceof com.baidu.tieba.tbadkCore.writeModel.a) && ((com.baidu.tieba.tbadkCore.writeModel.a) data).isSuccess) {
-                    p.this.bel();
+                    p.this.bgL();
                 }
             }
         }
@@ -33,15 +33,15 @@ public class p {
         }
     };
 
-    public static p bek() {
-        if (emw == null) {
+    public static p bgK() {
+        if (esr == null) {
             synchronized (p.class) {
-                if (emw == null) {
-                    emw = new p();
+                if (esr == null) {
+                    esr = new p();
                 }
             }
         }
-        return emw;
+        return esr;
     }
 
     public void i(BdUniqueId bdUniqueId) {
@@ -52,20 +52,20 @@ public class p {
     }
 
     public void q(b bVar) {
-        this.emv = bVar;
+        this.esq = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bel() {
-        if (this.emv != null && this.emv.getActivityId() != 0 && this.emv.bdp() != 0 && this.emv.getTaskType() == 9) {
+    public void bgL() {
+        if (this.esq != null && this.esq.getActivityId() != 0 && this.esq.bfP() != 0 && this.esq.getTaskType() == 9) {
             try {
-                String valueOf = String.valueOf(this.emv.getActivityId());
-                String valueOf2 = String.valueOf(this.emv.bdp());
+                String valueOf = String.valueOf(this.esq.getActivityId());
+                String valueOf2 = String.valueOf(this.esq.bfP());
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put(valueOf, valueOf2);
                 CompleteTaskReqMsg completeTaskReqMsg = new CompleteTaskReqMsg(0);
                 completeTaskReqMsg.completeId = jSONObject.toString();
-                JSONObject a2 = com.baidu.tbadk.BdToken.completeTask.c.a(null, this.emv.getActivityId(), this.emv.bdp(), this.emv.getToken());
+                JSONObject a2 = com.baidu.tbadk.BdToken.completeTask.c.a(null, this.esq.getActivityId(), this.esq.bfP(), this.esq.getToken());
                 if (a2 != null) {
                     completeTaskReqMsg.setToken(a2.toString());
                 }

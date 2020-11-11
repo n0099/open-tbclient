@@ -15,7 +15,7 @@ import com.baidu.sapi2.biometrics.liveness.R;
 public class LrcTipTextview extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f1765a;
+    private boolean f1767a;
     private TextView b;
     private TextView c;
     private TextView d;

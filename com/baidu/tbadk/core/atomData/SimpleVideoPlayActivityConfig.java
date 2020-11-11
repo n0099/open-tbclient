@@ -22,12 +22,12 @@ public class SimpleVideoPlayActivityConfig extends IntentConfig {
         private String thumbUrl;
         private String videoUrl;
 
-        public a Aw(String str) {
+        public a AK(String str) {
             this.videoUrl = str;
             return this;
         }
 
-        public a Ax(String str) {
+        public a AL(String str) {
             this.thumbUrl = str;
             return this;
         }

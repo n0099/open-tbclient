@@ -14,68 +14,68 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class b {
-    private k hUs;
-    private List<g> hUv;
-    private i koN;
-    private g koO;
-    private com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.a koP;
-    private a koQ;
-    private k.b koR = new k.b() { // from class: com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.b.2
+    private k iap;
+    private List<g> ias;
+    private i kuJ;
+    private g kuK;
+    private com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.a kuL;
+    private a kuM;
+    private k.b kuN = new k.b() { // from class: com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.b.2
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
-            b.this.cUd();
-            if (b.this.koQ != null) {
-                b.this.koQ.cTZ();
+            b.this.cWE();
+            if (b.this.kuM != null) {
+                b.this.kuM.cWA();
             }
-            b.this.bZQ();
+            b.this.ccs();
         }
     };
     private e mContext;
 
     /* loaded from: classes22.dex */
     public interface a {
-        void cTZ();
+        void cWA();
     }
 
     public b(e eVar) {
         this.mContext = eVar;
-        this.hUs = new k(eVar.getPageActivity());
-        this.koO = new g(eVar.getString(R.string.delete), this.hUs);
-        this.koO.a(this.koR);
-        this.hUv = new ArrayList();
-        this.hUv.add(this.koO);
-        this.hUs.a(new k.a() { // from class: com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.b.1
+        this.iap = new k(eVar.getPageActivity());
+        this.kuK = new g(eVar.getString(R.string.delete), this.iap);
+        this.kuK.a(this.kuN);
+        this.ias = new ArrayList();
+        this.ias.add(this.kuK);
+        this.iap.a(new k.a() { // from class: com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.b.1
             @Override // com.baidu.tbadk.core.dialog.k.a
             public void onClick() {
-                b.this.bZQ();
+                b.this.ccs();
             }
         });
-        this.hUs.bk(this.hUv);
-        this.koN = new i(eVar, this.hUs);
+        this.iap.br(this.ias);
+        this.kuJ = new i(eVar, this.iap);
         onChangeSkinType();
         registerTask();
     }
 
-    public void bZQ() {
-        if (this.koN != null && this.koN.isShowing()) {
-            this.koN.dismiss();
+    public void ccs() {
+        if (this.kuJ != null && this.kuJ.isShowing()) {
+            this.kuJ.dismiss();
         }
     }
 
     public void onChangeSkinType() {
-        if (this.hUs != null) {
-            this.hUs.onChangeSkinType();
+        if (this.iap != null) {
+            this.iap.onChangeSkinType();
         }
     }
 
     public void show() {
-        if (this.koN != null) {
-            this.koN.show();
+        if (this.kuJ != null) {
+            this.kuJ.show();
         }
     }
 
     public void a(com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.a aVar) {
-        this.koP = aVar;
+        this.kuL = aVar;
     }
 
     private void registerTask() {
@@ -87,18 +87,18 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cUd() {
-        if (this.koP != null) {
+    public void cWE() {
+        if (this.kuL != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_DEL_REPLY_AT_MSG);
-            httpMessage.addParam("type", this.koP.type);
-            httpMessage.addParam("thread_id", this.koP.threadId);
-            httpMessage.addParam("post_id", this.koP.postId);
-            httpMessage.addParam("ori_ugc_nid", this.koP.nid);
+            httpMessage.addParam("type", this.kuL.type);
+            httpMessage.addParam("thread_id", this.kuL.threadId);
+            httpMessage.addParam("post_id", this.kuL.postId);
+            httpMessage.addParam("ori_ugc_nid", this.kuL.nid);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
     public void a(a aVar) {
-        this.koQ = aVar;
+        this.kuM = aVar;
     }
 }

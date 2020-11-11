@@ -237,10 +237,10 @@ public class FlexLayout extends ViewGroup {
     }
 
     private void initAttrs(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, a.k.sdk_FlexLayout);
-        this.mHorizontalSpacing = obtainStyledAttributes.getDimension(a.k.sdk_FlexLayout_fl_spacing_horizontal, 0.0f);
-        this.mVerticalSpacing = obtainStyledAttributes.getDimension(a.k.sdk_FlexLayout_fl_spcaing_vertical, 0.0f);
-        this.mMaxSelectedNum = obtainStyledAttributes.getInteger(a.k.sdk_FlexLayout_fl_max_selected, -1);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, a.j.sdk_FlexLayout);
+        this.mHorizontalSpacing = obtainStyledAttributes.getDimension(a.j.sdk_FlexLayout_fl_spacing_horizontal, 0.0f);
+        this.mVerticalSpacing = obtainStyledAttributes.getDimension(a.j.sdk_FlexLayout_fl_spcaing_vertical, 0.0f);
+        this.mMaxSelectedNum = obtainStyledAttributes.getInteger(a.j.sdk_FlexLayout_fl_max_selected, -1);
         obtainStyledAttributes.recycle();
     }
 

@@ -9,7 +9,7 @@ import com.baidu.pano.platform.comapi.a.a;
 public class ImageMarker extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Drawable f1845a;
+    private Drawable f1847a;
     private Bitmap b;
     private String c;
 
@@ -25,9 +25,9 @@ public class ImageMarker extends a {
     }
 
     public void setMarker(Drawable drawable) {
-        this.f1845a = drawable;
+        this.f1847a = drawable;
         if (drawable != null) {
-            this.b = ((BitmapDrawable) this.f1845a).getBitmap();
+            this.b = ((BitmapDrawable) this.f1847a).getBitmap();
             if (this.b == null) {
                 throw new IllegalStateException("when add an overlay item, it must have image info, can not be null");
             }
@@ -42,7 +42,7 @@ public class ImageMarker extends a {
     }
 
     public Drawable getMarkerDrawable() {
-        return this.f1845a;
+        return this.f1847a;
     }
 
     public Bitmap getMarkerBitmap() {

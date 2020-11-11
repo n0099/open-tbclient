@@ -13,7 +13,7 @@ public class BaiduHybridAdManager {
     private boolean e = false;
 
     /* renamed from: a  reason: collision with root package name */
-    IOAdEventListener f2298a = new e(this);
+    IOAdEventListener f2300a = new e(this);
 
     public void setBaiduHybridAdViewListener(BaiduHybridAdViewListener baiduHybridAdViewListener) {
         this.b = baiduHybridAdViewListener;
@@ -23,11 +23,11 @@ public class BaiduHybridAdManager {
         if (!this.e) {
             this.d = webView;
             this.c = new com.baidu.mobads.production.d.a(this.d);
-            this.c.addEventListener(IXAdEvent.AD_LOADED, this.f2298a);
-            this.c.addEventListener(IXAdEvent.AD_ERROR, this.f2298a);
-            this.c.addEventListener(IXAdEvent.AD_STARTED, this.f2298a);
-            this.c.addEventListener("AdUserClick", this.f2298a);
-            this.c.addEventListener(IXAdEvent.AD_USER_CLOSE, this.f2298a);
+            this.c.addEventListener(IXAdEvent.AD_LOADED, this.f2300a);
+            this.c.addEventListener(IXAdEvent.AD_ERROR, this.f2300a);
+            this.c.addEventListener(IXAdEvent.AD_STARTED, this.f2300a);
+            this.c.addEventListener("AdUserClick", this.f2300a);
+            this.c.addEventListener(IXAdEvent.AD_USER_CLOSE, this.f2300a);
             this.c.request();
         }
     }

@@ -10,16 +10,16 @@ public class a extends com.baidu.platform.base.a implements d {
 
     @Override // com.baidu.platform.core.b.d
     public void a() {
-        this.f2810a.lock();
+        this.f2812a.lock();
         this.b = null;
-        this.f2810a.unlock();
+        this.f2812a.unlock();
     }
 
     @Override // com.baidu.platform.core.b.d
     public void a(OnGetGeoCoderResultListener onGetGeoCoderResultListener) {
-        this.f2810a.lock();
+        this.f2812a.lock();
         this.b = onGetGeoCoderResultListener;
-        this.f2810a.unlock();
+        this.f2812a.unlock();
     }
 
     @Override // com.baidu.platform.core.b.d

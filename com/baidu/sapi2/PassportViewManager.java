@@ -10,7 +10,7 @@ public class PassportViewManager implements NoProguard {
     private static PassportViewManager d;
 
     /* renamed from: a  reason: collision with root package name */
-    private TitleBtnCallback f3209a;
+    private TitleBtnCallback f3212a;
     private TitleViewModule b = null;
 
     /* loaded from: classes5.dex */
@@ -71,7 +71,7 @@ public class PassportViewManager implements NoProguard {
     }
 
     public TitleBtnCallback getTitleBtnCallback() {
-        return this.f3209a;
+        return this.f3212a;
     }
 
     public TitleViewModule getTitleViewModule() {
@@ -79,12 +79,12 @@ public class PassportViewManager implements NoProguard {
     }
 
     public void release() {
-        this.f3209a = null;
+        this.f3212a = null;
         this.b = null;
         SapiWebView.statLoadLogin = null;
     }
 
     public void setTitleBtnCallback(TitleBtnCallback titleBtnCallback) {
-        this.f3209a = titleBtnCallback;
+        this.f3212a = titleBtnCallback;
     }
 }

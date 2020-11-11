@@ -9,7 +9,7 @@ import com.baidu.webkit.sdk.WebView;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1283a = BdSailor.class.getName();
+    public static final String f1285a = BdSailor.class.getName();
     private static a afw;
     public Context b;
     public WebView c;
@@ -26,7 +26,7 @@ public final class a {
     }
 
     private void f() {
-        Log.w(f1283a, "BdWebViewSingleton, old instance has been destroyed");
+        Log.w(f1285a, "BdWebViewSingleton, old instance has been destroyed");
         if (this.c != null) {
             this.c.destroy();
             this.c = null;
@@ -37,7 +37,7 @@ public final class a {
         if (afw == null) {
             afw = new a();
         } else if (afw.c != null && (afw.e ^ BdZeusUtil.isWebkitLoaded())) {
-            Log.d(f1283a, "BdWebViewSingleton, re-new instance need because of the kernel changed");
+            Log.d(f1285a, "BdWebViewSingleton, re-new instance need because of the kernel changed");
             afw.f();
             afw.e();
         }
@@ -45,7 +45,7 @@ public final class a {
     }
 
     public final boolean c() {
-        Log.d(f1283a, "BdWebViewSingleton pauseTimer");
+        Log.d(f1285a, "BdWebViewSingleton pauseTimer");
         try {
             e();
             this.c.pauseTimers();
@@ -57,7 +57,7 @@ public final class a {
     }
 
     public final boolean d() {
-        Log.d(f1283a, "BdWebViewSingleton resumeTimer");
+        Log.d(f1285a, "BdWebViewSingleton resumeTimer");
         try {
             e();
             this.c.resumeTimers();
@@ -76,7 +76,7 @@ public final class a {
             this.e = true;
         } else {
             this.e = false;
-            Log.d(f1283a, "BdWebViewSingleton init system webview,zeus was not load complete");
+            Log.d(f1285a, "BdWebViewSingleton init system webview,zeus was not load complete");
         }
         this.c = new WebView(this.b);
     }

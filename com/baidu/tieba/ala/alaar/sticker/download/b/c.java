@@ -23,48 +23,48 @@ public class c implements com.baidu.tieba.ala.alaar.sticker.download.a.d {
 
     /* loaded from: classes4.dex */
     private static class a implements Runnable {
-        private final com.baidu.tieba.ala.alaar.sticker.download.a.c fWF;
-        private final com.baidu.tieba.ala.alaar.sticker.download.a.a fWH;
+        private final com.baidu.tieba.ala.alaar.sticker.download.a.c gcw;
+        private final com.baidu.tieba.ala.alaar.sticker.download.a.a gcy;
 
         public a(com.baidu.tieba.ala.alaar.sticker.download.a.c cVar) {
-            this.fWF = cVar;
-            this.fWH = this.fWF.bKV();
+            this.gcw = cVar;
+            this.gcy = this.gcw.bNu();
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            switch (this.fWF.getStatus()) {
+            switch (this.gcw.getStatus()) {
                 case 102:
                     com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_CONNECTING");
-                    this.fWH.onConnecting();
+                    this.gcy.onConnecting();
                     return;
                 case 103:
-                    com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_CONNECTED length: " + this.fWF.getLength() + " acceptRanges: " + this.fWF.isAcceptRanges());
-                    this.fWH.onConnected(this.fWF.getLength(), this.fWF.isAcceptRanges());
+                    com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_CONNECTED length: " + this.gcw.getLength() + " acceptRanges: " + this.gcw.isAcceptRanges());
+                    this.gcy.onConnected(this.gcw.getLength(), this.gcw.isAcceptRanges());
                     return;
                 case 104:
-                    com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_PROGRESS finished: " + this.fWF.getFinished() + " length: " + this.fWF.getLength() + " percent: " + this.fWF.getPercent());
-                    this.fWH.onProgress(this.fWF.getFinished(), this.fWF.getLength(), this.fWF.getPercent());
+                    com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_PROGRESS finished: " + this.gcw.getFinished() + " length: " + this.gcw.getLength() + " percent: " + this.gcw.getPercent());
+                    this.gcy.onProgress(this.gcw.getFinished(), this.gcw.getLength(), this.gcw.getPercent());
                     return;
                 case 105:
-                    com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_COMPLETED Path:" + this.fWF.getSavedPath());
-                    if (!this.fWF.getCalledCompleted()) {
-                        this.fWF.setCalledCompleted(true);
-                        this.fWH.onCompleted(this.fWF.getSavedPath());
+                    com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_COMPLETED Path:" + this.gcw.getSavedPath());
+                    if (!this.gcw.getCalledCompleted()) {
+                        this.gcw.setCalledCompleted(true);
+                        this.gcy.onCompleted(this.gcw.getSavedPath());
                         return;
                     }
                     return;
                 case 106:
                     com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_PAUSED");
-                    this.fWH.onDownloadPaused();
+                    this.gcy.onDownloadPaused();
                     return;
                 case 107:
                     com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_CANCELED");
-                    this.fWH.onDownloadCanceled();
+                    this.gcy.onDownloadCanceled();
                     return;
                 case 108:
-                    com.baidu.tieba.ala.alaar.sticker.b.a.e("DownloadStatusDelivery", "STATUS_FAILED error: " + this.fWF.getException().getCause());
-                    this.fWH.a((DownloadException) this.fWF.getException());
+                    com.baidu.tieba.ala.alaar.sticker.b.a.e("DownloadStatusDelivery", "STATUS_FAILED error: " + this.gcw.getException().getCause());
+                    this.gcy.a((DownloadException) this.gcw.getException());
                     return;
                 default:
                     return;

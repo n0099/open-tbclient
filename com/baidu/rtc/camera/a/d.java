@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 /* loaded from: classes11.dex */
 public class d {
-    private a chr;
+    private a cnm;
     private MediaCodec.BufferInfo mBufferInfo;
     private MediaCodec mEncoder;
     private int mFrameCount;
@@ -48,14 +48,14 @@ public class d {
                         try {
                             try {
                                 this.mBufferInfo = new MediaCodec.BufferInfo();
-                                this.chr = aVar;
-                                b abA = b.abA();
-                                a(abA);
-                                MediaFormat createVideoFormat = MediaFormat.createVideoFormat(f.b, abA.isLandscape ? abA.encodeHeight : abA.encodeWidth, abA.isLandscape ? abA.encodeWidth : abA.encodeHeight);
+                                this.cnm = aVar;
+                                b aea = b.aea();
+                                a(aea);
+                                MediaFormat createVideoFormat = MediaFormat.createVideoFormat(f.b, aea.isLandscape ? aea.encodeHeight : aea.encodeWidth, aea.isLandscape ? aea.encodeWidth : aea.encodeHeight);
                                 createVideoFormat.setInteger("color-format", 2130708361);
-                                createVideoFormat.setInteger("bitrate", abA.encodeBitrate);
-                                createVideoFormat.setInteger("frame-rate", abA.H264FPS);
-                                createVideoFormat.setInteger("i-frame-interval", abA.H264GOP);
+                                createVideoFormat.setInteger("bitrate", aea.encodeBitrate);
+                                createVideoFormat.setInteger("frame-rate", aea.H264FPS);
+                                createVideoFormat.setInteger("i-frame-interval", aea.H264GOP);
                                 this.mEncoder = MediaCodec.createEncoderByType(f.b);
                                 this.mEncoder.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
                                 this.mInputSurface = this.mEncoder.createInputSurface();
@@ -64,38 +64,38 @@ public class d {
                                 this.mReqKeyFrameParams.putInt("request-sync", 0);
                             } catch (IllegalStateException e) {
                                 e.printStackTrace();
-                                if (this.chr != null) {
-                                    this.chr.onCodecError(1);
+                                if (this.cnm != null) {
+                                    this.cnm.onCodecError(1);
                                 }
                             }
                         } catch (IllegalArgumentException e2) {
                             e2.printStackTrace();
-                            if (this.chr != null) {
-                                this.chr.onCodecError(1);
+                            if (this.cnm != null) {
+                                this.cnm.onCodecError(1);
                             }
                         }
                     } catch (Exception e3) {
                         e3.printStackTrace();
-                        if (this.chr != null) {
-                            this.chr.onCodecError(1);
+                        if (this.cnm != null) {
+                            this.cnm.onCodecError(1);
                         }
                     }
                 } catch (MediaCodec.CryptoException e4) {
                     e4.printStackTrace();
-                    if (this.chr != null) {
-                        this.chr.onCodecError(1);
+                    if (this.cnm != null) {
+                        this.cnm.onCodecError(1);
                     }
                 }
             } catch (NullPointerException e5) {
                 e5.printStackTrace();
-                if (this.chr != null) {
-                    this.chr.onCodecError(1);
+                if (this.cnm != null) {
+                    this.cnm.onCodecError(1);
                 }
             }
         } catch (IOException e6) {
             e6.printStackTrace();
-            if (this.chr != null) {
-                this.chr.onCodecError(1);
+            if (this.cnm != null) {
+                this.cnm.onCodecError(1);
             }
         }
     }
@@ -141,8 +141,8 @@ public class d {
                 } else if (dequeueOutputBuffer == -3) {
                     outputBuffers = this.mEncoder.getOutputBuffers();
                 } else if (dequeueOutputBuffer == -2) {
-                    if (this.chr != null) {
-                        this.chr.onFormatChanged(this.mEncoder.getOutputFormat());
+                    if (this.cnm != null) {
+                        this.cnm.onFormatChanged(this.mEncoder.getOutputFormat());
                     }
                 } else if (dequeueOutputBuffer < 0) {
                     Log.w("VideoEncoderCore", "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
@@ -157,22 +157,22 @@ public class d {
                     byteBuffer.get(this.mH264Buffer, 0, 512000 < this.mBufferInfo.size - byteBuffer.position() ? 512000 : this.mBufferInfo.size - byteBuffer.position());
                     if ((this.mBufferInfo.flags & 2) != 0) {
                         captureH264MetaData(this.mH264Buffer, this.mBufferInfo, capacity);
-                        if (this.chr != null) {
-                            this.chr.onCodecConfig(this.mH264MetaBuff, 0, this.mBufferInfo.size);
+                        if (this.cnm != null) {
+                            this.cnm.onCodecConfig(this.mH264MetaBuff, 0, this.mBufferInfo.size);
                         }
                     } else if ((this.mBufferInfo.flags & 1) != 0) {
                         if ((this.mBufferInfo.flags & 2) != 0) {
                             captureH264MetaData(this.mH264Buffer, this.mBufferInfo, capacity);
-                            if (this.chr != null) {
-                                this.chr.onCodecConfig(this.mH264MetaBuff, 0, this.mBufferInfo.size);
+                            if (this.cnm != null) {
+                                this.cnm.onCodecConfig(this.mH264MetaBuff, 0, this.mBufferInfo.size);
                             }
                         }
                         packageH264Keyframe(this.mH264Buffer, this.mBufferInfo);
-                        if (this.chr != null) {
-                            this.chr.onCodecData(this.mH264MetaBuff, 0, this.mBufferInfo.size + this.mH264MetaSize, 2, this.mBufferInfo.presentationTimeUs / 1000);
+                        if (this.cnm != null) {
+                            this.cnm.onCodecData(this.mH264MetaBuff, 0, this.mBufferInfo.size + this.mH264MetaSize, 2, this.mBufferInfo.presentationTimeUs / 1000);
                         }
-                    } else if (this.chr != null) {
-                        this.chr.onCodecData(this.mH264Buffer, 0, this.mBufferInfo.size, 4, this.mBufferInfo.presentationTimeUs / 1000);
+                    } else if (this.cnm != null) {
+                        this.cnm.onCodecData(this.mH264Buffer, 0, this.mBufferInfo.size, 4, this.mBufferInfo.presentationTimeUs / 1000);
                     }
                     this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
                     if ((this.mBufferInfo.flags & 4) != 0) {
@@ -186,13 +186,13 @@ public class d {
             }
         } catch (IllegalStateException e3) {
             e3.printStackTrace();
-            if (this.chr != null) {
-                this.chr.onCodecError(2);
+            if (this.cnm != null) {
+                this.cnm.onCodecError(2);
             }
         } catch (Exception e4) {
             e4.printStackTrace();
-            if (this.chr != null) {
-                this.chr.onCodecError(2);
+            if (this.cnm != null) {
+                this.cnm.onCodecError(2);
             }
         }
     }
@@ -227,7 +227,7 @@ public class d {
         } else {
             this.mFrameCount++;
         }
-        if (this.mLastKeyFrameTS + (b.abA().H264GOP * 1000) < currentTimeMillis && Build.VERSION.SDK_INT >= 19) {
+        if (this.mLastKeyFrameTS + (b.aea().H264GOP * 1000) < currentTimeMillis && Build.VERSION.SDK_INT >= 19) {
             try {
                 if (this.mLastReqKeyFrameTS + 500 > currentTimeMillis) {
                     this.mLastReqKeyFrameTS = currentTimeMillis;
@@ -269,6 +269,6 @@ public class d {
     }
 
     public void a(a aVar) {
-        this.chr = aVar;
+        this.cnm = aVar;
     }
 }

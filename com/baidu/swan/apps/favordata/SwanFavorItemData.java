@@ -33,7 +33,7 @@ public class SwanFavorItemData implements NoProGuard, Serializable {
     }
 
     public String getSchema(String str) {
-        return TextUtils.isEmpty(str) ? "" : c.e(getAppKey(), str, getAppFrameType());
+        return TextUtils.isEmpty(str) ? "" : c.f(getAppKey(), str, getAppFrameType());
     }
 
     public String getAppKey() {

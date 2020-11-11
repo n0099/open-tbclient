@@ -18,14 +18,14 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class e {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static JSONObject cvb;
+    private static JSONObject cAU;
 
-    public static synchronized void ahN() {
+    public static synchronized void akn() {
         synchronized (e.class) {
             if (DEBUG) {
                 Log.d("SystemInfoCacheHelper", "release cache system info");
             }
-            cvb = null;
+            cAU = null;
         }
     }
 
@@ -35,12 +35,12 @@ public class e {
             if (DEBUG) {
                 Log.d("SystemInfoCacheHelper", "start pre cache");
             }
-            if (com.baidu.swan.apps.t.a.aud().aee()) {
-                if (cvb == null && context != null) {
+            if (com.baidu.swan.apps.t.a.awD().agE()) {
+                if (cAU == null && context != null) {
                     if (DEBUG) {
                         Log.d("SystemInfoCacheHelper", "need create system info");
                     }
-                    cvb = bH(context);
+                    cAU = bH(context);
                 }
                 if (DEBUG) {
                     Log.d("SystemInfoCacheHelper", "end pre cache system info");
@@ -54,16 +54,16 @@ public class e {
     public static synchronized JSONObject bG(Context context) {
         JSONObject jSONObject;
         synchronized (e.class) {
-            if (cvb == null && context != null) {
+            if (cAU == null && context != null) {
                 if (DEBUG) {
                     Log.d("SystemInfoCacheHelper", "need create system info");
                 }
-                cvb = bH(context);
+                cAU = bH(context);
             }
             if (DEBUG) {
                 Log.d("SystemInfoCacheHelper", "return cache system info");
             }
-            jSONObject = cvb;
+            jSONObject = cAU;
         }
         return jSONObject;
     }
@@ -88,11 +88,11 @@ public class e {
             jSONObject.put("version", ak.getVersionName());
             jSONObject.put("system", "Android " + Build.VERSION.RELEASE);
             jSONObject.put("platform", "android");
-            jSONObject.put("fontSizeSetting", com.baidu.swan.apps.t.a.aum().afD());
+            jSONObject.put("fontSizeSetting", com.baidu.swan.apps.t.a.awM().aid());
             jSONObject.put("swanNativeVersion", com.baidu.swan.apps.c.getVersion());
-            jSONObject.put("host", com.baidu.swan.apps.t.a.auM().getHostName());
-            jSONObject.put("statusBarHeight", ah.N(ah.getStatusBarHeight()));
-            jSONObject.put("navigationBarHeight", ah.N(ah.getActionBarHeight()));
+            jSONObject.put("host", com.baidu.swan.apps.t.a.axm().getHostName());
+            jSONObject.put("statusBarHeight", ah.P(ah.getStatusBarHeight()));
+            jSONObject.put("navigationBarHeight", ah.P(ah.getActionBarHeight()));
             if (DEBUG) {
                 Log.d("SystemInfoCacheHelper", "end create System Info");
                 return jSONObject;

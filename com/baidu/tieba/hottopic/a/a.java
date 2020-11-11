@@ -9,32 +9,32 @@ import com.baidu.tieba.R;
 /* loaded from: classes21.dex */
 public class a extends af.a {
     public int ajq;
-    public TextView jKs;
-    public TextView jKt;
-    public TextView jKu;
-    public TextView jKv;
-    public View jKw;
-    public View jKx;
-    public TbImageView jKy;
-    public LinearLayout jKz;
+    public TextView jQq;
+    public TextView jQr;
+    public TextView jQs;
+    public TextView jQt;
+    public View jQu;
+    public View jQv;
+    public TbImageView jQw;
+    public LinearLayout jQx;
 
     public a(View view) {
         super(view);
         this.ajq = 3;
-        this.jKs = null;
-        this.jKt = null;
-        this.jKu = null;
-        this.jKv = null;
-        this.jKw = null;
-        this.jKx = null;
-        this.jKy = null;
-        this.jKz = null;
-        this.jKs = (TextView) view.findViewById(R.id.topic_module);
-        this.jKu = (TextView) view.findViewById(R.id.topic_desc);
-        this.jKt = (TextView) view.findViewById(R.id.topic_title);
-        this.jKy = (TbImageView) view.findViewById(R.id.topic_pic);
-        this.jKw = view.findViewById(R.id.devide_line_top);
-        this.jKx = view.findViewById(R.id.devide_line_bottom);
-        this.jKz = (LinearLayout) view.findViewById(R.id.topic_manual_item);
+        this.jQq = null;
+        this.jQr = null;
+        this.jQs = null;
+        this.jQt = null;
+        this.jQu = null;
+        this.jQv = null;
+        this.jQw = null;
+        this.jQx = null;
+        this.jQq = (TextView) view.findViewById(R.id.topic_module);
+        this.jQs = (TextView) view.findViewById(R.id.topic_desc);
+        this.jQr = (TextView) view.findViewById(R.id.topic_title);
+        this.jQw = (TbImageView) view.findViewById(R.id.topic_pic);
+        this.jQu = view.findViewById(R.id.devide_line_top);
+        this.jQv = view.findViewById(R.id.devide_line_bottom);
+        this.jQx = (LinearLayout) view.findViewById(R.id.topic_manual_item);
     }
 }

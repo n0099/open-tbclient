@@ -7,7 +7,7 @@ import com.cmic.sso.sdk.e.t;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes8.dex */
 public class d implements b {
-    private b ozv;
+    private b oIO;
 
     @Override // com.cmic.sso.sdk.c.a.b
     public void a(final com.cmic.sso.sdk.c.c.c cVar, final com.cmic.sso.sdk.c.d.c cVar2, final com.cmic.sso.sdk.a aVar) {
@@ -39,13 +39,13 @@ public class d implements b {
             b(cVar, cVar2, aVar);
         } else {
             com.cmic.sso.sdk.e.c.a("WifiChangeInterceptor", "切换网络失败or无数据网络");
-            cVar2.a(com.cmic.sso.sdk.c.d.a.NO(102508));
+            cVar2.a(com.cmic.sso.sdk.c.d.a.Oj(102508));
         }
     }
 
     public void b(com.cmic.sso.sdk.c.c.c cVar, final com.cmic.sso.sdk.c.d.c cVar2, com.cmic.sso.sdk.a aVar) {
-        if (this.ozv != null) {
-            this.ozv.a(cVar, new com.cmic.sso.sdk.c.d.c() { // from class: com.cmic.sso.sdk.c.a.d.2
+        if (this.oIO != null) {
+            this.oIO.a(cVar, new com.cmic.sso.sdk.c.d.c() { // from class: com.cmic.sso.sdk.c.a.d.2
                 @Override // com.cmic.sso.sdk.c.d.c
                 public void a(com.cmic.sso.sdk.c.d.b bVar) {
                     cVar2.a(bVar);
@@ -60,6 +60,6 @@ public class d implements b {
     }
 
     public void a(b bVar) {
-        this.ozv = bVar;
+        this.oIO = bVar;
     }
 }

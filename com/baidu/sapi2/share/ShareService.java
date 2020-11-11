@@ -28,7 +28,7 @@ import java.util.List;
 public final class ShareService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f3501a;
+    private Context f3504a;
     private LoginShareStrategy b;
     private SapiContext c;
     private boolean d = false;
@@ -38,19 +38,19 @@ public final class ShareService extends Service {
     static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final /* synthetic */ int[] f3502a = new int[ShareEvent.values().length];
+        static final /* synthetic */ int[] f3505a = new int[ShareEvent.values().length];
 
         static {
             try {
-                f3502a[ShareEvent.VALIDATE.ordinal()] = 1;
+                f3505a[ShareEvent.VALIDATE.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                f3502a[ShareEvent.INVALIDATE.ordinal()] = 2;
+                f3505a[ShareEvent.INVALIDATE.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                f3502a[ShareEvent.SYNC_REQ.ordinal()] = 3;
+                f3505a[ShareEvent.SYNC_REQ.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
         }
@@ -112,7 +112,7 @@ public final class ShareService extends Service {
                         arrayList.addAll(new FaceLoginService().str2ShareModelV2List(string2));
                     }
                     if (!arrayList.isEmpty()) {
-                        new FaceLoginService().syncFaceLoginUidList(ShareService.this.f3501a, arrayList);
+                        new FaceLoginService().syncFaceLoginUidList(ShareService.this.f3504a, arrayList);
                     }
                 }
                 boolean z2 = readBundle.getBoolean("VEHICLE_SYSTEM", false);
@@ -120,17 +120,17 @@ public final class ShareService extends Service {
                     int i3 = readBundle.getInt(com.baidu.sapi2.share.b.g);
                     String string3 = readBundle.getString("PKG");
                     String loginShareDirection = SapiAccountManager.getInstance().getSapiConfiguration().loginShareDirection();
-                    int i4 = a.f3502a[shareModel.a().ordinal()];
+                    int i4 = a.f3505a[shareModel.a().ordinal()];
                     if (i4 != 1) {
                         if (i4 != 2) {
-                            if (i4 == 3 && (!com.baidu.sapi2.utils.enums.a.f3551a.equals(loginShareDirection) || !SapiContext.getInstance().getCurrentAccount().isGuestAccount())) {
+                            if (i4 == 3 && (!com.baidu.sapi2.utils.enums.a.f3554a.equals(loginShareDirection) || !SapiContext.getInstance().getCurrentAccount().isGuestAccount())) {
                                 ShareService.this.a(parcel2);
                             }
                         } else if (!com.baidu.sapi2.utils.enums.a.b.equals(loginShareDirection)) {
-                            e.a(ShareService.this.f3501a, shareModel);
+                            e.a(ShareService.this.f3504a, shareModel);
                         }
                     } else if (!com.baidu.sapi2.utils.enums.a.b.equals(loginShareDirection)) {
-                        e.a(ShareService.this.f3501a, ShareService.this.b, shareModel, i3, string, z, z2, string3);
+                        e.a(ShareService.this.f3504a, ShareService.this.b, shareModel, i3, string, z, z2, string3);
                     }
                     return true;
                 }
@@ -178,7 +178,7 @@ public final class ShareService extends Service {
 
     void a(Context context) {
         try {
-            this.f3501a = context;
+            this.f3504a = context;
             this.c = SapiContext.getInstance();
             this.b = SapiAccountManager.getInstance().getSapiConfiguration().loginShareStrategy();
             this.d = true;
@@ -194,7 +194,7 @@ public final class ShareService extends Service {
         shareModel.a(currentAccount);
         List<SapiAccount> loginAccounts = this.c.getLoginAccounts();
         if (currentAccount != null) {
-            currentAccount.app = SapiUtils.getAppName(this.f3501a);
+            currentAccount.app = SapiUtils.getAppName(this.f3504a);
             if (loginAccounts.size() > 0 && loginAccounts.contains(currentAccount)) {
                 loginAccounts.set(loginAccounts.indexOf(currentAccount), loginAccounts.get(0));
                 loginAccounts.set(0, currentAccount);
@@ -212,9 +212,9 @@ public final class ShareService extends Service {
         }
         shareModel.c().removeAll(arrayList);
         for (SapiAccount sapiAccount2 : shareModel.c()) {
-            sapiAccount2.app = SapiUtils.getAppName(this.f3501a);
+            sapiAccount2.app = SapiUtils.getAppName(this.f3504a);
         }
-        e.a(this.f3501a, this.b, shareModel);
+        e.a(this.f3504a, this.b, shareModel);
         bundle.putParcelable("LOGIN_SHARE_MODEL", shareModel);
         bundle.putSerializable("RUNTIME_ENVIRONMENT", SapiAccountManager.getInstance().getSapiConfiguration().environment);
         bundle.putInt(com.baidu.sapi2.share.b.g, 249);

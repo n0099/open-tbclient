@@ -11,11 +11,11 @@ import com.baidu.live.yuyinnoble.b.b;
 /* loaded from: classes4.dex */
 public class NobleInitialize {
     static {
-        NU();
-        NV();
+        Ou();
+        Ov();
     }
 
-    private static void NU() {
+    private static void Ou() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2501035, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.live.yuyinnoble.NobleInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Context> customMessage) {
@@ -26,7 +26,7 @@ public class NobleInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void NV() {
+    private static void Ov() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2501013, new CustomMessageTask.CustomRunnable<d>() { // from class: com.baidu.live.yuyinnoble.NobleInitialize.2
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<d> customMessage) {
@@ -35,8 +35,8 @@ public class NobleInitialize {
                 }
                 d data = customMessage.getData();
                 b bVar = new b();
-                bVar.bQ(data.bnZ);
-                bVar.a(data.mTbPageContext, data.mLiveId, data.bmv, data.aMj, data.mTabId, data.mIsHost);
+                bVar.bR(data.bps);
+                bVar.a(data.mTbPageContext, data.mLiveId, data.bnP, data.aNj, data.mTabId, data.mIsHost);
                 return new CustomResponsedMessage<>(2501013, bVar);
             }
         });

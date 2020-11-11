@@ -6,10 +6,10 @@ import com.baidu.yuyinala.privatemessage.implugin.b.b;
 public class d extends b.a {
     private Context mContext;
     private long mPaid;
-    private g oof;
+    private g oxA;
 
     public d(Context context, long j, g gVar) {
-        this.oof = gVar;
+        this.oxA = gVar;
         this.mContext = context;
         this.mPaid = j;
     }
@@ -20,8 +20,8 @@ public class d extends b.a {
             @Override // com.baidu.yuyinala.privatemessage.implugin.f.g
             public void d(int i, String str, long j) {
                 com.baidu.yuyinala.privatemessage.implugin.util.c.d("GetSubScribeTask", i + "--" + str + "--" + j);
-                if (i == 200 && d.this.oof != null) {
-                    d.this.oof.d(i, str, j);
+                if (i == 200 && d.this.oxA != null) {
+                    d.this.oxA.d(i, str, j);
                 }
             }
         });

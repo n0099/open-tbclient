@@ -8,11 +8,11 @@ import org.a.c;
 import org.a.d;
 /* loaded from: classes17.dex */
 public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
-    private static final Object[] pHG = new Object[0];
-    static final ReplaySubscription[] pHP = new ReplaySubscription[0];
-    static final ReplaySubscription[] pHQ = new ReplaySubscription[0];
+    private static final Object[] pRa = new Object[0];
+    static final ReplaySubscription[] pRj = new ReplaySubscription[0];
+    static final ReplaySubscription[] pRk = new ReplaySubscription[0];
     boolean done;
-    final a<T> pHO;
+    final a<T> pRi;
     final AtomicReference<ReplaySubscription<T>[]> subscribers;
 
     /* loaded from: classes17.dex */
@@ -33,7 +33,7 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
         if (a(replaySubscription) && replaySubscription.cancelled) {
             b(replaySubscription);
         } else {
-            this.pHO.c(replaySubscription);
+            this.pRi.c(replaySubscription);
         }
     }
 
@@ -50,7 +50,7 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
     public void onNext(T t) {
         io.reactivex.internal.functions.a.l(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
         if (!this.done) {
-            a<T> aVar = this.pHO;
+            a<T> aVar = this.pRi;
             aVar.next(t);
             for (ReplaySubscription<T> replaySubscription : this.subscribers.get()) {
                 aVar.c(replaySubscription);
@@ -66,9 +66,9 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
             return;
         }
         this.done = true;
-        a<T> aVar = this.pHO;
+        a<T> aVar = this.pRi;
         aVar.error(th);
-        for (ReplaySubscription<T> replaySubscription : this.subscribers.getAndSet(pHQ)) {
+        for (ReplaySubscription<T> replaySubscription : this.subscribers.getAndSet(pRk)) {
             aVar.c(replaySubscription);
         }
     }
@@ -77,9 +77,9 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
     public void onComplete() {
         if (!this.done) {
             this.done = true;
-            a<T> aVar = this.pHO;
+            a<T> aVar = this.pRi;
             aVar.complete();
-            for (ReplaySubscription<T> replaySubscription : this.subscribers.getAndSet(pHQ)) {
+            for (ReplaySubscription<T> replaySubscription : this.subscribers.getAndSet(pRk)) {
                 aVar.c(replaySubscription);
             }
         }
@@ -90,7 +90,7 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
         ReplaySubscription<T>[] replaySubscriptionArr2;
         do {
             replaySubscriptionArr = this.subscribers.get();
-            if (replaySubscriptionArr == pHQ) {
+            if (replaySubscriptionArr == pRk) {
                 return false;
             }
             int length = replaySubscriptionArr.length;
@@ -106,7 +106,7 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
         ReplaySubscription<T>[] replaySubscriptionArr2;
         do {
             replaySubscriptionArr = this.subscribers.get();
-            if (replaySubscriptionArr != pHQ && replaySubscriptionArr != pHP) {
+            if (replaySubscriptionArr != pRk && replaySubscriptionArr != pRj) {
                 int length = replaySubscriptionArr.length;
                 int i = -1;
                 int i2 = 0;
@@ -122,7 +122,7 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        replaySubscriptionArr2 = pHP;
+                        replaySubscriptionArr2 = pRj;
                     } else {
                         replaySubscriptionArr2 = new ReplaySubscription[length - 1];
                         System.arraycopy(replaySubscriptionArr, 0, replaySubscriptionArr2, 0, i);
@@ -157,7 +157,7 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this.requested, j);
-                this.state.pHO.c(this);
+                this.state.pRi.c(this);
             }
         }
 

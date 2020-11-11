@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.c;
 public interface r<K> {
     void br(K k);
 
-    void ejy();
+    void eno();
 
-    void ejz();
+    void enp();
 }

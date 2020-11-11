@@ -12,20 +12,20 @@ import com.baidu.tieba.R;
 public class a extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f3090a;
+    private TextView f3092a;
     private TextView b;
     private TextView c;
     private TextView d;
     private LinearLayout e;
     private LinearLayout f;
-    private InterfaceC0281a g;
-    private InterfaceC0281a h;
+    private InterfaceC0293a g;
+    private InterfaceC0293a h;
     private boolean i;
     private boolean j;
 
     /* renamed from: com.baidu.platform.comapi.walknavi.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0281a {
+    public interface InterfaceC0293a {
         void a();
     }
 
@@ -45,7 +45,7 @@ public class a extends Dialog {
             getWindow().setBackgroundDrawable(new ColorDrawable(0));
         }
         setContentView(a2);
-        this.f3090a = (TextView) a2.findViewById(2131165243);
+        this.f3092a = (TextView) a2.findViewById(2131165243);
         this.b = (TextView) a2.findViewById(2131165246);
         this.c = (TextView) a2.findViewById(2131165250);
         this.d = (TextView) a2.findViewById(2131165251);
@@ -55,7 +55,7 @@ public class a extends Dialog {
         this.d.setOnClickListener(new c(this));
         this.i = false;
         this.j = false;
-        this.f3090a.setVisibility(8);
+        this.f3092a.setVisibility(8);
         this.b.setVisibility(8);
         this.c.setVisibility(8);
         this.d.setVisibility(8);
@@ -77,11 +77,11 @@ public class a extends Dialog {
 
     public a b(String str) {
         if (str == null) {
-            this.f3090a.setVisibility(8);
-            this.f3090a.setText("", TextView.BufferType.SPANNABLE);
+            this.f3092a.setVisibility(8);
+            this.f3092a.setText("", TextView.BufferType.SPANNABLE);
         } else {
-            this.f3090a.setVisibility(0);
-            this.f3090a.setText(str, TextView.BufferType.SPANNABLE);
+            this.f3092a.setVisibility(0);
+            this.f3092a.setText(str, TextView.BufferType.SPANNABLE);
         }
         return this;
     }
@@ -120,13 +120,13 @@ public class a extends Dialog {
         return this;
     }
 
-    public a a(InterfaceC0281a interfaceC0281a) {
-        this.g = interfaceC0281a;
+    public a a(InterfaceC0293a interfaceC0293a) {
+        this.g = interfaceC0293a;
         return this;
     }
 
-    public a b(InterfaceC0281a interfaceC0281a) {
-        this.h = interfaceC0281a;
+    public a b(InterfaceC0293a interfaceC0293a) {
+        this.h = interfaceC0293a;
         return this;
     }
 

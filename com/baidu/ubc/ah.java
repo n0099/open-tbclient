@@ -11,69 +11,69 @@ import org.json.JSONObject;
 /* loaded from: classes19.dex */
 public class ah {
     private static final boolean DEBUG = AppConfig.isDebug();
-    private boolean ehg = false;
-    private JSONArray dhk = new JSONArray();
-    private SparseArray<Integer> ehc = new SparseArray<>();
-    private ArrayList<String> ehd = new ArrayList<>();
-    private long ehe = 0;
-    private long ehf = 0;
-    private String egg = "0";
+    private boolean emX = false;
+    private JSONArray dnf = new JSONArray();
+    private SparseArray<Integer> emT = new SparseArray<>();
+    private ArrayList<String> emU = new ArrayList<>();
+    private long emV = 0;
+    private long emW = 0;
+    private String elY = "0";
 
-    public final void dd(JSONObject jSONObject) {
-        this.dhk.put(jSONObject);
+    public final void dj(JSONObject jSONObject) {
+        this.dnf.put(jSONObject);
     }
 
-    public final SparseArray<Integer> bbC() {
-        return this.ehc;
+    public final SparseArray<Integer> bec() {
+        return this.emT;
     }
 
     public final void aF(int i, int i2) {
-        this.ehc.put(i, Integer.valueOf(i2));
+        this.emT.put(i, Integer.valueOf(i2));
     }
 
-    public final ArrayList bbD() {
-        return this.ehd;
+    public final ArrayList bed() {
+        return this.emU;
     }
 
-    public final void yP(String str) {
-        if (!this.ehd.contains(str)) {
-            this.ehd.add(str);
+    public final void zd(String str) {
+        if (!this.emU.contains(str)) {
+            this.emU.add(str);
         }
     }
 
-    public final void q(long j, long j2) {
-        if ((j < this.ehe || this.ehe == 0) && j != 0) {
-            this.ehe = j;
+    public final void r(long j, long j2) {
+        if ((j < this.emV || this.emV == 0) && j != 0) {
+            this.emV = j;
         }
-        if (j2 > this.ehf) {
-            this.ehf = j2;
+        if (j2 > this.emW) {
+            this.emW = j2;
         }
     }
 
-    public boolean nf(int i) {
-        return this.dhk.toString().getBytes().length >= i;
+    public boolean np(int i) {
+        return this.dnf.toString().getBytes().length >= i;
     }
 
     public boolean isEmpty() {
-        return this.dhk.length() == 0;
+        return this.dnf.length() == 0;
     }
 
-    public JSONObject dZP() {
+    public JSONObject edx() {
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         try {
-            jSONObject.put("data", this.dhk);
-            if (this.ehe == 0 || this.ehf == 0) {
-                this.ehe = this.ehf;
+            jSONObject.put("data", this.dnf);
+            if (this.emV == 0 || this.emW == 0) {
+                this.emV = this.emW;
             }
-            jSONObject2.put("mintime", Long.toString(this.ehe));
-            jSONObject2.put("maxtime", Long.toString(this.ehf));
+            jSONObject2.put("mintime", Long.toString(this.emV));
+            jSONObject2.put("maxtime", Long.toString(this.emW));
             jSONObject2.put("createtime", Long.toString(System.currentTimeMillis()));
             jSONObject2.put("uploadtime", Long.toString(System.currentTimeMillis()));
-            jSONObject2.put("md5", af.toMd5(this.dhk.toString().getBytes(), true));
+            jSONObject2.put("md5", af.toMd5(this.dnf.toString().getBytes(), true));
             jSONObject.put("metadata", jSONObject2);
-            jSONObject.put("isAbtest", this.egg);
-            jSONObject.put("isreal", this.ehg ? "1" : "0");
+            jSONObject.put("isAbtest", this.elY);
+            jSONObject.put("isreal", this.emX ? "1" : "0");
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.d("UBCUploadData", "json exception:");
@@ -83,36 +83,36 @@ public class ah {
     }
 
     public void clearData() {
-        this.ehc.clear();
-        this.ehd.clear();
-        this.dhk = null;
+        this.emT.clear();
+        this.emU.clear();
+        this.dnf = null;
     }
 
-    public void yQ(String str) {
-        this.egg = str;
+    public void ze(String str) {
+        this.elY = str;
     }
 
-    public String bbF() {
-        return this.egg;
+    public String bef() {
+        return this.elY;
     }
 
-    public long bbG() {
-        return this.ehe;
+    public long beg() {
+        return this.emV;
     }
 
     public long getMaxTime() {
-        return this.ehf;
+        return this.emW;
     }
 
-    public JSONArray bbH() {
-        return this.dhk;
+    public JSONArray beh() {
+        return this.dnf;
     }
 
-    public boolean bbI() {
-        return this.ehg;
+    public boolean bei() {
+        return this.emX;
     }
 
-    public void hR(boolean z) {
-        this.ehg = z;
+    public void ia(boolean z) {
+        this.emX = z;
     }
 }

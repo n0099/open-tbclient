@@ -35,19 +35,19 @@ public class f extends aa {
 
                 @Override // com.baidu.swan.apps.r.d.b
                 public void onSuccess() {
-                    File arG = com.baidu.swan.apps.swancore.b.a.arG();
-                    File arE = com.baidu.swan.apps.swancore.b.a.arE();
-                    if (arG.exists() && com.baidu.swan.c.d.unzipFile(arG.getPath(), arE.getPath())) {
-                        com.baidu.swan.apps.ad.a.a.fP(true);
-                        Toast.makeText(com.baidu.swan.apps.t.a.aua(), a.h.aiapps_debug_swan_core_download_success, 1).show();
+                    File auh = com.baidu.swan.apps.swancore.b.a.auh();
+                    File auf = com.baidu.swan.apps.swancore.b.a.auf();
+                    if (auh.exists() && com.baidu.swan.c.d.unzipFile(auh.getPath(), auf.getPath())) {
+                        com.baidu.swan.apps.ad.a.a.fY(true);
+                        Toast.makeText(com.baidu.swan.apps.t.a.awA(), a.h.aiapps_debug_swan_core_download_success, 1).show();
                         return;
                     }
-                    Toast.makeText(com.baidu.swan.apps.t.a.aua(), a.h.aiapps_debug_swan_core_download_failed, 1).show();
+                    Toast.makeText(com.baidu.swan.apps.t.a.awA(), a.h.aiapps_debug_swan_core_download_failed, 1).show();
                 }
 
                 @Override // com.baidu.swan.apps.r.d.b
                 public void onFailed() {
-                    Toast.makeText(com.baidu.swan.apps.t.a.aua(), a.h.aiapps_debug_swan_core_download_failed, 1).show();
+                    Toast.makeText(com.baidu.swan.apps.t.a.awA(), a.h.aiapps_debug_swan_core_download_failed, 1).show();
                 }
             });
             return true;

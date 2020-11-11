@@ -56,7 +56,7 @@ public class a {
             }
         }
         aVar.d.trimToSize();
-        aVar.f2823a = (int) bundle.getDouble("type");
+        aVar.f2825a = (int) bundle.getDouble("type");
         return aVar;
     }
 

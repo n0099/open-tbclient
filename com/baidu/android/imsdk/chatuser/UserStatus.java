@@ -2,7 +2,7 @@ package com.baidu.android.imsdk.chatuser;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class UserStatus implements Parcelable {
     public static final Parcelable.Creator<UserStatus> CREATOR = new Parcelable.Creator<UserStatus>() { // from class: com.baidu.android.imsdk.chatuser.UserStatus.1
         /* JADX DEBUG: Method merged with bridge method */

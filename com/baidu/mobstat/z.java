@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public class z {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final z f2634a = new z();
+    public static final z f2636a = new z();
 
     public void a(Context context, JSONObject jSONObject) {
         bb.c().a("startDataAnynalyzed start");
@@ -54,7 +54,7 @@ public class z {
 
     private void a(JSONObject jSONObject) {
         ac acVar = new ac(jSONObject);
-        ab.b = acVar.f2517a;
+        ab.b = acVar.f2519a;
         ab.c = acVar.b;
         ab.d = acVar.c;
     }

@@ -37,15 +37,15 @@ public final class w {
         try {
             fl flVar = new fl();
             flVar.a(5);
-            flVar.c(kVar.f913a);
+            flVar.c(kVar.f915a);
             flVar.b(a(iiVar));
             flVar.a("SECMSG", "message");
-            String str = kVar.f913a;
-            iiVar.f598a.f525a = str.substring(0, str.indexOf(UgcConstant.AT_RULE_TAG));
-            iiVar.f598a.f529c = str.substring(str.indexOf("/") + 1);
+            String str = kVar.f915a;
+            iiVar.f600a.f527a = str.substring(0, str.indexOf(UgcConstant.AT_RULE_TAG));
+            iiVar.f600a.f531c = str.substring(str.indexOf("/") + 1);
             flVar.a(iw.a(iiVar), kVar.c);
             flVar.a((short) 1);
-            com.xiaomi.channel.commonutils.logger.b.m54a("try send mi push message. packagename:" + iiVar.f603b + " action:" + iiVar.f596a);
+            com.xiaomi.channel.commonutils.logger.b.m54a("try send mi push message. packagename:" + iiVar.f605b + " action:" + iiVar.f598a);
             return flVar;
         } catch (NullPointerException e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
@@ -68,8 +68,8 @@ public final class w {
         byte[] a2 = iw.a(t);
         ii iiVar = new ii();
         ib ibVar = new ib();
-        ibVar.f524a = 5L;
-        ibVar.f525a = "fakeid";
+        ibVar.f526a = 5L;
+        ibVar.f527a = "fakeid";
         iiVar.a(ibVar);
         iiVar.a(ByteBuffer.wrap(a2));
         iiVar.a(hmVar);
@@ -81,13 +81,13 @@ public final class w {
     }
 
     private static String a(ii iiVar) {
-        if (iiVar.f597a != null && iiVar.f597a.f513b != null) {
-            String str = iiVar.f597a.f513b.get("ext_traffic_source_pkg");
+        if (iiVar.f599a != null && iiVar.f599a.f515b != null) {
+            String str = iiVar.f599a.f515b.get("ext_traffic_source_pkg");
             if (!TextUtils.isEmpty(str)) {
                 return str;
             }
         }
-        return iiVar.f603b;
+        return iiVar.f605b;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

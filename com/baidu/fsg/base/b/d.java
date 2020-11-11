@@ -6,21 +6,21 @@ import com.baidu.fsg.base.b.a;
 public class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ long f1458a;
+    final /* synthetic */ long f1460a;
     final /* synthetic */ a.c b;
     final /* synthetic */ a c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar, long j, a.c cVar) {
         this.c = aVar;
-        this.f1458a = j;
+        this.f1460a = j;
         this.b = cVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         try {
-            Thread.sleep(this.f1458a);
+            Thread.sleep(this.f1460a);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

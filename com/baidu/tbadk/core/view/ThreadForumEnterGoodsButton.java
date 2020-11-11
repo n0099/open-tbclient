@@ -25,9 +25,9 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.OnClickListener {
     private View.OnClickListener ajp;
-    public final int eQW;
-    private TextView eQX;
-    private bw erH;
+    public final int eWL;
+    private TextView eWM;
+    private bw exA;
     private Context mContext;
     private int mFrom;
     private Drawable mIconDrawable;
@@ -39,7 +39,7 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
 
     public ThreadForumEnterGoodsButton(Context context) {
         super(context);
-        this.eQW = 0;
+        this.eWL = 0;
         this.mFrom = 0;
         this.mSkinType = 3;
         this.tbds20 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds20);
@@ -50,7 +50,7 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
 
     public ThreadForumEnterGoodsButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eQW = 0;
+        this.eWL = 0;
         this.mFrom = 0;
         this.mSkinType = 3;
         this.tbds20 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds20);
@@ -63,25 +63,25 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
         this.mContext = context;
         setOnClickListener(this);
         this.mView = LayoutInflater.from(context).inflate(R.layout.card_home_page_forum_enter_button, (ViewGroup) this, true);
-        this.eQX = (TextView) this.mView.findViewById(R.id.forum_name_text);
-        this.eQX.setCompoundDrawablePadding(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds10));
+        this.eWM = (TextView) this.mView.findViewById(R.id.forum_name_text);
+        this.eWM.setCompoundDrawablePadding(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds10));
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!StringUtils.isNull(this.erH.bke())) {
-            view.setTag(this.erH);
+        if (!StringUtils.isNull(this.exA.bmE())) {
+            view.setTag(this.exA);
             if (this.mFrom == 0) {
-                FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.mContext).createNormalCfg(this.erH.bke(), FrsActivityConfig.FROM_PB_OR_PERSON);
+                FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.mContext).createNormalCfg(this.exA.bmE(), FrsActivityConfig.FROM_PB_OR_PERSON);
                 createNormalCfg.setCallFrom(14);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, createNormalCfg));
             } else if (this.mFrom == 1) {
-                aq("c13967", 2);
-                FrsActivityConfig createNormalCfg2 = new FrsActivityConfig(this.mContext).createNormalCfg(this.erH.bke(), FrsActivityConfig.FROM_PB_OR_PERSON);
+                as("c13967", 2);
+                FrsActivityConfig createNormalCfg2 = new FrsActivityConfig(this.mContext).createNormalCfg(this.exA.bmE(), FrsActivityConfig.FROM_PB_OR_PERSON);
                 createNormalCfg2.setCallFrom(14);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, createNormalCfg2));
             } else if (this.mFrom == 2) {
-                aq("c13967", 1);
+                as("c13967", 1);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921488));
             }
             if (this.ajp != null) {
@@ -96,24 +96,24 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
 
     public void onChangeSkinType() {
         int skinType;
-        if (this.erH != null && this.mSkinType != (skinType = TbadkCoreApplication.getInst().getSkinType())) {
+        if (this.exA != null && this.mSkinType != (skinType = TbadkCoreApplication.getInst().getSkinType())) {
             this.mSkinType = skinType;
-            Drawable background = this.eQX.getBackground();
+            Drawable background = this.eWM.getBackground();
             DrawableCompat.setTint(background, ap.getColor(R.color.cp_link_tip_d_alpha20));
-            this.eQX.setBackgroundDrawable(background);
+            this.eWM.setBackgroundDrawable(background);
             int color = ap.getColor(R.color.cp_link_tip_d);
-            ap.a(this.eQX, color);
+            ap.a(this.eWM, color);
             this.mIconDrawable = WebPManager.a(R.drawable.icon_pure_good16, color, WebPManager.ResourceStateType.NORMAL_PRESS);
             if (this.mIconDrawable != null) {
                 this.mIconDrawable.setBounds(0, 0, com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds39), com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds36));
             }
-            bqv();
+            bsV();
             setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), com.baidu.adp.lib.util.l.getDimens(this.mContext, com.baidu.tbadk.a.b.a.aL(R.dimen.tbds0, R.dimen.tbds21)));
         }
     }
 
     public void r(bw bwVar) {
-        this.erH = bwVar;
+        this.exA = bwVar;
         if (bwVar != null) {
             String string = getResources().getString(R.string.frs_goods_tip_content);
             if (StringUtils.isNull(string)) {
@@ -121,35 +121,35 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
                 return;
             }
             setVisibility(0);
-            bqv();
-            this.eQX.setText(string);
-            this.eQX.setVisibility(0);
+            bsV();
+            this.eWM.setText(string);
+            this.eWM.setVisibility(0);
             onChangeSkinType();
-            bqw();
+            bsW();
             return;
         }
         setVisibility(8);
     }
 
-    private void bqw() {
+    private void bsW() {
         if (this.mFrom == 2) {
-            aq("c13966", 1);
+            as("c13966", 1);
         } else if (this.mFrom == 1) {
-            aq("c13966", 2);
+            as("c13966", 2);
         } else {
             if (this.mFrom == 0) {
             }
         }
     }
 
-    private void aq(String str, int i) {
-        TiebaStatic.log(new aq(str).aj("obj_locate", i).w("fid", this.erH.getFid()).dR("fname", this.erH.bke()).dR("tid", this.erH.getTid()));
+    private void as(String str, int i) {
+        TiebaStatic.log(new aq(str).al("obj_locate", i).w("fid", this.exA.getFid()).dR("fname", this.exA.bmE()).dR("tid", this.exA.getTid()));
     }
 
-    private void bqv() {
-        this.eQX.setGravity(16);
-        this.eQX.setPadding(this.tbds23, 0, this.tbds21, 0);
-        this.eQX.setCompoundDrawables(this.mIconDrawable, null, null, null);
+    private void bsV() {
+        this.eWM.setGravity(16);
+        this.eWM.setPadding(this.tbds23, 0, this.tbds21, 0);
+        this.eWM.setCompoundDrawables(this.mIconDrawable, null, null, null);
     }
 
     public void setFrom(int i) {

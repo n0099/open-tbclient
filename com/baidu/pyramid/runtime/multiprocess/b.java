@@ -6,8 +6,8 @@ public class b {
 
     /* loaded from: classes16.dex */
     public static class a {
-        public static Bundle aaL() {
-            return IPCServiceManager.aaL();
+        public static Bundle adk() {
+            return IPCServiceManager.adk();
         }
     }
 }

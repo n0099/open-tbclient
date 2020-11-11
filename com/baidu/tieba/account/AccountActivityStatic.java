@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes22.dex */
 public class AccountActivityStatic {
     static {
-        bGz();
+        bIY();
         registerTask();
     }
 
@@ -30,7 +30,7 @@ public class AccountActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bGz() {
+    private static void bIY() {
         TbadkCoreApplication.getInst().RegisterIntent(AccountRestoreActivityConfig.class, AccountRestoreActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(NotLoginGuideActivityConfig.class, NotLoginGuideActivity.class);
     }

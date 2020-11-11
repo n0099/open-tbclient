@@ -6,11 +6,11 @@ import com.baidu.platform.comapi.walknavi.g.a;
 public class h implements a.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f3075a;
+    final /* synthetic */ b f3077a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(b bVar) {
-        this.f3075a = bVar;
+        this.f3077a = bVar;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.g.a.b
@@ -22,7 +22,7 @@ public class h implements a.b {
             }
             return;
         }
-        this.f3075a.v();
+        this.f3077a.v();
     }
 
     @Override // com.baidu.platform.comapi.walknavi.g.a.b

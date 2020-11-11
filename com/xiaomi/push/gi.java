@@ -7,11 +7,11 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 public class gi extends gj {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f4922a;
+    private boolean f4924a;
     private String b;
 
     /* renamed from: b  reason: collision with other field name */
-    private boolean f390b;
+    private boolean f392b;
     private String c;
     private String d;
     private String e;
@@ -26,24 +26,24 @@ public class gi extends gj {
     public gi() {
         this.b = null;
         this.c = null;
-        this.f4922a = false;
+        this.f4924a = false;
         this.i = "";
         this.j = "";
         this.k = "";
         this.l = "";
-        this.f390b = false;
+        this.f392b = false;
     }
 
     public gi(Bundle bundle) {
         super(bundle);
         this.b = null;
         this.c = null;
-        this.f4922a = false;
+        this.f4924a = false;
         this.i = "";
         this.j = "";
         this.k = "";
         this.l = "";
-        this.f390b = false;
+        this.f392b = false;
         this.b = bundle.getString("ext_msg_type");
         this.d = bundle.getString("ext_msg_lang");
         this.c = bundle.getString("ext_msg_thread");
@@ -51,8 +51,8 @@ public class gi extends gj {
         this.f = bundle.getString("ext_msg_body");
         this.g = bundle.getString("ext_body_encode");
         this.h = bundle.getString("ext_msg_appid");
-        this.f4922a = bundle.getBoolean("ext_msg_trans", false);
-        this.f390b = bundle.getBoolean("ext_msg_encrypt", false);
+        this.f4924a = bundle.getBoolean("ext_msg_trans", false);
+        this.f392b = bundle.getBoolean("ext_msg_encrypt", false);
         this.i = bundle.getString("ext_msg_seq");
         this.j = bundle.getString("ext_msg_mseq");
         this.k = bundle.getString("ext_msg_fseq");
@@ -83,7 +83,7 @@ public class gi extends gj {
         if (this.h != null) {
             a2.putString("ext_msg_appid", this.h);
         }
-        if (this.f4922a) {
+        if (this.f4924a) {
             a2.putBoolean("ext_msg_trans", true);
         }
         if (!TextUtils.isEmpty(this.i)) {
@@ -95,7 +95,7 @@ public class gi extends gj {
         if (!TextUtils.isEmpty(this.k)) {
             a2.putString("ext_msg_fseq", this.k);
         }
-        if (this.f390b) {
+        if (this.f392b) {
             a2.putBoolean("ext_msg_encrypt", true);
         }
         if (!TextUtils.isEmpty(this.l)) {
@@ -139,7 +139,7 @@ public class gi extends gj {
         if (k() != null) {
             sb.append(" chid=\"").append(gu.a(k())).append("\"");
         }
-        if (this.f4922a) {
+        if (this.f4924a) {
             sb.append(" transient=\"true\"");
         }
         if (!TextUtils.isEmpty(this.h)) {
@@ -148,7 +148,7 @@ public class gi extends gj {
         if (!TextUtils.isEmpty(this.b)) {
             sb.append(" type=\"").append(this.b).append("\"");
         }
-        if (this.f390b) {
+        if (this.f392b) {
             sb.append(" s=\"1\"");
         }
         sb.append(">");
@@ -186,7 +186,7 @@ public class gi extends gj {
     }
 
     public void a(boolean z) {
-        this.f4922a = z;
+        this.f4924a = z;
     }
 
     @Override // com.xiaomi.push.gj
@@ -199,7 +199,7 @@ public class gi extends gj {
     }
 
     public void b(boolean z) {
-        this.f390b = z;
+        this.f392b = z;
     }
 
     public String c() {

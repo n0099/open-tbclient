@@ -9,7 +9,7 @@ import android.telephony.TelephonyManager;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f2670a = false;
+    public static boolean f2672a = false;
     public static String b = "";
     public static int c = 0;
 

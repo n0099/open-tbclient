@@ -7,7 +7,7 @@ public class PlaneInfo extends TransitBaseInfo {
     public static final Parcelable.Creator<PlaneInfo> CREATOR = new d();
 
     /* renamed from: a  reason: collision with root package name */
-    private double f2098a;
+    private double f2100a;
     private String b;
     private double c;
     private String d;
@@ -18,7 +18,7 @@ public class PlaneInfo extends TransitBaseInfo {
     /* JADX INFO: Access modifiers changed from: protected */
     public PlaneInfo(Parcel parcel) {
         super(parcel);
-        this.f2098a = parcel.readDouble();
+        this.f2100a = parcel.readDouble();
         this.b = parcel.readString();
         this.c = parcel.readDouble();
         this.d = parcel.readString();
@@ -38,7 +38,7 @@ public class PlaneInfo extends TransitBaseInfo {
     }
 
     public double getDiscount() {
-        return this.f2098a;
+        return this.f2100a;
     }
 
     public double getPrice() {
@@ -54,7 +54,7 @@ public class PlaneInfo extends TransitBaseInfo {
     }
 
     public void setDiscount(double d) {
-        this.f2098a = d;
+        this.f2100a = d;
     }
 
     public void setPrice(double d) {
@@ -64,7 +64,7 @@ public class PlaneInfo extends TransitBaseInfo {
     @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         super.writeToParcel(parcel, i);
-        parcel.writeDouble(this.f2098a);
+        parcel.writeDouble(this.f2100a);
         parcel.writeString(this.b);
         parcel.writeDouble(this.c);
         parcel.writeString(this.d);

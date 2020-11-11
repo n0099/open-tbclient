@@ -7,20 +7,20 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.ab;
 /* loaded from: classes22.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForum.recommend.b.d, com.baidu.tieba.card.a.a<com.baidu.tieba.enterForum.recommend.view.c>> {
-    private ab igS;
+    private ab imQ;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext tbPageContext, ab abVar) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.enterForum.recommend.b.d.ihj);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.enterForum.recommend.b.d.inh);
         this.mPageContext = tbPageContext;
-        this.igS = abVar;
+        this.imQ = abVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aN */
+    /* renamed from: aP */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.enterForum.recommend.view.c> c(ViewGroup viewGroup) {
         com.baidu.tieba.enterForum.recommend.view.c cVar = new com.baidu.tieba.enterForum.recommend.view.c(this.mPageContext);
         cVar.setTag(this.mPageId);
@@ -31,15 +31,15 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForu
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.enterForum.recommend.b.d dVar, com.baidu.tieba.card.a.a<com.baidu.tieba.enterForum.recommend.view.c> aVar) {
-        if (dVar == null || aVar == null || aVar.cmx() == null) {
+        if (dVar == null || aVar == null || aVar.coY() == null) {
             return null;
         }
         if (viewGroup instanceof BdTypeRecyclerView) {
-            aVar.cmx().oO(dVar.needTopMargin);
+            aVar.coY().oX(dVar.needTopMargin);
         }
-        aVar.cmx().a(dVar);
-        if (this.igS != null) {
-            aVar.cmx().c(this.igS);
+        aVar.coY().a(dVar);
+        if (this.imQ != null) {
+            aVar.coY().c(this.imQ);
         }
         return aVar.getView();
     }

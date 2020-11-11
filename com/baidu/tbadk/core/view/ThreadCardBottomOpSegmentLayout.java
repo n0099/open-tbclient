@@ -10,24 +10,24 @@ import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tieba.R;
 /* loaded from: classes21.dex */
 public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoLayout {
-    private AgreeView.a eQf;
+    private AgreeView.a eVU;
 
     public ThreadCardBottomOpSegmentLayout(Context context) {
         super(context);
-        this.eQf = new AgreeView.a() { // from class: com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentLayout.1
+        this.eVU = new AgreeView.a() { // from class: com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentLayout.1
             @Override // com.baidu.tbadk.core.view.AgreeView.a
-            public void e(View view, boolean z) {
-                ThreadCardBottomOpSegmentLayout.this.D(ThreadCardBottomOpSegmentLayout.this.bhH(), z);
+            public void f(View view, boolean z) {
+                ThreadCardBottomOpSegmentLayout.this.D(ThreadCardBottomOpSegmentLayout.this.bkh(), z);
             }
         };
     }
 
     public ThreadCardBottomOpSegmentLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eQf = new AgreeView.a() { // from class: com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentLayout.1
+        this.eVU = new AgreeView.a() { // from class: com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentLayout.1
             @Override // com.baidu.tbadk.core.view.AgreeView.a
-            public void e(View view, boolean z) {
-                ThreadCardBottomOpSegmentLayout.this.D(ThreadCardBottomOpSegmentLayout.this.bhH(), z);
+            public void f(View view, boolean z) {
+                ThreadCardBottomOpSegmentLayout.this.D(ThreadCardBottomOpSegmentLayout.this.bkh(), z);
             }
         };
     }
@@ -38,17 +38,17 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    protected void afv() {
-        this.eQk.setVisibilityListener(this.eQf);
-        boolean bhH = bhH();
-        if (jf(bhH) || jg(bhH)) {
-            this.eQk.iY(bhH);
-            jh(bhH());
+    protected void ahV() {
+        this.eVZ.setVisibilityListener(this.eVU);
+        boolean bkh = bkh();
+        if (jo(bkh) || jp(bkh)) {
+            this.eVZ.jh(bkh);
+            jq(bkh());
         }
     }
 
-    private boolean jf(boolean z) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eQp.getLayoutParams();
+    private boolean jo(boolean z) {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eWe.getLayoutParams();
         float f = layoutParams.weight;
         int i = layoutParams.width;
         if (z) {
@@ -61,13 +61,13 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
         return false;
     }
 
-    private boolean jg(boolean z) {
-        boolean bpG = this.eQk.bpG();
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eQk.getLayoutParams();
+    private boolean jp(boolean z) {
+        boolean bsg = this.eVZ.bsg();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eVZ.getLayoutParams();
         int i = layoutParams.width;
         float f = layoutParams.weight;
         if (z) {
-            if (f != (bpG ? 1.0f : 2.0f) || i != 0) {
+            if (f != (bsg ? 1.0f : 2.0f) || i != 0) {
                 return true;
             }
         } else if (f != 0.0f || i != -2) {
@@ -77,41 +77,41 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    protected void bqo() {
-        D(bhH(), this.eQk.bpG());
+    protected void bsO() {
+        D(bkh(), this.eVZ.bsg());
     }
 
-    private void jh(boolean z) {
+    private void jq(boolean z) {
         if (z) {
-            a(0, -1, 0, 1.0f, true, this.eQk.bpG());
+            a(0, -1, 0, 1.0f, true, this.eVZ.bsg());
             return;
         }
-        a(-2, -1, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds78), 0.0f, false, this.eQk.bpG());
+        a(-2, -1, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds78), 0.0f, false, this.eVZ.bsg());
     }
 
     private void a(int i, int i2, int i3, float f, boolean z, boolean z2) {
-        this.eQp.setLayoutParams(new LinearLayout.LayoutParams(i, i2, f));
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eQw.getLayoutParams();
+        this.eWe.setLayoutParams(new LinearLayout.LayoutParams(i, i2, f));
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eWl.getLayoutParams();
         layoutParams.leftMargin = 0;
-        this.eQw.setLayoutParams(layoutParams);
-        this.eQm.setLayoutParams(new LinearLayout.LayoutParams(i, i2, f));
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.eQl.getLayoutParams();
+        this.eWl.setLayoutParams(layoutParams);
+        this.eWb.setLayoutParams(new LinearLayout.LayoutParams(i, i2, f));
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.eWa.getLayoutParams();
         layoutParams2.leftMargin = i3;
-        this.eQl.setLayoutParams(layoutParams2);
-        this.eQu.setLayoutParams(new LinearLayout.LayoutParams(i, i2, f));
-        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.eQt.getLayoutParams();
+        this.eWa.setLayoutParams(layoutParams2);
+        this.eWj.setLayoutParams(new LinearLayout.LayoutParams(i, i2, f));
+        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.eWi.getLayoutParams();
         layoutParams3.leftMargin = i3;
-        this.eQt.setLayoutParams(layoutParams3);
-        this.eQx.setLayoutParams(new LinearLayout.LayoutParams(i, i2, f));
-        LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.cWm.getLayoutParams();
+        this.eWi.setLayoutParams(layoutParams3);
+        this.eWm.setLayoutParams(new LinearLayout.LayoutParams(i, i2, f));
+        LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.dcg.getLayoutParams();
         layoutParams4.leftMargin = i3;
-        this.cWm.setLayoutParams(layoutParams4);
+        this.dcg.setLayoutParams(layoutParams4);
         D(z, z2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void D(boolean z, boolean z2) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eQk.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eVZ.getLayoutParams();
         int i = layoutParams.width;
         float f = layoutParams.weight;
         if (z) {
@@ -121,19 +121,19 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
                 layoutParams.weight = f2;
                 layoutParams.leftMargin = 0;
                 layoutParams.rightMargin = 0;
-                this.eQk.setLayoutParams(layoutParams);
+                this.eVZ.setLayoutParams(layoutParams);
             }
         } else if (f != 0.0f || i != -2) {
             layoutParams.width = -2;
             layoutParams.weight = 0.0f;
             layoutParams.leftMargin = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds50);
             layoutParams.rightMargin = 0;
-            this.eQk.setLayoutParams(layoutParams);
+            this.eVZ.setLayoutParams(layoutParams);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bhH() {
+    public boolean bkh() {
         return this.agx != null;
     }
 }

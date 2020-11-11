@@ -23,16 +23,16 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d extends BaseAdapter {
-    private LinkedList<t> icb = new LinkedList<>();
+    private LinkedList<t> iic = new LinkedList<>();
     private TbPageContext mPageContext;
-    private LinkedList<com.baidu.tbadk.core.view.spanGroup.a> nFH;
-    private a nFI;
+    private LinkedList<com.baidu.tbadk.core.view.spanGroup.a> nLB;
+    private a nLC;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void Lq(int i);
+        void LD(int i);
 
-        void fW(List<t> list);
+        void ge(List<t> list);
     }
 
     public d(TbPageContext tbPageContext) {
@@ -41,28 +41,28 @@ public class d extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.icb == null) {
+        if (this.iic == null) {
             return 0;
         }
-        return this.icb.size();
+        return this.iic.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.icb == null || this.icb.size() <= i) {
+        if (this.iic == null || this.iic.size() <= i) {
             return null;
         }
-        return this.icb.get(i);
+        return this.iic.get(i);
     }
 
-    public LinkedList<t> dSm() {
-        return this.icb;
+    public LinkedList<t> dUM() {
+        return this.iic;
     }
 
-    public com.baidu.tbadk.core.view.spanGroup.a Lp(int i) {
+    public com.baidu.tbadk.core.view.spanGroup.a LC(int i) {
         long itemId = getItemId(i);
-        if (itemId != 0 && this.nFH != null) {
-            Iterator<com.baidu.tbadk.core.view.spanGroup.a> it = this.nFH.iterator();
+        if (itemId != 0 && this.nLB != null) {
+            Iterator<com.baidu.tbadk.core.view.spanGroup.a> it = this.nLB.iterator();
             while (it.hasNext()) {
                 com.baidu.tbadk.core.view.spanGroup.a next = it.next();
                 if (next.getId() == itemId) {
@@ -76,8 +76,8 @@ public class d extends BaseAdapter {
     @Override // android.widget.Adapter
     public long getItemId(int i) {
         int i2 = 0;
-        if (this.icb != null && this.icb.size() > i && this.icb.get(i) != null) {
-            i2 = this.icb.get(i).mId;
+        if (this.iic != null && this.iic.size() > i && this.iic.get(i) != null) {
+            i2 = this.iic.get(i).mId;
         }
         return i2;
     }
@@ -93,44 +93,44 @@ public class d extends BaseAdapter {
             view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.item_commodity_link, (ViewGroup) null);
             b bVar2 = new b();
             bVar2.mRootView = view.findViewById(R.id.commodity_root_view);
-            bVar2.kAe = view.findViewById(R.id.commodity_main_view);
-            bVar2.ePE = (TbImageView) view.findViewById(R.id.commodity_link_icon);
-            bVar2.ePE.setConrers(15);
-            bVar2.ePE.setRadius(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
-            bVar2.ePE.setPlaceHolderAutoChangeSkinType(1);
-            bVar2.ePE.setGifIconSupport(false);
-            bVar2.ePE.setLongIconSupport(false);
-            bVar2.ePE.setDrawBorder(true);
-            bVar2.ePE.setBorderWidth(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-            bVar2.ePE.setBorderColor(ap.getColor(R.color.cp_border_a));
+            bVar2.kFY = view.findViewById(R.id.commodity_main_view);
+            bVar2.eVt = (TbImageView) view.findViewById(R.id.commodity_link_icon);
+            bVar2.eVt.setConrers(15);
+            bVar2.eVt.setRadius(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
+            bVar2.eVt.setPlaceHolderAutoChangeSkinType(1);
+            bVar2.eVt.setGifIconSupport(false);
+            bVar2.eVt.setLongIconSupport(false);
+            bVar2.eVt.setDrawBorder(true);
+            bVar2.eVt.setBorderWidth(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            bVar2.eVt.setBorderColor(ap.getColor(R.color.cp_border_a));
             bVar2.mTitle = (TextView) view.findViewById(R.id.commodity_link_content);
-            bVar2.nFL = (ImageView) view.findViewById(R.id.commodity_link_close_button);
-            bVar2.nFK = view.findViewById(R.id.extra_info_container);
-            bVar2.ePG = (TextView) view.findViewById(R.id.commodity_price);
-            bVar2.nFM = (TextView) view.findViewById(R.id.commodity_extra_infos);
-            bVar2.nFN = view.findViewById(R.id.commodity_tail_text_mask);
+            bVar2.nLF = (ImageView) view.findViewById(R.id.commodity_link_close_button);
+            bVar2.nLE = view.findViewById(R.id.extra_info_container);
+            bVar2.eVv = (TextView) view.findViewById(R.id.commodity_price);
+            bVar2.nLG = (TextView) view.findViewById(R.id.commodity_extra_infos);
+            bVar2.nLH = view.findViewById(R.id.commodity_tail_text_mask);
             view.setTag(bVar2);
             bVar = bVar2;
         } else {
             bVar = (b) view.getTag();
         }
-        bVar.ePE.startLoad(tVar.mIcon, 10, false);
+        bVar.eVt.startLoad(tVar.mIcon, 10, false);
         if (TextUtils.isEmpty(tVar.mPrice)) {
-            bVar.nFK.setVisibility(8);
+            bVar.nLE.setVisibility(8);
             bVar.mTitle.setMaxLines(2);
         } else {
-            bVar.nFK.setVisibility(0);
+            bVar.nLE.setVisibility(0);
             bVar.mTitle.setMaxLines(1);
         }
         if (TextUtils.isEmpty(tVar.mPrice)) {
-            bVar.ePG.setVisibility(8);
+            bVar.eVv.setVisibility(8);
         } else {
-            bVar.ePG.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.commodity_price_prefix), tVar.mPrice));
-            bVar.ePG.setVisibility(0);
+            bVar.eVv.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.commodity_price_prefix), tVar.mPrice));
+            bVar.eVv.setVisibility(0);
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        if (!TextUtils.isEmpty(tVar.euq)) {
-            spannableStringBuilder.append((CharSequence) tVar.euq);
+        if (!TextUtils.isEmpty(tVar.eAj)) {
+            spannableStringBuilder.append((CharSequence) tVar.eAj);
             int dimens = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds3);
             int dimens2 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10);
             int i2 = R.color.cp_link_tip_c;
@@ -140,55 +140,55 @@ public class d extends BaseAdapter {
             int dimens5 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds2);
             int dimens6 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds16);
             com.baidu.tbadk.core.view.b bVar3 = new com.baidu.tbadk.core.view.b(dimens, dimens2, i2, dimens3, i3, dimens4, com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds38));
-            bVar3.pt(dimens5);
+            bVar3.pD(dimens5);
             bVar3.setMarginRight(dimens6);
-            spannableStringBuilder.setSpan(bVar3, 0, tVar.euq.length(), 33);
+            spannableStringBuilder.setSpan(bVar3, 0, tVar.eAj.length(), 33);
         }
-        if (tVar.eus || tVar.mType == 2 || tVar.eun) {
+        if (tVar.eAl || tVar.mType == 2 || tVar.eAg) {
             if (tVar.mTitle != null) {
                 spannableStringBuilder.append((CharSequence) tVar.mTitle);
             }
         } else {
-            if (tVar.eul != null) {
-                spannableStringBuilder.append((CharSequence) tVar.eul);
+            if (tVar.eAe != null) {
+                spannableStringBuilder.append((CharSequence) tVar.eAe);
             }
             bVar.mTitle.setMaxLines(1);
         }
         bVar.mTitle.setText(spannableStringBuilder);
-        bVar.nFL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.d.1
+        bVar.nLF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                com.baidu.tbadk.core.view.spanGroup.a Lp = d.this.Lp(i);
-                if (Lp != null) {
-                    if (d.this.nFI != null) {
-                        d.this.nFI.Lq(Lp.getId());
+                com.baidu.tbadk.core.view.spanGroup.a LC = d.this.LC(i);
+                if (LC != null) {
+                    if (d.this.nLC != null) {
+                        d.this.nLC.LD(LC.getId());
                     }
-                    if (d.this.nFI != null) {
-                        d.this.nFI.fW(d.this.icb);
+                    if (d.this.nLC != null) {
+                        d.this.nLC.ge(d.this.iic);
                     }
                 }
             }
         });
         int dimens7 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10);
         ap.c(bVar.mRootView, 0, R.color.cp_bg_line_e, R.color.cp_bg_line_e);
-        ap.c(bVar.kAe, dimens7, R.color.cp_bg_line_g, R.color.cp_bg_line_g);
+        ap.c(bVar.kFY, dimens7, R.color.cp_bg_line_g, R.color.cp_bg_line_g);
         ap.setViewTextColor(bVar.mTitle, R.color.cp_cont_j);
-        ap.setViewTextColor(bVar.ePG, R.color.cp_cont_h);
-        ap.setViewTextColor(bVar.nFM, R.color.cp_cont_d);
-        ap.a(bVar.nFN, R.color.cp_bg_line_g, GradientDrawable.Orientation.RIGHT_LEFT);
+        ap.setViewTextColor(bVar.eVv, R.color.cp_cont_h);
+        ap.setViewTextColor(bVar.nLG, R.color.cp_cont_d);
+        ap.a(bVar.nLH, R.color.cp_bg_line_g, GradientDrawable.Orientation.RIGHT_LEFT);
         return view;
     }
 
     public void h(LinkedList<com.baidu.tbadk.core.view.spanGroup.a> linkedList) {
-        this.nFH = linkedList;
+        this.nLB = linkedList;
     }
 
-    public LinkedList<com.baidu.tbadk.core.view.spanGroup.a> dSn() {
-        return this.nFH;
+    public LinkedList<com.baidu.tbadk.core.view.spanGroup.a> dUN() {
+        return this.nLB;
     }
 
     public void refreshData() {
-        dSp();
+        dUP();
         notifyDataSetChanged();
     }
 
@@ -196,14 +196,14 @@ public class d extends BaseAdapter {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean dSo() {
-        if (y.isEmpty(this.icb)) {
+    public boolean dUO() {
+        if (y.isEmpty(this.iic)) {
             return true;
         }
-        Iterator<t> it = this.icb.iterator();
+        Iterator<t> it = this.iic.iterator();
         while (it.hasNext()) {
             t next = it.next();
-            if (next.mType == 2 || !next.eun) {
+            if (next.mType == 2 || !next.eAg) {
                 return false;
             }
             while (it.hasNext()) {
@@ -212,40 +212,40 @@ public class d extends BaseAdapter {
         return true;
     }
 
-    private void dSp() {
-        this.icb.clear();
-        if (!y.isEmpty(this.nFH)) {
-            Iterator<com.baidu.tbadk.core.view.spanGroup.a> it = this.nFH.iterator();
+    private void dUP() {
+        this.iic.clear();
+        if (!y.isEmpty(this.nLB)) {
+            Iterator<com.baidu.tbadk.core.view.spanGroup.a> it = this.nLB.iterator();
             while (it.hasNext()) {
                 com.baidu.tbadk.core.view.spanGroup.a next = it.next();
                 if (next.isValid() && (next instanceof TbLinkSpanGroup)) {
                     TbLinkSpanGroup tbLinkSpanGroup = (TbLinkSpanGroup) next;
-                    if (tbLinkSpanGroup.brf() != null) {
-                        t brf = tbLinkSpanGroup.brf();
-                        brf.euu = tbLinkSpanGroup.getStart();
-                        this.icb.add(brf);
+                    if (tbLinkSpanGroup.btF() != null) {
+                        t btF = tbLinkSpanGroup.btF();
+                        btF.eAn = tbLinkSpanGroup.getStart();
+                        this.iic.add(btF);
                     }
                 }
             }
-            Collections.sort(this.icb);
+            Collections.sort(this.iic);
         }
     }
 
     public void a(a aVar) {
-        this.nFI = aVar;
+        this.nLC = aVar;
     }
 
     /* loaded from: classes3.dex */
     private class b {
-        TbImageView ePE;
-        TextView ePG;
-        View kAe;
+        TbImageView eVt;
+        TextView eVv;
+        View kFY;
         View mRootView;
         TextView mTitle;
-        View nFK;
-        ImageView nFL;
-        TextView nFM;
-        View nFN;
+        View nLE;
+        ImageView nLF;
+        TextView nLG;
+        View nLH;
 
         private b() {
         }

@@ -10,11 +10,11 @@ import android.widget.LinearLayout;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class PendantParentView extends LinearLayout {
-    private Model boA;
-    private PendantPriorityView boB;
-    private PendantPriorityView boC;
-    private a boD;
-    private a boE;
+    private Model bpT;
+    private PendantPriorityView bpU;
+    private PendantPriorityView bpV;
+    private a bpW;
+    private a bpX;
     private int leftBottom;
     private int leftTop;
     private int rightBottom;
@@ -50,20 +50,20 @@ public class PendantParentView extends LinearLayout {
 
     private void a(Model model) {
         setOrientation(0);
-        this.boB = new PendantPriorityView(getContext());
+        this.bpU = new PendantPriorityView(getContext());
         if (model == Model.VERTICAL || model == Model.VERTICAL_PK) {
-            this.boC = new PendantPriorityBottomView(getContext());
+            this.bpV = new PendantPriorityBottomView(getContext());
         } else if (model == Model.HORIZONTAL) {
-            this.boC = new PendantfixBottomView(getContext());
+            this.bpV = new PendantfixBottomView(getContext());
         } else {
-            this.boC = new PendantPriorityView(getContext());
+            this.bpV = new PendantPriorityView(getContext());
         }
-        addView(this.boB, getChildLayoutParams());
-        addView(this.boC, getChildLayoutParams());
-        this.boD = new a(getContext(), Position.LEFT);
-        this.boE = new a(getContext(), Position.RIGHT);
-        this.boB.addView(this.boD, getDividerLayoutParams());
-        this.boC.addView(this.boE, getDividerLayoutParams());
+        addView(this.bpU, getChildLayoutParams());
+        addView(this.bpV, getChildLayoutParams());
+        this.bpW = new a(getContext(), Position.LEFT);
+        this.bpX = new a(getContext(), Position.RIGHT);
+        this.bpU.addView(this.bpW, getDividerLayoutParams());
+        this.bpV.addView(this.bpX, getDividerLayoutParams());
         setModel(model);
     }
 
@@ -74,18 +74,18 @@ public class PendantParentView extends LinearLayout {
     }
 
     public void setModel(Model model) {
-        if (this.boA != model) {
+        if (this.bpT != model) {
             Log.i("setModel", model.toString() + "   ---------");
-            this.boA = model;
-            ArrayList<View> arrayList = new ArrayList(this.boB.getChildCount() + this.boC.getChildCount());
-            for (int i = 0; i < this.boB.getChildCount(); i++) {
-                arrayList.add(this.boB.getChildAt(i));
+            this.bpT = model;
+            ArrayList<View> arrayList = new ArrayList(this.bpU.getChildCount() + this.bpV.getChildCount());
+            for (int i = 0; i < this.bpU.getChildCount(); i++) {
+                arrayList.add(this.bpU.getChildAt(i));
             }
-            for (int i2 = 0; i2 < this.boC.getChildCount(); i2++) {
-                arrayList.add(this.boC.getChildAt(i2));
+            for (int i2 = 0; i2 < this.bpV.getChildCount(); i2++) {
+                arrayList.add(this.bpV.getChildAt(i2));
             }
-            this.boB.removeAllViews();
-            this.boC.removeAllViews();
+            this.bpU.removeAllViews();
+            this.bpV.removeAllViews();
             setDividerModel(model);
             for (View view : arrayList) {
                 if (view instanceof PendantChildView) {
@@ -98,35 +98,38 @@ public class PendantParentView extends LinearLayout {
 
     private void setDividerModel(Model model) {
         if (model == Model.VERTICAL) {
-            this.boE.setPriority(90);
+            this.bpX.setPriority(90);
         } else if (model == Model.VERTICAL_PK) {
-            this.boE.setPriority(100);
+            this.bpX.setPriority(100);
         } else if (model == Model.HORIZONTAL || model == Model.HORIZONTAL_FULL) {
-            this.boE.setPriority(105);
+            this.bpX.setPriority(105);
         }
-        this.boD.setPriority(105);
+        this.bpW.setPriority(105);
     }
 
     public void a(PendantChildView pendantChildView, LinearLayout.LayoutParams layoutParams) {
         Position horizontalFullPosition;
         if (pendantChildView != null && layoutParams != null) {
-            pendantChildView.setMode(this.boA);
-            if (this.boA == Model.VERTICAL) {
+            pendantChildView.setMode(this.bpT);
+            if (this.bpT == Model.VERTICAL) {
                 horizontalFullPosition = pendantChildView.getVerticalPosition();
-            } else if (this.boA == Model.VERTICAL_PK) {
+            } else if (this.bpT == Model.VERTICAL_PK) {
                 horizontalFullPosition = pendantChildView.getVerticalPkPosition();
-            } else if (this.boA == Model.HORIZONTAL) {
+            } else if (this.bpT == Model.HORIZONTAL) {
                 horizontalFullPosition = pendantChildView.getHorizontalPosition();
             } else {
                 horizontalFullPosition = pendantChildView.getHorizontalFullPosition();
             }
+            if (pendantChildView.getParent() != null) {
+                ((ViewGroup) pendantChildView.getParent()).removeView(pendantChildView);
+            }
             if (horizontalFullPosition == Position.LEFT) {
                 layoutParams.gravity = GravityCompat.START;
-                this.boB.addView(pendantChildView, layoutParams);
+                this.bpU.addView(pendantChildView, layoutParams);
                 return;
             }
             layoutParams.gravity = GravityCompat.END;
-            this.boC.addView(pendantChildView, layoutParams);
+            this.bpV.addView(pendantChildView, layoutParams);
         }
     }
 
@@ -139,68 +142,68 @@ public class PendantParentView extends LinearLayout {
 
     public void setLeftTop(int i) {
         this.leftTop = i;
-        ViewGroup.LayoutParams layoutParams = this.boB.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.bpU.getLayoutParams();
         if (layoutParams instanceof LinearLayout.LayoutParams) {
             ((LinearLayout.LayoutParams) layoutParams).topMargin = i;
         }
-        this.boB.setLayoutParams(layoutParams);
+        this.bpU.setLayoutParams(layoutParams);
     }
 
     public void setLeftBottom(int i) {
         this.leftBottom = i;
-        ViewGroup.LayoutParams layoutParams = this.boB.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.bpU.getLayoutParams();
         if (layoutParams instanceof LinearLayout.LayoutParams) {
             ((LinearLayout.LayoutParams) layoutParams).bottomMargin = i;
         }
-        this.boB.setLayoutParams(layoutParams);
+        this.bpU.setLayoutParams(layoutParams);
     }
 
     public void setRightTop(int i) {
         this.rightTop = i;
-        ViewGroup.LayoutParams layoutParams = this.boC.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.bpV.getLayoutParams();
         if (layoutParams instanceof LinearLayout.LayoutParams) {
             ((LinearLayout.LayoutParams) layoutParams).topMargin = i;
         }
-        this.boC.setLayoutParams(layoutParams);
+        this.bpV.setLayoutParams(layoutParams);
     }
 
     public void setRightBottom(int i) {
         this.rightBottom = i;
-        ViewGroup.LayoutParams layoutParams = this.boC.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.bpV.getLayoutParams();
         if (layoutParams instanceof LinearLayout.LayoutParams) {
             ((LinearLayout.LayoutParams) layoutParams).bottomMargin = i;
         }
-        this.boC.setLayoutParams(layoutParams);
+        this.bpV.setLayoutParams(layoutParams);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public static class a extends PendantChildView {
-        private Position boF;
+        private Position bpY;
 
         public a(Context context, Position position) {
             super(context);
-            this.boF = position;
+            this.bpY = position;
         }
 
         @Override // com.baidu.live.pendantview.PendantChildView
         public Position getVerticalPosition() {
-            return this.boF;
+            return this.bpY;
         }
 
         @Override // com.baidu.live.pendantview.PendantChildView
         public Position getVerticalPkPosition() {
-            return this.boF;
+            return this.bpY;
         }
 
         @Override // com.baidu.live.pendantview.PendantChildView
         public Position getHorizontalPosition() {
-            return this.boF;
+            return this.bpY;
         }
 
         @Override // com.baidu.live.pendantview.PendantChildView
         public Position getHorizontalFullPosition() {
-            return this.boF;
+            return this.bpY;
         }
 
         @Override // com.baidu.live.pendantview.PendantChildView
@@ -210,12 +213,12 @@ public class PendantParentView extends LinearLayout {
     }
 
     public void setDefaultItemMargin(int i) {
-        this.boB.setDefaultItemMargin(i);
-        this.boC.setDefaultItemMargin(i);
+        this.bpU.setDefaultItemMargin(i);
+        this.bpV.setDefaultItemMargin(i);
     }
 
     public int getRightViewHeight() {
-        return this.boC.getHeight();
+        return this.bpV.getHeight();
     }
 
     public LinearLayout.LayoutParams getDividerLayoutParams() {
@@ -226,13 +229,13 @@ public class PendantParentView extends LinearLayout {
 
     public void a(PendantChildView pendantChildView) {
         if (pendantChildView != null) {
-            if (this.boB.indexOfChild(pendantChildView) != -1) {
-                this.boB.removeView(pendantChildView);
-                this.boB.addView(pendantChildView);
+            if (this.bpU.indexOfChild(pendantChildView) != -1) {
+                this.bpU.removeView(pendantChildView);
+                this.bpU.addView(pendantChildView);
             }
-            if (this.boC.indexOfChild(pendantChildView) != -1) {
-                this.boC.removeView(pendantChildView);
-                this.boC.addView(pendantChildView);
+            if (this.bpV.indexOfChild(pendantChildView) != -1) {
+                this.bpV.removeView(pendantChildView);
+                this.bpV.addView(pendantChildView);
             }
         }
     }

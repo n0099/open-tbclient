@@ -64,7 +64,7 @@ public class ArBridge {
 
     /* loaded from: classes5.dex */
     public interface b {
-        void g(String str, int i, String str2);
+        void h(String str, int i, String str2);
     }
 
     public static native boolean libraryHasLoaded();
@@ -207,7 +207,7 @@ public class ArBridge {
 
     public void notifyFrameUpdated() {
         if (this.mGameRecorder != null) {
-            this.mGameRecorder.gt(getScreenTextureId());
+            this.mGameRecorder.gD(getScreenTextureId());
         }
     }
 
@@ -254,7 +254,7 @@ public class ArBridge {
     public void updateVideoFrame(String str, int i, String str2) {
         Log.i(TAG, "updateVideoFrame:" + i + "     ;avideoPath:" + str2);
         if (this.mVideoCallback != null) {
-            this.mVideoCallback.g(str, i, str2);
+            this.mVideoCallback.h(str, i, str2);
         }
     }
 

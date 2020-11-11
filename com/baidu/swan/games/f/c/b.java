@@ -11,22 +11,22 @@ import java.util.HashMap;
 /* loaded from: classes10.dex */
 public class b implements a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile b dNW;
-    private HashMap<String, c> dLi = new HashMap<>();
+    private static volatile b dTO;
+    private HashMap<String, c> dRa = new HashMap<>();
     private HashMap<String, ArrayList<ValueCallback<String>>> mCallbackMap = new HashMap<>();
     private final Object mObject = new Object();
-    private com.baidu.swan.games.network.b dLk = com.baidu.swan.games.network.b.aTQ();
-    private String dLj = f.aQn();
+    private com.baidu.swan.games.network.b dRc = com.baidu.swan.games.network.b.aWq();
+    private String dRb = f.aSN();
 
-    public static b aSA() {
-        if (dNW == null) {
+    public static b aVa() {
+        if (dTO == null) {
             synchronized (b.class) {
-                if (dNW == null) {
-                    dNW = new b();
+                if (dTO == null) {
+                    dTO = new b();
                 }
             }
         }
-        return dNW;
+        return dTO;
     }
 
     public void a(String str, ValueCallback<String> valueCallback) {
@@ -35,18 +35,18 @@ public class b implements a {
             return;
         }
         try {
-            String wb = wb(str);
-            File file = new File(wb(str));
+            String wp = wp(str);
+            File file = new File(wp(str));
             if (file.exists() && !file.isDirectory()) {
                 if (valueCallback != null) {
-                    valueCallback.onReceiveValue(wb);
+                    valueCallback.onReceiveValue(wp);
                     return;
                 }
                 return;
             }
             synchronized (this.mObject) {
-                if (!vZ(str)) {
-                    wa(str);
+                if (!wn(str)) {
+                    wo(str);
                 }
                 b(str, valueCallback);
             }
@@ -57,16 +57,16 @@ public class b implements a {
         }
     }
 
-    private boolean vZ(String str) {
-        return this.dLi.containsKey(str);
+    private boolean wn(String str) {
+        return this.dRa.containsKey(str);
     }
 
-    private void wa(String str) {
+    private void wo(String str) {
         if (DEBUG) {
             Log.d("ImageDownloadManager", "ImageDownloadManager SwanGamePreloadManager url:" + str);
         }
-        c cVar = new c(this.dLk, this.dLj, str, this);
-        this.dLi.put(str, cVar);
+        c cVar = new c(this.dRc, this.dRb, str, this);
+        this.dRa.put(str, cVar);
         cVar.load();
     }
 
@@ -84,7 +84,7 @@ public class b implements a {
     public void cM(String str, String str2) {
         ArrayList<ValueCallback<String>> arrayList;
         synchronized (this.mObject) {
-            if (vZ(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
+            if (wn(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
                 int size = arrayList.size();
                 for (int i = 0; i < size; i++) {
                     arrayList.get(i).onReceiveValue(str2);
@@ -92,26 +92,26 @@ public class b implements a {
                         Log.e("ImageDownloadManager", i + " load success url = " + str + " path = " + str2);
                     }
                 }
-                this.dLi.remove(str);
+                this.dRa.remove(str);
             }
         }
     }
 
     @Override // com.baidu.swan.games.f.c.a
-    public void aq(int i, String str) {
+    public void au(int i, String str) {
         ArrayList<ValueCallback<String>> arrayList;
         synchronized (this.mObject) {
-            if (vZ(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
+            if (wn(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
                 int size = arrayList.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     arrayList.get(i2).onReceiveValue("");
                 }
-                this.dLi.remove(str);
+                this.dRa.remove(str);
             }
         }
     }
 
-    private String wb(String str) throws MalformedURLException {
-        return this.dLj + f.vW(str);
+    private String wp(String str) throws MalformedURLException {
+        return this.dRb + f.wk(str);
     }
 }

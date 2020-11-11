@@ -7,48 +7,48 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 /* loaded from: classes4.dex */
 public class h {
-    public static final int bAv = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds32);
-
-    public static int aB(Context context) {
-        int aG = aG(context);
-        if (UtilHelper.canUseStyleImmersiveSticky()) {
-            return aG + UtilHelper.getStatusBarHeight();
-        }
-        return aG;
-    }
+    public static final int bGG = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds32);
 
     public static int aC(Context context) {
-        int aD = aD(context);
+        int aH = aH(context);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            return aD + UtilHelper.getStatusBarHeight();
+            return aH + UtilHelper.getStatusBarHeight();
         }
-        return aD;
+        return aH;
     }
 
     public static int aD(Context context) {
-        return aG(context) + bAv;
+        int aE = aE(context);
+        if (UtilHelper.canUseStyleImmersiveSticky()) {
+            return aE + UtilHelper.getStatusBarHeight();
+        }
+        return aE;
     }
 
     public static int aE(Context context) {
-        return fU(BdUtilHelper.getScreenDimensions(context)[0] / 2);
+        return aH(context) + bGG;
     }
 
     public static int aF(Context context) {
+        return gh(BdUtilHelper.getScreenDimensions(context)[0] / 2);
+    }
+
+    public static int aG(Context context) {
         return BdUtilHelper.getScreenDimensions(context)[0] / 2;
     }
 
-    public static int fU(int i) {
+    public static int gh(int i) {
         return (i * 16) / 10;
     }
 
-    public static int j(Context context, boolean z) {
-        return aE(context) + aC(context);
+    public static int k(Context context, boolean z) {
+        return aF(context) + aD(context);
     }
 
-    private static int aG(Context context) {
+    private static int aH(Context context) {
         if (context == null) {
             context = TbadkCoreApplication.getInst().getContext();
         }
-        return context.getResources().getDimensionPixelSize(a.e.sdk_ds220);
+        return context.getResources().getDimensionPixelSize(a.d.sdk_ds220);
     }
 }

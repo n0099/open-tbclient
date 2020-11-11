@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class f extends ClickableSpan {
-    private String fDd;
-    private int fDe;
+    private String fIT;
+    private int fIU;
     private int mType;
     private String mUrl;
     private int color = -1;
@@ -42,8 +42,8 @@ public class f extends ClickableSpan {
         this.mType = i;
     }
 
-    public void sr(int i) {
-        this.fDe = i;
+    public void sB(int i) {
+        this.fIU = i;
     }
 
     public void setColor(int i) {
@@ -54,12 +54,12 @@ public class f extends ClickableSpan {
         this.textColor = i;
     }
 
-    public void ss(int i) {
+    public void sC(int i) {
         this.urlType = i;
     }
 
-    public void Eu(String str) {
-        this.fDd = str;
+    public void EI(String str) {
+        this.fIT = str;
     }
 
     public String getLink() {
@@ -70,7 +70,7 @@ public class f extends ClickableSpan {
     public void updateDrawState(TextPaint textPaint) {
         if (this.textColor != -1) {
             textPaint.setColor(ap.getColor(this.textColor));
-        } else if (bDL()) {
+        } else if (bGk()) {
             textPaint.setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.cp_link_tip_c));
         } else {
             textPaint.setColor(textPaint.linkColor);
@@ -78,18 +78,18 @@ public class f extends ClickableSpan {
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.fDe == 1 && bDM()) {
+        } else if (this.fIU == 1 && bGl()) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 textPaint.bgColor = ap.getColor(R.color.cp_bg_line_c);
             } else {
                 textPaint.bgColor = ap.getColor(R.color.cp_bg_line_z);
             }
-        } else if (this.fDe == 2) {
+        } else if (this.fIU == 2) {
             textPaint.bgColor = ap.getColor(R.color.transparent);
         }
     }
 
-    private boolean bDL() {
+    private boolean bGk() {
         switch (this.mType) {
             case 2:
             case 16:
@@ -100,7 +100,7 @@ public class f extends ClickableSpan {
         }
     }
 
-    public boolean bDM() {
+    public boolean bGl() {
         switch (this.mType) {
             case 16:
             case 18:
@@ -115,7 +115,7 @@ public class f extends ClickableSpan {
     public void onClick(View view) {
         int i = 2;
         int i2 = 1;
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.fDd));
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.fIT));
         if (this.mType == 2) {
             if (this.urlType != 1) {
                 if (this.urlType == 2) {
@@ -125,7 +125,7 @@ public class f extends ClickableSpan {
                     i = 1;
                 }
             }
-            TiebaStatic.log(new aq(TbadkCoreStatisticKey.PB_URL_CLICK_KEY).aj("obj_source", i2).aj("obj_type", i));
+            TiebaStatic.log(new aq(TbadkCoreStatisticKey.PB_URL_CLICK_KEY).al("obj_source", i2).al("obj_type", i));
         }
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
     }

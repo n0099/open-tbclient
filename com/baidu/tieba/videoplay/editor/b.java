@@ -25,46 +25,46 @@ public class b extends com.baidu.tbadk.editortools.c {
     @Override // com.baidu.tbadk.editortools.c
     protected void a(e eVar) {
         if (eVar != null) {
-            EditorTools bwY = eVar.bwY();
+            EditorTools bzx = eVar.bzx();
             ArrayList arrayList = new ArrayList();
             arrayList.add(5);
-            bwY.bt(arrayList);
-            m ra = bwY.ra(5);
-            if (ra != null) {
-                ra.jV(false);
-                ra.fij = 0;
+            bzx.bA(arrayList);
+            m rk = bzx.rk(5);
+            if (rk != null) {
+                rk.ke(false);
+                rk.foc = 0;
             }
-            bwY.b(new c(bwY.getContext()));
-            bwY.build();
-            bwY.b(new com.baidu.tbadk.editortools.a(35, 5, false));
-            bwY.hide();
+            bzx.b(new c(bzx.getContext()));
+            bzx.build();
+            bzx.b(new com.baidu.tbadk.editortools.a(35, 5, false));
+            bzx.hide();
         }
     }
 
     @Override // com.baidu.tbadk.editortools.c
     protected void b(e eVar) {
         if (eVar instanceof a) {
-            EditorTools bwY = eVar.bwY();
+            EditorTools bzx = eVar.bzx();
             final a aVar = (a) eVar;
             com.baidu.tbadk.editortools.b bVar = new com.baidu.tbadk.editortools.b() { // from class: com.baidu.tieba.videoplay.editor.b.1
                 @Override // com.baidu.tbadk.editortools.b
                 public void a(com.baidu.tbadk.editortools.a aVar2) {
-                    if (aVar != null && aVar.bwY() != null && aVar2 != null) {
+                    if (aVar != null && aVar.bzx() != null && aVar2 != null) {
                         switch (aVar2.code) {
                             case 4:
-                                aVar.DB((String) aVar2.data);
+                                aVar.DP((String) aVar2.data);
                                 return;
                             case 5:
                             case 6:
                             default:
                                 return;
                             case 7:
-                                aVar.bsc().showToast(R.string.over_limit_tip);
+                                aVar.buC().showToast(R.string.over_limit_tip);
                                 return;
                             case 8:
-                                aVar.dPM();
-                                if (b.this.a(aVar.bsc(), RequestResponseCode.REQUEST_LOGIN_WRITE)) {
-                                    aVar.byc();
+                                aVar.dSo();
+                                if (b.this.a(aVar.buC(), RequestResponseCode.REQUEST_LOGIN_WRITE)) {
+                                    aVar.bAB();
                                     return;
                                 }
                                 return;
@@ -72,9 +72,9 @@ public class b extends com.baidu.tbadk.editortools.c {
                     }
                 }
             };
-            bwY.setActionListener(4, bVar);
-            bwY.setActionListener(7, bVar);
-            bwY.setActionListener(8, bVar);
+            bzx.setActionListener(4, bVar);
+            bzx.setActionListener(7, bVar);
+            bzx.setActionListener(8, bVar);
         }
     }
 

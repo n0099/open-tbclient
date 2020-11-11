@@ -4,13 +4,13 @@ public interface a {
 
     /* renamed from: com.baidu.poly.a.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0297a {
-        public long bXC;
-        public long bXD;
-        public String bXE;
+    public static class C0309a {
+        public long cdo;
+        public long cdp;
+        public String cdq;
         public String message;
         public int statusCode = 2;
     }
 
-    void a(C0297a c0297a);
+    void a(C0309a c0309a);
 }

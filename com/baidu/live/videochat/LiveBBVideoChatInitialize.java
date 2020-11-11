@@ -8,13 +8,13 @@ import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public class LiveBBVideoChatInitialize {
     static {
-        SA();
+        Vh();
     }
 
-    private static void SA() {
+    private static void Vh() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913249, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.live.videochat.LiveBBVideoChatInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<com.baidu.live.ah.a> run(CustomMessage<TbPageContext> customMessage) {
+            public CustomResponsedMessage<com.baidu.live.ai.a> run(CustomMessage<TbPageContext> customMessage) {
                 return new CustomResponsedMessage<>(2913249, new c(customMessage.getData()));
             }
         });

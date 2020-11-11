@@ -295,7 +295,7 @@ public class CrabSDK {
     }
 
     public static void setDeveloperName(String str) {
-        a.f1333a = str;
+        a.f1335a = str;
     }
 
     public static void setEnableLog(boolean z) {

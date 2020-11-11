@@ -3,7 +3,7 @@ package com.facebook.common.file;
 import java.io.File;
 /* loaded from: classes6.dex */
 public class a {
-    public static String oBI = null;
+    public static String oLb = null;
 
     public static void a(File file, b bVar) {
         File[] b;
@@ -22,10 +22,10 @@ public class a {
                     bVar.al(file2);
                     String path = file2.getPath();
                     if (path != null) {
-                        if (oBI == null) {
-                            oBI = path;
-                        } else if (path.length() > oBI.length()) {
-                            oBI = path;
+                        if (oLb == null) {
+                            oLb = path;
+                        } else if (path.length() > oLb.length()) {
+                            oLb = path;
                         }
                     }
                 }
@@ -68,19 +68,19 @@ public class a {
         int length = strArr.length;
         File[] fileArr = new File[length];
         for (int i = 0; i < length; i++) {
-            fileArr[i] = new File(gU(path, strArr[i]));
+            fileArr[i] = new File(gW(path, strArr[i]));
         }
         return fileArr;
     }
 
-    private static String gU(String str, String str2) {
+    private static String gW(String str, String str2) {
         if (str.isEmpty()) {
             return str2;
         }
-        return str2.isEmpty() ? str : gV(str, str2);
+        return str2.isEmpty() ? str : gX(str, str2);
     }
 
-    private static String gV(String str, String str2) {
+    private static String gX(String str, String str2) {
         boolean z = true;
         int length = str.length();
         boolean z2 = length > 0 && str.charAt(length + (-1)) == File.separatorChar;

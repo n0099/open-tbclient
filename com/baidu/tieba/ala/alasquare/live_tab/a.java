@@ -10,11 +10,11 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
     private BdTypeRecyclerView Xe;
-    private List<com.baidu.adp.widget.ListView.a> bje;
-    private e gdC;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.c gdD;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.b gdE;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.a gdF;
+    private List<com.baidu.adp.widget.ListView.a> bky;
+    private e gjs;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.c gjt;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.b gju;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.a gjv;
     private Context mContext;
     private TbPageContext mPageContext;
     private int tabType;
@@ -24,20 +24,20 @@ public class a {
         this.mContext = tbPageContext.getPageActivity();
         this.Xe = bdTypeRecyclerView;
         this.tabType = i;
-        Ly();
+        LY();
     }
 
-    private void Ly() {
-        this.bje = new ArrayList();
-        this.gdC = new e(this.mPageContext, this.tabType);
-        this.gdD = new com.baidu.tieba.ala.alasquare.live_tab.a.c(this.mPageContext);
-        this.gdE = new com.baidu.tieba.ala.alasquare.live_tab.a.b(this.mPageContext);
-        this.gdF = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
-        this.bje.add(this.gdC);
-        this.bje.add(this.gdD);
-        this.bje.add(this.gdE);
-        this.bje.add(this.gdF);
-        this.Xe.addAdapters(this.bje);
+    private void LY() {
+        this.bky = new ArrayList();
+        this.gjs = new e(this.mPageContext, this.tabType);
+        this.gjt = new com.baidu.tieba.ala.alasquare.live_tab.a.c(this.mPageContext);
+        this.gju = new com.baidu.tieba.ala.alasquare.live_tab.a.b(this.mPageContext);
+        this.gjv = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
+        this.bky.add(this.gjs);
+        this.bky.add(this.gjt);
+        this.bky.add(this.gju);
+        this.bky.add(this.gjv);
+        this.Xe.addAdapters(this.bky);
     }
 
     public void setData(List<q> list) {

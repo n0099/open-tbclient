@@ -34,7 +34,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
     private i.a G;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1344a;
+    private Context f1346a;
     private CyberPlayer b;
     private Uri c;
     private Map<String, String> d;
@@ -158,7 +158,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
         };
         this.u = 0;
         CyberLog.d("CyberVideoView", "CyberVideoView mRenderType:" + this.u);
-        this.f1344a = context.getApplicationContext();
+        this.f1346a = context.getApplicationContext();
         this.v = new a();
         this.w = new ArrayList<>();
         reset();
@@ -253,7 +253,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
             }
         };
         this.u = a(i);
-        this.f1344a = context.getApplicationContext();
+        this.f1346a = context.getApplicationContext();
         this.v = new a();
         this.w = new ArrayList<>();
         reset();
@@ -278,14 +278,14 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
         this.h = 0;
         this.i = 0;
         if (this.u == 0) {
-            this.t = new b(this.f1344a);
+            this.t = new b(this.f1346a);
         } else if (this.u == 1) {
-            this.t = new h(this.f1344a);
+            this.t = new h(this.f1346a);
             if (Build.VERSION.SDK_INT < 21) {
                 setDecodeMode(1);
             }
         } else if (this.u == 2) {
-            this.t = new g(this.f1344a);
+            this.t = new g(this.f1346a);
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2, 17);
         this.t.setCyberSurfaceListener(this.G);
@@ -343,7 +343,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
             if (this.D) {
                 this.b.setOption("mediacodec-config-need-retry", 1L);
             }
-            this.b.setDataSource(this.f1344a, this.c, this.d);
+            this.b.setDataSource(this.f1346a, this.c, this.d);
             this.b.prepareAsync();
             this.f = 1;
             if (this.t != null) {

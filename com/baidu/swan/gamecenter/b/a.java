@@ -14,7 +14,7 @@ public class a extends com.baidu.swan.gamecenter.c.a {
         String optString = jSONObject.optString("message");
         JSONObject optJSONObject = jSONObject.optJSONObject("data");
         if (optInt == 0) {
-            bVar.ay(optJSONObject);
+            bVar.aE(optJSONObject);
             return null;
         }
         bVar.onFail(optInt, optString);

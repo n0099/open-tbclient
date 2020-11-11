@@ -74,7 +74,7 @@ public final class e {
         if (activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
             Window window = activity.getWindow();
             window.setFlags(1024, 1024);
-            window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() | aJM());
+            window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() | aMm());
         }
     }
 
@@ -82,7 +82,7 @@ public final class e {
         if (activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
             Window window = activity.getWindow();
             window.clearFlags(1024);
-            int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (aJM() ^ (-1));
+            int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (aMm() ^ (-1));
             if (com.baidu.swan.apps.res.widget.a.SUPPORT_IMMERSION) {
                 systemUiVisibility |= 5120;
             }
@@ -90,7 +90,7 @@ public final class e {
         }
     }
 
-    public static int aJM() {
+    public static int aMm() {
         return 5894;
     }
 }

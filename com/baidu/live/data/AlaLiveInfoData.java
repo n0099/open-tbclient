@@ -9,9 +9,11 @@ import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.data.AlaLiveSdkInfo;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.tbadk.core.atomdata.YuyinAlaLiveRoomActivityConfig;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.coreextra.data.AlaLiveSwitchData;
 import com.baidu.live.tbadk.coreextra.data.AlaVideoBBChatData;
+import com.baidu.live.tbadk.coreextra.data.AlaVideoBCChatData;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
@@ -54,6 +56,7 @@ public class AlaLiveInfoData implements Serializable {
     public String close_reason;
     public int close_type;
     public int comment_count;
+    public int corner_tag;
     public String cover;
     public String croom_id;
     public String description;
@@ -117,6 +120,7 @@ public class AlaLiveInfoData implements Serializable {
     public String user_nickname;
     public String user_uk;
     public AlaVideoBBChatData videoBBChatData;
+    public AlaVideoBCChatData videoBCEnterData;
     public int zan_count;
     public boolean isPubShow = false;
     public AlaLiveSdkInfo.MCastIds mCastIds = null;
@@ -189,6 +193,7 @@ public class AlaLiveInfoData implements Serializable {
             this.is_followed = jSONObject.optInt("is_followed") == 1;
             this.bg_cover = jSONObject.optString("bg_cover");
             this.croom_id = jSONObject.optString("croom_id");
+            this.corner_tag = jSONObject.optInt("corner_tag", 0);
             this.room_id = jSONObject.optLong("room_id");
             this.user_id = jSONObject.optLong("user_id");
             this.user_name = jSONObject.optString("user_name");
@@ -235,7 +240,7 @@ public class AlaLiveInfoData implements Serializable {
             this.media_subtitle = jSONObject.optString("media_subtitle");
             JSONObject optJSONObject2 = jSONObject.optJSONObject(ARConfigKey.EXTRA_INFO);
             if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject(Constants.EXTRA_CAST_IDS)) != null) {
-                this.chat_mcast_id = optJSONObject.optString("chat_mcast_id");
+                this.chat_mcast_id = optJSONObject.optString(YuyinAlaLiveRoomActivityConfig.SDK_AUDIO_ROOM_CHAT_CAST_ID);
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("session_info");
             if (optJSONObject3 != null) {
@@ -262,6 +267,8 @@ public class AlaLiveInfoData implements Serializable {
             }
             this.videoBBChatData = new AlaVideoBBChatData();
             this.videoBBChatData.parserJson(jSONObject);
+            this.videoBCEnterData = new AlaVideoBCChatData();
+            this.videoBCEnterData.parserJson(jSONObject);
             this.thread_id = jSONObject.optLong("thread_id");
             this.comment_count = jSONObject.optInt("comment_count");
             this.screen_direction = jSONObject.optInt("screen_direction");
@@ -409,6 +416,7 @@ public class AlaLiveInfoData implements Serializable {
         try {
             jSONObject.put("live_id", this.live_id);
             jSONObject.put("room_id", this.room_id);
+            jSONObject.put("corner_tag", this.corner_tag);
             jSONObject.put("user_id", this.user_id);
             jSONObject.put("user_name", this.user_name);
             jSONObject.put("user_nickname", this.user_nickname);

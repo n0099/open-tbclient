@@ -5,36 +5,36 @@ import com.baidu.adp.widget.ListView.q;
 /* loaded from: classes.dex */
 public class n implements q {
     public static final BdUniqueId aiz = BdUniqueId.gen();
-    private boolean cqw = false;
-    private String fgw;
-    private String fgx;
+    private boolean cwu = false;
+    private String fmq;
+    private String fmr;
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
         return aiz;
     }
 
-    public String bwy() {
-        return this.fgw;
+    public String byX() {
+        return this.fmq;
     }
 
-    public void Dh(String str) {
-        this.fgw = str;
+    public void Dv(String str) {
+        this.fmq = str;
     }
 
     public String getSmallUrl() {
-        return this.fgx;
+        return this.fmr;
     }
 
-    public void Di(String str) {
-        this.fgx = str;
+    public void Dw(String str) {
+        this.fmr = str;
     }
 
-    public boolean bwz() {
-        return this.cqw;
+    public boolean byY() {
+        return this.cwu;
     }
 
-    public void jK(boolean z) {
-        this.cqw = z;
+    public void jT(boolean z) {
+        this.cwu = z;
     }
 }

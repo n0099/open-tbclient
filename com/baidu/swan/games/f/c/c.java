@@ -13,32 +13,32 @@ import okhttp3.Response;
 /* loaded from: classes10.dex */
 class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String dLj;
-    private com.baidu.swan.games.network.b dLk;
-    private a dNX;
+    private String dRb;
+    private com.baidu.swan.games.network.b dRc;
+    private a dTP;
     private String mSrc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(com.baidu.swan.games.network.b bVar, String str, String str2, a aVar) {
         this.mSrc = "";
-        this.dLj = "";
-        this.dLk = bVar;
-        this.dLj = str;
+        this.dRb = "";
+        this.dRc = bVar;
+        this.dRb = str;
         this.mSrc = str2;
-        this.dNX = aVar;
+        this.dTP = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void load() {
-        this.dLk.a(new Request.Builder().url(this.mSrc).build(), new Callback() { // from class: com.baidu.swan.games.f.c.c.1
+        this.dRc.a(new Request.Builder().url(this.mSrc).build(), new Callback() { // from class: com.baidu.swan.games.f.c.c.1
             @Override // okhttp3.Callback
             public void onFailure(Call call, IOException iOException) {
                 if (c.DEBUG) {
                     Log.e("ImageDownloader", c.this.mSrc + " load failed");
                     iOException.printStackTrace();
                 }
-                if (c.this.dNX != null) {
-                    c.this.dNX.aq(-1, c.this.mSrc);
+                if (c.this.dTP != null) {
+                    c.this.dTP.au(-1, c.this.mSrc);
                 }
             }
 
@@ -55,13 +55,13 @@ class c {
                     inputStream = response.body().byteStream();
                     try {
                         try {
-                            String vW = f.vW(c.this.mSrc);
-                            String str = c.this.dLj + vW.substring(0, vW.lastIndexOf("/"));
+                            String wk = f.wk(c.this.mSrc);
+                            String str = c.this.dRb + wk.substring(0, wk.lastIndexOf("/"));
                             File file2 = new File(str);
                             if (!file2.exists() || !file2.isDirectory()) {
                                 file2.mkdirs();
                             }
-                            String substring = vW.substring(vW.lastIndexOf("/") + 1);
+                            String substring = wk.substring(wk.lastIndexOf("/") + 1);
                             File file3 = new File(str, substring + ".bddownload");
                             try {
                                 fileOutputStream = new FileOutputStream(file3);
@@ -84,8 +84,8 @@ class c {
                                             if (file != null) {
                                                 file.delete();
                                             }
-                                            if (c.this.dNX != null) {
-                                                c.this.dNX.aq(-1, c.this.mSrc);
+                                            if (c.this.dTP != null) {
+                                                c.this.dTP.au(-1, c.this.mSrc);
                                             }
                                             com.baidu.swan.c.d.closeSafely(inputStream2);
                                             com.baidu.swan.c.d.closeSafely(fileOutputStream2);
@@ -118,16 +118,16 @@ class c {
                                     if (c.DEBUG) {
                                         Log.e("ImageDownloader", c.this.mSrc + " load rename success path = " + absolutePath);
                                     }
-                                    if (c.this.dNX != null) {
-                                        c.this.dNX.cM(c.this.mSrc, absolutePath);
+                                    if (c.this.dTP != null) {
+                                        c.this.dTP.cM(c.this.mSrc, absolutePath);
                                     }
                                 } else {
                                     if (c.DEBUG) {
                                         Log.e("ImageDownloader", c.this.mSrc + " load rename error path = " + absolutePath);
                                     }
                                     file3.delete();
-                                    if (c.this.dNX != null) {
-                                        c.this.dNX.aq(-1, absolutePath);
+                                    if (c.this.dTP != null) {
+                                        c.this.dTP.au(-1, absolutePath);
                                     }
                                 }
                                 com.baidu.swan.c.d.closeSafely(inputStream);

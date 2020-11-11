@@ -145,7 +145,7 @@ public class WebRtcAudioTrack {
             Logging.w(TAG, "Unable to use fast mode since requested sample rate is not native");
         }
         String str = Build.MODEL;
-        return (a.cjb == 2 || str.contains("NV6001") || str.contains("NV6101") || str.contains("XDH-0F-A1") || str.contains("NV5001")) ? new AudioTrack(new AudioAttributes.Builder().setUsage(1).setContentType(2).build(), new AudioFormat.Builder().setEncoding(2).setSampleRate(i).setChannelMask(i2).build(), i3, 1, 0) : new AudioTrack(new AudioAttributes.Builder().setUsage(DEFAULT_USAGE).setContentType(1).build(), new AudioFormat.Builder().setEncoding(2).setSampleRate(i).setChannelMask(i2).build(), i3, 1, 0);
+        return (a.coX == 2 || str.contains("NV6001") || str.contains("NV6101") || str.contains("XDH-0F-A1") || str.contains("NV5001")) ? new AudioTrack(new AudioAttributes.Builder().setUsage(1).setContentType(2).build(), new AudioFormat.Builder().setEncoding(2).setSampleRate(i).setChannelMask(i2).build(), i3, 1, 0) : new AudioTrack(new AudioAttributes.Builder().setUsage(DEFAULT_USAGE).setContentType(1).build(), new AudioFormat.Builder().setEncoding(2).setSampleRate(i).setChannelMask(i2).build(), i3, 1, 0);
     }
 
     private static AudioTrack createAudioTrackOnLowerThanLollipop(int i, int i2, int i3) {

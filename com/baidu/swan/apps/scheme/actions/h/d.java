@@ -20,25 +20,25 @@ public class d extends aa {
         if (DEBUG) {
             Log.d("SwanAppAction", "handle entity: " + unitedSchemeEntity.toString());
         }
-        if (eVar != null && eVar.aha()) {
+        if (eVar != null && eVar.ajA()) {
             if (DEBUG) {
                 Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
             return false;
         }
-        f adm = com.baidu.swan.apps.v.f.axo().adm();
-        if (adm == null) {
+        f afM = com.baidu.swan.apps.v.f.azO().afM();
+        if (afM == null) {
             com.baidu.swan.apps.console.c.e("navigationLoading", "manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.d.c amB = adm.amB();
-        if (amB == null) {
+        com.baidu.swan.apps.core.d.c apb = afM.apb();
+        if (apb == null) {
             com.baidu.swan.apps.console.c.e("navigationLoading", "swanAppFragment is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!amB.alW()) {
+        } else if (!apb.aow()) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             com.baidu.swan.apps.console.c.e("navigationLoading", "show navigation loading progressbar fail");
             return false;

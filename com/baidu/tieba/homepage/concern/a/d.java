@@ -16,57 +16,57 @@ import tbclient.DiscoverHotForum;
 import tbclient.DiscoverTabCard;
 /* loaded from: classes22.dex */
 public class d extends AbsThreadDataSupport {
-    private boolean jrb = false;
-    private List<q> jrc;
+    private boolean jwY = false;
+    private List<q> jwZ;
 
-    public List<q> cGv() {
-        return this.jrc;
+    public List<q> cIW() {
+        return this.jwZ;
     }
 
-    public void dt(List<q> list) {
-        this.jrc = list;
+    public void dB(List<q> list) {
+        this.jwZ = list;
     }
 
     public static boolean a(DiscoverHotForum discoverHotForum, int i) {
-        return TbadkApplication.isLogin() && com.baidu.tbadk.a.d.bfA() && discoverHotForum != null && discoverHotForum.floor != null && (i < 0 || i == discoverHotForum.floor.intValue() + (-1)) && !y.isEmpty(discoverHotForum.tab_list);
+        return TbadkApplication.isLogin() && com.baidu.tbadk.a.d.bia() && discoverHotForum != null && discoverHotForum.floor != null && (i < 0 || i == discoverHotForum.floor.intValue() + (-1)) && !y.isEmpty(discoverHotForum.tab_list);
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bw bhz() {
+    public bw bjZ() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public ar bhB() {
+    public ar bkb() {
         return null;
     }
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return l.hVB;
+        return l.iby;
     }
 
-    public boolean cGw() {
-        return this.jrb;
+    public boolean cIX() {
+        return this.jwY;
     }
 
-    public boolean du(List<DiscoverTabCard> list) {
+    public boolean dC(List<DiscoverTabCard> list) {
         if (y.isEmpty(list)) {
             return false;
         }
         List<q> arrayList = new ArrayList<>();
-        dt(arrayList);
+        dB(arrayList);
         for (int i = 0; i < list.size(); i++) {
             DiscoverTabCard discoverTabCard = list.get(i);
             if (discoverTabCard.forum_list != null && discoverTabCard.forum_list.size() >= 3) {
                 e eVar = new e();
-                this.jrb = StringUtils.isNull(discoverTabCard.name) || this.jrb;
-                eVar.jrd = discoverTabCard.name;
-                eVar.jre = discoverTabCard.is_show_order_number == null ? false : discoverTabCard.is_show_order_number.booleanValue();
-                eVar.aHs = discoverTabCard.jump_name;
+                this.jwY = StringUtils.isNull(discoverTabCard.name) || this.jwY;
+                eVar.jxa = discoverTabCard.name;
+                eVar.jxb = discoverTabCard.is_show_order_number == null ? false : discoverTabCard.is_show_order_number.booleanValue();
+                eVar.aIk = discoverTabCard.jump_name;
                 for (int i2 = 0; i2 < discoverTabCard.forum_list.size() && i2 < 3; i2++) {
-                    eVar.jrf[i2] = new e.a();
-                    eVar.jrf[i2].Lo(discoverTabCard.forum_list.get(i2).forum_name).Ln(discoverTabCard.forum_list.get(i2).avatar).Lq(discoverTabCard.forum_list.get(i2).hot_text).Lp(discoverTabCard.forum_list.get(i2).slogan).AZ(discoverTabCard.forum_list.get(i2).member_count.intValue()).Ba(discoverTabCard.forum_list.get(i2).thread_count.intValue()).qG(discoverTabCard.forum_list.get(i2).is_like.intValue() == 1).f(discoverTabCard.forum_list.get(i2).forum_id).fu(discoverTabCard.forum_list.get(i2).hot_thread_id.longValue());
+                    eVar.jxc[i2] = new e.a();
+                    eVar.jxc[i2].LF(discoverTabCard.forum_list.get(i2).forum_name).LE(discoverTabCard.forum_list.get(i2).avatar).LH(discoverTabCard.forum_list.get(i2).hot_text).LG(discoverTabCard.forum_list.get(i2).slogan).Bm(discoverTabCard.forum_list.get(i2).member_count.intValue()).Bn(discoverTabCard.forum_list.get(i2).thread_count.intValue()).qP(discoverTabCard.forum_list.get(i2).is_like.intValue() == 1).f(discoverTabCard.forum_list.get(i2).forum_id).fQ(discoverTabCard.forum_list.get(i2).hot_thread_id.longValue());
                 }
                 arrayList.add(eVar);
                 if (arrayList.size() >= 6) {

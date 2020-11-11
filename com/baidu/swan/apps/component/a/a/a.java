@@ -57,19 +57,19 @@ public abstract class a<V extends SwanEditText, M extends b> extends com.baidu.s
     public com.baidu.swan.apps.component.d.b a(@NonNull M m, @NonNull M m2) {
         com.baidu.swan.apps.component.d.b a2 = super.a(m, m2);
         if (getView() != 0 && !TextUtils.equals(((SwanEditText) getView()).getText().toString(), m2.text)) {
-            a2.hA(6);
+            a2.hK(6);
         }
         if (m.maxLength != m2.maxLength) {
-            a2.hA(10);
+            a2.hK(10);
         }
-        if (m.cxq != m2.cxq) {
-            a2.hA(11);
+        if (m.cDj != m2.cDj) {
+            a2.hK(11);
         }
         if (m.selectionStart != m2.selectionStart || m.selectionEnd != m2.selectionEnd) {
-            a2.hA(12);
+            a2.hK(12);
         }
-        if (!TextUtils.equals(m.cxr, m2.cxr)) {
-            a2.hA(13);
+        if (!TextUtils.equals(m.cDk, m2.cDk)) {
+            a2.hK(13);
         }
         return a2;
     }
@@ -77,16 +77,16 @@ public abstract class a<V extends SwanEditText, M extends b> extends com.baidu.s
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(@NonNull V v, @NonNull M m, @NonNull com.baidu.swan.apps.component.d.b bVar) {
         super.a((a<V, M>) v, (V) m, bVar);
-        if (bVar.hB(11)) {
+        if (bVar.hL(11)) {
             b((a<V, M>) v, (V) m);
         }
-        if (bVar.hB(12)) {
+        if (bVar.hL(12)) {
             c((a<V, M>) v, (V) m);
         }
-        if (bVar.hB(10)) {
+        if (bVar.hL(10)) {
             d((a<V, M>) v, (V) m);
         }
-        if (bVar.hB(13)) {
+        if (bVar.hL(13)) {
             e((a<V, M>) v, (V) m);
         }
     }
@@ -107,8 +107,8 @@ public abstract class a<V extends SwanEditText, M extends b> extends com.baidu.s
         if (text != null) {
             i = text.length();
         }
-        if (m.cxq <= i && m.cxq >= 0) {
-            v.setSelection(m.cxq);
+        if (m.cDj <= i && m.cDj >= 0) {
+            v.setSelection(m.cDj);
         }
     }
 
@@ -138,9 +138,9 @@ public abstract class a<V extends SwanEditText, M extends b> extends com.baidu.s
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean e(@NonNull V v, @NonNull M m) {
         if (DEBUG) {
-            Log.d("Component-EditText", "renderConfirmType:" + m.cxr);
+            Log.d("Component-EditText", "renderConfirmType:" + m.cDk);
         }
-        String str = m.cxr;
+        String str = m.cDk;
         char c = 65535;
         switch (str.hashCode()) {
             case -906336856:

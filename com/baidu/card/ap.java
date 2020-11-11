@@ -43,13 +43,13 @@ public class ap extends i {
     @Override // com.baidu.card.p
     /* renamed from: b */
     public void H(AbsThreadDataSupport absThreadDataSupport) {
-        if (absThreadDataSupport != null && absThreadDataSupport.bhz() != null && absThreadDataSupport.bhz().eAy != null && absThreadDataSupport.bhz().eAy.item != null) {
-            if (absThreadDataSupport.bhz().eAy.euX) {
+        if (absThreadDataSupport != null && absThreadDataSupport.bjZ() != null && absThreadDataSupport.bjZ().eGn != null && absThreadDataSupport.bjZ().eGn.item != null) {
+            if (absThreadDataSupport.bjZ().eGn.eAQ) {
                 this.aii.setVisibility(8);
                 return;
             }
             this.aii.setVisibility(0);
-            this.agn.setData(absThreadDataSupport.bhz().eAy.item, 13);
+            this.agn.setData(absThreadDataSupport.bjZ().eGn.item, 13);
             return;
         }
         this.aii.setVisibility(8);

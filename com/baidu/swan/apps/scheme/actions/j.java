@@ -33,9 +33,9 @@ public class j extends aa {
             return false;
         }
         JSONObject jSONObject = null;
-        if (com.baidu.swan.apps.storage.b.tj(optString) == PathType.BD_FILE) {
+        if (com.baidu.swan.apps.storage.b.tx(optString) == PathType.BD_FILE) {
             jSONObject = cs(com.baidu.swan.apps.storage.b.cz(optString, eVar.id), optString);
-        } else if (com.baidu.swan.apps.storage.b.tj(optString) == PathType.RELATIVE) {
+        } else if (com.baidu.swan.apps.storage.b.tx(optString) == PathType.RELATIVE) {
             jSONObject = cs(com.baidu.swan.apps.storage.b.a(optString, eVar, eVar.getVersion()), optString);
         }
         if (jSONObject != null) {
@@ -65,18 +65,18 @@ public class j extends aa {
             str4 = split[split.length - 1];
         }
         if (!TextUtils.equals("png", str4)) {
-            ExifInterface kR = kR(str);
-            if (kR == null) {
+            ExifInterface lg = lg(str);
+            if (lg == null) {
                 return null;
             }
-            i = kR.getAttributeInt(android.support.media.ExifInterface.TAG_ORIENTATION, 1);
+            i = lg.getAttributeInt(android.support.media.ExifInterface.TAG_ORIENTATION, 1);
         }
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("width", i2);
             jSONObject.put("height", i3);
             jSONObject.put("path", str2);
-            jSONObject.put("orientation", kh(i));
+            jSONObject.put("orientation", kr(i));
             jSONObject.put("type", str4);
         } catch (JSONException e) {
             com.baidu.swan.apps.console.c.e("getImageInfo", "getImgInfo failed by json exception");
@@ -88,7 +88,7 @@ public class j extends aa {
         return jSONObject;
     }
 
-    private String kh(int i) {
+    private String kr(int i) {
         switch (i) {
             case 0:
             case 1:
@@ -112,7 +112,7 @@ public class j extends aa {
         }
     }
 
-    private ExifInterface kR(String str) {
+    private ExifInterface lg(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

@@ -12,14 +12,24 @@ import org.apache.http.cookie.SM;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public final class c {
-    private static final String Yv() {
-        Context YS = g.YS();
-        q.m(YS, "SdkRunTime.getAppContext()");
-        PackageManager packageManager = YS.getPackageManager();
+    public static final void a(com.baidu.poly.a.a.c cVar) {
+        if (cVar != null) {
+            cVar.g("channel", "cashiersdk");
+            cVar.g(CashierData.DEVICE_TYPE, "ANDROID");
+            cVar.g(CommandMessage.SDK_VERSION, "2.7.4");
+            cVar.g("appVersion", aaU());
+            cVar.g("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
+        }
+    }
+
+    private static final String aaU() {
+        Context abr = g.abr();
+        q.m(abr, "SdkRunTime.getAppContext()");
+        PackageManager packageManager = abr.getPackageManager();
         try {
-            Context YS2 = g.YS();
-            q.m(YS2, "SdkRunTime.getAppContext()");
-            String str = packageManager.getPackageInfo(YS2.getPackageName(), 0).versionName;
+            Context abr2 = g.abr();
+            q.m(abr2, "SdkRunTime.getAppContext()");
+            String str = packageManager.getPackageInfo(abr2.getPackageName(), 0).versionName;
             q.m(str, "packageInfo.versionName");
             return str;
         } catch (PackageManager.NameNotFoundException e) {
@@ -28,17 +38,7 @@ public final class c {
         }
     }
 
-    public static final void a(com.baidu.poly.a.a.c cVar) {
-        if (cVar != null) {
-            cVar.g("channel", "cashiersdk");
-            cVar.g(CashierData.DEVICE_TYPE, "ANDROID");
-            cVar.g(CommandMessage.SDK_VERSION, "2.7.4");
-            cVar.g("appVersion", Yv());
-            cVar.g("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
-        }
-    }
-
-    public static final com.baidu.poly.a.a.b am(JSONObject jSONObject) {
+    public static final com.baidu.poly.a.a.b as(JSONObject jSONObject) {
         com.baidu.poly.a.a.b bVar = new com.baidu.poly.a.a.b();
         if (jSONObject != null) {
             Iterator<String> keys = jSONObject.keys();

@@ -3,6 +3,7 @@ package com.baidu.live.tbadk.extraparams;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.atomdata.BuyTBeanActivityConfig;
 import com.baidu.live.tbadk.extraparams.interfaces.IExtraParams;
 import com.baidu.live.tbadk.extraparams.interfaces.IExtraParamsBuilder;
@@ -14,6 +15,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ExtraParamsManager {
+    public static final String KEY_AB_TEST_OPEN = "key_ab_test_open";
     public static final String KEY_BUY_TBEAN_RESULT_CALLBACK = "buy_tbean_result_callback";
     public static final String KEY_CMD = "cmd";
     public static final String KEY_DO_LOG = "do_log";
@@ -35,6 +37,7 @@ public class ExtraParamsManager {
     public static final String KEY_PRE_DOWANLOAD_SWAN = "preDowanloadSwan";
     public static final String KEY_PROCESS_PLUGIN_ASYNC_CALLBACK = "process_plugin_async_callback";
     public static final String KEY_RESULT = "result";
+    public static final String KEY_SHOP_GIFT_ICON_AB = "key_shop_gift_icon_ab";
     public static final String KEY_SHOW_MODIFY_NICKNAME_DIALOG = "showModifyNickNameDialog";
     public static final String KEY_STORAGE_CLEAN_SPACE_CLEANABLE = "storage_clean_space_cleanable";
     public static final String KEY_STORAGE_FETCH_SPACE_CLEANABLE = "storage_fetch_space_cleanable";
@@ -398,6 +401,29 @@ public class ExtraParamsManager {
             e.printStackTrace();
             return "";
         }
+    }
+
+    public static boolean getABTestSwitcher(String str, boolean z) {
+        IExtraParams buildParamsExtra;
+        Boolean bool;
+        if (!StringUtils.isNull(str) && (buildParamsExtra = getInstance().buildParamsExtra()) != null) {
+            try {
+                HashMap hashMap = new HashMap();
+                hashMap.put(KEY_AB_TEST_OPEN, str);
+                Map<String, Object> process = buildParamsExtra.process(hashMap);
+                if (process != null && process.containsKey(KEY_AB_TEST_OPEN) && (process.get(KEY_AB_TEST_OPEN) instanceof Boolean) && (bool = (Boolean) process.get(KEY_AB_TEST_OPEN)) != null) {
+                    if (bool.booleanValue()) {
+                        return true;
+                    }
+                    return false;
+                }
+                return z;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return z;
+            }
+        }
+        return z;
     }
 
     public static Object doProcessObject(String str, Object obj) {

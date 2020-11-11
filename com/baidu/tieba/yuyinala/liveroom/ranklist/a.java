@@ -18,19 +18,19 @@ import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.tieba.yuyinala.liveroom.a {
-    private int aJw;
-    private String baa;
-    private long fTr;
-    private String hmA;
+    private int aKw;
+    private String bbt;
+    private long fZh;
+    private String hsy;
     private boolean mIsHost;
     private String mPortrait;
     private String mRoomId;
     private String mRoomName;
-    private String nLi;
-    private String nRp;
-    public RankListView nRq;
-    private int nRr;
-    private String nRs;
+    private String nRc;
+    private String nYB;
+    public RankListView nYC;
+    private int nYD;
+    private String nYE;
     public String otherParams;
 
     public a(TbPageContext tbPageContext) {
@@ -38,39 +38,39 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a {
     }
 
     public void a(int i, String str, String str2, boolean z, String str3, String str4, String str5, long j, String str6, int i2, String str7, String str8, String str9) {
-        this.aJw = i;
-        this.nRp = str;
-        this.nRs = str8;
+        this.aKw = i;
+        this.nYB = str;
+        this.nYE = str8;
         this.mRoomName = str9;
-        this.hmA = str2;
+        this.hsy = str2;
         this.mIsHost = z;
         this.mPortrait = str3;
-        this.baa = str5;
-        this.fTr = j;
-        this.nLi = str6;
-        this.nRr = i2;
+        this.bbt = str5;
+        this.fZh = j;
+        this.nRc = str6;
+        this.nYD = i2;
         this.otherParams = str4;
         this.mRoomId = str7;
     }
 
-    public void czY() {
-        if (this.nRq != null) {
-            this.nRq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.ranklist.a.1
+    public void cCz() {
+        if (this.nYC != null) {
+            this.nYC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.ranklist.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new b(a.this.getPageContext().getPageActivity(), a.this.aJw, a.this.nRp, a.this.hmA, RequestResponseCode.REQUEST_RANK_LIST_TO_SHARE, a.this.mIsHost, a.this.mPortrait, a.this.otherParams, a.this.baa, a.this.fTr, a.this.nLi, a.this.mRoomId, a.this.nRs, a.this.mRoomName)));
-                    a.this.dVw();
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new b(a.this.getPageContext().getPageActivity(), a.this.aKw, a.this.nYB, a.this.hsy, RequestResponseCode.REQUEST_RANK_LIST_TO_SHARE, a.this.mIsHost, a.this.mPortrait, a.this.otherParams, a.this.bbt, a.this.fZh, a.this.nRc, a.this.mRoomId, a.this.nYE, a.this.mRoomName)));
+                    a.this.dYl();
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dVw() {
+    public void dYl() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.nLi);
+            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.nRc);
         } catch (Exception e) {
             BdLog.e(e);
         }
@@ -78,57 +78,57 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a {
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
-    public void av(ViewGroup viewGroup) {
-        super.av(viewGroup);
-        aD(viewGroup);
+    public void ax(ViewGroup viewGroup) {
+        super.ax(viewGroup);
+        aF(viewGroup);
     }
 
-    private void aD(ViewGroup viewGroup) {
-        if (this.nRq != null && this.nRq.getParent() != null) {
-            ((ViewGroup) this.nRq.getParent()).removeView(this.nRq);
+    private void aF(ViewGroup viewGroup) {
+        if (this.nYC != null && this.nYC.getParent() != null) {
+            ((ViewGroup) this.nYC.getParent()).removeView(this.nYC);
         }
-        if (this.nRq == null) {
-            this.nRq = new RankListView(getPageContext().getPageActivity());
+        if (this.nYC == null) {
+            this.nYC = new RankListView(getPageContext().getPageActivity());
         }
-        this.nRq.setId(a.g.ala_liveroom_ranklist);
-        this.nRq.setmTvText(this.nRr);
+        this.nYC.setId(a.f.ala_liveroom_ranklist);
+        this.nYC.setmTvText(this.nYD);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams.addRule(1, a.g.guard_club_entry_id);
-        layoutParams.addRule(3, a.g.ala_liveroom_hostheader);
-        layoutParams.leftMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds20);
-        layoutParams.topMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds14);
-        viewGroup.addView(this.nRq, layoutParams);
+        layoutParams.addRule(1, a.f.guard_club_entry_id);
+        layoutParams.addRule(3, a.f.ala_liveroom_hostheader);
+        layoutParams.leftMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds20);
+        layoutParams.topMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds14);
+        viewGroup.addView(this.nYC, layoutParams);
     }
 
-    public void LT(int i) {
-        if (this.nRq != null) {
-            this.nRq.setmTvText(i);
+    public void Mk(int i) {
+        if (this.nYC != null) {
+            this.nYC.setmTvText(i);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
-    public void CT() {
-        super.CT();
-        if (this.nRq != null && this.nRq.getParent() != null) {
-            ((ViewGroup) this.nRq.getParent()).removeView(this.nRq);
+    public void Dm() {
+        super.Dm();
+        if (this.nYC != null && this.nYC.getParent() != null) {
+            ((ViewGroup) this.nYC.getParent()).removeView(this.nYC);
         }
-        if (this.nRq != null) {
-            this.nRq.destory();
-            this.nRq = null;
+        if (this.nYC != null) {
+            this.nYC.destory();
+            this.nYC = null;
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
     public void onDestroy() {
-        if (this.nRq != null) {
-            this.nRq.destory();
-            this.nRq = null;
+        if (this.nYC != null) {
+            this.nYC.destory();
+            this.nYC = null;
         }
     }
 
-    public void cey() {
+    public void chb() {
     }
 
-    public void cez() {
+    public void chc() {
     }
 }

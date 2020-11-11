@@ -60,11 +60,11 @@ public class af extends i {
         a(1, new a.b() { // from class: com.baidu.card.af.2
             @Override // com.baidu.card.a.a.b
             public boolean a(a.C0097a c0097a) {
-                if (af.this.afI != null && af.this.afI.bhz() != null && !af.this.tC().booleanValue()) {
-                    bw bhz = af.this.afI.bhz();
-                    com.baidu.tieba.card.n.II(bhz.getId());
-                    com.baidu.tieba.card.n.a(af.this.aha.mTitle, bhz.getId(), R.color.cp_cont_b, R.color.cp_cont_d);
-                    com.baidu.tieba.card.n.a(af.this.aha.agm, bhz.getId(), R.color.cp_cont_b, R.color.cp_cont_d);
+                if (af.this.afI != null && af.this.afI.bjZ() != null && !af.this.tC().booleanValue()) {
+                    bw bjZ = af.this.afI.bjZ();
+                    com.baidu.tieba.card.n.IZ(bjZ.getId());
+                    com.baidu.tieba.card.n.a(af.this.aha.mTitle, bjZ.getId(), R.color.cp_cont_b, R.color.cp_cont_d);
+                    com.baidu.tieba.card.n.a(af.this.aha.agm, bjZ.getId(), R.color.cp_cont_b, R.color.cp_cont_d);
                 }
                 return false;
             }

@@ -7,25 +7,25 @@ import java.util.Map;
 public class au implements ar {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile au f4798a;
+    private static volatile au f4800a;
 
     /* renamed from: a  reason: collision with other field name */
-    private ar f112a;
+    private ar f114a;
 
     private au(Context context) {
-        this.f112a = at.a(context);
-        com.xiaomi.channel.commonutils.logger.b.m54a("create id manager is: " + this.f112a);
+        this.f114a = at.a(context);
+        com.xiaomi.channel.commonutils.logger.b.m54a("create id manager is: " + this.f114a);
     }
 
     public static au a(Context context) {
-        if (f4798a == null) {
+        if (f4800a == null) {
             synchronized (au.class) {
-                if (f4798a == null) {
-                    f4798a = new au(context.getApplicationContext());
+                if (f4800a == null) {
+                    f4800a = new au(context.getApplicationContext());
                 }
             }
         }
-        return f4798a;
+        return f4800a;
     }
 
     private String a(String str) {
@@ -34,7 +34,7 @@ public class au implements ar {
 
     @Override // com.xiaomi.push.ar
     public String a() {
-        return a(this.f112a.a());
+        return a(this.f114a.a());
     }
 
     public void a(Map<String, String> map) {
@@ -62,22 +62,22 @@ public class au implements ar {
 
     @Override // com.xiaomi.push.ar
     public boolean a() {
-        return this.f112a.m137a();
+        return this.f114a.m137a();
     }
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
     public String mo135b() {
-        return a(this.f112a.mo135b());
+        return a(this.f114a.mo135b());
     }
 
     @Override // com.xiaomi.push.ar
     public String c() {
-        return a(this.f112a.c());
+        return a(this.f114a.c());
     }
 
     @Override // com.xiaomi.push.ar
     public String d() {
-        return a(this.f112a.d());
+        return a(this.f114a.d());
     }
 }

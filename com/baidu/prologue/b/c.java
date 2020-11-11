@@ -5,8 +5,8 @@ import java.io.File;
 /* loaded from: classes19.dex */
 public class c {
     int Lc = 1;
-    String cdp;
-    String cdq;
+    String cja;
+    String cjb;
     File mFile;
 
     public static c b(@NonNull File file, @NonNull String str) {
@@ -15,6 +15,6 @@ public class c {
 
     private c(File file, String str) {
         this.mFile = file;
-        this.cdq = str;
+        this.cjb = str;
     }
 }

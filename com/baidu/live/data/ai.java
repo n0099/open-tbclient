@@ -1,36 +1,24 @@
 package com.baidu.live.data;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ai {
-    public String aHs;
-    public String aIv;
-    public String aJA;
-    public String aJB;
-    public boolean aJC;
-    public int aJy;
-    public int aJz;
-    public int duration;
-    public String iconUrl;
-    public int limit;
-    public String picUrl;
+    public int aKw;
+    public int aKx;
+    public String mAppid;
+    public int mOpenType;
 
-    public void parseJson(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.aJy = optJSONObject.optInt("interval");
-            this.picUrl = optJSONObject.optString("pic_url");
-            this.aJz = optJSONObject.optInt("is_month_super_customer");
-            this.aHs = optJSONObject.optString(BigdayActivityConfig.JUMP_URL);
-            this.aJA = optJSONObject.optString("jump_url_audio");
-            this.limit = optJSONObject.optInt(Constants.EXTRA_CONFIG_LIMIT);
-            this.duration = optJSONObject.optInt("duration");
-            this.aIv = optJSONObject.optString("toast_text");
-            this.iconUrl = optJSONObject.optString("icon_url");
-            this.aJB = optJSONObject.optString("btn_url");
-            this.aJC = optJSONObject.optInt("audio_show_switch") == 1;
+    public String toJsonString() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.putOpt(UbcStatConstant.KEY_LIVE_TYPE, Integer.valueOf(this.aKw));
+            jSONObject.putOpt("open_type", Integer.valueOf(this.mOpenType));
+            jSONObject.putOpt("screen_direction", Integer.valueOf(this.aKx));
+            jSONObject.putOpt("appid", this.mAppid);
+            return jSONObject.toString();
+        } catch (Exception e) {
+            return "";
         }
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.tbadkCore;
 import tbclient.FrsPage.BusinessPromotCommentList;
 /* loaded from: classes.dex */
 public class j {
-    private int mOI;
+    private int mUN;
     private String title;
     private long uid;
     private String username;
@@ -13,7 +13,7 @@ public class j {
             this.title = businessPromotCommentList.title;
             this.username = businessPromotCommentList.username;
             this.uid = businessPromotCommentList.uid.longValue();
-            this.mOI = businessPromotCommentList.is_lz.intValue();
+            this.mUN = businessPromotCommentList.is_lz.intValue();
         }
     }
 
@@ -21,7 +21,7 @@ public class j {
         return this.title;
     }
 
-    public boolean dGB() {
-        return this.mOI == 1;
+    public boolean dJd() {
+        return this.mUN == 1;
     }
 }

@@ -12,24 +12,24 @@ import java.util.Map;
 /* loaded from: classes15.dex */
 public class a {
     private static final boolean DEBUG = d.DEBUG;
-    private static Map<String, a> edC = new HashMap();
-    private static Map<String, Map<String, a>> edD = new HashMap();
-    public final String cMz;
-    public final String ebO;
-    public final AbiType ebU;
+    private static Map<String, a> eju = new HashMap();
+    private static Map<String, Map<String, a>> ejv = new HashMap();
+    public final String cSs;
+    public final String ehG;
+    public final AbiType ehM;
 
     private a(@NonNull String str, @NonNull AbiType abiType) {
-        this.cMz = TextUtils.isEmpty(str) ? "" : str;
-        this.ebU = abiType;
-        this.ebO = c(str, abiType);
+        this.cSs = TextUtils.isEmpty(str) ? "" : str;
+        this.ehM = abiType;
+        this.ehG = c(str, abiType);
         if (DEBUG) {
-            Log.i("SoBundleId", "SoBundleId: " + this.ebO + " libName=" + str + " abi=" + abiType);
+            Log.i("SoBundleId", "SoBundleId: " + this.ehG + " libName=" + str + " abi=" + abiType);
         }
     }
 
     @NonNull
     public String toString() {
-        return this.ebO;
+        return this.ehG;
     }
 
     @Nullable
@@ -42,7 +42,7 @@ public class a {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:19:0x0078, code lost:
-        if (android.text.TextUtils.equals(r6, r0.cMz) == false) goto L21;
+        if (android.text.TextUtils.equals(r6, r0.cSs) == false) goto L21;
      */
     @Nullable
     /*
@@ -57,8 +57,8 @@ public class a {
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 aVar = null;
             } else {
-                yp(str);
-                aVar = edC.get(str2);
+                yD(str);
+                aVar = eju.get(str2);
                 if (DEBUG) {
                     Log.i("SoBundleId", "of: end libName=" + str + " soBundleId=" + aVar);
                 }
@@ -70,27 +70,27 @@ public class a {
         return aVar;
     }
 
-    public static synchronized Map<String, a> yo(@NonNull String str) {
+    public static synchronized Map<String, a> yC(@NonNull String str) {
         HashMap hashMap;
         synchronized (a.class) {
-            hashMap = new HashMap(yp(str));
+            hashMap = new HashMap(yD(str));
         }
         return hashMap;
     }
 
-    private static synchronized Map<String, a> yp(@NonNull String str) {
+    private static synchronized Map<String, a> yD(@NonNull String str) {
         Map<String, a> map;
         synchronized (a.class) {
-            map = edD.get(str);
+            map = ejv.get(str);
             if (map == null) {
                 map = new HashMap<>();
                 if (!TextUtils.isEmpty(str)) {
                     for (AbiType abiType : AbiType.values()) {
                         a aVar = new a(str, abiType);
-                        map.put(aVar.ebO, aVar);
+                        map.put(aVar.ehG, aVar);
                     }
-                    edC.putAll(map);
-                    edD.put(str, map);
+                    eju.putAll(map);
+                    ejv.put(str, map);
                 }
             }
         }

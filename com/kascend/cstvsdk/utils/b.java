@@ -16,7 +16,7 @@ import tv.chushou.zues.utils.g;
 @h
 /* loaded from: classes6.dex */
 public final class b {
-    public static final b ptx = new b();
+    public static final b pCR = new b();
 
     private b() {
     }
@@ -26,11 +26,11 @@ public final class b {
     public static final class a implements com.kascend.chushou.c.b {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ Context f4293a;
+        final /* synthetic */ Context f4295a;
         final /* synthetic */ String b;
 
         a(Context context, String str) {
-            this.f4293a = context;
+            this.f4295a = context;
             this.b = str;
         }
 
@@ -44,11 +44,11 @@ public final class b {
             q.n(str, "responseString");
             JSONObject optJSONObject2 = (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) ? null : optJSONObject.optJSONObject("shareInfo");
             if (optJSONObject2 != null) {
-                ShareInfo eC = com.kascend.chushou.c.a.eC(optJSONObject2);
-                b bVar = b.ptx;
-                Context context = this.f4293a;
-                q.m(eC, "shareInfo");
-                bVar.a(context, eC, this.b);
+                ShareInfo eI = com.kascend.chushou.c.a.eI(optJSONObject2);
+                b bVar = b.pCR;
+                Context context = this.f4295a;
+                q.m(eI, "shareInfo");
+                bVar.a(context, eI, this.b);
                 return;
             }
             a(-1, "");
@@ -62,7 +62,7 @@ public final class b {
 
     public final void a(Context context, String str, String str2, ShareInfo shareInfo, String str3, boolean z) {
         q.n(context, "context");
-        c.eqe().c(new a(context, str3), str, str2);
+        c.etT().c(new a(context, str3), str, str2);
     }
 
     public final void a(Context context, ShareInfo shareInfo, String str) {
@@ -74,27 +74,27 @@ public final class b {
         shareParam.setThumbnail(shareInfo.mThumbnail);
         shareParam.setUrl(shareInfo.mUrl);
         shareParam.setPic(shareInfo.mPic);
-        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.eDB().S(ThirdParty.class);
+        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.eHq().S(ThirdParty.class);
         if (thirdParty != null) {
-            thirdParty.share(context, shareParam, new C1005b(shareParam, str));
+            thirdParty.share(context, shareParam, new C1024b(shareParam, str));
         }
     }
 
     @h
     /* renamed from: com.kascend.cstvsdk.utils.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C1005b implements ShareListener {
+    public static final class C1024b implements ShareListener {
         final /* synthetic */ String b;
-        final /* synthetic */ ShareParam pty;
+        final /* synthetic */ ShareParam pCS;
 
-        C1005b(ShareParam shareParam, String str) {
-            this.pty = shareParam;
+        C1024b(ShareParam shareParam, String str) {
+            this.pCS = shareParam;
             this.b = str;
         }
 
         @Override // com.kascend.cstvsdk.interfaces.ShareListener
         public void onSuccess(int i) {
-            com.kascend.chushou.toolkit.a.a.a(b.ptx.a(i), this.pty.getUrl(), this.b, "1009");
+            com.kascend.chushou.toolkit.a.a.a(b.pCR.a(i), this.pCS.getUrl(), this.b, "1009");
         }
 
         @Override // com.kascend.cstvsdk.interfaces.ShareListener

@@ -7,7 +7,7 @@ public class PriceInfo implements Parcelable {
     public static final Parcelable.Creator<PriceInfo> CREATOR = new i();
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2102a;
+    private int f2104a;
     private double b;
 
     public PriceInfo() {
@@ -15,7 +15,7 @@ public class PriceInfo implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public PriceInfo(Parcel parcel) {
-        this.f2102a = parcel.readInt();
+        this.f2104a = parcel.readInt();
         this.b = parcel.readDouble();
     }
 
@@ -29,7 +29,7 @@ public class PriceInfo implements Parcelable {
     }
 
     public int getTicketType() {
-        return this.f2102a;
+        return this.f2104a;
     }
 
     public void setTicketPrice(double d) {
@@ -37,12 +37,12 @@ public class PriceInfo implements Parcelable {
     }
 
     public void setTicketType(int i) {
-        this.f2102a = i;
+        this.f2104a = i;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f2102a);
+        parcel.writeInt(this.f2104a);
         parcel.writeDouble(this.b);
     }
 }

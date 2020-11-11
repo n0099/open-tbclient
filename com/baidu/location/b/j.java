@@ -7,9 +7,9 @@ import java.io.RandomAccessFile;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private static j f1886a = null;
+    private static j f1888a = null;
     private static String b = "Temp_in.dat";
-    private static File c = new File(com.baidu.location.e.k.f1954a, b);
+    private static File c = new File(com.baidu.location.e.k.f1956a, b);
     private static StringBuffer d = null;
     private static boolean e = true;
     private static int f = 0;

@@ -1,12 +1,10 @@
 package com.baidu.tieba.ala.liveroom.data;
 
-import android.os.Bundle;
-import com.baidu.live.data.AlaLivePersonData;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class g {
-    public String forumId;
-    public String forumName;
-    public AlaLivePersonData hbi;
-    public Bundle hbj;
-    public String specialForumType;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject == null) {
+        }
+    }
 }

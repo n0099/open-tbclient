@@ -19,48 +19,48 @@ import java.util.Arrays;
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static C0476a c(String str, String str2, String str3, int i) {
+    public static C0488a c(String str, String str2, String str3, int i) {
         if (DEBUG) {
             Log.d("RemoteSwanCoreControl", "doRemoteUpdate start.");
             Log.d("RemoteSwanCoreControl", "doRemoteUpdate version: " + str + " ,filePath: " + str2 + " ,sign:" + str3);
         }
-        long tB = com.baidu.swan.apps.swancore.b.tB(str);
-        if (tB == 0) {
-            return C0476a.tC("invalid version code : " + str);
+        long tP = com.baidu.swan.apps.swancore.b.tP(str);
+        if (tP == 0) {
+            return C0488a.tQ("invalid version code : " + str);
         }
         if (!ae.e(new File(str2), str3)) {
-            return C0476a.tC("sign failed.");
+            return C0488a.tQ("sign failed.");
         }
-        if (!d.unzipFile(str2, k(tB, i).getPath())) {
-            return C0476a.tC("unzip bundle failed.");
+        if (!d.unzipFile(str2, o(tP, i).getPath())) {
+            return C0488a.tQ("unzip bundle failed.");
         }
         if (DEBUG) {
             String md5 = e.toMd5(new File(str2), false);
             if (!TextUtils.isEmpty(md5)) {
-                h.aIs().putString(com.baidu.swan.apps.swancore.a.kq(i), md5);
+                h.aKS().putString(com.baidu.swan.apps.swancore.a.kA(i), md5);
             }
         }
         if (ProcessUtils.isMainProcess()) {
-            com.baidu.swan.apps.swancore.b.b(kQ(i), l(kN(i), tB));
+            com.baidu.swan.apps.swancore.b.b(la(i), m(kX(i), tP));
         }
-        j(tB, i);
+        n(tP, i);
         if (DEBUG) {
-            Log.d("RemoteSwanCoreControl", "doRemoteUpdate end. version = " + tB);
+            Log.d("RemoteSwanCoreControl", "doRemoteUpdate end. version = " + tP);
         }
-        return C0476a.aIG();
+        return C0488a.aLg();
     }
 
-    private static ArrayList<Long> l(long j, long j2) {
-        SwanCoreVersion apD;
+    private static ArrayList<Long> m(long j, long j2) {
+        SwanCoreVersion asd;
         ArrayList<Long> arrayList = new ArrayList<>();
         if (j != 0) {
             arrayList.add(Long.valueOf(j));
         }
         arrayList.add(Long.valueOf(j2));
-        for (c cVar : com.baidu.swan.apps.process.messaging.service.e.aDs().aDu()) {
-            SwanAppCores aDe = cVar.aDe();
-            if (cVar.aDf() && aDe != null && (apD = aDe.apD()) != null && !arrayList.contains(Long.valueOf(apD.swanCoreVersion))) {
-                arrayList.add(Long.valueOf(apD.swanCoreVersion));
+        for (c cVar : com.baidu.swan.apps.process.messaging.service.e.aFS().aFU()) {
+            SwanAppCores aFE = cVar.aFE();
+            if (cVar.aFF() && aFE != null && (asd = aFE.asd()) != null && !arrayList.contains(Long.valueOf(asd.swanCoreVersion))) {
+                arrayList.add(Long.valueOf(asd.swanCoreVersion));
             }
         }
         if (DEBUG) {
@@ -69,33 +69,33 @@ public class a {
         return arrayList;
     }
 
-    public static SwanCoreVersion k(int i, long j) {
+    public static SwanCoreVersion j(int i, long j) {
         SwanCoreVersion swanCoreVersion = new SwanCoreVersion();
-        swanCoreVersion.swanCorePath = k(j, i).getPath();
+        swanCoreVersion.swanCorePath = o(j, i).getPath();
         swanCoreVersion.swanCoreType = 1;
         swanCoreVersion.swanCoreVersion = j;
         return swanCoreVersion;
     }
 
-    public static long kN(int i) {
-        return h.aIs().getLong(kP(i), 0L);
+    public static long kX(int i) {
+        return h.aKS().getLong(kZ(i), 0L);
     }
 
-    public static void kO(int i) {
-        j(0L, i);
+    public static void kY(int i) {
+        n(0L, i);
     }
 
-    private static String kP(int i) {
+    private static String kZ(int i) {
         return i == 1 ? "aigames_cur_remote_ver_key" : "aiapps_cur_remote_ver_key";
     }
 
-    private static void j(final long j, final int i) {
-        h.aIs().putLong(kP(i), j);
+    private static void n(final long j, final int i) {
+        h.aKS().putLong(kZ(i), j);
         p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.swancore.d.a.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    com.baidu.swan.apps.swancore.a.aIt().g(j, i);
+                    com.baidu.swan.apps.swancore.a.aKT().k(j, i);
                 } catch (Exception e) {
                     if (a.DEBUG) {
                         e.printStackTrace();
@@ -105,17 +105,17 @@ public class a {
         }, "cacheSwanCoreInfo");
     }
 
-    private static File kQ(int i) {
-        return new File(com.baidu.swan.apps.swancore.b.ky(i), "remote");
+    private static File la(int i) {
+        return new File(com.baidu.swan.apps.swancore.b.kI(i), "remote");
     }
 
-    private static File k(long j, int i) {
-        return new File(kQ(i), String.valueOf(j));
+    private static File o(long j, int i) {
+        return new File(la(i), String.valueOf(j));
     }
 
     /* renamed from: com.baidu.swan.apps.swancore.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0476a {
+    public static class C0488a {
         public String message;
         public int statusCode = 0;
 
@@ -123,19 +123,19 @@ public class a {
             return this.statusCode == 0;
         }
 
-        public static C0476a aIG() {
-            return aj(0, "");
+        public static C0488a aLg() {
+            return an(0, "");
         }
 
-        public static C0476a tC(String str) {
-            return aj(1, str);
+        public static C0488a tQ(String str) {
+            return an(1, str);
         }
 
-        public static C0476a aj(int i, String str) {
-            C0476a c0476a = new C0476a();
-            c0476a.statusCode = i;
-            c0476a.message = str;
-            return c0476a;
+        public static C0488a an(int i, String str) {
+            C0488a c0488a = new C0488a();
+            c0488a.statusCode = i;
+            c0488a.message = str;
+            return c0488a;
         }
 
         @NonNull

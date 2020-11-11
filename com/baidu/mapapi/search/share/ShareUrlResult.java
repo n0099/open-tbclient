@@ -8,7 +8,7 @@ public class ShareUrlResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<ShareUrlResult> CREATOR = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2150a;
+    private String f2152a;
     private int b;
 
     public ShareUrlResult() {
@@ -16,7 +16,7 @@ public class ShareUrlResult extends SearchResult implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ShareUrlResult(Parcel parcel) {
-        this.f2150a = parcel.readString();
+        this.f2152a = parcel.readString();
         this.b = parcel.readInt();
     }
 
@@ -26,7 +26,7 @@ public class ShareUrlResult extends SearchResult implements Parcelable {
     }
 
     public String getUrl() {
-        return this.f2150a;
+        return this.f2152a;
     }
 
     public void setType(int i) {
@@ -34,12 +34,12 @@ public class ShareUrlResult extends SearchResult implements Parcelable {
     }
 
     public void setUrl(String str) {
-        this.f2150a = str;
+        this.f2152a = str;
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f2150a);
+        parcel.writeString(this.f2152a);
         parcel.writeInt(this.b);
     }
 }

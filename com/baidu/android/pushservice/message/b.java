@@ -19,15 +19,15 @@ public class b extends c {
         try {
             jSONObject = new JSONObject(new String(eVar.b));
         } catch (JSONException e) {
-            new b.c(this.f1174a).a(Log.getStackTraceString(e)).a();
+            new b.c(this.f1176a).a(Log.getStackTraceString(e)).a();
             jSONObject = null;
         }
         int optInt = jSONObject != null ? jSONObject.optInt("ret", -1) : -1;
         if (optInt == 2002) {
-            com.baidu.android.pushservice.j.a(this.f1174a).a(null, null, null, null);
-            m.c(this.f1174a);
+            com.baidu.android.pushservice.j.a(this.f1176a).a(null, null, null, null);
+            m.c(this.f1176a);
         }
-        new b.C0064b(this.f1174a).a(System.currentTimeMillis()).a(optInt + "").d(401102L).a();
+        new b.C0064b(this.f1176a).a(System.currentTimeMillis()).a(optInt + "").d(401102L).a();
         gVar.a(optInt);
         return gVar;
     }

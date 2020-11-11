@@ -10,49 +10,49 @@ import com.baidu.tieba.play.f;
 /* loaded from: classes21.dex */
 public class a implements e {
     private bw akq;
-    private AlaVideoContainer gMu;
-    private f gdo;
-    private boolean hRO = false;
-    private f.a hSa = new f.a() { // from class: com.baidu.tieba.card.ala.a.1
+    private AlaVideoContainer gST;
+    private f gje;
+    private boolean hXL = false;
+    private f.a hXX = new f.a() { // from class: com.baidu.tieba.card.ala.a.1
         @Override // com.baidu.tieba.play.f.a
         public void sc() {
-            a.this.cly();
+            a.this.cnZ();
         }
     };
-    private AlaInfoData hUS;
-    private String hUT;
+    private AlaInfoData iaP;
+    private String iaQ;
     private String mForumName;
 
     public a(AlaVideoContainer alaVideoContainer) {
-        this.gMu = alaVideoContainer;
-        if (this.gMu != null) {
-            this.gdo = new f();
-            this.gdo.setPlayer(this.gMu.getVideoView());
-            this.gdo.a(this.hSa);
+        this.gST = alaVideoContainer;
+        if (this.gST != null) {
+            this.gje = new f();
+            this.gje.setPlayer(this.gST.getVideoView());
+            this.gje.a(this.hXX);
         }
     }
 
     public void a(bw bwVar, String str, String str2, boolean z) {
-        this.hUT = str2;
+        this.iaQ = str2;
         this.mForumName = str;
         if (bwVar != null) {
             this.akq = bwVar;
-            if (this.gMu != null && this.akq.bku() != null) {
-                this.hUS = this.akq.bku();
-                this.gMu.setVideoThumbnail(this.hUS.cover);
+            if (this.gST != null && this.akq.bmU() != null) {
+                this.iaP = this.akq.bmU();
+                this.gST.setVideoThumbnail(this.iaP.cover);
                 if (z) {
-                    this.gMu.setTitle(this.akq.getTitle());
+                    this.gST.setTitle(this.akq.getTitle());
                 } else {
-                    this.gMu.setTitle("");
+                    this.gST.setTitle("");
                 }
-                this.gMu.setPlayCount(String.format(this.gMu.getVideoView().getContext().getResources().getString(R.string.ala_audience_count_prefix), at.numFormatOverWan(this.akq.bku().audience_count)));
+                this.gST.setPlayCount(String.format(this.gST.getVideoView().getContext().getResources().getString(R.string.ala_audience_count_prefix), at.numFormatOverWan(this.akq.bmU().audience_count)));
             }
         }
     }
 
     @Override // com.baidu.tieba.play.e
     public boolean isPlayStarted() {
-        return this.hRO;
+        return this.hXL;
     }
 
     @Override // com.baidu.tieba.play.e
@@ -71,49 +71,49 @@ public class a implements e {
 
     @Override // com.baidu.tieba.play.e
     public void stopPlay() {
-        if (this.gMu != null && this.gMu.getVideoView() != null) {
-            this.gMu.getVideoView().stopPlayback();
-            this.gMu.bMr();
-            if (this.gdo != null) {
-                this.gdo.stop();
+        if (this.gST != null && this.gST.getVideoView() != null) {
+            this.gST.getVideoView().stopPlayback();
+            this.gST.bOR();
+            if (this.gje != null) {
+                this.gje.stop();
             }
         }
-        this.hRO = false;
+        this.hXL = false;
     }
 
     @Override // com.baidu.tieba.play.e
     public View getVideoContainer() {
-        if (this.gMu != null) {
-            return this.gMu.getView();
+        if (this.gST != null) {
+            return this.gST.getView();
         }
         return null;
     }
 
     @Override // com.baidu.tieba.play.e
     public String getPlayUrl() {
-        if (this.akq == null || this.akq.bks() == null) {
+        if (this.akq == null || this.akq.bmS() == null) {
             return null;
         }
-        return this.akq.bks().video_url;
+        return this.akq.bmS().video_url;
     }
 
     @Override // com.baidu.tieba.play.e
     public int getCurrentPosition() {
-        if (this.gMu == null || this.gMu.getVideoView() == null) {
+        if (this.gST == null || this.gST.getVideoView() == null) {
             return 0;
         }
-        return this.gMu.getVideoView().getCurrentPositionSync();
+        return this.gST.getVideoView().getCurrentPositionSync();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cly() {
-        if (this.akq == null || this.akq.bks() == null) {
+    public void cnZ() {
+        if (this.akq == null || this.akq.bmS() == null) {
         }
     }
 
     public void startPlayAnimation() {
-        if (this.gMu != null) {
-            this.gMu.startPlayAnimation();
+        if (this.gST != null) {
+            this.gST.startPlayAnimation();
         }
     }
 }

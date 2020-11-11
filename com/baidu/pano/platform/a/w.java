@@ -9,25 +9,25 @@ import java.util.Locale;
 public class w {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f2662a = "Volley";
-    public static boolean b = Log.isLoggable(f2662a, 2);
+    public static String f2664a = "Volley";
+    public static boolean b = Log.isLoggable(f2664a, 2);
 
     public static void a(String str, Object... objArr) {
         if (b) {
-            Log.v(f2662a, d(str, objArr));
+            Log.v(f2664a, d(str, objArr));
         }
     }
 
     public static void b(String str, Object... objArr) {
-        Log.d(f2662a, d(str, objArr));
+        Log.d(f2664a, d(str, objArr));
     }
 
     public static void c(String str, Object... objArr) {
-        Log.e(f2662a, d(str, objArr));
+        Log.e(f2664a, d(str, objArr));
     }
 
     public static void a(Throwable th, String str, Object... objArr) {
-        Log.e(f2662a, d(str, objArr), th);
+        Log.e(f2664a, d(str, objArr), th);
     }
 
     private static String d(String str, Object... objArr) {
@@ -58,22 +58,22 @@ public class w {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final boolean f2663a = w.b;
-        private final List<C0258a> b = new ArrayList();
+        public static final boolean f2665a = w.b;
+        private final List<C0270a> b = new ArrayList();
         private boolean c = false;
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.baidu.pano.platform.a.w$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C0258a {
+        public static class C0270a {
 
             /* renamed from: a  reason: collision with root package name */
-            public final String f2664a;
+            public final String f2666a;
             public final long b;
             public final long c;
 
-            public C0258a(String str, long j, long j2) {
-                this.f2664a = str;
+            public C0270a(String str, long j, long j2) {
+                this.f2666a = str;
                 this.b = j;
                 this.c = j2;
             }
@@ -83,7 +83,7 @@ public class w {
             if (this.c) {
                 throw new IllegalStateException("Marker added to finished log");
             }
-            this.b.add(new C0258a(str, j, SystemClock.elapsedRealtime()));
+            this.b.add(new C0270a(str, j, SystemClock.elapsedRealtime()));
         }
 
         public synchronized void a(String str) {
@@ -93,9 +93,9 @@ public class w {
                 long j = this.b.get(0).c;
                 w.b("(%-4d ms) %s", Long.valueOf(a2), str);
                 long j2 = j;
-                for (C0258a c0258a : this.b) {
-                    long j3 = c0258a.c;
-                    w.b("(+%-4d) [%2d] %s", Long.valueOf(j3 - j2), Long.valueOf(c0258a.b), c0258a.f2664a);
+                for (C0270a c0270a : this.b) {
+                    long j3 = c0270a.c;
+                    w.b("(+%-4d) [%2d] %s", Long.valueOf(j3 - j2), Long.valueOf(c0270a.b), c0270a.f2666a);
                     j2 = j3;
                 }
             }

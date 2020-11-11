@@ -6,7 +6,7 @@ import com.baidu.swan.game.ad.downloader.core.a;
 import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
 /* loaded from: classes14.dex */
 public interface c {
-    void a(@NonNull String str, @NonNull Uri uri, @NonNull a.AbstractC0508a<Boolean> abstractC0508a);
+    void a(@NonNull String str, @NonNull Uri uri, @NonNull a.AbstractC0520a<Boolean> abstractC0520a);
 
     void destroy();
 
@@ -18,5 +18,5 @@ public interface c {
 
     void i(DownloadInfo downloadInfo);
 
-    DownloadInfo vd(String str);
+    DownloadInfo vr(String str);
 }

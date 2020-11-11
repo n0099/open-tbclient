@@ -20,7 +20,7 @@ public interface c {
 
         com.facebook.a.a aX(Object obj) throws IOException;
 
-        boolean efI();
+        boolean ejx();
     }
 
     b C(String str, Object obj) throws IOException;
@@ -29,13 +29,13 @@ public interface c {
 
     boolean E(String str, Object obj) throws IOException;
 
-    long Xp(String str) throws IOException;
+    long XT(String str) throws IOException;
 
     long a(a aVar) throws IOException;
 
-    void efE();
+    void ejt();
 
-    Collection<a> efF() throws IOException;
+    Collection<a> eju() throws IOException;
 
     boolean isExternal();
 }

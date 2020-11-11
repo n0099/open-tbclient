@@ -6,15 +6,15 @@ import com.baidu.tieba.R;
 public class n implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f3067a;
+    final /* synthetic */ a f3069a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(a aVar) {
-        this.f3067a = aVar;
+        this.f3069a = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f3067a.a(true, R.raw.ala_live1);
+        this.f3069a.a(true, R.raw.ala_live1);
     }
 }

@@ -33,7 +33,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
     private int d = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f1600a = false;
+    boolean f1602a = false;
 
     abstract View a();
 
@@ -199,7 +199,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
         @Override // android.os.AsyncTask
         /* renamed from: a */
         public String doInBackground(Void... voidArr) {
-            LivenessCameraBaseActivity.this.f1600a = LivenessCameraBaseActivity.this.cameraControl.a((Context) LivenessCameraBaseActivity.this.getActivity());
+            LivenessCameraBaseActivity.this.f1602a = LivenessCameraBaseActivity.this.cameraControl.a((Context) LivenessCameraBaseActivity.this.getActivity());
             LivenessCameraBaseActivity.this.cameraControl.a((Camera.PreviewCallback) LivenessCameraBaseActivity.this);
             return null;
         }
@@ -210,7 +210,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
         /* renamed from: a */
         public void onPostExecute(String str) {
             super.onPostExecute(str);
-            if (LivenessCameraBaseActivity.this.f1600a) {
+            if (LivenessCameraBaseActivity.this.f1602a) {
                 LivenessCameraBaseActivity.this.d();
             } else {
                 LivenessCameraBaseActivity.this.a(true, false, false);

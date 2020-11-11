@@ -5,8 +5,8 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes6.dex */
 public class a extends FilterInputStream {
-    private int oCr;
-    private int oCs;
+    private int oLK;
+    private int oLL;
 
     public a(InputStream inputStream, int i) {
         super(inputStream);
@@ -16,30 +16,30 @@ public class a extends FilterInputStream {
         if (i < 0) {
             throw new IllegalArgumentException("limit must be >= 0");
         }
-        this.oCr = i;
-        this.oCs = -1;
+        this.oLK = i;
+        this.oLL = -1;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int read() throws IOException {
-        if (this.oCr == 0) {
+        if (this.oLK == 0) {
             return -1;
         }
         int read = this.in.read();
         if (read != -1) {
-            this.oCr--;
+            this.oLK--;
         }
         return read;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int read(byte[] bArr, int i, int i2) throws IOException {
-        if (this.oCr == 0) {
+        if (this.oLK == 0) {
             return -1;
         }
-        int read = this.in.read(bArr, i, Math.min(i2, this.oCr));
+        int read = this.in.read(bArr, i, Math.min(i2, this.oLK));
         if (read > 0) {
-            this.oCr -= read;
+            this.oLK -= read;
             return read;
         }
         return read;
@@ -47,21 +47,21 @@ public class a extends FilterInputStream {
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public long skip(long j) throws IOException {
-        long skip = this.in.skip(Math.min(j, this.oCr));
-        this.oCr = (int) (this.oCr - skip);
+        long skip = this.in.skip(Math.min(j, this.oLK));
+        this.oLK = (int) (this.oLK - skip);
         return skip;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int available() throws IOException {
-        return Math.min(this.in.available(), this.oCr);
+        return Math.min(this.in.available(), this.oLK);
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public void mark(int i) {
         if (this.in.markSupported()) {
             this.in.mark(i);
-            this.oCs = this.oCr;
+            this.oLL = this.oLK;
         }
     }
 
@@ -70,10 +70,10 @@ public class a extends FilterInputStream {
         if (!this.in.markSupported()) {
             throw new IOException("mark is not supported");
         }
-        if (this.oCs == -1) {
+        if (this.oLL == -1) {
             throw new IOException("mark not set");
         }
         this.in.reset();
-        this.oCr = this.oCs;
+        this.oLK = this.oLL;
     }
 }

@@ -17,7 +17,7 @@ import java.security.NoSuchAlgorithmException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
     private static final String TAG = "IMGetOneShieldAndTopRequest";
     private int mChatType;

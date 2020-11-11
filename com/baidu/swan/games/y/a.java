@@ -7,50 +7,50 @@ import com.baidu.swan.games.t.a.a;
 /* loaded from: classes10.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a dTJ;
-    private com.baidu.swan.games.t.a.a dTK;
+    private static volatile a dZB;
+    private com.baidu.swan.games.t.a.a dZC;
 
     private a() {
     }
 
-    public static a aUO() {
-        if (dTJ == null) {
+    public static a aXo() {
+        if (dZB == null) {
             synchronized (a.class) {
-                if (dTJ == null) {
-                    dTJ = new a();
+                if (dZB == null) {
+                    dZB = new a();
                 }
             }
         }
-        return dTJ;
+        return dZB;
     }
 
     public void c(com.baidu.swan.games.t.a.a aVar) {
-        this.dTK = aVar;
+        this.dZC = aVar;
     }
 
-    public boolean xv(String str) {
-        String aa = aa(str, 1);
-        if (TextUtils.isEmpty(aa)) {
+    public boolean xJ(String str) {
+        String ac = ac(str, 1);
+        if (TextUtils.isEmpty(ac)) {
             return false;
         }
-        if (this.dTK != null && this.dTK.dSw != null && this.dTK.dSw.dSE != null && this.dTK.dSw.dSE.containsKey(aa)) {
+        if (this.dZC != null && this.dZC.dYo != null && this.dZC.dYo.dYw != null && this.dZC.dYo.dYw.containsKey(ac)) {
             if (DEBUG) {
                 Log.i("SubPackageDataHelper", "内存中查询分包是否存在信息");
             }
-            return this.dTK.dSw.dSE.get(aa).booleanValue();
+            return this.dZC.dYo.dYw.get(ac).booleanValue();
         }
         if (DEBUG) {
             Log.i("SubPackageDataHelper", "DB中查询分包是否存在信息");
         }
-        String aEW = e.aEW();
-        if (e.aEU() != null) {
-            String version = e.aEU().getVersion();
-            if (TextUtils.isEmpty(aEW) || TextUtils.isEmpty(version)) {
+        String aHw = e.aHw();
+        if (e.aHu() != null) {
+            String version = e.aHu().getVersion();
+            if (TextUtils.isEmpty(aHw) || TextUtils.isEmpty(version)) {
                 return false;
             }
-            boolean ae = com.baidu.swan.pms.database.a.aYH().ae(aEW, version, aa);
+            boolean ae = com.baidu.swan.pms.database.a.bbh().ae(aHw, version, ac);
             if (ae) {
-                ab(aa, true);
+                ab(ac, true);
                 return ae;
             }
             return ae;
@@ -59,46 +59,46 @@ public class a {
     }
 
     public void ab(String str, boolean z) {
-        if (!TextUtils.isEmpty(str) && this.dTK != null && this.dTK.dSw != null && this.dTK.dSw.dSE != null) {
+        if (!TextUtils.isEmpty(str) && this.dZC != null && this.dZC.dYo != null && this.dZC.dYo.dYw != null) {
             if (DEBUG) {
                 Log.i("SubPackageDataHelper", "更新内存缓存信息: " + str + ": " + z);
             }
-            this.dTK.dSw.dSE.put(str, Boolean.valueOf(z));
+            this.dZC.dYo.dYw.put(str, Boolean.valueOf(z));
         }
     }
 
-    public String rK(String str) {
-        String aa = aa(str, 1);
-        if (TextUtils.isEmpty(aa) || this.dTK == null || this.dTK.dSx == null || this.dTK.dSx.dSF == null) {
+    public String rY(String str) {
+        String ac = ac(str, 1);
+        if (TextUtils.isEmpty(ac) || this.dZC == null || this.dZC.dYp == null || this.dZC.dYp.dYx == null) {
             return null;
         }
-        return this.dTK.dSx.dSF.get(aa);
+        return this.dZC.dYp.dYx.get(ac);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x002d  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public String aa(String str, int i) {
+    public String ac(String str, int i) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        if (this.dTK == null || this.dTK.dSw == null || this.dTK.dSw.dSD == null) {
+        if (this.dZC == null || this.dZC.dYo == null || this.dZC.dYo.dYv == null) {
             return null;
         }
-        for (a.C0533a c0533a : this.dTK.dSw.dSD) {
-            if (TextUtils.equals(c0533a.name, str) || TextUtils.equals(c0533a.dSB, str)) {
+        for (a.C0545a c0545a : this.dZC.dYo.dYv) {
+            if (TextUtils.equals(c0545a.name, str) || TextUtils.equals(c0545a.dYt, str)) {
                 switch (i) {
                     case 0:
-                        return c0533a.name;
+                        return c0545a.name;
                     case 1:
-                        return c0533a.dSB;
+                        return c0545a.dYt;
                     case 2:
-                        return c0533a.path;
+                        return c0545a.path;
                     case 3:
-                        return c0533a.dSC;
+                        return c0545a.dYu;
                     default:
-                        return c0533a.dSB;
+                        return c0545a.dYt;
                 }
             }
             while (r2.hasNext()) {

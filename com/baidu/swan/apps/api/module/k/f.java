@@ -6,24 +6,24 @@ import android.util.Pair;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class f extends com.baidu.swan.apps.api.a.d {
-    private String cuE;
-    private com.baidu.swan.apps.ap.e.b<Integer> cuF;
+    private String cAx;
+    private com.baidu.swan.apps.ap.e.b<Integer> cAy;
 
     public f(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
-        this.cuF = new com.baidu.swan.apps.ap.e.b<Integer>() { // from class: com.baidu.swan.apps.api.module.k.f.1
+        this.cAy = new com.baidu.swan.apps.ap.e.b<Integer>() { // from class: com.baidu.swan.apps.api.module.k.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: d */
             public void M(Integer num) {
                 if (num.intValue() == 1 || num.intValue() == 0) {
-                    f.this.ahA();
+                    f.this.aka();
                 }
             }
         };
     }
 
-    public com.baidu.swan.apps.api.c.b lw(String str) {
+    public com.baidu.swan.apps.api.c.b lL(String str) {
         Pair<com.baidu.swan.apps.api.c.b, JSONObject> bj = com.baidu.swan.apps.api.d.b.bj("Api-ExitFullScreenApi", str);
         com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bj.first;
         if (!bVar.isSuccess()) {
@@ -33,19 +33,19 @@ public class f extends com.baidu.swan.apps.api.a.d {
             }
             return bVar;
         }
-        this.cuE = ((JSONObject) bj.second).optString("cb");
-        if (TextUtils.isEmpty(this.cuE)) {
+        this.cAx = ((JSONObject) bj.second).optString("cb");
+        if (TextUtils.isEmpty(this.cAx)) {
             return new com.baidu.swan.apps.api.c.b(201);
         }
-        j.ahD().b(this.cuF);
-        j.ahD().ahI();
+        j.akd().b(this.cAy);
+        j.akd().aki();
         return new com.baidu.swan.apps.api.c.b(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ahA() {
-        j.ahD().ahJ();
-        j.ahD().ahG();
-        a(this.cuE, new com.baidu.swan.apps.api.c.b(0));
+    public void aka() {
+        j.akd().akj();
+        j.akd().akg();
+        a(this.cAx, new com.baidu.swan.apps.api.c.b(0));
     }
 }

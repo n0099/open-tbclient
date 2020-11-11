@@ -37,40 +37,40 @@ import java.util.List;
 import tbclient.LogTogether.AdReq;
 /* loaded from: classes.dex */
 public class a {
-    public static String fgI = null;
-    private static a fgJ = new a();
+    public static String fmC = null;
+    private static a fmD = new a();
     private Handler handler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tbadk.distribute.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 1:
-                    a.this.jP(true);
+                    a.this.jY(true);
                     return;
                 default:
                     return;
             }
         }
     };
-    private com.baidu.adp.framework.listener.a fgO = new com.baidu.adp.framework.listener.a(1003000, CmdConfigSocket.CMD_UPLOAD_ACTUAL_LOG) { // from class: com.baidu.tbadk.distribute.a.2
+    private com.baidu.adp.framework.listener.a fmI = new com.baidu.adp.framework.listener.a(1003000, CmdConfigSocket.CMD_UPLOAD_ACTUAL_LOG) { // from class: com.baidu.tbadk.distribute.a.2
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null && responsedMessage.hasError()) {
                 Object extra = responsedMessage.getOrginalMessage().getExtra();
                 if (extra instanceof DistributeRequest) {
-                    a.this.br(((DistributeRequest) extra).getAdReqList());
+                    a.this.by(((DistributeRequest) extra).getAdReqList());
                 }
             }
         }
     };
-    private CustomMessageListener fgP = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tbadk.distribute.a.3
+    private CustomMessageListener fmJ = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tbadk.distribute.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
                 if (j.isWifiNet() || j.isMobileNet()) {
-                    a.this.jM(true);
+                    a.this.jV(true);
                 } else {
-                    a.this.jM(false);
+                    a.this.jV(false);
                 }
             }
         }
@@ -91,7 +91,7 @@ public class a {
                                 case 0:
                                 case 2:
                                 case 4:
-                                    a.this.as(downloadData.getId(), downloadData.getStatus());
+                                    a.this.au(downloadData.getId(), downloadData.getStatus());
                                     continue;
                                 case 1:
                                     a.this.a(downloadData.getId(), downloadData.getDownloadStaticsData());
@@ -109,96 +109,96 @@ public class a {
             }
         }
     };
-    private HashMap<String, AdvertAppInfo> fgS = new HashMap<>();
-    private HashMap<String, AdvertAppInfo> fgT = new HashMap<>();
-    private HashMap<String, DownloadStaticsData> fgU = new HashMap<>();
-    private ArrayList<AdReq> fgL = new ArrayList<>();
-    private ArrayList<AdvertAppInfo> fgQ = new ArrayList<>();
-    private ArrayList<AdvertAppInfo> fgR = new ArrayList<>();
+    private HashMap<String, AdvertAppInfo> fmM = new HashMap<>();
+    private HashMap<String, AdvertAppInfo> fmN = new HashMap<>();
+    private HashMap<String, DownloadStaticsData> fmO = new HashMap<>();
+    private ArrayList<AdReq> fmF = new ArrayList<>();
+    private ArrayList<AdvertAppInfo> fmK = new ArrayList<>();
+    private ArrayList<AdvertAppInfo> fmL = new ArrayList<>();
     private boolean isUpload = true;
-    private long fgM = 60000;
-    private int fgN = 10;
-    private boolean fgK = j.isNetWorkAvailable();
+    private long fmG = 60000;
+    private int fmH = 10;
+    private boolean fmE = j.isNetWorkAvailable();
 
-    public static a bwL() {
-        return fgJ;
+    public static a bzk() {
+        return fmD;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void jM(boolean z) {
-        if (this.fgK != z) {
-            this.fgK = z;
+    public void jV(boolean z) {
+        if (this.fmE != z) {
+            this.fmE = z;
             if (z) {
-                jP(true);
+                jY(true);
             } else {
-                bwM();
+                bzl();
             }
         }
     }
 
-    private void bwM() {
+    private void bzl() {
         this.handler.removeMessages(1);
     }
 
-    private void bwN() {
+    private void bzm() {
         this.handler.removeMessages(1);
-        this.handler.sendEmptyMessageDelayed(1, this.fgM);
+        this.handler.sendEmptyMessageDelayed(1, this.fmG);
     }
 
     private synchronized void a(AdReq adReq) {
-        if (this.fgL != null && this.fgL.size() < 20) {
-            this.fgL.add(adReq);
+        if (this.fmF != null && this.fmF.size() < 20) {
+            this.fmF.add(adReq);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void br(List<AdReq> list) {
-        if (this.fgL != null) {
-            this.fgL.addAll(list);
+    public synchronized void by(List<AdReq> list) {
+        if (this.fmF != null) {
+            this.fmF.addAll(list);
         }
     }
 
     private a() {
     }
 
-    public void jN(boolean z) {
+    public void jW(boolean z) {
         MessageManager messageManager = MessageManager.getInstance();
         if (z) {
-            messageManager.registerTask(bwQ());
+            messageManager.registerTask(bzp());
         }
-        messageManager.registerTask(bwO());
-        messageManager.registerListener(this.fgO);
-        messageManager.registerListener(this.fgP);
+        messageManager.registerTask(bzn());
+        messageManager.registerListener(this.fmI);
+        messageManager.registerListener(this.fmJ);
         messageManager.registerListener(this.downloadListener);
     }
 
-    private HttpMessageTask bwO() {
+    private HttpMessageTask bzn() {
         HttpMessageTask httpMessageTask = new HttpMessageTask(1003000, TbConfig.SERVER_ADDRESS + TbConfig.LOG_TOGETHER + "?cmd=" + CmdConfigSocket.CMD_UPLOAD_ACTUAL_LOG);
         httpMessageTask.setResponsedClass(DistributeHttpResponse.class);
         return httpMessageTask;
     }
 
-    public void jO(boolean z) {
+    public void jX(boolean z) {
         this.isUpload = z;
     }
 
-    public void qT(int i) {
+    public void rd(int i) {
         if (i > 3600) {
-            this.fgM = 300000L;
+            this.fmG = 300000L;
         } else if (i <= 0) {
-            this.fgM = 60000L;
+            this.fmG = 60000L;
         } else {
-            this.fgM = i * 1000;
+            this.fmG = i * 1000;
         }
     }
 
-    public void qU(int i) {
+    public void re(int i) {
         if (i > 20) {
-            this.fgN = 10;
+            this.fmH = 10;
         } else if (i <= 0) {
-            this.fgN = 5;
+            this.fmH = 5;
         } else {
-            this.fgN = i;
+            this.fmH = i;
         }
     }
 
@@ -209,57 +209,57 @@ public class a {
                 a(a2);
             }
             if (TextUtils.equals(str3, "click") || TextUtils.equals(str3, "download")) {
-                if (this.fgK) {
+                if (this.fmE) {
                     MessageManager.getInstance().sendMessage(new DistributeRequest(a2));
                 } else {
                     a(a2);
                 }
             }
-            jP(false);
+            jY(false);
         }
     }
 
-    private boolean bwP() {
+    private boolean bzo() {
         return this.handler.hasMessages(1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void jP(boolean z) {
-        if (this.fgK && this.isUpload) {
-            List<AdReq> jQ = jQ(z);
-            if (z || !bwP()) {
-                bwN();
+    public void jY(boolean z) {
+        if (this.fmE && this.isUpload) {
+            List<AdReq> jZ = jZ(z);
+            if (z || !bzo()) {
+                bzm();
             }
-            if (jQ != null && jQ.size() != 0) {
+            if (jZ != null && jZ.size() != 0) {
                 if (!z) {
-                    bwN();
+                    bzm();
                 }
-                MessageManager.getInstance().sendMessage(new DistributeRequest(jQ));
+                MessageManager.getInstance().sendMessage(new DistributeRequest(jZ));
             }
         }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:6:0x000c, code lost:
-        if (r3.fgL.size() < r3.fgN) goto L6;
+        if (r3.fmF.size() < r3.fmH) goto L6;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private synchronized List<AdReq> jQ(boolean z) {
+    private synchronized List<AdReq> jZ(boolean z) {
         ArrayList arrayList = null;
         synchronized (this) {
             if (!z) {
             }
-            if (this.fgL.size() > 0) {
+            if (this.fmF.size() > 0) {
                 arrayList = new ArrayList();
-                arrayList.addAll(this.fgL);
-                this.fgL.clear();
+                arrayList.addAll(this.fmF);
+                this.fmF.clear();
             }
         }
         return arrayList;
     }
 
-    private SocketMessageTask bwQ() {
+    private SocketMessageTask bzp() {
         SocketMessageTask socketMessageTask = new SocketMessageTask(CmdConfigSocket.CMD_UPLOAD_ACTUAL_LOG);
         socketMessageTask.setNeedAck(true);
         socketMessageTask.setResponsedClass(DistributeSocketResponse.class);
@@ -268,9 +268,9 @@ public class a {
 
     public void b(Context context, String str, String str2, long j) {
         if (TextUtils.equals(str, "frs")) {
-            a(context, this.fgQ, str, str2, j);
+            a(context, this.fmK, str, str2, j);
         } else if (TextUtils.equals(str, "pb")) {
-            a(context, this.fgR, str, str2, j);
+            a(context, this.fmL, str, str2, j);
         }
     }
 
@@ -295,27 +295,27 @@ public class a {
                     AdvertAppInfo advertAppInfo = arrayList.get(i2);
                     if (advertAppInfo != null) {
                         if (i2 != size - 1) {
-                            sb.append(advertAppInfo.etb).append("|");
+                            sb.append(advertAppInfo.eyV).append("|");
                             sb2.append(advertAppInfo.adPosition).append("|");
-                            sb3.append(advertAppInfo.esU).append("|");
-                            sb4.append(advertAppInfo.ete.etm).append("|");
+                            sb3.append(advertAppInfo.eyO).append("|");
+                            sb4.append(advertAppInfo.eyX.ezf).append("|");
                             sb5.append(advertAppInfo.extensionInfo).append("|");
                             sb6.append(advertAppInfo.price).append("|");
-                            sb7.append(advertAppInfo.esV).append("|");
-                            sb8.append(advertAppInfo.cBq).append("|");
-                            sb9.append(advertAppInfo.esZ).append("|");
+                            sb7.append(advertAppInfo.eyP).append("|");
+                            sb8.append(advertAppInfo.cHj).append("|");
+                            sb9.append(advertAppInfo.eyT).append("|");
                             sb10.append(advertAppInfo.cpid).append("|");
                             sb11.append(advertAppInfo.abtest).append("|");
                         } else {
-                            sb.append(advertAppInfo.etb);
+                            sb.append(advertAppInfo.eyV);
                             sb2.append(advertAppInfo.adPosition);
-                            sb3.append(advertAppInfo.esU);
-                            sb4.append(advertAppInfo.ete.etm);
+                            sb3.append(advertAppInfo.eyO);
+                            sb4.append(advertAppInfo.eyX.ezf);
                             sb5.append(advertAppInfo.extensionInfo);
                             sb6.append(advertAppInfo.price);
-                            sb7.append(advertAppInfo.esV);
-                            sb8.append(advertAppInfo.cBq);
-                            sb9.append(advertAppInfo.esZ);
+                            sb7.append(advertAppInfo.eyP);
+                            sb8.append(advertAppInfo.cHj);
+                            sb9.append(advertAppInfo.eyT);
                             sb10.append(advertAppInfo.cpid);
                             sb11.append(advertAppInfo.abtest);
                         }
@@ -336,11 +336,11 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, DownloadStaticsData downloadStaticsData) {
-        AdvertAppInfo remove = this.fgS.remove(str);
+        AdvertAppInfo remove = this.fmM.remove(str);
         if (remove != null) {
-            this.fgT.put(str, remove);
+            this.fmN.put(str, remove);
         } else if (downloadStaticsData != null && "1".equals(downloadStaticsData.getDa_range_nt())) {
-            this.fgU.put(str, downloadStaticsData);
+            this.fmO.put(str, downloadStaticsData);
             downloadStaticsData.setDa_page(null);
             downloadStaticsData.setFid(null);
         } else {
@@ -348,18 +348,18 @@ public class a {
         }
         c a2 = g.a(downloadStaticsData, 101, 0);
         a2.ge(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, "start");
-        d.dyN().a(a2);
+        d.dBp().a(a2);
         if (downloadStaticsData != null && "1".equals(downloadStaticsData.getDa_range_nt())) {
             downloadStaticsData.setDa_range_nt("0");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void as(String str, int i) {
+    public void au(String str, int i) {
         c a2;
         String str2;
-        AdvertAppInfo remove = this.fgT.remove(str);
-        DownloadStaticsData remove2 = this.fgU.remove(str);
+        AdvertAppInfo remove = this.fmN.remove(str);
+        DownloadStaticsData remove2 = this.fmO.remove(str);
         if (remove != null) {
             a2 = g.c(remove, 101, 0);
         } else if (remove2 != null) {
@@ -379,7 +379,7 @@ public class a {
                 return;
             }
             a2.ge(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, str2);
-            d.dyN().a(a2);
+            d.dBp().a(a2);
         }
     }
 
@@ -389,11 +389,11 @@ public class a {
             c a2 = g.a(downloadStaticsData, 101, 0);
             a2.setDownloadStaticsData(null);
             a2.ge(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, "delete");
-            d.dyN().a(a2);
+            d.dBp().a(a2);
         }
     }
 
     public void b(AdvertAppInfo advertAppInfo) {
-        this.fgS.put(advertAppInfo.esX, advertAppInfo);
+        this.fmM.put(advertAppInfo.eyR, advertAppInfo);
     }
 }

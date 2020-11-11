@@ -6,7 +6,7 @@ import com.baidu.platform.comapi.walknavi.d.a.d.b;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f2971a = false;
+    private static boolean f2973a = false;
     private static boolean b = false;
 
     public static boolean a(b.a aVar) {

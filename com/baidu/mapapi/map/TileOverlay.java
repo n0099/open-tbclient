@@ -14,14 +14,14 @@ public final class TileOverlay {
     private static int f = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    BaiduMap f2048a;
+    BaiduMap f2050a;
     private TileProvider g;
     private HashMap<String, Tile> d = new HashMap<>();
     private HashSet<String> e = new HashSet<>();
     private ExecutorService c = Executors.newFixedThreadPool(1);
 
     public TileOverlay(BaiduMap baiduMap, TileProvider tileProvider) {
-        this.f2048a = baiduMap;
+        this.f2050a = baiduMap;
         this.g = tileProvider;
     }
 
@@ -56,9 +56,9 @@ public final class TileOverlay {
         if (a2 != null) {
             return a2;
         }
-        if (this.f2048a != null && f == 0) {
-            MapStatus mapStatus = this.f2048a.getMapStatus();
-            f = (((mapStatus.f2020a.j.bottom - mapStatus.f2020a.j.top) / 256) + 2) * (((mapStatus.f2020a.j.right - mapStatus.f2020a.j.left) / 256) + 2);
+        if (this.f2050a != null && f == 0) {
+            MapStatus mapStatus = this.f2050a.getMapStatus();
+            f = (((mapStatus.f2022a.j.bottom - mapStatus.f2022a.j.top) / 256) + 2) * (((mapStatus.f2022a.j.right - mapStatus.f2022a.j.left) / 256) + 2);
         }
         if (this.d.size() > f) {
             a();
@@ -88,16 +88,16 @@ public final class TileOverlay {
     }
 
     public boolean clearTileCache() {
-        if (this.f2048a == null) {
+        if (this.f2050a == null) {
             return false;
         }
-        return this.f2048a.b();
+        return this.f2050a.b();
     }
 
     public void removeTileOverlay() {
-        if (this.f2048a == null) {
+        if (this.f2050a == null) {
             return;
         }
-        this.f2048a.a(this);
+        this.f2050a.a(this);
     }
 }

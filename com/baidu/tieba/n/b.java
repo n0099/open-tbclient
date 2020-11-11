@@ -5,7 +5,7 @@ import com.baidu.tieba.VideoPlatformStatic;
 import org.json.JSONObject;
 /* loaded from: classes23.dex */
 public interface b {
-    JSONObject dvr();
+    JSONObject dxT();
 
     /* loaded from: classes23.dex */
     public static abstract class a implements b {
@@ -17,7 +17,7 @@ public interface b {
         }
 
         @Override // com.baidu.tieba.n.b
-        public JSONObject dvr() {
+        public JSONObject dxT() {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("type", this.state);
@@ -32,18 +32,18 @@ public interface b {
 
     /* renamed from: com.baidu.tieba.n.b$b  reason: collision with other inner class name */
     /* loaded from: classes23.dex */
-    public static abstract class AbstractC0780b implements b {
+    public static abstract class AbstractC0795b implements b {
         private final String source;
         public final int state;
         private final long timestamp = System.currentTimeMillis();
 
-        public AbstractC0780b(int i, String str) {
+        public AbstractC0795b(int i, String str) {
             this.state = i;
             this.source = str;
         }
 
         @Override // com.baidu.tieba.n.b
-        public JSONObject dvr() {
+        public JSONObject dxT() {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("type", this.state);

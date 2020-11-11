@@ -9,18 +9,18 @@ import master.flame.danmaku.danmaku.model.m;
 public class b {
     public static boolean a(m mVar, d dVar, d dVar2, long j, long j2) {
         int type = dVar.getType();
-        if (type == dVar2.getType() && !dVar.ezq()) {
-            long ezz = dVar2.ezz() - dVar.ezz();
-            if (ezz <= 0) {
+        if (type == dVar2.getType() && !dVar.eDf()) {
+            long eDo = dVar2.eDo() - dVar.eDo();
+            if (eDo <= 0) {
                 return true;
             }
-            if (Math.abs(ezz) >= j || dVar.ezp() || dVar2.ezp()) {
+            if (Math.abs(eDo) >= j || dVar.eDe() || dVar2.eDe()) {
                 return false;
             }
             if (type == 5 || type == 4) {
                 return true;
             }
-            return a(mVar, dVar, dVar2, j2) || a(mVar, dVar, dVar2, dVar.ezz() + dVar.getDuration());
+            return a(mVar, dVar, dVar2, j2) || a(mVar, dVar, dVar2, dVar.eDo() + dVar.getDuration());
         }
         return false;
     }
@@ -51,18 +51,18 @@ public class b {
         if (eVar == null) {
             eVar = new e();
         }
-        eVar.e((int) Math.ceil(dVar.pMx), (int) Math.ceil(dVar.pMy), mVar.getDensityDpi(), false);
+        eVar.e((int) Math.ceil(dVar.pVR), (int) Math.ceil(dVar.pVS), mVar.getDensityDpi(), false);
         f fVar = eVar.get();
         if (fVar != null) {
-            ((master.flame.danmaku.danmaku.model.b) mVar).a(dVar, fVar.pNw, 0.0f, 0.0f, true);
+            ((master.flame.danmaku.danmaku.model.b) mVar).a(dVar, fVar.pWQ, 0.0f, 0.0f, true);
             if (mVar.isHardwareAccelerated()) {
-                fVar.O(mVar.getWidth(), mVar.getHeight(), mVar.ezN(), mVar.ezO());
+                fVar.O(mVar.getWidth(), mVar.getHeight(), mVar.eDC(), mVar.eDD());
             }
         }
         return eVar;
     }
 
-    public static int ey(int i, int i2) {
+    public static int eB(int i, int i2) {
         return i * i2 * 4;
     }
 
@@ -123,7 +123,7 @@ public class b {
         if (!TextUtils.isEmpty(charSequence) && charSequence.toString().contains("/n")) {
             String[] split = String.valueOf(dVar.text).split("/n", -1);
             if (split.length > 1) {
-                dVar.pMt = split;
+                dVar.pVN = split;
             }
         }
     }

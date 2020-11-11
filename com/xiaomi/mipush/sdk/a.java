@@ -16,7 +16,7 @@ import java.util.Set;
 public class a implements Application.ActivityLifecycleCallbacks {
 
     /* renamed from: a  reason: collision with root package name */
-    private Set<String> f4739a = new HashSet();
+    private Set<String> f4741a = new HashSet();
 
     private static void a(Application application) {
         application.registerActivityLifecycleCallbacks(new a());
@@ -46,10 +46,10 @@ public class a implements Application.ActivityLifecycleCallbacks {
         }
         String stringExtra = intent.getStringExtra("messageId");
         int intExtra = intent.getIntExtra("eventMessageType", -1);
-        if (TextUtils.isEmpty(stringExtra) || intExtra <= 0 || this.f4739a.contains(stringExtra)) {
+        if (TextUtils.isEmpty(stringExtra) || intExtra <= 0 || this.f4741a.contains(stringExtra)) {
             return;
         }
-        this.f4739a.add(stringExtra);
+        this.f4741a.add(stringExtra);
         if (intExtra == 3000) {
             fb.a(activity.getApplicationContext()).a(activity.getPackageName(), fa.m271a(intExtra), stringExtra, 3008, null);
         } else if (intExtra == 1000) {

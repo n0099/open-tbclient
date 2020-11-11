@@ -3,56 +3,56 @@ package com.baidu.tieba.tbadkCore.data;
 import android.util.SparseIntArray;
 /* loaded from: classes.dex */
 public class f {
-    public static final int[] mQm = {3, 8, 13};
-    public static final int[] mQn = {2, 12};
-    public static final int[] mQo = {20};
-    public static final int[] mQp = {3, 13, 23};
-    private SparseIntArray mQq = new SparseIntArray();
-    private String mQr;
-    private final int[] mQs;
+    public static final int[] mWp = {3, 8, 13};
+    public static final int[] mWq = {2, 12};
+    public static final int[] mWr = {20};
+    public static final int[] mWs = {3, 13, 23};
+    private SparseIntArray mWt = new SparseIntArray();
+    private String mWu;
+    private final int[] mWv;
 
     public f(String str, int[] iArr) {
-        this.mQs = iArr;
-        this.mQr = str;
+        this.mWv = iArr;
+        this.mWu = str;
     }
 
-    public void Jm(int i) {
+    public void Jz(int i) {
         int[] iArr;
         if (i < 0) {
             i = 0;
         }
-        if (this.mQq != null) {
-            this.mQq.clear();
-            if (this.mQs != null) {
-                for (int i2 : this.mQs) {
+        if (this.mWt != null) {
+            this.mWt.clear();
+            if (this.mWv != null) {
+                for (int i2 : this.mWv) {
                     if (i2 >= 0) {
-                        this.mQq.append(i2 + i, i2);
+                        this.mWt.append(i2 + i, i2);
                     }
                 }
             }
         }
     }
 
-    public void dHd() {
-        Jm(0);
+    public void dJF() {
+        Jz(0);
     }
 
-    public void dq(int i, int i2) {
-        if (i >= 0 && i2 >= 0 && this.mQq != null) {
-            this.mQq.append(i2, i);
+    public void ds(int i, int i2) {
+        if (i >= 0 && i2 >= 0 && this.mWt != null) {
+            this.mWt.append(i2, i);
         }
     }
 
-    public int Jn(int i) {
-        if (i >= 0 && this.mQq != null) {
-            return this.mQq.get(i, -1);
+    public int JA(int i) {
+        if (i >= 0 && this.mWt != null) {
+            return this.mWt.get(i, -1);
         }
         return -1;
     }
 
-    public void Jo(int i) {
-        if (this.mQq != null) {
-            this.mQq.delete(i);
+    public void JB(int i) {
+        if (this.mWt != null) {
+            this.mWt.delete(i);
         }
     }
 }

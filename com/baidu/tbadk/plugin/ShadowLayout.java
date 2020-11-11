@@ -13,11 +13,11 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ShadowLayout extends FrameLayout {
     private RectF GD;
-    private int diF;
-    private int fqS;
-    private int fqT;
-    private int fqU;
-    private int fqV;
+    private int doA;
+    private int fwM;
+    private int fwN;
+    private int fwO;
+    private int fwP;
     private int mShadowRadius;
     private Paint paint;
 
@@ -39,26 +39,26 @@ public class ShadowLayout extends FrameLayout {
     private void sw() {
         setWillNotDraw(false);
         setLayerType(1, null);
-        this.fqS = getContext().getResources().getDimensionPixelSize(R.dimen.tbds20);
-        setPadding(this.fqS, this.fqS, this.fqS, this.fqS);
-        this.fqV = getContext().getResources().getDimensionPixelSize(R.dimen.tbds25);
+        this.fwM = getContext().getResources().getDimensionPixelSize(R.dimen.tbds20);
+        setPadding(this.fwM, this.fwM, this.fwM, this.fwM);
+        this.fwP = getContext().getResources().getDimensionPixelSize(R.dimen.tbds25);
         this.mShadowRadius = getContext().getResources().getDimensionPixelSize(R.dimen.tbds10);
-        this.fqT = getContext().getResources().getDimensionPixelSize(R.dimen.tbds2);
-        this.fqU = getContext().getResources().getDimensionPixelSize(R.dimen.tbds5);
-        this.diF = ap.getColor(R.color.plugin_button_shadow_blue);
+        this.fwN = getContext().getResources().getDimensionPixelSize(R.dimen.tbds2);
+        this.fwO = getContext().getResources().getDimensionPixelSize(R.dimen.tbds5);
+        this.doA = ap.getColor(R.color.plugin_button_shadow_blue);
         this.paint = new Paint();
         this.paint.setColor(0);
-        this.paint.setShadowLayer(this.mShadowRadius, this.fqT, this.fqU, this.diF);
+        this.paint.setShadowLayer(this.mShadowRadius, this.fwN, this.fwO, this.doA);
         this.GD = new RectF();
     }
 
     public void setShadowColor(int i) {
-        this.diF = ap.getColor(i);
-        bAg();
+        this.doA = ap.getColor(i);
+        bCF();
     }
 
-    private void bAg() {
-        this.paint.setShadowLayer(this.mShadowRadius, this.fqT, this.fqU, this.diF);
+    private void bCF() {
+        this.paint.setShadowLayer(this.mShadowRadius, this.fwN, this.fwO, this.doA);
         postInvalidate();
     }
 
@@ -69,6 +69,6 @@ public class ShadowLayout extends FrameLayout {
         this.GD.right = getWidth() - getPaddingRight();
         this.GD.bottom = getHeight() - getPaddingBottom();
         this.GD.top = getPaddingTop();
-        canvas.drawRoundRect(this.GD, this.fqV, this.fqV, this.paint);
+        canvas.drawRoundRect(this.GD, this.fwP, this.fwP, this.paint);
     }
 }

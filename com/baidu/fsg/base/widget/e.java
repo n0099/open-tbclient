@@ -7,11 +7,11 @@ import android.view.View;
 public class e implements View.OnKeyListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SafeKeyBoardEditText f1549a;
+    final /* synthetic */ SafeKeyBoardEditText f1551a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(SafeKeyBoardEditText safeKeyBoardEditText) {
-        this.f1549a = safeKeyBoardEditText;
+        this.f1551a = safeKeyBoardEditText;
     }
 
     @Override // android.view.View.OnKeyListener
@@ -21,14 +21,14 @@ public class e implements View.OnKeyListener {
         SafeScrollView safeScrollView2;
         SafeScrollView safeScrollView3;
         if (keyEvent.getAction() == 0 && i == 4) {
-            z = this.f1549a.l;
+            z = this.f1551a.l;
             if (z) {
-                safeScrollView = this.f1549a.d;
+                safeScrollView = this.f1551a.d;
                 if (safeScrollView != null) {
-                    safeScrollView2 = this.f1549a.d;
+                    safeScrollView2 = this.f1551a.d;
                     if (safeScrollView2.isPopupWindowShowing()) {
-                        safeScrollView3 = this.f1549a.d;
-                        safeScrollView3.dismissKeyBoard(this.f1549a);
+                        safeScrollView3 = this.f1551a.d;
+                        safeScrollView3.dismissKeyBoard(this.f1551a);
                         return true;
                     }
                     return false;

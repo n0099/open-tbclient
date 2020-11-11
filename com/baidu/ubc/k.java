@@ -3,34 +3,34 @@ package com.baidu.ubc;
 import android.text.TextUtils;
 /* loaded from: classes8.dex */
 public class k {
-    private String egd;
-    private String ege;
-    private int egf;
-    private String egg;
-    private int egh;
-    private int egi;
-    private String egj;
+    private String elV;
+    private String elW;
+    private int elX;
+    private String elY;
+    private int elZ;
+    private int ema;
+    private String emb;
     private String mCategory;
     private String mId;
     private int mRate;
     private String mType;
     private String mVersion;
-    private String ohA;
-    private String ohB;
-    private String ohC;
-    private String ohD;
-    private String ohE;
+    private String oqF;
+    private String oqG;
+    private String oqH;
+    private String oqI;
+    private String oqJ;
 
     public k(String str, String str2, String str3, int i, String str4, String str5) {
         this.mId = str;
-        this.egd = str2;
-        this.ege = str3;
-        this.egf = i;
+        this.elV = str2;
+        this.elW = str3;
+        this.elX = i;
         this.mType = str4;
-        this.egg = str5;
+        this.elY = str5;
     }
 
-    public void mZ(int i) {
+    public void nj(int i) {
         this.mRate = i;
     }
 
@@ -38,47 +38,47 @@ public class k {
         this.mCategory = str;
     }
 
-    public void na(int i) {
-        this.egh = i;
+    public void nk(int i) {
+        this.elZ = i;
     }
 
-    public void nb(int i) {
-        this.egi = i;
+    public void nl(int i) {
+        this.ema = i;
     }
 
-    public void Wg(String str) {
-        this.ohA = str;
+    public void WJ(String str) {
+        this.oqF = str;
     }
 
     public String getId() {
         return this.mId;
     }
 
-    public String baU() {
-        return this.egd;
+    public String bdu() {
+        return this.elV;
     }
 
-    public String baV() {
-        return this.ege;
+    public String bdv() {
+        return this.elW;
     }
 
     public int getTimeout() {
-        return this.egf;
+        return this.elX;
     }
 
     public String getType() {
         return this.mType;
     }
 
-    public String baW() {
-        return this.egg;
+    public String bdw() {
+        return this.elY;
     }
 
-    public String dZz() {
-        return this.ohA;
+    public String edh() {
+        return this.oqF;
     }
 
-    public int baX() {
+    public int bdx() {
         return this.mRate;
     }
 
@@ -86,28 +86,28 @@ public class k {
         return this.mCategory;
     }
 
-    public int baY() {
-        return this.egh;
+    public int bdy() {
+        return this.elZ;
     }
 
-    public int baZ() {
-        return this.egi;
+    public int bdz() {
+        return this.ema;
     }
 
-    public void yI(String str) {
-        this.egj = str;
+    public void yW(String str) {
+        this.emb = str;
     }
 
-    public String bba() {
-        return this.egj;
+    public String bdA() {
+        return this.emb;
     }
 
-    public String dZA() {
-        return this.ohB;
+    public String edi() {
+        return this.oqG;
     }
 
-    public void Wh(String str) {
-        this.ohB = str;
+    public void WK(String str) {
+        this.oqG = str;
     }
 
     public void setVersion(String str) {
@@ -118,27 +118,27 @@ public class k {
         return TextUtils.isEmpty(this.mVersion) ? "0" : this.mVersion;
     }
 
-    public void Wi(String str) {
-        this.ohC = str;
+    public void WL(String str) {
+        this.oqH = str;
     }
 
-    public String dZB() {
-        return this.ohC;
+    public String edj() {
+        return this.oqH;
     }
 
-    public void Wj(String str) {
-        this.ohD = str;
+    public void WM(String str) {
+        this.oqI = str;
     }
 
-    public String dZC() {
-        return this.ohD;
+    public String edk() {
+        return this.oqI;
     }
 
-    public String dZD() {
-        return this.ohE;
+    public String edl() {
+        return this.oqJ;
     }
 
-    public void Wk(String str) {
-        this.ohE = str;
+    public void WN(String str) {
+        this.oqJ = str;
     }
 }

@@ -10,20 +10,20 @@ public class p extends com.baidu.platform.base.e {
     }
 
     private void a(WalkingRoutePlanOption walkingRoutePlanOption) {
-        this.f2814a.a("qt", "walk2");
-        this.f2814a.a(IXAdRequestInfo.SN, a(walkingRoutePlanOption.mFrom));
-        this.f2814a.a(com.baidu.fsg.base.statistics.h.f1493a, a(walkingRoutePlanOption.mTo));
+        this.f2816a.a("qt", "walk2");
+        this.f2816a.a(IXAdRequestInfo.SN, a(walkingRoutePlanOption.mFrom));
+        this.f2816a.a(com.baidu.fsg.base.statistics.h.f1495a, a(walkingRoutePlanOption.mTo));
         if (walkingRoutePlanOption.mFrom != null) {
-            this.f2814a.a(Config.STAT_SDK_CHANNEL, walkingRoutePlanOption.mFrom.getCity());
+            this.f2816a.a(Config.STAT_SDK_CHANNEL, walkingRoutePlanOption.mFrom.getCity());
         }
         if (walkingRoutePlanOption.mTo != null) {
-            this.f2814a.a("ec", walkingRoutePlanOption.mTo.getCity());
+            this.f2816a.a("ec", walkingRoutePlanOption.mTo.getCity());
         }
-        this.f2814a.a("ie", "utf-8");
-        this.f2814a.a("lrn", "20");
-        this.f2814a.a("version", "3");
-        this.f2814a.a("rp_format", "json");
-        this.f2814a.a("rp_filter", "mobile");
+        this.f2816a.a("ie", "utf-8");
+        this.f2816a.a("lrn", "20");
+        this.f2816a.a("version", "3");
+        this.f2816a.a("rp_format", "json");
+        this.f2816a.a("rp_filter", "mobile");
     }
 
     @Override // com.baidu.platform.base.e

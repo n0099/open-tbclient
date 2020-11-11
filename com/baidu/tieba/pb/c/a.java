@@ -23,7 +23,7 @@ public class a {
         if (bdUniqueId != null && fVar != null) {
             aq aqVar = new aq("common_exp");
             a(aqVar, fVar, postData, i, i2, false, str);
-            c.dGv().a(bdUniqueId, str2, aqVar);
+            c.dIX().a(bdUniqueId, str2, aqVar);
         }
     }
 
@@ -51,7 +51,7 @@ public class a {
                 str = postData.getId();
             }
             a(aqVar, fVar, postData, i, i2, false, str);
-            aqVar.aj("obj_locate", i3);
+            aqVar.al("obj_locate", i3);
             TiebaStatic.log(aqVar);
         }
     }
@@ -62,34 +62,34 @@ public class a {
         }
         aq aqVar = new aq("common_click");
         a(aqVar, fVar, postData, i, i2, false, postData != null ? postData.getId() : null);
-        aqVar.aj("obj_locate", i3);
+        aqVar.al("obj_locate", i3);
         return aqVar;
     }
 
     private static aq a(aq aqVar, f fVar, PostData postData, int i, int i2, boolean z, String str) {
         int i3 = 1;
         if (fVar != null) {
-            aqVar.dR("page_type", PageStayDurationConstants.PageName.PB).aj("obj_floor", i).aj("obj_isad", z ? 1 : 0).dR("fid", fVar.getForumId() + "").dR("tid", fVar.getThreadId() + "").dR("obj_id", str + "").aj("post_type", i2);
+            aqVar.dR("page_type", PageStayDurationConstants.PageName.PB).al("obj_floor", i).al("obj_isad", z ? 1 : 0).dR("fid", fVar.getForumId() + "").dR("tid", fVar.getThreadId() + "").dR("obj_id", str + "").al("post_type", i2);
             if (postData != null) {
                 aqVar.dR("pid", postData.getId() + "");
             }
-            if (fVar.dfI() != null) {
-                aqVar.aj("thread_type", fVar.dfI().threadType);
-                BaijiahaoData baijiahaoData = fVar.dfI().getBaijiahaoData();
+            if (fVar.dik() != null) {
+                aqVar.al("thread_type", fVar.dik().threadType);
+                BaijiahaoData baijiahaoData = fVar.dik().getBaijiahaoData();
                 if (baijiahaoData != null) {
                     aqVar.dR("ugc_nid", baijiahaoData.oriUgcNid);
                     aqVar.dR("ugc_vid", baijiahaoData.oriUgcVid);
-                    aqVar.aj("ori_ugc_type", baijiahaoData.oriUgcType);
+                    aqVar.al("ori_ugc_type", baijiahaoData.oriUgcType);
                 }
             }
             if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
-                aqVar.dR("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().eWH);
+                aqVar.dR("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().fcx);
             }
-            if (!fVar.dgl()) {
-                if (fVar.lgY != 2) {
-                    i3 = fVar.lgY == 1 ? 3 : 2;
+            if (!fVar.diN()) {
+                if (fVar.lmU != 2) {
+                    i3 = fVar.lmU == 1 ? 3 : 2;
                 }
-                aqVar.aj("list_order", i3);
+                aqVar.al("list_order", i3);
             }
         }
         return aqVar;

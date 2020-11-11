@@ -5,7 +5,7 @@ import android.util.Base64;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private byte[] f3961a;
+    private byte[] f3963a;
     private int b;
     private int c;
     private byte[] d;
@@ -21,19 +21,19 @@ public final class b {
             byte[] bArr = bVar.d;
             bVar.b = 0;
             bVar.c = 0;
-            if (bVar.f3961a == null) {
-                bVar.f3961a = new byte[256];
+            if (bVar.f3963a == null) {
+                bVar.f3963a = new byte[256];
             }
             for (int i = 0; i < 256; i++) {
-                bVar.f3961a[i] = (byte) i;
+                bVar.f3963a[i] = (byte) i;
             }
             int i2 = 0;
             int i3 = 0;
             for (int i4 = 0; i4 < 256; i4++) {
-                i2 = (i2 + (bArr[i3] & 255) + bVar.f3961a[i4]) & 255;
-                byte b = bVar.f3961a[i4];
-                bVar.f3961a[i4] = bVar.f3961a[i2];
-                bVar.f3961a[i2] = b;
+                i2 = (i2 + (bArr[i3] & 255) + bVar.f3963a[i4]) & 255;
+                byte b = bVar.f3963a[i4];
+                bVar.f3963a[i4] = bVar.f3963a[i2];
+                bVar.f3963a[i2] = b;
                 i3 = (i3 + 1) % bArr.length;
             }
             byte[] bArr2 = new byte[decode.length];
@@ -46,11 +46,11 @@ public final class b {
             }
             for (int i5 = 0; i5 < length; i5++) {
                 bVar.b = (bVar.b + 1) & 255;
-                bVar.c = (bVar.f3961a[bVar.b] + bVar.c) & 255;
-                byte b2 = bVar.f3961a[bVar.b];
-                bVar.f3961a[bVar.b] = bVar.f3961a[bVar.c];
-                bVar.f3961a[bVar.c] = b2;
-                bArr2[i5 + 0] = (byte) (decode[i5 + 0] ^ bVar.f3961a[(bVar.f3961a[bVar.b] + bVar.f3961a[bVar.c]) & 255]);
+                bVar.c = (bVar.f3963a[bVar.b] + bVar.c) & 255;
+                byte b2 = bVar.f3963a[bVar.b];
+                bVar.f3963a[bVar.b] = bVar.f3963a[bVar.c];
+                bVar.f3963a[bVar.c] = b2;
+                bArr2[i5 + 0] = (byte) (decode[i5 + 0] ^ bVar.f3963a[(bVar.f3963a[bVar.b] + bVar.f3963a[bVar.c]) & 255]);
             }
             return new String(bArr2);
         } catch (Exception e) {

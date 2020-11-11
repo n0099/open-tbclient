@@ -47,23 +47,26 @@ public class p {
     }
 
     private static final List<a> b(com.baidu.h.a.b.a.c cVar) {
-        int i = cVar.bPq.bPD;
-        String str = cVar.bPq.bPE;
+        int i = cVar.bVa.bVn;
+        String str = cVar.bVa.bVo;
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 ArrayList arrayList = new ArrayList();
                 JSONArray optJSONArray = jSONObject.optJSONArray("msg_info_list");
+                if (optJSONArray == null) {
+                    return null;
+                }
                 int length = optJSONArray.length();
                 for (int i2 = 0; i2 < length; i2++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                     a aVar = new a();
-                    if (aVar.K(optJSONObject)) {
+                    if (aVar.N(optJSONObject)) {
                         if (aVar.getUserId() == 0) {
                             aVar.setUserId(JavaTypesHelper.toLong(cVar.uid, 0L));
                         }
-                        if (TextUtils.isEmpty(aVar.LO().userId) || "0".equals(aVar.LO().userId)) {
-                            aVar.LO().userId = String.valueOf(aVar.getUserId());
+                        if (TextUtils.isEmpty(aVar.Mo().userId) || "0".equals(aVar.Mo().userId)) {
+                            aVar.Mo().userId = String.valueOf(aVar.getUserId());
                         }
                         arrayList.add(aVar);
                     }
@@ -71,28 +74,32 @@ public class p {
                 return arrayList;
             } catch (JSONException e) {
                 e.printStackTrace();
+                return null;
             }
         }
         return null;
     }
 
     private static final List<a> c(com.baidu.h.a.b.a.c cVar) {
-        String str = cVar.bPr;
+        String str = cVar.bVb;
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 ArrayList arrayList = new ArrayList();
                 JSONArray optJSONArray = jSONObject.optJSONArray("msg_info_list");
+                if (optJSONArray == null) {
+                    return null;
+                }
                 int length = optJSONArray.length();
                 for (int i = 0; i < length; i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     a aVar = new a();
-                    if (aVar.K(optJSONObject)) {
+                    if (aVar.N(optJSONObject)) {
                         if (aVar.getUserId() == 0) {
                             aVar.setUserId(JavaTypesHelper.toLong(cVar.uid, 0L));
                         }
-                        if (TextUtils.isEmpty(aVar.LO().userId) || "0".equals(aVar.LO().userId)) {
-                            aVar.LO().userId = String.valueOf(aVar.getUserId());
+                        if (TextUtils.isEmpty(aVar.Mo().userId) || "0".equals(aVar.Mo().userId)) {
+                            aVar.Mo().userId = String.valueOf(aVar.getUserId());
                         }
                         arrayList.add(aVar);
                     }
@@ -100,8 +107,11 @@ public class p {
                 return arrayList;
             } catch (JSONException e) {
                 e.printStackTrace();
+                return null;
             }
-        } else if (!TextUtils.isEmpty(cVar.content) && !TextUtils.isEmpty(cVar.name) && !TextUtils.isEmpty(cVar.uid)) {
+        } else if (TextUtils.isEmpty(cVar.content) || TextUtils.isEmpty(cVar.name) || TextUtils.isEmpty(cVar.uid)) {
+            return null;
+        } else {
             ArrayList arrayList2 = new ArrayList();
             a aVar2 = new a();
             aVar2.setMsgType(1);
@@ -115,11 +125,10 @@ public class p {
             arrayList2.add(aVar2);
             return arrayList2;
         }
-        return null;
     }
 
     private static final List<a> d(com.baidu.h.a.b.a.c cVar) {
-        int i = cVar.bPq.feedback;
+        int i = cVar.bVa.feedback;
         ArrayList arrayList = new ArrayList();
         if (i > 0) {
             a aVar = new a();
@@ -140,8 +149,8 @@ public class p {
 
     private static final List<a> e(com.baidu.h.a.b.a.c cVar) {
         ArrayList arrayList = new ArrayList();
-        if (cVar != null && cVar.bPq != null) {
-            String str = cVar.bPq.bPF;
+        if (cVar != null && cVar.bVa != null) {
+            String str = cVar.bVa.bVp;
             if (!TextUtils.isEmpty(str)) {
                 a aVar = new a();
                 aVar.setContent(str);

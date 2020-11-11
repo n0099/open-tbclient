@@ -5,8 +5,8 @@ import kotlin.jvm.internal.q;
 @kotlin.h
 /* loaded from: classes10.dex */
 public final class i {
-    private String dMk;
-    private Integer dMl;
+    private String dSc;
+    private Integer dSd;
 
     public i() {
         this(null, null, 3, null);
@@ -16,7 +16,7 @@ public final class i {
         if (this != obj) {
             if (obj instanceof i) {
                 i iVar = (i) obj;
-                if (!q.l(this.dMk, iVar.dMk) || !q.l(this.dMl, iVar.dMl)) {
+                if (!q.l(this.dSc, iVar.dSc) || !q.l(this.dSd, iVar.dSd)) {
                 }
             }
             return false;
@@ -25,19 +25,19 @@ public final class i {
     }
 
     public int hashCode() {
-        String str = this.dMk;
+        String str = this.dSc;
         int hashCode = (str != null ? str.hashCode() : 0) * 31;
-        Integer num = this.dMl;
+        Integer num = this.dSd;
         return hashCode + (num != null ? num.hashCode() : 0);
     }
 
     public String toString() {
-        return "ResponseParams(responseMessage=" + this.dMk + ", responseStatusCode=" + this.dMl + ")";
+        return "ResponseParams(responseMessage=" + this.dSc + ", responseStatusCode=" + this.dSd + ")";
     }
 
     public i(String str, Integer num) {
-        this.dMk = str;
-        this.dMl = num;
+        this.dSc = str;
+        this.dSd = num;
     }
 
     public /* synthetic */ i(String str, Integer num, int i, o oVar) {
@@ -45,18 +45,18 @@ public final class i {
     }
 
     public final String getResponseMessage() {
-        return this.dMk;
+        return this.dSc;
     }
 
-    public final void wg(String str) {
-        this.dMk = str;
+    public final void wu(String str) {
+        this.dSc = str;
     }
 
-    public final Integer aRz() {
-        return this.dMl;
+    public final Integer aTZ() {
+        return this.dSd;
     }
 
     public final void f(Integer num) {
-        this.dMl = num;
+        this.dSd = num;
     }
 }

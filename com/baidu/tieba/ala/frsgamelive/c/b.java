@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.b> {
-    private View gxY;
-    private TextView gxZ;
-    private View gya;
+    private View gDM;
+    private TextView gDN;
+    private View gDO;
     private int mSkinType;
     private TbPageContext mTbPageContext;
 
@@ -19,18 +19,18 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
         super(tbPageContext);
         this.mSkinType = 3;
         View view = getView();
-        this.gxY = view.findViewById(R.id.frs_game_live_recommand_line1);
-        this.gxZ = (TextView) view.findViewById(R.id.frs_game_live_recommand3);
-        this.gya = view.findViewById(R.id.frs_game_live_recommand_line2);
+        this.gDM = view.findViewById(R.id.frs_game_live_recommand_line1);
+        this.gDN = (TextView) view.findViewById(R.id.frs_game_live_recommand3);
+        this.gDO = view.findViewById(R.id.frs_game_live_recommand_line2);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ap.setBackgroundResource(this.gxY, R.color.cp_bg_line_c);
-            ap.setViewTextColor(this.gxZ, R.color.cp_cont_d);
-            ap.setBackgroundResource(this.gya, R.color.cp_bg_line_c);
+            ap.setBackgroundResource(this.gDM, R.color.cp_bg_line_c);
+            ap.setViewTextColor(this.gDN, (int) R.color.cp_cont_d);
+            ap.setBackgroundResource(this.gDO, R.color.cp_bg_line_c);
             this.mSkinType = i;
         }
     }
@@ -52,11 +52,11 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
 
     /* loaded from: classes4.dex */
     public static class a extends af.a {
-        public b gyb;
+        public b gDP;
 
         public a(b bVar) {
             super(bVar.getView());
-            this.gyb = bVar;
+            this.gDP = bVar;
         }
     }
 }

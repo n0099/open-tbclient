@@ -1,22 +1,22 @@
 package com.baidu.tieba.tbadkCore.data;
 /* loaded from: classes.dex */
 public class p {
-    private String liq;
-    private int mRZ;
+    private String loq;
+    private int mYc;
 
-    public int dHK() {
-        return this.mRZ;
+    public int dKm() {
+        return this.mYc;
     }
 
-    public void Jr(int i) {
-        this.mRZ = i;
+    public void JE(int i) {
+        this.mYc = i;
     }
 
-    public String dHL() {
-        return this.liq;
+    public String dKn() {
+        return this.loq;
     }
 
-    public void SB(String str) {
-        this.liq = str;
+    public void SS(String str) {
+        this.loq = str;
     }
 }

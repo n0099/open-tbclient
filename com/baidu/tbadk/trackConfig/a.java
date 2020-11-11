@@ -11,28 +11,28 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class a {
-    private HttpMessageListener eZP = new HttpMessageListener(CmdConfigHttp.CMD_TRACK_CONFIG) { // from class: com.baidu.tbadk.trackConfig.a.1
+    private HttpMessageListener ffG = new HttpMessageListener(CmdConfigHttp.CMD_TRACK_CONFIG) { // from class: com.baidu.tbadk.trackConfig.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof TrackConfigResponseMessage) {
                 TrackConfigResponseMessage trackConfigResponseMessage = (TrackConfigResponseMessage) httpResponsedMessage;
-                if (a.this.fsi != null) {
-                    a.this.fsi.x(trackConfigResponseMessage.isSuccess(), trackConfigResponseMessage.getData());
+                if (a.this.fya != null) {
+                    a.this.fya.x(trackConfigResponseMessage.isSuccess(), trackConfigResponseMessage.getData());
                 }
             }
         }
     };
-    private InterfaceC0586a fsi;
+    private InterfaceC0598a fya;
 
     /* renamed from: com.baidu.tbadk.trackConfig.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0586a {
+    public interface InterfaceC0598a {
         void x(boolean z, boolean z2);
     }
 
     public a() {
-        MessageManager.getInstance().registerListener(this.eZP);
+        MessageManager.getInstance().registerListener(this.ffG);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_TRACK_CONFIG, TbConfig.SERVER_ADDRESS + TbConfig.GET_TRACK_CONFIG);
         tbHttpMessageTask.setResponsedClass(TrackConfigResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -43,7 +43,7 @@ public class a {
         MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_TRACK_CONFIG));
     }
 
-    public void a(InterfaceC0586a interfaceC0586a) {
-        this.fsi = interfaceC0586a;
+    public void a(InterfaceC0598a interfaceC0598a) {
+        this.fya = interfaceC0598a;
     }
 }

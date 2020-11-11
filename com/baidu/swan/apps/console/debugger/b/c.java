@@ -12,24 +12,24 @@ import org.json.JSONObject;
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     String Qf;
-    String czP;
-    String czQ;
-    String czR;
-    String czS;
-    JSONArray czT;
+    String cFI;
+    String cFJ;
+    String cFK;
+    String cFL;
+    JSONArray cFM;
     String mAppKey;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static c bb(JSONObject jSONObject) {
+    public static c bh(JSONObject jSONObject) {
         c cVar = new c();
         try {
             cVar.mAppKey = jSONObject.getString("appKey");
-            cVar.czP = jSONObject.getString("appUrl") + "?swanJsVersion" + ETAG.EQUAL + com.baidu.swan.apps.swancore.b.kv(0) + ETAG.ITEM_SEPARATOR + "appVersion" + ETAG.EQUAL + ak.getVersionName();
+            cVar.cFI = jSONObject.getString("appUrl") + "?swanJsVersion" + ETAG.EQUAL + com.baidu.swan.apps.swancore.b.kF(0) + ETAG.ITEM_SEPARATOR + "appVersion" + ETAG.EQUAL + ak.getVersionName();
             cVar.Qf = jSONObject.getString("wsUrl");
-            cVar.czQ = jSONObject.optString("notInHistory", "1");
-            cVar.czR = jSONObject.optString("masterPreload");
-            cVar.czS = jSONObject.optString("slavePreload");
-            cVar.czT = jSONObject.optJSONArray("hosts");
+            cVar.cFJ = jSONObject.optString("notInHistory", "1");
+            cVar.cFK = jSONObject.optString("masterPreload");
+            cVar.cFL = jSONObject.optString("slavePreload");
+            cVar.cFM = jSONObject.optJSONArray("hosts");
             return cVar;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -43,19 +43,19 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String hD(int i) {
-        return ad(i, this.czP);
+    public String hN(int i) {
+        return ah(i, this.cFI);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String hE(int i) {
-        return ad(i, this.Qf);
+    public String hO(int i) {
+        return ah(i, this.Qf);
     }
 
-    private String ad(int i, String str) {
-        if (this.czT != null && !TextUtils.isEmpty(str) && i >= 0 && i < this.czT.length()) {
+    private String ah(int i, String str) {
+        if (this.cFM != null && !TextUtils.isEmpty(str) && i >= 0 && i < this.cFM.length()) {
             Uri parse = Uri.parse(str);
-            String optString = this.czT.optString(i);
+            String optString = this.cFM.optString(i);
             if (!TextUtils.isEmpty(optString) && parse.getHost() != null) {
                 return str.replace(parse.getHost(), optString);
             }
@@ -66,6 +66,6 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isInvalid() {
-        return TextUtils.isEmpty(this.mAppKey) || TextUtils.isEmpty(this.czP) || TextUtils.isEmpty(this.Qf);
+        return TextUtils.isEmpty(this.mAppKey) || TextUtils.isEmpty(this.cFI) || TextUtils.isEmpty(this.Qf);
     }
 }

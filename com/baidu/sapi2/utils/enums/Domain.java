@@ -9,7 +9,7 @@ public enum Domain {
     
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3544a;
+    private String f3547a;
     private String b;
     private String c;
     private String d;
@@ -17,7 +17,7 @@ public enum Domain {
     private boolean f;
 
     Domain(String str, String str2, String str3, String str4, String str5) {
-        this.f3544a = f.a(str);
+        this.f3547a = f.a(str);
         this.b = f.a(str2);
         this.c = f.a(str3);
         this.d = f.a(str4);
@@ -58,6 +58,6 @@ public enum Domain {
     }
 
     public String getURL(boolean z) {
-        return (!(equals(DOMAIN_ONLINE) && z) && (equals(DOMAIN_ONLINE) || !this.f)) ? this.f3544a : this.f3544a.replace("http://", SapiUtils.COOKIE_HTTPS_URL_PREFIX);
+        return (!(equals(DOMAIN_ONLINE) && z) && (equals(DOMAIN_ONLINE) || !this.f)) ? this.f3547a : this.f3547a.replace("http://", SapiUtils.COOKIE_HTTPS_URL_PREFIX);
     }
 }

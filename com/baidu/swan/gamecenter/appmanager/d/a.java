@@ -7,11 +7,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
-    String dnp;
-    String dus;
-    String duu;
-    String duw;
-    String duz;
+    String dAk;
+    String dAm;
+    String dAo;
+    String dAr;
+    String dtm;
     String mAppId;
     String mAppVersion;
     String mFrom;
@@ -21,45 +21,45 @@ public class a {
     public a() {
         this.mFrom = "swan";
         this.mAppVersion = "";
-        this.dus = "";
-        this.duu = "";
-        this.duw = "";
+        this.dAk = "";
+        this.dAm = "";
+        this.dAo = "";
         this.mScheme = "";
-        this.duz = "";
-        if (e.aEV() != null) {
-            b.a aEY = e.aEV().aEY();
-            this.mFrom = h.ko(aEY.getAppFrameType());
-            this.mAppId = aEY.getAppId();
-            this.mSource = aEY.awd();
-            this.duu = aEY.awj().getString("aiapp_extra_need_download", "");
-            this.duw = aEY.awj().getString("aiapp_extra_preset_pkg", "");
-            this.mScheme = aEY.awf();
-            this.duz = aEY.getPage();
-            this.dnp = aEY.aww();
-            this.mAppVersion = aEY.getVersion();
-            this.dus = aEY.getVersionCode();
+        this.dAr = "";
+        if (e.aHv() != null) {
+            b.a aHy = e.aHv().aHy();
+            this.mFrom = h.ky(aHy.getAppFrameType());
+            this.mAppId = aHy.getAppId();
+            this.mSource = aHy.ayD();
+            this.dAm = aHy.ayJ().getString("aiapp_extra_need_download", "");
+            this.dAo = aHy.ayJ().getString("aiapp_extra_preset_pkg", "");
+            this.mScheme = aHy.ayF();
+            this.dAr = aHy.getPage();
+            this.dtm = aHy.ayW();
+            this.mAppVersion = aHy.getVersion();
+            this.dAk = aHy.getVersionCode();
         }
     }
 
     public a(JSONObject jSONObject) {
         this.mFrom = "swan";
         this.mAppVersion = "";
-        this.dus = "";
-        this.duu = "";
-        this.duw = "";
+        this.dAk = "";
+        this.dAm = "";
+        this.dAo = "";
         this.mScheme = "";
-        this.duz = "";
+        this.dAr = "";
         if (jSONObject != null && jSONObject.length() != 0) {
             this.mFrom = jSONObject.optString("from", "swan");
             this.mAppId = jSONObject.optString("appId");
             this.mSource = jSONObject.optString("source");
-            this.duu = jSONObject.optString("needDown");
-            this.duw = jSONObject.optString("isPreset");
+            this.dAm = jSONObject.optString("needDown");
+            this.dAo = jSONObject.optString("isPreset");
             this.mScheme = jSONObject.optString("scheme");
-            this.duz = jSONObject.optString("extPage");
-            this.dnp = jSONObject.optString("launchId", null);
+            this.dAr = jSONObject.optString("extPage");
+            this.dtm = jSONObject.optString("launchId", null);
             this.mAppVersion = jSONObject.optString("appVersion");
-            this.dus = jSONObject.optString("thirdVersion");
+            this.dAk = jSONObject.optString("thirdVersion");
         }
     }
 
@@ -69,13 +69,13 @@ public class a {
             jSONObject.put("from", this.mFrom);
             jSONObject.put("appId", this.mAppId);
             jSONObject.put("source", this.mSource);
-            jSONObject.put("needDown", this.duu);
-            jSONObject.put("isPreset", this.duw);
+            jSONObject.put("needDown", this.dAm);
+            jSONObject.put("isPreset", this.dAo);
             jSONObject.put("scheme", this.mScheme);
-            jSONObject.put("extPage", this.duz);
-            jSONObject.put("launchId", this.dnp);
+            jSONObject.put("extPage", this.dAr);
+            jSONObject.put("launchId", this.dtm);
             jSONObject.put("appVersion", this.mAppVersion);
-            jSONObject.put("thirdVersion", this.dus);
+            jSONObject.put("thirdVersion", this.dAk);
         } catch (JSONException e) {
             e.printStackTrace();
         }

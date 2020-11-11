@@ -18,7 +18,7 @@ import java.util.Map;
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3558a = "qrlogin_enter";
+    public static final String f3561a = "qrlogin_enter";
     private static final Map<String, String> b = new HashMap();
     private static List<String> c;
 
@@ -27,15 +27,15 @@ public final class k {
     public static class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ HttpHashMapWrap f3559a;
+        final /* synthetic */ HttpHashMapWrap f3562a;
 
         a(HttpHashMapWrap httpHashMapWrap) {
-            this.f3559a = httpHashMapWrap;
+            this.f3562a = httpHashMapWrap;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            k.b(this.f3559a);
+            k.b(this.f3562a);
         }
     }
 

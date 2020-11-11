@@ -88,12 +88,12 @@ public class FragmentTabWidget extends LinearLayout {
         this.mPaint = new Paint(6);
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
-        this.mBottomDividerHeight = getResources().getDimensionPixelSize(a.e.sdk_ds1);
+        this.mBottomDividerHeight = getResources().getDimensionPixelSize(a.d.sdk_ds1);
         this.mTopDividerHeight = BdUtilHelper.dip2px(getContext(), 1.0f);
         this.mCursorHeight = BdUtilHelper.dip2px(getContext(), 2.0f);
-        this.tabItemPaddingBottom = getResources().getDimensionPixelSize(a.e.sdk_ds10);
+        this.tabItemPaddingBottom = getResources().getDimensionPixelSize(a.d.sdk_ds10);
         setWillNotDraw(false);
-        this.mBackgroundColorResId = a.d.sdk_common_color_10274;
+        this.mBackgroundColorResId = a.c.sdk_common_color_10274;
     }
 
     public void setCurrentTab(int i, boolean z, boolean z2) {
@@ -183,7 +183,7 @@ public class FragmentTabWidget extends LinearLayout {
     public void changeLeft(int i, float f) {
         int width;
         int width2;
-        int dimensionPixelSize = getResources().getDimensionPixelSize(a.e.sdk_ds64);
+        int dimensionPixelSize = getResources().getDimensionPixelSize(a.d.sdk_ds64);
         int i2 = (this.mItemWidth - dimensionPixelSize) / 2;
         this.left = this.mItemWidth * i;
         this.left += (int) (this.mItemWidth * f);
@@ -242,8 +242,8 @@ public class FragmentTabWidget extends LinearLayout {
         if (this.mBackgroundColorResId != 0) {
             SkinManager.setBackgroundColor(this, this.mBackgroundColorResId);
         }
-        this.mCursorColor = SkinManager.getColor(a.d.sdk_cp_cont_b);
-        this.mDividerColor = SkinManager.getColor(a.d.sdk_cp_bg_line_c);
+        this.mCursorColor = SkinManager.getColor(a.c.sdk_cp_cont_b);
+        this.mDividerColor = SkinManager.getColor(a.c.sdk_cp_bg_line_c);
         int childCount = getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
             View childAt = getChildAt(i2);
@@ -265,11 +265,11 @@ public class FragmentTabWidget extends LinearLayout {
         if (this.shouldDrawIndicatorLine) {
             this.mPaint.setColor(this.mCursorColor);
             if (TbadkCoreApplication.getInst().isHaokan()) {
-                this.mPaint.setShader(new LinearGradient(this.mCursorRect.left, this.mCursorRect.top, this.mCursorRect.right, this.mCursorRect.bottom, TbadkCoreApplication.getInst().getResources().getColor(a.d.sdk_hk_gradient_color_start), TbadkCoreApplication.getInst().getResources().getColor(a.d.sdk_hk_gradient_color_end), Shader.TileMode.CLAMP));
+                this.mPaint.setShader(new LinearGradient(this.mCursorRect.left, this.mCursorRect.top, this.mCursorRect.right, this.mCursorRect.bottom, TbadkCoreApplication.getInst().getResources().getColor(a.c.sdk_hk_gradient_color_start), TbadkCoreApplication.getInst().getResources().getColor(a.c.sdk_hk_gradient_color_end), Shader.TileMode.CLAMP));
                 canvas.drawRect(new RectF(this.mCursorRect), this.mPaint);
                 return;
             }
-            this.mPaint.setColor(TbadkCoreApplication.getInst().getResources().getColor(a.d.sdk_qm_main_color));
+            this.mPaint.setColor(TbadkCoreApplication.getInst().getResources().getColor(a.c.sdk_qm_main_color));
             canvas.drawRect(new RectF(this.mCursorRect), this.mPaint);
         }
     }

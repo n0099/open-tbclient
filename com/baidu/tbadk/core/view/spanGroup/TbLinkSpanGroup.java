@@ -15,15 +15,15 @@ import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
-    private static final String eUC = TbadkCoreApplication.getInst().getString(R.string.web_page_link);
+    private static final String far = TbadkCoreApplication.getInst().getString(R.string.web_page_link);
     private String alT;
-    private t eUB;
-    private LINK_TYPE eUD;
-    private CharSequence eUE;
-    private CharSequence eUF;
-    private String eUG;
-    private String eUH;
-    private int eUI;
+    private t faq;
+    private LINK_TYPE fas;
+    private CharSequence fat;
+    private CharSequence fau;
+    private String fav;
+    private String faw;
+    private int fax;
     private int mShowType;
 
     /* loaded from: classes.dex */
@@ -37,7 +37,7 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
 
     private TbLinkSpanGroup() {
         this.mShowType = 0;
-        this.eUD = LINK_TYPE.DEAULT;
+        this.fas = LINK_TYPE.DEAULT;
     }
 
     public static TbLinkSpanGroup a(@NonNull TbLinkSpanGroup tbLinkSpanGroup, @NonNull Editable editable) {
@@ -49,35 +49,35 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
 
     public TbLinkSpanGroup(@NonNull LINK_TYPE link_type) {
         this.mShowType = 0;
-        this.eUD = link_type;
+        this.fas = link_type;
     }
 
     public void build() {
         setValid(true);
-        if (this.eUD == LINK_TYPE.PARSED_EXTERNAL_LINK) {
-            bre();
+        if (this.fas == LINK_TYPE.PARSED_EXTERNAL_LINK) {
+            btE();
         } else {
-            brd();
+            btD();
         }
     }
 
     @Override // com.baidu.tbadk.core.view.spanGroup.a
     public void a(Editable editable, int i, int i2, int i3) {
         super.a(editable, i, i2, i3);
-        if (this.eUD == LINK_TYPE.PARSED_EXTERNAL_LINK) {
-            this.eUF = " ";
+        if (this.fas == LINK_TYPE.PARSED_EXTERNAL_LINK) {
+            this.fau = " ";
             return;
         }
-        this.eUE = editable.subSequence(i, i2 - 1);
-        this.eUF = editable.subSequence(i2 - 1, i2);
+        this.fat = editable.subSequence(i, i2 - 1);
+        this.fau = editable.subSequence(i2 - 1, i2);
     }
 
-    public void brd() {
+    public void btD() {
         if (this.mShowType != 1) {
             this.mShowType = 1;
-            this.eUH = eUC;
-            String str = "[p]" + eUC + ((Object) this.eUF);
-            this.eUI = str.length();
+            this.faw = far;
+            String str = "[p]" + far + ((Object) this.fau);
+            this.fax = str.length();
             n(str);
             Drawable drawable = ap.getDrawable(R.drawable.pic_post_link16);
             drawable.setBounds(0, 0, getFontSize(), getFontSize());
@@ -91,32 +91,32 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
     @Override // com.baidu.tbadk.core.view.spanGroup.a
     public void a(Editable editable, int i) {
         String str;
-        if (this.eUB == null) {
+        if (this.faq == null) {
             String str2 = at.isEmpty(this.alT) ? "0" : this.alT;
-            if (this.eUD == LINK_TYPE.INTERNAL_LINK && at.isEmpty(this.eUG)) {
+            if (this.fas == LINK_TYPE.INTERNAL_LINK && at.isEmpty(this.fav)) {
                 str = "";
             } else {
-                str = this.eUH;
+                str = this.faw;
             }
             StringBuilder sb = new StringBuilder();
-            sb.append("#(url,").append(str2).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(k.getUrlEncode(this.eUE.toString())).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(k.getUrlEncode(str)).append(")").append(this.eUF);
+            sb.append("#(url,").append(str2).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(k.getUrlEncode(this.fat.toString())).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(k.getUrlEncode(str)).append(")").append(this.fau);
             n(sb);
-        } else if (this.eUD == LINK_TYPE.INTERNAL_LINK || this.eUD == LINK_TYPE.PARSABLE_EXTERNAL_LINK) {
-            String str3 = this.eUH;
+        } else if (this.fas == LINK_TYPE.INTERNAL_LINK || this.fas == LINK_TYPE.PARSABLE_EXTERNAL_LINK) {
+            String str3 = this.faw;
             StringBuilder sb2 = new StringBuilder();
-            sb2.append("#(url,0,").append(k.getUrlEncode(this.eUE.toString())).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(k.getUrlEncode(str3)).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(k.getUrlEncode(this.eUB.euq)).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(this.eUB.mIcon).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(k.getUrlEncode(this.eUB.mPrice)).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(i).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(this.eUB.eut).append(")").append(this.eUF);
+            sb2.append("#(url,0,").append(k.getUrlEncode(this.fat.toString())).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(k.getUrlEncode(str3)).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(k.getUrlEncode(this.faq.eAj)).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(this.faq.mIcon).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(k.getUrlEncode(this.faq.mPrice)).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(i).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(this.faq.eAm).append(")").append(this.fau);
             n(sb2);
-        } else if (this.eUD == LINK_TYPE.PARSED_EXTERNAL_LINK) {
+        } else if (this.fas == LINK_TYPE.PARSED_EXTERNAL_LINK) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("goods_id", this.eUB.eur);
+                jSONObject2.put("goods_id", this.faq.eAk);
                 jSONObject2.put(QuickPersistConfigConst.KEY_SPLASH_SORT, i);
-                jSONObject2.put("title", this.eUB.mContent);
-                jSONObject2.put("url", this.eUB.eup);
+                jSONObject2.put("title", this.faq.mContent);
+                jSONObject2.put("url", this.faq.eAi);
                 StringBuilder sb3 = new StringBuilder();
                 jSONObject.put("goods", jSONObject2);
-                sb3.append("#(goods,").append(k.getUrlEncode(jSONObject.toString())).append(")").append(this.eUF);
+                sb3.append("#(goods,").append(k.getUrlEncode(jSONObject.toString())).append(")").append(this.fau);
                 n(sb3);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -126,17 +126,17 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
 
     @Override // com.baidu.tbadk.core.view.spanGroup.a
     public void a(Editable editable) {
-        if (this.eUB != null && this.eUB.mType == 2) {
-            if (this.eUB.eum != null) {
+        if (this.faq != null && this.faq.mType == 2) {
+            if (this.faq.eAf != null) {
                 StringBuilder sb = new StringBuilder();
-                sb.append("#(commodity,commo_").append(this.eUB.eum).append("_commo)");
+                sb.append("#(commodity,commo_").append(this.faq.eAf).append("_commo)");
                 n(sb);
                 return;
             }
             return;
         }
         StringBuilder sb2 = new StringBuilder();
-        sb2.append(this.eUE).append(this.eUF);
+        sb2.append(this.fat).append(this.fau);
         n(sb2);
     }
 
@@ -146,22 +146,22 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
     /* renamed from: b */
     public void a(TbLinkSpanGroup tbLinkSpanGroup) {
         super.a(tbLinkSpanGroup);
-        this.eUD = tbLinkSpanGroup.eUD;
+        this.fas = tbLinkSpanGroup.fas;
         this.mShowType = tbLinkSpanGroup.mShowType;
-        this.eUE = tbLinkSpanGroup.eUE;
-        this.eUF = tbLinkSpanGroup.eUF;
+        this.fat = tbLinkSpanGroup.fat;
+        this.fau = tbLinkSpanGroup.fau;
         this.alT = tbLinkSpanGroup.alT;
-        this.eUG = tbLinkSpanGroup.eUG;
-        this.eUH = tbLinkSpanGroup.eUH;
-        this.eUB = tbLinkSpanGroup.eUB;
+        this.fav = tbLinkSpanGroup.fav;
+        this.faw = tbLinkSpanGroup.faw;
+        this.faq = tbLinkSpanGroup.faq;
     }
 
-    public void bre() {
-        if (this.mShowType != 2 && !at.isEmpty(this.eUG)) {
+    public void btE() {
+        if (this.mShowType != 2 && !at.isEmpty(this.fav)) {
             this.mShowType = 2;
-            this.eUH = at.ak(this.eUG, 40);
-            String str = "[p]" + this.eUH + ((Object) this.eUF);
-            this.eUI = str.length();
+            this.faw = at.am(this.fav, 40);
+            String str = "[p]" + this.faw + ((Object) this.fau);
+            this.fax = str.length();
             n(str);
             Drawable drawable = ap.getDrawable(R.drawable.pic_post_link16);
             drawable.setBounds(0, 0, getFontSize(), getFontSize());
@@ -172,12 +172,12 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
         }
     }
 
-    public t brf() {
-        return this.eUB;
+    public t btF() {
+        return this.faq;
     }
 
-    public LINK_TYPE brg() {
-        return this.eUD;
+    public LINK_TYPE btG() {
+        return this.fas;
     }
 
     public void setTid(String str) {
@@ -188,19 +188,19 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
         return this.alT;
     }
 
-    public void Cl(String str) {
-        this.eUG = str;
+    public void Cz(String str) {
+        this.fav = str;
     }
 
     public void b(t tVar) {
-        this.eUB = tVar;
+        this.faq = tVar;
     }
 
     public void a(LINK_TYPE link_type) {
-        this.eUD = link_type;
+        this.fas = link_type;
     }
 
-    public int brh() {
-        return this.eUI;
+    public int btH() {
+        return this.fax;
     }
 }

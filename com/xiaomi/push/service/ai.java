@@ -22,20 +22,20 @@ import java.net.URL;
 public class ai {
 
     /* renamed from: a  reason: collision with root package name */
-    private static long f5048a;
+    private static long f5050a;
 
     /* loaded from: classes12.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        int f5049a;
+        int f5051a;
 
         /* renamed from: a  reason: collision with other field name */
-        byte[] f841a;
+        byte[] f843a;
 
         public a(byte[] bArr, int i) {
-            this.f841a = bArr;
-            this.f5049a = i;
+            this.f843a = bArr;
+            this.f5051a = i;
         }
     }
 
@@ -43,14 +43,14 @@ public class ai {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f5050a;
+        public long f5052a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Bitmap f842a;
+        public Bitmap f844a;
 
         public b(Bitmap bitmap, long j) {
-            this.f842a = bitmap;
-            this.f5050a = j;
+            this.f844a = bitmap;
+            this.f5052a = j;
         }
     }
 
@@ -270,15 +270,15 @@ public class ai {
         Bitmap b2 = b(context, str);
         try {
             if (b2 != null) {
-                bVar.f842a = b2;
+                bVar.f844a = b2;
             } else {
                 try {
                     a a2 = a(str, z);
                     if (a2 == null) {
                         com.xiaomi.push.y.a((Closeable) null);
                     } else {
-                        bVar.f5050a = a2.f5049a;
-                        byte[] bArr = a2.f841a;
+                        bVar.f5052a = a2.f5051a;
+                        byte[] bArr = a2.f843a;
                         if (bArr != null) {
                             if (z) {
                                 byteArrayInputStream = new ByteArrayInputStream(bArr);
@@ -286,8 +286,8 @@ public class ai {
                                     int a3 = a(context, byteArrayInputStream);
                                     BitmapFactory.Options options = new BitmapFactory.Options();
                                     options.inSampleSize = a3;
-                                    bVar.f842a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
-                                    a(context, a2.f841a, str);
+                                    bVar.f844a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
+                                    a(context, a2.f843a, str);
                                     com.xiaomi.push.y.a(byteArrayInputStream);
                                 } catch (Exception e) {
                                     e = e;
@@ -296,11 +296,11 @@ public class ai {
                                     return bVar;
                                 }
                             } else {
-                                bVar.f842a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
+                                bVar.f844a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
                             }
                         }
                         byteArrayInputStream = null;
-                        a(context, a2.f841a, str);
+                        a(context, a2.f843a, str);
                         com.xiaomi.push.y.a(byteArrayInputStream);
                     }
                 } catch (Exception e2) {
@@ -321,10 +321,10 @@ public class ai {
     private static void a(Context context) {
         File file = new File(context.getCacheDir().getPath() + File.separator + "mipush_icon");
         if (file.exists()) {
-            if (f5048a == 0) {
-                f5048a = com.xiaomi.push.x.a(file);
+            if (f5050a == 0) {
+                f5050a = com.xiaomi.push.x.a(file);
             }
-            if (f5048a > 15728640) {
+            if (f5050a > 15728640) {
                 try {
                     File[] listFiles = file.listFiles();
                     for (int i = 0; i < listFiles.length; i++) {
@@ -335,7 +335,7 @@ public class ai {
                 } catch (Exception e) {
                     com.xiaomi.channel.commonutils.logger.b.a(e);
                 }
-                f5048a = 0L;
+                f5050a = 0L;
             }
         }
     }
@@ -388,7 +388,7 @@ public class ai {
                     com.xiaomi.channel.commonutils.logger.b.a(e);
                     com.xiaomi.push.y.a(bufferedOutputStream2);
                     com.xiaomi.push.y.a(fileOutputStream);
-                    if (f5048a != 0) {
+                    if (f5050a != 0) {
                     }
                 } catch (Throwable th2) {
                     th = th2;
@@ -411,8 +411,8 @@ public class ai {
             th = th4;
             bufferedOutputStream = null;
         }
-        if (f5048a != 0) {
-            f5048a = com.xiaomi.push.x.a(new File(context.getCacheDir().getPath() + File.separator + "mipush_icon")) + file2.length();
+        if (f5050a != 0) {
+            f5050a = com.xiaomi.push.x.a(new File(context.getCacheDir().getPath() + File.separator + "mipush_icon")) + file2.length();
         }
     }
 

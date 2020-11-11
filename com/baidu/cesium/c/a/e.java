@@ -9,7 +9,7 @@ import javax.crypto.ShortBufferException;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private byte[] f1303a;
+    private byte[] f1305a;
     private i amy;
     private f amz;
     private int b;
@@ -21,7 +21,7 @@ public final class e {
     private boolean j = false;
 
     public e(b bVar, int i) {
-        this.f1303a = null;
+        this.f1305a = null;
         this.b = 0;
         this.c = 0;
         this.f = 0;
@@ -30,7 +30,7 @@ public final class e {
         this.b = i;
         this.c = i;
         this.f = i;
-        this.f1303a = new byte[this.b * 2];
+        this.f1305a = new byte[this.b * 2];
         this.amz = new d(bVar);
         this.amy = new h(this.b);
     }
@@ -101,7 +101,7 @@ public final class e {
                 i4 = 0;
                 bArr3 = new byte[i6];
                 if (this.d != 0) {
-                    System.arraycopy(this.f1303a, 0, bArr3, 0, this.d);
+                    System.arraycopy(this.f1305a, 0, bArr3, 0, this.d);
                 }
                 if (i2 != 0) {
                     System.arraycopy(bArr, i, bArr3, this.d, i2);

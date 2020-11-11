@@ -47,7 +47,7 @@ public class hj {
     }
 
     private static void a(Context context, hq hqVar) {
-        if (hqVar.f449a) {
+        if (hqVar.f451a) {
             hqVar.a("push_sdk_channel");
         }
         if (TextUtils.isEmpty(hqVar.d())) {

@@ -47,7 +47,7 @@ import org.json.JSONObject;
 public class b implements com.baidu.platform.comapi.walknavi.g.c.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f2953a = 0;
+    public static int f2955a = 0;
     public static int b = 1;
     public static int c = 2;
     private Handler A;
@@ -100,7 +100,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.c.a {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final b f2955a = new b(null);
+        static final b f2957a = new b(null);
     }
 
     /* synthetic */ b(c cVar) {
@@ -108,7 +108,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.c.a {
     }
 
     public static b a() {
-        return a.f2955a;
+        return a.f2957a;
     }
 
     private b() {
@@ -470,9 +470,9 @@ public class b implements com.baidu.platform.comapi.walknavi.g.c.a {
         this.z = activity;
         try {
             if (bundle != null) {
-                com.baidu.platform.comapi.walknavi.g.b.b.f3017a = bundle.getInt("wnavi_mode", 1);
+                com.baidu.platform.comapi.walknavi.g.b.b.f3019a = bundle.getInt("wnavi_mode", 1);
             } else {
-                com.baidu.platform.comapi.walknavi.g.b.b.f3017a = 1;
+                com.baidu.platform.comapi.walknavi.g.b.b.f3019a = 1;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -513,9 +513,9 @@ public class b implements com.baidu.platform.comapi.walknavi.g.c.a {
         H().ready();
         F().ready();
         t();
-        if (com.baidu.platform.comapi.walknavi.g.b.b.f3017a == 1) {
+        if (com.baidu.platform.comapi.walknavi.g.b.b.f3019a == 1) {
             S().b(activity);
-        } else if (com.baidu.platform.comapi.walknavi.g.b.b.f3017a == 3) {
+        } else if (com.baidu.platform.comapi.walknavi.g.b.b.f3019a == 3) {
             V().ready();
         }
         ab();
@@ -569,7 +569,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.c.a {
         this.p.i();
         J().a(1);
         G().e(Z());
-        if (com.baidu.platform.comapi.walknavi.g.b.b.f3017a != 4) {
+        if (com.baidu.platform.comapi.walknavi.g.b.b.f3019a != 4) {
             if (com.baidu.platform.comapi.wnplatform.a.a().c()) {
                 f(1);
             } else {
@@ -579,7 +579,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.c.a {
         }
         a().G().a(true);
         J().a(i);
-        if (com.baidu.platform.comapi.walknavi.g.b.b.f3017a == 4) {
+        if (com.baidu.platform.comapi.walknavi.g.b.b.f3019a == 4) {
             G().k();
             return true;
         }

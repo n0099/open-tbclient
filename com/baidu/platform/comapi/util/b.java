@@ -6,19 +6,19 @@ import com.baidu.platform.comapi.util.a;
 public class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a.C0273a f2943a;
+    final /* synthetic */ a.C0285a f2945a;
     final /* synthetic */ Object b;
     final /* synthetic */ a c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar, a.C0273a c0273a, Object obj) {
+    public b(a aVar, a.C0285a c0285a, Object obj) {
         this.c = aVar;
-        this.f2943a = c0273a;
+        this.f2945a = c0285a;
         this.b = obj;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.c.a(this.f2943a, this.b);
+        this.c.a(this.f2945a, this.b);
     }
 }

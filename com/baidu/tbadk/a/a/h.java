@@ -4,35 +4,35 @@ import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class h extends a {
-    public static final BdUniqueId eoa = BdUniqueId.gen();
-    public final ArrayList<String> eob = new ArrayList<>();
-    public com.baidu.tbadk.a.e eoc;
+    public static final BdUniqueId etU = BdUniqueId.gen();
+    public final ArrayList<String> etV = new ArrayList<>();
+    public com.baidu.tbadk.a.e etW;
 
     public h() {
-        this.eob.add("11_7_pb_a");
-        this.eob.add("11_7_pb_b");
-        this.eob.add("11_7_pb_c");
-        this.eob.add("11_7_pb_d");
-        this.eob.add("11_7_pb_e");
+        this.etV.add("11_7_pb_a");
+        this.etV.add("11_7_pb_b");
+        this.etV.add("11_7_pb_c");
+        this.etV.add("11_7_pb_d");
+        this.etV.add("11_7_pb_e");
     }
 
     @Override // com.baidu.tbadk.a.a.a
-    public BdUniqueId bfE() {
-        return eoa;
+    public BdUniqueId bie() {
+        return etU;
     }
 
     @Override // com.baidu.tbadk.a.a.a
-    public ArrayList<String> bfF() {
-        return this.eob;
+    public ArrayList<String> bif() {
+        return this.etV;
     }
 
     @Override // com.baidu.tbadk.a.a.a
-    public com.baidu.tbadk.a.e bfG() {
-        return this.eoc;
+    public com.baidu.tbadk.a.e big() {
+        return this.etW;
     }
 
     @Override // com.baidu.tbadk.a.a.a
     public void a(com.baidu.tbadk.a.e eVar) {
-        this.eoc = eVar;
+        this.etW = eVar;
     }
 }

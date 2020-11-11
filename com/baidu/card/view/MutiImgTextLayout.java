@@ -76,21 +76,21 @@ public class MutiImgTextLayout extends LinearLayout implements p<AbsThreadDataSu
     }
 
     private void setVoiceData(bw bwVar) {
-        ArrayList<VoiceData.VoiceModel> bkn = bwVar.bkn();
-        if (y.isEmpty(bkn)) {
+        ArrayList<VoiceData.VoiceModel> bmN = bwVar.bmN();
+        if (y.isEmpty(bmN)) {
             this.akw.setVisibility(8);
             this.akz = false;
             return;
         }
         this.akw.setVisibility(0);
-        VoiceData.VoiceModel voiceModel = bkn.get(0);
+        VoiceData.VoiceModel voiceModel = bmN.get(0);
         this.akw.setVoiceModel(voiceModel);
         this.akw.setTag(voiceModel);
         this.akw.changeSkin();
         if (voiceModel != null) {
-            this.akw.Dm(voiceModel.voice_status.intValue());
+            this.akw.Dz(voiceModel.voice_status.intValue());
         }
-        this.akw.bWJ();
+        this.akw.bZl();
         this.akz = true;
     }
 
@@ -106,10 +106,10 @@ public class MutiImgTextLayout extends LinearLayout implements p<AbsThreadDataSu
     /* renamed from: b */
     public void H(AbsThreadDataSupport absThreadDataSupport) {
         this.afI = absThreadDataSupport;
-        bw bhz = absThreadDataSupport.bhz();
-        ay.a(this.mTitle, bhz, this.aik);
-        ay.a(this.agm, this.mTitle, bhz, agk, this.aik);
-        setVoiceData(bhz);
+        bw bjZ = absThreadDataSupport.bjZ();
+        ay.a(this.mTitle, bjZ, this.aik);
+        ay.a(this.agm, this.mTitle, bjZ, agk, this.aik);
+        setVoiceData(bjZ);
         ua();
     }
 

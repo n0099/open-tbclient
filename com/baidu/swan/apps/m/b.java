@@ -13,16 +13,16 @@ public class b implements i {
 
     @Override // com.baidu.swan.games.f.i
     public String getUserAgent() {
-        return a.aqz();
+        return a.ata();
     }
 
     /* loaded from: classes10.dex */
     private static class a {
         private static String MG;
 
-        static String aqz() {
+        static String ata() {
             if (TextUtils.isEmpty(MG)) {
-                MG = com.baidu.swan.apps.an.b.aqz();
+                MG = com.baidu.swan.apps.an.b.ata();
             }
             return MG;
         }

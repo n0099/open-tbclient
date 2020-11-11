@@ -13,13 +13,13 @@ import tv.chushou.zues.utils.h;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<e> f4179a = new ArrayList();
+    private final List<e> f4181a = new ArrayList();
     private io.reactivex.disposables.a c = new io.reactivex.disposables.a();
-    private InterfaceC0985a plS;
+    private InterfaceC1004a pvq;
 
     /* renamed from: com.kascend.chushou.player.ui.h5.redpacket.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0985a {
+    public interface InterfaceC1004a {
         void D();
 
         void a(int i);
@@ -27,20 +27,20 @@ public class a {
 
     public a(Context context) {
         try {
-            this.plS = (InterfaceC0985a) context;
+            this.pvq = (InterfaceC1004a) context;
         } catch (Exception e) {
-            this.plS = null;
+            this.pvq = null;
         }
     }
 
     public List<e> a() {
-        return this.f4179a;
+        return this.f4181a;
     }
 
     public void a(List<e> list) {
         for (e eVar : list) {
             if (eVar != null && !a(eVar)) {
-                this.f4179a.add(0, eVar);
+                this.f4181a.add(0, eVar);
             }
         }
         e();
@@ -48,9 +48,9 @@ public class a {
 
     public void a(String str) {
         if (!h.isEmpty(str)) {
-            for (e eVar : this.f4179a) {
+            for (e eVar : this.f4181a) {
                 if (str.equals(eVar.a())) {
-                    eVar.Qo(2);
+                    eVar.QJ(2);
                     return;
                 }
             }
@@ -58,15 +58,15 @@ public class a {
     }
 
     public void b() {
-        Iterator<e> it = this.f4179a.iterator();
+        Iterator<e> it = this.f4181a.iterator();
         while (it.hasNext()) {
             e next = it.next();
             if (next == null || next.c() == 2) {
                 it.remove();
             }
         }
-        if (this.plS != null) {
-            this.plS.a(this.f4179a.size());
+        if (this.pvq != null) {
+            this.pvq.a(this.f4181a.size());
         }
     }
 
@@ -76,7 +76,7 @@ public class a {
             this.c = null;
         }
         this.c = new io.reactivex.disposables.a();
-        this.f4179a.clear();
+        this.f4181a.clear();
         e();
     }
 
@@ -85,43 +85,43 @@ public class a {
             this.c.dispose();
             this.c = null;
         }
-        this.f4179a.clear();
+        this.f4181a.clear();
     }
 
     public void e() {
         RxExecutor.post(this.c, EventThread.MAIN_THREAD, new Runnable() { // from class: com.kascend.chushou.player.ui.h5.redpacket.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.plS != null) {
-                    a.this.plS.a(a.this.f4179a.size());
+                if (a.this.pvq != null) {
+                    a.this.pvq.a(a.this.f4181a.size());
                 }
             }
         });
-        if (com.kascend.chushou.d.h.eqj().q() && this.f4179a.size() > 0 && this.plS != null) {
-            this.plS.D();
+        if (com.kascend.chushou.d.h.etY().q() && this.f4181a.size() > 0 && this.pvq != null) {
+            this.pvq.D();
         }
     }
 
-    public H5Positon Qn(int i) {
-        if (this.f4179a.size() == 0) {
+    public H5Positon QI(int i) {
+        if (this.f4181a.size() == 0) {
             return null;
         }
-        e eVar = this.f4179a.get(0);
+        e eVar = this.f4181a.get(0);
         if (i == 2) {
-            return eVar.esg();
+            return eVar.evV();
         }
         if (i == 1) {
-            return eVar.esf();
+            return eVar.evU();
         }
         return null;
     }
 
     public String f() {
-        return this.f4179a.size() > 0 ? this.f4179a.get(0).d() : "";
+        return this.f4181a.size() > 0 ? this.f4181a.get(0).d() : "";
     }
 
     private boolean a(e eVar) {
-        for (e eVar2 : this.f4179a) {
+        for (e eVar2 : this.f4181a) {
             String a2 = eVar.a();
             if (!h.isEmpty(a2) && a2.equals(eVar2.a())) {
                 return true;

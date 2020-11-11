@@ -58,9 +58,9 @@ public final class R {
 
     /* loaded from: classes3.dex */
     public static final class color {
-        public static final int sdk_swipe_layout_night_bg = 0x7f0c0b5a;
-        public static final int sdk_swipe_layout_normal_bg = 0x7f0c0b5b;
-        public static final int sdk_transparent = 0x7f0c0b63;
+        public static final int sdk_swipe_layout_night_bg = 0x7f0c0b67;
+        public static final int sdk_swipe_layout_normal_bg = 0x7f0c0b68;
+        public static final int sdk_transparent = 0x7f0c0b70;
     }
 
     /* loaded from: classes3.dex */
@@ -70,63 +70,63 @@ public final class R {
 
     /* loaded from: classes3.dex */
     public static final class drawable {
-        public static final int sdk_bg_switch_close = 0x7f021ca9;
-        public static final int sdk_bg_switch_open = 0x7f021caa;
-        public static final int sdk_btn_handle = 0x7f021cbc;
-        public static final int sdk_listview_pull_refresh01 = 0x7f021d78;
-        public static final int sdk_listview_pull_refresh02 = 0x7f021d79;
+        public static final int sdk_bg_switch_close = 0x7f021ccf;
+        public static final int sdk_bg_switch_open = 0x7f021cd0;
+        public static final int sdk_btn_handle = 0x7f021ce2;
+        public static final int sdk_listview_pull_refresh01 = 0x7f021d9b;
+        public static final int sdk_listview_pull_refresh02 = 0x7f021d9c;
     }
 
     /* loaded from: classes3.dex */
     public static final class id {
 
         /* renamed from: common  reason: collision with root package name */
-        public static final int f1849common = 0x7f1001b1;
-        public static final int pull_content = 0x7f102287;
-        public static final int pull_image = 0x7f100dac;
-        public static final int pull_root = 0x7f102285;
-        public static final int pull_text = 0x7f102288;
-        public static final int pull_time = 0x7f102289;
-        public static final int shader = 0x7f1001b2;
+        public static final int f1851common = 0x7f1001b5;
+        public static final int pull_content = 0x7f1022b3;
+        public static final int pull_image = 0x7f100dba;
+        public static final int pull_root = 0x7f1022b1;
+        public static final int pull_text = 0x7f1022b4;
+        public static final int pull_time = 0x7f1022b5;
+        public static final int shader = 0x7f1001b6;
     }
 
     /* loaded from: classes3.dex */
     public static final class layout {
-        public static final int sdk_pull_view = 0x7f040815;
+        public static final int sdk_pull_view = 0x7f04081f;
     }
 
     /* loaded from: classes3.dex */
     public static final class string {
-        public static final int sdk_adp_label_name = 0x7f091523;
-        public static final int sdk_adp_loading = 0x7f091524;
-        public static final int sdk_adp_pull_to_refresh = 0x7f091525;
-        public static final int sdk_adp_pull_view_date_tip = 0x7f091526;
-        public static final int sdk_adp_release_to_refresh = 0x7f091527;
-        public static final int sdk_dialog_cancel = 0x7f09154d;
-        public static final int sdk_dialog_ok = 0x7f09154e;
-        public static final int sdk_error_unkown_try_again = 0x7f091558;
-        public static final int sdk_im_error_codec = 0x7f091579;
-        public static final int sdk_im_error_default = 0x7f09157a;
-        public static final int sdk_load_res_failed = 0x7f0915a1;
-        public static final int sdk_location_all_offline = 0x7f0915a5;
-        public static final int sdk_location_gps_offline = 0x7f0915a7;
-        public static final int sdk_location_net_offline = 0x7f0915a8;
-        public static final int sdk_location_out_time = 0x7f0915a9;
-        public static final int sdk_neterror = 0x7f0915b1;
-        public static final int sdk_prompt = 0x7f09163c;
-        public static final int sdk_send_error = 0x7f091656;
-        public static final int sdk_share_to = 0x7f09165d;
-        public static final int sdk_voice_err_other = 0x7f0916ac;
-        public static final int sdk_waiting = 0x7f0916ad;
+        public static final int sdk_adp_label_name = 0x7f091534;
+        public static final int sdk_adp_loading = 0x7f091535;
+        public static final int sdk_adp_pull_to_refresh = 0x7f091536;
+        public static final int sdk_adp_pull_view_date_tip = 0x7f091537;
+        public static final int sdk_adp_release_to_refresh = 0x7f091538;
+        public static final int sdk_dialog_cancel = 0x7f09155e;
+        public static final int sdk_dialog_ok = 0x7f09155f;
+        public static final int sdk_error_unkown_try_again = 0x7f091569;
+        public static final int sdk_im_error_codec = 0x7f09158a;
+        public static final int sdk_im_error_default = 0x7f09158b;
+        public static final int sdk_load_res_failed = 0x7f0915b2;
+        public static final int sdk_location_all_offline = 0x7f0915b6;
+        public static final int sdk_location_gps_offline = 0x7f0915b8;
+        public static final int sdk_location_net_offline = 0x7f0915b9;
+        public static final int sdk_location_out_time = 0x7f0915ba;
+        public static final int sdk_neterror = 0x7f0915c2;
+        public static final int sdk_prompt = 0x7f09164d;
+        public static final int sdk_send_error = 0x7f091667;
+        public static final int sdk_share_to = 0x7f09166e;
+        public static final int sdk_voice_err_other = 0x7f0916bd;
+        public static final int sdk_waiting = 0x7f0916be;
     }
 
     /* loaded from: classes3.dex */
     public static final class style {
-        public static final int sdk_AppBaseTheme = 0x7f0b02da;
-        public static final int sdk_AppTheme = 0x7f0b02db;
-        public static final int sdk_DialogTheme = 0x7f0b02dc;
+        public static final int sdk_AppBaseTheme = 0x7f0b02dc;
+        public static final int sdk_AppTheme = 0x7f0b02dd;
+        public static final int sdk_DialogTheme = 0x7f0b02de;
         public static final int sdk_swipeback_activity_style = 0x7f0b0082;
-        public static final int sdk_window_translucent = 0x7f0b02f3;
+        public static final int sdk_window_translucent = 0x7f0b02f5;
     }
 
     /* loaded from: classes3.dex */

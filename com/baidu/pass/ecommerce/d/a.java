@@ -28,7 +28,7 @@ public class a extends View {
     private static final int x = 255;
 
     /* renamed from: a  reason: collision with root package name */
-    private Paint f2763a;
+    private Paint f2765a;
     private Paint b;
     private Paint c;
     private float d;
@@ -52,14 +52,14 @@ public class a extends View {
 
     /* renamed from: com.baidu.pass.ecommerce.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes17.dex */
-    class C0263a implements ValueAnimator.AnimatorUpdateListener {
-        C0263a() {
+    class C0275a implements ValueAnimator.AnimatorUpdateListener {
+        C0275a() {
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             a.this.e = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-            a.this.f2763a.setShader(new LinearGradient((a.this.l / 2) - a.this.e, 0.0f, (a.this.l / 2) + a.this.e, 0.0f, a.this.getResources().getColor(a.b.sapi_sdk_mms_voice_primary_start), a.this.getResources().getColor(a.b.sapi_sdk_mms_voice_primary_end), Shader.TileMode.MIRROR));
+            a.this.f2765a.setShader(new LinearGradient((a.this.l / 2) - a.this.e, 0.0f, (a.this.l / 2) + a.this.e, 0.0f, a.this.getResources().getColor(a.b.sapi_sdk_mms_voice_primary_start), a.this.getResources().getColor(a.b.sapi_sdk_mms_voice_primary_end), Shader.TileMode.MIRROR));
             a.this.b.setShader(new LinearGradient((a.this.l / 2) - a.this.e, 0.0f, (a.this.l / 2) + a.this.e, 0.0f, a.this.getResources().getColor(a.b.sapi_sdk_mms_voice_secondary_start), a.this.getResources().getColor(a.b.sapi_sdk_mms_voice_secondary_end), Shader.TileMode.MIRROR));
         }
     }
@@ -72,7 +72,7 @@ public class a extends View {
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             a.this.j = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-            a.this.f2763a.setAlpha((int) (a.this.j * 255.0f));
+            a.this.f2765a.setAlpha((int) (a.this.j * 255.0f));
             a.this.b.setAlpha((int) (a.this.i * 255.0f * a.this.j));
             a.this.invalidate();
         }
@@ -83,8 +83,8 @@ public class a extends View {
 
         /* renamed from: com.baidu.pass.ecommerce.d.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes17.dex */
-        class C0264a extends TimerTask {
-            C0264a() {
+        class C0276a extends TimerTask {
+            C0276a() {
             }
 
             @Override // java.util.TimerTask, java.lang.Runnable
@@ -99,7 +99,7 @@ public class a extends View {
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             if (a.this.s != null) {
-                a.this.s.schedule(new C0264a(), 0L, 16L);
+                a.this.s.schedule(new C0276a(), 0L, 16L);
             }
         }
     }
@@ -109,16 +109,16 @@ public class a extends View {
     public static class d extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        private WeakReference<a> f2768a;
+        private WeakReference<a> f2770a;
 
         public d(a aVar) {
-            this.f2768a = new WeakReference<>(aVar);
+            this.f2770a = new WeakReference<>(aVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             a aVar;
-            if (message.what != 4097 || (aVar = this.f2768a.get()) == null) {
+            if (message.what != 4097 || (aVar = this.f2770a.get()) == null) {
                 return;
             }
             aVar.invalidate();
@@ -152,7 +152,7 @@ public class a extends View {
         if (this.k != -1) {
             canvas.drawCircle(this.l / 2, this.m / 2, this.e + SapiUtils.dip2px(getContext(), this.f), this.c);
         }
-        canvas.drawCircle(this.l / 2, this.m / 2, this.e, this.f2763a);
+        canvas.drawCircle(this.l / 2, this.m / 2, this.e, this.f2765a);
         canvas.restore();
         canvas.rotate(this.n, this.l / 2, (this.m / 2) - (SapiUtils.dip2px(getContext(), this.h) - 1.0f));
         canvas.drawCircle(this.l / 2, this.m / 2, this.e, this.b);
@@ -168,10 +168,10 @@ public class a extends View {
             this.f = 1;
             this.g = 1;
         }
-        this.f2763a = new Paint();
-        this.f2763a.setAntiAlias(true);
-        this.f2763a.setStyle(Paint.Style.STROKE);
-        this.f2763a.setStrokeWidth(this.f);
+        this.f2765a = new Paint();
+        this.f2765a.setAntiAlias(true);
+        this.f2765a.setStyle(Paint.Style.STROKE);
+        this.f2765a.setStrokeWidth(this.f);
         this.b = new Paint();
         this.b.setAntiAlias(true);
         this.b.setStyle(Paint.Style.STROKE);
@@ -193,18 +193,18 @@ public class a extends View {
     public void a() {
         if (!this.u) {
             this.u = true;
-            C0263a c0263a = new C0263a();
+            C0275a c0275a = new C0275a();
             float f = this.d;
             float f2 = f / 3.0f;
             float f3 = (f * 23.0f) / 21.0f;
             ValueAnimator ofFloat = ValueAnimator.ofFloat(f2, f3);
             ofFloat.setInterpolator(new LinearInterpolator());
             ofFloat.setDuration(this.o);
-            ofFloat.addUpdateListener(c0263a);
+            ofFloat.addUpdateListener(c0275a);
             ValueAnimator ofFloat2 = ValueAnimator.ofFloat(f3, this.d);
             ofFloat2.setInterpolator(new LinearInterpolator());
             ofFloat2.setDuration(this.p);
-            ofFloat2.addUpdateListener(c0263a);
+            ofFloat2.addUpdateListener(c0275a);
             ValueAnimator ofFloat3 = ValueAnimator.ofFloat(0.0f, 1.0f);
             ofFloat3.setInterpolator(new DecelerateInterpolator());
             ofFloat3.setDuration(this.q);

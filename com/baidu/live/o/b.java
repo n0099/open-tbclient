@@ -4,7 +4,7 @@ import com.baidu.live.liveroom.middleware.h;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b {
-    public JSONObject boy;
-    public h boz;
+    public JSONObject bpR;
+    public h bpS;
     public String contentType;
 }

@@ -19,7 +19,7 @@ public abstract class e {
     private boolean c = true;
 
     /* renamed from: a  reason: collision with root package name */
-    protected com.baidu.platform.util.a f2814a = new com.baidu.platform.util.a();
+    protected com.baidu.platform.util.a f2816a = new com.baidu.platform.util.a();
 
     private String a(SearchType searchType, String str) {
         if (TextUtils.isEmpty(str)) {
@@ -77,9 +77,9 @@ public abstract class e {
             authToken = HttpClient.getAuthToken();
         }
         if (this.b) {
-            this.f2814a.a("token", authToken);
+            this.f2816a.a("token", authToken);
         }
-        String a3 = this.f2814a.a();
+        String a3 = this.f2816a.a();
         if (b(searchType)) {
             a3 = a(searchType, a3);
         }

@@ -7,15 +7,15 @@ import com.baidu.tieba.R;
 public class b implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f2845a;
+    final /* synthetic */ a f2847a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.f2845a = aVar;
+        this.f2847a = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f2845a.g.a(false, R.raw.aiapp_guide);
+        this.f2847a.g.a(false, R.raw.aiapp_guide);
     }
 }

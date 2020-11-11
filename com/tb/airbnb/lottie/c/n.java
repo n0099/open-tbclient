@@ -11,10 +11,10 @@ import java.util.ArrayList;
 /* loaded from: classes16.dex */
 public class n {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static com.tb.airbnb.lottie.model.content.e p(JsonReader jsonReader, com.tb.airbnb.lottie.d dVar) throws IOException {
+    public static com.tb.airbnb.lottie.model.content.e p(JsonReader jsonReader, com.tb.airbnb.lottie.e eVar) throws IOException {
         String str = null;
         com.tb.airbnb.lottie.model.a.c cVar = null;
-        com.tb.airbnb.lottie.model.a.d dVar2 = null;
+        com.tb.airbnb.lottie.model.a.d dVar = null;
         GradientType gradientType = null;
         com.tb.airbnb.lottie.model.a.f fVar = null;
         com.tb.airbnb.lottie.model.a.f fVar2 = null;
@@ -124,7 +124,7 @@ public class n {
                                 i = jsonReader.nextInt();
                                 break;
                             case 1:
-                                cVar = d.a(jsonReader, dVar, i);
+                                cVar = d.a(jsonReader, eVar, i);
                                 break;
                             default:
                                 jsonReader.skipValue();
@@ -134,7 +134,7 @@ public class n {
                     jsonReader.endObject();
                     break;
                 case 2:
-                    dVar2 = d.g(jsonReader, dVar);
+                    dVar = d.g(jsonReader, eVar);
                     break;
                 case 3:
                     if (jsonReader.nextInt() != 1) {
@@ -145,13 +145,13 @@ public class n {
                         break;
                     }
                 case 4:
-                    fVar = d.h(jsonReader, dVar);
+                    fVar = d.h(jsonReader, eVar);
                     break;
                 case 5:
-                    fVar2 = d.h(jsonReader, dVar);
+                    fVar2 = d.h(jsonReader, eVar);
                     break;
                 case 6:
-                    bVar = d.f(jsonReader, dVar);
+                    bVar = d.f(jsonReader, eVar);
                     break;
                 case 7:
                     lineCapType = ShapeStroke.LineCapType.values()[jsonReader.nextInt() - 1];
@@ -190,7 +190,7 @@ public class n {
                                     str2 = jsonReader.nextString();
                                     break;
                                 case 1:
-                                    bVar3 = d.f(jsonReader, dVar);
+                                    bVar3 = d.f(jsonReader, eVar);
                                     break;
                                 default:
                                     jsonReader.skipValue();
@@ -216,6 +216,6 @@ public class n {
                     break;
             }
         }
-        return new com.tb.airbnb.lottie.model.content.e(str, gradientType, cVar, dVar2, fVar, fVar2, bVar, lineCapType, lineJoinType, f, arrayList, bVar2);
+        return new com.tb.airbnb.lottie.model.content.e(str, gradientType, cVar, dVar, fVar, fVar2, bVar, lineCapType, lineJoinType, f, arrayList, bVar2);
     }
 }

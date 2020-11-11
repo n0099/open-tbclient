@@ -8,8 +8,8 @@ import java.util.TreeSet;
 /* loaded from: classes10.dex */
 public abstract class a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    double dba = 1.0d;
-    protected Set<Integer> dbb;
+    double dgV = 1.0d;
+    protected Set<Integer> dgW;
 
     public abstract boolean a(Bitmap bitmap, Rect rect);
 
@@ -21,22 +21,22 @@ public abstract class a {
         return rect.top < rect.bottom && rect.bottom <= bitmap.getHeight() && rect.left < rect.right && rect.right <= bitmap.getWidth();
     }
 
-    public void js(int i) {
-        if (this.dbb == null) {
-            this.dbb = new TreeSet();
+    public void jC(int i) {
+        if (this.dgW == null) {
+            this.dgW = new TreeSet();
         } else {
-            this.dbb.clear();
+            this.dgW.clear();
         }
         if (DEBUG) {
             Log.d("ErrorPageParser", "set color " + String.format("#%06X", Integer.valueOf(16777215 & i)));
         }
-        this.dbb.add(Integer.valueOf(i));
+        this.dgW.add(Integer.valueOf(i));
     }
 
     /* renamed from: com.baidu.swan.apps.y.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0487a {
-        public static a qi(String str) {
+    public static class C0499a {
+        public static a qw(String str) {
             return b(str, 0.5d);
         }
 

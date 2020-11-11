@@ -4,28 +4,28 @@ import android.support.annotation.Nullable;
 /* loaded from: classes10.dex */
 class d implements a {
     @Nullable
-    private com.baidu.swan.games.f.a cTY;
+    private com.baidu.swan.games.f.a cZR;
 
     @Override // com.baidu.swan.apps.v.a.a
     public void onPause() {
-        axG();
-        if (this.cTY != null) {
-            this.cTY.onPause();
+        aAg();
+        if (this.cZR != null) {
+            this.cZR.onPause();
         }
     }
 
     @Override // com.baidu.swan.apps.v.a.a
     public void onResume() {
-        axG();
-        if (this.cTY != null) {
-            this.cTY.onResume();
+        aAg();
+        if (this.cZR != null) {
+            this.cZR.onResume();
         }
     }
 
-    private void axG() {
-        com.baidu.swan.apps.core.g.a apz;
-        if ((this.cTY == null || this.cTY.isDestroyed()) && (apz = com.baidu.swan.apps.core.turbo.d.aph().apz()) != null && (apz.agX() instanceof com.baidu.swan.games.f.a)) {
-            this.cTY = (com.baidu.swan.games.f.a) apz.agX();
+    private void aAg() {
+        com.baidu.swan.apps.core.g.a arZ;
+        if ((this.cZR == null || this.cZR.isDestroyed()) && (arZ = com.baidu.swan.apps.core.turbo.d.arI().arZ()) != null && (arZ.ajx() instanceof com.baidu.swan.games.f.a)) {
+            this.cZR = (com.baidu.swan.games.f.a) arZ.ajx();
         }
     }
 }

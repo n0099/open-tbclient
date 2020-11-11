@@ -45,7 +45,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
     private static final String q = "skipreg";
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f3563a;
+    private Context f3566a;
     private View b;
     private View c;
     private EditText d;
@@ -83,7 +83,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
 
             @Override // android.os.CountDownTimer
             public void onTick(long j) {
-                SmsLoginView.this.f.setText((j / 1000) + SmsLoginView.this.f3563a.getString(a.g.sapi_sdk_sms_second));
+                SmsLoginView.this.f.setText((j / 1000) + SmsLoginView.this.f3566a.getString(a.g.sapi_sdk_sms_second));
                 SmsLoginView.this.f.setEnabled(false);
                 SmsLoginView.this.a(false);
             }
@@ -96,7 +96,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
         public void onClick(View view) {
             if (SmsLoginView.this.d.getText().toString().length() == 11) {
                 SmsLoginView smsLoginView = SmsLoginView.this;
-                smsLoginView.m = smsLoginView.f.getText().toString().equals(SmsLoginView.this.f3563a.getString(a.g.sapi_sdk_sms_get_check_code));
+                smsLoginView.m = smsLoginView.f.getText().toString().equals(SmsLoginView.this.f3566a.getString(a.g.sapi_sdk_sms_get_check_code));
                 SmsLoginView.this.g.setVisibility(8);
                 SmsLoginView.this.g.setText("");
                 SmsLoginView.this.e.requestFocus();
@@ -197,7 +197,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
         @Override // java.lang.Runnable
         public void run() {
             SmsLoginView.this.e.requestFocus();
-            InputMethodManager inputMethodManager = (InputMethodManager) SmsLoginView.this.f3563a.getSystemService("input_method");
+            InputMethodManager inputMethodManager = (InputMethodManager) SmsLoginView.this.f3566a.getSystemService("input_method");
             if (inputMethodManager != null) {
                 inputMethodManager.showSoftInput(SmsLoginView.this.d, 0);
             }
@@ -377,7 +377,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
     private interface f {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f3572a = "pop_login";
+        public static final String f3575a = "pop_login";
         public static final String b = "show";
         public static final String c = "input_phone";
         public static final String d = "first_get_dpass";
@@ -451,7 +451,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
     public SmsLoginView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.m = true;
-        this.f3563a = context;
+        this.f3566a = context;
         this.b = LayoutInflater.from(context).inflate(a.f.layout_sapi_sdk_sms_login_view, (ViewGroup) this, true);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.i.sapi_sdk_sms_login_view, i, 0);
         boolean z = obtainStyledAttributes.getBoolean(a.i.sapi_sdk_sms_login_view_sapi_sdk_show_keyboard, false);
@@ -485,7 +485,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         this.i.setVisibility(0);
-        this.j = new d(this.f3563a);
+        this.j = new d(this.f3566a);
         this.j.show();
     }
 

@@ -7,7 +7,7 @@ import java.util.List;
 public class g extends com.baidu.android.pushservice.g.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1056a;
+    private Context f1058a;
     private a b;
     private String c;
     private List<String> d;
@@ -18,7 +18,7 @@ public class g extends com.baidu.android.pushservice.g.c {
     }
 
     public g(Context context, String str, a aVar) {
-        this.f1056a = context;
+        this.f1058a = context;
         this.c = str;
         this.b = aVar;
         c("PushService-PushService-SearchboxDNS");
@@ -32,7 +32,7 @@ public class g extends com.baidu.android.pushservice.g.c {
 
     protected void b() {
         try {
-            this.d = new DnsHelper(this.f1056a).getIpListForceHttp(this.c);
+            this.d = new DnsHelper(this.f1058a).getIpListForceHttp(this.c);
         } catch (Throwable th) {
         }
         this.b.a(this.d);

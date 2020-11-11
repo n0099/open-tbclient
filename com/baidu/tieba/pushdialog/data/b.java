@@ -7,7 +7,7 @@ import com.baidu.tbadk.widget.richText.TbRichTextView;
 import tbclient.GetLockWindowMsg.LockWindowThreadInfo;
 /* loaded from: classes21.dex */
 public class b {
-    private TbRichText mjF;
+    private TbRichText mpC;
     private int postNum;
     private long tid;
     private String title;
@@ -18,7 +18,7 @@ public class b {
             this.title = lockWindowThreadInfo.title;
             this.postNum = lockWindowThreadInfo.post_num.intValue();
             if (!y.isEmpty(lockWindowThreadInfo.content)) {
-                this.mjF = TbRichTextView.a(context, lockWindowThreadInfo.content, true);
+                this.mpC = TbRichTextView.a(context, lockWindowThreadInfo.content, true);
             }
         }
     }
@@ -35,7 +35,7 @@ public class b {
         return this.postNum;
     }
 
-    public TbRichText dwG() {
-        return this.mjF;
+    public TbRichText dzi() {
+        return this.mpC;
     }
 }

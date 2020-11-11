@@ -7,7 +7,7 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 public class o extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.f.c.a> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String ata() {
+    public String avA() {
         return "setSurface";
     }
 

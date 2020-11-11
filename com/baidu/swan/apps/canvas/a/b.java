@@ -16,8 +16,8 @@ public class b extends a {
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject hs(int i) {
-        return super.hs(i);
+    public /* bridge */ /* synthetic */ JSONObject hC(int i) {
+        return super.hC(i);
     }
 
     public b(j jVar) {
@@ -29,7 +29,7 @@ public class b extends a {
         com.baidu.swan.apps.canvas.b.b d = d(unitedSchemeEntity);
         if (d == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "draw model is null");
-            unitedSchemeEntity.result = hs(201);
+            unitedSchemeEntity.result = hC(201);
             return false;
         }
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
@@ -38,16 +38,16 @@ public class b extends a {
             return false;
         }
         final String optString = optParamsAsJo.optString("cb");
-        if (TextUtils.isEmpty(d.cxR)) {
+        if (TextUtils.isEmpty(d.cDK)) {
             com.baidu.swan.apps.component.e.a.bm("SwanAppAction", "canvasId is empty ");
-            unitedSchemeEntity.result = hs(201);
+            unitedSchemeEntity.result = hC(201);
             return false;
         }
-        if (TextUtils.isEmpty(d.cxS)) {
+        if (TextUtils.isEmpty(d.cDL)) {
             com.baidu.swan.apps.component.e.a.bm("SwanAppAction", "drawCanvas slaveId is empty");
-            com.baidu.swan.apps.core.d.e amC = com.baidu.swan.apps.v.f.axo().amC();
-            if (amC != null) {
-                d.cxS = amC.aml();
+            com.baidu.swan.apps.core.d.e apc = com.baidu.swan.apps.v.f.azO().apc();
+            if (apc != null) {
+                d.cDL = apc.aoL();
             }
         }
         com.baidu.swan.apps.component.components.d.a aVar = (com.baidu.swan.apps.component.components.d.a) com.baidu.swan.apps.component.container.a.d(d);
@@ -57,7 +57,7 @@ public class b extends a {
         }
         boolean a2 = aVar.a(d, new CanvasView.b() { // from class: com.baidu.swan.apps.canvas.a.b.1
             @Override // com.baidu.swan.apps.canvas.view.CanvasView.b
-            public void ahX() {
+            public void akx() {
                 if (optString != null) {
                     callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(0, "draw complete").toString());
                 }

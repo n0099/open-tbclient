@@ -7,9 +7,9 @@ public interface b {
     void a(com.baidu.swan.games.f.a aVar);
 
     @Nullable
-    V8EngineConfiguration.CodeCacheSetting anr();
+    V8EngineConfiguration.CodeCacheSetting apS();
 
-    String ans();
+    String apT();
 
     void b(com.baidu.swan.games.f.a aVar);
 

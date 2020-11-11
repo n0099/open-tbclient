@@ -12,13 +12,13 @@ import java.util.List;
 import tbclient.ItemPlot;
 /* loaded from: classes22.dex */
 public class ItemTableView extends LinearLayout {
-    private static final int jji = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds15);
-    private ItemTableRowView jjc;
-    private ItemTableRowView jjd;
-    private ItemTableRowView jje;
-    private ItemTableRowView jjf;
-    private ItemTableRowView jjg;
-    private SparseArray<ItemTableRowView> jjh;
+    private static final int jpg = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds15);
+    private ItemTableRowView jpa;
+    private ItemTableRowView jpb;
+    private ItemTableRowView jpc;
+    private ItemTableRowView jpd;
+    private ItemTableRowView jpe;
+    private SparseArray<ItemTableRowView> jpf;
 
     public ItemTableView(Context context) {
         this(context, null);
@@ -35,17 +35,17 @@ public class ItemTableView extends LinearLayout {
 
     private void init(Context context) {
         setOrientation(1);
-        this.jjg = b(context, 0, 0);
-        this.jjf = b(context, 1, jji);
-        this.jje = b(context, 2, jji);
-        this.jjd = b(context, 3, jji);
-        this.jjc = b(context, 4, jji);
-        this.jjh = new SparseArray<>();
-        this.jjh.put(5, this.jjg);
-        this.jjh.put(4, this.jjf);
-        this.jjh.put(3, this.jje);
-        this.jjh.put(2, this.jjd);
-        this.jjh.put(1, this.jjc);
+        this.jpe = b(context, 0, 0);
+        this.jpd = b(context, 1, jpg);
+        this.jpc = b(context, 2, jpg);
+        this.jpb = b(context, 3, jpg);
+        this.jpa = b(context, 4, jpg);
+        this.jpf = new SparseArray<>();
+        this.jpf.put(5, this.jpe);
+        this.jpf.put(4, this.jpd);
+        this.jpf.put(3, this.jpc);
+        this.jpf.put(2, this.jpb);
+        this.jpf.put(1, this.jpa);
     }
 
     private ItemTableRowView b(Context context, int i, int i2) {
@@ -64,7 +64,7 @@ public class ItemTableView extends LinearLayout {
                 if (itemPlot != null) {
                     int intValue = itemPlot.level.intValue();
                     float intValue2 = (itemPlot.num.intValue() * 1.0f) / i;
-                    ItemTableRowView itemTableRowView = this.jjh.get(intValue);
+                    ItemTableRowView itemTableRowView = this.jpf.get(intValue);
                     if (itemTableRowView != null) {
                         itemTableRowView.setData(intValue2);
                     }
@@ -75,18 +75,18 @@ public class ItemTableView extends LinearLayout {
     }
 
     public void clear() {
-        this.jjc.clear();
-        this.jjd.clear();
-        this.jje.clear();
-        this.jjf.clear();
-        this.jjg.clear();
+        this.jpa.clear();
+        this.jpb.clear();
+        this.jpc.clear();
+        this.jpd.clear();
+        this.jpe.clear();
     }
 
     public void onChangeSkinType() {
-        this.jjc.onChangeSkinType();
-        this.jjd.onChangeSkinType();
-        this.jje.onChangeSkinType();
-        this.jjf.onChangeSkinType();
-        this.jjg.onChangeSkinType();
+        this.jpa.onChangeSkinType();
+        this.jpb.onChangeSkinType();
+        this.jpc.onChangeSkinType();
+        this.jpd.onChangeSkinType();
+        this.jpe.onChangeSkinType();
     }
 }

@@ -15,14 +15,14 @@ public class H5Options implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Qs */
+        /* renamed from: QN */
         public H5Options[] newArray(int i) {
             return new H5Options[i];
         }
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public String f4231a;
+    public String f4233a;
     public boolean b;
     public boolean c;
     public boolean d;
@@ -33,7 +33,7 @@ public class H5Options implements Parcelable {
     public int h;
 
     public H5Options() {
-        this.f4231a = "";
+        this.f4233a = "";
         this.b = false;
         this.c = false;
         this.d = true;
@@ -44,7 +44,7 @@ public class H5Options implements Parcelable {
     }
 
     protected H5Options(Parcel parcel) {
-        this.f4231a = "";
+        this.f4233a = "";
         this.b = false;
         this.c = false;
         this.d = true;
@@ -52,7 +52,7 @@ public class H5Options implements Parcelable {
         this.f = true;
         this.g = true;
         this.h = -1;
-        this.f4231a = parcel.readString();
+        this.f4233a = parcel.readString();
         this.b = parcel.readByte() != 0;
         this.c = parcel.readByte() != 0;
         this.d = parcel.readByte() != 0;
@@ -64,7 +64,7 @@ public class H5Options implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f4231a);
+        parcel.writeString(this.f4233a);
         parcel.writeByte((byte) (this.b ? 1 : 0));
         parcel.writeByte((byte) (this.c ? 1 : 0));
         parcel.writeByte((byte) (this.d ? 1 : 0));

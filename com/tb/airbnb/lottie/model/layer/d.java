@@ -6,8 +6,8 @@ import android.graphics.RectF;
 /* loaded from: classes16.dex */
 public class d extends a {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(com.tb.airbnb.lottie.f fVar, Layer layer) {
-        super(fVar, layer);
+    public d(com.tb.airbnb.lottie.g gVar, Layer layer) {
+        super(gVar, layer);
     }
 
     @Override // com.tb.airbnb.lottie.model.layer.a

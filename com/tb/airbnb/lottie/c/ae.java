@@ -7,10 +7,10 @@ import java.io.IOException;
 /* loaded from: classes16.dex */
 class ae {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static com.tb.airbnb.lottie.model.content.i w(JsonReader jsonReader, com.tb.airbnb.lottie.d dVar) throws IOException {
+    public static com.tb.airbnb.lottie.model.content.i w(JsonReader jsonReader, com.tb.airbnb.lottie.e eVar) throws IOException {
         String str = null;
         int i = 1;
-        com.tb.airbnb.lottie.model.a.d dVar2 = null;
+        com.tb.airbnb.lottie.model.a.d dVar = null;
         boolean z = false;
         com.tb.airbnb.lottie.model.a.a aVar = null;
         while (jsonReader.hasNext()) {
@@ -53,10 +53,10 @@ class ae {
                     str = jsonReader.nextString();
                     break;
                 case 1:
-                    aVar = d.l(jsonReader, dVar);
+                    aVar = d.l(jsonReader, eVar);
                     break;
                 case 2:
-                    dVar2 = d.g(jsonReader, dVar);
+                    dVar = d.g(jsonReader, eVar);
                     break;
                 case 3:
                     z = jsonReader.nextBoolean();
@@ -69,6 +69,6 @@ class ae {
                     break;
             }
         }
-        return new com.tb.airbnb.lottie.model.content.i(str, z, i == 1 ? Path.FillType.WINDING : Path.FillType.EVEN_ODD, aVar, dVar2);
+        return new com.tb.airbnb.lottie.model.content.i(str, z, i == 1 ? Path.FillType.WINDING : Path.FillType.EVEN_ODD, aVar, dVar);
     }
 }

@@ -4,55 +4,55 @@ import android.text.TextUtils;
 import android.util.Log;
 /* loaded from: classes10.dex */
 public final class j {
-    private static int oiW = 1000;
-    private static boolean oiX = true;
+    private static int osc = 1000;
+    private static boolean osd = true;
 
     public static void c(boolean z) {
-        oiX = z;
+        osd = z;
     }
 
     public static void I(String str) {
-        if (oiX) {
+        if (osd) {
             a(5, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void b(Throwable th) {
-        if (oiX) {
+        if (osd) {
             a(4, "BaiDuAbSDK", "", th);
         }
     }
 
     public static void G(String str) {
-        if (oiX) {
+        if (osd) {
             a(2, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void a(Throwable th) {
-        if (oiX) {
+        if (osd) {
             a(2, "BaiDuAbSDK", "", th);
         }
     }
 
     private static void a(int i, String str, String str2, Throwable th) {
         if (!TextUtils.isEmpty(str2)) {
-            if (str2.length() >= oiW) {
+            if (str2.length() >= osc) {
                 switch (i) {
                     case 1:
-                        Log.v(str, str2.substring(0, oiW));
+                        Log.v(str, str2.substring(0, osc));
                         break;
                     case 2:
-                        Log.d(str, str2.substring(0, oiW));
+                        Log.d(str, str2.substring(0, osc));
                         break;
                     case 3:
-                        Log.i(str, str2.substring(0, oiW));
+                        Log.i(str, str2.substring(0, osc));
                         break;
                     case 4:
-                        Log.w(str, str2.substring(0, oiW));
+                        Log.w(str, str2.substring(0, osc));
                         break;
                     case 5:
-                        Log.e(str, str2.substring(0, oiW));
+                        Log.e(str, str2.substring(0, osc));
                         break;
                 }
             } else {

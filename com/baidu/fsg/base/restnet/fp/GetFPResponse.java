@@ -51,7 +51,7 @@ public class GetFPResponse implements IBeanResponse {
     public static class RimConfig implements NoProguard {
 
         /* renamed from: common  reason: collision with root package name */
-        public CommonConfig f1469common;
+        public CommonConfig f1471common;
         public LivenessConfig living;
         public OcrConfig ocr;
     }
@@ -130,7 +130,7 @@ public class GetFPResponse implements IBeanResponse {
         public static final int YAW = 15;
 
         /* renamed from: a  reason: collision with root package name */
-        private static final int f1468a = 6;
+        private static final int f1470a = 6;
         private static final int b = 3;
         public String custom_sp_config;
         public String custom_verfitytext_spno_list;

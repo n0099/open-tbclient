@@ -3,17 +3,17 @@ package com.baidu.mobads;
 class k implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f2362a;
+    final /* synthetic */ String f2364a;
     final /* synthetic */ j b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar, String str) {
         this.b = jVar;
-        this.f2362a = str;
+        this.f2364a = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.b.d.onUrl(this.f2362a);
+        this.b.d.onUrl(this.f2364a);
     }
 }

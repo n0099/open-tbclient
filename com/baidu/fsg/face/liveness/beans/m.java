@@ -20,7 +20,7 @@ import java.util.List;
 public class m extends UploadBean {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1714a;
+    private String f1716a;
     private String b;
     private String c;
     private String d;
@@ -41,7 +41,7 @@ public class m extends UploadBean {
     }
 
     public void d(String str) {
-        this.f1714a = str;
+        this.f1716a = str;
     }
 
     public m(Context context) {
@@ -64,8 +64,8 @@ public class m extends UploadBean {
             if (!TextUtils.isEmpty(a())) {
                 arrayList.add(new RestNameValuePair("atbc", a()));
             }
-            if (!TextUtils.isEmpty(this.f1714a)) {
-                arrayList.add(new RestNameValuePair(LogConfig.LOG_VIDEO_TYPE, this.f1714a));
+            if (!TextUtils.isEmpty(this.f1716a)) {
+                arrayList.add(new RestNameValuePair(LogConfig.LOG_VIDEO_TYPE, this.f1716a));
             }
             if (!TextUtils.isEmpty(this.b)) {
                 arrayList.add(new RestNameValuePair("callbackkey", this.b));

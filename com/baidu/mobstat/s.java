@@ -23,12 +23,12 @@ import org.json.JSONObject;
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f2624a;
+    private static String f2626a;
     private static s b;
     private Handler c;
 
     static {
-        f2624a = Build.VERSION.SDK_INT < 9 ? "http://openrcv.baidu.com/1010/bplus.gif" : "https://openrcv.baidu.com/1010/bplus.gif";
+        f2626a = Build.VERSION.SDK_INT < 9 ? "http://openrcv.baidu.com/1010/bplus.gif" : "https://openrcv.baidu.com/1010/bplus.gif";
     }
 
     private s() {
@@ -136,7 +136,7 @@ public class s {
         }
         if (bw.c().booleanValue()) {
             try {
-                a(context, f2624a, str);
+                a(context, f2626a, str);
                 return true;
             } catch (Exception e) {
                 bb.c().c(e);

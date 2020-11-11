@@ -10,12 +10,12 @@ import android.database.sqlite.SQLiteOpenHelper;
 class m extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2623a;
+    private String f2625a;
     private SQLiteDatabase b;
 
     public m(Context context, String str) throws SQLiteException {
         super(context, ".confd", (SQLiteDatabase.CursorFactory) null, 1);
-        this.f2623a = str;
+        this.f2625a = str;
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
@@ -83,7 +83,7 @@ class m extends SQLiteOpenHelper {
         Cursor cursor = null;
         int i = 0;
         try {
-            cursor = this.b.rawQuery("SELECT COUNT(*) FROM " + this.f2623a, null);
+            cursor = this.b.rawQuery("SELECT COUNT(*) FROM " + this.f2625a, null);
             if (cursor != null && cursor.moveToNext()) {
                 i = cursor.getInt(0);
             } else if (cursor != null) {
@@ -98,14 +98,14 @@ class m extends SQLiteOpenHelper {
     }
 
     public Cursor a(String[] strArr, String str, String[] strArr2, String str2, String str3, String str4, String str5) {
-        return this.b.query(this.f2623a, strArr, str, strArr2, str2, str3, str4, str5);
+        return this.b.query(this.f2625a, strArr, str, strArr2, str2, str3, str4, str5);
     }
 
     public long a(String str, ContentValues contentValues) {
-        return this.b.insert(this.f2623a, str, contentValues);
+        return this.b.insert(this.f2625a, str, contentValues);
     }
 
     public int a(String str, String[] strArr) {
-        return this.b.delete(this.f2623a, str, strArr);
+        return this.b.delete(this.f2625a, str, strArr);
     }
 }

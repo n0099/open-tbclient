@@ -10,16 +10,16 @@ import com.xiaomi.mipush.sdk.Constants;
 public class ea extends ed {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4868a;
+    private String f4870a;
 
     public ea(Context context, int i, String str) {
         super(context, i);
-        this.f4868a = str;
+        this.f4870a = str;
     }
 
     private String[] a() {
-        if (!TextUtils.isEmpty(this.f4868a)) {
-            String b = bc.b(this.f4868a);
+        if (!TextUtils.isEmpty(this.f4870a)) {
+            String b = bc.b(this.f4870a);
             if (!TextUtils.isEmpty(b)) {
                 return b.contains(Constants.ACCEPT_TIME_SEPARATOR_SP) ? b.split(Constants.ACCEPT_TIME_SEPARATOR_SP) : new String[]{b};
             }
@@ -46,7 +46,7 @@ public class ea extends ed {
         if (a2 == null || a2.length <= 0) {
             return null;
         }
-        PackageManager packageManager = this.f229a.getPackageManager();
+        PackageManager packageManager = this.f231a.getPackageManager();
         StringBuilder sb = new StringBuilder();
         for (String str : a2) {
             try {

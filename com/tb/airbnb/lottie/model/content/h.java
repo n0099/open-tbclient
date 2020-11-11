@@ -44,7 +44,7 @@ public class h {
         }
         this.closed = hVar.isClosed() || hVar2.isClosed();
         if (hVar.ko().size() != hVar2.ko().size()) {
-            com.tb.airbnb.lottie.c.warn("Curves must have the same number of control points. Shape 1: " + hVar.ko().size() + "\tShape 2: " + hVar2.ko().size());
+            com.tb.airbnb.lottie.d.warn("Curves must have the same number of control points. Shape 1: " + hVar.ko().size() + "\tShape 2: " + hVar2.ko().size());
         }
         if (this.FD.isEmpty()) {
             int min = Math.min(hVar.ko().size(), hVar2.ko().size());

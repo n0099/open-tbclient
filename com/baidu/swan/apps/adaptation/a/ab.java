@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.adaptation.a;
 /* loaded from: classes10.dex */
 public interface ab {
-    void afK();
+    void aik();
 
-    void afL();
+    void ail();
 
-    void afM();
+    void aim();
 }

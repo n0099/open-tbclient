@@ -22,10 +22,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class be {
-    private static be eIk = new be() { // from class: com.baidu.tbadk.core.util.be.1
+    private static be eNZ = new be() { // from class: com.baidu.tbadk.core.util.be.1
     };
     private static final Pattern pattern = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private c eIl;
+    private c eOa;
     private final ConcurrentHashMap<String, b> mHandlers;
     private final List<a> mListeners;
 
@@ -51,7 +51,7 @@ public class be {
     private be() {
         this.mListeners = new LinkedList();
         this.mHandlers = new ConcurrentHashMap<>();
-        this.eIl = null;
+        this.eOa = null;
     }
 
     public static SpannableString au(Context context, String str) {
@@ -70,8 +70,8 @@ public class be {
         return spannableString;
     }
 
-    public static be boR() {
-        return eIk;
+    public static be brr() {
+        return eNZ;
     }
 
     public void a(final a aVar) {
@@ -95,7 +95,7 @@ public class be {
     }
 
     public void a(c cVar) {
-        this.eIl = cVar;
+        this.eOa = cVar;
     }
 
     public boolean a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, d dVar, boolean z2) {
@@ -161,7 +161,7 @@ public class be {
                 break;
             }
         }
-        if (!z3 && this.eIl != null) {
+        if (!z3 && this.eOa != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
             } else if (strArr.length > 1 && !StringUtils.isNull(strArr[1]) && "yun_push_tag".equals(strArr[1])) {
@@ -273,7 +273,7 @@ public class be {
 
     private void b(TbPageContext<?> tbPageContext, String str, String str2, boolean z, d dVar, boolean z2) {
         if (pattern.matcher(str2).find()) {
-            this.eIl.a(tbPageContext, str, str2, z, dVar, z2);
+            this.eOa.a(tbPageContext, str, str2, z, dVar, z2);
         }
     }
 
@@ -301,10 +301,10 @@ public class be {
         if (charSequence == null) {
             return false;
         }
-        return aw.eIg.matcher(charSequence).find();
+        return aw.eNV.matcher(charSequence).find();
     }
 
-    public String BM(String str) {
+    public String Ca(String str) {
         if (!l(str)) {
             return null;
         }
@@ -320,6 +320,6 @@ public class be {
         if (charSequence == null) {
             return false;
         }
-        return aw.eIf.matcher(charSequence).find();
+        return aw.eNU.matcher(charSequence).find();
     }
 }

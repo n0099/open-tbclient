@@ -6,43 +6,43 @@ import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class p {
-    private boolean eud;
-    private int eue;
-    private int euf;
-    private int eug = 25;
-    private int euh = 25;
-    private int eui = 10;
+    private boolean ezW;
+    private int ezX;
+    private int ezY;
     private int time;
+    private int ezZ = 25;
+    private int eAa = 25;
+    private int eAb = 10;
 
     public int getSuccRank() {
-        return this.eug;
+        return this.ezZ;
     }
 
     public int getErrRank() {
-        return this.euh;
+        return this.eAa;
     }
 
     public int getSlowRank() {
-        return this.eui;
+        return this.eAb;
     }
 
     public boolean ismSwitch() {
-        return this.eud;
+        return this.ezW;
     }
 
     public void setmSwitch(boolean z) {
-        if (this.eud != z) {
+        if (this.ezW != z) {
             com.baidu.adp.lib.stats.a mT = com.baidu.tbadk.core.util.u.mT();
             mT.append("act", "fallback");
             mT.append("result", z ? "1" : "0");
             mT.append("type", "switch");
             BdStatisticsManager.getInstance().debug("img", mT);
         }
-        this.eud = z;
+        this.ezW = z;
     }
 
     public int getSlowNumber() {
-        return this.eue;
+        return this.ezX;
     }
 
     public int getTime() {
@@ -50,7 +50,7 @@ public class p {
     }
 
     public int getErrNumber() {
-        return this.euf;
+        return this.ezY;
     }
 
     public void parseJson(String str) {
@@ -59,7 +59,7 @@ public class p {
                 parseJson(new JSONObject(str));
             }
         } catch (Exception e) {
-            this.eud = false;
+            this.ezW = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -68,30 +68,30 @@ public class p {
         if (jSONObject != null) {
             try {
                 if (jSONObject.optInt("switch") == 1) {
-                    this.eud = true;
+                    this.ezW = true;
                 } else {
-                    this.eud = false;
+                    this.ezW = false;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("err");
                 if (optJSONObject != null) {
-                    this.euf = optJSONObject.optInt("num");
+                    this.ezY = optJSONObject.optInt("num");
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
                 if (optJSONObject2 != null) {
                     this.time = optJSONObject2.optInt("time");
-                    this.eue = optJSONObject2.optInt("num");
+                    this.ezX = optJSONObject2.optInt("num");
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
                 if (optJSONObject3 != null) {
-                    this.eug = optJSONObject3.optInt("succ");
-                    this.euh = optJSONObject3.optInt("err");
-                    this.eui = optJSONObject3.optInt("slow");
+                    this.ezZ = optJSONObject3.optInt("succ");
+                    this.eAa = optJSONObject3.optInt("err");
+                    this.eAb = optJSONObject3.optInt("slow");
                 }
-                if (this.time <= 0 || this.eue <= 0 || this.euf <= 0) {
-                    this.eud = false;
+                if (this.time <= 0 || this.ezX <= 0 || this.ezY <= 0) {
+                    this.ezW = false;
                 }
             } catch (Exception e) {
-                this.eud = false;
+                this.ezW = false;
                 BdLog.e(e.getMessage());
             }
         }

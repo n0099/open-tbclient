@@ -20,25 +20,25 @@ import com.baidu.swan.games.view.recommend.proxy.RecommendButtonApiProxy;
 /* loaded from: classes10.dex */
 public final class c extends EventTargetImpl {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.games.f.b dLd;
-    private e dML;
-    private d dMM;
-    private com.baidu.swan.games.r.b dMN;
-    private JsObject dMO;
-    private com.baidu.swan.games.r.e dMP;
-    private com.baidu.swan.games.n.a dMQ;
-    private com.baidu.swan.games.n.b dMR;
-    private com.baidu.swan.games.w.a dMS;
-    private com.baidu.swan.games.aa.d dMT;
-    private com.baidu.swan.games.a.c dMU;
-    private com.baidu.swan.games.network.websocket.a dMV;
-    private g dMW;
-    private com.baidu.swan.games.screenrecord.a dMX;
-    private h dMY;
-    private DesktopGuideApi dMZ;
-    private com.baidu.swan.games.s.a dNa;
-    private com.baidu.swan.games.view.webview.a dNb;
-    private com.baidu.swan.games.b.b dNc;
+    private com.baidu.swan.games.f.b dQV;
+    private e dSD;
+    private d dSE;
+    private com.baidu.swan.games.r.b dSF;
+    private JsObject dSG;
+    private com.baidu.swan.games.r.e dSH;
+    private com.baidu.swan.games.n.a dSI;
+    private com.baidu.swan.games.n.b dSJ;
+    private com.baidu.swan.games.w.a dSK;
+    private com.baidu.swan.games.aa.d dSL;
+    private com.baidu.swan.games.a.c dSM;
+    private com.baidu.swan.games.network.websocket.a dSN;
+    private g dSO;
+    private com.baidu.swan.games.screenrecord.a dSP;
+    private h dSQ;
+    private DesktopGuideApi dSR;
+    private com.baidu.swan.games.s.a dSS;
+    private com.baidu.swan.games.view.webview.a dST;
+    private com.baidu.swan.games.b.b dSU;
     @V8JavascriptField
     public final String domain;
     @V8JavascriptField
@@ -47,61 +47,61 @@ public final class c extends EventTargetImpl {
     public c(com.baidu.swan.games.f.b bVar) {
         super(bVar);
         this.domain = "main";
-        this.dMO = null;
-        this.dMP = null;
-        this.dMQ = null;
-        this.dMR = null;
-        this.dMT = null;
-        this.dMU = null;
-        this.dMV = null;
-        this.dMW = null;
-        this.dMX = null;
-        this.dMY = null;
-        this.dMZ = null;
-        this.dNa = null;
-        this.dNb = null;
-        this.dNc = null;
-        this.dLd = bVar;
+        this.dSG = null;
+        this.dSH = null;
+        this.dSI = null;
+        this.dSJ = null;
+        this.dSL = null;
+        this.dSM = null;
+        this.dSN = null;
+        this.dSO = null;
+        this.dSP = null;
+        this.dSQ = null;
+        this.dSR = null;
+        this.dSS = null;
+        this.dST = null;
+        this.dSU = null;
+        this.dQV = bVar;
         this.env = new com.baidu.swan.games.i.a();
-        aRM();
+        aUm();
     }
 
-    private void aRM() {
-        this.dMR = new com.baidu.swan.games.n.b(this.dLd);
+    private void aUm() {
+        this.dSJ = new com.baidu.swan.games.n.b(this.dQV);
     }
 
     public void d(JsObject jsObject) {
-        this.dMO = jsObject;
+        this.dSG = jsObject;
     }
 
     @JavascriptInterface
     public void setPreferredFramesPerSecond(short s) {
         if (s >= 1 && s <= 60) {
-            this.dLd.setPreferredFramesPerSecond(s);
+            this.dQV.setPreferredFramesPerSecond(s);
         }
     }
 
     @JavascriptInterface
     public com.baidu.swan.games.r.e getOpenDataContext() {
-        if (this.dMP == null) {
-            this.dMP = new com.baidu.swan.games.r.e(this.dLd);
-            this.dMP.canvas = this.dMO;
-            this.dMO = null;
+        if (this.dSH == null) {
+            this.dSH = new com.baidu.swan.games.r.e(this.dQV);
+            this.dSH.canvas = this.dSG;
+            this.dSG = null;
         }
-        return this.dMP;
+        return this.dSH;
     }
 
     @JavascriptInterface
     public e getFileSystemManager() {
-        if (this.dML == null) {
-            this.dML = new e((com.baidu.swan.games.f.a) this.dLd);
+        if (this.dSD == null) {
+            this.dSD = new e((com.baidu.swan.games.f.a) this.dQV);
         }
-        return this.dML;
+        return this.dSD;
     }
 
     @JavascriptInterface
     public com.baidu.swan.games.y.c loadSubpackage(JsObject jsObject) {
-        com.baidu.swan.games.y.c cVar = new com.baidu.swan.games.y.c(this.dLd);
+        com.baidu.swan.games.y.c cVar = new com.baidu.swan.games.y.c(this.dQV);
         cVar.n(jsObject);
         return cVar;
     }
@@ -109,13 +109,13 @@ public final class c extends EventTargetImpl {
     @JavascriptInterface
     public void exit(JsObject jsObject) {
         if (DEBUG) {
-            this.dLd.aSr().log("exit from java side.");
+            this.dQV.aUR().log("exit from java side.");
         }
         if (jsObject != null) {
             com.baidu.swan.games.binding.model.b bVar = new com.baidu.swan.games.binding.model.b();
             com.baidu.swan.games.binding.model.a f = com.baidu.swan.games.binding.model.a.f(com.baidu.swan.games.binding.model.c.e(jsObject));
-            SwanAppActivity awY = f.axo().awY();
-            if (awY == null) {
+            SwanAppActivity azy = f.azO().azy();
+            if (azy == null) {
                 bVar.errMsg = String.format("%s:%s", RGState.METHOD_NAME_EXIT, "failed");
                 f.ac(bVar);
                 return;
@@ -123,19 +123,19 @@ public final class c extends EventTargetImpl {
             bVar.errMsg = String.format("%s:%s", RGState.METHOD_NAME_EXIT, "ok");
             f.onSuccess(bVar);
             if (Build.VERSION.SDK_INT >= 21) {
-                awY.finishAndRemoveTask();
+                azy.finishAndRemoveTask();
             } else {
-                awY.finish();
+                azy.finish();
             }
         }
     }
 
     @JavascriptInterface
     public void reload(JsObject jsObject) {
-        if (this.dNa == null) {
-            this.dNa = new com.baidu.swan.games.s.a();
+        if (this.dSS == null) {
+            this.dSS = new com.baidu.swan.games.s.a();
         }
-        this.dNa.reload(jsObject);
+        this.dSS.reload(jsObject);
     }
 
     @JavascriptInterface
@@ -145,199 +145,199 @@ public final class c extends EventTargetImpl {
 
     @JavascriptInterface
     public d getOpenData() {
-        if (this.dMM == null) {
-            this.dMM = new d((com.baidu.swan.games.f.a) this.dLd);
+        if (this.dSE == null) {
+            this.dSE = new d((com.baidu.swan.games.f.a) this.dQV);
         }
-        return this.dMM;
+        return this.dSE;
     }
 
     @JavascriptInterface
     public void checkIsUserAdvisedToRest(JsObject jsObject) {
-        if (this.dMN == null) {
-            this.dMN = new com.baidu.swan.games.r.b(this.dLd);
+        if (this.dSF == null) {
+            this.dSF = new com.baidu.swan.games.r.b(this.dQV);
         }
-        this.dMN.checkIsUserAdvisedToRest(jsObject);
+        this.dSF.checkIsUserAdvisedToRest(jsObject);
     }
 
     @JavascriptInterface
     public com.baidu.swan.games.a.c createRewardedVideoAd(JsObject jsObject) {
-        if (this.dMU == null) {
-            this.dMU = com.baidu.swan.apps.t.a.auD().a(this.dLd, jsObject);
-            if (this.dMU == null) {
-                this.dMU = new com.baidu.swan.games.a.a();
+        if (this.dSM == null) {
+            this.dSM = com.baidu.swan.apps.t.a.axd().a(this.dQV, jsObject);
+            if (this.dSM == null) {
+                this.dSM = new com.baidu.swan.games.a.a();
             }
         }
-        return this.dMU;
+        return this.dSM;
     }
 
     @JavascriptInterface
     public com.baidu.swan.games.view.button.userinfo.b createUserInfoButton(JsObject jsObject) {
-        return new com.baidu.swan.games.view.button.userinfo.b(jsObject, this.dLd);
+        return new com.baidu.swan.games.view.button.userinfo.b(jsObject, this.dQV);
     }
 
     @JavascriptInterface
     public void showKeyboard(JsObject jsObject) {
-        if (this.dMQ == null) {
-            this.dMQ = new com.baidu.swan.games.n.a(this.dLd, this.dMR);
+        if (this.dSI == null) {
+            this.dSI = new com.baidu.swan.games.n.a(this.dQV, this.dSJ);
         }
-        this.dMQ.showKeyboard(jsObject);
+        this.dSI.showKeyboard(jsObject);
     }
 
     @JavascriptInterface
     public void showKeyboard() {
-        if (this.dMQ == null) {
-            this.dMQ = new com.baidu.swan.games.n.a(this.dLd, this.dMR);
+        if (this.dSI == null) {
+            this.dSI = new com.baidu.swan.games.n.a(this.dQV, this.dSJ);
         }
-        this.dMQ.showKeyboard(null);
+        this.dSI.showKeyboard(null);
     }
 
     @JavascriptInterface
     public void updateKeyboard(JsObject jsObject) {
-        if (this.dMQ != null) {
-            this.dMQ.updateKeyboard(jsObject);
+        if (this.dSI != null) {
+            this.dSI.updateKeyboard(jsObject);
         }
     }
 
     @JavascriptInterface
     public void updateKeyboard() {
-        if (this.dMQ != null) {
-            this.dMQ.updateKeyboard(null);
+        if (this.dSI != null) {
+            this.dSI.updateKeyboard(null);
         }
     }
 
     @JavascriptInterface
     public void hideKeyboard(JsObject jsObject) {
-        if (this.dMQ != null) {
-            this.dMQ.hideKeyboard(jsObject);
+        if (this.dSI != null) {
+            this.dSI.hideKeyboard(jsObject);
         }
     }
 
     @JavascriptInterface
     public void hideKeyboard() {
-        if (this.dMQ != null) {
-            this.dMQ.hideKeyboard(null);
+        if (this.dSI != null) {
+            this.dSI.hideKeyboard(null);
         }
     }
 
     @JavascriptInterface
     public void getStorage(JsObject jsObject) {
-        aRN().getStorage(jsObject);
+        aUn().getStorage(jsObject);
     }
 
     @JavascriptInterface
     public Object getStorageSync(String str) {
-        return com.baidu.swan.games.w.a.d.a(this.dLd, "getStorageSync", str, aRN().xr(str));
+        return com.baidu.swan.games.w.a.d.a(this.dQV, "getStorageSync", str, aUn().xF(str));
     }
 
     @JavascriptInterface
     public void setStorage(JsObject jsObject) {
-        aRN().setStorage(jsObject);
+        aUn().setStorage(jsObject);
     }
 
     @JavascriptInterface
     public void setStorageSync(String str, JsSerializeValue jsSerializeValue) {
-        com.baidu.swan.games.w.a.d.a(this.dLd, "setStorageSync", str, aRN().a(str, jsSerializeValue));
+        com.baidu.swan.games.w.a.d.a(this.dQV, "setStorageSync", str, aUn().a(str, jsSerializeValue));
     }
 
     @JavascriptInterface
     public void setStorageSync(String str) {
-        com.baidu.swan.games.w.a.d.a(this.dLd, "setStorageSync", str, aRN().a(str, (JsSerializeValue) null));
+        com.baidu.swan.games.w.a.d.a(this.dQV, "setStorageSync", str, aUn().a(str, (JsSerializeValue) null));
     }
 
     @JavascriptInterface
     public void removeStorage(JsObject jsObject) {
-        aRN().removeStorage(jsObject);
+        aUn().removeStorage(jsObject);
     }
 
     @JavascriptInterface
     public void removeStorageSync(String str) {
-        com.baidu.swan.games.w.a.d.a(this.dLd, "removeStorageSync", str, aRN().xs(str));
+        com.baidu.swan.games.w.a.d.a(this.dQV, "removeStorageSync", str, aUn().xG(str));
     }
 
     @JavascriptInterface
     public void clearStorage(JsObject jsObject) {
-        aRN().clearStorage(jsObject);
+        aUn().clearStorage(jsObject);
     }
 
     @JavascriptInterface
     public void clearStorageSync() {
-        com.baidu.swan.games.w.a.d.a(this.dLd, "clearStorageSync", "", aRN().aUL());
+        com.baidu.swan.games.w.a.d.a(this.dQV, "clearStorageSync", "", aUn().aXl());
     }
 
     @JavascriptInterface
     public void getStorageInfo(JsObject jsObject) {
-        aRN().getStorageInfo(jsObject);
+        aUn().getStorageInfo(jsObject);
     }
 
     @JavascriptInterface
     public com.baidu.swan.games.w.a.c getStorageInfoSync() {
-        return aRN().getStorageInfoSync();
+        return aUn().getStorageInfoSync();
     }
 
     @NonNull
-    private com.baidu.swan.games.w.a aRN() {
-        if (this.dMS == null) {
-            this.dMS = new com.baidu.swan.games.w.a(this.dLd);
+    private com.baidu.swan.games.w.a aUn() {
+        if (this.dSK == null) {
+            this.dSK = new com.baidu.swan.games.w.a(this.dQV);
         }
-        return this.dMS;
+        return this.dSK;
     }
 
     @JavascriptInterface
     public void setInnerAudioOption(JsObject jsObject) {
-        this.dMY = new h(jsObject);
+        this.dSQ = new h(jsObject);
     }
 
     @JavascriptInterface
     public com.baidu.swan.games.audio.g createInnerAudioContext() {
-        return new com.baidu.swan.games.audio.g(this.dLd);
+        return new com.baidu.swan.games.audio.g(this.dQV);
     }
 
     @JavascriptInterface
     public com.baidu.swan.games.a.b createBannerAd(JsObject jsObject) {
-        return com.baidu.swan.apps.t.a.auD().b(this.dLd, jsObject);
+        return com.baidu.swan.apps.t.a.axd().b(this.dQV, jsObject);
     }
 
     @JavascriptInterface
     public com.baidu.swan.games.aa.d getUpdateManager(JsObject jsObject) {
-        if (this.dMT == null) {
-            this.dMT = new com.baidu.swan.games.aa.d(jsObject);
+        if (this.dSL == null) {
+            this.dSL = new com.baidu.swan.games.aa.d(jsObject);
         }
-        return this.dMT;
+        return this.dSL;
     }
 
     @JavascriptInterface
     public com.baidu.swan.games.network.websocket.c connectSocket(JsObject jsObject) {
-        if (this.dMV == null) {
-            this.dMV = new com.baidu.swan.games.network.websocket.a(this.dLd);
+        if (this.dSN == null) {
+            this.dSN = new com.baidu.swan.games.network.websocket.a(this.dQV);
         }
-        return this.dMV.connectSocket(jsObject);
+        return this.dSN.connectSocket(jsObject);
     }
 
     @JavascriptInterface
     public void setEnableDebug(JsObject jsObject) {
-        if (this.dMW == null) {
-            this.dMW = new g(this.dLd);
+        if (this.dSO == null) {
+            this.dSO = new g(this.dQV);
         }
-        this.dMW.setEnableDebug(jsObject);
+        this.dSO.setEnableDebug(jsObject);
     }
 
     @JavascriptInterface
     public com.baidu.swan.games.network.c.c request(JsObject jsObject) {
         com.baidu.swan.games.binding.model.c e = com.baidu.swan.games.binding.model.c.e(jsObject);
-        com.baidu.swan.games.network.a a2 = com.baidu.swan.games.network.b.d.aTS().a(this.dLd, e, 1);
+        com.baidu.swan.games.network.a a2 = com.baidu.swan.games.network.b.d.aWs().a(this.dQV, e, 1);
         if (a2 instanceof com.baidu.swan.games.network.c.c) {
             com.baidu.swan.games.network.c.c cVar = (com.baidu.swan.games.network.c.c) a2;
             cVar.j(e);
             return cVar;
         }
-        com.baidu.swan.games.network.c.c cVar2 = new com.baidu.swan.games.network.c.c(this.dLd, e);
+        com.baidu.swan.games.network.c.c cVar2 = new com.baidu.swan.games.network.c.c(this.dQV, e);
         cVar2.start();
         return cVar2;
     }
 
     @JavascriptInterface
     public com.baidu.swan.games.network.d.b uploadFile(JsObject jsObject) {
-        com.baidu.swan.games.network.d.b bVar = new com.baidu.swan.games.network.d.b(this.dLd, com.baidu.swan.games.binding.model.c.e(jsObject));
+        com.baidu.swan.games.network.d.b bVar = new com.baidu.swan.games.network.d.b(this.dQV, com.baidu.swan.games.binding.model.c.e(jsObject));
         bVar.start();
         return bVar;
     }
@@ -345,43 +345,43 @@ public final class c extends EventTargetImpl {
     @JavascriptInterface
     public com.baidu.swan.games.network.a.b downloadFile(JsObject jsObject) {
         com.baidu.swan.games.binding.model.c e = com.baidu.swan.games.binding.model.c.e(jsObject);
-        com.baidu.swan.games.network.a a2 = com.baidu.swan.games.network.b.d.aTS().a(this.dLd, e, 2);
+        com.baidu.swan.games.network.a a2 = com.baidu.swan.games.network.b.d.aWs().a(this.dQV, e, 2);
         if (a2 instanceof com.baidu.swan.games.network.a.b) {
             com.baidu.swan.games.network.a.b bVar = (com.baidu.swan.games.network.a.b) a2;
             bVar.j(e);
             return bVar;
         }
-        com.baidu.swan.games.network.a.b bVar2 = new com.baidu.swan.games.network.a.b(this.dLd, e);
+        com.baidu.swan.games.network.a.b bVar2 = new com.baidu.swan.games.network.a.b(this.dQV, e);
         bVar2.start();
         return bVar2;
     }
 
     @JavascriptInterface
     public void openCustomerServiceConversation(JsObject jsObject) {
-        com.baidu.swan.games.d.a.a((c) this.dLd.aSp(), jsObject);
+        com.baidu.swan.games.d.a.a((c) this.dQV.aUP(), jsObject);
     }
 
     @JavascriptInterface
     public com.baidu.swan.games.screenrecord.a getVideoRecorderManager() {
-        if (this.dMX == null) {
-            this.dMX = new com.baidu.swan.games.screenrecord.a(this.dLd);
+        if (this.dSP == null) {
+            this.dSP = new com.baidu.swan.games.screenrecord.a(this.dQV);
         }
-        return this.dMX;
+        return this.dSP;
     }
 
     @JavascriptInterface
     public void shareVideo(JsObject jsObject) {
-        new com.baidu.swan.games.u.b.a(jsObject).alt();
+        new com.baidu.swan.games.u.b.a(jsObject).anT();
     }
 
     @JavascriptInterface
     public String getEnvVariables() {
-        return com.baidu.swan.apps.jsbridge.a.b.f(this.dLd);
+        return com.baidu.swan.apps.jsbridge.a.b.f(this.dQV);
     }
 
     @JavascriptInterface
     public RecommendButtonApiProxy createRecommendationButton(JsObject jsObject) {
-        return new RecommendButtonApiProxy(this.dLd, jsObject);
+        return new RecommendButtonApiProxy(this.dQV, jsObject);
     }
 
     @JavascriptInterface
@@ -391,10 +391,10 @@ public final class c extends EventTargetImpl {
 
     @JavascriptInterface
     public void showAddToDesktopGuide(JsObject jsObject) {
-        if (this.dMZ == null) {
-            this.dMZ = new DesktopGuideApi(this.dLd);
+        if (this.dSR == null) {
+            this.dSR = new DesktopGuideApi(this.dQV);
         }
-        this.dMZ.q(jsObject);
+        this.dSR.q(jsObject);
     }
 
     @JavascriptInterface
@@ -404,10 +404,10 @@ public final class c extends EventTargetImpl {
 
     @JavascriptInterface
     public com.baidu.swan.games.view.webview.a getWebViewManager() {
-        if (this.dNb == null) {
-            this.dNb = new com.baidu.swan.games.view.webview.a(this.dLd);
+        if (this.dST == null) {
+            this.dST = new com.baidu.swan.games.view.webview.a(this.dQV);
         }
-        return this.dNb;
+        return this.dST;
     }
 
     @JavascriptInterface
@@ -418,7 +418,7 @@ public final class c extends EventTargetImpl {
     @JavascriptInterface
     public String getAPIs(int i) {
         if (DEBUG) {
-            return com.baidu.swan.apps.ad.a.a.aCt() ? SchemeCollecter.getSchemesDes(SchemeCollecter.CLASSIFY_SWAN_V8, i) : "";
+            return com.baidu.swan.apps.ad.a.a.aET() ? SchemeCollecter.getSchemesDes(SchemeCollecter.CLASSIFY_SWAN_V8, i) : "";
         }
         return SchemeCollecter.getSchemesDes(SchemeCollecter.CLASSIFY_SWAN_V8, i);
     }
@@ -430,17 +430,17 @@ public final class c extends EventTargetImpl {
 
     @JavascriptInterface
     public void menuItemCtrl(JsObject jsObject) {
-        com.baidu.swan.games.q.a axc = f.axo().axc();
-        if (axc != null) {
-            axc.i(com.baidu.swan.games.binding.model.c.e(jsObject));
+        com.baidu.swan.games.q.a azC = f.azO().azC();
+        if (azC != null) {
+            azC.i(com.baidu.swan.games.binding.model.c.e(jsObject));
         }
     }
 
     @JavascriptInterface
     public com.baidu.swan.games.b.b getAntiAddiction() {
-        if (this.dNc == null) {
-            this.dNc = new com.baidu.swan.games.b.b(this.dLd);
+        if (this.dSU == null) {
+            this.dSU = new com.baidu.swan.games.b.b(this.dQV);
         }
-        return this.dNc;
+        return this.dSU;
     }
 }

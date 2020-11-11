@@ -24,25 +24,25 @@ import java.util.regex.Pattern;
 class dh {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f4852a = "/MiPushLog";
+    private static String f4854a = "/MiPushLog";
 
     /* renamed from: a  reason: collision with other field name */
-    private int f200a;
+    private int f202a;
 
     /* renamed from: a  reason: collision with other field name */
-    private boolean f203a;
+    private boolean f205a;
 
     /* renamed from: b  reason: collision with other field name */
-    private String f204b;
+    private String f206b;
     private String c;
     @SuppressLint({"SimpleDateFormat"})
 
     /* renamed from: a  reason: collision with other field name */
-    private final SimpleDateFormat f201a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private final SimpleDateFormat f203a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private int b = 2097152;
 
     /* renamed from: a  reason: collision with other field name */
-    private ArrayList<File> f202a = new ArrayList<>();
+    private ArrayList<File> f204a = new ArrayList<>();
 
     private void a(BufferedReader bufferedReader, BufferedWriter bufferedWriter, Pattern pattern) {
         int i;
@@ -57,30 +57,30 @@ class dh {
             int i3 = 0;
             while (i2 < read && matcher.find(i2)) {
                 i = matcher.start();
-                String substring = str.substring(i, this.f204b.length() + i);
-                if (this.f203a) {
+                String substring = str.substring(i, this.f206b.length() + i);
+                if (this.f205a) {
                     if (substring.compareTo(this.c) > 0) {
                         z = true;
                         break;
                     }
-                } else if (substring.compareTo(this.f204b) >= 0) {
-                    this.f203a = true;
+                } else if (substring.compareTo(this.f206b) >= 0) {
+                    this.f205a = true;
                     i3 = i;
                 }
                 int indexOf = str.indexOf(10, i);
-                i2 = indexOf != -1 ? i + indexOf : i + this.f204b.length();
+                i2 = indexOf != -1 ? i + indexOf : i + this.f206b.length();
             }
             i = read;
             z = z2;
-            if (this.f203a) {
+            if (this.f205a) {
                 int i4 = i - i3;
-                this.f200a += i4;
+                this.f202a += i4;
                 if (z) {
                     bufferedWriter.write(cArr, i3, i4);
                     return;
                 }
                 bufferedWriter.write(cArr, i3, i4);
-                if (this.f200a > this.b) {
+                if (this.f202a > this.b) {
                     return;
                 }
             }
@@ -109,8 +109,8 @@ class dh {
                     sb.append("; andver :").append(Build.VERSION.SDK_INT);
                     sb.append("\n");
                     bufferedWriter.write(sb.toString());
-                    this.f200a = 0;
-                    Iterator<File> it = this.f202a.iterator();
+                    this.f202a = 0;
+                    Iterator<File> it = this.f204a.iterator();
                     BufferedReader bufferedReader2 = "\n";
                     while (true) {
                         try {
@@ -170,18 +170,18 @@ class dh {
     /* renamed from: a  reason: collision with other method in class */
     dh m226a(File file) {
         if (file.exists()) {
-            this.f202a.add(file);
+            this.f204a.add(file);
         }
         return this;
     }
 
     dh a(Date date, Date date2) {
         if (date.after(date2)) {
-            this.f204b = this.f201a.format(date2);
-            this.c = this.f201a.format(date);
+            this.f206b = this.f203a.format(date2);
+            this.c = this.f203a.format(date);
         } else {
-            this.f204b = this.f201a.format(date);
-            this.c = this.f201a.format(date2);
+            this.f206b = this.f203a.format(date);
+            this.c = this.f203a.format(date2);
         }
         return this;
     }
@@ -194,7 +194,7 @@ class dh {
             m226a(new File(file2, "xmsf.log.1"));
             m226a(new File(file2, "xmsf.log"));
         } else {
-            file2 = new File(context.getExternalFilesDir(null) + f4852a);
+            file2 = new File(context.getExternalFilesDir(null) + f4854a);
             m226a(new File(file2, "log0.txt"));
             m226a(new File(file2, "log1.txt"));
         }

@@ -16,7 +16,7 @@ public final class d {
     private static d f;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f3926a = new a();
+    public a f3928a = new a();
     public b b;
     public WebViewFactory.WebKitUnzipCallback c;
     public Handler d;
@@ -27,7 +27,7 @@ public final class d {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        String f3927a;
+        String f3929a;
         Context b;
         String c;
         public String d;
@@ -39,7 +39,7 @@ public final class d {
             }
             if (this.e) {
                 this.c = this.b.getFilesDir() == null ? null : this.b.getApplicationInfo().nativeLibraryDir != null ? this.b.getApplicationInfo().nativeLibraryDir + "/libzeuswebviewchromium.so" : this.b.getFilesDir().getParent() + "/lib/libzeuswebviewchromium.so";
-                this.d = this.f3927a + GlobalConstants.ZEUS_LIB_LOCAL_RELATIVE_PATH;
+                this.d = this.f3929a + GlobalConstants.ZEUS_LIB_LOCAL_RELATIVE_PATH;
             }
         }
 
@@ -53,7 +53,7 @@ public final class d {
     public class b extends Thread {
 
         /* renamed from: a  reason: collision with root package name */
-        boolean f3928a;
+        boolean f3930a;
         private Context c;
 
         public b(Context context) {
@@ -62,7 +62,7 @@ public final class d {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a() {
-            this.f3928a = true;
+            this.f3930a = true;
             synchronized (d.g) {
                 if (d.this.c != null) {
                     d.this.c.unzipFinished();
@@ -74,7 +74,7 @@ public final class d {
         @Override // java.lang.Thread, java.lang.Runnable
         public final void run() {
             try {
-                if (this.c == null || !SevenZipUtils.getInstance().prepare(this.c, d.this.f3926a.c, d.this.f3926a.d)) {
+                if (this.c == null || !SevenZipUtils.getInstance().prepare(this.c, d.this.f3928a.c, d.this.f3928a.d)) {
                     LoadErrorCode.getInstance().trace("502:" + (this.c == null));
                     ZeusWebViewPreloadClass.getInstance().setIsWebkitNeedUnzipSO(false);
                     a();
@@ -82,9 +82,9 @@ public final class d {
                 }
                 ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_UNZIP);
                 SevenZipUtils.getInstance().hook(true);
-                SevenZipUtils.getInstance().unzipWithMeta(d.this.f3926a.c, d.this.f3926a.d);
+                SevenZipUtils.getInstance().unzipWithMeta(d.this.f3928a.c, d.this.f3928a.d);
                 Log.i("BlinkUnzipManager", "[perf][startup][unzip] finish.");
-                this.f3928a = true;
+                this.f3930a = true;
                 int errorCode = SevenZipUtils.getInstance().getErrorCode();
                 if (errorCode != 0) {
                     LoadErrorCode.getInstance().set(100, "res=" + errorCode);
@@ -100,10 +100,10 @@ public final class d {
     }
 
     private d(Context context) {
-        a aVar = this.f3926a;
+        a aVar = this.f3928a;
         try {
             aVar.b = context.getApplicationContext();
-            aVar.f3927a = aVar.b.getFilesDir().toString();
+            aVar.f3929a = aVar.b.getFilesDir().toString();
         } catch (Exception e2) {
         }
     }
@@ -129,7 +129,7 @@ public final class d {
 
     public final void a() {
         synchronized (e) {
-            if (this.b == null || this.f3926a == null) {
+            if (this.b == null || this.f3928a == null) {
                 return;
             }
             d();
@@ -139,12 +139,12 @@ public final class d {
     public final void b() throws Exception {
         synchronized (e) {
             try {
-                if (!this.f3926a.a() || this.b == null) {
+                if (!this.f3928a.a() || this.b == null) {
                     return;
                 }
                 d();
                 this.b.join(15000L);
-                if (this.b.f3928a) {
+                if (this.b.f3930a) {
                     this.b = null;
                 } else {
                     LoadErrorCode.getInstance().set(102);

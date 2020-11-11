@@ -96,7 +96,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
         public int offsetX;
         public View view;
         public boolean isRight = true;
-        public int textDayColor = a.d.sdk_common_color_10225;
+        public int textDayColor = a.c.sdk_common_color_10225;
 
         public void onChangeSkin(int i) {
             if (this.bgDayRes != 0) {
@@ -108,11 +108,11 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
                 }
                 int messageCount = getMessageCount((TextView) this.view);
                 if (messageCount > 0 && messageCount < 10) {
-                    SkinManager.setBackgroundResource((TextView) this.view, a.f.sdk_icon_news_head_prompt_one);
+                    SkinManager.setBackgroundResource((TextView) this.view, a.e.sdk_icon_news_head_prompt_one);
                 } else if (messageCount >= 10 && messageCount < 100) {
-                    SkinManager.setBackgroundResource((TextView) this.view, a.f.sdk_icon_news_head_prompt_two);
+                    SkinManager.setBackgroundResource((TextView) this.view, a.e.sdk_icon_news_head_prompt_two);
                 } else if (messageCount >= 100) {
-                    SkinManager.setBackgroundResource((TextView) this.view, a.f.sdk_icon_news_head_prompt_more);
+                    SkinManager.setBackgroundResource((TextView) this.view, a.e.sdk_icon_news_head_prompt_more);
                 }
             }
             if (this.view instanceof MessageRedDotView) {

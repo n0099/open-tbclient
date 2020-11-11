@@ -9,17 +9,17 @@ public interface a extends IInterface {
 
     /* renamed from: com.samsung.android.deviceidservice.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static abstract class AbstractBinderC1016a extends Binder implements a {
+    public static abstract class AbstractBinderC1035a extends Binder implements a {
 
         /* renamed from: com.samsung.android.deviceidservice.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes11.dex */
-        private static class C1017a implements a {
+        private static class C1036a implements a {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f4453a;
+            private IBinder f4455a;
 
-            C1017a(IBinder iBinder) {
-                this.f4453a = iBinder;
+            C1036a(IBinder iBinder) {
+                this.f4455a = iBinder;
             }
 
             @Override // com.samsung.android.deviceidservice.a
@@ -28,7 +28,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.samsung.android.deviceidservice.IDeviceIdService");
-                    this.f4453a.transact(1, obtain, obtain2, 0);
+                    this.f4455a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -44,7 +44,7 @@ public interface a extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.samsung.android.deviceidservice.IDeviceIdService");
                     obtain.writeString(str);
-                    this.f4453a.transact(2, obtain, obtain2, 0);
+                    this.f4455a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -55,7 +55,7 @@ public interface a extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f4453a;
+                return this.f4455a;
             }
 
             @Override // com.samsung.android.deviceidservice.a
@@ -65,7 +65,7 @@ public interface a extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.samsung.android.deviceidservice.IDeviceIdService");
                     obtain.writeString(str);
-                    this.f4453a.transact(3, obtain, obtain2, 0);
+                    this.f4455a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -75,7 +75,7 @@ public interface a extends IInterface {
             }
         }
 
-        public AbstractBinderC1016a() {
+        public AbstractBinderC1035a() {
             attachInterface(this, "com.samsung.android.deviceidservice.IDeviceIdService");
         }
 
@@ -84,7 +84,7 @@ public interface a extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.samsung.android.deviceidservice.IDeviceIdService");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C1017a(iBinder) : (a) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C1036a(iBinder) : (a) queryLocalInterface;
         }
 
         @Override // android.os.Binder

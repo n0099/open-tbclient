@@ -24,13 +24,13 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.yuyinala.privatemessage.model.a {
     private Handler mHandler;
-    private boolean oxB;
-    private volatile CopyOnWriteArrayList<com.baidu.yuyinala.privatemessage.session.b.a> oxA = new CopyOnWriteArrayList<>();
-    private com.baidu.yuyinala.privatemessage.session.a oxC = new com.baidu.yuyinala.privatemessage.session.a(BdBaseApplication.getInst());
+    private boolean oGU;
+    private volatile CopyOnWriteArrayList<com.baidu.yuyinala.privatemessage.session.b.a> oGT = new CopyOnWriteArrayList<>();
+    private com.baidu.yuyinala.privatemessage.session.a oGV = new com.baidu.yuyinala.privatemessage.session.a(BdBaseApplication.getInst());
 
     @Override // com.baidu.yuyinala.privatemessage.model.a
     public synchronized List<com.baidu.yuyinala.privatemessage.session.b.a> getDataList() {
-        return this.oxA;
+        return this.oGT;
     }
 
     @Override // com.baidu.yuyinala.privatemessage.model.a
@@ -44,31 +44,31 @@ public class a extends com.baidu.yuyinala.privatemessage.model.a {
                 }
             }
             if (bVar != null) {
-                bVar.v("", -1, "Im 未登录");
+                bVar.w("", -1, "Im 未登录");
                 return;
             }
             return;
         }
-        this.oxB = true;
-        this.oxC.a(new a.InterfaceC0937a<ChatSession>() { // from class: com.baidu.yuyinala.privatemessage.session.c.a.1
-            @Override // com.baidu.yuyinala.privatemessage.session.a.InterfaceC0937a
+        this.oGU = true;
+        this.oGV.a(new a.InterfaceC0955a<ChatSession>() { // from class: com.baidu.yuyinala.privatemessage.session.c.a.1
+            @Override // com.baidu.yuyinala.privatemessage.session.a.InterfaceC0955a
             public void a(a.b<ChatSession> bVar2) {
-                a.this.oxB = false;
+                a.this.oGU = false;
                 if (bVar2 != null) {
-                    a.this.oxA.clear();
-                    a.this.oxA.addAll(a.this.go(bVar2.getList()));
+                    a.this.oGT.clear();
+                    a.this.oGT.addAll(a.this.gx(bVar2.getList()));
                     if (bVar != null) {
-                        bVar.NF(i);
+                        bVar.Oa(i);
                     }
                 } else if (bVar != null) {
-                    bVar.v("", -1, "无消息");
+                    bVar.w("", -1, "无消息");
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List<com.baidu.yuyinala.privatemessage.session.b.a> go(List<ChatSession> list) {
+    public List<com.baidu.yuyinala.privatemessage.session.b.a> gx(List<ChatSession> list) {
         ChatSession chatSession;
         e eVar;
         ArrayList arrayList = new ArrayList();
@@ -119,8 +119,8 @@ public class a extends com.baidu.yuyinala.privatemessage.model.a {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.oxC != null) {
-            this.oxC.destory();
+        if (this.oGV != null) {
+            this.oGV.destory();
         }
     }
 
@@ -128,10 +128,10 @@ public class a extends com.baidu.yuyinala.privatemessage.model.a {
     public void a(Context context, j jVar, IMediaDeleteChatSessionListener iMediaDeleteChatSessionListener) {
         if (jVar != null) {
             if (jVar.isMediaRole) {
-                BIMManager.mediaDeleteChatSession(context, jVar.oxw, jVar.oxv, null);
+                BIMManager.mediaDeleteChatSession(context, jVar.oGP, jVar.oGO, null);
             } else {
-                IMBoxManager.setMarkTop(context, jVar.oxw, 0, null);
-                BIMManager.deleteMsgs(context, jVar.oxu, jVar.contacter, false);
+                IMBoxManager.setMarkTop(context, jVar.oGP, 0, null);
+                BIMManager.deleteMsgs(context, jVar.oGN, jVar.contacter, false);
             }
             if (iMediaDeleteChatSessionListener != null) {
                 iMediaDeleteChatSessionListener.onMediaDeleteChatSessionResult(0, "success");

@@ -17,10 +17,10 @@ public class i extends h {
     @kotlin.h
     /* loaded from: classes10.dex */
     public static final class a extends d<Byte> implements RandomAccess {
-        final /* synthetic */ byte[] pIH;
+        final /* synthetic */ byte[] pSb;
 
         a(byte[] bArr) {
-            this.pIH = bArr;
+            this.pSb = bArr;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
@@ -49,31 +49,31 @@ public class i extends h {
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return this.pIH.length;
+            return this.pSb.length;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
         public boolean isEmpty() {
-            return this.pIH.length == 0;
+            return this.pSb.length == 0;
         }
 
         public boolean e(byte b) {
-            return f.a(this.pIH, b);
+            return f.a(this.pSb, b);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // kotlin.collections.d, java.util.List
-        /* renamed from: QW */
+        /* renamed from: Rr */
         public Byte get(int i) {
-            return Byte.valueOf(this.pIH[i]);
+            return Byte.valueOf(this.pSb[i]);
         }
 
         public int f(byte b) {
-            return f.b(this.pIH, b);
+            return f.b(this.pSb, b);
         }
 
         public int g(byte b) {
-            return f.c(this.pIH, b);
+            return f.c(this.pSb, b);
         }
     }
 
@@ -84,7 +84,7 @@ public class i extends h {
 
     public static final byte[] s(byte[] bArr, int i, int i2) {
         kotlin.jvm.internal.q.n(bArr, "receiver$0");
-        f.el(i2, bArr.length);
+        f.eo(i2, bArr.length);
         byte[] copyOfRange = Arrays.copyOfRange(bArr, i, i2);
         kotlin.jvm.internal.q.m(copyOfRange, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
         return copyOfRange;

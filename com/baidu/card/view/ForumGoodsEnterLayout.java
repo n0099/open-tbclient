@@ -50,13 +50,13 @@ public class ForumGoodsEnterLayout extends RelativeLayout {
     public void setData(AbsThreadDataSupport absThreadDataSupport) {
         boolean z;
         this.afI = absThreadDataSupport;
-        bw bhz = absThreadDataSupport.bhz();
-        if (c(absThreadDataSupport) || d(absThreadDataSupport) || absThreadDataSupport.bhz() == null || !absThreadDataSupport.bhz().bmi() || this.akf == 3) {
+        bw bjZ = absThreadDataSupport.bjZ();
+        if (c(absThreadDataSupport) || d(absThreadDataSupport) || absThreadDataSupport.bjZ() == null || !absThreadDataSupport.bjZ().boI() || this.akf == 3) {
             z = false;
         } else {
             this.ajZ.setVisibility(0);
             this.ajZ.setFrom(2);
-            this.ajZ.r(bhz);
+            this.ajZ.r(bjZ);
             this.ajZ.setAfterClickListener(this.ajU);
             z = true;
         }
@@ -84,10 +84,10 @@ public class ForumGoodsEnterLayout extends RelativeLayout {
     }
 
     private boolean c(AbsThreadDataSupport absThreadDataSupport) {
-        return (absThreadDataSupport == null || absThreadDataSupport.bhz() == null || absThreadDataSupport.bhz().bmf() == null || absThreadDataSupport.bhz().bmf().getOptions() == null || absThreadDataSupport.bhz().bmf().getOptions().size() <= 0) ? false : true;
+        return (absThreadDataSupport == null || absThreadDataSupport.bjZ() == null || absThreadDataSupport.bjZ().boF() == null || absThreadDataSupport.bjZ().boF().getOptions() == null || absThreadDataSupport.bjZ().boF().getOptions().size() <= 0) ? false : true;
     }
 
     private boolean d(AbsThreadDataSupport absThreadDataSupport) {
-        return (absThreadDataSupport == null || absThreadDataSupport.bhz() == null || !absThreadDataSupport.bhz().biG() || absThreadDataSupport.bhz().bks() == null) ? false : true;
+        return (absThreadDataSupport == null || absThreadDataSupport.bjZ() == null || !absThreadDataSupport.bjZ().blg() || absThreadDataSupport.bjZ().bmS() == null) ? false : true;
     }
 }

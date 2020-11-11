@@ -13,7 +13,7 @@ import java.util.Iterator;
 public class e extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3133a = 0;
+    private int f3135a = 0;
     private int b = 0;
     private int c = 1;
     private ArrayList<LatLng> d = new ArrayList<>();
@@ -21,7 +21,7 @@ public class e extends a {
 
     public String a() {
         StringBuffer stringBuffer = new StringBuffer();
-        g.a(this.f3133a, g.b.ZH, stringBuffer);
+        g.a(this.f3135a, g.b.ZH, stringBuffer);
         return stringBuffer.toString();
     }
 
@@ -32,7 +32,7 @@ public class e extends a {
     }
 
     public void c() {
-        this.f3133a = 0;
+        this.f3135a = 0;
         this.b = 0;
         if (this.d != null) {
             this.d.clear();
@@ -43,10 +43,10 @@ public class e extends a {
         c();
         if (bundle != null) {
             this.c = i;
-            this.f3133a = bundle.getInt("totaldistance");
+            this.f3135a = bundle.getInt("totaldistance");
             this.b = bundle.getInt("totaltime");
-            if (this.f3133a <= 0 && this.e != null) {
-                this.f3133a = b(this.e, com.baidu.platform.comapi.walknavi.b.a().b());
+            if (this.f3135a <= 0 && this.e != null) {
+                this.f3135a = b(this.e, com.baidu.platform.comapi.walknavi.b.a().b());
             }
             if (this.b <= 0 && this.e != null) {
                 this.b = a(this.e, com.baidu.platform.comapi.walknavi.b.a().b());
@@ -91,7 +91,7 @@ public class e extends a {
     }
 
     public int e() {
-        return this.f3133a;
+        return this.f3135a;
     }
 
     public int a(com.baidu.f.a.d dVar, int i) {

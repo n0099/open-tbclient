@@ -9,20 +9,20 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.tieba.ala.liveroom.a {
-    private final List<AlaTopTipView> hnB;
-    private final AlaTopTipView.a hnC;
-    private com.baidu.live.liveroom.a.a hnD;
+    private final AlaTopTipView.a htA;
+    private com.baidu.live.liveroom.a.a htB;
+    private final List<AlaTopTipView> htz;
 
     public a(TbPageContext tbPageContext, com.baidu.live.liveroom.a.a aVar) {
         super(tbPageContext);
-        this.hnB = new LinkedList();
-        this.hnC = new AlaTopTipView.a() { // from class: com.baidu.tieba.ala.liveroom.tippop.a.1
+        this.htz = new LinkedList();
+        this.htA = new AlaTopTipView.a() { // from class: com.baidu.tieba.ala.liveroom.tippop.a.1
             @Override // com.baidu.tieba.ala.liveroom.tippop.AlaTopTipView.a
-            public void ce(View view) {
-                a.this.hnB.remove(view);
+            public void cj(View view) {
+                a.this.htz.remove(view);
             }
         };
-        this.hnD = aVar;
+        this.htB = aVar;
     }
 
     public void a(ViewGroup viewGroup, String str, int i, boolean z) {
@@ -33,40 +33,40 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
             }
             alaTopTipView.setType(i);
             alaTopTipView.setText(str);
-            alaTopTipView.setOnTipCompletedCallback(this.hnC);
+            alaTopTipView.setOnTipCompletedCallback(this.htA);
             alaTopTipView.r(viewGroup, 0);
-            this.hnB.add(alaTopTipView);
+            this.htz.add(alaTopTipView);
         }
     }
 
     public void a(ViewGroup viewGroup, String str, int i) {
         if (viewGroup != null && !StringUtils.isNull(str)) {
-            if (i != 1 || this.hnD == null || this.hnD.eO(9)) {
+            if (i != 1 || this.htB == null || this.htB.eO(9)) {
                 AlaTopTipView alaTopTipView = new AlaTopTipView(viewGroup.getContext());
                 alaTopTipView.setType(i);
                 alaTopTipView.setText(str);
-                alaTopTipView.setOnTipCompletedCallback(this.hnC);
+                alaTopTipView.setOnTipCompletedCallback(this.htA);
                 alaTopTipView.r(viewGroup, 0);
-                this.hnB.add(alaTopTipView);
+                this.htz.add(alaTopTipView);
             }
         }
     }
 
-    public void ceP() {
-        if (!this.hnB.isEmpty()) {
-            for (AlaTopTipView alaTopTipView : this.hnB) {
+    public void chs() {
+        if (!this.htz.isEmpty()) {
+            for (AlaTopTipView alaTopTipView : this.htz) {
                 if (alaTopTipView != null) {
-                    alaTopTipView.ceP();
+                    alaTopTipView.chs();
                 }
             }
         }
     }
 
-    public boolean vY(int i) {
-        if (this.hnB.isEmpty()) {
+    public boolean wl(int i) {
+        if (this.htz.isEmpty()) {
             return false;
         }
-        for (AlaTopTipView alaTopTipView : this.hnB) {
+        for (AlaTopTipView alaTopTipView : this.htz) {
             if (alaTopTipView.getType() == i) {
                 return true;
             }
@@ -74,28 +74,28 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
         return false;
     }
 
-    public void vZ(int i) {
-        for (AlaTopTipView alaTopTipView : this.hnB) {
+    public void wm(int i) {
+        for (AlaTopTipView alaTopTipView : this.htz) {
             if (alaTopTipView.getType() == i) {
-                alaTopTipView.fY(true);
+                alaTopTipView.gh(true);
             }
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
-    public void CT() {
-        super.CT();
-        for (AlaTopTipView alaTopTipView : this.hnB) {
-            alaTopTipView.fY(false);
+    public void Dm() {
+        super.Dm();
+        for (AlaTopTipView alaTopTipView : this.htz) {
+            alaTopTipView.gh(false);
         }
-        this.hnB.clear();
+        this.htz.clear();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void onDestroy() {
-        for (AlaTopTipView alaTopTipView : this.hnB) {
-            alaTopTipView.fY(false);
+        for (AlaTopTipView alaTopTipView : this.htz) {
+            alaTopTipView.gh(false);
         }
-        this.hnB.clear();
+        this.htz.clear();
     }
 }

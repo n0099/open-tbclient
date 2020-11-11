@@ -1,6 +1,6 @@
 package com.tb.airbnb.lottie.network;
 
-import com.tb.airbnb.lottie.c;
+import com.tb.airbnb.lottie.d;
 /* loaded from: classes16.dex */
 public enum FileExtension {
     Json(".json"),
@@ -28,7 +28,7 @@ public enum FileExtension {
                 return fileExtension;
             }
         }
-        c.warn("Unable to find correct extension for " + str);
+        d.warn("Unable to find correct extension for " + str);
         return Json;
     }
 }

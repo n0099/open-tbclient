@@ -7,15 +7,15 @@ import android.text.TextUtils;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    Context f3650a;
+    Context f3653a;
     c b;
     ServiceConnection c;
     private com.baidu.sofire.j.c d;
     private String e;
 
     public a(Context context, com.baidu.sofire.j.c cVar) {
-        this.f3650a = null;
-        this.f3650a = context;
+        this.f3653a = null;
+        this.f3653a = context;
         this.d = cVar;
     }
 

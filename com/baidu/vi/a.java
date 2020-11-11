@@ -9,7 +9,7 @@ final class a extends Handler {
     public void handleMessage(Message message) {
         boolean z;
         boolean z2;
-        AudioRecorder audioRecorder = ((AudioRecorder.a) message.obj).f3898a;
+        AudioRecorder audioRecorder = ((AudioRecorder.a) message.obj).f3900a;
         switch (message.what) {
             case 1:
                 z2 = audioRecorder.h;

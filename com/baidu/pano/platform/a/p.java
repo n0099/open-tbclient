@@ -16,7 +16,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private AtomicInteger f2659a;
+    private AtomicInteger f2661a;
     private final Map<String, Queue<n<?>>> b;
     private final Set<n<?>> c;
     private final PriorityBlockingQueue<n<?>> d;
@@ -34,7 +34,7 @@ public class p {
     }
 
     public p(b bVar, i iVar, int i, r rVar) {
-        this.f2659a = new AtomicInteger();
+        this.f2661a = new AtomicInteger();
         this.b = new HashMap();
         this.c = new HashSet();
         this.d = new PriorityBlockingQueue<>();
@@ -77,7 +77,7 @@ public class p {
     }
 
     public int c() {
-        return this.f2659a.incrementAndGet();
+        return this.f2661a.incrementAndGet();
     }
 
     public <T> n<T> a(n<T> nVar) {

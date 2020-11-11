@@ -9,7 +9,7 @@ import java.io.File;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2942a;
+    private String f2944a;
     private String b;
     private String c;
     private String d;
@@ -18,14 +18,14 @@ public class b {
     private String g;
 
     public String a() {
-        if (TextUtils.isEmpty(this.f2942a)) {
+        if (TextUtils.isEmpty(this.f2944a)) {
             a(VIContext.getContext());
         }
-        return this.f2942a;
+        return this.f2944a;
     }
 
     public void a(Context context) {
-        this.f2942a = context.getFilesDir().getAbsolutePath();
+        this.f2944a = context.getFilesDir().getAbsolutePath();
         this.d = context.getCacheDir().getAbsolutePath();
         this.e = this.d;
         this.b = Environment.getExternalStorageDirectory().getPath();

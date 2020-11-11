@@ -5,15 +5,15 @@ import org.json.JSONObject;
 public class c extends g {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4008a;
+    private String f4010a;
 
     public c(String str) {
-        this.f4008a = str;
+        this.f4010a = str;
     }
 
     @Override // com.cmic.sso.sdk.c.b.g
     public String a() {
-        return this.f4008a;
+        return this.f4010a;
     }
 
     @Override // com.cmic.sso.sdk.c.b.g

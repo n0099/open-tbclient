@@ -10,30 +10,30 @@ import java.io.File;
 public final class Configuration {
     public final int chunkSize;
     public final int connectTimeout;
-    public final Recorder pwO;
-    public final KeyGenerator pwP;
-    public final ProxyConfiguration pwQ;
-    public final int pwR;
-    public final int pwS;
-    public UrlConverter pwT;
-    public Dns pwU;
-    public Zone pwV;
+    public final Recorder pGh;
+    public final KeyGenerator pGi;
+    public final ProxyConfiguration pGj;
+    public final int pGk;
+    public final int pGl;
+    public UrlConverter pGm;
+    public Dns pGn;
+    public Zone pGo;
     public final int responseTimeout;
     public boolean useHttps;
 
     private Configuration(Builder builder) {
         this.useHttps = builder.useHttps;
         this.chunkSize = builder.chunkSize;
-        this.pwR = builder.pwR;
+        this.pGk = builder.pGk;
         this.connectTimeout = builder.connectTimeout;
         this.responseTimeout = builder.responseTimeout;
-        this.pwO = builder.pwO;
-        this.pwP = a(builder.pwP);
-        this.pwS = builder.pwS;
-        this.pwQ = builder.pwQ;
-        this.pwT = builder.pwT;
-        this.pwV = builder.pwV == null ? AutoZone.pvS : builder.pwV;
-        this.pwU = builder.pwU;
+        this.pGh = builder.pGh;
+        this.pGi = a(builder.pGi);
+        this.pGl = builder.pGl;
+        this.pGj = builder.pGj;
+        this.pGm = builder.pGm;
+        this.pGo = builder.pGo == null ? AutoZone.pFm : builder.pGo;
+        this.pGn = builder.pGn;
     }
 
     private KeyGenerator a(KeyGenerator keyGenerator) {
@@ -50,20 +50,20 @@ public final class Configuration {
 
     /* loaded from: classes6.dex */
     public static class Builder {
-        private Zone pwV = null;
-        private Recorder pwO = null;
-        private KeyGenerator pwP = null;
-        private ProxyConfiguration pwQ = null;
+        private Zone pGo = null;
+        private Recorder pGh = null;
+        private KeyGenerator pGi = null;
+        private ProxyConfiguration pGj = null;
         private boolean useHttps = false;
         private int chunkSize = 2097152;
-        private int pwR = 4194304;
+        private int pGk = 4194304;
         private int connectTimeout = 10;
         private int responseTimeout = 60;
-        private int pwS = 3;
-        private UrlConverter pwT = null;
-        private Dns pwU = null;
+        private int pGl = 3;
+        private UrlConverter pGm = null;
+        private Dns pGn = null;
 
-        public Configuration eug() {
+        public Configuration exV() {
             return new Configuration(this);
         }
     }

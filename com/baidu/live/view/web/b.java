@@ -5,7 +5,7 @@ import android.webkit.JsResult;
 public interface b {
     boolean E(String str, boolean z);
 
-    void Uu();
+    void WU();
 
     boolean a(String str, JsResult jsResult);
 
@@ -13,11 +13,11 @@ public interface b {
 
     void fa(int i);
 
-    void hN(String str);
+    void hU(String str);
 
-    void hO(String str);
+    void hV(String str);
 
-    void iC(String str);
+    void iP(String str);
 
-    boolean iD(String str);
+    boolean iQ(String str);
 }

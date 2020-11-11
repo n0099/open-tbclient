@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaGetRoomNameRenameHttpResponseMessage extends JsonHttpResponsedMessage {
-    private d nRO;
+    private d nZb;
 
     public AlaGetRoomNameRenameHttpResponseMessage() {
         super(1031020);
@@ -17,16 +17,16 @@ public class AlaGetRoomNameRenameHttpResponseMessage extends JsonHttpResponsedMe
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1031020) {
-            this.nRO = new d();
+            this.nZb = new d();
             if (jSONObject.has(BdStatsConstant.StatsType.ERROR) && (optJSONObject = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR)) != null) {
-                this.nRO.errno = optJSONObject.optInt(BaseJsonData.TAG_ERRNO);
-                this.nRO.errmsg = optJSONObject.optString(BaseJsonData.TAG_ERRMSG);
-                this.nRO.usermsg = optJSONObject.optString("usermsg");
+                this.nZb.errno = optJSONObject.optInt(BaseJsonData.TAG_ERRNO);
+                this.nZb.errmsg = optJSONObject.optString(BaseJsonData.TAG_ERRMSG);
+                this.nZb.usermsg = optJSONObject.optString("usermsg");
             }
         }
     }
 
-    public d dVz() {
-        return this.nRO;
+    public d dYo() {
+        return this.nZb;
     }
 }

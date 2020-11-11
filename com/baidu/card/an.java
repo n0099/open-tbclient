@@ -98,7 +98,7 @@ public class an extends b<AbsThreadDataSupport> {
     /* renamed from: b */
     public void H(AbsThreadDataSupport absThreadDataSupport) {
         this.aib = absThreadDataSupport;
-        this.aia.setData(absThreadDataSupport.bhz());
+        this.aia.setData(absThreadDataSupport.bjZ());
         if ((this.ahY & 4) > 0 || (this.ahY & 64) > 0) {
             this.aia.post(this.aie);
         }
@@ -143,7 +143,7 @@ public class an extends b<AbsThreadDataSupport> {
     }
 
     public void setFromForPb(int i) {
-        this.aia.eQK = i;
+        this.aia.eWz = i;
     }
 
     public void setFrom(int i) {

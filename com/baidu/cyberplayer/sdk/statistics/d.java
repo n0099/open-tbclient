@@ -19,7 +19,7 @@ import tv.chushou.basis.http.HttpConsts;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1431a = null;
+    private String f1433a = null;
     private String b = null;
     private String c;
 
@@ -163,13 +163,13 @@ public class d {
     }
 
     public void a() {
-        if (TextUtils.isEmpty(this.f1431a) || TextUtils.isEmpty(this.b)) {
+        if (TextUtils.isEmpty(this.f1433a) || TextUtils.isEmpty(this.b)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
-            String str = this.f1431a;
+            String str = this.f1433a;
             if (b(str)) {
                 String str2 = this.b;
                 a(str2);
@@ -194,18 +194,18 @@ public class d {
         }
         new File(b).mkdirs();
         String coreVersion = CyberPlayerManager.getCoreVersion();
-        this.f1431a = b + File.separator + this.c + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + coreVersion + HttpConsts.FILE_BACKUP_SUFFIX;
+        this.f1433a = b + File.separator + this.c + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + coreVersion + HttpConsts.FILE_BACKUP_SUFFIX;
         this.b = b + File.separator + this.c + "_log_" + coreVersion + ".tmp";
     }
 
     public void a(byte[] bArr) {
-        if (bArr == null || TextUtils.isEmpty(this.f1431a)) {
+        if (bArr == null || TextUtils.isEmpty(this.f1433a)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
-            a(this.f1431a, bArr, "\r\n");
+            a(this.f1433a, bArr, "\r\n");
         } catch (AssertionError e) {
             CyberLog.e("DpStatFileWriter", "write data to file fail");
         } finally {

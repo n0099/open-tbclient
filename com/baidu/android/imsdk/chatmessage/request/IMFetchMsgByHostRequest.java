@@ -29,7 +29,7 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class IMFetchMsgByHostRequest extends BaseHttpRequest {
     private static final String TAG = "IMFetchMsgByHostRequest";
     private long mBeginid;

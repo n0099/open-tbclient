@@ -13,30 +13,30 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class j extends a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String cws;
+    private String cCl;
     private Bitmap mBitmap;
     private Matrix mMatrix;
 
     public j(String str) {
-        this.cws = str;
+        this.cCl = str;
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
     }
 
-    public int aic() {
+    public int akC() {
         try {
-            JSONObject jSONObject = new JSONObject(this.cws);
-            int L = com.baidu.swan.apps.ap.ah.L((float) jSONObject.optDouble("x"));
-            int L2 = com.baidu.swan.apps.ap.ah.L((float) jSONObject.optDouble("y"));
+            JSONObject jSONObject = new JSONObject(this.cCl);
+            int N = com.baidu.swan.apps.ap.ah.N((float) jSONObject.optDouble("x"));
+            int N2 = com.baidu.swan.apps.ap.ah.N((float) jSONObject.optDouble("y"));
             int optInt = jSONObject.optInt("width");
             int optInt2 = jSONObject.optInt("height");
             if (optInt <= 0 || optInt2 <= 0) {
                 return 2002;
             }
-            float L3 = com.baidu.swan.apps.ap.ah.L(optInt);
-            float L4 = com.baidu.swan.apps.ap.ah.L(optInt2);
+            float N3 = com.baidu.swan.apps.ap.ah.N(optInt);
+            float N4 = com.baidu.swan.apps.ap.ah.N(optInt2);
             String optString = jSONObject.optString("data");
             if (TextUtils.isEmpty(optString)) {
                 return 2001;
@@ -47,9 +47,9 @@ public class j extends a {
                 if (decode == null || decode.length != i) {
                     return 2001;
                 }
-                this.mBitmap = b(q(decode, optInt, optInt2), L3, L4);
+                this.mBitmap = b(q(decode, optInt, optInt2), N3, N4);
                 this.mMatrix = new Matrix();
-                this.mMatrix.postTranslate(L, L2);
+                this.mMatrix.postTranslate(N, N2);
                 return 0;
             } catch (Exception e) {
                 if (DEBUG) {

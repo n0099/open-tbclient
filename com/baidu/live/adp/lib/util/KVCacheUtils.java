@@ -48,7 +48,7 @@ public class KVCacheUtils {
         return linkedList;
     }
 
-    /* JADX WARN: Type inference failed for: r4v11, types: [byte[], T] */
+    /* JADX WARN: Type inference failed for: r4v11, types: [T, byte[]] */
     public static List<BdKVCache.CacheElement<byte[]>> listAllBytesItemsInDBCache(BdKVCache<byte[]> bdKVCache) {
         Cursor cursor;
         LinkedList linkedList = new LinkedList();

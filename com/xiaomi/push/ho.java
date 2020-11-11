@@ -28,10 +28,10 @@ public enum ho {
     
 
     /* renamed from: a  reason: collision with other field name */
-    private final int f441a;
+    private final int f443a;
 
     ho(int i) {
-        this.f441a = i;
+        this.f443a = i;
     }
 
     public static ho a(int i) {
@@ -90,6 +90,6 @@ public enum ho {
     }
 
     public int a() {
-        return this.f441a;
+        return this.f443a;
     }
 }

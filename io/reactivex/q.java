@@ -7,22 +7,22 @@ import io.reactivex.internal.operators.observable.ObservableObserveOn;
 public abstract class q<T> implements t<T> {
     protected abstract void a(u<? super T> uVar);
 
-    public static int ewG() {
-        return g.ewG();
+    public static int eAv() {
+        return g.eAv();
     }
 
     public final q<T> d(v vVar) {
-        return b(vVar, false, ewG());
+        return b(vVar, false, eAv());
     }
 
     public final q<T> b(v vVar, boolean z, int i) {
         io.reactivex.internal.functions.a.l(vVar, "scheduler is null");
-        io.reactivex.internal.functions.a.bX(i, "bufferSize");
+        io.reactivex.internal.functions.a.cc(i, "bufferSize");
         return io.reactivex.e.a.a(new ObservableObserveOn(this, vVar, z, i));
     }
 
     public final io.reactivex.disposables.b b(io.reactivex.c.g<? super T> gVar) {
-        return a(gVar, Functions.pCZ, Functions.pCW, Functions.ewQ());
+        return a(gVar, Functions.pMt, Functions.pMq, Functions.eAF());
     }
 
     public final io.reactivex.disposables.b a(io.reactivex.c.g<? super T> gVar, io.reactivex.c.g<? super Throwable> gVar2, io.reactivex.c.a aVar, io.reactivex.c.g<? super io.reactivex.disposables.b> gVar3) {

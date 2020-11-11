@@ -15,12 +15,12 @@ import java.net.URL;
 public class a extends AsyncTask<String, Integer, Integer> {
     private String mFilePath;
     private String mUrl;
-    private b onZ;
-    private int ooa = 0;
+    private b oxu;
+    private int oxv = 0;
 
     public a(Context context, String str, String str2, b bVar) {
         this.mUrl = str;
-        this.onZ = bVar;
+        this.oxu = bVar;
         this.mFilePath = str2;
     }
 
@@ -177,10 +177,10 @@ public class a extends AsyncTask<String, Integer, Integer> {
             try {
                 if (numArr.length > 0) {
                     Integer num = numArr[0];
-                    if (num.intValue() > this.ooa) {
-                        this.ooa = num.intValue();
-                        if (this.onZ != null) {
-                            this.onZ.onProgress(this.ooa);
+                    if (num.intValue() > this.oxv) {
+                        this.oxv = num.intValue();
+                        if (this.oxu != null) {
+                            this.oxu.onProgress(this.oxv);
                         }
                     }
                 }
@@ -203,8 +203,8 @@ public class a extends AsyncTask<String, Integer, Integer> {
 
     private void notifyFailed(int i) {
         try {
-            if (this.onZ != null) {
-                this.onZ.onFailed(i);
+            if (this.oxu != null) {
+                this.oxu.onFailed(i);
             }
         } catch (Exception e) {
             c.e("AsyncDownloadTask", "notifyFailed:" + e.getMessage());
@@ -213,8 +213,8 @@ public class a extends AsyncTask<String, Integer, Integer> {
 
     private void notifyFinished() {
         try {
-            if (this.onZ != null) {
-                this.onZ.WQ(this.mFilePath);
+            if (this.oxu != null) {
+                this.oxu.Xu(this.mFilePath);
             }
             if (c.isDebugMode()) {
                 c.d("AsyncDownloadTask", "donwLoad finshed sucess:" + System.currentTimeMillis());

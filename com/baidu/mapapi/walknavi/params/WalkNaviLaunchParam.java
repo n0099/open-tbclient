@@ -9,7 +9,7 @@ import java.util.List;
 public class WalkNaviLaunchParam {
 
     /* renamed from: a  reason: collision with root package name */
-    private LatLng f2180a;
+    private LatLng f2182a;
     private LatLng b;
     private a c;
     private a d;
@@ -17,7 +17,7 @@ public class WalkNaviLaunchParam {
     private int f;
 
     public LatLng getStartPt() {
-        return this.f2180a;
+        return this.f2182a;
     }
 
     public LatLng getEndPt() {
@@ -41,7 +41,7 @@ public class WalkNaviLaunchParam {
     }
 
     public WalkNaviLaunchParam stPt(LatLng latLng) {
-        this.f2180a = latLng;
+        this.f2182a = latLng;
         return this;
     }
 

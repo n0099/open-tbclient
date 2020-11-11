@@ -8,13 +8,13 @@ import org.json.JSONException;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3955a;
+    public String f3957a;
     public HashSet<String> b = new HashSet<>();
     public HashSet<String> c = new HashSet<>();
 
     public c(String str) {
-        this.f3955a = "full";
-        this.f3955a = str;
+        this.f3957a = "full";
+        this.f3957a = str;
     }
 
     public final void a(JSONArray jSONArray) throws JSONException {

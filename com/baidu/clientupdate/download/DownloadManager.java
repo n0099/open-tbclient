@@ -169,8 +169,8 @@ public final class DownloadManager {
             download.mCurrentLength = j2;
             download.mFileLength = j3;
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - download.f1331a >= DownloadManager.MIN_PROGRESS_INTERVAL) {
-                download.f1331a = currentTimeMillis;
+            if (currentTimeMillis - download.f1333a >= DownloadManager.MIN_PROGRESS_INTERVAL) {
+                download.f1333a = currentTimeMillis;
                 int progress = download.getProgress();
                 if (progress != download.c) {
                     DownloadManager.this.notifyProgressChange(j, progress);

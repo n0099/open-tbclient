@@ -10,15 +10,15 @@ public class aq extends a {
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
         if (jSONArray.length() > 1) {
-            this.mX = com.baidu.swan.apps.ap.ah.L((float) jSONArray.optDouble(0));
-            this.mY = com.baidu.swan.apps.ap.ah.L((float) jSONArray.optDouble(1));
+            this.mX = com.baidu.swan.apps.ap.ah.N((float) jSONArray.optDouble(0));
+            this.mY = com.baidu.swan.apps.ap.ah.N((float) jSONArray.optDouble(1));
         }
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (bVar.ahZ() == 0) {
-            bVar.hu(canvas.save());
+        if (bVar.akz() == 0) {
+            bVar.hE(canvas.save());
         }
         canvas.translate(this.mX, this.mY);
     }

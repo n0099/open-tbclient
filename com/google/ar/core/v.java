@@ -5,15 +5,15 @@ import android.animation.AnimatorListenerAdapter;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
 public final class v extends AnimatorListenerAdapter {
-    private final /* synthetic */ InstallActivity oTn;
+    private final /* synthetic */ InstallActivity pcI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(InstallActivity installActivity) {
-        this.oTn = installActivity;
+        this.pcI = installActivity;
     }
 
     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
     public final void onAnimationEnd(Animator animator) {
-        this.oTn.eoG();
+        this.pcI.esv();
     }
 }

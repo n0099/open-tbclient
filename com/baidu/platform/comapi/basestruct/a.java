@@ -5,12 +5,12 @@ import java.util.ArrayList;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f2823a;
+    public int f2825a;
     public Point b;
     public Point c;
     public ArrayList<ArrayList<Point>> d;
 
     public String toString() {
-        return "ComplexPt [eType=" + this.f2823a + ", mLL=" + this.b + ", mRu=" + this.c + ", mGeoPt=" + this.d + "]";
+        return "ComplexPt [eType=" + this.f2825a + ", mLL=" + this.b + ", mRu=" + this.c + ", mGeoPt=" + this.d + "]";
     }
 }

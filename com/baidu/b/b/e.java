@@ -25,7 +25,7 @@ public class e extends com.baidu.b.b.a {
     public static final class a implements Comparable<a> {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String[] f1246a = {"read0", "read1", "read2", "read3", "access0", "access1", "access2", "access3", "sync0", "sync1", "sync2", "sync3", "open0", "open1", "open2", "open3"};
+        private static final String[] f1248a = {"read0", "read1", "read2", "read3", "access0", "access1", "access2", "access3", "sync0", "sync1", "sync2", "sync3", "open0", "open1", "open2", "open3"};
         private final int b;
 
         private a(int i) {
@@ -52,7 +52,7 @@ public class e extends com.baidu.b.b.a {
         }
 
         public String a() {
-            return f1246a[this.b];
+            return f1248a[this.b];
         }
 
         public boolean equals(Object obj) {
@@ -129,14 +129,14 @@ public class e extends com.baidu.b.b.a {
     static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        private List<a> f1247a = new ArrayList();
+        private List<a> f1249a = new ArrayList();
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* loaded from: classes7.dex */
         public static class a {
 
             /* renamed from: a  reason: collision with root package name */
-            private int f1248a;
+            private int f1250a;
             private a adk;
 
             public a(a aVar) {
@@ -144,7 +144,7 @@ public class e extends com.baidu.b.b.a {
             }
 
             public void a() {
-                this.f1248a++;
+                this.f1250a++;
             }
         }
 
@@ -152,13 +152,13 @@ public class e extends com.baidu.b.b.a {
         }
 
         public List<a> a() {
-            ArrayList arrayList = new ArrayList(this.f1247a);
+            ArrayList arrayList = new ArrayList(this.f1249a);
             Collections.sort(arrayList, new com.baidu.b.b.f(this));
             return arrayList;
         }
 
         public void b(a aVar) {
-            this.f1247a.add(new a(aVar));
+            this.f1249a.add(new a(aVar));
         }
     }
 
@@ -166,19 +166,19 @@ public class e extends com.baidu.b.b.a {
     static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        byte[] f1249a;
+        byte[] f1251a;
         byte b;
         byte[] c;
 
         public d(byte[] bArr, byte b, byte[] bArr2) {
-            this.f1249a = bArr;
+            this.f1251a = bArr;
             this.b = b;
             this.c = bArr2;
         }
 
         public h.a a() {
             try {
-                return h.k(com.baidu.b.d.b.a(this.f1249a, "", true), new String(new byte[]{this.b}, "UTF-8"), this.c != null ? new String(this.c, "UTF-8") : null);
+                return h.k(com.baidu.b.d.b.a(this.f1251a, "", true), new String(new byte[]{this.b}, "UTF-8"), this.c != null ? new String(this.c, "UTF-8") : null);
             } catch (Exception e) {
                 return null;
             }
@@ -191,7 +191,7 @@ public class e extends com.baidu.b.b.a {
     public static class C0091e {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f1250a;
+        public int f1252a;
         public int b;
         public int c = 16;
 
@@ -208,7 +208,7 @@ public class e extends com.baidu.b.b.a {
     public static class f {
 
         /* renamed from: a  reason: collision with root package name */
-        private Method f1251a;
+        private Method f1253a;
         private Method b;
         private Method c;
         private Method d;
@@ -219,7 +219,7 @@ public class e extends com.baidu.b.b.a {
 
         public int a(Context context, Uri uri, int i, int i2, int i3) {
             try {
-                return ((Integer) this.f1251a.invoke(context, uri, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3))).intValue();
+                return ((Integer) this.f1253a.invoke(context, uri, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3))).intValue();
             } catch (Exception e) {
                 throw new e.a(e);
             }
@@ -227,7 +227,7 @@ public class e extends com.baidu.b.b.a {
 
         void a() {
             try {
-                this.f1251a = com.baidu.b.a.e.a(Context.class, com.baidu.b.a.e.a(com.baidu.b.a.d.sF()), new Class[]{Uri.class, Integer.TYPE, Integer.TYPE, Integer.TYPE});
+                this.f1253a = com.baidu.b.a.e.a(Context.class, com.baidu.b.a.e.a(com.baidu.b.a.d.sF()), new Class[]{Uri.class, Integer.TYPE, Integer.TYPE, Integer.TYPE});
                 this.b = com.baidu.b.a.e.a(Context.class, com.baidu.b.a.e.a(com.baidu.b.a.d.sG()), new Class[]{String.class, Uri.class, Integer.TYPE});
                 this.c = com.baidu.b.a.e.a(ContentResolver.class, com.baidu.b.a.e.a(com.baidu.b.a.d.sH()), new Class[]{Uri.class, Integer.TYPE});
                 this.d = com.baidu.b.a.e.a(Context.class, com.baidu.b.a.e.a(com.baidu.b.a.d.g()), new Class[]{Uri.class, Integer.TYPE});
@@ -276,7 +276,7 @@ public class e extends com.baidu.b.b.a {
             }
             if (c0091e != null) {
                 try {
-                    c0091e.f1250a++;
+                    c0091e.f1252a++;
                 } catch (Throwable th) {
                     try {
                         Thread.sleep(5L);
@@ -432,6 +432,6 @@ public class e extends com.baidu.b.b.a {
 
     @Override // com.baidu.b.b.a
     public void a(a.c cVar) {
-        this.d = this.acT.f1244a;
+        this.d = this.acT.f1246a;
     }
 }

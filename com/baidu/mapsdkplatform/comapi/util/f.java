@@ -8,7 +8,7 @@ import java.io.File;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private final boolean f2249a;
+    private final boolean f2251a;
     private final String b;
     private final String c;
     private final String d;
@@ -27,7 +27,7 @@ public final class f {
         } else {
             this.b = Environment.getExternalStorageDirectory().getAbsolutePath();
         }
-        this.f2249a = false;
+        this.f2251a = false;
         this.c = this.b + File.separator + "BaiduMapSDKNew";
         this.d = context.getCacheDir().getAbsolutePath();
         this.e = "";

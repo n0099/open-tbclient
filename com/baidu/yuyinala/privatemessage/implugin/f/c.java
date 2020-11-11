@@ -19,12 +19,12 @@ import org.json.JSONObject;
 public class c extends i {
     private String mKey;
     private String mType;
-    private long oog;
-    private final String ool = "http://cp01-zhangsukun.epc.baidu.com:8220/";
+    private long oxB;
+    private final String oxG = "http://cp01-zhangsukun.epc.baidu.com:8220/";
 
     public c(Context context, String str, long j, String str2) {
         this.mKey = "";
-        this.oog = j;
+        this.oxB = j;
         this.mKey = str2;
         this.mContext = context;
         this.mType = str;
@@ -32,7 +32,7 @@ public class c extends i {
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getHost() {
-        return WT("http://cp01-zhangsukun.epc.baidu.com:8220/") + "api/subscribe/v1/relation/receive";
+        return Xx("http://cp01-zhangsukun.epc.baidu.com:8220/") + "api/subscribe/v1/relation/receive";
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
@@ -49,22 +49,22 @@ public class c extends i {
         } else {
             z = false;
         }
-        k.gF(this.mContext).a(i, new String(bArr), this.oog, this.mKey, z);
+        k.gF(this.mContext).a(i, new String(bArr), this.oxB, this.mKey, z);
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onFailure(int i, byte[] bArr, Throwable th) {
-        k.gF(this.mContext).a(i, new String(bArr), this.oog, this.mKey, false);
+        k.gF(this.mContext).a(i, new String(bArr), this.oxB, this.mKey, false);
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.f.i, com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public Map<String, String> getHeaders() {
         HashMap hashMap = new HashMap();
         if (!AccountManager.isCuidLogin(this.mContext)) {
-            hashMap.put(SM.COOKIE, "BDUSS=" + com.baidu.yuyinala.privatemessage.implugin.d.b.ebG().getBduss(this.mContext));
+            hashMap.put(SM.COOKIE, "BDUSS=" + com.baidu.yuyinala.privatemessage.implugin.d.b.efv().getBduss(this.mContext));
         } else {
             try {
-                hashMap.put(SM.COOKIE, "BAIDUCUID=" + URLEncoder.encode(new String(Base64Encoder.b64Encode(com.baidu.yuyinala.privatemessage.implugin.d.b.ebG().getCuid(this.mContext).getBytes())), "UTF-8"));
+                hashMap.put(SM.COOKIE, "BAIDUCUID=" + URLEncoder.encode(new String(Base64Encoder.b64Encode(com.baidu.yuyinala.privatemessage.implugin.d.b.efv().getCuid(this.mContext).getBytes())), "UTF-8"));
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
@@ -82,9 +82,9 @@ public class c extends i {
         StringBuilder sb = new StringBuilder();
         sb.append("op_type=").append("add");
         sb.append("&type=").append(this.mType);
-        sb.append("&third_id=").append(ExtraParamsManager.getEncryptionUserId(this.oog + ""));
+        sb.append("&third_id=").append(ExtraParamsManager.getEncryptionUserId(this.oxB + ""));
         sb.append("&sfrom=").append("mingame");
-        if (ChatInfo.onC) {
+        if (ChatInfo.owX) {
             sb.append("&source=").append("im_c2cchat_sgame");
         } else {
             sb.append("&source=").append("im_c2cchat");

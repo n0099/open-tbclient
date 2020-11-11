@@ -13,45 +13,45 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class f {
-    private List<com.baidu.live.liveroom.d.d> aFm = new LinkedList();
-    private AlaLiveRoomPanelTabHost aFp;
+    private List<com.baidu.live.liveroom.d.d> aGc = new LinkedList();
+    private AlaLiveRoomPanelTabHost aGf;
     private View contentView;
     private View mRootView;
-    private YuyinCharmRankTotalActivity nMJ;
+    private YuyinCharmRankTotalActivity nSD;
 
     public f(YuyinCharmRankTotalActivity yuyinCharmRankTotalActivity) {
-        this.nMJ = yuyinCharmRankTotalActivity;
+        this.nSD = yuyinCharmRankTotalActivity;
         initView();
-        bOU();
+        bRu();
     }
 
     private void initView() {
-        this.mRootView = LayoutInflater.from(this.nMJ).inflate(a.h.yuyin_ala_charm_rank_total_activity_layout, (ViewGroup) null);
-        this.contentView = this.mRootView.findViewById(a.g.ala_charm_root_view);
-        this.aFp = (AlaLiveRoomPanelTabHost) this.mRootView.findViewById(a.g.ala_charm_tab_host);
-        this.aFp.setIndicatorWidthAuto(false);
-        this.aFp.setmIndicatorHeight(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.e.sdk_ds8));
-        this.aFp.setmIndicatorWidth(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.e.sdk_ds40));
-        this.aFp.setmIsYuyinLive(true);
+        this.mRootView = LayoutInflater.from(this.nSD).inflate(a.g.yuyin_ala_charm_rank_total_activity_layout, (ViewGroup) null);
+        this.contentView = this.mRootView.findViewById(a.f.ala_charm_root_view);
+        this.aGf = (AlaLiveRoomPanelTabHost) this.mRootView.findViewById(a.f.ala_charm_tab_host);
+        this.aGf.setIndicatorWidthAuto(false);
+        this.aGf.setmIndicatorHeight(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.d.sdk_ds8));
+        this.aGf.setmIndicatorWidth(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.d.sdk_ds40));
+        this.aGf.setmIsYuyinLive(true);
     }
 
     public View getView() {
         return this.mRootView;
     }
 
-    private void bOU() {
-        Intent intent = this.nMJ.getIntent();
+    private void bRu() {
+        Intent intent = this.nSD.getIntent();
         String stringExtra = intent.getStringExtra(YuyinAlaCharmRankActivityConfig.C_ROOM_ID);
         String stringExtra2 = intent.getStringExtra("live_id");
         int intExtra = intent.getIntExtra("user_type", 0);
-        final d dVar = new d(this.nMJ, 0, stringExtra, stringExtra2, intExtra);
+        final d dVar = new d(this.nSD, 0, stringExtra, stringExtra2, intExtra);
         dVar.createView();
-        this.aFm.add(dVar);
-        final d dVar2 = new d(this.nMJ, 1, stringExtra, stringExtra2, intExtra);
+        this.aGc.add(dVar);
+        final d dVar2 = new d(this.nSD, 1, stringExtra, stringExtra2, intExtra);
         dVar2.createView();
-        this.aFm.add(dVar2);
-        this.aFp.setData(this.aFm);
-        this.aFp.setPageSelectedListener(new AlaLiveRoomPanelTabHost.b() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.f.1
+        this.aGc.add(dVar2);
+        this.aGf.setData(this.aGc);
+        this.aGf.setPageSelectedListener(new AlaLiveRoomPanelTabHost.b() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.f.1
             @Override // com.baidu.live.bottompanel.AlaLiveRoomPanelTabHost.b
             public void onPageSelected(int i) {
                 if (i == 0) {
@@ -64,7 +64,7 @@ public class f {
     }
 
     public void onDestory() {
-        for (com.baidu.live.liveroom.d.d dVar : this.aFm) {
+        for (com.baidu.live.liveroom.d.d dVar : this.aGc) {
             dVar.onDestroy();
         }
     }

@@ -6,10 +6,10 @@ import kascend.core.KSDevice;
 /* loaded from: classes18.dex */
 public abstract class a {
     protected Context context;
-    protected a pIp;
-    protected KSDevice pIq;
+    protected a pRJ;
+    protected KSDevice pRK;
 
-    public abstract void Zh(String str);
+    public abstract void ZL(String str);
 
     public abstract String getDS();
 
@@ -18,32 +18,32 @@ public abstract class a {
     }
 
     public void a(a aVar) {
-        this.pIp = aVar;
+        this.pRJ = aVar;
     }
 
     public void a(KSDevice kSDevice) {
-        this.pIq = kSDevice;
+        this.pRK = kSDevice;
     }
 
-    public String exz() {
+    public String eBo() {
         String ds = getDS();
         if (TextUtils.isEmpty(ds)) {
-            if (this.pIp == null) {
-                return exA();
+            if (this.pRJ == null) {
+                return eBp();
             }
-            return this.pIp.exz();
+            return this.pRJ.eBo();
         }
         return ds;
     }
 
-    public void Zg(String str) {
-        Zh(str);
-        if (this.pIp != null) {
-            this.pIp.Zh(str);
+    public void ZK(String str) {
+        ZL(str);
+        if (this.pRJ != null) {
+            this.pRJ.ZL(str);
         }
     }
 
-    public String exA() {
-        return this.pIq != null ? this.pIq.getDeviceId() : "";
+    public String eBp() {
+        return this.pRK != null ? this.pRK.getDeviceId() : "";
     }
 }

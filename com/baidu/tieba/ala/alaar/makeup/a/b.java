@@ -9,8 +9,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.tieba.ala.alaar.makeup.b.a {
-    public String fVY;
-    private int fVZ;
+    public String gbP;
+    private int gbQ;
     private List<d> mData;
     private File mFolder;
     private int mPosition;
@@ -50,12 +50,12 @@ public class b extends com.baidu.tieba.ala.alaar.makeup.b.a {
     }
 
     @Override // com.baidu.tieba.ala.alaar.makeup.b.b
-    public boolean dt(JSONObject jSONObject) {
+    public boolean dz(JSONObject jSONObject) {
         if (jSONObject == null) {
             return false;
         }
-        this.fVZ = jSONObject.optInt("ar_version");
-        this.fVY = jSONObject.optString("version");
+        this.gbQ = jSONObject.optInt("ar_version");
+        this.gbP = jSONObject.optString("version");
         this.mPosition = jSONObject.optInt("position");
         JSONArray optJSONArray = jSONObject.optJSONArray("makeup_category");
         this.mData = new ArrayList();
@@ -63,7 +63,7 @@ public class b extends com.baidu.tieba.ala.alaar.makeup.b.a {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i);
             d dVar = new d();
             dVar.X(this.mFolder);
-            if (dVar.dt(optJSONObject)) {
+            if (dVar.dz(optJSONObject)) {
                 this.mData.add(dVar);
             }
         }
@@ -74,8 +74,8 @@ public class b extends com.baidu.tieba.ala.alaar.makeup.b.a {
         JSONObject json;
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("ar_version", this.fVZ);
-            jSONObject.put("version", this.fVY);
+            jSONObject.put("ar_version", this.gbQ);
+            jSONObject.put("version", this.gbP);
             jSONObject.put("position", this.mPosition);
             JSONArray jSONArray = new JSONArray();
             if (this.mData != null && this.mData.size() > 0) {

@@ -23,10 +23,10 @@ import com.baidu.tieba.pb.chosen.view.ShareThreadView;
 import java.text.MessageFormat;
 /* loaded from: classes23.dex */
 public class a {
-    private PbChosenActivity lfU;
+    private PbChosenActivity llQ;
 
     public a(PbChosenActivity pbChosenActivity) {
-        this.lfU = pbChosenActivity;
+        this.llQ = pbChosenActivity;
     }
 
     public void a(com.baidu.tieba.pb.chosen.net.a aVar, String str) {
@@ -34,29 +34,29 @@ public class a {
             String str2 = aVar.getThreadInfo().forum.forum_name;
             String str3 = aVar.getThreadInfo().title;
             String str4 = aVar.getThreadInfo()._abstract;
-            Resources resources = this.lfU.getPageContext().getPageActivity().getResources();
+            Resources resources = this.llQ.getPageContext().getPageActivity().getResources();
             String format = MessageFormat.format(resources.getString(R.string.share_content_tpl), str3, str4);
             String string = resources.getString(R.string.chosen_pb_share_content, str3);
             final ShareItem shareItem = new ShareItem();
             shareItem.title = str3;
             shareItem.content = format;
             shareItem.linkUrl = "http://tieba.baidu.com/mo/q/recommendpb?ftid=" + aVar.getThreadInfo().excid;
-            shareItem.fbe = string;
-            shareItem.fbd = str4;
-            shareItem.fbc = Long.toString(aVar.getThreadInfo().excid.longValue());
+            shareItem.fgV = string;
+            shareItem.fgU = str4;
+            shareItem.fgT = Long.toString(aVar.getThreadInfo().excid.longValue());
             shareItem.tid = Long.toString(aVar.getThreadInfo().thread_id.longValue());
-            shareItem.faN = true;
+            shareItem.fgE = true;
             if (!StringUtils.isNull(str)) {
                 shareItem.imageUri = Uri.parse(str);
             }
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.lfU.getPageContext().getPageActivity(), shareItem, true);
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.llQ.getPageContext().getPageActivity(), shareItem, true);
             shareDialogConfig.setIsCopyLink(true);
             shareDialogConfig.addOutsideTextView(R.string.forum_friend, R.drawable.icon_share_friends_n, new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.lfU.sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectFriendActivityConfig(a.this.lfU.getPageContext().getPageActivity(), RequestResponseCode.REQUEST_SHARE_FRIEND_FORUM)));
-                    TiebaStatic.eventStat(a.this.lfU.getPageContext().getPageActivity(), "pb_new_share", "loc", 0, new Object[0]);
+                    a.this.llQ.sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectFriendActivityConfig(a.this.llQ.getPageContext().getPageActivity(), RequestResponseCode.REQUEST_SHARE_FRIEND_FORUM)));
+                    TiebaStatic.eventStat(a.this.llQ.getPageContext().getPageActivity(), "pb_new_share", "loc", 0, new Object[0]);
                 }
             });
             shareDialogConfig.setCopyLinkListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.a.2
@@ -64,10 +64,10 @@ public class a {
                 public void onClick(View view) {
                     shareItem.linkUrl = g.dV(shareItem.linkUrl, shareItem.tid);
                     com.baidu.adp.lib.util.a.copyToClipboard(shareItem.linkUrl);
-                    l.showToast(a.this.lfU.getPageContext().getPageActivity(), view.getResources().getString(R.string.copy_pb_url_success));
+                    l.showToast(a.this.llQ.getPageContext().getPageActivity(), view.getResources().getString(R.string.copy_pb_url_success));
                 }
             });
-            this.lfU.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
+            this.llQ.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
         }
     }
 
@@ -94,7 +94,7 @@ public class a {
             shareThreadView.setTitle(aVar.getThreadInfo().title);
             shareThreadView.setDesc(aVar.getThreadInfo()._abstract);
             shareThreadView.aP(str4, false);
-            aVar2.bb(shareThreadView);
+            aVar2.bf(shareThreadView);
             aVar2.a(R.string.share, new a.b() { // from class: com.baidu.tieba.pb.chosen.a.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar3) {
@@ -112,8 +112,8 @@ public class a {
                     aVar3.dismiss();
                 }
             });
-            aVar2.iN(false);
-            aVar2.b(pbChosenActivity.getPageContext()).bmC();
+            aVar2.iW(false);
+            aVar2.b(pbChosenActivity.getPageContext()).bpc();
         }
     }
 
@@ -124,7 +124,7 @@ public class a {
             shareThreadView.aP(str2, false);
             shareThreadView.setTitle(aVar.getThreadInfo().title);
             shareThreadView.setDesc(aVar.getThreadInfo()._abstract);
-            aVar2.bb(shareThreadView);
+            aVar2.bf(shareThreadView);
             aVar2.a(R.string.share, new a.b() { // from class: com.baidu.tieba.pb.chosen.a.5
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar3) {
@@ -142,8 +142,8 @@ public class a {
                     aVar3.dismiss();
                 }
             });
-            aVar2.iN(false);
-            aVar2.b(pbChosenActivity.getPageContext()).bmC();
+            aVar2.iW(false);
+            aVar2.b(pbChosenActivity.getPageContext()).bpc();
         }
     }
 }

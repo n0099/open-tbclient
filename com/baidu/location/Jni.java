@@ -3,7 +3,7 @@ package com.baidu.location;
 public class Jni {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f1853a = 0;
+    private static int f1855a = 0;
     private static int b = 1;
     private static int c = 2;
     private static int d = 11;
@@ -37,7 +37,7 @@ public class Jni {
         }
         int i2 = -1;
         if (str.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09)) {
-            i2 = f1853a;
+            i2 = f1855a;
         } else if (str.equals("bd09ll")) {
             i2 = b;
         } else if (str.equals("gcj02")) {

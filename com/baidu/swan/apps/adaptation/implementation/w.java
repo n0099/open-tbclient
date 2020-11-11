@@ -6,40 +6,40 @@ import java.io.File;
 /* loaded from: classes10.dex */
 public class w implements ap {
     @Override // com.baidu.swan.apps.adaptation.a.ap
-    public void afm() {
+    public void ahM() {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ap
-    public void afn() {
+    public void ahN() {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ap
-    public long afo() {
+    public long ahO() {
         return -1L;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ap
-    public void aV(long j) {
+    public void br(long j) {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ap
-    public String aW(long j) {
-        if (!com.baidu.swan.apps.t.a.auN().afT()) {
-            if (com.baidu.swan.apps.core.k.a.aoK()) {
-                return com.baidu.swan.apps.core.k.a.cJa + File.separator + GlobalConstants.LIB_ZEUS;
+    public String bs(long j) {
+        if (!com.baidu.swan.apps.t.a.axn().ait()) {
+            if (com.baidu.swan.apps.core.k.a.arl()) {
+                return com.baidu.swan.apps.core.k.a.cOT + File.separator + GlobalConstants.LIB_ZEUS;
             }
-            return com.baidu.swan.apps.core.k.a.cJc + File.separator + GlobalConstants.LIB_ZEUS;
+            return com.baidu.swan.apps.core.k.a.cOV + File.separator + GlobalConstants.LIB_ZEUS;
         }
         return null;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ap
-    public boolean afp() {
+    public boolean ahP() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ap
-    public String[] afq() {
+    public String[] ahQ() {
         return null;
     }
 }

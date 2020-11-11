@@ -386,7 +386,7 @@ public class OpenNative {
     private static void openNativeCustomVideo(Context context, Map<String, Object> map) {
         String str = (String) map.get("videoUrl");
         SimpleVideoPlayActivityConfig.a aVar = new SimpleVideoPlayActivityConfig.a();
-        aVar.Ax(str).Aw(str);
+        aVar.AL(str).AK(str);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, aVar.dV(context)));
     }
 
@@ -637,7 +637,7 @@ public class OpenNative {
         }
         try {
             if (TbadkApplication.getInst().getCurrentActivity() != null) {
-                be.boR().b(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext(), new String[]{str});
+                be.brr().b(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext(), new String[]{str});
             }
         } catch (Exception e) {
             BdLog.e("openPageByUrl fail:" + e.toString());
@@ -756,7 +756,7 @@ public class OpenNative {
                 str = arrayList.get(arrayList.size() - 1);
             }
             ImageViewerConfig.a aVar = new ImageViewerConfig.a();
-            aVar.x(arrayList).nF(((Integer) map.get("index")).intValue()).Aq((String) map.get("forum_name")).Ar((String) map.get("forum_id")).As((String) map.get("thread_id")).io(true).At(str).ip(true).iq(true);
+            aVar.x(arrayList).nP(((Integer) map.get("index")).intValue()).AE((String) map.get("forum_name")).AF((String) map.get("forum_id")).AG((String) map.get("thread_id")).ix(true).AH(str).iy(true).iz(true);
             ImageViewerConfig dU = aVar.dU(context);
             dU.getIntent().putExtra(ImageViewerConfig.IS_SHOW_HOST, false);
             dU.getIntent().putExtra("from", "index");
@@ -799,7 +799,7 @@ public class OpenNative {
                 i = i2 + 1;
             }
             ImageViewerConfig.a aVar = new ImageViewerConfig.a();
-            aVar.x(arrayList).nF(((Integer) map.get("index")).intValue()).Aq(str3).Ar(str2).As(str4).io(true).At(str).ip(true).a(concurrentHashMap).iq(true);
+            aVar.x(arrayList).nP(((Integer) map.get("index")).intValue()).AE(str3).AF(str2).AG(str4).ix(true).AH(str).iy(true).a(concurrentHashMap).iz(true);
             ImageViewerConfig dU = aVar.dU(context);
             dU.getIntent().putExtra(ImageViewerConfig.IS_SHOW_HOST, true);
             if (map.get("from") != null && (map.get("from") instanceof String)) {
@@ -859,7 +859,7 @@ public class OpenNative {
     private static void openNativeCreateForumPage(Context context, Map<String, Object> map) {
         try {
             if (TbadkApplication.getInst().getCurrentActivity() != null) {
-                be.boR().b(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/priforum/create/info?nomenu=1"});
+                be.brr().b(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/priforum/create/info?nomenu=1"});
             }
         } catch (Exception e) {
             BdLog.e("openPageByUrl fail:" + e.toString());

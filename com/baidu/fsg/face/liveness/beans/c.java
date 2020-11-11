@@ -14,7 +14,7 @@ import org.json.JSONException;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1709a = "request_data";
+    public static final String f1711a = "request_data";
     private static c b = null;
     private static final String d = "RIM_LIVENESS_VIDEO_PREFERENCE";
     private static final String e = "RIM_LIVENESS_VIDEO_VIDEOENCODINGBITRATE";

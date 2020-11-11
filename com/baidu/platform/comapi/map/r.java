@@ -5,21 +5,21 @@ import com.baidu.platform.comjni.map.basemap.AppBaseMap;
 class r implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MapSurfaceView f2928a;
+    final /* synthetic */ MapSurfaceView f2930a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(MapSurfaceView mapSurfaceView) {
-        this.f2928a = mapSurfaceView;
+        this.f2930a = mapSurfaceView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         AppBaseMap baseMap;
         boolean z;
-        if (this.f2928a.f2881a == null || (baseMap = this.f2928a.f2881a.getBaseMap()) == null) {
+        if (this.f2930a.f2883a == null || (baseMap = this.f2930a.f2883a.getBaseMap()) == null) {
             return;
         }
-        z = this.f2928a.l;
+        z = this.f2930a.l;
         baseMap.ShowTrafficMap(z);
     }
 }

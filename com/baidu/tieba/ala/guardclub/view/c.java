@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.live.data.bd;
+import com.baidu.live.data.bf;
 import com.baidu.live.guardclub.g;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
@@ -17,15 +17,15 @@ public class c {
 
     public c(Context context, View.OnClickListener onClickListener) {
         this.mContext = context;
-        s(onClickListener);
+        t(onClickListener);
     }
 
-    private void s(View.OnClickListener onClickListener) {
-        this.mView = LayoutInflater.from(this.mContext).inflate(a.h.view_guardclub_im_entry, (ViewGroup) null);
-        this.textView = (TextView) this.mView.findViewById(a.g.textView);
-        bd Kh = g.Kf().Kh();
-        if (Kh != null && !TextUtils.isEmpty(Kh.aNT)) {
-            this.textView.setText(Kh.aNT);
+    private void t(View.OnClickListener onClickListener) {
+        this.mView = LayoutInflater.from(this.mContext).inflate(a.g.view_guardclub_im_entry, (ViewGroup) null);
+        this.textView = (TextView) this.mView.findViewById(a.f.textView);
+        bf KH = g.KF().KH();
+        if (KH != null && !TextUtils.isEmpty(KH.aOW)) {
+            this.textView.setText(KH.aOW);
         }
         this.mView.setOnClickListener(onClickListener);
     }

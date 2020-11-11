@@ -10,16 +10,16 @@ public class a {
     private static JSONObject b = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f2859a = null;
+    public static a f2861a = null;
 
     public static a a() {
-        if (f2859a == null) {
-            f2859a = new a();
+        if (f2861a == null) {
+            f2861a = new a();
         }
         if (b == null) {
             b = new JSONObject();
         }
-        return f2859a;
+        return f2861a;
     }
 
     private void b() {

@@ -9,7 +9,7 @@ import java.util.Iterator;
 public class RouterManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1478a = "MaApplication";
+    private static final String f1480a = "MaApplication";
     private static RouterManager b = new RouterManager();
     private ArrayList<ApplicationLogicWrapper> c = new ArrayList<>();
 
@@ -28,10 +28,10 @@ public class RouterManager {
         if (applicationContext == null) {
             throw new RuntimeException("Router manager init with applciation context null");
         }
-        LogUtil.d(f1478a, "Application onCreate start: " + System.currentTimeMillis());
+        LogUtil.d(f1480a, "Application onCreate start: " + System.currentTimeMillis());
         LocalRouter.init(applicationContext);
         a(applicationContext, hashMap);
-        LogUtil.d(f1478a, "Application onCreate end: " + System.currentTimeMillis());
+        LogUtil.d(f1480a, "Application onCreate end: " + System.currentTimeMillis());
     }
 
     private void a(Context context, HashMap<String, Object> hashMap) {

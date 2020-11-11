@@ -25,110 +25,110 @@ import com.baidu.live.tbadk.widget.CommonEmptyView;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class c {
-    private LinearLayout bol;
-    private CommonEmptyView boq;
-    private TextView fJI;
-    private PbListView gpG;
-    private View.OnClickListener gpS = new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.c.4
+    private LinearLayout bpE;
+    private CommonEmptyView bpJ;
+    private TextView fPy;
+    private View.OnClickListener gvG = new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.c.4
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             ViewHelper.checkUpIsLogin(view.getContext());
         }
     };
-    private int gpz;
-    private View gra;
-    private View grb;
+    private int gvn;
+    private PbListView gvu;
+    private View gwO;
+    private View gwP;
     private BdListView mListView;
     private String mLiveId;
     private View mRootView;
     private int mUserType;
-    private String nLi;
-    private YuyinCharmRankTotalActivity nMU;
-    private e nMV;
-    private TextView nMW;
-    private com.baidu.tieba.yuyinala.charm.charmrank.a nMX;
+    private String nRc;
+    private YuyinCharmRankTotalActivity nSO;
+    private e nSP;
+    private TextView nSQ;
+    private com.baidu.tieba.yuyinala.charm.charmrank.a nSR;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void dI(View view);
+        void dN(View view);
     }
 
     public c(YuyinCharmRankTotalActivity yuyinCharmRankTotalActivity, int i, String str, String str2, int i2) {
-        this.nMU = yuyinCharmRankTotalActivity;
-        this.gpz = i;
-        this.nLi = str;
+        this.nSO = yuyinCharmRankTotalActivity;
+        this.gvn = i;
+        this.nRc = str;
         this.mLiveId = str2;
         this.mUserType = i2;
-        this.mRootView = this.nMU.getLayoutInflater().inflate(a.h.yuyin_charm_rank_total_layout, (ViewGroup) null);
-        this.mListView = (BdListView) this.mRootView.findViewById(a.g.detail_list);
-        this.boq = (CommonEmptyView) this.mRootView.findViewById(a.g.emptyView);
-        this.nMW = (TextView) this.mRootView.findViewById(a.g.top_text_right);
-        this.gra = this.mRootView.findViewById(a.g.toLogin_layout);
-        this.grb = this.mRootView.findViewById(a.g.toLogin_text);
-        this.grb.setOnClickListener(this.gpS);
-        if (!TbadkCoreApplication.isLogin() && this.gpz == 0) {
-            this.gra.setVisibility(0);
+        this.mRootView = this.nSO.getLayoutInflater().inflate(a.g.yuyin_charm_rank_total_layout, (ViewGroup) null);
+        this.mListView = (BdListView) this.mRootView.findViewById(a.f.detail_list);
+        this.bpJ = (CommonEmptyView) this.mRootView.findViewById(a.f.emptyView);
+        this.nSQ = (TextView) this.mRootView.findViewById(a.f.top_text_right);
+        this.gwO = this.mRootView.findViewById(a.f.toLogin_layout);
+        this.gwP = this.mRootView.findViewById(a.f.toLogin_text);
+        this.gwP.setOnClickListener(this.gvG);
+        if (!TbadkCoreApplication.isLogin() && this.gvn == 0) {
+            this.gwO.setVisibility(0);
         } else {
-            this.gra.setVisibility(8);
+            this.gwO.setVisibility(8);
         }
-        this.nMV = new e(yuyinCharmRankTotalActivity.getPageContext(), this.gpz, this.nLi, this.mLiveId);
-        this.mListView.setAdapter((ListAdapter) this.nMV);
-        this.mListView.setEmptyView(this.boq);
+        this.nSP = new e(yuyinCharmRankTotalActivity.getPageContext(), this.gvn, this.nRc, this.mLiveId);
+        this.mListView.setAdapter((ListAdapter) this.nSP);
+        this.mListView.setEmptyView(this.bpJ);
         this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.c.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i3, long j) {
-                c.this.a(c.this.nMV.getItem(i3));
+                c.this.a(c.this.nSP.getItem(i3));
             }
         });
-        this.fJI = (TextView) this.mRootView.findViewById(a.g.top_text);
-        if (this.gpz == 0) {
-            this.fJI.setText("按今日在本房间贡献的魅力值排序");
+        this.fPy = (TextView) this.mRootView.findViewById(a.f.top_text);
+        if (this.gvn == 0) {
+            this.fPy.setText("按今日在本房间贡献的魅力值排序");
         } else {
-            this.fJI.setText("按今日在本房间收到的魅力值排序");
+            this.fPy.setText("按今日在本房间收到的魅力值排序");
         }
-        if (this.gpz == 0 && TbadkCoreApplication.isLogin()) {
-            this.bol = (LinearLayout) this.mRootView.findViewById(a.g.ala_rank_list_bottom_container);
-            this.nMX = new com.baidu.tieba.yuyinala.charm.charmrank.a(this.nMU, this.nLi);
-            this.bol.addView(this.nMX.getView(), new LinearLayout.LayoutParams(-1, -2));
-            this.nMX.a(new a() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.c.2
+        if (this.gvn == 0 && TbadkCoreApplication.isLogin()) {
+            this.bpE = (LinearLayout) this.mRootView.findViewById(a.f.ala_rank_list_bottom_container);
+            this.nSR = new com.baidu.tieba.yuyinala.charm.charmrank.a(this.nSO, this.nRc);
+            this.bpE.addView(this.nSR.getView(), new LinearLayout.LayoutParams(-1, -2));
+            this.nSR.a(new a() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.c.2
                 @Override // com.baidu.tieba.yuyinala.charm.charmrank.c.a
-                public void dI(View view) {
+                public void dN(View view) {
                     MessageManager.getInstance().dispatchResponsedMessage(new YuyinSupportRoomMessage(new SupportRoom()));
                 }
             });
         }
-        if (this.gpG == null) {
-            this.gpG = new PbListView(this.nMU);
-            this.gpG.setTextColor(this.nMU.getResources().getColor(a.d.sdk_color_858585));
-            this.gpG.setSkinType(0);
-            this.gpG.setContainerBackgroundColorResId(a.d.sdk_transparent);
-            this.gpG.setmTextSize(14.0f);
-            this.gpG.createView();
-            this.gpG.setHeight(BdUtilHelper.dip2px(this.nMU, 60.0f));
+        if (this.gvu == null) {
+            this.gvu = new PbListView(this.nSO);
+            this.gvu.setTextColor(this.nSO.getResources().getColor(a.c.sdk_color_858585));
+            this.gvu.setSkinType(0);
+            this.gvu.setContainerBackgroundColorResId(a.c.sdk_transparent);
+            this.gvu.setmTextSize(14.0f);
+            this.gvu.createView();
+            this.gvu.setHeight(BdUtilHelper.dip2px(this.nSO, 60.0f));
         }
     }
 
-    public void gb(List<i.b> list) {
-        this.nMV.setData(list);
+    public void gj(List<i.b> list) {
+        this.nSP.setData(list);
     }
 
-    public void dj(boolean z) {
+    public void dq(boolean z) {
         if (z) {
-            this.boq.reset();
-            this.boq.setTitle("还没有人上榜哦~");
-            this.boq.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK);
-            this.boq.setTextColor(this.nMU.getResources().getColor(a.d.sdk_color_525252));
-            this.boq.setVisibility(0);
+            this.bpJ.reset();
+            this.bpJ.setTitle("还没有人上榜哦~");
+            this.bpJ.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK);
+            this.bpJ.setTextColor(this.nSO.getResources().getColor(a.c.sdk_color_525252));
+            this.bpJ.setVisibility(0);
             return;
         }
-        this.boq.setVisibility(8);
+        this.bpJ.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(i.b bVar) {
         if (bVar != null) {
-            this.nMU.finish();
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(this.nMU.getPageContext().getPageActivity(), ExtraParamsManager.getDecryptUserId(bVar.user_uk), bVar.user_name, bVar.bd_portrait, 0, bVar.level_id, null, null, 0L, 0L, 0L, 0, "", this.mLiveId, false, "", null, bVar.user_name, "")));
+            this.nSO.finish();
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(this.nSO.getPageContext().getPageActivity(), ExtraParamsManager.getDecryptUserId(bVar.user_uk), bVar.user_name, bVar.bd_portrait, 0, bVar.level_id, null, null, 0L, 0L, 0L, 0, "", this.mLiveId, false, "", null, bVar.user_name, "")));
         }
     }
 
@@ -136,42 +136,42 @@ public class c {
         return this.mRootView;
     }
 
-    public void l(View.OnClickListener onClickListener) {
-        this.boq.reset();
-        this.boq.setTitle("网络加载失败了哦~");
-        this.boq.setRefreshButton("重新加载", onClickListener);
-        this.boq.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
-        this.boq.setTextColor(this.nMU.getResources().getColor(a.d.sdk_color_525252));
-        this.boq.setVisibility(0);
+    public void m(View.OnClickListener onClickListener) {
+        this.bpJ.reset();
+        this.bpJ.setTitle("网络加载失败了哦~");
+        this.bpJ.setRefreshButton("重新加载", onClickListener);
+        this.bpJ.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
+        this.bpJ.setTextColor(this.nSO.getResources().getColor(a.c.sdk_color_525252));
+        this.bpJ.setVisibility(0);
     }
 
-    public void TK() {
-        this.boq.setVisibility(8);
+    public void Wk() {
+        this.bpJ.setVisibility(8);
     }
 
-    public void GK(String str) {
-        this.mListView.setNextPage(this.gpG);
-        this.gpG.endLoadDataWithNoMore(str);
+    public void GX(String str) {
+        this.mListView.setNextPage(this.gvu);
+        this.gvu.endLoadDataWithNoMore(str);
     }
 
-    public void LD(int i) {
-        this.nMW.setVisibility(0);
-        this.nMW.setText("今日魅力 " + StringHelper.formatYuyinValue(i));
+    public void LQ(int i) {
+        this.nSQ.setVisibility(0);
+        this.nSQ.setText("今日魅力 " + StringHelper.formatYuyinValue(i));
     }
 
     public void b(i.a aVar) {
         if (aVar == null) {
-            if (this.nMX != null) {
-                this.nMX.getView().setVisibility(8);
+            if (this.nSR != null) {
+                this.nSR.getView().setVisibility(8);
                 return;
             }
             return;
         }
         View view = null;
-        if (this.nMX != null) {
-            this.nMX.a(aVar);
-            this.nMX.getView().setVisibility(0);
-            view = this.nMX.getView();
+        if (this.nSR != null) {
+            this.nSR.a(aVar);
+            this.nSR.getView().setVisibility(0);
+            view = this.nSR.getView();
         }
         if (TbadkCoreApplication.getInst().isNotMobileBaidu() && view != null) {
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.c.3

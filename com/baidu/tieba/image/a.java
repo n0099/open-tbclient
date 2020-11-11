@@ -14,33 +14,33 @@ import com.baidu.tieba.recapp.s;
 import tbclient.VideoInfo;
 /* loaded from: classes21.dex */
 public class a implements ImagePagerAdapter.a {
-    private static int kqZ = 7;
-    private TbPageContext<?> eCn;
-    private boolean fcV;
-    private DragImageView.d feG;
-    private AdvertAppInfo krb;
-    private boolean krc;
-    private b krd;
-    private c kre;
-    private AdCard krg;
-    private VideoInfo krh;
-    private int kra = 0;
-    private boolean krf = false;
+    private static int kwV = 7;
+    private TbPageContext<?> eIc;
+    private boolean fiO;
+    private DragImageView.d fkz;
+    private AdvertAppInfo kwX;
+    private boolean kwY;
+    private b kwZ;
+    private c kxa;
+    private AdCard kxc;
+    private VideoInfo kxd;
+    private int kwW = 0;
+    private boolean kxb = false;
     private final View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.image.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.krb != null && a.this.krg != null) {
-                if (a.this.krd == null || !a.this.krd.krn || a.this.krd.cUI() != view) {
-                    com.baidu.tieba.lego.card.b.c.a(com.baidu.tieba.lego.card.b.c.d(a.this.krb));
+            if (a.this.kwX != null && a.this.kxc != null) {
+                if (a.this.kwZ == null || !a.this.kwZ.kxj || a.this.kwZ.cXj() != view) {
+                    com.baidu.tieba.lego.card.b.c.a(com.baidu.tieba.lego.card.b.c.d(a.this.kwX));
                     if (view.getId() == R.id.image_ad_button) {
-                        a.this.cQ(view);
-                        a.this.kre.Ne("button");
+                        a.this.cV(view);
+                        a.this.kxa.Nv("button");
                     } else if (view.getId() == R.id.bottom_container) {
-                        a.this.cUC();
-                        a.this.kre.Ne("title");
+                        a.this.cXd();
+                        a.this.kxa.Nv("title");
                     } else {
-                        a.this.cUB();
-                        a.this.kre.Ne(a.this.krb.bhV() ? "image" : "video");
+                        a.this.cXc();
+                        a.this.kxa.Nv(a.this.kwX.bkv() ? "image" : "video");
                     }
                 }
             }
@@ -48,86 +48,86 @@ public class a implements ImagePagerAdapter.a {
     };
 
     public a(boolean z, boolean z2, TbPageContext<?> tbPageContext, String str, String str2) {
-        this.fcV = false;
-        this.krc = false;
-        this.fcV = z;
-        this.krc = z2;
-        this.eCn = tbPageContext;
-        this.kre = new c(tbPageContext.getPageActivity(), str, str2);
+        this.fiO = false;
+        this.kwY = false;
+        this.fiO = z;
+        this.kwY = z2;
+        this.eIc = tbPageContext;
+        this.kxa = new c(tbPageContext.getPageActivity(), str, str2);
     }
 
     public void a(AdvertAppInfo advertAppInfo, int i) {
-        this.krb = advertAppInfo;
-        this.krb.page = "PIC_PAGE";
-        this.kre.c(this.krb);
-        this.kra = i;
-        if (this.krb.legoCard instanceof AdCard) {
-            this.krg = (AdCard) this.krb.legoCard;
-            this.krh = this.krg.videoInfo;
+        this.kwX = advertAppInfo;
+        this.kwX.page = "PIC_PAGE";
+        this.kxa.c(this.kwX);
+        this.kwW = i;
+        if (this.kwX.legoCard instanceof AdCard) {
+            this.kxc = (AdCard) this.kwX.legoCard;
+            this.kxd = this.kxc.videoInfo;
         }
     }
 
-    public boolean cUy() {
-        if (!this.krc || this.krb == null) {
+    public boolean cWZ() {
+        if (!this.kwY || this.kwX == null) {
             return false;
         }
-        return this.krb.bhT() || this.krb.bhS();
+        return this.kwX.bkt() || this.kwX.bks();
     }
 
     public String getAdId() {
-        if (this.krb != null) {
-            return this.krb.esU;
+        if (this.kwX != null) {
+            return this.kwX.eyO;
         }
         return null;
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.ImagePagerAdapter.a
     public View l(ViewGroup viewGroup, int i) {
-        if (Dz(i)) {
-            this.krd = new b(viewGroup, this.eCn);
-            this.krd.setDragToExitListener(this.feG);
-            cUz();
-            viewGroup.addView(this.krd.getView());
-            return this.krd.getView();
+        if (DM(i)) {
+            this.kwZ = new b(viewGroup, this.eIc);
+            this.kwZ.setDragToExitListener(this.fkz);
+            cXa();
+            viewGroup.addView(this.kwZ.getView());
+            return this.kwZ.getView();
         }
         return null;
     }
 
-    private boolean Dz(int i) {
-        return cUy() && this.kra != 0 && i == this.kra;
+    private boolean DM(int i) {
+        return cWZ() && this.kwW != 0 && i == this.kwW;
     }
 
-    private void cUz() {
-        if (this.krb != null && this.krb.ete != null) {
-            cUA();
-            this.krd.a(this.krb, this.krg);
-            if (!TextUtils.isEmpty(this.krb.ete.userName)) {
-                this.krd.krl.setText(this.krb.ete.userName);
-                if (!TextUtils.isEmpty(this.krb.ete.tagName)) {
-                    this.krd.krm.setText(this.krb.ete.tagName);
+    private void cXa() {
+        if (this.kwX != null && this.kwX.eyX != null) {
+            cXb();
+            this.kwZ.a(this.kwX, this.kxc);
+            if (!TextUtils.isEmpty(this.kwX.eyX.userName)) {
+                this.kwZ.kxh.setText(this.kwX.eyX.userName);
+                if (!TextUtils.isEmpty(this.kwX.eyX.tagName)) {
+                    this.kwZ.kxi.setText(this.kwX.eyX.tagName);
                 } else {
-                    this.krd.krm.setText(this.eCn.getString(R.string.advert_label));
+                    this.kwZ.kxi.setText(this.eIc.getString(R.string.advert_label));
                 }
             }
-            if (!TextUtils.isEmpty(this.krb.ete.etn)) {
-                this.krd.krk.setText(this.krb.ete.etn);
+            if (!TextUtils.isEmpty(this.kwX.eyX.ezg)) {
+                this.kwZ.kxg.setText(this.kwX.eyX.ezg);
             }
-            this.krd.krr.setVisibility(this.krb.bhU() ? 0 : 8);
-            this.krd.E(this.mClickListener);
+            this.kwZ.kxn.setVisibility(this.kwX.bku() ? 0 : 8);
+            this.kwZ.F(this.mClickListener);
         }
     }
 
     public void setDragToExitListener(DragImageView.d dVar) {
-        this.feG = dVar;
+        this.fkz = dVar;
     }
 
-    private void cUA() {
+    private void cXb() {
         String str;
-        this.krd.cUI().setEvent(new TbImageView.a() { // from class: com.baidu.tieba.image.a.1
+        this.kwZ.cXj().setEvent(new TbImageView.a() { // from class: com.baidu.tieba.image.a.1
             @Override // com.baidu.tbadk.widget.TbImageView.a
             public void onComplete(String str2, boolean z) {
                 if (z) {
-                    a.this.krd.cUJ();
+                    a.this.kwZ.cXk();
                 }
             }
 
@@ -135,66 +135,66 @@ public class a implements ImagePagerAdapter.a {
             public void onCancel() {
             }
         });
-        if (this.krb.bhU() && this.krh != null) {
-            str = this.krh.thumbnail_url;
+        if (this.kwX.bku() && this.kxd != null) {
+            str = this.kxd.thumbnail_url;
         } else {
-            str = this.krb.ete.etp;
+            str = this.kwX.eyX.ezi;
         }
-        this.krd.cUI().a(str, this.fcV ? 30 : 31, 720, 720, false);
-        if (this.krd.cUH() != null) {
-            this.krd.cUH().setIsCdn(this.fcV);
-            this.krd.cUH().setUrl(str, true);
+        this.kwZ.cXj().a(str, this.fiO ? 30 : 31, 720, 720, false);
+        if (this.kwZ.cXi() != null) {
+            this.kwZ.cXi().setIsCdn(this.fiO);
+            this.kwZ.cXi().setUrl(str, true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cUB() {
-        if (this.krb.bhV()) {
-            cUD();
+    public void cXc() {
+        if (this.kwX.bkv()) {
+            cXe();
         } else {
-            cUE();
+            cXf();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cUC() {
-        cUD();
+    public void cXd() {
+        cXe();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cQ(View view) {
-        cUD();
+    public void cV(View view) {
+        cXe();
     }
 
-    private void cUD() {
-        if (s.aY(this.eCn.getPageActivity(), this.krg.getScheme() != null ? this.krg.getScheme() : this.krb.esW) == 1) {
-            this.kre.Nf(this.krb.bhV() ? "image" : "video");
+    private void cXe() {
+        if (s.aY(this.eIc.getPageActivity(), this.kxc.getScheme() != null ? this.kxc.getScheme() : this.kwX.eyQ) == 1) {
+            this.kxa.Nw(this.kwX.bkv() ? "image" : "video");
         }
     }
 
-    private void cUE() {
-        if (this.krb != null && this.krg != null && this.krh != null && s.a(this.eCn.getPageActivity(), this.krg.getScheme(), this.krb) == 1) {
-            this.kre.Nf(this.krb.bhV() ? "image" : "video");
+    private void cXf() {
+        if (this.kwX != null && this.kxc != null && this.kxd != null && s.a(this.eIc.getPageActivity(), this.kxc.getScheme(), this.kwX) == 1) {
+            this.kxa.Nw(this.kwX.bkv() ? "image" : "video");
         }
     }
 
-    public void cUF() {
-        if (!this.krf) {
-            this.krf = true;
-            this.kre.aku();
-            com.baidu.tieba.lego.card.b.c.b(com.baidu.tieba.lego.card.b.c.d(this.krb));
+    public void cXg() {
+        if (!this.kxb) {
+            this.kxb = true;
+            this.kxa.amU();
+            com.baidu.tieba.lego.card.b.c.b(com.baidu.tieba.lego.card.b.c.d(this.kwX));
         }
     }
 
     public void onDestroy() {
-        if (this.krd != null) {
-            this.krd.onDestroy();
+        if (this.kwZ != null) {
+            this.kwZ.onDestroy();
         }
     }
 
     public void onCreate() {
-        if (this.krd != null) {
-            this.krd.onCreate();
+        if (this.kwZ != null) {
+            this.kwZ.onCreate();
         }
     }
 }

@@ -6,15 +6,15 @@ import kotlin.jvm.internal.q;
 @kotlin.h
 /* loaded from: classes10.dex */
 public final class h {
-    public static final a dMj = new a(null);
+    public static final a dSb = new a(null);
     private byte[] content;
-    private byte[] dMc;
-    private byte[] dMd;
-    private byte dMe;
-    private byte dMf;
-    private short dMg;
-    private int dMh;
-    private byte[] dMi;
+    private byte[] dRU;
+    private byte[] dRV;
+    private byte dRW;
+    private byte dRX;
+    private short dRY;
+    private int dRZ;
+    private byte[] dSa;
 
     public h() {
         this(null, null, (byte) 0, (byte) 0, (short) 0, 0, null, null, 255, null);
@@ -26,19 +26,19 @@ public final class h {
                 return false;
             }
             h hVar = (h) obj;
-            if (!q.l(this.dMc, hVar.dMc) || !q.l(this.dMd, hVar.dMd)) {
+            if (!q.l(this.dRU, hVar.dRU) || !q.l(this.dRV, hVar.dRV)) {
                 return false;
             }
-            if (!(this.dMe == hVar.dMe)) {
+            if (!(this.dRW == hVar.dRW)) {
                 return false;
             }
-            if (!(this.dMf == hVar.dMf)) {
+            if (!(this.dRX == hVar.dRX)) {
                 return false;
             }
-            if (!(this.dMg == hVar.dMg)) {
+            if (!(this.dRY == hVar.dRY)) {
                 return false;
             }
-            if (!(this.dMh == hVar.dMh) || !q.l(this.dMi, hVar.dMi) || !q.l(this.content, hVar.content)) {
+            if (!(this.dRZ == hVar.dRZ) || !q.l(this.dSa, hVar.dSa) || !q.l(this.content, hVar.content)) {
                 return false;
             }
         }
@@ -46,24 +46,24 @@ public final class h {
     }
 
     public int hashCode() {
-        byte[] bArr = this.dMc;
+        byte[] bArr = this.dRU;
         int hashCode = (bArr != null ? Arrays.hashCode(bArr) : 0) * 31;
-        byte[] bArr2 = this.dMd;
-        int hashCode2 = ((((((((((bArr2 != null ? Arrays.hashCode(bArr2) : 0) + hashCode) * 31) + this.dMe) * 31) + this.dMf) * 31) + this.dMg) * 31) + this.dMh) * 31;
-        byte[] bArr3 = this.dMi;
+        byte[] bArr2 = this.dRV;
+        int hashCode2 = ((((((((((bArr2 != null ? Arrays.hashCode(bArr2) : 0) + hashCode) * 31) + this.dRW) * 31) + this.dRX) * 31) + this.dRY) * 31) + this.dRZ) * 31;
+        byte[] bArr3 = this.dSa;
         int hashCode3 = ((bArr3 != null ? Arrays.hashCode(bArr3) : 0) + hashCode2) * 31;
         byte[] bArr4 = this.content;
         return hashCode3 + (bArr4 != null ? Arrays.hashCode(bArr4) : 0);
     }
 
     public h(byte[] bArr, byte[] bArr2, byte b, byte b2, short s, int i, byte[] bArr3, byte[] bArr4) {
-        this.dMc = bArr;
-        this.dMd = bArr2;
-        this.dMe = b;
-        this.dMf = b2;
-        this.dMg = s;
-        this.dMh = i;
-        this.dMi = bArr3;
+        this.dRU = bArr;
+        this.dRV = bArr2;
+        this.dRW = b;
+        this.dRX = b2;
+        this.dRY = s;
+        this.dRZ = i;
+        this.dSa = bArr3;
         this.content = bArr4;
     }
 
@@ -72,59 +72,59 @@ public final class h {
     }
 
     public final void R(byte[] bArr) {
-        this.dMc = bArr;
+        this.dRU = bArr;
     }
 
-    public final byte[] aRr() {
-        return this.dMc;
+    public final byte[] aTR() {
+        return this.dRU;
     }
 
     public final void S(byte[] bArr) {
-        this.dMd = bArr;
+        this.dRV = bArr;
     }
 
-    public final byte[] aRs() {
-        return this.dMd;
+    public final byte[] aTS() {
+        return this.dRV;
     }
 
-    public final byte aRt() {
-        return this.dMe;
+    public final byte aTT() {
+        return this.dRW;
     }
 
     public final void c(byte b) {
-        this.dMe = b;
+        this.dRW = b;
     }
 
-    public final byte aRu() {
-        return this.dMf;
+    public final byte aTU() {
+        return this.dRX;
     }
 
     public final void d(byte b) {
-        this.dMf = b;
+        this.dRX = b;
     }
 
-    public final short aRv() {
-        return this.dMg;
+    public final short aTV() {
+        return this.dRY;
     }
 
     public final void d(short s) {
-        this.dMg = s;
+        this.dRY = s;
     }
 
-    public final int aRw() {
-        return this.dMh;
+    public final int aTW() {
+        return this.dRZ;
     }
 
-    public final void lQ(int i) {
-        this.dMh = i;
+    public final void ma(int i) {
+        this.dRZ = i;
     }
 
     public final void T(byte[] bArr) {
-        this.dMi = bArr;
+        this.dSa = bArr;
     }
 
-    public final byte[] aRx() {
-        return this.dMi;
+    public final byte[] aTX() {
+        return this.dSa;
     }
 
     public final byte[] getContent() {
@@ -145,31 +145,31 @@ public final class h {
             this();
         }
 
-        public final h aRy() {
+        public final h aTY() {
             h hVar = new h(null, null, (byte) 0, (byte) 0, (short) 0, 0, null, null, 255, null);
             hVar.R(new byte[2]);
-            byte[] aRr = hVar.aRr();
-            if (aRr != null) {
-                aRr[0] = 0;
+            byte[] aTR = hVar.aTR();
+            if (aTR != null) {
+                aTR[0] = 0;
             }
-            byte[] aRr2 = hVar.aRr();
-            if (aRr2 != null) {
-                aRr2[1] = 2;
+            byte[] aTR2 = hVar.aTR();
+            if (aTR2 != null) {
+                aTR2[1] = 2;
             }
             hVar.S(new byte[2]);
-            byte[] aRs = hVar.aRs();
-            if (aRs != null) {
-                aRs[0] = -27;
+            byte[] aTS = hVar.aTS();
+            if (aTS != null) {
+                aTS[0] = -27;
             }
-            byte[] aRs2 = hVar.aRs();
-            if (aRs2 != null) {
-                aRs2[1] = -89;
+            byte[] aTS2 = hVar.aTS();
+            if (aTS2 != null) {
+                aTS2[1] = -89;
             }
             return hVar;
         }
     }
 
     public String toString() {
-        return "RecordParams(protocolVersion=" + Arrays.toString(this.dMc) + ", schemeType=" + ((int) this.dMe) + ", schemeExtType=" + ((int) this.dMf) + ", schemeLen=" + ((int) this.dMg) + ", contentLen=" + this.dMh + ", scheme=" + Arrays.toString(this.dMi) + ')';
+        return "RecordParams(protocolVersion=" + Arrays.toString(this.dRU) + ", schemeType=" + ((int) this.dRW) + ", schemeExtType=" + ((int) this.dRX) + ", schemeLen=" + ((int) this.dRY) + ", contentLen=" + this.dRZ + ", scheme=" + Arrays.toString(this.dSa) + ')';
     }
 }

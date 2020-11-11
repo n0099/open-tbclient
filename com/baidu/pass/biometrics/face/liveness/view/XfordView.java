@@ -16,7 +16,7 @@ import com.baidu.pass.biometrics.face.R;
 public class XfordView extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    private Bitmap f2754a;
+    private Bitmap f2756a;
     private Paint b;
     private Rect c;
     private Rect d;
@@ -24,7 +24,7 @@ public class XfordView extends ImageView {
 
     public XfordView(Context context) {
         super(context);
-        this.f2754a = null;
+        this.f2756a = null;
         this.b = null;
         a();
     }
@@ -34,8 +34,8 @@ public class XfordView extends ImageView {
             this.b = new Paint();
             this.b.setColor(1711276032);
         }
-        if (this.f2754a == null) {
-            this.f2754a = BitmapFactory.decodeResource(getResources(), R.drawable.pass_liveness_recog_face_mask);
+        if (this.f2756a == null) {
+            this.f2756a = BitmapFactory.decodeResource(getResources(), R.drawable.pass_liveness_recog_face_mask);
         }
         if (this.e == null) {
             this.e = new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT);
@@ -45,10 +45,10 @@ public class XfordView extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        Bitmap bitmap = this.f2754a;
+        Bitmap bitmap = this.f2756a;
         if (bitmap != null && !bitmap.isRecycled()) {
-            this.f2754a.recycle();
-            this.f2754a = null;
+            this.f2756a.recycle();
+            this.f2756a = null;
         }
         System.gc();
         this.e = null;
@@ -68,9 +68,9 @@ public class XfordView extends ImageView {
             this.d = new Rect(width, height, dimensionPixelSize2 + width, dimensionPixelSize + height);
         }
         if (this.c == null) {
-            this.c = new Rect(0, 0, this.f2754a.getWidth(), this.f2754a.getHeight());
+            this.c = new Rect(0, 0, this.f2756a.getWidth(), this.f2756a.getHeight());
         }
-        canvas.drawBitmap(this.f2754a, this.c, this.d, this.b);
+        canvas.drawBitmap(this.f2756a, this.c, this.d, this.b);
         this.b.setXfermode(this.e);
         canvas.drawRect(0.0f, 0.0f, getWidth(), getHeight(), this.b);
         this.b.setXfermode(null);
@@ -86,7 +86,7 @@ public class XfordView extends ImageView {
 
     public XfordView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f2754a = null;
+        this.f2756a = null;
         this.b = null;
         a();
     }

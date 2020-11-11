@@ -3,6 +3,7 @@ package com.baidu.tieba.sdk.f;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.tbadk.core.atomdata.YuyinAlaLiveRoomActivityConfig;
 import com.baidu.live.tbadk.scheme.ILiveScheme;
 import com.baidu.live.tbadk.scheme.SchemeCallback;
 import java.util.Map;
@@ -26,6 +27,9 @@ public class a implements ILiveScheme {
         String str12 = map.get("source");
         String str13 = map.get("from");
         String str14 = map.get("extra");
+        String str15 = map.get(YuyinAlaLiveRoomActivityConfig.SDK_AUDIO_ROOM_URL);
+        String str16 = map.get(YuyinAlaLiveRoomActivityConfig.SDK_AUDIO_ROOM_BG);
+        String str17 = map.get(YuyinAlaLiveRoomActivityConfig.SDK_AUDIO_ROOM_CHAT_CAST_ID);
         JSONObject jSONObject = new JSONObject();
         try {
             if (!TextUtils.isEmpty(str10)) {
@@ -58,23 +62,32 @@ public class a implements ILiveScheme {
             if (!TextUtils.isEmpty(str14)) {
                 jSONObject.put("extra", str14);
             }
+            if (!TextUtils.isEmpty(str15)) {
+                jSONObject.put(YuyinAlaLiveRoomActivityConfig.SDK_AUDIO_ROOM_URL, str15);
+            }
+            if (!TextUtils.isEmpty(str16)) {
+                jSONObject.put(YuyinAlaLiveRoomActivityConfig.SDK_AUDIO_ROOM_BG, str16);
+            }
+            if (!TextUtils.isEmpty(str17)) {
+                jSONObject.put(YuyinAlaLiveRoomActivityConfig.SDK_AUDIO_ROOM_CHAT_CAST_ID, str17);
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
         if (TextUtils.equals(str, "1")) {
             if (!TextUtils.isEmpty(str2)) {
-                com.baidu.tieba.sdk.a.dzQ().c(context != null ? context : TbadkCoreApplication.getInst(), str2, "1".equals(str5), str9, jSONObject);
+                com.baidu.tieba.sdk.a.dCs().c(context != null ? context : TbadkCoreApplication.getInst(), str2, "1".equals(str5), str9, jSONObject);
             } else if (!TextUtils.isEmpty(str3)) {
-                com.baidu.tieba.sdk.a.dzQ().b(context != null ? context : TbadkCoreApplication.getInst(), Long.parseLong(str3), "1".equals(str5), str9, jSONObject);
+                com.baidu.tieba.sdk.a.dCs().b(context != null ? context : TbadkCoreApplication.getInst(), Long.parseLong(str3), "1".equals(str5), str9, jSONObject);
             } else if (!TextUtils.isEmpty(str4)) {
-                com.baidu.tieba.sdk.a.dzQ().d(context != null ? context : TbadkCoreApplication.getInst(), str4, "1".equals(str5), str9, jSONObject);
+                com.baidu.tieba.sdk.a.dCs().d(context != null ? context : TbadkCoreApplication.getInst(), str4, "1".equals(str5), str9, jSONObject);
             }
         } else if (!TextUtils.isEmpty(str2)) {
-            com.baidu.tieba.sdk.a.dzQ().a(context != null ? context : TbadkCoreApplication.getInst(), str2, "1".equals(str5), str9, jSONObject);
+            com.baidu.tieba.sdk.a.dCs().a(context != null ? context : TbadkCoreApplication.getInst(), str2, "1".equals(str5), str9, jSONObject);
         } else if (!TextUtils.isEmpty(str3)) {
-            com.baidu.tieba.sdk.a.dzQ().a(context != null ? context : TbadkCoreApplication.getInst(), Long.parseLong(str3), "1".equals(str5), str9, jSONObject);
+            com.baidu.tieba.sdk.a.dCs().a(context != null ? context : TbadkCoreApplication.getInst(), Long.parseLong(str3), "1".equals(str5), str9, jSONObject);
         } else if (!TextUtils.isEmpty(str4)) {
-            com.baidu.tieba.sdk.a.dzQ().b(context != null ? context : TbadkCoreApplication.getInst(), str4, "1".equals(str5), str9, jSONObject);
+            com.baidu.tieba.sdk.a.dCs().b(context != null ? context : TbadkCoreApplication.getInst(), str4, "1".equals(str5), str9, jSONObject);
         }
     }
 }

@@ -266,7 +266,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
         rect.top = iArr[1];
         rect.right = this.j.getWidth() - rect.left;
         rect.bottom = rect.top + rect.width();
-        this.faceRectGroup.f1581a = rect;
+        this.faceRectGroup.f1583a = rect;
         this.j.setFocusViewRect(rect);
         ViewGroup.LayoutParams layoutParams = this.m.getLayoutParams();
         layoutParams.width = rect.width();

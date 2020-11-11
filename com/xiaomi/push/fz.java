@@ -13,15 +13,15 @@ import java.util.Iterator;
 public abstract class fz extends fs {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Exception f4913a;
+    protected Exception f4915a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected Socket f376a;
+    protected Socket f378a;
     protected XMPushService b;
     private int c;
 
     /* renamed from: c  reason: collision with other field name */
-    String f377c;
+    String f379c;
     private String d;
     protected volatile long e;
     protected volatile long f;
@@ -29,8 +29,8 @@ public abstract class fz extends fs {
 
     public fz(XMPushService xMPushService, ft ftVar) {
         super(xMPushService, ftVar);
-        this.f4913a = null;
-        this.f377c = null;
+        this.f4915a = null;
+        this.f379c = null;
         this.e = 0L;
         this.f = 0L;
         this.g = 0L;
@@ -56,7 +56,7 @@ public abstract class fz extends fs {
         Throwable th2;
         Exception e;
         boolean z2 = false;
-        this.f4913a = null;
+        this.f4915a = null;
         ArrayList<String> arrayList = new ArrayList<>();
         int intValue = com.xiaomi.channel.commonutils.logger.b.a("get bucket for host : " + str).intValue();
         cv a2 = a(str);
@@ -78,36 +78,36 @@ public abstract class fz extends fs {
             }
             String next = it.next();
             long currentTimeMillis = System.currentTimeMillis();
-            this.f357a++;
+            this.f359a++;
             try {
                 com.xiaomi.channel.commonutils.logger.b.m54a("begin to connect to " + next);
-                this.f376a = a();
-                this.f376a.connect(cx.m213a(next, i), CoolPraiseGuideLottieView.ANIM_DURATION);
+                this.f378a = a();
+                this.f378a.connect(cx.m213a(next, i), CoolPraiseGuideLottieView.ANIM_DURATION);
                 com.xiaomi.channel.commonutils.logger.b.m54a("tcp connected");
-                this.f376a.setTcpNoDelay(true);
+                this.f378a.setTcpNoDelay(true);
                 this.d = next;
                 a();
                 z = true;
                 try {
-                    this.f358a = System.currentTimeMillis() - currentTimeMillis;
-                    this.f367b = m140a;
+                    this.f360a = System.currentTimeMillis() - currentTimeMillis;
+                    this.f369b = m140a;
                     if (a2 != null) {
-                        a2.b(next, this.f358a, 0L);
+                        a2.b(next, this.f360a, 0L);
                     }
                     this.g = SystemClock.elapsedRealtime();
-                    com.xiaomi.channel.commonutils.logger.b.m54a("connected to " + next + " in " + this.f358a);
+                    com.xiaomi.channel.commonutils.logger.b.m54a("connected to " + next + " in " + this.f360a);
                     break;
                 } catch (Exception e2) {
                     e = e2;
-                    this.f4913a = e;
+                    this.f4915a = e;
                     if (z) {
                         continue;
                     } else {
                         com.xiaomi.channel.commonutils.logger.b.d("SMACK: Could not connect to:" + next);
-                        sb.append("SMACK: Could not connect to ").append(next).append(" port:").append(i).append(" err:").append(this.f4913a.getClass().getSimpleName()).append("\n");
-                        hg.a(next, this.f4913a);
+                        sb.append("SMACK: Could not connect to ").append(next).append(" port:").append(i).append(" err:").append(this.f4915a.getClass().getSimpleName()).append("\n");
+                        hg.a(next, this.f4915a);
                         if (a2 != null) {
-                            a2.b(next, System.currentTimeMillis() - currentTimeMillis, 0L, this.f4913a);
+                            a2.b(next, System.currentTimeMillis() - currentTimeMillis, 0L, this.f4915a);
                         }
                         if (!TextUtils.equals(m140a, az.m140a((Context) this.b))) {
                             cz.a().m223c();
@@ -119,16 +119,16 @@ public abstract class fz extends fs {
                 } catch (Throwable th3) {
                     th = th3;
                     try {
-                        this.f4913a = new Exception("abnormal exception", th);
+                        this.f4915a = new Exception("abnormal exception", th);
                         com.xiaomi.channel.commonutils.logger.b.a(th);
                     } catch (Throwable th4) {
                         th2 = th4;
                         if (!z) {
                             com.xiaomi.channel.commonutils.logger.b.d("SMACK: Could not connect to:" + next);
-                            sb.append("SMACK: Could not connect to ").append(next).append(" port:").append(i).append(" err:").append(this.f4913a.getClass().getSimpleName()).append("\n");
-                            hg.a(next, this.f4913a);
+                            sb.append("SMACK: Could not connect to ").append(next).append(" port:").append(i).append(" err:").append(this.f4915a.getClass().getSimpleName()).append("\n");
+                            hg.a(next, this.f4915a);
                             if (a2 != null) {
-                                a2.b(next, System.currentTimeMillis() - currentTimeMillis, 0L, this.f4913a);
+                                a2.b(next, System.currentTimeMillis() - currentTimeMillis, 0L, this.f4915a);
                             }
                         }
                         throw th2;
@@ -137,10 +137,10 @@ public abstract class fz extends fs {
                         continue;
                     } else {
                         com.xiaomi.channel.commonutils.logger.b.d("SMACK: Could not connect to:" + next);
-                        sb.append("SMACK: Could not connect to ").append(next).append(" port:").append(i).append(" err:").append(this.f4913a.getClass().getSimpleName()).append("\n");
-                        hg.a(next, this.f4913a);
+                        sb.append("SMACK: Could not connect to ").append(next).append(" port:").append(i).append(" err:").append(this.f4915a.getClass().getSimpleName()).append("\n");
+                        hg.a(next, this.f4915a);
                         if (a2 != null) {
-                            a2.b(next, System.currentTimeMillis() - currentTimeMillis, 0L, this.f4913a);
+                            a2.b(next, System.currentTimeMillis() - currentTimeMillis, 0L, this.f4915a);
                         }
                         if (!TextUtils.equals(m140a, az.m140a((Context) this.b))) {
                             cz.a().m223c();
@@ -194,9 +194,9 @@ public abstract class fz extends fs {
     public synchronized void a(int i, Exception exc) {
         if (b() != 2) {
             a(2, i, exc);
-            this.f362a = "";
+            this.f364a = "";
             try {
-                this.f376a.close();
+                this.f378a.close();
             } catch (Throwable th) {
             }
             this.e = 0L;
@@ -254,7 +254,7 @@ public abstract class fz extends fs {
 
     @Override // com.xiaomi.push.fs
     public String c() {
-        return this.f362a;
+        return this.f364a;
     }
 
     public void c(int i, Exception exc) {
@@ -268,7 +268,7 @@ public abstract class fz extends fs {
                 com.xiaomi.channel.commonutils.logger.b.m54a("WARNING: current xmpp has connected");
             } else {
                 a(0, 0, (Exception) null);
-                a(this.f359a);
+                a(this.f361a);
             }
         } catch (IOException e) {
             throw new gd(e);

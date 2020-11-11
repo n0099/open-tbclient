@@ -8,20 +8,20 @@ public interface c {
 
     /* loaded from: classes4.dex */
     public interface a {
-        boolean LN();
+        boolean LM();
 
-        boolean Lm();
+        int LR();
 
-        int Lr();
+        boolean Mn();
 
-        void Us();
+        void WS();
 
-        void Ut();
+        void WT();
     }
 
-    void GS();
+    void Ht();
 
-    List<String> Ot();
+    List<String> OT();
 
     void a(a aVar);
 
@@ -33,7 +33,7 @@ public interface c {
 
     void dI(int i);
 
-    void hg(String str);
+    void hn(String str);
 
     void release();
 }

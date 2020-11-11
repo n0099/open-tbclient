@@ -7,7 +7,7 @@ import java.io.IOException;
 /* loaded from: classes16.dex */
 class ai {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static ShapeTrimPath A(JsonReader jsonReader, com.tb.airbnb.lottie.d dVar) throws IOException {
+    public static ShapeTrimPath A(JsonReader jsonReader, com.tb.airbnb.lottie.e eVar) throws IOException {
         com.tb.airbnb.lottie.model.a.b bVar = null;
         com.tb.airbnb.lottie.model.a.b bVar2 = null;
         com.tb.airbnb.lottie.model.a.b bVar3 = null;
@@ -50,13 +50,13 @@ class ai {
             }
             switch (c) {
                 case 0:
-                    bVar3 = d.a(jsonReader, dVar, false);
+                    bVar3 = d.a(jsonReader, eVar, false);
                     break;
                 case 1:
-                    bVar2 = d.a(jsonReader, dVar, false);
+                    bVar2 = d.a(jsonReader, eVar, false);
                     break;
                 case 2:
-                    bVar = d.a(jsonReader, dVar, false);
+                    bVar = d.a(jsonReader, eVar, false);
                     break;
                 case 3:
                     str = jsonReader.nextString();

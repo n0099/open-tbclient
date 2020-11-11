@@ -60,10 +60,10 @@ public class AutoBannerView extends RelativeLayout {
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
             public com.baidu.tbadk.core.flow.a.c ug() {
                 com.baidu.tbadk.core.flow.a.c cVar = new com.baidu.tbadk.core.flow.a.c();
-                cVar.oB(R.drawable.icon_banner_gray_n);
-                cVar.oC(R.drawable.icon_banner_s);
+                cVar.oL(R.drawable.icon_banner_gray_n);
+                cVar.oM(R.drawable.icon_banner_s);
                 cVar.setGravity(81);
-                cVar.oD(R.dimen.tbds26);
+                cVar.oN(R.dimen.tbds26);
                 cVar.setSpacing(R.dimen.tbds10);
                 return cVar;
             }
@@ -87,16 +87,16 @@ public class AutoBannerView extends RelativeLayout {
     public void dl(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
-                be.boR().b((TbPageContext) i.I(getContext()), new String[]{str});
+                be.brr().b((TbPageContext) i.I(getContext()), new String[]{str});
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void brm() {
+    public void btM() {
         if (this.aiW != null) {
-            this.aiW.bna();
+            this.aiW.bpA();
         }
     }
 

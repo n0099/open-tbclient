@@ -12,45 +12,45 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class h {
-    private List<com.baidu.live.liveroom.d.d> aFm = new LinkedList();
-    private AlaLiveRoomPanelTabHost aFp;
+    private List<com.baidu.live.liveroom.d.d> aGc = new LinkedList();
+    private AlaLiveRoomPanelTabHost aGf;
     private View contentView;
     private View mRootView;
-    private YuyinBannedPostListActivity nMv;
+    private YuyinBannedPostListActivity nSp;
 
     public h(YuyinBannedPostListActivity yuyinBannedPostListActivity) {
-        this.nMv = yuyinBannedPostListActivity;
+        this.nSp = yuyinBannedPostListActivity;
         initView();
-        bOU();
+        bRu();
     }
 
     private void initView() {
-        this.mRootView = LayoutInflater.from(this.nMv).inflate(a.h.yuyin_ala_baned_post_activity_layout, (ViewGroup) null);
-        this.contentView = this.mRootView.findViewById(a.g.ala_charm_root_view);
-        this.aFp = (AlaLiveRoomPanelTabHost) this.mRootView.findViewById(a.g.ala_charm_tab_host);
-        this.aFp.setIndicatorWidthAuto(false);
-        this.aFp.setmIndicatorHeight(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.e.sdk_ds8));
-        this.aFp.setmIndicatorWidth(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.e.sdk_ds40));
-        this.aFp.setmIsYuyinLive(true);
+        this.mRootView = LayoutInflater.from(this.nSp).inflate(a.g.yuyin_ala_baned_post_activity_layout, (ViewGroup) null);
+        this.contentView = this.mRootView.findViewById(a.f.ala_charm_root_view);
+        this.aGf = (AlaLiveRoomPanelTabHost) this.mRootView.findViewById(a.f.ala_charm_tab_host);
+        this.aGf.setIndicatorWidthAuto(false);
+        this.aGf.setmIndicatorHeight(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.d.sdk_ds8));
+        this.aGf.setmIndicatorWidth(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.d.sdk_ds40));
+        this.aGf.setmIsYuyinLive(true);
     }
 
     public View getView() {
         return this.mRootView;
     }
 
-    private void bOU() {
-        Intent intent = this.nMv.getIntent();
+    private void bRu() {
+        Intent intent = this.nSp.getIntent();
         String stringExtra = intent.getStringExtra("room_id");
         String stringExtra2 = intent.getStringExtra("live_id");
         String stringExtra3 = intent.getStringExtra("group_id");
-        final e eVar = new e(this.nMv, stringExtra2, stringExtra3, stringExtra, 1);
+        final e eVar = new e(this.nSp, stringExtra2, stringExtra3, stringExtra, 1);
         eVar.createView();
-        this.aFm.add(eVar);
-        final e eVar2 = new e(this.nMv, stringExtra2, stringExtra3, stringExtra, 2);
+        this.aGc.add(eVar);
+        final e eVar2 = new e(this.nSp, stringExtra2, stringExtra3, stringExtra, 2);
         eVar2.createView();
-        this.aFm.add(eVar2);
-        this.aFp.setData(this.aFm);
-        this.aFp.setPageSelectedListener(new AlaLiveRoomPanelTabHost.b() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.h.1
+        this.aGc.add(eVar2);
+        this.aGf.setData(this.aGc);
+        this.aGf.setPageSelectedListener(new AlaLiveRoomPanelTabHost.b() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.h.1
             @Override // com.baidu.live.bottompanel.AlaLiveRoomPanelTabHost.b
             public void onPageSelected(int i) {
                 if (i == 0) {
@@ -63,7 +63,7 @@ public class h {
     }
 
     public void onDestory() {
-        for (com.baidu.live.liveroom.d.d dVar : this.aFm) {
+        for (com.baidu.live.liveroom.d.d dVar : this.aGc) {
             dVar.onDestroy();
         }
     }

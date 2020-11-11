@@ -17,13 +17,13 @@ import org.json.JSONObject;
 public class d implements com.baidu.live.liveroom.e.d {
     private static final String TAG = d.class.getSimpleName();
     private static boolean mHasInit = false;
-    private f hmh;
-    private a imX;
-    private String ino;
+    private f hsf;
+    private a isV;
+    private String itm;
     private Uri mUri;
 
     public d(String str) {
-        this.ino = str;
+        this.itm = str;
     }
 
     public static synchronized void fn(Context context) {
@@ -57,8 +57,8 @@ public class d implements com.baidu.live.liveroom.e.d {
     @Override // com.baidu.live.liveroom.e.d
     public void d(Context context, Uri uri) {
         fn(context);
-        if (this.imX == null) {
-            this.imX = new a(context, this.ino);
+        if (this.isV == null) {
+            this.isV = new a(context, this.itm);
             this.mUri = uri;
             if (h.isDebug()) {
                 Log.d(TAG, "new mBVideoView ");
@@ -68,46 +68,46 @@ public class d implements com.baidu.live.liveroom.e.d {
 
     @Override // com.baidu.live.liveroom.e.d
     public void setPlayerCallback(f fVar) {
-        this.hmh = fVar;
-        if (this.imX != null) {
-            this.imX.setPlayerListener(new b() { // from class: com.baidu.tieba.ext.bdplayer.a.d.2
+        this.hsf = fVar;
+        if (this.isV != null) {
+            this.isV.setPlayerListener(new b() { // from class: com.baidu.tieba.ext.bdplayer.a.d.2
                 @Override // com.baidu.tieba.ext.bdplayer.a.b, com.baidu.searchbox.player.callback.IVideoPlayerCallback
                 public void onStart() {
                     super.onStart();
-                    if (d.this.hmh != null) {
-                        d.this.hmh.onStart();
+                    if (d.this.hsf != null) {
+                        d.this.hsf.onStart();
                     }
                 }
 
                 @Override // com.baidu.tieba.ext.bdplayer.a.b, com.baidu.searchbox.player.callback.IVideoPlayerCallback
                 public void onPause() {
                     super.onPause();
-                    if (d.this.hmh != null) {
-                        d.this.hmh.onPause();
+                    if (d.this.hsf != null) {
+                        d.this.hsf.onPause();
                     }
                 }
 
                 @Override // com.baidu.tieba.ext.bdplayer.a.b, com.baidu.searchbox.player.callback.IVideoPlayerCallback
                 public void onEnd(int i) {
                     super.onEnd(i);
-                    if (d.this.hmh != null) {
-                        d.this.hmh.onEnd(i);
+                    if (d.this.hsf != null) {
+                        d.this.hsf.onEnd(i);
                     }
                 }
 
                 @Override // com.baidu.tieba.ext.bdplayer.a.b, com.baidu.searchbox.player.callback.IVideoPlayerCallback
                 public void onInfo(int i, int i2) {
                     super.onInfo(i, i2);
-                    if (d.this.hmh != null) {
-                        d.this.hmh.a(d.this, i, i2);
+                    if (d.this.hsf != null) {
+                        d.this.hsf.a(d.this, i, i2);
                     }
                 }
 
                 @Override // com.baidu.tieba.ext.bdplayer.a.b, com.baidu.searchbox.player.callback.IVideoPlayerCallback
                 public void onError(int i, int i2, String str) {
                     super.onError(i, i2, str);
-                    if (d.this.hmh != null) {
-                        d.this.hmh.b(d.this, i, i2);
+                    if (d.this.hsf != null) {
+                        d.this.hsf.b(d.this, i, i2);
                     }
                 }
             });
@@ -116,8 +116,8 @@ public class d implements com.baidu.live.liveroom.e.d {
 
     @Override // com.baidu.live.liveroom.e.d
     public void setDecodeMode(int i) {
-        if (this.imX != null) {
-            this.imX.setDecodeMode(i);
+        if (this.isV != null) {
+            this.isV.setDecodeMode(i);
         }
     }
 
@@ -127,7 +127,7 @@ public class d implements com.baidu.live.liveroom.e.d {
 
     @Override // com.baidu.live.liveroom.e.d
     public View getPlayerView() {
-        LayerContainer layerContainer = this.imX != null ? this.imX.getLayerContainer() : null;
+        LayerContainer layerContainer = this.isV != null ? this.isV.getLayerContainer() : null;
         if (layerContainer != null) {
             layerContainer.setClickable(false);
         }
@@ -144,78 +144,78 @@ public class d implements com.baidu.live.liveroom.e.d {
     @Override // com.baidu.live.liveroom.e.d
     public void c(Uri uri) {
         this.mUri = uri;
-        if (this.imX != null) {
-            this.imX.setVideoUrl(this.mUri.toString());
+        if (this.isV != null) {
+            this.isV.setVideoUrl(this.mUri.toString());
         }
     }
 
     @Override // com.baidu.live.liveroom.e.d
     public void setVideoScalingMode(int i) {
-        if (this.imX != null) {
-            this.imX.setVideoScalingMode(i);
+        if (this.isV != null) {
+            this.isV.setVideoScalingMode(i);
         }
     }
 
     @Override // com.baidu.live.liveroom.e.d
     public void start() {
         Log.d(TAG, "start :");
-        if (this.imX != null) {
-            this.imX.start();
+        if (this.isV != null) {
+            this.isV.start();
         }
     }
 
     @Override // com.baidu.live.liveroom.e.d
     public void pause() {
         Log.d(TAG, "pause :");
-        if (this.imX != null) {
-            this.imX.pause();
+        if (this.isV != null) {
+            this.isV.pause();
         }
     }
 
     @Override // com.baidu.live.liveroom.e.d
     public void resume() {
         Log.d(TAG, "resume :");
-        if (this.imX != null) {
-            this.imX.resume();
+        if (this.isV != null) {
+            this.isV.resume();
         }
     }
 
     @Override // com.baidu.live.liveroom.e.d
     public void stop() {
         Log.d(TAG, "stop :");
-        if (this.imX != null) {
-            this.imX.stop();
+        if (this.isV != null) {
+            this.isV.stop();
         }
     }
 
     @Override // com.baidu.live.liveroom.e.d
     public boolean isPlaying() {
         boolean[] zArr = new boolean[1];
-        if (this.imX != null) {
-            zArr[0] = this.imX.isPlaying();
+        if (this.isV != null) {
+            zArr[0] = this.isV.isPlaying();
         }
         return zArr[0];
     }
 
     @Override // com.baidu.live.liveroom.e.d
     public void release() {
-        if (this.imX != null) {
-            this.imX.stop();
-            this.imX.getPlayerCallbackManager().release();
-            this.imX.detachFromContainer();
-            this.imX.release();
+        if (this.isV != null) {
+            this.isV.stop();
+            this.isV.getPlayerCallbackManager().release();
+            this.isV.detachFromContainer();
+            this.isV.release();
             Log.d(TAG, "release mBDVideoPlayer ");
         }
     }
 
     @Override // com.baidu.live.liveroom.e.d
     public void b(int i, Map<String, String> map) {
-        if (this.imX != null) {
-            this.imX.b(i, map);
+        if (this.isV != null) {
+            this.isV.b(i, map);
         }
     }
 
-    public a crx() {
-        return this.imX;
+    public a ctY() {
+        return this.isV;
     }
 }

@@ -11,16 +11,16 @@ public class h extends com.baidu.platform.base.a implements a {
 
     @Override // com.baidu.platform.core.e.a
     public void a() {
-        this.f2810a.lock();
+        this.f2812a.lock();
         this.b = null;
-        this.f2810a.unlock();
+        this.f2812a.unlock();
     }
 
     @Override // com.baidu.platform.core.e.a
     public void a(OnGetShareUrlResultListener onGetShareUrlResultListener) {
-        this.f2810a.lock();
+        this.f2812a.lock();
         this.b = onGetShareUrlResultListener;
-        this.f2810a.unlock();
+        this.f2812a.unlock();
     }
 
     @Override // com.baidu.platform.core.e.a

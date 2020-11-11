@@ -16,12 +16,12 @@ public class r {
     private static View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.BdToken.r.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TbPageContext<?> beE;
+            TbPageContext<?> bhe;
             Object tag = view.getTag();
             if (tag instanceof CompleteTaskToastData) {
                 CompleteTaskToastData completeTaskToastData = (CompleteTaskToastData) tag;
-                if (!TextUtils.isEmpty(completeTaskToastData.url) && (beE = r.beE()) != null) {
-                    be.boR().b(beE, new String[]{completeTaskToastData.url});
+                if (!TextUtils.isEmpty(completeTaskToastData.url) && (bhe = r.bhe()) != null) {
+                    be.brr().b(bhe, new String[]{completeTaskToastData.url});
                     com.baidu.tbadk.BdToken.completeTask.c.aK(completeTaskToastData.activityId, completeTaskToastData.missionId);
                 }
             }
@@ -32,39 +32,39 @@ public class r {
         return TbadkCoreApplication.getInst().isMainProcess(true);
     }
 
-    public static void o(int i, long j) {
+    public static void n(int i, long j) {
         if (isMainProcess()) {
-            c.bdF().o(i, j);
+            c.bgf().n(i, j);
         } else {
-            a(i, j, MissionEvent.MESSAGE_ACTIVITY);
+            f(i, j, MissionEvent.MESSAGE_ACTIVITY);
         }
     }
 
     public static void a(int i, int i2, long j) {
         if (isMainProcess()) {
-            c.bdF().q(i, j);
+            c.bgf().p(i, j);
         } else {
             b(i, i2, j, MissionEvent.MESSAGE_RESUME);
         }
     }
 
+    public static void r(int i, long j) {
+        if (isMainProcess()) {
+            c.bgf().bgq();
+        } else {
+            f(i, j, MissionEvent.MESSAGE_PAUSE);
+        }
+    }
+
     public static void s(int i, long j) {
         if (isMainProcess()) {
-            c.bdF().bdQ();
+            c.bgf().bgs();
         } else {
-            a(i, j, MissionEvent.MESSAGE_PAUSE);
+            f(i, j, MissionEvent.MESSAGE_TOUCH);
         }
     }
 
-    public static void t(int i, long j) {
-        if (isMainProcess()) {
-            c.bdF().bdS();
-        } else {
-            a(i, j, MissionEvent.MESSAGE_TOUCH);
-        }
-    }
-
-    public static void a(int i, long j, String str) {
+    public static void f(int i, long j, String str) {
         MissionEvent missionEvent = new MissionEvent();
         missionEvent.tid = j;
         missionEvent.pageId = i;
@@ -81,7 +81,7 @@ public class r {
         com.baidu.tbadk.mutiprocess.g.publishEvent(missionEvent);
     }
 
-    public static TbPageContext beE() {
+    public static TbPageContext bhe() {
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         if (currentActivity instanceof BaseActivity) {
             return ((BaseActivity) currentActivity).getPageContext();
@@ -93,21 +93,21 @@ public class r {
     }
 
     public static com.baidu.tbadk.core.dialog.f a(CompleteTaskToastData completeTaskToastData) {
-        TbPageContext beE;
-        if (completeTaskToastData == null || (beE = beE()) == null || beE.getUniqueId() == null || completeTaskToastData.pageId != beE.getUniqueId().getId()) {
+        TbPageContext bhe;
+        if (completeTaskToastData == null || (bhe = bhe()) == null || bhe.getUniqueId() == null || completeTaskToastData.pageId != bhe.getUniqueId().getId()) {
             return null;
         }
-        com.baidu.tbadk.core.dialog.f c = com.baidu.tbadk.core.dialog.f.c(beE.getPageActivity(), completeTaskToastData.message);
-        c.oy(completeTaskToastData.duration);
+        com.baidu.tbadk.core.dialog.f c = com.baidu.tbadk.core.dialog.f.c(bhe.getPageActivity(), completeTaskToastData.message);
+        c.oI(completeTaskToastData.duration);
         c.setOnClickListener(mOnClickListener);
         c.setTag(completeTaskToastData);
-        c.bmM();
+        c.bpm();
         return c;
     }
 
     public static void a(MotionEvent motionEvent, int i, long j) {
         if (motionEvent != null && motionEvent.getAction() == 0) {
-            t(i, j);
+            s(i, j);
         }
     }
 }

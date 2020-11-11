@@ -7,7 +7,7 @@ import android.widget.FrameLayout;
 import com.baidu.live.pendantview.PendantParentView;
 /* loaded from: classes4.dex */
 public abstract class PendantChildView extends FrameLayout {
-    protected PendantParentView.Model boA;
+    protected PendantParentView.Model bpT;
     protected int priority;
 
     public abstract PendantParentView.Position getHorizontalFullPosition();
@@ -54,7 +54,7 @@ public abstract class PendantChildView extends FrameLayout {
     }
 
     public void setMode(PendantParentView.Model model) {
-        this.boA = model;
+        this.bpT = model;
     }
 
     public FixedLocation getFixedlocation() {

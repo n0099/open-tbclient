@@ -29,9 +29,9 @@ import okhttp3.Response;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class a extends aa {
-    private c czL;
-    private ExecutorService czu;
-    private int czv;
+    private c cFE;
+    private ExecutorService cFn;
+    private int cFo;
 
     public a(j jVar) {
         super(jVar, "/swanAPI/wirelessdebuglaunch");
@@ -45,8 +45,8 @@ public class a extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        this.czL = c.bb(optParamsAsJo);
-        if (this.czL == null || this.czL.isInvalid()) {
+        this.cFE = c.bh(optParamsAsJo);
+        if (this.cFE == null || this.cFE.isInvalid()) {
             if (DEBUG) {
                 Log.e("WirelessDebugAction", "Wireless Debug params is invalid");
             }
@@ -58,37 +58,37 @@ public class a extends aa {
     }
 
     private void f(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler) {
-        final File ajA = b.ajA();
-        if (ajA.exists()) {
-            ajA.delete();
+        final File ama = b.ama();
+        if (ama.exists()) {
+            ama.delete();
         }
-        this.czu = Executors.newFixedThreadPool(4);
-        this.czv = 0;
-        if (this.czL.czT == null || this.czL.czT.length() <= 0) {
+        this.cFn = Executors.newFixedThreadPool(4);
+        this.cFo = 0;
+        if (this.cFE.cFM == null || this.cFE.cFM.length() <= 0) {
             ExecutorUtilsExt.postOnSerial(new Runnable() { // from class: com.baidu.swan.apps.console.debugger.b.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.a(context, a.this.czL.czP, a.this.czL.Qf, ajA, unitedSchemeEntity, callbackHandler);
+                    a.this.a(context, a.this.cFE.cFI, a.this.cFE.Qf, ama, unitedSchemeEntity, callbackHandler);
                 }
             }, "WirelessDebugAction");
             return;
         }
-        int length = this.czL.czT.length();
+        int length = this.cFE.cFM.length();
         for (int i = 0; i < length; i++) {
-            final String hD = this.czL.hD(i);
-            if (TextUtils.isEmpty(hD)) {
-                int i2 = this.czv + 1;
-                this.czv = i2;
+            final String hN = this.cFE.hN(i);
+            if (TextUtils.isEmpty(hN)) {
+                int i2 = this.cFo + 1;
+                this.cFo = i2;
                 if (i2 >= length) {
                     com.baidu.swan.apps.console.c.e("WirelessDebugAction", "Hosts are invalid");
                     aa(context, "404");
                 }
             } else {
-                final String hE = this.czL.hE(i);
-                this.czu.execute(new Runnable() { // from class: com.baidu.swan.apps.console.debugger.b.a.2
+                final String hO = this.cFE.hO(i);
+                this.cFn.execute(new Runnable() { // from class: com.baidu.swan.apps.console.debugger.b.a.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.a(context, hD, hE, ajA, unitedSchemeEntity, callbackHandler);
+                        a.this.a(context, hN, hO, ama, unitedSchemeEntity, callbackHandler);
                     }
                 });
             }
@@ -98,31 +98,31 @@ public class a extends aa {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [208=4] */
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Code restructure failed: missing block: B:32:0x00b5, code lost:
-        if (r0 >= r7.czL.czT.length()) goto L39;
+        if (r0 >= r7.cFE.cFM.length()) goto L39;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void a(Context context, String str, String str2, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         try {
-            Response executeSync = com.baidu.swan.a.c.a.aYk().getRequest().url(str).connectionTimeout(1500).build().executeSync();
+            Response executeSync = com.baidu.swan.a.c.a.baK().getRequest().url(str).connectionTimeout(1500).build().executeSync();
             if (executeSync != null && executeSync.code() == 200 && executeSync.body() != null) {
                 f.streamToFile(executeSync.body().byteStream(), file);
-                Intent a2 = com.baidu.swan.apps.u.c.c.a(context, ajy());
-                a2.putExtra("masterPreload", this.czL.czR);
-                a2.putExtra("slavePreload", this.czL.czS);
+                Intent a2 = com.baidu.swan.apps.u.c.c.a(context, alY());
+                a2.putExtra("masterPreload", this.cFE.cFK);
+                a2.putExtra("slavePreload", this.cFE.cFL);
                 a2.putExtra("extraWSUrl", str2);
                 context.startActivity(a2);
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                if (this.czu != null) {
-                    this.czu.shutdownNow();
-                    this.czu = null;
+                if (this.cFn != null) {
+                    this.cFn.shutdownNow();
+                    this.cFn = null;
                 }
                 if (!ProcessUtils.isMainProcess()) {
                     if (DEBUG) {
                         Log.d("WirelessDebugAction", "Suicide for reload.");
                     }
-                    d.ajD();
+                    d.amd();
                 }
             }
             if (executeSync != null) {
@@ -135,23 +135,23 @@ public class a extends aa {
         } catch (IOException e) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             synchronized (this) {
-                if (this.czL.czT != null) {
-                    int i = this.czv + 1;
-                    this.czv = i;
+                if (this.cFE.cFM != null) {
+                    int i = this.cFo + 1;
+                    this.cFo = i;
                 }
                 com.baidu.swan.apps.console.c.e("WirelessDebugAction", "Host IPs are invalid");
                 aa(context, "404");
-                ajz();
+                alZ();
             }
         }
     }
 
-    private c.a ajy() {
-        return (c.a) ((c.a) ((c.a) new c.a().pc(this.czL.mAppKey)).fm(false)).pj(this.czL.czQ);
+    private c.a alY() {
+        return (c.a) ((c.a) ((c.a) new c.a().pq(this.cFE.mAppKey)).fv(false)).px(this.cFE.cFJ);
     }
 
     private void aa(Context context, String str) {
-        String string = h.aIs().getString("errorURL", "");
+        String string = h.aKS().getString("errorURL", "");
         if (TextUtils.isEmpty(string)) {
             com.baidu.swan.apps.res.widget.b.d.a(context, "IPs are invalid ：" + str).showToast();
         } else {
@@ -171,11 +171,11 @@ public class a extends aa {
         }
     }
 
-    private void ajz() {
-        b.a aEY = com.baidu.swan.apps.runtime.d.aEQ().aEM().aEY();
+    private void alZ() {
+        b.a aHy = com.baidu.swan.apps.runtime.d.aHq().aHm().aHy();
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
-        fVar.b(aEY);
-        fVar.mFrom = com.baidu.swan.apps.statistic.h.ko(aEY.getAppFrameType());
+        fVar.b(aHy);
+        fVar.mFrom = com.baidu.swan.apps.statistic.h.ky(aHy.getAppFrameType());
         fVar.mType = Config.LAUNCH;
         fVar.mSource = "adb-debug";
         fVar.mValue = "download_fail";

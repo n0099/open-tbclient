@@ -28,59 +28,59 @@ public interface d extends e.b {
 
     void a(String str, com.baidu.swan.apps.event.a.a aVar);
 
-    void adp();
+    void afP();
 
-    void afN();
+    void ain();
 
-    void afO();
+    void aio();
 
-    com.baidu.swan.apps.runtime.e alC();
+    String aoL();
 
-    com.baidu.swan.apps.core.d.e amC();
+    com.baidu.swan.apps.runtime.e aoc();
 
-    String aml();
+    com.baidu.swan.games.view.d apB();
 
-    com.baidu.swan.games.view.d ana();
+    com.baidu.swan.games.view.d apC();
 
-    com.baidu.swan.games.view.d anb();
+    com.baidu.swan.apps.core.d.e apc();
 
-    void awN();
+    @NonNull
+    Pair<Integer, Integer> azA();
 
-    void awO();
+    @NonNull
+    Pair<Integer, Integer> azB();
 
-    void awP();
+    com.baidu.swan.games.q.a azC();
 
-    SwanCoreVersion awQ();
+    boolean azE();
+
+    void azn();
+
+    void azo();
+
+    void azp();
+
+    SwanCoreVersion azq();
 
     @DebugTrace
-    com.baidu.swan.apps.adaptation.b.a awR();
+    com.baidu.swan.apps.adaptation.b.a azr();
 
-    boolean awS();
+    boolean azs();
 
-    SwanAppConfigData awT();
-
-    @NonNull
-    com.baidu.swan.apps.storage.b.c awU();
-
-    String awV();
-
-    String awW();
-
-    String awX();
-
-    SwanAppActivity awY();
-
-    com.baidu.swan.apps.adaptation.b.d awZ();
+    SwanAppConfigData azt();
 
     @NonNull
-    Pair<Integer, Integer> axa();
+    com.baidu.swan.apps.storage.b.c azu();
 
-    @NonNull
-    Pair<Integer, Integer> axb();
+    String azv();
 
-    com.baidu.swan.games.q.a axc();
+    String azw();
 
-    boolean axe();
+    String azx();
+
+    SwanAppActivity azy();
+
+    com.baidu.swan.apps.adaptation.b.d azz();
 
     void b(com.baidu.swan.apps.event.a.a aVar);
 
@@ -96,15 +96,15 @@ public interface d extends e.b {
 
     void i(SwanAppActivity swanAppActivity);
 
-    com.baidu.swan.apps.adaptation.b.e ns(String str);
+    com.baidu.swan.apps.adaptation.b.e nH(String str);
 
     @NonNull
-    com.baidu.swan.apps.runtime.config.c px(String str);
+    com.baidu.swan.apps.runtime.config.c pL(String str);
 
     @NonNull
-    com.baidu.swan.apps.runtime.config.c py(String str);
+    com.baidu.swan.apps.runtime.config.c pM(String str);
 
-    AbsoluteLayout pz(String str);
+    AbsoluteLayout pN(String str);
 
     void showLoadingView();
 

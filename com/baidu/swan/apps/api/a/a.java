@@ -6,5 +6,5 @@ public interface a {
     void a(String str, com.baidu.swan.apps.api.c.b bVar);
 
     @NonNull
-    b agY();
+    b ajy();
 }

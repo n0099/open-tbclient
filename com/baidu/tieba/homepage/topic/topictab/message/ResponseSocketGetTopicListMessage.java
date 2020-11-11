@@ -41,13 +41,13 @@ public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
                         aVar.a(newTopicList);
                         this.mTopicDataList.add(aVar);
                         c cVar = new c();
-                        cVar.iho = R.dimen.tbds1;
-                        cVar.jFd = R.color.cp_bg_line_b;
+                        cVar.inm = R.dimen.tbds1;
+                        cVar.jLb = R.color.cp_bg_line_b;
                         this.mTopicDataList.add(cVar);
                         i2++;
                     }
                 }
-                ((c) y.getItem(this.mTopicDataList, this.mTopicDataList.size() - 1)).iho = 0;
+                ((c) y.getItem(this.mTopicDataList, this.mTopicDataList.size() - 1)).inm = 0;
             }
         }
     }

@@ -1,33 +1,33 @@
 package com.facebook.drawee.components;
 /* loaded from: classes15.dex */
 public class b {
-    private boolean oEl;
-    private int oEm;
-    private int oEn;
+    private boolean oNE;
+    private int oNF;
+    private int oNG;
 
     public b() {
         init();
     }
 
     public void init() {
-        this.oEl = false;
-        this.oEm = 4;
+        this.oNE = false;
+        this.oNF = 4;
         reset();
     }
 
     public void reset() {
-        this.oEn = 0;
+        this.oNG = 0;
     }
 
-    public void zR(boolean z) {
-        this.oEl = z;
+    public void Ac(boolean z) {
+        this.oNE = z;
     }
 
-    public boolean ehA() {
-        return this.oEl && this.oEn < this.oEm;
+    public boolean elp() {
+        return this.oNE && this.oNG < this.oNF;
     }
 
-    public void ehB() {
-        this.oEn++;
+    public void elq() {
+        this.oNG++;
     }
 }

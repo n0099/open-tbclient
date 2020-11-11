@@ -30,7 +30,7 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
     public static final String TAG = "LivenessLoadingActivity";
 
     /* renamed from: a  reason: collision with root package name */
-    private LoadingDialog f1606a;
+    private LoadingDialog f1608a;
     private i b;
     private g c;
     private LivenessRecogDTO d;
@@ -197,19 +197,19 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
     }
 
     private void a(Context context) {
-        if (this.f1606a == null) {
-            this.f1606a = new LoadingDialog(context);
-            this.f1606a.setMessage(context.getString(R.string.sapi_liveness_recog_loading));
-            this.f1606a.setCancelable(false);
+        if (this.f1608a == null) {
+            this.f1608a = new LoadingDialog(context);
+            this.f1608a.setMessage(context.getString(R.string.sapi_liveness_recog_loading));
+            this.f1608a.setCancelable(false);
         }
-        if ((context instanceof Activity) && isUseable((Activity) context) && !this.f1606a.isShowing()) {
-            this.f1606a.show();
+        if ((context instanceof Activity) && isUseable((Activity) context) && !this.f1608a.isShowing()) {
+            this.f1608a.show();
         }
     }
 
     private void c() {
-        if (isUseable(this) && this.f1606a.isShowing()) {
-            this.f1606a.dismiss();
+        if (isUseable(this) && this.f1608a.isShowing()) {
+            this.f1608a.dismiss();
             finish();
         }
     }

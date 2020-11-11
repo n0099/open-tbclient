@@ -7,7 +7,7 @@ import java.util.List;
 public class k implements com.baidu.swan.apps.adaptation.a.y {
     @Override // com.baidu.swan.apps.adaptation.a.y
     @Nullable
-    public List<ContentValues> afa() {
+    public List<ContentValues> ahA() {
         return null;
     }
 }

@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 public class TextureMapFragment extends Fragment {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2046a = TextureMapFragment.class.getSimpleName();
+    private static final String f2048a = TextureMapFragment.class.getSimpleName();
     private TextureMapView b;
     private BaiduMapOptions c;
 

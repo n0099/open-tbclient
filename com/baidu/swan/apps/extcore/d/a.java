@@ -10,33 +10,33 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static a cOn;
-    private static a cOo;
+    private static a cUg;
+    private static a cUh;
     public String extensionCoreVersionName;
 
     @NonNull
     public static a a(@NonNull com.baidu.swan.apps.extcore.model.b.a aVar) {
-        return aVar.arL() == 1 ? nY(aVar.arK()) : nX(aVar.arK());
+        return aVar.aum() == 1 ? oo(aVar.aul()) : om(aVar.aul());
     }
 
     @NonNull
-    private static a nX(@NonNull String str) {
-        if (cOn == null) {
-            cOn = be(nZ(str));
+    private static a om(@NonNull String str) {
+        if (cUg == null) {
+            cUg = bk(op(str));
         }
-        return cOn;
+        return cUg;
     }
 
     @NonNull
-    private static a nY(@NonNull String str) {
-        if (cOo == null) {
-            cOo = be(nZ(str));
+    private static a oo(@NonNull String str) {
+        if (cUh == null) {
+            cUh = bk(op(str));
         }
-        return cOo;
+        return cUh;
     }
 
     @NonNull
-    private static a be(JSONObject jSONObject) {
+    private static a bk(JSONObject jSONObject) {
         a aVar = new a();
         if (jSONObject != null) {
             aVar.extensionCoreVersionName = jSONObject.optString("extension-core-version");
@@ -44,7 +44,7 @@ public class a {
         return aVar;
     }
 
-    private static JSONObject nZ(@NonNull String str) {
+    private static JSONObject op(@NonNull String str) {
         if (DEBUG) {
             Log.d("ExtCore-PresetConfig", "readPresetConfig start.");
         }

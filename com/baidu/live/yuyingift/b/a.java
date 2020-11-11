@@ -2,8 +2,9 @@ package com.baidu.live.yuyingift.b;
 
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.data.AlaWheatInfoData;
+import com.baidu.live.data.AlaWheatInfoDataWrapper;
 import com.baidu.live.data.w;
-import com.baidu.live.gift.am;
+import com.baidu.live.gift.al;
 import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.live.tbadk.ubc.UbcStatisticItem;
@@ -11,34 +12,37 @@ import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.live.utils.r;
 import java.util.List;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    public static void a(am amVar) {
+    public static void a(al alVar) {
         int i;
         int i2;
         int i3;
         int i4 = 0;
-        if (amVar != null) {
+        if (alVar != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-                w UO = com.baidu.live.aj.b.UH().UO();
-                if (UO != null && UO.aIS != null) {
-                    jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, UO.aIS.croom_id);
+                w Xn = com.baidu.live.al.b.Xh().Xn();
+                if (Xn != null && Xn.aJK != null) {
+                    jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, Xn.aJK.croom_id);
                 }
-                jSONObject.put(LogConfig.LOG_GIFT_VALUE, amVar.aUf);
-                jSONObject.put(LogConfig.LOG_GIFT_ID, amVar.giftId);
-                jSONObject.put("gift_name", amVar.giftName);
+                AlaWheatInfoDataWrapper alaWheatInfoDataWrapper = com.baidu.live.al.b.Xh().Xn().aJP;
+                if (alaWheatInfoDataWrapper != null) {
+                    jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_MODE, alaWheatInfoDataWrapper.getRoomMode() == 0 ? "normal" : "dating");
+                }
+                jSONObject.put(LogConfig.LOG_GIFT_VALUE, alVar.aVx);
+                jSONObject.put(LogConfig.LOG_GIFT_ID, alVar.giftId);
+                jSONObject.put("gift_name", alVar.giftName);
                 JSONObject jSONObject2 = new JSONObject();
-                List<r.a> io2 = r.io(amVar.aVt);
+                List<r.a> iH = r.iH(alVar.aWL);
                 int i5 = 0;
                 int i6 = 0;
-                for (r.a aVar : io2) {
-                    AlaWheatInfoData iL = com.baidu.live.aj.b.UH().iL(aVar.uk);
-                    if (iL != null) {
-                        switch (iL.userIdentity) {
+                for (r.a aVar : iH) {
+                    AlaWheatInfoData iY = com.baidu.live.al.b.Xh().iY(aVar.uk);
+                    if (iY != null) {
+                        switch (iY.userIdentity) {
                             case 1:
                                 i = i4;
                                 i2 = i5;
@@ -82,12 +86,12 @@ public class a {
                     i5 = i2;
                     i4 = i;
                 }
-                jSONObject2.put("owner", io2.size());
+                jSONObject2.put("owner", iH.size());
                 jSONObject2.put("accomany", i4);
                 jSONObject2.put("host", i6);
                 jSONObject2.put("guest", i5);
                 jSONObject.put("benefit_info", jSONObject2);
-            } catch (JSONException e) {
+            } catch (Exception e) {
                 BdLog.e(e);
             }
             UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1395, "click", UbcStatConstant.Page.VOICE_ROOM, "paygift_send").setContentExt(jSONObject));

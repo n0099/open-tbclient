@@ -5,56 +5,56 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.core.view.PullRefreshFrameLayout;
 /* loaded from: classes22.dex */
 public class o {
-    private View iDG;
-    private int iDH = -1;
-    private int iDI = -1;
+    private View iJD;
+    private int iJE = -1;
+    private int iJF = -1;
 
     public o(View view) {
-        this.iDG = view;
+        this.iJD = view;
     }
 
     public int getOriginHeight() {
-        return this.iDH;
+        return this.iJE;
     }
 
     public void setOriginHeight(int i) {
-        this.iDH = i;
+        this.iJE = i;
     }
 
-    public void yv(int i) {
-        this.iDI = i;
+    public void yI(int i) {
+        this.iJF = i;
     }
 
     public void setHeight(int i) {
         ViewGroup.LayoutParams layoutParams;
-        if (this.iDG != null && (layoutParams = this.iDG.getLayoutParams()) != null) {
+        if (this.iJD != null && (layoutParams = this.iJD.getLayoutParams()) != null) {
             layoutParams.height = i;
-            this.iDI = i;
-            this.iDG.setLayoutParams(layoutParams);
+            this.iJF = i;
+            this.iJD.setLayoutParams(layoutParams);
         }
     }
 
     public void B(double d) {
-        if (this.iDG != null) {
-            int i = (int) (this.iDH + (PullRefreshFrameLayout.ePb * d));
-            ViewGroup.LayoutParams layoutParams = this.iDG.getLayoutParams();
+        if (this.iJD != null) {
+            int i = (int) (this.iJE + (PullRefreshFrameLayout.eUQ * d));
+            ViewGroup.LayoutParams layoutParams = this.iJD.getLayoutParams();
             if (layoutParams != null) {
                 layoutParams.height = i;
-                this.iDI = layoutParams.height;
-                this.iDG.setLayoutParams(layoutParams);
+                this.iJF = layoutParams.height;
+                this.iJD.setLayoutParams(layoutParams);
             }
         }
     }
 
     public int getHeight() {
         ViewGroup.LayoutParams layoutParams;
-        if (this.iDG == null || (layoutParams = this.iDG.getLayoutParams()) == null) {
+        if (this.iJD == null || (layoutParams = this.iJD.getLayoutParams()) == null) {
             return 0;
         }
         return layoutParams.height;
     }
 
-    public int cwB() {
-        return this.iDI;
+    public int czc() {
+        return this.iJF;
     }
 }

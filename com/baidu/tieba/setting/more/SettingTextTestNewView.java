@@ -26,14 +26,14 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
             z = true;
         }
         if (z) {
-            this.fek.setText("new");
-            this.fek.setTextAppearance(this.mContext, z2 ? R.style.setting_version_prompt_text_1 : R.style.setting_version_prompt_text);
-            ap.setBackgroundResource(this.fek, R.drawable.icon_news_text_prompt);
+            this.fkd.setText("new");
+            this.fkd.setTextAppearance(this.mContext, z2 ? R.style.setting_version_prompt_text_1 : R.style.setting_version_prompt_text);
+            ap.setBackgroundResource(this.fkd, R.drawable.icon_news_text_prompt);
             return;
         }
         String version = TbConfig.getVersion();
-        this.fek.setText((TbConfig.getVersionType() != 1 || at.isEmpty(TbConfig.getSubVersion())) ? version : version + "." + TbConfig.getSubVersion());
-        this.fek.setBackgroundDrawable(null);
-        this.fek.setTextAppearance(this.mContext, z2 ? R.style.setting_version_text_1 : R.style.setting_version_text);
+        this.fkd.setText((TbConfig.getVersionType() != 1 || at.isEmpty(TbConfig.getSubVersion())) ? version : version + "." + TbConfig.getSubVersion());
+        this.fkd.setBackgroundDrawable(null);
+        this.fkd.setTextAppearance(this.mContext, z2 ? R.style.setting_version_text_1 : R.style.setting_version_text);
     }
 }

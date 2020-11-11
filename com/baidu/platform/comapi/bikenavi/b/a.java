@@ -7,7 +7,7 @@ import com.baidu.platform.comjni.jninative.tts.WNaviTTSPlayer;
 public class a extends com.baidu.platform.comapi.wnplatform.n.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private c f2825a = null;
+    private c f2827a = null;
 
     @Override // com.baidu.platform.comapi.walknavi.a
     public boolean ready() {
@@ -20,30 +20,30 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     public void release() {
         c();
         WNaviTTSPlayer.setTTSPlayerListener(null);
-        this.f2825a = null;
+        this.f2827a = null;
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.n.a
     public void a(c cVar) {
-        this.f2825a = cVar;
+        this.f2827a = cVar;
     }
 
     public void a() {
-        if (this.f2825a != null) {
-            this.f2825a.a();
+        if (this.f2827a != null) {
+            this.f2827a.a();
         }
     }
 
     public int b() {
-        if (this.f2825a != null) {
-            return this.f2825a.b();
+        if (this.f2827a != null) {
+            return this.f2827a.b();
         }
         return 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public int a(String str, int i) {
-        if (com.baidu.platform.comapi.walknavi.b.f2953a == com.baidu.platform.comapi.walknavi.b.a().u()) {
+        if (com.baidu.platform.comapi.walknavi.b.f2955a == com.baidu.platform.comapi.walknavi.b.a().u()) {
             return a(str, false);
         }
         if (com.baidu.platform.comapi.walknavi.b.b == com.baidu.platform.comapi.walknavi.b.a().u()) {
@@ -63,15 +63,15 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     }
 
     public int a(String str, boolean z) {
-        if (this.f2825a != null) {
-            return this.f2825a.a(str, z);
+        if (this.f2827a != null) {
+            return this.f2827a.a(str, z);
         }
         return 0;
     }
 
     public void c() {
-        if (this.f2825a != null) {
-            this.f2825a.c();
+        if (this.f2827a != null) {
+            this.f2827a.c();
         }
     }
 }

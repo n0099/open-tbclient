@@ -7,17 +7,17 @@ import java.io.OutputStream;
 /* loaded from: classes17.dex */
 public abstract class f extends OutputStream {
     private boolean mClosed;
-    private IOException ogF;
-    private boolean ogG;
+    private IOException opK;
+    private boolean opL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void dZb() throws IOException;
+    public abstract void ecJ() throws IOException;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void dZc() throws IOException;
+    public abstract void ecK() throws IOException;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract UploadDataProvider dZd();
+    public abstract UploadDataProvider ecL();
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
@@ -26,14 +26,14 @@ public abstract class f extends OutputStream {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d(IOException iOException) {
-        this.ogF = iOException;
-        this.ogG = true;
+        this.opK = iOException;
+        this.opL = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void checkNotClosed() throws IOException {
-        if (this.ogG) {
-            dZr();
+        if (this.opL) {
+            ecZ();
             throw new IOException("Writing after request completed.");
         } else if (this.mClosed) {
             throw new IOException("Stream has been closed.");
@@ -41,9 +41,9 @@ public abstract class f extends OutputStream {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void dZr() throws IOException {
-        if (this.ogF != null) {
-            throw this.ogF;
+    public void ecZ() throws IOException {
+        if (this.opK != null) {
+            throw this.opK;
         }
     }
 }

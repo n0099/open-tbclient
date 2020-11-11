@@ -5,12 +5,12 @@ import com.baidu.mapapi.model.LatLng;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    LatLng f3129a = new LatLng(0.0d, 0.0d);
+    LatLng f3131a = new LatLng(0.0d, 0.0d);
     String b = "";
     String c = "";
 
     public void a(LatLng latLng) {
-        this.f3129a = latLng;
+        this.f3131a = latLng;
     }
 
     public String a() {

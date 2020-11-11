@@ -8,7 +8,7 @@ import org.json.JSONObject;
 class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1832a;
+    private Context f1834a;
     private HashMap<String, String> b = null;
     private a<String> c = null;
 
@@ -20,7 +20,7 @@ class c {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(Context context) {
-        this.f1832a = context;
+        this.f1834a = context;
     }
 
     private HashMap<String, String> a(HashMap<String, String> hashMap) {

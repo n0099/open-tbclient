@@ -3,20 +3,20 @@ package com.baidu.swan.pms.node.b;
 import org.json.JSONObject;
 /* loaded from: classes15.dex */
 public class a {
-    static final a edh = new a(200, 720, 10, 168);
-    public final int edd;
-    public final int ede;
-    public final int edf;
-    public final int edg;
+    static final a eiZ = new a(200, 720, 10, 168);
+    public final int eiV;
+    public final int eiW;
+    public final int eiX;
+    public final int eiY;
 
     public a(int i, int i2, int i3, int i4) {
-        this.edd = i;
-        this.ede = i2;
-        this.edf = i3;
-        this.edg = i4;
+        this.eiV = i;
+        this.eiW = i2;
+        this.eiX = i3;
+        this.eiY = i4;
     }
 
-    public static a cL(JSONObject jSONObject) {
+    public static a cR(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }

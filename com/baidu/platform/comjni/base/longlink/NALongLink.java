@@ -16,7 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class NALongLink extends JNIBaseApi {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Map<Integer, LinkedList<Object>> f3159a = new ConcurrentHashMap();
+    private static Map<Integer, LinkedList<Object>> f3161a = new ConcurrentHashMap();
     private static ELongLinkStatus[] b = {ELongLinkStatus.OK, ELongLinkStatus.SendFormatError, ELongLinkStatus.SendUnRegistered, ELongLinkStatus.SendLimited, ELongLinkStatus.SendDataLenLimited, ELongLinkStatus.SendInvalidReqID, ELongLinkStatus.ResultConnectError, ELongLinkStatus.ResultSendError, ELongLinkStatus.ResultTimeout, ELongLinkStatus.ResultServerError, ELongLinkStatus.CloudStop, ELongLinkStatus.CloudRestart};
 
     public static long create() {
@@ -59,7 +59,7 @@ public class NALongLink extends JNIBaseApi {
             bArr = new byte[0];
         }
         synchronized (NALongLink.class) {
-            LinkedList<Object> linkedList2 = f3159a.get(Integer.valueOf(i));
+            LinkedList<Object> linkedList2 = f3161a.get(Integer.valueOf(i));
             linkedList = linkedList2 != null ? new LinkedList(linkedList2) : null;
         }
         if (linkedList != null && linkedList.size() > 0) {
@@ -96,16 +96,16 @@ public class NALongLink extends JNIBaseApi {
             Log.e("JNILongLink", "register moduleId = " + i + ", callback = " + obj);
         }
         synchronized (NALongLink.class) {
-            LinkedList<Object> linkedList = f3159a.get(Integer.valueOf(i));
+            LinkedList<Object> linkedList = f3161a.get(Integer.valueOf(i));
             if (linkedList == null) {
                 LinkedList<Object> linkedList2 = new LinkedList<>();
                 linkedList2.add(obj);
-                f3159a.put(Integer.valueOf(i), linkedList2);
+                f3161a.put(Integer.valueOf(i), linkedList2);
                 z = true;
             } else {
                 if (!linkedList.contains(obj)) {
                     linkedList.add(obj);
-                    f3159a.put(Integer.valueOf(i), linkedList);
+                    f3161a.put(Integer.valueOf(i), linkedList);
                 }
                 z = false;
             }
@@ -144,13 +144,13 @@ public class NALongLink extends JNIBaseApi {
             Log.e("JNILongLink", "unregister moduleId = " + i + ", callback = " + obj);
         }
         synchronized (NALongLink.class) {
-            linkedList = f3159a.get(Integer.valueOf(i));
+            linkedList = f3161a.get(Integer.valueOf(i));
             if (linkedList != null) {
                 if (obj != null) {
                     linkedList.remove(obj);
                 }
                 if (linkedList.isEmpty()) {
-                    f3159a.remove(Integer.valueOf(i));
+                    f3161a.remove(Integer.valueOf(i));
                 }
             }
         }

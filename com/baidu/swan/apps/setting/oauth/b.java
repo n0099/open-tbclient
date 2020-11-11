@@ -10,68 +10,68 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public abstract class b<ResultDataT> {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public final h<ResultDataT> drK = new h<>();
-    private final Set<com.baidu.swan.apps.ap.e.b<h<ResultDataT>>> cMT = new HashSet();
-    private final LinkedList<d> drL = new LinkedList<>();
-    private boolean drM = false;
-    private boolean drN = false;
+    public final h<ResultDataT> dxE = new h<>();
+    private final Set<com.baidu.swan.apps.ap.e.b<h<ResultDataT>>> cSM = new HashSet();
+    private final LinkedList<d> dxF = new LinkedList<>();
+    private boolean dxG = false;
+    private boolean dxH = false;
 
-    protected abstract void aGN();
+    protected abstract void aJn();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract ResultDataT bO(JSONObject jSONObject) throws JSONException;
+    public abstract ResultDataT bU(JSONObject jSONObject) throws JSONException;
 
-    private void aGG() {
+    private void aJg() {
         new d() { // from class: com.baidu.swan.apps.setting.oauth.b.1
             @Override // com.baidu.swan.apps.setting.oauth.d
-            protected boolean aGO() throws Exception {
-                if (b.this.aGI()) {
+            protected boolean aJo() throws Exception {
+                if (b.this.aJi()) {
                     return true;
                 }
                 c.c("initialPrepare failed", true);
                 throw new OAuthException(10001);
             }
-        }.a(this).aGP();
-        this.drM = true;
+        }.a(this).aJp();
+        this.dxG = true;
     }
 
-    private void aGH() {
+    private void aJh() {
         new d() { // from class: com.baidu.swan.apps.setting.oauth.b.2
             @Override // com.baidu.swan.apps.setting.oauth.d
-            protected boolean aGO() throws Exception {
-                if (b.this.aGJ()) {
+            protected boolean aJo() throws Exception {
+                if (b.this.aJj()) {
                     return true;
                 }
                 c.c("finalPrepare failed", true);
                 throw new OAuthException(10001);
             }
-        }.a(this).aGP();
-        this.drN = true;
+        }.a(this).aJp();
+        this.dxH = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean aGI() {
+    public boolean aJi() {
         return true;
     }
 
-    protected boolean aGJ() {
+    protected boolean aJj() {
         return true;
     }
 
     public b<ResultDataT> A(com.baidu.swan.apps.ap.e.b<h<ResultDataT>> bVar) {
-        if (this.drK.dsC.isCallbackAvailable()) {
-            this.cMT.add(bVar);
+        if (this.dxE.dyv.isCallbackAvailable()) {
+            this.cSM.add(bVar);
         }
         return this;
     }
 
-    private void aGK() {
-        for (final com.baidu.swan.apps.ap.e.b<h<ResultDataT>> bVar : this.cMT) {
+    private void aJk() {
+        for (final com.baidu.swan.apps.ap.e.b<h<ResultDataT>> bVar : this.cSM) {
             c.h(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.b.3
                 @Override // java.lang.Runnable
                 public void run() {
                     if (bVar != null) {
-                        bVar.M(b.this.drK);
+                        bVar.M(b.this.dxE);
                     }
                 }
             });
@@ -79,27 +79,27 @@ public abstract class b<ResultDataT> {
     }
 
     @NonNull
-    public b aGL() {
-        if (TaskState.INIT == aGM()) {
+    public b aJl() {
+        if (TaskState.INIT == aJm()) {
             a(TaskState.CALLING);
             prepare();
         }
         return this;
     }
 
-    public TaskState aGM() {
-        return this.drK.dsC;
+    public TaskState aJm() {
+        return this.dxE.dyv;
     }
 
     public void rE() {
-        this.drK.dsC = TaskState.INIT;
-        this.drM = false;
-        this.drN = false;
+        this.dxE.dyv = TaskState.INIT;
+        this.dxG = false;
+        this.dxH = false;
     }
 
     public b a(@NonNull d dVar) {
         dVar.a(this);
-        this.drL.offer(dVar);
+        this.dxF.offer(dVar);
         return this;
     }
 
@@ -113,32 +113,32 @@ public abstract class b<ResultDataT> {
     }
 
     private void prepare() {
-        if (!TaskState.CALLING.equals(aGM())) {
+        if (!TaskState.CALLING.equals(aJm())) {
             if (DEBUG) {
                 c.c("IllegalState on prepare", false);
             }
-        } else if (!this.drM) {
-            aGG();
-        } else if (!this.drL.isEmpty()) {
-            this.drL.poll().aGP();
-        } else if (!this.drN) {
-            aGH();
+        } else if (!this.dxG) {
+            aJg();
+        } else if (!this.dxF.isEmpty()) {
+            this.dxF.poll().aJp();
+        } else if (!this.dxH) {
+            aJh();
         } else {
             exec();
         }
     }
 
     private synchronized void exec() {
-        aGN();
+        aJn();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void Z(ResultDataT resultdatat) {
-        this.drK.mData = resultdatat;
+        this.dxE.mData = resultdatat;
     }
 
     private void a(TaskState taskState) {
-        this.drK.dsC = taskState;
+        this.dxE.dyv = taskState;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -149,16 +149,16 @@ public abstract class b<ResultDataT> {
     /* JADX INFO: Access modifiers changed from: protected */
     public void v(@Nullable Exception exc) {
         if (exc instanceof OAuthException) {
-            this.drK.dsD = (OAuthException) exc;
+            this.dxE.dyw = (OAuthException) exc;
         } else if (exc != null) {
-            this.drK.dsD = new OAuthException(exc, 10001);
+            this.dxE.dyw = new OAuthException(exc, 10001);
         }
-        if (!this.drK.isOk() && DEBUG && exc != null) {
+        if (!this.dxE.isOk() && DEBUG && exc != null) {
             exc.printStackTrace();
         }
         a(TaskState.FINISHED);
         c.c(toString(), false);
-        aGK();
-        this.cMT.clear();
+        aJk();
+        this.cSM.clear();
     }
 }

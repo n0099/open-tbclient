@@ -10,21 +10,21 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.compatible.menukey.MenuKeyUtils;
 /* loaded from: classes4.dex */
 public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
-    Rect bxA;
-    private a bxz;
+    private a bDK;
+    Rect bDL;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void cE(boolean z);
+        void cL(boolean z);
     }
 
     public LinearLayoutDetectsSoftKeyboard(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bxA = new Rect();
+        this.bDL = new Rect();
     }
 
     public void setOnSoftKeyBoardShownListener(a aVar) {
-        this.bxz = aVar;
+        this.bDK = aVar;
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -32,23 +32,23 @@ public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
         boolean z;
         int size = View.MeasureSpec.getSize(i2);
         Activity activity = (Activity) getContext();
-        activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.bxA);
-        int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.bxA.top) - size;
-        if (this.bxz != null) {
+        activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.bDL);
+        int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.bDL.top) - size;
+        if (this.bDK != null) {
             if (MenuKeyUtils.hasSmartBar()) {
                 if (height > BdUtilHelper.dip2px(activity, 48.0f) + 128) {
                     z = true;
-                    this.bxz.cE(z);
+                    this.bDK.cL(z);
                 }
                 z = false;
-                this.bxz.cE(z);
+                this.bDK.cL(z);
             } else {
                 if (height > 128) {
                     z = true;
-                    this.bxz.cE(z);
+                    this.bDK.cL(z);
                 }
                 z = false;
-                this.bxz.cE(z);
+                this.bDK.cL(z);
             }
         }
         super.onMeasure(i, i2);

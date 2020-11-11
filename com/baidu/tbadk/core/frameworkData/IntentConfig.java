@@ -187,7 +187,7 @@ public class IntentConfig extends OrmObject {
                 bVar = ((com.baidu.tbadk.pageInfo.a) H).getTbPageInfo();
             }
             if (bVar != null) {
-                this.mIntent.putExtra("tb_page_tag_source_trace", bVar.bzE());
+                this.mIntent.putExtra("tb_page_tag_source_trace", bVar.bCd());
             }
         }
     }
@@ -195,9 +195,9 @@ public class IntentConfig extends OrmObject {
     public void addPreSourceTrace() {
         if (this.mIntent != null && this.mContext != null) {
             com.baidu.tbadk.l.b er = com.baidu.tbadk.l.c.er(this.mContext);
-            ArrayList<String> bzA = er == null ? null : er.bzA();
-            if (!y.isEmpty(bzA)) {
-                this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", bzA);
+            ArrayList<String> bBZ = er == null ? null : er.bBZ();
+            if (!y.isEmpty(bBZ)) {
+                this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", bBZ);
             }
         }
     }
@@ -205,7 +205,7 @@ public class IntentConfig extends OrmObject {
     public void addPreSourceTrace(String str) {
         if (this.mIntent != null && this.mContext != null) {
             com.baidu.tbadk.l.b er = com.baidu.tbadk.l.c.er(this.mContext);
-            ArrayList<String> d = com.baidu.tbadk.l.c.d(er == null ? null : er.bzz(), str);
+            ArrayList<String> d = com.baidu.tbadk.l.c.d(er == null ? null : er.bBY(), str);
             if (!y.isEmpty(d)) {
                 this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", d);
             }

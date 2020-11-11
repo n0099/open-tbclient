@@ -3,15 +3,15 @@ package com.baidu.location.b;
 class v implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ s f1912a;
+    final /* synthetic */ s f1914a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(s sVar) {
-        this.f1912a = sVar;
+        this.f1914a = sVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f1912a.f();
+        this.f1914a.f();
     }
 }

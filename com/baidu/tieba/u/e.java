@@ -13,56 +13,56 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes23.dex */
 public class e {
-    private String nfv;
-    private List<String> nfw;
-    private List<String> nfx;
+    private String nlr;
+    private List<String> nls;
+    private List<String> nlt;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes23.dex */
     public static class a {
-        private static final e nfz = new e();
+        private static final e nlv = new e();
     }
 
     private e() {
-        this.nfw = new ArrayList();
-        this.nfx = new ArrayList();
+        this.nls = new ArrayList();
+        this.nlt = new ArrayList();
         if (f.checkSD()) {
-            dLt();
+            dNV();
         }
     }
 
-    private void dLt() {
+    private void dNV() {
         new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.u.e.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
-                com.baidu.tieba.k.d.On(c.a.kRv);
-                com.baidu.tieba.k.d.On(c.a.kRw);
-                com.baidu.tieba.k.d.On(c.a.kRx);
-                com.baidu.tieba.k.d.On(c.a.kRz);
-                com.baidu.tieba.k.d.On(c.a.kRA);
+                com.baidu.tieba.k.d.OE(c.a.kXr);
+                com.baidu.tieba.k.d.OE(c.a.kXs);
+                com.baidu.tieba.k.d.OE(c.a.kXt);
+                com.baidu.tieba.k.d.OE(c.a.kXv);
+                com.baidu.tieba.k.d.OE(c.a.kXw);
                 return null;
             }
         }.execute(new Void[0]);
     }
 
-    public static e dLu() {
-        return a.nfz;
+    public static e dNW() {
+        return a.nlv;
     }
 
-    public void dLq() {
+    public void dNS() {
         if (f.checkSD()) {
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.u.e.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    List Tj = e.Tj(c.a.kRy);
-                    if (Tj != null) {
-                        int size = Tj.size();
+                    List TA = e.TA(c.a.kXu);
+                    if (TA != null) {
+                        int size = TA.size();
                         for (int i = 0; i < size; i++) {
-                            e.this.a((d) Tj.get(i));
+                            e.this.a((d) TA.get(i));
                         }
                     }
                     return null;
@@ -72,7 +72,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static List<d> Tj(String str) {
+    public static List<d> TA(String str) {
         File[] listFiles;
         ArrayList arrayList = null;
         if (!StringUtils.isNull(str)) {
@@ -81,14 +81,14 @@ public class e {
                 int length = listFiles.length;
                 arrayList = new ArrayList(length);
                 for (int i = 0; i < length; i++) {
-                    arrayList.add(new d(Tk(com.baidu.tieba.k.d.ab(listFiles[i])), listFiles[i].getAbsolutePath()));
+                    arrayList.add(new d(TB(com.baidu.tieba.k.d.ab(listFiles[i])), listFiles[i].getAbsolutePath()));
                 }
             }
         }
         return arrayList;
     }
 
-    private static List<String> Tk(String str) {
+    private static List<String> TB(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -105,28 +105,28 @@ public class e {
 
     public synchronized void g(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
-            this.nfw.add(jSONObject.toString());
-            String dLv = dLv();
+            this.nls.add(jSONObject.toString());
+            String dNX = dNX();
             if (f.checkSD()) {
-                D(jSONObject, dLv);
+                D(jSONObject, dNX);
             }
-            if (this.nfw.size() >= g.buN() || z) {
-                a(new d(this.nfw, dLv));
-                this.nfw.clear();
-                this.nfv = null;
+            if (this.nls.size() >= g.bxn() || z) {
+                a(new d(this.nls, dNX));
+                this.nls.clear();
+                this.nlr = null;
             }
         }
     }
 
-    private String dLv() {
-        if (StringUtils.isNull(this.nfv)) {
+    private String dNX() {
+        if (StringUtils.isNull(this.nlr)) {
             if (f.checkSD()) {
-                this.nfv = String.valueOf(System.currentTimeMillis());
+                this.nlr = String.valueOf(System.currentTimeMillis());
             } else {
                 return null;
             }
         }
-        return c.a.kRy + this.nfv;
+        return c.a.kXu + this.nlr;
     }
 
     private void D(JSONObject jSONObject, String str) {
@@ -148,7 +148,7 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized boolean gu(String str, String str2) {
         boolean i;
-        if (this.nfx.contains(str)) {
+        if (this.nlt.contains(str)) {
             i = false;
         } else {
             File file = new File(str);
@@ -178,9 +178,9 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void b(d dVar) {
         try {
-            if (c.e(c.fH(dVar.nft), TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_MONITOR_REPORT) && !StringUtils.isNull(dVar.nfu)) {
-                n.deleteFile(new File(dVar.nfu));
-                this.nfx.add(dVar.nfu);
+            if (c.e(c.fP(dVar.nlp), TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_MONITOR_REPORT) && !StringUtils.isNull(dVar.nlq)) {
+                n.deleteFile(new File(dVar.nlq));
+                this.nlt.add(dVar.nlq);
             }
         } catch (Exception e) {
             e.printStackTrace();

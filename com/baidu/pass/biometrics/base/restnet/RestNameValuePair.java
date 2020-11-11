@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class RestNameValuePair implements Serializable {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final long f2707a = 847806714499261896L;
+    private static final long f2709a = 847806714499261896L;
     private String b;
     private String c;
 

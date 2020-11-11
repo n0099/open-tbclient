@@ -27,9 +27,9 @@ public final class b {
         }
         switch (c) {
             case 0:
-                a.C0407a alb = a.b.alb();
-                codeCacheSetting.maxCount = alb.maxCount;
-                codeCacheSetting.sizeLimit = alb.sizeLimit;
+                a.C0419a anB = a.b.anB();
+                codeCacheSetting.maxCount = anB.maxCount;
+                codeCacheSetting.sizeLimit = anB.sizeLimit;
                 break;
             default:
                 codeCacheSetting.maxCount = 5;

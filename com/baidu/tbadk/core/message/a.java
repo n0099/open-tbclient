@@ -85,27 +85,27 @@ public class a {
             if (agreeData.baijiahaoData != null) {
                 i = agreeData.baijiahaoData.oriUgcType;
             }
-            aq dR = new aq("c13271").aj("obj_type", cVar.etF).aj("obj_locate", cVar.etG).aj("obj_id", cVar.etH).aj("obj_name", i).dR("post_id", agreeData.postId).dR("nid", agreeData.nid);
+            aq dR = new aq("c13271").al("obj_type", cVar.ezy).al("obj_locate", cVar.ezz).al("obj_id", cVar.ezA).al("obj_name", i).dR("post_id", agreeData.postId).dR("nid", agreeData.nid);
             if (bwVar != null) {
                 dR.dR("tid", bwVar.getId()).dR("nid", bwVar.getNid()).w("fid", bwVar.getFid()).dR("ab_tag", bwVar.mRecomAbTag).dR(IntentConfig.RECOM_SOURCE, bwVar.mRecomSource).dR("weight", bwVar.mRecomWeight).dR("extra", bwVar.mRecomExtra);
                 if (bwVar.getBaijiahaoData() != null) {
                     dR.dR("obj_param4", bwVar.getBaijiahaoData().oriUgcNid);
-                    if (bwVar.biJ() || bwVar.blW()) {
+                    if (bwVar.blj() || bwVar.bow()) {
                         dR.dR("obj_param6", bwVar.getBaijiahaoData().oriUgcVid);
                     }
                 }
-                if (bwVar.blU()) {
-                    dR.aj("obj_param5", 2);
-                } else if (bwVar.biI() || bwVar.biJ()) {
-                    dR.aj("obj_param5", 3);
+                if (bwVar.bou()) {
+                    dR.al("obj_param5", 2);
+                } else if (bwVar.bli() || bwVar.blj()) {
+                    dR.al("obj_param5", 3);
                 } else if (bwVar.threadType == 0 || bwVar.threadType == 40) {
-                    dR.aj("obj_param5", 1);
+                    dR.al("obj_param5", 1);
                 }
             } else {
                 dR.dR("tid", agreeData.threadId);
                 dR.dR("nid", agreeData.nid);
                 dR.dR("fid", agreeData.forumId);
-                dR.aj(IntentConfig.CARD_TYPE, agreeData.cardType);
+                dR.al(IntentConfig.CARD_TYPE, agreeData.cardType);
                 dR.dR("ab_tag", agreeData.recomAbTag);
                 dR.dR(IntentConfig.RECOM_SOURCE, agreeData.recomSource);
                 dR.dR("weight", agreeData.recomWeight);

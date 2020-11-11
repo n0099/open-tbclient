@@ -8,7 +8,7 @@ public final class SapiSafeFacade {
     public static final int GET_ZID_DEFAULT_EVENT_ID = 120;
 
     /* renamed from: a  reason: collision with root package name */
-    private static SapiSafeFacade f3255a;
+    private static SapiSafeFacade f3258a;
 
     private SapiSafeFacade() {
     }
@@ -17,10 +17,10 @@ public final class SapiSafeFacade {
     public static synchronized SapiSafeFacade a() {
         SapiSafeFacade sapiSafeFacade;
         synchronized (SapiSafeFacade.class) {
-            if (f3255a == null) {
-                f3255a = new SapiSafeFacade();
+            if (f3258a == null) {
+                f3258a = new SapiSafeFacade();
             }
-            sapiSafeFacade = f3255a;
+            sapiSafeFacade = f3258a;
         }
         return sapiSafeFacade;
     }

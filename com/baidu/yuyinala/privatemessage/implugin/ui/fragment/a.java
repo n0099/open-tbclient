@@ -73,69 +73,69 @@ import java.util.TimerTask;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d, c, IMListView.a, ThemeManager.a {
-    private SensorManager bwC;
-    private Sensor bwE;
-    private MediaPlayer cpq;
-    private View kAe;
+public class a implements SensorEventListener, a.InterfaceC0943a, a.b, a.c, a.d, c, IMListView.a, ThemeManager.a {
+    private SensorManager bCN;
+    private Sensor bCP;
+    private MediaPlayer cvp;
+    private View kFY;
     private GestureDetector mGestureDetector;
     private String mKey;
     private ArrayList<ChatMsg> mMsgList;
-    private ActivityChat ole;
-    private String olq;
-    private com.baidu.yuyinala.privatemessage.implugin.ui.material.a.c ooY;
-    protected com.baidu.yuyinala.privatemessage.implugin.a.a opV;
-    protected IMListView opW;
-    protected TextView opX;
-    private FrameLayout opY;
-    private d opZ;
-    private boolean oqc;
-    private c oqe;
-    private int oqm;
-    private boolean oqp;
-    private ActivityChat.c oqq;
-    private com.baidu.yuyinala.privatemessage.implugin.ui.activity.a oqs;
-    private long oqw;
+    private ActivityChat ouC;
+    private String ouO;
+    private com.baidu.yuyinala.privatemessage.implugin.ui.material.a.c oyt;
+    private int ozG;
+    private boolean ozJ;
+    private ActivityChat.c ozK;
+    private com.baidu.yuyinala.privatemessage.implugin.ui.activity.a ozM;
+    private long ozQ;
+    protected com.baidu.yuyinala.privatemessage.implugin.a.a ozp;
+    protected IMListView ozq;
+    protected TextView ozr;
+    private FrameLayout ozs;
+    private d ozt;
+    private boolean ozw;
+    private c ozy;
     private final int MAX_RETRY_NUM = 3;
-    private c oqa = null;
-    private boolean oqb = true;
-    private Timer oqd = null;
-    private HashMap<Long, b> oqf = new HashMap<>();
-    private Set<Long> oqg = new HashSet();
-    private boolean oqh = true;
-    private com.baidu.yuyinala.privatemessage.implugin.ui.material.a.d oqi = null;
-    private int oqj = 1;
+    private c ozu = null;
+    private boolean ozv = true;
+    private Timer ozx = null;
+    private HashMap<Long, b> ozz = new HashMap<>();
+    private Set<Long> ozA = new HashSet();
+    private boolean ozB = true;
+    private com.baidu.yuyinala.privatemessage.implugin.ui.material.a.d ozC = null;
+    private int ozD = 1;
     private Timer mTimer = null;
-    private boolean oqk = false;
-    private boolean oql = false;
-    private int oqn = 0;
-    private boolean oqo = true;
-    private BroadcastReceiver oqr = new BroadcastReceiver() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.1
+    private boolean ozE = false;
+    private boolean ozF = false;
+    private int ozH = 0;
+    private boolean ozI = true;
+    private BroadcastReceiver ozL = new BroadcastReceiver() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.1
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if ("android.intent.action.TIME_SET".equals(intent.getAction())) {
-                a.this.opV.notifyDataSetChanged();
+                a.this.ozp.notifyDataSetChanged();
             }
         }
     };
-    private GestureDetector.OnGestureListener olQ = new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.12
+    private GestureDetector.OnGestureListener ovm = new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.12
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
         public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-            if (d.ecY().eda() != null) {
-                d.ecY().eda().ecT();
+            if (d.egN().egP() != null) {
+                d.egN().egP().egI();
             }
             return super.onSingleTapConfirmed(motionEvent);
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-            com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.b eda;
-            com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.b edb = d.ecY().edb();
-            if (edb != null) {
-                edb.ecT();
+            com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.b egP;
+            com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.b egQ = d.egN().egQ();
+            if (egQ != null) {
+                egQ.egI();
             }
-            if (Math.abs(f2) > 10.0f && (eda = d.ecY().eda()) != null) {
-                eda.ecT();
+            if (Math.abs(f2) > 10.0f && (egP = d.egN().egP()) != null) {
+                egP.egI();
                 return false;
             }
             return false;
@@ -146,34 +146,34 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
             return super.onDown(motionEvent);
         }
     };
-    private BroadcastReceiver oqt = new BroadcastReceiver() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.19
+    private BroadcastReceiver ozN = new BroadcastReceiver() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.19
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals(IMConstants.MSG_SYNC_COMPLETE)) {
-                a.this.oqe = d.ecY().Xa(a.this.mKey);
-                if (a.this.oqe != null) {
-                    a.this.oqe.ecu();
+                a.this.ozy = d.egN().XE(a.this.mKey);
+                if (a.this.ozy != null) {
+                    a.this.ozy.egj();
                 }
             }
         }
     };
-    private BroadcastReceiver oqu = new BroadcastReceiver() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.20
+    private BroadcastReceiver ozO = new BroadcastReceiver() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.20
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if ("implugin.update.message".equals(intent.getAction())) {
                 try {
                     ChatMsg chatMsg = (ChatMsg) intent.getParcelableExtra("message");
                     if (chatMsg.getContacter() == ChatInfo.mContacter) {
-                        a.this.oqe = d.ecY().Xa(a.this.mKey);
-                        if (a.this.oqe != null) {
+                        a.this.ozy = d.egN().XE(a.this.mKey);
+                        if (a.this.ozy != null) {
                             com.baidu.yuyinala.privatemessage.implugin.util.c.d("ChatFragment", "LOADING receive update message");
-                            a.this.oqe.i(chatMsg);
-                            a.this.oqe.m(chatMsg);
+                            a.this.ozy.i(chatMsg);
+                            a.this.ozy.m(chatMsg);
                         }
                     }
                 } catch (Exception e2) {
                     Log.e("ChatFragment", e2.getMessage());
-                    com.baidu.yuyinala.privatemessage.implugin.d.b.ebG().c(a.this.ole, e2);
+                    com.baidu.yuyinala.privatemessage.implugin.d.b.efv().c(a.this.ouC, e2);
                 }
             }
         }
@@ -191,31 +191,31 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
                             arrayList.add(parcelableArrayListExtra.get(i));
                         }
                     }
-                    a.this.oqe = d.ecY().Xa(a.this.mKey);
-                    if (a.this.oqe != null) {
-                        a.this.oqe.gi(arrayList);
+                    a.this.ozy = d.egN().XE(a.this.mKey);
+                    if (a.this.ozy != null) {
+                        a.this.ozy.gr(arrayList);
                     }
                 } catch (Exception e2) {
                     Log.e("ChatFragment", e2.getMessage());
-                    com.baidu.yuyinala.privatemessage.implugin.d.b.ebG().c(a.this.ole, e2);
+                    com.baidu.yuyinala.privatemessage.implugin.d.b.efv().c(a.this.ouC, e2);
                 }
             } else if (IMConstants.CUSTOMER_CHANGE.equals(action)) {
                 try {
                     ArrayList arrayList2 = new ArrayList();
                     arrayList2.clear();
                     arrayList2.add((NotifyCustomerMsg) intent.getParcelableExtra(IMConstants.MESSAGE));
-                    a.this.oqe = d.ecY().Xa(a.this.mKey);
-                    if (a.this.oqe != null) {
-                        a.this.oqe.gi(arrayList2);
+                    a.this.ozy = d.egN().XE(a.this.mKey);
+                    if (a.this.ozy != null) {
+                        a.this.ozy.gr(arrayList2);
                     }
                 } catch (Exception e3) {
                     Log.e("ChatFragment", e3.getMessage());
-                    com.baidu.yuyinala.privatemessage.implugin.d.b.ebG().c(a.this.ole, e3);
+                    com.baidu.yuyinala.privatemessage.implugin.d.b.efv().c(a.this.ouC, e3);
                 }
             }
         }
     };
-    private BroadcastReceiver oqv = new BroadcastReceiver() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.22
+    private BroadcastReceiver ozP = new BroadcastReceiver() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.22
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if (IMConstants.SYNC_ACTION.equals(intent.getAction())) {
@@ -226,9 +226,9 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
                             long longExtra = intent.getLongExtra(IMConstants.SYNC_MSGID, -1L);
                             if (longExtra != -1) {
                                 arrayList.add(Long.valueOf(longExtra));
-                                a.this.oqe = d.ecY().Xa(a.this.mKey);
-                                if (a.this.oqe != null) {
-                                    a.this.oqe.gj(arrayList);
+                                a.this.ozy = d.egN().XE(a.this.mKey);
+                                if (a.this.ozy != null) {
+                                    a.this.ozy.gs(arrayList);
                                 }
                                 arrayList.clear();
                             }
@@ -236,12 +236,12 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
                     }
                 } catch (Exception e2) {
                     Log.e("ChatFragment", e2.getMessage());
-                    com.baidu.yuyinala.privatemessage.implugin.d.b.ebG().c(a.this.ole, e2);
+                    com.baidu.yuyinala.privatemessage.implugin.d.b.efv().c(a.this.ouC, e2);
                 }
             }
         }
     };
-    private IMediaChatMsgChangedListener oqx = new IMediaChatMsgChangedListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.16
+    private IMediaChatMsgChangedListener ozR = new IMediaChatMsgChangedListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.16
         @Override // com.baidu.android.imsdk.chatmessage.IMediaChatMsgChangedListener
         public void onMediaChatMsgChangedResult(int i, long j, int i2, long j2, String str, long j3) {
             Log.d("ChatFragment", "BC> code=" + i + ", contactor=" + j + ", msgid=" + j3);
@@ -252,7 +252,7 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
                     for (int i3 = 0; i3 < a.this.mMsgList.size(); i3++) {
                         if (((ChatMsg) a.this.mMsgList.get(i3)).getMsgId() == j3) {
                             a.this.mMsgList.remove(i3);
-                            a.this.ecD();
+                            a.this.egs();
                             return;
                         }
                     }
@@ -266,57 +266,57 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
     }
 
     public a(ActivityChat activityChat, View view, ActivityChat.c cVar, String str, int i) {
-        this.oqm = 0;
+        this.ozG = 0;
         this.mKey = "";
-        this.oqq = null;
-        this.oqq = cVar;
+        this.ozK = null;
+        this.ozK = cVar;
         this.mKey = str;
-        this.oqm = i;
-        this.ole = activityChat;
-        d.ecY().a(this.mKey, this);
+        this.ozG = i;
+        this.ouC = activityChat;
+        d.egN().a(this.mKey, this);
         this.mMsgList = new ArrayList<>();
-        this.opZ = new d();
+        this.ozt = new d();
         this.mMsgList.clear();
-        this.oqf.clear();
-        this.oqg.clear();
-        ecx();
-        if (f.gO(this.ole)) {
-            ecM();
+        this.ozz.clear();
+        this.ozA.clear();
+        egm();
+        if (f.gO(this.ouC)) {
+            egB();
         }
-        ecq();
-        this.kAe = view;
-        ah(this.kAe);
-        if (this.ole.ooP) {
+        egf();
+        this.kFY = view;
+        al(this.kFY);
+        if (this.ouC.oyk) {
             j(true, System.currentTimeMillis());
         } else {
-            Nh(0);
+            NC(0);
         }
-        ect();
+        egi();
         ThemeManager.a(this);
-        BIMManager.mediaRegisterChatMsgChangedListener(this.ole.getApplicationContext(), this.oqx);
+        BIMManager.mediaRegisterChatMsgChangedListener(this.ouC.getApplicationContext(), this.ozR);
     }
 
-    private void ecq() {
-        if (!this.oqp) {
+    private void egf() {
+        if (!this.ozJ) {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.intent.action.TIME_SET");
-            this.ole.registerReceiver(this.oqr, intentFilter);
-            this.oqp = true;
+            this.ouC.registerReceiver(this.ozL, intentFilter);
+            this.ozJ = true;
         }
     }
 
-    private void ecr() {
-        if (this.oqp) {
+    private void egg() {
+        if (this.ozJ) {
             new IntentFilter().addAction("android.intent.action.TIME_SET");
-            this.ole.unregisterReceiver(this.oqr);
-            this.oqp = false;
+            this.ouC.unregisterReceiver(this.ozL);
+            this.ozJ = false;
         }
     }
 
     public void onPause() {
-        this.bwC.unregisterListener(this);
-        this.oqk = true;
-        ecw();
+        this.bCN.unregisterListener(this);
+        this.ozE = true;
+        egl();
     }
 
     public void onStop() {
@@ -324,108 +324,108 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
 
     public void onDestroy() {
         com.baidu.yuyinala.privatemessage.implugin.util.c.d("ChatFragment", MissionEvent.MESSAGE_DESTROY);
-        BIMManager.mediaUnRegisterChatMsgChangedListener(this.ole.getApplicationContext(), this.oqx);
-        d.ecY().Xb(this.mKey);
-        if (this.oqd != null) {
-            this.oqd.cancel();
+        BIMManager.mediaUnRegisterChatMsgChangedListener(this.ouC.getApplicationContext(), this.ozR);
+        d.egN().XF(this.mKey);
+        if (this.ozx != null) {
+            this.ozx.cancel();
         }
-        if (this.oqi != null) {
-            this.oqi.dismiss();
+        if (this.ozC != null) {
+            this.ozC.dismiss();
         }
-        ecy();
+        egn();
         ThemeManager.b(this);
-        ecr();
-        ecs();
-        if (this.ole.ooP) {
+        egg();
+        egh();
+        if (this.ouC.oyk) {
             long currentTimeMillis = System.currentTimeMillis();
             if (this.mMsgList != null && !this.mMsgList.isEmpty()) {
                 currentTimeMillis = this.mMsgList.get(this.mMsgList.size() - 1).getMsgTime();
             }
-            BIMManager.mediaSetSessionRead(this.ole, ChatInfo.mUid, currentTimeMillis, null);
+            BIMManager.mediaSetSessionRead(this.ouC, ChatInfo.mUid, currentTimeMillis, null);
         }
     }
 
-    private void ecs() {
-        Map<Long, h> ebL;
-        if (ChatInfo.ons == ChatInfo.ChatCategory.SMART && com.baidu.yuyinala.privatemessage.implugin.f.a.ooj && (ebL = k.gF(this.ole).ebL()) != null && !ebL.isEmpty()) {
+    private void egh() {
+        Map<Long, h> efA;
+        if (ChatInfo.owN == ChatInfo.ChatCategory.SMART && com.baidu.yuyinala.privatemessage.implugin.f.a.oxE && (efA = k.gF(this.ouC).efA()) != null && !efA.isEmpty()) {
             StringBuffer stringBuffer = new StringBuffer();
-            for (h hVar : ebL.values()) {
-                stringBuffer.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + hVar.getId() + Constants.ACCEPT_TIME_SEPARATOR_SP + hVar.ebJ());
+            for (h hVar : efA.values()) {
+                stringBuffer.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + hVar.getId() + Constants.ACCEPT_TIME_SEPARATOR_SP + hVar.efy());
             }
             if (!TextUtils.isEmpty(stringBuffer.toString())) {
-                com.baidu.yuyinala.privatemessage.implugin.util.b.b.A(this.ole, com.baidu.yuyinala.privatemessage.implugin.util.b.a.ovP, stringBuffer.substring(1, stringBuffer.toString().length()));
-                com.baidu.yuyinala.privatemessage.implugin.util.b.b.e(this.ole, com.baidu.yuyinala.privatemessage.implugin.util.b.a.ovQ, System.currentTimeMillis());
+                com.baidu.yuyinala.privatemessage.implugin.util.b.b.A(this.ouC, com.baidu.yuyinala.privatemessage.implugin.util.b.a.oFh, stringBuffer.substring(1, stringBuffer.toString().length()));
+                com.baidu.yuyinala.privatemessage.implugin.util.b.b.e(this.ouC, com.baidu.yuyinala.privatemessage.implugin.util.b.a.oFi, System.currentTimeMillis());
             }
         }
     }
 
     public void onResume() {
         Pair<Integer, ArrayList<ChatMsg>> pair = null;
-        if ((ChatInfo.mContacter > 0 || ChatInfo.ons == ChatInfo.ChatCategory.SMART) && this.mMsgList.size() > 0 && this.oqk && ChatInfo.mStatus == 3) {
-            if (ChatInfo.ons == ChatInfo.ChatCategory.GROUP) {
-                pair = com.baidu.yuyinala.privatemessage.implugin.d.b.ebG().fetchMessageSyncWithState(this.ole.getApplicationContext(), 1, ChatInfo.mContacter, 20, null);
-            } else if (ChatInfo.ons == ChatInfo.ChatCategory.C2C || ChatInfo.ons == ChatInfo.ChatCategory.B2C) {
-                pair = com.baidu.yuyinala.privatemessage.implugin.d.b.ebG().fetchMessageSyncWithState(this.ole.getApplicationContext(), 0, ChatInfo.mContacter, 20, null);
-            } else if (ChatInfo.ons == ChatInfo.ChatCategory.SMART) {
-                pair = com.baidu.yuyinala.privatemessage.implugin.d.b.ebG().fetchMessageSyncWithState(this.ole.getApplicationContext(), 0, 17L, 20, null);
+        if ((ChatInfo.mContacter > 0 || ChatInfo.owN == ChatInfo.ChatCategory.SMART) && this.mMsgList.size() > 0 && this.ozE && ChatInfo.mStatus == 3) {
+            if (ChatInfo.owN == ChatInfo.ChatCategory.GROUP) {
+                pair = com.baidu.yuyinala.privatemessage.implugin.d.b.efv().fetchMessageSyncWithState(this.ouC.getApplicationContext(), 1, ChatInfo.mContacter, 20, null);
+            } else if (ChatInfo.owN == ChatInfo.ChatCategory.C2C || ChatInfo.owN == ChatInfo.ChatCategory.B2C) {
+                pair = com.baidu.yuyinala.privatemessage.implugin.d.b.efv().fetchMessageSyncWithState(this.ouC.getApplicationContext(), 0, ChatInfo.mContacter, 20, null);
+            } else if (ChatInfo.owN == ChatInfo.ChatCategory.SMART) {
+                pair = com.baidu.yuyinala.privatemessage.implugin.d.b.efv().fetchMessageSyncWithState(this.ouC.getApplicationContext(), 0, 17L, 20, null);
             }
             if (pair != null && pair.second != null) {
                 if (((ArrayList) pair.second).size() <= 0) {
-                    ecv();
-                    ecD();
+                    egk();
+                    egs();
                 } else {
                     int size = ((ArrayList) pair.second).size();
                     int size2 = this.mMsgList.size() <= 20 ? this.mMsgList.size() : 20;
                     if (size > 0 && size < size2) {
-                        ecv();
-                        gl((List) pair.second);
+                        egk();
+                        gu((List) pair.second);
                     }
                     if (this.mMsgList.size() > 0) {
                         if (this.mMsgList.get(this.mMsgList.size() - 1).getMsgId() != ((ChatMsg) ((ArrayList) pair.second).get(((ArrayList) pair.second).size() - 1)).getMsgId()) {
-                            ecD();
+                            egs();
                         }
                     } else {
-                        ecD();
+                        egs();
                     }
                 }
             }
         }
-        this.oqk = false;
-        this.bwC.registerListener(this, this.bwE, 3);
+        this.ozE = false;
+        this.bCN.registerListener(this, this.bCP, 3);
     }
 
     public void onStart() {
     }
 
-    private void ect() {
-        this.bwC = (SensorManager) this.ole.getSystemService("sensor");
-        this.bwE = this.bwC.getDefaultSensor(8);
+    private void egi() {
+        this.bCN = (SensorManager) this.ouC.getSystemService("sensor");
+        this.bCP = this.bCN.getDefaultSensor(8);
     }
 
     @SuppressLint({"ClickableViewAccessibility"})
-    private void ah(View view) {
-        this.mGestureDetector = new GestureDetector(this.ole, this.olQ);
-        this.opY = (FrameLayout) view.findViewById(a.g.bd_im_chating_list_root);
-        this.opW = (IMListView) view.findViewById(a.g.bd_im_listView);
-        this.opX = (TextView) view.findViewById(a.g.bd_im_empty_smart);
+    private void al(View view) {
+        this.mGestureDetector = new GestureDetector(this.ouC, this.ovm);
+        this.ozs = (FrameLayout) view.findViewById(a.f.bd_im_chating_list_root);
+        this.ozq = (IMListView) view.findViewById(a.f.bd_im_listView);
+        this.ozr = (TextView) view.findViewById(a.f.bd_im_empty_smart);
         com.baidu.yuyinala.privatemessage.implugin.util.c.d("ChatFragment", "fetchMsgData get login userinfo  0");
-        String gC = com.baidu.yuyinala.privatemessage.implugin.d.b.ebG().gC(this.ole.getApplicationContext());
+        String gC = com.baidu.yuyinala.privatemessage.implugin.d.b.efv().gC(this.ouC.getApplicationContext());
         com.baidu.yuyinala.privatemessage.implugin.util.c.d("ChatFragment", "fetchMsgData get login userinfo 1" + gC);
         try {
-            this.olq = new JSONObject(gC).optString("loginbuid");
+            this.ouO = new JSONObject(gC).optString("loginbuid");
         } catch (JSONException e2) {
             LogUtils.e("ChatFragment", "parse json login user info error");
             e2.printStackTrace();
         }
         com.baidu.yuyinala.privatemessage.implugin.util.c.d("ChatFragment", "fetchMsgData get login userinfo 2 " + gC);
-        this.opV = new com.baidu.yuyinala.privatemessage.implugin.a.a(this.ole, this.mMsgList, this, this, this, this, this.oqq, this.olq);
-        this.opV.a(this.ole);
-        this.opW.setPullRefreshEnable(true);
-        this.opW.setIMListViewListener(this);
-        this.opW.setAdapter((ListAdapter) this.opV);
-        this.opW.setSelector(new ColorDrawable(0));
-        this.opW.setTranscriptMode(1);
-        this.opW.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.23
+        this.ozp = new com.baidu.yuyinala.privatemessage.implugin.a.a(this.ouC, this.mMsgList, this, this, this, this, this.ozK, this.ouO);
+        this.ozp.a(this.ouC);
+        this.ozq.setPullRefreshEnable(true);
+        this.ozq.setIMListViewListener(this);
+        this.ozq.setAdapter((ListAdapter) this.ozp);
+        this.ozq.setSelector(new ColorDrawable(0));
+        this.ozq.setTranscriptMode(1);
+        this.ozq.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.23
             @Override // android.view.View.OnTouchListener
             @SuppressLint({"ClickableViewAccessibility"})
             public boolean onTouch(View view2, MotionEvent motionEvent) {
@@ -441,41 +441,41 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
 
     @Override // android.hardware.SensorEventListener
     public void onSensorChanged(SensorEvent sensorEvent) {
-        if (sensorEvent.values[0] < this.bwE.getMaximumRange()) {
-            this.oqb = false;
+        if (sensorEvent.values[0] < this.bCP.getMaximumRange()) {
+            this.ozv = false;
         } else {
-            this.oqb = true;
+            this.ozv = true;
         }
-        if (this.oqa != null && this.oqc != this.oqb) {
-            ChatMsg chatMsg = this.oqa.mMsg;
-            View view = this.oqa.mView;
-            Boolean valueOf = Boolean.valueOf(this.oqa.oqM);
-            this.oqa.ecN();
+        if (this.ozu != null && this.ozw != this.ozv) {
+            ChatMsg chatMsg = this.ozu.mMsg;
+            View view = this.ozu.mView;
+            Boolean valueOf = Boolean.valueOf(this.ozu.oAg);
+            this.ozu.egC();
             a(chatMsg, view, -1, valueOf.booleanValue());
-            if (this.oqb) {
-                ecE();
+            if (this.ozv) {
+                egt();
             }
         }
-        this.oqc = this.oqb;
+        this.ozw = this.ozv;
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.listview.IMListView.a
     public void onRefresh() {
-        this.opZ.post(new e());
+        this.ozt.post(new e());
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.a.a.c
     public void b(ChatMsg chatMsg) {
-        if (ChatInfo.ons == ChatInfo.ChatCategory.DUZHAN) {
+        if (ChatInfo.owN == ChatInfo.ChatCategory.DUZHAN) {
             chatMsg.setChatType(7);
         }
         chatMsg.setReSend();
         chatMsg.setStatus(1);
         k(chatMsg);
-        this.oqg.add(Long.valueOf(chatMsg.getRowId()));
-        if (com.baidu.yuyinala.privatemessage.implugin.util.e.isConnected(this.ole.getApplicationContext())) {
+        this.ozA.add(Long.valueOf(chatMsg.getRowId()));
+        if (com.baidu.yuyinala.privatemessage.implugin.util.e.isConnected(this.ouC.getApplicationContext())) {
             a(3, chatMsg);
-            ecz();
+            ego();
             return;
         }
         a(3, chatMsg);
@@ -487,7 +487,7 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
         try {
             int msgType = chatMsg.getMsgType();
             jSONObject.put("type", msgType);
-            if (ChatInfo.ons == ChatInfo.ChatCategory.C2C) {
+            if (ChatInfo.owN == ChatInfo.ChatCategory.C2C) {
                 jSONObject.put("currentId", ChatInfo.mUid);
             }
             String msgContent = chatMsg.getMsgContent();
@@ -509,15 +509,15 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
         } catch (JSONException e2) {
             com.baidu.yuyinala.privatemessage.implugin.util.c.e("ChatFragment", e2.getMessage());
         }
-        com.baidu.yuyinala.privatemessage.implugin.d.b.ebG().bT(jSONObject.toString(), 5);
+        com.baidu.yuyinala.privatemessage.implugin.d.b.efv().bV(jSONObject.toString(), 5);
     }
 
     private void g(ChatMsg chatMsg) {
         String str;
         String str2;
         String str3;
-        ImBaseEntity ece;
-        if ((this.ole instanceof ActivityChat) && this.ole.ecb()) {
+        ImBaseEntity efT;
+        if ((this.ouC instanceof ActivityChat) && this.ouC.efQ()) {
             String str4 = "";
             String str5 = "";
             switch (chatMsg.getMsgType()) {
@@ -538,16 +538,16 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
                     break;
                 case 8:
                     if (chatMsg instanceof SignleGraphicTextMsg) {
-                        if (new SingleGraphicTextMsgExt((SignleGraphicTextMsg) chatMsg).eex() != SingleGraphicTextMsgExt.SingleGraphicTextType.VIDEOSHARE || !(this.ole instanceof ActivityChat) || (ece = this.ole.ece()) == null || ece.mVideoEntity == null) {
+                        if (new SingleGraphicTextMsgExt((SignleGraphicTextMsg) chatMsg).eim() != SingleGraphicTextMsgExt.SingleGraphicTextType.VIDEOSHARE || !(this.ouC instanceof ActivityChat) || (efT = this.ouC.efT()) == null || efT.mVideoEntity == null) {
                             str = null;
-                        } else if (ece.mVideoEntity.isShared) {
+                        } else if (efT.mVideoEntity.isShared) {
                             str4 = TbConfig.TMP_SHARE_DIR_NAME;
                             str5 = "video";
                             str = null;
                         } else {
                             str4 = "other";
                             str5 = "video";
-                            str = ece.mVideoEntity.id;
+                            str = efT.mVideoEntity.id;
                         }
                         str2 = str5;
                         str3 = str4;
@@ -565,7 +565,7 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
                     str3 = "";
                     break;
             }
-            com.baidu.yuyinala.privatemessage.implugin.a.j(com.baidu.yuyinala.privatemessage.implugin.a.a(str, LogConfig.KEY_NOTICE, "fsq_msg_send", com.baidu.yuyinala.privatemessage.implugin.a.ebv().bdr(), com.baidu.yuyinala.privatemessage.implugin.a.ebv().getTag(), str3, null, com.baidu.yuyinala.privatemessage.implugin.a.ebv().ebt(), com.baidu.yuyinala.privatemessage.implugin.a.ebv().ebu(), str2, null, null, String.valueOf(chatMsg.getContacter())), false);
+            com.baidu.yuyinala.privatemessage.implugin.a.j(com.baidu.yuyinala.privatemessage.implugin.a.a(str, LogConfig.KEY_NOTICE, "fsq_msg_send", com.baidu.yuyinala.privatemessage.implugin.a.efk().bfR(), com.baidu.yuyinala.privatemessage.implugin.a.efk().getTag(), str3, null, com.baidu.yuyinala.privatemessage.implugin.a.efk().efi(), com.baidu.yuyinala.privatemessage.implugin.a.efk().efj(), str2, null, null, String.valueOf(chatMsg.getContacter())), false);
         }
     }
 
@@ -575,7 +575,7 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
             com.baidu.yuyinala.privatemessage.implugin.util.c.i("ChatFragment", UbcStatConstant.ContentType.UBC_TYPE_IM_SEND + chatMsg.toString());
         }
         g(chatMsg);
-        if (com.baidu.yuyinala.privatemessage.implugin.util.e.isConnected(this.ole.getApplicationContext())) {
+        if (com.baidu.yuyinala.privatemessage.implugin.util.e.isConnected(this.ouC.getApplicationContext())) {
             if (chatMsg.getMsgType() == 0) {
                 a(2, chatMsg);
                 return;
@@ -593,40 +593,40 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.c
-    public void gi(final List<ChatMsg> list) {
-        this.ole.runOnUiThread(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.24
+    public void gr(final List<ChatMsg> list) {
+        this.ouC.runOnUiThread(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.24
             @Override // java.lang.Runnable
             public void run() {
                 if (com.baidu.yuyinala.privatemessage.implugin.util.c.isDebugMode()) {
                     com.baidu.yuyinala.privatemessage.implugin.util.c.i("ChatFragment", "receive" + list.toString());
                 }
-                if (!a.this.oqh && ChatInfo.mStatus == 3) {
-                    a.this.gk(list);
+                if (!a.this.ozB && ChatInfo.mStatus == 3) {
+                    a.this.gt(list);
                 }
             }
         });
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.c
-    public void ecu() {
-        this.ole.runOnUiThread(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.25
+    public void egj() {
+        this.ouC.runOnUiThread(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.25
             @Override // java.lang.Runnable
             public void run() {
                 com.baidu.yuyinala.privatemessage.implugin.util.c.e("ChatFragment", "Data sync end for broadcast");
-                if (a.this.oqj == 0) {
-                    a.this.oqj = 1;
+                if (a.this.ozD == 0) {
+                    a.this.ozD = 1;
                     a.this.mMsgList.clear();
-                    if (a.this.oqi != null) {
-                        a.this.oqi.cancel();
+                    if (a.this.ozC != null) {
+                        a.this.ozC.cancel();
                     }
-                    a.this.Nh(1);
+                    a.this.NC(1);
                 }
             }
         });
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.c
-    public void gj(List<Long> list) {
+    public void gs(List<Long> list) {
         int size = this.mMsgList.size();
         int i = 0;
         while (true) {
@@ -639,32 +639,32 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
                     } else if (this.mMsgList.get(i3).getMsgId() != list.get(i2).longValue()) {
                         i3--;
                     } else {
-                        com.baidu.yuyinala.privatemessage.implugin.d.b.ebG().deleteMsg(this.ole.getApplicationContext(), this.mMsgList.remove(i3));
+                        com.baidu.yuyinala.privatemessage.implugin.d.b.efv().deleteMsg(this.ouC.getApplicationContext(), this.mMsgList.remove(i3));
                         break;
                     }
                 }
                 i = i2 + 1;
             } else {
-                ecD();
+                egs();
                 return;
             }
         }
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.c
-    public void ecv() {
+    public void egk() {
         this.mMsgList.clear();
-        ecD();
+        egs();
     }
 
-    @Override // com.baidu.yuyinala.privatemessage.implugin.a.a.InterfaceC0925a
-    public void Nb(int i) {
-        final com.baidu.yuyinala.privatemessage.implugin.ui.material.a.a aVar = new com.baidu.yuyinala.privatemessage.implugin.ui.material.a.a(this.ole, this.ole.getResources().getString(a.i.bd_im_alertdialog_title), this.ole.getResources().getString(a.i.bd_im_alertdialog_tip), this.ole.getResources().getString(a.i.bd_im_user_zhida_ensure), this.ole.getResources().getString(a.i.bd_im_user_zhida_cancel));
+    @Override // com.baidu.yuyinala.privatemessage.implugin.a.a.InterfaceC0943a
+    public void Nw(int i) {
+        final com.baidu.yuyinala.privatemessage.implugin.ui.material.a.a aVar = new com.baidu.yuyinala.privatemessage.implugin.ui.material.a.a(this.ouC, this.ouC.getResources().getString(a.h.bd_im_alertdialog_title), this.ouC.getResources().getString(a.h.bd_im_alertdialog_tip), this.ouC.getResources().getString(a.h.bd_im_user_zhida_ensure), this.ouC.getResources().getString(a.h.bd_im_user_zhida_cancel));
         aVar.show();
         aVar.a(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                aVar.ede();
+                aVar.egT();
             }
         }, new AnonymousClass3(aVar, i));
     }
@@ -672,44 +672,44 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
     /* renamed from: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a$3  reason: invalid class name */
     /* loaded from: classes4.dex */
     class AnonymousClass3 implements View.OnClickListener {
-        final /* synthetic */ com.baidu.yuyinala.privatemessage.implugin.ui.material.a.a oqy;
-        final /* synthetic */ int oqz;
+        final /* synthetic */ com.baidu.yuyinala.privatemessage.implugin.ui.material.a.a ozS;
+        final /* synthetic */ int ozT;
 
         AnonymousClass3(com.baidu.yuyinala.privatemessage.implugin.ui.material.a.a aVar, int i) {
-            this.oqy = aVar;
-            this.oqz = i;
+            this.ozS = aVar;
+            this.ozT = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.oqy.ede();
-            if (this.oqz < 0 || this.oqz >= a.this.mMsgList.size()) {
-                a.this.ole.showToast(a.this.ole.getString(a.i.bd_im_alertdialog_error));
+            this.ozS.egT();
+            if (this.ozT < 0 || this.ozT >= a.this.mMsgList.size()) {
+                a.this.ouC.showToast(a.this.ouC.getString(a.h.bd_im_alertdialog_error));
                 return;
             }
-            final ChatMsg chatMsg = (ChatMsg) a.this.mMsgList.remove(this.oqz);
-            if (!a.this.ole.ooP) {
-                com.baidu.yuyinala.privatemessage.implugin.d.b.ebG().deleteMsg(a.this.ole.getApplicationContext(), chatMsg);
-                if (a.this.oqa != null && a.this.oqa.mMsg.getMsgId() == chatMsg.getMsgId()) {
-                    a.this.oqa.ecN();
+            final ChatMsg chatMsg = (ChatMsg) a.this.mMsgList.remove(this.ozT);
+            if (!a.this.ouC.oyk) {
+                com.baidu.yuyinala.privatemessage.implugin.d.b.efv().deleteMsg(a.this.ouC.getApplicationContext(), chatMsg);
+                if (a.this.ozu != null && a.this.ozu.mMsg.getMsgId() == chatMsg.getMsgId()) {
+                    a.this.ozu.egC();
                 }
-                a.this.ecD();
+                a.this.egs();
                 return;
             }
             ArrayList arrayList = new ArrayList();
             arrayList.add(Long.valueOf(chatMsg.getMsgId()));
-            BIMManager.mediaDeleteChatMsg(a.this.ole, ChatInfo.mUid, arrayList, new IMediaDeleteChatMsgListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.3.1
+            BIMManager.mediaDeleteChatMsg(a.this.ouC, ChatInfo.mUid, arrayList, new IMediaDeleteChatMsgListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.3.1
                 @Override // com.baidu.android.imsdk.chatmessage.IMediaDeleteChatMsgListener
                 public void onMediaDeleteChatMsgResult(int i, String str) {
                     Log.d("ChatFragment", "BC> code=" + i + ", strmsg=" + str);
                     if (i == 0) {
-                        a.this.ole.runOnUiThread(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.3.1.1
+                        a.this.ouC.runOnUiThread(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.3.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (a.this.oqa != null && a.this.oqa.mMsg.getMsgId() == chatMsg.getMsgId()) {
-                                    a.this.oqa.ecN();
+                                if (a.this.ozu != null && a.this.ozu.mMsg.getMsgId() == chatMsg.getMsgId()) {
+                                    a.this.ozu.egC();
                                 }
-                                a.this.ecD();
+                                a.this.egs();
                             }
                         });
                     }
@@ -718,16 +718,16 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
         }
     }
 
-    public void ecw() {
-        if (this.oqa != null) {
-            this.oqa.ecN();
+    public void egl() {
+        if (this.ozu != null) {
+            this.ozu.egC();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onLoad() {
-        this.opW.eds();
-        this.opW.edt();
+        this.ozq.ehh();
+        this.ozq.ehi();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -741,7 +741,7 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
     }
 
     public void a(com.baidu.yuyinala.privatemessage.implugin.ui.activity.a aVar) {
-        this.oqs = aVar;
+        this.ozM = aVar;
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.a.a.b
@@ -756,7 +756,7 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
                 case 1:
                 case 2:
                 case 8:
-                    this.ole.showToast("当前不支持查看哦");
+                    this.ouC.showToast("当前不支持查看哦");
                     return;
                 default:
                     return;
@@ -764,44 +764,44 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
         }
     }
 
-    private void ecx() {
+    private void egm() {
         IntentFilter intentFilter = new IntentFilter(IMConstants.MESSAGE_ACTION);
         intentFilter.addAction(IMConstants.CUSTOMER_CHANGE);
-        this.ole.registerReceiver(this.mReceiver, intentFilter);
-        this.ole.registerReceiver(this.oqv, new IntentFilter(IMConstants.SYNC_ACTION));
-        this.ole.registerReceiver(this.oqt, new IntentFilter(IMConstants.MSG_SYNC_COMPLETE));
-        this.ole.registerReceiver(this.oqu, new IntentFilter("implugin.update.message"));
+        this.ouC.registerReceiver(this.mReceiver, intentFilter);
+        this.ouC.registerReceiver(this.ozP, new IntentFilter(IMConstants.SYNC_ACTION));
+        this.ouC.registerReceiver(this.ozN, new IntentFilter(IMConstants.MSG_SYNC_COMPLETE));
+        this.ouC.registerReceiver(this.ozO, new IntentFilter("implugin.update.message"));
     }
 
-    private void ecy() {
-        this.ole.unregisterReceiver(this.mReceiver);
-        this.ole.unregisterReceiver(this.oqv);
-        this.ole.unregisterReceiver(this.oqt);
-        this.ole.unregisterReceiver(this.oqu);
+    private void egn() {
+        this.ouC.unregisterReceiver(this.mReceiver);
+        this.ouC.unregisterReceiver(this.ozP);
+        this.ouC.unregisterReceiver(this.ozN);
+        this.ouC.unregisterReceiver(this.ozO);
     }
 
     private void a(ChatMsg chatMsg, View view, int i, boolean z) {
-        if (this.oqa != null && this.oqa.mMsg.getRowId() != chatMsg.getRowId()) {
-            this.oqa.ecN();
+        if (this.ozu != null && this.ozu.mMsg.getRowId() != chatMsg.getRowId()) {
+            this.ozu.egC();
         }
-        if (new File(chatMsg.getLocalUrl()).exists() && chatMsg.getFromUser() == ChatInfo.onu) {
-            if (this.oqa == null) {
-                this.oqa = new c(chatMsg, view, z);
-                this.oqa.WZ(chatMsg.getLocalUrl());
+        if (new File(chatMsg.getLocalUrl()).exists() && chatMsg.getFromUser() == ChatInfo.owP) {
+            if (this.ozu == null) {
+                this.ozu = new c(chatMsg, view, z);
+                this.ozu.XD(chatMsg.getLocalUrl());
                 return;
             }
-            this.oqa.ecN();
-        } else if (this.oqf.containsKey(Long.valueOf(chatMsg.getMsgId())) && this.oqf.get(Long.valueOf(chatMsg.getMsgId())).mState == 2) {
-            b bVar = this.oqf.get(Long.valueOf(chatMsg.getMsgId()));
-            if (bVar.oqL < 3) {
+            this.ozu.egC();
+        } else if (this.ozz.containsKey(Long.valueOf(chatMsg.getMsgId())) && this.ozz.get(Long.valueOf(chatMsg.getMsgId())).mState == 2) {
+            b bVar = this.ozz.get(Long.valueOf(chatMsg.getMsgId()));
+            if (bVar.oAf < 3) {
                 c cVar = new c(chatMsg, view, z);
-                bVar.oqL++;
-                this.oqf.put(Long.valueOf(chatMsg.getMsgId()), bVar);
+                bVar.oAf++;
+                this.ozz.put(Long.valueOf(chatMsg.getMsgId()), bVar);
                 cVar.execute();
             }
         } else {
             if (chatMsg.getMsgType() == 2 && i >= 0 && i < this.mMsgList.size()) {
-                com.baidu.yuyinala.privatemessage.implugin.d.b.ebG().markMsgClicked(this.ole.getApplicationContext(), chatMsg);
+                com.baidu.yuyinala.privatemessage.implugin.d.b.efv().markMsgClicked(this.ouC.getApplicationContext(), chatMsg);
                 this.mMsgList.get(i).setMsgReaded(1);
             }
             new c(chatMsg, view, z).execute();
@@ -811,9 +811,9 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.c
     public void k(ChatMsg chatMsg) {
         a(5, chatMsg);
-        if (ChatInfo.ons == ChatInfo.ChatCategory.DUZHAN && this.oqo && chatMsg.getStatus() == 0) {
+        if (ChatInfo.owN == ChatInfo.ChatCategory.DUZHAN && this.ozI && chatMsg.getStatus() == 0) {
             bm(this.mMsgList);
-            this.oqo = false;
+            this.ozI = false;
         }
     }
 
@@ -827,45 +827,45 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.c
-    public void ecz() {
-        ecC();
+    public void ego() {
+        egr();
     }
 
-    public void ecA() {
-        this.opZ.obtainMessage(32).sendToTarget();
+    public void egp() {
+        this.ozt.obtainMessage(32).sendToTarget();
     }
 
-    public void ecB() {
-        this.opZ.obtainMessage(33).sendToTarget();
+    public void egq() {
+        this.ozt.obtainMessage(33).sendToTarget();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ecC() {
-        Message obtainMessage = this.opZ.obtainMessage(15);
+    public void egr() {
+        Message obtainMessage = this.ozt.obtainMessage(15);
         obtainMessage.arg1 = this.mMsgList.size() - 1;
         obtainMessage.sendToTarget();
     }
 
-    public void Nf(int i) {
-        Message obtainMessage = this.opZ.obtainMessage(31);
+    public void NA(int i) {
+        Message obtainMessage = this.ozt.obtainMessage(31);
         obtainMessage.arg1 = i;
         obtainMessage.sendToTarget();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ng(int i) {
-        Message obtainMessage = this.opZ.obtainMessage(15);
+    public void NB(int i) {
+        Message obtainMessage = this.ozt.obtainMessage(15);
         obtainMessage.arg1 = i;
         obtainMessage.sendToTarget();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ecD() {
-        this.opZ.obtainMessage(7).sendToTarget();
+    public void egs() {
+        this.ozt.obtainMessage(7).sendToTarget();
     }
 
     private void a(int i, ChatMsg chatMsg) {
-        Message obtainMessage = this.opZ.obtainMessage(i);
+        Message obtainMessage = this.ozt.obtainMessage(i);
         obtainMessage.obj = chatMsg;
         if (chatMsg instanceof ImageMsg) {
             obtainMessage.arg1 = ((ImageMsg) chatMsg).getProgress();
@@ -873,36 +873,36 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
         obtainMessage.sendToTarget();
     }
 
-    private void ecE() {
-        this.opZ.obtainMessage(13).sendToTarget();
+    private void egt() {
+        this.ozt.obtainMessage(13).sendToTarget();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gk(List<ChatMsg> list) {
+    public void gt(List<ChatMsg> list) {
         if (list.size() > 0) {
-            Message obtainMessage = this.opZ.obtainMessage(4);
+            Message obtainMessage = this.ozt.obtainMessage(4);
             obtainMessage.obj = list;
             obtainMessage.sendToTarget();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gl(List<ChatMsg> list) {
+    public void gu(List<ChatMsg> list) {
         if (list != null && list.size() > 0) {
-            Message obtainMessage = this.opZ.obtainMessage(10);
+            Message obtainMessage = this.ozt.obtainMessage(10);
             obtainMessage.obj = list;
             obtainMessage.sendToTarget();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ecF() {
-        if (ChatInfo.ons == ChatInfo.ChatCategory.SMART && this.ole != null) {
-            this.ole.runOnUiThread(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.4
+    public void egu() {
+        if (ChatInfo.owN == ChatInfo.ChatCategory.SMART && this.ouC != null) {
+            this.ouC.runOnUiThread(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.opX.setVisibility(0);
-                    a.this.opW.setVisibility(8);
+                    a.this.ozr.setVisibility(0);
+                    a.this.ozq.setVisibility(8);
                 }
             });
         }
@@ -910,21 +910,21 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
 
     @Override // com.baidu.android.imsdk.chatmessage.ISendMessageListener
     public void onSendMessageResult(final int i, final ChatMsg chatMsg) {
-        this.ole.runOnUiThread(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.5
+        this.ouC.runOnUiThread(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.5
             @Override // java.lang.Runnable
             public void run() {
                 if (1001 == i) {
                     if (chatMsg != null) {
-                        if (a.this.oqw == chatMsg.getMsgId()) {
-                            a.this.ole.showToast(a.this.ole.getString(a.i.bd_im_network_error_send_msg_fail));
+                        if (a.this.ozQ == chatMsg.getMsgId()) {
+                            a.this.ouC.showToast(a.this.ouC.getString(a.h.bd_im_network_error_send_msg_fail));
                             return;
                         }
-                        a.this.oqw = chatMsg.getMsgId();
-                        AccountManager.disconnect(a.this.ole);
-                        BIMManager.tryConnection(a.this.ole);
-                        String ebF = com.baidu.yuyinala.privatemessage.implugin.d.a.ebF();
+                        a.this.ozQ = chatMsg.getMsgId();
+                        AccountManager.disconnect(a.this.ouC);
+                        BIMManager.tryConnection(a.this.ouC);
+                        String efu = com.baidu.yuyinala.privatemessage.implugin.d.a.efu();
                         String bduss = com.baidu.yuyinala.privatemessage.implugin.d.a.getBDUSS();
-                        BIMManager.login(ebF, bduss, 1, "", "", new ILoginListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.5.1
+                        BIMManager.login(efu, bduss, 1, "", "", new ILoginListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.5.1
                             @Override // com.baidu.android.imsdk.account.ILoginListener
                             public void onLoginResult(int i2, String str) {
                                 LogUtils.i("ChatFragment", "ImSdk 发送失败重连重发 onLoginResult errorcode：" + i2 + "， info：" + str);
@@ -937,17 +937,17 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
                             public void onLogoutResult(int i2, String str, int i3) {
                             }
                         });
-                        LogUtils.i("ChatFragment", "ImSdk loginToIM isLogin：uid：" + ebF + "， bduss：" + bduss + "， from：，cfrom：");
+                        LogUtils.i("ChatFragment", "ImSdk loginToIM isLogin：uid：" + efu + "， bduss：" + bduss + "， from：，cfrom：");
                     }
                 } else if (1204 == i) {
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(Long.valueOf(chatMsg.getMsgId()));
-                    a.this.gj(arrayList);
-                    a.this.ole.showToast(a.this.ole.getString(a.i.bd_im_zhida_send_error));
+                    a.this.gs(arrayList);
+                    a.this.ouC.showToast(a.this.ouC.getString(a.h.bd_im_zhida_send_error));
                 } else if (615 == i) {
-                    a.this.ole.showToast(a.this.ole.getString(a.i.bd_im_error_msg_unsubscribe_me_tips));
+                    a.this.ouC.showToast(a.this.ouC.getString(a.h.bd_im_error_msg_unsubscribe_me_tips));
                 } else if (616 == i) {
-                    com.baidu.yuyinala.privatemessage.implugin.ui.material.a.e.edm().bq(a.this.ole.getActivity(), a.this.ole.getString(a.i.bd_im_error_msg_sheild_me_tips));
+                    com.baidu.yuyinala.privatemessage.implugin.ui.material.a.e.ehb().bq(a.this.ouC.getActivity(), a.this.ouC.getString(a.h.bd_im_error_msg_sheild_me_tips));
                 }
             }
         });
@@ -965,23 +965,23 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
                 ChatMsg next = it.next();
                 if (next.getSendMsgId().equals(chatMsg.getSendMsgId())) {
                     next.setStatus(0);
-                    ecD();
+                    egs();
                     com.baidu.yuyinala.privatemessage.implugin.util.c.d("ChatFragment", "LOADING update message status ");
                 }
             }
         }
     }
 
-    private void WY(String str) {
+    private void XC(String str) {
         NotifyCustomerMsg notifyCustomerMsg = new NotifyCustomerMsg(0);
         notifyCustomerMsg.setMsgType(-1);
         notifyCustomerMsg.setText(str);
         this.mMsgList.add(notifyCustomerMsg);
-        if (this.opV != null) {
-            this.opV.notifyDataSetChanged();
+        if (this.ozp != null) {
+            this.ozp.notifyDataSetChanged();
         }
         com.baidu.yuyinala.privatemessage.implugin.util.c.i("ChatFragment", "=============add error for chat===========");
-        ecD();
+        egs();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1031,39 +1031,39 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Nh(final int i) {
+    public void NC(final int i) {
         com.baidu.yuyinala.privatemessage.implugin.util.c.d("ChatFragment", "fetchMsgData times " + i);
         new Thread(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.6
             @Override // java.lang.Runnable
             public void run() {
                 Pair<Integer, ArrayList<ChatMsg>> fetchMessageSyncWithState;
                 int i2;
-                if (ChatInfo.ons == ChatInfo.ChatCategory.GROUP) {
+                if (ChatInfo.owN == ChatInfo.ChatCategory.GROUP) {
                     int i3 = 20;
-                    if (ChatInfo.jUX == 2) {
-                        if (a.this.oqm + 5 > 20) {
-                            i3 = a.this.oqm + 5;
-                            a.this.oqn = 5;
+                    if (ChatInfo.kaU == 2) {
+                        if (a.this.ozG + 5 > 20) {
+                            i3 = a.this.ozG + 5;
+                            a.this.ozH = 5;
                         } else {
-                            a.this.oqn = 20 - a.this.oqm;
+                            a.this.ozH = 20 - a.this.ozG;
                         }
                     }
-                    fetchMessageSyncWithState = com.baidu.yuyinala.privatemessage.implugin.d.b.ebG().fetchMessageSyncWithState(a.this.ole.getApplicationContext(), 1, ChatInfo.mContacter, i3, null);
-                } else if (ChatInfo.ons == ChatInfo.ChatCategory.C2C || ChatInfo.ons == ChatInfo.ChatCategory.B2C || ChatInfo.ons == ChatInfo.ChatCategory.DUZHAN) {
+                    fetchMessageSyncWithState = com.baidu.yuyinala.privatemessage.implugin.d.b.efv().fetchMessageSyncWithState(a.this.ouC.getApplicationContext(), 1, ChatInfo.mContacter, i3, null);
+                } else if (ChatInfo.owN == ChatInfo.ChatCategory.C2C || ChatInfo.owN == ChatInfo.ChatCategory.B2C || ChatInfo.owN == ChatInfo.ChatCategory.DUZHAN) {
                     int i4 = 20;
-                    if (ChatInfo.ons == ChatInfo.ChatCategory.DUZHAN) {
-                        if (a.this.oqm + 5 > 20) {
-                            i4 = a.this.oqm + 5;
-                            a.this.oqn = 5;
+                    if (ChatInfo.owN == ChatInfo.ChatCategory.DUZHAN) {
+                        if (a.this.ozG + 5 > 20) {
+                            i4 = a.this.ozG + 5;
+                            a.this.ozH = 5;
                         } else {
-                            a.this.oqn = 20 - a.this.oqm;
+                            a.this.ozH = 20 - a.this.ozG;
                         }
                     }
-                    fetchMessageSyncWithState = com.baidu.yuyinala.privatemessage.implugin.d.b.ebG().fetchMessageSyncWithState(a.this.ole.getApplicationContext(), 0, ChatInfo.mContacter, i4, null);
-                } else if (ChatInfo.ons != ChatInfo.ChatCategory.SMART) {
+                    fetchMessageSyncWithState = com.baidu.yuyinala.privatemessage.implugin.d.b.efv().fetchMessageSyncWithState(a.this.ouC.getApplicationContext(), 0, ChatInfo.mContacter, i4, null);
+                } else if (ChatInfo.owN != ChatInfo.ChatCategory.SMART) {
                     fetchMessageSyncWithState = null;
                 } else {
-                    fetchMessageSyncWithState = com.baidu.yuyinala.privatemessage.implugin.d.b.ebG().fetchMessageSyncWithState(a.this.ole.getApplicationContext(), 0, 17L, 20, null);
+                    fetchMessageSyncWithState = com.baidu.yuyinala.privatemessage.implugin.d.b.efv().fetchMessageSyncWithState(a.this.ouC.getApplicationContext(), 0, 17L, 20, null);
                 }
                 if (fetchMessageSyncWithState == null || fetchMessageSyncWithState.first == null) {
                     i2 = -1;
@@ -1076,85 +1076,85 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
                         a.this.mTimer.cancel();
                         a.this.mTimer = null;
                     }
-                    a.this.ole.runOnUiThread(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.6.1
+                    a.this.ouC.runOnUiThread(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.6.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (a.this.oqi != null) {
+                            if (a.this.ozC != null) {
                                 com.baidu.yuyinala.privatemessage.implugin.util.c.d("ChatFragment", "dismiss progress");
-                                a.this.oqi.cancel();
-                                a.this.oqi = null;
+                                a.this.ozC.cancel();
+                                a.this.ozC = null;
                             }
                         }
                     });
                     if (fetchMessageSyncWithState != null && fetchMessageSyncWithState.second != null && ((ArrayList) fetchMessageSyncWithState.second).size() > 0) {
                         com.baidu.yuyinala.privatemessage.implugin.util.c.d("ChatFragment", "RECEIVETEST fetchMsgData data " + i2);
-                        a.this.gl((List) fetchMessageSyncWithState.second);
-                        if (ChatInfo.ons == ChatInfo.ChatCategory.DUZHAN || ChatInfo.ons == ChatInfo.ChatCategory.C2C) {
-                            com.baidu.yuyinala.privatemessage.implugin.e.a.gE(a.this.ole.getApplicationContext()).b("416", "show", a.this.oqm, a.this.bm((ArrayList) fetchMessageSyncWithState.second));
+                        a.this.gu((List) fetchMessageSyncWithState.second);
+                        if (ChatInfo.owN == ChatInfo.ChatCategory.DUZHAN || ChatInfo.owN == ChatInfo.ChatCategory.C2C) {
+                            com.baidu.yuyinala.privatemessage.implugin.e.a.gE(a.this.ouC.getApplicationContext()).b("416", "show", a.this.ozG, a.this.bm((ArrayList) fetchMessageSyncWithState.second));
                         }
                     } else {
                         com.baidu.yuyinala.privatemessage.implugin.util.c.e("ChatFragment", "RECEIVETEST fetchMsgData error ");
-                        a.this.ecF();
+                        a.this.egu();
                     }
-                    a.this.oql = true;
-                    a.this.oqh = false;
-                    a.this.ole.runOnUiThread(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.6.2
+                    a.this.ozF = true;
+                    a.this.ozB = false;
+                    a.this.ouC.runOnUiThread(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.6.2
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.ecH();
+                            a.this.egw();
                         }
                     });
                     return;
                 }
                 com.baidu.yuyinala.privatemessage.implugin.util.c.d("ChatFragment", "BB fetchMsgData no data ");
-                a.this.oqj = 0;
-                a.this.opZ.obtainMessage(20).sendToTarget();
+                a.this.ozD = 0;
+                a.this.ozt.obtainMessage(20).sendToTarget();
             }
         }).start();
     }
 
-    public void zC(boolean z) {
+    public void zN(boolean z) {
         com.baidu.yuyinala.privatemessage.implugin.util.c.d("ChatFragment", "showSync " + z + " this " + this);
         if (z) {
-            this.oqi = new com.baidu.yuyinala.privatemessage.implugin.ui.material.a.d(this.ole);
-            this.oqi.setMessage(this.ole.getResources().getString(a.i.bd_im_listview_header_hint_loading));
-            this.oqi.setCancelable(true);
-            this.oqi.show();
-        } else if (this.oqi != null) {
-            this.oqi.dismiss();
+            this.ozC = new com.baidu.yuyinala.privatemessage.implugin.ui.material.a.d(this.ouC);
+            this.ozC.setMessage(this.ouC.getResources().getString(a.h.bd_im_listview_header_hint_loading));
+            this.ozC.setCancelable(true);
+            this.ozC.show();
+        } else if (this.ozC != null) {
+            this.ozC.dismiss();
         }
     }
 
-    public void ecG() {
+    public void egv() {
         com.baidu.yuyinala.privatemessage.implugin.util.c.d("ChatFragment", "initSyncTimer this " + this);
-        if (this.oqj == 0) {
+        if (this.ozD == 0) {
             com.baidu.yuyinala.privatemessage.implugin.util.c.d("ChatFragment", "Data syncing -- ");
-            ActivityChat activityChat = this.ole;
+            ActivityChat activityChat = this.ouC;
             if (activityChat != null) {
-                if (this.oqi != null) {
-                    this.oqi.dismiss();
+                if (this.ozC != null) {
+                    this.ozC.dismiss();
                 }
-                this.oqi = new com.baidu.yuyinala.privatemessage.implugin.ui.material.a.d(activityChat);
-                this.oqi.setMessage(this.ole.getResources().getString(a.i.bd_im_listview_header_hint_loading));
-                this.oqi.setCancelable(true);
-                this.oqi.setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.7
+                this.ozC = new com.baidu.yuyinala.privatemessage.implugin.ui.material.a.d(activityChat);
+                this.ozC.setMessage(this.ouC.getResources().getString(a.h.bd_im_listview_header_hint_loading));
+                this.ozC.setCancelable(true);
+                this.ozC.setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.7
                     @Override // android.content.DialogInterface.OnCancelListener
                     public void onCancel(DialogInterface dialogInterface) {
-                        a.this.Nh(1);
+                        a.this.NC(1);
                     }
                 });
-                this.oqi.show();
+                this.ozC.show();
                 this.mTimer = new Timer(true);
                 this.mTimer.schedule(new TimerTask() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.8
                     @Override // java.util.TimerTask, java.lang.Runnable
                     public void run() {
                         com.baidu.yuyinala.privatemessage.implugin.util.c.d("ChatFragment", "TimerTask run");
-                        if (a.this.oqj == 0) {
-                            a.this.oqj = 1;
-                            if (a.this.oqi != null) {
-                                a.this.oqi.cancel();
+                        if (a.this.ozD == 0) {
+                            a.this.ozD = 1;
+                            if (a.this.ozC != null) {
+                                a.this.ozC.cancel();
                             }
-                            a.this.Nh(1);
+                            a.this.NC(1);
                         }
                     }
                 }, 20000L);
@@ -1163,72 +1163,72 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ecH() {
+    public void egw() {
         int i = ChatInfo.mStatus;
-        if (ChatInfo.ons == ChatInfo.ChatCategory.B2C) {
-            if ((i == 1 || i == 2 || i == 4) && this.oqh) {
-                WY(this.ole.getString(a.i.bd_im_zhida_expire));
+        if (ChatInfo.owN == ChatInfo.ChatCategory.B2C) {
+            if ((i == 1 || i == 2 || i == 4) && this.ozB) {
+                XC(this.ouC.getString(a.h.bd_im_zhida_expire));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ecI() {
-        if (ChatInfo.ons == ChatInfo.ChatCategory.C2C && 10 == ChatInfo.mStatus) {
-            WY(this.ole.getString(a.i.bd_im_user_version_low));
+    public void egx() {
+        if (ChatInfo.owN == ChatInfo.ChatCategory.C2C && 10 == ChatInfo.mStatus) {
+            XC(this.ouC.getString(a.h.bd_im_user_version_low));
         }
     }
 
-    public void ecJ() {
+    public void egy() {
         new Thread(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.9
             @Override // java.lang.Runnable
             public void run() {
-                while (!a.this.oql) {
+                while (!a.this.ozF) {
                     try {
                         Thread.sleep(100L);
                     } catch (InterruptedException e2) {
                         com.baidu.yuyinala.privatemessage.implugin.util.c.e("ChatFragment", e2.getMessage() + "");
                     }
                 }
-                a.this.ole.runOnUiThread(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.9.1
+                a.this.ouC.runOnUiThread(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.9.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.ecI();
+                        a.this.egx();
                     }
                 });
             }
         }).start();
     }
 
-    public void ecK() {
+    public void egz() {
         if (this.mMsgList != null) {
             this.mMsgList.clear();
-            ecD();
+            egs();
         }
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.c
     public void m(ChatMsg chatMsg) {
-        Message obtainMessage = this.opZ.obtainMessage(30);
+        Message obtainMessage = this.ozt.obtainMessage(30);
         obtainMessage.obj = chatMsg;
         obtainMessage.sendToTarget();
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.a.a.d
-    public void Nc(final int i) {
-        String string = this.ole.getResources().getString(a.i.bd_im_group_reportprompt);
-        final com.baidu.yuyinala.privatemessage.implugin.ui.material.a.a aVar = new com.baidu.yuyinala.privatemessage.implugin.ui.material.a.a(this.ole, this.ole.getResources().getString(a.i.bd_im_group_reporttile), string, this.ole.getResources().getString(a.i.bd_im_user_zhida_ensure), this.ole.getResources().getString(a.i.bd_im_user_zhida_cancel));
+    public void Nx(final int i) {
+        String string = this.ouC.getResources().getString(a.h.bd_im_group_reportprompt);
+        final com.baidu.yuyinala.privatemessage.implugin.ui.material.a.a aVar = new com.baidu.yuyinala.privatemessage.implugin.ui.material.a.a(this.ouC, this.ouC.getResources().getString(a.h.bd_im_group_reporttile), string, this.ouC.getResources().getString(a.h.bd_im_user_zhida_ensure), this.ouC.getResources().getString(a.h.bd_im_user_zhida_cancel));
         aVar.show();
         aVar.a(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.10
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                aVar.ede();
+                aVar.egT();
             }
         }, new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.11
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String str;
-                aVar.ede();
+                aVar.egT();
                 if (i < a.this.mMsgList.size()) {
                     ChatMsg chatMsg = (ChatMsg) a.this.mMsgList.get(i);
                     String jsonContent = chatMsg.getJsonContent();
@@ -1250,106 +1250,106 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
                         str = "";
                     }
                     LogUtils.d("ChatFragment", "report content: " + str);
-                    com.baidu.yuyinala.privatemessage.implugin.ui.material.a.e.edm().showToast(a.this.ole, a.this.ole.getString(a.i.bd_im_group_report));
+                    com.baidu.yuyinala.privatemessage.implugin.ui.material.a.e.ehb().showToast(a.this.ouC, a.this.ouC.getString(a.h.bd_im_group_report));
                 }
             }
         });
     }
 
-    public void ecL() {
-        final com.baidu.yuyinala.privatemessage.implugin.ui.material.a.a aVar = new com.baidu.yuyinala.privatemessage.implugin.ui.material.a.a(this.ole, this.ole.getResources().getString(a.i.bd_im_space_title), this.ole.getResources().getString(a.i.bd_im_space_prompt), this.ole.getResources().getString(a.i.bd_im_space_chcek), this.ole.getResources().getString(a.i.bd_im_space_cancel));
+    public void egA() {
+        final com.baidu.yuyinala.privatemessage.implugin.ui.material.a.a aVar = new com.baidu.yuyinala.privatemessage.implugin.ui.material.a.a(this.ouC, this.ouC.getResources().getString(a.h.bd_im_space_title), this.ouC.getResources().getString(a.h.bd_im_space_prompt), this.ouC.getResources().getString(a.h.bd_im_space_chcek), this.ouC.getResources().getString(a.h.bd_im_space_cancel));
         aVar.show();
         aVar.a(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.13
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                aVar.ede();
+                aVar.egT();
             }
         }, new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.14
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                aVar.ede();
+                aVar.egT();
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("key_contactid", ChatInfo.onu);
+                    jSONObject.put("key_contactid", ChatInfo.owP);
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
-                com.baidu.yuyinala.privatemessage.implugin.d.b.ebG().bT(jSONObject.toString(), 9);
+                com.baidu.yuyinala.privatemessage.implugin.d.b.efv().bV(jSONObject.toString(), 9);
             }
         });
     }
 
-    private void ecM() {
-        this.oqd = new Timer(true);
+    private void egB() {
+        this.ozx = new Timer(true);
         TimerTask timerTask = new TimerTask() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.15
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
-                if (a.this.oqj != 0) {
-                    long eeq = f.eeq();
-                    com.baidu.yuyinala.privatemessage.implugin.util.c.d("ChatFragment", "DISK freesize is  " + eeq);
-                    if (eeq < 300) {
-                        a.this.opZ.post(new RunnableC0929a());
+                if (a.this.ozD != 0) {
+                    long eif = f.eif();
+                    com.baidu.yuyinala.privatemessage.implugin.util.c.d("ChatFragment", "DISK freesize is  " + eif);
+                    if (eif < 300) {
+                        a.this.ozt.post(new RunnableC0947a());
                     }
                 }
             }
         };
-        com.baidu.yuyinala.privatemessage.implugin.util.b.b.g(this.ole, "check_sdcard", System.currentTimeMillis() / 1000);
-        this.oqd.schedule(timerTask, 4000L);
+        com.baidu.yuyinala.privatemessage.implugin.util.b.b.g(this.ouC, "check_sdcard", System.currentTimeMillis() / 1000);
+        this.ozx.schedule(timerTask, 4000L);
     }
 
     public com.baidu.yuyinala.privatemessage.implugin.ui.material.a.c aq(int i, boolean z) {
-        if (this.kAe != null && !z) {
-            this.ooY = new com.baidu.yuyinala.privatemessage.implugin.ui.material.a.c(this.ole, this.kAe, i, ChatInfo.mUid);
+        if (this.kFY != null && !z) {
+            this.oyt = new com.baidu.yuyinala.privatemessage.implugin.ui.material.a.c(this.ouC, this.kFY, i, ChatInfo.mUid);
         }
-        return this.ooY;
+        return this.oyt;
     }
 
     /* loaded from: classes4.dex */
     private static class e implements Runnable {
-        private final SoftReference<a> oqK;
+        private final SoftReference<a> oAe;
 
         private e(a aVar) {
-            this.oqK = new SoftReference<>(aVar);
+            this.oAe = new SoftReference<>(aVar);
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Pair<Integer, ArrayList<ChatMsg>> pair = null;
-            if (this.oqK.get() != null) {
+            if (this.oAe.get() != null) {
                 try {
-                    if (!this.oqK.get().ole.ooP) {
-                        if (this.oqK.get().mMsgList.size() > 0) {
-                            if (((ChatMsg) this.oqK.get().mMsgList.get(0)).getMsgId() != 0) {
-                                if (ChatInfo.ons == ChatInfo.ChatCategory.GROUP) {
-                                    pair = com.baidu.yuyinala.privatemessage.implugin.d.b.ebG().fetchMessageSyncWithState(this.oqK.get().ole.getApplicationContext(), 1, ChatInfo.mContacter, -20, (ChatMsg) this.oqK.get().mMsgList.get(0));
-                                } else if (ChatInfo.ons == ChatInfo.ChatCategory.C2C || ChatInfo.ons == ChatInfo.ChatCategory.B2C || ChatInfo.ons == ChatInfo.ChatCategory.DUZHAN) {
-                                    pair = com.baidu.yuyinala.privatemessage.implugin.d.b.ebG().fetchMessageSyncWithState(this.oqK.get().ole.getApplicationContext(), 0, ChatInfo.mContacter, -20, (ChatMsg) this.oqK.get().mMsgList.get(0));
-                                } else if (ChatInfo.ons == ChatInfo.ChatCategory.SMART) {
-                                    pair = com.baidu.yuyinala.privatemessage.implugin.d.b.ebG().fetchMessageSyncWithState(this.oqK.get().ole.getApplicationContext(), 0, 17L, -20, (ChatMsg) this.oqK.get().mMsgList.get(0));
+                    if (!this.oAe.get().ouC.oyk) {
+                        if (this.oAe.get().mMsgList.size() > 0) {
+                            if (((ChatMsg) this.oAe.get().mMsgList.get(0)).getMsgId() != 0) {
+                                if (ChatInfo.owN == ChatInfo.ChatCategory.GROUP) {
+                                    pair = com.baidu.yuyinala.privatemessage.implugin.d.b.efv().fetchMessageSyncWithState(this.oAe.get().ouC.getApplicationContext(), 1, ChatInfo.mContacter, -20, (ChatMsg) this.oAe.get().mMsgList.get(0));
+                                } else if (ChatInfo.owN == ChatInfo.ChatCategory.C2C || ChatInfo.owN == ChatInfo.ChatCategory.B2C || ChatInfo.owN == ChatInfo.ChatCategory.DUZHAN) {
+                                    pair = com.baidu.yuyinala.privatemessage.implugin.d.b.efv().fetchMessageSyncWithState(this.oAe.get().ouC.getApplicationContext(), 0, ChatInfo.mContacter, -20, (ChatMsg) this.oAe.get().mMsgList.get(0));
+                                } else if (ChatInfo.owN == ChatInfo.ChatCategory.SMART) {
+                                    pair = com.baidu.yuyinala.privatemessage.implugin.d.b.efv().fetchMessageSyncWithState(this.oAe.get().ouC.getApplicationContext(), 0, 17L, -20, (ChatMsg) this.oAe.get().mMsgList.get(0));
                                 }
                             }
-                        } else if (ChatInfo.ons == ChatInfo.ChatCategory.GROUP) {
-                            pair = com.baidu.yuyinala.privatemessage.implugin.d.b.ebG().fetchMessageSyncWithState(this.oqK.get().ole.getApplicationContext(), 1, ChatInfo.mContacter, 20, null);
-                        } else if (ChatInfo.ons == ChatInfo.ChatCategory.C2C || ChatInfo.ons == ChatInfo.ChatCategory.B2C) {
-                            pair = com.baidu.yuyinala.privatemessage.implugin.d.b.ebG().fetchMessageSyncWithState(this.oqK.get().ole.getApplicationContext(), 0, ChatInfo.mContacter, 20, null);
-                        } else if (ChatInfo.ons == ChatInfo.ChatCategory.SMART) {
-                            pair = com.baidu.yuyinala.privatemessage.implugin.d.b.ebG().fetchMessageSyncWithState(this.oqK.get().ole.getApplicationContext(), 0, 17L, -20, null);
+                        } else if (ChatInfo.owN == ChatInfo.ChatCategory.GROUP) {
+                            pair = com.baidu.yuyinala.privatemessage.implugin.d.b.efv().fetchMessageSyncWithState(this.oAe.get().ouC.getApplicationContext(), 1, ChatInfo.mContacter, 20, null);
+                        } else if (ChatInfo.owN == ChatInfo.ChatCategory.C2C || ChatInfo.owN == ChatInfo.ChatCategory.B2C) {
+                            pair = com.baidu.yuyinala.privatemessage.implugin.d.b.efv().fetchMessageSyncWithState(this.oAe.get().ouC.getApplicationContext(), 0, ChatInfo.mContacter, 20, null);
+                        } else if (ChatInfo.owN == ChatInfo.ChatCategory.SMART) {
+                            pair = com.baidu.yuyinala.privatemessage.implugin.d.b.efv().fetchMessageSyncWithState(this.oAe.get().ouC.getApplicationContext(), 0, 17L, -20, null);
                         }
-                        this.oqK.get().opW.setRefreshTime();
-                        this.oqK.get().opW.eds();
+                        this.oAe.get().ozq.setRefreshTime();
+                        this.oAe.get().ozq.ehh();
                         if (pair != null) {
-                            this.oqK.get().gl((List) pair.second);
+                            this.oAe.get().gu((List) pair.second);
                             return;
                         }
                         return;
                     }
                     long currentTimeMillis = System.currentTimeMillis();
-                    if (this.oqK.get().mMsgList.size() > 0) {
-                        long msgTime = ((ChatMsg) this.oqK.get().mMsgList.get(0)).getMsgTime();
+                    if (this.oAe.get().mMsgList.size() > 0) {
+                        long msgTime = ((ChatMsg) this.oAe.get().mMsgList.get(0)).getMsgTime();
                         LogUtils.d("ChatFragment", "BC> lastMsg time = " + msgTime);
                         currentTimeMillis = msgTime;
                     }
-                    this.oqK.get().j(true, currentTimeMillis);
+                    this.oAe.get().j(true, currentTimeMillis);
                 } catch (Exception e) {
                     com.baidu.yuyinala.privatemessage.implugin.util.c.e("ChatFragment", "fragment had destroyed");
                 }
@@ -1361,25 +1361,25 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
     @SuppressLint({"HandlerLeak"})
     /* loaded from: classes4.dex */
     public static class d extends Handler {
-        private final SoftReference<a> oqK;
+        private final SoftReference<a> oAe;
 
         private d(a aVar) {
-            this.oqK = new SoftReference<>(aVar);
+            this.oAe = new SoftReference<>(aVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             super.handleMessage(message);
-            if (this.oqK.get() != null) {
+            if (this.oAe.get() != null) {
                 try {
                     switch (message.what) {
                         case 1:
                             if (message.obj != null) {
                                 ChatMsg chatMsg = (ChatMsg) message.obj;
-                                this.oqK.get().mMsgList.add(chatMsg);
-                                this.oqK.get().opV.notifyDataSetChanged();
-                                this.oqK.get().ecC();
-                                com.baidu.yuyinala.privatemessage.implugin.b.a.gx(this.oqK.get().ole).a(chatMsg, this.oqK.get().mKey);
+                                this.oAe.get().mMsgList.add(chatMsg);
+                                this.oAe.get().ozp.notifyDataSetChanged();
+                                this.oAe.get().egr();
+                                com.baidu.yuyinala.privatemessage.implugin.b.a.gx(this.oAe.get().ouC).a(chatMsg, this.oAe.get().mKey);
                                 return;
                             }
                             return;
@@ -1396,24 +1396,24 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
                             U(message);
                             return;
                         case 6:
-                            this.oqK.get().mMsgList.clear();
-                            this.oqK.get().opV.notifyDataSetChanged();
+                            this.oAe.get().mMsgList.clear();
+                            this.oAe.get().ozp.notifyDataSetChanged();
                             return;
                         case 7:
-                            if (this.oqK.get().opV != null) {
-                                this.oqK.get().opV.notifyDataSetChanged();
+                            if (this.oAe.get().ozp != null) {
+                                this.oAe.get().ozp.notifyDataSetChanged();
                                 return;
                             }
                             return;
                         case 8:
                             if (message.obj != null) {
-                                this.oqK.get().opV.aT(message.obj);
+                                this.oAe.get().ozp.aT(message.obj);
                                 return;
                             }
                             return;
                         case 9:
                             if (message.obj != null) {
-                                this.oqK.get().opV.aU(message.obj);
+                                this.oAe.get().ozp.aU(message.obj);
                                 return;
                             }
                             return;
@@ -1421,7 +1421,7 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
                             R(message);
                             return;
                         case 11:
-                            this.oqK.get().onLoad();
+                            this.oAe.get().onLoad();
                             return;
                         case 12:
                         case 13:
@@ -1430,24 +1430,24 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
                             if (message.obj != null) {
                                 ArrayList arrayList = (ArrayList) message.obj;
                                 if (arrayList == null) {
-                                    this.oqK.get().opW.setPullRefreshEnable(false);
+                                    this.oAe.get().ozq.setPullRefreshEnable(false);
                                 }
                                 if (arrayList != null) {
                                     Collections.reverse(arrayList);
                                     if (message.arg1 == 1) {
-                                        this.oqK.get().mMsgList.addAll(arrayList);
+                                        this.oAe.get().mMsgList.addAll(arrayList);
                                     } else {
-                                        this.oqK.get().mMsgList.addAll(0, arrayList);
+                                        this.oAe.get().mMsgList.addAll(0, arrayList);
                                     }
-                                    this.oqK.get().opV.notifyDataSetChanged();
+                                    this.oAe.get().ozp.notifyDataSetChanged();
                                     return;
                                 }
                                 return;
                             }
                             return;
                         case 15:
-                            if (this.oqK.get().opW != null) {
-                                this.oqK.get().opW.setSelection(this.oqK.get().opW.getBottom());
+                            if (this.oAe.get().ozq != null) {
+                                this.oAe.get().ozq.setSelection(this.oAe.get().ozq.getBottom());
                                 return;
                             }
                             return;
@@ -1467,29 +1467,29 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
                         default:
                             return;
                         case 20:
-                            this.oqK.get().ecG();
+                            this.oAe.get().egv();
                             return;
                         case 30:
-                            this.oqK.get().l((ChatMsg) message.obj);
+                            this.oAe.get().l((ChatMsg) message.obj);
                             return;
                         case 31:
-                            if (this.oqK.get().opW != null && this.oqK.get().oqm > 0) {
-                                if (this.oqK.get().oqm + 5 > this.oqK.get().opV.getCount()) {
-                                    this.oqK.get().oqn = this.oqK.get().opV.getCount() - this.oqK.get().oqm;
+                            if (this.oAe.get().ozq != null && this.oAe.get().ozG > 0) {
+                                if (this.oAe.get().ozG + 5 > this.oAe.get().ozp.getCount()) {
+                                    this.oAe.get().ozH = this.oAe.get().ozp.getCount() - this.oAe.get().ozG;
                                 }
-                                if (this.oqK.get().oqn < 3) {
-                                    this.oqK.get().oqn = 3;
+                                if (this.oAe.get().ozH < 3) {
+                                    this.oAe.get().ozH = 3;
                                 }
-                                Log.d("ChatFragment", "unreadposition = " + this.oqK.get().oqn);
-                                this.oqK.get().opW.setSelection(this.oqK.get().oqn);
+                                Log.d("ChatFragment", "unreadposition = " + this.oAe.get().ozH);
+                                this.oAe.get().ozq.setSelection(this.oAe.get().ozH);
                                 return;
                             }
                             return;
                         case 32:
-                            this.oqK.get().ole.showToast(this.oqK.get().ole.getString(a.i.bd_im_error_msg_unsubscribe_me_tips));
+                            this.oAe.get().ouC.showToast(this.oAe.get().ouC.getString(a.h.bd_im_error_msg_unsubscribe_me_tips));
                             return;
                         case 33:
-                            this.oqK.get().ole.showToast(this.oqK.get().ole.getString(a.i.bd_im_error_msg_sheild_me_tips));
+                            this.oAe.get().ouC.showToast(this.oAe.get().ouC.getString(a.h.bd_im_error_msg_sheild_me_tips));
                             return;
                     }
                 } catch (Exception e) {
@@ -1504,7 +1504,7 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
             if (message.obj != null) {
                 ArrayList arrayList = (ArrayList) message.obj;
                 if (arrayList == null || arrayList.size() < 20) {
-                    this.oqK.get().opW.setPullRefreshEnable(false);
+                    this.oAe.get().ozq.setPullRefreshEnable(false);
                 }
                 if (arrayList == null) {
                     j = 0;
@@ -1518,11 +1518,11 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
                         }
                         ChatMsg chatMsg = (ChatMsg) arrayList.get(i2);
                         if (chatMsg.getMsgType() == 1 && chatMsg.getStatus() == 1) {
-                            com.baidu.yuyinala.privatemessage.implugin.b.a.gx(this.oqK.get().ole).a((ImageMsg) chatMsg);
+                            com.baidu.yuyinala.privatemessage.implugin.b.a.gx(this.oAe.get().ouC).a((ImageMsg) chatMsg);
                         }
                         int i3 = 0;
                         if (0 != chatMsg.getMsgId()) {
-                            Iterator it = this.oqK.get().mMsgList.iterator();
+                            Iterator it = this.oAe.get().mMsgList.iterator();
                             while (it.hasNext()) {
                                 ChatMsg chatMsg2 = (ChatMsg) it.next();
                                 if (chatMsg.getMsgId() < chatMsg2.getMsgId() || (chatMsg.getMsgId() == chatMsg2.getMsgId() && chatMsg.getRowId() < chatMsg2.getRowId())) {
@@ -1530,7 +1530,7 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
                                 }
                                 i3++;
                             }
-                            if (-1 != i3 && this.oqK.get().a(i3, chatMsg, 10) == 0 && j < chatMsg.getMsgId()) {
+                            if (-1 != i3 && this.oAe.get().a(i3, chatMsg, 10) == 0 && j < chatMsg.getMsgId()) {
                                 j = chatMsg.getMsgId();
                             }
                         }
@@ -1538,7 +1538,7 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
                     }
                 }
                 int i4 = 0;
-                Iterator it2 = this.oqK.get().mMsgList.iterator();
+                Iterator it2 = this.oAe.get().mMsgList.iterator();
                 while (true) {
                     if (!it2.hasNext()) {
                         z = false;
@@ -1551,14 +1551,14 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
                     }
                 }
                 if (z) {
-                    if (this.oqK.get().oqh) {
-                        this.oqK.get().opV.notifyDataSetChanged();
-                        this.oqK.get().Ng(i4);
-                        this.oqK.get().oqh = false;
+                    if (this.oAe.get().ozB) {
+                        this.oAe.get().ozp.notifyDataSetChanged();
+                        this.oAe.get().NB(i4);
+                        this.oAe.get().ozB = false;
                         return;
                     }
-                    this.oqK.get().opV.notifyDataSetChanged();
-                    this.oqK.get().opW.setSelectionMove(i4);
+                    this.oAe.get().ozp.notifyDataSetChanged();
+                    this.oAe.get().ozq.setSelectionMove(i4);
                 }
             }
         }
@@ -1566,27 +1566,27 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
         private void S(Message message) {
             if (message.obj != null) {
                 ChatMsg chatMsg = (ChatMsg) message.obj;
-                if (this.oqK.get().ole.ooP) {
-                    BIMManager.mediaSendChatMsg(this.oqK.get().ole, ChatInfo.mUid, chatMsg, new IMediaSendChatMsgListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.1
+                if (this.oAe.get().ouC.oyk) {
+                    BIMManager.mediaSendChatMsg(this.oAe.get().ouC, ChatInfo.mUid, chatMsg, new IMediaSendChatMsgListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.1
                         @Override // com.baidu.android.imsdk.chatmessage.IMediaSendChatMsgListener
                         public void onMediaSendChatMsgResult(int i, ChatMsg chatMsg2) {
                             Log.d("ChatFragment", "BC> code=" + i + ", sendChatMsg=" + chatMsg2);
-                            c Xa = com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.ecY().Xa(((a) d.this.oqK.get()).mKey);
+                            c XE = com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.egN().XE(((a) d.this.oAe.get()).mKey);
                             if (i == 0) {
                                 chatMsg2.setStatus(0);
                             } else {
                                 chatMsg2.setStatus(2);
                             }
                             if (615 == i) {
-                                ((a) d.this.oqK.get()).ecA();
+                                ((a) d.this.oAe.get()).egp();
                             } else if (616 == i) {
-                                ((a) d.this.oqK.get()).ecB();
+                                ((a) d.this.oAe.get()).egq();
                             }
-                            Xa.k(chatMsg2);
+                            XE.k(chatMsg2);
                         }
                     });
                 } else {
-                    com.baidu.yuyinala.privatemessage.implugin.b.a.gx(this.oqK.get().ole).a(chatMsg, this.oqK.get().mKey);
+                    com.baidu.yuyinala.privatemessage.implugin.b.a.gx(this.oAe.get().ouC).a(chatMsg, this.oAe.get().mKey);
                 }
             }
         }
@@ -1594,30 +1594,30 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
         private void T(Message message) {
             if (message.obj != null) {
                 ChatMsg chatMsg = (ChatMsg) message.obj;
-                this.oqK.get().mMsgList.add(chatMsg);
-                this.oqK.get().opV.notifyDataSetChanged();
-                this.oqK.get().ecC();
-                if (this.oqK.get().ole.ooP) {
-                    BIMManager.mediaSendChatMsg(this.oqK.get().ole, ChatInfo.mUid, chatMsg, new IMediaSendChatMsgListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.2
+                this.oAe.get().mMsgList.add(chatMsg);
+                this.oAe.get().ozp.notifyDataSetChanged();
+                this.oAe.get().egr();
+                if (this.oAe.get().ouC.oyk) {
+                    BIMManager.mediaSendChatMsg(this.oAe.get().ouC, ChatInfo.mUid, chatMsg, new IMediaSendChatMsgListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.2
                         @Override // com.baidu.android.imsdk.chatmessage.IMediaSendChatMsgListener
                         public void onMediaSendChatMsgResult(int i, ChatMsg chatMsg2) {
                             Log.d("ChatFragment", "BC> code=" + i + ", sendChatMsg=" + chatMsg2);
-                            c Xa = com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.ecY().Xa(((a) d.this.oqK.get()).mKey);
+                            c XE = com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.egN().XE(((a) d.this.oAe.get()).mKey);
                             if (i == 0) {
                                 chatMsg2.setStatus(0);
                             } else {
                                 chatMsg2.setStatus(2);
                             }
                             if (615 == i) {
-                                ((a) d.this.oqK.get()).ecA();
+                                ((a) d.this.oAe.get()).egp();
                             } else if (616 == i) {
-                                ((a) d.this.oqK.get()).ecB();
+                                ((a) d.this.oAe.get()).egq();
                             }
-                            Xa.k(chatMsg2);
+                            XE.k(chatMsg2);
                         }
                     });
                 } else {
-                    com.baidu.yuyinala.privatemessage.implugin.b.a.gx(this.oqK.get().ole).a(chatMsg, this.oqK.get().mKey);
+                    com.baidu.yuyinala.privatemessage.implugin.b.a.gx(this.oAe.get().ouC).a(chatMsg, this.oAe.get().mKey);
                 }
             }
         }
@@ -1628,50 +1628,50 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
                 if (chatMsg instanceof ImageMsg) {
                     ((ImageMsg) chatMsg).setProgress(message.arg1);
                 }
-                int j = this.oqK.get().j(chatMsg);
+                int j = this.oAe.get().j(chatMsg);
                 if (j != -1) {
-                    if (!this.oqK.get().oqg.contains(Long.valueOf(chatMsg.getRowId()))) {
-                        int j2 = this.oqK.get().j(chatMsg);
-                        this.oqK.get().mMsgList.set(j2, chatMsg);
-                        int firstVisiblePosition = this.oqK.get().opW.getFirstVisiblePosition() - 1;
+                    if (!this.oAe.get().ozA.contains(Long.valueOf(chatMsg.getRowId()))) {
+                        int j2 = this.oAe.get().j(chatMsg);
+                        this.oAe.get().mMsgList.set(j2, chatMsg);
+                        int firstVisiblePosition = this.oAe.get().ozq.getFirstVisiblePosition() - 1;
                         int i = firstVisiblePosition < 0 ? 0 : firstVisiblePosition;
-                        int lastVisiblePosition = this.oqK.get().opW.getLastVisiblePosition() - 2;
+                        int lastVisiblePosition = this.oAe.get().ozq.getLastVisiblePosition() - 2;
                         if (j2 >= i && j2 <= lastVisiblePosition) {
                             int i2 = j2 - i;
-                            if (this.oqK.get().opW.getChildCount() - this.oqK.get().mMsgList.size() == 2) {
+                            if (this.oAe.get().ozq.getChildCount() - this.oAe.get().mMsgList.size() == 2) {
                                 i2++;
                             }
-                            this.oqK.get().opV.D(this.oqK.get().opW.getChildAt(i2), j2);
+                            this.oAe.get().ozp.D(this.oAe.get().ozq.getChildAt(i2), j2);
                             return;
                         }
                         return;
                     }
                     if (chatMsg.getStatus() == 0) {
-                        int j3 = this.oqK.get().j(chatMsg);
-                        ArrayList arrayList = this.oqK.get().mMsgList;
+                        int j3 = this.oAe.get().j(chatMsg);
+                        ArrayList arrayList = this.oAe.get().mMsgList;
                         arrayList.remove(j3);
                         if (arrayList.size() > 0 && ((ChatMsg) arrayList.get(arrayList.size() - 1)).getMsgId() != chatMsg.getMsgId()) {
-                            this.oqK.get().mMsgList.add(chatMsg);
+                            this.oAe.get().mMsgList.add(chatMsg);
                         }
-                        this.oqK.get().oqg.remove(Long.valueOf(chatMsg.getRowId()));
+                        this.oAe.get().ozA.remove(Long.valueOf(chatMsg.getRowId()));
                     } else if (chatMsg.getStatus() == 2) {
-                        this.oqK.get().mMsgList.set(j, chatMsg);
-                        this.oqK.get().oqg.remove(Long.valueOf(chatMsg.getRowId()));
+                        this.oAe.get().mMsgList.set(j, chatMsg);
+                        this.oAe.get().ozA.remove(Long.valueOf(chatMsg.getRowId()));
                     } else {
-                        this.oqK.get().mMsgList.set(this.oqK.get().j(chatMsg), chatMsg);
+                        this.oAe.get().mMsgList.set(this.oAe.get().j(chatMsg), chatMsg);
                     }
-                    this.oqK.get().opV.notifyDataSetChanged();
+                    this.oAe.get().ozp.notifyDataSetChanged();
                 }
             }
         }
 
         private void V(Message message) {
-            boolean edr = this.oqK.get().opW.edr();
+            boolean ehg = this.oAe.get().ozq.ehg();
             if (message.obj != null) {
                 ArrayList arrayList = (ArrayList) message.obj;
                 for (int i = 0; i < arrayList.size(); i++) {
                     ChatMsg chatMsg = (ChatMsg) arrayList.get(i);
-                    Iterator it = this.oqK.get().mMsgList.iterator();
+                    Iterator it = this.oAe.get().mMsgList.iterator();
                     int i2 = 0;
                     while (true) {
                         if (!it.hasNext()) {
@@ -1683,12 +1683,12 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
                             i2++;
                         }
                     }
-                    this.oqK.get().a(i2, chatMsg, 4);
-                    this.oqK.get().opV.notifyDataSetChanged();
-                    if (edr) {
-                        this.oqK.get().ecC();
-                    } else if (ChatInfo.ons == ChatInfo.ChatCategory.DUZHAN && this.oqK.get().oqq != null && this.oqK.get().oql) {
-                        this.oqK.get().oqq.eci();
+                    this.oAe.get().a(i2, chatMsg, 4);
+                    this.oAe.get().ozp.notifyDataSetChanged();
+                    if (ehg) {
+                        this.oAe.get().egr();
+                    } else if (ChatInfo.owN == ChatInfo.ChatCategory.DUZHAN && this.oAe.get().ozK != null && this.oAe.get().ozF) {
+                        this.oAe.get().ozK.efX();
                     }
                 }
             }
@@ -1697,18 +1697,18 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
 
     /* renamed from: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private static class RunnableC0929a implements Runnable {
-        private final SoftReference<a> oqK;
+    private static class RunnableC0947a implements Runnable {
+        private final SoftReference<a> oAe;
 
-        private RunnableC0929a(a aVar) {
-            this.oqK = new SoftReference<>(aVar);
+        private RunnableC0947a(a aVar) {
+            this.oAe = new SoftReference<>(aVar);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.oqK.get() != null) {
+            if (this.oAe.get() != null) {
                 try {
-                    this.oqK.get().ecL();
+                    this.oAe.get().egA();
                 } catch (Exception e) {
                     com.baidu.yuyinala.privatemessage.implugin.util.c.e("ChatFragment", "fragment had destroyed");
                 }
@@ -1720,7 +1720,7 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
     /* loaded from: classes4.dex */
     public class b {
         public int mState;
-        public int oqL;
+        public int oAf;
 
         b() {
         }
@@ -1732,12 +1732,12 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
         private String mFilePath;
         private ChatMsg mMsg;
         private View mView;
-        private boolean oqM;
+        private boolean oAg;
 
         c(ChatMsg chatMsg, View view, boolean z) {
             this.mMsg = chatMsg;
             this.mView = view;
-            this.oqM = z;
+            this.oAg = z;
         }
 
         public void execute() {
@@ -1745,7 +1745,7 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
             if (this.mMsg.getMsgType() == 2) {
                 String localUrl = this.mMsg.getLocalUrl();
                 if (!TextUtils.isEmpty(localUrl) && new File(localUrl).exists()) {
-                    WQ(localUrl);
+                    Xu(localUrl);
                     return;
                 }
                 File cacheDir = com.baidu.yuyinala.privatemessage.implugin.util.a.c.getCacheDir();
@@ -1762,14 +1762,14 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
             }
             if (!TextUtils.isEmpty(this.mFilePath)) {
                 if (new File(this.mFilePath).exists()) {
-                    WQ(this.mFilePath);
+                    Xu(this.mFilePath);
                     return;
                 }
                 b bVar = new b();
                 bVar.mState = 0;
-                bVar.oqL = 1;
-                a.this.oqf.put(Long.valueOf(this.mMsg.getMsgId()), bVar);
-                new com.baidu.yuyinala.privatemessage.implugin.c.a.a(a.this.ole.getApplicationContext(), str, this.mFilePath, this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new String[0]);
+                bVar.oAf = 1;
+                a.this.ozz.put(Long.valueOf(this.mMsg.getMsgId()), bVar);
+                new com.baidu.yuyinala.privatemessage.implugin.c.a.a(a.this.ouC.getApplicationContext(), str, this.mFilePath, this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new String[0]);
                 return;
             }
             onFailed(-1);
@@ -1778,10 +1778,10 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
         @Override // com.baidu.yuyinala.privatemessage.implugin.c.a.b
         public void onFailed(int i) {
             if (this.mFilePath == null) {
-                a.this.ole.showToast(a.this.ole.getString(a.i.bd_im_can_not_pick_this_file));
+                a.this.ouC.showToast(a.this.ouC.getString(a.h.bd_im_can_not_pick_this_file));
                 return;
             }
-            a.this.ole.showToast(a.this.ole.getString(a.i.bd_im_download_failure));
+            a.this.ouC.showToast(a.this.ouC.getString(a.h.bd_im_download_failure));
             File file = new File(this.mFilePath);
             if (file.exists()) {
                 file.delete();
@@ -1789,59 +1789,59 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
             if (this.mMsg instanceof ImageMsg) {
                 ((ImageMsg) this.mMsg).setProgress(0);
             }
-            if (a.this.oqf.containsKey(Long.valueOf(this.mMsg.getMsgId()))) {
-                ((b) a.this.oqf.get(Long.valueOf(this.mMsg.getMsgId()))).mState = 2;
+            if (a.this.ozz.containsKey(Long.valueOf(this.mMsg.getMsgId()))) {
+                ((b) a.this.ozz.get(Long.valueOf(this.mMsg.getMsgId()))).mState = 2;
             } else {
                 b bVar = new b();
                 bVar.mState = 2;
-                bVar.oqL = 1;
-                a.this.oqf.put(Long.valueOf(this.mMsg.getMsgId()), bVar);
+                bVar.oAf = 1;
+                a.this.ozz.put(Long.valueOf(this.mMsg.getMsgId()), bVar);
             }
-            if (this.mMsg.getFromUser() != ChatInfo.onu) {
+            if (this.mMsg.getFromUser() != ChatInfo.owP) {
                 this.mMsg.setStatus(2);
             }
-            a.this.ecD();
+            a.this.egs();
         }
 
         @Override // com.baidu.yuyinala.privatemessage.implugin.c.a.b
         public void onProgress(int i) {
             if (this.mMsg instanceof ImageMsg) {
                 ((ImageMsg) this.mMsg).setProgress(i);
-                a.this.ecD();
+                a.this.egs();
             }
         }
 
         @Override // com.baidu.yuyinala.privatemessage.implugin.c.a.b
-        public void WQ(String str) {
-            a.this.oqf.remove(Long.valueOf(this.mMsg.getMsgId()));
+        public void Xu(String str) {
+            a.this.ozz.remove(Long.valueOf(this.mMsg.getMsgId()));
             if (this.mMsg.getMsgType() != 1 && this.mMsg.getMsgType() == 2) {
-                if (a.this.oqa != null) {
-                    boolean z = a.this.oqa.mFilePath.equals(this.mFilePath) ? false : true;
-                    a.this.oqa.ecN();
+                if (a.this.ozu != null) {
+                    boolean z = a.this.ozu.mFilePath.equals(this.mFilePath) ? false : true;
+                    a.this.ozu.egC();
                     if (z) {
-                        WZ(str);
+                        XD(str);
                         return;
                     }
                     return;
                 }
-                WZ(str);
+                XD(str);
             }
         }
 
-        public void WZ(String str) {
-            a.this.oqa = this;
+        public void XD(String str) {
+            a.this.ozu = this;
             try {
-                a.this.cpq = new MediaPlayer();
-                a.this.cpq.setOnCompletionListener(this);
-                a.this.cpq.setDataSource(str);
-                if (a.this.oqb) {
-                    a.this.cpq.setAudioStreamType(3);
+                a.this.cvp = new MediaPlayer();
+                a.this.cvp.setOnCompletionListener(this);
+                a.this.cvp.setDataSource(str);
+                if (a.this.ozv) {
+                    a.this.cvp.setAudioStreamType(3);
                 } else {
-                    a.this.cpq.setAudioStreamType(0);
+                    a.this.cvp.setAudioStreamType(0);
                 }
-                a.this.cpq.prepare();
-                a.this.cpq.start();
-                Message obtainMessage = a.this.opZ.obtainMessage(8);
+                a.this.cvp.prepare();
+                a.this.cvp.start();
+                Message obtainMessage = a.this.ozt.obtainMessage(8);
                 obtainMessage.obj = this.mView;
                 obtainMessage.sendToTarget();
             } catch (IOException e) {
@@ -1849,13 +1849,13 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
             }
         }
 
-        public void ecN() {
-            if (a.this.cpq != null) {
-                a.this.cpq.stop();
-                a.this.cpq.release();
-                a.this.cpq = null;
-                a.this.oqa = null;
-                Message obtainMessage = a.this.opZ.obtainMessage(9);
+        public void egC() {
+            if (a.this.cvp != null) {
+                a.this.cvp.stop();
+                a.this.cvp.release();
+                a.this.cvp = null;
+                a.this.ozu = null;
+                Message obtainMessage = a.this.ozt.obtainMessage(9);
                 obtainMessage.obj = this.mView;
                 obtainMessage.sendToTarget();
             }
@@ -1863,7 +1863,7 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
 
         @Override // android.media.MediaPlayer.OnCompletionListener
         public void onCompletion(MediaPlayer mediaPlayer) {
-            ecN();
+            egC();
         }
     }
 
@@ -1871,15 +1871,15 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
     public void j(final boolean z, long j) {
         Log.d("ChatFragment", "BC> pullHistoryMsg=" + z + ", time=" + j);
         if (z) {
-            BIMManager.mediaFetchChatMsgs(this.ole.getApplicationContext(), ChatInfo.mUid, 0L, j, 20, new IMediaFetchChatMsgsListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.17
+            BIMManager.mediaFetchChatMsgs(this.ouC.getApplicationContext(), ChatInfo.mUid, 0L, j, 20, new IMediaFetchChatMsgsListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.17
                 @Override // com.baidu.android.imsdk.chatmessage.IMediaFetchChatMsgsListener
                 public void onMediaFetchChatMsgsResult(int i, String str, boolean z2, List<ChatMsg> list) {
                     Log.d("ChatFragment", "BC> responseCode=" + i + ", strMsg=" + str + ", hasMore=" + z2 + ", msgs=" + list);
-                    a.this.ole.runOnUiThread(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.17.1
+                    a.this.ouC.runOnUiThread(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.17.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.opW.setRefreshTime();
-                            a.this.opW.eds();
+                            a.this.ozq.setRefreshTime();
+                            a.this.ozq.ehh();
                         }
                     });
                     if (i == 0 && list != null && !list.isEmpty()) {
@@ -1888,15 +1888,15 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
                 }
             });
         } else {
-            BIMManager.mediaFetchChatMsgs(this.ole.getApplicationContext(), ChatInfo.mUid, j, 0L, 20, new IMediaFetchChatMsgsListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.18
+            BIMManager.mediaFetchChatMsgs(this.ouC.getApplicationContext(), ChatInfo.mUid, j, 0L, 20, new IMediaFetchChatMsgsListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.18
                 @Override // com.baidu.android.imsdk.chatmessage.IMediaFetchChatMsgsListener
                 public void onMediaFetchChatMsgsResult(int i, String str, boolean z2, List<ChatMsg> list) {
                     Log.d("ChatFragment", "BC> responseCode=" + i + ", strMsg=" + str + ", hasMore=" + z2 + ", msgs=" + list);
-                    a.this.ole.runOnUiThread(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.18.1
+                    a.this.ouC.runOnUiThread(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.18.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.opW.setRefreshTime();
-                            a.this.opW.eds();
+                            a.this.ozq.setRefreshTime();
+                            a.this.ozq.ehh();
                         }
                     });
                     if (i == 0 && list != null && !list.isEmpty()) {
@@ -1910,7 +1910,7 @@ public class a implements SensorEventListener, a.InterfaceC0925a, a.b, a.c, a.d,
     /* JADX INFO: Access modifiers changed from: private */
     public void i(boolean z, List<ChatMsg> list) {
         if (list != null && list.size() > 0) {
-            Message obtainMessage = this.opZ.obtainMessage(14);
+            Message obtainMessage = this.ozt.obtainMessage(14);
             obtainMessage.obj = list;
             if (!z) {
                 obtainMessage.arg1 = 1;

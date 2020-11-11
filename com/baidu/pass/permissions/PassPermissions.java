@@ -9,7 +9,7 @@ public class PassPermissions implements com.baidu.pass.a {
     public static final String TAG = "PassPermissions";
 
     /* renamed from: a  reason: collision with root package name */
-    private static PassPermissions f2794a;
+    private static PassPermissions f2796a;
     private PermissionsDTO b;
     private PermissionsCallback c;
 
@@ -35,10 +35,10 @@ public class PassPermissions implements com.baidu.pass.a {
     public static synchronized PassPermissions getInstance() {
         PassPermissions passPermissions;
         synchronized (PassPermissions.class) {
-            if (f2794a == null) {
-                f2794a = new PassPermissions();
+            if (f2796a == null) {
+                f2796a = new PassPermissions();
             }
-            passPermissions = f2794a;
+            passPermissions = f2796a;
         }
         return passPermissions;
     }
@@ -103,6 +103,6 @@ public class PassPermissions implements com.baidu.pass.a {
     public void a() {
         this.b = null;
         this.c = null;
-        f2794a = null;
+        f2796a = null;
     }
 }

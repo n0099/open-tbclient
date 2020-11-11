@@ -6,9 +6,9 @@ import com.baidu.turbonet.base.annotations.JNINamespace;
 /* loaded from: classes17.dex */
 public class LibraryLoader {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static volatile LibraryLoader ocd;
+    private static volatile LibraryLoader oli;
     private static final Object sLock;
-    private final int oce;
+    private final int olj;
 
     private static native boolean nativeForkAndPrefetchNativeLibrary();
 
@@ -35,9 +35,9 @@ public class LibraryLoader {
 
     @CalledByNative
     public static int getLibraryProcessType() {
-        if (ocd == null) {
+        if (oli == null) {
             return 0;
         }
-        return ocd.oce;
+        return oli.olj;
     }
 }

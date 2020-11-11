@@ -15,7 +15,7 @@ import com.baidu.imsdk.a;
 import com.baidu.sapi2.SapiContext;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class IMJoinCastMsg extends Message {
     private static final String TAG = "IMJoinCastMsg";
     private Context mContext;

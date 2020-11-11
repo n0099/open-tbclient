@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements com.baidu.tbadk.core.view.userLike.b {
-    protected String eTG;
-    protected String eTH;
-    private com.baidu.tbadk.core.view.commonBtn.b lJW;
-    private com.baidu.tbadk.core.view.commonBtn.b lJX;
-    public View.OnClickListener lJY;
+    protected String eZv;
+    protected String eZw;
+    private com.baidu.tbadk.core.view.commonBtn.b lPS;
+    private com.baidu.tbadk.core.view.commonBtn.b lPT;
+    public View.OnClickListener lPU;
 
     public PbFirstFloorUserLikeButton(Context context) {
         super(context);
@@ -32,21 +32,21 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements co
     }
 
     private void init() {
-        this.eTG = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.eTH = TbadkCoreApplication.getInst().getString(R.string.attention);
+        this.eZv = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        this.eZw = TbadkCoreApplication.getInst().getString(R.string.attention);
         setTextSize(R.dimen.tbds36);
-        setText(this.eTH);
-        this.lJW = new com.baidu.tbadk.core.view.commonBtn.b();
-        this.lJW.pY(R.color.cp_link_tip_a);
-        this.lJW.a(R.drawable.ic_icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
-        this.lJW.pT(l.getDimens(getContext(), R.dimen.tbds36));
-        this.lJX = new com.baidu.tbadk.core.view.commonBtn.b();
-        this.lJX.qa(R.color.cp_cont_d);
-        setConfig(this.lJW);
+        setText(this.eZw);
+        this.lPS = new com.baidu.tbadk.core.view.commonBtn.b();
+        this.lPS.qi(R.color.cp_link_tip_a);
+        this.lPS.a(R.drawable.ic_icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
+        this.lPS.qd(l.getDimens(getContext(), R.dimen.tbds36));
+        this.lPT = new com.baidu.tbadk.core.view.commonBtn.b();
+        this.lPT.qk(R.color.cp_cont_d);
+        setConfig(this.lPS);
     }
 
     public void setFollowIconSize(int i) {
-        this.lJW.pT(i);
+        this.lPS.qd(i);
     }
 
     @Override // android.view.View
@@ -55,18 +55,18 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements co
     }
 
     public void aN(boolean z) {
-        if (!(this.eTf instanceof Boolean) || ((Boolean) this.eTf).booleanValue() != z) {
-            this.eTf = Boolean.valueOf(z);
+        if (!(this.eYU instanceof Boolean) || ((Boolean) this.eYU).booleanValue() != z) {
+            this.eYU = Boolean.valueOf(z);
             if (z) {
                 setVisibility(8);
                 setClickable(false);
-                setText(this.eTG);
-                setConfig(this.lJX);
+                setText(this.eZv);
+                setConfig(this.lPT);
             } else {
                 setVisibility(0);
                 setClickable(true);
-                setText(this.eTH);
-                setConfig(this.lJW);
+                setText(this.eZw);
+                setConfig(this.lPS);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -84,21 +84,21 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements co
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void qh(int i) {
+    public void qr(int i) {
     }
 
-    public void br(View view) {
-        if (this.lJY != null) {
-            this.lJY.onClick(view);
+    public void bv(View view) {
+        if (this.lPU != null) {
+            this.lPU.onClick(view);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void g(View.OnClickListener onClickListener) {
+    public void h(View.OnClickListener onClickListener) {
         setOnClickListener(onClickListener);
     }
 
     public void onChangeSkinType(int i) {
-        bqd();
+        bsD();
     }
 }

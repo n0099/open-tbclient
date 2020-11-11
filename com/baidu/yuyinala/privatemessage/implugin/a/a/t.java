@@ -21,27 +21,27 @@ import com.baidu.sumeru.universalimageloader.core.ImageLoader;
 import java.io.File;
 /* loaded from: classes4.dex */
 public class t extends e {
-    public ImageView jgs;
+    public ImageView jmr;
     public View mContentView;
     public View mConvertView;
-    private ImageView onp;
-    public View onq;
-    private TextView onr;
+    private ImageView owK;
+    public View owL;
+    private TextView owM;
 
     @SuppressLint({"InflateParams"})
     public t(Context context, LayoutInflater layoutInflater) {
-        this.mConvertView = layoutInflater.inflate(a.h.bd_im_chating_send_img_item, (ViewGroup) null);
-        this.olU = (TextView) this.mConvertView.findViewById(a.g.bd_im_chating_time_txt);
-        this.olX = (ImageView) this.mConvertView.findViewById(a.g.bd_im_headview);
-        this.olZ = (ImageView) this.mConvertView.findViewById(a.g.bd_im_headview_vip);
-        this.mContentView = this.mConvertView.findViewById(a.g.bd_im_chating_msg_content_layout);
-        this.onq = this.mConvertView.findViewById(a.g.bd_im_chating_msg_uploadingLayout);
-        this.onr = (TextView) this.mConvertView.findViewById(a.g.progressTV);
-        this.jgs = (ImageView) this.mConvertView.findViewById(a.g.bd_im_chating_msg_content_img);
-        this.onp = (ImageView) this.mConvertView.findViewById(a.g.bd_im_chating_msg_content_cover);
-        this.oma = (ImageView) this.mConvertView.findViewById(a.g.bd_im_chating_msg_send_status);
-        this.omb = this.mConvertView.findViewById(a.g.bd_im_chating_msg_send_status_layout);
-        this.omc = (ProgressBar) this.mConvertView.findViewById(a.g.bd_im_chating_msg_send_progress);
+        this.mConvertView = layoutInflater.inflate(a.g.bd_im_chating_send_img_item, (ViewGroup) null);
+        this.ovq = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
+        this.ovt = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
+        this.ovv = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview_vip);
+        this.mContentView = this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_layout);
+        this.owL = this.mConvertView.findViewById(a.f.bd_im_chating_msg_uploadingLayout);
+        this.owM = (TextView) this.mConvertView.findViewById(a.f.progressTV);
+        this.jmr = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_img);
+        this.owK = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_cover);
+        this.ovw = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status);
+        this.ovx = this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status_layout);
+        this.ovy = (ProgressBar) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_progress);
         this.mConvertView.setTag(this);
     }
 
@@ -65,27 +65,27 @@ public class t extends e {
         ImageMsg imageMsg = (ImageMsg) chatMsg;
         Pair<Integer, Integer> a2 = a(context, imageMsg);
         if (chatMsg.isReSend()) {
-            this.onq.setVisibility(8);
-            this.onp.setVisibility(8);
+            this.owL.setVisibility(8);
+            this.owK.setVisibility(8);
         } else {
             if (imageMsg.getProgress() > 0 && imageMsg.getProgress() < 100) {
-                this.onr.setText(String.valueOf(imageMsg.getProgress()) + "%");
+                this.owM.setText(String.valueOf(imageMsg.getProgress()) + "%");
             }
             if (chatMsg.isMsgSendSuccess()) {
-                this.onq.setVisibility(8);
-                this.onp.setVisibility(8);
+                this.owL.setVisibility(8);
+                this.owK.setVisibility(8);
             } else if (chatMsg.getStatus() == 1) {
                 if (a2 != null) {
                     layoutParams = new RelativeLayout.LayoutParams(((Integer) a2.first).intValue(), ((Integer) a2.second).intValue());
                 } else {
                     layoutParams = new RelativeLayout.LayoutParams(0, 0);
                 }
-                this.onp.setLayoutParams(layoutParams);
-                this.onp.setVisibility(0);
-                this.onq.setVisibility(0);
+                this.owK.setLayoutParams(layoutParams);
+                this.owK.setVisibility(0);
+                this.owL.setVisibility(0);
             } else if (chatMsg.getStatus() == 2) {
-                this.onq.setVisibility(8);
-                this.onp.setVisibility(8);
+                this.owL.setVisibility(8);
+                this.owK.setVisibility(8);
             }
         }
         super.b(context, chatMsg);
@@ -120,7 +120,7 @@ public class t extends e {
             BitmapFactory.decodeFile(str, options);
             float f = options.outWidth;
             float f2 = options.outHeight;
-            float max = Math.max(f / ((int) context.getResources().getDimension(a.e.bd_im_image_max_wh)), f2 / ((int) context.getResources().getDimension(a.e.bd_im_image_max_wh)));
+            float max = Math.max(f / ((int) context.getResources().getDimension(a.d.bd_im_image_max_wh)), f2 / ((int) context.getResources().getDimension(a.d.bd_im_image_max_wh)));
             if (max < 1.0f) {
                 max = 1.0f;
             }
@@ -150,7 +150,7 @@ public class t extends e {
                 if (bitmap2 != bitmap) {
                     bitmap.recycle();
                     if (bitmap2 != null) {
-                        this.jgs.setImageBitmap(bitmap2);
+                        this.jmr.setImageBitmap(bitmap2);
                         return new Pair<>(Integer.valueOf(bitmap2.getWidth()), Integer.valueOf(bitmap2.getHeight()));
                     }
                     return null;
@@ -160,7 +160,7 @@ public class t extends e {
             if (bitmap2 != null) {
             }
         } else if (!TextUtils.isEmpty(imageMsg.getRemoteUrl())) {
-            a(context, imageMsg, this.jgs);
+            a(context, imageMsg, this.jmr);
             return null;
         } else {
             try {
@@ -170,7 +170,7 @@ public class t extends e {
                 }
                 if (a2 != null) {
                     Bitmap b = b(context, a2);
-                    this.jgs.setImageBitmap(b);
+                    this.jmr.setImageBitmap(b);
                     return new Pair<>(Integer.valueOf(b.getWidth()), Integer.valueOf(b.getHeight()));
                 }
                 return null;
@@ -182,10 +182,10 @@ public class t extends e {
     }
 
     private Bitmap b(Context context, Bitmap bitmap) {
-        int dimension = (int) context.getResources().getDimension(a.e.bd_im_image_min_wh);
-        int dimension2 = (int) context.getResources().getDimension(a.e.bd_im_image_min_wh);
-        int dimension3 = (int) context.getResources().getDimension(a.e.bd_im_image_max_wh);
-        int dimension4 = (int) context.getResources().getDimension(a.e.bd_im_image_max_wh);
+        int dimension = (int) context.getResources().getDimension(a.d.bd_im_image_min_wh);
+        int dimension2 = (int) context.getResources().getDimension(a.d.bd_im_image_min_wh);
+        int dimension3 = (int) context.getResources().getDimension(a.d.bd_im_image_max_wh);
+        int dimension4 = (int) context.getResources().getDimension(a.d.bd_im_image_max_wh);
         if (bitmap.getWidth() >= bitmap.getHeight()) {
             dimension4 = (int) ((dimension3 / bitmap.getWidth()) * bitmap.getHeight());
         } else {
@@ -203,6 +203,6 @@ public class t extends e {
             thumbUrl = remoteUrl;
         }
         com.baidu.yuyinala.privatemessage.implugin.util.b.gK(context);
-        ImageLoader.getInstance().displayImage(thumbUrl, imageView, com.baidu.yuyinala.privatemessage.implugin.util.b.eeo());
+        ImageLoader.getInstance().displayImage(thumbUrl, imageView, com.baidu.yuyinala.privatemessage.implugin.util.b.eid());
     }
 }

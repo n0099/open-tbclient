@@ -1,18 +1,18 @@
 package com.baidu.tieba.personCenter;
 /* loaded from: classes22.dex */
 public class a {
-    private static a lPg = new a();
+    private static a lVc = new a();
     private long creatTime = 0;
-    private long fpw = 0;
+    private long fvq = 0;
     private long beginTime = 0;
-    private long lPh = 0;
-    private long lPi = 0;
+    private long lVd = 0;
+    private long lVe = 0;
 
     private a() {
     }
 
-    public static a dqR() {
-        return lPg;
+    public static a dtt() {
+        return lVc;
     }
 
     public long getCreateTime() {
@@ -23,35 +23,35 @@ public class a {
         this.creatTime = j;
     }
 
-    public long bbl() {
+    public long bdL() {
         return this.beginTime;
     }
 
-    public void cB(long j) {
+    public void cX(long j) {
         this.beginTime = j;
     }
 
-    public long dqS() {
-        return this.fpw;
+    public long dtu() {
+        return this.fvq;
     }
 
-    public void gp(long j) {
-        this.fpw = j;
+    public void gL(long j) {
+        this.fvq = j;
     }
 
     public long getRefreshTime() {
-        return this.lPh;
+        return this.lVd;
     }
 
     public void setRefreshTime(long j) {
-        this.lPh = j;
+        this.lVd = j;
     }
 
-    public long dqT() {
-        return this.lPi;
+    public long dtv() {
+        return this.lVe;
     }
 
-    public void gq(long j) {
-        this.lPi = j;
+    public void gM(long j) {
+        this.lVe = j;
     }
 }

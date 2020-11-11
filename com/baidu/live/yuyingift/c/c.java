@@ -6,7 +6,7 @@ import com.baidu.live.adp.framework.listener.HttpMessageListener;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.gift.YuyinGiftPackageConsumeHttpResponsedMessage;
-import com.baidu.live.gift.ao;
+import com.baidu.live.gift.an;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.live.tbadk.ubc.UbcStatisticItem;
 import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
@@ -20,22 +20,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c implements b {
-    private b.a bLJ;
-    private HttpMessageListener bcH;
-    private HttpMessageListener bcI;
+    private b.a bRr;
+    private HttpMessageListener bea;
+    private HttpMessageListener beb;
 
     public c() {
         registerListener();
     }
 
     public void a(b.a aVar) {
-        this.bLJ = aVar;
+        this.bRr = aVar;
     }
 
     @Override // com.baidu.live.yuyingift.c.b
-    public void hr(String str) {
+    public void hy(String str) {
         com.baidu.live.yuyingift.message.a aVar = new com.baidu.live.yuyingift.message.a(str);
-        aVar.addParam("scene_from", s.Sc());
+        aVar.addParam("scene_from", s.UK());
         aVar.addParam("platform", "2");
         MessageManager.getInstance().sendMessage(aVar);
         UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_GIFT_LIST_REQ, UbcStatConstant.ContentType.UBC_TYPE_GIFT_PACKAGE_LIST, UbcStatConstant.Page.VOICE_ROOM, null));
@@ -43,61 +43,61 @@ public class c implements b {
 
     @Override // com.baidu.live.yuyingift.c.b
     public void a(String str, String str2, String str3, String str4, int i, int i2, String str5, String str6, long j) {
-        ao aoVar = new ao();
-        aoVar.c(str, str2, str3, str4, i, i2, str5, str6);
-        aoVar.aUi = j;
-        aoVar.aUk.put(Long.valueOf(j), Long.valueOf(i));
-        MessageManager.getInstance().sendMessage(aoVar);
+        an anVar = new an();
+        anVar.c(str, str2, str3, str4, i, i2, str5, str6);
+        anVar.aVA = j;
+        anVar.aVC.put(Long.valueOf(j), Long.valueOf(i));
+        MessageManager.getInstance().sendMessage(anVar);
     }
 
     @Override // com.baidu.live.yuyingift.c.b
     public void release() {
-        this.bLJ = null;
+        this.bRr = null;
         unregisterListener();
     }
 
     private void registerListener() {
-        IW();
-        IX();
+        Jx();
+        Jy();
     }
 
     private void unregisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.bcH);
-        MessageManager.getInstance().unRegisterListener(this.bcI);
+        MessageManager.getInstance().unRegisterListener(this.bea);
+        MessageManager.getInstance().unRegisterListener(this.beb);
     }
 
-    private void IW() {
-        this.bcH = new HttpMessageListener(1031065) { // from class: com.baidu.live.yuyingift.c.c.1
+    private void Jx() {
+        this.bea = new HttpMessageListener(1031065) { // from class: com.baidu.live.yuyingift.c.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof GiftPackageListHttpResponsedMessage) {
                     GiftPackageListHttpResponsedMessage giftPackageListHttpResponsedMessage = (GiftPackageListHttpResponsedMessage) httpResponsedMessage;
-                    if (c.this.bLJ != null) {
-                        c.this.bLJ.a(!giftPackageListHttpResponsedMessage.hasError() && giftPackageListHttpResponsedMessage.getError() == 0, giftPackageListHttpResponsedMessage.getError(), giftPackageListHttpResponsedMessage.getErrorString(), giftPackageListHttpResponsedMessage.IO(), giftPackageListHttpResponsedMessage.getCategoryList(), giftPackageListHttpResponsedMessage.IP());
+                    if (c.this.bRr != null) {
+                        c.this.bRr.a(!giftPackageListHttpResponsedMessage.hasError() && giftPackageListHttpResponsedMessage.getError() == 0, giftPackageListHttpResponsedMessage.getError(), giftPackageListHttpResponsedMessage.getErrorString(), giftPackageListHttpResponsedMessage.Jp(), giftPackageListHttpResponsedMessage.getCategoryList(), giftPackageListHttpResponsedMessage.Jq());
                     }
                     c.this.a(giftPackageListHttpResponsedMessage);
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.bcH);
+        MessageManager.getInstance().registerListener(this.bea);
     }
 
-    private void IX() {
-        this.bcI = new HttpMessageListener(1031057) { // from class: com.baidu.live.yuyingift.c.c.2
+    private void Jy() {
+        this.beb = new HttpMessageListener(1031057) { // from class: com.baidu.live.yuyingift.c.c.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof YuyinGiftPackageConsumeHttpResponsedMessage) {
                     YuyinGiftPackageConsumeHttpResponsedMessage yuyinGiftPackageConsumeHttpResponsedMessage = (YuyinGiftPackageConsumeHttpResponsedMessage) httpResponsedMessage;
                     c.this.a(httpResponsedMessage, yuyinGiftPackageConsumeHttpResponsedMessage);
-                    if (c.this.bLJ != null) {
-                        c.this.bLJ.a(!yuyinGiftPackageConsumeHttpResponsedMessage.hasError() && yuyinGiftPackageConsumeHttpResponsedMessage.getError() == 0, yuyinGiftPackageConsumeHttpResponsedMessage.getError(), yuyinGiftPackageConsumeHttpResponsedMessage.getErrorString(), yuyinGiftPackageConsumeHttpResponsedMessage.aVg, yuyinGiftPackageConsumeHttpResponsedMessage.aVh);
+                    if (c.this.bRr != null) {
+                        c.this.bRr.a(!yuyinGiftPackageConsumeHttpResponsedMessage.hasError() && yuyinGiftPackageConsumeHttpResponsedMessage.getError() == 0, yuyinGiftPackageConsumeHttpResponsedMessage.getError(), yuyinGiftPackageConsumeHttpResponsedMessage.getErrorString(), yuyinGiftPackageConsumeHttpResponsedMessage.aWy, yuyinGiftPackageConsumeHttpResponsedMessage.aWz);
                     }
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.bcI);
+        MessageManager.getInstance().registerListener(this.beb);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -115,7 +115,7 @@ public class c implements b {
                     BdLog.e(e);
                     jSONObject = jSONObject3;
                 }
-            } else if (giftPackageListHttpResponsedMessage.IO() == null || giftPackageListHttpResponsedMessage.IO().isEmpty() || giftPackageListHttpResponsedMessage.getCategoryList() == null || giftPackageListHttpResponsedMessage.getCategoryList().isEmpty()) {
+            } else if (giftPackageListHttpResponsedMessage.Jp() == null || giftPackageListHttpResponsedMessage.Jp().isEmpty() || giftPackageListHttpResponsedMessage.getCategoryList() == null || giftPackageListHttpResponsedMessage.getCategoryList().isEmpty()) {
                 JSONObject jSONObject4 = new JSONObject();
                 try {
                     jSONObject4.put(PushMessageHelper.ERROR_TYPE, "list_empty");
@@ -129,9 +129,9 @@ public class c implements b {
                 jSONObject = null;
             }
             if (jSONObject != null) {
-                if (!TextUtils.isEmpty(giftPackageListHttpResponsedMessage.IQ())) {
+                if (!TextUtils.isEmpty(giftPackageListHttpResponsedMessage.Jr())) {
                     try {
-                        jSONObject.put("req_loc", giftPackageListHttpResponsedMessage.IQ());
+                        jSONObject.put("req_loc", giftPackageListHttpResponsedMessage.Jr());
                         jSONObject2.put("result", jSONObject);
                     } catch (JSONException e3) {
                         e3.printStackTrace();

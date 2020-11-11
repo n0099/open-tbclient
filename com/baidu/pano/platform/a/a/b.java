@@ -9,7 +9,7 @@ import java.util.List;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static final Comparator<byte[]> f2636a = new c();
+    protected static final Comparator<byte[]> f2638a = new c();
     private List<byte[]> b = new LinkedList();
     private List<byte[]> c = new ArrayList(64);
     private int d = 0;
@@ -46,7 +46,7 @@ public class b {
         if (bArr != null) {
             if (bArr.length <= this.e) {
                 this.b.add(bArr);
-                int binarySearch = Collections.binarySearch(this.c, bArr, f2636a);
+                int binarySearch = Collections.binarySearch(this.c, bArr, f2638a);
                 if (binarySearch < 0) {
                     binarySearch = (-binarySearch) - 1;
                 }

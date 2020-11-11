@@ -6,7 +6,7 @@ import java.io.IOException;
 /* loaded from: classes16.dex */
 class aa {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static com.tb.airbnb.lottie.model.content.f u(JsonReader jsonReader, com.tb.airbnb.lottie.d dVar) throws IOException {
+    public static com.tb.airbnb.lottie.model.content.f u(JsonReader jsonReader, com.tb.airbnb.lottie.e eVar) throws IOException {
         com.tb.airbnb.lottie.model.a.b bVar = null;
         com.tb.airbnb.lottie.model.a.f fVar = null;
         com.tb.airbnb.lottie.model.a.m<PointF, PointF> mVar = null;
@@ -45,13 +45,13 @@ class aa {
                     str = jsonReader.nextString();
                     break;
                 case 1:
-                    mVar = a.b(jsonReader, dVar);
+                    mVar = a.b(jsonReader, eVar);
                     break;
                 case 2:
-                    fVar = d.h(jsonReader, dVar);
+                    fVar = d.h(jsonReader, eVar);
                     break;
                 case 3:
-                    bVar = d.f(jsonReader, dVar);
+                    bVar = d.f(jsonReader, eVar);
                     break;
                 default:
                     jsonReader.skipValue();

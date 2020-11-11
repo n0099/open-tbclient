@@ -8,35 +8,35 @@ import java.util.List;
 import rx.k;
 /* loaded from: classes16.dex */
 public final class i implements k {
-    private volatile boolean pUu;
-    private List<k> pZz;
+    private volatile boolean qdO;
+    private List<k> qiU;
 
     public i() {
     }
 
     public i(k... kVarArr) {
-        this.pZz = new LinkedList(Arrays.asList(kVarArr));
+        this.qiU = new LinkedList(Arrays.asList(kVarArr));
     }
 
     public i(k kVar) {
-        this.pZz = new LinkedList();
-        this.pZz.add(kVar);
+        this.qiU = new LinkedList();
+        this.qiU.add(kVar);
     }
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.pUu;
+        return this.qdO;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.pUu) {
+            if (!this.qdO) {
                 synchronized (this) {
-                    if (!this.pUu) {
-                        List list = this.pZz;
+                    if (!this.qdO) {
+                        List list = this.qiU;
                         if (list == null) {
                             list = new LinkedList();
-                            this.pZz = list;
+                            this.qiU = list;
                         }
                         list.add(kVar);
                         return;
@@ -48,10 +48,10 @@ public final class i implements k {
     }
 
     public void a(k kVar) {
-        if (!this.pUu) {
+        if (!this.qdO) {
             synchronized (this) {
-                List<k> list = this.pZz;
-                if (!this.pUu && list != null) {
+                List<k> list = this.qiU;
+                if (!this.qdO && list != null) {
                     boolean remove = list.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
@@ -63,12 +63,12 @@ public final class i implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.pUu) {
+        if (!this.qdO) {
             synchronized (this) {
-                if (!this.pUu) {
-                    this.pUu = true;
-                    List<k> list = this.pZz;
-                    this.pZz = null;
+                if (!this.qdO) {
+                    this.qdO = true;
+                    List<k> list = this.qiU;
+                    this.qiU = null;
                     v(list);
                 }
             }
@@ -87,7 +87,7 @@ public final class i implements k {
                     arrayList = arrayList2;
                 }
             }
-            rx.exceptions.a.gK(arrayList);
+            rx.exceptions.a.gT(arrayList);
         }
     }
 }

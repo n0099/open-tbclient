@@ -15,7 +15,7 @@ public interface aj {
     void a(@NonNull String str, @NonNull List<String> list, @Nullable String str2, boolean z, com.baidu.swan.apps.n.b bVar);
 
     @AnyThread
-    void a(@NonNull String str, @NonNull Set<String> set, @NonNull a.InterfaceC0443a interfaceC0443a);
+    void a(@NonNull String str, @NonNull Set<String> set, @NonNull a.InterfaceC0455a interfaceC0455a);
 
-    String afd();
+    String ahD();
 }

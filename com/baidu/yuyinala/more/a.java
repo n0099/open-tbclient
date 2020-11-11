@@ -11,33 +11,33 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    private static a okC;
+    private static a otZ;
     private TbPageContext mPageContext;
-    private AlaMoreFunctionDialogData okD = new AlaMoreFunctionDialogData();
-    private b okE;
+    private AlaMoreFunctionDialogData oua = new AlaMoreFunctionDialogData();
+    private b oub;
 
     private a() {
     }
 
-    public static a ebf() {
-        if (okC == null) {
+    public static a eeU() {
+        if (otZ == null) {
             synchronized (a.class) {
-                if (okC == null) {
-                    okC = new a();
+                if (otZ == null) {
+                    otZ = new a();
                 }
             }
         }
-        return okC;
+        return otZ;
     }
 
-    public void X(w wVar) {
+    public void ax(w wVar) {
         if (wVar != null) {
-            if (this.okE == null || !this.okE.isShowing()) {
-                this.okD.parseData(wVar.aIR);
-                this.okD.setLiveId(wVar.mLiveInfo == null ? null : String.valueOf(wVar.mLiveInfo.live_id));
-                this.okD.setRoomId(wVar.aIS == null ? null : wVar.aIS.aRy);
-                this.okD.setCustomRoomId(wVar.aIS == null ? null : wVar.aIS.croom_id);
-                this.okD.setGroupId(wVar.mLiveInfo != null ? String.valueOf(wVar.mLiveInfo.group_id) : null);
+            if (this.oub == null || !this.oub.isShowing()) {
+                this.oua.parseData(wVar.aJI);
+                this.oua.setLiveId(wVar.mLiveInfo == null ? null : String.valueOf(wVar.mLiveInfo.live_id));
+                this.oua.setRoomId(wVar.aJK == null ? null : wVar.aJK.aSP);
+                this.oua.setCustomRoomId(wVar.aJK == null ? null : wVar.aJK.croom_id);
+                this.oua.setGroupId(wVar.mLiveInfo != null ? String.valueOf(wVar.mLiveInfo.group_id) : null);
             }
         }
     }
@@ -45,25 +45,25 @@ public class a {
     public void a(TbPageContext tbPageContext, com.baidu.live.c.c cVar) {
         if (this.mPageContext != tbPageContext) {
             this.mPageContext = tbPageContext;
-            this.okE = null;
+            this.oub = null;
         }
-        if (this.okE == null) {
-            this.okE = new b(tbPageContext, this.okD);
-            this.okE.a(cVar);
+        if (this.oub == null) {
+            this.oub = new b(tbPageContext, this.oua);
+            this.oub.a(cVar);
         } else {
-            this.okE.a((b) this.okD);
+            this.oub.a((b) this.oua);
         }
-        this.okE.show();
-        ebg();
+        this.oub.show();
+        eeV();
     }
 
-    private void ebg() {
+    private void eeV() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "moretab");
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            if (this.okD != null) {
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.okD.getCustomRoomId());
+            if (this.oua != null) {
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.oua.getCustomRoomId());
             }
         } catch (JSONException e) {
             BdLog.e(e);
@@ -72,12 +72,12 @@ public class a {
     }
 
     public void aE(boolean z, boolean z2) {
-        this.okD.setShowFirstCharge(z, z2);
+        this.oua.setShowFirstCharge(z, z2);
     }
 
-    public void GU() {
-        if (this.okE != null && this.okE.isShowing()) {
-            this.okE.dismiss();
+    public void Hv() {
+        if (this.oub != null && this.oub.isShowing()) {
+            this.oub.dismiss();
         }
     }
 }

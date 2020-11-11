@@ -5,5 +5,5 @@ import java.util.ArrayList;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<String> f4075a;
+    public ArrayList<String> f4077a;
 }

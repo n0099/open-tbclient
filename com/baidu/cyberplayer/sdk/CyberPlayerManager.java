@@ -165,7 +165,7 @@ public class CyberPlayerManager {
     private static Class<?> i;
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f1341a = false;
+    private static boolean f1343a = false;
     private static OnDeleteListener b = null;
     private static OnVideoFlowListener c = null;
     private static final Object d = new Object();
@@ -282,14 +282,14 @@ public class CyberPlayerManager {
     }
 
     public static void deleteVideoCache(OnDeleteListener onDeleteListener) {
-        if (f1341a) {
+        if (f1343a) {
             if (onDeleteListener != null) {
                 onDeleteListener.onDeleteComplete(-2, 0L);
                 return;
             }
             return;
         }
-        f1341a = true;
+        f1343a = true;
         b = onDeleteListener;
         CyberTaskExcutor.getInstance().executeSingleThread(new Runnable() { // from class: com.baidu.cyberplayer.sdk.CyberPlayerManager.1
             @Override // java.lang.Runnable
@@ -303,7 +303,7 @@ public class CyberPlayerManager {
                             CyberPlayerManager.b.onDeleteComplete(0, a2);
                         }
                     }
-                    boolean unused = CyberPlayerManager.f1341a = false;
+                    boolean unused = CyberPlayerManager.f1343a = false;
                     OnDeleteListener unused2 = CyberPlayerManager.b = null;
                 }
             }

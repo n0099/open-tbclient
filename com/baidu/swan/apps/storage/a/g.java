@@ -24,22 +24,22 @@ public class g extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
             return false;
         }
-        String aN = com.baidu.swan.apps.api.module.i.a.aN(optParamsAsJo);
-        if (aN == null) {
+        String aT = com.baidu.swan.apps.api.module.i.a.aT(optParamsAsJo);
+        if (aT == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        String string = eVar.aFf().aIc().getString(aN, null);
-        if (string == null && com.baidu.swan.apps.storage.c.duJ) {
+        String string = eVar.aHF().aKC().getString(aT, null);
+        if (string == null && com.baidu.swan.apps.storage.c.dAB) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1002, "data not found");
             return false;
         }
-        JSONObject lp = com.baidu.swan.apps.api.module.i.a.lp(string);
-        if (lp == null) {
+        JSONObject lE = com.baidu.swan.apps.api.module.i.a.lE(string);
+        if (lE == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "JSONException");
             return false;
         }
-        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(lp, 0);
+        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(lE, 0);
         return true;
     }
 }

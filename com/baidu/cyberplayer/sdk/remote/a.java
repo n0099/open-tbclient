@@ -18,10 +18,10 @@ public interface a extends IInterface {
         private static class C0112a implements a {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f1402a;
+            private IBinder f1404a;
 
             C0112a(IBinder iBinder) {
-                this.f1402a = iBinder;
+                this.f1404a = iBinder;
             }
 
             @Override // com.baidu.cyberplayer.sdk.remote.a
@@ -30,7 +30,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemoteExtractor");
-                    this.f1402a.transact(3, obtain, obtain2, 0);
+                    this.f1404a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(obtain2) : null;
                 } finally {
@@ -48,7 +48,7 @@ public interface a extends IInterface {
                     obtain.writeInt(i);
                     obtain.writeString(str);
                     obtain.writeLong(j);
-                    this.f1402a.transact(2, obtain, obtain2, 0);
+                    this.f1404a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -68,7 +68,7 @@ public interface a extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f1402a.transact(1, obtain, obtain2, 0);
+                    this.f1404a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -78,7 +78,7 @@ public interface a extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f1402a;
+                return this.f1404a;
             }
 
             @Override // com.baidu.cyberplayer.sdk.remote.a
@@ -87,7 +87,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemoteExtractor");
-                    this.f1402a.transact(4, obtain, obtain2, 0);
+                    this.f1404a.transact(4, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();

@@ -16,7 +16,7 @@ import kotlin.jvm.internal.q;
 public final class CSTVWifiReceiver extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f4291a = new a(null);
+    public static final a f4293a = new a(null);
 
     @h
     /* loaded from: classes6.dex */
@@ -41,16 +41,16 @@ public final class CSTVWifiReceiver extends BroadcastReceiver {
             ConnectivityManager connectivityManager = (ConnectivityManager) systemService;
             NetworkInfo networkInfo = connectivityManager.getNetworkInfo(1);
             NetworkInfo networkInfo2 = connectivityManager.getNetworkInfo(0);
-            boolean z = b.eqb().f4064a;
-            boolean z2 = b.eqb().b;
+            boolean z = b.etQ().f4066a;
+            boolean z2 = b.etQ().b;
             if (networkInfo != null) {
-                b.eqb().f4064a = q.l(networkInfo.getState(), NetworkInfo.State.CONNECTED);
+                b.etQ().f4066a = q.l(networkInfo.getState(), NetworkInfo.State.CONNECTED);
             }
             if (networkInfo2 != null) {
-                b.eqb().b = q.l(networkInfo2.getState(), NetworkInfo.State.CONNECTED);
+                b.etQ().b = q.l(networkInfo2.getState(), NetworkInfo.State.CONNECTED);
             }
-            com.kascend.cstvsdk.utils.a.ptu.a(b.eqb().b ? 1 : 2);
-            if (z != b.eqb().f4064a || z2 != b.eqb().b) {
+            com.kascend.cstvsdk.utils.a.pCO.a(b.etQ().b ? 1 : 2);
+            if (z != b.etQ().f4066a || z2 != b.etQ().b) {
                 tv.chushou.zues.a.a.post(new j(1));
             }
         }

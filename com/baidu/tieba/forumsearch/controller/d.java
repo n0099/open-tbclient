@@ -13,13 +13,13 @@ import com.baidu.tieba.forumsearch.message.SearchPostForumRequestMessage;
 import com.baidu.tieba.forumsearch.message.SearchPostForumSocketResponseMessage;
 /* loaded from: classes24.dex */
 public class d {
-    private a izq;
-    private com.baidu.adp.framework.listener.a izu = new com.baidu.adp.framework.listener.a(1003335, CmdConfigSocket.CMD_SEARCH_POST_FORUM) { // from class: com.baidu.tieba.forumsearch.controller.d.1
+    private a iFn;
+    private com.baidu.adp.framework.listener.a iFr = new com.baidu.adp.framework.listener.a(1003335, CmdConfigSocket.CMD_SEARCH_POST_FORUM) { // from class: com.baidu.tieba.forumsearch.controller.d.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage == null || responsedMessage.hasError() || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != d.this.mPageId) {
-                if (d.this.izq != null) {
-                    d.this.izq.a(false, null);
+                if (d.this.iFn != null) {
+                    d.this.iFn.a(false, null);
                     return;
                 }
                 return;
@@ -28,8 +28,8 @@ public class d {
             if (responsedMessage instanceof SearchPostForumSocketResponseMessage) {
                 searchData = ((SearchPostForumSocketResponseMessage) responsedMessage).getSearchData();
             }
-            if (d.this.izq != null) {
-                d.this.izq.a(searchData != null, searchData);
+            if (d.this.iFn != null) {
+                d.this.iFn.a(searchData != null, searchData);
             }
         }
     };
@@ -44,15 +44,15 @@ public class d {
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
         this.mPageId = bdUniqueId;
-        this.izu.setTag(this.mPageId);
-        MessageManager.getInstance().registerListener(this.izu);
+        this.iFr.setTag(this.mPageId);
+        MessageManager.getInstance().registerListener(this.iFr);
     }
 
     public void a(a aVar) {
-        this.izq = aVar;
+        this.iFn = aVar;
     }
 
-    public void JW(String str) {
+    public void Kn(String str) {
         if (!StringUtils.isNull(str)) {
             if (!l.isNetOk()) {
                 this.mPageContext.showToast(R.string.neterror);

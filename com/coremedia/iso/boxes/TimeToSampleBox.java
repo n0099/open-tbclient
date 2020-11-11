@@ -19,9 +19,9 @@ import org.aspectj.lang.a;
 public class TimeToSampleBox extends AbstractFullBox {
     static final /* synthetic */ boolean $assertionsDisabled;
     public static final String TYPE = "stts";
-    private static final /* synthetic */ a.InterfaceC1069a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1069a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1069a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_2 = null;
     static Map<List<Entry>, SoftReference<long[]>> cache;
     List<Entry> entries;
 

@@ -3,25 +3,25 @@ package com.xiaomi.push;
 public class jf {
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte f4998a;
+    public final byte f5000a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final String f775a;
+    public final String f777a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final short f776a;
+    public final short f778a;
 
     public jf() {
         this("", (byte) 0, (short) 0);
     }
 
     public jf(String str, byte b, short s) {
-        this.f775a = str;
-        this.f4998a = b;
-        this.f776a = s;
+        this.f777a = str;
+        this.f5000a = b;
+        this.f778a = s;
     }
 
     public String toString() {
-        return "<TField name:'" + this.f775a + "' type:" + ((int) this.f4998a) + " field-id:" + ((int) this.f776a) + ">";
+        return "<TField name:'" + this.f777a + "' type:" + ((int) this.f5000a) + " field-id:" + ((int) this.f778a) + ">";
     }
 }

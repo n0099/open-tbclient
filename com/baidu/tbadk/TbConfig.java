@@ -790,7 +790,7 @@ public class TbConfig {
             i = 60;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.byE().setPhotoMaxNum(i);
+            c.bBd().setPhotoMaxNum(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }

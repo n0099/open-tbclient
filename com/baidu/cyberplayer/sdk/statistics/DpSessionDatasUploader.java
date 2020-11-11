@@ -20,7 +20,7 @@ public final class DpSessionDatasUploader {
     public static final String SAILOR_MONITOR = "sailor_monitor";
 
     /* renamed from: a  reason: collision with root package name */
-    private static DpSessionDatasUploader f1425a;
+    private static DpSessionDatasUploader f1427a;
     private d b = new d();
     private d c = new d("live_show_session");
 
@@ -81,10 +81,10 @@ public final class DpSessionDatasUploader {
     public static synchronized DpSessionDatasUploader getInstance() {
         DpSessionDatasUploader dpSessionDatasUploader;
         synchronized (DpSessionDatasUploader.class) {
-            if (f1425a == null) {
-                f1425a = new DpSessionDatasUploader();
+            if (f1427a == null) {
+                f1427a = new DpSessionDatasUploader();
             }
-            dpSessionDatasUploader = f1425a;
+            dpSessionDatasUploader = f1427a;
         }
         return dpSessionDatasUploader;
     }

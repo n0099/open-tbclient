@@ -27,7 +27,7 @@ public class g extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else {
-            eVar.aFg().b(context, "mapp_cts_debug", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.c.a.g.1
+            eVar.aHG().b(context, "mapp_cts_debug", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.c.a.g.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ap.e.b
                 /* renamed from: a */
@@ -37,13 +37,13 @@ public class g extends aa {
                         return;
                     }
                     int optInt = b.optInt("useExtension");
-                    if (!com.baidu.swan.apps.extcore.c.b.arE().exists()) {
+                    if (!com.baidu.swan.apps.extcore.c.b.auf().exists()) {
                         unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, context.getResources().getString(a.h.aiapps_debug_no_extension_core));
                         return;
                     }
-                    com.baidu.swan.apps.ad.a.a.fM(com.baidu.swan.apps.extcore.c.a.ir(optInt));
+                    com.baidu.swan.apps.ad.a.a.fV(com.baidu.swan.apps.extcore.c.a.iB(optInt));
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    com.baidu.swan.apps.ad.a.a.alL();
+                    com.baidu.swan.apps.ad.a.a.aol();
                 }
             });
             return true;

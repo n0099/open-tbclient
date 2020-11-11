@@ -9,30 +9,30 @@ import kotlin.TypeCastException;
 @kotlin.h
 /* loaded from: classes10.dex */
 public final class d implements kotlin.sequences.c<kotlin.b.h> {
-    private final int bAm;
+    private final int bGx;
     private final int limit;
-    private final CharSequence pKh;
-    private final kotlin.jvm.a.m<CharSequence, Integer, Pair<Integer, Integer>> pKi;
+    private final CharSequence pTB;
+    private final kotlin.jvm.a.m<CharSequence, Integer, Pair<Integer, Integer>> pTC;
 
     /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: kotlin.jvm.a.m<? super java.lang.CharSequence, ? super java.lang.Integer, kotlin.Pair<java.lang.Integer, java.lang.Integer>> */
     /* JADX WARN: Multi-variable type inference failed */
     public d(CharSequence charSequence, int i, int i2, kotlin.jvm.a.m<? super CharSequence, ? super Integer, Pair<Integer, Integer>> mVar) {
         kotlin.jvm.internal.q.n(charSequence, Config.INPUT_PART);
         kotlin.jvm.internal.q.n(mVar, "getNextMatch");
-        this.pKh = charSequence;
-        this.bAm = i;
+        this.pTB = charSequence;
+        this.bGx = i;
         this.limit = i2;
-        this.pKi = mVar;
+        this.pTC = mVar;
     }
 
     @kotlin.h
     /* loaded from: classes10.dex */
     public static final class a implements Iterator<kotlin.b.h> {
-        private int pJU = -1;
-        private int pKj;
-        private int pKk;
-        private kotlin.b.h pKl;
-        private int pKm;
+        private int pTD;
+        private int pTE;
+        private kotlin.b.h pTF;
+        private int pTG;
+        private int pTo = -1;
 
         @Override // java.util.Iterator
         public void remove() {
@@ -41,70 +41,70 @@ public final class d implements kotlin.sequences.c<kotlin.b.h> {
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
-            this.pKj = kotlin.b.l.aq(d.this.bAm, 0, d.this.pKh.length());
-            this.pKk = this.pKj;
+            this.pTD = kotlin.b.l.aq(d.this.bGx, 0, d.this.pTB.length());
+            this.pTE = this.pTD;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:9:0x0025, code lost:
-            if (r6.pKm < r6.pKn.limit) goto L13;
+            if (r6.pTG < r6.pTH.limit) goto L13;
          */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        private final void eyt() {
-            if (this.pKk >= 0) {
+        private final void eCi() {
+            if (this.pTE >= 0) {
                 if (d.this.limit > 0) {
-                    this.pKm++;
+                    this.pTG++;
                 }
-                if (this.pKk <= d.this.pKh.length()) {
-                    Pair pair = (Pair) d.this.pKi.invoke(d.this.pKh, Integer.valueOf(this.pKk));
+                if (this.pTE <= d.this.pTB.length()) {
+                    Pair pair = (Pair) d.this.pTC.invoke(d.this.pTB, Integer.valueOf(this.pTE));
                     if (pair == null) {
-                        this.pKl = new kotlin.b.h(this.pKj, l.z(d.this.pKh));
-                        this.pKk = -1;
+                        this.pTF = new kotlin.b.h(this.pTD, l.z(d.this.pTB));
+                        this.pTE = -1;
                     } else {
                         int intValue = ((Number) pair.component1()).intValue();
                         int intValue2 = ((Number) pair.component2()).intValue();
-                        this.pKl = kotlin.b.l.et(this.pKj, intValue);
-                        this.pKj = intValue + intValue2;
-                        this.pKk = (intValue2 == 0 ? 1 : 0) + this.pKj;
+                        this.pTF = kotlin.b.l.ew(this.pTD, intValue);
+                        this.pTD = intValue + intValue2;
+                        this.pTE = (intValue2 == 0 ? 1 : 0) + this.pTD;
                     }
-                    this.pJU = 1;
+                    this.pTo = 1;
                     return;
                 }
-                this.pKl = new kotlin.b.h(this.pKj, l.z(d.this.pKh));
-                this.pKk = -1;
-                this.pJU = 1;
+                this.pTF = new kotlin.b.h(this.pTD, l.z(d.this.pTB));
+                this.pTE = -1;
+                this.pTo = 1;
                 return;
             }
-            this.pJU = 0;
-            this.pKl = null;
+            this.pTo = 0;
+            this.pTF = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
-        /* renamed from: eyu */
+        /* renamed from: eCj */
         public kotlin.b.h next() {
-            if (this.pJU == -1) {
-                eyt();
+            if (this.pTo == -1) {
+                eCi();
             }
-            if (this.pJU == 0) {
+            if (this.pTo == 0) {
                 throw new NoSuchElementException();
             }
-            kotlin.b.h hVar = this.pKl;
+            kotlin.b.h hVar = this.pTF;
             if (hVar == null) {
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.ranges.IntRange");
             }
-            this.pKl = null;
-            this.pJU = -1;
+            this.pTF = null;
+            this.pTo = -1;
             return hVar;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.pJU == -1) {
-                eyt();
+            if (this.pTo == -1) {
+                eCi();
             }
-            return this.pJU == 1;
+            return this.pTo == 1;
         }
     }
 

@@ -7,22 +7,22 @@ import org.json.JSONObject;
 public class j {
     private static JSONObject mData;
     private static String mType;
-    private static String oon;
-    private static int ooo;
-    private static int oop;
-    private static int ooq = -1;
+    private static String oxI;
+    private static int oxJ;
+    private static int oxK;
+    private static int oxL = -1;
 
-    public static void WR(String str) {
+    public static void Xv(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
-            ooq = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
-            if (ooq == 0) {
+            oxL = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
+            if (oxL == 0) {
                 mData = jSONObject.optJSONObject("data");
                 if (mData != null) {
                     mType = mData.optString("type");
-                    oon = mData.optString("third_id");
-                    ooo = mData.optInt("has_sub");
-                    oop = mData.optInt("notify");
+                    oxI = mData.optString("third_id");
+                    oxJ = mData.optInt("has_sub");
+                    oxK = mData.optInt("notify");
                 }
             }
         } catch (JSONException e) {
@@ -30,14 +30,14 @@ public class j {
         }
     }
 
-    private static void beH() {
+    private static void bhh() {
         if (mData != null) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("type", mType);
-                jSONObject.put("third_id", oon);
-                jSONObject.put("has_sub", "" + ooo);
-                jSONObject.put("notify", "" + oop);
+                jSONObject.put("third_id", oxI);
+                jSONObject.put("has_sub", "" + oxJ);
+                jSONObject.put("notify", "" + oxK);
                 mData = jSONObject;
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -46,28 +46,28 @@ public class j {
     }
 
     public static String getType() {
-        return WS("type") ? mType : "";
+        return Xw("type") ? mType : "";
     }
 
-    public static void zz(boolean z) {
-        ooo = z ? 1 : 0;
-        beH();
+    public static void zK(boolean z) {
+        oxJ = z ? 1 : 0;
+        bhh();
     }
 
     public static boolean isSubscribed() {
-        return WS("has_sub") && ooo == 1;
+        return Xw("has_sub") && oxJ == 1;
     }
 
-    public static String ebK() {
-        return WS("third_id") ? oon : "";
+    public static String efz() {
+        return Xw("third_id") ? oxI : "";
     }
 
     public static boolean isNeedNotify() {
-        return WS("notify") && oop == 1;
+        return Xw("notify") && oxK == 1;
     }
 
     private static boolean isDataValid() {
-        return ooq == 0;
+        return oxL == 0;
     }
 
     public static JSONObject getData() {
@@ -77,7 +77,7 @@ public class j {
         return null;
     }
 
-    private static boolean WS(String str) {
+    private static boolean Xw(String str) {
         return isDataValid() && mData != null && mData.has(str);
     }
 }

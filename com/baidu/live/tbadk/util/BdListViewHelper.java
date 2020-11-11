@@ -25,15 +25,15 @@ public class BdListViewHelper {
         Context context = TbadkCoreApplication.getInst().getContext();
         switch (headType) {
             case DEFAULT:
-                return BdUtilHelper.getDimens(context, a.e.sdk_ds88) + UtilHelper.getLightStatusBarHeight();
+                return BdUtilHelper.getDimens(context, a.d.sdk_ds88) + UtilHelper.getLightStatusBarHeight();
             case HASTAB:
-                return BdUtilHelper.getDimens(context, a.e.sdk_ds176) + UtilHelper.getLightStatusBarHeight();
+                return BdUtilHelper.getDimens(context, a.d.sdk_ds176) + UtilHelper.getLightStatusBarHeight();
             case HAS_NO_NETWORK_BAR:
-                return BdUtilHelper.getDimens(context, a.e.sdk_ds168) + UtilHelper.getLightStatusBarHeight();
+                return BdUtilHelper.getDimens(context, a.d.sdk_ds168) + UtilHelper.getLightStatusBarHeight();
             case TIP:
-                return BdUtilHelper.getDimens(context, a.e.sdk_ds56);
+                return BdUtilHelper.getDimens(context, a.d.sdk_ds56);
             default:
-                return BdUtilHelper.getDimens(context, a.e.sdk_ds88) + UtilHelper.getLightStatusBarHeight();
+                return BdUtilHelper.getDimens(context, a.d.sdk_ds88) + UtilHelper.getLightStatusBarHeight();
         }
     }
 
@@ -51,9 +51,9 @@ public class BdListViewHelper {
             if (z) {
                 layoutParams.height = getTopMarginWithType(headType);
             } else if (HeadType.DEFAULT == headType) {
-                layoutParams.height = BdUtilHelper.getDimens(context, a.e.sdk_ds170) + UtilHelper.getLightStatusBarHeight();
+                layoutParams.height = BdUtilHelper.getDimens(context, a.d.sdk_ds170) + UtilHelper.getLightStatusBarHeight();
             } else {
-                layoutParams.height = BdUtilHelper.getDimens(context, a.e.sdk_ds240) + UtilHelper.getLightStatusBarHeight();
+                layoutParams.height = BdUtilHelper.getDimens(context, a.d.sdk_ds240) + UtilHelper.getLightStatusBarHeight();
             }
             view.setLayoutParams(layoutParams);
         }
@@ -65,8 +65,8 @@ public class BdListViewHelper {
             return getTopMarginWithType(headType);
         }
         if (HeadType.DEFAULT == headType) {
-            return BdUtilHelper.getDimens(context, a.e.sdk_ds170) + UtilHelper.getLightStatusBarHeight();
+            return BdUtilHelper.getDimens(context, a.d.sdk_ds170) + UtilHelper.getLightStatusBarHeight();
         }
-        return BdUtilHelper.getDimens(context, a.e.sdk_ds240) + UtilHelper.getLightStatusBarHeight();
+        return BdUtilHelper.getDimens(context, a.d.sdk_ds240) + UtilHelper.getLightStatusBarHeight();
     }
 }

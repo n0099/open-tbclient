@@ -14,9 +14,9 @@ public class c {
             if (z) {
                 GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{Color.parseColor(str), Color.parseColor(str2)});
                 if (z2) {
-                    dimension = context.getResources().getDimension(a.e.sdk_ds36);
+                    dimension = context.getResources().getDimension(a.d.sdk_ds36);
                 } else {
-                    dimension = context.getResources().getDimension(a.e.sdk_ds44);
+                    dimension = context.getResources().getDimension(a.d.sdk_ds44);
                 }
                 gradientDrawable.setCornerRadii(new float[]{dimension, dimension, dimension, dimension, dimension, dimension, dimension, dimension});
                 if (Build.VERSION.SDK_INT < 16) {
@@ -25,9 +25,9 @@ public class c {
                     view.setBackground(gradientDrawable);
                 }
             } else if (z2) {
-                view.setBackgroundDrawable(context.getResources().getDrawable(a.f.sdk_scene_item_bg_n));
+                view.setBackgroundDrawable(context.getResources().getDrawable(a.e.sdk_scene_item_bg_n));
             } else {
-                view.setBackgroundDrawable(context.getResources().getDrawable(a.f.sdk_land_scene_item_bg_n));
+                view.setBackgroundDrawable(context.getResources().getDrawable(a.e.sdk_land_scene_item_bg_n));
             }
         } catch (Exception e) {
             e.printStackTrace();

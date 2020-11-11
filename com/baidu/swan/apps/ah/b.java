@@ -7,45 +7,45 @@ import com.baidu.swan.apps.v.f;
 /* loaded from: classes10.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static a dqR;
+    private static a dwM;
 
-    public static void aGo() {
-        c.cv(com.baidu.swan.apps.t.a.aua());
+    public static void aIO() {
+        c.cv(com.baidu.swan.apps.t.a.awA());
         if (DEBUG) {
             Log.d("SwanAppScreenshot", "registerScreenshotEvent.");
         }
-        if (dqR == null) {
-            dqR = new a() { // from class: com.baidu.swan.apps.ah.b.1
+        if (dwM == null) {
+            dwM = new a() { // from class: com.baidu.swan.apps.ah.b.1
                 @Override // com.baidu.swan.apps.ah.a
                 public void a(c.b bVar) {
-                    b.aGq();
+                    b.aIQ();
                     b.b(bVar);
                 }
             };
         }
-        c.a(dqR);
+        c.a(dwM);
     }
 
-    public static void aGp() {
+    public static void aIP() {
         if (DEBUG) {
             Log.d("SwanAppScreenshot", "unRegisterScreenshotEvent.");
         }
-        if (dqR != null) {
-            c.b(dqR);
-            dqR = null;
+        if (dwM != null) {
+            c.b(dwM);
+            dwM = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void aGq() {
-        f.axo().b(new com.baidu.swan.apps.event.a.b("onUserCaptureScreen"));
+    public static void aIQ() {
+        f.azO().b(new com.baidu.swan.apps.event.a.b("onUserCaptureScreen"));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(c.b bVar) {
-        SwanAppActivity awY = f.axo().awY();
-        if (awY != null) {
-            com.baidu.swan.apps.t.a.aub().a(awY, bVar.mImagePath, bVar.drd);
+        SwanAppActivity azy = f.azO().azy();
+        if (azy != null) {
+            com.baidu.swan.apps.t.a.awB().a(azy, bVar.mImagePath, bVar.dwY);
         }
     }
 }

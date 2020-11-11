@@ -3,7 +3,7 @@ package com.baidu.poly.a.a;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public abstract class d<K, V> {
-    private Map<K, V> map = com.baidu.poly.util.e.YR();
+    private Map<K, V> map = com.baidu.poly.util.e.abq();
 
     public void b(Map<K, V> map) {
         this.map = map;

@@ -3,31 +3,31 @@ package com.baidu.mapapi.map;
 public final class UiSettings {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.mapsdkplatform.comapi.map.d f2050a;
+    private com.baidu.mapsdkplatform.comapi.map.d f2052a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public UiSettings(com.baidu.mapsdkplatform.comapi.map.d dVar) {
-        this.f2050a = dVar;
+        this.f2052a = dVar;
     }
 
     public boolean isCompassEnabled() {
-        return this.f2050a.q();
+        return this.f2052a.q();
     }
 
     public boolean isOverlookingGesturesEnabled() {
-        return this.f2050a.x();
+        return this.f2052a.x();
     }
 
     public boolean isRotateGesturesEnabled() {
-        return this.f2050a.w();
+        return this.f2052a.w();
     }
 
     public boolean isScrollGesturesEnabled() {
-        return this.f2050a.u();
+        return this.f2052a.u();
     }
 
     public boolean isZoomGesturesEnabled() {
-        return this.f2050a.v();
+        return this.f2052a.v();
     }
 
     public void setAllGesturesEnabled(boolean z) {
@@ -40,34 +40,34 @@ public final class UiSettings {
     }
 
     public void setCompassEnabled(boolean z) {
-        this.f2050a.k(z);
+        this.f2052a.k(z);
     }
 
     public void setDoubleClickZoomEnabled(boolean z) {
-        this.f2050a.s(z);
+        this.f2052a.s(z);
     }
 
     public void setEnlargeCenterWithDoubleClickEnable(boolean z) {
-        this.f2050a.u(z);
+        this.f2052a.u(z);
     }
 
     public void setOverlookingGesturesEnabled(boolean z) {
-        this.f2050a.w(z);
+        this.f2052a.w(z);
     }
 
     public void setRotateGesturesEnabled(boolean z) {
-        this.f2050a.v(z);
+        this.f2052a.v(z);
     }
 
     public void setScrollGesturesEnabled(boolean z) {
-        this.f2050a.q(z);
+        this.f2052a.q(z);
     }
 
     public void setTwoTouchClickZoomEnabled(boolean z) {
-        this.f2050a.t(z);
+        this.f2052a.t(z);
     }
 
     public void setZoomGesturesEnabled(boolean z) {
-        this.f2050a.r(z);
+        this.f2052a.r(z);
     }
 }

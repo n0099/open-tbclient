@@ -43,15 +43,15 @@ public class b extends com.baidu.swan.apps.scheme.actions.b {
         bVar.a(new com.baidu.swan.apps.component.components.e.b.a() { // from class: com.baidu.swan.apps.component.components.e.a.b.1
             @Override // com.baidu.swan.apps.component.components.e.b.a
             public void a(int i, View view, @Nullable Object obj) {
-                c cVar = (c) bVar.aiq();
+                c cVar = (c) bVar.akQ();
                 switch (i) {
                     case 0:
                     case 1:
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.put("type", "loadState");
-                            jSONObject.put("parentId", cVar.cxT);
-                            jSONObject.put("viewId", cVar.cxR);
+                            jSONObject.put("parentId", cVar.cDM);
+                            jSONObject.put("viewId", cVar.cDK);
                             jSONObject.put("loadState", i == 1 ? "finish" : BdStatsConstant.StatsType.ERROR);
                         } catch (JSONException e) {
                             com.baidu.swan.apps.console.c.e("Component-Action-ImageCover", "loadState callback error", e);
@@ -63,12 +63,12 @@ public class b extends com.baidu.swan.apps.scheme.actions.b {
                 }
             }
         });
-        com.baidu.swan.apps.component.b.c ain = bVar.ain();
-        boolean isSuccess = ain.isSuccess();
+        com.baidu.swan.apps.component.b.c akN = bVar.akN();
+        boolean isSuccess = akN.isSuccess();
         if (isSuccess) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         } else {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, ain.msg);
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, akN.msg);
         }
         return isSuccess;
     }
@@ -86,7 +86,7 @@ public class b extends com.baidu.swan.apps.scheme.actions.b {
         }
         com.baidu.swan.apps.component.components.e.b.b bVar = (com.baidu.swan.apps.component.components.e.b.b) com.baidu.swan.apps.component.container.a.d(l);
         if (bVar == null) {
-            String str2 = "can't find imageCoverView component:#" + l.cxR;
+            String str2 = "can't find imageCoverView component:#" + l.cDK;
             com.baidu.swan.apps.console.c.e("Component-Action-ImageCover", str2);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
             return false;
@@ -114,18 +114,18 @@ public class b extends com.baidu.swan.apps.scheme.actions.b {
         }
         com.baidu.swan.apps.component.components.e.b.b bVar = (com.baidu.swan.apps.component.components.e.b.b) com.baidu.swan.apps.component.container.a.d(l);
         if (bVar == null) {
-            String str2 = "can't find imageCoverView component:#" + l.cxR;
+            String str2 = "can't find imageCoverView component:#" + l.cDK;
             com.baidu.swan.apps.console.c.e("Component-Action-ImageCover", str2);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
             return false;
         }
-        com.baidu.swan.apps.component.b.c aip = bVar.aip();
-        boolean isSuccess = aip.isSuccess();
+        com.baidu.swan.apps.component.b.c akP = bVar.akP();
+        boolean isSuccess = akP.isSuccess();
         if (isSuccess) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return isSuccess;
         }
-        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, aip.msg);
+        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, akP.msg);
         return isSuccess;
     }
 

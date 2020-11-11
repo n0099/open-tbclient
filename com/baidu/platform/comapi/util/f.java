@@ -8,8 +8,8 @@ import java.util.concurrent.TimeUnit;
 class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f2946a = Runtime.getRuntime().availableProcessors();
-    private static final int b = Math.min((f2946a * 2) + 1, 8);
+    private static final int f2948a = Runtime.getRuntime().availableProcessors();
+    private static final int b = Math.min((f2948a * 2) + 1, 8);
 
     public static ExecutorService a(String str) {
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(b, b, 60L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue(), new c(str));

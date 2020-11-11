@@ -19,47 +19,47 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public final class c implements b {
-    private final b.C0427b cNv;
+    private final b.C0439b cTo;
 
-    private c(b.C0427b c0427b) {
-        this.cNv = c0427b == null ? new b.C0427b() : c0427b;
+    private c(b.C0439b c0439b) {
+        this.cTo = c0439b == null ? new b.C0439b() : c0439b;
     }
 
-    public static c arm() {
-        return a((b.C0427b) null);
+    public static c atN() {
+        return a((b.C0439b) null);
     }
 
-    public static c a(b.C0427b c0427b) {
-        return new c(c0427b);
+    public static c a(b.C0439b c0439b) {
+        return new c(c0439b);
     }
 
-    public b.C0427b arn() {
-        return this.cNv;
+    public b.C0439b atO() {
+        return this.cTo;
     }
 
-    public c il(int i) {
-        if (isValid() && i != this.cNv.cNu && (this.cNv.cNu == 0 || this.cNv.cNu == this.cNv.cNt)) {
-            this.cNv.cNu = i;
+    public c iv(int i) {
+        if (isValid() && i != this.cTo.cTn && (this.cTo.cTn == 0 || this.cTo.cTn == this.cTo.cTm)) {
+            this.cTo.cTn = i;
         }
         return this;
     }
 
-    public c im(int i) {
+    public c iw(int i) {
         if (isValid()) {
-            this.cNv.cNt = i;
+            this.cTo.cTm = i;
         }
         return this;
     }
 
-    public int aro() {
-        return this.cNv.cNu == 0 ? this.cNv.cNt : this.cNv.cNu;
+    public int atP() {
+        return this.cTo.cTn == 0 ? this.cTo.cTm : this.cTo.cTn;
     }
 
-    public c nU(@Nullable String str) {
-        if (isValid() && !TextUtils.isEmpty(str) && !a(this.cNv.cNs.get(str))) {
-            a nT = a.nT(str);
-            if (a(nT)) {
-                this.cNv.cNs.put(nT.arl(), nT);
+    public c oj(@Nullable String str) {
+        if (isValid() && !TextUtils.isEmpty(str) && !a(this.cTo.cTl.get(str))) {
+            a oi = a.oi(str);
+            if (a(oi)) {
+                this.cTo.cTl.put(oi.atM(), oi);
             }
         }
         return this;
@@ -67,8 +67,8 @@ public final class c implements b {
 
     public boolean isValid() {
         boolean z;
-        synchronized (this.cNv) {
-            z = this.cNv.mIsValid;
+        synchronized (this.cTo) {
+            z = this.cTo.mIsValid;
         }
         return z;
     }
@@ -78,31 +78,31 @@ public final class c implements b {
     }
 
     @NonNull
-    private JSONArray arp() {
+    private JSONArray atQ() {
         JSONArray jSONArray = new JSONArray();
         try {
-            Cursor O = com.baidu.swan.apps.database.a.b.O("", 400);
-            int count = O.getCount();
-            while (O.moveToNext()) {
-                String string = O.getString(O.getColumnIndex("app_id"));
+            Cursor Q = com.baidu.swan.apps.database.a.b.Q("", 400);
+            int count = Q.getCount();
+            while (Q.moveToNext()) {
+                String string = Q.getString(Q.getColumnIndex("app_id"));
                 if (!TextUtils.isEmpty(string)) {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("pkg_id", string);
                     jSONArray.put(jSONObject);
                 }
             }
-            if (cNr) {
+            if (cTk) {
                 Log.i("PurgerStatistic", "queryHisList: cursor=" + count + " items=" + jSONArray.length());
             }
-            if (O != null) {
+            if (Q != null) {
                 if (0 != 0) {
-                    O.close();
+                    Q.close();
                 } else {
-                    O.close();
+                    Q.close();
                 }
             }
         } catch (JSONException e) {
-            if (cNr) {
+            if (cTk) {
                 e.printStackTrace();
                 Log.i("PurgerStatistic", "queryHisList: e=" + e);
             }
@@ -110,43 +110,43 @@ public final class c implements b {
         return jSONArray;
     }
 
-    public void arq() {
-        if (cNr) {
-            Log.i("PurgerStatistic", "performReport: " + this.cNv);
+    public void atR() {
+        if (cTk) {
+            Log.i("PurgerStatistic", "performReport: " + this.cTo);
         }
         if (isValid()) {
             ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.swan.apps.env.c.c.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    c.this.arr();
+                    c.this.atS();
                 }
             }, "PurgerStatistic", 3);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void arr() {
+    public void atS() {
         String str;
         b.a value;
-        synchronized (this.cNv) {
+        synchronized (this.cTo) {
             if (isValid()) {
-                this.cNv.mIsValid = false;
+                this.cTo.mIsValid = false;
                 e eVar = new e();
                 eVar.mFrom = "swan";
                 eVar.mSource = "NA";
-                int aro = aro();
-                eVar.mType = String.valueOf(aro);
+                int atP = atP();
+                eVar.mType = String.valueOf(atP);
                 JSONArray jSONArray = new JSONArray();
-                for (Map.Entry<String, b.a> entry : this.cNv.cNs.entrySet()) {
+                for (Map.Entry<String, b.a> entry : this.cTo.cTl.entrySet()) {
                     if (!TextUtils.isEmpty(entry.getKey()) && (value = entry.getValue()) != null && value.isValid()) {
                         jSONArray.put(value.toJSONObject());
                     }
                 }
                 eVar.u("purged_list", jSONArray);
-                if (7 == aro) {
-                    eVar.u("history_list", arp());
+                if (7 == atP) {
+                    eVar.u("history_list", atQ());
                 }
-                if (cNr) {
+                if (cTk) {
                     JSONObject jSONObject = eVar.toJSONObject();
                     if (jSONObject == null) {
                         str = "null";

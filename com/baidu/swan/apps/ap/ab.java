@@ -6,29 +6,29 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 /* loaded from: classes10.dex */
 public class ab {
-    public static void aKh() {
-        String aKi = aKi();
-        if (!TextUtils.isEmpty(aKi)) {
+    public static void aMH() {
+        String aMI = aMI();
+        if (!TextUtils.isEmpty(aMI)) {
             if (com.baidu.swan.apps.b.DEBUG) {
-                Log.d("SwanAppRefererUtils", "call setRefererPattern for Slave Webview; referer is " + aKi);
+                Log.d("SwanAppRefererUtils", "call setRefererPattern for Slave Webview; referer is " + aMI);
             }
-            WebSettingsGlobalBlink.setRefererPattern(aKi, com.baidu.swan.apps.r.d.atR());
+            WebSettingsGlobalBlink.setRefererPattern(aMI, com.baidu.swan.apps.r.d.awr());
         }
     }
 
-    public static String aKi() {
+    public static String aMI() {
         if (com.baidu.swan.apps.b.DEBUG) {
-            Log.d("SwanAppRefererUtils", "getFixedReferer: " + uc("https://smartapps.cn/%s/%s/page-frame.html"));
+            Log.d("SwanAppRefererUtils", "getFixedReferer: " + uq("https://smartapps.cn/%s/%s/page-frame.html"));
         }
-        return uc("https://smartapps.cn/%s/%s/page-frame.html");
+        return uq("https://smartapps.cn/%s/%s/page-frame.html");
     }
 
-    public static boolean ub(String str) {
+    public static boolean up(String str) {
         return !TextUtils.isEmpty(str) && str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
     }
 
-    public static String uc(String str) {
-        com.baidu.swan.apps.runtime.e aEU = com.baidu.swan.apps.runtime.e.aEU();
-        return aEU != null ? String.format(str, aEU.getAppKey(), aEU.aFq()) : "";
+    public static String uq(String str) {
+        com.baidu.swan.apps.runtime.e aHu = com.baidu.swan.apps.runtime.e.aHu();
+        return aHu != null ? String.format(str, aHu.getAppKey(), aHu.aHQ()) : "";
     }
 }

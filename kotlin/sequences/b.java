@@ -8,14 +8,14 @@ import kotlin.jvm.internal.q;
 @kotlin.h
 /* loaded from: classes10.dex */
 public final class b<T> implements c<T> {
-    private final kotlin.jvm.a.a<T> pJW;
-    private final kotlin.jvm.a.b<T, T> pJX;
+    private final kotlin.jvm.a.a<T> pTq;
+    private final kotlin.jvm.a.b<T, T> pTr;
 
     @kotlin.h
     /* loaded from: classes10.dex */
     public static final class a implements Iterator<T> {
         private T nextItem;
-        private int pJU = -2;
+        private int pTo = -2;
 
         @Override // java.util.Iterator
         public void remove() {
@@ -26,44 +26,44 @@ public final class b<T> implements c<T> {
         a() {
         }
 
-        private final void eyt() {
+        private final void eCi() {
             T t;
-            if (this.pJU == -2) {
-                t = (T) b.this.pJW.invoke();
+            if (this.pTo == -2) {
+                t = (T) b.this.pTq.invoke();
             } else {
-                kotlin.jvm.a.b bVar = b.this.pJX;
+                kotlin.jvm.a.b bVar = b.this.pTr;
                 T t2 = this.nextItem;
                 if (t2 == null) {
-                    q.eya();
+                    q.eBP();
                 }
                 t = (T) bVar.invoke(t2);
             }
             this.nextItem = t;
-            this.pJU = this.nextItem == null ? 0 : 1;
+            this.pTo = this.nextItem == null ? 0 : 1;
         }
 
         @Override // java.util.Iterator
         public T next() {
-            if (this.pJU < 0) {
-                eyt();
+            if (this.pTo < 0) {
+                eCi();
             }
-            if (this.pJU == 0) {
+            if (this.pTo == 0) {
                 throw new NoSuchElementException();
             }
             T t = this.nextItem;
             if (t == null) {
                 throw new TypeCastException("null cannot be cast to non-null type T");
             }
-            this.pJU = -1;
+            this.pTo = -1;
             return t;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.pJU < 0) {
-                eyt();
+            if (this.pTo < 0) {
+                eCi();
             }
-            return this.pJU == 1;
+            return this.pTo == 1;
         }
     }
 
@@ -73,8 +73,8 @@ public final class b<T> implements c<T> {
     public b(kotlin.jvm.a.a<? extends T> aVar, kotlin.jvm.a.b<? super T, ? extends T> bVar) {
         q.n(aVar, "getInitialValue");
         q.n(bVar, "getNextValue");
-        this.pJW = aVar;
-        this.pJX = bVar;
+        this.pTq = aVar;
+        this.pTr = bVar;
     }
 
     @Override // kotlin.sequences.c

@@ -11,16 +11,16 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.voice.VoiceManager;
 /* loaded from: classes.dex */
 public class VoiceButton extends ImageView {
-    f mUJ;
-    private boolean mUL;
+    f naG;
+    private boolean naH;
 
     public VoiceButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mUL = false;
+        this.naH = false;
     }
 
     public void setRecorderView(f fVar) {
-        this.mUJ = fVar;
+        this.naG = fVar;
         a recorderManager = getRecorderManager();
         if (recorderManager != null) {
             recorderManager.a(fVar);
@@ -34,10 +34,10 @@ public class VoiceButton extends ImageView {
             if (recorderManager == null || !recorderManager.su()) {
                 return false;
             }
-            this.mUL = recorderManager.a(this.mUJ, -1);
+            this.naH = recorderManager.a(this.naG, -1);
             setPressed(true);
         } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-            if (this.mUL && recorderManager != null) {
+            if (this.naH && recorderManager != null) {
                 recorderManager.stopRecord();
             }
             setPressed(false);

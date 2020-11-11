@@ -49,7 +49,7 @@ public class PullViewHelper {
     private int pullview_backgroundColor_day = PULLVIEW_BGCOLOR_DAY_DEFAULT;
     private int pullview_backgroundColor_night = PULLVIEW_BGCOLOR_NIGHT_DEFAULT;
     private PorterDuffColorFilter nightColorSkin = new PorterDuffColorFilter(IMAGE_COLORFILTER_NIGHT, PorterDuff.Mode.MULTIPLY);
-    private int[] defaultResources = {a.f.sdk_listview_pull_refresh01, a.f.sdk_listview_pull_refresh02};
+    private int[] defaultResources = {a.e.sdk_listview_pull_refresh01, a.e.sdk_listview_pull_refresh02};
 
     /* loaded from: classes4.dex */
     public interface CallBack {

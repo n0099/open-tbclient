@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes21.dex */
 public class d extends com.baidu.adp.widget.ListView.a<e, com.baidu.tieba.card.a.a<f>> {
-    private f hWD;
+    private f icA;
     private TbPageContext<?> mPageContext;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.af$a] */
@@ -23,18 +23,18 @@ public class d extends com.baidu.adp.widget.ListView.a<e, com.baidu.tieba.card.a
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aN */
+    /* renamed from: aP */
     public com.baidu.tieba.card.a.a c(ViewGroup viewGroup) {
-        this.hWD = new f(this.mPageContext);
-        return new com.baidu.tieba.card.a.a(this.hWD);
+        this.icA = new f(this.mPageContext);
+        return new com.baidu.tieba.card.a.a(this.icA);
     }
 
     /* renamed from: a  reason: avoid collision after fix types in other method */
     protected View a2(int i, View view, ViewGroup viewGroup, e eVar, com.baidu.tieba.card.a.a aVar) {
-        if (aVar == null || aVar.cmx() == null) {
+        if (aVar == null || aVar.coY() == null) {
             return null;
         }
-        aVar.cmx().a(eVar);
+        aVar.coY().a(eVar);
         return aVar.getView();
     }
 }

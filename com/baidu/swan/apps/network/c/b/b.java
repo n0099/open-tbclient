@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public abstract class b {
-    public abstract void aAs();
+    public abstract void aCS();
 
     @NonNull
     public abstract String getNodeName();

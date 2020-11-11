@@ -10,30 +10,30 @@ import com.facebook.drawee.drawable.d;
 import javax.annotation.Nullable;
 /* loaded from: classes14.dex */
 public class a extends Drawable implements Animatable, com.facebook.b.a.a {
-    private static final Class<?> oAy = a.class;
-    private static final b oIo = new c();
+    private static final Class<?> oJR = a.class;
+    private static final b oRH = new c();
     @Nullable
     private d mDrawableProperties;
     private volatile boolean mIsRunning;
     private long mStartTimeMs;
     @Nullable
-    private com.facebook.fresco.animation.a.a oHI;
+    private com.facebook.fresco.animation.d.b oRI;
+    private long oRJ;
+    private long oRK;
+    private int oRL;
+    private long oRM;
+    private long oRN;
+    private int oRO;
+    private volatile b oRP;
     @Nullable
-    private com.facebook.fresco.animation.d.b oIp;
-    private long oIq;
-    private long oIr;
-    private int oIs;
-    private long oIt;
-    private long oIu;
-    private int oIv;
-    private volatile b oIw;
+    private volatile InterfaceC0977a oRQ;
+    private final Runnable oRR;
     @Nullable
-    private volatile InterfaceC0958a oIx;
-    private final Runnable oIy;
+    private com.facebook.fresco.animation.a.a oRb;
 
     /* renamed from: com.facebook.fresco.animation.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes14.dex */
-    public interface InterfaceC0958a {
+    public interface InterfaceC0977a {
         void a(a aVar, com.facebook.fresco.animation.d.b bVar, int i, boolean z, boolean z2, long j, long j2, long j3, long j4, long j5, long j6, long j7);
     }
 
@@ -42,41 +42,41 @@ public class a extends Drawable implements Animatable, com.facebook.b.a.a {
     }
 
     public a(@Nullable com.facebook.fresco.animation.a.a aVar) {
-        this.oIt = 8L;
-        this.oIu = 0L;
-        this.oIw = oIo;
-        this.oIx = null;
-        this.oIy = new Runnable() { // from class: com.facebook.fresco.animation.c.a.1
+        this.oRM = 8L;
+        this.oRN = 0L;
+        this.oRP = oRH;
+        this.oRQ = null;
+        this.oRR = new Runnable() { // from class: com.facebook.fresco.animation.c.a.1
             @Override // java.lang.Runnable
             public void run() {
-                a.this.unscheduleSelf(a.this.oIy);
+                a.this.unscheduleSelf(a.this.oRR);
                 a.this.invalidateSelf();
             }
         };
-        this.oHI = aVar;
-        this.oIp = a(this.oHI);
+        this.oRb = aVar;
+        this.oRI = a(this.oRb);
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        return this.oHI == null ? super.getIntrinsicWidth() : this.oHI.getIntrinsicWidth();
+        return this.oRb == null ? super.getIntrinsicWidth() : this.oRb.getIntrinsicWidth();
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
-        return this.oHI == null ? super.getIntrinsicHeight() : this.oHI.getIntrinsicHeight();
+        return this.oRb == null ? super.getIntrinsicHeight() : this.oRb.getIntrinsicHeight();
     }
 
     @Override // android.graphics.drawable.Animatable
     public void start() {
-        if (!this.mIsRunning && this.oHI != null && this.oHI.getFrameCount() > 1) {
+        if (!this.mIsRunning && this.oRb != null && this.oRb.getFrameCount() > 1) {
             this.mIsRunning = true;
             this.mStartTimeMs = now();
-            this.oIr = this.mStartTimeMs;
-            this.oIq = -1L;
-            this.oIs = -1;
+            this.oRK = this.mStartTimeMs;
+            this.oRJ = -1L;
+            this.oRL = -1;
             invalidateSelf();
-            this.oIw.d(this);
+            this.oRP.d(this);
         }
     }
 
@@ -85,11 +85,11 @@ public class a extends Drawable implements Animatable, com.facebook.b.a.a {
         if (this.mIsRunning) {
             this.mIsRunning = false;
             this.mStartTimeMs = 0L;
-            this.oIr = this.mStartTimeMs;
-            this.oIq = -1L;
-            this.oIs = -1;
-            unscheduleSelf(this.oIy);
-            this.oIw.a(this);
+            this.oRK = this.mStartTimeMs;
+            this.oRJ = -1L;
+            this.oRL = -1;
+            unscheduleSelf(this.oRR);
+            this.oRP.a(this);
         }
     }
 
@@ -101,47 +101,47 @@ public class a extends Drawable implements Animatable, com.facebook.b.a.a {
     @Override // android.graphics.drawable.Drawable
     protected void onBoundsChange(Rect rect) {
         super.onBoundsChange(rect);
-        if (this.oHI != null) {
-            this.oHI.setBounds(rect);
+        if (this.oRb != null) {
+            this.oRb.setBounds(rect);
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (this.oHI != null && this.oIp != null) {
+        if (this.oRb != null && this.oRI != null) {
             long now = now();
-            long max = this.mIsRunning ? (now - this.mStartTimeMs) + this.oIu : Math.max(this.oIq, 0L);
-            int K = this.oIp.K(max, this.oIq);
-            if (K == -1) {
-                K = this.oHI.getFrameCount() - 1;
-                this.oIw.a(this);
+            long max = this.mIsRunning ? (now - this.mStartTimeMs) + this.oRN : Math.max(this.oRJ, 0L);
+            int L = this.oRI.L(max, this.oRJ);
+            if (L == -1) {
+                L = this.oRb.getFrameCount() - 1;
+                this.oRP.a(this);
                 this.mIsRunning = false;
-            } else if (K == 0 && this.oIs != -1 && now >= this.oIr) {
-                this.oIw.b(this);
+            } else if (L == 0 && this.oRL != -1 && now >= this.oRK) {
+                this.oRP.b(this);
             }
-            boolean a2 = this.oHI.a(this, canvas, K);
+            boolean a2 = this.oRb.a(this, canvas, L);
             if (a2) {
-                this.oIw.a(this, K);
-                this.oIs = K;
+                this.oRP.a(this, L);
+                this.oRL = L;
             }
             if (!a2) {
-                ejb();
+                emQ();
             }
             long j = -1;
             long j2 = -1;
             long now2 = now();
             if (this.mIsRunning) {
-                j = this.oIp.hr(now2 - this.mStartTimeMs);
+                j = this.oRI.hN(now2 - this.mStartTimeMs);
                 if (j != -1) {
-                    j2 = j + this.oIt;
-                    hq(j2);
+                    j2 = j + this.oRM;
+                    hM(j2);
                 }
             }
-            InterfaceC0958a interfaceC0958a = this.oIx;
-            if (interfaceC0958a != null) {
-                interfaceC0958a.a(this, this.oIp, K, a2, this.mIsRunning, this.mStartTimeMs, max, this.oIq, now, now2, j, j2);
+            InterfaceC0977a interfaceC0977a = this.oRQ;
+            if (interfaceC0977a != null) {
+                interfaceC0977a.a(this, this.oRI, L, a2, this.mIsRunning, this.mStartTimeMs, max, this.oRJ, now, now2, j, j2);
             }
-            this.oIq = max;
+            this.oRJ = max;
         }
     }
 
@@ -151,8 +151,8 @@ public class a extends Drawable implements Animatable, com.facebook.b.a.a {
             this.mDrawableProperties = new d();
         }
         this.mDrawableProperties.setAlpha(i);
-        if (this.oHI != null) {
-            this.oHI.setAlpha(i);
+        if (this.oRb != null) {
+            this.oRb.setAlpha(i);
         }
     }
 
@@ -162,8 +162,8 @@ public class a extends Drawable implements Animatable, com.facebook.b.a.a {
             this.mDrawableProperties = new d();
         }
         this.mDrawableProperties.setColorFilter(colorFilter);
-        if (this.oHI != null) {
-            this.oHI.setColorFilter(colorFilter);
+        if (this.oRb != null) {
+            this.oRb.setColorFilter(colorFilter);
         }
     }
 
@@ -172,22 +172,29 @@ public class a extends Drawable implements Animatable, com.facebook.b.a.a {
         return -3;
     }
 
+    public int getFrameCount() {
+        if (this.oRb == null) {
+            return 0;
+        }
+        return this.oRb.getFrameCount();
+    }
+
     public void a(@Nullable b bVar) {
         if (bVar == null) {
-            bVar = oIo;
+            bVar = oRH;
         }
-        this.oIw = bVar;
+        this.oRP = bVar;
     }
 
-    private void hq(long j) {
-        this.oIr = this.mStartTimeMs + j;
-        scheduleSelf(this.oIy, this.oIr);
+    private void hM(long j) {
+        this.oRK = this.mStartTimeMs + j;
+        scheduleSelf(this.oRR, this.oRK);
     }
 
-    private void ejb() {
-        this.oIv++;
+    private void emQ() {
+        this.oRO++;
         if (com.facebook.common.c.a.isLoggable(2)) {
-            com.facebook.common.c.a.a(oAy, "Dropped a frame. Count: %s", Integer.valueOf(this.oIv));
+            com.facebook.common.c.a.a(oJR, "Dropped a frame. Count: %s", Integer.valueOf(this.oRO));
         }
     }
 
@@ -205,18 +212,18 @@ public class a extends Drawable implements Animatable, com.facebook.b.a.a {
 
     @Override // android.graphics.drawable.Drawable
     protected boolean onLevelChange(int i) {
-        if (this.mIsRunning || this.oIq == i) {
+        if (this.mIsRunning || this.oRJ == i) {
             return false;
         }
-        this.oIq = i;
+        this.oRJ = i;
         invalidateSelf();
         return true;
     }
 
     @Override // com.facebook.b.a.a
-    public void egZ() {
-        if (this.oHI != null) {
-            this.oHI.clear();
+    public void ekO() {
+        if (this.oRb != null) {
+            this.oRb.clear();
         }
     }
 }

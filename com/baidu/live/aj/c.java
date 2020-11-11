@@ -1,45 +1,41 @@
 package com.baidu.live.aj;
 
-import com.baidu.live.data.AlaWheatInfoData;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.FrameLayout;
 import com.baidu.live.data.w;
-import java.util.List;
+import com.baidu.live.s.f;
 /* loaded from: classes4.dex */
 public interface c {
-    void F(String str, boolean z);
 
-    boolean UI();
+    /* loaded from: classes4.dex */
+    public interface a {
+        void UR();
 
-    AlaWheatInfoData UJ();
+        void US();
+    }
 
-    List<AlaWheatInfoData> UK();
+    void QM();
 
-    List<AlaWheatInfoData> UL();
-
-    String UM();
-
-    String UN();
-
-    w UO();
-
-    String UP();
-
-    void UQ();
-
-    void UR();
+    boolean QW();
 
     void a(a aVar);
 
-    String getCustomRoomId();
+    void a(f fVar);
 
-    boolean iI(String str);
+    void b(FrameLayout frameLayout);
 
-    boolean iJ(String str);
+    View getEnterView();
 
-    boolean iK(String str);
+    void onDestroy();
 
-    AlaWheatInfoData iL(String str);
+    boolean onKeyDown(int i, KeyEvent keyEvent);
 
-    boolean iM(String str);
+    void onRequestPermissionsResult(int i, String[] strArr, int[] iArr);
 
-    void muteOrUnmuteAudio(boolean z);
+    void onStarted();
+
+    void onStopped();
+
+    void q(w wVar);
 }

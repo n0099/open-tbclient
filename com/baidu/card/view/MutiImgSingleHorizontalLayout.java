@@ -66,11 +66,11 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<Abs
     }
 
     private void setImageData(bw bwVar) {
-        ArrayList<MediaData> bkj = bwVar.bkj();
-        if (k.bhh().isShowImages() && y.getCount(bkj) != 0) {
+        ArrayList<MediaData> bmJ = bwVar.bmJ();
+        if (k.bjH().isShowImages() && y.getCount(bmJ) != 0) {
             LinkedList<MediaData> linkedList = new LinkedList<>();
-            for (int i = 0; i < bkj.size(); i++) {
-                MediaData mediaData = (MediaData) y.getItem(bkj, i);
+            for (int i = 0; i < bmJ.size(); i++) {
+                MediaData mediaData = (MediaData) y.getItem(bmJ, i);
                 if (mediaData != null && mediaData.getType() == 3) {
                     linkedList.add(mediaData);
                 }
@@ -83,7 +83,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<Abs
                 this.akI.setVisibility(0);
                 this.akU.setVisibility(0);
                 this.akI.setConrers(15);
-                a((MediaData) y.getItem(bkj, 0), this.akI, true, false, true, 0);
+                a((MediaData) y.getItem(bmJ, 0), this.akI, true, false, true, 0);
                 return;
             }
             this.akI.setVisibility(8);
@@ -108,9 +108,9 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<Abs
     /* renamed from: b */
     public void H(AbsThreadDataSupport absThreadDataSupport) {
         this.afI = absThreadDataSupport;
-        bw bhz = absThreadDataSupport.bhz();
-        ay.a(this.mTitle, bhz);
-        setImageData(bhz);
+        bw bjZ = absThreadDataSupport.bjZ();
+        ay.a(this.mTitle, bjZ);
+        setImageData(bjZ);
     }
 
     public void setMarginsTop(View view, int i) {

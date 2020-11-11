@@ -19,16 +19,16 @@ public final class aj extends com.vivo.push.v {
 
     @Override // com.vivo.push.v
     protected final void a(com.vivo.push.y yVar) {
-        if (this.f4712a == null) {
+        if (this.f4714a == null) {
             com.vivo.push.util.p.d("SendCommandTask", "SendCommandTask " + yVar + " ; mContext is Null");
         } else if (yVar == null) {
             com.vivo.push.util.p.d("SendCommandTask", "SendCommandTask pushCommand is Null");
         } else {
-            com.vivo.push.model.b a2 = com.vivo.push.util.s.a(this.f4712a);
+            com.vivo.push.model.b a2 = com.vivo.push.util.s.a(this.f4714a);
             switch (yVar.b()) {
                 case 0:
                     if (com.vivo.push.p.a().e()) {
-                        Context context = this.f4712a;
+                        Context context = this.f4714a;
                         Intent intent = new Intent();
                         intent.setPackage(context.getPackageName());
                         intent.setClassName(context.getPackageName(), "com.vivo.push.sdk.service.CommandService");
@@ -42,7 +42,7 @@ public final class aj extends com.vivo.push.v {
                                 packageManager.setComponentEnabledSetting(componentName, 2, 1);
                             }
                         }
-                        Context context2 = this.f4712a;
+                        Context context2 = this.f4714a;
                         Intent intent2 = new Intent();
                         intent2.setPackage(context2.getPackageName());
                         intent2.setClassName(context2.getPackageName(), "com.vivo.push.sdk.service.LinkProxyActivity");
@@ -76,23 +76,23 @@ public final class aj extends com.vivo.push.v {
                     }
                     break;
                 case UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE /* 2009 */:
-                    com.vivo.push.util.p.a(ClientConfigManagerImpl.getInstance(this.f4712a).isDebug());
+                    com.vivo.push.util.p.a(ClientConfigManagerImpl.getInstance(this.f4714a).isDebug());
                     if (com.vivo.push.util.p.a()) {
                         com.vivo.push.p.a().k();
                         com.vivo.push.util.a aVar = new com.vivo.push.util.a();
-                        aVar.a(this.f4712a, "com.vivo.push_preferences.hybridapptoken_v1");
+                        aVar.a(this.f4714a, "com.vivo.push_preferences.hybridapptoken_v1");
                         aVar.a();
                         com.vivo.push.util.a aVar2 = new com.vivo.push.util.a();
-                        aVar2.a(this.f4712a, "com.vivo.push_preferences.appconfig_v1");
+                        aVar2.a(this.f4714a, "com.vivo.push_preferences.appconfig_v1");
                         aVar2.a();
                         if (!com.vivo.push.p.a().e()) {
-                            ClientConfigManagerImpl.getInstance(this.f4712a).clearPush();
+                            ClientConfigManagerImpl.getInstance(this.f4714a).clearPush();
                             break;
                         }
                     }
                     break;
                 case IMConstants.IM_MSG_TYPE_SHIELD /* 2011 */:
-                    com.vivo.push.util.p.a(ClientConfigManagerImpl.getInstance(this.f4712a).isDebug(((com.vivo.push.b.z) yVar).d()));
+                    com.vivo.push.util.p.a(ClientConfigManagerImpl.getInstance(this.f4714a).isDebug(((com.vivo.push.b.z) yVar).d()));
                     break;
             }
             if (a2 == null) {
@@ -105,7 +105,7 @@ public final class aj extends com.vivo.push.v {
                 yVar = new com.vivo.push.b.e();
                 com.vivo.push.util.p.d("SendCommandTask", "SendCommandTask " + yVar + " ; pkgName is InBlackList ");
             }
-            com.vivo.push.a.a.a(this.f4712a, a4, yVar);
+            com.vivo.push.a.a.a(this.f4714a, a4, yVar);
         }
     }
 }

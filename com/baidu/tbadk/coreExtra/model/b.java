@@ -11,18 +11,18 @@ import com.baidu.tbadk.coreExtra.data.m;
 import com.baidu.tbadk.coreExtra.message.ChannelConfigResponseMessage;
 /* loaded from: classes.dex */
 public class b {
-    private a eZM;
-    private int eZN;
-    private int eZO;
-    private HttpMessageListener eZP = new HttpMessageListener(CmdConfigHttp.CMD_GET_CHANNEL_CONFIG) { // from class: com.baidu.tbadk.coreExtra.model.b.1
+    private a ffD;
+    private int ffE;
+    private int ffF;
+    private HttpMessageListener ffG = new HttpMessageListener(CmdConfigHttp.CMD_GET_CHANNEL_CONFIG) { // from class: com.baidu.tbadk.coreExtra.model.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof ChannelConfigResponseMessage) {
                 ChannelConfigResponseMessage channelConfigResponseMessage = (ChannelConfigResponseMessage) httpResponsedMessage;
                 b.this.mData = channelConfigResponseMessage.getData();
-                if (b.this.eZM != null) {
-                    b.this.eZM.a(channelConfigResponseMessage.isSuccess(), channelConfigResponseMessage.getData());
+                if (b.this.ffD != null) {
+                    b.this.ffD.a(channelConfigResponseMessage.isSuccess(), channelConfigResponseMessage.getData());
                 }
                 if (channelConfigResponseMessage.isSuccess()) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921493, null));
@@ -40,16 +40,16 @@ public class b {
     }
 
     public b() {
-        MessageManager.getInstance().registerListener(this.eZP);
-        this.eZN = com.baidu.tbadk.core.sharedPref.b.bnH().getInt("key_common_category_version", 0);
-        this.eZO = com.baidu.tbadk.core.sharedPref.b.bnH().getInt("key_special_category_version", 0);
+        MessageManager.getInstance().registerListener(this.ffG);
+        this.ffE = com.baidu.tbadk.core.sharedPref.b.bqh().getInt("key_common_category_version", 0);
+        this.ffF = com.baidu.tbadk.core.sharedPref.b.bqh().getInt("key_special_category_version", 0);
     }
 
     public void startLoad() {
         MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_CHANNEL_CONFIG));
     }
 
-    public l buu() {
+    public l bwU() {
         if (this.mFinalData != null) {
             return this.mFinalData;
         }
@@ -57,28 +57,28 @@ public class b {
             return null;
         }
         l lVar = new l();
-        if (this.mData != null && this.mData.bsg() != null && this.eZO < this.mData.bsg().getVersion()) {
-            lVar.setIcon(this.mData.bsg().getIcon());
-            lVar.Cv(this.mData.bsg().getPopText());
-            lVar.setTabCode(this.mData.bsg().bse());
-            lVar.setTid(this.mData.bsg().getTid());
-            lVar.qt(l.eWR);
-        } else if (this.mData != null && this.mData.bsf() > 0 && this.eZN < this.mData.bsf()) {
-            lVar.qt(l.eWQ);
+        if (this.mData != null && this.mData.buG() != null && this.ffF < this.mData.buG().getVersion()) {
+            lVar.setIcon(this.mData.buG().getIcon());
+            lVar.CJ(this.mData.buG().getPopText());
+            lVar.setTabCode(this.mData.buG().buE());
+            lVar.setTid(this.mData.buG().getTid());
+            lVar.qD(l.fcH);
+        } else if (this.mData != null && this.mData.buF() > 0 && this.ffE < this.mData.buF()) {
+            lVar.qD(l.fcG);
         } else {
-            lVar.qt(l.eWP);
+            lVar.qD(l.fcF);
         }
         this.mFinalData = lVar;
         return lVar;
     }
 
-    public void qC(int i) {
-        if (i == l.eWR) {
-            if (this.mData.bsg() != null) {
-                com.baidu.tbadk.core.sharedPref.b.bnH().putInt("key_special_category_version", this.mData.bsg().getVersion());
+    public void qM(int i) {
+        if (i == l.fcH) {
+            if (this.mData.buG() != null) {
+                com.baidu.tbadk.core.sharedPref.b.bqh().putInt("key_special_category_version", this.mData.buG().getVersion());
             }
-        } else if (i == l.eWQ) {
-            com.baidu.tbadk.core.sharedPref.b.bnH().putInt("key_common_category_version", this.mData.bsf());
+        } else if (i == l.fcG) {
+            com.baidu.tbadk.core.sharedPref.b.bqh().putInt("key_common_category_version", this.mData.buF());
         }
     }
 }

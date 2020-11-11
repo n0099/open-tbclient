@@ -4,7 +4,7 @@ import android.webkit.JsResult;
 /* loaded from: classes4.dex */
 public abstract class c implements b {
     @Override // com.baidu.live.view.web.b
-    public void hN(String str) {
+    public void hU(String str) {
     }
 
     @Override // com.baidu.live.view.web.b
@@ -12,7 +12,7 @@ public abstract class c implements b {
     }
 
     @Override // com.baidu.live.view.web.b
-    public void hO(String str) {
+    public void hV(String str) {
     }
 
     @Override // com.baidu.live.view.web.b
@@ -20,7 +20,7 @@ public abstract class c implements b {
     }
 
     @Override // com.baidu.live.view.web.b
-    public void Uu() {
+    public void WU() {
     }
 
     @Override // com.baidu.live.view.web.b
@@ -29,11 +29,11 @@ public abstract class c implements b {
     }
 
     @Override // com.baidu.live.view.web.b
-    public void iC(String str) {
+    public void iP(String str) {
     }
 
     @Override // com.baidu.live.view.web.b
-    public boolean iD(String str) {
+    public boolean iQ(String str) {
         return false;
     }
 

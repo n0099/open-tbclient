@@ -26,24 +26,24 @@ import rx.d;
 /* loaded from: classes10.dex */
 public final class f extends j implements com.baidu.swan.pms.d.a.a, com.baidu.swan.pms.node.d.c {
     private String TAG;
-    private com.baidu.swan.pms.utils.f cGS;
-    private rx.j<i> cHv;
-    private rx.j<? super i> cNh;
-    private final g cNi;
-    private com.baidu.swan.pms.a.c<i> cNj;
-    private final d cNl;
+    private com.baidu.swan.pms.utils.f cML;
+    private rx.j<i> cNo;
+    private rx.j<? super i> cTa;
+    private final g cTb;
+    private com.baidu.swan.pms.a.c<i> cTc;
+    private final d cTe;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static int sCount = 0;
-    private static final PMSDownloadType cNg = PMSDownloadType.SO_LIB;
-    private final Map<String, e> cMJ = new HashMap();
-    private final Map<String, com.baidu.swan.pms.e.a> cNk = new HashMap();
-    private final com.baidu.swan.pms.node.c<JSONArray> cNm = new com.baidu.swan.pms.node.c<JSONArray>() { // from class: com.baidu.swan.apps.env.b.f.1
+    private static final PMSDownloadType cSZ = PMSDownloadType.SO_LIB;
+    private final Map<String, e> cSC = new HashMap();
+    private final Map<String, com.baidu.swan.pms.e.a> cTd = new HashMap();
+    private final com.baidu.swan.pms.node.c<JSONArray> cTf = new com.baidu.swan.pms.node.c<JSONArray>() { // from class: com.baidu.swan.apps.env.b.f.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.pms.node.c
         /* renamed from: A */
         public void W(@NonNull JSONArray jSONArray) {
-            if (jSONArray != null && !f.this.cMJ.isEmpty()) {
-                for (e eVar : f.this.cMJ.values()) {
+            if (jSONArray != null && !f.this.cSC.isEmpty()) {
+                for (e eVar : f.this.cSC.values()) {
                     if (eVar != null && eVar.a(f.this)) {
                         eVar.W(jSONArray);
                     }
@@ -61,20 +61,20 @@ public final class f extends j implements com.baidu.swan.pms.d.a.a, com.baidu.sw
         if (DEBUG) {
             Log.i(this.TAG, "SwanSoUpdater: config=" + dVar + " trace=" + Log.getStackTraceString(new Exception()));
         }
-        this.cNi = gVar;
-        this.cNl = dVar;
+        this.cTb = gVar;
+        this.cTe = dVar;
         if (dVar != null) {
-            Iterator<String> it = dVar.aqV().iterator();
+            Iterator<String> it = dVar.atw().iterator();
             while (it.hasNext()) {
                 String next = it.next();
-                com.baidu.swan.apps.env.b.a nI = com.baidu.swan.apps.env.b.b.nI(next);
-                if (nI == null) {
+                com.baidu.swan.apps.env.b.a nW = com.baidu.swan.apps.env.b.b.nW(next);
+                if (nW == null) {
                     dVar.V(next, false);
-                } else if (nI.aqP()) {
+                } else if (nW.atq()) {
                     dVar.V(next, true);
                 } else {
-                    String aqO = nI.aqO();
-                    e a2 = c.cMK.a(this, aqO);
+                    String atp = nW.atp();
+                    e a2 = c.cSD.a(this, atp);
                     com.baidu.swan.apps.ap.e.b<e> bVar = new com.baidu.swan.apps.ap.e.b<e>() { // from class: com.baidu.swan.apps.env.b.f.2
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.swan.apps.ap.e.b
@@ -84,7 +84,7 @@ public final class f extends j implements com.baidu.swan.pms.d.a.a, com.baidu.sw
                                 Log.i(f.this.TAG, "onCallback: SoUpdating=" + eVar);
                             }
                             if (eVar != null) {
-                                f.this.cNl.V(eVar.aqO(), eVar.arc());
+                                f.this.cTe.V(eVar.atp(), eVar.atD());
                             }
                             f.this.s(null);
                         }
@@ -95,47 +95,47 @@ public final class f extends j implements com.baidu.swan.pms.d.a.a, com.baidu.sw
                         /* renamed from: a */
                         public void M(e eVar) {
                             if (eVar != null) {
-                                f.this.cNl.a(eVar.aqO(), eVar.aqW());
+                                f.this.cTe.a(eVar.atp(), eVar.atx());
                             }
                         }
                     });
-                    this.cMJ.put(aqO, a2);
-                    this.cNk.putAll(com.baidu.swan.pms.e.a.yo(aqO));
+                    this.cSC.put(atp, a2);
+                    this.cTd.putAll(com.baidu.swan.pms.e.a.yC(atp));
                 }
             }
         }
         if (DEBUG) {
-            Log.i(this.TAG, "SoNodeHandler() start mUpdatings=" + this.cMJ.size());
+            Log.i(this.TAG, "SoNodeHandler() start mUpdatings=" + this.cSC.size());
         }
-        if (this.cMJ.isEmpty()) {
+        if (this.cSC.isEmpty()) {
             r(null);
         }
     }
 
     @Override // com.baidu.swan.pms.d.a.a
-    public com.baidu.swan.pms.a.g arf() {
+    public com.baidu.swan.pms.a.g atG() {
         return this;
     }
 
     @Override // com.baidu.swan.pms.d.a.a
-    public com.baidu.swan.pms.node.c<JSONArray> arg() {
-        return this.cNm;
+    public com.baidu.swan.pms.node.c<JSONArray> atH() {
+        return this.cTf;
     }
 
     @Override // com.baidu.swan.pms.d.a.a
     @Nullable
-    public g arh() {
-        return this.cNi;
+    public g atI() {
+        return this.cTb;
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public com.baidu.swan.pms.node.d.c nR(String str) {
-        return TextUtils.equals("so", str) ? this : super.nR(str);
+    public com.baidu.swan.pms.node.d.c og(String str) {
+        return TextUtils.equals("so", str) ? this : super.og(str);
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void anL() {
-        super.anL();
+    public void aqm() {
+        super.aqm();
         if (DEBUG) {
             Log.e(this.TAG, "onFetchSuccess:");
         }
@@ -151,8 +151,8 @@ public final class f extends j implements com.baidu.swan.pms.d.a.a, com.baidu.sw
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void akQ() {
-        super.akQ();
+    public void anq() {
+        super.anq();
         if (DEBUG) {
             Log.e(this.TAG, "onNoPackage:");
         }
@@ -162,36 +162,36 @@ public final class f extends j implements com.baidu.swan.pms.d.a.a, com.baidu.sw
     @Override // com.baidu.swan.pms.a.g
     public void a(com.baidu.swan.pms.utils.f fVar) {
         if (DEBUG) {
-            Log.i(this.TAG, "onPrepareDownload: countSet.size=" + (fVar == null ? 0 : fVar.aZY()));
+            Log.i(this.TAG, "onPrepareDownload: countSet.size=" + (fVar == null ? 0 : fVar.bcy()));
         }
         super.a(fVar);
         if (fVar != null) {
-            this.cGS = fVar;
-            if (!this.cGS.isEmpty()) {
-                anY();
+            this.cML = fVar;
+            if (!this.cML.isEmpty()) {
+                aqz();
             }
         }
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public com.baidu.swan.pms.a.c<i> ari() {
-        if (this.cNj == null) {
-            this.cNj = new b();
+    public com.baidu.swan.pms.a.c<i> atJ() {
+        if (this.cTc == null) {
+            this.cTc = new b();
         }
-        return this.cNj;
+        return this.cTc;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void r(Exception exc) {
         if (DEBUG) {
-            Log.i(this.TAG, "notifyPmsFinish: updatings=" + this.cMJ.size() + " e=" + exc);
+            Log.i(this.TAG, "notifyPmsFinish: updatings=" + this.cSC.size() + " e=" + exc);
         }
-        for (e eVar : this.cMJ.values()) {
-            if (eVar != null && eVar.a(this) && !eVar.arb() && !eVar.ard()) {
+        for (e eVar : this.cSC.values()) {
+            if (eVar != null && eVar.a(this) && !eVar.atC() && !eVar.atE()) {
                 if (DEBUG) {
                     Log.i(this.TAG, "notifyPmsFinish: try install updating=" + eVar);
                 }
-                eVar.ara();
+                eVar.atB();
             }
         }
         s(exc);
@@ -200,10 +200,10 @@ public final class f extends j implements com.baidu.swan.pms.d.a.a, com.baidu.sw
     /* JADX INFO: Access modifiers changed from: private */
     public void s(Exception exc) {
         if (DEBUG) {
-            Log.i(this.TAG, "finishWithUpdatingCheck: updatings=" + this.cMJ.size() + " e=" + exc);
+            Log.i(this.TAG, "finishWithUpdatingCheck: updatings=" + this.cSC.size() + " e=" + exc);
         }
-        for (e eVar : this.cMJ.values()) {
-            if (!eVar.arb()) {
+        for (e eVar : this.cSC.values()) {
+            if (!eVar.atC()) {
                 if (DEBUG) {
                     Log.i(this.TAG, "finishWithUpdatingCheck: return by wait for=" + eVar);
                     return;
@@ -218,14 +218,14 @@ public final class f extends j implements com.baidu.swan.pms.d.a.a, com.baidu.sw
         if (DEBUG) {
             Log.i(this.TAG, "notifyFinalCallback: e=" + Log.getStackTraceString(exc));
         }
-        if (this.cNl != null) {
-            this.cNl.q(exc);
+        if (this.cTe != null) {
+            this.cTe.q(exc);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public e nS(String str) {
-        e eVar = this.cMJ.get(str);
+    public e oh(String str) {
+        e eVar = this.cSC.get(str);
         if (eVar == null || !eVar.a(this)) {
             return null;
         }
@@ -234,47 +234,47 @@ public final class f extends j implements com.baidu.swan.pms.d.a.a, com.baidu.sw
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(final i iVar) {
-        com.baidu.swan.apps.core.pms.c.anI().a(iVar, new c.b() { // from class: com.baidu.swan.apps.env.b.f.4
+        com.baidu.swan.apps.core.pms.c.aqj().a(iVar, new c.b() { // from class: com.baidu.swan.apps.env.b.f.4
             @Override // com.baidu.swan.apps.core.pms.c.b
             public void a(PMSDownloadType pMSDownloadType) {
-                f.this.cGS.g(iVar);
-                if (f.this.cNh != null) {
-                    f.this.cNh.onNext(iVar);
-                    f.this.cNh.onCompleted();
+                f.this.cML.g(iVar);
+                if (f.this.cTa != null) {
+                    f.this.cTa.onNext(iVar);
+                    f.this.cTa.onCompleted();
                 }
             }
 
             @Override // com.baidu.swan.apps.core.pms.c.b
             public void a(PMSDownloadType pMSDownloadType, com.baidu.swan.apps.am.a aVar) {
-                f.this.cGS.f(iVar);
-                if (f.this.cNh != null) {
-                    f.this.cNh.onError(new PkgDownloadError(iVar, aVar));
+                f.this.cML.f(iVar);
+                if (f.this.cTa != null) {
+                    f.this.cTa.onError(new PkgDownloadError(iVar, aVar));
                 }
             }
         });
     }
 
-    private void anY() {
+    private void aqz() {
         ArrayList arrayList = new ArrayList();
-        if (this.cGS.bab()) {
+        if (this.cML.bcB()) {
             arrayList.add(rx.d.a((d.a) new d.a<i>() { // from class: com.baidu.swan.apps.env.b.f.5
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.b
                 public void call(rx.j<? super i> jVar) {
-                    f.this.cNh = jVar;
+                    f.this.cTa = jVar;
                 }
             }));
         }
         if (!arrayList.isEmpty()) {
-            rx.d.n(arrayList).b(aoe());
+            rx.d.n(arrayList).b(aqF());
         }
     }
 
-    private rx.j<i> aoe() {
-        if (this.cHv == null) {
-            this.cHv = new a();
+    private rx.j<i> aqF() {
+        if (this.cNo == null) {
+            this.cNo = new a();
         }
-        return this.cHv;
+        return this.cNo;
     }
 
     /* loaded from: classes10.dex */
@@ -292,9 +292,9 @@ public final class f extends j implements com.baidu.swan.pms.d.a.a, com.baidu.sw
         @Override // com.baidu.swan.pms.a.c
         /* renamed from: e */
         public String U(i iVar) {
-            String a2 = c.cMK.a(iVar);
+            String a2 = c.cSD.a(iVar);
             if (f.DEBUG) {
-                Log.i(f.this.TAG, "SoDlCallback getDownloadPath: so=" + iVar.ebO + " path=" + a2);
+                Log.i(f.this.TAG, "SoDlCallback getDownloadPath: so=" + iVar.ehG + " path=" + a2);
             }
             return a2;
         }
@@ -305,7 +305,7 @@ public final class f extends j implements com.baidu.swan.pms.d.a.a, com.baidu.sw
         public void S(i iVar) {
             super.S(iVar);
             if (f.DEBUG) {
-                Log.i(f.this.TAG, "SoDlCallback onDownloadStart: so=" + iVar.ebO);
+                Log.i(f.this.TAG, "SoDlCallback onDownloadStart: so=" + iVar.ehG);
             }
         }
 
@@ -315,7 +315,7 @@ public final class f extends j implements com.baidu.swan.pms.d.a.a, com.baidu.sw
         public void T(i iVar) {
             super.T(iVar);
             if (f.DEBUG) {
-                Log.i(f.this.TAG, "SoDlCallback onDownloading: so=" + iVar.ebO);
+                Log.i(f.this.TAG, "SoDlCallback onDownloading: so=" + iVar.ehG);
             }
             f.this.b(iVar);
         }
@@ -325,10 +325,10 @@ public final class f extends j implements com.baidu.swan.pms.d.a.a, com.baidu.sw
         /* renamed from: h */
         public void R(i iVar) {
             super.R(iVar);
-            com.baidu.swan.pms.e.a aVar = (com.baidu.swan.pms.e.a) f.this.cNk.get(iVar.ebO);
-            e nS = f.this.nS(aVar == null ? null : aVar.cMz);
-            if (nS != null) {
-                nS.a(new d.b(iVar.currentSize, iVar.size));
+            com.baidu.swan.pms.e.a aVar = (com.baidu.swan.pms.e.a) f.this.cTd.get(iVar.ehG);
+            e oh = f.this.oh(aVar == null ? null : aVar.cSs);
+            if (oh != null) {
+                oh.a(new d.b(iVar.currentSize, iVar.size));
             }
         }
 
@@ -337,14 +337,14 @@ public final class f extends j implements com.baidu.swan.pms.d.a.a, com.baidu.sw
         public void a(i iVar, com.baidu.swan.pms.model.a aVar) {
             super.a((b) iVar, aVar);
             if (f.DEBUG) {
-                Log.i(f.this.TAG, "SoDlCallback onDownloadError: so=" + iVar.ebO + " err=" + aVar);
+                Log.i(f.this.TAG, "SoDlCallback onDownloadError: so=" + iVar.ehG + " err=" + aVar);
             }
-            f.this.cGS.f(iVar);
-            com.baidu.swan.apps.am.a tM = new com.baidu.swan.apps.am.a().bZ(13L).ca(aVar.errorNo).tK("so包下载失败").tM(aVar.toString());
-            if (f.this.cNh != null) {
-                f.this.cNh.onError(new PkgDownloadError(iVar, tM));
+            f.this.cML.f(iVar);
+            com.baidu.swan.apps.am.a ua = new com.baidu.swan.apps.am.a().cv(13L).cw(aVar.errorNo).tY("so包下载失败").ua(aVar.toString());
+            if (f.this.cTa != null) {
+                f.this.cTa.onError(new PkgDownloadError(iVar, ua));
             }
-            com.baidu.swan.apps.core.pms.c.anI().a(iVar, f.cNg, tM);
+            com.baidu.swan.apps.core.pms.c.aqj().a(iVar, f.cSZ, ua);
             com.baidu.swan.c.d.deleteFile(iVar.filePath);
         }
 
@@ -357,33 +357,33 @@ public final class f extends j implements com.baidu.swan.pms.d.a.a, com.baidu.sw
             if (f.DEBUG) {
                 Log.i(f.this.TAG, "SoDlCallback onDownloadFinish: so=" + iVar);
             }
-            String str2 = iVar.cMz;
+            String str2 = iVar.cSs;
             if (TextUtils.isEmpty(str2)) {
-                com.baidu.swan.pms.e.a aVar = (com.baidu.swan.pms.e.a) f.this.cNk.get(iVar.ebO);
-                str = aVar == null ? str2 : aVar.cMz;
+                com.baidu.swan.pms.e.a aVar = (com.baidu.swan.pms.e.a) f.this.cTd.get(iVar.ehG);
+                str = aVar == null ? str2 : aVar.cSs;
             } else {
                 str = str2;
             }
-            e nS = f.this.nS(str);
-            if (nS != null) {
+            e oh = f.this.oh(str);
+            if (oh != null) {
                 boolean e = ae.e(new File(iVar.filePath), iVar.sign);
                 if (f.DEBUG) {
-                    Log.i(f.this.TAG, "SoDlCallback onDownloadFinish: bundle=" + iVar.ebO + " checkSign=" + e);
+                    Log.i(f.this.TAG, "SoDlCallback onDownloadFinish: bundle=" + iVar.ehG + " checkSign=" + e);
                 }
                 if (e) {
-                    com.baidu.swan.pms.database.a.aYH().c(iVar);
+                    com.baidu.swan.pms.database.a.bbh().c(iVar);
                     if (f.DEBUG) {
-                        Log.i(f.this.TAG, "SoDlCallback onDownloadFinish: updating=" + nS + " libName=" + str);
+                        Log.i(f.this.TAG, "SoDlCallback onDownloadFinish: updating=" + oh + " libName=" + str);
                     }
                 }
-                nS.ara();
+                oh.atB();
             }
-            f.this.cGS.g(iVar);
-            if (f.this.cNh != null) {
-                f.this.cNh.onNext(iVar);
-                f.this.cNh.onCompleted();
+            f.this.cML.g(iVar);
+            if (f.this.cTa != null) {
+                f.this.cTa.onNext(iVar);
+                f.this.cTa.onCompleted();
             }
-            com.baidu.swan.apps.core.pms.c.anI().a(iVar, f.cNg);
+            com.baidu.swan.apps.core.pms.c.aqj().a(iVar, f.cSZ);
         }
     }
 
@@ -440,38 +440,38 @@ public final class f extends j implements com.baidu.swan.pms.d.a.a, com.baidu.sw
             }
             return;
         }
-        com.baidu.swan.pms.e.a aVar = this.cNk.get(iVar.ebO);
+        com.baidu.swan.pms.e.a aVar = this.cTd.get(iVar.ehG);
         if (aVar == null) {
             if (DEBUG) {
-                Log.i(this.TAG, "SoNodeHandler updateBestSo end by illegal bundleId=" + iVar.ebO);
+                Log.i(this.TAG, "SoNodeHandler updateBestSo end by illegal bundleId=" + iVar.ehG);
                 return;
             }
             return;
         }
-        if (TextUtils.isEmpty(iVar.cMz)) {
-            iVar.cMz = aVar.cMz;
+        if (TextUtils.isEmpty(iVar.cSs)) {
+            iVar.cSs = aVar.cSs;
         }
-        e nS = nS(iVar.cMz);
-        if (nS == null) {
+        e oh = oh(iVar.cSs);
+        if (oh == null) {
             if (DEBUG) {
-                Log.i(this.TAG, "SoNodeHandler updateBestSo end by no updating lib=" + iVar.cMz);
+                Log.i(this.TAG, "SoNodeHandler updateBestSo end by no updating lib=" + iVar.cSs);
                 return;
             }
             return;
         }
-        if (iVar.ebU == null) {
-            iVar.ebU = aVar.ebU;
+        if (iVar.ehM == null) {
+            iVar.ehM = aVar.ehM;
         }
-        if (!AbiType.currentAbi().compat(iVar.ebU)) {
+        if (!AbiType.currentAbi().compat(iVar.ehM)) {
             if (DEBUG) {
                 Log.i(this.TAG, "SoNodeHandler updateBestSo end by currentAbi");
                 return;
             }
             return;
         }
-        i aqX = nS.aqX();
-        i aqY = nS.aqY();
-        long max = Math.max(aqY == null ? 0L : aqY.versionCode, aqX == null ? 0L : aqX.versionCode);
+        i aty = oh.aty();
+        i atz = oh.atz();
+        long max = Math.max(atz == null ? 0L : atz.versionCode, aty == null ? 0L : aty.versionCode);
         if (iVar.versionCode < max) {
             if (DEBUG) {
                 Log.i(this.TAG, String.format("SoNodeHandler updateBestSo end by not bestVer(%d) libVer(%d)", Long.valueOf(max), Long.valueOf(iVar.versionCode)));
@@ -480,13 +480,13 @@ public final class f extends j implements com.baidu.swan.pms.d.a.a, com.baidu.sw
             if (DEBUG) {
                 Log.i(this.TAG, "SoNodeHandler updateBestSo end by update bestVer=" + iVar.versionCode);
             }
-            nS.a(this, iVar);
+            oh.a(this, iVar);
         } else {
-            if (aqY == null || !aqY.ebU.compat(iVar.ebU)) {
+            if (atz == null || !atz.ehM.compat(iVar.ehM)) {
                 if (DEBUG) {
-                    Log.i(this.TAG, "SoNodeHandler updateBestSo end by update abi update=" + iVar.ebU);
+                    Log.i(this.TAG, "SoNodeHandler updateBestSo end by update abi update=" + iVar.ehM);
                 }
-                nS.a(this, iVar);
+                oh.a(this, iVar);
             }
             if (DEBUG) {
                 Log.i(this.TAG, "SoNodeHandler updateBestSo end by should not exec here");
@@ -495,42 +495,42 @@ public final class f extends j implements com.baidu.swan.pms.d.a.a, com.baidu.sw
     }
 
     @Override // com.baidu.swan.pms.node.d.c
-    public void arj() {
+    public void atK() {
         com.baidu.swan.pms.node.d.a aVar = new com.baidu.swan.pms.node.d.a();
         com.baidu.swan.pms.utils.f fVar = new com.baidu.swan.pms.utils.f();
         if (DEBUG) {
             Log.i(this.TAG, "SoNodeHandler handle for loop start");
         }
-        for (e eVar : this.cMJ.values()) {
+        for (e eVar : this.cSC.values()) {
             if (eVar.a(this)) {
-                c(eVar.aqX());
-                i aqY = eVar.aqY();
-                if (eVar.aqZ() && aqY != null) {
+                c(eVar.aty());
+                i atz = eVar.atz();
+                if (eVar.atA() && atz != null) {
                     if (DEBUG) {
-                        Log.i(this.TAG, "SoNodeHandler handle for bestSo=" + aqY);
+                        Log.i(this.TAG, "SoNodeHandler handle for bestSo=" + atz);
                     }
-                    com.baidu.swan.pms.node.d.b.a(aqY, fVar);
-                    if (aVar.edA == null) {
-                        aVar.edA = new ArrayList();
+                    com.baidu.swan.pms.node.d.b.a(atz, fVar);
+                    if (aVar.ejs == null) {
+                        aVar.ejs = new ArrayList();
                     }
-                    aVar.edA.add(aqY);
+                    aVar.ejs.add(atz);
                 } else {
                     if (DEBUG) {
                         Log.i(this.TAG, "SoNodeHandler localSo not update, just check for install");
                     }
-                    eVar.ara();
+                    eVar.atB();
                 }
             }
         }
         if (DEBUG) {
             Log.i(this.TAG, "SoNodeHandler handle for loop end");
-            Log.i(this.TAG, "SoNodeHandler handle soSet.pkgSize()=" + fVar.aZY());
+            Log.i(this.TAG, "SoNodeHandler handle soSet.pkgSize()=" + fVar.bcy());
         }
-        if (fVar.aZY() == 0) {
+        if (fVar.bcy() == 0) {
             if (DEBUG) {
                 Log.i(this.TAG, "SoNodeHandler handle end by no pkg");
             }
-            akQ();
+            anq();
             return;
         }
         if (DEBUG) {

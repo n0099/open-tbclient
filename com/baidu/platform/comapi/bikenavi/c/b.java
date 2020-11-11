@@ -27,7 +27,7 @@ import java.math.BigDecimal;
 public class b extends com.baidu.platform.comapi.wnplatform.o.a {
 
     /* renamed from: a  reason: collision with root package name */
-    LatLng f2828a;
+    LatLng f2830a;
     LatLng b;
     private View e;
     private Activity f;
@@ -86,10 +86,10 @@ public class b extends com.baidu.platform.comapi.wnplatform.o.a {
     }
 
     private LatLng y() {
-        if (this.f2828a == null) {
-            this.f2828a = com.baidu.platform.comapi.walknavi.b.a().O();
+        if (this.f2830a == null) {
+            this.f2830a = com.baidu.platform.comapi.walknavi.b.a().O();
         }
-        return this.f2828a;
+        return this.f2830a;
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.o.a
@@ -208,12 +208,12 @@ public class b extends com.baidu.platform.comapi.wnplatform.o.a {
     public class a extends CountDownTimer {
 
         /* renamed from: a  reason: collision with root package name */
-        Activity f2829a;
+        Activity f2831a;
         com.baidu.platform.comapi.walknavi.widget.a b;
 
         public a(long j, long j2, Activity activity, com.baidu.platform.comapi.walknavi.widget.a aVar) {
             super(j, j2);
-            this.f2829a = activity;
+            this.f2831a = activity;
             this.b = aVar;
         }
 
@@ -227,7 +227,7 @@ public class b extends com.baidu.platform.comapi.wnplatform.o.a {
         @Override // android.os.CountDownTimer
         public void onFinish() {
             b.this.q();
-            if (this.f2829a != null && !this.f2829a.isFinishing()) {
+            if (this.f2831a != null && !this.f2831a.isFinishing()) {
                 this.b.dismiss();
             }
         }
@@ -481,7 +481,7 @@ public class b extends com.baidu.platform.comapi.wnplatform.o.a {
                 return;
             }
             com.baidu.platform.comapi.walknavi.widget.a b2 = new com.baidu.platform.comapi.walknavi.widget.a(this.f).a(true).b(com.baidu.platform.comapi.wnplatform.p.a.a.b(this.f, R.raw.ala_play));
-            if (com.baidu.platform.comapi.walknavi.g.b.b.f3017a == 2) {
+            if (com.baidu.platform.comapi.walknavi.g.b.b.f3019a == 2) {
                 b = com.baidu.platform.comapi.wnplatform.p.a.a.b(this.f, i);
             } else {
                 b = com.baidu.platform.comapi.wnplatform.p.a.a.b(this.f, i);

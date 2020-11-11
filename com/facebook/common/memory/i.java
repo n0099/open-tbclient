@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes6.dex */
 public abstract class i extends OutputStream {
-    public abstract PooledByteBuffer egx();
+    public abstract PooledByteBuffer ekm();
 
     public abstract int size();
 

@@ -5,7 +5,7 @@ import android.text.TextUtils;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3963a;
+    public String f3965a;
     public int b;
     boolean c;
     public long d;
@@ -20,7 +20,7 @@ public final class a {
     }
 
     public a(com.baidu.webkit.logsdk.b.a aVar, String str, String str2) {
-        this.f3963a = str;
+        this.f3965a = str;
         this.b = 0;
         this.c = false;
         this.e = aVar;

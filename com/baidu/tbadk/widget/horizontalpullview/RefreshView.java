@@ -17,7 +17,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes21.dex */
 public class RefreshView extends FrameLayout implements a {
     private int ajq;
-    private ImageView bZB;
+    private ImageView cfn;
     private int status;
     private TextView textView;
 
@@ -37,25 +37,25 @@ public class RefreshView extends FrameLayout implements a {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.pull_left_item_view, (ViewGroup) this, true);
-        this.bZB = (ImageView) findViewById(R.id.arrow_icon);
+        this.cfn = (ImageView) findViewById(R.id.arrow_icon);
         this.textView = (TextView) findViewById(R.id.text);
     }
 
     @Override // com.baidu.tbadk.widget.horizontalpullview.a
-    public void bE(View view) {
+    public void bI(View view) {
         if (this.status != 1) {
             this.status = 1;
             this.textView.setText("查看更多");
-            SvgManager.boN().a(this.bZB, R.drawable.ic_icon_pure_jump_more24, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
+            SvgManager.brn().a(this.cfn, R.drawable.ic_icon_pure_jump_more24, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
         }
     }
 
     @Override // com.baidu.tbadk.widget.horizontalpullview.a
-    public void bF(View view) {
+    public void bJ(View view) {
         if (this.status != 2) {
             this.status = 2;
             this.textView.setText("释放跳转");
-            SvgManager.boN().a(this.bZB, R.drawable.ic_icon_pure_jump24, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
+            SvgManager.brn().a(this.cfn, R.drawable.ic_icon_pure_jump24, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
         }
     }
 

@@ -1,38 +1,26 @@
 package com.baidu.live.gift;
 
-import java.util.List;
+import com.baidu.live.adp.framework.message.HttpMessage;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class i {
-    private String aHf;
-    private boolean aHh;
-    private List<g> aTJ;
-    private int categoryId;
+public class i extends HttpMessage {
+    public long aVA;
+    public String aVB;
+    public Map<Long, Long> aVC;
+    public long aVw;
+    public long aVx;
+    public String aVy;
+    public String aVz;
+    public String giftId;
+    public String giftName;
+    public String liveId;
+    public String otherParams;
+    public String roomId;
+    public String sceneFrom;
 
-    public int getCategoryId() {
-        return this.categoryId;
-    }
-
-    public void setCategoryId(int i) {
-        this.categoryId = i;
-    }
-
-    public void setCategoryName(String str) {
-        this.aHf = str;
-    }
-
-    public List<g> FT() {
-        return this.aTJ;
-    }
-
-    public void F(List<g> list) {
-        this.aTJ = list;
-    }
-
-    public boolean FU() {
-        return this.aHh;
-    }
-
-    public void bm(boolean z) {
-        this.aHh = z;
+    public i() {
+        super(1021015);
+        this.aVC = new HashMap();
     }
 }

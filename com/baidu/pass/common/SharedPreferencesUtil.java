@@ -7,7 +7,7 @@ import android.text.TextUtils;
 public class SharedPreferencesUtil implements com.baidu.pass.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static SharedPreferencesUtil f2757a = null;
+    private static SharedPreferencesUtil f2759a = null;
     private static SharedPreferences b = null;
     private static final String c = "sapi_system";
     private static String d;
@@ -81,8 +81,8 @@ public class SharedPreferencesUtil implements com.baidu.pass.a {
 
     public static synchronized void getInstance(Context context) {
         synchronized (SharedPreferencesUtil.class) {
-            if (f2757a == null) {
-                f2757a = new SharedPreferencesUtil(context, c);
+            if (f2759a == null) {
+                f2759a = new SharedPreferencesUtil(context, c);
             }
         }
     }

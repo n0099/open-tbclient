@@ -373,11 +373,11 @@ public class n {
         return ((float) imageFileWH[0]) * equipmentDensity >= 100.0f && f >= 3.0f && f <= 50.0f;
     }
 
-    public static boolean Br(String str) {
+    public static boolean BF(String str) {
         return str.endsWith(".heif") || str.endsWith(".heic");
     }
 
-    public static boolean Bs(String str) {
+    public static boolean BG(String str) {
         return str != null && str.endsWith(".css");
     }
 
@@ -770,7 +770,7 @@ public class n {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1188=4, 1189=4, 1191=4, 1192=4, 1193=4, 1197=4, 1198=4, 1200=4, 1201=4, 1202=4] */
-    public static boolean u(java.lang.String r8, java.lang.String r9, boolean r10) {
+    public static boolean v(java.lang.String r8, java.lang.String r9, boolean r10) {
         /*
             r0 = 0
             r3 = 0
@@ -1003,7 +1003,7 @@ public class n {
             r1 = move-exception
             goto La0
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tbadk.core.util.n.u(java.lang.String, java.lang.String, boolean):boolean");
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tbadk.core.util.n.v(java.lang.String, java.lang.String, boolean):boolean");
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
@@ -1383,7 +1383,7 @@ public class n {
     }
 
     public static boolean dP(String str, String str2) {
-        return u(str, str2, false);
+        return v(str, str2, false);
     }
 
     public static InputStream GetStreamFromFile(String str) {
@@ -1882,15 +1882,15 @@ public class n {
         }
         final int length = strArr.length;
         MediaScannerConnection.scanFile(TbadkCoreApplication.getInst(), strArr, null, new MediaScannerConnection.OnScanCompletedListener() { // from class: com.baidu.tbadk.core.util.n.1
-            int eFZ = 0;
+            int eLO = 0;
 
             @Override // android.media.MediaScannerConnection.OnScanCompletedListener
             public void onScanCompleted(String str3, Uri uri) {
-                this.eFZ++;
+                this.eLO++;
                 if (uri != null) {
                     hashMap.put(str3, uri.toString());
                 }
-                if (this.eFZ == length) {
+                if (this.eLO == length) {
                     com.baidu.adp.lib.f.e.mY().post(new Runnable() { // from class: com.baidu.tbadk.core.util.n.1.1
                         @Override // java.lang.Runnable
                         public void run() {
@@ -1994,7 +1994,7 @@ public class n {
         return str.toLowerCase().startsWith("content:") || str.toLowerCase().startsWith("file:");
     }
 
-    public static String Bt(String str) {
+    public static String BH(String str) {
         Uri parse = Uri.parse(str);
         if (parse == null) {
             return null;
@@ -2002,7 +2002,7 @@ public class n {
         return parse.getLastPathSegment();
     }
 
-    public static String Bu(String str) {
+    public static String BI(String str) {
         Uri parse = Uri.parse(str);
         if (parse == null) {
             return null;
@@ -2010,7 +2010,7 @@ public class n {
         return (TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + "/") + parse.getLastPathSegment();
     }
 
-    public static void Bv(@NonNull String str) {
+    public static void BJ(@NonNull String str) {
         if (str != null) {
             Q(new File(CACHE_DIR + "/" + str));
         }

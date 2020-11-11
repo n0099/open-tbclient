@@ -1,24 +1,24 @@
 package com.baidu.swan.bdprivate.extensions.loginauthmobile;
 /* loaded from: classes8.dex */
 public class c {
-    private static com.baidu.swan.apps.a.a dCR;
-    private static final com.baidu.swan.apps.a.a dCS = new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.bdprivate.extensions.loginauthmobile.c.1
+    private static com.baidu.swan.apps.a.a dIJ;
+    private static final com.baidu.swan.apps.a.a dIK = new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.bdprivate.extensions.loginauthmobile.c.1
         @Override // com.baidu.swan.apps.a.a
         public void onResult(int i) {
         }
     };
 
     public static void g(com.baidu.swan.apps.a.a aVar) {
-        if (dCR != aVar) {
-            dCR = aVar;
+        if (dIJ != aVar) {
+            dIJ = aVar;
         }
     }
 
-    public static com.baidu.swan.apps.a.a aLP() {
-        return dCR == null ? dCS : dCR;
+    public static com.baidu.swan.apps.a.a aOp() {
+        return dIJ == null ? dIK : dIJ;
     }
 
     public static void release() {
-        dCR = null;
+        dIJ = null;
     }
 }

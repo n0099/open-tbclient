@@ -27,49 +27,49 @@ import java.util.Date;
 /* loaded from: classes22.dex */
 public class f {
     private com.baidu.tbadk.core.dialog.a abn;
-    private TextView eJv;
-    private ForumData fkv;
-    private TbImageView iIb;
-    private RoundLinearLayout iIc;
-    private i iId;
+    private TextView ePk;
+    private ForumData fqn;
+    private TbImageView iNY;
+    private RoundLinearLayout iNZ;
+    private i iOa;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.ad.f.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             int i = 11;
-            if (view == f.this.eJv) {
+            if (view == f.this.ePk) {
                 if (f.this.abn != null && f.this.abn.isShowing()) {
                     f.this.abn.dismiss();
                 }
-            } else if (view == f.this.iIb && f.this.iId != null && !StringUtils.isNull(f.this.iId.getUrl())) {
-                be.boR().a(f.this.mPageContext, new String[]{f.this.iId.getUrl()}, true);
+            } else if (view == f.this.iNY && f.this.iOa != null && !StringUtils.isNull(f.this.iOa.getUrl())) {
+                be.brr().a(f.this.mPageContext, new String[]{f.this.iOa.getUrl()}, true);
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_BUSSINESS_PROMOT_CLICK);
-                httpMessage.addParam("id", f.this.iId.getId());
+                httpMessage.addParam("id", f.this.iOa.getId());
                 MessageManager.getInstance().sendMessage(httpMessage);
                 f.this.abn.dismiss();
                 aq aqVar = new aq("common_click");
                 aqVar.dR("page_type", PageStayDurationConstants.PageName.FRS);
                 aqVar.dR("obj_isad", "1");
-                if (f.this.iId.getType() != 1) {
-                    if (f.this.iId.getType() != 2) {
-                        if (f.this.iId.getType() == 3) {
+                if (f.this.iOa.getType() != 1) {
+                    if (f.this.iOa.getType() != 2) {
+                        if (f.this.iOa.getType() == 3) {
                             i = 13;
                         }
                     } else {
                         i = 12;
                     }
                 }
-                aqVar.aj("obj_adlocate", i);
-                aqVar.w("obj_id", f.this.iId.getId());
-                aqVar.aj("obj_floor", 1);
-                aqVar.aj("obj_locate", 3);
-                if (f.this.fkv != null) {
-                    aqVar.dR("fid", f.this.fkv.getId());
-                    aqVar.dR("first_dir", f.this.fkv.getFirst_class());
-                    aqVar.dR("second_dir", f.this.fkv.getSecond_class());
+                aqVar.al("obj_adlocate", i);
+                aqVar.w("obj_id", f.this.iOa.getId());
+                aqVar.al("obj_floor", 1);
+                aqVar.al("obj_locate", 3);
+                if (f.this.fqn != null) {
+                    aqVar.dR("fid", f.this.fqn.getId());
+                    aqVar.dR("first_dir", f.this.fqn.getFirst_class());
+                    aqVar.dR("second_dir", f.this.fqn.getSecond_class());
                 }
-                if (f.this.iId.getType() == 1) {
-                    aqVar.dR("tid", f.this.iId.getThreadId());
-                    aqVar.aj("thread_type", f.this.iId.getThreadType());
+                if (f.this.iOa.getType() == 1) {
+                    aqVar.dR("tid", f.this.iOa.getThreadId());
+                    aqVar.al("thread_type", f.this.iOa.getThreadType());
                 }
                 TiebaStatic.log(aqVar);
             }
@@ -86,25 +86,25 @@ public class f {
         if (mVar == null || mVar.getForum() == null || mVar.getBusinessPromot() == null) {
             return false;
         }
-        this.fkv = mVar.getForum();
-        this.iId = mVar.getBusinessPromot();
+        this.fqn = mVar.getForum();
+        this.iOa = mVar.getBusinessPromot();
         String str = "key_frs_dialog_ad_last_show_time" + mVar.getForum().getId();
-        long j = com.baidu.tbadk.core.sharedPref.b.bnH().getLong(str, 0L);
+        long j = com.baidu.tbadk.core.sharedPref.b.bqh().getLong(str, 0L);
         if (j < 0 || !bd.c(new Date(j), new Date(System.currentTimeMillis()))) {
-            com.baidu.tbadk.core.sharedPref.b.bnH().putLong(str, System.currentTimeMillis());
-            PJ();
+            com.baidu.tbadk.core.sharedPref.b.bqh().putLong(str, System.currentTimeMillis());
+            Qj();
             return true;
         }
         return false;
     }
 
-    private void PJ() {
+    private void Qj() {
         int i;
         initView();
         this.abn = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
-        this.abn.iM(true);
-        this.abn.iN(true);
-        this.abn.b(this.mPageContext).bmC();
+        this.abn.iV(true);
+        this.abn.iW(true);
+        this.abn.b(this.mPageContext).bpc();
         View decorView = this.abn.getWindow().getDecorView();
         WindowManager.LayoutParams attributes = this.abn.getWindow().getAttributes();
         if (attributes != null) {
@@ -121,42 +121,42 @@ public class f {
         aq aqVar = new aq("common_exp");
         aqVar.dR("page_type", PageStayDurationConstants.PageName.FRS);
         aqVar.dR("obj_isad", "1");
-        if (this.iId.getType() == 1) {
+        if (this.iOa.getType() == 1) {
             i = 11;
-        } else if (this.iId.getType() == 2) {
+        } else if (this.iOa.getType() == 2) {
             i = 12;
         } else {
-            i = this.iId.getType() == 3 ? 13 : 11;
+            i = this.iOa.getType() == 3 ? 13 : 11;
         }
-        aqVar.aj("obj_floor", 1);
-        aqVar.aj("obj_adlocate", i);
-        aqVar.w("obj_id", this.iId.getId());
-        if (this.fkv != null) {
-            aqVar.dR("fid", this.fkv.getId());
-            aqVar.dR("first_dir", this.fkv.getFirst_class());
-            aqVar.dR("second_dir", this.fkv.getSecond_class());
+        aqVar.al("obj_floor", 1);
+        aqVar.al("obj_adlocate", i);
+        aqVar.w("obj_id", this.iOa.getId());
+        if (this.fqn != null) {
+            aqVar.dR("fid", this.fqn.getId());
+            aqVar.dR("first_dir", this.fqn.getFirst_class());
+            aqVar.dR("second_dir", this.fqn.getSecond_class());
         }
-        if (this.iId.getType() == 1) {
-            aqVar.dR("tid", this.iId.getThreadId());
-            aqVar.aj("thread_type", this.iId.getThreadType());
+        if (this.iOa.getType() == 1) {
+            aqVar.dR("tid", this.iOa.getThreadId());
+            aqVar.al("thread_type", this.iOa.getThreadType());
         }
         TiebaStatic.log(aqVar);
     }
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.frs_dialog_ad_layout, (ViewGroup) null);
-        this.iIc = (RoundLinearLayout) this.mRootView.findViewById(R.id.round_layout);
-        this.iIc.setRoundCount(8);
-        this.iIb = (TbImageView) this.mRootView.findViewById(R.id.frs_ad_img);
-        this.iIb.setOnClickListener(this.mClickListener);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.iIb.getLayoutParams();
+        this.iNZ = (RoundLinearLayout) this.mRootView.findViewById(R.id.round_layout);
+        this.iNZ.setRoundCount(8);
+        this.iNY = (TbImageView) this.mRootView.findViewById(R.id.frs_ad_img);
+        this.iNY.setOnClickListener(this.mClickListener);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.iNY.getLayoutParams();
         layoutParams.width = l.getEquipmentWidth(this.mPageContext.getPageActivity()) - (this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
         layoutParams.height = (int) (layoutParams.width * 1.3306452f);
-        this.iIb.setLayoutParams(layoutParams);
-        this.eJv = (TextView) this.mRootView.findViewById(R.id.frs_ad_close);
-        this.eJv.setOnClickListener(this.mClickListener);
-        if (this.iId != null) {
-            this.iIb.startLoad(this.iId.dGy(), 10, false);
+        this.iNY.setLayoutParams(layoutParams);
+        this.ePk = (TextView) this.mRootView.findViewById(R.id.frs_ad_close);
+        this.ePk.setOnClickListener(this.mClickListener);
+        if (this.iOa != null) {
+            this.iNY.startLoad(this.iOa.dJa(), 10, false);
         }
     }
 }

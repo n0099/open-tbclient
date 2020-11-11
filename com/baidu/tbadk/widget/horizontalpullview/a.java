@@ -3,9 +3,9 @@ package com.baidu.tbadk.widget.horizontalpullview;
 import android.view.View;
 /* loaded from: classes21.dex */
 public interface a {
-    void bE(View view);
+    void bI(View view);
 
-    void bF(View view);
+    void bJ(View view);
 
     View getView();
 }

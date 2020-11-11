@@ -14,8 +14,8 @@ import javax.net.ssl.TrustManagerFactory;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private X509Certificate f4016a;
-    private SSLContext ozQ;
+    private X509Certificate f4018a;
+    private SSLContext oJj;
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [34=4] */
     /* JADX WARN: Removed duplicated region for block: B:38:0x003d A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -24,14 +24,14 @@ public class a {
     */
     private void a(String str) {
         ByteArrayInputStream byteArrayInputStream;
-        if (this.f4016a != null) {
+        if (this.f4018a != null) {
             return;
         }
         try {
             byteArrayInputStream = new ByteArrayInputStream(Base64.decode(str, 0));
             try {
                 try {
-                    this.f4016a = (X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream);
+                    this.f4018a = (X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream);
                     if (byteArrayInputStream != null) {
                         try {
                             byteArrayInputStream.close();
@@ -78,17 +78,17 @@ public class a {
         try {
             KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
             keyStore.load(null, null);
-            keyStore.setCertificateEntry("cert", this.f4016a);
+            keyStore.setCertificateEntry("cert", this.f4018a);
             TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
             trustManagerFactory.init(keyStore);
-            this.ozQ = SSLContext.getInstance(BdSailorConfig.SAILOR_BASE_SSL);
-            this.ozQ.init(null, trustManagerFactory.getTrustManagers(), null);
+            this.oJj = SSLContext.getInstance(BdSailorConfig.SAILOR_BASE_SSL);
+            this.oJj.init(null, trustManagerFactory.getTrustManagers(), null);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public SSLContext efc() {
-        return this.ozQ;
+    public SSLContext eiR() {
+        return this.oJj;
     }
 }

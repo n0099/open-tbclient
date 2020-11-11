@@ -37,20 +37,20 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
         this.alI = new g(o((Activity) context));
         setOnClickListener(this);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        SvgManager.boN().a(this, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.brn().a(this, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (!l.isFastDoubleClick()) {
-            this.alI.GU();
-            this.alI.PJ();
+            this.alI.Hv();
+            this.alI.Qj();
         }
     }
 
     public void r(bw bwVar) {
         this.alI.r(bwVar);
-        if (!ay.x(bwVar) && bwVar.blS()) {
+        if (!ay.x(bwVar) && bwVar.bos()) {
             setVisibility(0);
         } else {
             setVisibility(8);
@@ -58,7 +58,7 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
     }
 
     public void onChangeSkinType() {
-        SvgManager.boN().a(this, this.agV, this.agW, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.brn().a(this, this.agV, this.agW, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     private TbPageContext o(Activity activity) {
@@ -74,6 +74,6 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
     public void setSvgResId(int i, int i2) {
         this.agV = i;
         this.agW = i2;
-        SvgManager.boN().a(this, this.agV, this.agW, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.brn().a(this, this.agV, this.agW, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 }

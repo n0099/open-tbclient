@@ -17,7 +17,7 @@ public class c extends b {
             @Override // java.lang.Runnable
             public void run() {
                 for (String str : list) {
-                    bVar.ow(str);
+                    bVar.oK(str);
                 }
             }
         });

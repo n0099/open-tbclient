@@ -9,7 +9,7 @@ public class a {
     public int error_code = 0;
     public String error_msg = null;
 
-    public static String qq(int i) {
+    public static String qA(int i) {
         switch (i) {
             case 0:
                 return "";

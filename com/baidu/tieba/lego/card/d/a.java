@@ -62,7 +62,7 @@ public class a {
         }
     }
 
-    public static int eu(List list) {
+    public static int eC(List list) {
         if (isNull(list) || list.isEmpty()) {
             return 0;
         }

@@ -32,7 +32,7 @@ public class k extends i {
     }
 
     public void tJ() {
-        if (com.baidu.tbadk.a.d.bfu()) {
+        if (com.baidu.tbadk.a.d.bhU()) {
             int dimens = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds30);
             int dimens2 = com.baidu.adp.lib.util.l.getDimens(this.mContext, com.baidu.tbadk.a.b.a.aL(R.dimen.tbds21, R.dimen.tbds0));
             setTopMargin(dimens);

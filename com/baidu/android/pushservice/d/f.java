@@ -3,16 +3,16 @@ package com.baidu.android.pushservice.d;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1055a;
+    private String f1057a;
     private String b;
 
     public f(String str, String str2) {
-        this.f1055a = str;
+        this.f1057a = str;
         this.b = str2;
     }
 
     public String a() {
-        return this.f1055a;
+        return this.f1057a;
     }
 
     public String b() {
@@ -20,6 +20,6 @@ public class f {
     }
 
     public String toString() {
-        return "BindCache [mApiKey=" + this.f1055a + ", mContent=" + this.b + "]";
+        return "BindCache [mApiKey=" + this.f1057a + ", mContent=" + this.b + "]";
     }
 }

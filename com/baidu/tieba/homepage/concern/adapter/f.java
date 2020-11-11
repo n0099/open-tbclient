@@ -21,7 +21,7 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     private String ahu;
     private boolean akk;
     private com.baidu.adp.widget.ListView.v alD;
-    public BdUniqueId fmX;
+    public BdUniqueId fsQ;
     private TbPageContext<?> mPageContext;
 
     public f(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -31,7 +31,7 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, com.baidu.tieba.card.data.l lVar) {
-                if (view != null && lVar != null && lVar.bhz() != null && !StringUtils.isNull(lVar.bhz().getTid())) {
+                if (view != null && lVar != null && lVar.bjZ() != null && !StringUtils.isNull(lVar.bjZ().getTid())) {
                     f.this.b(view, lVar);
                 }
             }
@@ -57,7 +57,7 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aT */
+    /* renamed from: aV */
     public am c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
         com.baidu.card.v vVar = new com.baidu.card.v(this.mPageContext.getPageActivity());
@@ -67,7 +67,7 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         ak a2 = aVar.a(false, viewGroup, this.alD);
         a2.setSourceForPb(1);
         am amVar = new am(a2);
-        amVar.setPageId(this.fmX);
+        amVar.setPageId(this.fsQ);
         a(new com.baidu.adp.widget.ListView.ab() { // from class: com.baidu.tieba.homepage.concern.adapter.f.2
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, com.baidu.adp.widget.ListView.q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -90,11 +90,11 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.l lVar, am<com.baidu.tieba.card.data.l> amVar) {
-        if (lVar == null || amVar == null || amVar.getView() == null || lVar.erH == null) {
+        if (lVar == null || amVar == null || amVar.getView() == null || lVar.exA == null) {
             return null;
         }
-        lVar.wW(lVar.position + 1);
-        com.baidu.tieba.card.t.clQ().e(lVar.IO("c12351"));
+        lVar.xj(lVar.position + 1);
+        com.baidu.tieba.card.t.cor().e(lVar.Jf("c12351"));
         amVar.tW().setPosition(i);
         if (amVar.tW() instanceof com.baidu.tieba.a.e) {
             amVar.tW().setPage(this.ahu);
@@ -106,7 +106,7 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     @Override // com.baidu.tieba.a.f
-    public void EL(String str) {
+    public void EZ(String str) {
         this.ahu = str;
     }
 }

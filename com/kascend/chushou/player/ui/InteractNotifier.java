@@ -25,17 +25,17 @@ import tv.chushou.zues.utils.h;
 public class InteractNotifier extends RelativeLayout implements Handler.Callback, ViewPager.OnPageChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f4138a;
+    private final Context f4140a;
     private LinearLayout b;
     private final List<Object> c;
     private final List<ImageView> d;
     private final List<View> e;
     private ViewPager f;
     private int g;
-    private final c piA;
-    private b pix;
-    private com.kascend.chushou.player.ui.h5.d.a piy;
-    private com.kascend.chushou.player.ui.h5.a.a piz;
+    private b prV;
+    private com.kascend.chushou.player.ui.h5.d.a prW;
+    private com.kascend.chushou.player.ui.h5.a.a prX;
+    private final c prY;
 
     public InteractNotifier(Context context) {
         this(context, null);
@@ -51,8 +51,8 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
         this.d = new ArrayList();
         this.e = new ArrayList();
         this.g = 0;
-        this.piA = new c(this);
-        this.f4138a = context;
+        this.prY = new c(this);
+        this.f4140a = context;
         LayoutInflater.from(context).inflate(a.h.widget_interact_notifier, (ViewGroup) this, true);
         this.f = (ViewPager) findViewById(a.f.interact_notifier_viewpager);
         this.b = (LinearLayout) findViewById(a.f.interact_notifier_indicator);
@@ -62,9 +62,9 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
     }
 
     public void a(b bVar, com.kascend.chushou.player.ui.h5.d.a aVar, com.kascend.chushou.player.ui.h5.a.a aVar2) {
-        this.pix = bVar;
-        this.piy = aVar;
-        this.piz = aVar2;
+        this.prV = bVar;
+        this.prW = aVar;
+        this.prX = aVar2;
         d();
     }
 
@@ -132,11 +132,11 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
     public void b() {
         this.c.clear();
         this.f.setAdapter(new a());
-        this.piA.cs(null);
+        this.prY.cs(null);
     }
 
     public void c() {
-        this.piA.cs(null);
+        this.prY.cs(null);
     }
 
     @Override // android.os.Handler.Callback
@@ -144,7 +144,7 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
         switch (message.what) {
             case 1:
                 this.f.setCurrentItem(this.g + 1);
-                this.piA.E(1, IMConnection.RETRY_DELAY_TIMES);
+                this.prY.D(1, IMConnection.RETRY_DELAY_TIMES);
                 break;
         }
         return true;
@@ -176,17 +176,17 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
 
     private void d() {
         ArrayList arrayList = new ArrayList();
-        if ((this.pix != null ? this.pix.ese() : null) != null) {
+        if ((this.prV != null ? this.prV.evT() : null) != null) {
             arrayList.add(1);
         }
-        if ((this.piy != null ? this.piy.ese() : null) != null) {
+        if ((this.prW != null ? this.prW.evT() : null) != null) {
             arrayList.add(0);
         }
-        List<com.kascend.chushou.player.ui.h5.c.b> c = this.piz != null ? this.piz.c() : null;
+        List<com.kascend.chushou.player.ui.h5.c.b> c = this.prX != null ? this.prX.c() : null;
         if (!h.isEmpty(c)) {
             arrayList.addAll(c);
         }
-        this.piA.removeMessages(1);
+        this.prY.removeMessages(1);
         this.c.clear();
         this.c.addAll(arrayList);
         this.f.setAdapter(new a());
@@ -201,10 +201,10 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
         this.d.clear();
         int i = 0;
         while (i < this.c.size()) {
-            ImageView imageView = new ImageView(this.f4138a);
+            ImageView imageView = new ImageView(this.f4140a);
             imageView.setBackgroundResource(i == 0 ? a.e.indicator_red : a.e.indicator_gray);
             this.d.add(imageView);
-            int dip2px = tv.chushou.zues.utils.a.dip2px(this.f4138a, 6.0f);
+            int dip2px = tv.chushou.zues.utils.a.dip2px(this.f4140a, 6.0f);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dip2px, dip2px);
             layoutParams.leftMargin = 5;
             layoutParams.rightMargin = 5;
@@ -213,7 +213,7 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
         }
         if (this.c.size() > 1) {
             this.b.setVisibility(0);
-            this.piA.E(1, IMConnection.RETRY_DELAY_TIMES);
+            this.prY.D(1, IMConnection.RETRY_DELAY_TIMES);
             return;
         }
         this.b.setVisibility(8);
@@ -250,25 +250,25 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
             if (obj instanceof Integer) {
                 switch (((Integer) obj).intValue()) {
                     case 0:
-                        com.kascend.chushou.player.ui.h5.b.c cVar2 = new com.kascend.chushou.player.ui.h5.b.c(InteractNotifier.this.f4138a);
-                        cVar2.a(InteractNotifier.this.piy);
+                        com.kascend.chushou.player.ui.h5.b.c cVar2 = new com.kascend.chushou.player.ui.h5.b.c(InteractNotifier.this.f4140a);
+                        cVar2.a(InteractNotifier.this.prW);
                         cVar = cVar2;
                         break;
                     case 1:
-                        com.kascend.chushou.player.ui.h5.b.c cVar3 = new com.kascend.chushou.player.ui.h5.b.c(InteractNotifier.this.f4138a);
-                        cVar3.a(InteractNotifier.this.pix);
+                        com.kascend.chushou.player.ui.h5.b.c cVar3 = new com.kascend.chushou.player.ui.h5.b.c(InteractNotifier.this.f4140a);
+                        cVar3.a(InteractNotifier.this.prV);
                         cVar = cVar3;
                         break;
                     default:
-                        cVar = new View(InteractNotifier.this.f4138a);
+                        cVar = new View(InteractNotifier.this.f4140a);
                         break;
                 }
             } else if (obj instanceof com.kascend.chushou.player.ui.h5.c.b) {
-                com.kascend.chushou.player.ui.h5.a.b bVar = new com.kascend.chushou.player.ui.h5.a.b(InteractNotifier.this.f4138a);
+                com.kascend.chushou.player.ui.h5.a.b bVar = new com.kascend.chushou.player.ui.h5.a.b(InteractNotifier.this.f4140a);
                 bVar.a((com.kascend.chushou.player.ui.h5.c.b) obj);
                 cVar = bVar;
             } else {
-                cVar = new View(InteractNotifier.this.f4138a);
+                cVar = new View(InteractNotifier.this.f4140a);
             }
             viewGroup.addView(cVar);
             InteractNotifier.this.e.add(cVar);

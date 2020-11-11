@@ -49,7 +49,7 @@ public class TransparentActivity extends BaseFragmentActivity {
             parserIntent();
             String str = Build.DISPLAY;
             if (str != null && str.contains("Flyme")) {
-                getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(a.d.sdk_transparent)));
+                getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(a.c.sdk_transparent)));
             }
             this.contentView = new View(getActivity());
             this.contentView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));

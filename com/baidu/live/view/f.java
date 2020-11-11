@@ -1,165 +1,114 @@
 package com.baidu.live.view;
 
-import android.content.Context;
-import android.os.Build;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.WindowManager;
-import android.widget.PopupWindow;
-import com.baidu.live.adp.lib.safe.ShowUtil;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.LinearGradient;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.Shader;
+import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 /* loaded from: classes4.dex */
-public class f extends PopupWindow {
-    public f(Context context) {
-        super(context);
+public class f extends Drawable {
+    private int[] bLY;
+    private int[] bLZ;
+    private int mAlpha = 255;
+    private ColorFilter mColorFilter;
+    private float mCornerRadius;
+    private Paint mFillPaint;
+    private RectF mRectF;
+    private Paint mStrokePaint;
+
+    public f() {
+        init();
     }
 
-    @Override // android.widget.PopupWindow
-    public void showAtLocation(View view, int i, int i2, int i3) {
-        super.showAtLocation(view, i, i2, i3);
-        ShowUtil.windowCount++;
-    }
-
-    @Override // android.widget.PopupWindow
-    public void dismiss() {
-        super.dismiss();
-        if (ShowUtil.windowCount > 0) {
-            ShowUtil.windowCount--;
-        }
-    }
-
-    @Override // android.widget.PopupWindow
-    public void update(int i, int i2, int i3, int i4, boolean z) {
-        boolean z2 = true;
-        if (Build.VERSION.SDK_INT != 24) {
-            super.update(i, i2, i3, i4, z);
-            return;
-        }
-        if (i3 >= 0) {
-            i("mLastWidth", Integer.valueOf(i3));
-            setWidth(i3);
-        }
-        if (i4 >= 0) {
-            i("mLastHeight", Integer.valueOf(i4));
-            setHeight(i4);
-        }
-        Object iA = iA("mContentView");
-        View view = iA instanceof View ? (View) iA : null;
-        if (isShowing() && view != null) {
-            Object iA2 = iA("mDecorView");
-            View view2 = iA2 instanceof View ? (View) iA2 : null;
-            if (view2 != null) {
-                WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) view2.getLayoutParams();
-                Object iA3 = iA("mWidthMode");
-                int intValue = iA3 != null ? ((Integer) iA3).intValue() : 0;
-                Object iA4 = iA("mLastWidth");
-                int intValue2 = iA4 != null ? ((Integer) iA4).intValue() : 0;
-                if (intValue >= 0) {
-                    intValue = intValue2;
-                }
-                if (i3 != -1 && layoutParams.width != intValue) {
-                    layoutParams.width = intValue;
-                    i("mLastWidth", Integer.valueOf(intValue));
-                    z = true;
-                }
-                Object iA5 = iA("mHeightMode");
-                int intValue3 = iA5 != null ? ((Integer) iA5).intValue() : 0;
-                Object iA6 = iA("mLastHeight");
-                int intValue4 = iA6 != null ? ((Integer) iA6).intValue() : 0;
-                if (intValue3 >= 0) {
-                    intValue3 = intValue4;
-                }
-                if (i4 != -1 && layoutParams.height != intValue3) {
-                    layoutParams.height = intValue3;
-                    i("mLastHeight", Integer.valueOf(intValue3));
-                    z = true;
-                }
-                if (layoutParams.x != i) {
-                    layoutParams.x = i;
-                    z = true;
-                }
-                if (layoutParams.y != i2) {
-                    layoutParams.y = i2;
-                    z = true;
-                }
-                Object c = c("computeAnimationResource", new Class[]{Integer.TYPE}, null);
-                int intValue5 = c == null ? 0 : ((Integer) c).intValue();
-                if (intValue5 != layoutParams.windowAnimations) {
-                    layoutParams.windowAnimations = intValue5;
-                    z = true;
-                }
-                Object c2 = c("computeFlags", new Class[]{Integer.TYPE}, new Object[]{Integer.valueOf(layoutParams.flags)});
-                int intValue6 = c2 != null ? ((Integer) c2).intValue() : 0;
-                if (intValue6 != layoutParams.flags) {
-                    layoutParams.flags = intValue6;
-                } else {
-                    z2 = z;
-                }
-                if (z2) {
-                    c("setLayoutDirectionFromAnchor", null, null);
-                    Object iA7 = iA("mWindowManager");
-                    WindowManager windowManager = iA7 instanceof WindowManager ? (WindowManager) iA7 : null;
-                    if (windowManager != null) {
-                        windowManager.updateViewLayout(view2, layoutParams);
-                    }
-                }
-            }
+    @Override // android.graphics.drawable.Drawable
+    public void draw(@NonNull Canvas canvas) {
+        Rect bounds = getBounds();
+        float strokeWidth = this.mStrokePaint.getStrokeWidth();
+        this.mRectF.set(bounds.left + (strokeWidth * 0.5f), bounds.top + (strokeWidth * 0.5f), bounds.right - (strokeWidth * 0.5f), bounds.bottom - (strokeWidth * 0.5f));
+        this.mFillPaint.setShader(new LinearGradient(bounds.left + strokeWidth, bounds.top + strokeWidth, bounds.right - strokeWidth, bounds.top + strokeWidth, this.bLY, (float[]) null, Shader.TileMode.CLAMP));
+        this.mStrokePaint.setShader(new LinearGradient(this.mRectF.left, this.mRectF.top, this.mRectF.right, this.mRectF.top, this.bLZ, (float[]) null, Shader.TileMode.CLAMP));
+        this.mStrokePaint.setStrokeWidth(strokeWidth);
+        float min = Math.min(this.mCornerRadius, Math.min(this.mRectF.width(), this.mRectF.height()) * 0.5f);
+        canvas.drawRoundRect(this.mRectF, min, min, this.mFillPaint);
+        if (strokeWidth > 0.0f) {
+            canvas.drawRoundRect(this.mRectF, min, min, this.mStrokePaint);
         }
     }
 
-    private Object iA(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        try {
-            Field declaredField = PopupWindow.class.getDeclaredField(str);
-            declaredField.setAccessible(true);
-            return declaredField.get(this);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+    @Override // android.graphics.drawable.Drawable
+    public void setAlpha(int i) {
+        if (i != this.mAlpha) {
+            this.mAlpha = i;
+            this.mFillPaint.setAlpha(this.mAlpha);
+            invalidateSelf();
         }
     }
 
-    private void i(String str, Object obj) {
-        if (!TextUtils.isEmpty(str)) {
-            try {
-                Field declaredField = PopupWindow.class.getDeclaredField(str);
-                declaredField.setAccessible(true);
-                declaredField.set(this, obj);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+    @Override // android.graphics.drawable.Drawable
+    public void setColorFilter(@Nullable ColorFilter colorFilter) {
+        if (colorFilter != this.mColorFilter) {
+            this.mColorFilter = colorFilter;
+            this.mFillPaint.setColorFilter(this.mColorFilter);
+            invalidateSelf();
         }
     }
 
-    private Object c(String str, Class[] clsArr, Object[] objArr) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        try {
-            Method method = getMethod(PopupWindow.class, str, clsArr);
-            method.setAccessible(true);
-            return method.invoke(this, objArr);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+    @Override // android.graphics.drawable.Drawable
+    public int getOpacity() {
+        switch (this.mAlpha) {
+            case 0:
+                return -2;
+            case 255:
+                return -1;
+            default:
+                return -3;
         }
     }
 
-    private Method getMethod(Class cls, String str, Class[] clsArr) {
-        try {
-            return cls.getDeclaredMethod(str, clsArr);
-        } catch (NoSuchMethodException e) {
-            try {
-                return cls.getMethod(str, clsArr);
-            } catch (NoSuchMethodException e2) {
-                if (cls.getSuperclass() == null) {
-                    return null;
-                }
-                return getMethod(cls.getSuperclass(), str, clsArr);
-            }
-        }
+    public void O(int i, int i2) {
+        setColors(new int[]{i, i2});
+    }
+
+    public void setColors(int[] iArr) {
+        f(iArr, new int[]{0, 0});
+    }
+
+    public void setColors(int i, int i2, int i3, int i4) {
+        f(new int[]{i, i2}, new int[]{i3, i4});
+    }
+
+    public void f(int[] iArr, int[] iArr2) {
+        this.bLY = iArr;
+        this.bLZ = iArr2;
+        invalidateSelf();
+    }
+
+    public void setCornerRadius(float f) {
+        this.mCornerRadius = f;
+        invalidateSelf();
+    }
+
+    public void setStrokeWidth(float f) {
+        this.mStrokePaint.setStrokeWidth(f);
+        invalidateSelf();
+    }
+
+    public void P(int i, int i2) {
+        this.mStrokePaint.setStrokeWidth(i);
+        this.mStrokePaint.setAlpha(i2);
+        invalidateSelf();
+    }
+
+    private void init() {
+        this.mFillPaint = new Paint(1);
+        this.mFillPaint.setStyle(Paint.Style.FILL);
+        this.mStrokePaint = new Paint(1);
+        this.mStrokePaint.setStyle(Paint.Style.STROKE);
+        this.mRectF = new RectF();
     }
 }

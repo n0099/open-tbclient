@@ -39,7 +39,7 @@ public class F implements FI {
     @Override // com.baidu.sofire.ac.FI
     public String p(String str) {
         try {
-            ApkInfo apkInfo = f.a().f3612a.get(str);
+            ApkInfo apkInfo = f.a().f3615a.get(str);
             if (apkInfo == null) {
                 return null;
             }

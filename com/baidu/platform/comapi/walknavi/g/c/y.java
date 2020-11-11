@@ -7,21 +7,21 @@ import com.baidu.tieba.R;
 public class y implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f3049a;
+    final /* synthetic */ c f3051a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(c cVar) {
-        this.f3049a = cVar;
+        this.f3051a = cVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.baidu.platform.comapi.walknavi.g.a aVar;
         com.baidu.platform.comapi.walknavi.g.a aVar2;
-        aVar = this.f3049a.m;
+        aVar = this.f3051a.m;
         if (aVar != null) {
             System.out.println("mBarQuit onClick showQuitDialog");
-            aVar2 = this.f3049a.m;
+            aVar2 = this.f3051a.m;
             aVar2.a(false, R.raw.aiapp_guide);
         }
     }

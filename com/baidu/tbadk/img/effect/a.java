@@ -33,7 +33,7 @@ public class a extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.byE().freePicCache(BitmapHelper.getBitmapSize(bitmap) * 2);
+        com.baidu.tbadk.imageManager.c.bBd().freePicCache(BitmapHelper.getBitmapSize(bitmap) * 2);
         if ("normal".equals(this.filterLabel)) {
             return bitmap;
         }

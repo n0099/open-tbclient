@@ -14,9 +14,9 @@ import com.baidu.swan.apps.res.widget.a.b;
 import java.util.List;
 /* loaded from: classes10.dex */
 public abstract class a {
-    protected d dmm;
-    protected b.a dmn;
-    private InterfaceC0453a dmo;
+    protected d dsi;
+    protected b.a dsj;
+    private InterfaceC0465a dsk;
     private float mBgDarkAlpha;
     protected Context mContext;
     private boolean mCurrentMode;
@@ -33,7 +33,7 @@ public abstract class a {
 
     /* renamed from: com.baidu.swan.apps.res.widget.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC0453a {
+    public interface InterfaceC0465a {
         void onMenuItemUpdated(List<com.baidu.swan.apps.res.widget.a.b> list);
     }
 
@@ -52,16 +52,16 @@ public abstract class a {
     }
 
     public void a(b.a aVar) {
-        this.dmn = aVar;
+        this.dsj = aVar;
     }
 
     public void show() {
-        if (com.baidu.swan.apps.t.a.auw().getNightModeSwitcherState() != this.mCurrentMode) {
+        if (com.baidu.swan.apps.t.a.awW().getNightModeSwitcherState() != this.mCurrentMode) {
             prepareMenuView(this.mContext);
             this.mPopupWindow = null;
         }
         showPopUpWindow(true);
-        this.mCurrentMode = com.baidu.swan.apps.t.a.auw().getNightModeSwitcherState();
+        this.mCurrentMode = com.baidu.swan.apps.t.a.awW().getNightModeSwitcherState();
     }
 
     public void dismiss() {
@@ -108,14 +108,14 @@ public abstract class a {
     }
 
     protected void updateMenuItems(List<com.baidu.swan.apps.res.widget.a.b> list) {
-        if (this.dmo != null) {
-            this.dmo.onMenuItemUpdated(list);
+        if (this.dsk != null) {
+            this.dsk.onMenuItemUpdated(list);
         }
     }
 
     private void showPopUpWindow(boolean z) {
-        if (this.dmm != null) {
-            this.dmm.onShowMenu();
+        if (this.dsi != null) {
+            this.dsi.onShowMenu();
         }
         updateMenuItems(this.mItems);
         ensureMenuLoaded(this.mMenu, this.mItems);
@@ -137,15 +137,15 @@ public abstract class a {
                     if (a.this.mIsBackgroundDarken) {
                         a.this.clearBackgroundDarkenStatus();
                     }
-                    if (a.this.dmm != null) {
-                        a.this.dmm.onDismissMenu();
+                    if (a.this.dsi != null) {
+                        a.this.dsi.onDismissMenu();
                     }
                 }
             });
         }
         if (this.mViewToAttach == null) {
-            if (this.dmm != null) {
-                this.dmm.onDismissMenu();
+            if (this.dsi != null) {
+                this.dsi.onDismissMenu();
                 return;
             }
             return;

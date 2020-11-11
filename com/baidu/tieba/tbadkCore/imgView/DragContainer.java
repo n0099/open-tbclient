@@ -35,7 +35,7 @@ public class DragContainer extends LinearLayout {
         this.mScroller = new Scroller(context);
     }
 
-    public void dD(View view) {
+    public void dI(View view) {
         this.view = view;
         view.setDrawingCacheEnabled(true);
         view.buildDrawingCache();

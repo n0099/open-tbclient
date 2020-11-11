@@ -22,7 +22,7 @@ public class e extends com.baidu.adp.widget.ListView.a<bv, am<bw>> {
     private ab<bw> afF;
     private boolean akk;
     private v alD;
-    public BdUniqueId fmX;
+    public BdUniqueId fsQ;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
@@ -34,12 +34,12 @@ public class e extends com.baidu.adp.widget.ListView.a<bv, am<bw>> {
             @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
             public void a(View view, bw bwVar) {
-                t.clQ().lE(true);
+                t.cor().lN(true);
                 com.baidu.tieba.enterForum.a.a(view, bwVar, e.this.mTabName);
             }
         };
         this.mPageContext = tbPageContext;
-        this.fmX = bdUniqueId2;
+        this.fsQ = bdUniqueId2;
         this.mTabName = str;
     }
 
@@ -50,7 +50,7 @@ public class e extends com.baidu.adp.widget.ListView.a<bv, am<bw>> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aT */
+    /* renamed from: aV */
     public am c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
         z zVar = new z(this.mPageContext.getPageActivity());
@@ -60,13 +60,13 @@ public class e extends com.baidu.adp.widget.ListView.a<bv, am<bw>> {
         ak a2 = aVar.a(false, viewGroup, this.alD);
         a2.setSourceForPb(2);
         am amVar = new am(a2);
-        amVar.setPageId(this.fmX);
+        amVar.setPageId(this.fsQ);
         a(new com.baidu.adp.widget.ListView.ab() { // from class: com.baidu.tieba.enterForum.tabfeed.a.e.2
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
                 if ((qVar instanceof bv) && (view.getTag() instanceof am)) {
                     am amVar2 = (am) view.getTag();
-                    bw bwVar = ((bv) qVar).erH;
+                    bw bwVar = ((bv) qVar).exA;
                     bwVar.objType = 1;
                     if (e.this.afF != null) {
                         e.this.afF.a(amVar2.getView(), bwVar);
@@ -83,12 +83,12 @@ public class e extends com.baidu.adp.widget.ListView.a<bv, am<bw>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bv bvVar, am<bw> amVar) {
-        if (bvVar == null || amVar == null || amVar.getView() == null || bvVar.erH == null) {
+        if (bvVar == null || amVar == null || amVar.getView() == null || bvVar.exA == null) {
             return null;
         }
-        bvVar.erH.evR = getPositionByType(i) + 1;
+        bvVar.exA.eBK = getPositionByType(i) + 1;
         amVar.tW().setPosition(i);
-        amVar.b((am<bw>) bvVar.erH);
+        amVar.b((am<bw>) bvVar.exA);
         amVar.tW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         amVar.tW().a(this.afF);
         com.baidu.tieba.enterForum.a.a(bvVar, this.mTabName);

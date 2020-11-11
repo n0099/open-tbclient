@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class WLocData implements Cloneable {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3131a;
+    private int f3133a;
     public float accuracy;
     public double altitude;
     private int b;
@@ -38,7 +38,7 @@ public class WLocData implements Cloneable {
             wLocData.direction = this.direction;
             wLocData.latitude = this.latitude;
             wLocData.longitude = this.longitude;
-            wLocData.f3131a = this.f3131a;
+            wLocData.f3133a = this.f3133a;
             wLocData.speed = this.speed;
             wLocData.altitude = this.altitude;
             wLocData.coordType = this.coordType;

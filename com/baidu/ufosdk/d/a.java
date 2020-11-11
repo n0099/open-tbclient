@@ -8,7 +8,7 @@ import android.webkit.WebView;
 public final class a extends WebChromeClient {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f3705a = "InjectedChromeClient";
+    private final String f3707a = "InjectedChromeClient";
     private b b;
     private boolean c;
 

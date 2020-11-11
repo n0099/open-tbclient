@@ -6,11 +6,11 @@ import java.util.Date;
 /* loaded from: classes10.dex */
 public class c {
     public static void putString(String str, String str2) {
-        h.aIs().putString(str, str2);
+        h.aKS().putString(str, str2);
     }
 
     public static String getString(String str) {
-        return h.aIs().getString(str, null);
+        return h.aKS().getString(str, null);
     }
 
     public static String getCurrentDate() {

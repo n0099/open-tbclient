@@ -11,7 +11,7 @@ public final class TransitRouteResult extends SearchResult implements Parcelable
     public static final Parcelable.Creator<TransitRouteResult> CREATOR = new q();
 
     /* renamed from: a  reason: collision with root package name */
-    private TaxiInfo f2147a;
+    private TaxiInfo f2149a;
     private List<TransitRouteLine> b;
     private SuggestAddrInfo c;
 
@@ -20,7 +20,7 @@ public final class TransitRouteResult extends SearchResult implements Parcelable
 
     /* JADX INFO: Access modifiers changed from: protected */
     public TransitRouteResult(Parcel parcel) {
-        this.f2147a = (TaxiInfo) parcel.readParcelable(TaxiInfo.class.getClassLoader());
+        this.f2149a = (TaxiInfo) parcel.readParcelable(TaxiInfo.class.getClassLoader());
         this.b = new ArrayList();
         parcel.readList(this.b, TransitRouteLine.class.getClassLoader());
         this.c = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
@@ -40,7 +40,7 @@ public final class TransitRouteResult extends SearchResult implements Parcelable
     }
 
     public TaxiInfo getTaxiInfo() {
-        return this.f2147a;
+        return this.f2149a;
     }
 
     public void setRoutelines(List<TransitRouteLine> list) {
@@ -52,12 +52,12 @@ public final class TransitRouteResult extends SearchResult implements Parcelable
     }
 
     public void setTaxiInfo(TaxiInfo taxiInfo) {
-        this.f2147a = taxiInfo;
+        this.f2149a = taxiInfo;
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.f2147a, 1);
+        parcel.writeParcelable(this.f2149a, 1);
         parcel.writeList(this.b);
         parcel.writeParcelable(this.c, 1);
     }

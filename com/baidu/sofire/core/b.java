@@ -5,7 +5,7 @@ import java.io.Serializable;
 public final class b implements Serializable {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f3601a;
+    public int f3604a;
     public int b;
     public String c;
     public String d;

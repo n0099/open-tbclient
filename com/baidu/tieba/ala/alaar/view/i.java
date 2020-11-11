@@ -9,67 +9,67 @@ import com.baidu.tieba.ala.alaar.view.f;
 import com.baidu.tieba.ala.alaar.view.h;
 /* loaded from: classes4.dex */
 public class i extends l {
-    f gaM;
-    d gaN;
+    f ggC;
+    d ggD;
 
     public void a(final com.baidu.tieba.ala.alaar.makeup.d dVar, final View view) {
-        this.gaZ = (HListView) view.findViewById(a.g.feature_list_view);
-        this.gaZ.setDividerWidth(view.getResources().getDimensionPixelSize(a.e.sdk_ds20));
-        this.gaZ.setSelector(view.getResources().getDrawable(a.f.sdk_transparent_bg));
-        this.gaM = new f(view.getContext());
-        this.gaM.ty(view.getResources().getDimensionPixelSize(a.e.sdk_ds28));
-        this.gaM.a(new h.a<f.a>() { // from class: com.baidu.tieba.ala.alaar.view.i.1
+        this.ggP = (HListView) view.findViewById(a.f.feature_list_view);
+        this.ggP.setDividerWidth(view.getResources().getDimensionPixelSize(a.d.sdk_ds20));
+        this.ggP.setSelector(view.getResources().getDrawable(a.e.sdk_transparent_bg));
+        this.ggC = new f(view.getContext());
+        this.ggC.tI(view.getResources().getDimensionPixelSize(a.d.sdk_ds28));
+        this.ggC.a(new h.a<f.a>() { // from class: com.baidu.tieba.ala.alaar.view.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.ala.alaar.view.h.a
             public void a(f.a aVar, int i, boolean z) {
-                l.a(i, aVar.itemView, i.this.gaZ, z ? i.this.gbf : 0);
-                if (i.this.gba != null) {
-                    i.this.gba.b(i, aVar.item, z);
+                l.a(i, aVar.itemView, i.this.ggP, z ? i.this.ggU : 0);
+                if (i.this.ggQ != null) {
+                    i.this.ggQ.b(i, aVar.item, z);
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.ala.alaar.view.h.a
             public boolean a(f.a aVar, int i, int i2, boolean z) {
-                if (i.this.gba == null) {
+                if (i.this.ggQ == null) {
                     return false;
                 }
-                return i.this.gba.a(i, aVar.item, z);
+                return i.this.ggQ.a(i, aVar.item, z);
             }
         });
-        this.gaM.tE(dVar.getPosition());
-        this.gaM.setData(dVar.bKr());
-        this.gaZ.setAdapter((ListAdapter) this.gaM);
-        this.gaZ.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.alaar.view.i.2
+        this.ggC.tO(dVar.getPosition());
+        this.ggC.setData(dVar.bMQ());
+        this.ggP.setAdapter((ListAdapter) this.ggC);
+        this.ggP.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.alaar.view.i.2
             @Override // java.lang.Runnable
             public void run() {
-                int measuredWidth = i.this.gaZ.getMeasuredWidth();
+                int measuredWidth = i.this.ggP.getMeasuredWidth();
                 if (measuredWidth <= 0) {
                     measuredWidth = view.getMeasuredWidth();
                 }
-                i.this.gaZ.setSelectionFromLeft(dVar.getPosition(), AlaLiveMultiBeautyArView.bC(measuredWidth, dVar.getPosition()));
+                i.this.ggP.setSelectionFromLeft(dVar.getPosition(), AlaLiveMultiBeautyArView.bC(measuredWidth, dVar.getPosition()));
             }
         }, 0L);
-        com.baidu.tieba.ala.alaar.makeup.c bKs = dVar.bKs();
-        if (this.gba != null && bKs != null) {
-            this.gba.a(dVar.getPosition(), bKs, false);
+        com.baidu.tieba.ala.alaar.makeup.c bMR = dVar.bMR();
+        if (this.ggQ != null && bMR != null) {
+            this.ggQ.a(dVar.getPosition(), bMR, false);
         }
     }
 
-    public void bP(View view) {
-        this.gaZ = (HListView) view.findViewById(a.g.feature_list_view);
-        this.gaZ.setDividerWidth(view.getResources().getDimensionPixelSize(a.e.sdk_ds20));
-        this.gaZ.setSelector(view.getResources().getDrawable(a.f.sdk_transparent_bg));
-        this.gaN = new d(this.gaZ);
-        this.gaN.ty(view.getResources().getDimensionPixelSize(a.e.sdk_ds28));
-        this.gaZ.setAdapter((ListAdapter) this.gaN);
-        this.gaN.a(new d.a() { // from class: com.baidu.tieba.ala.alaar.view.i.3
+    public void bT(View view) {
+        this.ggP = (HListView) view.findViewById(a.f.feature_list_view);
+        this.ggP.setDividerWidth(view.getResources().getDimensionPixelSize(a.d.sdk_ds20));
+        this.ggP.setSelector(view.getResources().getDrawable(a.e.sdk_transparent_bg));
+        this.ggD = new d(this.ggP);
+        this.ggD.tI(view.getResources().getDimensionPixelSize(a.d.sdk_ds28));
+        this.ggP.setAdapter((ListAdapter) this.ggD);
+        this.ggD.a(new d.a() { // from class: com.baidu.tieba.ala.alaar.view.i.3
             @Override // com.baidu.tieba.ala.alaar.view.d.a
             public void i(int i, View view2, boolean z) {
-                l.a(i, view2, i.this.gaZ, i.this.gbf);
-                com.baidu.live.ar.f fVar = i.this.gaN.getDatas().get(i);
-                if (i.this.gba != null) {
-                    i.this.gba.b(i, fVar, z);
+                l.a(i, view2, i.this.ggP, i.this.ggU);
+                com.baidu.live.ar.g gVar = i.this.ggD.getDatas().get(i);
+                if (i.this.ggQ != null) {
+                    i.this.ggQ.b(i, gVar, z);
                 }
             }
         });

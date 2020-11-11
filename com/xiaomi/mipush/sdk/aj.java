@@ -47,8 +47,8 @@ public class aj {
             }
         }
         ib ibVar = new ib();
-        ibVar.f524a = 5L;
-        ibVar.f525a = "fakeid";
+        ibVar.f526a = 5L;
+        ibVar.f527a = "fakeid";
         iiVar.a(ibVar);
         iiVar.a(ByteBuffer.wrap(a2));
         iiVar.a(hmVar);
@@ -70,7 +70,7 @@ public class aj {
         } else {
             m424a = iiVar.m424a();
         }
-        ix a2 = a(iiVar.a(), iiVar.f604b);
+        ix a2 = a(iiVar.a(), iiVar.f606b);
         if (a2 != null) {
             iw.a(a2, m424a);
         }
@@ -78,7 +78,7 @@ public class aj {
     }
 
     private static ix a(hm hmVar, boolean z) {
-        switch (ak.f4747a[hmVar.ordinal()]) {
+        switch (ak.f4749a[hmVar.ordinal()]) {
             case 1:
                 return new in();
             case 2:

@@ -2,7 +2,7 @@ package com.baidu.b.a;
 /* loaded from: classes7.dex */
 final class j extends g {
     public j(int i, int i2) {
-        this.f1241a = 4294967295L;
+        this.f1243a = 4294967295L;
         this.b = 4;
         this.c = 32;
         this.d = i;

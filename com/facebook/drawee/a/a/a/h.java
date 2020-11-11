@@ -9,56 +9,56 @@ public class h {
     @Nullable
     private String mRequestId;
     @Nullable
-    private String oDF;
+    private String oMY;
     @Nullable
-    private Object oDH;
+    private Object oNa;
     @Nullable
-    private ImageRequest oDI;
+    private ImageRequest oNb;
     @Nullable
-    private com.facebook.imagepipeline.g.f oDJ;
-    private boolean oDS;
-    private long oDK = -1;
-    private long oDL = -1;
-    private long oDM = -1;
-    private long oDN = -1;
-    private long oDO = -1;
-    private long oDP = -1;
-    private long oDQ = -1;
-    private int oDR = -1;
-    private int oDT = -1;
-    private int oDU = -1;
-    private int oEd = -1;
+    private com.facebook.imagepipeline.g.f oNc;
+    private boolean oNl;
+    private long oNd = -1;
+    private long oNe = -1;
+    private long oNf = -1;
+    private long oNg = -1;
+    private long oNh = -1;
+    private long oNi = -1;
+    private long oNj = -1;
+    private int oNk = -1;
+    private int oNm = -1;
+    private int oNn = -1;
+    private int oNw = -1;
 
     public void reset() {
         this.mRequestId = null;
-        this.oDI = null;
-        this.oDH = null;
-        this.oDJ = null;
-        this.oDK = -1L;
-        this.oDM = -1L;
-        this.oDN = -1L;
-        this.oDO = -1L;
-        this.oDP = -1L;
-        this.oDQ = -1L;
-        this.oDR = -1;
+        this.oNb = null;
+        this.oNa = null;
+        this.oNc = null;
+        this.oNd = -1L;
+        this.oNf = -1L;
+        this.oNg = -1L;
+        this.oNh = -1L;
+        this.oNi = -1L;
+        this.oNj = -1L;
+        this.oNk = -1;
         this.mIsCanceled = false;
         this.UN = false;
-        this.oDS = false;
-        this.oDT = -1;
-        this.oDU = -1;
-        this.oEd = -1;
+        this.oNl = false;
+        this.oNm = -1;
+        this.oNn = -1;
+        this.oNw = -1;
     }
 
-    public void Ob(int i) {
-        this.oEd = i;
+    public void Ow(int i) {
+        this.oNw = i;
     }
 
-    public int ehv() {
-        return this.oEd;
+    public int elk() {
+        return this.oNw;
     }
 
-    public void XC(@Nullable String str) {
-        this.oDF = str;
+    public void Yg(@Nullable String str) {
+        this.oMY = str;
     }
 
     public void setRequestId(@Nullable String str) {
@@ -66,70 +66,70 @@ public class h {
     }
 
     public void setImageRequest(@Nullable ImageRequest imageRequest) {
-        this.oDI = imageRequest;
+        this.oNb = imageRequest;
     }
 
     public void bk(@Nullable Object obj) {
-        this.oDH = obj;
+        this.oNa = obj;
     }
 
-    public void hi(long j) {
-        this.oDK = j;
+    public void hE(long j) {
+        this.oNd = j;
     }
 
-    public void hj(long j) {
-        this.oDL = j;
+    public void hF(long j) {
+        this.oNe = j;
     }
 
-    public void hk(long j) {
-        this.oDM = j;
+    public void hG(long j) {
+        this.oNf = j;
     }
 
-    public void hl(long j) {
-        this.oDN = j;
+    public void hH(long j) {
+        this.oNg = j;
     }
 
-    public void hm(long j) {
-        this.oDO = j;
+    public void hI(long j) {
+        this.oNh = j;
     }
 
-    public void hn(long j) {
-        this.oDP = j;
+    public void hJ(long j) {
+        this.oNi = j;
     }
 
-    public void ho(long j) {
-        this.oDQ = j;
+    public void hK(long j) {
+        this.oNj = j;
     }
 
-    public void Oc(int i) {
-        this.oDR = i;
+    public void Ox(int i) {
+        this.oNk = i;
     }
 
-    public void zO(boolean z) {
+    public void zZ(boolean z) {
         this.mIsCanceled = z;
     }
 
-    public void zP(boolean z) {
+    public void Aa(boolean z) {
         this.UN = z;
     }
 
-    public void zQ(boolean z) {
-        this.oDS = z;
+    public void Ab(boolean z) {
+        this.oNl = z;
     }
 
     public void a(@Nullable com.facebook.imagepipeline.g.f fVar) {
-        this.oDJ = fVar;
+        this.oNc = fVar;
     }
 
-    public void Od(int i) {
-        this.oDT = i;
+    public void Oy(int i) {
+        this.oNm = i;
     }
 
-    public void Oe(int i) {
-        this.oDU = i;
+    public void Oz(int i) {
+        this.oNn = i;
     }
 
-    public e ehw() {
-        return new e(this.oDF, this.mRequestId, this.oDI, this.oDH, this.oDJ, this.oDK, this.oDL, this.oDM, this.oDN, this.oDO, this.oDP, this.oDQ, this.oDR, this.mIsCanceled, this.UN, this.oDS, this.oDT, this.oDU);
+    public e ell() {
+        return new e(this.oMY, this.mRequestId, this.oNb, this.oNa, this.oNc, this.oNd, this.oNe, this.oNf, this.oNg, this.oNh, this.oNi, this.oNj, this.oNk, this.mIsCanceled, this.UN, this.oNl, this.oNm, this.oNn);
     }
 }

@@ -115,7 +115,7 @@ public class ArAssetsSourceLoader extends c {
 
     @Override // com.baidu.minivideo.arface.utils.c
     public void run() {
-        ThreadPool.XQ().execute(new Runnable() { // from class: com.baidu.ala.dumixar.ArAssetsSourceLoader.1
+        ThreadPool.aap().execute(new Runnable() { // from class: com.baidu.ala.dumixar.ArAssetsSourceLoader.1
             @Override // java.lang.Runnable
             public void run() {
                 ArAssetsSourceLoader.this.loadArAssetsSource(ArAssetsSourceLoader.this.mContext);

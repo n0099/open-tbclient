@@ -7,25 +7,25 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    public String aRU;
-    public long aRV;
-    public com.baidu.live.gift.c aRW;
-    public boolean aRX;
+    public String aTm;
+    public long aTn;
+    public com.baidu.live.gift.c aTo;
+    public boolean aTp;
     public int frameCount;
     public String id;
     public int priority;
     public String videoMd5;
     public String videoUrl;
 
-    public JSONObject EI() {
+    public JSONObject Fj() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("id", this.id);
             jSONObject.put("mp4_file_url", this.videoUrl);
             jSONObject.put("video_md5", this.videoMd5);
-            jSONObject.put(FuFaceItem.JK_SO_URL, this.aRU);
+            jSONObject.put(FuFaceItem.JK_SO_URL, this.aTm);
             jSONObject.put("frame_count", this.frameCount);
-            jSONObject.put("last_accessed", this.aRV);
+            jSONObject.put("last_accessed", this.aTn);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -35,27 +35,27 @@ public class a {
     public a k(String str, String str2, String str3, String str4) {
         this.videoUrl = str;
         this.videoMd5 = str4;
-        if (this.aRW == null) {
-            this.aRW = new com.baidu.live.gift.c();
+        if (this.aTo == null) {
+            this.aTo = new com.baidu.live.gift.c();
         }
-        this.aRW.aSM = str2;
-        this.aRW.videoPath = str3;
+        this.aTo.aUf = str2;
+        this.aTo.videoPath = str3;
         return this;
     }
 
     public a b(String str, String str2, List<String> list) {
-        this.aRU = str;
-        if (this.aRW == null) {
-            this.aRW = new com.baidu.live.gift.c();
+        this.aTm = str;
+        if (this.aTo == null) {
+            this.aTo = new com.baidu.live.gift.c();
         }
-        this.aRW.upZipDirPath = str2;
+        this.aTo.upZipDirPath = str2;
         if (list != null) {
             this.frameCount = list.size();
-            if (this.aRW.aSL != null && this.aRW.aSL.aSK != null) {
-                this.aRW.aSL.aSK.frame_count = this.frameCount;
+            if (this.aTo.aUe != null && this.aTo.aUe.aUd != null) {
+                this.aTo.aUe.aUd.frame_count = this.frameCount;
             }
-            this.aRW.unZipFilesPathList = new ArrayList<>();
-            this.aRW.unZipFilesPathList.addAll(list);
+            this.aTo.unZipFilesPathList = new ArrayList<>();
+            this.aTo.unZipFilesPathList.addAll(list);
         }
         return this;
     }

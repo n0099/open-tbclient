@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public final class MarkerOptions extends OverlayOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2028a;
+    int f2030a;
     Bundle c;
     private LatLng d;
     private BitmapDescriptor e;
@@ -45,12 +45,12 @@ public final class MarkerOptions extends OverlayOptions {
     public Overlay a() {
         Marker marker = new Marker();
         marker.B = this.b;
-        marker.A = this.f2028a;
+        marker.A = this.f2030a;
         marker.C = this.c;
         if (this.d == null) {
             throw new IllegalStateException("BDMapSDKException: when you add marker, you must set the position");
         }
-        marker.f2027a = this.d;
+        marker.f2029a = this.d;
         if (this.e == null && this.n == null) {
             throw new IllegalStateException("BDMapSDKException: when you add marker, you must set the icon or icons");
         }
@@ -184,7 +184,7 @@ public final class MarkerOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f2028a;
+        return this.f2030a;
     }
 
     public MarkerOptions icon(BitmapDescriptor bitmapDescriptor) {
@@ -206,7 +206,7 @@ public final class MarkerOptions extends OverlayOptions {
                 if (i2 >= arrayList.size()) {
                     this.n = arrayList;
                     break;
-                } else if (arrayList.get(i2) == null || arrayList.get(i2).f1997a == null) {
+                } else if (arrayList.get(i2) == null || arrayList.get(i2).f1999a == null) {
                     break;
                 } else {
                     i = i2 + 1;
@@ -297,7 +297,7 @@ public final class MarkerOptions extends OverlayOptions {
     }
 
     public MarkerOptions zIndex(int i) {
-        this.f2028a = i;
+        this.f2030a = i;
         return this;
     }
 }

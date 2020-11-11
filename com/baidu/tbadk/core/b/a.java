@@ -10,26 +10,26 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 /* loaded from: classes.dex */
 public class a {
-    private static a esl;
-    private Runnable esm = new Runnable() { // from class: com.baidu.tbadk.core.b.a.1
+    private static a eyf;
+    private Runnable eyg = new Runnable() { // from class: com.baidu.tbadk.core.b.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.this.nH(0);
+            a.this.nR(0);
         }
     };
 
-    public static a bhw() {
-        if (esl == null) {
+    public static a bjW() {
+        if (eyf == null) {
             synchronized (a.class) {
-                if (esl == null) {
-                    esl = new a();
+                if (eyf == null) {
+                    eyf = new a();
                 }
             }
         }
-        return esl;
+        return eyf;
     }
 
-    public void nH(int i) {
+    public void nR(int i) {
         try {
             Bundle bundle = new Bundle();
             bundle.putString("package", "com.baidu.tieba");
@@ -41,14 +41,14 @@ public class a {
         }
     }
 
-    public boolean bhx() {
+    public boolean bjX() {
         return an.check(RomUtils.ROM_EMUI);
     }
 
-    public void bhy() {
-        if (bhx()) {
-            nH(1);
-            e.mY().postDelayed(this.esm, 500L);
+    public void bjY() {
+        if (bjX()) {
+            nR(1);
+            e.mY().postDelayed(this.eyg, 500L);
         }
     }
 }

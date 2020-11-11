@@ -10,68 +10,68 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private static a giz;
-    private List<aq> fKT;
+    private static a gom;
+    private List<aq> fQJ;
 
-    public static a bNc() {
-        if (giz == null) {
+    public static a bPC() {
+        if (gom == null) {
             synchronized (a.class) {
-                if (giz == null) {
-                    giz = new a();
+                if (gom == null) {
+                    gom = new a();
                 }
             }
         }
-        return giz;
+        return gom;
     }
 
     public void e(aq aqVar) {
         if (aqVar != null) {
-            if (this.fKT == null) {
-                this.fKT = new ArrayList();
+            if (this.fQJ == null) {
+                this.fQJ = new ArrayList();
             }
-            if (this.fKT != null) {
-                this.fKT.add(aqVar);
+            if (this.fQJ != null) {
+                this.fQJ.add(aqVar);
             }
         }
     }
 
-    public void Gk(String str) {
+    public void Gy(String str) {
         if (str != null) {
-            if (this.fKT == null) {
-                this.fKT = new ArrayList();
+            if (this.fQJ == null) {
+                this.fQJ = new ArrayList();
             }
-            if (this.fKT != null) {
-                this.fKT.add(new aq(str));
+            if (this.fQJ != null) {
+                this.fQJ.add(new aq(str));
             }
         }
     }
 
-    public void bJQ() {
-        if (y.getCount(this.fKT) != 0) {
-            for (aq aqVar : this.fKT) {
+    public void bMp() {
+        if (y.getCount(this.fQJ) != 0) {
+            for (aq aqVar : this.fQJ) {
                 if (aqVar != null) {
                     TiebaStatic.log(aqVar);
                 }
             }
-            this.fKT.clear();
+            this.fQJ.clear();
         }
     }
 
-    public void lE(boolean z) {
-        if (y.getCount(this.fKT) != 0) {
-            for (aq aqVar : this.fKT) {
+    public void lN(boolean z) {
+        if (y.getCount(this.fQJ) != 0) {
+            for (aq aqVar : this.fQJ) {
                 if (aqVar != null) {
                     int i = 0;
                     if (z) {
                         i = 1;
                     }
                     if (!aqVar.getParams().contains(TiebaInitialize.Params.OBJ_PARAM2)) {
-                        aqVar.aj(TiebaInitialize.Params.OBJ_PARAM2, i);
+                        aqVar.al(TiebaInitialize.Params.OBJ_PARAM2, i);
                     }
                     TiebaStatic.log(aqVar);
                 }
             }
-            this.fKT.clear();
+            this.fQJ.clear();
         }
     }
 
@@ -80,31 +80,31 @@ public class a {
             return null;
         }
         String str3 = "";
-        if (bwVar.bku() != null && !StringUtils.isNull(bwVar.bku().appId)) {
-            str3 = bwVar.bku().appId;
+        if (bwVar.bmU() != null && !StringUtils.isNull(bwVar.bmU().appId)) {
+            str3 = bwVar.bmU().appId;
         }
         aq aqVar = new aq(str);
-        aqVar.aj("obj_type", 1);
+        aqVar.al("obj_type", 1);
         aqVar.w("obj_id", S(bwVar));
         aqVar.dR("tid", bwVar.getId());
         aqVar.dR(TiebaInitialize.Params.OBJ_PARAM3, str3);
-        aqVar.aj("entryid", i2);
+        aqVar.al("entryid", i2);
         aqVar.dR("name", str2);
-        aqVar.aj("is_small_follow", i);
+        aqVar.al("is_small_follow", i);
         return aqVar;
     }
 
     private long S(bw bwVar) {
-        if (bwVar == null || bwVar.bku() == null) {
+        if (bwVar == null || bwVar.bmU() == null) {
             return -1L;
         }
-        return bwVar.bku().live_id;
+        return bwVar.bmU().live_id;
     }
 
     public void c(String str, int i, int i2, String str2) {
         aq aqVar = new aq(str);
-        aqVar.aj("obj_source", i);
-        aqVar.aj("obj_type", i2);
+        aqVar.al("obj_source", i);
+        aqVar.al("obj_type", i2);
         aqVar.dR("tid", str2);
         TiebaStatic.log(aqVar);
     }

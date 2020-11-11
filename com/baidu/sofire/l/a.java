@@ -9,18 +9,18 @@ public interface a extends IInterface {
 
     /* renamed from: com.baidu.sofire.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    public static abstract class AbstractBinderC0349a extends Binder implements a {
+    public static abstract class AbstractBinderC0361a extends Binder implements a {
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.baidu.sofire.l.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes15.dex */
-        public static class C0350a implements a {
+        public static class C0362a implements a {
 
             /* renamed from: a  reason: collision with root package name */
-            public static a f3654a;
+            public static a f3657a;
             private IBinder b;
 
-            C0350a(IBinder iBinder) {
+            C0362a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
@@ -34,11 +34,11 @@ public interface a extends IInterface {
                     obtain.writeString(str);
                     obtain.writeString(str2);
                     obtain.writeString(str3);
-                    if (this.b.transact(1, obtain, obtain2, 0) || AbstractBinderC0349a.a() == null) {
+                    if (this.b.transact(1, obtain, obtain2, 0) || AbstractBinderC0361a.a() == null) {
                         obtain2.readException();
                         readString = obtain2.readString();
                     } else {
-                        readString = AbstractBinderC0349a.a().a(str, str2, str3);
+                        readString = AbstractBinderC0361a.a().a(str, str2, str3);
                     }
                     return readString;
                 } finally {
@@ -54,7 +54,7 @@ public interface a extends IInterface {
         }
 
         public static a a() {
-            return C0350a.f3654a;
+            return C0362a.f3657a;
         }
 
         public static a a(IBinder iBinder) {
@@ -62,7 +62,7 @@ public interface a extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.heytap.openid.IOpenID");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0350a(iBinder) : (a) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0362a(iBinder) : (a) queryLocalInterface;
         }
 
         @Override // android.os.Binder

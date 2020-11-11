@@ -8,7 +8,7 @@ import com.facebook.imagepipeline.nativecode.Bitmaps;
 import javax.annotation.Nullable;
 /* loaded from: classes18.dex */
 public abstract class a implements b {
-    public static final Bitmap.Config oQM = Bitmap.Config.ARGB_8888;
+    public static final Bitmap.Config pag = Bitmap.Config.ARGB_8888;
 
     @Override // com.facebook.imagepipeline.request.b
     public String getName() {
@@ -21,7 +21,7 @@ public abstract class a implements b {
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
         if (config == null) {
-            config = oQM;
+            config = pag;
         }
         com.facebook.common.references.a<Bitmap> c = fVar.c(width, height, config);
         try {
@@ -42,7 +42,7 @@ public abstract class a implements b {
 
     @Override // com.facebook.imagepipeline.request.b
     @Nullable
-    public com.facebook.cache.common.b ene() {
+    public com.facebook.cache.common.b eqU() {
         return null;
     }
 

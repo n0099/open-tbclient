@@ -6,7 +6,7 @@ import android.text.TextUtils;
 public final class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private static j f1155a;
+    private static j f1157a;
     private String b;
     private String c;
     private String d;
@@ -24,14 +24,14 @@ public final class j {
     }
 
     public static j a(Context context) {
-        if (f1155a == null) {
+        if (f1157a == null) {
             synchronized (j.class) {
-                if (f1155a == null) {
-                    f1155a = new j(context);
+                if (f1157a == null) {
+                    f1157a = new j(context);
                 }
             }
         }
-        return f1155a;
+        return f1157a;
     }
 
     public String a() {

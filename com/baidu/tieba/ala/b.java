@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.TbPageContext;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b implements com.baidu.live.liveroom.d.e {
-    private int aJw = 1;
+    private int aKw = 1;
     private List<com.baidu.live.liveroom.d.d> mDataList;
     private TbPageContext mPageContext;
     private View mRootView;
@@ -23,21 +23,21 @@ public class b implements com.baidu.live.liveroom.d.e {
     @Override // com.baidu.live.liveroom.d.d
     public String getTitle() {
         if (this.mPageContext != null) {
-            return this.mPageContext.getString(a.i.ala_rank_list_sub_panel_title);
+            return this.mPageContext.getString(a.h.ala_rank_list_sub_panel_title);
         }
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String KR() {
-        if (this.aJw == 1) {
-            return com.baidu.live.z.a.Pq().bmJ.aKS;
+    public String Lr() {
+        if (this.aKw == 1) {
+            return com.baidu.live.aa.a.PQ().bod.aLS;
         }
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short KS() {
+    public short Ls() {
         return (short) 5;
     }
 

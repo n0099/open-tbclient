@@ -50,15 +50,15 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
             
 
             /* renamed from: a  reason: collision with root package name */
-            private int f2137a;
+            private int f2139a;
 
             StepVehicleInfoType(int i) {
-                this.f2137a = 0;
-                this.f2137a = i;
+                this.f2139a = 0;
+                this.f2139a = i;
             }
 
             public int getInt() {
-                return this.f2137a;
+                return this.f2139a;
             }
         }
 
@@ -67,7 +67,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
             public static final Parcelable.Creator<TrafficCondition> CREATOR = new k();
 
             /* renamed from: a  reason: collision with root package name */
-            private int f2138a;
+            private int f2140a;
             private int b;
 
             public TrafficCondition() {
@@ -75,7 +75,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
 
             /* JADX INFO: Access modifiers changed from: protected */
             public TrafficCondition(Parcel parcel) {
-                this.f2138a = parcel.readInt();
+                this.f2140a = parcel.readInt();
                 this.b = parcel.readInt();
             }
 
@@ -89,7 +89,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
             }
 
             public int getTrafficStatus() {
-                return this.f2138a;
+                return this.f2140a;
             }
 
             public void setTrafficGeoCnt(int i) {
@@ -97,12 +97,12 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
             }
 
             public void setTrafficStatus(int i) {
-                this.f2138a = i;
+                this.f2140a = i;
             }
 
             @Override // android.os.Parcelable
             public void writeToParcel(Parcel parcel, int i) {
-                parcel.writeInt(this.f2138a);
+                parcel.writeInt(this.f2140a);
                 parcel.writeInt(this.b);
             }
         }

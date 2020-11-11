@@ -21,7 +21,7 @@ public abstract class a {
     public static class C0090a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f1244a;
+        public Context f1246a;
         public com.baidu.b.e.a acW;
     }
 
@@ -82,7 +82,7 @@ public abstract class a {
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f1245a;
+        public boolean f1247a;
     }
 
     /* loaded from: classes7.dex */

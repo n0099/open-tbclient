@@ -10,36 +10,36 @@ import com.baidu.tieba.tbadkCore.FrsViewData;
 import tbclient.ItemInfo;
 /* loaded from: classes22.dex */
 public class al {
-    private BaseFragment iGb;
-    private FrsTopItemInfoView iGc;
+    private BaseFragment iLY;
+    private FrsTopItemInfoView iLZ;
 
     public al(BaseFragment baseFragment) {
         FrsViewData frsViewData;
         if (baseFragment != null) {
-            this.iGb = baseFragment;
-            this.iGc = new FrsTopItemInfoView(baseFragment.getContext());
-            this.iGc.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+            this.iLY = baseFragment;
+            this.iLZ = new FrsTopItemInfoView(baseFragment.getContext());
+            this.iLZ.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             onChangeSkinType();
-            if ((this.iGb instanceof FrsCommonTabFragment) && (frsViewData = ((FrsCommonTabFragment) this.iGb).iKm) != null && frsViewData.getForum() != null) {
+            if ((this.iLY instanceof FrsCommonTabFragment) && (frsViewData = ((FrsCommonTabFragment) this.iLY).iQj) != null && frsViewData.getForum() != null) {
                 ForumData forum = frsViewData.getForum();
-                this.iGc.setForumWriteData(new ForumWriteData(forum.getId(), forum.getName(), forum.getPrefixData(), frsViewData.getAnti()));
+                this.iLZ.setForumWriteData(new ForumWriteData(forum.getId(), forum.getName(), forum.getPrefixData(), frsViewData.getAnti()));
             }
         }
     }
 
     public void setData(ItemInfo itemInfo) {
-        if (this.iGc != null) {
-            this.iGc.setData(itemInfo);
+        if (this.iLZ != null) {
+            this.iLZ.setData(itemInfo);
         }
     }
 
     public View getView() {
-        return this.iGc;
+        return this.iLZ;
     }
 
     public void onChangeSkinType() {
-        if (this.iGc != null) {
-            this.iGc.onChangeSkinType();
+        if (this.iLZ != null) {
+            this.iLZ.onChangeSkinType();
         }
     }
 }

@@ -4,22 +4,22 @@ import android.os.Handler;
 import android.os.Looper;
 /* loaded from: classes6.dex */
 public class i extends e {
-    private static i oBH = null;
+    private static i oLa = null;
 
     private i() {
         super(new Handler(Looper.getMainLooper()));
     }
 
-    public static i egl() {
-        if (oBH == null) {
-            oBH = new i();
+    public static i eka() {
+        if (oLa == null) {
+            oLa = new i();
         }
-        return oBH;
+        return oLa;
     }
 
     @Override // com.facebook.common.b.e, java.util.concurrent.Executor
     public void execute(Runnable runnable) {
-        if (egj()) {
+        if (ejY()) {
             runnable.run();
         } else {
             super.execute(runnable);

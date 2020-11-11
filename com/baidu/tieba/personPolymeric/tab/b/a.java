@@ -17,11 +17,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes24.dex */
 public class a {
-    private static final int fCo = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
-    private static final int liX = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
-    private static final int lZx = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
+    private static final int fIe = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
+    private static final int loY = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
+    private static final int mfx = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
 
-    public static List<q> fi(List<q> list) {
+    public static List<q> fq(List<q> list) {
         bw bwVar;
         ArrayList arrayList = new ArrayList();
         if (y.isEmpty(list)) {
@@ -29,7 +29,7 @@ public class a {
         }
         for (int i = 0; i < list.size(); i++) {
             q qVar = (q) y.getItem(list, i);
-            if ((qVar instanceof CardPersonDynamicThreadData) && (bwVar = ((CardPersonDynamicThreadData) qVar).erH) != null) {
+            if ((qVar instanceof CardPersonDynamicThreadData) && (bwVar = ((CardPersonDynamicThreadData) qVar).exA) != null) {
                 com.baidu.tbadk.a.a.a.a(bwVar);
                 c aA = aA(bwVar);
                 if (aA != null) {
@@ -37,11 +37,11 @@ public class a {
                 }
             }
         }
-        com.baidu.tbadk.a.a.a.aX(arrayList);
+        com.baidu.tbadk.a.a.a.be(arrayList);
         return arrayList;
     }
 
-    public static List<q> fj(List<bw> list) {
+    public static List<q> fr(List<bw> list) {
         ArrayList arrayList = new ArrayList();
         if (y.isEmpty(list)) {
             return arrayList;
@@ -56,15 +56,15 @@ public class a {
                 }
             }
         }
-        com.baidu.tbadk.a.a.a.aX(arrayList);
+        com.baidu.tbadk.a.a.a.be(arrayList);
         return arrayList;
     }
 
     public static bw i(q qVar) {
         if (qVar != null && (qVar instanceof AbsThreadDataSupport)) {
-            bw bhz = ((AbsThreadDataSupport) qVar).bhz();
-            com.baidu.tbadk.a.a.a.a(bhz);
-            return bhz;
+            bw bjZ = ((AbsThreadDataSupport) qVar).bjZ();
+            com.baidu.tbadk.a.a.a.a(bjZ);
+            return bjZ;
         }
         return null;
     }
@@ -74,11 +74,11 @@ public class a {
         l lVar = null;
         lVar = null;
         if (bwVar != null) {
-            bwVar.eBc = true;
-            bwVar.bjC();
+            bwVar.eGR = true;
+            bwVar.bmc();
             if (bwVar.isShareThread) {
                 l lVar2 = new l();
-                lVar2.erH = bwVar;
+                lVar2.exA = bwVar;
                 lVar = lVar2;
             } else if (f.ab(bwVar)) {
                 lVar = new f(bwVar);
@@ -88,37 +88,37 @@ public class a {
                 l lVar3 = new l();
                 if (bwVar.isLinkThread()) {
                     lVar3.isLinkThread = true;
-                } else if (bwVar.bld()) {
-                    lVar3.exz = true;
+                } else if (bwVar.bnD()) {
+                    lVar3.eDq = true;
                 } else {
                     lVar3.isLinkThread = false;
-                    if (bwVar.bkd()) {
-                        lVar3.hVK = true;
+                    if (bwVar.bmD()) {
+                        lVar3.ibH = true;
                     } else {
-                        lVar3.hVK = false;
+                        lVar3.ibH = false;
                     }
                 }
-                lVar3.erH = bwVar;
-                lVar3.hVL = true;
+                lVar3.exA = bwVar;
+                lVar3.ibI = true;
                 lVar = lVar3;
             } else if (m.ab(bwVar)) {
                 lVar = new m(bwVar);
             }
             if (lVar != null) {
-                lVar.cmi();
+                lVar.coJ();
                 com.baidu.tbadk.a.a.a.a(lVar);
             }
         }
         return lVar;
     }
 
-    public static List<q> fk(List<bw> list) {
+    public static List<q> fs(List<bw> list) {
         ArrayList arrayList = new ArrayList();
         if (!y.isEmpty(list)) {
             k kVar = new k();
-            kVar.paddingBottom = lZx;
-            kVar.paddingTop = liX;
-            kVar.paddingLeft = fCo;
+            kVar.paddingBottom = mfx;
+            kVar.paddingTop = loY;
+            kVar.paddingLeft = fIe;
             kVar.titleId = R.string.person_center_tab_main_list_title;
             arrayList.add(kVar);
             for (int i = 0; i < list.size(); i++) {
@@ -131,7 +131,7 @@ public class a {
                     }
                 }
             }
-            com.baidu.tbadk.a.a.a.aX(arrayList);
+            com.baidu.tbadk.a.a.a.be(arrayList);
         }
         return arrayList;
     }

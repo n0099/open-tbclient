@@ -23,105 +23,105 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes10.dex */
 final class a extends com.baidu.swan.apps.inlinewidget.b<com.baidu.swan.apps.inlinewidget.f.c.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final a.InterfaceC0435a cQQ;
+    private final a.InterfaceC0447a cWJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@NonNull com.baidu.swan.apps.inlinewidget.f.c.a aVar) {
         super(aVar);
-        this.cQQ = new a.InterfaceC0435a() { // from class: com.baidu.swan.apps.inlinewidget.f.a.1
-            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0435a
+        this.cWJ = new a.InterfaceC0447a() { // from class: com.baidu.swan.apps.inlinewidget.f.a.1
+            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0447a
             public void onPrepared() {
-                if (a.this.cPU != null) {
-                    a.this.cPU.onCallback(a.this, "onPrepared", null);
+                if (a.this.cVN != null) {
+                    a.this.cVN.onCallback(a.this, "onPrepared", null);
                 }
             }
 
-            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0435a
-            public void ox(String str) {
-                if (a.this.cPU != null) {
-                    a.this.cPU.onCallback(a.this, "onPlayed", null);
+            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0447a
+            public void oL(String str) {
+                if (a.this.cVN != null) {
+                    a.this.cVN.onCallback(a.this, "onPlayed", null);
                 }
-                j.ahD().O(str, true);
+                j.akd().O(str, true);
             }
 
-            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0435a
-            public void oy(String str) {
-                if (a.this.cPU != null) {
-                    a.this.cPU.onCallback(a.this, "onPaused", null);
+            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0447a
+            public void oM(String str) {
+                if (a.this.cVN != null) {
+                    a.this.cVN.onCallback(a.this, "onPaused", null);
                 }
                 if (!TextUtils.isEmpty(str)) {
-                    j.ahD().O(str, false);
+                    j.akd().O(str, false);
                 }
             }
 
-            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0435a
+            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0447a
             public void onEnded() {
-                if (a.this.cPU != null) {
-                    a.this.cPU.onCallback(a.this, "onEnded", null);
+                if (a.this.cVN != null) {
+                    a.this.cVN.onCallback(a.this, "onEnded", null);
                 }
             }
 
-            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0435a
+            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0447a
             public void onError(int i) {
-                if (a.this.cPU != null) {
-                    a.this.cPU.onCallback(a.this, "onError", Integer.valueOf(i));
+                if (a.this.cVN != null) {
+                    a.this.cVN.onCallback(a.this, "onError", Integer.valueOf(i));
                 }
             }
 
-            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0435a
-            public void iL(int i) {
-                if (a.this.cPU != null) {
-                    a.this.cPU.onCallback(a.this, "onInfo", Integer.valueOf(i));
+            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0447a
+            public void iV(int i) {
+                if (a.this.cVN != null) {
+                    a.this.cVN.onCallback(a.this, "onInfo", Integer.valueOf(i));
                 }
             }
 
-            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0435a
-            public void atx() {
-                if (a.this.cPU != null) {
-                    a.this.cPU.onCallback(a.this, "onVideoSizeChanged", null);
+            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0447a
+            public void avX() {
+                if (a.this.cVN != null) {
+                    a.this.cVN.onCallback(a.this, "onVideoSizeChanged", null);
                 }
             }
 
-            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0435a
-            public void iM(int i) {
-                if (a.this.cPU != null) {
-                    a.this.cPU.onCallback(a.this, "onStateChange", Integer.valueOf(i));
+            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0447a
+            public void iW(int i) {
+                if (a.this.cVN != null) {
+                    a.this.cVN.onCallback(a.this, "onStateChange", Integer.valueOf(i));
                 }
             }
 
-            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0435a
-            public void oz(@NonNull String str) {
-                if (a.this.cPU != null) {
-                    a.this.cPU.onCallback(a.this, "onNetStatus", str);
+            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0447a
+            public void oN(@NonNull String str) {
+                if (a.this.cVN != null) {
+                    a.this.cVN.onCallback(a.this, "onNetStatus", str);
                 }
             }
 
-            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0435a
-            public void hf(String str) {
-                j.ahD().lA(str);
+            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0447a
+            public void hm(String str) {
+                j.akd().lP(str);
             }
         };
-        aVar.a(this.cQQ);
-        j.ahD().a(aVar);
-        this.cPT.a(new com.baidu.swan.apps.inlinewidget.f.a.a());
-        this.cPT.a(new com.baidu.swan.apps.inlinewidget.f.a.b());
-        this.cPT.a(new com.baidu.swan.apps.inlinewidget.f.a.c());
-        this.cPT.a(new com.baidu.swan.apps.inlinewidget.f.a.d());
-        this.cPT.a(new e());
-        this.cPT.a(new f());
-        this.cPT.a(new g());
-        this.cPT.a(new h());
-        this.cPT.a(new com.baidu.swan.apps.inlinewidget.f.a.j());
-        this.cPT.a(new k());
-        this.cPT.a(new l());
-        this.cPT.a(new m());
-        this.cPT.a(new o());
-        this.cPT.a(new p());
-        this.cPT.a(new s());
-        this.cPT.a(new t());
-        this.cPT.a(new n());
-        this.cPT.a(new i());
-        this.cPT.a(new r());
+        aVar.a(this.cWJ);
+        j.akd().a(aVar);
+        this.cVM.a(new com.baidu.swan.apps.inlinewidget.f.a.a());
+        this.cVM.a(new com.baidu.swan.apps.inlinewidget.f.a.b());
+        this.cVM.a(new com.baidu.swan.apps.inlinewidget.f.a.c());
+        this.cVM.a(new com.baidu.swan.apps.inlinewidget.f.a.d());
+        this.cVM.a(new e());
+        this.cVM.a(new f());
+        this.cVM.a(new g());
+        this.cVM.a(new h());
+        this.cVM.a(new com.baidu.swan.apps.inlinewidget.f.a.j());
+        this.cVM.a(new k());
+        this.cVM.a(new l());
+        this.cVM.a(new m());
+        this.cVM.a(new o());
+        this.cVM.a(new p());
+        this.cVM.a(new s());
+        this.cVM.a(new t());
+        this.cVM.a(new n());
+        this.cVM.a(new i());
+        this.cVM.a(new r());
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.b, com.baidu.webkit.sdk.plugin.ZeusPlugin
@@ -137,17 +137,17 @@ final class a extends com.baidu.swan.apps.inlinewidget.b<com.baidu.swan.apps.inl
     }
 
     private boolean b(ZeusPlugin.Command command) {
-        if (command != null && TextUtils.equals(command.what, k.cQT)) {
+        if (command != null && TextUtils.equals(command.what, k.cWM)) {
             if (DEBUG) {
                 Log.d("LiveInlineController", "isRejectCommand: exempt release command");
                 return false;
             }
             return false;
         }
-        int atL = ((com.baidu.swan.apps.inlinewidget.f.c.a) this.cPV).atL();
-        if (DEBUG && atL != 1) {
-            Log.d("LiveInlineController", "isRejectCommand: authorize type => " + ((com.baidu.swan.apps.inlinewidget.f.c.a) this.cPV).atL() + " command=> " + (command == null ? "" : command.what));
+        int awl = ((com.baidu.swan.apps.inlinewidget.f.c.a) this.cVO).awl();
+        if (DEBUG && awl != 1) {
+            Log.d("LiveInlineController", "isRejectCommand: authorize type => " + ((com.baidu.swan.apps.inlinewidget.f.c.a) this.cVO).awl() + " command=> " + (command == null ? "" : command.what));
         }
-        return atL == 2;
+        return awl == 2;
     }
 }

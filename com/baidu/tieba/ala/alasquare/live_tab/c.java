@@ -20,7 +20,7 @@ import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes4.dex */
 public class c {
     public static final void a(TbPageContext tbPageContext, String str, String str2) {
-        be.boR().b(tbPageContext, new String[]{"tiebachushou://liveroom?roomid=" + str + ETAG.ITEM_SEPARATOR + "livetype" + ETAG.EQUAL + str2});
+        be.brr().b(tbPageContext, new String[]{"tiebachushou://liveroom?roomid=" + str + ETAG.ITEM_SEPARATOR + "livetype" + ETAG.EQUAL + str2});
     }
 
     public static void a(Context context, SdkLiveInfoData sdkLiveInfoData) {
@@ -47,7 +47,7 @@ public class c {
 
     public static void a(TbPageContext tbPageContext, SdkLiveInfoData sdkLiveInfoData) {
         if (tbPageContext != null && sdkLiveInfoData != null) {
-            be.boR().b(tbPageContext, new String[]{"bdtiebalive://video/live?room_id=" + sdkLiveInfoData.roomId + "&live_id=" + sdkLiveInfoData.liveId + "&enterroom_type=1"});
+            be.brr().b(tbPageContext, new String[]{"bdtiebalive://video/live?room_id=" + sdkLiveInfoData.roomId + "&live_id=" + sdkLiveInfoData.liveId + "&enterroom_type=1"});
         }
     }
 
@@ -58,16 +58,16 @@ public class c {
     private static void b(Context context, bw bwVar, String str) {
         if (!j.isNetWorkAvailable()) {
             l.showLongToast(context, context.getString(R.string.no_network_guide));
-        } else if (context != null && bwVar != null && bwVar.bka() != null && bwVar.bku() != null) {
+        } else if (context != null && bwVar != null && bwVar.bmA() != null && bwVar.bmU() != null) {
             boolean z = false;
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccount() != null) {
-                String userId = bwVar.bka().getUserId();
+                String userId = bwVar.bmA().getUserId();
                 str2 = TbadkCoreApplication.getCurrentAccount();
                 z = TextUtils.equals(userId, str2);
             }
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(bwVar.bku());
+            alaLiveInfoCoreData.fillWithInfoData(bwVar.bmU());
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(context, alaLiveInfoCoreData, null, str, str2, z, null, null)));
         }
     }

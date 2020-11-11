@@ -173,7 +173,7 @@ public class ImagePickerPlugin implements FlutterPlugin, MethodChannel.MethodCal
             permissionJudgePolicy2.appendRequestPermission(currentActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
             if (permissionJudgePolicy2.startRequestPermission(TbadkCoreApplication.getInst().getCurrentActivity())) {
                 if (PreferenceUtils.getBoolean("imagepicker_tost_show", false) && !a.shouldShowRequestPermissionRationale(TbadkCoreApplication.getInst().getCurrentActivity(), "android.permission.WRITE_EXTERNAL_STORAGE")) {
-                    BdToast.b(currentActivity, "请到设置-隐私-照片开启照片权限").bmI();
+                    BdToast.b(currentActivity, "请到设置-隐私-照片开启照片权限").bpi();
                 }
                 PreferenceUtils.setBoolean("imagepicker_tost_show", true);
                 return;
@@ -210,7 +210,7 @@ public class ImagePickerPlugin implements FlutterPlugin, MethodChannel.MethodCal
                 permissionJudgePolicy3.appendRequestPermission(currentActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
                 if (permissionJudgePolicy3.startRequestPermission(TbadkCoreApplication.getInst().getCurrentActivity())) {
                     if (PreferenceUtils.getBoolean("imagepicker_tost_show", false) && !a.shouldShowRequestPermissionRationale(TbadkCoreApplication.getInst().getCurrentActivity(), "android.permission.WRITE_EXTERNAL_STORAGE")) {
-                        BdToast.b(currentActivity, "请到设置-隐私-照片开启照片权限").bmI();
+                        BdToast.b(currentActivity, "请到设置-隐私-照片开启照片权限").bpi();
                     }
                     PreferenceUtils.setBoolean("imagepicker_tost_show", true);
                     return;
@@ -245,8 +245,8 @@ public class ImagePickerPlugin implements FlutterPlugin, MethodChannel.MethodCal
                     ImagePickerPlugin.notifyFlutter(0, "保存成功！", "");
                 }
             });
-            pVar.ky(false);
-            pVar.kz(true);
+            pVar.kH(false);
+            pVar.kI(true);
             pVar.execute(new String[0]);
         }
     }

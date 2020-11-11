@@ -131,7 +131,7 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 } else {
                     this.aiP.setText(at.cutChineseAndEnglishWithSuffix(biVar.getForumName(), 8, StringHelper.STRING_MORE));
                 }
-                this.aiQ.setText(this.attention + " " + at.de(biVar.bje()));
+                this.aiQ.setText(this.attention + " " + at.dA(biVar.blE()));
                 onChangeSkinType();
             }
         }
@@ -175,7 +175,7 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             if (lVar != null) {
                 this.aiO.setVisibility(0);
                 this.aiN.setVisibility(8);
-                SvgManager.boN().a(this.aiO, R.drawable.ic_icon_pure_square28, (SvgManager.SvgResourceStateType) null);
+                SvgManager.brn().a(this.aiO, R.drawable.ic_icon_pure_square28, (SvgManager.SvgResourceStateType) null);
                 this.aiP.setText(R.string.forum_square_title);
                 this.aiQ.setText(R.string.forum_square_desc_1);
                 onChangeSkinType();

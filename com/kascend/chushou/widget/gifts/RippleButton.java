@@ -20,7 +20,7 @@ import java.util.LinkedList;
 public class RippleButton extends FrameLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private LinkedList<a> f4275a;
+    private LinkedList<a> f4277a;
     private Paint b;
     private int d;
     private int e;
@@ -30,7 +30,7 @@ public class RippleButton extends FrameLayout implements View.OnClickListener {
     private float i;
     private float j;
     private float k;
-    private View.OnClickListener prW;
+    private View.OnClickListener pBr;
 
     public RippleButton(@NonNull Context context) {
         this(context, null);
@@ -42,7 +42,7 @@ public class RippleButton extends FrameLayout implements View.OnClickListener {
 
     public RippleButton(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f4275a = new LinkedList<>();
+        this.f4277a = new LinkedList<>();
         this.b = new Paint();
         this.h = 0.4f;
         this.i = 0.2f;
@@ -64,7 +64,7 @@ public class RippleButton extends FrameLayout implements View.OnClickListener {
 
     @Override // android.view.View
     public void setOnClickListener(@Nullable View.OnClickListener onClickListener) {
-        this.prW = onClickListener;
+        this.pBr = onClickListener;
         this.g.setOnClickListener(this);
     }
 
@@ -80,7 +80,7 @@ public class RippleButton extends FrameLayout implements View.OnClickListener {
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                RippleButton.this.f4275a.poll();
+                RippleButton.this.f4277a.poll();
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -89,19 +89,19 @@ public class RippleButton extends FrameLayout implements View.OnClickListener {
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
-                RippleButton.this.f4275a.offer(aVar);
+                RippleButton.this.f4277a.offer(aVar);
             }
         });
         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kascend.chushou.widget.gifts.RippleButton.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                aVar.f4277a = valueAnimator.getAnimatedFraction();
+                aVar.f4279a = valueAnimator.getAnimatedFraction();
                 RippleButton.this.postInvalidate();
             }
         });
         ofFloat.start();
-        if (this.prW != null) {
-            this.prW.onClick(this);
+        if (this.pBr != null) {
+            this.pBr.onClick(this);
         }
     }
 
@@ -123,18 +123,18 @@ public class RippleButton extends FrameLayout implements View.OnClickListener {
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        Iterator<a> it = this.f4275a.iterator();
+        Iterator<a> it = this.f4277a.iterator();
         while (it.hasNext()) {
             a(it.next(), canvas, this.b);
         }
     }
 
     private void a(a aVar, Canvas canvas, Paint paint) {
-        if (Math.abs(0.0f - aVar.f4277a) > 0.01d) {
-            float f = this.f * this.j * aVar.f4277a;
-            float f2 = this.f * (this.k + (this.j * aVar.f4277a));
+        if (Math.abs(0.0f - aVar.f4279a) > 0.01d) {
+            float f = this.f * this.j * aVar.f4279a;
+            float f2 = this.f * (this.k + (this.j * aVar.f4279a));
             paint.setStrokeWidth(f);
-            paint.setAlpha((int) (255.0f * this.h * (1.0f - aVar.f4277a)));
+            paint.setAlpha((int) (255.0f * this.h * (1.0f - aVar.f4279a)));
             canvas.drawCircle(this.d, this.e, f2 - (f / 2.0f), paint);
         }
     }
@@ -144,10 +144,10 @@ public class RippleButton extends FrameLayout implements View.OnClickListener {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        float f4277a;
+        float f4279a;
 
         a(float f) {
-            this.f4277a = f;
+            this.f4279a = f;
         }
     }
 }

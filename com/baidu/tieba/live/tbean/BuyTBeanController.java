@@ -38,7 +38,6 @@ import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.live.tbadk.util.PageDialogHelper;
 import com.baidu.live.utils.d;
-import com.baidu.platform.comapi.map.MapController;
 import com.baidu.tieba.live.tbean.AbsBuyTBeanView;
 import com.baidu.tieba.live.tbean.BuyTBeanModel;
 import com.baidu.tieba.live.tbean.data.CustomData;
@@ -157,7 +156,7 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
         this.from = intent.getStringExtra("from");
         this.mGiftBbean = intent.getLongExtra("gift_tbean", 0L);
         this.mIsFromH5 = intent.getBooleanExtra(BuyTBeanActivityConfig.PAY_SOURCE, false);
-        this.buyTBeanActivityImpl.showLoadingDialog(this.activity.getString(a.i.sdk_tbn_flist_loading));
+        this.buyTBeanActivityImpl.showLoadingDialog(this.activity.getString(a.h.sdk_tbn_flist_loading));
         this.mView = BuyTBeanViewFactory.buildBuyTBeanView(this.tbPageContext, this, booleanExtra, booleanExtra2, this.isTBeanNotEnough);
         this.mView.hideRootView();
         this.mView.setOtherParams(this.mOtherParams);
@@ -186,7 +185,7 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
             jSONObject.putOpt("td_num", "");
         } catch (Exception e) {
         }
-        UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "charge_show").setContentExt(null, MapController.POPUP_LAYER_TAG, jSONObject));
+        UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "charge_show").setContentExt(null, "popup", jSONObject));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -197,13 +196,13 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == a.g.tbean_get_introduce || view.getId() == a.g.sdk_tbn_t_dou_introduce_activity_right_button) {
+        if (view.getId() == a.f.tbean_get_introduce || view.getId() == a.f.sdk_tbn_t_dou_introduce_activity_right_button) {
             UrlManager.getInstance().dealOneLink(this.tbPageContext, new String[]{"https://sv.baidu.com/cashliveui/statictHtml.html#/tbeanDesc"});
-        } else if (view.getId() == a.g.navigationBarGoBack || view.getId() == a.g.empty_stub_view) {
+        } else if (view.getId() == a.f.navigationBarGoBack || view.getId() == a.f.empty_stub_view) {
             processClose();
-        } else if (view.getId() == a.g.tbean_dialog_close_btn) {
+        } else if (view.getId() == a.f.tbean_dialog_close_btn) {
             processClose();
-        } else if (view.getId() == a.g.img_back) {
+        } else if (view.getId() == a.f.img_back) {
             processClose();
         }
     }
@@ -224,24 +223,24 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
             bdAlertDialog.setCancelable(true);
             bdAlertDialog.setTitleShowCenter(true);
             bdAlertDialog.setMessageShowCenter(true);
-            bdAlertDialog.setTitle(this.activity.getString(a.i.sdk_tbn_buy_tbean_exit_dialog_title));
-            bdAlertDialog.setMessage(this.activity.getString(a.i.sdk_tbn_buy_tbean_exit_dialog_sub_title));
-            bdAlertDialog.setPositiveButton(this.activity.getString(a.i.sdk_tbn_go_on), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.live.tbean.BuyTBeanController.1
+            bdAlertDialog.setTitle(this.activity.getString(a.h.sdk_tbn_buy_tbean_exit_dialog_title));
+            bdAlertDialog.setMessage(this.activity.getString(a.h.sdk_tbn_buy_tbean_exit_dialog_sub_title));
+            bdAlertDialog.setPositiveButton(this.activity.getString(a.h.sdk_tbn_go_on), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.live.tbean.BuyTBeanController.1
                 @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                 public void onClick(BdAlertDialog bdAlertDialog2) {
                     bdAlertDialog2.dismiss();
                     BuyTBeanController.this.mView.hidePayResultView();
                 }
             });
-            bdAlertDialog.setNegativeButton(this.activity.getString(a.i.sdk_tbn_buy_tbean_exit_dialog_quit), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.live.tbean.BuyTBeanController.2
+            bdAlertDialog.setNegativeButton(this.activity.getString(a.h.sdk_tbn_buy_tbean_exit_dialog_quit), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.live.tbean.BuyTBeanController.2
                 @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                 public void onClick(BdAlertDialog bdAlertDialog2) {
                     BuyTBeanController.this.finishSelf();
                 }
             });
             if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-                bdAlertDialog.setPositiveButtonTextColor(this.activity.getResources().getColorStateList(a.f.sdk_dialog_blue_button_txt_selector));
-                bdAlertDialog.setNagetiveButtonTextColor(this.activity.getResources().getColorStateList(a.f.sdk_dialog_gray_button_txt_selector));
+                bdAlertDialog.setPositiveButtonTextColor(this.activity.getResources().getColorStateList(a.e.sdk_dialog_blue_button_txt_selector));
+                bdAlertDialog.setNagetiveButtonTextColor(this.activity.getResources().getColorStateList(a.e.sdk_dialog_gray_button_txt_selector));
             }
             bdAlertDialog.create(this.tbPageContext).show();
             return;
@@ -264,12 +263,12 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
                 jSONObject.putOpt("td_num", this.tdouNum);
             } catch (Exception e) {
             }
-            UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "charge_clk").setContentExt(null, MapController.POPUP_LAYER_TAG, jSONObject));
+            UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "charge_clk").setContentExt(null, "popup", jSONObject));
             TbeanStatisticKey.logWithMember(TbeanStatisticKey.BUY_TBEAN_BUY);
             String valueOf = String.valueOf(i);
             String valueOf2 = String.valueOf(i2);
             String valueOf3 = String.valueOf(i3);
-            if (!TbadkCoreApplication.getInst().isMobileBaidu() && Build.VERSION.SDK_INT >= 28 && !d.aA(this.activity)) {
+            if (!TbadkCoreApplication.getInst().isMobileBaidu() && Build.VERSION.SDK_INT >= 28 && !d.aB(this.activity)) {
                 payWalletActivityConfig = new PayWalletActivityOpaqueConfig(this.activity, 2, "0", str2, valueOf, valueOf2, true, valueOf3, false, PageDialogHelper.PayForm.NOT_SET, getReferPage(), getClickZone(), RequestResponseCode.REQUEST_DO_PAY);
                 if (!TextUtils.isEmpty(this.from)) {
                     ((PayWalletActivityOpaqueConfig) payWalletActivityConfig).setFrom(this.from);
@@ -318,7 +317,7 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
                     jSONObject.putOpt("td_num", this.tdouNum);
                 } catch (Exception e) {
                 }
-                UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "chargesucc").setContentExt(null, MapController.POPUP_LAYER_TAG, jSONObject));
+                UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "chargesucc").setContentExt(null, "popup", jSONObject));
                 this.mPayStatus = 0;
                 this.mView.showPayResultView(true, this.mLastPayItemTbeanCount, this.mLastPayDataInfo);
                 JSONObject jSONObject2 = new JSONObject();
@@ -332,7 +331,7 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
                     jSONObject2.putOpt("td_num", this.tdouNum);
                 } catch (Exception e2) {
                 }
-                UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "chargesucc").setContentExt(null, MapController.POPUP_LAYER_TAG, jSONObject2));
+                UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "chargesucc").setContentExt(null, "popup", jSONObject2));
                 notifyPayResult(true, i2, str);
                 return;
             case 1:
@@ -349,7 +348,7 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
                     jSONObject3.putOpt("td_num", this.tdouNum);
                 } catch (Exception e3) {
                 }
-                UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "chargesucc").setContentExt(null, MapController.POPUP_LAYER_TAG, jSONObject3));
+                UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "chargesucc").setContentExt(null, "popup", jSONObject3));
                 return;
             case 2:
             case 3:
@@ -371,7 +370,7 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
                     jSONObject4.putOpt("td_num", this.tdouNum);
                 } catch (Exception e4) {
                 }
-                UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "chargesucc").setContentExt(null, MapController.POPUP_LAYER_TAG, jSONObject4));
+                UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "chargesucc").setContentExt(null, "popup", jSONObject4));
                 return;
             default:
                 return;
@@ -409,7 +408,7 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
             this.mView.showRootView();
             this.mView.hideContainerView();
             this.buyTBeanActivityImpl.setNetRefreshViewTopMargin(0);
-            this.buyTBeanActivityImpl.showNetRefreshView(this.mView.getRootView(), this.activity.getResources().getString(a.i.sdk_neterror));
+            this.buyTBeanActivityImpl.showNetRefreshView(this.mView.getRootView(), this.activity.getResources().getString(a.h.sdk_neterror));
         }
     }
 
@@ -433,7 +432,7 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
 
     public void refresh() {
         if (this.mModel != null && this.mView != null) {
-            this.buyTBeanActivityImpl.showLoadingDialog(this.activity.getString(a.i.sdk_tbn_flist_loading));
+            this.buyTBeanActivityImpl.showLoadingDialog(this.activity.getString(a.h.sdk_tbn_flist_loading));
             this.mView.hideContainerView();
             this.mModel.requestYinJiInfo();
         }

@@ -15,11 +15,11 @@ import org.json.JSONArray;
 final class dv extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackReportActivity f3840a;
+    final /* synthetic */ FeedbackReportActivity f3842a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dv(FeedbackReportActivity feedbackReportActivity) {
-        this.f3840a = feedbackReportActivity;
+        this.f3842a = feedbackReportActivity;
     }
 
     @Override // android.os.Handler
@@ -56,98 +56,98 @@ final class dv extends Handler {
             com.baidu.ufosdk.f.c.a("--- msg.what = 0 ---");
         }
         if (message.what == 12) {
-            this.f3840a.B = false;
-            FeedbackReportActivity.b(this.f3840a);
-            z2 = this.f3840a.C;
+            this.f3842a.B = false;
+            FeedbackReportActivity.b(this.f3842a);
+            z2 = this.f3842a.C;
             if (z2) {
-                this.f3840a.C = false;
+                this.f3842a.C = false;
                 return;
             }
-            this.f3840a.y = false;
-            str6 = this.f3840a.z;
+            this.f3842a.y = false;
+            str6 = this.f3842a.z;
             if (!TextUtils.isEmpty(str6)) {
-                str9 = this.f3840a.g;
+                str9 = this.f3842a.g;
                 if (TextUtils.isEmpty(str9)) {
-                    editor6 = this.f3840a.b;
-                    str10 = this.f3840a.z;
+                    editor6 = this.f3842a.b;
+                    str10 = this.f3842a.z;
                     editor6.putString(str10, "");
                 }
             }
-            str7 = this.f3840a.g;
+            str7 = this.f3842a.g;
             if (!TextUtils.isEmpty(str7)) {
-                editor5 = this.f3840a.b;
-                str8 = this.f3840a.g;
+                editor5 = this.f3842a.b;
+                str8 = this.f3842a.g;
                 editor5.putString(str8, "");
             }
-            editor4 = this.f3840a.b;
+            editor4 = this.f3842a.b;
             editor4.commit();
-            view4 = this.f3840a.A;
+            view4 = this.f3842a.A;
             view4.setVisibility(8);
-            Toast.makeText(this.f3840a.getApplicationContext(), com.baidu.ufosdk.f.s.a("59"), 0).show();
-            this.f3840a.finish();
+            Toast.makeText(this.f3842a.getApplicationContext(), com.baidu.ufosdk.f.s.a("59"), 0).show();
+            this.f3842a.finish();
         } else if (message.what == 13) {
-            this.f3840a.B = false;
-            view3 = this.f3840a.A;
+            this.f3842a.B = false;
+            view3 = this.f3842a.A;
             view3.setVisibility(8);
-            button = this.f3840a.m;
+            button = this.f3842a.m;
             button.setTextColor(com.baidu.ufosdk.b.v);
-            this.f3840a.finish();
+            this.f3842a.finish();
         } else if (message.what != 14) {
             if (message.what == 15) {
                 try {
-                    editText = this.f3840a.t;
-                    editText2 = this.f3840a.t;
+                    editText = this.f3842a.t;
+                    editText2 = this.f3842a.t;
                     ((InputMethodManager) editText.getContext().getSystemService("input_method")).showSoftInput(editText2, 0);
                 } catch (Exception e) {
                 }
             } else if (message.what == 16) {
-                if (this.f3840a.getCurrentFocus() == null || this.f3840a.getCurrentFocus().getWindowToken() == null) {
+                if (this.f3842a.getCurrentFocus() == null || this.f3842a.getCurrentFocus().getWindowToken() == null) {
                     return;
                 }
-                ((InputMethodManager) this.f3840a.getSystemService("input_method")).hideSoftInputFromWindow(this.f3840a.getCurrentFocus().getWindowToken(), 2);
+                ((InputMethodManager) this.f3842a.getSystemService("input_method")).hideSoftInputFromWindow(this.f3842a.getCurrentFocus().getWindowToken(), 2);
             } else if (message.what == 17) {
-                this.f3840a.B = false;
-                view = this.f3840a.A;
+                this.f3842a.B = false;
+                view = this.f3842a.A;
                 view.setVisibility(8);
             }
         } else {
-            this.f3840a.B = false;
-            FeedbackReportActivity.b(this.f3840a);
-            z = this.f3840a.C;
+            this.f3842a.B = false;
+            FeedbackReportActivity.b(this.f3842a);
+            z = this.f3842a.C;
             if (z) {
-                this.f3840a.C = false;
+                this.f3842a.C = false;
                 return;
             }
-            this.f3840a.y = false;
-            str = this.f3840a.z;
+            this.f3842a.y = false;
+            str = this.f3842a.z;
             if (!TextUtils.isEmpty(str)) {
-                str4 = this.f3840a.g;
+                str4 = this.f3842a.g;
                 if (TextUtils.isEmpty(str4)) {
-                    editor3 = this.f3840a.b;
-                    str5 = this.f3840a.z;
+                    editor3 = this.f3842a.b;
+                    str5 = this.f3842a.z;
                     editor3.putString(str5, "");
                 }
             }
-            str2 = this.f3840a.g;
+            str2 = this.f3842a.g;
             if (!TextUtils.isEmpty(str2)) {
-                editor2 = this.f3840a.b;
-                str3 = this.f3840a.g;
+                editor2 = this.f3842a.b;
+                str3 = this.f3842a.g;
                 editor2.putString(str3, "");
             }
-            editor = this.f3840a.b;
+            editor = this.f3842a.b;
             editor.commit();
-            view2 = this.f3840a.A;
+            view2 = this.f3842a.A;
             view2.setVisibility(8);
             if (com.baidu.ufosdk.b.af != null) {
                 com.baidu.ufosdk.b.af.getReportResult(1);
                 ReportCallback reportCallback = com.baidu.ufosdk.b.af;
-                jSONArray = this.f3840a.I;
+                jSONArray = this.f3842a.I;
                 String jSONArray3 = jSONArray.toString();
-                jSONArray2 = this.f3840a.J;
+                jSONArray2 = this.f3842a.J;
                 reportCallback.getReportContent(jSONArray3, jSONArray2.toString());
             }
-            Toast.makeText(this.f3840a.getApplicationContext(), com.baidu.ufosdk.f.s.a("59"), 0).show();
-            this.f3840a.finish();
+            Toast.makeText(this.f3842a.getApplicationContext(), com.baidu.ufosdk.f.s.a("59"), 0).show();
+            this.f3842a.finish();
         }
     }
 }

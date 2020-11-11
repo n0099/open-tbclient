@@ -13,22 +13,22 @@ public class a {
     private static a b;
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.pass.ecommerce.b.a f2759a;
+    private com.baidu.pass.ecommerce.b.a f2761a;
 
     /* renamed from: com.baidu.pass.ecommerce.a$a  reason: collision with other inner class name */
     /* loaded from: classes17.dex */
-    class C0262a implements com.baidu.pass.ecommerce.b.a {
+    class C0274a implements com.baidu.pass.ecommerce.b.a {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ com.baidu.pass.ecommerce.b.a f2760a;
+        final /* synthetic */ com.baidu.pass.ecommerce.b.a f2762a;
 
-        C0262a(com.baidu.pass.ecommerce.b.a aVar) {
-            this.f2760a = aVar;
+        C0274a(com.baidu.pass.ecommerce.b.a aVar) {
+            this.f2762a = aVar;
         }
 
         @Override // com.baidu.pass.ecommerce.b.a
         public void onCall(com.baidu.pass.ecommerce.c.a aVar) {
-            this.f2760a.onCall(aVar);
+            this.f2762a.onCall(aVar);
             a.this.b();
         }
     }
@@ -37,29 +37,29 @@ public class a {
     class b extends PermissionsCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ Context f2761a;
+        final /* synthetic */ Context f2763a;
 
         b(Context context) {
-            this.f2761a = context;
+            this.f2763a = context;
         }
 
         @Override // com.baidu.pass.permissions.PermissionsCallback
         public void onFailure(int i) {
             com.baidu.pass.ecommerce.c.a aVar = new com.baidu.pass.ecommerce.c.a();
             aVar.setResultCode(-901);
-            a.this.f2759a.onCall(aVar);
+            a.this.f2761a.onCall(aVar);
         }
 
         @Override // com.baidu.pass.permissions.PermissionsCallback
         public void onSuccess() {
-            Intent intent = new Intent(this.f2761a, GetContactActivty.class);
-            Context context = this.f2761a;
+            Intent intent = new Intent(this.f2763a, GetContactActivty.class);
+            Context context = this.f2763a;
             if (context instanceof Activity) {
                 context.startActivity(intent);
                 return;
             }
             intent.setFlags(268435456);
-            this.f2761a.startActivity(intent);
+            this.f2763a.startActivity(intent);
         }
     }
 
@@ -78,12 +78,12 @@ public class a {
     }
 
     public void b() {
-        this.f2759a = null;
+        this.f2761a = null;
         b = null;
     }
 
     public void a(Context context, com.baidu.pass.ecommerce.b.a aVar) {
-        this.f2759a = new C0262a(aVar);
+        this.f2761a = new C0274a(aVar);
         PermissionsDTO permissionsDTO = new PermissionsDTO();
         permissionsDTO.context = context;
         permissionsDTO.permissions = new String[]{"android.permission.READ_CONTACTS"};
@@ -93,6 +93,6 @@ public class a {
     }
 
     public com.baidu.pass.ecommerce.b.a a() {
-        return this.f2759a;
+        return this.f2761a;
     }
 }

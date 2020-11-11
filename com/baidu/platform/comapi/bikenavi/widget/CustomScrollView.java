@@ -21,7 +21,7 @@ public class CustomScrollView extends ScrollView {
     public static final Object TAG = new Object();
 
     /* renamed from: a  reason: collision with root package name */
-    private VelocityTracker f2839a;
+    private VelocityTracker f2841a;
     private int b;
     public int bottom;
     private int c;
@@ -117,7 +117,7 @@ public class CustomScrollView extends ScrollView {
         a(motionEvent);
         switch (motionEvent.getAction()) {
             case 1:
-                VelocityTracker velocityTracker = this.f2839a;
+                VelocityTracker velocityTracker = this.f2841a;
                 velocityTracker.computeCurrentVelocity(1000, this.b);
                 com.baidu.platform.comapi.wnplatform.o.b a2 = a((int) velocityTracker.getYVelocity(), getScrollY());
                 if (a2 != com.baidu.platform.comapi.wnplatform.o.b.NULL) {
@@ -162,10 +162,10 @@ public class CustomScrollView extends ScrollView {
     }
 
     private void a(MotionEvent motionEvent) {
-        if (this.f2839a == null) {
-            this.f2839a = VelocityTracker.obtain();
+        if (this.f2841a == null) {
+            this.f2841a = VelocityTracker.obtain();
         }
-        this.f2839a.addMovement(motionEvent);
+        this.f2841a.addMovement(motionEvent);
     }
 
     private boolean a(MotionEvent motionEvent, View view) {

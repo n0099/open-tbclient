@@ -4,7 +4,7 @@ public class g<T> extends AbstractDataSource<T> {
     private g() {
     }
 
-    public static <T> g<T> egY() {
+    public static <T> g<T> ekN() {
         return new g<>();
     }
 
@@ -27,7 +27,7 @@ public class g<T> extends AbstractDataSource<T> {
     }
 
     @Override // com.facebook.datasource.AbstractDataSource
-    public boolean bg(float f) {
-        return super.bg(f);
+    public boolean bi(float f) {
+        return super.bi(f);
     }
 }

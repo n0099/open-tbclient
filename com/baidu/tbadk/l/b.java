@@ -7,43 +7,43 @@ import com.baidu.tbadk.core.util.y;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class b {
-    private String foD;
-    private final ArrayList<String> foE = new ArrayList<>();
+    private String fuy;
+    private final ArrayList<String> fuz = new ArrayList<>();
     private BdUniqueId mId;
 
     public b(BdUniqueId bdUniqueId, String str, Intent intent) {
         this.mId = bdUniqueId;
-        this.foD = str;
+        this.fuy = str;
         I(intent);
     }
 
     public void I(Intent intent) {
-        this.foE.clear();
+        this.fuz.clear();
         if (intent != null) {
             ArrayList<String> stringArrayListExtra = intent.getStringArrayListExtra("tb_page_extar_source_list");
             if (!y.isEmpty(stringArrayListExtra)) {
-                this.foE.addAll(stringArrayListExtra);
+                this.fuz.addAll(stringArrayListExtra);
             }
         }
     }
 
     public String getCurrentPageKey() {
-        return this.foD;
+        return this.fuy;
     }
 
-    public ArrayList<String> bzz() {
-        return this.foE;
+    public ArrayList<String> bBY() {
+        return this.fuz;
     }
 
-    public ArrayList<String> bzA() {
-        return c.d(this.foE, this.foD);
+    public ArrayList<String> bBZ() {
+        return c.d(this.fuz, this.fuy);
     }
 
-    public String bzB() {
-        return (String) y.getItem(this.foE, y.getCount(this.foE) - 1);
+    public String bCa() {
+        return (String) y.getItem(this.fuz, y.getCount(this.fuz) - 1);
     }
 
     public boolean isDirtyData() {
-        return StringUtils.isNull(this.foD);
+        return StringUtils.isNull(this.fuy);
     }
 }

@@ -17,8 +17,8 @@ import com.baidu.tieba.pb.pb.main.emotion.message.SuggestEmotionResponseMessage;
 public class SuggestEmotionModel extends BdBaseModel {
     private String forumId;
     private String forumName;
-    private a lzC;
-    private final CustomMessageListener lzD = new CustomMessageListener(CmdConfigCustom.CMD_PB_GET_LOCAL_EMOTIONS) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.SuggestEmotionModel.1
+    private a lFy;
+    private final CustomMessageListener lFz = new CustomMessageListener(CmdConfigCustom.CMD_PB_GET_LOCAL_EMOTIONS) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.SuggestEmotionModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(final CustomResponsedMessage<?> customResponsedMessage) {
@@ -36,16 +36,16 @@ public class SuggestEmotionModel extends BdBaseModel {
             }
         }
     };
-    private final HttpMessageListener fmr = new HttpMessageListener(1003329) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.SuggestEmotionModel.2
+    private final HttpMessageListener fsk = new HttpMessageListener(1003329) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.SuggestEmotionModel.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003329 && (httpResponsedMessage instanceof SuggestEmotionResponseMessage) && SuggestEmotionModel.this.lzC != null) {
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003329 && (httpResponsedMessage instanceof SuggestEmotionResponseMessage) && SuggestEmotionModel.this.lFy != null) {
                 SuggestEmotionResponseMessage suggestEmotionResponseMessage = (SuggestEmotionResponseMessage) httpResponsedMessage;
                 if (suggestEmotionResponseMessage.getData() != null) {
-                    SuggestEmotionModel.this.lzC.a(suggestEmotionResponseMessage.getData());
+                    SuggestEmotionModel.this.lFy.a(suggestEmotionResponseMessage.getData());
                 } else {
-                    SuggestEmotionModel.this.lzC.onFail(suggestEmotionResponseMessage.getError(), suggestEmotionResponseMessage.getErrorString());
+                    SuggestEmotionModel.this.lFy.onFail(suggestEmotionResponseMessage.getError(), suggestEmotionResponseMessage.getErrorString());
                 }
             }
         }
@@ -60,20 +60,20 @@ public class SuggestEmotionModel extends BdBaseModel {
 
     public SuggestEmotionModel() {
         registerTask();
-        this.fmr.setTag(getUniqueId());
-        this.fmr.setSelfListener(true);
-        registerListener(this.fmr);
+        this.fsk.setTag(getUniqueId());
+        this.fsk.setSelfListener(true);
+        registerListener(this.fsk);
     }
 
     private void registerTask() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003329, TbConfig.SERVER_ADDRESS + Config.GET_PB_SUGGEST_EMOTION);
         tbHttpMessageTask.setResponsedClass(SuggestEmotionResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.lzD);
+        MessageManager.getInstance().registerListener(this.lFz);
     }
 
     public void a(String str, String str2, a aVar) {
-        this.lzC = aVar;
+        this.lFy = aVar;
         this.forumId = str;
         this.forumName = str2;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.EMOTION_SEND_LOCAL_EMOTIONS, new Integer((int) CmdConfigCustom.CMD_PB_GET_LOCAL_EMOTIONS)));
@@ -86,9 +86,9 @@ public class SuggestEmotionModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.fmr);
+        MessageManager.getInstance().unRegisterListener(this.fsk);
         MessageManager.getInstance().unRegisterTask(1003329);
-        MessageManager.getInstance().unRegisterListener(this.lzD);
+        MessageManager.getInstance().unRegisterListener(this.lFz);
         return true;
     }
 }

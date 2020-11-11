@@ -6,74 +6,74 @@ import com.baidu.searchbox.http.request.HttpRequest;
 import java.util.Map;
 /* loaded from: classes10.dex */
 public interface r {
-    boolean aeD();
+    void ahY();
 
-    String aeE();
+    void ahZ();
 
-    String aeF();
+    boolean ahd();
 
-    String aeG();
+    String ahe();
 
-    String aeH();
+    String ahf();
 
-    String aeI();
+    String ahg();
 
-    String aeJ();
+    String ahh();
 
-    String aeK();
+    String ahi();
 
-    String aeL();
+    String ahj();
 
-    String aeM();
+    String ahk();
 
-    String aeN();
+    String ahl();
 
-    String aeO();
+    String ahm();
 
-    String aeP();
+    String ahn();
 
-    String aeQ();
+    String aho();
 
-    String aeR();
+    String ahp();
 
-    String aeS();
+    String ahq();
 
-    String aeT();
+    String ahr();
 
-    String aeU();
+    String ahs();
+
+    String aht();
+
+    String ahu();
 
     @Nullable
-    String aeV();
+    String ahv();
 
-    long aeW();
+    long ahw();
 
-    String aeX();
+    String ahx();
 
-    String aeY();
+    String ahy();
 
-    String aeZ();
+    String ahz();
 
-    String afA();
+    String aia();
 
-    String afB();
+    String aib();
 
-    boolean afC();
+    boolean aic();
 
-    int afD();
+    int aid();
 
-    String afE();
+    String aie();
 
-    String afF();
+    String aif();
 
-    String afG();
+    String aig();
 
-    String afH();
+    String aih();
 
-    String afI();
-
-    void afy();
-
-    void afz();
+    String aii();
 
     String bs(Context context);
 
@@ -93,5 +93,5 @@ public interface r {
 
     HttpRequest k(Context context, Map<String, String> map);
 
-    String kg(String str);
+    String kv(String str);
 }

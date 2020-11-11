@@ -8,7 +8,7 @@ import java.io.IOException;
 /* loaded from: classes16.dex */
 public class z {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static PolystarShape t(JsonReader jsonReader, com.tb.airbnb.lottie.d dVar) throws IOException {
+    public static PolystarShape t(JsonReader jsonReader, com.tb.airbnb.lottie.e eVar) throws IOException {
         com.tb.airbnb.lottie.model.a.b bVar = null;
         com.tb.airbnb.lottie.model.a.b bVar2 = null;
         com.tb.airbnb.lottie.model.a.b bVar3 = null;
@@ -85,25 +85,25 @@ public class z {
                     type = PolystarShape.Type.forValue(jsonReader.nextInt());
                     break;
                 case 2:
-                    bVar6 = d.a(jsonReader, dVar, false);
+                    bVar6 = d.a(jsonReader, eVar, false);
                     break;
                 case 3:
-                    mVar = a.b(jsonReader, dVar);
+                    mVar = a.b(jsonReader, eVar);
                     break;
                 case 4:
-                    bVar5 = d.a(jsonReader, dVar, false);
+                    bVar5 = d.a(jsonReader, eVar, false);
                     break;
                 case 5:
-                    bVar4 = d.f(jsonReader, dVar);
+                    bVar4 = d.f(jsonReader, eVar);
                     break;
                 case 6:
-                    bVar3 = d.a(jsonReader, dVar, false);
+                    bVar3 = d.a(jsonReader, eVar, false);
                     break;
                 case 7:
-                    bVar2 = d.f(jsonReader, dVar);
+                    bVar2 = d.f(jsonReader, eVar);
                     break;
                 case '\b':
-                    bVar = d.a(jsonReader, dVar, false);
+                    bVar = d.a(jsonReader, eVar, false);
                     break;
                 default:
                     jsonReader.skipValue();

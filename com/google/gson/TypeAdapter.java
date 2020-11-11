@@ -23,7 +23,7 @@ public abstract class TypeAdapter<T> {
             @Override // com.google.gson.TypeAdapter
             public void write(b bVar, T t) throws IOException {
                 if (t == null) {
-                    bVar.epw();
+                    bVar.etl();
                 } else {
                     TypeAdapter.this.write(bVar, t);
                 }
@@ -31,8 +31,8 @@ public abstract class TypeAdapter<T> {
 
             @Override // com.google.gson.TypeAdapter
             public T read(a aVar) throws IOException {
-                if (aVar.eph() == JsonToken.NULL) {
-                    aVar.epm();
+                if (aVar.esW() == JsonToken.NULL) {
+                    aVar.etb();
                     return null;
                 }
                 return (T) TypeAdapter.this.read(aVar);
@@ -54,7 +54,7 @@ public abstract class TypeAdapter<T> {
         try {
             com.google.gson.internal.bind.b bVar = new com.google.gson.internal.bind.b();
             write(bVar, t);
-            return bVar.epq();
+            return bVar.etf();
         } catch (IOException e) {
             throw new JsonIOException(e);
         }

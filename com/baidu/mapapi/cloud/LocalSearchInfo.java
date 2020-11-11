@@ -10,9 +10,9 @@ public class LocalSearchInfo extends BaseCloudSearchInfo {
 
     public LocalSearchInfo() {
         if (HttpClient.isHttpsEnable) {
-            this.f1981a = "https://api.map.baidu.com/geosearch/v2/local";
+            this.f1983a = "https://api.map.baidu.com/geosearch/v2/local";
         } else {
-            this.f1981a = "http://api.map.baidu.com/geosearch/v2/local";
+            this.f1983a = "http://api.map.baidu.com/geosearch/v2/local";
         }
     }
 

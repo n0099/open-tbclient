@@ -10,20 +10,20 @@ public class w {
     private static volatile w c;
 
     /* renamed from: a  reason: collision with root package name */
-    private ThreadPoolExecutor f3646a;
+    private ThreadPoolExecutor f3649a;
 
     private w() {
-        this.f3646a = null;
+        this.f3649a = null;
         int max = Math.max(7, (b * 2) + 3);
-        this.f3646a = new ThreadPoolExecutor(max, max, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        this.f3649a = new ThreadPoolExecutor(max, max, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue());
         if (Build.VERSION.SDK_INT >= 9) {
-            this.f3646a.allowCoreThreadTimeOut(true);
+            this.f3649a.allowCoreThreadTimeOut(true);
         }
     }
 
     public final void a(Runnable runnable) {
         try {
-            this.f3646a.execute(runnable);
+            this.f3649a.execute(runnable);
         } catch (Throwable th) {
             e.a();
         }

@@ -9,7 +9,7 @@ import java.net.NetworkInterface;
 import java.util.Enumeration;
 /* loaded from: classes6.dex */
 public class a {
-    private static InetAddress YO() {
+    private static InetAddress abn() {
         InetAddress inetAddress;
         try {
             Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
@@ -49,11 +49,11 @@ public class a {
         }
     }
 
-    private static String YP() {
+    private static String abo() {
         byte[] hardwareAddress;
         try {
-            InetAddress YO = YO();
-            if (YO == null || (hardwareAddress = NetworkInterface.getByInetAddress(YO).getHardwareAddress()) == null) {
+            InetAddress abn = abn();
+            if (abn == null || (hardwareAddress = NetworkInterface.getByInetAddress(abn).getHardwareAddress()) == null) {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
@@ -73,7 +73,7 @@ public class a {
         }
     }
 
-    private static String YQ() {
+    private static String abp() {
         byte[] hardwareAddress;
         try {
             NetworkInterface byName = NetworkInterface.getByName("wlan0");
@@ -95,23 +95,23 @@ public class a {
     }
 
     private static String getMac() {
-        return ((WifiManager) g.YS().getApplicationContext().getSystemService("wifi")).getConnectionInfo().getMacAddress();
+        return ((WifiManager) g.abr().getApplicationContext().getSystemService("wifi")).getConnectionInfo().getMacAddress();
     }
 
     public static String getMacAddress() {
-        String YQ;
+        String abp;
         if (Build.VERSION.SDK_INT < 23) {
-            YQ = getMac();
+            abp = getMac();
         } else {
-            YQ = YQ();
+            abp = abp();
         }
-        if (!jo(YQ)) {
-            YQ = YP();
+        if (!jB(abp)) {
+            abp = abo();
         }
-        return !TextUtils.isEmpty(YQ) ? YQ.toUpperCase() : YQ;
+        return !TextUtils.isEmpty(abp) ? abp.toUpperCase() : abp;
     }
 
-    private static boolean jo(String str) {
+    private static boolean jB(String str) {
         return (TextUtils.isEmpty(str) || str.equals(Config.DEF_MAC_ID)) ? false : true;
     }
 }

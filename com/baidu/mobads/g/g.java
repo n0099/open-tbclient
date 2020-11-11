@@ -22,7 +22,7 @@ import java.util.jar.JarFile;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static Thread.UncaughtExceptionHandler f2335a;
+    protected static Thread.UncaughtExceptionHandler f2337a;
     protected static volatile com.baidu.mobads.g.a b = null;
     protected static volatile com.baidu.mobads.g.a c = null;
     protected static volatile Class d = null;
@@ -74,12 +74,12 @@ public class g {
         }
         this.l = context;
         c(context);
-        if (f2335a == null) {
-            f2335a = q.a(context);
+        if (f2337a == null) {
+            f2337a = q.a(context);
             q.a(context).a(new j(this));
         }
         if (!(Thread.getDefaultUncaughtExceptionHandler() instanceof q)) {
-            Thread.setDefaultUncaughtExceptionHandler(f2335a);
+            Thread.setDefaultUncaughtExceptionHandler(f2337a);
         }
     }
 
@@ -104,7 +104,7 @@ public class g {
     public void a(String str) {
         if (b != null) {
             SharedPreferences.Editor edit = l().edit();
-            edit.putFloat("__badApkVersion__8.8146", (float) b.f2330a);
+            edit.putFloat("__badApkVersion__8.8146", (float) b.f2332a);
             if (Build.VERSION.SDK_INT >= 9) {
                 edit.apply();
             } else {
@@ -171,7 +171,7 @@ public class g {
     public void a(com.baidu.mobads.g.b bVar) {
         Class<?> b2 = bVar.b();
         synchronized (this) {
-            c = new com.baidu.mobads.g.a(b2, this.l, com.baidu.mobads.a.b.a(), com.baidu.mobads.a.b.f2314a);
+            c = new com.baidu.mobads.g.a(b2, this.l, com.baidu.mobads.a.b.a(), com.baidu.mobads.a.b.f2316a);
         }
     }
 
@@ -188,17 +188,17 @@ public class g {
             } catch (Exception e2) {
                 this.m.e(e2);
             }
-            b = new com.baidu.mobads.g.a(bVar2.b(), this.l, com.baidu.mobads.a.b.a(), com.baidu.mobads.a.b.f2314a);
+            b = new com.baidu.mobads.g.a(bVar2.b(), this.l, com.baidu.mobads.a.b.a(), com.baidu.mobads.a.b.f2316a);
             try {
                 this.m.d("XAdApkLoader", "preloaded apk.version=" + b.a().getRemoteVersion());
                 return;
             } catch (a e3) {
-                this.m.w("XAdApkLoader", "preload local apk " + bVar.getAbsolutePath() + " failed, msg:" + e3.getMessage() + ", v=" + b.f2330a);
+                this.m.w("XAdApkLoader", "preload local apk " + bVar.getAbsolutePath() + " failed, msg:" + e3.getMessage() + ", v=" + b.f2332a);
                 a(e3.getMessage());
                 throw e3;
             }
         }
-        this.m.w("XAdApkLoader", "mApkBuilder already initialized, version: " + b.f2330a);
+        this.m.w("XAdApkLoader", "mApkBuilder already initialized, version: " + b.f2332a);
     }
 
     private boolean c(com.baidu.mobads.g.b bVar) {

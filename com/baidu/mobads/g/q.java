@@ -11,7 +11,7 @@ import java.lang.Thread;
 public class q implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f2344a = "";
+    public static String f2346a = "";
     private static Thread.UncaughtExceptionHandler b;
     private static volatile q c;
     private Context d;
@@ -114,7 +114,7 @@ public class q implements Thread.UncaughtExceptionHandler {
         SharedPreferences.Editor d = d();
         d.putString("key_crash_source", str);
         d.putString("key_crash_trace", str2);
-        d.putString("key_crash_ad", f2344a);
+        d.putString("key_crash_ad", f2346a);
         if (Build.VERSION.SDK_INT >= 9) {
             d.apply();
         } else {

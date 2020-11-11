@@ -9,7 +9,7 @@ public class PoiDetailInfo implements Parcelable {
     public static final Parcelable.Creator<PoiDetailInfo> CREATOR = new f();
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2100a;
+    private String f2102a;
     private LatLng b;
     private String c;
     public int checkinNum;
@@ -46,7 +46,7 @@ public class PoiDetailInfo implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public PoiDetailInfo(Parcel parcel) {
-        this.f2100a = parcel.readString();
+        this.f2102a = parcel.readString();
         this.b = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
         this.c = parcel.readString();
         this.d = parcel.readString();
@@ -149,7 +149,7 @@ public class PoiDetailInfo implements Parcelable {
     }
 
     public String getName() {
-        return this.f2100a;
+        return this.f2102a;
     }
 
     public LatLng getNaviLocation() {
@@ -277,7 +277,7 @@ public class PoiDetailInfo implements Parcelable {
     }
 
     public void setName(String str) {
-        this.f2100a = str;
+        this.f2102a = str;
     }
 
     public void setNaviLocation(LatLng latLng) {
@@ -338,7 +338,7 @@ public class PoiDetailInfo implements Parcelable {
 
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer("PoiDetailInfo: ");
-        stringBuffer.append("name = ").append(this.f2100a);
+        stringBuffer.append("name = ").append(this.f2102a);
         stringBuffer.append("; location = ");
         if (this.b != null) {
             stringBuffer.append(this.b.toString());
@@ -399,7 +399,7 @@ public class PoiDetailInfo implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f2100a);
+        parcel.writeString(this.f2102a);
         parcel.writeParcelable(this.b, i);
         parcel.writeString(this.c);
         parcel.writeString(this.d);

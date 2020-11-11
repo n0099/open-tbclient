@@ -8,7 +8,7 @@ import com.baidu.pano.platform.c.b;
 public class BMapManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f1828a = true;
+    private static boolean f1830a = true;
     private Context b;
 
     static {
@@ -39,6 +39,6 @@ public class BMapManager {
     }
 
     public static boolean isIllegalPanoSDKUser() {
-        return f1828a;
+        return f1830a;
     }
 }

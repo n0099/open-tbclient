@@ -33,7 +33,7 @@ public abstract class d implements IXAdRequestInfo {
     protected String c = "TODO";
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2454a = "android";
+    private String f2456a = "android";
     private String j = "";
     private int m = XAdSDKFoundationFacade.getInstance().getAdConstants().getAdCreativeTypeImage();
     private String n = "LP,DL";
@@ -190,11 +190,11 @@ public abstract class d implements IXAdRequestInfo {
     }
 
     public String f() {
-        return this.f2454a;
+        return this.f2456a;
     }
 
     public void a(String str) {
-        this.f2454a = str;
+        this.f2456a = str;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdRequestInfo

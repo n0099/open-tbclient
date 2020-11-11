@@ -4,12 +4,12 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.ala.rtc.BaseRtcRoom;
-import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.cyberplayer.sdk.CyberPlayer;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.live.adp.lib.safe.SafeHandler;
-import com.baidu.live.data.by;
+import com.baidu.live.adp.lib.util.BdNetTypeUtil;
+import com.baidu.live.data.bz;
 import com.baidu.live.data.w;
 import com.baidu.live.liveroom.e.i;
 import com.baidu.live.tbadk.core.util.UtilHelper;
@@ -23,118 +23,118 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a extends BaseRtcRoom {
-    private static String nUb;
+    private static String obq;
     private boolean mIsMute;
     private String mPlayUrl;
-    private CyberPlayer nUc;
-    private String nUd;
-    private String nUe;
-    private boolean nUf;
-    private volatile int nUg;
-    private volatile int nUh;
-    private HashMap<Integer, Integer> nUi;
-    private boolean nUj;
-    private boolean nUk;
-    private StringBuilder nUl;
-    private volatile boolean nUm;
-    private volatile boolean nUn;
-    private volatile boolean nUo;
-    public static boolean nTZ = false;
-    private static int nUa = 6;
-    private static long nUp = 300;
+    private StringBuilder obA;
+    private volatile boolean obB;
+    private volatile boolean obC;
+    private volatile boolean obD;
+    private CyberPlayer obr;
+    private String obs;
+    private String obt;
+    private boolean obu;
+    private volatile int obv;
+    private volatile int obw;
+    private HashMap<Integer, Integer> obx;
+    private boolean oby;
+    private boolean obz;
+    public static boolean obo = false;
+    private static int obp = 6;
+    private static long obE = 300;
 
     static /* synthetic */ int f(a aVar) {
-        int i = aVar.nUg;
-        aVar.nUg = i + 1;
+        int i = aVar.obv;
+        aVar.obv = i + 1;
         return i;
     }
 
     static {
-        if (TextUtils.isEmpty(nUb)) {
-            nUb = UtilHelper.is64Bit() ? "arm64-v8a" : "armeabi";
+        if (TextUtils.isEmpty(obq)) {
+            obq = UtilHelper.is64Bit() ? "arm64-v8a" : "armeabi";
         }
     }
 
     public a(Context context) {
         super(context);
-        this.nUh = 0;
-        this.nUi = new HashMap<>();
-        this.nUj = true;
-        this.nUl = new StringBuilder();
-        Vg("initaudioroom");
+        this.obw = 0;
+        this.obx = new HashMap<>();
+        this.oby = true;
+        this.obA = new StringBuilder();
+        Vx("initaudioroom");
     }
 
-    public void Vf(String str) {
+    public void Vw(String str) {
         n(str, false, false);
     }
 
     public void n(String str, boolean z, boolean z2) {
-        if (nTZ) {
-            Vg("enterLiveRoom:" + str + ",mstatus:" + this.nUh + ",misConnect:" + this.nUk);
+        if (obo) {
+            Vx("enterLiveRoom:" + str + ",mstatus:" + this.obw + ",misConnect:" + this.obz);
         }
-        this.nUn = true;
-        if (!z && !this.nUf && TextUtils.equals(this.mPlayUrl, str)) {
+        this.obC = true;
+        if (!z && !this.obu && TextUtils.equals(this.mPlayUrl, str)) {
             if (!z2) {
-                this.nUc.muteOrUnmuteAudio(false);
+                this.obr.muteOrUnmuteAudio(false);
             }
         } else if (TextUtils.isEmpty(str)) {
             if (this.mRtcRoomListener != null) {
                 this.mRtcRoomListener.onError(-4, "player url is null");
             }
         } else {
-            this.nUf = false;
+            this.obu = false;
             this.mPlayUrl = str;
-            if (!i.Ns().Nt()) {
+            if (!i.NS().NT()) {
                 log("playersdk do not init");
-                Vg("playersdk do not init");
+                Vx("playersdk do not init");
                 if (this.mRtcRoomListener != null) {
                     this.mRtcRoomListener.onError(-4, "playersdk do not init");
                     return;
                 }
                 return;
             }
-            this.nUc = new CyberPlayer();
+            this.obr = new CyberPlayer();
             long j = 2000;
             final float f = 1.0f;
             final long j2 = 2000;
             long j3 = 500000;
-            by byVar = com.baidu.live.z.a.Pq().bmJ.aMy;
-            if (byVar != null) {
-                j = byVar.aPF;
-                f = byVar.aPG;
-                j2 = byVar.aPH;
-                j3 = byVar.aPI * 1000;
+            bz bzVar = com.baidu.live.aa.a.PQ().bod.aNy;
+            if (bzVar != null) {
+                j = bzVar.aQC;
+                f = bzVar.aQD;
+                j2 = bzVar.aQE;
+                j3 = bzVar.aQF * 1000;
             }
             log("cyplayer:cloudconfig:" + j + Constants.ACCEPT_TIME_SEPARATOR_SP + f + Constants.ACCEPT_TIME_SEPARATOR_SP + j2 + Constants.ACCEPT_TIME_SEPARATOR_SP + j3);
-            if (nTZ) {
-                Vg("cyplayer:cloudconfig:" + j + Constants.ACCEPT_TIME_SEPARATOR_SP + f + Constants.ACCEPT_TIME_SEPARATOR_SP + j2 + Constants.ACCEPT_TIME_SEPARATOR_SP + j3);
+            if (obo) {
+                Vx("cyplayer:cloudconfig:" + j + Constants.ACCEPT_TIME_SEPARATOR_SP + f + Constants.ACCEPT_TIME_SEPARATOR_SP + j2 + Constants.ACCEPT_TIME_SEPARATOR_SP + j3);
             }
-            this.nUc.setOption("opt-open-audio-delay", 0L);
-            this.nUc.setOption("realtime-low-latency-threshold", j);
-            this.nUc.setOption("realtime-cache-duration-notify-timeout", 1000L);
-            this.nUc.setOption("start-on-prepared", 1L);
-            this.nUc.setOption("max-analyze-duration", String.valueOf(j3));
-            this.nUc.setOption("max-probe-size", "204800");
-            this.nUc.setDataSource(str);
+            this.obr.setOption("opt-open-audio-delay", 0L);
+            this.obr.setOption("realtime-low-latency-threshold", j);
+            this.obr.setOption("realtime-cache-duration-notify-timeout", 1000L);
+            this.obr.setOption("start-on-prepared", 1L);
+            this.obr.setOption("max-analyze-duration", String.valueOf(j3));
+            this.obr.setOption("max-probe-size", "204800");
+            this.obr.setDataSource(str);
             HashMap hashMap = new HashMap();
             hashMap.put("type", String.valueOf((int) DpStatConstants.SESSION_TYPE_STAGE_INFO));
             hashMap.put(CyberPlayerManager.STAGE_INFO_TYPE, "1004");
-            this.nUc.setExternalInfo(CyberPlayerManager.STR_STATISTICS_INFO, hashMap);
-            this.nUc.setOnErrorListener(new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.a.1
+            this.obr.setExternalInfo(CyberPlayerManager.STR_STATISTICS_INFO, hashMap);
+            this.obr.setOnErrorListener(new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.a.1
                 @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
                 public boolean onError(int i, int i2, Object obj) {
-                    a.this.nUf = true;
-                    a.this.nUo = false;
-                    a.this.nUn = false;
+                    a.this.obu = true;
+                    a.this.obD = false;
+                    a.this.obC = false;
                     a.this.log("cyplayer:onerror:" + i + Constants.ACCEPT_TIME_SEPARATOR_SP + i2);
-                    a.this.Vg("cyplayer:onerror:" + i + Constants.ACCEPT_TIME_SEPARATOR_SP + i2);
+                    a.this.Vx("cyplayer:onerror:" + i + Constants.ACCEPT_TIME_SEPARATOR_SP + i2);
                     if (a.this.mRtcRoomListener != null) {
                         a.this.mRtcRoomListener.onError(-4, "playererror:" + i + Constants.ACCEPT_TIME_SEPARATOR_SP + i2);
                     }
                     return false;
                 }
             });
-            this.nUc.setOnInfoListener(new CyberPlayerManager.OnInfoListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.a.2
+            this.obr.setOnInfoListener(new CyberPlayerManager.OnInfoListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.a.2
                 @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
                 public boolean onInfo(int i, int i2, Object obj) {
                     a.this.log("cyplayer:onInfo:" + i + Constants.ACCEPT_TIME_SEPARATOR_SP + i2 + Constants.ACCEPT_TIME_SEPARATOR_SP + (obj == null));
@@ -143,9 +143,9 @@ public class a extends BaseRtcRoom {
                             try {
                                 long optLong = new JSONObject((String) obj).optLong("audio_duration");
                                 if (optLong > j2) {
-                                    a.this.nUc.setSpeed(f);
+                                    a.this.obr.setSpeed(f);
                                 } else {
-                                    a.this.nUc.setSpeed(1.0f);
+                                    a.this.obr.setSpeed(1.0f);
                                 }
                                 a.this.log("cyplayer:ondelayaudio:" + optLong);
                             } catch (JSONException e) {
@@ -153,64 +153,58 @@ public class a extends BaseRtcRoom {
                             }
                         }
                     } else if (i == 904 || i == 10002) {
-                        a.this.nUo = true;
-                        a.this.nUn = false;
+                        a.this.obD = true;
+                        a.this.obC = false;
                     }
                     return false;
                 }
             });
-            this.nUc.setOnPreparedListener(new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.a.3
+            this.obr.setOnPreparedListener(new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.a.3
                 @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
                 public void onPrepared() {
                     a.this.log("cyplayer:onPrepared");
-                    if (a.nTZ) {
-                        a.this.Vg(",cyplayer:onPrepared");
+                    if (a.obo) {
+                        a.this.Vx(",cyplayer:onPrepared");
                     }
-                    if (a.this.nUm) {
-                        a.this.nUc.stop();
-                        a.this.nUc.release();
+                    if (a.this.obB) {
+                        a.this.obr.stop();
+                        a.this.obr.release();
                     }
                 }
             });
-            this.nUc.prepareAsync();
-            this.nUc.muteOrUnmuteAudio(z2);
+            this.obr.prepareAsync();
+            this.obr.muteOrUnmuteAudio(z2);
             log("cyplayer:start:" + str);
         }
     }
 
     public void a(String str, String str2, String str3, long j, String str4, String str5) {
-        if (nTZ) {
-            Vg("ownerEnterLiveRoom:mstatus:" + this.nUh + ",misConnect:" + this.nUk);
-        }
-        Vf(str5);
-        this.nUe = "";
-        this.nUd = "";
-        LY(1);
-        this.nUk = true;
+        Vx("ownerEnterLiveRoom:mstatus:" + this.obw + ",misConnect:" + this.obz);
+        Vw(str5);
+        this.obt = "";
+        this.obs = "";
+        Mp(1);
+        this.obz = true;
         loginRtcRoom(str3, j, str4, str, str2, false, false, false);
     }
 
     public void b(String str, String str2, String str3, long j, String str4, String str5, String str6) {
-        if (nTZ) {
-            Vg("joinChat:mstatus:" + this.nUh + ",misConnect:" + this.nUk);
-        }
-        this.nUe = str6;
-        this.nUd = str5;
-        this.mIsMute = false;
-        LY(1);
-        this.nUk = true;
+        Vx("joinChat:mstatus:" + this.obw + ",misConnect:" + this.obz);
+        this.obt = str6;
+        this.obs = str5;
+        Mp(1);
+        this.obz = true;
         loginRtcRoom(str3, j, str4, str, str2, true, true, false);
     }
 
-    public boolean dVG() {
-        if (nTZ) {
-            Vg("quitChat");
+    public boolean dYv() {
+        Vx("quitChat");
+        if (this.obr != null) {
+            ckq();
         }
-        if (this.nUc != null) {
-            chO();
-        }
-        this.nUk = false;
-        LY(4);
+        this.obz = false;
+        this.mIsMute = false;
+        Mp(4);
         return logoutRoom();
     }
 
@@ -219,10 +213,10 @@ public class a extends BaseRtcRoom {
         boolean loginRtcRoomWithRoomName;
         BaiduRtcRoom baiduRtcRoom = this.mBaiduRtcRoom;
         this.mBaiduRtcRoom = BaiduRtcRoom.a(this.mContext, this.mAppId, this.mToken, "", true);
-        if (nTZ) {
+        if (obo) {
             this.mBaiduRtcRoom.enableStatsToServer(true, "online");
         } else {
-            this.mBaiduRtcRoom.enableStatsToServer(false, "offline");
+            this.mBaiduRtcRoom.c(true, false, "online");
         }
         if (this.mBaiduRtcRoom == null) {
             if (this.mRtcRoomListener != null) {
@@ -237,67 +231,67 @@ public class a extends BaseRtcRoom {
                 a.this.log("rtcroom,onRoomEventUpdate:" + i + ",data:" + j + ",ext:" + str);
                 if (i == 102) {
                     a.this.be("RTCRoomEvent:" + i, true);
-                    a.this.nUk = false;
+                    a.this.obz = false;
                     if (a.this.canRetry()) {
-                        a.this.s(1000L, true);
+                        a.this.s(5000L, true);
                         a.f(a.this);
                         return;
                     }
-                    a.this.LY(3);
+                    a.this.Mp(3);
                 } else if (i == 101) {
                     a.this.be("RTCRoomEvent:" + i, true);
-                    a.this.nUk = false;
-                    if (a.this.nUh != 4) {
+                    a.this.obz = false;
+                    if (a.this.obw != 4) {
                         if (a.this.canRetry()) {
-                            a.this.s(1000L, true);
+                            a.this.s(5000L, true);
                             return;
                         }
-                        a.this.LY(3);
+                        a.this.Mp(3);
                     } else {
                         return;
                     }
                 } else if (i == 2003) {
                     a.this.be("RTCRoomEvent:" + i, true);
-                    a.this.nUk = false;
-                    if (a.this.nUh != 4) {
+                    a.this.obz = false;
+                    if (a.this.obw != 4) {
                         if (a.this.canRetry()) {
-                            a.this.s(1000L, true);
+                            a.this.s(5000L, true);
                             return;
                         }
-                        a.this.LY(3);
+                        a.this.Mp(3);
                     } else {
                         return;
                     }
                 } else if (i == 117 || i == 118) {
                     a.this.be("RTCRoomEvent:" + i, true);
-                    a.this.nUk = false;
+                    a.this.obz = false;
                     if (a.this.canRetry()) {
-                        a.this.s(1000L, true);
+                        a.this.s(5000L, true);
                         return;
                     }
-                    a.this.LY(3);
+                    a.this.Mp(3);
                 } else if (i == 100) {
                     a.this.be("RTCRoomEvent:" + i, true);
-                    if (a.this.nUm) {
+                    if (a.this.obB) {
                         a.this.logoutRoom();
                     }
                     if (!a.this.mIsAutoPublish && !a.this.mIsAutoSubScribe) {
-                        a.this.nUk = false;
-                        if (a.this.nUh == 2) {
-                            a.this.LY(2);
+                        a.this.obz = false;
+                        if (a.this.obw == 2) {
+                            a.this.Mp(2);
                             return;
                         }
-                        a.this.LY(2);
+                        a.this.Mp(2);
                     }
                 } else if (i == 103) {
                     a.this.be("RTCRoomEvent:" + i, true);
-                    a.this.nUk = false;
-                    if (a.this.nUh != 4) {
+                    a.this.obz = false;
+                    if (a.this.obw != 4) {
                         if (a.this.canRetry()) {
                             a.this.s(5000L, true);
                             return;
                         }
-                        a.this.LY(3);
+                        a.this.Mp(3);
                     } else {
                         return;
                     }
@@ -311,32 +305,32 @@ public class a extends BaseRtcRoom {
             public void onPeerConnectStateUpdate(int i) {
                 a.this.log("rtcroom,onPeerConnectStateUpdate:" + i);
                 if (i == 10000) {
-                    a.this.nUk = false;
-                    if ((!a.this.canRetry() || a.this.nUi.get(Integer.valueOf(i)) != null) && ((Integer) a.this.nUi.get(Integer.valueOf(i))).intValue() != 0) {
-                        if (!a.this.canRetry() || ((Integer) a.this.nUi.get(Integer.valueOf(i))).intValue() <= 0) {
-                            a.this.LY(3);
+                    a.this.be("RTCRoomEvent:" + i, true);
+                    a.this.obz = false;
+                    if ((!a.this.canRetry() || a.this.obx.get(Integer.valueOf(i)) != null) && ((Integer) a.this.obx.get(Integer.valueOf(i))).intValue() != 0) {
+                        if (!a.this.canRetry() || ((Integer) a.this.obx.get(Integer.valueOf(i))).intValue() <= 0) {
+                            a.this.Mp(3);
                         } else {
                             return;
                         }
                     } else {
-                        a.this.nUi.put(Integer.valueOf(i), 1);
-                        a.this.s(1000L, true);
+                        a.this.obx.put(Integer.valueOf(i), 1);
+                        a.this.s(5000L, true);
                         a.f(a.this);
                         return;
                     }
                 } else if (i == 2001) {
                     a.this.be("RTCRoomEvent:" + i, true);
-                    if (a.this.nUc != null) {
-                        a.this.nUc.stop();
+                    if (a.this.obr != null) {
+                        a.this.obr.stop();
                     }
-                    a.this.nUk = false;
-                    if (a.this.nUh == 2) {
-                        a.this.LY(2);
+                    a.this.obz = false;
+                    a.this.mBaiduRtcRoom.muteMicphone(a.this.mIsMute);
+                    if (a.this.obw == 2) {
+                        a.this.Mp(2);
                         return;
-                    } else {
-                        a.this.mBaiduRtcRoom.muteMicphone(a.this.mIsMute);
-                        a.this.LY(2);
                     }
+                    a.this.Mp(2);
                 } else if (i == 2002) {
                     a.this.be("ErrorRoomEvent:" + i, true);
                     return;
@@ -350,21 +344,21 @@ public class a extends BaseRtcRoom {
             public void onErrorInfoUpdate(int i) {
                 a.this.log("rtcroom,errorCode:" + i);
                 a.this.be("ErrorRoomEventInfo:" + i, true);
-                a.this.nUk = false;
+                a.this.obz = false;
                 if (i != 436 || !a.this.canRetry()) {
                     if (a.this.mBaiduRtcRoom != null) {
                         a.this.mBaiduRtcRoom.a((BaiduRtcRoom.a) null);
                         a.this.mBaiduRtcRoom.logoutRtcRoom();
                         a.this.mBaiduRtcRoom.destroy();
                     }
-                    a.this.LY(3);
+                    a.this.Mp(3);
                     if (a.this.mRtcRoomListener != null) {
                         a.this.mRtcRoomListener.onError(i, "onErrorInfoUpdate");
                         return;
                     }
                     return;
                 }
-                a.this.s(IMConnection.RETRY_DELAY_TIMES, true);
+                a.this.s(5000L, true);
             }
 
             @Override // com.baidu.rtc.BaiduRtcRoom.a
@@ -374,16 +368,15 @@ public class a extends BaseRtcRoom {
         this.mBaiduRtcRoom.a(new g.d() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.a.5
             @Override // com.baidu.rtc.g.d
             public void a(g gVar) {
-                BaiduRtcRoom.c[] abc = a.this.mBaiduRtcRoom.abc();
-                if (abc != null) {
-                    for (BaiduRtcRoom.c cVar : abc) {
+                BaiduRtcRoom.c[] adB = a.this.mBaiduRtcRoom.adB();
+                if (adB != null) {
+                    for (BaiduRtcRoom.c cVar : adB) {
                         if (cVar != null && cVar.userId == a.this.mUid) {
-                            a.this.log("volumeLevel:" + cVar.volumeLevel);
-                            w UO = c.dVV().UO();
-                            if (UO != null) {
-                                long unused = a.nUp = UO.aJf;
+                            w Xn = c.dYL().Xn();
+                            if (Xn != null) {
+                                long unused = a.obE = Xn.aJY;
                             }
-                            if (cVar.volumeLevel > a.nUp) {
+                            if (cVar.volumeLevel > a.obE) {
                                 if (a.this.mRtcRoomListener != null) {
                                     a.this.mRtcRoomListener.onStartSpeek();
                                 }
@@ -395,16 +388,16 @@ public class a extends BaseRtcRoom {
                 }
             }
         });
-        RtcParameterSettings abt = RtcParameterSettings.abt();
-        abt.HasVideo = false;
-        abt.HasAudio = true;
-        abt.ConnectionTimeoutMs = 5000;
-        abt.ReadTimeoutMs = 5000;
-        abt.AutoPublish = this.mIsAutoPublish;
-        abt.AutoSubScribe = this.mIsAutoSubScribe;
-        this.mBaiduRtcRoom.a(abt, RtcParameterSettings.RtcParamSettingType.RTC_PARAM_SETTINGS_ALL);
-        dVL();
-        String str = "loginRtcRoom,appid:" + this.mAppId + ",token:" + this.mToken + ",roomName:" + this.mRoomName + ",uid:" + this.mUid + ",userName:" + this.mUserName + ",appID:" + this.mAppId + ",token:" + this.mToken + ",autoPublish:" + this.mIsAutoPublish + ",autoSubScribe:" + this.mIsAutoSubScribe + ",reLogin:" + z;
+        RtcParameterSettings adT = RtcParameterSettings.adT();
+        adT.HasVideo = false;
+        adT.HasAudio = true;
+        adT.ConnectionTimeoutMs = 5000;
+        adT.ReadTimeoutMs = 5000;
+        adT.AutoPublish = this.mIsAutoPublish;
+        adT.AutoSubScribe = this.mIsAutoSubScribe;
+        this.mBaiduRtcRoom.a(adT, RtcParameterSettings.RtcParamSettingType.RTC_PARAM_SETTINGS_ALL);
+        dYB();
+        String str = "loginRtcRoom,appid:" + this.mAppId + ",token:" + this.mToken + ",roomName:" + this.mRoomName + ",uid:" + this.mUid + ",userName:" + this.mUserName + ",autoPublish:" + this.mIsAutoPublish + ",autoSubScribe:" + this.mIsAutoSubScribe + ",reLogin:" + z;
         log(str);
         be(str, true);
         if (z) {
@@ -413,16 +406,16 @@ public class a extends BaseRtcRoom {
             loginRtcRoomWithRoomName = this.mBaiduRtcRoom.loginRtcRoomWithRoomName(this.mRoomName, this.mUid, this.mUserName, this.mIsAutoPublish, this.mIsAutoSubScribe);
         }
         if (!loginRtcRoomWithRoomName) {
-            Vg("firstloginfailed");
+            Vx("firstloginfailed");
             if (this.mRtcRoomListener != null) {
                 this.mRtcRoomListener.onError(-1, "firstloginfailed");
             }
         }
     }
 
-    public void yN(boolean z) {
-        if (nTZ) {
-            Vg("muteMic:" + z);
+    public void yV(boolean z) {
+        if (obo) {
+            Vx("muteMic:" + z);
         }
         this.mIsMute = z;
         if (this.mBaiduRtcRoom != null) {
@@ -431,61 +424,61 @@ public class a extends BaseRtcRoom {
     }
 
     public void r(long j, boolean z) {
-        if (nTZ) {
-            Vg("muteUser:" + j + z);
+        if (obo) {
+            Vx("muteUser:" + j + z);
         }
         if (this.mBaiduRtcRoom != null) {
             this.mBaiduRtcRoom.d(j, z);
         }
     }
 
-    public void W(long j) {
-        if (nTZ) {
-            Vg("kickOffUser:" + j);
+    public void ai(long j) {
+        if (obo) {
+            Vx("kickOffUser:" + j);
         }
         if (this.mBaiduRtcRoom != null) {
-            this.mBaiduRtcRoom.aO(j);
+            this.mBaiduRtcRoom.bk(j);
         }
     }
 
-    public void dVt() {
-        if (nTZ) {
-            Vg("closeLiveRoom");
+    public void dYi() {
+        if (obo) {
+            Vx("closeLiveRoom");
         }
         if (this.mBaiduRtcRoom != null) {
             this.mBaiduRtcRoom.disbandRoom();
         }
     }
 
-    public void BP() {
-        this.nUm = true;
-        if (this.nUc != null) {
-            this.nUc.stop();
-            this.nUc.release();
+    public void Cf() {
+        this.obB = true;
+        if (this.obr != null) {
+            this.obr.stop();
+            this.obr.release();
         }
-        this.nUk = false;
-        LY(4);
+        this.obz = false;
+        Mp(4);
         logoutRoom();
-        if (this.nUl != null) {
-            this.nUl = null;
+        if (this.obA != null) {
+            this.obA = null;
         }
     }
 
-    public void axM() {
-        this.nUo = false;
-        if (this.nUc != null) {
-            this.nUc.pause();
+    public void aAm() {
+        this.obD = false;
+        if (this.obr != null) {
+            this.obr.pause();
         }
     }
 
-    public void chO() {
+    public void ckq() {
         be("restartPlayer", true);
         SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.a.6
             @Override // java.lang.Runnable
             public void run() {
-                if (!a.this.nUn) {
-                    if (a.this.nUc != null) {
-                        a.this.nUc.release();
+                if (!a.this.obC) {
+                    if (a.this.obr != null) {
+                        a.this.obr.release();
                     }
                     a.this.n(a.this.mPlayUrl, true, false);
                 }
@@ -493,12 +486,12 @@ public class a extends BaseRtcRoom {
         });
     }
 
-    public boolean gK(long j) {
+    public boolean hg(long j) {
         if (this.mBaiduRtcRoom != null) {
-            BaiduRtcRoom.d[] abd = this.mBaiduRtcRoom.abd();
+            BaiduRtcRoom.d[] adC = this.mBaiduRtcRoom.adC();
             StringBuilder sb = new StringBuilder();
-            if (abd != null && abd.length > 0) {
-                for (BaiduRtcRoom.d dVar : abd) {
+            if (adC != null && adC.length > 0) {
+                for (BaiduRtcRoom.d dVar : adC) {
                     sb.append(dVar.userId + Constants.ACCEPT_TIME_SEPARATOR_SP + dVar.userName + "#");
                     if (dVar != null && dVar.userId == j) {
                         Log.i("AudioRoomManager", "finduser,roomusers:" + sb.toString());
@@ -512,55 +505,61 @@ public class a extends BaseRtcRoom {
         return false;
     }
 
-    public int dVH() {
-        return this.nUh;
+    public int dYw() {
+        return this.obw;
     }
 
-    public void dVI() {
-        gL(0L);
+    public void dYx() {
+        hh(1000L);
     }
 
-    public void gL(long j) {
+    public void hh(long j) {
         s(j, false);
     }
 
-    public void yO(boolean z) {
-        this.mIsMute = z;
-    }
-
-    public boolean dVJ() {
-        return this.nUo;
+    public boolean dYy() {
+        return this.obD;
     }
 
     public void muteOrUnmuteAudio(boolean z) {
-        if (this.nUc != null) {
-            this.nUc.muteOrUnmuteAudio(z);
+        if (this.obr != null) {
+            this.obr.muteOrUnmuteAudio(z);
         }
     }
 
-    public String dVK() {
-        if (this.nUl != null) {
-            String sb = this.nUl.toString();
+    public void yW(boolean z) {
+        if (this.mBaiduRtcRoom != null) {
+            this.mBaiduRtcRoom.dQ(z);
+        }
+    }
+
+    public boolean dYz() {
+        return this.mIsMute;
+    }
+
+    public String dYA() {
+        if (this.obA != null) {
+            String sb = this.obA.toString();
             if (sb == null || !sb.contains("common")) {
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append(",common:");
-                sb2.append(this.nUf);
+                sb2.append(this.obu);
                 sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                if (this.nUc != null) {
-                    sb2.append(this.nUc.isPlaying());
+                if (this.obr != null) {
+                    sb2.append(this.obr.isPlaying());
                 } else {
                     sb2.append("false");
                 }
                 sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                sb2.append(this.nUg);
+                sb2.append(this.obv);
                 sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                sb2.append(this.nUh);
+                sb2.append(this.obw);
                 sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 sb2.append(this.mIsMute);
                 sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                sb2.append(this.nUj);
+                sb2.append(this.oby);
                 sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                sb2.append(this.nUk);
+                sb2.append(this.obz);
                 if (sb == null) {
                     return sb2.toString();
                 }
@@ -574,40 +573,43 @@ public class a extends BaseRtcRoom {
     /* JADX INFO: Access modifiers changed from: private */
     public void s(long j, final boolean z) {
         be("reLoginRtcRoom:" + j + z, true);
-        this.nUk = true;
-        logoutRoom();
-        if (j > 0) {
-            d(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.a.7
-                @Override // java.lang.Runnable
-                public void run() {
-                    if (!a.this.nUm) {
-                        if (!z) {
-                            a.this.LY(1);
+        if (!this.obz) {
+            this.obz = true;
+            logoutRoom();
+            if (j > 0) {
+                d(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.a.7
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        if (!a.this.obB) {
+                            a.this.obz = true;
+                            if (!z) {
+                                a.this.Mp(1);
+                            }
+                            a.this.loginRtcRoom(a.this.mRoomName, a.this.mUid, a.this.mUserName, a.this.mAppId, a.this.mToken, a.this.mIsAutoPublish, a.this.mIsAutoSubScribe, true);
                         }
-                        a.this.loginRtcRoom(a.this.mRoomName, a.this.mUid, a.this.mUserName, a.this.mAppId, a.this.mToken, a.this.mIsAutoPublish, a.this.mIsAutoSubScribe, true);
                     }
+                }, j);
+            } else if (!this.obB) {
+                if (!z) {
+                    Mp(1);
                 }
-            }, j);
-        } else if (!this.nUm) {
-            if (!z) {
-                LY(1);
+                loginRtcRoom(this.mRoomName, this.mUid, this.mUserName, this.mAppId, this.mToken, this.mIsAutoPublish, this.mIsAutoSubScribe, true);
             }
-            loginRtcRoom(this.mRoomName, this.mUid, this.mUserName, this.mAppId, this.mToken, this.mIsAutoPublish, this.mIsAutoSubScribe, true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean canRetry() {
-        return !this.nUk && (this.nUh == 1 || this.nUh == 2) && this.nUg < nUa && this.nUj;
+        return !this.obz && (this.obw == 1 || this.obw == 2) && this.obv < obp && this.oby && BdNetTypeUtil.isNetWorkAvailable();
     }
 
-    private void dVL() {
+    private void dYB() {
         if (this.mBaiduRtcRoom != null) {
-            if (!TextUtils.isEmpty(this.nUd)) {
-                this.mBaiduRtcRoom.a(this.nUd, true, true, "pure_audio", BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION);
+            if (!TextUtils.isEmpty(this.obs)) {
+                this.mBaiduRtcRoom.a(this.obs, true, true, "pure_audio", BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION);
             }
-            if (!TextUtils.isEmpty(this.nUe)) {
-                this.mBaiduRtcRoom.a(this.nUe, false, true, "pure_audio", BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION);
+            if (!TextUtils.isEmpty(this.obt)) {
+                this.mBaiduRtcRoom.a(this.obt, false, true, "pure_audio", BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION);
             }
         }
     }
@@ -617,70 +619,70 @@ public class a extends BaseRtcRoom {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void LY(int i) {
+    public void Mp(int i) {
         be("changeRtcStatus:" + i, true);
-        this.nUh = i;
-        this.nUg = 0;
-        this.nUi.clear();
+        this.obw = i;
+        this.obv = 0;
+        this.obx.clear();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void log(String str) {
-        if (nTZ) {
+        if (obo) {
             Log.i("AudioRoom", str);
         }
     }
 
-    public void Vg(String str) {
-        if (this.nUl != null) {
-            if (!nTZ) {
+    public void Vx(String str) {
+        if (this.obA != null) {
+            if (!obo) {
                 try {
-                    if (this.nUl.length() > 1900) {
-                        this.nUl.delete(0, this.nUl.length() - 1900);
+                    if (this.obA.length() > 1900) {
+                        this.obA.delete(0, this.obA.length() - 1900);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-            this.nUl.append("#");
-            this.nUl.append(System.currentTimeMillis());
-            this.nUl.append(":");
-            this.nUl.append(str);
+            this.obA.append("#");
+            this.obA.append(System.currentTimeMillis());
+            this.obA.append(":");
+            this.obA.append(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void be(String str, boolean z) {
-        if (this.nUl != null) {
-            if (!nTZ) {
+        if (this.obA != null) {
+            if (!obo) {
                 try {
-                    if (this.nUl.length() > 1900) {
-                        this.nUl.delete(0, this.nUl.length() - 1900);
+                    if (this.obA.length() > 1900) {
+                        this.obA.delete(0, this.obA.length() - 1900);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-            Vg(str);
+            Vx(str);
             if (z) {
-                this.nUl.append(",common:");
-                this.nUl.append(this.nUf);
-                this.nUl.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                if (this.nUc != null) {
-                    this.nUl.append(this.nUc.isPlaying());
+                this.obA.append(",common:");
+                this.obA.append(this.obu);
+                this.obA.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                if (this.obr != null) {
+                    this.obA.append(this.obr.isPlaying());
                 } else {
-                    this.nUl.append("false");
+                    this.obA.append("false");
                 }
-                this.nUl.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                this.nUl.append(this.nUg);
-                this.nUl.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                this.nUl.append(this.nUh);
-                this.nUl.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                this.nUl.append(this.mIsMute);
-                this.nUl.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                this.nUl.append(this.nUj);
-                this.nUl.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                this.nUl.append(this.nUk);
+                this.obA.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                this.obA.append(this.obv);
+                this.obA.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                this.obA.append(this.obw);
+                this.obA.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                this.obA.append(this.mIsMute);
+                this.obA.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                this.obA.append(this.oby);
+                this.obA.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                this.obA.append(this.obz);
             }
         }
     }

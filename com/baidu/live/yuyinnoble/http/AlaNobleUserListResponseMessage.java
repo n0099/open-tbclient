@@ -5,7 +5,7 @@ import com.baidu.live.yuyinnoble.c.a;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaNobleUserListResponseMessage extends JsonHttpResponsedMessage {
-    private a bOw;
+    private a bUg;
 
     public AlaNobleUserListResponseMessage() {
         super(1031032);
@@ -16,12 +16,12 @@ public class AlaNobleUserListResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null && getError() == 0) {
-            this.bOw = new a();
-            this.bOw.parserJson(optJSONObject);
+            this.bUg = new a();
+            this.bUg.parserJson(optJSONObject);
         }
     }
 
-    public a VE() {
-        return this.bOw;
+    public a Yd() {
+        return this.bUg;
     }
 }

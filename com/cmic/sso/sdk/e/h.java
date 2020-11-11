@@ -10,18 +10,18 @@ public class h {
     private static String c;
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f4019a = m.a();
+    private static boolean f4021a = m.a();
     private static long d = 0;
 
     public static void a(boolean z, boolean z2) {
-        k.a eff = k.eff();
-        eff.a("phonescripstarttime");
-        eff.a("phonescripcache");
-        eff.a("pre_sim_key");
+        k.a eiU = k.eiU();
+        eiU.a("phonescripstarttime");
+        eiU.a("phonescripcache");
+        eiU.a("pre_sim_key");
         if (z2) {
-            eff.a();
+            eiU.a();
         } else {
-            eff.b();
+            eiU.b();
         }
         if (z) {
             b = null;
@@ -31,7 +31,7 @@ public class h {
     }
 
     public static boolean a() {
-        return f4019a;
+        return f4021a;
     }
 
     public static void a(final Context context, final String str, final long j, final String str2) {
@@ -39,7 +39,7 @@ public class h {
             b = str;
             d = j;
             c = str2;
-            if (!f4019a) {
+            if (!f4021a) {
                 o.a(new o.a() { // from class: com.cmic.sso.sdk.e.h.1
                     @Override // com.cmic.sso.sdk.e.o.a
                     protected void a() {
@@ -55,11 +55,11 @@ public class h {
     public static void b(Context context, String str, long j, String str2) {
         String a2 = b.a(context, str);
         if (!TextUtils.isEmpty(a2)) {
-            k.a eff = k.eff();
-            eff.a("phonescripcache", a2);
-            eff.a("phonescripstarttime", j);
-            eff.a("pre_sim_key", str2);
-            eff.b();
+            k.a eiU = k.eiU();
+            eiU.a("phonescripcache", a2);
+            eiU.a("phonescripstarttime", j);
+            eiU.a("pre_sim_key", str2);
+            eiU.b();
         }
     }
 
@@ -124,7 +124,7 @@ public class h {
             }
             return false;
         }
-        if (f4019a) {
+        if (f4021a) {
             c.b("PhoneScripUtils", "phone is root");
             a(false, false);
         }

@@ -13,7 +13,7 @@ public class BaseActivity extends Activity implements NoProguard {
     private String c;
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f2688a = false;
+    private boolean f2690a = false;
     private boolean b = true;
     private boolean d = false;
 
@@ -22,7 +22,7 @@ public class BaseActivity extends Activity implements NoProguard {
         if (Build.VERSION.SDK_INT < 24 || !isInMultiWindowMode()) {
             return;
         }
-        if (this.f2688a) {
+        if (this.f2690a) {
             PassBioGlobalUtils.toastWithText(getActivity(), this.c, 1);
         }
         if (this.b) {
@@ -70,7 +70,7 @@ public class BaseActivity extends Activity implements NoProguard {
         if (Build.VERSION.SDK_INT >= 24) {
             super.onMultiWindowModeChanged(z);
             if (z && isActivityInForeground()) {
-                if (this.f2688a) {
+                if (this.f2690a) {
                     PassBioGlobalUtils.toastWithText(getActivity(), this.c, 1);
                 }
                 if (this.b) {
@@ -101,8 +101,8 @@ public class BaseActivity extends Activity implements NoProguard {
     }
 
     protected void setIsShowMultiWindowTips(boolean z) {
-        if (z != this.f2688a) {
-            this.f2688a = z;
+        if (z != this.f2690a) {
+            this.f2690a = z;
         }
     }
 

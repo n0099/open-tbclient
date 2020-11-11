@@ -5,52 +5,52 @@ import android.graphics.drawable.Drawable;
 import com.baidu.swan.menu.g;
 /* loaded from: classes14.dex */
 public class i {
-    private int eaE;
-    private boolean eaF = true;
-    private int eaG = 0;
-    private int eaH = -1;
-    public int eaI = 0;
-    private long eaJ = 0;
-    private f eaK;
-    private com.baidu.swan.menu.viewpager.b eay;
+    private f egC;
+    private com.baidu.swan.menu.viewpager.b egq;
+    private int egw;
     private boolean mEnable;
     private Drawable mIcon;
     private int mIconResId;
     private int mId;
     private String mTitle;
+    private boolean egx = true;
+    private int egy = 0;
+    private int egz = -1;
+    public int egA = 0;
+    private long egB = 0;
 
     public i(int i, int i2, int i3, boolean z) {
-        this.eaE = -1;
+        this.egw = -1;
         this.mIconResId = -1;
         this.mEnable = true;
         this.mId = i;
-        this.eaE = i2;
+        this.egw = i2;
         this.mIconResId = i3;
         this.mEnable = z;
     }
 
-    public int aXT() {
-        return this.eaI;
+    public int bat() {
+        return this.egA;
     }
 
-    public void mx(int i) {
-        this.eaI = i;
+    public void mH(int i) {
+        this.egA = i;
     }
 
-    public long aXU() {
-        return this.eaJ;
+    public long bau() {
+        return this.egB;
     }
 
-    public void co(long j) {
-        this.eaJ = j;
+    public void cK(long j) {
+        this.egB = j;
     }
 
     public int getItemId() {
         return this.mId;
     }
 
-    public void my(int i) {
-        this.eaE = i;
+    public void mI(int i) {
+        this.egw = i;
     }
 
     public void setIconResId(int i) {
@@ -65,10 +65,10 @@ public class i {
         if (this.mTitle != null) {
             return this.mTitle;
         }
-        if (this.eaE <= 0) {
+        if (this.egw <= 0) {
             return null;
         }
-        return context.getResources().getString(this.eaE);
+        return context.getResources().getString(this.egw);
     }
 
     public Drawable dH(Context context) {
@@ -81,28 +81,28 @@ public class i {
         return context.getResources().getDrawable(this.mIconResId);
     }
 
-    public int aXV() {
-        return this.eaG;
+    public int bav() {
+        return this.egy;
     }
 
     public boolean isVisible() {
-        return this.eaF;
+        return this.egx;
     }
 
     public int getTitleColor() {
-        return this.eaH == -1 ? g.a.aiapp_menu_item_text : this.eaH;
+        return this.egz == -1 ? g.a.aiapp_menu_item_text : this.egz;
     }
 
     public void a(f fVar) {
-        this.eaK = fVar;
+        this.egC = fVar;
     }
 
-    public f aXW() {
-        return this.eaK;
+    public f baw() {
+        return this.egC;
     }
 
-    public com.baidu.swan.menu.viewpager.b aXX() {
-        return this.eay;
+    public com.baidu.swan.menu.viewpager.b bax() {
+        return this.egq;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -110,6 +110,6 @@ public class i {
         if (iVar == null) {
             return null;
         }
-        return new i(iVar.mId, iVar.eaE, iVar.mIconResId, iVar.mEnable);
+        return new i(iVar.mId, iVar.egw, iVar.mIconResId, iVar.mEnable);
     }
 }

@@ -7,11 +7,11 @@ import android.os.Message;
 public class o extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ n f2233a;
+    final /* synthetic */ n f2235a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar) {
-        this.f2233a = nVar;
+        this.f2235a = nVar;
     }
 
     @Override // android.os.Handler
@@ -21,7 +21,7 @@ public class o extends Handler {
         super.handleMessage(message);
         nVar = n.c;
         if (nVar != null) {
-            sVar = this.f2233a.d;
+            sVar = this.f2235a.d;
             sVar.a(message);
         }
     }

@@ -6,10 +6,10 @@ import tbclient.Myrecord;
 public class d {
     private int agree_num;
     private String apply_declaration;
-    private int hLA;
-    private boolean hLB = false;
-    private int hLC;
-    private int hLz;
+    private int hRw;
+    private int hRx;
+    private boolean hRy = false;
+    private int hRz;
     private String nickname;
     private String portrait;
     private int post_num;
@@ -19,16 +19,16 @@ public class d {
     private long uid;
     private int vote_num;
 
-    public int ckv() {
+    public int cmX() {
         return this.agree_num;
     }
 
-    public int ckw() {
-        return this.hLz;
+    public int cmY() {
+        return this.hRw;
     }
 
-    public int ckx() {
-        return this.hLA;
+    public int cmZ() {
+        return this.hRx;
     }
 
     public int getPost_num() {
@@ -47,11 +47,11 @@ public class d {
         return this.uid;
     }
 
-    public int cky() {
+    public int cna() {
         return this.vote_num;
     }
 
-    public String ckz() {
+    public String cnb() {
         return this.apply_declaration;
     }
 
@@ -67,16 +67,16 @@ public class d {
         return this.tid;
     }
 
-    public boolean ckA() {
-        return this.hLB;
+    public boolean cnc() {
+        return this.hRy;
     }
 
-    public int ckB() {
-        return this.hLC;
+    public int cnd() {
+        return this.hRz;
     }
 
-    public void wC(int i) {
-        this.hLC = i;
+    public void wP(int i) {
+        this.hRz = i;
     }
 
     public static d a(ElectionList electionList) {
@@ -84,20 +84,20 @@ public class d {
             return null;
         }
         d dVar = new d();
-        dVar.wF(electionList.vote_num.intValue());
+        dVar.wS(electionList.vote_num.intValue());
         dVar.setNickname(electionList.name_show);
         dVar.setPortrait(electionList.portrait);
-        dVar.wE(electionList.forum_level.intValue());
-        dVar.ID(electionList.apply_declaration);
+        dVar.wR(electionList.forum_level.intValue());
+        dVar.IU(electionList.apply_declaration);
         dVar.setRank(electionList.rank.intValue());
-        dVar.wD(electionList.apply_id.intValue());
+        dVar.wQ(electionList.apply_id.intValue());
         dVar.setPost_num(electionList.post_num.intValue());
         dVar.setThread_num(electionList.thread_num.intValue());
         dVar.setAgree_num(electionList.agree_num.intValue());
         dVar.setUid(electionList.uid.longValue());
         dVar.setTid(electionList.tid.longValue());
-        dVar.od(electionList.is_cheat.intValue() == 1);
-        dVar.wC(electionList.is_pass_audit.intValue());
+        dVar.om(electionList.is_cheat.intValue() == 1);
+        dVar.wP(electionList.is_pass_audit.intValue());
         return dVar;
     }
 
@@ -106,13 +106,13 @@ public class d {
             return null;
         }
         d dVar = new d();
-        dVar.wF(myrecord.vote_num.intValue());
+        dVar.wS(myrecord.vote_num.intValue());
         dVar.setNickname(myrecord.name_show);
         dVar.setPortrait(myrecord.portrait);
-        dVar.wE(myrecord.forum_level.intValue());
-        dVar.ID(myrecord.apply_declaration);
+        dVar.wR(myrecord.forum_level.intValue());
+        dVar.IU(myrecord.apply_declaration);
         dVar.setRank(myrecord.rank.intValue());
-        dVar.wD(myrecord.apply_id.intValue());
+        dVar.wQ(myrecord.apply_id.intValue());
         dVar.setPost_num(myrecord.post_num.intValue());
         dVar.setThread_num(myrecord.thread_num.intValue());
         dVar.setAgree_num(myrecord.agree_num.intValue());
@@ -125,16 +125,16 @@ public class d {
         this.agree_num = i;
     }
 
-    public void wD(int i) {
-        this.hLz = i;
+    public void wQ(int i) {
+        this.hRw = i;
     }
 
-    public void ID(String str) {
+    public void IU(String str) {
         this.apply_declaration = str;
     }
 
-    public void wE(int i) {
-        this.hLA = i;
+    public void wR(int i) {
+        this.hRx = i;
     }
 
     public void setNickname(String str) {
@@ -161,12 +161,12 @@ public class d {
         this.uid = j;
     }
 
-    public void wF(int i) {
+    public void wS(int i) {
         this.vote_num = i;
     }
 
-    public void od(boolean z) {
-        this.hLB = z;
+    public void om(boolean z) {
+        this.hRy = z;
     }
 
     public void setTid(long j) {

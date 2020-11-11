@@ -84,7 +84,7 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
     public void sr() {
         if (this.abn == null) {
             this.abn = new com.baidu.tbadk.core.dialog.a(i.I(getContext()).getPageActivity());
-            this.abn.Ba(getContext().getString(R.string.voice_restart_tip)).a(getContext().getString(R.string.voice_restart), new a.b() { // from class: com.baidu.audiorecorder.lib.voice.NewVoiceRecordButton.3
+            this.abn.Bo(getContext().getString(R.string.voice_restart_tip)).a(getContext().getString(R.string.voice_restart), new a.b() { // from class: com.baidu.audiorecorder.lib.voice.NewVoiceRecordButton.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
@@ -97,7 +97,7 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
                 }
             }).b(i.I(getContext()));
         }
-        this.abn.bmC();
+        this.abn.bpc();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -114,7 +114,7 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
             }
         }
         if (this.mModel != null) {
-            com.baidu.tbadk.core.voice.a.delFile(com.baidu.tbadk.core.voice.a.Cn(this.mModel.voiceId));
+            com.baidu.tbadk.core.voice.a.delFile(com.baidu.tbadk.core.voice.a.CB(this.mModel.voiceId));
         }
         com.baidu.tieba.tbadkCore.voice.a recorderManager = getRecorderManager();
         if (recorderManager != null && recorderManager.su()) {
@@ -142,7 +142,7 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
         if (aVar != null) {
             switch (aVar.code) {
                 case 1:
-                    TiebaStatic.log(new aq("c12612").aj("obj_locate", 6));
+                    TiebaStatic.log(new aq("c12612").al("obj_locate", 6));
                     return;
                 case 9:
                     reset();

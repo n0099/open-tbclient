@@ -4,12 +4,12 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 /* loaded from: classes10.dex */
 public class aq {
-    private final Queue<Runnable> dmH = new ArrayDeque();
-    private Runnable dyp = null;
-    private boolean dyq = false;
+    private final Queue<Runnable> dsE = new ArrayDeque();
+    private Runnable dEh = null;
+    private boolean dEi = false;
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x0013, code lost:
-        if (aKP() != false) goto L9;
+        if (aNp() != false) goto L9;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -19,7 +19,7 @@ public class aq {
         synchronized (this) {
             boolean z2 = runnable == null;
             if (!z2) {
-                this.dmH.offer(runnable);
+                this.dsE.offer(runnable);
             }
             if (!z2) {
             }
@@ -28,34 +28,34 @@ public class aq {
         return z;
     }
 
-    public synchronized boolean aKM() {
-        boolean aKO;
-        aKO = aKO();
-        this.dyq = true;
-        return aKO;
+    public synchronized boolean aNm() {
+        boolean aNo;
+        aNo = aNo();
+        this.dEi = true;
+        return aNo;
     }
 
-    public synchronized void aKN() {
-        this.dyq = false;
-        aKP();
+    public synchronized void aNn() {
+        this.dEi = false;
+        aNp();
     }
 
-    private boolean aKO() {
-        return !this.dyq && this.dyp == null;
+    private boolean aNo() {
+        return !this.dEi && this.dEh == null;
     }
 
-    private synchronized boolean aKP() {
-        boolean aKO;
-        aKO = aKO();
-        if (aKO) {
-            while (!this.dmH.isEmpty()) {
-                this.dyp = this.dmH.poll();
-                if (this.dyp != null) {
-                    this.dyp.run();
+    private synchronized boolean aNp() {
+        boolean aNo;
+        aNo = aNo();
+        if (aNo) {
+            while (!this.dsE.isEmpty()) {
+                this.dEh = this.dsE.poll();
+                if (this.dEh != null) {
+                    this.dEh.run();
                 }
             }
-            this.dyp = null;
+            this.dEh = null;
         }
-        return aKO;
+        return aNo;
     }
 }

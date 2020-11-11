@@ -13,14 +13,14 @@ import com.baidu.live.tbadk.statics.AlaStaticKeys;
 public final class n extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    ImageView f3719a;
+    ImageView f3721a;
     Handler b;
     Context c;
     TextView d;
 
     public n(Context context, ImageView imageView, Handler handler) {
         this.d = null;
-        this.f3719a = imageView;
+        this.f3721a = imageView;
         this.b = handler;
         this.c = context;
     }
@@ -44,13 +44,13 @@ public final class n extends Handler {
                 this.d.setText(spannableString.toString());
                 return;
             }
-            this.f3719a.setImageBitmap(bitmap);
+            this.f3721a.setImageBitmap(bitmap);
             if (bitmap.getHeight() > bitmap.getWidth()) {
-                this.f3719a.setMaxWidth(i.a(this.c, 80.0f));
-                this.f3719a.setMaxHeight(i.a(this.c, 120.0f));
+                this.f3721a.setMaxWidth(i.a(this.c, 80.0f));
+                this.f3721a.setMaxHeight(i.a(this.c, 120.0f));
             } else {
-                this.f3719a.setMaxWidth(i.a(this.c, 120.0f));
-                this.f3719a.setMaxHeight(i.a(this.c, 80.0f));
+                this.f3721a.setMaxWidth(i.a(this.c, 120.0f));
+                this.f3721a.setMaxHeight(i.a(this.c, 80.0f));
             }
         }
         if (this.b != null) {

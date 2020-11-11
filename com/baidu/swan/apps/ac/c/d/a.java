@@ -8,7 +8,7 @@ public abstract class a extends b {
     abstract void a(SwanAppActivity swanAppActivity, String str, com.baidu.swan.apps.ac.c.b.b bVar, com.baidu.swan.apps.setting.b.a aVar, com.baidu.swan.apps.core.f.b<com.baidu.swan.apps.ac.c.c.a> bVar2);
 
     @Override // com.baidu.swan.apps.ac.c.d.b
-    boolean aBW() {
+    boolean aEw() {
         return false;
     }
 
@@ -19,27 +19,27 @@ public abstract class a extends b {
 
     @Override // com.baidu.swan.apps.ac.c.d.b
     com.baidu.swan.apps.api.c.b a(final com.baidu.swan.apps.ac.c.b.b bVar, final com.baidu.swan.apps.core.f.b<com.baidu.swan.apps.ac.c.c.a> bVar2) {
-        if (bVar == null || TextUtils.isEmpty(bVar.deL)) {
+        if (bVar == null || TextUtils.isEmpty(bVar.dkG)) {
             return new com.baidu.swan.apps.api.c.b(1001, "get fun page info, provider appKey is empty");
         }
         if (bVar2 == null) {
             return new com.baidu.swan.apps.api.c.b(1001, "get fun page info, cb is null");
         }
-        com.baidu.swan.apps.runtime.e aEM = com.baidu.swan.apps.runtime.d.aEQ().aEM();
-        SwanAppActivity aEO = aEM.aEO();
-        if (aEO == null || aEO.isFinishing()) {
+        com.baidu.swan.apps.runtime.e aHm = com.baidu.swan.apps.runtime.d.aHq().aHm();
+        SwanAppActivity aHo = aHm.aHo();
+        if (aHo == null || aHo.isFinishing()) {
             return new com.baidu.swan.apps.api.c.b(1001, "get fun page info, master has dead");
         }
-        if (!aEM.aFh().isLogin(aEM)) {
-            aEM.aFh().a(aEO, null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.ac.c.d.a.1
+        if (!aHm.aHH().isLogin(aHm)) {
+            aHm.aHH().a(aHo, null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.ac.c.d.a.1
                 @Override // com.baidu.swan.apps.a.a
                 public void onResult(int i) {
                     if (i == 0) {
                         a.this.b(bVar, bVar2);
                         return;
                     }
-                    com.baidu.swan.apps.ac.c.c.a aVar = new com.baidu.swan.apps.ac.c.c.a(bVar.cxR);
-                    aVar.cxS = bVar.cxS;
+                    com.baidu.swan.apps.ac.c.c.a aVar = new com.baidu.swan.apps.ac.c.c.a(bVar.cDK);
+                    aVar.cDL = bVar.cDL;
                     bVar2.O(aVar);
                 }
             });
@@ -57,14 +57,14 @@ public abstract class a extends b {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(final com.baidu.swan.apps.ac.c.b.b bVar, final com.baidu.swan.apps.core.f.b<com.baidu.swan.apps.ac.c.c.a> bVar2) {
         com.baidu.swan.apps.ac.d.a.print("start get open data");
-        final com.baidu.swan.apps.runtime.e aEM = com.baidu.swan.apps.runtime.d.aEQ().aEM();
-        final SwanAppActivity aEO = aEM.aEO();
-        com.baidu.swan.apps.setting.b.a.a(aEO, aBX(), bVar.deL, true, new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.b.a>() { // from class: com.baidu.swan.apps.ac.c.d.a.2
+        final com.baidu.swan.apps.runtime.e aHm = com.baidu.swan.apps.runtime.d.aHq().aHm();
+        final SwanAppActivity aHo = aHm.aHo();
+        com.baidu.swan.apps.setting.b.a.a(aHo, aEx(), bVar.dkG, true, new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.b.a>() { // from class: com.baidu.swan.apps.ac.c.d.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: a */
             public void M(com.baidu.swan.apps.setting.b.a aVar) {
-                a.this.a(aEO, aEM.getAppKey(), bVar, aVar, bVar2);
+                a.this.a(aHo, aHm.getAppKey(), bVar, aVar, bVar2);
             }
         });
     }

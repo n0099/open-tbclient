@@ -7,15 +7,15 @@ import com.baidu.tieba.pb.pb.main.PbFragment;
 import com.baidu.tieba.pb.pb.main.PbModel;
 /* loaded from: classes22.dex */
 public interface b {
-    PbModel dgX();
+    PbModel djz();
 
-    PbFragment diA();
+    PbModel.a dkC();
 
-    VideoPbFragment diB();
+    PbFragment dlc();
 
-    PbActivity diC();
+    VideoPbFragment dld();
 
-    PbModel.a dia();
+    PbActivity dle();
 
     void finish();
 

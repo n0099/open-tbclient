@@ -21,7 +21,7 @@ import java.util.zip.ZipFile;
 public class b extends AsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2984a;
+    private String f2986a;
     private int b;
     private a<String> c;
     private boolean d = false;
@@ -29,9 +29,9 @@ public class b extends AsyncTask<String, Integer, String> {
     private String f;
 
     public b(String str, int i, boolean z, a<String> aVar) {
-        this.f2984a = "";
+        this.f2986a = "";
         this.b = 0;
-        this.f2984a = str;
+        this.f2986a = str;
         this.b = i;
         this.c = aVar;
         this.e = z;
@@ -95,7 +95,7 @@ public class b extends AsyncTask<String, Integer, String> {
             return null;
         }
         this.f = str;
-        String a2 = com.baidu.platform.comapi.walknavi.d.a.g.f.a(this.f2984a, this.b);
+        String a2 = com.baidu.platform.comapi.walknavi.d.a.g.f.a(this.f2986a, this.b);
         if (TextUtils.isEmpty(a2)) {
             return null;
         }
@@ -108,7 +108,7 @@ public class b extends AsyncTask<String, Integer, String> {
         if (file2.exists()) {
             try {
                 new ZipFile(str2);
-                if (com.baidu.platform.comapi.walknavi.d.a.b.f2965a) {
+                if (com.baidu.platform.comapi.walknavi.d.a.b.f2967a) {
                     return c(str2);
                 }
                 if (this.c != null) {
@@ -117,14 +117,14 @@ public class b extends AsyncTask<String, Integer, String> {
                 return "false";
             } catch (Exception e) {
                 file2.delete();
-                if (!com.baidu.platform.comapi.walknavi.d.a.b.f2965a) {
+                if (!com.baidu.platform.comapi.walknavi.d.a.b.f2967a) {
                     if (this.c != null) {
                         this.c.a(true, b(str));
                     }
                     return "true";
                 }
             }
-        } else if (!com.baidu.platform.comapi.walknavi.d.a.b.f2965a) {
+        } else if (!com.baidu.platform.comapi.walknavi.d.a.b.f2967a) {
             if (this.c != null) {
                 this.c.a(true, b(str));
             }

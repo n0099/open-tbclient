@@ -6,7 +6,7 @@ import com.tencent.open.utils.j;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static d f4587a;
+    protected static d f4589a;
 
     protected d() {
     }
@@ -14,10 +14,10 @@ public class d {
     public static synchronized d a() {
         d dVar;
         synchronized (d.class) {
-            if (f4587a == null) {
-                f4587a = new d();
+            if (f4589a == null) {
+                f4589a = new d();
             }
-            dVar = f4587a;
+            dVar = f4589a;
         }
         return dVar;
     }

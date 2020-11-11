@@ -24,18 +24,18 @@ import com.baidu.tieba.card.ab;
 /* loaded from: classes22.dex */
 public class b extends a<bv, am<bw>> {
     private ab<bw> afF;
-    private com.baidu.adp.lib.d.b<ImageView> fzV;
-    private com.baidu.adp.lib.d.b<GifView> fzW;
+    private com.baidu.adp.lib.d.b<ImageView> fFL;
+    private com.baidu.adp.lib.d.b<GifView> fFM;
 
     public b(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, bw.exT);
-        this.fzV = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ImageView>() { // from class: com.baidu.tieba.homepage.hotTopic.tab.a.b.1
+        super(tbPageContext, bw.eDK);
+        this.fFL = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ImageView>() { // from class: com.baidu.tieba.homepage.hotTopic.tab.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bEh */
+            /* renamed from: bGG */
             public ImageView makeObject() {
                 ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(b.this.mPageContext.getPageActivity());
-                boolean isShowImages = com.baidu.tbadk.core.k.bhh().isShowImages();
+                boolean isShowImages = com.baidu.tbadk.core.k.bjH().isShowImages();
                 foreDrawableImageView.setDefaultBg(ap.getDrawable(R.color.common_color_10220));
                 if (isShowImages) {
                     foreDrawableImageView.setAdjustViewBounds(false);
@@ -71,7 +71,7 @@ public class b extends a<bv, am<bw>> {
                 if (imageView instanceof TbImageView) {
                     TbImageView tbImageView = (TbImageView) imageView;
                     tbImageView.setTag(null);
-                    if (com.baidu.tbadk.core.k.bhh().isShowImages()) {
+                    if (com.baidu.tbadk.core.k.bjH().isShowImages()) {
                         tbImageView.setAdjustViewBounds(false);
                         tbImageView.setInterceptOnClick(false);
                     } else {
@@ -101,13 +101,13 @@ public class b extends a<bv, am<bw>> {
                 return imageView;
             }
         }, 12, 0);
-        this.fzW = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<GifView>() { // from class: com.baidu.tieba.homepage.hotTopic.tab.a.b.2
+        this.fFM = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<GifView>() { // from class: com.baidu.tieba.homepage.hotTopic.tab.a.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cqr */
+            /* renamed from: csS */
             public GifView makeObject() {
                 GifView gifView = new GifView(b.this.mPageContext.getPageActivity());
-                boolean isShowImages = com.baidu.tbadk.core.k.bhh().isShowImages();
+                boolean isShowImages = com.baidu.tbadk.core.k.bjH().isShowImages();
                 gifView.setDefaultBg(ap.getDrawable(R.color.common_color_10220));
                 if (isShowImages) {
                     gifView.setAdjustViewBounds(false);
@@ -137,7 +137,7 @@ public class b extends a<bv, am<bw>> {
             /* renamed from: h */
             public GifView activateObject(GifView gifView) {
                 gifView.setTag(null);
-                if (com.baidu.tbadk.core.k.bhh().isShowImages()) {
+                if (com.baidu.tbadk.core.k.bjH().isShowImages()) {
                     gifView.setAdjustViewBounds(false);
                     gifView.setInterceptOnClick(false);
                 } else {
@@ -155,7 +155,7 @@ public class b extends a<bv, am<bw>> {
                 gifView.release();
                 gifView.onDestroy();
                 gifView.setImageDrawable(null);
-                gifView.byC();
+                gifView.bBb();
                 gifView.setBackgroundDrawable(null);
                 gifView.setTag(null);
                 gifView.setOnClickListener(null);
@@ -176,13 +176,13 @@ public class b extends a<bv, am<bw>> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aT */
+    /* renamed from: aV */
     public am c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
         o oVar = new o(this.mPageContext.getPageActivity());
         oVar.setFrom("index");
         oVar.setFromForPb(2);
-        oVar.setObjectPool(this.fzV, this.fzW);
+        oVar.setObjectPool(this.fFL, this.fFM);
         oVar.e(0, com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds44), 0, 0);
         oVar.setFromCDN(isFromCDN());
         oVar.setCornerStyle(1);
@@ -196,7 +196,7 @@ public class b extends a<bv, am<bw>> {
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
                 if ((qVar instanceof bv) && (view.getTag() instanceof am)) {
                     am amVar2 = (am) view.getTag();
-                    bw bwVar = ((bv) qVar).erH;
+                    bw bwVar = ((bv) qVar).exA;
                     bwVar.objType = 1;
                     if (b.this.afF != null) {
                         b.this.afF.a(amVar2.getView(), bwVar);
@@ -213,15 +213,15 @@ public class b extends a<bv, am<bw>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.homepage.hotTopic.tab.a.a, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bv bvVar, am<bw> amVar) {
-        if (bvVar == null || amVar == null || amVar.getView() == null || bvVar.erH == null) {
+        if (bvVar == null || amVar == null || amVar.getView() == null || bvVar.exA == null) {
             return null;
         }
-        bvVar.erH.evR = getPositionByType(i) + 1;
+        bvVar.exA.eBK = getPositionByType(i) + 1;
         amVar.tW().setPosition(i);
-        amVar.b((am<bw>) bvVar.erH);
+        amVar.b((am<bw>) bvVar.exA);
         amVar.tW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         amVar.tW().a(this.afF);
-        a(amVar.getView(), bvVar.erH, i, i);
+        a(amVar.getView(), bvVar.exA, i, i);
         return amVar.getView();
     }
 }

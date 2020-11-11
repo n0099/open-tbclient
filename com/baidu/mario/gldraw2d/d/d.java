@@ -29,12 +29,12 @@ public class d implements Cloneable {
         return this.mHeight;
     }
 
-    public boolean We() {
+    public boolean YD() {
         return this.mId != -1;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: Wf */
+    /* renamed from: YE */
     public d clone() {
         try {
             return (d) super.clone();

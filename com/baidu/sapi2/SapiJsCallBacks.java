@@ -63,7 +63,7 @@ public class SapiJsCallBacks {
         ShareV2LoginParams W;
 
         /* renamed from: a  reason: collision with root package name */
-        Handler f3231a;
+        Handler f3234a;
         SapiWebView.WebViewTitleCallback b;
         SapiWebView.BioScanFaceCallback c;
         SapiWebView.BiometricsIdentifyCallback d;

@@ -16,13 +16,13 @@ import javax.net.ssl.HttpsURLConnection;
 public class j implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1953a;
+    final /* synthetic */ String f1955a;
     final /* synthetic */ f b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(f fVar, String str) {
         this.b = fVar;
-        this.f1953a = str;
+        this.f1955a = str;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:154:0x0208 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -44,7 +44,7 @@ public class j implements Runnable {
         HttpsURLConnection httpsURLConnection2;
         ByteArrayOutputStream byteArrayOutputStream3 = null;
         this.b.a();
-        this.b.h = this.f1953a;
+        this.b.h = this.f1955a;
         try {
             StringBuffer stringBuffer = new StringBuffer();
             url = new URL(this.b.h);
@@ -116,7 +116,7 @@ public class j implements Runnable {
                                     e = e3;
                                     try {
                                         e.printStackTrace();
-                                        Log.i(a.f1942a, "https NetworkCommunicationError!");
+                                        Log.i(a.f1944a, "https NetworkCommunicationError!");
                                         this.b.j = null;
                                         this.b.a(false);
                                         if (httpsURLConnection != null) {
@@ -128,14 +128,14 @@ public class j implements Runnable {
                                             try {
                                                 byteArrayOutputStream3.close();
                                             } catch (Exception e4) {
-                                                Log.d(a.f1942a, "close os IOException!");
+                                                Log.d(a.f1944a, "close os IOException!");
                                             }
                                         }
                                         if (inputStream != null) {
                                             try {
                                                 inputStream.close();
                                             } catch (Exception e5) {
-                                                Log.d(a.f1942a, "close is IOException!");
+                                                Log.d(a.f1944a, "close is IOException!");
                                             }
                                         }
                                         if (byteArrayOutputStream != null) {
@@ -143,7 +143,7 @@ public class j implements Runnable {
                                                 byteArrayOutputStream.close();
                                                 return;
                                             } catch (Exception e6) {
-                                                Log.d(a.f1942a, "close baos IOException!");
+                                                Log.d(a.f1944a, "close baos IOException!");
                                                 return;
                                             }
                                         }
@@ -171,7 +171,7 @@ public class j implements Runnable {
                                     e = e7;
                                     try {
                                         e.printStackTrace();
-                                        Log.i(a.f1942a, "https NetworkCommunicationException!");
+                                        Log.i(a.f1944a, "https NetworkCommunicationException!");
                                         this.b.j = null;
                                         this.b.a(false);
                                         if (httpsURLConnection2 != null) {
@@ -183,14 +183,14 @@ public class j implements Runnable {
                                             try {
                                                 byteArrayOutputStream2.close();
                                             } catch (Exception e8) {
-                                                Log.d(a.f1942a, "close os IOException!");
+                                                Log.d(a.f1944a, "close os IOException!");
                                             }
                                         }
                                         if (inputStream2 != null) {
                                             try {
                                                 inputStream2.close();
                                             } catch (Exception e9) {
-                                                Log.d(a.f1942a, "close is IOException!");
+                                                Log.d(a.f1944a, "close is IOException!");
                                             }
                                         }
                                         if (byteArrayOutputStream3 != null) {
@@ -198,7 +198,7 @@ public class j implements Runnable {
                                                 byteArrayOutputStream3.close();
                                                 return;
                                             } catch (Exception e10) {
-                                                Log.d(a.f1942a, "close baos IOException!");
+                                                Log.d(a.f1944a, "close baos IOException!");
                                                 return;
                                             }
                                         }
@@ -219,21 +219,21 @@ public class j implements Runnable {
                                             try {
                                                 byteArrayOutputStream3.close();
                                             } catch (Exception e11) {
-                                                Log.d(a.f1942a, "close os IOException!");
+                                                Log.d(a.f1944a, "close os IOException!");
                                             }
                                         }
                                         if (inputStream != null) {
                                             try {
                                                 inputStream.close();
                                             } catch (Exception e12) {
-                                                Log.d(a.f1942a, "close is IOException!");
+                                                Log.d(a.f1944a, "close is IOException!");
                                             }
                                         }
                                         if (byteArrayOutputStream != null) {
                                             try {
                                                 byteArrayOutputStream.close();
                                             } catch (Exception e13) {
-                                                Log.d(a.f1942a, "close baos IOException!");
+                                                Log.d(a.f1944a, "close baos IOException!");
                                             }
                                         }
                                         throw th;
@@ -288,21 +288,21 @@ public class j implements Runnable {
                             try {
                                 outputStream.close();
                             } catch (Exception e16) {
-                                Log.d(a.f1942a, "close os IOException!");
+                                Log.d(a.f1944a, "close os IOException!");
                             }
                         }
                         if (inputStream != null) {
                             try {
                                 inputStream.close();
                             } catch (Exception e17) {
-                                Log.d(a.f1942a, "close is IOException!");
+                                Log.d(a.f1944a, "close is IOException!");
                             }
                         }
                         if (byteArrayOutputStream != null) {
                             try {
                                 byteArrayOutputStream.close();
                             } catch (Exception e18) {
-                                Log.d(a.f1942a, "close baos IOException!");
+                                Log.d(a.f1944a, "close baos IOException!");
                             }
                         }
                     } catch (Error e19) {

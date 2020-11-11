@@ -9,7 +9,7 @@ import com.baidu.tbadk.data.n;
 import com.baidu.tieba.R;
 /* loaded from: classes24.dex */
 public class c extends com.baidu.adp.widget.ListView.a<n, com.baidu.tieba.person.b.c> {
-    private View.OnClickListener btt;
+    private View.OnClickListener bzF;
     private TbPageContext mTbPageContext;
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -20,7 +20,7 @@ public class c extends com.baidu.adp.widget.ListView.a<n, com.baidu.tieba.person
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cB */
+    /* renamed from: cD */
     public com.baidu.tieba.person.b.c c(ViewGroup viewGroup) {
         return new com.baidu.tieba.person.b.c(LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(R.layout.user_pic_nomal_item, (ViewGroup) null));
     }
@@ -32,12 +32,12 @@ public class c extends com.baidu.adp.widget.ListView.a<n, com.baidu.tieba.person
         if (cVar == null || nVar == null) {
             return null;
         }
-        cVar.F(this.btt);
+        cVar.G(this.bzF);
         cVar.h(nVar);
         return cVar.getView();
     }
 
-    public void F(View.OnClickListener onClickListener) {
-        this.btt = onClickListener;
+    public void G(View.OnClickListener onClickListener) {
+        this.bzF = onClickListener;
     }
 }

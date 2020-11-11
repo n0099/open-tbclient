@@ -7,19 +7,19 @@ import com.baidu.live.adp.base.BdPageContext;
 import com.baidu.live.data.w;
 /* loaded from: classes4.dex */
 public abstract class ILiveMultiBeautyView extends LinearLayout {
-    public abstract void Ch();
+    public abstract void CA();
 
-    public abstract void Ci();
+    public abstract void Cz();
 
     public abstract void b(short s);
 
     public abstract void setAlaLiveShowData(w wVar);
 
-    public abstract void setArModel(i iVar);
+    public abstract void setArModel(j jVar);
 
     public abstract void setBdPageContext(BdPageContext bdPageContext);
 
-    public abstract void setOnEffectSelectedListener(k kVar);
+    public abstract void setOnEffectSelectedListener(l lVar);
 
     public abstract void setViewData();
 

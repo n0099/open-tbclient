@@ -7,22 +7,22 @@ import java.io.IOException;
 public class Base64Utils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Boolean f1503a;
+    private static final Boolean f1505a;
 
     static {
-        f1503a = Boolean.valueOf(Build.VERSION.SDK_INT >= 8);
+        f1505a = Boolean.valueOf(Build.VERSION.SDK_INT >= 8);
     }
 
     public static byte[] encode(byte[] bArr) {
-        return f1503a.booleanValue() ? Base64.encode(bArr, 2) : com.baidu.fsg.base.utils.support.Base64.encodeBytesToBytes(bArr);
+        return f1505a.booleanValue() ? Base64.encode(bArr, 2) : com.baidu.fsg.base.utils.support.Base64.encodeBytesToBytes(bArr);
     }
 
     public static String encodeToString(byte[] bArr) {
-        return f1503a.booleanValue() ? Base64.encodeToString(bArr, 2) : com.baidu.fsg.base.utils.support.Base64.encodeBytes(bArr);
+        return f1505a.booleanValue() ? Base64.encodeToString(bArr, 2) : com.baidu.fsg.base.utils.support.Base64.encodeBytes(bArr);
     }
 
     public static byte[] decode(byte[] bArr) {
-        if (f1503a.booleanValue()) {
+        if (f1505a.booleanValue()) {
             return Base64.decode(bArr, 2);
         }
         try {
@@ -33,7 +33,7 @@ public class Base64Utils {
     }
 
     public static byte[] decode(String str) {
-        if (f1503a.booleanValue()) {
+        if (f1505a.booleanValue()) {
             return Base64.decode(str, 2);
         }
         try {

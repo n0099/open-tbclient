@@ -13,7 +13,7 @@ public class c extends com.baidu.swan.apps.api.a.d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b lt(String str) {
+    public com.baidu.swan.apps.api.c.b lI(String str) {
         if (DEBUG) {
             Log.d("Api-ClipboardApi", "start set clipboard data");
         }
@@ -30,7 +30,7 @@ public class c extends com.baidu.swan.apps.api.a.d {
         return new com.baidu.swan.apps.api.c.b(0);
     }
 
-    public com.baidu.swan.apps.api.c.b ahy() {
+    public com.baidu.swan.apps.api.c.b ajY() {
         if (DEBUG) {
             Log.d("Api-ClipboardApi", "start get clipboard data");
         }

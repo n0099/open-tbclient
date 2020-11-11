@@ -12,7 +12,7 @@ import java.util.Arrays;
 public class a implements Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ boolean f1805a;
+    static final /* synthetic */ boolean f1807a;
     private static final int b = 6;
     private static final int c = 64;
     private static final int d = 63;
@@ -24,7 +24,7 @@ public class a implements Serializable, Cloneable {
     private transient boolean i;
 
     static {
-        f1805a = !a.class.desiredAssertionStatus();
+        f1807a = !a.class.desiredAssertionStatus();
         f = new ObjectStreamField[]{new ObjectStreamField("bits", long[].class)};
     }
 
@@ -126,13 +126,13 @@ public class a implements Serializable, Cloneable {
     }
 
     private void h() {
-        if (!f1805a && this.h != 0 && this.g[this.h - 1] == 0) {
+        if (!f1807a && this.h != 0 && this.g[this.h - 1] == 0) {
             throw new AssertionError();
         }
-        if (!f1805a && (this.h < 0 || this.h > this.g.length)) {
+        if (!f1807a && (this.h < 0 || this.h > this.g.length)) {
             throw new AssertionError();
         }
-        if (!f1805a && this.h != this.g.length && this.g[this.h] != 0) {
+        if (!f1807a && this.h != this.g.length && this.g[this.h] != 0) {
             throw new AssertionError();
         }
     }

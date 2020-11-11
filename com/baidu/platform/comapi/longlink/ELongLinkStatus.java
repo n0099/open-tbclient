@@ -16,11 +16,11 @@ public enum ELongLinkStatus {
     
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2861a;
+    private int f2863a;
     private int b;
 
     ELongLinkStatus(int i) {
-        this.f2861a = i;
+        this.f2863a = i;
     }
 
     public int getRequestId() {
@@ -28,7 +28,7 @@ public enum ELongLinkStatus {
     }
 
     public int getStatusCode() {
-        return this.f2861a;
+        return this.f2863a;
     }
 
     public void setRequestId(int i) {

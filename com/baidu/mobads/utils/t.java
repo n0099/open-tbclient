@@ -87,7 +87,7 @@ public class t implements IXAdURIUitls {
                 i = i2;
             }
         }
-        if (com.baidu.mobads.a.b.f2314a.booleanValue()) {
+        if (com.baidu.mobads.a.b.f2316a.booleanValue()) {
             if (hashMap != null) {
                 for (String str5 : hashMap.keySet()) {
                     try {

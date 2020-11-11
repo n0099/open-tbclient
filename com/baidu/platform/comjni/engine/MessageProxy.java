@@ -10,25 +10,25 @@ import java.util.List;
 public class MessageProxy {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final SparseArray<List<Handler>> f3161a = new SparseArray<>();
+    private static final SparseArray<List<Handler>> f3163a = new SparseArray<>();
 
     public static void destroy() {
-        int size = f3161a.size();
+        int size = f3163a.size();
         for (int i = 0; i < size; i++) {
-            List<Handler> list = f3161a.get(f3161a.keyAt(i));
+            List<Handler> list = f3163a.get(f3163a.keyAt(i));
             if (list != null) {
                 list.clear();
             }
         }
-        f3161a.clear();
+        f3163a.clear();
     }
 
     public static void dispatchMessage(int i, int i2, int i3, long j) {
         if (i == 2000 || i == 2008 || i == 4099) {
             Log.d("BaseEngine", "Msg Receive, what: " + i);
         }
-        synchronized (f3161a) {
-            List<Handler> list = f3161a.get(i);
+        synchronized (f3163a) {
+            List<Handler> list = f3163a.get(i);
             if (list != null && !list.isEmpty()) {
                 for (Handler handler : list) {
                     Message.obtain(handler, i, i2, i3, Long.valueOf(j)).sendToTarget();
@@ -41,12 +41,12 @@ public class MessageProxy {
         if (handler == null) {
             return;
         }
-        synchronized (f3161a) {
-            List<Handler> list = f3161a.get(i);
+        synchronized (f3163a) {
+            List<Handler> list = f3163a.get(i);
             if (list == null) {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(handler);
-                f3161a.put(i, arrayList);
+                f3163a.put(i, arrayList);
             } else if (!list.contains(handler)) {
                 list.add(handler);
             }
@@ -56,8 +56,8 @@ public class MessageProxy {
     public static void unRegisterMessageHandler(int i, Handler handler) {
         if (handler != null) {
             handler.removeCallbacksAndMessages(null);
-            synchronized (f3161a) {
-                List<Handler> list = f3161a.get(i);
+            synchronized (f3163a) {
+                List<Handler> list = f3163a.get(i);
                 if (list != null) {
                     list.remove(handler);
                 }

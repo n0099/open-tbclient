@@ -5,23 +5,23 @@ import com.baidu.mapapi.map.MapLayer;
 /* synthetic */ class e {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ int[] f2224a = new int[MapLayer.values().length];
+    static final /* synthetic */ int[] f2226a = new int[MapLayer.values().length];
 
     static {
         try {
-            f2224a[MapLayer.MAP_LAYER_LOCATION.ordinal()] = 1;
+            f2226a[MapLayer.MAP_LAYER_LOCATION.ordinal()] = 1;
         } catch (NoSuchFieldError e) {
         }
         try {
-            f2224a[MapLayer.MAP_LAYER_OVERLAY.ordinal()] = 2;
+            f2226a[MapLayer.MAP_LAYER_OVERLAY.ordinal()] = 2;
         } catch (NoSuchFieldError e2) {
         }
         try {
-            f2224a[MapLayer.MAP_LAYER_INDOOR_POI.ordinal()] = 3;
+            f2226a[MapLayer.MAP_LAYER_INDOOR_POI.ordinal()] = 3;
         } catch (NoSuchFieldError e3) {
         }
         try {
-            f2224a[MapLayer.MAP_LAYER_POI_MARKER.ordinal()] = 4;
+            f2226a[MapLayer.MAP_LAYER_POI_MARKER.ordinal()] = 4;
         } catch (NoSuchFieldError e4) {
         }
     }

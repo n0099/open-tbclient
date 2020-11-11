@@ -8,7 +8,7 @@ import java.util.Map;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3108a;
+    private String f3110a;
     private HashMap<String, String> b = new LinkedHashMap(32);
     private HashMap<String, String> c = new LinkedHashMap(32);
     private int d = -1;
@@ -60,8 +60,8 @@ public class e {
     }
 
     public e() {
-        this.f3108a = "";
-        this.f3108a = "https://newclient.map.baidu.com/client/phpui2/";
+        this.f3110a = "";
+        this.f3110a = "https://newclient.map.baidu.com/client/phpui2/";
     }
 
     public e a(String str, String str2) {
@@ -108,9 +108,9 @@ public class e {
     public String toString() {
         com.baidu.platform.comapi.wnplatform.e.a.a aVar = new com.baidu.platform.comapi.wnplatform.e.a.a();
         aVar.a();
-        int indexOf = this.f3108a.indexOf(63);
+        int indexOf = this.f3110a.indexOf(63);
         if (indexOf != -1) {
-            String[] split = this.f3108a.substring(indexOf + 1).split(ETAG.ITEM_SEPARATOR);
+            String[] split = this.f3110a.substring(indexOf + 1).split(ETAG.ITEM_SEPARATOR);
             if (split != null) {
                 int length = split.length;
                 for (int i = 0; i < length; i++) {
@@ -120,9 +120,9 @@ public class e {
                     }
                 }
             }
-            this.f3108a = this.f3108a.substring(0, indexOf);
+            this.f3110a = this.f3110a.substring(0, indexOf);
         }
-        aVar.a("domain").b(this.f3108a);
+        aVar.a("domain").b(this.f3110a);
         if (this.m) {
             aVar.a("OFFLINE_SEARCH").a(1);
         }

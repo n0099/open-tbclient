@@ -8,7 +8,7 @@ import com.baidu.platform.comapi.location.CoordinateType;
 public class CoordinateConverter {
 
     /* renamed from: a  reason: collision with root package name */
-    private LatLng f2154a;
+    private LatLng f2156a;
     private CoordType b;
 
     /* loaded from: classes7.dex */
@@ -46,7 +46,7 @@ public class CoordinateConverter {
     }
 
     public LatLng convert() {
-        if (this.f2154a == null) {
+        if (this.f2156a == null) {
             return null;
         }
         if (this.b == null) {
@@ -54,20 +54,20 @@ public class CoordinateConverter {
         }
         switch (this.b) {
             case COMMON:
-                return b(this.f2154a);
+                return b(this.f2156a);
             case GPS:
-                return a(this.f2154a);
+                return a(this.f2156a);
             case BD09LL:
-                return d(this.f2154a);
+                return d(this.f2156a);
             case BD09MC:
-                return c(this.f2154a);
+                return c(this.f2156a);
             default:
                 return null;
         }
     }
 
     public CoordinateConverter coord(LatLng latLng) {
-        this.f2154a = latLng;
+        this.f2156a = latLng;
         return this;
     }
 

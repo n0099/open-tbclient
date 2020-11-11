@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1263a;
+    private Context f1265a;
     private C0092a acU;
 
     /* renamed from: com.baidu.b.e.a$a  reason: collision with other inner class name */
@@ -90,7 +90,7 @@ public class a {
     }
 
     public a(Context context) {
-        this.f1263a = context;
+        this.f1265a = context;
         c().mkdirs();
     }
 
@@ -188,7 +188,7 @@ public class a {
     }
 
     public File a() {
-        return new File(this.f1263a.getApplicationInfo().dataDir);
+        return new File(this.f1265a.getApplicationInfo().dataDir);
     }
 
     public synchronized C0092a sO() {

@@ -21,7 +21,7 @@ import org.json.JSONObject;
 public class a extends UploadBean {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1708a;
+    private String f1710a;
     private String b;
     private String c;
     private String d;
@@ -29,7 +29,7 @@ public class a extends UploadBean {
     private LivenessRecogDTO f;
 
     public void a(String str) {
-        this.f1708a = str;
+        this.f1710a = str;
     }
 
     public void b(String str) {
@@ -91,7 +91,7 @@ public class a extends UploadBean {
         } else if (!TextUtils.isEmpty(this.c)) {
             arrayList.add(new RestNameValuePair("zid", this.c));
         }
-        if (!TextUtils.isEmpty(this.f1708a)) {
+        if (!TextUtils.isEmpty(this.f1710a)) {
             arrayList.add(new RestNameValuePair("audioStartTime", "0"));
         }
         if (!TextUtils.isEmpty(this.e)) {

@@ -5,37 +5,37 @@ import com.baidu.android.imsdk.pubaccount.IIsSubscribedListener;
 import com.baidu.yuyinala.privatemessage.implugin.b.b;
 /* loaded from: classes4.dex */
 public class a extends b.a {
-    public static boolean ooj = false;
+    public static boolean oxE = false;
     private Context mContext;
     private String mKey = "";
     private String mType;
-    private g oof;
-    private long oog;
-    private int ooh;
-    private boolean ooi;
+    private g oxA;
+    private long oxB;
+    private int oxC;
+    private boolean oxD;
 
     public a(Context context, long j, String str, int i, g gVar) {
-        this.ooi = false;
-        this.oof = gVar;
+        this.oxD = false;
+        this.oxA = gVar;
         this.mContext = context;
-        this.oog = j;
+        this.oxB = j;
         this.mType = str;
-        this.ooh = i;
+        this.oxC = i;
         if (i == 1) {
-            this.ooi = false;
+            this.oxD = false;
         } else {
-            this.ooi = true;
+            this.oxD = true;
         }
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.b.b.a, java.lang.Runnable
     public void run() {
-        k.gF(this.mContext).a(this.mType, this.oog, this.ooi, new IIsSubscribedListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.f.a.1
+        k.gF(this.mContext).a(this.mType, this.oxB, this.oxD, new IIsSubscribedListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.f.a.1
             @Override // com.baidu.android.imsdk.pubaccount.IIsSubscribedListener
             public void onIsSubscribedResult(int i, String str, long j, boolean z) {
-                if (a.this.oof != null) {
-                    a.ooj = true;
-                    a.this.oof.d(i, str, j);
+                if (a.this.oxA != null) {
+                    a.oxE = true;
+                    a.this.oxA.d(i, str, j);
                 }
             }
         });

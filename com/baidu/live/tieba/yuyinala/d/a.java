@@ -15,43 +15,43 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends BdBaseModel {
-    private InterfaceC0210a bzX;
-    private boolean bzY;
-    private String mLiveId;
-    private TbPageContext mPageContext;
-    private String mRoomId;
-    private int[] bzZ = {a.i.txt_feenback_reason1, a.i.txt_feenback_reason2, a.i.txt_feenback_reason3, a.i.txt_feenback_reason4, a.i.txt_feenback_reason5, a.i.txt_feenback_reason6, a.i.txt_feenback_reason7};
-    private final HttpMessageListener bAa = new HttpMessageListener(1031040) { // from class: com.baidu.live.tieba.yuyinala.d.a.1
+    private InterfaceC0222a bGi;
+    private boolean bGj;
+    private int[] bGk = {a.h.txt_feenback_reason1, a.h.txt_feenback_reason2, a.h.txt_feenback_reason3, a.h.txt_feenback_reason4, a.h.txt_feenback_reason5, a.h.txt_feenback_reason6, a.h.txt_feenback_reason7};
+    private final HttpMessageListener bGl = new HttpMessageListener(1031040) { // from class: com.baidu.live.tieba.yuyinala.d.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaFeedBackReasonListResponse) && a.this.bzX != null) {
-                List<com.baidu.live.tieba.yuyinala.c.a> ab = a.this.ab(((AlaFeedBackReasonListResponse) httpResponsedMessage).RN());
-                if (!ListUtils.isEmpty(ab)) {
-                    a.this.bzX.aa(ab);
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaFeedBackReasonListResponse) && a.this.bGi != null) {
+                List<com.baidu.live.tieba.yuyinala.c.a> ag = a.this.ag(((AlaFeedBackReasonListResponse) httpResponsedMessage).Uv());
+                if (!ListUtils.isEmpty(ag)) {
+                    a.this.bGi.af(ag);
                 } else {
-                    a.this.bzX.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    a.this.bGi.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
     };
+    private String mLiveId;
+    private TbPageContext mPageContext;
+    private String mRoomId;
 
     /* renamed from: com.baidu.live.tieba.yuyinala.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0210a {
-        void aa(List<com.baidu.live.tieba.yuyinala.c.a> list);
+    public interface InterfaceC0222a {
+        void af(List<com.baidu.live.tieba.yuyinala.c.a> list);
 
         void onFail(int i, String str);
     }
 
-    public a(TbPageContext tbPageContext, InterfaceC0210a interfaceC0210a) {
+    public a(TbPageContext tbPageContext, InterfaceC0222a interfaceC0222a) {
         this.mPageContext = tbPageContext;
-        this.bzX = interfaceC0210a;
-        RO();
-        MessageManager.getInstance().registerListener(this.bAa);
+        this.bGi = interfaceC0222a;
+        Uw();
+        MessageManager.getInstance().registerListener(this.bGl);
     }
 
-    private void RO() {
+    private void Uw() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031040, TbConfig.SERVER_ADDRESS + "ala/audio/tipOff/getTipOffType");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -61,7 +61,7 @@ public class a extends BdBaseModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List<com.baidu.live.tieba.yuyinala.c.a> ab(List<com.baidu.live.tieba.yuyinala.c.a> list) {
+    public List<com.baidu.live.tieba.yuyinala.c.a> ag(List<com.baidu.live.tieba.yuyinala.c.a> list) {
         if (ListUtils.isEmpty(list)) {
             return null;
         }
@@ -69,16 +69,16 @@ public class a extends BdBaseModel {
         int size = list.size();
         for (int i = 0; i < size; i++) {
             com.baidu.live.tieba.yuyinala.c.a aVar = list.get(i);
-            if (aVar.RM() == 1) {
+            if (aVar.Uu() == 1) {
                 arrayList.add(aVar);
-            } else if (aVar.RM() == 0 && !this.bzY) {
+            } else if (aVar.Uu() == 0 && !this.bGj) {
                 arrayList.add(aVar);
             }
         }
         return arrayList;
     }
 
-    public void RP() {
+    public void Ux() {
         HttpMessage httpMessage = new HttpMessage(1031040);
         httpMessage.addParam("live_id", this.mLiveId);
         MessageManager.getInstance().sendMessage(httpMessage);
@@ -96,27 +96,27 @@ public class a extends BdBaseModel {
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterTask(1031040);
-        MessageManager.getInstance().unRegisterListener(this.bAa);
+        MessageManager.getInstance().unRegisterListener(this.bGl);
     }
 
-    public void aP(String str, String str2) {
+    public void aQ(String str, String str2) {
         this.mLiveId = str;
         this.mRoomId = str2;
     }
 
-    public List<com.baidu.live.tieba.yuyinala.c.a> RQ() {
+    public List<com.baidu.live.tieba.yuyinala.c.a> Uy() {
         ArrayList arrayList = new ArrayList();
-        int length = this.bzZ.length;
+        int length = this.bGk.length;
         for (int i = 0; i < length; i++) {
             com.baidu.live.tieba.yuyinala.c.a aVar = new com.baidu.live.tieba.yuyinala.c.a();
-            aVar.m23if(this.mPageContext.getResources().getString(this.bzZ[i]));
-            aVar.fS(1);
+            aVar.iy(this.mPageContext.getResources().getString(this.bGk[i]));
+            aVar.gf(1);
             arrayList.add(aVar);
         }
-        if (!this.bzY) {
+        if (!this.bGj) {
             com.baidu.live.tieba.yuyinala.c.a aVar2 = new com.baidu.live.tieba.yuyinala.c.a();
-            aVar2.m23if(this.mPageContext.getResources().getString(a.i.txt_feenback_reason8));
-            aVar2.fS(0);
+            aVar2.iy(this.mPageContext.getResources().getString(a.h.txt_feenback_reason8));
+            aVar2.gf(0);
             arrayList.add(aVar2);
         }
         return arrayList;

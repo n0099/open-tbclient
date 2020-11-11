@@ -40,7 +40,7 @@ public class l {
     public static double[] aI;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f1955a = false;
+    public static boolean f1957a = false;
     public static boolean b = false;
     public static boolean c = false;
     public static int d = 0;

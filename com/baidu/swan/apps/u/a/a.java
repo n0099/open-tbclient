@@ -10,26 +10,26 @@ import java.util.List;
 /* loaded from: classes10.dex */
 public class a implements com.baidu.swan.apps.u.d.a {
     public static List<af.a> getStorageList() {
-        List<af.a> list = (List) b.avK().oM("getStorageListCache");
+        List<af.a> list = (List) b.ayk().pa("getStorageListCache");
         if (list == null) {
             List<af.a> storageList = af.getStorageList();
-            b.avK().p("getStorageListCache", storageList);
+            b.ayk().p("getStorageListCache", storageList);
             return storageList;
         }
         return list;
     }
 
     public static void h(Boolean bool) {
-        b.avK().p("getNightModeStateCache", bool);
+        b.ayk().p("getNightModeStateCache", bool);
     }
 
-    public static Boolean fk(boolean z) {
-        Boolean bool = (Boolean) b.avK().oM("getNightModeStateCache");
+    public static Boolean ft(boolean z) {
+        Boolean bool = (Boolean) b.ayk().pa("getNightModeStateCache");
         if (bool == null) {
-            return Boolean.valueOf(com.baidu.swan.apps.t.a.auw().getNightModeSwitcherState());
+            return Boolean.valueOf(com.baidu.swan.apps.t.a.awW().getNightModeSwitcherState());
         }
         if (z) {
-            b.avK().oN("getNightModeStateCache");
+            b.ayk().pb("getNightModeStateCache");
             return bool;
         }
         return bool;
@@ -52,11 +52,11 @@ public class a implements com.baidu.swan.apps.u.d.a {
         if (file == null || !file.exists()) {
             return null;
         }
-        if (c.aBA()) {
-            SwanAppConfigData swanAppConfigData = (SwanAppConfigData) b.avK().oM(file.getAbsolutePath());
+        if (c.aEa()) {
+            SwanAppConfigData swanAppConfigData = (SwanAppConfigData) b.ayk().pa(file.getAbsolutePath());
             if (swanAppConfigData == null) {
                 SwanAppConfigData C = C(file);
-                b.avK().p(file.getAbsolutePath(), C);
+                b.ayk().p(file.getAbsolutePath(), C);
                 return C;
             } else if (DEBUG) {
                 Log.d("SwanPreProcess", "adopt cached app.json");

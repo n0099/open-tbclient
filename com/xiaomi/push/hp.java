@@ -7,19 +7,19 @@ import java.util.List;
 public class hp implements ix<hp, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public List<hq> f443a;
+    public List<hq> f445a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final jn f442a = new jn("ClientUploadData");
+    private static final jn f444a = new jn("ClientUploadData");
 
     /* renamed from: a  reason: collision with root package name */
-    private static final jf f4956a = new jf("", (byte) 15, 1);
+    private static final jf f4958a = new jf("", (byte) 15, 1);
 
     public int a() {
-        if (this.f443a == null) {
+        if (this.f445a == null) {
             return 0;
         }
-        return this.f443a.size();
+        return this.f445a.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,7 +30,7 @@ public class hp implements ix<hp, Object>, Serializable, Cloneable {
         if (getClass().equals(hpVar.getClass())) {
             int compareTo = Boolean.valueOf(m344a()).compareTo(Boolean.valueOf(hpVar.m344a()));
             if (compareTo == 0) {
-                if (!m344a() || (a2 = iy.a(this.f443a, hpVar.f443a)) == 0) {
+                if (!m344a() || (a2 = iy.a(this.f445a, hpVar.f445a)) == 0) {
                     return 0;
                 }
                 return a2;
@@ -42,16 +42,16 @@ public class hp implements ix<hp, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other method in class */
     public void m343a() {
-        if (this.f443a == null) {
+        if (this.f445a == null) {
             throw new jj("Required field 'uploadDataItems' was not present! Struct: " + toString());
         }
     }
 
     public void a(hq hqVar) {
-        if (this.f443a == null) {
-            this.f443a = new ArrayList();
+        if (this.f445a == null) {
+            this.f445a = new ArrayList();
         }
-        this.f443a.add(hqVar);
+        this.f445a.add(hqVar);
     }
 
     @Override // com.xiaomi.push.ix
@@ -59,29 +59,29 @@ public class hp implements ix<hp, Object>, Serializable, Cloneable {
         jiVar.m489a();
         while (true) {
             jf m485a = jiVar.m485a();
-            if (m485a.f4998a == 0) {
+            if (m485a.f5000a == 0) {
                 jiVar.f();
                 m343a();
                 return;
             }
-            switch (m485a.f776a) {
+            switch (m485a.f778a) {
                 case 1:
-                    if (m485a.f4998a == 15) {
+                    if (m485a.f5000a == 15) {
                         jg m486a = jiVar.m486a();
-                        this.f443a = new ArrayList(m486a.f777a);
-                        for (int i = 0; i < m486a.f777a; i++) {
+                        this.f445a = new ArrayList(m486a.f779a);
+                        for (int i = 0; i < m486a.f779a; i++) {
                             hq hqVar = new hq();
                             hqVar.a(jiVar);
-                            this.f443a.add(hqVar);
+                            this.f445a.add(hqVar);
                         }
                         jiVar.i();
                         break;
                     } else {
-                        jl.a(jiVar, m485a.f4998a);
+                        jl.a(jiVar, m485a.f5000a);
                         break;
                     }
                 default:
-                    jl.a(jiVar, m485a.f4998a);
+                    jl.a(jiVar, m485a.f5000a);
                     break;
             }
             jiVar.g();
@@ -90,7 +90,7 @@ public class hp implements ix<hp, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other method in class */
     public boolean m344a() {
-        return this.f443a != null;
+        return this.f445a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -100,17 +100,17 @@ public class hp implements ix<hp, Object>, Serializable, Cloneable {
         }
         boolean m344a = m344a();
         boolean m344a2 = hpVar.m344a();
-        return !(m344a || m344a2) || (m344a && m344a2 && this.f443a.equals(hpVar.f443a));
+        return !(m344a || m344a2) || (m344a && m344a2 && this.f445a.equals(hpVar.f445a));
     }
 
     @Override // com.xiaomi.push.ix
     public void b(ji jiVar) {
         m343a();
-        jiVar.a(f442a);
-        if (this.f443a != null) {
-            jiVar.a(f4956a);
-            jiVar.a(new jg((byte) 12, this.f443a.size()));
-            for (hq hqVar : this.f443a) {
+        jiVar.a(f444a);
+        if (this.f445a != null) {
+            jiVar.a(f4958a);
+            jiVar.a(new jg((byte) 12, this.f445a.size()));
+            for (hq hqVar : this.f445a) {
                 hqVar.b(jiVar);
             }
             jiVar.e();
@@ -134,10 +134,10 @@ public class hp implements ix<hp, Object>, Serializable, Cloneable {
     public String toString() {
         StringBuilder sb = new StringBuilder("ClientUploadData(");
         sb.append("uploadDataItems:");
-        if (this.f443a == null) {
+        if (this.f445a == null) {
             sb.append("null");
         } else {
-            sb.append(this.f443a);
+            sb.append(this.f445a);
         }
         sb.append(")");
         return sb.toString();

@@ -51,7 +51,7 @@ public class ForumEnterLayout extends RelativeLayout {
                     ForumEnterLayout.this.ajU.onClick(view);
                 }
                 if (ForumEnterLayout.this.afI != null) {
-                    ForumEnterLayout.this.a(view, ForumEnterLayout.this.afI.bhz());
+                    ForumEnterLayout.this.a(view, ForumEnterLayout.this.afI.bjZ());
                 }
             }
         };
@@ -72,7 +72,7 @@ public class ForumEnterLayout extends RelativeLayout {
                     ForumEnterLayout.this.ajU.onClick(view);
                 }
                 if (ForumEnterLayout.this.afI != null) {
-                    ForumEnterLayout.this.a(view, ForumEnterLayout.this.afI.bhz());
+                    ForumEnterLayout.this.a(view, ForumEnterLayout.this.afI.bjZ());
                 }
             }
         };
@@ -93,7 +93,7 @@ public class ForumEnterLayout extends RelativeLayout {
                     ForumEnterLayout.this.ajU.onClick(view);
                 }
                 if (ForumEnterLayout.this.afI != null) {
-                    ForumEnterLayout.this.a(view, ForumEnterLayout.this.afI.bhz());
+                    ForumEnterLayout.this.a(view, ForumEnterLayout.this.afI.bjZ());
                 }
             }
         };
@@ -155,23 +155,23 @@ public class ForumEnterLayout extends RelativeLayout {
         boolean z2 = true;
         this.afI = absThreadDataSupport;
         up();
-        bw bhz = absThreadDataSupport.bhz();
-        if ((absThreadDataSupport.bhF() || !bhz.eAZ) && !StringUtils.isNull(bhz.bke()) && !c(bhz)) {
+        bw bjZ = absThreadDataSupport.bjZ();
+        if ((absThreadDataSupport.bkf() || !bjZ.eGO) && !StringUtils.isNull(bjZ.bmE()) && !c(bjZ)) {
             this.ajY.setVisibility(0);
-            this.ajY.a(bhz, this.akd);
+            this.ajY.a(bjZ, this.akd);
             z = true;
         } else {
             this.ajY.setVisibility(8);
             z = false;
         }
-        if (!c(absThreadDataSupport) && !d(absThreadDataSupport) && absThreadDataSupport.bhG() && absThreadDataSupport.bhz().bmi()) {
+        if (!c(absThreadDataSupport) && !d(absThreadDataSupport) && absThreadDataSupport.bkg() && absThreadDataSupport.bjZ().boI()) {
             this.ajZ.setVisibility(0);
-            this.ajZ.r(bhz);
+            this.ajZ.r(bjZ);
             z = true;
         } else {
             this.ajZ.setVisibility(8);
         }
-        if (ay.x(bhz) && bhz.isPrivacy) {
+        if (ay.x(bjZ) && bjZ.isPrivacy) {
             this.aka.setVisibility(0);
             this.aka.setTextSize(0, l.getDimens(getContext(), R.dimen.tbds32));
             this.aka.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
@@ -193,7 +193,7 @@ public class ForumEnterLayout extends RelativeLayout {
 
     private Drawable getArrowRight() {
         if (this.akb == null || this.akb.mutate() == null) {
-            this.akb = SvgManager.boN().a(R.drawable.icon_pure_arrow12_right_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            this.akb = SvgManager.brn().a(R.drawable.icon_pure_arrow12_right_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
         return this.akb;
     }
@@ -207,14 +207,14 @@ public class ForumEnterLayout extends RelativeLayout {
     }
 
     private boolean c(AbsThreadDataSupport absThreadDataSupport) {
-        return (absThreadDataSupport == null || absThreadDataSupport.bhz() == null || absThreadDataSupport.bhz().bmf() == null || absThreadDataSupport.bhz().bmf().getOptions() == null || absThreadDataSupport.bhz().bmf().getOptions().size() <= 0) ? false : true;
+        return (absThreadDataSupport == null || absThreadDataSupport.bjZ() == null || absThreadDataSupport.bjZ().boF() == null || absThreadDataSupport.bjZ().boF().getOptions() == null || absThreadDataSupport.bjZ().boF().getOptions().size() <= 0) ? false : true;
     }
 
     private boolean c(bw bwVar) {
-        return (bwVar == null || bwVar.bka() == null || !bwVar.eBa || !d.bfD() || bwVar.bka().hadConcerned() || ay.x(bwVar)) ? false : true;
+        return (bwVar == null || bwVar.bmA() == null || !bwVar.eGP || !d.bid() || bwVar.bmA().hadConcerned() || ay.x(bwVar)) ? false : true;
     }
 
     private boolean d(AbsThreadDataSupport absThreadDataSupport) {
-        return (absThreadDataSupport == null || absThreadDataSupport.bhz() == null || !absThreadDataSupport.bhz().biG() || absThreadDataSupport.bhz().bks() == null) ? false : true;
+        return (absThreadDataSupport == null || absThreadDataSupport.bjZ() == null || !absThreadDataSupport.bjZ().blg() || absThreadDataSupport.bjZ().bmS() == null) ? false : true;
     }
 }

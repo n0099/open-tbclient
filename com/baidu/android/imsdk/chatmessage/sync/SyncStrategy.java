@@ -15,7 +15,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public abstract class SyncStrategy {
     public static final int DEFAULT_AOUNT_EACH_FETCH = 100;
     public static final int DEFAULT_COUNT_JUMP_TO_RECENT_EACH_FETCH = 200;
@@ -41,7 +41,7 @@ public abstract class SyncStrategy {
     private long mContacter = -1;
 
     @FunctionalInterface
-    /* loaded from: classes5.dex */
+    /* loaded from: classes18.dex */
     public interface CompleteListener {
         void onComplete(DialogRecord dialogRecord);
     }

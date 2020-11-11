@@ -7,14 +7,14 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaGetLiveInfoHttpResponseMessage extends JsonHttpResponsedMessage {
-    private w aEc;
+    private w aES;
 
     public AlaGetLiveInfoHttpResponseMessage() {
         super(1021007);
     }
 
-    public w GH() {
-        return this.aEc;
+    public w Hi() {
+        return this.aES;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -24,9 +24,9 @@ public class AlaGetLiveInfoHttpResponseMessage extends JsonHttpResponsedMessage 
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             long j = jSONObject.getLong("time");
             if (optJSONObject != null && getError() == 0) {
-                this.aEc = new w();
-                this.aEc.serverTime = j;
-                this.aEc.parserJson(optJSONObject);
+                this.aES = new w();
+                this.aES.serverTime = j;
+                this.aES.parserJson(optJSONObject);
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("live_info");
                 if (optJSONObject2 != null) {
                     AlaLiveSwitchData.isHotLive = optJSONObject2.optInt(HttpRequest.SDK_LIVE_IS_HOT);

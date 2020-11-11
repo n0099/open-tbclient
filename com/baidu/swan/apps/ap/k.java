@@ -7,7 +7,7 @@ import java.util.List;
 /* loaded from: classes10.dex */
 public class k {
     @Nullable
-    public static File aJW() {
+    public static File aMw() {
         List<af.a> storageList = com.baidu.swan.apps.u.a.a.getStorageList();
         if (storageList == null || storageList.size() <= 0) {
             return null;

@@ -15,9 +15,9 @@ public final class h {
     public static JsonElement parse(com.google.gson.stream.a aVar) throws JsonParseException {
         boolean z = true;
         try {
-            aVar.eph();
+            aVar.esW();
             z = false;
-            return TypeAdapters.oWg.read(aVar);
+            return TypeAdapters.pfB.read(aVar);
         } catch (MalformedJsonException e) {
             throw new JsonSyntaxException(e);
         } catch (EOFException e2) {
@@ -33,7 +33,7 @@ public final class h {
     }
 
     public static void a(JsonElement jsonElement, com.google.gson.stream.b bVar) throws IOException {
-        TypeAdapters.oWg.write(bVar, jsonElement);
+        TypeAdapters.pfB.write(bVar, jsonElement);
     }
 
     public static Writer a(Appendable appendable) {
@@ -42,22 +42,22 @@ public final class h {
 
     /* loaded from: classes17.dex */
     private static final class a extends Writer {
-        private final Appendable oUq;
-        private final C0965a oUr = new C0965a();
+        private final Appendable pdL;
+        private final C0984a pdM = new C0984a();
 
         a(Appendable appendable) {
-            this.oUq = appendable;
+            this.pdL = appendable;
         }
 
         @Override // java.io.Writer
         public void write(char[] cArr, int i, int i2) throws IOException {
-            this.oUr.chars = cArr;
-            this.oUq.append(this.oUr, i, i + i2);
+            this.pdM.chars = cArr;
+            this.pdL.append(this.pdM, i, i + i2);
         }
 
         @Override // java.io.Writer
         public void write(int i) throws IOException {
-            this.oUq.append((char) i);
+            this.pdL.append((char) i);
         }
 
         @Override // java.io.Writer, java.io.Flushable
@@ -70,10 +70,10 @@ public final class h {
 
         /* renamed from: com.google.gson.internal.h$a$a  reason: collision with other inner class name */
         /* loaded from: classes17.dex */
-        static class C0965a implements CharSequence {
+        static class C0984a implements CharSequence {
             char[] chars;
 
-            C0965a() {
+            C0984a() {
             }
 
             @Override // java.lang.CharSequence

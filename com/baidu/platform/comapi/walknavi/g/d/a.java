@@ -5,14 +5,14 @@ import com.baidu.tieba.R;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f3052a = -1;
+    public static int f3054a = -1;
     private static final int[] b = {500, 400, 300, 200, 100, 90, 80, 70, 60, 50, 30, 20, 10};
 
     /* loaded from: classes7.dex */
     static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        static final a f3054a = new a();
+        static final a f3056a = new a();
     }
 
     /* loaded from: classes7.dex */
@@ -21,7 +21,7 @@ public class a {
     }
 
     public static a a() {
-        return b.f3054a;
+        return b.f3056a;
     }
 
     private a() {
@@ -67,18 +67,18 @@ public class a {
             i2 = 0;
             i3 = -1;
         } else {
-            C0280a b2 = b(i);
-            i3 = b2.f3053a;
+            C0292a b2 = b(i);
+            i3 = b2.f3055a;
             i2 = b2.b;
         }
-        if (f3052a != i3) {
+        if (f3054a != i3) {
             cVar.a(i3, i2);
         }
-        f3052a = i3;
+        f3054a = i3;
     }
 
-    private C0280a b(int i) {
-        C0280a c0280a = new C0280a();
+    private C0292a b(int i) {
+        C0292a c0292a = new C0292a();
         int i2 = (i / 10) * 10;
         int i3 = 0;
         while (true) {
@@ -87,12 +87,12 @@ public class a {
             } else if (i2 < b[i3] || i2 % b[i3] != 0) {
                 i3++;
             } else {
-                c0280a.f3053a = c(b[i3]);
-                c0280a.b = i2 / b[i3];
+                c0292a.f3055a = c(b[i3]);
+                c0292a.b = i2 / b[i3];
                 break;
             }
         }
-        return c0280a;
+        return c0292a;
     }
 
     private int c(int i) {
@@ -187,13 +187,13 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.platform.comapi.walknavi.g.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C0280a {
+    public class C0292a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f3053a;
+        public int f3055a;
         public int b;
 
-        C0280a() {
+        C0292a() {
         }
     }
 }

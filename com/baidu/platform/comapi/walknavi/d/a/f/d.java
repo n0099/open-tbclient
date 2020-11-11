@@ -17,11 +17,11 @@ import org.json.JSONObject;
 public class d extends AsyncTask<String, Void, String> implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    f.a<JSONObject> f2985a;
+    f.a<JSONObject> f2987a;
     private String b;
 
     public d(String str, f.a<JSONObject> aVar) {
-        this.f2985a = aVar;
+        this.f2987a = aVar;
         this.b = str;
     }
 
@@ -61,15 +61,15 @@ public class d extends AsyncTask<String, Void, String> implements c {
     /* renamed from: a */
     public void onPostExecute(String str) {
         if (TextUtils.isEmpty(str)) {
-            if (this.f2985a != null) {
-                this.f2985a.b("http error! result is null");
+            if (this.f2987a != null) {
+                this.f2987a.b("http error! result is null");
                 return;
             }
             return;
         }
         try {
-            if (this.f2985a != null) {
-                this.f2985a.a(new JSONObject(str));
+            if (this.f2987a != null) {
+                this.f2987a.a(new JSONObject(str));
             }
         } catch (JSONException e) {
         }
@@ -78,6 +78,6 @@ public class d extends AsyncTask<String, Void, String> implements c {
     @Override // com.baidu.platform.comapi.walknavi.d.a.f.c
     public void a() {
         cancel(true);
-        this.f2985a = null;
+        this.f2987a = null;
     }
 }

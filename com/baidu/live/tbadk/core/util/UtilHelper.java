@@ -255,14 +255,14 @@ public class UtilHelper {
     }
 
     public static void quitDialog(final Activity activity) {
-        new BdAlertDialog(activity).setTitle(a.i.sdk_inform).setCancelable(false).setMessageId(a.i.sdk_alert_quit_confirm).setPositiveButton(a.i.sdk_alert_yes_button, new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.tbadk.core.util.UtilHelper.2
+        new BdAlertDialog(activity).setTitle(a.h.sdk_inform).setCancelable(false).setMessageId(a.h.sdk_alert_quit_confirm).setPositiveButton(a.h.sdk_alert_yes_button, new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.tbadk.core.util.UtilHelper.2
             @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
             public void onClick(BdAlertDialog bdAlertDialog) {
                 bdAlertDialog.dismiss();
                 TbadkCoreApplication.getInst().notifyAppEnterBackground();
                 activity.finish();
             }
-        }).setNegativeButton(a.i.sdk_cancel, new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.tbadk.core.util.UtilHelper.1
+        }).setNegativeButton(a.h.sdk_cancel, new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.tbadk.core.util.UtilHelper.1
             @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
             public void onClick(BdAlertDialog bdAlertDialog) {
                 bdAlertDialog.dismiss();
@@ -489,7 +489,7 @@ public class UtilHelper {
             intent.putExtra("android.intent.extra.TEXT", str2);
             intent.setFlags(268435456);
             intent.setType("text/plain");
-            context.startActivity(Intent.createChooser(intent, TbadkCoreApplication.getInst().getApp().getResources().getString(a.i.sdk_share_to)));
+            context.startActivity(Intent.createChooser(intent, TbadkCoreApplication.getInst().getApp().getResources().getString(a.h.sdk_share_to)));
         } catch (Exception e) {
             BdLog.e(e.toString());
         }
@@ -849,7 +849,7 @@ public class UtilHelper {
 
     public static void setStatusBarBackground(View view, int i) {
         if (view != null) {
-            SkinManager.setBackgroundColor(view, a.d.sdk_common_color_10274);
+            SkinManager.setBackgroundColor(view, a.c.sdk_common_color_10274);
         }
     }
 
@@ -893,7 +893,7 @@ public class UtilHelper {
                 window.addFlags(Integer.MIN_VALUE);
                 Method declaredMethod = Window.class.getDeclaredMethod("setStatusBarColor", Integer.TYPE);
                 declaredMethod.setAccessible(true);
-                declaredMethod.invoke(window, Integer.valueOf(SkinManager.getColor(a.d.sdk_common_color_10274)));
+                declaredMethod.invoke(window, Integer.valueOf(SkinManager.getColor(a.c.sdk_common_color_10274)));
             } catch (IllegalAccessException e) {
             } catch (NoSuchMethodException e2) {
             } catch (InvocationTargetException e3) {
@@ -1063,7 +1063,7 @@ public class UtilHelper {
             return true;
         } catch (Throwable th) {
             th.printStackTrace();
-            BdUtilHelper.showToast(context, a.i.sdk_game_start_fail);
+            BdUtilHelper.showToast(context, a.h.sdk_game_start_fail);
             return false;
         }
     }
@@ -1414,7 +1414,7 @@ public class UtilHelper {
         } else {
             str = getFixedBarText(str, i, z);
         }
-        return TbadkCoreApplication.getInst().getString(a.i.sdk_chosen_pb_original_bar, new Object[]{str});
+        return TbadkCoreApplication.getInst().getString(a.h.sdk_chosen_pb_original_bar, new Object[]{str});
     }
 
     public static String getForumNameWithGodBar(String str, int i, boolean z) {
@@ -1425,7 +1425,7 @@ public class UtilHelper {
         } else {
             str = getFixedBarText(str, i, z);
         }
-        return TbadkCoreApplication.getInst().getString(a.i.sdk_chosen_pb_original_god_bar, new Object[]{str});
+        return TbadkCoreApplication.getInst().getString(a.h.sdk_chosen_pb_original_god_bar, new Object[]{str});
     }
 
     public static String getFromPageKey(TbPageContext tbPageContext) {

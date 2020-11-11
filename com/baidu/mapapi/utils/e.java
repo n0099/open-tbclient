@@ -9,11 +9,11 @@ import com.baidu.mapframework.open.aidl.b;
 class e extends b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f2158a;
+    final /* synthetic */ d f2160a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.f2158a = dVar;
+        this.f2160a = dVar;
     }
 
     @Override // com.baidu.mapframework.open.aidl.b
@@ -30,7 +30,7 @@ class e extends b.a {
         IComOpenClient unused2 = b.e = IComOpenClient.a.a(iBinder);
         z = b.t;
         if (!z) {
-            b.a(b.f2156a);
+            b.a(b.f2158a);
         }
         boolean unused3 = b.t = true;
     }

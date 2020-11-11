@@ -34,11 +34,14 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private BdTypeListView gcr;
-    private i gdA = new i() { // from class: com.baidu.tieba.ala.alasquare.live.d.a.1
+    private BdTypeListView gih;
+    private NoNetworkView gjn;
+    private PbListView gjo;
+    private b gjp;
+    private i gjq = new i() { // from class: com.baidu.tieba.ala.alasquare.live.d.a.1
         @Override // com.baidu.tieba.ala.alasquare.subtablist.c.i
         public void a(int i, String str, bw bwVar) {
-            TiebaStatic.log(com.baidu.tieba.ala.alasquare.c.a.bNc().a(a.this.isSmallFollow, "c12118", i, str, bwVar));
+            TiebaStatic.log(com.baidu.tieba.ala.alasquare.c.a.bPC().a(a.this.isSmallFollow, "c12118", i, str, bwVar));
             a.this.a(a.this.mPageContext, bwVar, str);
         }
 
@@ -46,9 +49,6 @@ public class a {
         public void a(c cVar) {
         }
     };
-    private NoNetworkView gdx;
-    private PbListView gdy;
-    private b gdz;
     private int isSmallFollow;
     private FrameLayout mContentView;
     private TbPageContext mPageContext;
@@ -59,39 +59,39 @@ public class a {
         this.mPageContext = tbPageContext;
         this.mRootView = new LinearLayout(tbPageContext.getPageActivity());
         this.mRootView.setOrientation(1);
-        this.gdx = new NoNetworkView(tbPageContext.getPageActivity());
+        this.gjn = new NoNetworkView(tbPageContext.getPageActivity());
         if (j.isNetWorkAvailable()) {
-            this.gdx.setVisibility(8);
+            this.gjn.setVisibility(8);
         }
-        this.mRootView.addView(this.gdx);
+        this.mRootView.addView(this.gjn);
         this.mContentView = new FrameLayout(tbPageContext.getPageActivity());
         this.mRootView.addView(this.mContentView, new RelativeLayout.LayoutParams(-1, -1));
         this.mRootView.setPadding(0, 0, 0, 0);
-        this.gcr = new BdTypeListView(this.mPageContext.getPageActivity());
-        this.gcr.setDivider(null);
-        this.mContentView.addView(this.gcr, new FrameLayout.LayoutParams(-1, -1));
+        this.gih = new BdTypeListView(this.mPageContext.getPageActivity());
+        this.gih.setDivider(null);
+        this.mContentView.addView(this.gih, new FrameLayout.LayoutParams(-1, -1));
         this.mPullView = new g(this.mPageContext);
         this.mPullView.setTag(bdUniqueId);
-        this.gcr.setPullRefresh(this.mPullView);
-        this.gdy = new PbListView(tbPageContext.getPageActivity());
-        this.gdy.createView();
-        this.gdz = new b(tbPageContext, this.gcr);
-        this.gdz.a(this.gdA);
+        this.gih.setPullRefresh(this.mPullView);
+        this.gjo = new PbListView(tbPageContext.getPageActivity());
+        this.gjo.createView();
+        this.gjp = new b(tbPageContext, this.gih);
+        this.gjp.a(this.gjq);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(TbPageContext<?> tbPageContext, bw bwVar, String str) {
-        if (tbPageContext != null && bwVar != null && bwVar.bka() != null && bwVar.bku() != null) {
+        if (tbPageContext != null && bwVar != null && bwVar.bmA() != null && bwVar.bmU() != null) {
             boolean z = false;
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccount() != null) {
-                String userId = bwVar.bka().getUserId();
+                String userId = bwVar.bmA().getUserId();
                 str2 = TbadkCoreApplication.getCurrentAccount();
                 z = TextUtils.equals(userId, str2);
             }
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(bwVar.bku());
-            alaLiveInfoCoreData.userName = bwVar.bka().getUserName();
+            alaLiveInfoCoreData.fillWithInfoData(bwVar.bmU());
+            alaLiveInfoCoreData.userName = bwVar.bmA().getUserName();
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, null, "square_live", str2, z, "颜值".equals(str) ? str : null, null)));
         }
     }
@@ -100,7 +100,7 @@ public class a {
         return this.mRootView;
     }
 
-    public FrameLayout bMv() {
+    public FrameLayout bOV() {
         return this.mContentView;
     }
 
@@ -109,69 +109,69 @@ public class a {
             list = new LinkedList<>();
         }
         this.isSmallFollow = i;
-        this.gdz.setDatas(list);
-        this.gdz.tI(i);
+        this.gjp.setDatas(list);
+        this.gjp.tS(i);
         if (z) {
-            bMx();
+            bOX();
         } else {
-            bMw();
+            bOW();
         }
     }
 
     public void completePullRefresh() {
-        this.gcr.completePullRefresh();
+        this.gih.completePullRefresh();
     }
 
     public void setListPullRefreshListener(f.c cVar) {
         this.mPullView.setListPullRefreshListener(cVar);
     }
 
-    public void bMw() {
-        if (this.gdy != null) {
-            if (this.gdy.getView().getParent() == null) {
-                this.gcr.setNextPage(this.gdy);
+    public void bOW() {
+        if (this.gjo != null) {
+            if (this.gjo.getView().getParent() == null) {
+                this.gih.setNextPage(this.gjo);
             }
-            this.gdy.setText(this.mPageContext.getResources().getString(R.string.list_no_more));
-            this.gdy.endLoadData();
+            this.gjo.setText(this.mPageContext.getResources().getString(R.string.list_no_more));
+            this.gjo.endLoadData();
         }
     }
 
-    public void bMx() {
-        if (this.gdy != null) {
-            if (this.gdy.getView().getParent() == null) {
-                this.gcr.setNextPage(this.gdy);
+    public void bOX() {
+        if (this.gjo != null) {
+            if (this.gjo.getView().getParent() == null) {
+                this.gih.setNextPage(this.gjo);
             }
-            this.gdy.showLoadingViewWithoutEmptyView();
-            this.gdy.startLoadData();
+            this.gjo.showLoadingViewWithoutEmptyView();
+            this.gjo.startLoadData();
         }
     }
 
     public void setOnSrollToBottomListener(BdListView.e eVar) {
-        this.gcr.setOnSrollToBottomListener(eVar);
+        this.gih.setOnSrollToBottomListener(eVar);
     }
 
     public void a(BdListView.d dVar, int i) {
-        this.gcr.setOnScrollStopDelayedListener(dVar, i);
+        this.gih.setOnScrollStopDelayedListener(dVar, i);
     }
 
     public void setOnScrollListener(AbsListView.OnScrollListener onScrollListener) {
-        this.gcr.setOnScrollListener(onScrollListener);
+        this.gih.setOnScrollListener(onScrollListener);
     }
 
     public void onChangeSkinType(int i) {
-        this.gdy.setContainerBackgroundColorResId(R.color.cp_bg_line_c);
-        this.gdy.changeSkin(i);
+        this.gjo.setContainerBackgroundColorResId(R.color.cp_bg_line_c);
+        this.gjo.changeSkin(i);
         this.mPullView.changeSkin(i);
-        this.gdz.notifyDataSetChanged();
+        this.gjp.notifyDataSetChanged();
         ap.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
-        this.gdx.onChangeSkinType(this.mPageContext, i);
+        this.gjn.onChangeSkinType(this.mPageContext, i);
     }
 
-    public BdTypeListView bMy() {
-        return this.gcr;
+    public BdTypeListView bOY() {
+        return this.gih;
     }
 
     public void a(IAlaSquareTabController iAlaSquareTabController) {
-        this.gdz.a(iAlaSquareTabController);
+        this.gjp.a(iAlaSquareTabController);
     }
 }

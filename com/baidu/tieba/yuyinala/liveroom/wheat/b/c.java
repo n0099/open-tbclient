@@ -1,107 +1,49 @@
 package com.baidu.tieba.yuyinala.liveroom.wheat.b;
 
-import android.app.Activity;
-import android.content.Context;
-import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.yuyinala.liveroom.wheat.b.d;
-import com.baidu.tieba.yuyinala.liveroom.wheat.c.c;
-import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaApplyWheatHttpResponseMessage;
+import com.baidu.live.adp.lib.util.BdLog;
+import com.baidu.live.data.AlaWheatInfoData;
+import com.baidu.live.data.w;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
+import com.baidu.live.tbadk.ubc.UbcStatisticItem;
+import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
+import com.baidu.live.tbadk.ubc.UbcStatisticManager;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c {
-    private static c nWh;
-    private a nWi;
-
-    /* loaded from: classes4.dex */
-    public interface a {
-        void cYn();
-
-        void dWk();
-    }
-
-    public static c dWj() {
-        if (nWh == null) {
-            nWh = new c();
-        }
-        return nWh;
-    }
-
-    private c() {
-    }
-
-    public void a(Context context, Activity activity, String str) {
-        if (Vn(str)) {
-            b(context, activity, str);
-        } else {
-            c(context, activity, str);
-        }
-    }
-
-    private void b(Context context, Activity activity, final String str) {
-        d.dWl().a(context, activity, new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.b.c.1
-            @Override // com.baidu.tieba.yuyinala.liveroom.wheat.b.d.a
-            public void yR(boolean z) {
-                if (z) {
-                    if (c.this.nWi != null) {
-                        c.this.nWi.cYn();
-                    }
-                    new com.baidu.tieba.yuyinala.liveroom.wheat.c.c(null, new c.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.b.c.1.1
-                        @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.c.a
-                        public void b(AlaApplyWheatHttpResponseMessage alaApplyWheatHttpResponseMessage) {
-                            k.dWx().Me(2);
-                            c.this.a(alaApplyWheatHttpResponseMessage);
-                        }
-
-                        @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.c.a
-                        public void c(AlaApplyWheatHttpResponseMessage alaApplyWheatHttpResponseMessage) {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501036, false));
-                        }
-                    }).aL(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dVV().dWa(), str, "");
-                }
+    public void ac(w wVar) {
+        if (wVar != null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, wVar.aJK.croom_id);
+            } catch (Exception e) {
+                BdLog.e(e);
             }
-        });
-    }
-
-    private void c(Context context, Activity activity, final String str) {
-        d.dWl().a(context, activity, new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.b.c.2
-            @Override // com.baidu.tieba.yuyinala.liveroom.wheat.b.d.a
-            public void yR(boolean z) {
-                if (z) {
-                    new com.baidu.tieba.yuyinala.liveroom.wheat.c.c(null, new c.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.b.c.2.1
-                        @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.c.a
-                        public void b(AlaApplyWheatHttpResponseMessage alaApplyWheatHttpResponseMessage) {
-                            if (!alaApplyWheatHttpResponseMessage.isError() && c.this.nWi != null) {
-                                c.this.nWi.dWk();
-                            }
-                        }
-
-                        @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.c.a
-                        public void c(AlaApplyWheatHttpResponseMessage alaApplyWheatHttpResponseMessage) {
-                        }
-                    }).aL(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dVV().dWa(), str, "");
-                }
-            }
-        });
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(AlaApplyWheatHttpResponseMessage alaApplyWheatHttpResponseMessage) {
-        if (alaApplyWheatHttpResponseMessage.dWX() == 1) {
-            com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dVV().dVX().M(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dVV().dWb(), TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), alaApplyWheatHttpResponseMessage.getPushUrl(), alaApplyWheatHttpResponseMessage.dWW());
+            UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, "miclinkbtn_clk").setContentExt(jSONObject));
         }
     }
 
-    private boolean Vn(String str) {
-        return "1".equals(str);
-    }
-
-    public void onDestroy() {
-        nWh = null;
-    }
-
-    public c a(a aVar) {
-        this.nWi = aVar;
-        return this;
+    public void a(AlaWheatInfoData alaWheatInfoData, int i) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
+            w Xn = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().Xn();
+            if (Xn != null && Xn.aJK != null) {
+                jSONObject.put("live_id", Xn.aJK.live_id);
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, Xn.aJK.croom_id);
+            }
+            jSONObject.put("loc", i);
+            boolean z = false;
+            if (alaWheatInfoData != null) {
+                z = true;
+            }
+            jSONObject.put(ZeusPerformanceTiming.KEY_BROWSER_STARTUP, z ? "occupy" : SchemeCollecter.CLASSIFY_EMPTY);
+        } catch (JSONException e) {
+            BdLog.e(e);
+        }
+        UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, "micpos_clk").setContentExt(jSONObject));
     }
 }

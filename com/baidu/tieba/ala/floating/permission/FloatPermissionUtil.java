@@ -21,13 +21,13 @@ public final class FloatPermissionUtil {
         void onResult(int i);
     }
 
-    public static boolean Np() {
-        b Nu = i.Ns().Nu();
-        return Nu == null || Nu.Np();
+    public static boolean NP() {
+        b NU = i.NS().NU();
+        return NU == null || NU.NP();
     }
 
     public static boolean checkPermission(Context context) {
-        return Np();
+        return NP();
     }
 
     public static void al(Activity activity) {
@@ -55,10 +55,10 @@ public final class FloatPermissionUtil {
     @SuppressLint({"ValidFragment"})
     /* loaded from: classes4.dex */
     public static class PermissionFragment extends Fragment {
-        private static a gwp = null;
+        private static a gCd = null;
 
         public static void b(Activity activity, a aVar) {
-            gwp = aVar;
+            gCd = aVar;
             activity.getFragmentManager().beginTransaction().add(new PermissionFragment(), activity.getLocalClassName()).commitAllowingStateLoss();
         }
 
@@ -66,8 +66,8 @@ public final class FloatPermissionUtil {
         public void onActivityCreated(Bundle bundle) {
             super.onActivityCreated(bundle);
             if (Build.VERSION.SDK_INT < 23) {
-                if (gwp != null) {
-                    gwp.onResult(0);
+                if (gCd != null) {
+                    gCd.onResult(0);
                     return;
                 }
                 return;
@@ -85,8 +85,8 @@ public final class FloatPermissionUtil {
                     @Override // java.lang.Runnable
                     public void run() {
                         boolean checkPermission = FloatPermissionUtil.checkPermission(PermissionFragment.this.getActivity());
-                        if (PermissionFragment.gwp != null) {
-                            PermissionFragment.gwp.onResult(checkPermission ? 0 : 1);
+                        if (PermissionFragment.gCd != null) {
+                            PermissionFragment.gCd.onResult(checkPermission ? 0 : 1);
                         }
                         if (PermissionFragment.this.getFragmentManager() != null) {
                             PermissionFragment.this.getFragmentManager().beginTransaction().remove(PermissionFragment.this).commitAllowingStateLoss();

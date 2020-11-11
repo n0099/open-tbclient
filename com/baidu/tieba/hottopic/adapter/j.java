@@ -22,16 +22,16 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 /* loaded from: classes21.dex */
 public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.data.m, com.baidu.tieba.hottopic.a.e> {
-    private HotTopicActivity jHA;
-    private a jHG;
-    private ab jHH;
+    private a jNE;
+    private ab jNF;
+    private HotTopicActivity jNy;
     public int mSkinType;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public j(HotTopicActivity hotTopicActivity, BdUniqueId bdUniqueId) {
         super(hotTopicActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.jHG = new a();
-        this.jHH = new ab() { // from class: com.baidu.tieba.hottopic.adapter.j.1
+        this.jNE = new a();
+        this.jNF = new ab() { // from class: com.baidu.tieba.hottopic.adapter.j.1
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, q qVar, BdUniqueId bdUniqueId2, ViewGroup viewGroup, int i, long j) {
                 if (qVar != null && (qVar instanceof com.baidu.tieba.hottopic.data.m)) {
@@ -40,13 +40,13 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
                 }
             }
         };
-        this.jHA = hotTopicActivity;
+        this.jNy = hotTopicActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bP */
+    /* renamed from: bR */
     public com.baidu.tieba.hottopic.a.e c(ViewGroup viewGroup) {
         return new com.baidu.tieba.hottopic.a.e(LayoutInflater.from(this.mContext).inflate(R.layout.hot_topic_quality_item, viewGroup, false));
     }
@@ -65,51 +65,51 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
     private void a(com.baidu.tieba.hottopic.a.e eVar, View view) {
         if (eVar != null) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            if (this.jHA != null && eVar.ajq != this.mSkinType) {
+            if (this.jNy != null && eVar.ajq != this.mSkinType) {
                 eVar.ajq = this.mSkinType;
                 ap.setBackgroundResource(eVar.getView(), R.drawable.list_item_selector);
-                ap.setViewTextColor(eVar.jKJ, R.color.cp_cont_c, 1);
-                ap.setViewTextColor(eVar.epn, R.color.cp_cont_b, 1);
-                ap.setViewTextColor(eVar.jKS, R.color.cp_cont_d, 1);
-                ap.setBackgroundColor(eVar.jKQ, R.color.cp_bg_line_c);
-                ap.setBackgroundColor(eVar.jKI, R.color.cp_bg_line_c);
-                eVar.jKR.setImageDrawable(null);
-                this.jHA.getLayoutMode().setNightMode(this.mSkinType == 1);
-                this.jHA.getLayoutMode().onModeChanged(view);
+                ap.setViewTextColor(eVar.jQH, R.color.cp_cont_c, 1);
+                ap.setViewTextColor(eVar.evg, R.color.cp_cont_b, 1);
+                ap.setViewTextColor(eVar.jQQ, R.color.cp_cont_d, 1);
+                ap.setBackgroundColor(eVar.jQO, R.color.cp_bg_line_c);
+                ap.setBackgroundColor(eVar.jQG, R.color.cp_bg_line_c);
+                eVar.jQP.setImageDrawable(null);
+                this.jNy.getLayoutMode().setNightMode(this.mSkinType == 1);
+                this.jNy.getLayoutMode().onModeChanged(view);
             }
         }
     }
 
     private void a(com.baidu.tieba.hottopic.a.e eVar, com.baidu.tieba.hottopic.data.m mVar) {
         if (eVar != null && mVar != null) {
-            if (mVar.cKI()) {
-                eVar.jKI.setVisibility(0);
-                eVar.jKJ.setVisibility(0);
-                eVar.jKQ.setVisibility(8);
-                eVar.jKP.setVisibility(8);
-                eVar.jKJ.setText(mVar.jIR.trim());
+            if (mVar.cNj()) {
+                eVar.jQG.setVisibility(0);
+                eVar.jQH.setVisibility(0);
+                eVar.jQO.setVisibility(8);
+                eVar.jQN.setVisibility(8);
+                eVar.jQH.setText(mVar.jOP.trim());
                 ap.setBackgroundColor(eVar.getView(), R.color.cp_bg_line_d);
                 return;
             }
-            eVar.jKI.setVisibility(8);
-            eVar.jKJ.setVisibility(8);
-            eVar.jKQ.setVisibility(0);
-            eVar.jKP.setVisibility(0);
-            eVar.jKR.startLoad(mVar.evi, 10, false);
-            eVar.epn.setText(mVar.title.trim());
-            eVar.jKS.setText(mVar.summary.trim());
-            eVar.jKT.setText(TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar, new Object[]{UtilHelper.getFixedText(mVar.fname, 7, false)}));
-            eVar.jKU.setText(at.numberUniformFormat(mVar.jKb));
-            eVar.jKV.setText(at.numFormatOver10000(mVar.replyNum));
+            eVar.jQG.setVisibility(8);
+            eVar.jQH.setVisibility(8);
+            eVar.jQO.setVisibility(0);
+            eVar.jQN.setVisibility(0);
+            eVar.jQP.startLoad(mVar.eBb, 10, false);
+            eVar.evg.setText(mVar.title.trim());
+            eVar.jQQ.setText(mVar.summary.trim());
+            eVar.jQR.setText(TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar, new Object[]{UtilHelper.getFixedText(mVar.fname, 7, false)}));
+            eVar.jQS.setText(at.numberUniformFormat(mVar.jPZ));
+            eVar.jQT.setText(at.numFormatOver10000(mVar.replyNum));
             b(eVar, mVar);
         }
     }
 
     private void b(com.baidu.tieba.hottopic.a.e eVar, com.baidu.tieba.hottopic.data.m mVar) {
-        if (eVar != null && mVar != null && this.jHA != null) {
-            a(this.jHH);
-            this.jHG.fl(TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar, new Object[]{UtilHelper.getFixedText(mVar.fname, 7, false)}), String.valueOf(mVar.fid));
-            eVar.jKT.setOnClickListener(this.jHG);
+        if (eVar != null && mVar != null && this.jNy != null) {
+            a(this.jNF);
+            this.jNE.fl(TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar, new Object[]{UtilHelper.getFixedText(mVar.fname, 7, false)}), String.valueOf(mVar.fid));
+            eVar.jQR.setOnClickListener(this.jNE);
         }
     }
 
@@ -139,10 +139,10 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.hottopic.data.m mVar) {
-        if (mVar != null && !mVar.cKI()) {
+        if (mVar != null && !mVar.cNj()) {
             String valueOf = String.valueOf(mVar.tid);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.jHA.getActivity()).createNormalCfg(valueOf, String.valueOf(mVar.postId), "hot_topic")));
-            TiebaStatic.log(new aq("c10522").dR("tid", valueOf).dR("obj_id", this.jHA.cKh()));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.jNy.getActivity()).createNormalCfg(valueOf, String.valueOf(mVar.postId), "hot_topic")));
+            TiebaStatic.log(new aq("c10522").dR("tid", valueOf).dR("obj_id", this.jNy.cMI()));
         }
     }
 }

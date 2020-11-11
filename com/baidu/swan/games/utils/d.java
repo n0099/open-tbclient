@@ -16,15 +16,15 @@ import org.json.JSONObject;
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static void aVm() {
+    public static void aXM() {
         String str;
-        com.baidu.swan.apps.runtime.e aEU = com.baidu.swan.apps.runtime.e.aEU();
-        if (aEU != null) {
+        com.baidu.swan.apps.runtime.e aHu = com.baidu.swan.apps.runtime.e.aHu();
+        if (aHu != null) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("cuid", com.baidu.swan.apps.t.a.auf().bq(com.baidu.swan.apps.t.a.aua()));
+                jSONObject.put("cuid", com.baidu.swan.apps.t.a.awF().bq(com.baidu.swan.apps.t.a.awA()));
                 JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put(ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME, aEU.getAppKey());
+                jSONObject2.put(ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME, aHu.getAppKey());
                 jSONObject2.put("type", 0);
                 jSONObject2.put("upload_time", System.currentTimeMillis() / 1000);
                 JSONArray jSONArray = new JSONArray();
@@ -34,7 +34,7 @@ public class d {
             } catch (Exception e) {
                 str = "";
             }
-            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) aEU.aFj().postRequest().cookieManager(com.baidu.swan.apps.t.a.auz().afJ())).url(com.baidu.swan.apps.t.a.aum().aeX())).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), str)).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.games.utils.d.1
+            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) aHu.aHJ().postRequest().cookieManager(com.baidu.swan.apps.t.a.awZ().aij())).url(com.baidu.swan.apps.t.a.awM().ahx())).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), str)).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.games.utils.d.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 public void onSuccess(String str2, int i) {

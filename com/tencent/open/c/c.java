@@ -10,7 +10,7 @@ import com.tencent.open.web.security.SecureJsInterface;
 public class c extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f4599a;
+    public static boolean f4601a;
     private KeyEvent b;
     private com.tencent.open.web.security.a c;
 
@@ -21,8 +21,8 @@ public class c extends b {
     @Override // android.webkit.WebView, android.view.ViewGroup, android.view.View
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
         int unicodeChar;
-        f.b("openSDK_LOG.SecureWebView", "-->dispatchKeyEvent, is device support: " + f4599a);
-        if (!f4599a) {
+        f.b("openSDK_LOG.SecureWebView", "-->dispatchKeyEvent, is device support: " + f4601a);
+        if (!f4601a) {
             return super.dispatchKeyEvent(keyEvent);
         }
         if (keyEvent.getAction() == 0) {
@@ -51,8 +51,8 @@ public class c extends b {
     @Override // android.webkit.WebView, android.view.View, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         int unicodeChar;
-        f.b("openSDK_LOG.SecureWebView", "-->onKeyDown, is device support: " + f4599a);
-        if (!f4599a) {
+        f.b("openSDK_LOG.SecureWebView", "-->onKeyDown, is device support: " + f4601a);
+        if (!f4601a) {
             return super.onKeyDown(i, keyEvent);
         }
         if (keyEvent.getAction() == 0) {
@@ -84,11 +84,11 @@ public class c extends b {
         InputConnection onCreateInputConnection = super.onCreateInputConnection(editorInfo);
         f.a("openSDK_LOG.SecureWebView", "-->onCreateInputConnection, inputConn is " + onCreateInputConnection);
         if (onCreateInputConnection != null) {
-            f4599a = true;
+            f4601a = true;
             this.c = new com.tencent.open.web.security.a(super.onCreateInputConnection(editorInfo), false);
             return this.c;
         }
-        f4599a = false;
+        f4601a = false;
         return onCreateInputConnection;
     }
 }

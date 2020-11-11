@@ -5,13 +5,13 @@ import com.baidu.swan.apps.adlanding.download.model.SwanAdDownloadState;
 public interface a {
     void a(SwanAdDownloadState swanAdDownloadState, int i);
 
-    void agD();
+    void ajd();
 
-    String agE();
+    String aje();
 
     void b(SwanAdDownloadState swanAdDownloadState, int i);
 
-    void eh(boolean z);
+    void eq(boolean z);
 
-    void km(String str);
+    void kB(String str);
 }

@@ -27,7 +27,7 @@ public final class a {
     private static String n;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3947a;
+    private String f3949a;
     private int b;
     private int c;
     private int d;
@@ -97,13 +97,13 @@ public final class a {
     }
 
     private String a(com.baidu.webkit.logsdk.b bVar) {
-        if (TextUtils.isEmpty(this.f3947a)) {
-            this.f3947a = bVar.e();
+        if (TextUtils.isEmpty(this.f3949a)) {
+            this.f3949a = bVar.e();
         }
-        if (TextUtils.isEmpty(this.f3947a)) {
+        if (TextUtils.isEmpty(this.f3949a)) {
             throw new RuntimeException("BdLogBase: get cuid null!");
         }
-        return this.f3947a;
+        return this.f3949a;
     }
 
     private String b() {
@@ -755,7 +755,7 @@ public final class a {
 
     public final String b(Context context, String str) {
         com.baidu.webkit.logsdk.b.c c = b.a().e().c(str);
-        if ("full".equals(c.f3955a)) {
+        if ("full".equals(c.f3957a)) {
             return a(context);
         }
         HashSet<String> hashSet = c.c;

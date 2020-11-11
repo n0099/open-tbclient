@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    static final e f2616a = new e();
+    static final e f2618a = new e();
 
     e() {
     }

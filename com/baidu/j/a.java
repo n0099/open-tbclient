@@ -35,7 +35,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
-                a.mMethodChannel.invokeMethod("setNetInfo", a.Yi());
+                a.mMethodChannel.invokeMethod("setNetInfo", a.aaH());
             }
         }
     };
@@ -56,7 +56,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
         MessageManager.getInstance().registerListener(OQ);
     }
 
-    static HashMap Yi() {
+    static HashMap aaH() {
         HashMap hashMap = new HashMap();
         hashMap.put("isNetWorkAvailable", Boolean.valueOf(j.isNetWorkAvailable()));
         hashMap.put("netType", Integer.valueOf(j.netType()));
@@ -75,18 +75,18 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
         } else if (methodCall.method.equals("isNetworkAvailableForImmediately")) {
             result.success(Boolean.valueOf(j.isNetworkAvailableForImmediately()));
         } else if (methodCall.method.equals("getNetInfo")) {
-            result.success(Yi());
+            result.success(aaH());
         } else if (methodCall.method.equals("getDnsIp")) {
             String str = (String) methodCall.argument("url");
             HashMap hashMap2 = new HashMap();
             try {
-                hashMap = jg(str);
+                hashMap = jt(str);
             } catch (Exception e) {
                 hashMap = hashMap2;
             }
             result.success(hashMap);
         } else if (methodCall.method.equals("jumpRealNameAuthWebActivity")) {
-            Yj();
+            aaI();
         }
     }
 
@@ -128,7 +128,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
         return "";
     }
 
-    private HashMap jg(String str) throws Exception {
+    private HashMap jt(String str) throws Exception {
         String host;
         HashMap hashMap = new HashMap();
         URL url = new URL(str);
@@ -164,7 +164,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
         return hashMap;
     }
 
-    private void Yj() {
+    private void aaI() {
         Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
         StringBuilder sb = new StringBuilder(UrlSchemaHelper.REAL_NAME_AUTH_URL);
         sb.append("&u=").append(URLEncoder.encode(UrlSchemaHelper.FINISH_THIS_WEBVIEW));

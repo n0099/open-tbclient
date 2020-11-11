@@ -74,13 +74,13 @@ public class BuyTBeanGridAdapter extends BaseAdapter {
             BdUtilHelper.clearFocus(this.mContext);
         }
         if (view == null) {
-            view = LayoutInflater.from(this.mContext).inflate(a.h.sdk_tbn_buy_tbean_item_grid, viewGroup, false);
+            view = LayoutInflater.from(this.mContext).inflate(a.g.sdk_tbn_buy_tbean_item_grid, viewGroup, false);
             beanHolder = new BeanHolder();
-            beanHolder.ivIcon = (TbImageView) view.findViewById(a.g.img_bean_icon);
-            beanHolder.tvBeanNum = (TextView) view.findViewById(a.g.tv_bean_num);
-            beanHolder.tvBeanName = (TextView) view.findViewById(a.g.tv_bean_name);
-            beanHolder.tvBeanUnit = (TextView) view.findViewById(a.g.tv_bean_unit);
-            beanHolder.tvBeanPrice = (TextView) view.findViewById(a.g.tv_bean_price);
+            beanHolder.ivIcon = (TbImageView) view.findViewById(a.f.img_bean_icon);
+            beanHolder.tvBeanNum = (TextView) view.findViewById(a.f.tv_bean_num);
+            beanHolder.tvBeanName = (TextView) view.findViewById(a.f.tv_bean_name);
+            beanHolder.tvBeanUnit = (TextView) view.findViewById(a.f.tv_bean_unit);
+            beanHolder.tvBeanPrice = (TextView) view.findViewById(a.f.tv_bean_price);
             view.setTag(beanHolder);
         } else {
             beanHolder = (BeanHolder) view.getTag();
@@ -97,7 +97,7 @@ public class BuyTBeanGridAdapter extends BaseAdapter {
             beanHolder.tvBeanUnit.setText("万");
         }
         beanHolder.tvBeanPrice.setText(String.format("%s.00", buildPriceCommonText(getYuanFromFen(iconInfoData.dubi))));
-        beanHolder.tvBeanName.setText(this.mPageContext.getPageActivity().getString(a.i.sdk_tbn_icon_name_valid_day, new Object[]{iconInfoData.name, Integer.valueOf(iconInfoData.duration)}));
+        beanHolder.tvBeanName.setText(this.mPageContext.getPageActivity().getString(a.h.sdk_tbn_icon_name_valid_day, new Object[]{iconInfoData.name, Integer.valueOf(iconInfoData.duration)}));
         beanHolder.ivIcon.startLoad(iconInfoData.picUrl, 10, false);
         return view;
     }
@@ -118,7 +118,7 @@ public class BuyTBeanGridAdapter extends BaseAdapter {
         if (this.mPageContext == null) {
             return null;
         }
-        return this.mPageContext.getPageActivity().getString(a.i.sdk_tbn_pay_money, new Object[]{String.valueOf(i)});
+        return this.mPageContext.getPageActivity().getString(a.h.sdk_tbn_pay_money, new Object[]{String.valueOf(i)});
     }
 
     private int getYuanFromFen(int i) {

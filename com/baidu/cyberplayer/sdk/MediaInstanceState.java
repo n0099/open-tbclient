@@ -13,7 +13,7 @@ public class MediaInstanceState {
     private Map<String, String> A;
 
     /* renamed from: a  reason: collision with root package name */
-    private CyberPlayerManager.OnPreparedListener f1348a;
+    private CyberPlayerManager.OnPreparedListener f1350a;
     private CyberPlayerManager.OnCompletionListener b;
     private CyberPlayerManager.OnBufferingUpdateListener c;
     private CyberPlayerManager.OnSeekCompleteListener d;
@@ -119,7 +119,7 @@ public class MediaInstanceState {
     }
 
     public CyberPlayerManager.OnPreparedListener getOnPreparedListener() {
-        return this.f1348a;
+        return this.f1350a;
     }
 
     public CyberPlayerManager.OnSeekCompleteListener getOnSeekCompleteListener() {
@@ -161,12 +161,12 @@ public class MediaInstanceState {
     }
 
     public void release() {
-        this.f1348a = null;
+        this.f1350a = null;
         this.f = null;
         this.d = null;
         this.c = null;
         this.e = null;
-        this.f1348a = null;
+        this.f1350a = null;
         this.g = null;
         this.h = null;
         this.i = null;
@@ -199,7 +199,7 @@ public class MediaInstanceState {
     }
 
     public void setOnPreparedListener(CyberPlayerManager.OnPreparedListener onPreparedListener) {
-        this.f1348a = onPreparedListener;
+        this.f1350a = onPreparedListener;
     }
 
     public void setOnSeekCompleteListener(CyberPlayerManager.OnSeekCompleteListener onSeekCompleteListener) {

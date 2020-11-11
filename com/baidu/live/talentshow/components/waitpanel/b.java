@@ -1,0 +1,61 @@
+package com.baidu.live.talentshow.components.waitpanel;
+
+import com.baidu.live.talentshow.components.waitpanel.a;
+import com.baidu.live.talentshow.components.waitpanel.c;
+import com.baidu.live.tbadk.TbPageContext;
+/* loaded from: classes4.dex */
+public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<c, LiveVideoBCPanelData> implements a {
+    private a.InterfaceC0204a bwY;
+
+    public b(TbPageContext tbPageContext, LiveVideoBCPanelData liveVideoBCPanelData) {
+        super(tbPageContext, new c(tbPageContext), liveVideoBCPanelData);
+        ((c) this.bCp).a(this);
+        fT(80);
+        cH(true);
+        cI(true);
+        ((c) this.bCp).a(new c.a() { // from class: com.baidu.live.talentshow.components.waitpanel.b.1
+            @Override // com.baidu.live.talentshow.components.waitpanel.c.a
+            public void c(LiveVideoBCPanelData liveVideoBCPanelData2) {
+                if (b.this.bwY != null) {
+                    b.this.bwY.a(liveVideoBCPanelData2);
+                }
+            }
+        });
+    }
+
+    @Override // com.baidu.live.tieba.pb.interactionpopupwindow.c
+    public boolean RJ() {
+        return true;
+    }
+
+    @Override // com.baidu.live.tieba.pb.interactionpopupwindow.c
+    public boolean RK() {
+        return true;
+    }
+
+    @Override // com.baidu.live.tieba.pb.interactionpopupwindow.c
+    public int getDialogMargin() {
+        return 0;
+    }
+
+    @Override // com.baidu.live.tieba.pb.interactionpopupwindow.a
+    public void show() {
+        super.show();
+        ((c) this.bCp).startLoading();
+    }
+
+    @Override // com.baidu.live.tieba.pb.interactionpopupwindow.a, com.baidu.live.tieba.pb.interactionpopupwindow.c
+    public void dismiss() {
+        super.dismiss();
+        ((c) this.bCp).stopLoading();
+    }
+
+    public void b(LiveVideoBCPanelData liveVideoBCPanelData) {
+        a((b) liveVideoBCPanelData);
+        show();
+    }
+
+    public void a(a.InterfaceC0204a interfaceC0204a) {
+        this.bwY = interfaceC0204a;
+    }
+}

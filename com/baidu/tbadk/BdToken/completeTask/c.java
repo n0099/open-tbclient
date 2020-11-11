@@ -10,11 +10,11 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
     public static void aJ(int i, int i2) {
-        new aq("c13317").aj("obj_source", i).aj("obj_type", i2).boK();
+        new aq("c13317").al("obj_source", i).al("obj_type", i2).brk();
     }
 
     public static void aK(int i, int i2) {
-        new aq("c13318").aj("obj_source", i).aj("obj_type", i2).boK();
+        new aq("c13318").al("obj_source", i).al("obj_type", i2).brk();
     }
 
     public static JSONObject a(@Nullable JSONObject jSONObject, int i, int i2, String str) {

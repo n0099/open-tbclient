@@ -5,15 +5,15 @@ import android.text.TextUtils;
 public class a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public boolean aQy() {
-        boolean z = com.baidu.swan.apps.t.a.aud().getSwitch("game_bdtls_switcher", false);
+    public boolean aSY() {
+        boolean z = com.baidu.swan.apps.t.a.awD().getSwitch("game_bdtls_switcher", false);
         if (DEBUG) {
             com.baidu.swan.apps.console.c.i("BDTLS", "isBdtlsSwitch=" + z);
         }
         return z;
     }
 
-    public boolean wd(String str) {
+    public boolean wr(String str) {
         return !TextUtils.isEmpty(str) && (str.contains("ma/game/od/get_user_cloud_storage") || str.contains("ma/game/od/set_user_cloud_storage"));
     }
 }

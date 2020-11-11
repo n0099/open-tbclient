@@ -18,7 +18,7 @@ public class AdSettings {
     private static String i;
 
     /* renamed from: a  reason: collision with root package name */
-    private static HashSet<String> f2288a = new HashSet<>();
+    private static HashSet<String> f2290a = new HashSet<>();
     private static JSONArray b = new JSONArray();
     private static String j = b.HTTP_PROTOCOL_TYPE.a() + "";
     private static HashSet<String> k = new HashSet<>();
@@ -124,7 +124,7 @@ public class AdSettings {
 
     public static JSONObject getAttr() {
         JSONObject jSONObject = new JSONObject();
-        Iterator<String> it = f2288a.iterator();
+        Iterator<String> it = f2290a.iterator();
         b = new JSONArray();
         while (it.hasNext()) {
             b.put(it.next());
@@ -140,13 +140,13 @@ public class AdSettings {
     @Deprecated
     public static void setKey(String[] strArr) {
         for (String str : strArr) {
-            f2288a.add(str);
+            f2290a.add(str);
         }
     }
 
     @Deprecated
     public static void setKey(List<String> list) {
-        f2288a.addAll(list);
+        f2290a.addAll(list);
     }
 
     @Deprecated

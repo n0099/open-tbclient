@@ -17,16 +17,16 @@ import java.io.InputStream;
 /* loaded from: classes.dex */
 public class g extends a {
     private boolean akk;
-    private boolean eJG;
+    private boolean ePv;
     private int procType;
 
     public g(boolean z, int i, boolean z2) {
         this.akk = true;
         this.procType = 0;
-        this.eJG = true;
+        this.ePv = true;
         this.akk = z;
         this.procType = i;
-        this.eJG = z2;
+        this.ePv = z2;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
@@ -45,17 +45,17 @@ public class g extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean bpg() {
+    public boolean brG() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean bph() {
+    public boolean brH() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int bpi() {
+    public int brI() {
         return this.procType;
     }
 
@@ -74,23 +74,23 @@ public class g extends a {
         com.baidu.adp.lib.stats.a mT = com.baidu.tbadk.core.util.u.mT();
         mT.startTimer();
         byte[] bArr = new byte[0];
-        com.baidu.adp.lib.Disk.ops.c BS = BS(av.getNameMd5FromUrl(str2));
-        if (BS == null) {
+        com.baidu.adp.lib.Disk.ops.c Cg = Cg(av.getNameMd5FromUrl(str2));
+        if (Cg == null) {
             return null;
         }
-        BS.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-        BS.setSdCard(false);
-        BS.setSubFolder(true);
-        BS.setSavedCache(true);
-        BS.setIsFormatData(false);
-        BS.setLock(bArr);
+        Cg.a(DiskFileOperate.OperateType.TRY_SUCCESS);
+        Cg.setSdCard(false);
+        Cg.setSubFolder(true);
+        Cg.setSavedCache(true);
+        Cg.setIsFormatData(false);
+        Cg.setLock(bArr);
         if (aVar != null) {
             e eVar = new e();
-            eVar.f(BS);
+            eVar.f(Cg);
             aVar.MS = eVar;
         }
         boolean isWifiNet = com.baidu.adp.lib.util.j.isWifiNet();
-        if (!com.baidu.adp.lib.Disk.d.lL().c(BS)) {
+        if (!com.baidu.adp.lib.Disk.d.lL().c(Cg)) {
             com.baidu.tbadk.core.util.u.a(mT, str2, false, mT.getTimeCost(), isWifiNet);
             return null;
         }
@@ -104,10 +104,10 @@ public class g extends a {
             } catch (InterruptedException e) {
             }
         }
-        if (!BS.isSuccess()) {
+        if (!Cg.isSuccess()) {
             aVar2 = null;
         } else {
-            aVar2 = b(BS, str2, i, i2);
+            aVar2 = b(Cg, str2, i, i2);
         }
         if (aVar2 != null) {
             com.baidu.tbadk.core.util.u.a(mT, str2, true, mT.getTimeCost(), isWifiNet);
@@ -182,18 +182,18 @@ public class g extends a {
                     aVar.MS = iVar;
                 }
                 aw = iVar.aw(str3, isFromCDN);
-                boolean bpc = iVar.bpc();
+                boolean brC = iVar.brC();
                 Rect rect = new Rect();
                 StringBuilder sb = new StringBuilder(100);
-                if (!iVar.bpb()) {
-                    if (iVar.responseCode == 302 && (17 == bpi() || 18 == bpi() || 13 == bpi() || 14 == bpi())) {
-                        if (iVar.eJc != null) {
-                            com.baidu.tbadk.core.util.u.a(mT, str, false, str3, isFromCDN, Boolean.valueOf(z), iVar.eJc, "redirect", mT.getTimeCost(), iVar.bpe(), 0L, bpi());
+                if (!iVar.brB()) {
+                    if (iVar.responseCode == 302 && (17 == brI() || 18 == brI() || 13 == brI() || 14 == brI())) {
+                        if (iVar.eOR != null) {
+                            com.baidu.tbadk.core.util.u.a(mT, str, false, str3, isFromCDN, Boolean.valueOf(z), iVar.eOR, "redirect", mT.getTimeCost(), iVar.brE(), 0L, brI());
                         }
                         try {
                             InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.img_default_delete, new TypedValue());
                             byte[] f = com.baidu.adp.lib.network.a.b.f(openRawResource);
-                            com.baidu.adp.widget.ImageView.a a2 = a(str, str2, aVar, null, iVar.isGif || com.baidu.adp.lib.util.l.isGif(f), iVar, f, rect, bpc);
+                            com.baidu.adp.widget.ImageView.a a2 = a(str, str2, aVar, null, iVar.isGif || com.baidu.adp.lib.util.l.isGif(f), iVar, f, rect, brC);
                             if (a2 != null) {
                                 a2.Vn.resourceFromType = "net";
                                 a2.Vn.costTime = mT.getTimeCost();
@@ -210,30 +210,30 @@ public class g extends a {
                         if (aw != null) {
                             j = aw.length;
                         }
-                        com.baidu.tbadk.core.util.u.a(mT, str, false, str3, isFromCDN, Boolean.valueOf(z), iVar.eJc, "NetworkError", mT.getTimeCost(), iVar.bpe(), j, bpi());
+                        com.baidu.tbadk.core.util.u.a(mT, str, false, str3, isFromCDN, Boolean.valueOf(z), iVar.eOR, "NetworkError", mT.getTimeCost(), iVar.brE(), j, brI());
                         return null;
                     }
                 }
                 if (aw != null) {
                     if (!iVar.my().Mo) {
-                        com.baidu.tbadk.core.util.u.a(mT, str, false, str3, isFromCDN, Boolean.valueOf(z), iVar.eJc, "ByteIsNull", mT.getTimeCost(), iVar.bpe(), 0L, bpi());
+                        com.baidu.tbadk.core.util.u.a(mT, str, false, str3, isFromCDN, Boolean.valueOf(z), iVar.eOR, "ByteIsNull", mT.getTimeCost(), iVar.brE(), 0L, brI());
                     }
                     return null;
                 }
                 if (aw.length > 1) {
-                    k.bpk().u(aw.length, mT.getTimeCost());
-                    com.baidu.tbadk.core.util.u.a(mT, str, true, str3, isFromCDN, Boolean.valueOf(z), iVar.eJc, "InputToByteSucc", mT.getTimeCost(), iVar.bpe(), aw.length, bpi());
+                    k.brK().t(aw.length, mT.getTimeCost());
+                    com.baidu.tbadk.core.util.u.a(mT, str, true, str3, isFromCDN, Boolean.valueOf(z), iVar.eOR, "InputToByteSucc", mT.getTimeCost(), iVar.brE(), aw.length, brI());
                 } else {
-                    com.baidu.tbadk.core.util.u.a(mT, str, false, str3, isFromCDN, Boolean.valueOf(z), iVar.eJc, "bytes<1", mT.getTimeCost(), iVar.bpe(), aw.length, bpi());
+                    com.baidu.tbadk.core.util.u.a(mT, str, false, str3, isFromCDN, Boolean.valueOf(z), iVar.eOR, "bytes<1", mT.getTimeCost(), iVar.brE(), aw.length, brI());
                 }
                 com.baidu.adp.lib.stats.a mT2 = com.baidu.tbadk.core.util.u.mT();
                 mT2.startTimer();
-                com.baidu.tbadk.imageManager.c.byE().freePicCache(TbConfig.getPbImageSize() + aw.length);
+                com.baidu.tbadk.imageManager.c.bBd().freePicCache(TbConfig.getPbImageSize() + aw.length);
                 if (aw == null) {
-                    com.baidu.tbadk.core.util.u.a(mT2, str, str3, false, isFromCDN, z, 0, "TmpIsNull", mT2.getTimeCost(), sb.toString(), iVar.eJc);
+                    com.baidu.tbadk.core.util.u.a(mT2, str, str3, false, isFromCDN, z, 0, "TmpIsNull", mT2.getTimeCost(), sb.toString(), iVar.eOR);
                     return null;
                 }
-                com.baidu.adp.widget.ImageView.a a3 = a(str, str2, aVar, null, iVar.isGif || com.baidu.adp.lib.util.l.isGif(aw), iVar, aw, rect, bpc);
+                com.baidu.adp.widget.ImageView.a a3 = a(str, str2, aVar, null, iVar.isGif || com.baidu.adp.lib.util.l.isGif(aw), iVar, aw, rect, brC);
                 if (a3 != null) {
                     a3.Vn.resourceFromType = "net";
                     a3.Vn.costTime = mT.getTimeCost();
@@ -248,10 +248,10 @@ public class g extends a {
         if (aVar != null) {
         }
         aw = iVar.aw(str3, isFromCDN);
-        boolean bpc2 = iVar.bpc();
+        boolean brC2 = iVar.brC();
         Rect rect2 = new Rect();
         StringBuilder sb2 = new StringBuilder(100);
-        if (!iVar.bpb()) {
+        if (!iVar.brB()) {
         }
         if (aw != null) {
         }
@@ -261,7 +261,7 @@ public class g extends a {
         if (bArr != null) {
             aVar2 = new com.baidu.adp.widget.ImageView.a((Bitmap) null, z, str, bArr);
             aVar2.setNeedCache(z2);
-            if (z2 && !iVar.eJh) {
+            if (z2 && !iVar.eOW) {
                 com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, av.getNameMd5FromUrl(str2), DiskFileOperate.Action.WRITE);
                 cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
                 cVar.setSubFolder(true);
@@ -269,7 +269,7 @@ public class g extends a {
                 cVar.setSdCard(false);
                 cVar.setSavedCache(true);
                 cVar.setGif(z);
-                cVar.ac(this.eJG);
+                cVar.ac(this.ePv);
                 com.baidu.adp.lib.Disk.d.lL().c(cVar);
                 if (aVar != null) {
                     e eVar = new e();

@@ -71,7 +71,7 @@ public class BaseActivity extends TitleActivity {
     private static final int o = 1003;
 
     /* renamed from: a  reason: collision with root package name */
-    private ValueCallback<Uri> f3317a;
+    private ValueCallback<Uri> f3320a;
     private ValueCallback<Uri[]> b;
     private SapiWebView.PickPhotoResult c;
     private SapiWebView.BiometricsIdentifyResult d;
@@ -155,9 +155,9 @@ public class BaseActivity extends TitleActivity {
             a2.onActivityResult(i, i2, intent);
         }
         if (i == 1010) {
-            if (this.f3317a != null) {
-                this.f3317a.onReceiveValue((intent == null || i2 != -1) ? null : intent.getData());
-                this.f3317a = null;
+            if (this.f3320a != null) {
+                this.f3320a.onReceiveValue((intent == null || i2 != -1) ? null : intent.getData());
+                this.f3320a = null;
             }
         } else if (i == 1011) {
             if (this.b != null) {
@@ -488,7 +488,7 @@ public class BaseActivity extends TitleActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ValueCallback<Uri> valueCallback) {
-        this.f3317a = valueCallback;
+        this.f3320a = valueCallback;
         Intent intent = new Intent("android.intent.action.GET_CONTENT");
         intent.addCategory("android.intent.category.OPENABLE");
         intent.setType("image/*");

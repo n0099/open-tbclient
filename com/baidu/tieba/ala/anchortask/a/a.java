@@ -9,7 +9,7 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.HttpMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
-import com.baidu.live.data.bx;
+import com.baidu.live.data.by;
 import com.baidu.live.data.w;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbConfig;
@@ -22,42 +22,42 @@ import org.json.JSONObject;
 public class a implements com.baidu.live.a.a {
     private w alaLiveShowData;
     private Context context;
-    private com.baidu.tieba.ala.anchortask.c.a gno;
-    private com.baidu.tieba.ala.anchortask.b.b gnp;
-    private String gnq;
-    private int gns;
-    private int gnt;
+    private com.baidu.tieba.ala.anchortask.c.a gtb;
+    private com.baidu.tieba.ala.anchortask.b.b gtc;
+    private String gtd;
+    private int gtf;
+    private int gtg;
     private Handler handler = new Handler();
-    private boolean gnr = false;
+    private boolean gte = false;
     private Runnable runnable = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.a.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.this.bNH();
+            a.this.bQh();
             a.this.handler.postDelayed(a.this.runnable, 60000L);
         }
     };
-    private View.OnClickListener fcr = new View.OnClickListener() { // from class: com.baidu.tieba.ala.anchortask.a.a.2
+    private View.OnClickListener fii = new View.OnClickListener() { // from class: com.baidu.tieba.ala.anchortask.a.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!TextUtils.isEmpty(a.this.gnq)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913141, a.this.gnq));
+            if (!TextUtils.isEmpty(a.this.gtd)) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913141, a.this.gtd));
             }
-            a.this.bNH();
+            a.this.bQh();
             a.this.handler.removeCallbacksAndMessages(null);
             a.this.handler.postDelayed(a.this.runnable, 60000L);
         }
     };
-    private HttpMessageListener gnu = new HttpMessageListener(1021172) { // from class: com.baidu.tieba.ala.anchortask.a.a.3
+    private HttpMessageListener gth = new HttpMessageListener(1021172) { // from class: com.baidu.tieba.ala.anchortask.a.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof GetAnchorTaskInfoHttpResponseMessage) && a.this.gno != null) {
-                a.this.gnp = ((GetAnchorTaskInfoHttpResponseMessage) httpResponsedMessage).gnp;
-                if (a.this.gnp != null && a.this.gnp.gnO != null) {
-                    a.this.gnq = a.this.gnp.gnq;
-                    a.this.bNI();
-                    a.this.gno.a(a.this.gnp.gnO);
-                    if (a.this.gnp.gnO.gnC == 2) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof GetAnchorTaskInfoHttpResponseMessage) && a.this.gtb != null) {
+                a.this.gtc = ((GetAnchorTaskInfoHttpResponseMessage) httpResponsedMessage).gtc;
+                if (a.this.gtc != null && a.this.gtc.gtB != null) {
+                    a.this.gtd = a.this.gtc.gtd;
+                    a.this.bQi();
+                    a.this.gtb.a(a.this.gtc.gtB);
+                    if (a.this.gtc.gtB.gtp == 2) {
                         a.this.handler.removeCallbacksAndMessages(null);
                     }
                 }
@@ -68,38 +68,38 @@ public class a implements com.baidu.live.a.a {
     public a(Context context) {
         this.context = context;
         initTasks();
-        this.gno = new com.baidu.tieba.ala.anchortask.c.a(context);
-        this.gno.getView().setId(a.g.ala_main_anthor_task_entry_id);
-        if (this.gno.getView() != null) {
-            this.gno.getView().setOnClickListener(this.fcr);
+        this.gtb = new com.baidu.tieba.ala.anchortask.c.a(context);
+        this.gtb.getView().setId(a.f.ala_main_anthor_task_entry_id);
+        if (this.gtb.getView() != null) {
+            this.gtb.getView().setOnClickListener(this.fii);
         }
     }
 
     @Override // com.baidu.live.a.a
     public void b(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         boolean z = true;
-        bx bxVar = com.baidu.live.z.a.Pq().bsy.aOK;
-        if (bxVar != null) {
+        by byVar = com.baidu.live.aa.a.PQ().btT.aPH;
+        if (byVar != null) {
             if (TbadkCoreApplication.getInst().isHaokan()) {
-                if (bxVar.aPB != 1) {
+                if (byVar.aQy != 1) {
                     z = false;
                 }
             } else if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
-                if (bxVar.aPC != 1) {
+                if (byVar.aQz != 1) {
                     z = false;
                 }
             } else if (TbadkCoreApplication.getInst().isTieba()) {
-                if (bxVar.aPD != 1) {
+                if (byVar.aQA != 1) {
                     z = false;
                 }
             } else if (!TbadkCoreApplication.getInst().isMobileBaidu()) {
                 z = false;
-            } else if (bxVar.aPE != 1) {
+            } else if (byVar.aQB != 1) {
                 z = false;
             }
             if (z) {
-                if (this.gno != null) {
-                    viewGroup.addView(this.gno.getView(), layoutParams);
+                if (this.gtb != null) {
+                    viewGroup.addView(this.gtb.getView(), layoutParams);
                 }
                 this.handler.postDelayed(this.runnable, 10000L);
             }
@@ -118,10 +118,10 @@ public class a implements com.baidu.live.a.a {
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(GetAnchorTaskInfoHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.gnu);
+        MessageManager.getInstance().registerListener(this.gth);
     }
 
-    public void bNH() {
+    public void bQh() {
         if (this.alaLiveShowData != null) {
             long j = this.alaLiveShowData.mLiveInfo.live_id;
             long j2 = this.alaLiveShowData.mLiveInfo.user_id;
@@ -134,26 +134,26 @@ public class a implements com.baidu.live.a.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bNI() {
-        if (this.gnp != null && this.gnp.gnO != null) {
-            if (!this.gnr) {
-                this.gnr = true;
-                this.gns = this.gnp.gnO.gnA;
-                this.gnt = this.gnp.gnO.gnB;
+    public void bQi() {
+        if (this.gtc != null && this.gtc.gtB != null) {
+            if (!this.gte) {
+                this.gte = true;
+                this.gtf = this.gtc.gtB.gtn;
+                this.gtg = this.gtc.gtB.gto;
             }
-            int i = this.gnp.gnO.gnC;
-            int i2 = this.gnp.gnO.gnD;
-            int i3 = this.gnp.gnO.gnE;
+            int i = this.gtc.gtB.gtp;
+            int i2 = this.gtc.gtB.gtq;
+            int i3 = this.gtc.gtB.gtr;
             String str = null;
-            if (this.gns == 1 && i == 2) {
-                str = this.context.getString(a.i.txt_im_identity_is_mcn);
-            } else if (this.gns == 2 && i == 1) {
-                str = String.format(this.context.getString(a.i.txt_im_identity_is_ugc), Integer.valueOf(i3)) + "%";
-            } else if (this.gns == 1 && i == 1) {
-                if (i2 > this.gnt) {
-                    str = String.format(this.context.getString(a.i.txt_im_identity_advance), Integer.valueOf(i3)) + "%";
-                } else if (i2 < this.gnt) {
-                    str = String.format(this.context.getString(a.i.txt_im_identity_reduce), Integer.valueOf(i3)) + "%";
+            if (this.gtf == 1 && i == 2) {
+                str = this.context.getString(a.h.txt_im_identity_is_mcn);
+            } else if (this.gtf == 2 && i == 1) {
+                str = String.format(this.context.getString(a.h.txt_im_identity_is_ugc), Integer.valueOf(i3)) + "%";
+            } else if (this.gtf == 1 && i == 1) {
+                if (i2 > this.gtg) {
+                    str = String.format(this.context.getString(a.h.txt_im_identity_advance), Integer.valueOf(i3)) + "%";
+                } else if (i2 < this.gtg) {
+                    str = String.format(this.context.getString(a.h.txt_im_identity_reduce), Integer.valueOf(i3)) + "%";
                 }
             }
             if (!TextUtils.isEmpty(str)) {
@@ -166,31 +166,31 @@ public class a implements com.baidu.live.a.a {
                     e.printStackTrace();
                 }
             }
-            this.gns = i;
-            this.gnt = i2;
+            this.gtf = i;
+            this.gtg = i2;
         }
     }
 
     @Override // com.baidu.live.a.a
     public void setCanVisible(boolean z) {
-        if (this.gno != null) {
-            this.gno.setCanVisible(z);
+        if (this.gtb != null) {
+            this.gtb.setCanVisible(z);
         }
     }
 
     @Override // com.baidu.live.a.a
     public void refreshUI() {
-        if (this.gno != null) {
-            this.gno.refreshUI();
+        if (this.gtb != null) {
+            this.gtb.refreshUI();
         }
     }
 
     @Override // com.baidu.live.a.a
     public void onDestory() {
         this.handler.removeCallbacksAndMessages(null);
-        MessageManager.getInstance().unRegisterListener(this.gnu);
-        if (this.gno != null) {
-            this.gno.onDestroy();
+        MessageManager.getInstance().unRegisterListener(this.gth);
+        if (this.gtb != null) {
+            this.gtb.onDestroy();
         }
     }
 }

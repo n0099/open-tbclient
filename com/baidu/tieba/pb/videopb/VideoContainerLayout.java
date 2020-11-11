@@ -8,24 +8,24 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes22.dex */
 public class VideoContainerLayout extends FrameLayout {
-    private int iDH;
-    private int lFQ;
+    private int iJE;
+    private int lLM;
     private int mMaxHeight;
     private int mMinHeight;
 
     public VideoContainerLayout(Context context) {
         super(context);
-        this.lFQ = l.getEquipmentWidth(context) / 10;
+        this.lLM = l.getEquipmentWidth(context) / 10;
     }
 
     public VideoContainerLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.lFQ = l.getEquipmentWidth(context) / 10;
+        this.lLM = l.getEquipmentWidth(context) / 10;
     }
 
     public VideoContainerLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.lFQ = l.getEquipmentWidth(context) / 10;
+        this.lLM = l.getEquipmentWidth(context) / 10;
     }
 
     public void setMinHeight(int i) {
@@ -45,16 +45,16 @@ public class VideoContainerLayout extends FrameLayout {
     }
 
     public void setOriginHeight(int i) {
-        this.iDH = i;
+        this.iJE = i;
     }
 
     public int getOriginHeight() {
-        return this.iDH;
+        return this.iJE;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (motionEvent != null && motionEvent.getAction() == 0 && motionEvent.getX() > this.lFQ && (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled()) {
+        if (motionEvent != null && motionEvent.getAction() == 0 && motionEvent.getX() > this.lLM && (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled()) {
             ((BaseFragmentActivity) getContext()).disableSwipeJustOnce();
         }
         return super.onInterceptTouchEvent(motionEvent);

@@ -5,7 +5,7 @@ import android.util.Log;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1582a = "SAPI_BIOMETRIC";
+    private static final String f1584a = "SAPI_BIOMETRIC";
     private static final String b = "%1$s\n%2$s";
     private static boolean c = false;
 
@@ -49,7 +49,7 @@ public final class d {
                 }
                 format = String.format(b, format, Log.getStackTraceString(th));
             }
-            Log.println(i, f1582a, format);
+            Log.println(i, f1584a, format);
         }
     }
 }

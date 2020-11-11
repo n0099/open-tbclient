@@ -17,9 +17,9 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes26.dex */
 public class AdPostImageView extends AdPostBaseView {
-    private ConstrainImageGroup hSj;
-    private b<TbImageView> mrX;
-    private b<ConstrainImageLayout> mrY;
+    private ConstrainImageGroup hYg;
+    private b<TbImageView> mxU;
+    private b<ConstrainImageLayout> mxV;
 
     public AdPostImageView(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -31,37 +31,37 @@ public class AdPostImageView extends AdPostBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.postad.AdPostBaseView
-    protected void dy(View view) {
+    protected void dD(View view) {
         int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20);
         f fVar = new f(3);
         fVar.y(1.0d);
-        this.hSj = (ConstrainImageGroup) this.rootView.findViewById(R.id.card_home_page_normal_thread_img_layout);
-        this.hSj.setChildClickListener(this.hSo);
-        this.hSj.setImageMargin(dimensionPixelSize);
-        this.hSj.setImageProcessor(fVar);
-        this.hSj.setImageViewPool(this.mrX);
-        this.hSj.setConstrainLayoutPool(this.mrY);
+        this.hYg = (ConstrainImageGroup) this.rootView.findViewById(R.id.card_home_page_normal_thread_img_layout);
+        this.hYg.setChildClickListener(this.hYl);
+        this.hYg.setImageMargin(dimensionPixelSize);
+        this.hYg.setImageProcessor(fVar);
+        this.hYg.setImageViewPool(this.mxU);
+        this.hYg.setConstrainLayoutPool(this.mxV);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.postad.AdPostBaseView
     protected void a(AdPost adPost) {
         if (adPost != null && adPost.getAdvertAppInfo() != null) {
-            boolean isShowImages = k.bhh().isShowImages();
-            if (adPost.feedData.dyd().size() == 0 || !isShowImages) {
-                this.hSj.setVisibility(8);
+            boolean isShowImages = k.bjH().isShowImages();
+            if (adPost.feedData.dAF().size() == 0 || !isShowImages) {
+                this.hYg.setVisibility(8);
                 return;
             }
-            this.hSj.setVisibility(0);
-            List<String> dyd = adPost.feedData.dyd();
-            if (!y.isEmpty(dyd)) {
+            this.hYg.setVisibility(0);
+            List<String> dAF = adPost.feedData.dAF();
+            if (!y.isEmpty(dAF)) {
                 LinkedList linkedList = new LinkedList();
-                for (String str : dyd) {
+                for (String str : dAF) {
                     MediaData mediaData = new MediaData();
                     mediaData.setPic(str);
                     mediaData.setThumbnails_url(str);
                     linkedList.add(mediaData);
                 }
-                this.hSj.setImageMediaList(linkedList);
+                this.hYg.setImageMediaList(linkedList);
             }
         }
     }
@@ -72,14 +72,14 @@ public class AdPostImageView extends AdPostBaseView {
     @Override // com.baidu.tieba.recapp.lego.view.postad.AdPostBaseView, com.baidu.tieba.recapp.lego.view.postad.PostAdBaseView
     public void a(AdPost adPost, int i) {
         super.a(adPost, i);
-        this.hSj.onChangeSkinType();
+        this.hYg.onChangeSkinType();
     }
 
     public void setConstrainLayoutPool(b<ConstrainImageLayout> bVar) {
-        this.mrY = bVar;
+        this.mxV = bVar;
     }
 
     public void setConstrainImagePool(b<TbImageView> bVar) {
-        this.mrX = bVar;
+        this.mxU = bVar;
     }
 }

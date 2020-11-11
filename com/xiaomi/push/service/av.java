@@ -17,9 +17,9 @@ public class av implements eu {
         il ilVar = new il();
         ilVar.b(eq.a(context).m269a());
         ilVar.d(eq.a(context).b());
-        ilVar.c(hw.AwakeAppResponse.f474a);
+        ilVar.c(hw.AwakeAppResponse.f476a);
         ilVar.a(an.a());
-        ilVar.f615a = hashMap;
+        ilVar.f617a = hashMap;
         byte[] a2 = iw.a(w.a(ilVar.c(), ilVar.b(), ilVar, hm.Notification));
         if (!(context instanceof XMPushService)) {
             com.xiaomi.channel.commonutils.logger.b.m54a("MoleInfo : context is not correct in pushLayer " + ilVar.a());

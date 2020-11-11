@@ -7,7 +7,7 @@ import com.baidu.tieba.yuyinala.liveroom.views.d;
 public class b {
     private TbPageContext mPageContext;
     private View mRootView;
-    private com.baidu.tieba.yuyinala.liveroom.views.b nPi;
+    private com.baidu.tieba.yuyinala.liveroom.views.b nVq;
 
     public b(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
@@ -15,59 +15,59 @@ public class b {
     }
 
     private void init() {
-        this.nPi = new com.baidu.tieba.yuyinala.liveroom.views.b(this.mPageContext);
-        this.mRootView = this.nPi.getView();
+        this.nVq = new com.baidu.tieba.yuyinala.liveroom.views.b(this.mPageContext);
+        this.mRootView = this.nVq.getView();
     }
 
     public View getView() {
         return this.mRootView;
     }
 
-    public boolean bYF() {
-        return this.nPi.bYF();
+    public boolean cbh() {
+        return this.nVq.cbh();
     }
 
-    public boolean bYG() {
-        return this.nPi.bYG();
+    public boolean cbi() {
+        return this.nVq.cbi();
     }
 
     public String getLiveTitle() {
-        return this.nPi.getLiveTitle();
+        return this.nVq.getLiveTitle();
     }
 
-    public boolean bYH() {
-        return this.nPi.bYH();
+    public boolean cbj() {
+        return this.nVq.cbj();
     }
 
-    public boolean bYI() {
-        return this.nPi.bYI();
+    public boolean cbk() {
+        return this.nVq.cbk();
     }
 
-    public String bYK() {
-        return this.nPi.bYK();
+    public String cbm() {
+        return this.nVq.cbm();
     }
 
     public void a(d.b bVar) {
-        this.nPi.a(bVar);
+        this.nVq.a(bVar);
     }
 
     public void a(d.a aVar) {
-        this.nPi.a(aVar);
+        this.nVq.a(aVar);
     }
 
-    public void HF(String str) {
-        this.nPi.HF(str);
+    public void HX(String str) {
+        this.nVq.HX(str);
     }
 
-    public void bYN() {
-        if (this.nPi != null) {
-            this.nPi.bYN();
+    public void cbp() {
+        if (this.nVq != null) {
+            this.nVq.cbp();
         }
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.nPi != null) {
-            this.nPi.onKeyboardVisibilityChanged(z);
+        if (this.nVq != null) {
+            this.nVq.onKeyboardVisibilityChanged(z);
         }
     }
 }

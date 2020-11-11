@@ -202,7 +202,7 @@ public class CaptureDownloadService extends Service {
             if (!TextUtils.isEmpty(stringExtra)) {
                 try {
                     JSONObject jSONObject = new JSONObject(stringExtra);
-                    aVar.f950a = jSONObject.optString("name");
+                    aVar.f952a = jSONObject.optString("name");
                     aVar.b = jSONObject.optString("id");
                     aVar.c = jSONObject.optString("image");
                     aVar.d = jSONObject.optString("url");

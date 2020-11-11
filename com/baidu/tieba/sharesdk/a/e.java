@@ -20,35 +20,35 @@ import com.sina.weibo.sdk.share.WbShareHandler;
 import com.sina.weibo.sdk.utils.Utility;
 /* loaded from: classes24.dex */
 public class e extends a {
-    private final com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a> flS;
-    private ShareEntity mEL;
-    private com.baidu.tieba.sharesdk.b.b mFa;
-    private WbShareHandler mFb;
-    private WbShareCallback mFc;
+    private final com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a> frM;
+    private ShareEntity mKN;
+    private com.baidu.tieba.sharesdk.b.b mLc;
+    private WbShareHandler mLd;
+    private WbShareCallback mLe;
 
     public e(Activity activity, com.baidu.tieba.sharesdk.b.b bVar, WbShareCallback wbShareCallback) {
         super(activity);
-        this.flS = new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.sharesdk.a.e.1
+        this.frM = new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.sharesdk.a.e.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.b
             public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                 super.onLoaded((AnonymousClass1) aVar, str, i);
                 if (aVar == null) {
-                    e.this.a(e.this.mEL, (Bitmap) null);
+                    e.this.a(e.this.mKN, (Bitmap) null);
                     return;
                 }
-                e.this.a(e.this.mEL, aVar.getRawBitmap());
+                e.this.a(e.this.mKN, aVar.getRawBitmap());
             }
 
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.b
             public void onCancelled(String str) {
                 super.onCancelled(str);
-                if (e.this.mFa != null) {
-                    e.this.mFa.dl(6, 3);
+                if (e.this.mLc != null) {
+                    e.this.mLc.dn(6, 3);
                 }
-                e.this.dm(3, 6);
+                e.this.m43do(3, 6);
             }
         };
         try {
@@ -57,55 +57,55 @@ public class e extends a {
             BdLog.e(e);
         }
         this.context = activity;
-        this.mFa = bVar;
-        this.mFc = wbShareCallback;
-        this.mFb = new WbShareHandler(activity);
-        if (this.mFb != null) {
-            this.mFb.registerApp();
+        this.mLc = bVar;
+        this.mLe = wbShareCallback;
+        this.mLd = new WbShareHandler(activity);
+        if (this.mLd != null) {
+            this.mLd.registerApp();
         }
     }
 
     @Override // com.baidu.tieba.sharesdk.b.a
     public void a(ShareEntity shareEntity, com.baidu.tieba.sharesdk.b.b bVar) {
-        if (shareEntity == null || this.mFb == null) {
-            dm(2, 6);
+        if (shareEntity == null || this.mLd == null) {
+            m43do(2, 6);
             if (bVar != null) {
-                bVar.dl(6, 2);
+                bVar.dn(6, 2);
                 return;
             }
             return;
         }
-        this.mEL = shareEntity;
-        this.mFa = bVar;
+        this.mKN = shareEntity;
+        this.mLc = bVar;
         com.baidu.adp.widget.ImageView.a a2 = a(shareEntity);
         if (a2 != null && a2.getRawBitmap() != null) {
-            a(this.mEL, a2.getRawBitmap());
+            a(this.mKN, a2.getRawBitmap());
             return;
         }
-        String bhW = shareEntity.bhW();
-        if (CN(shareEntity.dDo())) {
-            a(this.mEL, RQ(shareEntity.dDo()));
-        } else if (!TextUtils.isEmpty(bhW) && (bhW.startsWith("http://") || bhW.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX))) {
-            com.baidu.adp.lib.e.c.mS().a(bhW, 10, this.flS, 0, 0, getPageId(), new Object[0]);
+        String bkw = shareEntity.bkw();
+        if (Db(shareEntity.dFQ())) {
+            a(this.mKN, Sh(shareEntity.dFQ()));
+        } else if (!TextUtils.isEmpty(bkw) && (bkw.startsWith("http://") || bkw.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX))) {
+            com.baidu.adp.lib.e.c.mS().a(bkw, 10, this.frM, 0, 0, getPageId(), new Object[0]);
         } else if (u(shareEntity.getImageUri())) {
-            a(this.mEL, A(shareEntity.getImageUri()));
+            a(this.mKN, A(shareEntity.getImageUri()));
         } else {
-            a(this.mEL, dDv());
+            a(this.mKN, dFX());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ShareEntity shareEntity, Bitmap bitmap) {
-        if (this.mEL == null || this.mFb == null || !(this.context instanceof Activity)) {
-            if (this.mFa != null) {
-                this.mFa.dl(6, 2);
+        if (this.mKN == null || this.mLd == null || !(this.context instanceof Activity)) {
+            if (this.mLc != null) {
+                this.mLc.dn(6, 2);
             }
-            dm(2, 6);
+            m43do(2, 6);
             return;
         }
         WeiboMultiMessage weiboMultiMessage = new WeiboMultiMessage();
         if (!TextUtils.isEmpty(shareEntity.getContent()) || !TextUtils.isEmpty(shareEntity.topic)) {
-            weiboMultiMessage.textObject = dDx();
+            weiboMultiMessage.textObject = dFZ();
         }
         if (bitmap != null) {
             weiboMultiMessage.imageObject = K(bitmap);
@@ -114,7 +114,7 @@ public class e extends a {
         if (a2 != null) {
             weiboMultiMessage.mediaObject = a2;
         }
-        this.mFb.shareMessage(weiboMultiMessage, false);
+        this.mLd.shareMessage(weiboMultiMessage, false);
     }
 
     private WebpageObject a(WeiboMultiMessage weiboMultiMessage, ShareEntity shareEntity, Bitmap bitmap) {
@@ -149,7 +149,7 @@ public class e extends a {
         webpageObject.identify = Utility.generateGUID();
         webpageObject.title = "";
         webpageObject.description = "";
-        webpageObject.actionUrl = RS(str);
+        webpageObject.actionUrl = Sj(str);
         return webpageObject;
     }
 
@@ -160,19 +160,19 @@ public class e extends a {
         WebpageObject webpageObject = new WebpageObject();
         webpageObject.setThumbImage(bitmap);
         webpageObject.identify = Utility.generateGUID();
-        webpageObject.title = RS(str);
-        webpageObject.description = RS(str2);
-        webpageObject.actionUrl = RS(str3);
+        webpageObject.title = Sj(str);
+        webpageObject.description = Sj(str2);
+        webpageObject.actionUrl = Sj(str3);
         return webpageObject;
     }
 
-    private TextObject dDx() {
-        if (this.mEL == null) {
+    private TextObject dFZ() {
+        if (this.mKN == null) {
             return null;
         }
         TextObject textObject = new TextObject();
-        textObject.title = RS(this.mEL.getTitle());
-        textObject.text = RS(this.mEL.topic) + RS(this.mEL.getContent());
+        textObject.title = Sj(this.mKN.getTitle());
+        textObject.text = Sj(this.mKN.topic) + Sj(this.mKN.getContent());
         return textObject;
     }
 
@@ -183,38 +183,38 @@ public class e extends a {
         return imageObject;
     }
 
-    private String RS(String str) {
+    private String Sj(String str) {
         return str == null ? "" : str;
     }
 
     @Override // com.baidu.tieba.sharesdk.a.a
     public void M(Intent intent) {
-        if (this.mFb != null && this.mFc != null) {
-            this.mFb.doResultIntent(intent, this.mFc);
+        if (this.mLd != null && this.mLe != null) {
+            this.mLd.doResultIntent(intent, this.mLe);
             if (intent != null && intent.getExtras() == null) {
-                this.mFc.onWbShareSuccess();
+                this.mLe.onWbShareSuccess();
             }
         }
     }
 
     public void onWbShareSuccess() {
-        if (this.mFa != null) {
-            this.mFa.dl(6, 1);
+        if (this.mLc != null) {
+            this.mLc.dn(6, 1);
         }
-        dm(1, 6);
+        m43do(1, 6);
     }
 
     public void onWbShareCancel() {
-        if (this.mFa != null) {
-            this.mFa.dl(6, 3);
+        if (this.mLc != null) {
+            this.mLc.dn(6, 3);
         }
-        dm(3, 6);
+        m43do(3, 6);
     }
 
     public void onWbShareFail() {
-        if (this.mFa != null) {
-            this.mFa.dl(6, 2);
+        if (this.mLc != null) {
+            this.mLc.dn(6, 2);
         }
-        dm(2, 6);
+        m43do(2, 6);
     }
 }

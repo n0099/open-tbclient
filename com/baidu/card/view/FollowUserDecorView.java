@@ -33,7 +33,7 @@ public class FollowUserDecorView extends FollowUserButton {
     }
 
     public void setData(bw bwVar) {
-        if (bwVar == null || bwVar.bka() == null) {
+        if (bwVar == null || bwVar.bmA() == null) {
             setVisibility(8);
             return;
         }
@@ -42,7 +42,7 @@ public class FollowUserDecorView extends FollowUserButton {
             this.ajW.l(this.mBdUniqueId);
         }
         setVisibility(0);
-        this.ajW.a(bwVar.bka());
+        this.ajW.a(bwVar.bmA());
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
@@ -67,8 +67,8 @@ public class FollowUserDecorView extends FollowUserButton {
         super.aN(z);
         if (this.ajX && !z) {
             b bVar = new b();
-            bVar.pY(R.color.cp_link_tip_a);
-            bVar.pT(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
+            bVar.qi(R.color.cp_link_tip_a);
+            bVar.qd(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
             bVar.a(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
             setConfig(bVar);
         }

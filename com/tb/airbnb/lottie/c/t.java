@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes16.dex */
 public class t {
-    public static com.tb.airbnb.lottie.d g(JsonReader jsonReader) throws IOException {
+    public static com.tb.airbnb.lottie.e g(JsonReader jsonReader) throws IOException {
         float lb = com.tb.airbnb.lottie.d.f.lb();
         float f = 0.0f;
         float f2 = 0.0f;
@@ -26,7 +26,7 @@ public class t {
         HashMap hashMap2 = new HashMap();
         HashMap hashMap3 = new HashMap();
         SparseArrayCompat<com.tb.airbnb.lottie.model.d> sparseArrayCompat = new SparseArrayCompat<>();
-        com.tb.airbnb.lottie.d dVar = new com.tb.airbnb.lottie.d();
+        com.tb.airbnb.lottie.e eVar = new com.tb.airbnb.lottie.e();
         jsonReader.beginObject();
         while (true) {
             int i3 = i2;
@@ -118,22 +118,22 @@ public class t {
                     case 5:
                         String[] split = jsonReader.nextString().split("\\.");
                         if (!com.tb.airbnb.lottie.d.f.b(Integer.parseInt(split[0]), Integer.parseInt(split[1]), Integer.parseInt(split[2]), 4, 4, 0)) {
-                            dVar.bc("Lottie only supports bodymovin >= 4.4.0");
+                            eVar.bc("Lottie only supports bodymovin >= 4.4.0");
                             break;
                         } else {
                             break;
                         }
                     case 6:
-                        a(jsonReader, dVar, arrayList, longSparseArray);
+                        a(jsonReader, eVar, arrayList, longSparseArray);
                         break;
                     case 7:
-                        a(jsonReader, dVar, hashMap, hashMap2);
+                        a(jsonReader, eVar, hashMap, hashMap2);
                         break;
                     case '\b':
                         a(jsonReader, hashMap3);
                         break;
                     case '\t':
-                        a(jsonReader, dVar, sparseArrayCompat);
+                        a(jsonReader, eVar, sparseArrayCompat);
                         break;
                     default:
                         jsonReader.skipValue();
@@ -146,30 +146,30 @@ public class t {
                 f = f6;
             } else {
                 jsonReader.endObject();
-                dVar.a(new Rect(0, 0, (int) (i4 * lb), (int) (i3 * lb)), f6, f5, f4, arrayList, longSparseArray, hashMap, hashMap2, sparseArrayCompat, hashMap3);
-                return dVar;
+                eVar.a(new Rect(0, 0, (int) (i4 * lb), (int) (i3 * lb)), f6, f5, f4, arrayList, longSparseArray, hashMap, hashMap2, sparseArrayCompat, hashMap3);
+                return eVar;
             }
         }
     }
 
-    private static void a(JsonReader jsonReader, com.tb.airbnb.lottie.d dVar, List<Layer> list, LongSparseArray<Layer> longSparseArray) throws IOException {
+    private static void a(JsonReader jsonReader, com.tb.airbnb.lottie.e eVar, List<Layer> list, LongSparseArray<Layer> longSparseArray) throws IOException {
         int i = 0;
         jsonReader.beginArray();
         while (jsonReader.hasNext()) {
-            Layer q = s.q(jsonReader, dVar);
-            if (q.evH() == Layer.LayerType.Image) {
+            Layer q = s.q(jsonReader, eVar);
+            if (q.ezw() == Layer.LayerType.Image) {
                 i++;
             }
             list.add(q);
             longSparseArray.put(q.getId(), q);
             if (i > 4) {
-                com.tb.airbnb.lottie.c.warn("You have " + i + " images. Lottie should primarily be used with shapes. If you are using Adobe Illustrator, convert the Illustrator layers to shape layers.");
+                com.tb.airbnb.lottie.d.warn("You have " + i + " images. Lottie should primarily be used with shapes. If you are using Adobe Illustrator, convert the Illustrator layers to shape layers.");
             }
         }
         jsonReader.endArray();
     }
 
-    private static void a(JsonReader jsonReader, com.tb.airbnb.lottie.d dVar, Map<String, List<Layer>> map, Map<String, com.tb.airbnb.lottie.g> map2) throws IOException {
+    private static void a(JsonReader jsonReader, com.tb.airbnb.lottie.e eVar, Map<String, List<Layer>> map, Map<String, com.tb.airbnb.lottie.h> map2) throws IOException {
         jsonReader.beginArray();
         while (jsonReader.hasNext()) {
             ArrayList arrayList = new ArrayList();
@@ -228,7 +228,7 @@ public class t {
                     case 1:
                         jsonReader.beginArray();
                         while (jsonReader.hasNext()) {
-                            Layer q = s.q(jsonReader, dVar);
+                            Layer q = s.q(jsonReader, eVar);
                             longSparseArray.put(q.getId(), q);
                             arrayList.add(q);
                         }
@@ -253,8 +253,8 @@ public class t {
             }
             jsonReader.endObject();
             if (str2 != null) {
-                com.tb.airbnb.lottie.g gVar = new com.tb.airbnb.lottie.g(i2, i, str3, str2, str);
-                map2.put(gVar.getId(), gVar);
+                com.tb.airbnb.lottie.h hVar = new com.tb.airbnb.lottie.h(i2, i, str3, str2, str);
+                map2.put(hVar.getId(), hVar);
             } else {
                 map.put(str3, arrayList);
             }
@@ -292,10 +292,10 @@ public class t {
         jsonReader.endObject();
     }
 
-    private static void a(JsonReader jsonReader, com.tb.airbnb.lottie.d dVar, SparseArrayCompat<com.tb.airbnb.lottie.model.d> sparseArrayCompat) throws IOException {
+    private static void a(JsonReader jsonReader, com.tb.airbnb.lottie.e eVar, SparseArrayCompat<com.tb.airbnb.lottie.model.d> sparseArrayCompat) throws IOException {
         jsonReader.beginArray();
         while (jsonReader.hasNext()) {
-            com.tb.airbnb.lottie.model.d n = j.n(jsonReader, dVar);
+            com.tb.airbnb.lottie.model.d n = j.n(jsonReader, eVar);
             sparseArrayCompat.put(n.hashCode(), n);
         }
         jsonReader.endArray();

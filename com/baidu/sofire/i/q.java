@@ -12,7 +12,7 @@ import java.io.FileReader;
 public final class q {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f3640a = "";
+    private static String f3643a = "";
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
         jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
@@ -190,11 +190,11 @@ public final class q {
     }
 
     public static String a(Context context) {
-        if (TextUtils.isEmpty(f3640a)) {
+        if (TextUtils.isEmpty(f3643a)) {
             new q();
-            f3640a = b(context);
+            f3643a = b(context);
         }
-        return f3640a;
+        return f3643a;
     }
 
     private static String c(Context context) {

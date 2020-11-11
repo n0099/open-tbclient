@@ -8,25 +8,25 @@ public class b {
 
     /* loaded from: classes10.dex */
     public interface a {
-        void aUP();
+        void aXp();
 
-        void d(int i, long j, long j2);
+        void e(int i, long j, long j2);
 
-        void hm(int i);
+        void hw(int i);
     }
 
     public static void a(String str, a aVar) {
-        e aEU;
-        if (aVar != null && !TextUtils.isEmpty(str) && (aEU = e.aEU()) != null) {
-            if (com.baidu.swan.games.y.a.aUO().xv(str)) {
-                aVar.aUP();
+        e aHu;
+        if (aVar != null && !TextUtils.isEmpty(str) && (aHu = e.aHu()) != null) {
+            if (com.baidu.swan.games.y.a.aXo().xJ(str)) {
+                aVar.aXp();
                 return;
             }
-            String rK = com.baidu.swan.games.y.a.aUO().rK(str);
-            if (TextUtils.isEmpty(rK)) {
-                aVar.hm(2112);
+            String rY = com.baidu.swan.games.y.a.aXo().rY(str);
+            if (TextUtils.isEmpty(rY)) {
+                aVar.hw(2112);
             } else {
-                com.baidu.swan.pms.c.a(new f(aEU.id, aEU.getVersion(), rK, 1), new com.baidu.swan.games.y.b.a(aEU.id, aEU.getVersion(), com.baidu.swan.games.y.a.aUO().aa(str, 2), aVar));
+                com.baidu.swan.pms.c.a(new f(aHu.id, aHu.getVersion(), rY, 1), new com.baidu.swan.games.y.b.a(aHu.id, aHu.getVersion(), com.baidu.swan.games.y.a.aXo().ac(str, 2), aVar));
             }
         }
     }

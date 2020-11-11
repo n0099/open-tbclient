@@ -6,28 +6,28 @@ import java.util.Map;
 import java.util.concurrent.CopyOnWriteArraySet;
 /* loaded from: classes7.dex */
 public class a {
-    private final Map<Class<?>, CopyOnWriteArraySet<C0273a>> c = new HashMap();
+    private final Map<Class<?>, CopyOnWriteArraySet<C0285a>> c = new HashMap();
     private final Map<Class<?>, Object> d = new HashMap();
     private static final String b = a.class.getName();
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f2939a = new a();
+    public static final a f2941a = new a();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C0273a implements b {
+    public class C0285a implements b {
 
         /* renamed from: a  reason: collision with root package name */
-        private final b f2941a;
+        private final b f2943a;
 
         @Override // com.baidu.platform.comapi.util.a.b
         public void a(Object obj) {
-            this.f2941a.a(obj);
+            this.f2943a.a(obj);
         }
 
         public boolean equals(Object obj) {
-            return this.f2941a.equals(obj);
+            return this.f2943a.equals(obj);
         }
     }
 
@@ -40,7 +40,7 @@ public class a {
     }
 
     public static a a() {
-        return f2939a;
+        return f2941a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -49,12 +49,12 @@ public class a {
     }
 
     public void a(Object obj) {
-        CopyOnWriteArraySet<C0273a> copyOnWriteArraySet;
+        CopyOnWriteArraySet<C0285a> copyOnWriteArraySet;
         if (this.c.containsKey(obj.getClass())) {
             synchronized (this) {
                 copyOnWriteArraySet = this.c.get(obj.getClass());
             }
-            Iterator<C0273a> it = copyOnWriteArraySet.iterator();
+            Iterator<C0285a> it = copyOnWriteArraySet.iterator();
             while (it.hasNext()) {
                 j.a(new com.baidu.platform.comapi.util.b(this, it.next(), obj), 0L);
             }

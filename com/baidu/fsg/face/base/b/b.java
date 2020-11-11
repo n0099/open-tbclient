@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f1566a = 100;
+    public static final int f1568a = 100;
     private static final String c = ".BD_SAPI_CACHE";
     private static final String d = "so_zips";
     private static final String e = "1.0.1";
@@ -31,7 +31,7 @@ public class b {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f1567a;
+        public String f1569a;
         public String b;
         public String c;
         public String[] d;
@@ -58,11 +58,11 @@ public class b {
     }
 
     public static String c(Context context, a aVar) {
-        return new File(a(context, aVar) + File.separator + aVar.f1567a + File.separator + aVar.f1567a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + aVar.b + ".zip").getAbsolutePath();
+        return new File(a(context, aVar) + File.separator + aVar.f1569a + File.separator + aVar.f1569a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + aVar.b + ".zip").getAbsolutePath();
     }
 
     public static String a(a aVar) {
-        return ".BD_SAPI_CACHE/" + aVar.f1567a + "/" + aVar.f1567a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + aVar.b + ".zip";
+        return ".BD_SAPI_CACHE/" + aVar.f1569a + "/" + aVar.f1569a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + aVar.b + ".zip";
     }
 
     private String a(String str) {
@@ -113,7 +113,7 @@ public class b {
         a aVar = new a();
         switch (i2) {
             case 4:
-                aVar.f1567a = d;
+                aVar.f1569a = d;
                 aVar.b = "1.0.3";
                 aVar.c = g;
                 aVar.d = h;

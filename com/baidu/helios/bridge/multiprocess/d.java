@@ -6,10 +6,10 @@ import android.os.Bundle;
 public class d extends AbstractCursor {
 
     /* renamed from: a  reason: collision with root package name */
-    private Bundle f1789a;
+    private Bundle f1791a;
 
     public d(Bundle bundle) {
-        this.f1789a = bundle;
+        this.f1791a = bundle;
     }
 
     @Override // android.database.AbstractCursor, android.database.Cursor
@@ -29,7 +29,7 @@ public class d extends AbstractCursor {
 
     @Override // android.database.AbstractCursor, android.database.Cursor
     public Bundle getExtras() {
-        return this.f1789a;
+        return this.f1791a;
     }
 
     @Override // android.database.AbstractCursor, android.database.Cursor

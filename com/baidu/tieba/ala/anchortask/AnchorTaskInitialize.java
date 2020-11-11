@@ -11,10 +11,10 @@ import com.baidu.live.adp.framework.task.CustomMessageTask;
 /* loaded from: classes4.dex */
 public class AnchorTaskInitialize {
     static {
-        bNG();
+        bQg();
     }
 
-    private static void bNG() {
+    private static void bQg() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913139, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.anchortask.AnchorTaskInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<a> run(CustomMessage<Context> customMessage) {

@@ -7,8 +7,8 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaGetApplyWheatListHttpResponseMessage extends BaseJsonHttpResponsedMessage {
     private int count;
-    private List<com.baidu.live.data.e> nYE;
-    private int nYF;
+    private List<com.baidu.live.data.e> ogx;
+    private int ogy;
     private int position;
 
     public AlaGetApplyWheatListHttpResponseMessage() {
@@ -20,28 +20,28 @@ public class AlaGetApplyWheatListHttpResponseMessage extends BaseJsonHttpRespons
         JSONArray jSONArray;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1031006) {
-            if (this.nYE == null) {
-                this.nYE = new ArrayList();
+            if (this.ogx == null) {
+                this.ogx = new ArrayList();
             }
-            this.nYE.clear();
+            this.ogx.clear();
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null && (jSONArray = optJSONObject.getJSONArray("list")) != null && jSONArray.length() > 0) {
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                     com.baidu.live.data.e eVar = new com.baidu.live.data.e();
                     eVar.parseJson((JSONObject) jSONArray.get(i2));
-                    this.nYE.add(eVar);
+                    this.ogx.add(eVar);
                 }
             }
             if (optJSONObject != null) {
                 this.count = optJSONObject.optInt("count", 0);
                 this.position = optJSONObject.optInt("pos", 0);
-                this.nYF = optJSONObject.optInt("link_status", 0);
+                this.ogy = optJSONObject.optInt("link_status", 0);
             }
         }
     }
 
-    public List<com.baidu.live.data.e> dXb() {
-        return this.nYE;
+    public List<com.baidu.live.data.e> eal() {
+        return this.ogx;
     }
 
     public int getPosition() {
@@ -52,7 +52,7 @@ public class AlaGetApplyWheatListHttpResponseMessage extends BaseJsonHttpRespons
         return this.count;
     }
 
-    public boolean dXc() {
-        return this.nYF == 1;
+    public boolean eam() {
+        return this.ogy == 1;
     }
 }

@@ -12,8 +12,8 @@ import java.util.concurrent.TimeUnit;
 public class PassHttpClient implements com.baidu.pass.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final ThreadFactory f2787a = new a();
-    private static final ThreadPoolExecutor b = new ThreadPoolExecutor(6, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60, TimeUnit.SECONDS, new LinkedBlockingQueue(), f2787a);
+    private static final ThreadFactory f2789a = new a();
+    private static final ThreadPoolExecutor b = new ThreadPoolExecutor(6, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60, TimeUnit.SECONDS, new LinkedBlockingQueue(), f2789a);
     private d c;
 
     static {

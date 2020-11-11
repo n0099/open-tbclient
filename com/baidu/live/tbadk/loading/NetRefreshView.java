@@ -20,10 +20,10 @@ public class NetRefreshView extends AbsAttachView {
     }
 
     public NetRefreshView(Context context, View.OnClickListener onClickListener) {
-        super(LayoutInflater.from(context).inflate(a.h.sdk_net_refresh_view_layout, (ViewGroup) null));
-        this.emotionView = (TbImageView) this.attachedView.findViewById(a.g.net_refresh_image);
-        this.subTextView = (TextView) this.attachedView.findViewById(a.g.net_refresh_desc);
-        this.refreshButton = (TextView) this.attachedView.findViewById(a.g.net_refresh_button);
+        super(LayoutInflater.from(context).inflate(a.g.sdk_net_refresh_view_layout, (ViewGroup) null));
+        this.emotionView = (TbImageView) this.attachedView.findViewById(a.f.net_refresh_image);
+        this.subTextView = (TextView) this.attachedView.findViewById(a.f.net_refresh_desc);
+        this.refreshButton = (TextView) this.attachedView.findViewById(a.f.net_refresh_button);
         this.refreshButton.setOnClickListener(onClickListener);
         this.attachedView.setOnClickListener(null);
     }
@@ -71,25 +71,25 @@ public class NetRefreshView extends AbsAttachView {
 
     public void showRefreshButton() {
         this.refreshButton.setVisibility(0);
-        SkinManager.setViewTextColor(this.subTextView, a.d.sdk_cp_cont_d, 1);
+        SkinManager.setViewTextColor(this.subTextView, a.c.sdk_cp_cont_d, 1);
     }
 
     public void hideRefreshButton() {
         this.refreshButton.setVisibility(8);
-        SkinManager.setViewTextColor(this.subTextView, a.d.sdk_cp_cont_b, 1);
+        SkinManager.setViewTextColor(this.subTextView, a.c.sdk_cp_cont_b, 1);
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            SkinManager.setImageResource(this.emotionView, a.f.sdk_pic_live_empty03_hk);
+            SkinManager.setImageResource(this.emotionView, a.e.sdk_pic_live_empty01_hk);
         } else {
-            SkinManager.setImageResource(this.emotionView, a.f.sdk_pic_live_empty03_qm);
+            SkinManager.setImageResource(this.emotionView, a.e.sdk_pic_live_empty01_qm);
         }
-        SkinManager.setViewTextColor(this.subTextView, a.d.sdk_cp_cont_j, 1, skinType);
-        SkinManager.setViewTextColor(this.refreshButton, a.f.sdk_net_refresh_btn_text_seletor, 1, skinType);
-        SkinManager.setBackgroundResource(this.refreshButton, a.f.sdk_net_refresh_btn_bg_selector, skinType);
-        SkinManager.setBackgroundColor(this.attachedView, a.d.sdk_cp_bg_line_d);
+        SkinManager.setViewTextColor(this.subTextView, a.c.sdk_cp_cont_j, 1, skinType);
+        SkinManager.setViewTextColor(this.refreshButton, a.e.sdk_net_refresh_btn_text_seletor, 1, skinType);
+        SkinManager.setBackgroundResource(this.refreshButton, a.e.sdk_net_refresh_btn_bg_selector, skinType);
+        SkinManager.setBackgroundColor(this.attachedView, a.c.sdk_cp_bg_line_d);
     }
 
     public View getAttachedView() {

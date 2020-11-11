@@ -11,13 +11,13 @@ import com.baidu.tieba.R;
 public class ac implements c.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BaseNpcModel f3023a;
+    final /* synthetic */ BaseNpcModel f3025a;
     final /* synthetic */ c b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(c cVar, BaseNpcModel baseNpcModel) {
         this.b = cVar;
-        this.f3023a = baseNpcModel;
+        this.f3025a = baseNpcModel;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.g.c.c.d
@@ -31,7 +31,7 @@ public class ac implements c.d {
             iWNPCLoadAndInitListener2.onSuccess();
         }
         imageView = this.b.O;
-        imageView.setImageBitmap(this.f3023a.getIcon());
+        imageView.setImageBitmap(this.f3025a.getIcon());
     }
 
     @Override // com.baidu.platform.comapi.walknavi.g.c.c.d

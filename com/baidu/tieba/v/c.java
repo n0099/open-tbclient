@@ -6,7 +6,7 @@ import android.view.WindowManager;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class c {
-    public static int Ki(int i) {
+    public static int Kv(int i) {
         if (Build.VERSION.SDK_INT >= 26) {
             return 2038;
         }

@@ -16,12 +16,12 @@ import org.a.b;
 import org.a.d;
 /* loaded from: classes17.dex */
 public final class CompletableConcat extends a {
-    final b<? extends e> pDl;
+    final b<? extends e> pMF;
     final int prefetch;
 
     @Override // io.reactivex.a
     public void b(c cVar) {
-        this.pDl.subscribe(new CompletableConcatSubscriber(cVar, this.prefetch));
+        this.pMF.subscribe(new CompletableConcatSubscriber(cVar, this.prefetch));
     }
 
     /* loaded from: classes17.dex */
@@ -69,7 +69,7 @@ public final class CompletableConcat extends a {
                     }
                 }
                 if (this.prefetch == Integer.MAX_VALUE) {
-                    this.queue = new io.reactivex.internal.queue.a(io.reactivex.g.ewG());
+                    this.queue = new io.reactivex.internal.queue.a(io.reactivex.g.eAv());
                 } else {
                     this.queue = new SpscArrayQueue(this.prefetch);
                 }

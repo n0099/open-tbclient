@@ -47,7 +47,7 @@ public class ImageClipActivity extends Activity {
     private static final String n = "content://downloads/public_downloads";
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3353a = 0;
+    private int f3356a = 0;
     private int b = 0;
     private int c = 0;
     private int d = 0;
@@ -120,7 +120,7 @@ public class ImageClipActivity extends Activity {
     }
 
     protected void setPendingTransition(int i, int i2, int i3, int i4) {
-        this.f3353a = i;
+        this.f3356a = i;
         this.b = i2;
         this.c = i3;
         this.d = i4;
@@ -217,11 +217,11 @@ public class ImageClipActivity extends Activity {
     }
 
     private void c() {
-        if (this.f3353a == 0 && this.b == 0) {
+        if (this.f3356a == 0 && this.b == 0) {
             return;
         }
-        overridePendingTransition(this.f3353a, this.b);
-        this.f3353a = 0;
+        overridePendingTransition(this.f3356a, this.b);
+        this.f3356a = 0;
         this.b = 0;
     }
 

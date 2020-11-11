@@ -1,7 +1,6 @@
 package com.baidu.live.adp.base;
 
 import android.content.DialogInterface;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -214,11 +213,5 @@ public abstract class BdBaseFragmentActivity<T> extends LiveBaseActivity impleme
                 }
             }
         }
-    }
-
-    @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
-    public Resources getResources() {
-        Resources resources = BdResources.getInstance().getResources();
-        return (resources == null || !BdBaseApplication.getInst().getIsPluginResourcOpen()) ? super.getResources() : resources;
     }
 }

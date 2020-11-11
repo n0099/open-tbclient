@@ -10,12 +10,12 @@ import android.view.View;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class TurnTableLuckyCountDownView extends View {
-    private RectF dEF;
-    private Paint dEH;
-    private float dEM;
-    private float hnX;
-    private float hnY;
-    private String hnZ;
+    private float dKE;
+    private RectF dKx;
+    private Paint dKz;
+    private float htV;
+    private float htW;
+    private String htX;
     private float mProgress;
     private Paint mTextPaint;
 
@@ -25,7 +25,7 @@ public class TurnTableLuckyCountDownView extends View {
     }
 
     public void setTimer(String str, float f) {
-        this.hnZ = str;
+        this.htX = str;
         this.mProgress = f;
         invalidate();
     }
@@ -34,39 +34,39 @@ public class TurnTableLuckyCountDownView extends View {
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
         Paint.FontMetricsInt fontMetricsInt = this.mTextPaint.getFontMetricsInt();
-        this.hnX = i * 0.5f;
-        this.hnY = ((i2 - fontMetricsInt.top) - fontMetricsInt.bottom) * 0.5f;
-        this.dEF.set(this.dEM * 0.5f, this.dEM * 0.5f, i - (this.dEM * 0.5f), i2 - (this.dEM * 0.5f));
+        this.htV = i * 0.5f;
+        this.htW = ((i2 - fontMetricsInt.top) - fontMetricsInt.bottom) * 0.5f;
+        this.dKx.set(this.dKE * 0.5f, this.dKE * 0.5f, i - (this.dKE * 0.5f), i2 - (this.dKE * 0.5f));
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawArc(this.dEF, -90.0f, this.mProgress * (-360.0f), false, this.dEH);
-        canvas.drawText(this.hnZ, this.hnX, this.hnY, this.mTextPaint);
+        canvas.drawArc(this.dKx, -90.0f, this.mProgress * (-360.0f), false, this.dKz);
+        canvas.drawText(this.htX, this.htV, this.htW, this.mTextPaint);
     }
 
     private void init() {
-        ceV();
+        chy();
         initProgress();
     }
 
-    private void ceV() {
+    private void chy() {
         this.mTextPaint = new Paint(1);
         this.mTextPaint.setDither(true);
         this.mTextPaint.setColor(-1);
         this.mTextPaint.setStyle(Paint.Style.FILL);
         this.mTextPaint.setTextAlign(Paint.Align.CENTER);
-        this.mTextPaint.setTextSize(getResources().getDimensionPixelSize(a.e.sdk_fontsize24));
+        this.mTextPaint.setTextSize(getResources().getDimensionPixelSize(a.d.sdk_fontsize24));
     }
 
     private void initProgress() {
-        this.dEM = getResources().getDimensionPixelOffset(a.e.sdk_ds6);
-        this.dEH = new Paint(1);
-        this.dEH.setDither(true);
-        this.dEH.setColor(-12753);
-        this.dEH.setStrokeWidth(this.dEM);
-        this.dEH.setStyle(Paint.Style.STROKE);
-        this.dEF = new RectF();
+        this.dKE = getResources().getDimensionPixelOffset(a.d.sdk_ds6);
+        this.dKz = new Paint(1);
+        this.dKz.setDither(true);
+        this.dKz.setColor(-12753);
+        this.dKz.setStrokeWidth(this.dKE);
+        this.dKz.setStyle(Paint.Style.STROKE);
+        this.dKx = new RectF();
     }
 }

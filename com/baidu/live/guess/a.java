@@ -4,13 +4,13 @@ import android.app.Activity;
 import com.baidu.live.data.w;
 /* loaded from: classes4.dex */
 public interface a {
-    void Kn();
+    void KN();
 
     void b(w wVar);
 
-    void eG(int i);
+    void e(w wVar);
 
-    void f(w wVar);
+    void eG(int i);
 
     void onDestroy();
 

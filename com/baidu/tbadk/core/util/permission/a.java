@@ -11,17 +11,17 @@ import com.baidu.tieba.R;
 import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.core.dialog.a {
-    private TextView eJu;
-    private TextView eJv;
-    private TextView eJw;
-    private String eJx;
-    private InterfaceC0567a eJy;
+    private TextView ePj;
+    private TextView ePk;
+    private TextView ePl;
+    private String ePm;
+    private InterfaceC0579a ePn;
     private ViewGroup mRootView;
     private TextView mTitleView;
 
     /* renamed from: com.baidu.tbadk.core.util.permission.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0567a {
+    public interface InterfaceC0579a {
         void d(Activity activity, String str);
 
         void e(Activity activity, String str);
@@ -30,30 +30,30 @@ public class a extends com.baidu.tbadk.core.dialog.a {
     public a(Activity activity) {
         super(activity);
         initView();
-        op(3);
-        iM(false);
-        iN(false);
+        oz(3);
+        iV(false);
+        iW(false);
         setAutoNight(false);
     }
 
     private void initView() {
         this.mRootView = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.dialog_permission_request, (ViewGroup) null);
         this.mTitleView = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_title);
-        this.eJu = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_detail);
-        this.eJv = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_close);
-        this.eJv.setText(R.string.close);
-        this.eJw = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_continue);
-        this.eJw.setText(R.string.go_on);
+        this.ePj = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_detail);
+        this.ePk = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_close);
+        this.ePk.setText(R.string.close);
+        this.ePl = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_continue);
+        this.ePl.setText(R.string.go_on);
         onChangeSkinType();
-        bb(this.mRootView);
+        bf(this.mRootView);
     }
 
-    public void BR(String str) {
-        this.eJx = str;
+    public void Cf(String str) {
+        this.ePm = str;
     }
 
-    public void a(InterfaceC0567a interfaceC0567a) {
-        this.eJy = interfaceC0567a;
+    public void a(InterfaceC0579a interfaceC0579a) {
+        this.ePn = interfaceC0579a;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a
@@ -61,7 +61,7 @@ public class a extends com.baidu.tbadk.core.dialog.a {
         String string;
         String str = null;
         super.b(eVar);
-        String str2 = this.eJx;
+        String str2 = this.ePm;
         char c = 65535;
         switch (str2.hashCode()) {
             case -63024214:
@@ -101,20 +101,20 @@ public class a extends com.baidu.tbadk.core.dialog.a {
                 break;
         }
         this.mTitleView.setText(string);
-        this.eJu.setText(str);
-        this.eJv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.util.permission.a.1
+        this.ePj.setText(str);
+        this.ePk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.util.permission.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.eJy != null) {
-                    a.this.eJy.d(a.this.mActivity, a.this.eJx);
+                if (a.this.ePn != null) {
+                    a.this.ePn.d(a.this.mActivity, a.this.ePm);
                 }
             }
         });
-        this.eJw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.util.permission.a.2
+        this.ePl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.util.permission.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.eJy != null) {
-                    a.this.eJy.e(a.this.mActivity, a.this.eJx);
+                if (a.this.ePn != null) {
+                    a.this.ePn.e(a.this.mActivity, a.this.ePm);
                 }
             }
         });
@@ -124,8 +124,8 @@ public class a extends com.baidu.tbadk.core.dialog.a {
     public void onChangeSkinType() {
         ap.setBackgroundResource(this.mRootView, R.drawable.bg_permission_request_dialog);
         ap.setViewTextColor(this.mTitleView, R.color.cp_cont_b);
-        ap.setViewTextColor(this.eJu, R.color.cp_cont_j);
-        ap.e(this.eJv, R.color.cp_cont_b, R.color.cp_cont_b_alpha50);
-        ap.e(this.eJw, R.color.cp_link_tip_a, R.color.cp_link_tip_a_alpha50);
+        ap.setViewTextColor(this.ePj, R.color.cp_cont_j);
+        ap.e(this.ePk, R.color.cp_cont_b, R.color.cp_cont_b_alpha50);
+        ap.e(this.ePl, R.color.cp_link_tip_a, R.color.cp_link_tip_a_alpha50);
     }
 }

@@ -8,13 +8,13 @@ import com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabThreadItemView;
 /* loaded from: classes22.dex */
 public class k extends a<com.baidu.tieba.homepage.hotTopic.tab.b.f, com.baidu.adp.widget.ListView.b<HotTopicTabThreadItemView>> {
     public k(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.hotTopic.tab.b.a.jvS);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.hotTopic.tab.b.a.jBP);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bF */
+    /* renamed from: bH */
     public com.baidu.adp.widget.ListView.b<HotTopicTabThreadItemView> c(ViewGroup viewGroup) {
         HotTopicTabThreadItemView hotTopicTabThreadItemView = new HotTopicTabThreadItemView(viewGroup.getContext());
         hotTopicTabThreadItemView.setOnItemCoverListener(this.aiM);

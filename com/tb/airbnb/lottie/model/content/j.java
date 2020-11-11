@@ -21,8 +21,8 @@ public class j implements b {
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b
-    public com.tb.airbnb.lottie.a.a.b a(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar) {
-        return new com.tb.airbnb.lottie.a.a.c(fVar, aVar, this);
+    public com.tb.airbnb.lottie.a.a.b a(com.tb.airbnb.lottie.g gVar, com.tb.airbnb.lottie.model.layer.a aVar) {
+        return new com.tb.airbnb.lottie.a.a.c(gVar, aVar, this);
     }
 
     public String toString() {

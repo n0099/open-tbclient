@@ -8,40 +8,40 @@ import org.json.JSONException;
 public final class TurbonetContext {
     private String mAppName;
     private Context mContext;
-    private TurbonetEngine oeQ;
-    private String ofr;
+    private TurbonetEngine onV;
+    private String oov;
 
     public TurbonetContext(Context context, String str, String str2, TurbonetConfig turbonetConfig) {
         this.mContext = context;
         this.mAppName = str;
-        this.ofr = str2;
+        this.oov = str2;
         a(turbonetConfig);
     }
 
-    public TurbonetEngine dYC() {
-        return this.oeQ;
+    public TurbonetEngine eck() {
+        return this.onV;
     }
 
-    public long dYD() {
-        return this.oeQ.dXN();
+    public long ecl() {
+        return this.onV.ebv();
     }
 
     private void a(TurbonetConfig turbonetConfig) {
         TurbonetEngine.Builder builder = new TurbonetEngine.Builder(this.mContext);
         if (turbonetConfig == null) {
-            this.oeQ = builder.VS(this.mAppName).VR(this.ofr).dYM();
+            this.onV = builder.Wv(this.mAppName).Wu(this.oov).ecu();
         } else {
-            if (turbonetConfig.dYB()) {
-                builder.VQ(turbonetConfig.dYA());
+            if (turbonetConfig.ecj()) {
+                builder.Wt(turbonetConfig.eci());
             }
             try {
-                if (turbonetConfig.dYz().has("nq") && turbonetConfig.dYz().getJSONObject("nq").getBoolean("network_quality_enabled")) {
+                if (turbonetConfig.ech().has("nq") && turbonetConfig.ech().getJSONObject("nq").getBoolean("network_quality_enabled")) {
                     builder.I(true, "");
                 }
             } catch (JSONException e) {
                 Log.e("cr_TurbonetContext", "JSON expcetion: " + e);
             }
-            this.oeQ = builder.VS(this.mAppName).VR(this.ofr).VT(turbonetConfig.dYz().toString()).dYM();
+            this.onV = builder.Wv(this.mAppName).Wu(this.oov).Ww(turbonetConfig.ech().toString()).ecu();
         }
         Log.v("cr_TurbonetContext", "Turbonet init context success.");
     }

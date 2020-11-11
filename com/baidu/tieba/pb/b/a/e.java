@@ -10,19 +10,19 @@ import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes23.dex */
 public class e implements ah, d {
     private int height;
-    private ArrayList<PreLoadImageInfo> lEr;
-    public String lEs;
+    private ArrayList<PreLoadImageInfo> lKn;
+    public String lKo;
     private String src;
     private int width;
 
     public e(ExcContent excContent) {
         if (excContent != null && excContent.type != null && excContent.type.equals(3L)) {
-            this.lEr = new ArrayList<>(1);
+            this.lKn = new ArrayList<>(1);
             this.src = excContent.src;
-            this.lEs = excContent.bsize;
-            if (this.lEs != null) {
+            this.lKo = excContent.bsize;
+            if (this.lKo != null) {
                 try {
-                    String[] split = this.lEs.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    String[] split = this.lKo.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                     this.width = com.baidu.adp.lib.f.b.toInt(split[0], 0);
                     this.height = com.baidu.adp.lib.f.b.toInt(split[1], 0);
                 } catch (Exception e) {
@@ -45,7 +45,7 @@ public class e implements ah, d {
             } else {
                 preLoadImageInfo.imgUrl = str;
             }
-            this.lEr.add(preLoadImageInfo);
+            this.lKn.add(preLoadImageInfo);
         }
     }
 
@@ -53,7 +53,7 @@ public class e implements ah, d {
         return this.src;
     }
 
-    public int Gj(int i) {
+    public int Gw(int i) {
         if (i <= 0) {
             return 0;
         }
@@ -67,6 +67,6 @@ public class e implements ah, d {
 
     @Override // com.baidu.tbadk.core.util.ah
     public ArrayList<PreLoadImageInfo> getImages() {
-        return this.lEr;
+        return this.lKn;
     }
 }

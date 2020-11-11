@@ -8,30 +8,30 @@ public class a {
 
     /* renamed from: com.cmic.sso.sdk.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public enum EnumC0942a {
+    public enum EnumC0961a {
         UNKNOWN,
         SAMSUNG,
         HUAWEI
     }
 
-    private static EnumC0942a eeU() {
+    private static EnumC0961a eiJ() {
         String str = Build.BRAND;
         if (str.equalsIgnoreCase("samsung")) {
-            return EnumC0942a.SAMSUNG;
+            return EnumC0961a.SAMSUNG;
         }
         if (str.equalsIgnoreCase("Huawei")) {
-            return EnumC0942a.HUAWEI;
+            return EnumC0961a.HUAWEI;
         }
-        return EnumC0942a.UNKNOWN;
+        return EnumC0961a.UNKNOWN;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static int a() {
-        return a(eeU());
+        return a(eiJ());
     }
 
-    private static int a(EnumC0942a enumC0942a) {
-        switch (enumC0942a) {
+    private static int a(EnumC0961a enumC0961a) {
+        switch (enumC0961a) {
             case HUAWEI:
                 return 0;
             case SAMSUNG:

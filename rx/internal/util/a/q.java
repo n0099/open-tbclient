@@ -10,13 +10,13 @@ public final class q<E> extends v<E> {
         if (e == null) {
             throw new NullPointerException("null elements not allowed");
         }
-        E[] eArr = this.pIK;
+        E[] eArr = this.pSe;
         long j = this.producerIndex;
-        long hZ = hZ(j);
-        if (b(eArr, hZ) != null) {
+        long iv = iv(j);
+        if (b(eArr, iv) != null) {
             return false;
         }
-        b(eArr, hZ, e);
+        b(eArr, iv, e);
         soProducerIndex(1 + j);
         return true;
     }
@@ -24,53 +24,53 @@ public final class q<E> extends v<E> {
     @Override // java.util.Queue
     public E poll() {
         long j = this.consumerIndex;
-        long hZ = hZ(j);
-        E[] eArr = this.pIK;
-        E b = b(eArr, hZ);
+        long iv = iv(j);
+        E[] eArr = this.pSe;
+        E b = b(eArr, iv);
         if (b == null) {
             return null;
         }
-        b(eArr, hZ, null);
+        b(eArr, iv, null);
         soConsumerIndex(j + 1);
         return b;
     }
 
     @Override // java.util.Queue
     public E peek() {
-        return ia(hZ(this.consumerIndex));
+        return iw(iv(this.consumerIndex));
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long exb = exb();
+        long eAQ = eAQ();
         while (true) {
-            long exa = exa();
-            long exb2 = exb();
-            if (exb == exb2) {
-                return (int) (exa - exb2);
+            long eAP = eAP();
+            long eAQ2 = eAQ();
+            if (eAQ == eAQ2) {
+                return (int) (eAP - eAQ2);
             }
-            exb = exb2;
+            eAQ = eAQ2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return exa() == exb();
+        return eAP() == eAQ();
     }
 
     private void soProducerIndex(long j) {
-        ae.pZO.a(this, pZI, j);
+        ae.qjj.a(this, qjd, j);
     }
 
     private void soConsumerIndex(long j) {
-        ae.pZO.a(this, pZH, j);
+        ae.qjj.a(this, qjc, j);
     }
 
-    private long exa() {
-        return ae.pZO.e(this, pZI);
+    private long eAP() {
+        return ae.qjj.e(this, qjd);
     }
 
-    private long exb() {
-        return ae.pZO.e(this, pZH);
+    private long eAQ() {
+        return ae.qjj.e(this, qjc);
     }
 }

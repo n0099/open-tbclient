@@ -12,35 +12,35 @@ import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class a implements com.baidu.l.c.a {
     private static final String TAG = a.class.getSimpleName();
-    private static final String bVI = SchemeConfig.getSchemeHead() + "://swan/";
+    private static final String cbs = SchemeConfig.getSchemeHead() + "://swan/";
 
     @Override // com.baidu.l.c.a
     public void e(Activity activity, String str, com.baidu.l.a.a aVar) {
-        com.baidu.swan.apps.t.a.aup().e(activity, str, aVar);
+        com.baidu.swan.apps.t.a.awP().e(activity, str, aVar);
     }
 
     @Override // com.baidu.l.c.a
     public void f(Activity activity, String str, com.baidu.l.a.a aVar) {
-        com.baidu.swan.apps.t.a.aup().f(activity, str, aVar);
+        com.baidu.swan.apps.t.a.awP().f(activity, str, aVar);
     }
 
     @Override // com.baidu.l.c.a
     public void b(Context context, JSONObject jSONObject, com.baidu.l.a.a aVar) {
-        com.baidu.swan.apps.t.a.aup().b(context, jSONObject, aVar);
+        com.baidu.swan.apps.t.a.awP().b(context, jSONObject, aVar);
     }
 
     @Override // com.baidu.l.c.a
     public void g(Context context, JSONObject jSONObject) {
         if (jSONObject == null) {
-            com.baidu.l.a.Y(3, "支付信息不能为空");
+            com.baidu.l.a.ac(3, "支付信息不能为空");
             return;
         }
         String optString = jSONObject.optString("appKey");
         String optString2 = jSONObject.optString("redirectUrl");
         if (TextUtils.isEmpty(optString) || TextUtils.isEmpty(optString2)) {
-            com.baidu.l.a.Y(3, "支付信息不能为空");
+            com.baidu.l.a.ac(3, "支付信息不能为空");
         } else {
-            SchemeRouter.invoke(context, bVI + optString + optString2);
+            SchemeRouter.invoke(context, cbs + optString + optString2);
         }
     }
 
@@ -50,26 +50,26 @@ public class a implements com.baidu.l.c.a {
 
     @Override // com.baidu.l.c.a
     public boolean aO(Context context) {
-        return com.baidu.swan.apps.t.a.aup().aO(context);
+        return com.baidu.swan.apps.t.a.awP().aO(context);
     }
 
     @Override // com.baidu.l.c.a
-    public void jh(String str) {
-        com.baidu.swan.apps.aa.a.aAE().appId = str;
+    public void ju(String str) {
+        com.baidu.swan.apps.aa.a.aDe().appId = str;
     }
 
     @Override // com.baidu.l.c.a
     public void k(Bundle bundle) {
-        String str = com.baidu.swan.apps.aa.a.aAE().appId;
+        String str = com.baidu.swan.apps.aa.a.aDe().appId;
         if (TextUtils.isEmpty(str)) {
             d.l(bundle);
         } else {
-            com.baidu.swan.apps.process.messaging.a.aCE().a(new c(119, bundle).w(str).fW(true));
+            com.baidu.swan.apps.process.messaging.a.aFe().a(new c(119, bundle).w(str).gf(true));
         }
     }
 
     @Override // com.baidu.l.c.a
     public String getZid(Context context) {
-        return com.baidu.swan.apps.t.a.auS().cg(context);
+        return com.baidu.swan.apps.t.a.axs().cg(context);
     }
 }

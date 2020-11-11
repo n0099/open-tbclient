@@ -4,7 +4,7 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.List;
 /* loaded from: classes21.dex */
 public interface d {
-    void c(List<a> list, List<ImageFileInfo> list2, String str);
+    void a(List<a> list, List<ImageFileInfo> list2, String str);
 
     void onPreLoad();
 }

@@ -48,29 +48,29 @@ public class RichTextLayout extends LinearLayout implements View.OnClickListener
     @Override // com.baidu.card.p
     /* renamed from: b */
     public void H(AbsThreadDataSupport absThreadDataSupport) {
-        if (absThreadDataSupport != null && absThreadDataSupport.bhz() != null) {
-            bw bhz = absThreadDataSupport.bhz();
-            OriginalThreadInfo originalThreadInfo = bhz.eAy;
+        if (absThreadDataSupport != null && absThreadDataSupport.bjZ() != null) {
+            bw bjZ = absThreadDataSupport.bjZ();
+            OriginalThreadInfo originalThreadInfo = bjZ.eGn;
             if (originalThreadInfo != null && this.alb) {
                 this.mTitle.setVisibility(8);
                 this.agm.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbds40));
                 this.agm.setLineSpacing(l.getDimens(this.mContext, R.dimen.tbds15), 1.0f);
-                if (originalThreadInfo.euX) {
-                    ay.a(this.agm, this.mTitle, new SpannableString(originalThreadInfo.title), bhz, this.akZ, this.alb, this.aik);
+                if (originalThreadInfo.eAQ) {
+                    ay.a(this.agm, this.mTitle, new SpannableString(originalThreadInfo.title), bjZ, this.akZ, this.alb, this.aik);
                     ap.setViewTextColor(this.agm, R.color.cp_cont_c);
                 } else {
-                    ay.a(this.agm, this.mTitle, originalThreadInfo.evX, bhz, this.akZ, this.alb, this.aik);
+                    ay.a(this.agm, this.mTitle, originalThreadInfo.eBQ, bjZ, this.akZ, this.alb, this.aik);
                 }
             } else {
-                ay.a(this.mTitle, bhz, this.aik);
+                ay.a(this.mTitle, bjZ, this.aik);
                 this.agm.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbds42));
                 this.agm.setLineSpacing(l.getDimens(this.mContext, R.dimen.tbds7), 1.0f);
-                ay.a(this.agm, this.mTitle, bhz.bjB(), bhz, this.akZ, this.alb, this.aik);
+                ay.a(this.agm, this.mTitle, bjZ.bmb(), bjZ, this.akZ, this.alb, this.aik);
             }
             if (!this.alb) {
                 this.agm.setClickable(false);
                 this.mTitle.setClickable(false);
-            } else if (originalThreadInfo != null && originalThreadInfo.euX) {
+            } else if (originalThreadInfo != null && originalThreadInfo.eAQ) {
                 setOnClickListener(null);
                 setClickable(true);
             } else {

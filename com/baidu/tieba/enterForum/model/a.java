@@ -4,20 +4,20 @@ import android.content.Context;
 import android.view.WindowManager;
 /* loaded from: classes22.dex */
 public class a {
-    private static a igv;
+    private static a imt;
     private boolean mHasInited;
     private int mStatusBarHeight;
     private WindowManager mWindowManager;
 
-    public static a cpQ() {
-        if (igv == null) {
+    public static a csr() {
+        if (imt == null) {
             synchronized (a.class) {
-                if (igv == null) {
-                    igv = new a();
+                if (imt == null) {
+                    imt = new a();
                 }
             }
         }
-        return igv;
+        return imt;
     }
 
     private a() {
@@ -34,6 +34,6 @@ public class a {
 
     public void destroy() {
         this.mHasInited = false;
-        igv = null;
+        imt = null;
     }
 }

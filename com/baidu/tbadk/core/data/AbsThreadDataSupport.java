@@ -26,22 +26,22 @@ public abstract class AbsThreadDataSupport extends com.baidu.tieba.card.data.b i
         EXTEND
     }
 
-    public abstract ar bhB();
+    public abstract bw bjZ();
 
-    public abstract bw bhz();
+    public abstract ar bkb();
 
-    public String bhA() {
-        if (bhz() == null) {
+    public String bka() {
+        if (bjZ() == null) {
             return null;
         }
-        return bhz().bhA();
+        return bjZ().bka();
     }
 
     public boolean isSelf() {
-        return com.baidu.tbadk.core.util.ay.x(bhz());
+        return com.baidu.tbadk.core.util.ay.x(bjZ());
     }
 
-    public String bhC() {
+    public String bkc() {
         return null;
     }
 
@@ -49,11 +49,11 @@ public abstract class AbsThreadDataSupport extends com.baidu.tieba.card.data.b i
         this.mSupportType = supportType;
     }
 
-    public boolean bhD() {
+    public boolean bkd() {
         return this.mSupportType == SupportType.TOP;
     }
 
-    public boolean bhE() {
+    public boolean bke() {
         return this.mSupportType == SupportType.BOTTOM;
     }
 
@@ -64,55 +64,55 @@ public abstract class AbsThreadDataSupport extends com.baidu.tieba.card.data.b i
         }
     }
 
-    public boolean bhF() {
-        bw bhz = bhz();
-        if (bhz == null) {
+    public boolean bkf() {
+        bw bjZ = bjZ();
+        if (bjZ == null) {
             return false;
         }
-        return bhz.eBa || bhz.eBc;
+        return bjZ.eGP || bjZ.eGR;
     }
 
-    public boolean bhG() {
-        bw bhz = bhz();
-        if (bhz == null) {
+    public boolean bkg() {
+        bw bjZ = bjZ();
+        if (bjZ == null) {
             return false;
         }
-        return bhz.eBa || bhz.eBc || bhz.eAZ;
+        return bjZ.eGP || bjZ.eGR || bjZ.eGO;
     }
 
-    public boolean bhH() {
-        bw bhz = bhz();
-        if (bhz == null) {
+    public boolean bkh() {
+        bw bjZ = bjZ();
+        if (bjZ == null) {
             return false;
         }
-        return bhz.eAZ || bhz.eBa || bhz.eBc || bhz.eBb || bhz.eBd;
+        return bjZ.eGO || bjZ.eGP || bjZ.eGR || bjZ.eGQ || bjZ.eGS;
     }
 
-    public boolean bhI() {
-        bw bhz = bhz();
-        if (bhz == null) {
+    public boolean bki() {
+        bw bjZ = bjZ();
+        if (bjZ == null) {
             return false;
         }
-        return bhz.bhI();
+        return bjZ.bki();
     }
 
-    public boolean bhJ() {
+    public boolean bkj() {
         return false;
     }
 
-    public boolean bhK() {
+    public boolean bkk() {
         return true;
     }
 
-    public boolean bhL() {
-        bw bhz = bhz();
-        if (bhz == null || bhz.bka() == null || com.baidu.tbadk.core.util.ay.x(bhz)) {
+    public boolean bkl() {
+        bw bjZ = bjZ();
+        if (bjZ == null || bjZ.bmA() == null || com.baidu.tbadk.core.util.ay.x(bjZ)) {
             return false;
         }
-        boolean z = bhz.blU() || bhz.biI() || bhz.biJ();
-        if (bhz.eAZ && z) {
+        boolean z = bjZ.bou() || bjZ.bli() || bjZ.blj();
+        if (bjZ.eGO && z) {
             return true;
         }
-        return bhz.eBb && z && !bhz.bka().hadConcerned();
+        return bjZ.eGQ && z && !bjZ.bmA().hadConcerned();
     }
 }

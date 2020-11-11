@@ -27,35 +27,35 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes10.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a dPt;
-    private String cGu;
-    private boolean cKq;
-    private boolean cKt;
-    private c dPv;
+    private static volatile a dVl;
+    private String cMn;
+    private boolean cQj;
+    private boolean cQm;
+    private c dVn;
     private ExtensionCore mExtensionCore;
     private SwanCoreVersion mSwanCoreVersion;
-    private int dPu = -1;
-    private final Object cKw = new Object();
-    private List<InterfaceC0521a> cKo = new CopyOnWriteArrayList();
+    private int dVm = -1;
+    private final Object cQp = new Object();
+    private List<InterfaceC0533a> cQh = new CopyOnWriteArrayList();
 
     /* renamed from: com.baidu.swan.games.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC0521a {
+    public interface InterfaceC0533a {
         void onReady();
     }
 
     private a() {
     }
 
-    public static a aSQ() {
-        if (dPt == null) {
+    public static a aVq() {
+        if (dVl == null) {
             synchronized (a.class) {
-                if (dPt == null) {
-                    dPt = new a();
+                if (dVl == null) {
+                    dVl = new a();
                 }
             }
         }
-        return dPt;
+        return dVl;
     }
 
     public static synchronized void release() {
@@ -63,32 +63,32 @@ public class a {
             if (DEBUG) {
                 Log.d("SwanGameCoreRuntime", "release");
             }
-            if (dPt != null) {
-                dPt.cKt = true;
-                if (dPt.dPv != null) {
-                    dPt.dPv.finish();
+            if (dVl != null) {
+                dVl.cQm = true;
+                if (dVl.dVn != null) {
+                    dVl.dVn.finish();
                 }
-                dPt = null;
-                aSQ().aST();
+                dVl = null;
+                aVq().aVt();
             }
         }
     }
 
-    public com.baidu.swan.games.f.a aSR() {
-        if (this.dPv != null) {
-            return this.dPv.aTg();
+    public com.baidu.swan.games.f.a aVr() {
+        if (this.dVn != null) {
+            return this.dVn.aVG();
         }
         return null;
     }
 
-    public DuMixGameSurfaceView aSS() {
-        if (this.dPv != null) {
-            return this.dPv.aSS();
+    public DuMixGameSurfaceView aVs() {
+        if (this.dVn != null) {
+            return this.dVn.aVs();
         }
         return null;
     }
 
-    private void aST() {
+    private void aVt() {
         if (DEBUG) {
             Log.d("SwanGameCoreRuntime", "preloadCoreRuntime by release");
         }
@@ -103,15 +103,15 @@ public class a {
             }
             Log.d("SwanGameCoreRuntime", "preloadCoreRuntime preloadScene:" + str);
         }
-        if (!apq() && y(intent)) {
-            boolean isSuccess = d.aVo().isSuccess();
-            boolean aVp = d.aVp();
-            if (isSuccess && aVp) {
-                a(new InterfaceC0521a() { // from class: com.baidu.swan.games.j.a.1
-                    @Override // com.baidu.swan.games.j.a.InterfaceC0521a
+        if (!arQ() && y(intent)) {
+            boolean isSuccess = d.aXO().isSuccess();
+            boolean aXP = d.aXP();
+            if (isSuccess && aXP) {
+                a(new InterfaceC0533a() { // from class: com.baidu.swan.games.j.a.1
+                    @Override // com.baidu.swan.games.j.a.InterfaceC0533a
                     public void onReady() {
                         if (a.DEBUG) {
-                            com.baidu.swan.apps.res.widget.b.d.k(AppRuntime.getAppContext(), a.h.aiapps_game_preload_core_runtime_end).kc(1).showToast();
+                            com.baidu.swan.apps.res.widget.b.d.k(AppRuntime.getAppContext(), a.h.aiapps_game_preload_core_runtime_end).km(1).showToast();
                         }
                     }
                 });
@@ -119,22 +119,22 @@ public class a {
         }
     }
 
-    public void a(InterfaceC0521a interfaceC0521a) {
+    public void a(InterfaceC0533a interfaceC0533a) {
         if (DEBUG) {
             Log.d("SwanGameCoreRuntime", "prepareRuntime");
         }
-        if (interfaceC0521a != null && !this.cKo.contains(interfaceC0521a)) {
-            this.cKo.add(interfaceC0521a);
+        if (interfaceC0533a != null && !this.cQh.contains(interfaceC0533a)) {
+            this.cQh.add(interfaceC0533a);
         }
-        if (apq()) {
-            apt();
+        if (arQ()) {
+            arT();
         } else {
-            aSZ();
+            aVz();
         }
     }
 
     public void e(com.baidu.swan.apps.u.c.b bVar) {
-        apC();
+        asc();
         if (this.mSwanCoreVersion != null) {
             bVar.b(this.mSwanCoreVersion);
         }
@@ -143,21 +143,21 @@ public class a {
         }
     }
 
-    public void aSU() {
-        if (this.dPv != null) {
-            this.dPv.aTg().aSk();
+    public void aVu() {
+        if (this.dVn != null) {
+            this.dVn.aVG().aUK();
         }
     }
 
     public void a(JSEvent jSEvent) {
-        if (this.dPv != null) {
-            this.dPv.aTg().dispatchEvent(jSEvent);
+        if (this.dVn != null) {
+            this.dVn.aVG().dispatchEvent(jSEvent);
         }
     }
 
     public void X(Activity activity) {
-        if (this.dPv != null) {
-            this.dPv.X(activity);
+        if (this.dVn != null) {
+            this.dVn.X(activity);
         }
     }
 
@@ -166,63 +166,63 @@ public class a {
             Log.d("SwanGameCoreRuntime", "onAppReady");
         }
         if (bVar != null && !TextUtils.isEmpty(bVar.appBundlePath)) {
-            this.cGu = bVar.appBundlePath;
-            i.qv("startup").ci("preload", apq() ? "1" : "0");
-            i.qv("startup").f(new UbcFlowEvent("na_prepare_runtime_start"));
-            a(new InterfaceC0521a() { // from class: com.baidu.swan.games.j.a.2
-                @Override // com.baidu.swan.games.j.a.InterfaceC0521a
+            this.cMn = bVar.appBundlePath;
+            i.qJ("startup").ci("preload", arQ() ? "1" : "0");
+            i.qJ("startup").f(new UbcFlowEvent("na_prepare_runtime_start"));
+            a(new InterfaceC0533a() { // from class: com.baidu.swan.games.j.a.2
+                @Override // com.baidu.swan.games.j.a.InterfaceC0533a
                 public void onReady() {
-                    i.qv("startup").f(new UbcFlowEvent("na_prepare_runtime_end"));
+                    i.qJ("startup").f(new UbcFlowEvent("na_prepare_runtime_end"));
                     ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.j.a.2.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            SwanAppActivity awY;
-                            if (!a.this.cKt && a.this.dPv != null && (awY = f.axo().awY()) != null && !awY.isFinishing() && awY.adm() != null) {
+                            SwanAppActivity azy;
+                            if (!a.this.cQm && a.this.dVn != null && (azy = f.azO().azy()) != null && !azy.isFinishing() && azy.afM() != null) {
                                 if (a.DEBUG) {
-                                    Log.d("SwanGameCoreRuntime", "loadAppJs start: " + a.this.cGu);
+                                    Log.d("SwanGameCoreRuntime", "loadAppJs start: " + a.this.cMn);
                                 }
-                                a.this.dPv.X(awY);
-                                a.this.dPv.b(bVar);
-                                if (a.this.aSV()) {
-                                    a.this.m(awY);
+                                a.this.dVn.X(azy);
+                                a.this.dVn.b(bVar);
+                                if (a.this.aVv()) {
+                                    a.this.m(azy);
                                 }
                             }
                         }
                     });
                 }
             });
-            if (this.dPv != null) {
-                com.baidu.swan.games.network.b.d.aTS().a(this.dPv.aTg(), bVar);
+            if (this.dVn != null) {
+                com.baidu.swan.games.network.b.d.aWs().a(this.dVn.aVG(), bVar);
             }
         }
     }
 
-    public int ant() {
-        if (this.dPv != null) {
-            return this.dPv.ant();
+    public int apU() {
+        if (this.dVn != null) {
+            return this.dVn.apU();
         }
         return 0;
     }
 
-    public boolean apq() {
+    public boolean arQ() {
         boolean z;
-        synchronized (this.cKw) {
-            z = this.cKq && this.dPv != null;
+        synchronized (this.cQp) {
+            z = this.cQj && this.dVn != null;
         }
         return z;
     }
 
-    public boolean aSV() {
-        DuMixGameSurfaceView aSS;
-        return (this.cKt || (aSS = aSS()) == null || aSS.getParent() != null) ? false : true;
+    public boolean aVv() {
+        DuMixGameSurfaceView aVs;
+        return (this.cQm || (aVs = aVs()) == null || aVs.getParent() != null) ? false : true;
     }
 
-    public SwanCoreVersion apD() {
+    public SwanCoreVersion asd() {
         return this.mSwanCoreVersion;
     }
 
     @Nullable
-    public ExtensionCore apE() {
+    public ExtensionCore ase() {
         return this.mExtensionCore;
     }
 
@@ -245,12 +245,12 @@ public class a {
         this.mExtensionCore = extensionCore;
     }
 
-    private void apF() {
+    private void asf() {
         if (this.mExtensionCore == null || !this.mExtensionCore.isAvailable()) {
             if (DEBUG) {
                 Log.w("SwanGameCoreRuntime", "updateExtensionCoreIfNeeded: ExtensionCore is invalid");
             }
-            a(com.baidu.swan.apps.extcore.b.io(1));
+            a(com.baidu.swan.apps.extcore.b.iy(1));
         }
     }
 
@@ -258,12 +258,12 @@ public class a {
         if (this.mExtensionCore != null) {
             bVar.c(this.mExtensionCore);
         } else {
-            this.mExtensionCore = bVar.apE();
+            this.mExtensionCore = bVar.ase();
         }
     }
 
     private boolean y(Intent intent) {
-        switch (aSW()) {
+        switch (aVw()) {
             case 1:
                 return true;
             case 2:
@@ -273,18 +273,18 @@ public class a {
         }
     }
 
-    private int aSW() {
-        if (this.dPu < 0) {
-            this.dPu = com.baidu.swan.apps.t.a.aud().getSwitch("swan_game_preload", 0);
+    private int aVw() {
+        if (this.dVm < 0) {
+            this.dVm = com.baidu.swan.apps.t.a.awD().getSwitch("swan_game_preload", 0);
         }
         if (DEBUG) {
-            Log.d("SwanGameCoreRuntime", "getPreLoadABSwitch:" + this.dPu);
+            Log.d("SwanGameCoreRuntime", "getPreLoadABSwitch:" + this.dVm);
         }
-        return this.dPu;
+        return this.dVm;
     }
 
-    public boolean aSX() {
-        boolean z = com.baidu.swan.apps.t.a.aud().getSwitch("swan_game_startup_improvement", false);
+    public boolean aVx() {
+        boolean z = com.baidu.swan.apps.t.a.awD().getSwitch("swan_game_startup_improvement", false);
         if (DEBUG) {
             Log.d("SwanGameCoreRuntime", "getPushFragmentABSwitch:" + z);
         }
@@ -292,9 +292,9 @@ public class a {
     }
 
     public void m(SwanAppActivity swanAppActivity) {
-        com.baidu.swan.apps.core.d.f adm;
-        if (swanAppActivity != null && !swanAppActivity.isFinishing() && (adm = swanAppActivity.adm()) != null) {
-            adm.amF().al(0, 0).amK().f(j.amS()).amM();
+        com.baidu.swan.apps.core.d.f afM;
+        if (swanAppActivity != null && !swanAppActivity.isFinishing() && (afM = swanAppActivity.afM()) != null) {
+            afM.apf().al(0, 0).apl().f(j.apt()).apn();
         }
     }
 
@@ -308,41 +308,41 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void apt() {
-        if (!this.cKt && !this.cKo.isEmpty() && apq()) {
-            for (InterfaceC0521a interfaceC0521a : this.cKo) {
-                if (interfaceC0521a != null) {
-                    interfaceC0521a.onReady();
+    public void arT() {
+        if (!this.cQm && !this.cQh.isEmpty() && arQ()) {
+            for (InterfaceC0533a interfaceC0533a : this.cQh) {
+                if (interfaceC0533a != null) {
+                    interfaceC0533a.onReady();
                 }
             }
-            this.cKo.clear();
+            this.cQh.clear();
         }
     }
 
-    private String aSY() {
+    private String aVy() {
         return (this.mSwanCoreVersion == null || !this.mSwanCoreVersion.isAvailable()) ? "" : this.mSwanCoreVersion.swanCorePath;
     }
 
-    private void aSZ() {
-        synchronized (this.cKw) {
-            if (!this.cKq && this.dPv == null) {
-                apC();
-                apF();
-                String aSY = aSY();
-                if (!TextUtils.isEmpty(aSY) && !this.cKt) {
+    private void aVz() {
+        synchronized (this.cQp) {
+            if (!this.cQj && this.dVn == null) {
+                asc();
+                asf();
+                String aVy = aVy();
+                if (!TextUtils.isEmpty(aVy) && !this.cQm) {
                     if (DEBUG) {
-                        Log.d("SwanGameCoreRuntime", "prepareMaster start: " + aSY);
+                        Log.d("SwanGameCoreRuntime", "prepareMaster start: " + aVy);
                     }
-                    this.dPv = new c(aSY, "swan-game.js");
-                    this.dPv.a(new c.InterfaceC0522c() { // from class: com.baidu.swan.games.j.a.3
-                        @Override // com.baidu.swan.games.j.c.InterfaceC0522c
+                    this.dVn = new c(aVy, "swan-game.js");
+                    this.dVn.a(new c.InterfaceC0534c() { // from class: com.baidu.swan.games.j.a.3
+                        @Override // com.baidu.swan.games.j.c.InterfaceC0534c
                         public void c(com.baidu.swan.games.f.a aVar) {
                             if (a.DEBUG) {
                                 Log.d("SwanGameCoreRuntime", "prepareMaster end.");
                             }
-                            synchronized (a.this.cKw) {
-                                a.this.cKq = true;
-                                a.this.apt();
+                            synchronized (a.this.cQp) {
+                                a.this.cQj = true;
+                                a.this.arT();
                             }
                         }
                     });
@@ -351,37 +351,37 @@ public class a {
         }
     }
 
-    private void apC() {
+    private void asc() {
         if (this.mSwanCoreVersion == null || !this.mSwanCoreVersion.isAvailable()) {
-            a(aTa());
+            a(aVA());
         }
     }
 
-    private SwanCoreVersion aTa() {
-        if (com.baidu.swan.games.k.a.c.wQ("package")) {
-            if (TextUtils.isEmpty(this.cGu)) {
+    private SwanCoreVersion aVA() {
+        if (com.baidu.swan.games.k.a.c.xe("package")) {
+            if (TextUtils.isEmpty(this.cMn)) {
                 return null;
             }
-            if (!new File(this.cGu, "swan-game.js").exists()) {
+            if (!new File(this.cMn, "swan-game.js").exists()) {
                 ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.j.a.4
                     @Override // java.lang.Runnable
                     public void run() {
                         Toast.makeText(AppRuntime.getAppContext(), a.h.debug_game_core_package_error, 1).show();
                     }
                 });
-                return com.baidu.swan.apps.swancore.b.kw(1);
+                return com.baidu.swan.apps.swancore.b.kG(1);
             }
             SwanCoreVersion swanCoreVersion = new SwanCoreVersion();
-            swanCoreVersion.swanCorePath = this.cGu;
+            swanCoreVersion.swanCorePath = this.cMn;
             swanCoreVersion.swanCoreType = 2;
             return swanCoreVersion;
-        } else if (com.baidu.swan.games.k.a.c.wQ("normal") || com.baidu.swan.apps.ad.a.a.aCm()) {
+        } else if (com.baidu.swan.games.k.a.c.xe("normal") || com.baidu.swan.apps.ad.a.a.aEM()) {
             SwanCoreVersion swanCoreVersion2 = new SwanCoreVersion();
-            swanCoreVersion2.swanCorePath = com.baidu.swan.games.k.a.b.arE().getAbsolutePath();
+            swanCoreVersion2.swanCorePath = com.baidu.swan.games.k.a.b.auf().getAbsolutePath();
             swanCoreVersion2.swanCoreType = 2;
             return swanCoreVersion2;
         } else {
-            return com.baidu.swan.apps.swancore.b.kw(1);
+            return com.baidu.swan.apps.swancore.b.kG(1);
         }
     }
 }

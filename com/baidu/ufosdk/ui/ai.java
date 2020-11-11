@@ -10,19 +10,19 @@ import com.baidu.ufosdk.UfoSDK;
 public final class ai implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackFacePageActivity f3747a;
+    final /* synthetic */ FeedbackFacePageActivity f3749a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(FeedbackFacePageActivity feedbackFacePageActivity) {
-        this.f3747a = feedbackFacePageActivity;
+        this.f3749a = feedbackFacePageActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         String str;
         if (UfoSDK.clientid.length() == 0) {
-            Toast.makeText(this.f3747a.getApplicationContext(), com.baidu.ufosdk.f.s.a("62"), 1).show();
-            if (com.baidu.ufosdk.b.d.b(this.f3747a.getApplicationContext()).contains(RomUtils.UNKNOWN) || com.baidu.ufosdk.b.d.b(this.f3747a.getApplicationContext()).contains("NONE")) {
+            Toast.makeText(this.f3749a.getApplicationContext(), com.baidu.ufosdk.f.s.a("62"), 1).show();
+            if (com.baidu.ufosdk.b.d.b(this.f3749a.getApplicationContext()).contains(RomUtils.UNKNOWN) || com.baidu.ufosdk.b.d.b(this.f3749a.getApplicationContext()).contains("NONE")) {
                 return;
             }
             new Thread(new aj(this)).start();
@@ -33,13 +33,13 @@ public final class ai implements View.OnClickListener {
                 return;
             }
             Intent intent = new Intent();
-            intent.setClass(this.f3747a, FeedbackEditActivity.class);
-            str = this.f3747a.t;
+            intent.setClass(this.f3749a, FeedbackEditActivity.class);
+            str = this.f3749a.t;
             intent.putExtra("msgid", str);
             intent.putExtra("fromlist", "no");
             intent.putExtra("feedback_channel", com.baidu.ufosdk.b.j);
             intent.putExtra("come_from", 2);
-            this.f3747a.startActivity(intent);
+            this.f3749a.startActivity(intent);
         } catch (Exception e) {
             e.printStackTrace();
         }

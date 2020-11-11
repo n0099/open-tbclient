@@ -8,25 +8,25 @@ import tbclient.TbBookrack;
 public class a {
     public String booktown;
     public String icon;
-    public int lOl;
-    public List<b> lOm;
+    public int lUh;
+    public List<b> lUi;
     public String tip;
     public String title;
 
     public void a(TbBookrack tbBookrack) {
         if (tbBookrack != null) {
             this.booktown = tbBookrack.booktown;
-            this.lOl = tbBookrack.num.intValue();
+            this.lUh = tbBookrack.num.intValue();
             this.title = tbBookrack.title;
             this.icon = tbBookrack.icon;
             this.tip = tbBookrack.tip;
-            this.lOm = new ArrayList();
+            this.lUi = new ArrayList();
             if (tbBookrack.book_list != null) {
                 for (BookInfo bookInfo : tbBookrack.book_list) {
                     if (bookInfo != null) {
                         b bVar = new b();
                         bVar.a(bookInfo);
-                        this.lOm.add(bVar);
+                        this.lUi.add(bVar);
                     }
                 }
             }

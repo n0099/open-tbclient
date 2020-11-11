@@ -56,8 +56,8 @@ public class PbListView extends BdIListPage {
         this.endText = null;
         this.mContainer = null;
         this.mTextColor = 0;
-        this.mNoMoreTextColorId = a.d.sdk_cp_cont_e;
-        this.lineColor = a.d.sdk_cp_bg_line_b;
+        this.mNoMoreTextColorId = a.c.sdk_cp_cont_e;
+        this.lineColor = a.c.sdk_cp_bg_line_b;
         this.lineView = null;
         this.mTopExtraView = null;
         this.mIsMoreViewVisible = true;
@@ -73,19 +73,19 @@ public class PbListView extends BdIListPage {
 
     @Override // com.baidu.live.adp.widget.listview.BdIListPage
     public View createView() {
-        this.mRoot = LayoutInflater.from(this.mContext).inflate(a.h.sdk_new_pb_list_more, (ViewGroup) null);
-        this.mContainer = (LinearLayout) this.mRoot.findViewById(a.g.pb_more_view);
-        this.mTextView = (TextView) this.mRoot.findViewById(a.g.pb_more_text);
+        this.mRoot = LayoutInflater.from(this.mContext).inflate(a.g.sdk_new_pb_list_more, (ViewGroup) null);
+        this.mContainer = (LinearLayout) this.mRoot.findViewById(a.f.pb_more_view);
+        this.mTextView = (TextView) this.mRoot.findViewById(a.f.pb_more_text);
         this.mTextView.setTextSize(this.mTextSize);
         if (this.mIsMoreViewVisible) {
             this.mContainer.setVisibility(0);
         } else {
             this.mContainer.setVisibility(8);
         }
-        this.mProgressBar = (ProgressBar) this.mRoot.findViewById(a.g.progress);
-        this.lineView = (ImageView) this.mRoot.findViewById(a.g.pb_more_view_top_line);
-        this.mEmpty = this.mRoot.findViewById(a.g.empty_view);
-        this.mTopExtraView = (LinearLayout) this.mRoot.findViewById(a.g.pb_more_top_extra_view);
+        this.mProgressBar = (ProgressBar) this.mRoot.findViewById(a.f.progress);
+        this.lineView = (ImageView) this.mRoot.findViewById(a.f.pb_more_view_top_line);
+        this.mEmpty = this.mRoot.findViewById(a.f.empty_view);
+        this.mTopExtraView = (LinearLayout) this.mRoot.findViewById(a.f.pb_more_top_extra_view);
         return this.mRoot;
     }
 
@@ -114,7 +114,7 @@ public class PbListView extends BdIListPage {
 
     public void setLightLine() {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.lineView.getLayoutParams();
-        layoutParams.height = BdUtilHelper.getDimens(this.mContext, a.e.sdk_ds1);
+        layoutParams.height = BdUtilHelper.getDimens(this.mContext, a.d.sdk_ds1);
         this.lineView.setLayoutParams(layoutParams);
     }
 
@@ -154,7 +154,7 @@ public class PbListView extends BdIListPage {
 
     public void startLoadData() {
         this.mProgressBar.setVisibility(0);
-        this.mTextView.setText(this.mContext.getText(a.i.sdk_loading));
+        this.mTextView.setText(this.mContext.getText(a.h.sdk_loading));
         changeSkin(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -163,13 +163,13 @@ public class PbListView extends BdIListPage {
         if (this.endText != null) {
             this.mTextView.setText(this.endText);
         } else {
-            this.mTextView.setText(this.mContext.getText(a.i.sdk_pb_load_more));
+            this.mTextView.setText(this.mContext.getText(a.h.sdk_pb_load_more));
         }
         changeSkin(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void endLoadDataWithNoMore() {
-        setText(this.mContext.getResources().getString(a.i.sdk_list_no_more));
+        setText(this.mContext.getResources().getString(a.h.sdk_list_no_more));
         endLoadData();
     }
 
@@ -186,7 +186,7 @@ public class PbListView extends BdIListPage {
 
     public void showLoading() {
         this.mProgressBar.setVisibility(0);
-        this.mTextView.setText(this.mContext.getText(a.i.sdk_loading));
+        this.mTextView.setText(this.mContext.getText(a.h.sdk_loading));
     }
 
     public void setBackground(int i) {
@@ -236,17 +236,17 @@ public class PbListView extends BdIListPage {
             i = this.mSkinType;
         }
         String charSequence = this.mTextView.getText().toString();
-        if (charSequence.equals(this.mContext.getText(a.i.sdk_pb_load_more))) {
-            color = SkinManager.getColor(i, a.d.sdk_common_color_10039);
-        } else if (charSequence.equals(this.mContext.getText(a.i.sdk_loading))) {
-            color = SkinManager.getColor(i, a.d.sdk_common_color_10039);
-        } else if (charSequence.equals(this.mContext.getText(a.i.sdk_list_no_more)) || charSequence.equals(this.mContext.getText(a.i.sdk_list_has_no_more))) {
-            color = SkinManager.getColor(i, a.d.sdk_common_color_10005);
+        if (charSequence.equals(this.mContext.getText(a.h.sdk_pb_load_more))) {
+            color = SkinManager.getColor(i, a.c.sdk_common_color_10039);
+        } else if (charSequence.equals(this.mContext.getText(a.h.sdk_loading))) {
+            color = SkinManager.getColor(i, a.c.sdk_common_color_10039);
+        } else if (charSequence.equals(this.mContext.getText(a.h.sdk_list_no_more)) || charSequence.equals(this.mContext.getText(a.h.sdk_list_has_no_more))) {
+            color = SkinManager.getColor(i, a.c.sdk_common_color_10005);
             z = true;
-        } else if (charSequence.equals(this.mContext.getText(a.i.sdk_list_no_more_new))) {
-            color = SkinManager.getColor(i, a.d.sdk_cp_cont_e);
+        } else if (charSequence.equals(this.mContext.getText(a.h.sdk_list_no_more_new))) {
+            color = SkinManager.getColor(i, a.c.sdk_cp_cont_e);
         } else {
-            color = charSequence.equals(this.mContext.getText(a.i.sdk_list_click_load_more)) ? SkinManager.getColor(i, a.d.sdk_cp_cont_d) : 0;
+            color = charSequence.equals(this.mContext.getText(a.h.sdk_list_click_load_more)) ? SkinManager.getColor(i, a.c.sdk_cp_cont_d) : 0;
         }
         if (z && this.mNoMoreTextColorId != 0) {
             color = SkinManager.getColor(i, this.mNoMoreTextColorId);
@@ -259,7 +259,7 @@ public class PbListView extends BdIListPage {
         }
         SkinManager.setImageResource(this.lineView, this.lineColor, i);
         if (this.mContainerBackgroundColorResId == 0) {
-            SkinManager.setBackgroundResource(this.mContainer, a.d.sdk_cp_bg_line_d, i);
+            SkinManager.setBackgroundResource(this.mContainer, a.c.sdk_cp_bg_line_d, i);
         } else if (this.mContainerBackgroundColorResId > 0) {
             SkinManager.setBackgroundResource(this.mContainer, this.mContainerBackgroundColorResId, i);
         }

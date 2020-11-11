@@ -1,23 +1,74 @@
 package com.baidu.live.ac;
 
-import com.baidu.live.data.w;
-import com.baidu.live.pendantview.PendantChildView;
-import org.json.JSONObject;
+import android.text.TextUtils;
 /* loaded from: classes4.dex */
-public interface b {
-    PendantChildView Qd();
+public class b {
+    public static String Qq() {
+        return a.bun;
+    }
 
-    void Qe();
+    public static String Qr() {
+        return a.bup;
+    }
 
-    void Qf();
+    public static String ia(String str) {
+        return !TextUtils.isEmpty(str) ? Qr() + "/" + str : "";
+    }
 
-    void R(JSONObject jSONObject);
+    public static String ib(String str) {
+        return !TextUtils.isEmpty(str) ? ia(str) + "/dest" : "";
+    }
 
-    void j(w wVar);
+    public static String ic(String str) {
+        return !TextUtils.isEmpty(str) ? ia(str) + "/video" : "";
+    }
 
-    void onDestroy();
+    public static String id(String str) {
+        return !TextUtils.isEmpty(str) ? ia(str) + "/frame" : "";
+    }
 
-    void setCanVisible(boolean z);
+    public static String Qs() {
+        return a.buq;
+    }
 
-    void setOtherParams(String str);
+    public static String ie(String str) {
+        return !TextUtils.isEmpty(str) ? Qs() + "/" + str : "";
+    }
+
+    /* renamed from: if  reason: not valid java name */
+    public static String m22if(String str) {
+        return !TextUtils.isEmpty(str) ? ie(str) + "/dest" : "";
+    }
+
+    public static String ig(String str) {
+        return !TextUtils.isEmpty(str) ? ie(str) + "/video" : "";
+    }
+
+    public static String ih(String str) {
+        return !TextUtils.isEmpty(str) ? ie(str) + "/frame" : "";
+    }
+
+    public static String Qt() {
+        return a.bur;
+    }
+
+    public static String Qu() {
+        return Qt() + "/start";
+    }
+
+    public static String Qv() {
+        return Qu() + "/dest";
+    }
+
+    public static String Qw() {
+        return Qu() + "/video";
+    }
+
+    public static String ii(String str) {
+        return a.bus + "/" + str + "/dest";
+    }
+
+    public static String ij(String str) {
+        return a.bus + "/" + str;
+    }
 }

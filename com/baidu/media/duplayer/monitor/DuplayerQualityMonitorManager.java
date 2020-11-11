@@ -13,7 +13,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes16.dex */
 public class DuplayerQualityMonitorManager {
     private static final int[] b = {480, UIMsg.MsgDefine.MSG_NETWORK_CHANNEL, 720, 1080};
-    private static DuplayerQualityMonitorManager bTh;
+    private static DuplayerQualityMonitorManager bYR;
     private ConcurrentHashMap<String, Integer> c = new ConcurrentHashMap<>();
     private int d = -1;
 
@@ -65,10 +65,10 @@ public class DuplayerQualityMonitorManager {
     public static synchronized DuplayerQualityMonitorManager getInstance() {
         DuplayerQualityMonitorManager duplayerQualityMonitorManager;
         synchronized (DuplayerQualityMonitorManager.class) {
-            if (bTh == null) {
-                bTh = new DuplayerQualityMonitorManager();
+            if (bYR == null) {
+                bYR = new DuplayerQualityMonitorManager();
             }
-            duplayerQualityMonitorManager = bTh;
+            duplayerQualityMonitorManager = bYR;
         }
         return duplayerQualityMonitorManager;
     }

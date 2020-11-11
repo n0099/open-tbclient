@@ -8,10 +8,10 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f5122a;
+    private static Context f5124a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static String f935a = null;
+    private static String f937a = null;
 
     public static int a() {
         try {
@@ -27,7 +27,7 @@ public class t {
 
     /* renamed from: a  reason: collision with other method in class */
     public static Context m583a() {
-        return f5122a;
+        return f5124a;
     }
 
     public static Class<?> a(Context context, String str) {
@@ -53,8 +53,8 @@ public class t {
     public static synchronized String m584a() {
         String str;
         synchronized (t.class) {
-            if (f935a != null) {
-                str = f935a;
+            if (f937a != null) {
+                str = f937a;
             } else {
                 String str2 = Build.VERSION.INCREMENTAL;
                 if (a() <= 0) {
@@ -71,7 +71,7 @@ public class t {
                 } else {
                     str = str2;
                 }
-                f935a = str;
+                f937a = str;
             }
         }
         return str;
@@ -87,7 +87,7 @@ public class t {
 
     /* renamed from: a  reason: collision with other method in class */
     public static void m585a(Context context) {
-        f5122a = context.getApplicationContext();
+        f5124a = context.getApplicationContext();
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -106,8 +106,8 @@ public class t {
     }
 
     private static String b() {
-        f935a = s.a("ro.build.version.emui", "");
-        return f935a;
+        f937a = s.a("ro.build.version.emui", "");
+        return f937a;
     }
 
     /* renamed from: b  reason: collision with other method in class */
@@ -126,16 +126,16 @@ public class t {
     private static String c() {
         String a2 = s.a("ro.build.version.opporom", "");
         if (!TextUtils.isEmpty(a2) && !a2.startsWith("ColorOS_")) {
-            f935a = "ColorOS_" + a2;
+            f937a = "ColorOS_" + a2;
         }
-        return f935a;
+        return f937a;
     }
 
     private static String d() {
         String a2 = s.a("ro.vivo.os.version", "");
         if (!TextUtils.isEmpty(a2) && !a2.startsWith("FuntouchOS_")) {
-            f935a = "FuntouchOS_" + a2;
+            f937a = "FuntouchOS_" + a2;
         }
-        return f935a;
+        return f937a;
     }
 }

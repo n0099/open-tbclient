@@ -13,11 +13,11 @@ public class b extends com.baidu.swan.apps.api.a.d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b lE(String str) {
+    public com.baidu.swan.apps.api.c.b lT(String str) {
         if (DEBUG) {
             Log.d("Api-HandleException", "params = " + str);
         }
-        if (aha()) {
+        if (ajA()) {
             com.baidu.swan.apps.console.c.e("Api-HandleException", "Api-HandleException does not supported when app is invisible.");
             return new com.baidu.swan.apps.api.c.b(1001, "Api-HandleException does not supported when app is invisible.");
         }
@@ -55,20 +55,20 @@ public class b extends com.baidu.swan.apps.api.a.d {
         }
         switch (c) {
             case 0:
-                return aP(jSONObject);
+                return aV(jSONObject);
             case 1:
-                return aO(jSONObject);
+                return aU(jSONObject);
             default:
                 return new com.baidu.swan.apps.api.c.b(202, "unsupported code");
         }
     }
 
-    private com.baidu.swan.apps.api.c.b aO(JSONObject jSONObject) {
+    private com.baidu.swan.apps.api.c.b aU(JSONObject jSONObject) {
         com.baidu.swan.apps.core.f.bp("data_init", "业务数据初始化异常");
         return new com.baidu.swan.apps.api.c.b(0);
     }
 
-    private com.baidu.swan.apps.api.c.b aP(JSONObject jSONObject) {
+    private com.baidu.swan.apps.api.c.b aV(JSONObject jSONObject) {
         String optString = jSONObject.optString("data");
         if (TextUtils.isEmpty(optString)) {
             return new com.baidu.swan.apps.api.c.b(202, "data is required");
@@ -78,7 +78,7 @@ public class b extends com.baidu.swan.apps.api.a.d {
             if (TextUtils.isEmpty(optString2)) {
                 return new com.baidu.swan.apps.api.c.b(202, "path is required");
             }
-            if (ak.uj(optString2) && ak.aKt()) {
+            if (ak.ux(optString2) && ak.aMT()) {
                 com.baidu.swan.apps.core.f.bp("skeleton", "5秒内未触发骨架屏移除");
             } else if (DEBUG) {
                 Log.d("Api-HandleException", "path is not first page: " + optString2);

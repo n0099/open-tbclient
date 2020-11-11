@@ -3,7 +3,7 @@ package com.baidu.mapsdkplatform.comapi.map;
 public abstract class c {
 
     /* renamed from: a  reason: collision with root package name */
-    long f2221a;
+    long f2223a;
     String b;
     int c;
     int d;

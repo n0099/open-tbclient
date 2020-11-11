@@ -11,19 +11,19 @@ import com.baidu.live.sdk.a;
 import com.baidu.tieba.ala.live.guess.a.c;
 /* loaded from: classes4.dex */
 public class f extends b implements View.OnClickListener {
-    private TextView gIx;
-    private TextView gIy;
-    private a gIz;
+    private TextView gOj;
+    private TextView gOk;
+    private a gOl;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void akM();
+        void anm();
 
-        void bSt();
+        void bUS();
     }
 
     public void a(a aVar) {
-        this.gIz = aVar;
+        this.gOl = aVar;
     }
 
     public f(Context context) {
@@ -31,20 +31,20 @@ public class f extends b implements View.OnClickListener {
     }
 
     @Override // com.baidu.tieba.ala.live.guess.a.b
-    public void Ga() {
-        this.gIy.setOnClickListener(this);
-        this.gIx.setOnClickListener(this);
+    public void GB() {
+        this.gOk.setOnClickListener(this);
+        this.gOj.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.ala.live.guess.a.b
-    void bSz() {
-        this.mRootView = LayoutInflater.from(this.mDialog.getContext()).inflate(a.h.ala_guess_voucher_dialog, (ViewGroup) null);
+    void bUY() {
+        this.mRootView = LayoutInflater.from(this.mDialog.getContext()).inflate(a.g.ala_guess_voucher_dialog, (ViewGroup) null);
     }
 
     @Override // com.baidu.tieba.ala.live.guess.a.b
     public void initView() {
-        this.gIx = (TextView) this.mRootView.findViewById(a.g.tv_guess_continue);
-        this.gIy = (TextView) this.mRootView.findViewById(a.g.tv_guess_voucher);
+        this.gOj = (TextView) this.mRootView.findViewById(a.f.tv_guess_continue);
+        this.gOk = (TextView) this.mRootView.findViewById(a.f.tv_guess_voucher);
         this.mDialog.setOnKeyListener(new c.b(new DialogInterface.OnKeyListener() { // from class: com.baidu.tieba.ala.live.guess.a.f.1
             @Override // android.content.DialogInterface.OnKeyListener
             public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
@@ -55,13 +55,13 @@ public class f extends b implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.gIx) {
-            if (this.gIz != null) {
-                this.gIz.akM();
+        if (view == this.gOj) {
+            if (this.gOl != null) {
+                this.gOl.anm();
                 dismiss();
             }
-        } else if (view == this.gIy) {
-            this.gIz.bSt();
+        } else if (view == this.gOk) {
+            this.gOl.bUS();
             dismiss();
         }
     }

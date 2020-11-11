@@ -273,7 +273,7 @@ public class BdSailor implements INoProGuard {
 
     public void initWebkit(String str, boolean z, Class<? extends CrashCallback> cls) {
         long currentTimeMillis = System.currentTimeMillis();
-        boolean z2 = BdWebkitManager.a.f1284a == BdSailorPlatform.getWebkitManager().getWebkitType$630ca8f2();
+        boolean z2 = BdWebkitManager.a.f1286a == BdSailorPlatform.getWebkitManager().getWebkitType$630ca8f2();
         if (z2) {
             ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_INIT_SYS_WEBKIT);
         } else {

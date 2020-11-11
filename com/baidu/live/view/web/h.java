@@ -1,5 +1,5 @@
 package com.baidu.live.view.web;
 /* loaded from: classes4.dex */
 public interface h {
-    void iG(String str);
+    void iT(String str);
 }

@@ -10,24 +10,24 @@ import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tieba.R;
 /* loaded from: classes21.dex */
 public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPraiseInfoLayout {
-    private AgreeView.a eQf;
+    private AgreeView.a eVU;
 
     public ThreadCardBottomOpSegmentWeightLayout(Context context) {
         super(context);
-        this.eQf = new AgreeView.a() { // from class: com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentWeightLayout.1
+        this.eVU = new AgreeView.a() { // from class: com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentWeightLayout.1
             @Override // com.baidu.tbadk.core.view.AgreeView.a
-            public void e(View view, boolean z) {
-                ThreadCardBottomOpSegmentWeightLayout.this.ji(z);
+            public void f(View view, boolean z) {
+                ThreadCardBottomOpSegmentWeightLayout.this.jr(z);
             }
         };
     }
 
     public ThreadCardBottomOpSegmentWeightLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eQf = new AgreeView.a() { // from class: com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentWeightLayout.1
+        this.eVU = new AgreeView.a() { // from class: com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentWeightLayout.1
             @Override // com.baidu.tbadk.core.view.AgreeView.a
-            public void e(View view, boolean z) {
-                ThreadCardBottomOpSegmentWeightLayout.this.ji(z);
+            public void f(View view, boolean z) {
+                ThreadCardBottomOpSegmentWeightLayout.this.jr(z);
             }
         };
     }
@@ -39,29 +39,29 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void afv() {
-        this.eQk.setVisibilityListener(this.eQf);
-        this.eQk.iY(true);
+    public void ahV() {
+        this.eVZ.setVisibilityListener(this.eVU);
+        this.eVZ.jh(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ji(boolean z) {
-        if (bqp()) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eQk.getLayoutParams();
+    public void jr(boolean z) {
+        if (bsP()) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eVZ.getLayoutParams();
             float f = z ? 1.0f : 2.0f;
             layoutParams.width = 0;
             layoutParams.weight = f;
             layoutParams.leftMargin = 0;
             layoutParams.rightMargin = 0;
-            this.eQk.setLayoutParams(layoutParams);
+            this.eVZ.setLayoutParams(layoutParams);
         }
     }
 
-    private boolean bqp() {
-        boolean bpG = this.eQk.bpG();
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eQk.getLayoutParams();
+    private boolean bsP() {
+        boolean bsg = this.eVZ.bsg();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eVZ.getLayoutParams();
         int i = layoutParams.width;
-        if (layoutParams.weight != (bpG ? 1.0f : 2.0f) || i != 0) {
+        if (layoutParams.weight != (bsg ? 1.0f : 2.0f) || i != 0) {
             return true;
         }
         return false;

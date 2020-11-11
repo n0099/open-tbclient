@@ -7,12 +7,12 @@ import android.os.Looper;
 public class m extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    Handler f1842a;
+    Handler f1844a;
     private Object b;
     private boolean c;
 
     m() {
-        this.f1842a = null;
+        this.f1844a = null;
         this.b = new Object();
         this.c = false;
     }
@@ -20,16 +20,16 @@ public class m extends Thread {
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(String str) {
         super(str);
-        this.f1842a = null;
+        this.f1844a = null;
         this.b = new Object();
         this.c = false;
     }
 
     public void a() {
-        if (a.f1831a) {
+        if (a.f1833a) {
             a.a("Looper thread quit()");
         }
-        this.f1842a.getLooper().quit();
+        this.f1844a.getLooper().quit();
     }
 
     public void b() {
@@ -54,12 +54,12 @@ public class m extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         Looper.prepare();
-        this.f1842a = new Handler();
-        if (a.f1831a) {
+        this.f1844a = new Handler();
+        if (a.f1833a) {
             a.a("new Handler() finish!!");
         }
         Looper.loop();
-        if (a.f1831a) {
+        if (a.f1833a) {
             a.a("LooperThread run() thread id:" + String.valueOf(Thread.currentThread().getId()));
         }
     }

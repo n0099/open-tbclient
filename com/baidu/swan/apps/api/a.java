@@ -34,13 +34,13 @@ public class a implements b {
 
     @Override // com.baidu.swan.apps.api.a.b
     @NonNull
-    public CallbackHandler agW() {
+    public CallbackHandler ajw() {
         return this.mCallbackHandler;
     }
 
     @Override // com.baidu.swan.apps.api.a.b
     @NonNull
-    public com.baidu.swan.apps.core.container.a agX() {
+    public com.baidu.swan.apps.core.container.a ajx() {
         return this.mJSContainer;
     }
 
@@ -53,11 +53,11 @@ public class a implements b {
     }
 
     private void a(@NonNull com.baidu.swan.games.f.b bVar) {
-        a(bVar, SwanApi$$ModulesProvider.getV8ApiModules(this), com.baidu.swan.apps.t.a.auC().getV8ApiModules(this));
+        a(bVar, SwanApi$$ModulesProvider.getV8ApiModules(this), com.baidu.swan.apps.t.a.axc().getV8ApiModules(this));
     }
 
     private void b(@NonNull com.baidu.swan.apps.core.container.a aVar) {
-        a(aVar, SwanApi$$ModulesProvider.getWebviewApiModules(this), com.baidu.swan.apps.t.a.auC().getWebviewApiModules(this));
+        a(aVar, SwanApi$$ModulesProvider.getWebviewApiModules(this), com.baidu.swan.apps.t.a.axc().getWebviewApiModules(this));
     }
 
     private void a(@NonNull com.baidu.swan.apps.core.container.a aVar, Map<String, Object> map, Map<String, Object> map2) {

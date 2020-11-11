@@ -7,7 +7,7 @@ import java.util.Locale;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f1919a;
+    public int f1921a;
     public long b;
     public int c;
     public int d;
@@ -23,7 +23,7 @@ public class a {
     private boolean n;
 
     public a() {
-        this.f1919a = -1;
+        this.f1921a = -1;
         this.b = -1L;
         this.c = -1;
         this.d = -1;
@@ -41,7 +41,7 @@ public class a {
     }
 
     public a(int i, long j, int i2, int i3, int i4, char c, int i5) {
-        this.f1919a = -1;
+        this.f1921a = -1;
         this.b = -1L;
         this.c = -1;
         this.d = -1;
@@ -55,7 +55,7 @@ public class a {
         this.l = null;
         this.m = null;
         this.n = false;
-        this.f1919a = i;
+        this.f1921a = i;
         this.b = j;
         this.c = i2;
         this.d = i3;
@@ -66,7 +66,7 @@ public class a {
     }
 
     public a(a aVar) {
-        this(aVar.f1919a, aVar.b, aVar.c, aVar.d, aVar.h, aVar.i, aVar.j);
+        this(aVar.f1921a, aVar.b, aVar.c, aVar.d, aVar.h, aVar.i, aVar.j);
         this.g = aVar.g;
         this.l = aVar.l;
         this.k = aVar.k;
@@ -79,23 +79,23 @@ public class a {
     }
 
     public boolean a(a aVar) {
-        return this.f1919a == aVar.f1919a && this.b == aVar.b && this.d == aVar.d && this.c == aVar.c;
+        return this.f1921a == aVar.f1921a && this.b == aVar.b && this.d == aVar.d && this.c == aVar.c;
     }
 
     public boolean b() {
-        return this.f1919a > -1 && this.b > 0;
+        return this.f1921a > -1 && this.b > 0;
     }
 
     public boolean c() {
-        return this.f1919a == -1 && this.b == -1 && this.d == -1 && this.c == -1;
+        return this.f1921a == -1 && this.b == -1 && this.d == -1 && this.c == -1;
     }
 
     public boolean d() {
-        return this.f1919a > -1 && this.b > -1 && this.d == -1 && this.c == -1;
+        return this.f1921a > -1 && this.b > -1 && this.d == -1 && this.c == -1;
     }
 
     public boolean e() {
-        return this.f1919a > -1 && this.b > -1 && this.d > -1 && this.c > -1;
+        return this.f1921a > -1 && this.b > -1 && this.d > -1 && this.c > -1;
     }
 
     public void f() {
@@ -103,14 +103,14 @@ public class a {
     }
 
     public String g() {
-        return String.format(Locale.CHINA, "%d|%d|%d|%d", Integer.valueOf(this.c), Integer.valueOf(this.d), Integer.valueOf(this.f1919a), Long.valueOf(this.b));
+        return String.format(Locale.CHINA, "%d|%d|%d|%d", Integer.valueOf(this.c), Integer.valueOf(this.d), Integer.valueOf(this.f1921a), Long.valueOf(this.b));
     }
 
     public String h() {
         StringBuffer stringBuffer = new StringBuffer(128);
         stringBuffer.append("&nw=");
         stringBuffer.append(this.i);
-        stringBuffer.append(String.format(Locale.CHINA, "&cl=%d|%d|%d|%d&cl_s=%d&clp=%d", Integer.valueOf(this.c), Integer.valueOf(this.d), Integer.valueOf(this.f1919a), Long.valueOf(this.b), Integer.valueOf(this.h), Integer.valueOf(this.k)));
+        stringBuffer.append(String.format(Locale.CHINA, "&cl=%d|%d|%d|%d&cl_s=%d&clp=%d", Integer.valueOf(this.c), Integer.valueOf(this.d), Integer.valueOf(this.f1921a), Long.valueOf(this.b), Integer.valueOf(this.h), Integer.valueOf(this.k)));
         if (this.j != Integer.MAX_VALUE) {
             stringBuffer.append("&cl_cs=");
             stringBuffer.append(this.j);
@@ -129,7 +129,7 @@ public class a {
         StringBuffer stringBuffer = new StringBuffer(128);
         stringBuffer.append("&nw2=");
         stringBuffer.append(this.i);
-        stringBuffer.append(String.format(Locale.CHINA, "&cl2=%d|%d|%d|%d&cl_s2=%d&clp2=%d", Integer.valueOf(this.c), Integer.valueOf(this.d), Integer.valueOf(this.f1919a), Long.valueOf(this.b), Integer.valueOf(this.h), Integer.valueOf(this.k)));
+        stringBuffer.append(String.format(Locale.CHINA, "&cl2=%d|%d|%d|%d&cl_s2=%d&clp2=%d", Integer.valueOf(this.c), Integer.valueOf(this.d), Integer.valueOf(this.f1921a), Long.valueOf(this.b), Integer.valueOf(this.h), Integer.valueOf(this.k)));
         if (this.j != Integer.MAX_VALUE) {
             stringBuffer.append("&cl_cs2=");
             stringBuffer.append(this.j);

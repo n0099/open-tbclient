@@ -8,7 +8,7 @@ import java.util.UUID;
 public final class h extends j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f4329a = g.a("multipart/mixed");
+    public static final g f4331a = g.a("multipart/mixed");
     public static final g b = g.a("multipart/alternative");
     public static final g c = g.a("multipart/digest");
     public static final g d = g.a("multipart/parallel");
@@ -26,7 +26,7 @@ public final class h extends j {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final com.meizu.cloud.pushsdk.b.g.e f4330a;
+        private final com.meizu.cloud.pushsdk.b.g.e f4332a;
         private g b;
         private final List<b> c;
 
@@ -35,9 +35,9 @@ public final class h extends j {
         }
 
         public a(String str) {
-            this.b = h.f4329a;
+            this.b = h.f4331a;
             this.c = new ArrayList();
-            this.f4330a = com.meizu.cloud.pushsdk.b.g.e.a(str);
+            this.f4332a = com.meizu.cloud.pushsdk.b.g.e.a(str);
         }
 
         public a a(c cVar, j jVar) {
@@ -67,7 +67,7 @@ public final class h extends j {
             if (this.c.isEmpty()) {
                 throw new IllegalStateException("Multipart body must have at least one part.");
             }
-            return new h(this.f4330a, this.b, this.c);
+            return new h(this.f4332a, this.b, this.c);
         }
     }
 
@@ -75,11 +75,11 @@ public final class h extends j {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private final c f4331a;
+        private final c f4333a;
         private final j b;
 
         private b(c cVar, j jVar) {
-            this.f4331a = cVar;
+            this.f4333a = cVar;
             this.b = jVar;
         }
 
@@ -117,7 +117,7 @@ public final class h extends j {
         int size = this.l.size();
         for (int i = 0; i < size; i++) {
             b bVar3 = this.l.get(i);
-            c cVar2 = bVar3.f4331a;
+            c cVar2 = bVar3.f4333a;
             j jVar = bVar3.b;
             cVar.c(h);
             cVar.b(this.i);

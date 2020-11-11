@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final long f1452a = 1000;
+    public static final long f1454a = 1000;
     private static final long e = Long.MAX_VALUE;
     private static final int f = 5;
     private static final int g = 128;
@@ -94,9 +94,9 @@ public final class a {
             Iterator<c> it = c2.iterator();
             while (it.hasNext()) {
                 c next = it.next();
-                if (next.f1455a.equals(str2)) {
+                if (next.f1457a.equals(str2)) {
                     b(next);
-                    c2.remove(next.f1455a);
+                    c2.remove(next.f1457a);
                 }
             }
         }
@@ -106,7 +106,7 @@ public final class a {
         Iterator<c> it = arrayList.iterator();
         while (it.hasNext()) {
             c next = it.next();
-            if (TextUtils.equals(str, next.f1455a)) {
+            if (TextUtils.equals(str, next.f1457a)) {
                 return next;
             }
         }
@@ -127,7 +127,7 @@ public final class a {
         if (cVar != null && cVar.b != null) {
             synchronized (this.j) {
                 ArrayList<c> c2 = c(str);
-                c a2 = a(cVar.f1455a, c2);
+                c a2 = a(cVar.f1457a, c2);
                 if (a2 != null) {
                     b(a2);
                     c2.remove(a2);
@@ -194,7 +194,7 @@ public final class a {
     private boolean a(c cVar, ArrayList<c> arrayList) {
         Iterator<c> it = arrayList.iterator();
         while (it.hasNext()) {
-            if (TextUtils.equals(it.next().f1455a, cVar.f1455a)) {
+            if (TextUtils.equals(it.next().f1457a, cVar.f1457a)) {
                 return true;
             }
         }
@@ -236,7 +236,7 @@ public final class a {
         }
         this.k.put(this.p.submit(cVar.b), cVar.b);
         if (c) {
-            Log.d(d, "execute task, " + cVar.f1455a + " execute time is " + System.currentTimeMillis());
+            Log.d(d, "execute task, " + cVar.f1457a + " execute time is " + System.currentTimeMillis());
         }
     }
 
@@ -260,11 +260,11 @@ public final class a {
     public class b implements Executor {
 
         /* renamed from: a  reason: collision with root package name */
-        final LinkedList<Runnable> f1454a;
+        final LinkedList<Runnable> f1456a;
         Runnable b;
 
         private b() {
-            this.f1454a = new LinkedList<>();
+            this.f1456a = new LinkedList<>();
         }
 
         /* synthetic */ b(a aVar, com.baidu.fsg.base.b.b bVar) {
@@ -273,7 +273,7 @@ public final class a {
 
         @Override // java.util.concurrent.Executor
         public synchronized void execute(Runnable runnable) {
-            this.f1454a.offer(new e(this, runnable));
+            this.f1456a.offer(new e(this, runnable));
             if (this.b == null) {
                 a();
             }
@@ -281,7 +281,7 @@ public final class a {
 
         /* JADX INFO: Access modifiers changed from: protected */
         public synchronized void a() {
-            Runnable poll = this.f1454a.poll();
+            Runnable poll = this.f1456a.poll();
             this.b = poll;
             if (poll != null) {
                 a.this.p.execute(this.b);
@@ -289,7 +289,7 @@ public final class a {
         }
 
         public synchronized void a(Runnable runnable) {
-            this.f1454a.remove(runnable);
+            this.f1456a.remove(runnable);
         }
     }
 
@@ -297,7 +297,7 @@ public final class a {
     public class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f1455a;
+        public String f1457a;
         public Runnable b;
         public long c;
         public long d;
@@ -310,7 +310,7 @@ public final class a {
             this.c = j2;
             this.e = z;
             this.b = runnable;
-            this.f1455a = str;
+            this.f1457a = str;
         }
     }
 }

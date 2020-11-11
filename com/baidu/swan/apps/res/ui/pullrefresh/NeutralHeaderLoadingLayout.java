@@ -13,42 +13,42 @@ import com.baidu.swan.apps.res.ui.pullrefresh.ILoadingLayout;
 /* loaded from: classes10.dex */
 public class NeutralHeaderLoadingLayout extends LoadingLayout {
     private static final boolean DEBUG = b.DEBUG;
-    private int djh;
-    private int dji;
-    private int djj;
-    private int djk;
-    private View djl;
-    private NeutralRefreshAnimView djz;
+    private int dpc;
+    private int dpd;
+    private int dpe;
+    private int dpf;
+    private View dpg;
+    private NeutralRefreshAnimView dpu;
 
     public NeutralHeaderLoadingLayout(Context context) {
         super(context);
-        this.djh = 0;
+        this.dpc = 0;
         init();
     }
 
     private void init() {
-        this.djz = (NeutralRefreshAnimView) findViewById(a.f.neutral_refresh_anim_view);
-        this.djh = ah.dip2px(getContext(), 29.0f);
-        this.dji = (int) (2.4f * this.djh);
-        this.djk = (int) (1.5f * this.djh);
-        this.djj = this.djk;
+        this.dpu = (NeutralRefreshAnimView) findViewById(a.f.neutral_refresh_anim_view);
+        this.dpc = ah.dip2px(getContext(), 29.0f);
+        this.dpd = (int) (2.4f * this.dpc);
+        this.dpf = (int) (1.5f * this.dpc);
+        this.dpe = this.dpf;
         if (DEBUG) {
-            Log.e("NeutralLoadingLayout", "mRefreshingViewSizeInPixel" + this.djh);
-            Log.e("NeutralLoadingLayout", "mTriggerRefreshLength" + this.dji);
-            Log.e("NeutralLoadingLayout", "mRefreshingHeight" + this.djk);
-            Log.e("NeutralLoadingLayout", "mScrollStartLength" + this.djj);
+            Log.e("NeutralLoadingLayout", "mRefreshingViewSizeInPixel" + this.dpc);
+            Log.e("NeutralLoadingLayout", "mTriggerRefreshLength" + this.dpd);
+            Log.e("NeutralLoadingLayout", "mRefreshingHeight" + this.dpf);
+            Log.e("NeutralLoadingLayout", "mScrollStartLength" + this.dpe);
         }
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public int getContentSize() {
-        return this.djl != null ? this.djl.getHeight() : ah.dip2px(getContext(), 50.0f);
+        return this.dpg != null ? this.dpg.getHeight() : ah.dip2px(getContext(), 50.0f);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     protected View a(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
-        this.djl = LayoutInflater.from(getContext()).inflate(a.g.aiapps_neutral_pull_to_refresh_header, viewGroup, false);
-        return this.djl;
+        this.dpg = LayoutInflater.from(getContext()).inflate(a.g.aiapps_neutral_pull_to_refresh_header, viewGroup, false);
+        return this.dpg;
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -56,22 +56,22 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
         if (DEBUG) {
             Log.e("NeutralLoadingLayout", "onReset");
         }
-        this.djz.stopAnim();
-        this.djz.setAlpha(1.0f);
+        this.dpu.stopAnim();
+        this.dpu.setAlpha(1.0f);
         setTranslationY(0.0f);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
-    public void jD(int i) {
+    public void jN(int i) {
         if (DEBUG) {
             Log.e("NeutralLoadingLayout", "pullLength = " + i);
         }
         if (getState() == ILoadingLayout.State.PULL_TO_REFRESH) {
-            this.djz.setAnimPercent(jE(i));
+            this.dpu.setAnimPercent(jO(i));
         }
-        if (i > this.djj) {
-            setTranslationY((this.djj - i) / 2);
+        if (i > this.dpe) {
+            setTranslationY((this.dpe - i) / 2);
         }
     }
 
@@ -81,11 +81,11 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
         if (DEBUG) {
             Log.e("NeutralLoadingLayout", "onPullRefreshComplete");
         }
-        this.djz.stopAnim();
+        this.dpu.stopAnim();
         if (DEBUG) {
             Log.e("NeutralLoadingLayout", "current thread name:" + Thread.currentThread().getName());
         }
-        this.djz.aEb();
+        this.dpu.aGB();
         post(new Runnable() { // from class: com.baidu.swan.apps.res.ui.pullrefresh.NeutralHeaderLoadingLayout.1
             @Override // java.lang.Runnable
             public void run() {
@@ -96,11 +96,11 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
-    public void aDV() {
+    public void aGv() {
         if (DEBUG) {
             Log.e("NeutralLoadingLayout", "onReleaseToLongRefresh");
         }
-        this.djz.setAnimPercent(1.0f);
+        this.dpu.setAnimPercent(1.0f);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -108,7 +108,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
         if (DEBUG) {
             Log.e("NeutralLoadingLayout", "onReleaseToRefresh");
         }
-        this.djz.setAnimPercent(1.0f);
+        this.dpu.setAnimPercent(1.0f);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -116,19 +116,19 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
         if (DEBUG) {
             Log.e("NeutralLoadingLayout", "onPullToRefresh");
         }
-        this.djz.setAlpha(1.0f);
-        this.djz.stopAnim();
+        this.dpu.setAlpha(1.0f);
+        this.dpu.stopAnim();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public int getRefreshingHeight() {
-        return this.djk;
+        return this.dpf;
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public int getCanRefreshPullLength() {
-        return this.dji;
+        return this.dpd;
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -136,13 +136,13 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
         if (DEBUG) {
             Log.e("NeutralLoadingLayout", "onRefreshing");
         }
-        this.djz.aDZ();
+        this.dpu.aGz();
     }
 
-    protected float jE(int i) {
+    protected float jO(int i) {
         float f;
-        if (i < this.dji) {
-            f = i < this.djh ? 0.0f : (i - this.djh) / (this.dji - this.djh);
+        if (i < this.dpd) {
+            f = i < this.dpc ? 0.0f : (i - this.dpc) / (this.dpd - this.dpc);
         } else {
             f = 1.0f;
         }
@@ -153,11 +153,11 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
         return f2;
     }
 
-    public boolean hl(int i) {
-        if (this.djz == null) {
+    public boolean hv(int i) {
+        if (this.dpu == null) {
             return false;
         }
-        this.djz.hl(i);
+        this.dpu.hv(i);
         return true;
     }
 }

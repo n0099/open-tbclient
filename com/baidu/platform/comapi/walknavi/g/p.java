@@ -4,16 +4,16 @@ package com.baidu.platform.comapi.walknavi.g;
 public class p implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f3069a;
+    final /* synthetic */ a f3071a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(a aVar) {
-        this.f3069a = aVar;
+        this.f3071a = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f3069a.m();
+        this.f3071a.m();
         com.baidu.platform.comapi.walknavi.b.a().K().b("WALKNAVI_AR_ADJUST_HAS_SHOW", true);
     }
 }

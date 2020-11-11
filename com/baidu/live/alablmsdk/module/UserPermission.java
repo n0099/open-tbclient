@@ -1,6 +1,7 @@
 package com.baidu.live.alablmsdk.module;
 /* loaded from: classes4.dex */
 public enum UserPermission {
+    UNKNOWN(0),
     OWNER(1),
     VISITER(2);
     

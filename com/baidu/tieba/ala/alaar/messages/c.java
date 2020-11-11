@@ -6,24 +6,24 @@ import com.baidu.live.utils.p;
 import com.baidu.mobstat.Config;
 /* loaded from: classes4.dex */
 public class c extends HttpMessage {
-    private BdUniqueId bnb;
+    private BdUniqueId bou;
     private String mRequestType;
     private int pn;
     private int rn;
 
     public c(BdUniqueId bdUniqueId, String str, int i, int i2) {
         super(1021156);
-        this.bnb = bdUniqueId;
+        this.bou = bdUniqueId;
         this.mRequestType = str;
         this.pn = i;
         this.rn = i2;
     }
 
     public void setParams() {
-        addParam("scene_from", p.GQ());
+        addParam("scene_from", p.Hr());
         addParam("type", this.mRequestType);
         addParam(Config.PACKAGE_NAME, this.pn);
         addParam("rn", this.rn);
-        setTag(this.bnb);
+        setTag(this.bou);
     }
 }

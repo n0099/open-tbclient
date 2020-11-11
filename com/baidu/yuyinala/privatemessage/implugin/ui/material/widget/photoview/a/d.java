@@ -5,7 +5,7 @@ import android.view.MotionEvent;
 public interface d {
     void a(e eVar);
 
-    boolean edC();
+    boolean ehr();
 
     boolean isDragging();
 

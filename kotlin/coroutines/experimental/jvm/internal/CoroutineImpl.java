@@ -29,7 +29,7 @@ public abstract class CoroutineImpl extends Lambda<Object> implements b<Object> 
     public d getContext() {
         d dVar = this._context;
         if (dVar == null) {
-            q.eya();
+            q.eBP();
         }
         return dVar;
     }
@@ -38,13 +38,13 @@ public abstract class CoroutineImpl extends Lambda<Object> implements b<Object> 
         if (this._facade == null) {
             d dVar = this._context;
             if (dVar == null) {
-                q.eya();
+                q.eBP();
             }
             this._facade = a.a(dVar, this);
         }
         b<Object> bVar = this._facade;
         if (bVar == null) {
-            q.eya();
+            q.eBP();
         }
         return bVar;
     }
@@ -53,11 +53,11 @@ public abstract class CoroutineImpl extends Lambda<Object> implements b<Object> 
     public void resume(Object obj) {
         b<Object> bVar = this.completion;
         if (bVar == null) {
-            q.eya();
+            q.eBP();
         }
         try {
             Object doResume = doResume(obj, null);
-            if (doResume != kotlin.coroutines.experimental.a.a.exU()) {
+            if (doResume != kotlin.coroutines.experimental.a.a.eBJ()) {
                 if (bVar == null) {
                     throw new TypeCastException("null cannot be cast to non-null type kotlin.coroutines.experimental.Continuation<kotlin.Any?>");
                 }
@@ -73,11 +73,11 @@ public abstract class CoroutineImpl extends Lambda<Object> implements b<Object> 
         q.n(th, "exception");
         b<Object> bVar = this.completion;
         if (bVar == null) {
-            q.eya();
+            q.eBP();
         }
         try {
             Object doResume = doResume(null, th);
-            if (doResume != kotlin.coroutines.experimental.a.a.exU()) {
+            if (doResume != kotlin.coroutines.experimental.a.a.eBJ()) {
                 if (bVar == null) {
                     throw new TypeCastException("null cannot be cast to non-null type kotlin.coroutines.experimental.Continuation<kotlin.Any?>");
                 }

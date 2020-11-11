@@ -5,106 +5,106 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b {
-    private int eVi;
-    private List<bw> eVo;
-    private List<bw> eVp;
-    private boolean eVq;
-    private boolean eVr;
-    private int eVs = 2;
-    private int eVt = 1;
+    private int faX;
+    private List<bw> fbd;
+    private List<bw> fbe;
+    private boolean fbf;
+    private boolean fbg;
+    private int fbh = 2;
+    private int fbi = 1;
 
     public b(List<bw> list, boolean z, int i) {
-        this.eVi = 2;
-        this.eVr = z;
-        this.eVi = i;
-        ck(list);
+        this.faX = 2;
+        this.fbg = z;
+        this.faX = i;
+        cr(list);
     }
 
-    public void ck(List<bw> list) {
+    public void cr(List<bw> list) {
         if (list != null) {
-            this.eVo = list;
-            if (list != null && list.size() >= this.eVs && list.size() <= this.eVi) {
-                this.eVq = true;
-            } else if (list.size() > this.eVi && this.eVr) {
-                this.eVq = true;
+            this.fbd = list;
+            if (list != null && list.size() >= this.fbh && list.size() <= this.faX) {
+                this.fbf = true;
+            } else if (list.size() > this.faX && this.fbg) {
+                this.fbf = true;
             } else {
-                this.eVq = false;
+                this.fbf = false;
             }
-            this.eVp = bro();
+            this.fbe = btO();
         }
     }
 
-    private List<bw> bro() {
+    private List<bw> btO() {
         ArrayList arrayList = new ArrayList();
-        if (this.eVo != null) {
-            if (this.eVq) {
-                if (this.eVo.size() > this.eVi && this.eVo.size() >= this.eVt) {
-                    arrayList.addAll(this.eVo.subList(0, this.eVi));
-                    arrayList.addAll(0, this.eVo.subList(this.eVi - this.eVt, this.eVi));
-                    arrayList.addAll(this.eVo.subList(0, this.eVt));
+        if (this.fbd != null) {
+            if (this.fbf) {
+                if (this.fbd.size() > this.faX && this.fbd.size() >= this.fbi) {
+                    arrayList.addAll(this.fbd.subList(0, this.faX));
+                    arrayList.addAll(0, this.fbd.subList(this.faX - this.fbi, this.faX));
+                    arrayList.addAll(this.fbd.subList(0, this.fbi));
                 } else {
-                    arrayList.addAll(this.eVo);
-                    arrayList.addAll(0, this.eVo.subList(this.eVo.size() - this.eVt, this.eVo.size()));
-                    arrayList.addAll(this.eVo.subList(0, this.eVt));
+                    arrayList.addAll(this.fbd);
+                    arrayList.addAll(0, this.fbd.subList(this.fbd.size() - this.fbi, this.fbd.size()));
+                    arrayList.addAll(this.fbd.subList(0, this.fbi));
                 }
-            } else if (this.eVo != null && this.eVo.size() > 0 && this.eVo.size() >= this.eVt) {
-                arrayList.addAll(this.eVo.subList(0, this.eVt));
+            } else if (this.fbd != null && this.fbd.size() > 0 && this.fbd.size() >= this.fbi) {
+                arrayList.addAll(this.fbd.subList(0, this.fbi));
             }
         }
         return arrayList;
     }
 
-    public int ql(int i) {
-        if (this.eVq) {
-            int size = this.eVp.size();
+    public int qv(int i) {
+        if (this.fbf) {
+            int size = this.fbe.size();
             if (i == 0) {
-                return (size - 1) - this.eVt;
+                return (size - 1) - this.fbi;
             }
-            if (i == size - this.eVt) {
-                return this.eVt;
+            if (i == size - this.fbi) {
+                return this.fbi;
             }
             return i;
         }
         return i;
     }
 
-    public int qm(int i) {
-        if (this.eVq) {
-            return i - this.eVt;
+    public int qw(int i) {
+        if (this.fbf) {
+            return i - this.fbi;
         }
         return i;
     }
 
-    public int brp() {
-        if (this.eVo == null) {
+    public int btP() {
+        if (this.fbd == null) {
             return 0;
         }
-        return this.eVo.size();
+        return this.fbd.size();
     }
 
-    public int brq() {
-        if (this.eVq) {
-            return this.eVt;
+    public int btQ() {
+        if (this.fbf) {
+            return this.fbi;
         }
         return 0;
     }
 
-    public void qn(int i) {
-        this.eVi = i;
-        ck(this.eVo);
+    public void qx(int i) {
+        this.faX = i;
+        cr(this.fbd);
     }
 
-    public void qo(int i) {
-        this.eVs = i;
-        ck(this.eVo);
+    public void qy(int i) {
+        this.fbh = i;
+        cr(this.fbd);
     }
 
-    public List<bw> brr() {
-        return this.eVp;
+    public List<bw> btR() {
+        return this.fbe;
     }
 
-    public void qp(int i) {
-        this.eVt = i;
-        ck(this.eVo);
+    public void qz(int i) {
+        this.fbi = i;
+        cr(this.fbd);
     }
 }

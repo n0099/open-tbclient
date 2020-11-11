@@ -20,7 +20,7 @@ import java.util.List;
 public class f extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static final String[] f4588a = {"key"};
+    protected static final String[] f4590a = {"key"};
     protected static f b;
 
     public static synchronized f a() {

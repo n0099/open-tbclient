@@ -49,7 +49,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class ConversationStudioManImpl {
     private static final int ACK_INTERVAL_TIME = 3000;
     private static final int ACK_MAX_COUNT = 1;
@@ -103,7 +103,7 @@ public class ConversationStudioManImpl {
         }
     };
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes18.dex */
     interface HeartbeatOperation {
         void cancelHearbeat();
 
@@ -515,7 +515,7 @@ public class ConversationStudioManImpl {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes18.dex */
     public class McastHeartbeat implements HeartbeatOperation {
         private Runnable startHeartBeatTask = new Runnable() { // from class: com.baidu.android.imsdk.conversation.ConversationStudioManImpl.McastHeartbeat.1
             @Override // java.lang.Runnable
@@ -615,7 +615,7 @@ public class ConversationStudioManImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes18.dex */
     public class McastTodoAfterLogin implements TodoAfterLogin {
         McastTodoAfterLogin() {
         }

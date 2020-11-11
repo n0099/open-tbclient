@@ -8,10 +8,10 @@ import org.aspectj.lang.a;
 /* loaded from: classes11.dex */
 public class ESDescriptorBox extends AbstractDescriptorBox {
     public static final String TYPE = "esds";
-    private static final /* synthetic */ a.InterfaceC1069a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1069a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1069a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1069a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_3 = null;
 
     static {
         ajc$preClinit();

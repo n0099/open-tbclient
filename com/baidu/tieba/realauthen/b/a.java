@@ -46,9 +46,9 @@ public class a {
                 Field declaredField = TextView.class.getDeclaredField("mCursorDrawableRes");
                 declaredField.setAccessible(true);
                 if (TbadkCoreApplication.getInst().isHaokan()) {
-                    declaredField.set(editText, Integer.valueOf(a.f.sdk_cursor_hk_bg));
+                    declaredField.set(editText, Integer.valueOf(a.e.sdk_cursor_hk_bg));
                 } else {
-                    declaredField.set(editText, Integer.valueOf(a.f.sdk_cursor_qm_bg));
+                    declaredField.set(editText, Integer.valueOf(a.e.sdk_cursor_qm_bg));
                 }
             } catch (Exception e) {
                 e.printStackTrace();

@@ -21,7 +21,7 @@ public class k {
     private boolean g = false;
 
     /* renamed from: a  reason: collision with root package name */
-    a f1887a = null;
+    a f1889a = null;
     a b = null;
     private String h = null;
     private int i = -2;
@@ -320,11 +320,11 @@ public class k {
                         }
                     }
                     if (z2) {
-                        if (this.f1887a == null) {
-                            this.f1887a = new a();
+                        if (this.f1889a == null) {
+                            this.f1889a = new a();
                         }
-                        if (this.f1887a != null) {
-                            this.f1887a.a(replace, a(true));
+                        if (this.f1889a != null) {
+                            this.f1889a.a(replace, a(true));
                             return;
                         }
                         return;

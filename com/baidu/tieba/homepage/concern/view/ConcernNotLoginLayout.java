@@ -15,9 +15,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.HomePageStatic;
 /* loaded from: classes22.dex */
 public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickListener {
-    private ImageView jrK;
-    private TextView jrL;
-    private TBSpecificationBtn jrM;
+    private ImageView jxH;
+    private TextView jxI;
+    private TBSpecificationBtn jxJ;
     private Context mContext;
 
     public ConcernNotLoginLayout(Context context) {
@@ -38,30 +38,30 @@ public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickL
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.concern_not_login_layout, (ViewGroup) this, true);
         this.mContext = context;
-        this.jrK = (ImageView) inflate.findViewById(R.id.iv_concern_not_login_emotion_pic);
-        this.jrL = (TextView) inflate.findViewById(R.id.tv_concern_you_not_login);
-        this.jrM = (TBSpecificationBtn) inflate.findViewById(R.id.tv_concern_login_and_see_more);
+        this.jxH = (ImageView) inflate.findViewById(R.id.iv_concern_not_login_emotion_pic);
+        this.jxI = (TextView) inflate.findViewById(R.id.tv_concern_you_not_login);
+        this.jxJ = (TBSpecificationBtn) inflate.findViewById(R.id.tv_concern_login_and_see_more);
         com.baidu.tbadk.core.view.commonBtn.a aVar = new com.baidu.tbadk.core.view.commonBtn.a();
-        this.jrM.setText(context.getResources().getString(R.string.concern_login_and_see_more));
-        this.jrM.setTextSize(R.dimen.tbds42);
-        this.jrM.setTextHorizontalCenter(true);
-        this.jrM.setConfig(aVar);
-        this.jrM.setOnClickListener(this);
+        this.jxJ.setText(context.getResources().getString(R.string.concern_login_and_see_more));
+        this.jxJ.setTextSize(R.dimen.tbds42);
+        this.jxJ.setTextHorizontalCenter(true);
+        this.jxJ.setConfig(aVar);
+        this.jxJ.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == R.id.tv_concern_login_and_see_more) {
             bg.checkUpIsLogin(this.mContext);
-            HomePageStatic.joD = true;
+            HomePageStatic.juA = true;
         }
     }
 
     public void onChangeSkinType(int i) {
-        ap.setImageResource(this.jrK, R.drawable.new_pic_emotion_09);
-        ap.setViewTextColor(this.jrL, R.color.cp_cont_j);
-        if (this.jrM != null) {
-            this.jrM.bqd();
+        ap.setImageResource(this.jxH, R.drawable.new_pic_emotion_09);
+        ap.setViewTextColor(this.jxI, R.color.cp_cont_j);
+        if (this.jxJ != null) {
+            this.jxJ.bsD();
         }
     }
 }

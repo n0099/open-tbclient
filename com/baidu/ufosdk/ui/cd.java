@@ -6,11 +6,11 @@ import com.baidu.ufosdk.UfoSDK;
 final class cd implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackInputActivity f3796a;
+    final /* synthetic */ FeedbackInputActivity f3798a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cd(FeedbackInputActivity feedbackInputActivity) {
-        this.f3796a = feedbackInputActivity;
+        this.f3798a = feedbackInputActivity;
     }
 
     @Override // java.lang.Runnable
@@ -20,21 +20,21 @@ final class cd implements Runnable {
         String d;
         Handler handler;
         String str3;
-        str = this.f3796a.ar;
+        str = this.f3798a.ar;
         if (str != null) {
-            str3 = this.f3796a.ar;
+            str3 = this.f3798a.ar;
             if (str3.length() > 0) {
-                str2 = this.f3796a.ar;
-                d = com.baidu.ufosdk.e.a.d(this.f3796a.getApplicationContext(), this.f3796a.e, str2);
+                str2 = this.f3798a.ar;
+                d = com.baidu.ufosdk.e.a.d(this.f3798a.getApplicationContext(), this.f3798a.e, str2);
                 if (d != null || d.length() == 0) {
                 }
-                handler = this.f3796a.aK;
+                handler = this.f3798a.aK;
                 handler.obtainMessage(5, d).sendToTarget();
                 return;
             }
         }
         str2 = UfoSDK.appid;
-        d = com.baidu.ufosdk.e.a.d(this.f3796a.getApplicationContext(), this.f3796a.e, str2);
+        d = com.baidu.ufosdk.e.a.d(this.f3798a.getApplicationContext(), this.f3798a.e, str2);
         if (d != null) {
         }
     }

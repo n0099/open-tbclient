@@ -17,8 +17,8 @@ import android.widget.TextView;
 /* loaded from: classes4.dex */
 public class TimeCountTextView extends TextView {
     private static final String TAG = TimeCountTextView.class.getSimpleName();
-    private CountDownTimer bEO;
-    private boolean gJj;
+    private CountDownTimer bKv;
+    private boolean gOV;
     @SuppressLint({"HandlerLeak"})
     Handler handler;
 
@@ -37,7 +37,7 @@ public class TimeCountTextView extends TextView {
 
     public TimeCountTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gJj = false;
+        this.gOV = false;
         this.handler = new Handler() { // from class: com.baidu.tieba.ala.live.guess.widget.TimeCountTextView.2
             @Override // android.os.Handler
             public void handleMessage(Message message) {
@@ -65,14 +65,14 @@ public class TimeCountTextView extends TextView {
 
     public void a(long j, final long j2, final a aVar) {
         setTextColor(Color.parseColor("#7968E5"));
-        this.gJj = false;
-        if (this.bEO == null) {
-            this.bEO = new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.ala.live.guess.widget.TimeCountTextView.1
+        this.gOV = false;
+        if (this.bKv == null) {
+            this.bKv = new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.ala.live.guess.widget.TimeCountTextView.1
                 @Override // android.os.CountDownTimer
                 public void onTick(long j3) {
                     if (j3 < j2) {
-                        if (!TimeCountTextView.this.gJj) {
-                            TimeCountTextView.this.gJj = true;
+                        if (!TimeCountTextView.this.gOV) {
+                            TimeCountTextView.this.gOV = true;
                             TimeCountTextView.this.setTextColor(Color.parseColor("#FF0050"));
                             TimeCountTextView.this.setText(String.valueOf((100 + j3) / 1000));
                             TimeCountTextView.this.handler.sendEmptyMessage(3);
@@ -91,7 +91,7 @@ public class TimeCountTextView extends TextView {
                 }
             };
         }
-        this.bEO.start();
+        this.bKv.start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -168,8 +168,8 @@ public class TimeCountTextView extends TextView {
     }
 
     public void cancel() {
-        if (this.bEO != null) {
-            this.bEO.cancel();
+        if (this.bKv != null) {
+            this.bKv.cancel();
         }
         if (this.handler != null) {
             this.handler.removeCallbacksAndMessages(null);

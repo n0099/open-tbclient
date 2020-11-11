@@ -28,65 +28,65 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class HotTopicTabFragment extends BaseFragment implements aq, b {
-    private HotTopicTabModel jvn;
-    private HotTopicTabView jvo;
-    private FrsTabItemData jvp;
-    private TabLayout.OnTabSelectedListener jvq = new TabLayout.OnTabSelectedListener() { // from class: com.baidu.tieba.homepage.hotTopic.tab.HotTopicTabFragment.1
+    private HotTopicTabModel jBk;
+    private HotTopicTabView jBl;
+    private FrsTabItemData jBm;
+    private TabLayout.OnTabSelectedListener jBn = new TabLayout.OnTabSelectedListener() { // from class: com.baidu.tieba.homepage.hotTopic.tab.HotTopicTabFragment.1
         @Override // android.support.design.widget.TabLayout.OnTabSelectedListener
         public void onTabSelected(TabLayout.Tab tab) {
             if (tab != null && (tab.getTag() instanceof FrsTabItemData)) {
                 FrsTabItemData frsTabItemData = (FrsTabItemData) tab.getTag();
-                if (HotTopicTabFragment.this.jvp != null && HotTopicTabFragment.this.jvp.tabId != frsTabItemData.tabId) {
+                if (HotTopicTabFragment.this.jBm != null && HotTopicTabFragment.this.jBm.tabId != frsTabItemData.tabId) {
                     String str = frsTabItemData.tabCode;
-                    HotTopicTabFragment.this.jvn.setTabCode(str);
-                    if (HotTopicTabFragment.this.jvn.LoadData()) {
-                        HotTopicTabFragment.this.jvo.bMH();
-                        HotTopicTabFragment.this.jvo.hideLoadingView();
-                        HotTopicTabFragment.this.jvo.TK();
-                        HotTopicTabFragment.this.cHV();
+                    HotTopicTabFragment.this.jBk.setTabCode(str);
+                    if (HotTopicTabFragment.this.jBk.LoadData()) {
+                        HotTopicTabFragment.this.jBl.bPh();
+                        HotTopicTabFragment.this.jBl.hideLoadingView();
+                        HotTopicTabFragment.this.jBl.Wk();
+                        HotTopicTabFragment.this.cKw();
                     } else {
-                        HotTopicTabFragment.this.jvo.bMH();
-                        HotTopicTabFragment.this.jvo.hideLoadingView();
-                        List<q> Lx = HotTopicTabFragment.this.jvn.Lx(str);
-                        if (!y.isEmpty(Lx)) {
-                            HotTopicTabFragment.this.jvo.setListData(Lx);
+                        HotTopicTabFragment.this.jBl.bPh();
+                        HotTopicTabFragment.this.jBl.hideLoadingView();
+                        List<q> LO = HotTopicTabFragment.this.jBk.LO(str);
+                        if (!y.isEmpty(LO)) {
+                            HotTopicTabFragment.this.jBl.setListData(LO);
                         } else {
-                            HotTopicTabFragment.this.bME();
+                            HotTopicTabFragment.this.bPe();
                         }
                     }
                 }
-                HotTopicTabFragment.this.jvp = frsTabItemData;
+                HotTopicTabFragment.this.jBm = frsTabItemData;
             }
         }
 
         @Override // android.support.design.widget.TabLayout.OnTabSelectedListener
         public void onTabUnselected(TabLayout.Tab tab) {
-            HotTopicTabFragment.this.jvo.bMH();
+            HotTopicTabFragment.this.jBl.bPh();
         }
 
         @Override // android.support.design.widget.TabLayout.OnTabSelectedListener
         public void onTabReselected(TabLayout.Tab tab) {
         }
     };
-    private f<Object> jvr = new f<Object>() { // from class: com.baidu.tieba.homepage.hotTopic.tab.HotTopicTabFragment.2
+    private f<Object> jBo = new f<Object>() { // from class: com.baidu.tieba.homepage.hotTopic.tab.HotTopicTabFragment.2
         @Override // com.baidu.tbadk.h.f
         public void a(View view, Object obj, int i, long j) {
             if (obj != null) {
-                a.a(view, obj, i + 1, HotTopicTabFragment.this.bse());
+                a.a(view, obj, i + 1, HotTopicTabFragment.this.buE());
             }
         }
 
         @Override // com.baidu.tbadk.h.f
         public void b(View view, Object obj, int i, long j) {
             if (obj != null) {
-                a.a(view, obj, HotTopicTabFragment.this.bse());
+                a.a(view, obj, HotTopicTabFragment.this.buE());
             }
         }
     };
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String bse() {
-        return this.jvn != null ? this.jvn.bse() : "";
+    public String buE() {
+        return this.jBk != null ? this.jBk.buE() : "";
     }
 
     public HotTopicTabFragment() {
@@ -95,35 +95,35 @@ public class HotTopicTabFragment extends BaseFragment implements aq, b {
     @SuppressLint({"ValidFragment"})
     public HotTopicTabFragment(Context context) {
         TbPageContext pageContext = context instanceof TbPageContextSupport ? ((TbPageContextSupport) context).getPageContext() : null;
-        this.jvn = new HotTopicTabModel(pageContext);
-        this.jvo = new HotTopicTabView(pageContext);
-        this.jvo.setOnTabSelectedListener(this.jvq);
-        this.jvo.setOnItemCoverListener(this.jvr);
+        this.jBk = new HotTopicTabModel(pageContext);
+        this.jBl = new HotTopicTabView(pageContext);
+        this.jBl.setOnTabSelectedListener(this.jBn);
+        this.jBl.setOnItemCoverListener(this.jBo);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.jvn.setPresenter(this);
-        this.jvn.setUniqueId(getUniqueId());
-        this.jvo.setPresenter(this);
-        this.jvo.setUniqueId(getUniqueId());
+        this.jBk.setPresenter(this);
+        this.jBk.setUniqueId(getUniqueId());
+        this.jBl.setPresenter(this);
+        this.jBl.setUniqueId(getUniqueId());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.jvo.getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.jvo.getParent()).removeView(this.jvo);
+        if (this.jBl.getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.jBl.getParent()).removeView(this.jBl);
         }
-        return this.jvo;
+        return this.jBl;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            this.jvo.setViewForeground();
+            this.jBl.setViewForeground();
         }
     }
 
@@ -133,16 +133,16 @@ public class HotTopicTabFragment extends BaseFragment implements aq, b {
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void Rd() {
-        this.jvo.reload();
+    public void TL() {
+        this.jBl.reload();
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void bMC() {
+    public void bPc() {
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void bMD() {
+    public void bPd() {
     }
 
     @Override // com.baidu.tieba.frs.aq
@@ -154,95 +154,95 @@ public class HotTopicTabFragment extends BaseFragment implements aq, b {
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void bqd() {
+    public void bsD() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        this.jvo.onChangeSkinType();
+        this.jBl.onChangeSkinType();
     }
 
     public void setScrollFragmentTabHost(ScrollFragmentTabHost scrollFragmentTabHost) {
-        if (this.jvo != null) {
-            this.jvo.setScrollFragmentTabHost(scrollFragmentTabHost);
+        if (this.jBl != null) {
+            this.jBl.setScrollFragmentTabHost(scrollFragmentTabHost);
         }
     }
 
     @Override // com.baidu.tieba.homepage.hotTopic.tab.b
     public void loadData() {
-        boolean LoadData = this.jvn.LoadData();
-        List<q> Lx = this.jvn.Lx(this.jvn.bse());
+        boolean LoadData = this.jBk.LoadData();
+        List<q> LO = this.jBk.LO(this.jBk.buE());
         if (LoadData) {
-            if (y.isEmpty(Lx) && !this.jvo.cHZ()) {
-                this.jvo.bMH();
-                this.jvo.TK();
+            if (y.isEmpty(LO) && !this.jBl.cKA()) {
+                this.jBl.bPh();
+                this.jBl.Wk();
                 showLoadingView();
                 return;
             }
             return;
         }
-        this.jvo.bMH();
-        this.jvo.hideLoadingView();
-        if (!y.isEmpty(Lx)) {
-            this.jvo.setListData(Lx);
+        this.jBl.bPh();
+        this.jBl.hideLoadingView();
+        if (!y.isEmpty(LO)) {
+            this.jBl.setListData(LO);
         } else if (!j.isNetworkAvailableForImmediately()) {
-            bME();
+            bPe();
         }
     }
 
     @Override // com.baidu.tieba.homepage.hotTopic.tab.b
     public void a(int i, com.baidu.tieba.homepage.hotTopic.tab.net.a aVar) {
-        this.jvo.hideLoadingView();
-        this.jvo.TK();
-        this.jvo.bMH();
+        this.jBl.hideLoadingView();
+        this.jBl.Wk();
+        this.jBl.bPh();
         if (aVar == null || i != 0 || y.isEmpty(aVar.getDataList())) {
-            if (y.isEmpty(this.jvn.cHX())) {
-                bME();
+            if (y.isEmpty(this.jBk.cKy())) {
+                bPe();
                 return;
             } else {
-                this.jvo.setListData(this.jvn.cHX());
+                this.jBl.setListData(this.jBk.cKy());
                 return;
             }
         }
-        this.jvo.setData(aVar);
-        this.jvo.TJ();
+        this.jBl.setData(aVar);
+        this.jBl.Wj();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bME() {
-        if (this.jvo.cHZ()) {
-            this.jvo.TK();
-            cHW();
+    public void bPe() {
+        if (this.jBl.cKA()) {
+            this.jBl.Wk();
+            cKx();
             return;
         }
-        this.jvo.oP(false);
+        this.jBl.oY(false);
     }
 
     private void showLoadingView() {
-        if (this.jvo.cHZ()) {
-            this.jvo.hideLoadingView();
-            cHV();
+        if (this.jBl.cKA()) {
+            this.jBl.hideLoadingView();
+            cKw();
             return;
         }
-        this.jvo.hA(false);
+        this.jBl.hJ(false);
     }
 
-    public void cHV() {
+    public void cKw() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new x());
-        this.jvo.cIa();
-        this.jvo.setListData(arrayList);
+        this.jBl.cKB();
+        this.jBl.setListData(arrayList);
     }
 
-    public void cHW() {
+    public void cKx() {
         ArrayList arrayList = new ArrayList();
         z zVar = new z();
         zVar.resId = R.drawable.new_pic_emotion_05;
         zVar.showText = getString(R.string.no_data_common_txt);
         arrayList.add(zVar);
-        this.jvo.cIa();
-        this.jvo.setListData(arrayList);
+        this.jBl.cKB();
+        this.jBl.setListData(arrayList);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.m.a
@@ -267,7 +267,7 @@ public class HotTopicTabFragment extends BaseFragment implements aq, b {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
-        this.jvo.destroy();
-        this.jvn.onDestroy();
+        this.jBl.destroy();
+        this.jBk.onDestroy();
     }
 }

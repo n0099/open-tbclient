@@ -16,7 +16,7 @@ final class e {
     private static String b = a();
 
     /* renamed from: a  reason: collision with root package name */
-    private static Pattern f1270a = Pattern.compile("^((0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)\\.){3}(0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)$");
+    private static Pattern f1272a = Pattern.compile("^((0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)\\.){3}(0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)$");
 
     private static String a() {
         try {
@@ -56,7 +56,7 @@ final class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean a(String str) {
-        return f1270a.matcher(str).matches();
+        return f1272a.matcher(str).matches();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

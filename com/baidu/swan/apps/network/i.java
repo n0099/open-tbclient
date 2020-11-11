@@ -37,9 +37,9 @@ public class i extends com.baidu.swan.apps.network.a implements f {
             Log.d("Api-Request", "request with scheme : " + unitedSchemeEntity.getParam("params"));
         }
         if (a(eVar, unitedSchemeEntity)) {
-            String kZ = com.baidu.swan.apps.api.module.network.c.kZ(eVar.id);
-            if (a(eVar, unitedSchemeEntity, callbackHandler, kZ)) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(lb(kZ), 0));
+            String lo = com.baidu.swan.apps.api.module.network.c.lo(eVar.id);
+            if (a(eVar, unitedSchemeEntity, callbackHandler, lo)) {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(lq(lo), 0));
                 return true;
             }
             return false;
@@ -56,7 +56,7 @@ public class i extends com.baidu.swan.apps.network.a implements f {
         Pair<HttpRequest, Integer> q = com.baidu.swan.apps.api.module.network.b.q(b, str);
         HttpRequest httpRequest = (HttpRequest) q.first;
         if (httpRequest == null) {
-            unitedSchemeEntity.result = jt(((Integer) q.second).intValue());
+            unitedSchemeEntity.result = jD(((Integer) q.second).intValue());
             return false;
         }
         a(eVar, b, httpRequest, str, callbackHandler);
@@ -68,16 +68,16 @@ public class i extends com.baidu.swan.apps.network.a implements f {
         final String httpUrl = url.toString();
         String optString = jSONObject.optString("cb");
         if (!a(eVar, jSONObject, httpUrl, str, callbackHandler, optString)) {
-            final int appFrameType = eVar.ado().getAppFrameType();
-            if (!com.baidu.swan.apps.t.a.aud().aez()) {
+            final int appFrameType = eVar.afO().getAppFrameType();
+            if (!com.baidu.swan.apps.t.a.awD().agZ()) {
                 com.baidu.swan.apps.statistic.h.a(httpUrl, appFrameType, (NetworkStatRecord) null);
             }
             final a aVar = new a(eVar, jSONObject, httpUrl, str, callbackHandler, optString);
             httpRequest.executeStat(new StatResponseCallback() { // from class: com.baidu.swan.apps.network.i.1
                 @Override // com.baidu.searchbox.http.callback.StatResponseCallback
                 public Object parseResponse(Response response, int i, NetworkStatRecord networkStatRecord) throws Exception {
-                    com.baidu.swan.apps.core.i.a.aox().a(str, url, networkStatRecord);
-                    if (com.baidu.swan.apps.t.a.aud().aez()) {
+                    com.baidu.swan.apps.core.i.a.aqY().a(str, url, networkStatRecord);
+                    if (com.baidu.swan.apps.t.a.awD().agZ()) {
                         com.baidu.swan.apps.statistic.h.a(httpUrl, appFrameType, networkStatRecord);
                     }
                     aVar.onResponse(null, response);
@@ -90,7 +90,7 @@ public class i extends com.baidu.swan.apps.network.a implements f {
 
                 @Override // com.baidu.searchbox.http.callback.StatResponseCallback
                 public void onFail(Exception exc) {
-                    if (com.baidu.swan.apps.t.a.aud().aez()) {
+                    if (com.baidu.swan.apps.t.a.awD().agZ()) {
                         com.baidu.swan.apps.statistic.h.a(httpUrl, appFrameType, (NetworkStatRecord) null);
                     }
                     if (exc instanceof IOException) {
@@ -110,7 +110,7 @@ public class i extends com.baidu.swan.apps.network.a implements f {
             if (TextUtils.isEmpty(optString)) {
                 callbackHandler.handleSchemeDispatchCallback(str3, UnitedSchemeUtility.wrapCallbackParams(1001, "serviceId is invalid").toString());
             } else {
-                com.baidu.swan.apps.statistic.h.a(str, eVar.ado().getAppFrameType(), (NetworkStatRecord) null);
+                com.baidu.swan.apps.statistic.h.a(str, eVar.afO().getAppFrameType(), (NetworkStatRecord) null);
                 new com.baidu.swan.games.bdtls.b.c(eVar, jSONObject, str2, new a(eVar, jSONObject, str, str2, callbackHandler, str3)).request(optString);
             }
             return true;
@@ -121,20 +121,20 @@ public class i extends com.baidu.swan.apps.network.a implements f {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes10.dex */
     public class a implements Callback {
-        CallbackHandler cOu;
-        com.baidu.swan.apps.runtime.e ctR;
-        String ctS;
-        long ctU = System.currentTimeMillis();
+        CallbackHandler cUn;
+        com.baidu.swan.apps.runtime.e czM;
+        String czN;
+        long czP = System.currentTimeMillis();
         String mCallback;
         JSONObject mParams;
         String mUrl;
 
         a(@NonNull com.baidu.swan.apps.runtime.e eVar, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, CallbackHandler callbackHandler, @NonNull String str3) {
-            this.ctR = eVar;
+            this.czM = eVar;
             this.mParams = jSONObject;
             this.mUrl = str;
-            this.ctS = str2;
-            this.cOu = callbackHandler;
+            this.czN = str2;
+            this.cUn = callbackHandler;
             this.mCallback = str3;
         }
 
@@ -143,22 +143,22 @@ public class i extends com.baidu.swan.apps.network.a implements f {
             if (i.DEBUG) {
                 Log.d("RequestAction", "onFailure: " + iOException.getMessage());
             }
-            int appFrameType = this.ctR.ado().getAppFrameType();
-            String aHP = com.baidu.swan.apps.statistic.h.aHP();
-            String page = ak.aKC().getPage();
-            SwanAppNetworkUtils.a(com.baidu.swan.a.c.a.aYk().getOkHttpClient(), this.ctS);
-            this.cOu.handleSchemeDispatchCallback(this.mCallback, UnitedSchemeUtility.wrapCallbackParams(1001, iOException.getMessage()).toString());
-            com.baidu.swan.apps.statistic.h.a(0, this.mUrl, appFrameType, iOException.getMessage(), aHP, page, this.ctU, System.currentTimeMillis());
+            int appFrameType = this.czM.afO().getAppFrameType();
+            String aKp = com.baidu.swan.apps.statistic.h.aKp();
+            String page = ak.aNc().getPage();
+            SwanAppNetworkUtils.a(com.baidu.swan.a.c.a.baK().getOkHttpClient(), this.czN);
+            this.cUn.handleSchemeDispatchCallback(this.mCallback, UnitedSchemeUtility.wrapCallbackParams(1001, iOException.getMessage()).toString());
+            com.baidu.swan.apps.statistic.h.a(0, this.mUrl, appFrameType, iOException.getMessage(), aKp, page, this.czP, System.currentTimeMillis());
         }
 
         @Override // okhttp3.Callback
         public void onResponse(Call call, Response response) {
-            String aI = com.baidu.swan.apps.api.module.network.b.aI(this.mParams);
-            String aJ = com.baidu.swan.apps.api.module.network.b.aJ(this.mParams);
-            int appFrameType = this.ctR.ado().getAppFrameType();
+            String aO = com.baidu.swan.apps.api.module.network.b.aO(this.mParams);
+            String aP = com.baidu.swan.apps.api.module.network.b.aP(this.mParams);
+            int appFrameType = this.czM.afO().getAppFrameType();
             long currentTimeMillis = System.currentTimeMillis();
-            String aHP = com.baidu.swan.apps.statistic.h.aHP();
-            String page = ak.aKC().getPage();
+            String aKp = com.baidu.swan.apps.statistic.h.aKp();
+            String page = ak.aNc().getPage();
             String optString = this.mParams.optString("cb");
             try {
                 long a2 = com.baidu.swan.apps.api.module.network.b.a(response);
@@ -166,28 +166,28 @@ public class i extends com.baidu.swan.apps.network.a implements f {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("statusCode", response.code());
                     jSONObject.put(WebSocketRequest.PARAM_KEY_HEADER, com.baidu.swan.apps.network.a.a(response.headers()));
-                    com.baidu.swan.apps.api.module.network.b.a(jSONObject, response.body(), aI, aJ);
-                    i.this.bm(jSONObject);
-                    this.cOu.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
+                    com.baidu.swan.apps.api.module.network.b.a(jSONObject, response.body(), aO, aP);
+                    i.this.bs(jSONObject);
+                    this.cUn.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
                 } else {
-                    com.baidu.swan.apps.api.module.network.b.a(this.ctR, this.mUrl, a2, currentTimeMillis);
-                    this.cOu.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(201, "response json length over limits").toString());
+                    com.baidu.swan.apps.api.module.network.b.a(this.czM, this.mUrl, a2, currentTimeMillis);
+                    this.cUn.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(201, "response json length over limits").toString());
                 }
             } catch (IOException | JSONException e) {
                 if (i.DEBUG) {
                     Log.d("RequestAction", Log.getStackTraceString(e));
                 }
-                this.cOu.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(201, e.getMessage()).toString());
+                this.cUn.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(201, e.getMessage()).toString());
             }
             int code = response.code();
             String message = response.message();
             if (i.DEBUG) {
                 Log.d("RequestAction", "onResponse: respCode: " + code + ", url=" + this.mUrl + ", msg=" + message);
             }
-            com.baidu.swan.apps.statistic.h.a(code, this.mUrl, appFrameType, message, aHP, page, this.ctU, System.currentTimeMillis());
+            com.baidu.swan.apps.statistic.h.a(code, this.mUrl, appFrameType, message, aKp, page, this.czP, System.currentTimeMillis());
         }
     }
 
-    protected void bm(@NonNull JSONObject jSONObject) throws JSONException {
+    protected void bs(@NonNull JSONObject jSONObject) throws JSONException {
     }
 }

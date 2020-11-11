@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public class RouterRequest {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1480a = "RouterRequest";
+    private static final String f1482a = "RouterRequest";
     private String b = "";
     private String c = "";
     private HashMap d = new HashMap();

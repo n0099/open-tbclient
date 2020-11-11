@@ -28,7 +28,7 @@ public final class SapiConfiguration implements NoProguard {
     public static final int QUICK_LOGIN_VIEW_BTN_ACTION_SMS_LOGIN = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    private final LoginShareStrategy f3228a;
+    private final LoginShareStrategy f3231a;
     public final boolean accountCenterRealAutnen;
     public int activityExitAnimId;
     public int activityOpenAnimId;
@@ -203,7 +203,7 @@ public final class SapiConfiguration implements NoProguard {
             if (sapiOptions.h() != null) {
                 return sapiOptions.h();
             }
-            return this.f3228a;
+            return this.f3231a;
         }
         return loginShareStrategy;
     }
@@ -230,7 +230,7 @@ public final class SapiConfiguration implements NoProguard {
         private String X;
 
         /* renamed from: a  reason: collision with root package name */
-        private Context f3229a;
+        private Context f3232a;
         private String b;
         private String c;
         private String d;
@@ -285,7 +285,7 @@ public final class SapiConfiguration implements NoProguard {
         private boolean j0 = true;
 
         public Builder(Context context) {
-            this.f3229a = context.getApplicationContext();
+            this.f3232a = context.getApplicationContext();
         }
 
         public Builder bdOauthAppId(String str) {
@@ -427,7 +427,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder setAgreeDangerousProtocol(boolean z) {
             this.y = z;
             try {
-                FH.setAgreePolicy(this.f3229a, z);
+                FH.setAgreePolicy(this.f3232a, z);
             } catch (Exception e) {
                 Log.e(e);
             }
@@ -611,14 +611,14 @@ public final class SapiConfiguration implements NoProguard {
     }
 
     private SapiConfiguration(Builder builder) {
-        this.context = builder.f3229a;
+        this.context = builder.f3232a;
         this.tpl = builder.b;
         this.appId = builder.c;
         this.appSignKey = builder.d;
         this.environment = builder.f;
         this.language = builder.h;
         this.socialBindType = builder.g;
-        this.f3228a = builder.i;
+        this.f3231a = builder.i;
         this.fastLoginFeatureList = builder.j;
         this.wxAppID = builder.k;
         this.qqAppID = builder.l;

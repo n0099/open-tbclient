@@ -9,10 +9,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class b extends com.baidu.swan.apps.component.a.c.b {
-    public int cxp;
-    public int cxq;
-    public String cxr;
-    public boolean cxs;
+    public int cDi;
+    public int cDj;
+    public String cDk;
+    public boolean cDl;
     protected int mViewHeight;
     public int maxLength;
     public int selectionEnd;
@@ -20,7 +20,7 @@ public class b extends com.baidu.swan.apps.component.a.c.b {
 
     public b(String str, @NonNull String str2) {
         super(str, str2);
-        this.cxr = "";
+        this.cDk = "";
     }
 
     @Override // com.baidu.swan.apps.component.a.c.b, com.baidu.swan.apps.component.a.d.b, com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
@@ -28,46 +28,46 @@ public class b extends com.baidu.swan.apps.component.a.c.b {
         if (jSONObject != null) {
             super.parseFromJson(jSONObject);
             this.maxLength = jSONObject.optInt("maxLength");
-            this.cxp = aV(jSONObject);
-            this.cxq = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR);
+            this.cDi = bb(jSONObject);
+            this.cDj = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR);
             this.selectionStart = jSONObject.optInt("selectionStart");
             this.selectionEnd = jSONObject.optInt("selectionEnd");
-            this.cxr = jSONObject.optString("confirmType");
-            this.cxs = jSONObject.optInt("password") == 1;
-            aii();
+            this.cDk = jSONObject.optString("confirmType");
+            this.cDl = jSONObject.optInt("password") == 1;
+            akI();
         }
     }
 
     @Override // com.baidu.swan.apps.component.a.c.b, com.baidu.swan.apps.component.a.d.b, com.baidu.swan.apps.component.b.b
-    public void aU(JSONObject jSONObject) {
-        super.aU(jSONObject);
+    public void ba(JSONObject jSONObject) {
+        super.ba(jSONObject);
         if (!TextUtils.isEmpty(jSONObject.optString("cursorSpacing"))) {
-            this.cxp = aV(jSONObject);
+            this.cDi = bb(jSONObject);
         }
         this.maxLength = jSONObject.optInt("maxLength", this.maxLength);
-        this.cxq = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR, this.cxq);
+        this.cDj = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR, this.cDj);
         this.selectionStart = jSONObject.optInt("selectionStart", this.selectionStart);
         this.selectionEnd = jSONObject.optInt("selectionEnd", this.selectionEnd);
-        this.cxr = jSONObject.optString("confirmType", this.cxr);
-        this.cxs = jSONObject.optInt("password", this.cxs ? 1 : 0) == 1;
-        aii();
+        this.cDk = jSONObject.optString("confirmType", this.cDk);
+        this.cDl = jSONObject.optInt("password", this.cDl ? 1 : 0) == 1;
+        akI();
     }
 
-    private void aii() {
-        if (this.cxC != null) {
-            this.textColor = SwanAppConfigData.fv(this.cxC.optString("color"));
-            this.cxv = true;
+    private void akI() {
+        if (this.cDv != null) {
+            this.textColor = SwanAppConfigData.fv(this.cDv.optString("color"));
+            this.cDo = true;
         }
     }
 
-    private int aV(@NonNull JSONObject jSONObject) {
+    private int bb(@NonNull JSONObject jSONObject) {
         String optString = jSONObject.optString("cursorSpacing");
         if (TextUtils.isEmpty(optString)) {
             return 0;
         }
         if (optString.endsWith("rpx")) {
             try {
-                return ah.L(Integer.parseInt(optString.replace("rpx", "")));
+                return ah.N(Integer.parseInt(optString.replace("rpx", "")));
             } catch (NumberFormatException e) {
                 return 0;
             }
@@ -84,7 +84,7 @@ public class b extends com.baidu.swan.apps.component.a.c.b {
         this.selectionEnd = i2;
     }
 
-    public void hv(int i) {
+    public void hF(int i) {
         this.mViewHeight = i;
     }
 }

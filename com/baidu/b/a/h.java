@@ -10,7 +10,7 @@ final class h extends g {
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private Class<?> f1242a;
+        private Class<?> f1244a;
         private Method b;
         private Method c;
 
@@ -29,9 +29,9 @@ final class h extends g {
 
         private void a() {
             try {
-                this.f1242a = Class.forName(e.a(d.a()), true, Object.class.getClassLoader());
-                this.b = e.a(this.f1242a, e.a(d.b()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
-                this.c = e.a(this.f1242a, e.a(d.c()), null);
+                this.f1244a = Class.forName(e.a(d.a()), true, Object.class.getClassLoader());
+                this.b = e.a(this.f1244a, e.a(d.b()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
+                this.c = e.a(this.f1244a, e.a(d.c()), null);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -48,12 +48,12 @@ final class h extends g {
 
         /* JADX INFO: Access modifiers changed from: private */
         public Object b() {
-            return this.f1242a.newInstance();
+            return this.f1244a.newInstance();
         }
     }
 
     public h(int i, int i2) {
-        this.f1241a = 1099511627775L;
+        this.f1243a = 1099511627775L;
         this.b = 4;
         this.c = 32;
         this.d = i;

@@ -33,7 +33,7 @@ public class r extends at {
         this.aiw = (RoundCornerFrameLayout) this.mRootView.findViewById(R.id.frame_video);
         this.agl = (InterviewLiveLayout) this.mRootView.findViewById(R.id.frame_interview_no_video);
         this.aix = tH();
-        this.aix.dun().setBackgroundResource(R.color.transparent);
+        this.aix.dwP().setBackgroundResource(R.color.transparent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -59,9 +59,9 @@ public class r extends at {
     /* renamed from: b */
     public void H(AbsThreadDataSupport absThreadDataSupport) {
         this.afI = absThreadDataSupport;
-        if (this.afI != null && this.afI.bhz() != null) {
-            bw bhz = absThreadDataSupport.bhz();
-            if (bhz.bks() != null) {
+        if (this.afI != null && this.afI.bjZ() != null) {
+            bw bjZ = absThreadDataSupport.bjZ();
+            if (bjZ.bmS() != null) {
                 this.agl.setVisibility(8);
                 this.aiw.setVisibility(0);
                 this.agm.setVisibility(8);
@@ -72,8 +72,8 @@ public class r extends at {
             this.agl.setVisibility(0);
             this.agm.setVisibility(0);
             this.agl.H(absThreadDataSupport);
-            ay.a(this.mTitle, bhz);
-            ay.a(this.agm, this.mTitle, bhz, agk);
+            ay.a(this.mTitle, bjZ);
+            ay.a(this.agm, this.mTitle, bjZ, agk);
         }
     }
 

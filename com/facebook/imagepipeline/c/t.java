@@ -1,24 +1,24 @@
 package com.facebook.imagepipeline.c;
 /* loaded from: classes18.dex */
 public class t implements n {
-    private static t oLb = null;
+    private static t oUu = null;
 
     private t() {
     }
 
-    public static synchronized t ejR() {
+    public static synchronized t enH() {
         t tVar;
         synchronized (t.class) {
-            if (oLb == null) {
-                oLb = new t();
+            if (oUu == null) {
+                oUu = new t();
             }
-            tVar = oLb;
+            tVar = oUu;
         }
         return tVar;
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void ejJ() {
+    public void enz() {
     }
 
     @Override // com.facebook.imagepipeline.c.n
@@ -26,11 +26,11 @@ public class t implements n {
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void ejK() {
+    public void enA() {
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void ejL() {
+    public void enB() {
     }
 
     @Override // com.facebook.imagepipeline.c.n
@@ -38,7 +38,7 @@ public class t implements n {
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void ejM() {
+    public void enC() {
     }
 
     @Override // com.facebook.imagepipeline.c.n
@@ -46,19 +46,19 @@ public class t implements n {
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void ejN() {
+    public void enD() {
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void ejO() {
+    public void enE() {
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void ejP() {
+    public void enF() {
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void ejQ() {
+    public void enG() {
     }
 
     @Override // com.facebook.imagepipeline.c.n

@@ -5,7 +5,10 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaSendEmoticonResponseMessage extends JsonHttpResponsedMessage {
-    private String bpe;
+    private String bqx;
+    public String otE;
+    public String otF;
+    public String otG;
 
     public AlaSendEmoticonResponseMessage() {
         super(1031025);
@@ -15,12 +18,15 @@ public class AlaSendEmoticonResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         JSONObject optJSONObject = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
+        this.otE = jSONObject.optString("prototype_img");
+        this.otF = jSONObject.optString("compression_img");
+        this.otG = jSONObject.optString("result_img");
         if (optJSONObject != null) {
-            this.bpe = optJSONObject.optString("usermsg");
+            this.bqx = optJSONObject.optString("usermsg");
         }
     }
 
     public String getUserMsg() {
-        return this.bpe;
+        return this.bqx;
     }
 }

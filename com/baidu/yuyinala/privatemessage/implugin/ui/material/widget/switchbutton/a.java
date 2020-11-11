@@ -5,23 +5,23 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
 public class a {
-    private static int ouc = 256;
-    private static int oud = 7;
-    private static int oue = 16;
+    private static int oDv = 256;
+    private static int oDw = 7;
+    private static int oDx = 16;
     private int mFrom;
-    private b oug;
-    private int ouh;
-    private int oui;
+    private int oDA;
+    private int oDB;
+    private b oDz;
     private boolean isAnimating = false;
-    private int bvM = oud;
-    private HandlerC0934a ouf = new HandlerC0934a();
+    private int bBX = oDw;
+    private HandlerC0952a oDy = new HandlerC0952a();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
     public interface b {
-        boolean edG();
+        boolean ehv();
 
-        void edH();
+        void ehw();
 
         void onAnimationStart();
 
@@ -32,7 +32,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a edF() {
+    public static a ehu() {
         return new a();
     }
 
@@ -41,7 +41,7 @@ public class a {
         if (bVar == null) {
             com.baidu.yuyinala.privatemessage.implugin.util.c.e("SwitchButtonAnimationController", "onAnimateListener can not be null");
         } else {
-            this.oug = bVar;
+            this.oDz = bVar;
         }
         return this;
     }
@@ -49,34 +49,34 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.switchbutton.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class HandlerC0934a extends Handler {
-        private HandlerC0934a() {
+    public static class HandlerC0952a extends Handler {
+        private HandlerC0952a() {
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (message.what == a.ouc && message.obj != null) {
+            if (message.what == a.oDv && message.obj != null) {
                 ((Runnable) message.obj).run();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void dL(int i, int i2) {
+    public void dO(int i, int i2) {
         this.isAnimating = true;
         this.mFrom = i;
-        this.oui = i2;
-        this.ouh = this.bvM;
-        if (this.oui > this.mFrom) {
-            this.ouh = Math.abs(this.bvM);
-        } else if (this.oui < this.mFrom) {
-            this.ouh = -Math.abs(this.bvM);
+        this.oDB = i2;
+        this.oDA = this.bBX;
+        if (this.oDB > this.mFrom) {
+            this.oDA = Math.abs(this.bBX);
+        } else if (this.oDB < this.mFrom) {
+            this.oDA = -Math.abs(this.bBX);
         } else {
             this.isAnimating = false;
-            this.oug.edH();
+            this.oDz.ehw();
             return;
         }
-        this.oug.onAnimationStart();
+        this.oDz.onAnimationStart();
         new c().run();
     }
 
@@ -84,11 +84,11 @@ public class a {
         this.isAnimating = false;
     }
 
-    public void Nt(int i) {
+    public void NO(int i) {
         if (i <= 0) {
-            this.bvM = oud;
+            this.bBX = oDw;
         } else {
-            this.bvM = i;
+            this.bBX = i;
         }
     }
 
@@ -100,25 +100,25 @@ public class a {
         @Override // java.lang.Runnable
         public void run() {
             if (a.this.isAnimating) {
-                edI();
-                a.this.oug.onFrameUpdate(a.this.ouh);
-                if (a.this.oug.edG()) {
-                    edJ();
+                ehx();
+                a.this.oDz.onFrameUpdate(a.this.oDA);
+                if (a.this.oDz.ehv()) {
+                    ehy();
                     return;
                 }
                 a.this.stopAnimation();
-                a.this.oug.edH();
+                a.this.oDz.ehw();
             }
         }
 
-        private void edI() {
+        private void ehx() {
         }
 
-        private void edJ() {
-            Message obtainMessage = a.this.ouf.obtainMessage();
-            obtainMessage.what = a.ouc;
+        private void ehy() {
+            Message obtainMessage = a.this.oDy.obtainMessage();
+            obtainMessage.what = a.oDv;
             obtainMessage.obj = this;
-            a.this.ouf.sendMessageDelayed(obtainMessage, a.oue);
+            a.this.oDy.sendMessageDelayed(obtainMessage, a.oDx);
         }
     }
 }

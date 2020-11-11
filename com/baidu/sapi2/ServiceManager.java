@@ -6,7 +6,7 @@ public class ServiceManager implements NoProguard {
     private static ServiceManager b;
 
     /* renamed from: a  reason: collision with root package name */
-    private ISAccountManager f3286a;
+    private ISAccountManager f3289a;
 
     public static synchronized ServiceManager getInstance() {
         ServiceManager serviceManager;
@@ -20,10 +20,10 @@ public class ServiceManager implements NoProguard {
     }
 
     public ISAccountManager getIsAccountManager() {
-        return this.f3286a;
+        return this.f3289a;
     }
 
     public void setIsAccountManager(ISAccountManager iSAccountManager) {
-        this.f3286a = iSAccountManager;
+        this.f3289a = iSAccountManager;
     }
 }

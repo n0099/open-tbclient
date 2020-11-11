@@ -30,8 +30,8 @@ public class ResponseFriendListMessage extends JsonHttpResponsedMessage {
                         if (!TextUtils.isEmpty(metaData.getName_show())) {
                             a aVar = new a();
                             aVar.setUserName(metaData.getUserName());
-                            aVar.CL(metaData.getName_show());
-                            aVar.gf(metaData.getPortrait());
+                            aVar.CZ(metaData.getName_show());
+                            aVar.setUserPortrait(metaData.getPortrait());
                             aVar.setUserId(metaData.getUserIdLong());
                             this.friendList.add(aVar);
                         }

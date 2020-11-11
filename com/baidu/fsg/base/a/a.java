@@ -17,7 +17,7 @@ import java.util.HashSet;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1443a = "WalletDownloadManager";
+    private static final String f1445a = "WalletDownloadManager";
     private static final String b = "content://downloads/my_downloads/";
     private static a c;
     private final DownloadManager d;

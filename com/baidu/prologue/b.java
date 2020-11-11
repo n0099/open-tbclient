@@ -6,61 +6,61 @@ public final class b {
 
     /* loaded from: classes.dex */
     public static final class a {
-        public static final int splash_ad_lable_bg = 2130845470;
-        public static final int splash_skip_selector = 2130845471;
-        public static final int splash_video_mute = 2130845472;
-        public static final int splash_video_unmute = 2130845473;
+        public static final int splash_ad_lable_bg = 2130845513;
+        public static final int splash_skip_selector = 2130845514;
+        public static final int splash_video_mute = 2130845515;
+        public static final int splash_video_unmute = 2130845516;
     }
 
     /* renamed from: com.baidu.prologue.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0306b {
-        public static final int image_logo_img = 2131764621;
-        public static final int image_logo_view = 2131764614;
-        public static final int image_small_logo_img = 2131764615;
-        public static final int image_splash_background_view = 2131764628;
-        public static final int image_splash_clickable = 2131764625;
-        public static final int iv_video_splash_voice = 2131764634;
-        public static final int splash_ad_btn_skip = 2131764619;
-        public static final int splash_ad_common = 2131764626;
-        public static final int splash_ad_countdown = 2131764620;
-        public static final int splash_ad_image = 2131764624;
-        public static final int splash_ad_image_back = 2131764623;
-        public static final int splash_ad_image_content = 2131764622;
-        public static final int splash_ad_label = 2131764616;
-        public static final int splash_countdown_skip = 2131764618;
-        public static final int splash_countdown_skip_click = 2131764617;
-        public static final int video_mask_view = 2131764631;
-        public static final int video_splash_clickable = 2131764630;
-        public static final int video_splash_view_bs = 2131764629;
-        public static final int video_splash_view_content = 2131764627;
-        public static final int video_splash_view_fl = 2131764632;
-        public static final int video_splash_voice_click = 2131764633;
+    public static final class C0318b {
+        public static final int image_logo_img = 2131764665;
+        public static final int image_logo_view = 2131764658;
+        public static final int image_small_logo_img = 2131764659;
+        public static final int image_splash_background_view = 2131764672;
+        public static final int image_splash_clickable = 2131764669;
+        public static final int iv_video_splash_voice = 2131764678;
+        public static final int splash_ad_btn_skip = 2131764663;
+        public static final int splash_ad_common = 2131764670;
+        public static final int splash_ad_countdown = 2131764664;
+        public static final int splash_ad_image = 2131764668;
+        public static final int splash_ad_image_back = 2131764667;
+        public static final int splash_ad_image_content = 2131764666;
+        public static final int splash_ad_label = 2131764660;
+        public static final int splash_countdown_skip = 2131764662;
+        public static final int splash_countdown_skip_click = 2131764661;
+        public static final int video_mask_view = 2131764675;
+        public static final int video_splash_clickable = 2131764674;
+        public static final int video_splash_view_bs = 2131764673;
+        public static final int video_splash_view_content = 2131764671;
+        public static final int video_splash_view_fl = 2131764676;
+        public static final int video_splash_voice_click = 2131764677;
     }
 
     /* loaded from: classes.dex */
     public static final class c {
-        public static final int splash_ad_common = 2130970746;
-        public static final int splash_ad_image = 2130970747;
-        public static final int splash_ad_video = 2130970748;
-        public static final int splash_ad_video_decoration = 2130970749;
+        public static final int splash_ad_common = 2130970756;
+        public static final int splash_ad_image = 2130970757;
+        public static final int splash_ad_video = 2130970758;
+        public static final int splash_ad_video_decoration = 2130970759;
     }
 
     /* loaded from: classes.dex */
     public static final class d {
-        public static final int prologue_activity_not_found = 2131301045;
-        public static final int prologue_app_name = 2131301046;
-        public static final int prologue_splash_label_text = 2131301047;
-        public static final int prologue_splash_skip_text = 2131301048;
-        public static final int prologue_united_scheme_err_message_action_acl_check_fail = 2131301049;
-        public static final int prologue_united_scheme_err_message_action_allow_close = 2131301050;
-        public static final int prologue_united_scheme_err_message_action_notfound = 2131301051;
-        public static final int prologue_united_scheme_err_message_action_sec_check_fail = 2131301052;
-        public static final int prologue_united_scheme_err_message_module_notfound = 2131301053;
-        public static final int prologue_united_scheme_err_message_not_support = 2131301054;
-        public static final int prologue_united_scheme_err_message_ok = 2131301055;
-        public static final int prologue_united_scheme_err_message_params_parse_fail = 2131301056;
-        public static final int prologue_united_scheme_err_message_parse_fail = 2131301057;
+        public static final int prologue_activity_not_found = 2131301062;
+        public static final int prologue_app_name = 2131301063;
+        public static final int prologue_splash_label_text = 2131301064;
+        public static final int prologue_splash_skip_text = 2131301065;
+        public static final int prologue_united_scheme_err_message_action_acl_check_fail = 2131301066;
+        public static final int prologue_united_scheme_err_message_action_allow_close = 2131301067;
+        public static final int prologue_united_scheme_err_message_action_notfound = 2131301068;
+        public static final int prologue_united_scheme_err_message_action_sec_check_fail = 2131301069;
+        public static final int prologue_united_scheme_err_message_module_notfound = 2131301070;
+        public static final int prologue_united_scheme_err_message_not_support = 2131301071;
+        public static final int prologue_united_scheme_err_message_ok = 2131301072;
+        public static final int prologue_united_scheme_err_message_params_parse_fail = 2131301073;
+        public static final int prologue_united_scheme_err_message_parse_fail = 2131301074;
     }
 
     /* loaded from: classes.dex */

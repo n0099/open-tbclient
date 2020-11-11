@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import com.baidu.android.imsdk.utils.PinYinUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObject {
     public static final Parcelable.Creator<GroupInfo> CREATOR = new Parcelable.Creator<GroupInfo>() { // from class: com.baidu.android.imsdk.group.GroupInfo.1
         /* JADX DEBUG: Method merged with bridge method */

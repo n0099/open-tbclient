@@ -5,18 +5,18 @@ import android.os.Looper;
 public class k implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1590a;
+    public String f1592a;
     public Runnable b;
 
     public k(Runnable runnable) {
-        this.f1590a = "EmptyName";
-        this.f1590a = "nullname";
+        this.f1592a = "EmptyName";
+        this.f1592a = "nullname";
         this.b = runnable;
     }
 
     public k(Runnable runnable, String str) {
-        this.f1590a = "EmptyName";
-        this.f1590a = str;
+        this.f1592a = "EmptyName";
+        this.f1592a = str;
         this.b = runnable;
     }
 

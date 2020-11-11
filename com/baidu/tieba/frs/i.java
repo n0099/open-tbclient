@@ -4,11 +4,11 @@ import android.graphics.drawable.Drawable;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class i {
-    private HashMap<String, Drawable> iAM = new HashMap<>();
+    private HashMap<String, Drawable> iGJ = new HashMap<>();
 
     public void destory() {
-        if (!this.iAM.isEmpty()) {
-            this.iAM.clear();
+        if (!this.iGJ.isEmpty()) {
+            this.iGJ.clear();
         }
     }
 }

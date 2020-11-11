@@ -29,7 +29,7 @@ public class b {
     private boolean h = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f1871a = false;
+    public boolean f1873a = false;
     boolean b = false;
     private BDLocation i = null;
     private BDLocation j = null;
@@ -37,14 +37,14 @@ public class b {
     private BDLocation k = null;
     private boolean l = false;
     private boolean m = false;
-    private RunnableC0233b n = null;
+    private RunnableC0245b n = null;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes7.dex */
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f1872a;
+        public String f1874a;
         public Messenger b;
         public LocationClientOption c = new LocationClientOption();
         public int d = 0;
@@ -53,12 +53,12 @@ public class b {
         public a(b bVar, Message message) {
             boolean z = false;
             this.e = bVar;
-            this.f1872a = null;
+            this.f1874a = null;
             this.b = null;
             this.b = message.replyTo;
-            this.f1872a = message.getData().getString("packName");
+            this.f1874a = message.getData().getString("packName");
             this.c.prodName = message.getData().getString("prodName");
-            com.baidu.location.e.b.a().a(this.c.prodName, this.f1872a);
+            com.baidu.location.e.b.a().a(this.c.prodName, this.f1874a);
             this.c.coorType = message.getData().getString("coorType");
             this.c.addrType = message.getData().getString("addrType");
             this.c.enableSimulateGps = message.getData().getBoolean("enableSimulateGps", false);
@@ -352,10 +352,10 @@ public class b {
 
     /* renamed from: com.baidu.location.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    private class RunnableC0233b implements Runnable {
+    private class RunnableC0245b implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ b f1873a;
+        final /* synthetic */ b f1875a;
         private int b;
         private boolean c;
 
@@ -365,7 +365,7 @@ public class b {
                 return;
             }
             this.b++;
-            this.f1873a.m = false;
+            this.f1875a.m = false;
         }
     }
 
@@ -432,7 +432,7 @@ public class b {
             }
             z = next.c.location_change_notify ? true : z;
         }
-        com.baidu.location.e.l.f1955a = z;
+        com.baidu.location.e.l.f1957a = z;
         if (this.h != z2) {
             this.h = z2;
             com.baidu.location.c.f.a().a(this.h);
@@ -459,7 +459,7 @@ public class b {
             return;
         }
         c = System.currentTimeMillis();
-        this.f1871a = true;
+        this.f1873a = true;
         com.baidu.location.c.i.a().b();
         a(new a(this, message));
         e();
@@ -478,7 +478,7 @@ public class b {
     }
 
     public void a(boolean z) {
-        this.f1871a = z;
+        this.f1873a = z;
         if (z) {
             d = 1;
         } else {
@@ -564,9 +564,9 @@ public class b {
         if (aVar.c.prodName != null) {
             stringBuffer.append(aVar.c.prodName);
         }
-        if (aVar.f1872a != null) {
+        if (aVar.f1874a != null) {
             stringBuffer.append(":");
-            stringBuffer.append(aVar.f1872a);
+            stringBuffer.append(aVar.f1874a);
             stringBuffer.append("|");
         }
         String stringBuffer2 = stringBuffer.toString();
@@ -605,9 +605,9 @@ public class b {
             a2.c.scanSpan = message.getData().getInt("scanSpan", a2.c.scanSpan);
             if (a2.c.scanSpan < 1000) {
                 r.a().c();
-                this.f1871a = false;
+                this.f1873a = false;
             } else {
-                this.f1871a = true;
+                this.f1873a = true;
             }
             if (a2.c.scanSpan > 999 && i < 1000) {
                 if (a2.c.mIsNeedDeviceDirect || a2.c.isNeedAltitude) {

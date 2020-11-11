@@ -11,14 +11,14 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class g {
-    private ValueAnimator iGA;
-    private TextView iQS;
+    private ValueAnimator iMx;
+    private TextView iWP;
     private Context mContext;
     private Runnable mHideRunnable = new Runnable() { // from class: com.baidu.tieba.frs.game.strategy.view.g.3
         @Override // java.lang.Runnable
         public void run() {
-            if (g.this.iQS != null && g.this.iQS.getParent() != null && g.this.iGA != null) {
-                g.this.iGA.start();
+            if (g.this.iWP != null && g.this.iWP.getParent() != null && g.this.iMx != null) {
+                g.this.iMx.start();
             }
         }
     };
@@ -26,36 +26,36 @@ public class g {
 
     public g(Context context) {
         this.mContext = context;
-        cAk();
+        cCL();
     }
 
-    private void cAk() {
-        this.iQS = new TextView(this.mContext);
-        this.iQS.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(R.dimen.fontsize24));
-        ap.setBackgroundResource(this.iQS, R.color.cp_link_tip_a);
-        ap.setViewTextColor(this.iQS, (int) R.color.cp_cont_a);
-        this.iQS.setGravity(17);
-        this.iQS.setVisibility(0);
-        this.iGA = new ValueAnimator();
-        this.iGA.setFloatValues(1.0f, 0.0f);
-        this.iGA.setDuration(400L);
-        this.iGA.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.game.strategy.view.g.1
+    private void cCL() {
+        this.iWP = new TextView(this.mContext);
+        this.iWP.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(R.dimen.fontsize24));
+        ap.setBackgroundResource(this.iWP, R.color.cp_link_tip_a);
+        ap.setViewTextColor(this.iWP, (int) R.color.cp_cont_a);
+        this.iWP.setGravity(17);
+        this.iWP.setVisibility(0);
+        this.iMx = new ValueAnimator();
+        this.iMx.setFloatValues(1.0f, 0.0f);
+        this.iMx.setDuration(400L);
+        this.iMx.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.game.strategy.view.g.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (g.this.iQS != null && valueAnimator != null) {
-                    g.this.iQS.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                if (g.this.iWP != null && valueAnimator != null) {
+                    g.this.iWP.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             }
         });
-        this.iGA.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.game.strategy.view.g.2
+        this.iMx.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.game.strategy.view.g.2
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (g.this.iQS != null) {
-                    g.this.cyf();
+                if (g.this.iWP != null) {
+                    g.this.cAG();
                 }
             }
 
@@ -69,32 +69,32 @@ public class g {
         });
     }
 
-    public void cyf() {
+    public void cAG() {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.iGA != null) {
-            this.iGA.cancel();
+        if (this.iMx != null) {
+            this.iMx.cancel();
         }
-        if (this.iQS != null) {
-            ViewParent parent = this.iQS.getParent();
+        if (this.iWP != null) {
+            ViewParent parent = this.iWP.getParent();
             if (parent != null && (parent instanceof ViewGroup)) {
-                ((ViewGroup) parent).removeView(this.iQS);
+                ((ViewGroup) parent).removeView(this.iWP);
             }
-            this.iQS.setVisibility(8);
-            this.iQS = null;
+            this.iWP.setVisibility(8);
+            this.iWP = null;
         }
     }
 
     public boolean isShowing() {
-        return this.iQS != null && this.iQS.getVisibility() == 0;
+        return this.iWP != null && this.iWP.getVisibility() == 0;
     }
 
-    public TextView cAl() {
-        return this.iQS;
+    public TextView cCM() {
+        return this.iWP;
     }
 
-    public void cAm() {
+    public void cCN() {
         this.mHandler.removeCallbacks(this.mHideRunnable);
         this.mHandler.postDelayed(this.mHideRunnable, 2000L);
     }

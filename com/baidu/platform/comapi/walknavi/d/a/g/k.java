@@ -6,7 +6,7 @@ import java.security.MessageDigest;
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2992a = k.class.getName();
+    private static final String f2994a = k.class.getName();
     private static String b = Environment.getExternalStorageDirectory() + "/AR/Screenshots/";
 
     public static String a(String str) {

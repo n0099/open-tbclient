@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.SkinManager;
+import com.baidu.live.tbadk.core.util.StringHelper;
 /* loaded from: classes4.dex */
 public class LoadingView extends AbsAttachView {
     private static final long DELAY_TIME = 200;
@@ -33,11 +34,11 @@ public class LoadingView extends AbsAttachView {
     }
 
     public LoadingView(Context context) {
-        this(context, context.getResources().getDimensionPixelSize(a.e.sdk_ds484));
+        this(context, context.getResources().getDimensionPixelSize(a.d.sdk_ds484));
     }
 
     public LoadingView(Context context, int i) {
-        super(LayoutInflater.from(context).inflate(a.h.sdk_loading_view_layout, (ViewGroup) null));
+        super(LayoutInflater.from(context).inflate(a.g.sdk_loading_view_layout, (ViewGroup) null));
         this.currentIndex = 0;
         this.mSkinType = -1;
         this.runnable = new Runnable() { // from class: com.baidu.live.tbadk.loading.LoadingView.1
@@ -51,7 +52,7 @@ public class LoadingView extends AbsAttachView {
                 TbadkCoreApplication.getInst().handler.postDelayed(LoadingView.this.runnable, LoadingView.DELAY_TIME);
             }
         };
-        this.imgView = (ImageView) this.attachedView.findViewById(a.g.loading_animate_view);
+        this.imgView = (ImageView) this.attachedView.findViewById(a.f.loading_animate_view);
         if (i > 0) {
             ViewGroup.LayoutParams layoutParams = this.imgView.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
@@ -60,9 +61,9 @@ public class LoadingView extends AbsAttachView {
                 this.imgView.setLayoutParams(marginLayoutParams);
             }
         }
-        this.textView = (TextView) this.attachedView.findViewById(a.g.loading_anim_ellipsis);
-        this.loadingTextView = (TextView) this.attachedView.findViewById(a.g.loading_text);
-        this.textArray = context.getResources().getStringArray(a.b.sdk_loading_anim_text_array);
+        this.textView = (TextView) this.attachedView.findViewById(a.f.loading_anim_ellipsis);
+        this.loadingTextView = (TextView) this.attachedView.findViewById(a.f.loading_text);
+        this.textArray = new String[]{".", ".", StringHelper.STRING_MORE};
         this.arrayLength = this.textArray.length;
     }
 
@@ -88,11 +89,11 @@ public class LoadingView extends AbsAttachView {
         if (this.mSkinType == -1) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         }
-        SkinManager.setBackgroundResource(this.imgView, a.f.sdk_loading_animation, this.mSkinType);
+        SkinManager.setBackgroundResource(this.imgView, a.e.sdk_loading_animation, this.mSkinType);
         startLoadingAnimation();
-        SkinManager.setViewTextColor(this.textView, a.d.sdk_cp_cont_c, 1, this.mSkinType);
-        SkinManager.setViewTextColor(this.loadingTextView, a.d.sdk_cp_cont_c, 1, this.mSkinType);
-        SkinManager.setBackgroundColor(this.attachedView, a.d.sdk_cp_bg_line_d, this.mSkinType);
+        SkinManager.setViewTextColor(this.textView, a.c.sdk_cp_cont_c, 1, this.mSkinType);
+        SkinManager.setViewTextColor(this.loadingTextView, a.c.sdk_cp_cont_c, 1, this.mSkinType);
+        SkinManager.setBackgroundColor(this.attachedView, a.c.sdk_cp_bg_line_d, this.mSkinType);
         this.textView.setText(this.textArray[0]);
         TbadkCoreApplication.getInst().handler.removeCallbacks(this.runnable);
         TbadkCoreApplication.getInst().handler.postDelayed(this.runnable, DELAY_TIME);
@@ -117,11 +118,11 @@ public class LoadingView extends AbsAttachView {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         }
         if (isViewAttached()) {
-            SkinManager.setBackgroundResource(this.imgView, a.f.sdk_loading_animation, this.mSkinType);
+            SkinManager.setBackgroundResource(this.imgView, a.e.sdk_loading_animation, this.mSkinType);
             startLoadingAnimation();
-            SkinManager.setViewTextColor(this.textView, a.d.sdk_cp_cont_c, 1, this.mSkinType);
-            SkinManager.setViewTextColor(this.loadingTextView, a.d.sdk_cp_cont_c, 1, this.mSkinType);
-            SkinManager.setBackgroundColor(this.attachedView, a.d.sdk_cp_bg_line_d, this.mSkinType);
+            SkinManager.setViewTextColor(this.textView, a.c.sdk_cp_cont_c, 1, this.mSkinType);
+            SkinManager.setViewTextColor(this.loadingTextView, a.c.sdk_cp_cont_c, 1, this.mSkinType);
+            SkinManager.setBackgroundColor(this.attachedView, a.c.sdk_cp_bg_line_d, this.mSkinType);
         }
     }
 

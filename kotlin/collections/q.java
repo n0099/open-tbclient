@@ -6,7 +6,7 @@ import java.util.List;
 @kotlin.h
 /* loaded from: classes10.dex */
 public class q extends p {
-    public static final <T> List<T> exI() {
+    public static final <T> List<T> eBx() {
         return EmptyList.INSTANCE;
     }
 
@@ -15,18 +15,18 @@ public class q extends p {
         return new kotlin.b.h(0, collection.size() - 1);
     }
 
-    public static final <T> int gE(List<? extends T> list) {
+    public static final <T> int gN(List<? extends T> list) {
         kotlin.jvm.internal.q.n(list, "receiver$0");
         return list.size() - 1;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.util.List<? extends T> */
     /* JADX WARN: Multi-variable type inference failed */
-    public static final <T> List<T> gF(List<? extends T> list) {
+    public static final <T> List<T> gO(List<? extends T> list) {
         kotlin.jvm.internal.q.n(list, "receiver$0");
         switch (list.size()) {
             case 0:
-                return o.exI();
+                return o.eBx();
             case 1:
                 return o.bU(list.get(0));
             default:

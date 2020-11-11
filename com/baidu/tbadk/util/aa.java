@@ -7,19 +7,19 @@ import android.widget.AbsListView;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 /* loaded from: classes.dex */
 public class aa {
-    private View aXx;
-    private int ftg;
-    private boolean fth;
+    private View aYP;
+    private int fyY;
+    private boolean fyZ;
     private final Handler mHandler;
 
-    public void bBr() {
+    public void bDQ() {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(1)) {
             this.mHandler.sendEmptyMessageDelayed(1, 60L);
         }
     }
 
-    public void bBs() {
+    public void bDR() {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(2)) {
             this.mHandler.sendEmptyMessageDelayed(2, 110L);
@@ -27,29 +27,29 @@ public class aa {
     }
 
     public void hideFloatingView(boolean z) {
-        if (this.aXx != null) {
-            if (z || this.aXx.getVisibility() != 8) {
-                bBs();
+        if (this.aYP != null) {
+            if (z || this.aYP.getVisibility() != 8) {
+                bDR();
             }
         }
     }
 
     public void showFloatingView(boolean z) {
-        if (this.aXx != null) {
-            if (z || this.aXx.getVisibility() != 0) {
-                bBr();
+        if (this.aYP != null) {
+            if (z || this.aYP.getVisibility() != 0) {
+                bDQ();
             }
         }
     }
 
     public void onScroll(int i, int i2) {
-        if (this.aXx != null) {
-            if (i != 0 && i2 > i && this.aXx.getVisibility() != 8) {
+        if (this.aYP != null) {
+            if (i != 0 && i2 > i && this.aYP.getVisibility() != 8) {
                 hideFloatingView(false);
-            } else if ((i == 0 || i2 < i) && this.aXx.getVisibility() != 0) {
+            } else if ((i == 0 || i2 < i) && this.aYP.getVisibility() != 0) {
                 showFloatingView(false);
             }
-            this.ftg = i;
+            this.fyY = i;
         }
     }
 
@@ -63,12 +63,12 @@ public class aa {
             } else {
                 return;
             }
-            if (firstVisiblePosition > this.ftg) {
+            if (firstVisiblePosition > this.fyY) {
                 hideFloatingView(true);
-            } else if (firstVisiblePosition < this.ftg) {
+            } else if (firstVisiblePosition < this.fyY) {
                 showFloatingView(true);
-            } else if (firstVisiblePosition == this.ftg) {
-                if (firstVisiblePosition == 0 || !this.fth) {
+            } else if (firstVisiblePosition == this.fyY) {
+                if (firstVisiblePosition == 0 || !this.fyZ) {
                     showFloatingView(true);
                 } else {
                     hideFloatingView(true);

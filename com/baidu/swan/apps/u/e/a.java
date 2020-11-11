@@ -9,16 +9,16 @@ import java.util.Map;
 /* loaded from: classes10.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Map<String, a> cTg = new HashMap();
-    private Map<String, String> cTh = new HashMap();
-    public final b cTi = new b().pt("SwanLaunch").q(awG());
+    private static final Map<String, a> cYZ = new HashMap();
+    private Map<String, String> cZa = new HashMap();
+    public final b cZb = new b().pH("SwanLaunch").q(azg());
     public final String id;
 
-    public static a pr(String str) {
-        a aVar = cTg.get(str);
+    public static a pF(String str) {
+        a aVar = cYZ.get(str);
         if (aVar == null) {
             a aVar2 = new a(str);
-            cTg.put(str, aVar2);
+            cYZ.put(str, aVar2);
             return aVar2;
         }
         return aVar;
@@ -28,49 +28,49 @@ public final class a {
         this.id = str;
     }
 
-    public b.a awE() {
-        return this.cTi.awE();
+    public b.a aze() {
+        return this.cZb.aze();
     }
 
-    public b.a ps(String str) {
-        return this.cTi.ps(str);
+    public b.a pG(String str) {
+        return this.cZb.pG(str);
     }
 
     public b.a bW(String str, String str2) {
-        return this.cTi.bW(str, str2);
+        return this.cZb.bW(str, str2);
     }
 
-    public synchronized a awF() {
-        this.cTi.awJ();
+    public synchronized a azf() {
+        this.cZb.azj();
         return this;
     }
 
-    private com.baidu.swan.apps.ap.e.b<b> awG() {
+    private com.baidu.swan.apps.ap.e.b<b> azg() {
         return new com.baidu.swan.apps.ap.e.b<b>() { // from class: com.baidu.swan.apps.u.e.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: a */
             public void M(b bVar) {
                 if (a.DEBUG) {
-                    arq();
+                    atR();
                 }
             }
 
-            private synchronized void arq() {
+            private synchronized void atR() {
                 E("SwanLaunch", "\n\n\n");
                 E("SwanLaunch", ">>>>>> SWAN Launch Log For " + a.this.id);
                 StringBuilder sb = new StringBuilder();
-                for (Map.Entry entry : a.this.cTh.entrySet()) {
+                for (Map.Entry entry : a.this.cZa.entrySet()) {
                     sb.append(String.format("%s[%s] ", entry.getKey(), entry.getValue()));
                 }
-                for (b.a aVar : a.this.cTi.awI()) {
+                for (b.a aVar : a.this.cZb.azi()) {
                     StringBuilder sb2 = new StringBuilder();
-                    for (String str : aVar.cTo) {
+                    for (String str : aVar.cZh) {
                         sb2.append(str).append(" ");
                     }
                     for (String str2 : aVar.msgs) {
-                        String awH = a.this.cTi.awH();
-                        E(TextUtils.isEmpty(aVar.tag) ? awH : aVar.tag, String.format(Locale.getDefault(), "[%s]> %s%s>>> %s", awH, sb, sb2, str2));
+                        String azh = a.this.cZb.azh();
+                        E(TextUtils.isEmpty(aVar.tag) ? azh : aVar.tag, String.format(Locale.getDefault(), "[%s]> %s%s>>> %s", azh, sb, sb2, str2));
                     }
                 }
             }

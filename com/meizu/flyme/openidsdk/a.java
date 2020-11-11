@@ -3,7 +3,7 @@ package com.meizu.flyme.openidsdk;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f4447a;
+    public long f4449a;
     public String b;
     public String c;
     public int d;
@@ -17,7 +17,7 @@ public class a {
     }
 
     public void a(long j) {
-        this.f4447a = j;
+        this.f4449a = j;
     }
 
     public void a(String str) {
@@ -25,10 +25,10 @@ public class a {
     }
 
     public boolean a() {
-        return this.f4447a > System.currentTimeMillis();
+        return this.f4449a > System.currentTimeMillis();
     }
 
     public void b() {
-        this.f4447a = 0L;
+        this.f4449a = 0L;
     }
 }

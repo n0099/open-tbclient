@@ -3,7 +3,7 @@ package com.baidu.mapsdkplatform.comapi.map;
 public final class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public w f2238a = new w();
+    public w f2240a = new w();
     public boolean b = false;
     public int c = 1;
     public boolean d = true;
@@ -17,7 +17,7 @@ public final class u {
     }
 
     public u a(w wVar) {
-        this.f2238a = wVar;
+        this.f2240a = wVar;
         return this;
     }
 

@@ -5,7 +5,7 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.statics.SdkStaticKeys;
 /* loaded from: classes4.dex */
 public class g {
-    public static String ui(int i) {
+    public static String us(int i) {
         if (i == 2) {
             return SdkStaticKeys.CHARM_TYPE_WEEK;
         }
@@ -23,11 +23,11 @@ public class g {
             return "";
         }
         if (i == 2) {
-            return context.getResources().getString(a.i.charm_week_top_txt);
+            return context.getResources().getString(a.h.charm_week_top_txt);
         }
         if (i != 3) {
             return "";
         }
-        return context.getResources().getString(a.i.charm_day_top_txt);
+        return context.getResources().getString(a.h.charm_day_top_txt);
     }
 }

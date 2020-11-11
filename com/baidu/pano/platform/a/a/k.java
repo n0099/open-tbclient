@@ -6,29 +6,29 @@ import java.io.IOException;
 public class k extends ByteArrayOutputStream {
 
     /* renamed from: a  reason: collision with root package name */
-    private final b f2643a;
+    private final b f2645a;
 
     public k(b bVar, int i) {
-        this.f2643a = bVar;
-        this.buf = this.f2643a.a(Math.max(i, 256));
+        this.f2645a = bVar;
+        this.buf = this.f2645a.a(Math.max(i, 256));
     }
 
     @Override // java.io.ByteArrayOutputStream, java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.f2643a.a(this.buf);
+        this.f2645a.a(this.buf);
         this.buf = null;
         super.close();
     }
 
     public void finalize() {
-        this.f2643a.a(this.buf);
+        this.f2645a.a(this.buf);
     }
 
     private void a(int i) {
         if (this.count + i > this.buf.length) {
-            byte[] a2 = this.f2643a.a((this.count + i) * 2);
+            byte[] a2 = this.f2645a.a((this.count + i) * 2);
             System.arraycopy(this.buf, 0, a2, 0, this.count);
-            this.f2643a.a(this.buf);
+            this.f2645a.a(this.buf);
             this.buf = a2;
         }
     }

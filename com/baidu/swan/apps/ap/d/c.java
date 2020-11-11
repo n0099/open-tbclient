@@ -5,54 +5,54 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 /* loaded from: classes10.dex */
 public class c implements b {
-    private final Queue<a> dza = new ArrayDeque();
-    private a dzb;
+    private final Queue<a> dES = new ArrayDeque();
+    private a dET;
 
     public void b(a aVar) {
         if (aVar != null) {
-            synchronized (this.dza) {
-                this.dza.offer(aVar.a(this));
+            synchronized (this.dES) {
+                this.dES.offer(aVar.a(this));
             }
         }
-        aKU();
+        aNu();
     }
 
     @Override // com.baidu.swan.apps.ap.d.b
     public void a(a aVar) {
-        synchronized (this.dza) {
-            if (aVar == this.dzb) {
+        synchronized (this.dES) {
+            if (aVar == this.dET) {
                 runNextTask();
             }
         }
     }
 
-    private void aKU() {
-        synchronized (this.dza) {
-            if (this.dzb == null) {
+    private void aNu() {
+        synchronized (this.dES) {
+            if (this.dET == null) {
                 runNextTask();
             }
         }
     }
 
     private void runNextTask() {
-        synchronized (this.dza) {
-            this.dzb = null;
-            if (!this.dza.isEmpty()) {
-                this.dzb = this.dza.poll();
-                if (this.dzb == null) {
+        synchronized (this.dES) {
+            this.dET = null;
+            if (!this.dES.isEmpty()) {
+                this.dET = this.dES.poll();
+                if (this.dET == null) {
                     runNextTask();
                 } else {
-                    ak.m(this.dzb);
+                    ak.m(this.dET);
                 }
             }
         }
     }
 
     public synchronized void clear() {
-        if (this.dzb != null) {
-            this.dzb.finish();
-            this.dzb = null;
+        if (this.dET != null) {
+            this.dET.finish();
+            this.dET = null;
         }
-        this.dza.clear();
+        this.dES.clear();
     }
 }

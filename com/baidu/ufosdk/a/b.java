@@ -7,7 +7,7 @@ import com.baidu.ufosdk.f.c;
 public final class b extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f3697a;
+    private Context f3699a;
     private boolean b = false;
     private boolean c = false;
     private boolean d = false;
@@ -15,7 +15,7 @@ public final class b extends Thread {
     private String f = "";
 
     public b(Context context) {
-        this.f3697a = context;
+        this.f3699a = context;
     }
 
     public final void a() {
@@ -40,7 +40,7 @@ public final class b extends Thread {
                 c.a("Interrupted!", e);
             }
             if (!this.c) {
-                com.baidu.ufosdk.e.a.c(this.f3697a);
+                com.baidu.ufosdk.e.a.c(this.f3699a);
             }
             try {
                 if (!this.d) {

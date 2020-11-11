@@ -13,11 +13,11 @@ public class g extends com.baidu.swan.apps.api.a.d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b lx(String str) {
+    public com.baidu.swan.apps.api.c.b lM(String str) {
         if (DEBUG) {
             Log.d("Api-PhoneCallApi", "start make phone call");
         }
-        if (aha()) {
+        if (ajA()) {
             com.baidu.swan.apps.console.c.e("Api-PhoneCallApi", "Api-PhoneCallApi does not supported when app is invisible.");
             return new com.baidu.swan.apps.api.c.b(1001, "Api-PhoneCallApi does not supported when app is invisible.");
         }

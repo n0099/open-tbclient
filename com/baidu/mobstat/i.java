@@ -3,20 +3,20 @@ package com.baidu.mobstat;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f2620a;
+    private long f2622a;
     private String b;
     private String c;
 
     public i(long j, String str, String str2) {
-        this.f2620a = -1L;
+        this.f2622a = -1L;
         str2 = str2 == null ? "" : str2;
-        this.f2620a = j;
+        this.f2622a = j;
         this.b = str;
         this.c = str2;
     }
 
     public long a() {
-        return this.f2620a;
+        return this.f2622a;
     }
 
     public String b() {

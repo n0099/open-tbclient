@@ -5,19 +5,19 @@ import com.baidu.platform.base.SearchType;
 /* synthetic */ class l {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ int[] f3190a = new int[SearchType.values().length];
+    static final /* synthetic */ int[] f3192a = new int[SearchType.values().length];
 
     static {
         try {
-            f3190a[SearchType.TRANSIT_ROUTE.ordinal()] = 1;
+            f3192a[SearchType.TRANSIT_ROUTE.ordinal()] = 1;
         } catch (NoSuchFieldError e) {
         }
         try {
-            f3190a[SearchType.DRIVE_ROUTE.ordinal()] = 2;
+            f3192a[SearchType.DRIVE_ROUTE.ordinal()] = 2;
         } catch (NoSuchFieldError e2) {
         }
         try {
-            f3190a[SearchType.WALK_ROUTE.ordinal()] = 3;
+            f3192a[SearchType.WALK_ROUTE.ordinal()] = 3;
         } catch (NoSuchFieldError e3) {
         }
     }

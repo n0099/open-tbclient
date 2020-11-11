@@ -19,7 +19,7 @@ public class w {
     public int s;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f2240a = 12.0f;
+    public float f2242a = 12.0f;
     public int b = 0;
     public int c = 0;
     public double d = 1.2958162E7d;
@@ -36,7 +36,7 @@ public class w {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f2241a = 0;
+        public long f2243a = 0;
         public long b = 0;
         public long c = 0;
         public long d = 0;
@@ -50,15 +50,15 @@ public class w {
     }
 
     public Bundle a(d dVar) {
-        if (this.f2240a < dVar.b) {
-            this.f2240a = dVar.b;
+        if (this.f2242a < dVar.b) {
+            this.f2242a = dVar.b;
         }
-        if (this.f2240a > dVar.f2222a) {
-            if (this.f2240a == 1096.0f || d.d == 26.0f) {
-                this.f2240a = 26.0f;
+        if (this.f2242a > dVar.f2224a) {
+            if (this.f2242a == 1096.0f || d.d == 26.0f) {
+                this.f2242a = 26.0f;
                 d.d = 26.0f;
             } else {
-                this.f2240a = dVar.f2222a;
+                this.f2242a = dVar.f2224a;
             }
         }
         while (this.b < 0) {
@@ -72,7 +72,7 @@ public class w {
             this.c = -45;
         }
         Bundle bundle = new Bundle();
-        bundle.putDouble("level", this.f2240a);
+        bundle.putDouble("level", this.f2242a);
         bundle.putDouble(MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION, this.b);
         bundle.putDouble("overlooking", this.c);
         bundle.putDouble("centerptx", this.d);
@@ -97,7 +97,7 @@ public class w {
         bundle.putInt("rty", this.k.g.getIntY());
         bundle.putInt("rbx", this.k.h.getIntX());
         bundle.putInt("rby", this.k.h.getIntY());
-        bundle.putLong("gleft", this.k.f2241a);
+        bundle.putLong("gleft", this.k.f2243a);
         bundle.putLong("gbottom", this.k.d);
         bundle.putLong("gtop", this.k.c);
         bundle.putLong("gright", this.k.b);
@@ -116,7 +116,7 @@ public class w {
         if (bundle == null) {
             return;
         }
-        this.f2240a = (float) bundle.getDouble("level");
+        this.f2242a = (float) bundle.getDouble("level");
         this.b = (int) bundle.getDouble(MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION);
         this.c = (int) bundle.getDouble("overlooking");
         this.d = bundle.getDouble("centerptx");
@@ -132,12 +132,12 @@ public class w {
             this.f = ((this.j.right - this.j.left) / 2) + ((int) this.h);
             this.g = i + ((this.j.bottom - this.j.top) / 2);
         }
-        this.k.f2241a = bundle.getLong("gleft");
+        this.k.f2243a = bundle.getLong("gleft");
         this.k.b = bundle.getLong("gright");
         this.k.c = bundle.getLong("gtop");
         this.k.d = bundle.getLong("gbottom");
-        if (this.k.f2241a <= -20037508) {
-            this.k.f2241a = -20037508L;
+        if (this.k.f2243a <= -20037508) {
+            this.k.f2243a = -20037508L;
         }
         if (this.k.b >= 20037508) {
             this.k.b = 20037508L;
@@ -148,9 +148,9 @@ public class w {
         if (this.k.d <= -20037508) {
             this.k.d = -20037508L;
         }
-        this.k.e.doubleX = this.k.f2241a;
+        this.k.e.doubleX = this.k.f2243a;
         this.k.e.doubleY = this.k.d;
-        this.k.f.doubleX = this.k.f2241a;
+        this.k.f.doubleX = this.k.f2243a;
         this.k.f.doubleY = this.k.c;
         this.k.g.doubleX = this.k.b;
         this.k.g.doubleY = this.k.c;

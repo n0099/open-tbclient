@@ -13,14 +13,14 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 /* loaded from: classes4.dex */
 public class AlaStickerDragDeletePanelView extends RelativeLayout {
-    private TextView fYA;
-    private TextView fYB;
-    private View fYC;
-    private View fYD;
-    private View fYE;
-    private RelativeLayout fYx;
-    private View fYy;
-    private ImageView fYz;
+    private RelativeLayout gep;
+    private View geq;
+    private ImageView ger;
+    private TextView ges;
+    private TextView get;
+    private View geu;
+    private View gev;
+    private View gew;
 
     public AlaStickerDragDeletePanelView(Context context) {
         super(context);
@@ -38,79 +38,79 @@ public class AlaStickerDragDeletePanelView extends RelativeLayout {
     }
 
     private void init(Context context) {
-        LayoutInflater.from(getContext()).inflate(a.h.ala_sticker_delete_panel, this);
-        this.fYx = (RelativeLayout) findViewById(a.g.delete_panel_top);
-        this.fYy = findViewById(a.g.delete_panel_top_bg);
-        this.fYC = findViewById(a.g.delete_panel_delete_info);
-        this.fYz = (ImageView) findViewById(a.g.delete_panel_delete_img);
-        this.fYA = (TextView) findViewById(a.g.delete_panel_delete_text);
-        this.fYD = findViewById(a.g.delete_panel_im);
-        this.fYE = findViewById(a.g.delete_panel_im_right);
-        this.fYB = (TextView) findViewById(a.g.delete_panel_bottom);
+        LayoutInflater.from(getContext()).inflate(a.g.ala_sticker_delete_panel, this);
+        this.gep = (RelativeLayout) findViewById(a.f.delete_panel_top);
+        this.geq = findViewById(a.f.delete_panel_top_bg);
+        this.geu = findViewById(a.f.delete_panel_delete_info);
+        this.ger = (ImageView) findViewById(a.f.delete_panel_delete_img);
+        this.ges = (TextView) findViewById(a.f.delete_panel_delete_text);
+        this.gev = findViewById(a.f.delete_panel_im);
+        this.gew = findViewById(a.f.delete_panel_im_right);
+        this.get = (TextView) findViewById(a.f.delete_panel_bottom);
     }
 
-    public void lk(boolean z) {
+    public void lt(boolean z) {
         if (z) {
-            this.fYy.setBackgroundResource(a.d.color_live_sticker_red_40);
-            this.fYz.setBackgroundResource(a.f.icon_live_paste_delete_on_n);
-            this.fYA.setText(a.i.ala_live_sticker_delete);
+            this.geq.setBackgroundResource(a.c.color_live_sticker_red_40);
+            this.ger.setBackgroundResource(a.e.icon_live_paste_delete_on_n);
+            this.ges.setText(a.h.ala_live_sticker_delete);
             return;
         }
-        this.fYy.setBackgroundResource(a.d.color_live_sticker_red_50);
-        this.fYz.setBackgroundResource(a.f.icon_live_paste_delete_n);
-        this.fYA.setText(a.i.ala_live_sticker_delete_move);
+        this.geq.setBackgroundResource(a.c.color_live_sticker_red_50);
+        this.ger.setBackgroundResource(a.e.icon_live_paste_delete_n);
+        this.ges.setText(a.h.ala_live_sticker_delete_move);
     }
 
     public void setTopDeletePanelHeight(int i) {
-        if (i > getResources().getDimensionPixelOffset(a.e.sdk_ds30)) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fYx.getLayoutParams();
+        if (i > getResources().getDimensionPixelOffset(a.d.sdk_ds30)) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gep.getLayoutParams();
             layoutParams.height = i;
-            this.fYx.setLayoutParams(layoutParams);
+            this.gep.setLayoutParams(layoutParams);
         } else {
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.fYx.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.gep.getLayoutParams();
             layoutParams2.height = getTopDeletePanelHeight();
-            this.fYx.setLayoutParams(layoutParams2);
+            this.gep.setLayoutParams(layoutParams2);
         }
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.fYC.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.geu.getLayoutParams();
             layoutParams3.addRule(12);
-            layoutParams3.bottomMargin = getResources().getDimensionPixelOffset(a.e.sdk_ds40);
-            this.fYC.setLayoutParams(layoutParams3);
+            layoutParams3.bottomMargin = getResources().getDimensionPixelOffset(a.d.sdk_ds40);
+            this.geu.setLayoutParams(layoutParams3);
             return;
         }
-        RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.fYC.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.geu.getLayoutParams();
         layoutParams4.addRule(15);
-        this.fYC.setLayoutParams(layoutParams4);
+        this.geu.setLayoutParams(layoutParams4);
     }
 
     public int getTopDeletePanelBottom() {
-        return this.fYx.getBottom();
+        return this.gep.getBottom();
     }
 
     public void setDeleteBottomHeight(int i) {
         if (i > 0) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fYB.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.get.getLayoutParams();
             layoutParams.height = i;
-            this.fYB.setLayoutParams(layoutParams);
+            this.get.setLayoutParams(layoutParams);
         }
     }
 
     public int getTopDeletePanelHeight() {
-        int dimensionPixelOffset = getResources().getDimensionPixelOffset(a.e.sdk_ds184);
+        int dimensionPixelOffset = getResources().getDimensionPixelOffset(a.d.sdk_ds184);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            return getResources().getDimensionPixelOffset(a.e.sdk_ds184) + UtilHelper.getImmersiveStickyBarHeight();
+            return getResources().getDimensionPixelOffset(a.d.sdk_ds184) + UtilHelper.getImmersiveStickyBarHeight();
         }
         return dimensionPixelOffset;
     }
 
     public void setImMsgViewSize(int i, int i2) {
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fYD.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gev.getLayoutParams();
         layoutParams.width = i;
         layoutParams.height = i2;
-        this.fYD.setLayoutParams(layoutParams);
-        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.fYE.getLayoutParams();
+        this.gev.setLayoutParams(layoutParams);
+        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.gew.getLayoutParams();
         layoutParams2.width = BdUtilHelper.getEquipmentWidth(getContext()) - i;
         layoutParams2.height = i2;
-        this.fYE.setLayoutParams(layoutParams2);
+        this.gew.setLayoutParams(layoutParams2);
     }
 }

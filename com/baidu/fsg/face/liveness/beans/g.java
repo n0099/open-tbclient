@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class g extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1712a = "bduss";
+    private static final String f1714a = "bduss";
     private static final String b = "certinfo";
     private static final String c = "authtoken";
     private static final String d = "outer";

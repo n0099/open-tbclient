@@ -35,12 +35,12 @@ public class b extends com.baidu.swan.apps.scheme.actions.b {
             com.baidu.swan.apps.console.c.e("Component-Action-Button", "model is null");
             return false;
         }
-        com.baidu.swan.apps.component.b.c ain = new a(context, j).ain();
-        boolean isSuccess = ain.isSuccess();
+        com.baidu.swan.apps.component.b.c akN = new a(context, j).akN();
+        boolean isSuccess = akN.isSuccess();
         if (isSuccess) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         } else {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, ain.msg);
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, akN.msg);
         }
         return isSuccess;
     }
@@ -58,7 +58,7 @@ public class b extends com.baidu.swan.apps.scheme.actions.b {
         }
         a aVar = (a) com.baidu.swan.apps.component.container.a.d(j);
         if (aVar == null) {
-            String str2 = "can't find button component:#" + j.cxR;
+            String str2 = "can't find button component:#" + j.cDK;
             com.baidu.swan.apps.console.c.e("Component-Action-Button", str2);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
             return false;
@@ -86,18 +86,18 @@ public class b extends com.baidu.swan.apps.scheme.actions.b {
         }
         a aVar = (a) com.baidu.swan.apps.component.container.a.d(j);
         if (aVar == null) {
-            String str2 = "can't find button component:#" + j.cxR;
+            String str2 = "can't find button component:#" + j.cDK;
             com.baidu.swan.apps.console.c.e("Component-Action-Button", str2);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
             return false;
         }
-        com.baidu.swan.apps.component.b.c aip = aVar.aip();
-        boolean isSuccess = aip.isSuccess();
+        com.baidu.swan.apps.component.b.c akP = aVar.akP();
+        boolean isSuccess = akP.isSuccess();
         if (isSuccess) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return isSuccess;
         }
-        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, aip.msg);
+        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, akP.msg);
         return isSuccess;
     }
 

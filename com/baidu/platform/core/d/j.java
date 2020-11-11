@@ -14,16 +14,16 @@ public class j extends com.baidu.platform.base.a implements e {
 
     @Override // com.baidu.platform.core.d.e
     public void a() {
-        this.f2810a.lock();
+        this.f2812a.lock();
         this.b = null;
-        this.f2810a.unlock();
+        this.f2812a.unlock();
     }
 
     @Override // com.baidu.platform.core.d.e
     public void a(OnGetRoutePlanResultListener onGetRoutePlanResultListener) {
-        this.f2810a.lock();
+        this.f2812a.lock();
         this.b = onGetRoutePlanResultListener;
-        this.f2810a.unlock();
+        this.f2812a.unlock();
     }
 
     @Override // com.baidu.platform.core.d.e

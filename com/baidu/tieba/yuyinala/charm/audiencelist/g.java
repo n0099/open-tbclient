@@ -5,100 +5,100 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes4.dex */
 public class g implements com.baidu.live.liveroom.d.d {
-    private String aEz;
-    private String aZZ;
-    private boolean bjr;
-    private boolean bnZ;
+    private String aFp;
+    private String bbs;
+    private boolean bkL;
+    private boolean bps;
     private String mLiveId;
-    private YuyinALaAudiencesActivity nLH;
-    com.baidu.live.h.b nLY = null;
+    private YuyinALaAudiencesActivity nRB;
+    com.baidu.live.h.b nRS = null;
 
     public g(YuyinALaAudiencesActivity yuyinALaAudiencesActivity) {
-        this.nLH = yuyinALaAudiencesActivity;
+        this.nRB = yuyinALaAudiencesActivity;
     }
 
     public void createView() {
         com.baidu.live.noble.data.d dVar = new com.baidu.live.noble.data.d();
-        dVar.mTbPageContext = this.nLH.getPageContext();
+        dVar.mTbPageContext = this.nRB.getPageContext();
         dVar.mLiveId = this.mLiveId;
-        dVar.bmv = this.aEz;
-        dVar.mIsHost = this.bjr;
-        dVar.bnZ = this.bnZ;
+        dVar.bnP = this.aFp;
+        dVar.mIsHost = this.bkL;
+        dVar.bps = this.bps;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2501013, com.baidu.live.h.b.class, dVar);
         if (runTask != null && runTask.getData() != null) {
-            this.nLY = (com.baidu.live.h.b) runTask.getData();
+            this.nRS = (com.baidu.live.h.b) runTask.getData();
         }
     }
 
-    public g US(String str) {
+    public g Vj(String str) {
         this.mLiveId = str;
         return this;
     }
 
-    public g yG(boolean z) {
-        this.bnZ = z;
+    public g yP(boolean z) {
+        this.bps = z;
         return this;
     }
 
-    public g yH(boolean z) {
-        this.bjr = z;
+    public g yQ(boolean z) {
+        this.bkL = z;
         return this;
     }
 
-    public g UT(String str) {
-        this.aEz = str;
+    public g Vk(String str) {
+        this.aFp = str;
         return this;
     }
 
-    public g UU(String str) {
-        this.aZZ = str;
+    public g Vl(String str) {
+        this.bbs = str;
         return this;
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        if (this.nLY == null) {
+        if (this.nRS == null) {
             return null;
         }
-        return this.nLY.getView();
+        return this.nRS.getView();
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public String getTitle() {
-        if (this.nLY == null) {
+        if (this.nRS == null) {
             return null;
         }
-        return this.nLY.getTitle();
+        return this.nRS.getTitle();
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String KR() {
+    public String Lr() {
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short KS() {
+    public short Ls() {
         return (short) 1;
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void enterBackground() {
-        if (this.nLY != null) {
-            this.nLY.bP(false);
+        if (this.nRS != null) {
+            this.nRS.bQ(false);
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void enterForeground() {
-        if (this.nLY != null) {
-            this.nLY.bP(true);
+        if (this.nRS != null) {
+            this.nRS.bQ(true);
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.nLY != null) {
-            this.nLY.onDestroy();
+        if (this.nRS != null) {
+            this.nRS.onDestroy();
         }
     }
 
@@ -107,8 +107,8 @@ public class g implements com.baidu.live.liveroom.d.d {
     }
 
     public void loadData() {
-        if (this.nLY != null) {
-            this.nLY.Km();
+        if (this.nRS != null) {
+            this.nRS.KM();
         }
     }
 }

@@ -4,10 +4,10 @@ import java.util.List;
 /* loaded from: classes10.dex */
 public class d {
     public String clipPath;
-    public List<long[]> dTc;
+    public List<long[]> dYU;
     public String videoPath;
 
     public String toString() {
-        return "[ videoPath = " + this.videoPath + "; clipPath = " + this.clipPath + "; clipList = " + this.dTc + " ]";
+        return "[ videoPath = " + this.videoPath + "; clipPath = " + this.clipPath + "; clipList = " + this.dYU + " ]";
     }
 }

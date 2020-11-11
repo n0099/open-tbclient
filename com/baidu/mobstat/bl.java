@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class bl {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f2587a;
+    private static String f2589a;
     private WeakReference<WebView> b;
     private WeakReference<Activity> c;
     private JSONObject d;
@@ -33,11 +33,11 @@ public class bl {
         if (bd.c().b()) {
             bd.c().a("setViewportTreeToNative " + str);
         }
-        f2587a = str;
+        f2589a = str;
     }
 
     public static String a(Activity activity, WebView webView, Rect rect) {
-        f2587a = "";
+        f2589a = "";
         b(activity, webView, rect);
         int i = 0;
         while (true) {
@@ -49,8 +49,8 @@ public class bl {
                 Thread.sleep(20L);
             } catch (Exception e) {
             }
-            if (!TextUtils.isEmpty(f2587a)) {
-                return f2587a;
+            if (!TextUtils.isEmpty(f2589a)) {
+                return f2589a;
             }
             i = i2;
         }

@@ -1,7 +1,7 @@
 package tv.chushou.a.a.c;
 /* loaded from: classes6.dex */
 public interface b {
-    void Bg(boolean z);
+    void Br(boolean z);
 
     void d(String str, String str2);
 
@@ -9,7 +9,7 @@ public interface b {
 
     void e(String str, String str2, Throwable th);
 
-    boolean eDL();
+    boolean eHA();
 
     void i(String str, String str2);
 

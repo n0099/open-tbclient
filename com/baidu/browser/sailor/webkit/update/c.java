@@ -11,21 +11,21 @@ import com.baidu.webkit.sdk.WebKitFactory;
 public final class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f1289a;
+    final /* synthetic */ Context f1291a;
     final /* synthetic */ a afB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar, Context context) {
         this.afB = aVar;
-        this.f1289a = context;
+        this.f1291a = context;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        if (this.f1289a != null) {
+        if (this.f1291a != null) {
             Log.i(EngineManager.LOG_TAG, "start check zeus update async");
             a aVar = this.afB;
-            Context context = this.f1289a;
+            Context context = this.f1291a;
             if (WebKitFactory.isUserPrivacyEnabled() && !aVar.d && com.baidu.browser.sailor.util.b.a(context)) {
                 a.C0095a c0095a = new a.C0095a(context, "https://mbrowser.baidu.com/api/update/kernel?version=");
                 BdNet bdNet = new BdNet(context);

@@ -8,7 +8,7 @@ import com.baidu.adp.lib.util.BdLog;
 public class c extends AsyncTask<Void, Void, String> {
     private Camera mCamera;
     private byte[] mData;
-    private a mki;
+    private a mqf;
     private int orientation;
 
     /* loaded from: classes23.dex */
@@ -19,11 +19,11 @@ public class c extends AsyncTask<Void, Void, String> {
     public c(Camera camera, byte[] bArr, a aVar, int i) {
         this.mCamera = camera;
         this.mData = bArr;
-        this.mki = aVar;
+        this.mqf = aVar;
         this.orientation = i;
     }
 
-    public c dwS() {
+    public c dzu() {
         if (Build.VERSION.SDK_INT >= 11) {
             executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
         } else {
@@ -41,7 +41,7 @@ public class c extends AsyncTask<Void, Void, String> {
     @Override // android.os.AsyncTask
     protected void onCancelled() {
         super.onCancelled();
-        this.mki = null;
+        this.mqf = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -75,13 +75,13 @@ public class c extends AsyncTask<Void, Void, String> {
                 i = i2;
             }
             try {
-                if (this.mki != null) {
-                    return this.mki.b(bArr, i2, i, false);
+                if (this.mqf != null) {
+                    return this.mqf.b(bArr, i2, i, false);
                 }
                 return null;
             } catch (Exception e2) {
                 try {
-                    return this.mki.b(bArr, i2, i, true);
+                    return this.mqf.b(bArr, i2, i, true);
                 } catch (Exception e3) {
                     return null;
                 }

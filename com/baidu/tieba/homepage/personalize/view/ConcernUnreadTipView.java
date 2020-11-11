@@ -23,12 +23,12 @@ import java.util.List;
 public class ConcernUnreadTipView extends RelativeLayout {
     private BdUniqueId aiz;
     private int ds94;
-    private TextView iqn;
-    public ImageView jAO;
-    private LinearLayout jAP;
-    private TextView jAQ;
-    private ImageView jAR;
-    private int jAS;
+    private TextView iwk;
+    public ImageView jGL;
+    private LinearLayout jGM;
+    private TextView jGN;
+    private ImageView jGO;
+    private int jGP;
     private TextView mTitle;
 
     public ConcernUnreadTipView(Context context) {
@@ -48,14 +48,14 @@ public class ConcernUnreadTipView extends RelativeLayout {
 
     private void init(Context context) {
         this.ds94 = l.getDimens(getContext(), R.dimen.tbds94);
-        this.jAS = 0 - l.getDimens(getContext(), R.dimen.tbds18);
+        this.jGP = 0 - l.getDimens(getContext(), R.dimen.tbds18);
         LayoutInflater.from(context).inflate(R.layout.concern_unread_tip_view_layout, (ViewGroup) this, true);
         this.mTitle = (TextView) findViewById(R.id.concern_unread_tip_title);
-        this.jAO = (ImageView) findViewById(R.id.concern_unread_tip_close);
-        this.jAP = (LinearLayout) findViewById(R.id.concern_unread_tip_header_box);
-        this.iqn = (TextView) findViewById(R.id.concern_unread_tip_info);
-        this.jAQ = (TextView) findViewById(R.id.concern_unread_tip_show);
-        this.jAR = (ImageView) findViewById(R.id.concern_unread_tip_show_arrow);
+        this.jGL = (ImageView) findViewById(R.id.concern_unread_tip_close);
+        this.jGM = (LinearLayout) findViewById(R.id.concern_unread_tip_header_box);
+        this.iwk = (TextView) findViewById(R.id.concern_unread_tip_info);
+        this.jGN = (TextView) findViewById(R.id.concern_unread_tip_show);
+        this.jGO = (ImageView) findViewById(R.id.concern_unread_tip_show_arrow);
         setPadding(0, 0, 0, l.getDimens(context, R.dimen.tbds44));
         onChangeSkinType();
     }
@@ -66,38 +66,38 @@ public class ConcernUnreadTipView extends RelativeLayout {
 
     public void setClickListener(View.OnClickListener onClickListener) {
         setOnClickListener(onClickListener);
-        this.jAO.setOnClickListener(onClickListener);
+        this.jGL.setOnClickListener(onClickListener);
     }
 
     public void setData(com.baidu.tieba.homepage.personalize.data.e eVar) {
         if (eVar != null) {
-            if (!eVar.cIR()) {
+            if (!eVar.cLs()) {
                 setVisibility(8);
                 return;
             }
-            if (eVar.jAc > 0) {
-                com.baidu.tbadk.core.sharedPref.b.bnH().putLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_UNREAD_TIP_NEXT_SHOW_TIME), System.currentTimeMillis() + eVar.jAc);
+            if (eVar.jFZ > 0) {
+                com.baidu.tbadk.core.sharedPref.b.bqh().putLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_UNREAD_TIP_NEXT_SHOW_TIME), System.currentTimeMillis() + eVar.jFZ);
             }
-            if (this.iqn != null && !StringUtils.isNull(eVar.jAd)) {
-                this.iqn.setText(eVar.jAd);
+            if (this.iwk != null && !StringUtils.isNull(eVar.jGa)) {
+                this.iwk.setText(eVar.jGa);
             }
-            if (this.jAP != null && eVar.jAb != null) {
-                this.jAP.removeAllViews();
-                List<String> list = eVar.jAb;
+            if (this.jGM != null && eVar.jFY != null) {
+                this.jGM.removeAllViews();
+                List<String> list = eVar.jFY;
                 for (int i = 0; i < list.size(); i++) {
                     String str = list.get(i);
                     if (!StringUtils.isNull(str)) {
                         FrameLayout frameLayout = (FrameLayout) View.inflate(getContext(), R.layout.concern_unread_tip_head_group, null);
                         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.ds94, this.ds94);
                         if (i > 0) {
-                            layoutParams.leftMargin = this.jAS;
+                            layoutParams.leftMargin = this.jGP;
                         }
                         frameLayout.setLayoutParams(layoutParams);
                         HeadImageView headImageView = (HeadImageView) frameLayout.findViewById(R.id.inner_img);
                         headImageView.setIsRound(true);
                         headImageView.setDrawBorder(false);
                         ap.setImageResource((ImageView) frameLayout.findViewById(R.id.out_img), R.drawable.bg_unread_tip_head_border);
-                        this.jAP.addView(frameLayout);
+                        this.jGM.addView(frameLayout);
                         headImageView.setPageId(this.aiz);
                         headImageView.startLoad(str, 12, false);
                     }
@@ -109,9 +109,9 @@ public class ConcernUnreadTipView extends RelativeLayout {
     public void onChangeSkinType() {
         ap.setBackgroundColor(this, R.color.cp_bg_line_d);
         ap.setViewTextColor(this.mTitle, R.color.cp_cont_b);
-        ap.setImageResource(this.jAO, R.drawable.icon_home_card_delete);
-        ap.setViewTextColor(this.iqn, R.color.cp_cont_b);
-        ap.setViewTextColor(this.jAQ, R.color.cp_cont_d);
-        SvgManager.boN().a(this.jAR, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
+        ap.setImageResource(this.jGL, R.drawable.icon_home_card_delete);
+        ap.setViewTextColor(this.iwk, R.color.cp_cont_b);
+        ap.setViewTextColor(this.jGN, R.color.cp_cont_d);
+        SvgManager.brn().a(this.jGO, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
     }
 }

@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.ay;
 /* loaded from: classes22.dex */
 public class o extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.l, am<com.baidu.tieba.card.data.l>> {
     private com.baidu.adp.widget.ListView.v alD;
-    public BdUniqueId fmX;
+    public BdUniqueId fsQ;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -25,7 +25,7 @@ public class o extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aT */
+    /* renamed from: aV */
     public am<com.baidu.tieba.card.data.l> c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
         com.baidu.card.s sVar = new com.baidu.card.s(this.mPageContext.getPageActivity());
@@ -34,7 +34,7 @@ public class o extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         ak a2 = aVar.a(false, viewGroup, this.alD);
         a2.setSourceForPb(2);
         am<com.baidu.tieba.card.data.l> amVar = new am<>(a2);
-        amVar.setPageId(this.fmX);
+        amVar.setPageId(this.fsQ);
         a(new com.baidu.adp.widget.ListView.ab() { // from class: com.baidu.tieba.homepage.personalize.a.o.1
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, com.baidu.adp.widget.ListView.q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -53,10 +53,10 @@ public class o extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.l lVar, am<com.baidu.tieba.card.data.l> amVar) {
-        if (lVar == null || amVar == null || amVar.getView() == null || lVar.erH == null) {
+        if (lVar == null || amVar == null || amVar.getView() == null || lVar.exA == null) {
             return null;
         }
-        lVar.wW(lVar.position + 1);
+        lVar.xj(lVar.position + 1);
         amVar.tW().setPosition(i);
         amVar.b((am<com.baidu.tieba.card.data.l>) lVar);
         amVar.tW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());

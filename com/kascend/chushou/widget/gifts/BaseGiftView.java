@@ -12,14 +12,14 @@ import java.util.List;
 public class BaseGiftView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    protected View f4270a;
+    protected View f4272a;
     protected View c;
     protected int e;
     protected Object f;
     public boolean g;
     protected boolean h;
-    protected a prO;
-    protected GeneralGift prP;
+    protected a pBj;
+    protected GeneralGift pBk;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -34,7 +34,7 @@ public class BaseGiftView extends RelativeLayout {
 
     public BaseGiftView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.prP = null;
+        this.pBk = null;
         this.e = -1;
         this.f = null;
         this.g = false;
@@ -45,12 +45,12 @@ public class BaseGiftView extends RelativeLayout {
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.f4270a = null;
+        this.f4272a = null;
         this.f = null;
     }
 
     public void setViewListener(a aVar) {
-        this.prO = aVar;
+        this.pBj = aVar;
     }
 
     public View getCurGiftView() {
@@ -58,7 +58,7 @@ public class BaseGiftView extends RelativeLayout {
     }
 
     public GeneralGift getCurObj() {
-        return this.prP;
+        return this.pBk;
     }
 
     public int getCurSelectPos() {

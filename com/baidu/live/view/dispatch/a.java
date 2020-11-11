@@ -3,9 +3,9 @@ package com.baidu.live.view.dispatch;
 import android.view.View;
 /* loaded from: classes4.dex */
 public interface a {
-    void Ur();
+    void WR();
 
-    boolean ae(View view);
+    boolean ai(View view);
 
     int indexOfChild(View view);
 

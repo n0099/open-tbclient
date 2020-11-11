@@ -12,12 +12,12 @@ import android.util.Log;
 /* loaded from: classes10.dex */
 public class an {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static a dyk;
+    private static a dEc;
     @Nullable
-    private com.baidu.swan.apps.v.a dyg = new com.baidu.swan.apps.v.a() { // from class: com.baidu.swan.apps.ap.an.1
+    private com.baidu.swan.apps.v.a dDY = new com.baidu.swan.apps.v.a() { // from class: com.baidu.swan.apps.ap.an.1
         @Override // com.baidu.swan.apps.v.a, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityCreated(final Activity activity, Bundle bundle) {
-            if (b.aJA()) {
+            if (b.aMa()) {
                 super.onActivityCreated(activity, bundle);
                 if (activity != null && activity.getIntent() != null) {
                     Runnable runnable = new Runnable() { // from class: com.baidu.swan.apps.ap.an.1.1
@@ -25,33 +25,33 @@ public class an {
                         public void run() {
                             boolean c;
                             Intent intent = activity.getIntent();
-                            com.baidu.swan.apps.adaptation.a.r aum = com.baidu.swan.apps.t.a.aum();
+                            com.baidu.swan.apps.adaptation.a.r awM = com.baidu.swan.apps.t.a.awM();
                             ComponentName component = intent.getComponent();
-                            if (an.this.dyh && intent.hasCategory("android.intent.category.LAUNCHER") && "android.intent.action.MAIN".equals(intent.getAction()) && aum != null && component != null && TextUtils.equals(aum.aeV(), component.getClassName())) {
-                                if (an.this.dyi) {
+                            if (an.this.dDZ && intent.hasCategory("android.intent.category.LAUNCHER") && "android.intent.action.MAIN".equals(intent.getAction()) && awM != null && component != null && TextUtils.equals(awM.ahv(), component.getClassName())) {
+                                if (an.this.dEa) {
                                     if (an.DEBUG) {
                                         Log.w("SwanHomeScreenLaunch", "SwanApp is Foreground Now");
                                         return;
                                     }
                                     return;
                                 }
-                                b aJz = b.aJz();
-                                if (c.aJF() && b.aJB()) {
-                                    c = aJz.b(activity, an.this.dyj, false);
+                                b aLZ = b.aLZ();
+                                if (c.aMf() && b.aMb()) {
+                                    c = aLZ.b(activity, an.this.dEb, false);
                                 } else {
-                                    c = aJz.c(an.this.dyj, false, false);
+                                    c = aLZ.c(an.this.dEb, false, false);
                                 }
                                 if (an.DEBUG) {
-                                    Log.d("SwanHomeScreenLaunch", "moveTaskToFront " + c + ", taskId=" + an.this.dyj);
+                                    Log.d("SwanHomeScreenLaunch", "moveTaskToFront " + c + ", taskId=" + an.this.dEb);
                                 }
-                                aJz.aJC();
+                                aLZ.aMc();
                             }
                             if (an.DEBUG) {
-                                Log.d("SwanHomeScreenLaunch", "class=" + activity + ", swanAppForeground=" + an.this.dyh + ", flag=" + intent.getFlags() + ", ComponentName=" + component);
+                                Log.d("SwanHomeScreenLaunch", "class=" + activity + ", swanAppForeground=" + an.this.dDZ + ", flag=" + intent.getFlags() + ", ComponentName=" + component);
                             }
                         }
                     };
-                    if (c.aJF()) {
+                    if (c.aMf()) {
                         runnable.run();
                     } else {
                         p.postOnComputation(runnable, "moveTaskToFront");
@@ -63,12 +63,12 @@ public class an {
         @Override // com.baidu.swan.apps.v.a, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStarted(Activity activity) {
             super.onActivityStarted(activity);
-            an.this.dyh = an.this.dyh && activity != null && activity.getTaskId() == an.this.dyj;
+            an.this.dDZ = an.this.dDZ && activity != null && activity.getTaskId() == an.this.dEb;
         }
     };
-    private boolean dyh;
-    private boolean dyi;
-    private int dyj;
+    private boolean dDZ;
+    private boolean dEa;
+    private int dEb;
     @NonNull
     private final Application mApp;
 
@@ -80,29 +80,29 @@ public class an {
 
     public an(@NonNull Application application) {
         this.mApp = application;
-        dyk = new a() { // from class: com.baidu.swan.apps.ap.an.2
+        dEc = new a() { // from class: com.baidu.swan.apps.ap.an.2
             @Override // com.baidu.swan.apps.ap.an.a
             public void n(boolean z, int i) {
                 if (z) {
-                    an.this.dyh = true;
-                    an.this.dyj = i;
-                } else if (an.this.dyh && i == 1) {
-                    an.this.dyh = false;
+                    an.this.dDZ = true;
+                    an.this.dEb = i;
+                } else if (an.this.dDZ && i == 1) {
+                    an.this.dDZ = false;
                 }
-                an.this.dyi = z;
+                an.this.dEa = z;
             }
         };
-        application.registerActivityLifecycleCallbacks(this.dyg);
+        application.registerActivityLifecycleCallbacks(this.dDY);
     }
 
     public void onDestroy() {
-        dyk = null;
-        this.mApp.unregisterActivityLifecycleCallbacks(this.dyg);
+        dEc = null;
+        this.mApp.unregisterActivityLifecycleCallbacks(this.dDY);
     }
 
     public static void m(boolean z, int i) {
-        if (dyk != null) {
-            dyk.n(z, i);
+        if (dEc != null) {
+            dEc.n(z, i);
         }
     }
 }

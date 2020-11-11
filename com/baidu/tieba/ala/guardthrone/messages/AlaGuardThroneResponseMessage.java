@@ -5,7 +5,7 @@ import com.baidu.tieba.ala.guardthrone.b.a;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaGuardThroneResponseMessage extends JsonHttpResponsedMessage {
-    private a gEv;
+    private a gKi;
 
     public AlaGuardThroneResponseMessage() {
         super(1021164);
@@ -16,12 +16,12 @@ public class AlaGuardThroneResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.gEv = new a();
-            this.gEv.parserJson(optJSONObject);
+            this.gKi = new a();
+            this.gKi.parserJson(optJSONObject);
         }
     }
 
-    public a bRt() {
-        return this.gEv;
+    public a bTS() {
+        return this.gKi;
     }
 }

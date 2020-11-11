@@ -17,51 +17,51 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class c extends f {
-    private g dre;
-    public final String drf;
-    private final c.a<Long> duM;
+    private final c.a<Long> dAE;
+    private g dwZ;
+    public final String dxa;
     public final String name;
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static final boolean duJ = com.baidu.swan.apps.t.a.aud().aev();
-    public static final boolean duK = com.baidu.swan.apps.t.a.aud().aew();
-    public static int duL = 1024;
+    public static final boolean dAB = com.baidu.swan.apps.t.a.awD().agV();
+    public static final boolean dAC = com.baidu.swan.apps.t.a.awD().agW();
+    public static int dAD = 1024;
     public static int INVALID_INDEX = -1;
     public static int ONE_INCREAMENT = 1;
 
     public c(e eVar) {
         super(eVar);
-        this.duM = new c.a<Long>() { // from class: com.baidu.swan.apps.storage.c.1
+        this.dAE = new c.a<Long>() { // from class: com.baidu.swan.apps.storage.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.am.c.a
-            /* renamed from: aIg */
-            public Long aIh() throws IllegalStateException {
-                return Long.valueOf(c.this.aIe());
+            /* renamed from: aKG */
+            public Long aKH() throws IllegalStateException {
+                return Long.valueOf(c.this.aKE());
             }
         };
         this.name = b.f(eVar);
-        this.drf = "aiapp_" + this.name;
-        com.baidu.swan.apps.am.e.dwY.a(this.duM);
+        this.dxa = "aiapp_" + this.name;
+        com.baidu.swan.apps.am.e.dCQ.a(this.dAE);
     }
 
-    public g aIc() {
-        if (this.dre == null) {
-            this.dre = new g(this.drf, false);
+    public g aKC() {
+        if (this.dwZ == null) {
+            this.dwZ = new g(this.dxa, false);
         }
-        return this.dre;
+        return this.dwZ;
     }
 
     public void aw(boolean z) {
         if (z) {
-            aIc().edit().clear().commit();
+            aKC().edit().clear().commit();
         } else {
-            aIc().edit().clear().apply();
+            aKC().edit().clear().apply();
         }
-        com.baidu.swan.c.d.deleteFile(b.th(e.aEW()));
-        com.baidu.swan.c.d.deleteFile(b.tb(e.aEW()));
-        com.baidu.swan.apps.am.e.dwY.update();
+        com.baidu.swan.c.d.deleteFile(b.tv(e.aHw()));
+        com.baidu.swan.c.d.deleteFile(b.tp(e.aHw()));
+        com.baidu.swan.apps.am.e.dCQ.update();
     }
 
-    public int tl(@NonNull String str) {
+    public int tz(@NonNull String str) {
         File file = new File(str);
         if (!file.exists() || !file.isFile()) {
             return 2001;
@@ -87,18 +87,18 @@ public class c extends f {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [248=5, 249=4] */
     /* JADX DEBUG: Multi-variable search result rejected for r1v7, resolved type: java.io.FileOutputStream */
     /* JADX WARN: Multi-variable type inference failed */
-    public String tm(String str) {
+    public String tA(String str) {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         FileOutputStream fileOutputStream;
         FileInputStream fileInputStream3 = null;
-        String tb = b.tb(e.aEW());
+        String tp = b.tp(e.aHw());
         try {
-            if (TextUtils.isEmpty(tb)) {
+            if (TextUtils.isEmpty(tp)) {
                 return "";
             }
             try {
-                File cD = cD(tb, getFileName(str));
+                File cD = cD(tp, getFileName(str));
                 fileInputStream = new FileInputStream(new File(str));
                 try {
                     fileOutputStream = new FileOutputStream(cD);
@@ -110,7 +110,7 @@ public class c extends f {
                     e = e2;
                 }
                 try {
-                    byte[] bArr = new byte[duL];
+                    byte[] bArr = new byte[dAD];
                     while (true) {
                         int read = fileInputStream.read(bArr);
                         if (read == -1) {
@@ -180,26 +180,26 @@ public class c extends f {
         return new File(str, str2);
     }
 
-    public a tn(@NonNull String str) {
+    public a tB(@NonNull String str) {
         File file = new File(str);
         if (file == null || !file.isFile()) {
             return null;
         }
         a aVar = new a();
         aVar.setSize(file.length());
-        aVar.bT(file.lastModified());
+        aVar.cp(file.lastModified());
         return aVar;
     }
 
-    public List<a> aId() {
-        String tb = b.tb(e.aEW());
-        if (TextUtils.isEmpty(tb)) {
+    public List<a> aKD() {
+        String tp = b.tp(e.aHw());
+        if (TextUtils.isEmpty(tp)) {
             return null;
         }
-        return to(tb);
+        return tC(tp);
     }
 
-    public List<a> to(@NonNull String str) {
+    public List<a> tC(@NonNull String str) {
         if (DEBUG) {
             Log.d("SwanAppStorage", "——> getSavedFileList:  dir " + str);
         }
@@ -222,7 +222,7 @@ public class c extends f {
         if (file.isFile()) {
             aVar.setPath(file.getAbsolutePath());
             aVar.setSize(file.length());
-            aVar.bT(file.lastModified());
+            aVar.cp(file.lastModified());
             arrayList.add(aVar);
         } else {
             File[] listFiles = file.listFiles();
@@ -239,27 +239,27 @@ public class c extends f {
         return arrayList;
     }
 
-    public long aIe() {
+    public long aKE() {
         if (DEBUG) {
-            File file = aIc().getFile();
+            File file = aKC().getFile();
             Log.i("SwanAppStorage", this.name + " exists = " + file.exists() + " isFile = " + file.isFile() + " path = " + file.getPath() + " size = " + file.length());
         }
-        return aIc().getContentSize();
+        return aKC().getContentSize();
     }
 
-    public long aIf() {
+    public long aKF() {
         return 10485760L;
     }
 
     public boolean cE(@NonNull String str, @NonNull String str2) {
-        return ((long) str2.length()) + (aIe() - ((long) aIc().getString(str, "").length())) > aIf();
+        return ((long) str2.length()) + (aKE() - ((long) aKC().getString(str, "").length())) > aKF();
     }
 
-    public static boolean tp(@NonNull String str) {
+    public static boolean tD(@NonNull String str) {
         return str.getBytes(StandardCharsets.UTF_8).length > 512;
     }
 
-    public static boolean tq(@NonNull String str) {
+    public static boolean tE(@NonNull String str) {
         return str.getBytes(StandardCharsets.UTF_8).length > 3145728;
     }
 }

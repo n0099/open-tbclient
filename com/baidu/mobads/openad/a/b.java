@@ -7,16 +7,16 @@ import android.content.Intent;
 public class b extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    private c f2369a;
+    private c f2371a;
 
     public b(c cVar) {
-        this.f2369a = cVar;
+        this.f2371a = cVar;
     }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         if (intent.getAction().equals("android.net.conn.CONNECTIVITY_CHANGE")) {
-            this.f2369a.b();
+            this.f2371a.b();
         }
     }
 }

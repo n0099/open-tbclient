@@ -10,7 +10,7 @@ import java.util.List;
 public final class PolylineOptions extends OverlayOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2037a;
+    int f2039a;
     Bundle c;
     private List<LatLng> e;
     private List<Integer> f;
@@ -50,13 +50,13 @@ public final class PolylineOptions extends OverlayOptions {
         Polyline polyline = new Polyline();
         polyline.B = this.b;
         polyline.f = this.m;
-        polyline.A = this.f2037a;
+        polyline.A = this.f2039a;
         polyline.C = this.c;
         if (this.e == null || this.e.size() < 2) {
             throw new IllegalStateException("BDMapSDKException: when you add polyline, you must at least supply 2 points");
         }
         polyline.b = this.e;
-        polyline.f2035a = this.d;
+        polyline.f2037a = this.d;
         polyline.e = this.h;
         polyline.j = this.i;
         polyline.k = this.j;
@@ -184,7 +184,7 @@ public final class PolylineOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f2037a;
+        return this.f2039a;
     }
 
     public boolean isDottedLine() {
@@ -257,7 +257,7 @@ public final class PolylineOptions extends OverlayOptions {
     }
 
     public PolylineOptions zIndex(int i) {
-        this.f2037a = i;
+        this.f2039a = i;
         return this;
     }
 }

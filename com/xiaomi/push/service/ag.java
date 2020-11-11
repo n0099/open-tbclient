@@ -22,18 +22,18 @@ import java.util.Map;
 public class ag {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ag f5045a = new ag();
+    private static ag f5047a = new ag();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes12.dex */
     public class a {
 
         /* renamed from: a  reason: collision with other field name */
-        List<b> f838a;
+        List<b> f840a;
         List<b> b;
 
         private a() {
-            this.f838a = new ArrayList();
+            this.f840a = new ArrayList();
             this.b = new ArrayList();
         }
     }
@@ -43,18 +43,18 @@ public class ag {
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        int f5047a;
+        int f5049a;
 
         /* renamed from: a  reason: collision with other field name */
-        Notification f839a;
+        Notification f841a;
 
         public b(int i, Notification notification) {
-            this.f5047a = i;
-            this.f839a = notification;
+            this.f5049a = i;
+            this.f841a = notification;
         }
 
         public String toString() {
-            return "id:" + this.f5047a;
+            return "id:" + this.f5049a;
         }
     }
 
@@ -70,7 +70,7 @@ public class ag {
     }
 
     public static ag a() {
-        return f5045a;
+        return f5047a;
     }
 
     private String a(Notification notification) {
@@ -114,10 +114,10 @@ public class ag {
                     if (m540a(notification)) {
                         value.b.add(bVar);
                     } else {
-                        value.f838a.add(bVar);
+                        value.f840a.add(bVar);
                     }
                 }
-                int size = value.f838a.size();
+                int size = value.f840a.size();
                 if (value.b.size() <= 0) {
                     if (size >= 2) {
                         a(context, a2, a4, key);
@@ -127,8 +127,8 @@ public class ag {
                 } else if (size >= 2 && !m541a(context)) {
                     b bVar2 = value.b.get(0);
                     com.xiaomi.channel.commonutils.logger.b.b("group refresh:" + bVar2);
-                    bVar2.f839a.when = System.currentTimeMillis();
-                    a2.notify(bVar2.f5047a, bVar2.f839a);
+                    bVar2.f841a.when = System.currentTimeMillis();
+                    a2.notify(bVar2.f5049a, bVar2.f841a);
                 }
             }
         }
@@ -177,7 +177,7 @@ public class ag {
         if (m540a(statusBarNotification.getNotification())) {
             aVar.b.add(bVar);
         } else {
-            aVar.f838a.add(bVar);
+            aVar.f840a.add(bVar);
         }
     }
 

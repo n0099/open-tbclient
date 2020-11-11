@@ -14,7 +14,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class WalletStaticInit {
     public static void init() {
-        be.boR().a(new be.a() { // from class: com.baidu.tieba.wallet.WalletStaticInit.1
+        be.brr().a(new be.a() { // from class: com.baidu.tieba.wallet.WalletStaticInit.1
             @Override // com.baidu.tbadk.core.util.be.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {

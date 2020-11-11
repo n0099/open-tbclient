@@ -3,13 +3,13 @@ package com.baidu.ubs.analytics.a;
 import java.util.List;
 /* loaded from: classes10.dex */
 public final class j {
-    private h oif = new h();
+    private h orl = new h();
 
-    public final List<i> dZT() {
-        return this.oif.dZT();
+    public final List<i> edB() {
+        return this.orl.edB();
     }
 
     public final void a(int i) {
-        this.oif.a(i);
+        this.orl.a(i);
     }
 }

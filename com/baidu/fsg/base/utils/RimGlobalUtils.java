@@ -18,17 +18,17 @@ import com.baidu.fsg.base.activity.BaseActivity;
 public final class RimGlobalUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f1525a;
+    private static String f1527a;
 
     private RimGlobalUtils() {
     }
 
     public static String getMsg() {
-        return f1525a;
+        return f1527a;
     }
 
     public static void setMsg(String str) {
-        f1525a = str;
+        f1527a = str;
     }
 
     public static void hideKeyboard(Activity activity) {
@@ -75,7 +75,7 @@ public final class RimGlobalUtils {
     }
 
     public static void safeShowDialog(BaseActivity baseActivity, int i, String str) {
-        f1525a = str;
+        f1527a = str;
         try {
             baseActivity.getActivity().showDialog(i);
         } catch (Exception e) {

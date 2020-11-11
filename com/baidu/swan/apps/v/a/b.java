@@ -11,7 +11,7 @@ class b implements a {
             @Override // com.baidu.swan.config.e.a
             /* renamed from: e */
             public void run(@NonNull e eVar) {
-                eVar.agl();
+                eVar.aiL();
             }
         });
     }
@@ -23,13 +23,13 @@ class b implements a {
             @Override // com.baidu.swan.config.e.a
             /* renamed from: e */
             public void run(@NonNull e eVar) {
-                eVar.agm();
+                eVar.aiM();
             }
         });
     }
 
     private void a(@NonNull com.baidu.swan.config.e.a<e> aVar) {
-        for (e eVar : com.baidu.swan.apps.core.turbo.d.aph().apf().values()) {
+        for (e eVar : com.baidu.swan.apps.core.turbo.d.arI().arG().values()) {
             if (eVar != null) {
                 aVar.run(eVar);
             }

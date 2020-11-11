@@ -4,17 +4,17 @@ import com.baidu.live.data.w;
 import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public interface a {
-    void MS();
+    void Ns();
 
     void c(TbPageContext tbPageContext);
 
-    com.baidu.live.core.a.a cc(boolean z);
+    com.baidu.live.core.a.a cd(boolean z);
 
-    void f(w wVar);
+    void e(w wVar);
 
-    void hG(String str);
+    void h(w wVar);
 
-    void i(w wVar);
+    void hN(String str);
 
     void onPause();
 

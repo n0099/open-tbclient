@@ -7,10 +7,10 @@ import java.io.File;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static DexClassLoader f2390a = null;
+    private static DexClassLoader f2392a = null;
 
     public static DexClassLoader a(Context context) {
-        if (f2390a == null) {
+        if (f2392a == null) {
             try {
                 String absolutePath = context.getFilesDir().getAbsolutePath();
                 File file = new File((context.getDir("baidu_ad_sdk", 0).getAbsolutePath() + "/") + "local_vr_imageview.jar");
@@ -20,12 +20,12 @@ public class a {
                     System.currentTimeMillis();
                     DexClassLoader dexClassLoader = new DexClassLoader(absolutePath2, absolutePath, null, classLoader);
                     System.currentTimeMillis();
-                    f2390a = dexClassLoader;
+                    f2392a = dexClassLoader;
                 }
             } catch (Exception e) {
-                f2390a = null;
+                f2392a = null;
             }
         }
-        return f2390a;
+        return f2392a;
     }
 }

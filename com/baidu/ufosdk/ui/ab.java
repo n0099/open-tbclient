@@ -7,24 +7,24 @@ import java.util.List;
 public final class ab implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackEditActivity f3740a;
+    final /* synthetic */ FeedbackEditActivity f3742a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(FeedbackEditActivity feedbackEditActivity) {
-        this.f3740a = feedbackEditActivity;
+        this.f3742a = feedbackEditActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         boolean z;
         List list;
-        z = this.f3740a.v;
+        z = this.f3742a.v;
         if (z) {
             return;
         }
-        list = this.f3740a.q;
+        list = this.f3742a.q;
         if (list.size() > 0) {
-            FeedbackEditActivity.a(this.f3740a, 1);
+            FeedbackEditActivity.a(this.f3742a, 1);
         }
     }
 }

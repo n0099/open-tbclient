@@ -6,34 +6,34 @@ import java.util.List;
 /* loaded from: classes10.dex */
 public class c implements a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile c cvf;
-    private List<a> cvg = new ArrayList();
+    private static volatile c cAY;
+    private List<a> cAZ = new ArrayList();
 
     private c() {
-        this.cvg.add(new b());
+        this.cAZ.add(new b());
     }
 
-    public static c ahO() {
-        if (cvf == null) {
+    public static c ako() {
+        if (cAY == null) {
             synchronized (c.class) {
-                if (cvf == null) {
-                    cvf = new c();
+                if (cAY == null) {
+                    cAY = new c();
                 }
             }
         }
-        return cvf;
+        return cAY;
     }
 
     @Override // com.baidu.swan.apps.api.b.a
-    public void lH(String str) {
+    public void lW(String str) {
         if (DEBUG) {
             Log.d("Api-Marker", "markStart: " + str);
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.cvg.size()) {
-                this.cvg.get(i2).lH(str);
+            if (i2 < this.cAZ.size()) {
+                this.cAZ.get(i2).lW(str);
                 i = i2 + 1;
             } else {
                 return;
@@ -42,15 +42,15 @@ public class c implements a {
     }
 
     @Override // com.baidu.swan.apps.api.b.a
-    public void lI(String str) {
+    public void lX(String str) {
         if (DEBUG) {
             Log.d("Api-Marker", "markEnd: " + str);
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.cvg.size()) {
-                this.cvg.get(i2).lI(str);
+            if (i2 < this.cAZ.size()) {
+                this.cAZ.get(i2).lX(str);
                 i = i2 + 1;
             } else {
                 return;
@@ -62,8 +62,8 @@ public class c implements a {
         if (DEBUG) {
             Log.d("Api-Marker", "release: ");
         }
-        if (cvf != null) {
-            cvf = null;
+        if (cAY != null) {
+            cAY = null;
         }
     }
 }

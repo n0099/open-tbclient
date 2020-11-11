@@ -16,9 +16,9 @@ public final class x {
             return false;
         }
         try {
-            a bBp = a.bBp();
+            a bDO = a.bDO();
             for (String str : strArr) {
-                if (bBp.getProperty(str) != null) {
+                if (bDO.getProperty(str) != null) {
                     return true;
                 }
             }
@@ -31,26 +31,26 @@ public final class x {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static final class a {
-        private static a ftd;
-        private final Properties fte = new Properties();
+        private static a fyV;
+        private final Properties fyW = new Properties();
 
         private a() throws IOException {
-            this.fte.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
+            this.fyW.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
         }
 
-        public static a bBp() throws IOException {
-            if (ftd == null) {
+        public static a bDO() throws IOException {
+            if (fyV == null) {
                 synchronized (a.class) {
-                    if (ftd == null) {
-                        ftd = new a();
+                    if (fyV == null) {
+                        fyV = new a();
                     }
                 }
             }
-            return ftd;
+            return fyV;
         }
 
         public String getProperty(String str) {
-            return this.fte.getProperty(str);
+            return this.fyW.getProperty(str);
         }
     }
 }

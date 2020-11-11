@@ -6,7 +6,7 @@ import com.baidu.adp.widget.ListView.q;
 import tbclient.User;
 /* loaded from: classes23.dex */
 public class e implements q {
-    public static final BdUniqueId ixk = BdUniqueId.gen();
+    public static final BdUniqueId iDh = BdUniqueId.gen();
     private int fansNum;
     private String headUrl;
     private String intro;
@@ -16,7 +16,7 @@ public class e implements q {
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return ixk;
+        return iDh;
     }
 
     public String getUserId() {

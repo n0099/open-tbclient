@@ -26,37 +26,37 @@ import com.baidu.live.tbadk.widget.TbImageView;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class c {
-    private String aHs;
-    private ab aJn;
-    private String ebQ;
-    private TbImageView hET;
-    private LinearLayout hEU;
-    private LinearLayout hEV;
-    private TextView hEW;
-    private ViewGroup hEX;
-    private TbImageView hEY;
-    private TextView hEZ;
-    private int hFa;
-    private AnimatorSet hFb;
-    private AnimatorSet hFc;
-    private AnimatorSet hFd;
-    private AnimatorSet hFe;
-    private ObjectAnimator hFf;
-    private AnimatorSet hFg;
-    private int hFh;
-    private boolean hFi;
-    private boolean hFk;
+    private String aIk;
+    private ab aKn;
+    private String ehI;
+    private TbImageView hKQ;
+    private LinearLayout hKR;
+    private LinearLayout hKS;
+    private TextView hKT;
+    private ViewGroup hKU;
+    private TbImageView hKV;
+    private TextView hKW;
+    private int hKX;
+    private AnimatorSet hKY;
+    private AnimatorSet hKZ;
+    private AnimatorSet hLa;
+    private AnimatorSet hLb;
+    private ObjectAnimator hLc;
+    private AnimatorSet hLd;
+    private int hLe;
+    private boolean hLf;
+    private boolean hLh;
     private long liveId;
     private Context mContext;
     private View mRootView;
     private Handler mHandler = new Handler();
-    private boolean hFj = true;
-    private Runnable hFl = new Runnable() { // from class: com.baidu.tieba.ala.view.c.1
+    private boolean hLg = true;
+    private Runnable hLi = new Runnable() { // from class: com.baidu.tieba.ala.view.c.1
         @Override // java.lang.Runnable
         public void run() {
-            if (c.this.hFj) {
+            if (c.this.hLg) {
                 if (c.this.mRootView == null || c.this.mRootView.getParent() != null) {
-                    c.this.ciX();
+                    c.this.clz();
                 }
             }
         }
@@ -68,27 +68,27 @@ public class c {
     }
 
     private void initView() {
-        this.mRootView = View.inflate(this.mContext, a.h.ala_pk_rank_level_view, null);
-        this.hET = (TbImageView) this.mRootView.findViewById(a.g.alaPkLevel);
-        this.hEX = (ViewGroup) this.mRootView.findViewById(a.g.ll_kingStar_container);
-        this.hEY = (TbImageView) this.mRootView.findViewById(a.g.kingstar_icon);
-        this.hEZ = (TextView) this.mRootView.findViewById(a.g.kingstar_msg);
-        this.hEU = (LinearLayout) this.mRootView.findViewById(a.g.alaPkLevelStar);
-        this.hEV = (LinearLayout) this.mRootView.findViewById(a.g.integralToast);
-        this.hEW = (TextView) this.mRootView.findViewById(a.g.textInfo);
+        this.mRootView = View.inflate(this.mContext, a.g.ala_pk_rank_level_view, null);
+        this.hKQ = (TbImageView) this.mRootView.findViewById(a.f.alaPkLevel);
+        this.hKU = (ViewGroup) this.mRootView.findViewById(a.f.ll_kingStar_container);
+        this.hKV = (TbImageView) this.mRootView.findViewById(a.f.kingstar_icon);
+        this.hKW = (TextView) this.mRootView.findViewById(a.f.kingstar_msg);
+        this.hKR = (LinearLayout) this.mRootView.findViewById(a.f.alaPkLevelStar);
+        this.hKS = (LinearLayout) this.mRootView.findViewById(a.f.integralToast);
+        this.hKT = (TextView) this.mRootView.findViewById(a.f.textInfo);
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.c.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.cg(view);
+                c.this.cl(view);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cg(View view) {
-        if (!TextUtils.isEmpty(this.aHs)) {
-            com.baidu.live.ai.c cVar = new com.baidu.live.ai.c();
-            cVar.url = this.aHs;
+    public void cl(View view) {
+        if (!TextUtils.isEmpty(this.aIk)) {
+            com.baidu.live.ak.c cVar = new com.baidu.live.ak.c();
+            cVar.url = this.aIk;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913232, cVar));
         }
     }
@@ -97,251 +97,251 @@ public class c {
         this.mRootView.setId(i);
     }
 
-    public void J(w wVar) {
-        if (wVar != null && wVar.aIG != null && wVar.aIG.aJn != null && !K(wVar)) {
+    public void O(w wVar) {
+        if (wVar != null && wVar.aJx != null && wVar.aJx.aKn != null && !P(wVar)) {
             cancelAnimation();
             if (wVar.mLiveInfo != null) {
                 this.liveId = wVar.mLiveInfo.live_id;
             }
-            this.aJn = wVar.aIG.aJn;
-            L(wVar);
-            this.ebQ = wVar.aIG.msg;
-            this.hFk = wVar.aIG.DW();
-            if (this.hFk) {
-                this.hFj = false;
-                n nVar = wVar.aIG.aJm;
+            this.aKn = wVar.aJx.aKn;
+            Q(wVar);
+            this.ehI = wVar.aJx.msg;
+            this.hLh = wVar.aJx.Es();
+            if (this.hLh) {
+                this.hLg = false;
+                n nVar = wVar.aJx.aKm;
                 if (nVar != null) {
-                    this.hEY.startLoad(nVar.iconUrl, 10, false);
-                    this.hEZ.setText(nVar.msg);
-                    ciV();
+                    this.hKV.startLoad(nVar.iconUrl, 10, false);
+                    this.hKW.setText(nVar.msg);
+                    clx();
                     return;
                 }
-                ciU();
-                ciW();
+                clw();
+                cly();
                 return;
             }
-            ciU();
-            ciW();
-            this.hFj = TextUtils.isEmpty(this.ebQ) ? false : true;
-            if (this.hFj) {
-                this.mHandler.removeCallbacks(this.hFl);
-                this.mHandler.postDelayed(this.hFl, 9000L);
+            clw();
+            cly();
+            this.hLg = TextUtils.isEmpty(this.ehI) ? false : true;
+            if (this.hLg) {
+                this.mHandler.removeCallbacks(this.hLi);
+                this.mHandler.postDelayed(this.hLi, 9000L);
             }
         }
     }
 
-    private boolean K(w wVar) {
-        return this.aJn != null && wVar.mLiveInfo != null && this.liveId == wVar.mLiveInfo.live_id && this.aJn.aJj == wVar.aIG.aJn.aJj && TextUtils.equals(this.aJn.division, wVar.aIG.aJn.division) && TextUtils.equals(this.ebQ, wVar.aIG.msg) && this.aJn.maxStar == wVar.aIG.aJn.maxStar && this.hFk == wVar.aIG.DW();
+    private boolean P(w wVar) {
+        return this.aKn != null && wVar.mLiveInfo != null && this.liveId == wVar.mLiveInfo.live_id && this.aKn.aKg == wVar.aJx.aKn.aKg && TextUtils.equals(this.aKn.division, wVar.aJx.aKn.division) && TextUtils.equals(this.ehI, wVar.aJx.msg) && this.aKn.maxStar == wVar.aJx.aKn.maxStar && this.hLh == wVar.aJx.Es();
     }
 
-    private void ciU() {
-        this.hEX.setVisibility(8);
-        this.hET.setVisibility(0);
-        this.hEU.setVisibility(0);
+    private void clw() {
+        this.hKU.setVisibility(8);
+        this.hKQ.setVisibility(0);
+        this.hKR.setVisibility(0);
     }
 
-    private void ciV() {
-        this.hEX.setVisibility(0);
-        this.hET.setVisibility(4);
-        this.hEV.setVisibility(4);
-        this.hEU.setVisibility(4);
+    private void clx() {
+        this.hKU.setVisibility(0);
+        this.hKQ.setVisibility(4);
+        this.hKS.setVisibility(4);
+        this.hKR.setVisibility(4);
     }
 
-    private void L(w wVar) {
+    private void Q(w wVar) {
         long j;
         long j2;
         long j3;
-        if (wVar.mLiveInfo == null || wVar.aIe == null) {
+        if (wVar.mLiveInfo == null || wVar.aIV == null) {
             j = 0;
             j2 = 0;
             j3 = 0;
         } else {
-            long j4 = wVar.aIe.userId;
+            long j4 = wVar.aIV.userId;
             long j5 = wVar.mLiveInfo.room_id;
             j = wVar.mLiveInfo.live_id;
             j2 = j5;
             j3 = j4;
         }
-        long j6 = wVar.aIA != null ? wVar.aIA.userId : 0L;
+        long j6 = wVar.aJr != null ? wVar.aJr.userId : 0L;
         HashMap hashMap = new HashMap(2);
         hashMap.put("pk_anchor_id", ExtraParamsManager.getEncryptionUserId(String.valueOf(j3)));
-        this.aHs = com.baidu.live.utils.b.a(1, wVar.aIG.aHs, wVar.isHost, ExtraParamsManager.getEncryptionUserId(String.valueOf(j6)), ExtraParamsManager.getEncryptionUserId(String.valueOf(j3)), String.valueOf(j2), String.valueOf(j), hashMap);
+        this.aIk = com.baidu.live.utils.b.a(1, wVar.aJx.aIk, wVar.isHost, ExtraParamsManager.getEncryptionUserId(String.valueOf(j6)), ExtraParamsManager.getEncryptionUserId(String.valueOf(j3)), String.valueOf(j2), String.valueOf(j), hashMap);
     }
 
-    private void ciW() {
-        if (this.aJn != null && !TextUtils.isEmpty(this.aJn.division) && this.aJn.aJj > 0 && this.aJn.maxStar > 0) {
-            int i = this.aJn.maxStar - this.aJn.aJj;
-            this.hET.startLoad(this.aJn.iconUrl, 10, false);
-            bU(this.aJn.aJj, i);
+    private void cly() {
+        if (this.aKn != null && !TextUtils.isEmpty(this.aKn.division) && this.aKn.aKg > 0 && this.aKn.maxStar > 0) {
+            int i = this.aKn.maxStar - this.aKn.aKg;
+            this.hKQ.startLoad(this.aKn.iconUrl, 10, false);
+            bW(this.aKn.aKg, i);
         }
     }
 
-    private void bU(int i, int i2) {
+    private void bW(int i, int i2) {
         int i3;
         int i4;
-        if (this.hEU != null && this.hEV != null) {
-            this.hEU.removeAllViews();
-            this.hEU.setVisibility(0);
-            this.hEV.setVisibility(4);
+        if (this.hKR != null && this.hKS != null) {
+            this.hKR.removeAllViews();
+            this.hKR.setVisibility(0);
+            this.hKS.setVisibility(4);
             if (i + i2 <= 4) {
-                i4 = a.e.sdk_ds5;
-                i3 = a.e.sdk_ds28;
+                i4 = a.d.sdk_ds5;
+                i3 = a.d.sdk_ds28;
             } else {
-                i3 = a.e.sdk_ds22;
-                i4 = a.e.sdk_ds3;
+                i3 = a.d.sdk_ds22;
+                i4 = a.d.sdk_ds3;
             }
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(BdUtilHelper.getDimens(this.mContext, i3), BdUtilHelper.getDimens(this.mContext, i3));
             layoutParams.rightMargin = BdUtilHelper.getDimens(this.mContext, i4);
             layoutParams.gravity = 16;
             for (int i5 = 0; i5 < i; i5++) {
-                this.hEU.addView(getSolidStarView(), layoutParams);
+                this.hKR.addView(getSolidStarView(), layoutParams);
             }
             for (int i6 = 0; i6 < i2; i6++) {
-                this.hEU.addView(getBlankStarView(), layoutParams);
+                this.hKR.addView(getBlankStarView(), layoutParams);
             }
-            this.hEW.setText(this.ebQ);
-            this.hFh = BdUtilHelper.getTextWidth(this.hEW.getPaint(), this.ebQ);
-            ViewGroup.LayoutParams layoutParams2 = this.hEW.getLayoutParams();
+            this.hKT.setText(this.ehI);
+            this.hLe = BdUtilHelper.getTextWidth(this.hKT.getPaint(), this.ehI);
+            ViewGroup.LayoutParams layoutParams2 = this.hKT.getLayoutParams();
             if (layoutParams2 != null) {
-                layoutParams2.width = this.hFh;
-                this.hEW.setLayoutParams(layoutParams2);
+                layoutParams2.width = this.hLe;
+                this.hKT.setLayoutParams(layoutParams2);
             }
-            this.hEW.setTranslationX(0.0f);
-            this.hEU.setTranslationY(0.0f);
-            this.hEV.setTranslationY(0.0f);
-            this.hEU.setAlpha(1.0f);
-            this.hEU.setVisibility(0);
+            this.hKT.setTranslationX(0.0f);
+            this.hKR.setTranslationY(0.0f);
+            this.hKS.setTranslationY(0.0f);
+            this.hKR.setAlpha(1.0f);
+            this.hKR.setVisibility(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ciX() {
-        this.hFi = true;
-        cjd();
-        cje();
-        cjc();
-        cja();
-        ciZ();
-        this.hFg = new AnimatorSet();
-        this.hFg.play(this.hFd).before(this.hFe);
-        this.hFg.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.c.4
+    public void clz() {
+        this.hLf = true;
+        clF();
+        clG();
+        clE();
+        clC();
+        clB();
+        this.hLd = new AnimatorSet();
+        this.hLd.play(this.hLa).before(this.hLb);
+        this.hLd.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.c.4
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
-                c.this.hFg.removeAllListeners();
-                c.this.hFg.cancel();
-                c.this.ciY();
+                c.this.hLd.removeAllListeners();
+                c.this.hLd.cancel();
+                c.this.clA();
             }
         });
-        this.hFg.start();
+        this.hLd.start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ciY() {
+    public void clA() {
         this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.view.c.5
             @Override // java.lang.Runnable
             public void run() {
-                if (c.this.hFi && c.this.hFf != null) {
-                    c.this.hFf.start();
+                if (c.this.hLf && c.this.hLc != null) {
+                    c.this.hLc.start();
                 }
             }
         }, 300L);
     }
 
-    private void ciZ() {
-        if (this.hFc == null) {
-            this.hFc = ci(this.hEU);
-            this.hFc.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.c.6
+    private void clB() {
+        if (this.hKZ == null) {
+            this.hKZ = cn(this.hKR);
+            this.hKZ.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.c.6
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                     super.onAnimationStart(animator);
-                    c.this.hEU.setVisibility(0);
+                    c.this.hKR.setVisibility(0);
                 }
 
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
                     super.onAnimationEnd(animator);
-                    if (c.this.hFi) {
-                        c.this.hFi = false;
-                        c.this.mHandler.postDelayed(c.this.hFl, 9000L);
+                    if (c.this.hLf) {
+                        c.this.hLf = false;
+                        c.this.mHandler.postDelayed(c.this.hLi, 9000L);
                     }
                 }
             });
         }
     }
 
-    private void cja() {
-        if (this.hEV != null && this.hFb == null) {
-            this.hFb = ch(this.hEV);
-            this.hFb.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.c.7
+    private void clC() {
+        if (this.hKS != null && this.hKY == null) {
+            this.hKY = cm(this.hKS);
+            this.hKY.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.c.7
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
                     super.onAnimationEnd(animator);
-                    c.this.hEV.setVisibility(4);
-                    c.this.hEW.setTranslationX(0.0f);
-                    c.this.cjb();
+                    c.this.hKS.setVisibility(4);
+                    c.this.hKT.setTranslationX(0.0f);
+                    c.this.clD();
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cjb() {
-        if (this.hFi && this.hFc != null) {
-            this.hFc.start();
+    public void clD() {
+        if (this.hLf && this.hKZ != null) {
+            this.hKZ.start();
         }
     }
 
-    private void cjc() {
-        if (this.hEV != null) {
-            this.hFa = this.hEV.getWidth();
-            this.hFf = ObjectAnimator.ofFloat(this.hEW, "translationX", 0.0f, -(this.hFh - this.hFa));
-            this.hFf.setDuration(IMConnection.RETRY_DELAY_TIMES);
-            this.hFf.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.c.8
+    private void clE() {
+        if (this.hKS != null) {
+            this.hKX = this.hKS.getWidth();
+            this.hLc = ObjectAnimator.ofFloat(this.hKT, "translationX", 0.0f, -(this.hLe - this.hKX));
+            this.hLc.setDuration(IMConnection.RETRY_DELAY_TIMES);
+            this.hLc.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.c.8
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
                     super.onAnimationEnd(animator);
-                    c.this.cjf();
+                    c.this.clH();
                 }
             });
         }
     }
 
-    private void cjd() {
-        if (this.hFd == null) {
-            this.hFd = ch(this.hEU);
+    private void clF() {
+        if (this.hLa == null) {
+            this.hLa = cm(this.hKR);
         }
     }
 
-    private void cje() {
-        if (this.hFe == null) {
-            this.hFe = ci(this.hEV);
-            this.hFe.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.c.9
+    private void clG() {
+        if (this.hLb == null) {
+            this.hLb = cn(this.hKS);
+            this.hLb.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.c.9
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                     super.onAnimationStart(animator);
-                    c.this.hEV.setVisibility(0);
+                    c.this.hKS.setVisibility(0);
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cjf() {
-        if (this.hFi) {
+    public void clH() {
+        if (this.hLf) {
             this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.view.c.10
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (c.this.hFi && c.this.hFb != null) {
-                        c.this.hFb.start();
+                    if (c.this.hLf && c.this.hKY != null) {
+                        c.this.hKY.start();
                     }
                 }
             }, 7000L);
         }
     }
 
-    private AnimatorSet ch(final View view) {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "translationY", 0.0f, -BdUtilHelper.getDimens(this.mContext, a.e.sdk_ds12));
+    private AnimatorSet cm(final View view) {
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "translationY", 0.0f, -BdUtilHelper.getDimens(this.mContext, a.d.sdk_ds12));
         ofFloat.setDuration(625L);
         ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view, "alpha", 1.0f, 0.0f);
         ofFloat2.setDuration(625L);
@@ -360,8 +360,8 @@ public class c {
         return animatorSet;
     }
 
-    private AnimatorSet ci(View view) {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "translationY", BdUtilHelper.getDimens(this.mContext, a.e.sdk_ds12), 0.0f);
+    private AnimatorSet cn(View view) {
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "translationY", BdUtilHelper.getDimens(this.mContext, a.d.sdk_ds12), 0.0f);
         ofFloat.setDuration(625L);
         ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view, "alpha", 0.0f, 1.0f);
         ofFloat2.setDuration(625L);
@@ -377,43 +377,43 @@ public class c {
 
     private View getSolidStarView() {
         ImageView imageView = new ImageView(this.mContext);
-        imageView.setImageResource(a.f.ala_icon_five_pointed_star);
+        imageView.setImageResource(a.e.ala_icon_five_pointed_star);
         return imageView;
     }
 
     private View getBlankStarView() {
         ImageView imageView = new ImageView(this.mContext);
-        imageView.setImageResource(a.f.ala_icon_blank_five_pointed_star);
+        imageView.setImageResource(a.e.ala_icon_blank_five_pointed_star);
         return imageView;
     }
 
     private void cancelAnimation() {
-        if (this.hFi) {
-            this.hFi = false;
-            if (this.hFb != null) {
-                this.hFb.cancel();
+        if (this.hLf) {
+            this.hLf = false;
+            if (this.hKY != null) {
+                this.hKY.cancel();
             }
-            if (this.hFc != null) {
-                this.hFc.cancel();
+            if (this.hKZ != null) {
+                this.hKZ.cancel();
             }
-            if (this.hFd != null) {
-                this.hFd.cancel();
+            if (this.hLa != null) {
+                this.hLa.cancel();
             }
-            if (this.hFe != null) {
-                this.hFe.cancel();
+            if (this.hLb != null) {
+                this.hLb.cancel();
             }
-            if (this.hFf != null) {
-                this.hFf.cancel();
+            if (this.hLc != null) {
+                this.hLc.cancel();
             }
-            if (this.hFg != null) {
-                this.hFg.cancel();
+            if (this.hLd != null) {
+                this.hLd.cancel();
             }
             this.mHandler.removeCallbacksAndMessages(null);
         }
     }
 
-    public void Kj() {
-        this.aJn = null;
+    public void KJ() {
+        this.aKn = null;
         this.liveId = 0L;
         cancelAnimation();
     }

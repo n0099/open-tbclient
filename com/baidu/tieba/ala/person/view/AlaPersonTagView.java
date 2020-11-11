@@ -22,25 +22,25 @@ public class AlaPersonTagView extends TextView {
     }
 
     private void dQ(Context context) {
-        setCompoundDrawablePadding(context.getResources().getDimensionPixelSize(a.e.sdk_ds4));
+        setCompoundDrawablePadding(context.getResources().getDimensionPixelSize(a.d.sdk_ds4));
         setEllipsize(TextUtils.TruncateAt.END);
         setGravity(17);
         setSingleLine();
         setIncludeFontPadding(false);
-        setPadding(context.getResources().getDimensionPixelSize(a.e.sdk_ds14), 0, context.getResources().getDimensionPixelSize(a.e.sdk_ds14), 0);
+        setPadding(context.getResources().getDimensionPixelSize(a.d.sdk_ds14), 0, context.getResources().getDimensionPixelSize(a.d.sdk_ds14), 0);
         setTextSize(12.0f);
     }
 
     public void setAddTagView() {
-        setBackgroundResource(a.f.bg_ala_person_add_tag);
-        setTextColor(getResources().getColor(a.d.sdk_common_color_10106));
-        setCompoundDrawablesWithIntrinsicBounds(a.f.icon_add_tag, 0, 0, 0);
-        setText(a.i.ala_person_add_tag);
+        setBackgroundResource(a.e.bg_ala_person_add_tag);
+        setTextColor(getResources().getColor(a.c.sdk_common_color_10106));
+        setCompoundDrawablesWithIntrinsicBounds(a.e.icon_add_tag, 0, 0, 0);
+        setText(a.h.ala_person_add_tag);
     }
 
     public void setTagView(String str, int i) {
         setBackgroundResource(i);
-        setTextColor(getResources().getColor(a.d.sdk_white_alpha100));
+        setTextColor(getResources().getColor(a.c.sdk_color_e5ff1e65));
         setText(str);
     }
 }

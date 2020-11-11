@@ -6,7 +6,7 @@ public class e extends a {
     public String iconUrl = null;
     public int type = -1;
     public boolean hasRead = false;
-    public String oxo = null;
+    public String oGH = null;
     public long time = -1;
-    public int oxp = -1;
+    public int oGI = -1;
 }

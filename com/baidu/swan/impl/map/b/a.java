@@ -17,132 +17,132 @@ public class a {
     public static void a(Marker marker, c cVar) {
         com.baidu.swan.impl.map.item.b b = cVar.b(marker);
         String str = "";
-        if (b != null && b.dXB != null) {
-            str = b.dXB.id;
+        if (b != null && b.eds != null) {
+            str = b.eds.id;
         }
-        JSONObject aWY = C0540a.aWX().w("mapId", cVar.id).w("id", str).aWY();
+        JSONObject aZy = C0552a.aZx().w("mapId", cVar.id).w("id", str).aZy();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("vtype", "markertap");
-            jSONObject.put("data", aWY.toString());
-            jSONObject.put("wvID", cVar.dXQ);
+            jSONObject.put("data", aZy.toString());
+            jSONObject.put("wvID", cVar.edH);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
             }
         }
-        com.baidu.swan.apps.view.b.b.a.a(cVar.dXQ, cVar.id, "map", "markertap", jSONObject);
+        com.baidu.swan.apps.view.b.b.a.b(cVar.edH, cVar.id, "map", "markertap", jSONObject);
     }
 
     public static void b(c cVar, d dVar) {
-        JSONObject aWY = C0540a.aWX().w("mapId", cVar.id).w("id", dVar.id).aWY();
+        JSONObject aZy = C0552a.aZx().w("mapId", cVar.id).w("id", dVar.id).aZy();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("vtype", "callouttap");
-            jSONObject.put("data", aWY.toString());
-            jSONObject.put("wvID", cVar.dXQ);
+            jSONObject.put("data", aZy.toString());
+            jSONObject.put("wvID", cVar.edH);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
             }
         }
-        com.baidu.swan.apps.view.b.b.a.a(cVar.dXQ, cVar.id, "map", "callouttap", jSONObject);
+        com.baidu.swan.apps.view.b.b.a.b(cVar.edH, cVar.id, "map", "callouttap", jSONObject);
     }
 
     public static void a(View view, c cVar) {
-        com.baidu.swan.impl.map.item.a aT = cVar.aT(view);
+        com.baidu.swan.impl.map.item.a aX = cVar.aX(view);
         String str = "";
-        if (aT != null && aT.dXz != null) {
-            str = aT.dXz.id;
+        if (aX != null && aX.edq != null) {
+            str = aX.edq.id;
         }
-        JSONObject aWY = C0540a.aWX().w("mapId", cVar.id).w("controlId", str).aWY();
+        JSONObject aZy = C0552a.aZx().w("mapId", cVar.id).w("controlId", str).aZy();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("vtype", "controltap");
-            jSONObject.put("data", aWY.toString());
-            jSONObject.put("wvID", cVar.dXQ);
+            jSONObject.put("data", aZy.toString());
+            jSONObject.put("wvID", cVar.edH);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
             }
         }
-        com.baidu.swan.apps.view.b.b.a.a(cVar.dXQ, cVar.id, "map", "controltap", jSONObject);
+        com.baidu.swan.apps.view.b.b.a.b(cVar.edH, cVar.id, "map", "controltap", jSONObject);
     }
 
     public static void a(c cVar, MapStatus mapStatus) {
-        JSONObject aWY = C0540a.aWX().w("latitude", Double.valueOf(mapStatus.bound.northeast.latitude)).w("longitude", Double.valueOf(mapStatus.bound.northeast.longitude)).aWY();
-        JSONObject aWY2 = C0540a.aWX().w("mapId", cVar.id).w("northeast", aWY).w("southwest", C0540a.aWX().w("latitude", Double.valueOf(mapStatus.bound.southwest.latitude)).w("longitude", Double.valueOf(mapStatus.bound.southwest.longitude)).aWY()).w("scale", Float.valueOf(mapStatus.zoom)).aWY();
+        JSONObject aZy = C0552a.aZx().w("latitude", Double.valueOf(mapStatus.bound.northeast.latitude)).w("longitude", Double.valueOf(mapStatus.bound.northeast.longitude)).aZy();
+        JSONObject aZy2 = C0552a.aZx().w("mapId", cVar.id).w("northeast", aZy).w("southwest", C0552a.aZx().w("latitude", Double.valueOf(mapStatus.bound.southwest.latitude)).w("longitude", Double.valueOf(mapStatus.bound.southwest.longitude)).aZy()).w("scale", Float.valueOf(mapStatus.zoom)).aZy();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("vtype", "regionchange");
-            jSONObject.put("data", aWY2.toString());
-            jSONObject.put("wvID", cVar.dXQ);
+            jSONObject.put("data", aZy2.toString());
+            jSONObject.put("wvID", cVar.edH);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
             }
         }
-        com.baidu.swan.apps.view.b.b.a.a(cVar.dXQ, cVar.id, "map", "regionchange", jSONObject);
+        com.baidu.swan.apps.view.b.b.a.b(cVar.edH, cVar.id, "map", "regionchange", jSONObject);
     }
 
     public static void a(c cVar, LatLng latLng) {
-        JSONObject aWY = C0540a.aWX().w("mapId", cVar.id).w("position", C0540a.aWX().w("latitude", Double.valueOf(latLng.latitude)).w("longitude", Double.valueOf(latLng.longitude)).aWY()).aWY();
+        JSONObject aZy = C0552a.aZx().w("mapId", cVar.id).w("position", C0552a.aZx().w("latitude", Double.valueOf(latLng.latitude)).w("longitude", Double.valueOf(latLng.longitude)).aZy()).aZy();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("vtype", "tap");
-            jSONObject.put("data", aWY.toString());
-            jSONObject.put("wvID", cVar.dXQ);
+            jSONObject.put("data", aZy.toString());
+            jSONObject.put("wvID", cVar.edH);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
             }
         }
-        com.baidu.swan.apps.view.b.b.a.a(cVar.dXQ, cVar.id, "map", "tap", jSONObject);
+        com.baidu.swan.apps.view.b.b.a.b(cVar.edH, cVar.id, "map", "tap", jSONObject);
     }
 
     public static void b(c cVar) {
-        JSONObject aWY = C0540a.aWX().w("mapId", cVar.id).aWY();
+        JSONObject aZy = C0552a.aZx().w("mapId", cVar.id).aZy();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("vtype", "updated");
-            jSONObject.put("data", aWY.toString());
-            jSONObject.put("wvID", cVar.dXQ);
+            jSONObject.put("data", aZy.toString());
+            jSONObject.put("wvID", cVar.edH);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
             }
         }
-        com.baidu.swan.apps.view.b.b.a.a(cVar.dXQ, cVar.id, "map", "updated", jSONObject);
+        com.baidu.swan.apps.view.b.b.a.b(cVar.edH, cVar.id, "map", "updated", jSONObject);
     }
 
     public static void a(c cVar, MapPoi mapPoi) {
         LatLng position = mapPoi.getPosition();
-        C0540a.aWX().w("latitude", Double.valueOf(position.latitude)).w("longitude", Double.valueOf(position.longitude)).aWY();
-        JSONObject aWY = C0540a.aWX().w("mapId", cVar.id).w("name", mapPoi.getName()).w("latitude", Double.valueOf(position.latitude)).w("longitude", Double.valueOf(position.longitude)).aWY();
+        C0552a.aZx().w("latitude", Double.valueOf(position.latitude)).w("longitude", Double.valueOf(position.longitude)).aZy();
+        JSONObject aZy = C0552a.aZx().w("mapId", cVar.id).w("name", mapPoi.getName()).w("latitude", Double.valueOf(position.latitude)).w("longitude", Double.valueOf(position.longitude)).aZy();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("vtype", "poitap");
-            jSONObject.put("data", aWY.toString());
-            jSONObject.put("wvID", cVar.dXQ);
+            jSONObject.put("data", aZy.toString());
+            jSONObject.put("wvID", cVar.edH);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
             }
         }
-        com.baidu.swan.apps.view.b.b.a.a(cVar.dXQ, cVar.id, "map", "poitap", jSONObject);
+        com.baidu.swan.apps.view.b.b.a.b(cVar.edH, cVar.id, "map", "poitap", jSONObject);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.impl.map.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes25.dex */
-    public static class C0540a {
+    public static class C0552a {
         private JSONObject params = new JSONObject();
 
-        static C0540a aWX() {
-            return new C0540a();
+        static C0552a aZx() {
+            return new C0552a();
         }
 
-        C0540a w(String str, Object obj) {
+        C0552a w(String str, Object obj) {
             if (!TextUtils.isEmpty(str)) {
                 try {
                     this.params.put(str, obj);
@@ -153,11 +153,11 @@ public class a {
             return this;
         }
 
-        JSONObject aWY() {
+        JSONObject aZy() {
             return this.params;
         }
 
-        C0540a() {
+        C0552a() {
         }
     }
 }

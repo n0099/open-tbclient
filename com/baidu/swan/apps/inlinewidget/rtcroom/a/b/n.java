@@ -6,7 +6,7 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 public class n extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.rtcroom.c.b> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String ata() {
+    public String avA() {
         return "goBackground";
     }
 
@@ -14,6 +14,6 @@ public class n extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
     @Override // com.baidu.swan.apps.inlinewidget.a
     public void a(@NonNull ZeusPlugin.Command command, @NonNull com.baidu.swan.apps.inlinewidget.rtcroom.c.b bVar) {
         a(bVar, command.what, null, true);
-        bVar.atq();
+        bVar.avQ();
     }
 }

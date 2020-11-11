@@ -22,7 +22,7 @@ import java.util.Map;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f2251a;
+    public static Context f2253a;
     public static String d;
     private static String h;
     private static String i;
@@ -92,14 +92,14 @@ public class h {
         jsonBuilder.putStringValue("net", r);
         jsonBuilder.putStringValue("cuid", A);
         jsonBuilder.key(SocialOperation.GAME_SIGNATURE).arrayValue();
-        byte[] a2 = a(f2251a);
+        byte[] a2 = a(f2253a);
         if (a2 != null) {
             for (byte b2 : a2) {
                 jsonBuilder.value((int) b2);
             }
         }
         jsonBuilder.endArrayValue();
-        jsonBuilder.putStringValue("pcn", f2251a.getPackageName());
+        jsonBuilder.putStringValue("pcn", f2253a.getPackageName());
         jsonBuilder.key("screen_x").value(i());
         jsonBuilder.key("screen_y").value(k());
         jsonBuilder.endObject();
@@ -108,7 +108,7 @@ public class h {
     }
 
     public static void b(Context context) {
-        f2251a = context;
+        f2253a = context;
         if (context.getFilesDir() != null) {
             w = context.getFilesDir().getAbsolutePath();
         }
@@ -130,7 +130,7 @@ public class h {
         B.put("os", AppMD5.encodeUrlParamsValue(l()));
         B.put("dpi", AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(m()), Integer.valueOf(m()))));
         B.put("cuid", AppMD5.encodeUrlParamsValue(A));
-        B.put("pcn", AppMD5.encodeUrlParamsValue(f2251a.getPackageName()));
+        B.put("pcn", AppMD5.encodeUrlParamsValue(f2253a.getPackageName()));
         B.put("screen", AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(i()), Integer.valueOf(k()))));
         if (f != null) {
             f.a();
@@ -219,7 +219,7 @@ public class h {
         jsonBuilder.key("dpi_y").value(m());
         jsonBuilder.putStringValue("net", r);
         jsonBuilder.putStringValue("cuid", A);
-        jsonBuilder.putStringValue("pcn", f2251a.getPackageName());
+        jsonBuilder.putStringValue("pcn", f2253a.getPackageName());
         jsonBuilder.key("screen_x").value(i());
         jsonBuilder.key("screen_y").value(k());
         jsonBuilder.putStringValue("appid", y);
@@ -266,7 +266,7 @@ public class h {
     public static String p() {
         String str;
         try {
-            str = LBSAuthManager.getInstance(f2251a).getCUID();
+            str = LBSAuthManager.getInstance(f2253a).getCUID();
         } catch (Exception e2) {
             str = "";
         }

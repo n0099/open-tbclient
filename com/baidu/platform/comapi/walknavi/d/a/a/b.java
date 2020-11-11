@@ -15,16 +15,16 @@ public class b implements Serializable {
     private String m;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2964a = Integer.MIN_VALUE;
+    private int f2966a = Integer.MIN_VALUE;
     private boolean j = false;
     private boolean k = true;
 
     public void a(int i) {
-        this.f2964a = i;
+        this.f2966a = i;
     }
 
     public int a() {
-        return this.f2964a;
+        return this.f2966a;
     }
 
     public void a(String str) {
@@ -104,6 +104,6 @@ public class b implements Serializable {
     }
 
     public String toString() {
-        return "ARResource [ err_code = " + this.f2964a + ", err_msg = " + this.b + ", , version_code = " + this.g + ", ar_resource = " + this.d + " ]";
+        return "ARResource [ err_code = " + this.f2966a + ", err_msg = " + this.b + ", , version_code = " + this.g + ", ar_resource = " + this.d + " ]";
     }
 }

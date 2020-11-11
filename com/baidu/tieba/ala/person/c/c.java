@@ -4,19 +4,20 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
-import com.baidu.live.data.bc;
+import com.baidu.live.data.be;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.NetWork;
+import com.baidu.live.tbadk.core.util.httpnet.HttpRequest;
 import com.baidu.live.tbadk.data.Config;
 /* loaded from: classes4.dex */
 public class c {
     private Context context;
+    private a hBP;
+    private b hBQ;
     private boolean hasMore;
-    private a hvS;
-    private b hvT;
     private TbPageContext mTbPageContext;
     private int pn = 0;
     private int type;
@@ -40,8 +41,8 @@ public class c {
 
     public void c(int i, String str, String str2) {
         if (!BdNetTypeUtil.isNetWorkAvailable() || TextUtils.isEmpty(str)) {
-            if (this.hvS != null) {
-                this.hvS.onFail(this.context.getResources().getString(a.i.sdk_no_network));
+            if (this.hBP != null) {
+                this.hBP.onFail(this.context.getResources().getString(a.h.sdk_no_network));
                 return;
             }
             return;
@@ -53,21 +54,21 @@ public class c {
             this.url = TbConfig.SERVER_ADDRESS + "ala/user/followList";
         }
         this.pn++;
-        this.hvT = new b();
-        this.hvT.execute(str, str2);
+        this.hBQ = new b();
+        this.hBQ.execute(str, str2);
     }
 
     public void cancel() {
-        if (this.hvT != null && !this.hvT.isCancelled()) {
-            this.hvT.cancel();
+        if (this.hBQ != null && !this.hBQ.isCancelled()) {
+            this.hBQ.cancel();
         }
-        if (this.hvS != null) {
-            this.hvS.onFail(null);
+        if (this.hBP != null) {
+            this.hBP.onFail(null);
         }
     }
 
     public void a(a aVar) {
-        this.hvS = aVar;
+        this.hBP = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -97,6 +98,7 @@ public class c {
                 netWork.addPostData("need_concern", "1");
             }
             netWork.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
+            netWork.addPostData(HttpRequest.LIVE_SCENE, TbConfig.liveScene + "");
             String postNetData = netWork.postNetData();
             if (netWork.isRequestSuccess()) {
                 String u = com.baidu.tieba.ala.person.d.a.u(c.this.type, postNetData);
@@ -119,8 +121,8 @@ public class c {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
         public void onPostExecute(Object obj) {
-            if (c.this.hvS != null) {
-                c.this.hvS.c((com.baidu.tieba.ala.person.a.c) obj);
+            if (c.this.hBP != null) {
+                c.this.hBP.c((com.baidu.tieba.ala.person.a.c) obj);
             }
         }
     }
@@ -128,10 +130,10 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, com.baidu.tieba.ala.person.a.c cVar) {
         if (cVar != null && cVar.user_list != null && !cVar.user_list.isEmpty()) {
-            for (bc bcVar : cVar.user_list) {
+            for (be beVar : cVar.user_list) {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (currentAccount != null && currentAccount.equals(str)) {
-                    bcVar.aNJ = 1;
+                    beVar.aOM = 1;
                 }
             }
         }

@@ -22,9 +22,9 @@ import com.baidu.tieba.card.data.l;
 public class e extends com.baidu.adp.widget.ListView.a<l, am<l>> {
     private ab<l> afF;
     private v alD;
-    private int eLh;
-    private NEGFeedBackView.a fJp;
-    private BdUniqueId fmX;
+    private int eQW;
+    private NEGFeedBackView.a fPf;
+    private BdUniqueId fsQ;
     private TbPageContext mPageContext;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.af$a] */
@@ -43,7 +43,7 @@ public class e extends com.baidu.adp.widget.ListView.a<l, am<l>> {
             public void a(View view, l lVar) {
                 int id = view.getId();
                 if (id == R.id.thread_card_root || id == R.id.thread_info_commont_container) {
-                    com.baidu.tieba.homepage.gamevideo.e.a.c(lVar, e.this.eLh);
+                    com.baidu.tieba.homepage.gamevideo.e.a.c(lVar, e.this.eQW);
                 }
             }
         };
@@ -57,24 +57,24 @@ public class e extends com.baidu.adp.widget.ListView.a<l, am<l>> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aT */
+    /* renamed from: aV */
     public am<l> c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
         an anVar = new an(this.mPageContext.getPageActivity());
         com.baidu.tbadk.core.data.c cVar = new com.baidu.tbadk.core.data.c();
-        cVar.etA = 15;
-        cVar.etG = 11;
+        cVar.ezt = 15;
+        cVar.ezz = 11;
         anVar.setAgreeStatisticData(cVar);
         anVar.setFrom(12);
         anVar.setShareReportFrom(9);
-        anVar.setGameId(this.eLh);
+        anVar.setGameId(this.eQW);
         anVar.setFromForPb(18);
         anVar.bo(32);
         aVar.b(anVar);
         ak a2 = aVar.a(true, viewGroup, this.alD);
         a2.setSourceForPb(18);
         am<l> amVar = new am<>(a2);
-        amVar.setPageId(this.fmX);
+        amVar.setPageId(this.fsQ);
         a(new com.baidu.adp.widget.ListView.ab() { // from class: com.baidu.tieba.homepage.gamevideo.a.e.2
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -95,10 +95,10 @@ public class e extends com.baidu.adp.widget.ListView.a<l, am<l>> {
 
     /* renamed from: a  reason: avoid collision after fix types in other method */
     protected View a2(final int i, final View view, final ViewGroup viewGroup, l lVar, am amVar) {
-        if (lVar == null || amVar == null || amVar.getView() == null || lVar.erH == null) {
+        if (lVar == null || amVar == null || amVar.getView() == null || lVar.exA == null) {
             return null;
         }
-        lVar.wW(lVar.position + 1);
+        lVar.xj(lVar.position + 1);
         amVar.tW().setPosition(i);
         if (amVar.tW().tQ() instanceof an) {
             ((an) amVar.tW().tQ()).setOnCommentClickCallback(new ThreadCommentAndPraiseInfoLayout.a() { // from class: com.baidu.tieba.homepage.gamevideo.a.e.3
@@ -110,7 +110,7 @@ public class e extends com.baidu.adp.widget.ListView.a<l, am<l>> {
                 }
             });
         }
-        amVar.aL(false).a(this.fJp);
+        amVar.aL(false).a(this.fPf);
         amVar.b((am) lVar);
         amVar.tW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         amVar.tW().a(this.afF);
@@ -118,14 +118,14 @@ public class e extends com.baidu.adp.widget.ListView.a<l, am<l>> {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.fmX = bdUniqueId;
+        this.fsQ = bdUniqueId;
     }
 
-    public void Bq(int i) {
-        this.eLh = i;
+    public void BD(int i) {
+        this.eQW = i;
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.fJp = aVar;
+        this.fPf = aVar;
     }
 }

@@ -19,7 +19,7 @@ public class SwanTaskDeadEvent implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: jp */
+        /* renamed from: jz */
         public SwanTaskDeadEvent[] newArray(int i) {
             return new SwanTaskDeadEvent[i];
         }
@@ -71,16 +71,16 @@ public class SwanTaskDeadEvent implements Parcelable {
         return this.taskId;
     }
 
-    public String azA() {
+    public String aCa() {
         return this.pageScheme;
     }
 
-    public ArrayList<Integer> azB() {
+    public ArrayList<Integer> aCb() {
         return this.stackList;
     }
 
     @Nullable
-    public SparseArray<SwanTaskDeadEvent> azC() {
+    public SparseArray<SwanTaskDeadEvent> aCc() {
         if (this.historyCache == null) {
             return null;
         }
@@ -106,7 +106,7 @@ public class SwanTaskDeadEvent implements Parcelable {
                     break;
                 }
                 if (sparseArray.valueAt(i2) != null) {
-                    sparseArray2.put(sparseArray.keyAt(i2), sparseArray.valueAt(i2).azD());
+                    sparseArray2.put(sparseArray.keyAt(i2), sparseArray.valueAt(i2).aCd());
                 }
                 i = i2 + 1;
             }
@@ -115,7 +115,7 @@ public class SwanTaskDeadEvent implements Parcelable {
     }
 
     @NonNull
-    private String[] azD() {
+    private String[] aCd() {
         StringBuilder sb = new StringBuilder();
         if (this.stackList != null) {
             int size = this.stackList.size();
@@ -126,7 +126,7 @@ public class SwanTaskDeadEvent implements Parcelable {
                 }
             }
         }
-        return new String[]{getAppId(), azA(), sb.toString()};
+        return new String[]{getAppId(), aCa(), sb.toString()};
     }
 
     @Nullable

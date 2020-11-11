@@ -8,25 +8,25 @@ import com.tb.airbnb.lottie.model.content.ShapeStroke;
 /* loaded from: classes16.dex */
 public class q extends a {
     private final String name;
-    private final com.tb.airbnb.lottie.model.layer.a pyN;
+    private final com.tb.airbnb.lottie.model.layer.a pIh;
     @Nullable
-    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> pyR;
-    private final com.tb.airbnb.lottie.a.b.a<Integer, Integer> pyX;
+    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> pIl;
+    private final com.tb.airbnb.lottie.a.b.a<Integer, Integer> pIr;
 
-    public q(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, ShapeStroke shapeStroke) {
-        super(fVar, aVar, shapeStroke.evm().toPaintCap(), shapeStroke.evn().toPaintJoin(), shapeStroke.jZ(), shapeStroke.evc(), shapeStroke.evl(), shapeStroke.jX(), shapeStroke.evo());
-        this.pyN = aVar;
+    public q(com.tb.airbnb.lottie.g gVar, com.tb.airbnb.lottie.model.layer.a aVar, ShapeStroke shapeStroke) {
+        super(gVar, aVar, shapeStroke.ezb().toPaintCap(), shapeStroke.ezc().toPaintJoin(), shapeStroke.jZ(), shapeStroke.eyR(), shapeStroke.eza(), shapeStroke.jX(), shapeStroke.ezd());
+        this.pIh = aVar;
         this.name = shapeStroke.getName();
-        this.pyX = shapeStroke.evC().euW();
-        this.pyX.b(this);
-        aVar.a(this.pyX);
+        this.pIr = shapeStroke.ezr().eyL();
+        this.pIr.b(this);
+        aVar.a(this.pIr);
     }
 
     @Override // com.tb.airbnb.lottie.a.a.a, com.tb.airbnb.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i) {
-        this.paint.setColor(this.pyX.getValue().intValue());
-        if (this.pyR != null) {
-            this.paint.setColorFilter(this.pyR.getValue());
+        this.paint.setColor(this.pIr.getValue().intValue());
+        if (this.pIl != null) {
+            this.paint.setColorFilter(this.pIl.getValue());
         }
         super.a(canvas, matrix, i);
     }
@@ -39,16 +39,16 @@ public class q extends a {
     @Override // com.tb.airbnb.lottie.a.a.a, com.tb.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.tb.airbnb.lottie.e.c<T> cVar) {
         super.a((q) t, (com.tb.airbnb.lottie.e.c<q>) cVar);
-        if (t == com.tb.airbnb.lottie.j.BW) {
-            this.pyX.a(cVar);
-        } else if (t == com.tb.airbnb.lottie.j.Cs) {
+        if (t == com.tb.airbnb.lottie.k.BW) {
+            this.pIr.a(cVar);
+        } else if (t == com.tb.airbnb.lottie.k.Cs) {
             if (cVar == null) {
-                this.pyR = null;
+                this.pIl = null;
                 return;
             }
-            this.pyR = new com.tb.airbnb.lottie.a.b.p(cVar);
-            this.pyR.b(this);
-            this.pyN.a(this.pyX);
+            this.pIl = new com.tb.airbnb.lottie.a.b.p(cVar);
+            this.pIl.b(this);
+            this.pIh.a(this.pIr);
         }
     }
 }

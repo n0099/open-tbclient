@@ -28,7 +28,7 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocket;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class MessageHandler extends IMessageHandler {
     private static final HostnameVerifier HOSTNAME_VERIFIER = HttpsURLConnection.getDefaultHostnameVerifier();
     private static final String TAG = "MessageHandler";

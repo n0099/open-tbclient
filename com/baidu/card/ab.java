@@ -75,7 +75,7 @@ public class ab extends d implements p<com.baidu.tbadk.core.data.ar>, q {
     }
 
     private void e(AbsThreadDataSupport absThreadDataSupport) {
-        if (absThreadDataSupport.bhH()) {
+        if (absThreadDataSupport.bkh()) {
             int dimens = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds90);
             int dimens2 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds14);
             int dimens3 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds14);
@@ -125,21 +125,21 @@ public class ab extends d implements p<com.baidu.tbadk.core.data.ar>, q {
     }
 
     private boolean f(AbsThreadDataSupport absThreadDataSupport) {
-        return (absThreadDataSupport instanceof com.baidu.tieba.card.data.l) && ((com.baidu.tieba.card.data.l) absThreadDataSupport).exF;
+        return (absThreadDataSupport instanceof com.baidu.tieba.card.data.l) && ((com.baidu.tieba.card.data.l) absThreadDataSupport).eDw;
     }
 
     public void g(AbsThreadDataSupport absThreadDataSupport) {
-        if (absThreadDataSupport != null && absThreadDataSupport.bhB() != null) {
-            if (absThreadDataSupport.bhB().biz() > 0 || absThreadDataSupport.bhz() == null) {
+        if (absThreadDataSupport != null && absThreadDataSupport.bkb() != null) {
+            if (absThreadDataSupport.bkb().bkZ() > 0 || absThreadDataSupport.bjZ() == null) {
                 if (this.agQ) {
                     tN();
                 } else {
                     e(absThreadDataSupport);
                 }
-            } else if (absThreadDataSupport.bhH() || absThreadDataSupport.bhI()) {
-                if (absThreadDataSupport.bhD()) {
-                    bu(aT((!f(absThreadDataSupport) || com.baidu.tbadk.a.d.bfu()) ? R.dimen.tbds42 : R.dimen.tbds64));
-                } else if (absThreadDataSupport.bhE()) {
+            } else if (absThreadDataSupport.bkh() || absThreadDataSupport.bki()) {
+                if (absThreadDataSupport.bkd()) {
+                    bu(aT((!f(absThreadDataSupport) || com.baidu.tbadk.a.d.bhU()) ? R.dimen.tbds42 : R.dimen.tbds64));
+                } else if (absThreadDataSupport.bke()) {
                     if (this.afN != null) {
                         this.afN.a(this);
                     }

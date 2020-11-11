@@ -10,7 +10,7 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes10.dex */
 public final class a {
-    private final ArrayList<Integer> dRq = new ArrayList<>();
+    private final ArrayList<Integer> dXi = new ArrayList<>();
 
     public final void i(c cVar) {
         if (cVar != null) {
@@ -23,15 +23,15 @@ public final class a {
             switch (str.hashCode()) {
                 case 3202370:
                     if (str.equals("hide")) {
-                        f axo = f.axo();
-                        q.m(axo, "SwanAppController.getInstance()");
-                        com.baidu.swan.apps.core.d.f adm = axo.adm();
-                        j jVar = adm != null ? (j) adm.q(j.class) : null;
-                        com.baidu.swan.menu.h anc = jVar != null ? jVar.anc() : null;
-                        if (anc != null && jVar != null) {
-                            jVar.eJ(true);
+                        f azO = f.azO();
+                        q.m(azO, "SwanAppController.getInstance()");
+                        com.baidu.swan.apps.core.d.f afM = azO.afM();
+                        j jVar = afM != null ? (j) afM.q(j.class) : null;
+                        com.baidu.swan.menu.h apD = jVar != null ? jVar.apD() : null;
+                        if (apD != null && jVar != null) {
+                            jVar.eS(true);
                         }
-                        return a(anc, str2);
+                        return a(apD, str2);
                     }
                     break;
             }
@@ -40,13 +40,13 @@ public final class a {
     }
 
     private final boolean a(com.baidu.swan.menu.h hVar, String str) {
-        Integer xb = b.xb(str);
-        if (xb != null) {
-            if (!this.dRq.contains(xb)) {
-                this.dRq.add(xb);
+        Integer xp = b.xp(str);
+        if (xp != null) {
+            if (!this.dXi.contains(xp)) {
+                this.dXi.add(xp);
             }
             if (hVar != null) {
-                hVar.mt(xb.intValue());
+                hVar.mD(xp.intValue());
             }
             return true;
         }
@@ -54,13 +54,13 @@ public final class a {
     }
 
     public final void a(com.baidu.swan.menu.h hVar) {
-        if (!this.dRq.isEmpty()) {
-            Iterator<Integer> it = this.dRq.iterator();
+        if (!this.dXi.isEmpty()) {
+            Iterator<Integer> it = this.dXi.iterator();
             while (it.hasNext()) {
                 Integer next = it.next();
                 if (hVar != null) {
                     q.m(next, "id");
-                    hVar.mt(next.intValue());
+                    hVar.mD(next.intValue());
                 }
             }
         }

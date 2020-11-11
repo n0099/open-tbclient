@@ -7,17 +7,17 @@ import com.baidu.tieba.ala.liveroom.turntable.a;
 import com.baidu.tieba.ala.liveroom.turntable.lucky.TurnTableLuckyMomentsResponseMessage;
 /* loaded from: classes4.dex */
 public class c implements a {
-    private a.InterfaceC0671a hnF;
-    private HttpMessageListener hnG;
+    private a.InterfaceC0685a htD;
+    private HttpMessageListener htE;
 
     @Override // com.baidu.tieba.ala.liveroom.turntable.a
-    public void a(a.InterfaceC0671a interfaceC0671a) {
-        this.hnF = interfaceC0671a;
+    public void a(a.InterfaceC0685a interfaceC0685a) {
+        this.htD = interfaceC0685a;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.turntable.a
-    public void Ig(String str) {
-        ceQ();
+    public void Ix(String str) {
+        cht();
         com.baidu.tieba.ala.liveroom.turntable.lucky.d dVar = new com.baidu.tieba.ala.liveroom.turntable.lucky.d();
         dVar.setLiveId(str);
         MessageManager.getInstance().sendMessage(dVar);
@@ -25,31 +25,31 @@ public class c implements a {
 
     @Override // com.baidu.tieba.ala.liveroom.turntable.a
     public void release() {
-        this.hnF = null;
+        this.htD = null;
         unRegisterListener();
     }
 
-    private void ceQ() {
-        if (this.hnG == null) {
-            this.hnG = new HttpMessageListener(1021157) { // from class: com.baidu.tieba.ala.liveroom.turntable.c.1
+    private void cht() {
+        if (this.htE == null) {
+            this.htE = new HttpMessageListener(1021157) { // from class: com.baidu.tieba.ala.liveroom.turntable.c.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                    if (c.this.hnF != null && (httpResponsedMessage instanceof TurnTableLuckyMomentsResponseMessage)) {
+                    if (c.this.htD != null && (httpResponsedMessage instanceof TurnTableLuckyMomentsResponseMessage)) {
                         TurnTableLuckyMomentsResponseMessage turnTableLuckyMomentsResponseMessage = (TurnTableLuckyMomentsResponseMessage) httpResponsedMessage;
                         if (turnTableLuckyMomentsResponseMessage.hasError() || httpResponsedMessage.getError() != 0) {
-                            c.this.hnF.bi(turnTableLuckyMomentsResponseMessage.getError(), turnTableLuckyMomentsResponseMessage.getErrorString());
+                            c.this.htD.bm(turnTableLuckyMomentsResponseMessage.getError(), turnTableLuckyMomentsResponseMessage.getErrorString());
                         } else {
-                            c.this.hnF.a(((com.baidu.tieba.ala.liveroom.turntable.lucky.d) httpResponsedMessage.getOrginalMessage()).getLiveId(), ((TurnTableLuckyMomentsResponseMessage) httpResponsedMessage).hof);
+                            c.this.htD.a(((com.baidu.tieba.ala.liveroom.turntable.lucky.d) httpResponsedMessage.getOrginalMessage()).getLiveId(), ((TurnTableLuckyMomentsResponseMessage) httpResponsedMessage).hud);
                         }
                     }
                 }
             };
-            MessageManager.getInstance().registerListener(this.hnG);
+            MessageManager.getInstance().registerListener(this.htE);
         }
     }
 
     private void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.hnG);
+        MessageManager.getInstance().unRegisterListener(this.htE);
     }
 }

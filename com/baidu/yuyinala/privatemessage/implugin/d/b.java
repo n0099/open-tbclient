@@ -28,7 +28,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b {
-    private static volatile b ood;
+    private static volatile b oxy;
 
     /* loaded from: classes4.dex */
     public interface a<T> extends BIMValueCallBack<T> {
@@ -36,7 +36,7 @@ public class b {
 
     /* renamed from: com.baidu.yuyinala.privatemessage.implugin.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0927b extends IGetUserStatusListener {
+    public interface InterfaceC0945b extends IGetUserStatusListener {
     }
 
     /* loaded from: classes4.dex */
@@ -59,13 +59,13 @@ public class b {
     public interface g extends IGetUsersProfileBatchListener {
     }
 
-    public static synchronized b ebG() {
+    public static synchronized b efv() {
         b bVar;
         synchronized (b.class) {
-            if (ood == null) {
-                ood = new b();
+            if (oxy == null) {
+                oxy = new b();
             }
-            bVar = ood;
+            bVar = oxy;
         }
         return bVar;
     }
@@ -180,8 +180,8 @@ public class b {
         }
     }
 
-    public void a(Context context, ArrayList<Long> arrayList, InterfaceC0927b interfaceC0927b) {
-        ChatUserManagerImpl.getInstance(context).getUsersStatus(arrayList, interfaceC0927b);
+    public void a(Context context, ArrayList<Long> arrayList, InterfaceC0945b interfaceC0945b) {
+        ChatUserManagerImpl.getInstance(context).getUsersStatus(arrayList, interfaceC0945b);
     }
 
     public void a(boolean z, String str, String str2, String str3, String str4, String str5, String str6, String str7) {
@@ -202,7 +202,7 @@ public class b {
         return AccountManager.isCuidLogin(context);
     }
 
-    public boolean ebH() {
+    public boolean efw() {
         return false;
     }
 
@@ -210,10 +210,10 @@ public class b {
         AccountManager.retryLogin(context, cVar);
     }
 
-    public void zy(boolean z) {
+    public void zJ(boolean z) {
     }
 
-    public void bT(String str, int i) {
+    public void bV(String str, int i) {
     }
 
     public void onEvent(String str, String str2) {

@@ -1,19 +1,53 @@
 package com.baidu.live.data;
 
+import com.baidu.live.tbadk.core.util.ListUtils;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class an {
-    public int aMN;
-    public int aMO;
-    public int aMP;
+    public int aNN;
+    public ArrayList<am> aNO;
 
-    public void parseJson(JSONObject jSONObject) {
-        this.aMN = jSONObject.optInt("watch_time");
-        this.aMO = jSONObject.optInt("up_to_level");
-        this.aMP = jSONObject.optInt("first_unlock_effective", 0);
+    public void parserJson(JSONObject jSONObject) {
+        this.aNN = jSONObject.optInt("received");
+        this.aNO = new ArrayList<>();
+        JSONArray optJSONArray = jSONObject.optJSONArray("task_list");
+        if (optJSONArray != null) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    am amVar = new am();
+                    amVar.parseJson(optJSONObject);
+                    this.aNO.add(amVar);
+                }
+            }
+        }
     }
 
-    public boolean En() {
-        return this.aMP == 1;
+    public boolean EH() {
+        if (!ListUtils.isEmpty(this.aNO)) {
+            Iterator<am> it = this.aNO.iterator();
+            while (it.hasNext()) {
+                if (it.next().EG()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public am EI() {
+        if (!ListUtils.isEmpty(this.aNO)) {
+            Iterator<am> it = this.aNO.iterator();
+            while (it.hasNext()) {
+                am next = it.next();
+                if (next.EE()) {
+                    return next;
+                }
+            }
+        }
+        return null;
     }
 }

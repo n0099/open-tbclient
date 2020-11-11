@@ -6,7 +6,7 @@ import com.baidu.platform.comjni.JNIBaseApi;
 public class NASyncData extends JNIBaseApi {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f3186a = 0;
+    private long f3188a = 0;
 
     private native boolean nativeCleanData(long j, String str);
 

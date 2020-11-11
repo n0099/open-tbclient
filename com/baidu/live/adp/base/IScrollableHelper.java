@@ -4,6 +4,7 @@ import android.content.Context;
 import com.baidu.live.adp.lib.util.BSBeanUtils;
 import com.baidu.megapp.ma.MAActivity;
 import com.baidu.megapp.ma.MAFragmentActivity;
+import com.baidu.searchbox.live.base.LiveBaseActivity;
 import java.lang.reflect.Field;
 /* loaded from: classes4.dex */
 public class IScrollableHelper {
@@ -70,8 +71,8 @@ public class IScrollableHelper {
             if (forceGetProperty != null && (forceGetProperty instanceof IScrollable) && (forceGetProperty instanceof BdPageContextSupport)) {
                 return ((BdPageContextSupport) forceGetProperty).getPageContext();
             }
-        } else if ((context instanceof MAActivity) && defaultPageContextCreater != null) {
-            return defaultPageContextCreater.createPageContext((MAActivity) context);
+        } else if ((context instanceof LiveBaseActivity) && defaultPageContextCreater != null) {
+            return defaultPageContextCreater.createPageContext((LiveBaseActivity) context);
         }
         return null;
     }

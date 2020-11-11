@@ -8,23 +8,23 @@ import android.widget.LinearLayout;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class PriorityVerticalLinearLayout extends LinearLayout {
-    private int boG;
+    private int bpZ;
 
     public PriorityVerticalLinearLayout(Context context) {
         super(context);
-        this.boG = -1;
+        this.bpZ = -1;
         setOrientation(1);
     }
 
     public PriorityVerticalLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.boG = -1;
+        this.bpZ = -1;
         setOrientation(1);
     }
 
     public PriorityVerticalLinearLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.boG = -1;
+        this.bpZ = -1;
         setOrientation(1);
     }
 
@@ -33,17 +33,17 @@ public class PriorityVerticalLinearLayout extends LinearLayout {
         int W = W(view);
         if (W >= 0) {
             super.addView(view, W, layoutParams);
-            if (this.boG >= 0) {
+            if (this.bpZ >= 0) {
                 LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) view.getLayoutParams();
                 if (layoutParams2 != null) {
                     int i2 = -1;
-                    if (view.getTag(a.g.sdk_pvl_layout_priority_tag_key) instanceof Integer) {
-                        i2 = ((Integer) view.getTag(a.g.sdk_pvl_layout_priority_tag_key)).intValue();
+                    if (view.getTag(a.f.sdk_pvl_layout_priority_tag_key) instanceof Integer) {
+                        i2 = ((Integer) view.getTag(a.f.sdk_pvl_layout_priority_tag_key)).intValue();
                     }
                     if (i2 == 20) {
                         layoutParams2.bottomMargin = 0;
                     } else {
-                        layoutParams2.bottomMargin = this.boG;
+                        layoutParams2.bottomMargin = this.bpZ;
                     }
                     layoutParams2.topMargin = 0;
                 }
@@ -53,19 +53,19 @@ public class PriorityVerticalLinearLayout extends LinearLayout {
     }
 
     public void setDefaultItemMargin(int i) {
-        this.boG = i;
+        this.bpZ = i;
     }
 
     private int W(View view) {
-        if (view == null || !(view.getTag(a.g.sdk_pvl_layout_priority_tag_key) instanceof Integer)) {
+        if (view == null || !(view.getTag(a.f.sdk_pvl_layout_priority_tag_key) instanceof Integer)) {
             return -1;
         }
         int indexOfChild = indexOfChild(view);
         if (indexOfChild < 0) {
             int childCount = getChildCount();
-            int intValue = ((Integer) view.getTag(a.g.sdk_pvl_layout_priority_tag_key)).intValue();
+            int intValue = ((Integer) view.getTag(a.f.sdk_pvl_layout_priority_tag_key)).intValue();
             for (int i = 0; i < childCount; i++) {
-                if (intValue < ((Integer) getChildAt(i).getTag(a.g.sdk_pvl_layout_priority_tag_key)).intValue()) {
+                if (intValue < ((Integer) getChildAt(i).getTag(a.f.sdk_pvl_layout_priority_tag_key)).intValue()) {
                     if (i == 0) {
                         return 0;
                     } else {

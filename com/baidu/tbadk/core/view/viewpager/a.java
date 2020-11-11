@@ -10,26 +10,26 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a extends af.a {
     public int ajq;
-    public RelativeLayout eUZ;
-    public TextView eVa;
-    public IndicatorView eVb;
-    public View eVc;
-    public BdBaseViewPager eVd;
+    public RelativeLayout faO;
+    public TextView faP;
+    public IndicatorView faQ;
+    public View faR;
+    public BdBaseViewPager faS;
     public TextView title;
 
     public a(View view, Context context) {
         super(view);
         this.ajq = 3;
         this.title = null;
-        this.eVa = null;
-        this.eVb = null;
-        this.eVc = null;
-        this.eVd = null;
-        this.eUZ = (RelativeLayout) view.findViewById(R.id.top_area);
+        this.faP = null;
+        this.faQ = null;
+        this.faR = null;
+        this.faS = null;
+        this.faO = (RelativeLayout) view.findViewById(R.id.top_area);
         this.title = (TextView) view.findViewById(R.id.theme_title);
-        this.eVa = (TextView) view.findViewById(R.id.more_textview);
-        this.eVb = (IndicatorView) view.findViewById(R.id.tab_indicator);
-        this.eVc = view.findViewById(R.id.bottom_divider_line);
-        this.eVd = (BdBaseViewPager) view.findViewById(R.id.bd_base_view_pager);
+        this.faP = (TextView) view.findViewById(R.id.more_textview);
+        this.faQ = (IndicatorView) view.findViewById(R.id.tab_indicator);
+        this.faR = view.findViewById(R.id.bottom_divider_line);
+        this.faS = (BdBaseViewPager) view.findViewById(R.id.bd_base_view_pager);
     }
 }

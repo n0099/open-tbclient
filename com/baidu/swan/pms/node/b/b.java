@@ -7,51 +7,51 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes15.dex */
 public class b {
-    private static volatile b edi;
-    private a edj = new a();
+    private static volatile b eja;
+    private a ejb = new a();
 
-    public static b aZQ() {
-        if (edi == null) {
+    public static b bcq() {
+        if (eja == null) {
             synchronized (b.class) {
-                if (edi == null) {
-                    edi = new b();
+                if (eja == null) {
+                    eja = new b();
                 }
             }
         }
-        return edi;
+        return eja;
     }
 
     private b() {
     }
 
     public String getVersion() {
-        return this.edj.getString("version", "0");
+        return this.ejb.getString("version", "0");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void cM(JSONObject jSONObject) {
+    public void cS(JSONObject jSONObject) {
         if (jSONObject != null) {
             String optString = jSONObject.optString("version");
             if (!TextUtils.isEmpty(optString)) {
                 String optString2 = jSONObject.optString("data");
                 if (!TextUtils.isEmpty(optString2)) {
-                    this.edj.edit().putString("version", optString).putString("data", optString2).apply();
+                    this.ejb.edit().putString("version", optString).putString("data", optString2).apply();
                 }
             }
         }
     }
 
     @NonNull
-    public com.baidu.swan.pms.node.b.a aZR() {
+    public com.baidu.swan.pms.node.b.a bcr() {
         com.baidu.swan.pms.node.b.a aVar;
         try {
-            aVar = com.baidu.swan.pms.node.b.a.cL(new JSONObject(this.edj.getString("data", "")));
+            aVar = com.baidu.swan.pms.node.b.a.cR(new JSONObject(this.ejb.getString("data", "")));
         } catch (JSONException e) {
             e.printStackTrace();
             aVar = null;
         }
         if (aVar == null) {
-            return com.baidu.swan.pms.node.b.a.edh;
+            return com.baidu.swan.pms.node.b.a.eiZ;
         }
         return aVar;
     }

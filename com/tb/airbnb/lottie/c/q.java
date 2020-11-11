@@ -41,11 +41,11 @@ class q {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static <T> com.tb.airbnb.lottie.e.a<T> a(JsonReader jsonReader, com.tb.airbnb.lottie.d dVar, float f, aj<T> ajVar, boolean z) throws IOException {
-        return z ? a(dVar, jsonReader, f, ajVar) : a(jsonReader, f, ajVar);
+    public static <T> com.tb.airbnb.lottie.e.a<T> a(JsonReader jsonReader, com.tb.airbnb.lottie.e eVar, float f, aj<T> ajVar, boolean z) throws IOException {
+        return z ? a(eVar, jsonReader, f, ajVar) : a(jsonReader, f, ajVar);
     }
 
-    private static <T> com.tb.airbnb.lottie.e.a<T> a(com.tb.airbnb.lottie.d dVar, JsonReader jsonReader, float f, aj<T> ajVar) throws IOException {
+    private static <T> com.tb.airbnb.lottie.e.a<T> a(com.tb.airbnb.lottie.e eVar, JsonReader jsonReader, float f, aj<T> ajVar) throws IOException {
         Interpolator interpolator;
         Interpolator interpolator2;
         PointF g;
@@ -231,7 +231,7 @@ class q {
         } else {
             interpolator = LINEAR_INTERPOLATOR;
         }
-        com.tb.airbnb.lottie.e.a<T> aVar = new com.tb.airbnb.lottie.e.a<>(dVar, t2, t3, interpolator, f2, null);
+        com.tb.airbnb.lottie.e.a<T> aVar = new com.tb.airbnb.lottie.e.a<>(eVar, t2, t3, interpolator, f2, null);
         aVar.Ht = pointF6;
         aVar.Hu = pointF7;
         return aVar;

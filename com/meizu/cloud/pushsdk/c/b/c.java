@@ -37,7 +37,7 @@ public abstract class c {
     protected com.meizu.cloud.pushsdk.b.c.a s;
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f4386a = 88;
+    protected int f4388a = 88;
     protected int b = 22;
     private final String u = c.class.getSimpleName();
     protected final com.meizu.cloud.pushsdk.b.c.g c = com.meizu.cloud.pushsdk.b.c.g.a(AbstractBceClient.DEFAULT_CONTENT_TYPE);
@@ -47,7 +47,7 @@ public abstract class c {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        protected final String f4387a;
+        protected final String f4389a;
         protected final Context b;
         protected SSLSocketFactory m;
         protected HostnameVerifier n;
@@ -65,7 +65,7 @@ public abstract class c {
         protected com.meizu.cloud.pushsdk.b.c.a o = new com.meizu.cloud.pushsdk.b.c.e();
 
         public a(String str, Context context, Class<? extends c> cls) {
-            this.f4387a = str;
+            this.f4389a = str;
             this.b = context;
             this.p = cls;
         }
@@ -117,7 +117,7 @@ public abstract class c {
         this.o = aVar.h;
         this.p = aVar.j;
         this.q = aVar.k;
-        this.l = aVar.f4387a;
+        this.l = aVar.f4389a;
         this.r = aVar.l;
         this.s = aVar.o;
         c();
@@ -213,13 +213,13 @@ public abstract class c {
                 for (int i3 = i2; i3 < this.h.a() + i2 && i3 < size; i3++) {
                     com.meizu.cloud.pushsdk.c.a.a aVar2 = bVar.a().get(i3);
                     long b2 = aVar2.b() + this.b;
-                    if (this.f4386a + b2 > this.q) {
+                    if (this.f4388a + b2 > this.q) {
                         ArrayList<com.meizu.cloud.pushsdk.c.a.a> arrayList2 = new ArrayList<>();
                         LinkedList linkedList5 = new LinkedList();
                         arrayList2.add(aVar2);
                         linkedList5.add(b.get(i3));
                         linkedList.add(new e(true, a(arrayList2), linkedList5));
-                    } else if (j + b2 + this.f4386a + (arrayList.size() - 1) > this.q) {
+                    } else if (j + b2 + this.f4388a + (arrayList.size() - 1) > this.q) {
                         linkedList.add(new e(false, a(arrayList), linkedList4));
                         arrayList = new ArrayList<>();
                         linkedList4 = new LinkedList();

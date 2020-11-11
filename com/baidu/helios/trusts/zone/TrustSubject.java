@@ -20,7 +20,7 @@ import org.json.JSONObject;
 public class TrustSubject {
 
     /* renamed from: a  reason: collision with root package name */
-    static Comparator<TrustSubject> f1818a = new Comparator<TrustSubject>() { // from class: com.baidu.helios.trusts.zone.TrustSubject.1
+    static Comparator<TrustSubject> f1820a = new Comparator<TrustSubject>() { // from class: com.baidu.helios.trusts.zone.TrustSubject.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */

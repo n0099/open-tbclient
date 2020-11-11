@@ -117,11 +117,11 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
     public TbImageView(Context context) {
         super(context);
         this.mEvent = null;
-        this.mDefaultId = a.d.sdk_transparent;
-        this.mDefaultErrorId = a.f.sdk_img_default_100;
+        this.mDefaultId = a.c.sdk_transparent;
+        this.mDefaultErrorId = a.e.sdk_img_default_100;
         this.mDefaultIdInUse = this.mDefaultId;
-        this.mLoadingDefaultId = a.f.sdk_img_loading;
-        this.mDefaultBgId = a.d.sdk_cp_bg_line_e;
+        this.mLoadingDefaultId = a.e.sdk_img_loading;
+        this.mDefaultBgId = a.c.sdk_cp_bg_line_e;
         this.mIsGif = false;
         this.isLongPic = false;
         this.mType = -1;
@@ -134,29 +134,29 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
         this.mLoadedWidth = 0;
         this.mLoadedHeight = 0;
         this.isPageIdRegisterMessage = false;
-        this.mInternalGestureDetector = new com.baidu.live.tieba.pb.a.a(new a.InterfaceC0205a() { // from class: com.baidu.live.tbadk.widget.TbImageView.1
-            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0205a
+        this.mInternalGestureDetector = new com.baidu.live.tieba.pb.a.a(new a.InterfaceC0217a() { // from class: com.baidu.live.tbadk.widget.TbImageView.1
+            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0217a
             public boolean onDoubleTap(View view, MotionEvent motionEvent) {
                 if (TbImageView.this.mGestureDetector != null) {
-                    TbImageView.this.mGestureDetector.Z(view);
+                    TbImageView.this.mGestureDetector.ad(view);
                     return TbImageView.this.mGestureDetector.onDoubleTap(motionEvent);
                 }
                 return false;
             }
 
-            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0205a
+            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0217a
             public boolean onDoubleTapEvent(View view, MotionEvent motionEvent) {
                 return false;
             }
 
-            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0205a
+            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0217a
             public boolean onSingleTapConfirmed(View view, MotionEvent motionEvent) {
                 if (TbImageView.this.getBdImage() != null || TbImageView.this.getDrawable() != null || !TbImageView.this.mInterceptOnClick) {
                     if (TbImageView.this.mOnClickListener != null) {
                         TbImageView.this.mOnClickListener.onClick(view);
                         return true;
                     } else if (TbImageView.this.mGestureDetector != null) {
-                        TbImageView.this.mGestureDetector.Z(view);
+                        TbImageView.this.mGestureDetector.ad(view);
                         return TbImageView.this.mGestureDetector.onSingleTapConfirmed(motionEvent);
                     } else {
                         return false;
@@ -173,11 +173,11 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
     public TbImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mEvent = null;
-        this.mDefaultId = a.d.sdk_transparent;
-        this.mDefaultErrorId = a.f.sdk_img_default_100;
+        this.mDefaultId = a.c.sdk_transparent;
+        this.mDefaultErrorId = a.e.sdk_img_default_100;
         this.mDefaultIdInUse = this.mDefaultId;
-        this.mLoadingDefaultId = a.f.sdk_img_loading;
-        this.mDefaultBgId = a.d.sdk_cp_bg_line_e;
+        this.mLoadingDefaultId = a.e.sdk_img_loading;
+        this.mDefaultBgId = a.c.sdk_cp_bg_line_e;
         this.mIsGif = false;
         this.isLongPic = false;
         this.mType = -1;
@@ -190,29 +190,29 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
         this.mLoadedWidth = 0;
         this.mLoadedHeight = 0;
         this.isPageIdRegisterMessage = false;
-        this.mInternalGestureDetector = new com.baidu.live.tieba.pb.a.a(new a.InterfaceC0205a() { // from class: com.baidu.live.tbadk.widget.TbImageView.1
-            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0205a
+        this.mInternalGestureDetector = new com.baidu.live.tieba.pb.a.a(new a.InterfaceC0217a() { // from class: com.baidu.live.tbadk.widget.TbImageView.1
+            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0217a
             public boolean onDoubleTap(View view, MotionEvent motionEvent) {
                 if (TbImageView.this.mGestureDetector != null) {
-                    TbImageView.this.mGestureDetector.Z(view);
+                    TbImageView.this.mGestureDetector.ad(view);
                     return TbImageView.this.mGestureDetector.onDoubleTap(motionEvent);
                 }
                 return false;
             }
 
-            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0205a
+            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0217a
             public boolean onDoubleTapEvent(View view, MotionEvent motionEvent) {
                 return false;
             }
 
-            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0205a
+            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0217a
             public boolean onSingleTapConfirmed(View view, MotionEvent motionEvent) {
                 if (TbImageView.this.getBdImage() != null || TbImageView.this.getDrawable() != null || !TbImageView.this.mInterceptOnClick) {
                     if (TbImageView.this.mOnClickListener != null) {
                         TbImageView.this.mOnClickListener.onClick(view);
                         return true;
                     } else if (TbImageView.this.mGestureDetector != null) {
-                        TbImageView.this.mGestureDetector.Z(view);
+                        TbImageView.this.mGestureDetector.ad(view);
                         return TbImageView.this.mGestureDetector.onSingleTapConfirmed(motionEvent);
                     } else {
                         return false;
@@ -465,9 +465,9 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
         super.drawContentTag(canvas, imageView);
         if (this.mTagDrawer != null && this.mArgs != null) {
             if (this.mArgs.mIsShowGifIcon && isGif()) {
-                this.mTagDrawer.drawBottomRightTag(canvas, getContext().getString(a.i.sdk_icon_tag_gif));
+                this.mTagDrawer.drawBottomRightTag(canvas, getContext().getString(a.h.sdk_icon_tag_gif));
             } else if (this.mArgs.mIsShowLongIcon && isLongPic()) {
-                this.mTagDrawer.drawBottomRightTag(canvas, getContext().getString(a.i.sdk_icon_tag_long));
+                this.mTagDrawer.drawBottomRightTag(canvas, getContext().getString(a.h.sdk_icon_tag_long));
             } else if (this.mTagStr != null) {
                 this.mTagDrawer.drawBottomRightTag(canvas, this.mTagStr);
             }
@@ -629,14 +629,14 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
 
     public int getGifIconWidth() {
         if (this.mTagDrawer != null) {
-            return (int) this.mTagDrawer.getTagWidth(getContext().getString(a.i.sdk_icon_tag_gif));
+            return (int) this.mTagDrawer.getTagWidth(getContext().getString(a.h.sdk_icon_tag_gif));
         }
         return -1;
     }
 
     public int getGifIconHeight() {
         if (this.mTagDrawer != null) {
-            return (int) this.mTagDrawer.getTagHeight(getContext().getString(a.i.sdk_icon_tag_gif));
+            return (int) this.mTagDrawer.getTagHeight(getContext().getString(a.h.sdk_icon_tag_gif));
         }
         return -1;
     }

@@ -17,7 +17,7 @@ public class c extends b {
     protected void b(com.baidu.swan.apps.runtime.e eVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("isFavor", com.baidu.swan.apps.database.favorite.a.nA(this.dpJ) ? 1 : 0);
+            jSONObject.put("isFavor", com.baidu.swan.apps.database.favorite.a.nO(this.dvE) ? 1 : 0);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -31,8 +31,8 @@ public class c extends b {
             return false;
         }
         try {
-            this.dpJ = this.dpK ? eVar.getAppId() : new JSONObject(param).optString("appid");
-            return !TextUtils.isEmpty(this.dpJ);
+            this.dvE = this.dvF ? eVar.getAppId() : new JSONObject(param).optString("appid");
+            return !TextUtils.isEmpty(this.dvE);
         } catch (JSONException e) {
             e.printStackTrace();
             return false;

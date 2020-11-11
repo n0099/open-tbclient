@@ -7,22 +7,22 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b extends BaseData {
-    private List<a> aIk;
+    private List<a> aJb;
 
     public List<a> getList() {
-        return this.aIk;
+        return this.aJb;
     }
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
         JSONArray optJSONArray;
         if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("user_info")) != null) {
-            this.aIk = new ArrayList();
+            this.aJb = new ArrayList();
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 a aVar = new a();
                 aVar.parserJson(optJSONObject);
-                this.aIk.add(aVar);
+                this.aJb.add(aVar);
             }
         }
     }

@@ -31,11 +31,11 @@ public class k extends IntentConfig {
         super(context);
     }
 
-    public void ba(boolean z) {
+    public void bb(boolean z) {
         getIntent().putExtra("is_new_user", z);
     }
 
-    public void bb(boolean z) {
+    public void bc(boolean z) {
         getIntent().putExtra("entry_super_customer", z);
     }
 
@@ -43,27 +43,27 @@ public class k extends IntentConfig {
         getIntent().putExtra("guard_club_join_amount", i);
     }
 
-    public void bc(boolean z) {
+    public void bd(boolean z) {
         getIntent().putExtra("is_redpkg_unable", z);
     }
 
-    public void bd(boolean z) {
+    public void be(boolean z) {
         getIntent().putExtra("throne_enabled", z);
     }
 
-    public void be(boolean z) {
+    public void bf(boolean z) {
         getIntent().putExtra("noble_enabled", z);
     }
 
-    public void fW(String str) {
+    public void gb(String str) {
         getIntent().putExtra("bg_info", str);
     }
 
-    public void fX(String str) {
+    public void gc(String str) {
         getIntent().putExtra("login_user_id", str);
     }
 
-    public void fY(String str) {
+    public void gd(String str) {
         getIntent().putExtra("active_params", str);
     }
 }

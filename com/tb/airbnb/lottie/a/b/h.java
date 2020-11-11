@@ -8,8 +8,8 @@ public class h extends com.tb.airbnb.lottie.e.a<PointF> {
     @Nullable
     private Path path;
 
-    public h(com.tb.airbnb.lottie.d dVar, com.tb.airbnb.lottie.e.a<PointF> aVar) {
-        super(dVar, aVar.Hn, aVar.Ho, aVar.Hp, aVar.Bo, aVar.Hq);
+    public h(com.tb.airbnb.lottie.e eVar, com.tb.airbnb.lottie.e.a<PointF> aVar) {
+        super(eVar, aVar.Hn, aVar.Ho, aVar.Hp, aVar.Bo, aVar.Hq);
         boolean z = (this.Ho == 0 || this.Hn == 0 || !((PointF) this.Hn).equals(((PointF) this.Ho).x, ((PointF) this.Ho).y)) ? false : true;
         if (this.Ho != 0 && !z) {
             this.path = com.tb.airbnb.lottie.d.f.a((PointF) this.Hn, (PointF) this.Ho, aVar.Ht, aVar.Hu);

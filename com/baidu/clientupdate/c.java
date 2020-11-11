@@ -8,10 +8,10 @@ import java.net.URL;
 public class c extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ClientUpdater f1320a;
+    final /* synthetic */ ClientUpdater f1322a;
 
     public c(ClientUpdater clientUpdater) {
-        this.f1320a = clientUpdater;
+        this.f1322a = clientUpdater;
         setName("SDK_ClientUpdater_thread");
     }
 
@@ -26,7 +26,7 @@ public class c extends Thread {
      */
     /* JADX WARN: Code restructure failed: missing block: B:19:0x0097, code lost:
         com.baidu.util.LogUtil.logE("ClientUpdater", "SSLHandshakeException caught!!!! ");
-        r6.f1320a.c();
+        r6.f1322a.c();
      */
     /* JADX WARN: Code restructure failed: missing block: B:20:0x00a5, code lost:
         if (r0 != 0) goto L26;
@@ -38,13 +38,13 @@ public class c extends Thread {
         r1 = move-exception;
      */
     /* JADX WARN: Code restructure failed: missing block: B:23:0x00ad, code lost:
-        r6.f1320a.a(r1);
+        r6.f1322a.a(r1);
      */
     /* JADX WARN: Code restructure failed: missing block: B:30:0x00bd, code lost:
         r0 = e;
      */
     /* JADX WARN: Code restructure failed: missing block: B:31:0x00be, code lost:
-        r6.f1320a.a(r0);
+        r6.f1322a.a(r0);
         r1 = r1;
      */
     /* JADX WARN: Code restructure failed: missing block: B:32:0x00c3, code lost:
@@ -91,33 +91,33 @@ public class c extends Thread {
         com.baidu.clientupdate.c.a aVar4;
         HttpURLConnection httpURLConnection = null;
         HttpURLConnection httpURLConnection2 = null;
-        aVar = this.f1320a.n;
+        aVar = this.f1322a.n;
         if (aVar == null) {
             return;
         }
-        z = this.f1320a.d;
+        z = this.f1322a.d;
         try {
             try {
                 if (!z) {
-                    z2 = this.f1320a.k;
+                    z2 = this.f1322a.k;
                     if (!z2) {
-                        aVar4 = this.f1320a.n;
+                        aVar4 = this.f1322a.n;
                         aVar4.b(false);
-                        this.f1320a.k = false;
-                        ClientUpdater clientUpdater = this.f1320a;
-                        aVar3 = this.f1320a.n;
+                        this.f1322a.k = false;
+                        ClientUpdater clientUpdater = this.f1322a;
+                        aVar3 = this.f1322a.n;
                         clientUpdater.c = aVar3.b("/lcmanage/index.php?r=InterfaceAction&method=upgrade&contype=client&clientv=3.0");
                         r0 = "ClientUpdater";
                         StringBuilder append = new StringBuilder().append("更新检查请求的完整参数： ");
-                        str = this.f1320a.c;
+                        str = this.f1322a.c;
                         LogUtil.logE("ClientUpdater", append.append(str).toString());
                         StringBuilder sb = new StringBuilder();
-                        str2 = this.f1320a.c;
+                        str2 = this.f1322a.c;
                         r0 = (HttpURLConnection) new URL(str2).openConnection();
                         r0.setConnectTimeout(5000);
                         r0.setReadTimeout(5000);
                         r0.connect();
-                        ?? r1 = this.f1320a;
+                        ?? r1 = this.f1322a;
                         r1.a(r0, null, sb);
                         httpURLConnection = r1;
                         if (r0 != 0) {
@@ -127,12 +127,12 @@ public class c extends Thread {
                         return;
                     }
                 }
-                str2 = this.f1320a.c;
+                str2 = this.f1322a.c;
                 r0 = (HttpURLConnection) new URL(str2).openConnection();
                 r0.setConnectTimeout(5000);
                 r0.setReadTimeout(5000);
                 r0.connect();
-                ?? r12 = this.f1320a;
+                ?? r12 = this.f1322a;
                 r12.a(r0, null, sb);
                 httpURLConnection = r12;
                 if (r0 != 0) {
@@ -149,15 +149,15 @@ public class c extends Thread {
         } catch (Throwable th2) {
             th = th2;
         }
-        aVar2 = this.f1320a.n;
+        aVar2 = this.f1322a.n;
         aVar2.b(true);
-        this.f1320a.k = false;
-        ClientUpdater clientUpdater2 = this.f1320a;
-        aVar3 = this.f1320a.n;
+        this.f1322a.k = false;
+        ClientUpdater clientUpdater2 = this.f1322a;
+        aVar3 = this.f1322a.n;
         clientUpdater2.c = aVar3.b("/lcmanage/index.php?r=InterfaceAction&method=upgrade&contype=client&clientv=3.0");
         r0 = "ClientUpdater";
         StringBuilder append2 = new StringBuilder().append("更新检查请求的完整参数： ");
-        str = this.f1320a.c;
+        str = this.f1322a.c;
         LogUtil.logE("ClientUpdater", append2.append(str).toString());
         StringBuilder sb2 = new StringBuilder();
     }

@@ -29,7 +29,7 @@ public class e {
         }
     }
 
-    public static int dQ(int i, int i2) {
+    public static int dT(int i, int i2) {
         if (i2 != 255) {
             if (i2 == 0) {
                 return i & 16777215;
@@ -39,7 +39,7 @@ public class e {
         return i;
     }
 
-    public static int Oi(int i) {
+    public static int OD(int i) {
         int i2 = i >>> 24;
         if (i2 == 255) {
             return -1;

@@ -7,7 +7,7 @@ import java.io.File;
 public class d extends FileObserver {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3615a;
+    private String f3618a;
     private String b;
     private int c;
     private Context d;
@@ -15,11 +15,11 @@ public class d extends FileObserver {
     public d(Context context, int i, String str, String str2) {
         super(str, 4095);
         try {
-            this.f3615a = str;
+            this.f3618a = str;
             this.b = str2;
             this.c = i;
             this.d = context;
-            new StringBuilder("f=").append(this.f3615a).append(", e=").append(new File(this.f3615a).exists()).append(", b=").append(this.b);
+            new StringBuilder("f=").append(this.f3618a).append(", e=").append(new File(this.f3618a).exists()).append(", b=").append(this.b);
             b.a();
         } catch (Throwable th) {
             com.baidu.sofire.i.e.a();
@@ -58,13 +58,13 @@ public class d extends FileObserver {
                                 super.run();
                                 b.a();
                                 synchronized (d.class) {
-                                    if (!com.baidu.sofire.i.e.c(d.this.f3615a)) {
+                                    if (!com.baidu.sofire.i.e.c(d.this.f3618a)) {
                                         b.a();
-                                        com.baidu.sofire.i.e.a(d.this.b, d.this.f3615a);
-                                        com.baidu.sofire.i.e.a(d.this.f3615a, true);
-                                        c.a(new File(d.this.f3615a));
-                                        c.a(d.this.d, d.this.c, new File(d.this.f3615a), new File(d.this.b));
-                                        new StringBuilder().append(d.this.f3615a.toString());
+                                        com.baidu.sofire.i.e.a(d.this.b, d.this.f3618a);
+                                        com.baidu.sofire.i.e.a(d.this.f3618a, true);
+                                        c.a(new File(d.this.f3618a));
+                                        c.a(d.this.d, d.this.c, new File(d.this.f3618a), new File(d.this.b));
+                                        new StringBuilder().append(d.this.f3618a.toString());
                                         b.a();
                                         com.baidu.sofire.c.a.a(d.this.d).b(d.this.c, -1);
                                     }

@@ -5,23 +5,23 @@ import com.baidu.webkit.internal.brotli.DecoderJNI;
 final /* synthetic */ class a {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ int[] f3932a = new int[DecoderJNI.a.values().length];
+    static final /* synthetic */ int[] f3934a = new int[DecoderJNI.a.values().length];
 
     static {
         try {
-            f3932a[DecoderJNI.a.DONE.ordinal()] = 1;
+            f3934a[DecoderJNI.a.DONE.ordinal()] = 1;
         } catch (NoSuchFieldError e) {
         }
         try {
-            f3932a[DecoderJNI.a.OK.ordinal()] = 2;
+            f3934a[DecoderJNI.a.OK.ordinal()] = 2;
         } catch (NoSuchFieldError e2) {
         }
         try {
-            f3932a[DecoderJNI.a.NEEDS_MORE_INPUT.ordinal()] = 3;
+            f3934a[DecoderJNI.a.NEEDS_MORE_INPUT.ordinal()] = 3;
         } catch (NoSuchFieldError e3) {
         }
         try {
-            f3932a[DecoderJNI.a.NEEDS_MORE_OUTPUT.ordinal()] = 4;
+            f3934a[DecoderJNI.a.NEEDS_MORE_OUTPUT.ordinal()] = 4;
         } catch (NoSuchFieldError e4) {
         }
     }

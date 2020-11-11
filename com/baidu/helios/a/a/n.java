@@ -26,7 +26,7 @@ class n implements j {
         public static class C0139a {
 
             /* renamed from: a  reason: collision with root package name */
-            private String f1783a;
+            private String f1785a;
             private String b;
             private String c;
             private boolean d;
@@ -43,19 +43,19 @@ class n implements j {
                 if (networkInfo.getExtraInfo() != null && (lowerCase = networkInfo.getExtraInfo().toLowerCase()) != null) {
                     if (lowerCase.startsWith("cmwap") || lowerCase.startsWith("uniwap") || lowerCase.startsWith("3gwap")) {
                         this.d = true;
-                        this.f1783a = lowerCase;
+                        this.f1785a = lowerCase;
                         this.b = "10.0.0.172";
                         this.c = "80";
                         return;
                     } else if (lowerCase.startsWith("ctwap")) {
                         this.d = true;
-                        this.f1783a = lowerCase;
+                        this.f1785a = lowerCase;
                         this.b = "10.0.0.200";
                         this.c = "80";
                         return;
                     } else if (lowerCase.startsWith("cmnet") || lowerCase.startsWith("uninet") || lowerCase.startsWith("ctnet") || lowerCase.startsWith("3gnet")) {
                         this.d = false;
-                        this.f1783a = lowerCase;
+                        this.f1785a = lowerCase;
                         return;
                     }
                 }
@@ -92,7 +92,7 @@ class n implements j {
                         this.d = false;
                     } else {
                         a(context, networkInfo);
-                        this.e = this.f1783a;
+                        this.e = this.f1785a;
                     }
                     this.f = networkInfo.getSubtype();
                     this.g = networkInfo.getSubtypeName();
@@ -228,7 +228,7 @@ class n implements j {
         private static c axT = new c();
 
         /* renamed from: a  reason: collision with root package name */
-        private String f1784a;
+        private String f1786a;
         private String b;
         private String c;
         private String d;
@@ -242,11 +242,11 @@ class n implements j {
         }
 
         private void c() {
-            this.f1784a = Build.MODEL;
-            if (TextUtils.isEmpty(this.f1784a)) {
-                this.f1784a = "NUL";
+            this.f1786a = Build.MODEL;
+            if (TextUtils.isEmpty(this.f1786a)) {
+                this.f1786a = "NUL";
             } else {
-                this.f1784a = this.f1784a.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                this.f1786a = this.f1786a.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
             }
             this.b = Build.MANUFACTURER;
             if (TextUtils.isEmpty(this.b)) {
@@ -264,7 +264,7 @@ class n implements j {
         }
 
         private String d() {
-            String str = this.f1784a;
+            String str = this.f1786a;
             String str2 = this.c;
             int i = Build.VERSION.SDK_INT;
             return str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.b;

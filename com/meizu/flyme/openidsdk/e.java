@@ -10,13 +10,13 @@ import android.util.Log;
 /* loaded from: classes11.dex */
 public class e {
     public static boolean b;
-    public static volatile e ptz;
+    public static volatile e pCT;
     public Boolean g;
-    public BroadcastReceiver ptE;
-    public a ptA = new a("udid");
-    public a ptB = new a("oaid");
-    public a ptD = new a("vaid");
-    public a ptC = new a("aaid");
+    public BroadcastReceiver pCY;
+    public a pCU = new a("udid");
+    public a pCV = new a("oaid");
+    public a pCX = new a("vaid");
+    public a pCW = new a("aaid");
 
     public static c A(Cursor cursor) {
         c cVar = new c(null, 0);
@@ -28,7 +28,7 @@ public class e {
             cursor.moveToFirst();
             int columnIndex = cursor.getColumnIndex("value");
             if (columnIndex >= 0) {
-                cVar.f4448a = cursor.getString(columnIndex);
+                cVar.f4450a = cursor.getString(columnIndex);
             } else {
                 a("parseValue fail, index < 0.");
             }
@@ -54,27 +54,27 @@ public class e {
         }
     }
 
-    public static final e esK() {
-        if (ptz == null) {
+    public static final e ewz() {
+        if (pCT == null) {
             synchronized (e.class) {
-                ptz = new e();
+                pCT = new e();
             }
         }
-        return ptz;
+        return pCT;
     }
 
-    public a Ym(String str) {
+    public a YQ(String str) {
         if ("oaid".equals(str)) {
-            return this.ptB;
+            return this.pCV;
         }
         if ("vaid".equals(str)) {
-            return this.ptD;
+            return this.pCX;
         }
         if ("aaid".equals(str)) {
-            return this.ptC;
+            return this.pCW;
         }
         if ("udid".equals(str)) {
-            return this.ptA;
+            return this.pCU;
         }
         return null;
     }
@@ -139,7 +139,7 @@ public class e {
         }
         if (parse != 0) {
             c A = A(parse);
-            str2 = A.f4448a;
+            str2 = A.f4450a;
             try {
                 aVar.a(str2);
                 aVar.a(A.c);
@@ -186,11 +186,11 @@ public class e {
     }
 
     public final synchronized void a(Context context) {
-        if (this.ptE == null) {
+        if (this.pCY == null) {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("com.meizu.flyme.openid.ACTION_OPEN_ID_CHANGE");
-            this.ptE = new d();
-            context.registerReceiver(this.ptE, intentFilter, "com.meizu.flyme.openid.permission.OPEN_ID_CHANGE", null);
+            this.pCY = new d();
+            context.registerReceiver(this.pCY, intentFilter, "com.meizu.flyme.openid.permission.OPEN_ID_CHANGE", null);
         }
     }
 
@@ -251,7 +251,7 @@ public class e {
         }
         if (cursor != null) {
             try {
-                String str2 = A(cursor).f4448a;
+                String str2 = A(cursor).f4450a;
                 cursor.close();
                 str = str2;
             } catch (Exception e3) {

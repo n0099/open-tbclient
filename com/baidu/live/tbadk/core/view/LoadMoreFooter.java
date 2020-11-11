@@ -21,17 +21,17 @@ public class LoadMoreFooter extends BdIListPage {
 
     public LoadMoreFooter(Context context) {
         this.mContext = context;
-        this.mTextColor = context.getResources().getColor(a.d.sdk_white_alpha80);
+        this.mTextColor = context.getResources().getColor(a.c.sdk_white_alpha80);
     }
 
     @Override // com.baidu.live.adp.widget.listview.BdIListPage
     public View createView() {
-        View inflate = LayoutInflater.from(this.mContext).inflate(a.h.sdk_simple_load_more_footer, (ViewGroup) null);
+        View inflate = LayoutInflater.from(this.mContext).inflate(a.g.sdk_simple_load_more_footer, (ViewGroup) null);
         if (this.footerHeight > 0) {
             inflate.setLayoutParams(new ViewGroup.LayoutParams(-1, this.footerHeight));
         }
-        this.tvContent = (TextView) inflate.findViewById(a.g.simple_load_more_text);
-        this.progressBar = (ProgressBar) inflate.findViewById(a.g.simple_load_progress);
+        this.tvContent = (TextView) inflate.findViewById(a.f.simple_load_more_text);
+        this.progressBar = (ProgressBar) inflate.findViewById(a.f.simple_load_progress);
         inflate.setBackgroundColor(this.mBackgroundColor);
         this.tvContent.setTextColor(this.mTextColor);
         return inflate;
@@ -63,19 +63,19 @@ public class LoadMoreFooter extends BdIListPage {
 
     public void showLoadView() {
         this.isLoading = true;
-        showLoadView(this.mContext.getText(a.i.sdk_loading).toString());
+        showLoadView(this.mContext.getText(a.h.sdk_loading).toString());
     }
 
     public void endLoadData() {
         this.isLoading = false;
-        this.tvContent.setText(this.mContext.getText(a.i.sdk_pb_load_more));
+        this.tvContent.setText(this.mContext.getText(a.h.sdk_pb_load_more));
         this.progressBar.setVisibility(8);
     }
 
     public void showNoMoreData() {
         this.isLoading = false;
         this.progressBar.setVisibility(8);
-        this.tvContent.setText(this.mContext.getResources().getString(a.i.sdk_list_no_more));
+        this.tvContent.setText(this.mContext.getResources().getString(a.h.sdk_list_no_more));
     }
 
     public void setText(String str) {

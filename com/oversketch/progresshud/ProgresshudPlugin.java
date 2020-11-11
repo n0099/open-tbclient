@@ -87,7 +87,7 @@ public final class ProgresshudPlugin implements FlutterPlugin, MethodChannel.Met
                 q.m(inst4, "BdBaseApplication.getInst()");
                 int identifier = resources.getIdentifier(androidNameFromIos, "drawable", inst4.getPackageName());
                 activity5 = ProgresshudPluginKt.mCurrentActivity;
-                BdToast.a((Context) activity5, (CharSequence) str2, identifier, false).bmI();
+                BdToast.a((Context) activity5, (CharSequence) str2, identifier, false).bpi();
             }
         } else if (q.l(methodCall.method, "showWithStatus")) {
             ProgresshudPluginKt.getDialog().showWithStatus(methodCall.arguments.toString(), ProgresshudPluginKt.getMaskType());
@@ -103,7 +103,7 @@ public final class ProgresshudPlugin implements FlutterPlugin, MethodChannel.Met
             String str3 = (String) methodCall.argument("status");
             Object argument = methodCall.argument("time");
             if (argument == null) {
-                q.eya();
+                q.eBP();
             }
             double doubleValue = ((Number) argument).doubleValue();
             activity2 = ProgresshudPluginKt.mCurrentActivity;

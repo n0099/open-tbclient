@@ -24,14 +24,14 @@ public class ag extends i {
     @Override // com.baidu.card.p
     /* renamed from: b */
     public void H(AbsThreadDataSupport absThreadDataSupport) {
-        if (c(absThreadDataSupport) || absThreadDataSupport == null || absThreadDataSupport.bhz() == null || d(absThreadDataSupport) || ((com.baidu.tbadk.core.util.y.isEmpty(absThreadDataSupport.bhz().bmg()) && com.baidu.tbadk.core.util.y.getCount(absThreadDataSupport.bhz().bmh()) != 1) || ((com.baidu.tbadk.core.util.y.isEmpty(absThreadDataSupport.bhz().bmh()) && com.baidu.tbadk.core.util.y.getCount(absThreadDataSupport.bhz().bmg()) != 1) || com.baidu.tbadk.core.util.y.getCount(absThreadDataSupport.bhz().bmg()) + com.baidu.tbadk.core.util.y.getCount(absThreadDataSupport.bhz().bmh()) != 1))) {
+        if (c(absThreadDataSupport) || absThreadDataSupport == null || absThreadDataSupport.bjZ() == null || d(absThreadDataSupport) || ((com.baidu.tbadk.core.util.y.isEmpty(absThreadDataSupport.bjZ().boG()) && com.baidu.tbadk.core.util.y.getCount(absThreadDataSupport.bjZ().boH()) != 1) || ((com.baidu.tbadk.core.util.y.isEmpty(absThreadDataSupport.bjZ().boH()) && com.baidu.tbadk.core.util.y.getCount(absThreadDataSupport.bjZ().boG()) != 1) || com.baidu.tbadk.core.util.y.getCount(absThreadDataSupport.bjZ().boG()) + com.baidu.tbadk.core.util.y.getCount(absThreadDataSupport.bjZ().boH()) != 1))) {
             this.ahc.setVisibility(8);
             return;
         }
-        if (absThreadDataSupport.bhz().bmg().size() >= 1) {
-            this.ahc.a((com.baidu.tieba.card.data.d) com.baidu.tbadk.core.util.y.getItem(absThreadDataSupport.bhz().bmg(), 0));
-        } else if (absThreadDataSupport.bhz().bmh().size() >= 1) {
-            this.ahc.a((com.baidu.tieba.card.data.d) com.baidu.tbadk.core.util.y.getItem(absThreadDataSupport.bhz().bmh(), 0));
+        if (absThreadDataSupport.bjZ().boG().size() >= 1) {
+            this.ahc.a((com.baidu.tieba.card.data.d) com.baidu.tbadk.core.util.y.getItem(absThreadDataSupport.bjZ().boG(), 0));
+        } else if (absThreadDataSupport.bjZ().boH().size() >= 1) {
+            this.ahc.a((com.baidu.tieba.card.data.d) com.baidu.tbadk.core.util.y.getItem(absThreadDataSupport.bjZ().boH(), 0));
         }
         this.ahc.setVisibility(0);
     }
@@ -42,10 +42,10 @@ public class ag extends i {
     }
 
     private boolean c(AbsThreadDataSupport absThreadDataSupport) {
-        return (absThreadDataSupport == null || absThreadDataSupport.bhz() == null || absThreadDataSupport.bhz().bmf() == null || absThreadDataSupport.bhz().bmf().getOptions() == null || absThreadDataSupport.bhz().bmf().getOptions().size() <= 0) ? false : true;
+        return (absThreadDataSupport == null || absThreadDataSupport.bjZ() == null || absThreadDataSupport.bjZ().boF() == null || absThreadDataSupport.bjZ().boF().getOptions() == null || absThreadDataSupport.bjZ().boF().getOptions().size() <= 0) ? false : true;
     }
 
     private boolean d(AbsThreadDataSupport absThreadDataSupport) {
-        return (absThreadDataSupport == null || absThreadDataSupport.bhz() == null || !absThreadDataSupport.bhz().biG() || absThreadDataSupport.bhz().bks() == null) ? false : true;
+        return (absThreadDataSupport == null || absThreadDataSupport.bjZ() == null || !absThreadDataSupport.bjZ().blg() || absThreadDataSupport.bjZ().bmS() == null) ? false : true;
     }
 }

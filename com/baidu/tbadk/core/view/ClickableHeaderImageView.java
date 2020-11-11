@@ -18,12 +18,12 @@ import org.apache.http.HttpHost;
 public class ClickableHeaderImageView extends HeadImageView {
     private bw agx;
     private View.OnClickListener ajp;
-    private boolean eLN;
-    protected com.baidu.tbadk.h.d eLO;
+    private boolean eRC;
+    protected com.baidu.tbadk.h.d eRD;
     public View.OnClickListener mOnClickListener;
 
     public void setOnInterceptClickEventListener(com.baidu.tbadk.h.d dVar) {
-        this.eLO = dVar;
+        this.eRD = dVar;
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
@@ -35,11 +35,11 @@ public class ClickableHeaderImageView extends HeadImageView {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ClickableHeaderImageView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if ((ClickableHeaderImageView.this.eLO == null || !ClickableHeaderImageView.this.eLO.onClickEvent(view)) && ClickableHeaderImageView.this.agx != null) {
-                    MetaData bka = ClickableHeaderImageView.this.eLN ? ClickableHeaderImageView.this.agx.blD().bka() : ClickableHeaderImageView.this.agx.bka();
-                    if (bka != null && !StringUtils.isNull(bka.getName_show()) && !StringUtils.isNull(bka.getUserId())) {
-                        long j = com.baidu.adp.lib.f.b.toLong(bka.getUserId(), 0L);
-                        PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(ClickableHeaderImageView.this.getContext()).createNormalConfig(j, j == com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L), bka.isBigV());
+                if ((ClickableHeaderImageView.this.eRD == null || !ClickableHeaderImageView.this.eRD.onClickEvent(view)) && ClickableHeaderImageView.this.agx != null) {
+                    MetaData bmA = ClickableHeaderImageView.this.eRC ? ClickableHeaderImageView.this.agx.bod().bmA() : ClickableHeaderImageView.this.agx.bmA();
+                    if (bmA != null && !StringUtils.isNull(bmA.getName_show()) && !StringUtils.isNull(bmA.getUserId())) {
+                        long j = com.baidu.adp.lib.f.b.toLong(bmA.getUserId(), 0L);
+                        PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(ClickableHeaderImageView.this.getContext()).createNormalConfig(j, j == com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L), bmA.isBigV());
                         createNormalConfig.setSourceTid(ClickableHeaderImageView.this.agx.getTid());
                         createNormalConfig.setSourceNid(ClickableHeaderImageView.this.agx.getNid());
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, createNormalConfig));
@@ -58,11 +58,11 @@ public class ClickableHeaderImageView extends HeadImageView {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ClickableHeaderImageView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if ((ClickableHeaderImageView.this.eLO == null || !ClickableHeaderImageView.this.eLO.onClickEvent(view)) && ClickableHeaderImageView.this.agx != null) {
-                    MetaData bka = ClickableHeaderImageView.this.eLN ? ClickableHeaderImageView.this.agx.blD().bka() : ClickableHeaderImageView.this.agx.bka();
-                    if (bka != null && !StringUtils.isNull(bka.getName_show()) && !StringUtils.isNull(bka.getUserId())) {
-                        long j = com.baidu.adp.lib.f.b.toLong(bka.getUserId(), 0L);
-                        PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(ClickableHeaderImageView.this.getContext()).createNormalConfig(j, j == com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L), bka.isBigV());
+                if ((ClickableHeaderImageView.this.eRD == null || !ClickableHeaderImageView.this.eRD.onClickEvent(view)) && ClickableHeaderImageView.this.agx != null) {
+                    MetaData bmA = ClickableHeaderImageView.this.eRC ? ClickableHeaderImageView.this.agx.bod().bmA() : ClickableHeaderImageView.this.agx.bmA();
+                    if (bmA != null && !StringUtils.isNull(bmA.getName_show()) && !StringUtils.isNull(bmA.getUserId())) {
+                        long j = com.baidu.adp.lib.f.b.toLong(bmA.getUserId(), 0L);
+                        PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(ClickableHeaderImageView.this.getContext()).createNormalConfig(j, j == com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L), bmA.isBigV());
                         createNormalConfig.setSourceTid(ClickableHeaderImageView.this.agx.getTid());
                         createNormalConfig.setSourceNid(ClickableHeaderImageView.this.agx.getNid());
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, createNormalConfig));
@@ -84,30 +84,30 @@ public class ClickableHeaderImageView extends HeadImageView {
     }
 
     public void setData(bw bwVar, boolean z, boolean z2) {
-        MetaData bka;
-        if (bwVar != null && bwVar.bka() != null) {
+        MetaData bmA;
+        if (bwVar != null && bwVar.bmA() != null) {
             this.agx = bwVar;
-            this.eLN = z2;
+            this.eRC = z2;
             if (z2) {
-                bka = bwVar.blD().bka();
+                bmA = bwVar.bod().bmA();
             } else {
-                bka = bwVar.bka();
+                bmA = bwVar.bmA();
             }
-            setContentDescription(bka.getName_show() + getContext().getString(R.string.somebodys_portrait));
-            setUserId(bka.getUserId());
-            setUserName(bka.getUserName());
-            if (bwVar.bku() != null && this.agx.getThreadType() == 49) {
-                setUrl(bwVar.bka().getAvater());
-                startLoad(bwVar.bka().getAvater(), 28, false);
+            setContentDescription(bmA.getName_show() + getContext().getString(R.string.somebodys_portrait));
+            setUserId(bmA.getUserId());
+            setUserName(bmA.getUserName());
+            if (bwVar.bmU() != null && this.agx.getThreadType() == 49) {
+                setUrl(bwVar.bmA().getAvater());
+                startLoad(bwVar.bmA().getAvater(), 28, false);
             } else {
-                setUrl(bka.getAvater());
-                if (!StringUtils.isNull(bka.getAvater()) && bka.getAvater().contains(HttpHost.DEFAULT_SCHEME_NAME)) {
-                    startLoad(bka.getAvater(), 10, false);
+                setUrl(bmA.getAvater());
+                if (!StringUtils.isNull(bmA.getAvater()) && bmA.getAvater().contains(HttpHost.DEFAULT_SCHEME_NAME)) {
+                    startLoad(bmA.getAvater(), 10, false);
                 } else {
-                    startLoad(bka.getAvater(), 28, false);
+                    startLoad(bmA.getAvater(), 28, false);
                 }
             }
-            UtilHelper.showHeadImageViewBigV(this, bka);
+            UtilHelper.showHeadImageViewBigV(this, bmA);
         }
     }
 

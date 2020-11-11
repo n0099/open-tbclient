@@ -11,18 +11,18 @@ import org.json.JSONObject;
 public class l extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.rtcroom.c.b> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String ata() {
+    public String avA() {
         return "getRemoteUserList";
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.inlinewidget.a
     public void a(@NonNull ZeusPlugin.Command command, @NonNull com.baidu.swan.apps.inlinewidget.rtcroom.c.b bVar) {
-        ArrayList<com.baidu.swan.apps.inlinewidget.rtcroom.model.c> atm = bVar.atm();
+        ArrayList<com.baidu.swan.apps.inlinewidget.rtcroom.model.c> avM = bVar.avM();
         JSONObject jSONObject = new JSONObject();
         JSONArray jSONArray = new JSONArray();
-        if (atm != null) {
-            Iterator<com.baidu.swan.apps.inlinewidget.rtcroom.model.c> it = atm.iterator();
+        if (avM != null) {
+            Iterator<com.baidu.swan.apps.inlinewidget.rtcroom.model.c> it = avM.iterator();
             while (it.hasNext()) {
                 com.baidu.swan.apps.inlinewidget.rtcroom.model.c next = it.next();
                 JSONObject jSONObject2 = next == null ? null : next.toJSONObject();

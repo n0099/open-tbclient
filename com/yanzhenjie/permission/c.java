@@ -6,20 +6,20 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes6.dex */
 class c implements h {
-    private static final com.yanzhenjie.permission.a.a pBr = new com.yanzhenjie.permission.a.b();
+    private static final com.yanzhenjie.permission.a.a pKL = new com.yanzhenjie.permission.a.b();
     private String[] afe;
-    private com.yanzhenjie.permission.b.b pBs;
-    private a pBt;
-    private a pBu;
+    private com.yanzhenjie.permission.b.b pKM;
+    private a pKN;
+    private a pKO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(com.yanzhenjie.permission.b.b bVar) {
-        this.pBs = bVar;
+        this.pKM = bVar;
     }
 
     @Override // com.yanzhenjie.permission.h
     @NonNull
-    public h aa(String... strArr) {
+    public h ab(String... strArr) {
         this.afe = strArr;
         return this;
     }
@@ -33,50 +33,50 @@ class c implements h {
     @Override // com.yanzhenjie.permission.h
     @NonNull
     public h a(a aVar) {
-        this.pBt = aVar;
+        this.pKN = aVar;
         return this;
     }
 
     @Override // com.yanzhenjie.permission.h
     @NonNull
     public h b(a aVar) {
-        this.pBu = aVar;
+        this.pKO = aVar;
         return this;
     }
 
     @Override // com.yanzhenjie.permission.h
     public void start() {
-        List<String> a2 = a(this.pBs, this.afe);
+        List<String> a2 = a(this.pKM, this.afe);
         if (a2.isEmpty()) {
-            ewd();
+            ezS();
         } else {
-            gC(a2);
+            gL(a2);
         }
     }
 
-    private void ewd() {
-        if (this.pBt != null) {
+    private void ezS() {
+        if (this.pKN != null) {
             List<String> asList = Arrays.asList(this.afe);
             try {
-                this.pBt.onAction(asList);
+                this.pKN.onAction(asList);
             } catch (Exception e) {
-                if (this.pBu != null) {
-                    this.pBu.onAction(asList);
+                if (this.pKO != null) {
+                    this.pKO.onAction(asList);
                 }
             }
         }
     }
 
-    private void gC(@NonNull List<String> list) {
-        if (this.pBu != null) {
-            this.pBu.onAction(list);
+    private void gL(@NonNull List<String> list) {
+        if (this.pKO != null) {
+            this.pKO.onAction(list);
         }
     }
 
     private static List<String> a(@NonNull com.yanzhenjie.permission.b.b bVar, @NonNull String... strArr) {
         ArrayList arrayList = new ArrayList(1);
         for (String str : strArr) {
-            if (!pBr.e(bVar.getContext(), str)) {
+            if (!pKL.e(bVar.getContext(), str)) {
                 arrayList.add(str);
             }
         }

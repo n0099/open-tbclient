@@ -37,9 +37,9 @@ public class WriteUtil {
                     intent.putExtra("output", UtilHelper.getUriFromFile(CreateFile, intent, tbPageContext.getPageActivity()));
                     tbPageContext.getPageActivity().startActivityForResult(intent, RequestResponseCode.REQUEST_CAMERA);
                 } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(a.i.sdk_error_sd_error));
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(a.h.sdk_error_sd_error));
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(a.i.sdk_error_sd_error));
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(a.h.sdk_error_sd_error));
                 }
             }
         } catch (Exception e) {
@@ -77,9 +77,9 @@ public class WriteUtil {
             }
             if (!z) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(a.i.sdk_error_sd_error));
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(a.h.sdk_error_sd_error));
                 } else if (tbPageContext.getOrignalPage() instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(a.i.sdk_error_sd_error));
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(a.h.sdk_error_sd_error));
                 }
             }
         } catch (Exception e) {

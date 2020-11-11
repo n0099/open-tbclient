@@ -15,67 +15,67 @@ import tbclient.Post;
 import tbclient.User;
 /* loaded from: classes23.dex */
 public class b {
-    private TextView hws;
-    private View hzG;
-    private c.a lfK;
-    private HeadImageView lgb;
-    private TbRichTextView lgc;
-    private ViewStub lgd;
-    private ImageView lge;
+    private TextView hCp;
+    private View hFD;
+    private c.a llG;
+    private HeadImageView llX;
+    private TbRichTextView llY;
+    private ViewStub llZ;
+    private ImageView lma;
     private View rootView;
 
     public b(ViewStub viewStub, c.a aVar) {
-        this.lgd = viewStub;
-        this.lfK = aVar;
+        this.llZ = viewStub;
+        this.llG = aVar;
     }
 
     private void initView() {
         if (this.rootView == null) {
-            this.rootView = this.lgd.inflate();
-            this.lgb = (HeadImageView) this.rootView.findViewById(R.id.chosen_pb_comment_head);
-            this.hws = (TextView) this.rootView.findViewById(R.id.chosen_pb_comment_name);
-            this.lgc = (TbRichTextView) this.rootView.findViewById(R.id.chosen_pb_comment_content);
-            this.lge = (ImageView) this.rootView.findViewById(R.id.chosen_pb_comment_reply);
-            this.hzG = this.rootView.findViewById(R.id.chosen_pb_comment_line);
-            this.lgc.setTextSize(TbConfig.getContentSize());
+            this.rootView = this.llZ.inflate();
+            this.llX = (HeadImageView) this.rootView.findViewById(R.id.chosen_pb_comment_head);
+            this.hCp = (TextView) this.rootView.findViewById(R.id.chosen_pb_comment_name);
+            this.llY = (TbRichTextView) this.rootView.findViewById(R.id.chosen_pb_comment_content);
+            this.lma = (ImageView) this.rootView.findViewById(R.id.chosen_pb_comment_reply);
+            this.hFD = this.rootView.findViewById(R.id.chosen_pb_comment_line);
+            this.llY.setTextSize(TbConfig.getContentSize());
             onChangeSkinType();
         }
     }
 
-    public void tF(boolean z) {
+    public void tO(boolean z) {
         if (this.rootView != null) {
             this.rootView.setVisibility(z ? 0 : 8);
         }
     }
 
     public void onChangeSkinType() {
-        ap.setViewTextColor(this.hws, R.color.cp_cont_f, 1);
-        ap.setImageResource(this.lge, R.drawable.btn_comment_list);
-        ap.setBackgroundColor(this.hzG, R.color.cp_bg_line_c);
-        if (this.lgc != null) {
-            this.lgc.setTextColor(ap.getColor(R.color.cp_cont_b));
+        ap.setViewTextColor(this.hCp, R.color.cp_cont_f, 1);
+        ap.setImageResource(this.lma, R.drawable.btn_comment_list);
+        ap.setBackgroundColor(this.hFD, R.color.cp_bg_line_c);
+        if (this.llY != null) {
+            this.llY.setTextColor(ap.getColor(R.color.cp_cont_b));
         }
     }
 
     public boolean a(Context context, final Post post, User user) {
         if (post == null || user == null || post.content == null || post.content.isEmpty()) {
-            tF(false);
+            tO(false);
             return false;
         }
         initView();
-        tF(true);
-        this.hws.setText(user.name_show);
-        this.lge.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.b.1
+        tO(true);
+        this.hCp.setText(user.name_show);
+        this.lma.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (post != null && post.id != null && b.this.lfK != null) {
-                    b.this.lfK.OX(String.valueOf(post.id));
+                if (post != null && post.id != null && b.this.llG != null) {
+                    b.this.llG.Po(String.valueOf(post.id));
                 }
             }
         });
-        this.lgb.startLoad(user.portrait, 12, false);
-        this.lgc.setVisibility(0);
-        this.lgc.setText(TbRichTextView.a(context, post.content, false));
+        this.llX.startLoad(user.portrait, 12, false);
+        this.llY.setVisibility(0);
+        this.llY.setText(TbRichTextView.a(context, post.content, false));
         return true;
     }
 }

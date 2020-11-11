@@ -8,8 +8,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c extends BaseData {
-    public boolean aIs = true;
-    public List<b> aIt;
+    public boolean aJj = true;
+    public List<b> aJk;
     public int pn;
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
@@ -17,14 +17,14 @@ public class c extends BaseData {
         JSONObject optJSONObject;
         if (jSONObject != null) {
             this.pn = jSONObject.optInt(Config.PACKAGE_NAME);
-            this.aIs = jSONObject.optInt("has_more") == 1;
-            this.aIt = new ArrayList();
+            this.aJj = jSONObject.optInt("has_more") == 1;
+            this.aJk = new ArrayList();
             JSONArray optJSONArray = jSONObject.optJSONArray("live");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length() && (optJSONObject = optJSONArray.optJSONObject(i)) != null; i++) {
                     b bVar = new b();
                     bVar.parserJson(optJSONObject);
-                    this.aIt.add(bVar);
+                    this.aJk.add(bVar);
                 }
             }
         }

@@ -6,47 +6,47 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes10.dex */
 public abstract class a extends d {
-    public abstract Random eye();
+    public abstract Random eBT();
 
     @Override // kotlin.random.d
-    public int QZ(int i) {
-        return e.eq(eye().nextInt(), i);
+    public int Ru(int i) {
+        return e.et(eBT().nextInt(), i);
     }
 
     @Override // kotlin.random.d
     public int nextInt() {
-        return eye().nextInt();
+        return eBT().nextInt();
     }
 
     @Override // kotlin.random.d
     public int nextInt(int i) {
-        return eye().nextInt(i);
+        return eBT().nextInt(i);
     }
 
     @Override // kotlin.random.d
     public long nextLong() {
-        return eye().nextLong();
+        return eBT().nextLong();
     }
 
     @Override // kotlin.random.d
     public boolean nextBoolean() {
-        return eye().nextBoolean();
+        return eBT().nextBoolean();
     }
 
     @Override // kotlin.random.d
     public double nextDouble() {
-        return eye().nextDouble();
+        return eBT().nextDouble();
     }
 
     @Override // kotlin.random.d
     public float nextFloat() {
-        return eye().nextFloat();
+        return eBT().nextFloat();
     }
 
     @Override // kotlin.random.d
     public byte[] az(byte[] bArr) {
         q.n(bArr, com.baidu.fsg.base.statistics.b.j);
-        eye().nextBytes(bArr);
+        eBT().nextBytes(bArr);
         return bArr;
     }
 }

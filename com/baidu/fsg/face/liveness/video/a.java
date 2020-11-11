@@ -14,7 +14,7 @@ public class a extends h {
     public static volatile boolean c = false;
 
     /* renamed from: a  reason: collision with root package name */
-    protected g f1728a;
+    protected g f1730a;
     protected int d;
     protected CountDownLatch e;
     private String t;
@@ -37,8 +37,8 @@ public class a extends h {
             MediaMuxer mediaMuxer = new MediaMuxer(this.t, 0);
             mediaMuxer.setOrientationHint(c2);
             this.e = new CountDownLatch(1);
-            this.f1728a = new g(a2, b2, this.s, this.q, this.r, null, mediaMuxer, this.e);
-            this.f1728a.a(this);
+            this.f1730a = new g(a2, b2, this.s, this.q, this.r, null, mediaMuxer, this.e);
+            this.f1730a.a(this);
             this.o.d(c2);
             this.o.a(this.t);
             this.o.a(a2);
@@ -55,8 +55,8 @@ public class a extends h {
         if (this.i) {
             i();
             this.i = false;
-            this.f1728a.c();
-            this.d += this.f1728a.e();
+            this.f1730a.c();
+            this.d += this.f1730a.e();
         }
     }
 
@@ -65,8 +65,8 @@ public class a extends h {
         if (this.i) {
             i();
             this.i = false;
-            this.f1728a.c();
-            this.d += this.f1728a.e();
+            this.f1730a.c();
+            this.d += this.f1730a.e();
         }
     }
 
@@ -100,14 +100,14 @@ public class a extends h {
                 if (this.p) {
                 }
                 return;
-            } else if (!this.f1728a.isAlive()) {
-                if (!this.p && !this.f1728a.b()) {
+            } else if (!this.f1730a.isAlive()) {
+                if (!this.p && !this.f1730a.b()) {
                     a(new RuntimeException("wait record stop" + (System.currentTimeMillis() - currentTimeMillis) + "ms,timeout"));
                     return;
                 }
                 return;
-            } else if (i != this.f1728a.f()) {
-                i = this.f1728a.f();
+            } else if (i != this.f1730a.f()) {
+                i = this.f1730a.f();
                 j = System.currentTimeMillis();
             } else if (System.currentTimeMillis() - j > 10000) {
                 String str = (System.currentTimeMillis() - j) + "ms cannot write finish, record fail";
@@ -121,7 +121,7 @@ public class a extends h {
     @Override // com.baidu.fsg.face.liveness.video.e
     public void a(byte[] bArr, long j) {
         if (this.i && bArr != null && !this.k) {
-            this.f1728a.a(bArr, j);
+            this.f1730a.a(bArr, j);
         }
     }
 
@@ -154,7 +154,7 @@ public class a extends h {
         this.p = false;
         h();
         if (a()) {
-            this.f1728a.start();
+            this.f1730a.start();
             this.m = System.currentTimeMillis();
             this.i = true;
         }

@@ -5,12 +5,12 @@ import com.baidu.adp.widget.ListView.q;
 import java.util.List;
 /* loaded from: classes24.dex */
 public class f implements q {
-    public static final BdUniqueId lOk = BdUniqueId.gen();
+    public static final BdUniqueId lUg = BdUniqueId.gen();
     private List<q> mPhotoAlbum;
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return lOk;
+        return lUg;
     }
 
     public List<q> getPhotoAlbum() {

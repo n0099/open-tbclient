@@ -15,35 +15,35 @@ import com.baidu.tieba.yuyinala.liveroom.roomcard.e;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class d extends BaseAdapter {
-    private List<e.a> aIk;
+    private List<e.a> aJb;
     private Context mContext;
 
     public d(Context context) {
         this.mContext = context;
     }
 
-    public void gc(List<e.a> list) {
-        this.aIk = list;
+    public void gk(List<e.a> list) {
+        this.aJb = list;
     }
 
-    public List<e.a> dVC() {
-        return this.aIk;
+    public List<e.a> dYr() {
+        return this.aJb;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aIk == null) {
+        if (this.aJb == null) {
             return 0;
         }
-        return this.aIk.size();
+        return this.aJb.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.aIk == null) {
+        if (this.aJb == null) {
             return null;
         }
-        return this.aIk.get(i);
+        return this.aJb.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -55,55 +55,55 @@ public class d extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            view = LayoutInflater.from(this.mContext).inflate(a.h.yuyin_ala_room_card_manager_header_image, (ViewGroup) null);
+            view = LayoutInflater.from(this.mContext).inflate(a.g.yuyin_ala_room_card_manager_header_image, (ViewGroup) null);
             a aVar2 = new a(view);
             if (TbadkCoreApplication.getInst().isHaokan()) {
-                aVar2.gSD.setDefaultResource(a.f.sdk_icon_default_avatar100_hk);
+                aVar2.gYI.setDefaultResource(a.e.sdk_icon_default_avatar100_hk);
             } else {
-                aVar2.gSD.setDefaultResource(a.f.sdk_icon_default_avatar100);
+                aVar2.gYI.setDefaultResource(a.e.sdk_icon_default_avatar100);
             }
-            aVar2.gSD.setIsRound(true);
-            aVar2.gSD.setDrawBorder(true);
-            aVar2.gSD.setBorderColor(this.mContext.getResources().getColor(a.d.sdk_cp_bg_line_k_alpha10_1));
-            aVar2.gSD.setAutoChangeStyle(false);
-            aVar2.gSD.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            aVar2.gYI.setIsRound(true);
+            aVar2.gYI.setDrawBorder(true);
+            aVar2.gYI.setBorderColor(this.mContext.getResources().getColor(a.c.sdk_cp_bg_line_k_alpha10_1));
+            aVar2.gYI.setAutoChangeStyle(false);
+            aVar2.gYI.setScaleType(ImageView.ScaleType.CENTER_CROP);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
         e.a aVar3 = (e.a) getItem(i);
-        aVar.gSD.setDrawBorder(true);
-        switch (aVar3.nSl) {
+        aVar.gYI.setDrawBorder(true);
+        switch (aVar3.nZy) {
             case 1:
-                aVar.nSb.setBackgroundResource(a.f.yuyin_round_header_day_list_bg_fangzhu);
+                aVar.nZo.setBackgroundResource(a.e.yuyin_round_header_day_list_bg_fangzhu);
                 break;
             case 2:
-                aVar.nSb.setBackgroundResource(a.f.yuyin_round_header_day_list_bg_manage);
+                aVar.nZo.setBackgroundResource(a.e.yuyin_round_header_day_list_bg_manage);
                 break;
             case 3:
-                aVar.nSb.setBackgroundResource(a.f.yuyin_round_header_day_list_bg_zhuchi);
+                aVar.nZo.setBackgroundResource(a.e.yuyin_round_header_day_list_bg_zhuchi);
                 break;
         }
-        aVar.nSb.setText(aVar3.dVD());
-        if (!TextUtils.isEmpty(aVar3.nSm)) {
-            aVar.gSD.startLoad(aVar3.nSm, 12, false, false);
+        aVar.nZo.setText(aVar3.dYs());
+        if (!TextUtils.isEmpty(aVar3.nZz)) {
+            aVar.gYI.startLoad(aVar3.nZz, 12, false, false);
         } else {
-            aVar.gSD.setDefaultResource(a.f.yuyin_sdk_icon_default_zhuchi);
+            aVar.gYI.setDefaultResource(a.e.yuyin_sdk_icon_default_zhuchi);
         }
         return view;
     }
 
     /* loaded from: classes4.dex */
     public static class a {
-        public HeadImageView gSD;
-        public TextView nSb;
+        public HeadImageView gYI;
+        public TextView nZo;
         public View rootView;
 
         public a(View view) {
             this.rootView = view;
-            this.gSD = (HeadImageView) view.findViewById(a.g.ala_live_room_audience_header_img);
-            this.nSb = (TextView) view.findViewById(a.g.ala_live_room_audience_charm_count);
+            this.gYI = (HeadImageView) view.findViewById(a.f.ala_live_room_audience_header_img);
+            this.nZo = (TextView) view.findViewById(a.f.ala_live_room_audience_charm_count);
         }
     }
 }

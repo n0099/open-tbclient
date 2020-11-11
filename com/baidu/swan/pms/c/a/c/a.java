@@ -8,7 +8,7 @@ import java.util.List;
 public class a<T> {
     protected final List<T> mQueue = new ArrayList();
 
-    public synchronized T aZd() {
+    public synchronized T bbD() {
         T t;
         if (this.mQueue.isEmpty()) {
             t = null;
@@ -41,7 +41,7 @@ public class a<T> {
     }
 
     @NonNull
-    public Iterator<T> aZe() {
+    public Iterator<T> bbE() {
         return this.mQueue.iterator();
     }
 

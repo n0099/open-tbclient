@@ -4,22 +4,22 @@ import com.baidu.swan.c.d;
 import java.io.File;
 /* loaded from: classes10.dex */
 public class b {
-    public static File arE() {
-        return com.baidu.swan.games.l.a.wS("aigames_debug_extension_core");
+    public static File auf() {
+        return com.baidu.swan.games.l.a.xg("aigames_debug_extension_core");
     }
 
-    public static void arF() {
-        File arE = arE();
-        if (arE.exists()) {
-            d.deleteFile(arE);
+    public static void aug() {
+        File auf = auf();
+        if (auf.exists()) {
+            d.deleteFile(auf);
         }
     }
 
-    public static File arG() {
-        File arE = arE();
-        if (!arE.exists()) {
-            arE.mkdirs();
+    public static File auh() {
+        File auf = auf();
+        if (!auf.exists()) {
+            auf.mkdirs();
         }
-        return new File(arE, "debugExtensionCore.zip");
+        return new File(auf, "debugExtensionCore.zip");
     }
 }

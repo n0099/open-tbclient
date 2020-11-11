@@ -8,7 +8,7 @@ import java.io.IOException;
 public class b extends MessageMicro {
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f3105a;
+    public byte[] f3107a;
 
     @Override // com.google.protobuf.micro.MessageMicro
     public int getCachedSize() {

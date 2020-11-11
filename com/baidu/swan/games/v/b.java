@@ -7,60 +7,60 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class b {
-    private static volatile b dTz;
-    private int baw;
-    private volatile ArrayList<a> dTA = new ArrayList<>(20);
+    private static volatile b dZr;
+    private int bbO;
+    private volatile ArrayList<a> dZs = new ArrayList<>(20);
 
     private b() {
     }
 
-    public static b aUB() {
-        if (dTz == null) {
+    public static b aXb() {
+        if (dZr == null) {
             synchronized (b.class) {
-                if (dTz == null) {
-                    dTz = new b();
+                if (dZr == null) {
+                    dZr = new b();
                 }
             }
         }
-        return dTz;
+        return dZr;
     }
 
     public synchronized void a(a aVar) {
         if (aVar != null) {
-            if (this.dTA.size() < 20) {
-                this.dTA.add(aVar);
+            if (this.dZs.size() < 20) {
+                this.dZs.add(aVar);
             } else {
-                this.baw++;
+                this.bbO++;
             }
         }
     }
 
-    public synchronized JSONObject aUC() {
+    public synchronized JSONObject aXc() {
         JSONObject jSONObject;
-        int size = this.dTA.size();
+        int size = this.dZs.size();
         if (size == 0) {
             jSONObject = null;
         } else {
             JSONObject jSONObject2 = new JSONObject();
             try {
-                jSONObject2.put("dropcnt", this.baw);
+                jSONObject2.put("dropcnt", this.bbO);
                 jSONObject2.put("errorcnt", size);
                 JSONArray jSONArray = new JSONArray();
                 jSONObject2.put("errors", jSONArray);
-                Iterator<a> it = this.dTA.iterator();
+                Iterator<a> it = this.dZs.iterator();
                 while (it.hasNext()) {
                     jSONArray.put(it.next().toJSON());
                 }
             } catch (JSONException e) {
             }
-            this.dTA.clear();
+            this.dZs.clear();
             jSONObject = jSONObject2;
         }
         return jSONObject;
     }
 
     public synchronized void clear() {
-        this.dTA.clear();
-        this.baw = 0;
+        this.dZs.clear();
+        this.bbO = 0;
     }
 }

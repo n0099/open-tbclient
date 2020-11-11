@@ -23,32 +23,32 @@ import com.baidu.live.utils.i;
 import com.baidu.live.utils.q;
 /* loaded from: classes4.dex */
 public class AlaFeedBackReasonActivity extends BaseActivity implements View.OnTouchListener {
-    private long bmB;
-    private boolean bzY;
-    private long fSB;
-    private com.baidu.tieba.ala.d.b fSE;
+    private boolean bGj;
+    private long bnV;
+    private long fYr;
+    private com.baidu.tieba.ala.d.b fYu;
     private boolean mIsHost;
     private View mRootView;
     private int mScreenWidth;
     private long mUserId;
-    private boolean aTK = false;
-    private boolean aXJ = false;
-    private boolean aXK = false;
-    private final CustomMessageListener aUa = new CustomMessageListener(2913054) { // from class: com.baidu.tieba.ala.AlaFeedBackReasonActivity.3
+    private boolean aVc = false;
+    private boolean aZb = false;
+    private boolean aZc = false;
+    private final CustomMessageListener aVs = new CustomMessageListener(2913054) { // from class: com.baidu.tieba.ala.AlaFeedBackReasonActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AlaFeedBackReasonActivity.this.closeActivity();
         }
     };
-    private final CustomMessageListener bzC = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.AlaFeedBackReasonActivity.4
+    private final CustomMessageListener bFN = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.AlaFeedBackReasonActivity.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AlaFeedBackReasonActivity.this.closeActivity();
         }
     };
-    private ViewTreeObserver.OnGlobalLayoutListener aXF = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.ala.AlaFeedBackReasonActivity.5
+    private ViewTreeObserver.OnGlobalLayoutListener aYX = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.ala.AlaFeedBackReasonActivity.5
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(AlaFeedBackReasonActivity.this.getPageContext().getPageActivity());
@@ -59,7 +59,7 @@ public class AlaFeedBackReasonActivity extends BaseActivity implements View.OnTo
                         @Override // java.lang.Runnable
                         public void run() {
                             if (AlaFeedBackReasonActivity.this.mRootView != null) {
-                                i.aa(AlaFeedBackReasonActivity.this.mRootView);
+                                i.ae(AlaFeedBackReasonActivity.this.mRootView);
                                 q.e(AlaFeedBackReasonActivity.this.getActivity(), false);
                             }
                         }
@@ -76,34 +76,34 @@ public class AlaFeedBackReasonActivity extends BaseActivity implements View.OnTo
         setUseStyleImmersiveSticky(true);
         super.onCreate(bundle);
         if (bundle != null) {
-            this.bmB = bundle.getLong(AlaAdminListActivityConfig.ALA_LIVE_CUR_LIVE_ID);
-            this.fSB = bundle.getLong("ala_live_cur_anchor_id");
+            this.bnV = bundle.getLong(AlaAdminListActivityConfig.ALA_LIVE_CUR_LIVE_ID);
+            this.fYr = bundle.getLong("ala_live_cur_anchor_id");
             this.mUserId = bundle.getLong("ala_live_cur_user_id");
             this.mIsHost = bundle.getBoolean("ala_live_cur_is_host", false);
-            this.bzY = bundle.getBoolean("ala_live_cur_is_landscape");
+            this.bGj = bundle.getBoolean("ala_live_cur_is_landscape");
         } else {
-            this.bmB = getIntent().getLongExtra(AlaAdminListActivityConfig.ALA_LIVE_CUR_LIVE_ID, 0L);
-            this.fSB = getIntent().getLongExtra("ala_live_cur_anchor_id", 0L);
+            this.bnV = getIntent().getLongExtra(AlaAdminListActivityConfig.ALA_LIVE_CUR_LIVE_ID, 0L);
+            this.fYr = getIntent().getLongExtra("ala_live_cur_anchor_id", 0L);
             this.mUserId = getIntent().getLongExtra("ala_live_cur_user_id", 0L);
             this.mIsHost = getIntent().getBooleanExtra("ala_live_cur_is_host", false);
-            this.bzY = getIntent().getBooleanExtra("ala_live_cur_is_landscape", false);
+            this.bGj = getIntent().getBooleanExtra("ala_live_cur_is_landscape", false);
         }
-        registerListener(this.bzC);
-        registerListener(this.aUa);
-        this.fSE = new com.baidu.tieba.ala.d.b(getPageContext(), this.bmB, this.fSB, this.mUserId, this.mIsHost, this.bzY);
-        this.mRootView = this.fSE.getView();
+        registerListener(this.bFN);
+        registerListener(this.aVs);
+        this.fYu = new com.baidu.tieba.ala.d.b(getPageContext(), this.bnV, this.fYr, this.mUserId, this.mIsHost, this.bGj);
+        this.mRootView = this.fYu.getView();
         if (this.mRootView == null) {
             super.finish();
             return;
         }
-        RI();
+        Uq();
         setContentView(this.mRootView);
         if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-            i.aa(this.mRootView);
+            i.ae(this.mRootView);
             q.e(getActivity(), false);
         }
         ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
-        this.aXJ = false;
+        this.aZb = false;
         this.mRootView.setVisibility(4);
     }
 
@@ -111,20 +111,20 @@ public class AlaFeedBackReasonActivity extends BaseActivity implements View.OnTo
     @Override // com.baidu.live.tbadk.BaseActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        if (!this.aTK) {
+        if (!this.aVc) {
             this.mRootView.setVisibility(0);
-            Hv();
-            this.aTK = true;
+            HW();
+            this.aVc = true;
         }
     }
 
-    private void Hv() {
+    private void HW() {
         Animation loadAnimation;
-        this.aXJ = true;
+        this.aZb = true;
         if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_in_from_right);
+            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0197a.sdk_in_from_right);
         } else {
-            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_in_from_bottom);
+            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0197a.sdk_in_from_bottom);
         }
         loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.AlaFeedBackReasonActivity.1
             @Override // android.view.animation.Animation.AnimationListener
@@ -133,7 +133,7 @@ public class AlaFeedBackReasonActivity extends BaseActivity implements View.OnTo
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                AlaFeedBackReasonActivity.this.aXJ = false;
+                AlaFeedBackReasonActivity.this.aZb = false;
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -143,13 +143,13 @@ public class AlaFeedBackReasonActivity extends BaseActivity implements View.OnTo
         this.mRootView.startAnimation(loadAnimation);
     }
 
-    private void Hw() {
+    private void HX() {
         Animation loadAnimation;
-        if (!this.aXK && !this.aXJ) {
+        if (!this.aZc && !this.aZb) {
             if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_out_to_right);
+                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0197a.sdk_out_to_right);
             } else {
-                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_out_to_bottom);
+                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0197a.sdk_out_to_bottom);
             }
             loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.AlaFeedBackReasonActivity.2
                 @Override // android.view.animation.Animation.AnimationListener
@@ -166,17 +166,17 @@ public class AlaFeedBackReasonActivity extends BaseActivity implements View.OnTo
                 public void onAnimationRepeat(Animation animation) {
                 }
             });
-            this.aXK = true;
+            this.aZc = true;
             this.mRootView.startAnimation(loadAnimation);
         }
     }
 
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity
     public void finish() {
-        if (!this.aXK) {
-            this.fSE.onDestroy();
+        if (!this.aZc) {
+            this.fYu.onDestroy();
         }
-        Hw();
+        HX();
     }
 
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
@@ -184,23 +184,23 @@ public class AlaFeedBackReasonActivity extends BaseActivity implements View.OnTo
         super.onConfigurationChanged(configuration);
         if (this.mRootView != null) {
             if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-                i.aa(this.mRootView);
+                i.ae(this.mRootView);
                 q.e(getActivity(), false);
             } else {
-                i.ab(this.mRootView);
+                i.af(this.mRootView);
                 q.e(getActivity(), true);
             }
-            this.fSE.onConfigurationChanged(configuration);
-            RI();
-            RJ();
+            this.fYu.onConfigurationChanged(configuration);
+            Uq();
+            Ur();
         }
     }
 
-    private void RI() {
+    private void Uq() {
         if (UtilHelper.getRealScreenOrientation(getPageContext().getPageActivity()) == 2) {
-            this.mRootView.setBackgroundResource(a.f.ala_choose_feedback_act_bg_land);
+            this.mRootView.setBackgroundResource(a.e.ala_choose_feedback_act_bg_land);
         } else {
-            this.mRootView.setBackgroundResource(a.f.ala_choose_feedback_act_bg);
+            this.mRootView.setBackgroundResource(a.e.ala_choose_feedback_act_bg);
         }
     }
 
@@ -208,20 +208,20 @@ public class AlaFeedBackReasonActivity extends BaseActivity implements View.OnTo
     @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putLong(AlaAdminListActivityConfig.ALA_LIVE_CUR_LIVE_ID, this.bmB);
-        bundle.putLong("ala_live_cur_anchor_id", this.fSB);
+        bundle.putLong(AlaAdminListActivityConfig.ALA_LIVE_CUR_LIVE_ID, this.bnV);
+        bundle.putLong("ala_live_cur_anchor_id", this.fYr);
         bundle.putLong("ala_live_cur_user_id", this.mUserId);
         bundle.putBoolean("ala_live_cur_is_host", this.mIsHost);
-        bundle.putBoolean("ala_live_cur_is_landscape", this.bzY);
+        bundle.putBoolean("ala_live_cur_is_landscape", this.bGj);
     }
 
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity, android.view.Window.Callback
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        RJ();
+        Ur();
     }
 
-    private void RJ() {
+    private void Ur() {
         Window window = getWindow();
         if (window != null) {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(getPageContext().getPageActivity());
@@ -240,7 +240,7 @@ public class AlaFeedBackReasonActivity extends BaseActivity implements View.OnTo
             }
             this.mScreenWidth = screenDimensions[0];
             window.setBackgroundDrawableResource(17170445);
-            window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.aXF);
+            window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.aYX);
             if (this.mRootView.getLayoutParams() instanceof FrameLayout.LayoutParams) {
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mRootView.getLayoutParams();
                 if (screenDimensions[1] > screenDimensions[0]) {
@@ -280,7 +280,7 @@ public class AlaFeedBackReasonActivity extends BaseActivity implements View.OnTo
     public void onDestroy() {
         super.onDestroy();
         this.mHandler.removeCallbacksAndMessages(null);
-        getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.aXF);
-        this.aXF = null;
+        getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.aYX);
+        this.aYX = null;
     }
 }

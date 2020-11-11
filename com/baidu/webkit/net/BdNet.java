@@ -76,12 +76,12 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
     public static class a implements X509TrustManager {
 
         /* renamed from: a  reason: collision with root package name */
-        private X509TrustManager f3966a;
+        private X509TrustManager f3968a;
         private X509TrustManager b;
 
         public a(KeyStore keyStore) throws KeyStoreException {
             try {
-                this.f3966a = a(null);
+                this.f3968a = a(null);
                 this.b = a(keyStore);
             } catch (NoSuchAlgorithmException e) {
                 e.printStackTrace();
@@ -97,7 +97,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
         @Override // javax.net.ssl.X509TrustManager
         public final void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
             try {
-                this.f3966a.checkClientTrusted(x509CertificateArr, str);
+                this.f3968a.checkClientTrusted(x509CertificateArr, str);
             } catch (CertificateException e) {
                 this.b.checkClientTrusted(x509CertificateArr, str);
             }
@@ -106,7 +106,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
         @Override // javax.net.ssl.X509TrustManager
         public final void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
             try {
-                this.f3966a.checkServerTrusted(x509CertificateArr, str);
+                this.f3968a.checkServerTrusted(x509CertificateArr, str);
             } catch (CertificateException e) {
                 this.b.checkServerTrusted(x509CertificateArr, str);
             }
@@ -114,7 +114,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
 
         @Override // javax.net.ssl.X509TrustManager
         public final X509Certificate[] getAcceptedIssuers() {
-            X509Certificate[] acceptedIssuers = this.f3966a.getAcceptedIssuers();
+            X509Certificate[] acceptedIssuers = this.f3968a.getAcceptedIssuers();
             X509Certificate[] acceptedIssuers2 = this.b.getAcceptedIssuers();
             X509Certificate[] x509CertificateArr = (X509Certificate[]) Arrays.copyOf(acceptedIssuers, acceptedIssuers.length + acceptedIssuers2.length);
             System.arraycopy(acceptedIssuers2, 0, x509CertificateArr, acceptedIssuers.length, acceptedIssuers2.length);
@@ -175,7 +175,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
             d.getWorker().a(bdNetEngine);
             return d;
         } else if (pollTask != null) {
-            worker.f3972a = pollTask;
+            worker.f3974a = pollTask;
             worker.a(bdNetEngine);
             pollTask.setWorker(worker);
             return pollTask;
@@ -189,9 +189,9 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
                 if (e.b()) {
                     e a2 = e.a();
                     try {
-                        if (a2.f3971a != null) {
-                            a2.f3971a.clear();
-                            a2.f3971a = null;
+                        if (a2.f3973a != null) {
+                            a2.f3973a.clear();
+                            a2.f3973a = null;
                         }
                         int size = a2.b.size();
                         for (int i = 0; i < size; i++) {

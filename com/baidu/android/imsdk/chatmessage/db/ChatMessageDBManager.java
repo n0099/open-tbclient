@@ -44,14 +44,14 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class ChatMessageDBManager extends DBBase {
     private static final long CAST_RELIABLE_MSG_EXPIRED_TIME = 172800;
     private static final String TAG = ChatMessageDBManager.class.getSimpleName();
     private static ChatMessageDBManager mInstance = null;
     private List<ChatMessageDbOberser> mObservers = null;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes18.dex */
     public interface ChatMessageDbOberser {
         void notifyDbChange(int i, ChatSession chatSession);
     }

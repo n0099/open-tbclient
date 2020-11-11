@@ -23,8 +23,8 @@ public class AlaLiveScreenRecordHostTipView extends TextView {
 
     private void init(Context context) {
         setGravity(17);
-        setTextSize(0, context.getResources().getDimensionPixelSize(a.e.sdk_fontsize40));
-        setTextColor(context.getResources().getColor(a.d.sdk_cp_cont_g));
-        setText(a.i.ala_live_host_screen_record_start);
+        setTextSize(0, context.getResources().getDimensionPixelSize(a.d.sdk_fontsize40));
+        setTextColor(context.getResources().getColor(a.c.sdk_cp_cont_g));
+        setText(a.h.ala_live_host_screen_record_start);
     }
 }

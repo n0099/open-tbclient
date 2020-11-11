@@ -22,7 +22,7 @@ public class PermissionCheck {
     private static int k = 601;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f2242a = 200;
+    public static int f2244a = 200;
     public static int b = 202;
     public static int c = GDiffPatcher.COPY_INT_UBYTE;
 
@@ -44,7 +44,7 @@ public class PermissionCheck {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 if (jSONObject.has("status")) {
-                    bVar.f2243a = jSONObject.optInt("status");
+                    bVar.f2245a = jSONObject.optInt("status");
                 }
                 if (jSONObject.has("appid")) {
                     bVar.c = jSONObject.optString("appid");
@@ -64,7 +64,7 @@ public class PermissionCheck {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            int unused = PermissionCheck.k = bVar.f2243a;
+            int unused = PermissionCheck.k = bVar.f2245a;
             if (PermissionCheck.j != null) {
                 PermissionCheck.j.a(bVar);
             }
@@ -75,7 +75,7 @@ public class PermissionCheck {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f2243a = 0;
+        public int f2245a = 0;
         public String b = "-1";
         public String c = "-1";
         public String d = "";
@@ -83,7 +83,7 @@ public class PermissionCheck {
         public int f;
 
         public String toString() {
-            return String.format("=============================================\n----------------- 鉴权错误信息 ------------\nsha1;package:%s\nkey:%s\nerrorcode: %d uid: %s appid %s msg: %s\n请仔细核查 SHA1、package与key申请信息是否对应，key是否删除，平台是否匹配\nerrorcode为230时，请参考论坛链接：\nhttp://bbs.lbsyun.baidu.com/forum.php?mod=viewthread&tid=106461\n=============================================\n", com.baidu.mapsdkplatform.comapi.util.a.a(PermissionCheck.e), PermissionCheck.f, Integer.valueOf(this.f2243a), this.b, this.c, this.d);
+            return String.format("=============================================\n----------------- 鉴权错误信息 ------------\nsha1;package:%s\nkey:%s\nerrorcode: %d uid: %s appid %s msg: %s\n请仔细核查 SHA1、package与key申请信息是否对应，key是否删除，平台是否匹配\nerrorcode为230时，请参考论坛链接：\nhttp://bbs.lbsyun.baidu.com/forum.php?mod=viewthread&tid=106461\n=============================================\n", com.baidu.mapsdkplatform.comapi.util.a.a(PermissionCheck.e), PermissionCheck.f, Integer.valueOf(this.f2245a), this.b, this.c, this.d);
         }
     }
 

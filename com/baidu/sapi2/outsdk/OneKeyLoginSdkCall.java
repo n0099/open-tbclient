@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class OneKeyLoginSdkCall {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3480a = "OneKeyLogin";
+    public static final String f3483a = "OneKeyLogin";
     private static final int b = 1;
     private static final int c = 2;
     private static final int d = 3;
@@ -73,7 +73,7 @@ public class OneKeyLoginSdkCall {
     public void a(SapiConfiguration sapiConfiguration, String str, int i2, OneKeyLoginCallback oneKeyLoginCallback) {
         JSONObject jSONObject;
         if (SapiAccountManager.getInstance().isLogin()) {
-            Log.i(f3480a, "is login");
+            Log.i(f3483a, "is login");
             b(oneKeyLoginCallback, -110, null);
             return;
         }
@@ -81,7 +81,7 @@ public class OneKeyLoginSdkCall {
             try {
                 jSONObject = com.cmic.sso.sdk.b.a.bt(sapiConfiguration.context, "rsa2048").gU(sapiConfiguration.context);
             } catch (Throwable th) {
-                Log.e(f3480a, th);
+                Log.e(f3483a, th);
                 jSONObject = null;
             }
             if (jSONObject == null) {
@@ -90,7 +90,7 @@ public class OneKeyLoginSdkCall {
             }
             int optInt = jSONObject.optInt("operatortype");
             String optString = jSONObject.optString("networktype");
-            Log.i(f3480a, "operatorType = " + optInt + " netType = " + optString);
+            Log.i(f3483a, "operatorType = " + optInt + " netType = " + optString);
             if (TextUtils.isEmpty(optString)) {
                 optString = "0";
             }
@@ -166,7 +166,7 @@ public class OneKeyLoginSdkCall {
                 jSONObject2.put(BaseJsonData.TAG_ERRNO, "-1");
                 jSONObject = com.cmic.sso.sdk.b.a.bt(sapiConfiguration.context, "rsa2048").gU(sapiConfiguration.context);
             } catch (Throwable th) {
-                Log.e(f3480a, th);
+                Log.e(f3483a, th);
                 jSONObject = null;
             }
             if (jSONObject == null) {
@@ -175,7 +175,7 @@ public class OneKeyLoginSdkCall {
             }
             int optInt = jSONObject.optInt("operatortype");
             String optString = jSONObject.optString("networktype");
-            Log.i(f3480a, "operatorType = " + optInt + " netType = " + optString);
+            Log.i(f3483a, "operatorType = " + optInt + " netType = " + optString);
             if (TextUtils.isEmpty(optString)) {
                 optString = "0";
             }

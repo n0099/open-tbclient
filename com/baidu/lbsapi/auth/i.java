@@ -9,13 +9,13 @@ import java.util.Hashtable;
 public class i extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LBSAuthManager f1838a;
+    final /* synthetic */ LBSAuthManager f1840a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(LBSAuthManager lBSAuthManager, Looper looper) {
         super(looper);
-        this.f1838a = lBSAuthManager;
+        this.f1840a = lBSAuthManager;
     }
 
     @Override // android.os.Handler

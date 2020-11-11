@@ -64,10 +64,10 @@ public class TrustSubjectManager {
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        private List<String> f1819a;
+        private List<String> f1821a;
 
         e(List<String> list) {
-            this.f1819a = list;
+            this.f1821a = list;
         }
 
         public static e e(TrustSubject trustSubject) {
@@ -89,7 +89,7 @@ public class TrustSubjectManager {
         }
 
         public List<String> a() {
-            return this.f1819a;
+            return this.f1821a;
         }
     }
 
@@ -98,10 +98,10 @@ public class TrustSubjectManager {
     public static class f {
 
         /* renamed from: a  reason: collision with root package name */
-        private Set<String> f1820a;
+        private Set<String> f1822a;
 
         f(Set<String> set) {
-            this.f1820a = set;
+            this.f1822a = set;
         }
 
         public static f f(TrustSubject trustSubject) {
@@ -123,12 +123,12 @@ public class TrustSubjectManager {
         }
 
         public Set<String> a() {
-            return this.f1820a;
+            return this.f1822a;
         }
     }
 
     private com.baidu.helios.common.a.b.a AT() {
-        return com.baidu.helios.common.a.c.c(com.baidu.helios.trusts.zone.a.f1821a, com.baidu.helios.trusts.zone.a.b);
+        return com.baidu.helios.common.a.c.c(com.baidu.helios.trusts.zone.a.f1823a, com.baidu.helios.trusts.zone.a.b);
     }
 
     private static void a(File file) {
@@ -280,7 +280,7 @@ public class TrustSubjectManager {
         if (trustSubject != null) {
             a(arrayList3, trustSubject);
         }
-        Collections.sort(arrayList3, TrustSubject.f1818a);
+        Collections.sort(arrayList3, TrustSubject.f1820a);
         dVar.azp = arrayList3;
         if (trustSubject != null) {
             trustSubject.d();
@@ -424,7 +424,7 @@ public class TrustSubjectManager {
             if (trustSubject4 != null) {
                 a(arrayList3, trustSubject4);
             }
-            Collections.sort(arrayList3, TrustSubject.f1818a);
+            Collections.sort(arrayList3, TrustSubject.f1820a);
             dVar.azp = arrayList3;
             if (trustSubject4 != null) {
                 trustSubject4.d();

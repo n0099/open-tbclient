@@ -8,7 +8,7 @@ import java.security.NoSuchAlgorithmException;
 public class f extends i {
     private String mKey;
     private long mUid;
-    private final String ool = "http://ext.baidu.com/";
+    private final String oxG = "http://ext.baidu.com/";
 
     public f(Context context, long j, String str) {
         this.mKey = "";
@@ -19,7 +19,7 @@ public class f extends i {
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getHost() {
-        return WT("http://ext.baidu.com/") + "api/subscribe/v1/relation/get";
+        return Xx("http://ext.baidu.com/") + "api/subscribe/v1/relation/get";
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler

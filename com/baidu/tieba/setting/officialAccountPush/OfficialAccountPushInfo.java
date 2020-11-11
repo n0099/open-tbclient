@@ -15,7 +15,7 @@ public class OfficialAccountPushInfo implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: IA */
+        /* renamed from: IN */
         public OfficialAccountPushInfo[] newArray(int i) {
             return new OfficialAccountPushInfo[i];
         }

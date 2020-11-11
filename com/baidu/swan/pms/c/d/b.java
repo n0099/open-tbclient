@@ -13,18 +13,18 @@ import java.util.Objects;
 import java.util.Set;
 /* loaded from: classes15.dex */
 public class b extends g {
-    private Set<a> ecO;
+    private Set<a> eiG;
 
     public b(List<? extends a> list, @Nullable com.baidu.swan.pms.utils.a aVar) {
         super(-1);
         if (list != null && !list.isEmpty()) {
-            this.ecO = new LinkedHashSet();
-            Map<String, PMSAppInfo> aYJ = com.baidu.swan.pms.database.a.aYH().aYJ();
-            Map<String, com.baidu.swan.pms.model.f> aYI = com.baidu.swan.pms.database.a.aYH().aYI();
+            this.eiG = new LinkedHashSet();
+            Map<String, PMSAppInfo> bbj = com.baidu.swan.pms.database.a.bbh().bbj();
+            Map<String, com.baidu.swan.pms.model.f> bbi = com.baidu.swan.pms.database.a.bbh().bbi();
             for (a aVar2 : list) {
                 if (aVar2 != null && !TextUtils.isEmpty(aVar2.getBundleId())) {
-                    a(aYJ, aYI, aVar2, aVar);
-                    this.ecO.add(aVar2);
+                    a(bbj, bbi, aVar2, aVar);
+                    this.eiG.add(aVar2);
                 }
             }
         }
@@ -33,14 +33,14 @@ public class b extends g {
     public b(Collection<String> collection, @Nullable com.baidu.swan.pms.utils.a aVar) {
         super(-1);
         if (collection != null && !collection.isEmpty()) {
-            this.ecO = new LinkedHashSet();
-            Map<String, PMSAppInfo> aYJ = com.baidu.swan.pms.database.a.aYH().aYJ();
-            Map<String, com.baidu.swan.pms.model.f> aYI = com.baidu.swan.pms.database.a.aYH().aYI();
+            this.eiG = new LinkedHashSet();
+            Map<String, PMSAppInfo> bbj = com.baidu.swan.pms.database.a.bbh().bbj();
+            Map<String, com.baidu.swan.pms.model.f> bbi = com.baidu.swan.pms.database.a.bbh().bbi();
             for (String str : collection) {
                 if (!TextUtils.isEmpty(str)) {
                     a aVar2 = new a(str);
-                    a(aYJ, aYI, aVar2, aVar);
-                    this.ecO.add(aVar2);
+                    a(bbj, bbi, aVar2, aVar);
+                    this.eiG.add(aVar2);
                 }
             }
         }
@@ -54,74 +54,74 @@ public class b extends g {
                 aVar.setCategory(pMSAppInfo.appCategory);
             }
             if (!map2.containsKey(aVar.getBundleId())) {
-                aVar.cu(0L);
-            } else if (aVar2 != null && pMSAppInfo.versionCode != 0 && !aVar2.uo(aVar.getBundleId())) {
-                aVar.cu(0L);
+                aVar.cQ(0L);
+            } else if (aVar2 != null && pMSAppInfo.versionCode != 0 && !aVar2.uC(aVar.getBundleId())) {
+                aVar.cQ(0L);
             } else {
                 com.baidu.swan.pms.model.f fVar = map2.get(aVar.getBundleId());
                 if (fVar != null) {
-                    aVar.cu(fVar.versionCode);
+                    aVar.cQ(fVar.versionCode);
                 } else {
-                    aVar.cu(0L);
+                    aVar.cQ(0L);
                 }
             }
             if (pMSAppInfo.csProtocolVersion >= PMSConstants.b.getVersion()) {
-                aVar.cv(pMSAppInfo.appSign);
+                aVar.cR(pMSAppInfo.appSign);
             } else {
-                aVar.cv(0L);
+                aVar.cR(0L);
             }
         }
     }
 
     @Nullable
-    public Set<a> aZx() {
-        return this.ecO;
+    public Set<a> bbX() {
+        return this.eiG;
     }
 
     /* loaded from: classes15.dex */
     public static class a {
-        private String ecP;
-        private long ecQ;
-        private long ecR;
+        private String eiH;
+        private long eiI;
+        private long eiJ;
         private int mCategory;
 
         public a(String str) {
             this.mCategory = -1;
-            this.ecQ = 0L;
-            this.ecR = 0L;
-            this.ecP = str;
+            this.eiI = 0L;
+            this.eiJ = 0L;
+            this.eiH = str;
         }
 
         public a(String str, int i) {
             this.mCategory = -1;
-            this.ecQ = 0L;
-            this.ecR = 0L;
-            this.ecP = str;
+            this.eiI = 0L;
+            this.eiJ = 0L;
+            this.eiH = str;
             this.mCategory = i;
         }
 
         public String getBundleId() {
-            return this.ecP;
+            return this.eiH;
         }
 
-        public long aZy() {
-            return this.ecQ;
+        public long bbY() {
+            return this.eiI;
         }
 
         public int getCategory() {
             return this.mCategory;
         }
 
-        public long aZz() {
-            return this.ecR;
+        public long bbZ() {
+            return this.eiJ;
         }
 
-        void cu(long j) {
-            this.ecQ = j;
+        void cQ(long j) {
+            this.eiI = j;
         }
 
-        void cv(long j) {
-            this.ecR = j;
+        void cR(long j) {
+            this.eiJ = j;
         }
 
         void setCategory(int i) {
@@ -129,7 +129,7 @@ public class b extends g {
         }
 
         public int hashCode() {
-            return Objects.hash(this.ecP, Integer.valueOf(this.mCategory));
+            return Objects.hash(this.eiH, Integer.valueOf(this.mCategory));
         }
 
         public boolean equals(Object obj) {
@@ -138,7 +138,7 @@ public class b extends g {
             }
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return TextUtils.equals(aVar.getBundleId(), this.ecP) && aVar.getCategory() == this.mCategory;
+                return TextUtils.equals(aVar.getBundleId(), this.eiH) && aVar.getCategory() == this.mCategory;
             }
             return false;
         }

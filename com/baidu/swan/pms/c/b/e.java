@@ -7,22 +7,22 @@ import org.json.JSONObject;
 /* loaded from: classes15.dex */
 public class e extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.e> {
     @Nullable
-    private g ecD;
+    private g eiv;
     @Nullable
-    private g ecE;
+    private g eiw;
 
     public e(g gVar, com.baidu.swan.pms.c.d.g gVar2, @Nullable g gVar3, @Nullable g gVar4) {
         super(gVar, gVar2);
-        this.ecD = gVar3;
-        this.ecE = gVar4;
+        this.eiv = gVar3;
+        this.eiw = gVar4;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.c.d
-    /* renamed from: cJ */
-    public com.baidu.swan.pms.c.c.e cE(JSONObject jSONObject) {
-        return com.baidu.swan.pms.utils.e.cR(jSONObject);
+    /* renamed from: cP */
+    public com.baidu.swan.pms.c.c.e cK(JSONObject jSONObject) {
+        return com.baidu.swan.pms.utils.e.cX(jSONObject);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,9 +30,9 @@ public class e extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.e> {
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: a */
     public com.baidu.swan.pms.model.a ak(com.baidu.swan.pms.c.c.e eVar) {
-        this.ebZ.anL();
-        com.baidu.swan.pms.g.a.l(this.cNi.getCategory(), eVar.maxAge);
-        f.b(eVar.data, (this.ebZ == this.ecD || this.ebZ == this.ecE) ? null : this.ebZ, this.ecD, this.ecE);
+        this.ehR.aqm();
+        com.baidu.swan.pms.g.a.k(this.cTb.getCategory(), eVar.maxAge);
+        f.b(eVar.data, (this.ehR == this.eiv || this.ehR == this.eiw) ? null : this.ehR, this.eiv, this.eiw);
         return null;
     }
 
@@ -45,7 +45,7 @@ public class e extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.e> {
     }
 
     @Override // com.baidu.swan.pms.c.d
-    protected String aYW() {
+    protected String bbw() {
         return "updatecore";
     }
 }

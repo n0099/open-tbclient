@@ -1,68 +1,111 @@
 package com.baidu.tieba.yuyinala.liveroom.wheat.c;
 
-import com.baidu.live.adp.BdUniqueId;
-import com.baidu.live.adp.base.BdBaseModel;
+import android.content.DialogInterface;
 import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.adp.framework.listener.HttpMessageListener;
-import com.baidu.live.adp.framework.message.HttpResponsedMessage;
-import com.baidu.live.tbadk.TbConfig;
+import com.baidu.live.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.adp.lib.safe.SafeHandler;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
-import com.baidu.live.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaManagerMikeHttpResponseMessage;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.tbadk.core.dialog.BdToast;
+import com.baidu.tieba.yuyinala.liveroom.wheat.a.c;
+import com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g;
+import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaEndConnectionWheatHttpResponseMessage;
+import com.baidu.tieba.yuyinala.liveroom.wheat.model.e;
 /* loaded from: classes4.dex */
-public class i extends BdBaseModel {
-    private TbPageContext mPageContext;
-    private a nYY;
-    private HttpMessageListener messageListener = new HttpMessageListener(1031012) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.i.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.live.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaManagerMikeHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == i.this.bnb && i.this.nYY != null) {
-                AlaManagerMikeHttpResponseMessage alaManagerMikeHttpResponseMessage = (AlaManagerMikeHttpResponseMessage) httpResponsedMessage;
-                if (alaManagerMikeHttpResponseMessage.getError() != 0 || !alaManagerMikeHttpResponseMessage.isSuccess()) {
-                    i.this.nYY.b(alaManagerMikeHttpResponseMessage);
-                } else {
-                    i.this.nYY.a(alaManagerMikeHttpResponseMessage);
-                }
-            }
-        }
-    };
-    private BdUniqueId bnb = BdUniqueId.gen();
+public class i {
+    private String aSJ;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g oeh;
+    private a oei;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void a(AlaManagerMikeHttpResponseMessage alaManagerMikeHttpResponseMessage);
-
-        void b(AlaManagerMikeHttpResponseMessage alaManagerMikeHttpResponseMessage);
+        void VM(String str);
     }
 
-    public i(TbPageContext tbPageContext, a aVar) {
-        setUniqueId(this.bnb);
-        this.mPageContext = tbPageContext;
-        this.nYY = aVar;
-        beS();
-        registerListener(this.messageListener);
+    public void a(TbPageContext tbPageContext, String str, String str2) {
+        this.aSJ = str2;
+        if (this.oeh == null) {
+            this.oeh = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g(tbPageContext);
+            this.oeh.g(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.i.1
+                @Override // android.content.DialogInterface.OnDismissListener
+                public void onDismiss(DialogInterface dialogInterface) {
+                    i.this.oeh = null;
+                }
+            });
+            this.oeh.a(new g.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.i.2
+                @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.a
+                public void onCancel() {
+                }
+
+                @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.a
+                public void onConfirm() {
+                    if (o.dZA().Vu(i.this.aSJ)) {
+                        h.dZp().zb(true);
+                    } else {
+                        h.dZp().zb(false);
+                    }
+                    i.this.VL(i.this.aSJ);
+                }
+            });
+        }
+        if (!this.oeh.isShowing()) {
+            this.oeh.show();
+        }
+        this.oeh.setText(String.format(TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_hang_up_wheat_remind_text), str));
     }
 
-    private void beS() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031012, TbConfig.SERVER_ADDRESS + "ala/audio/link/setMike");
-        tbHttpMessageTask.setIsNeedTbs(true);
-        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
-        tbHttpMessageTask.setResponsedClass(AlaManagerMikeHttpResponseMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    public void VL(final String str) {
+        this.aSJ = str;
+        new com.baidu.tieba.yuyinala.liveroom.wheat.model.e(null, new e.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.i.3
+            @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.e.a
+            public void a(AlaEndConnectionWheatHttpResponseMessage alaEndConnectionWheatHttpResponseMessage) {
+                if (!alaEndConnectionWheatHttpResponseMessage.isError()) {
+                    i.this.a(str, alaEndConnectionWheatHttpResponseMessage);
+                }
+            }
+
+            @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.e.a
+            public void onFail(int i, String str2) {
+            }
+        }).gP(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().Ca(), this.aSJ);
     }
 
-    public void aL(String str, String str2, String str3) {
-        sendMessage(new com.baidu.tieba.yuyinala.liveroom.wheat.message.i(str, str2, str3));
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(final String str, AlaEndConnectionWheatHttpResponseMessage alaEndConnectionWheatHttpResponseMessage) {
+        com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().a(str, new c.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.i.4
+            @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.c.a
+            public void yY(boolean z) {
+                if (o.dZA().Vu(str)) {
+                    com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().dYN().dYv();
+                } else if (z) {
+                    com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().dYN().VA(str);
+                }
+            }
+        });
+        if (!o.dZA().dYS()) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501027, "hide_dot"));
+        }
+        if (o.dZA().Vu(str)) {
+            BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_hung_up_text)).show();
+        }
+        if (this.oeh != null) {
+            this.oeh.dismiss();
+        }
+        h.dZp().a(o.dZA().dZF(), alaEndConnectionWheatHttpResponseMessage);
+        if (this.oei != null) {
+            this.oei.VM(str);
+        }
+        SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.i.5
+            @Override // java.lang.Runnable
+            public void run() {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501009));
+            }
+        }, 200L);
     }
 
-    @Override // com.baidu.live.adp.base.BdBaseModel
-    protected boolean loadData() {
-        return false;
-    }
-
-    @Override // com.baidu.live.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        return false;
+    public i a(a aVar) {
+        this.oei = aVar;
+        return this;
     }
 }

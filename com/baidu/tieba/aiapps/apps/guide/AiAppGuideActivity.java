@@ -11,8 +11,8 @@ import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.R;
 /* loaded from: classes25.dex */
 public class AiAppGuideActivity extends BaseActivity {
-    private ImageView fKn;
-    private GifView fcb;
+    private ImageView fQd;
+    private GifView fhS;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.guide.AiAppGuideActivity.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
@@ -28,15 +28,15 @@ public class AiAppGuideActivity extends BaseActivity {
         setSwipeBackEnabled(false);
         setActivityBgTransparent();
         setContentView(R.layout.activity_aiapp_guide);
-        this.fcb = (GifView) findViewById(R.id.view_gif);
-        this.fcb.setGifRaw(R.raw.aiapp_guide);
-        this.fKn = (ImageView) findViewById(R.id.img_close);
-        this.fKn.setOnClickListener(this.mOnClickListener);
+        this.fhS = (GifView) findViewById(R.id.view_gif);
+        this.fhS.setGifRaw(R.raw.aiapp_guide);
+        this.fQd = (ImageView) findViewById(R.id.img_close);
+        this.fQd.setOnClickListener(this.mOnClickListener);
         int equipmentWidth = l.getEquipmentWidth(getActivity()) - (l.getDimens(getActivity(), R.dimen.tbds44) * 2);
-        ViewGroup.LayoutParams layoutParams = this.fcb.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.fhS.getLayoutParams();
         layoutParams.width = equipmentWidth;
         layoutParams.height = (int) (((equipmentWidth * 828) * 1.0f) / 760.0f);
-        this.fcb.setLayoutParams(layoutParams);
+        this.fhS.setLayoutParams(layoutParams);
     }
 
     @Override // android.app.Activity
@@ -48,6 +48,6 @@ public class AiAppGuideActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        ap.setImageResource(this.fKn, R.drawable.icon_use_close_n);
+        ap.setImageResource(this.fQd, R.drawable.icon_use_close_n);
     }
 }

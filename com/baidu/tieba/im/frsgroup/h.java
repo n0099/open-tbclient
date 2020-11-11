@@ -5,49 +5,49 @@ import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 /* loaded from: classes23.dex */
 public class h implements q {
-    public static final BdUniqueId jZw = BdUniqueId.gen();
+    public static final BdUniqueId kfu = BdUniqueId.gen();
     private Object aiJ;
-    private String jZA;
-    private int jZB;
-    private NoDataViewFactory.ImgType jZx;
-    private String jZy;
-    private String jZz;
+    private NoDataViewFactory.ImgType kfv;
+    private String kfw;
+    private String kfx;
+    private String kfy;
+    private int kfz;
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return jZw;
+        return kfu;
     }
 
-    public String cPv() {
-        return this.jZy;
+    public String cRW() {
+        return this.kfw;
     }
 
-    public void Mw(String str) {
-        this.jZy = str;
+    public void MN(String str) {
+        this.kfw = str;
     }
 
-    public String cPw() {
-        return this.jZz;
+    public String cRX() {
+        return this.kfx;
     }
 
-    public void Mx(String str) {
-        this.jZz = str;
+    public void MO(String str) {
+        this.kfx = str;
     }
 
-    public String cPx() {
-        return this.jZA;
+    public String cRY() {
+        return this.kfy;
     }
 
-    public void My(String str) {
-        this.jZA = str;
+    public void MP(String str) {
+        this.kfy = str;
     }
 
-    public int cPy() {
-        return this.jZB;
+    public int cRZ() {
+        return this.kfz;
     }
 
-    public void CH(int i) {
-        this.jZB = i;
+    public void CU(int i) {
+        this.kfz = i;
     }
 
     public Object ud() {
@@ -58,11 +58,11 @@ public class h implements q {
         this.aiJ = obj;
     }
 
-    public NoDataViewFactory.ImgType cPz() {
-        return this.jZx;
+    public NoDataViewFactory.ImgType cSa() {
+        return this.kfv;
     }
 
     public void c(NoDataViewFactory.ImgType imgType) {
-        this.jZx = imgType;
+        this.kfv = imgType;
     }
 }

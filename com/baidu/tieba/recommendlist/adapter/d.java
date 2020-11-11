@@ -19,9 +19,9 @@ public class d extends AbsDelegateAdapter<e, a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
-    /* renamed from: cN */
+    /* renamed from: cP */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        return new a(LayoutInflater.from(this.mContext).inflate(a.h.ala_recommend_live_type_item_layout, viewGroup, false));
+        return new a(LayoutInflater.from(this.mContext).inflate(a.g.ala_recommend_live_type_item_layout, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,29 +32,29 @@ public class d extends AbsDelegateAdapter<e, a> {
         String string;
         switch (eVar.type) {
             case 0:
-                string = this.mContext.getString(a.i.recommend_live_attention_no_count);
+                string = this.mContext.getString(a.h.recommend_live_attention_no_count);
                 break;
             default:
                 string = eVar.title;
                 break;
         }
-        aVar.mvW.setText(string);
-        int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds16);
+        aVar.mBT.setText(string);
+        int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds16);
         if (i != 0) {
-            aVar.mvW.setPadding(0, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds48), 0, dimensionPixelSize);
+            aVar.mBT.setPadding(0, this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds48), 0, dimensionPixelSize);
         } else {
-            aVar.mvW.setPadding(0, dimensionPixelSize, 0, dimensionPixelSize);
+            aVar.mBT.setPadding(0, dimensionPixelSize, 0, dimensionPixelSize);
         }
         return view;
     }
 
     /* loaded from: classes4.dex */
     public static class a extends TypeAdapter.ViewHolder {
-        private TextView mvW;
+        private TextView mBT;
 
         private a(View view) {
             super(view);
-            this.mvW = (TextView) view.findViewById(a.g.ala_recommend_live_type);
+            this.mBT = (TextView) view.findViewById(a.f.ala_recommend_live_type);
         }
     }
 }

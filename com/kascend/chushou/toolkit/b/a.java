@@ -19,12 +19,11 @@ import tv.chushou.zues.utils.e;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes6.dex */
 public class a {
-    private static a pnB;
-    private static final tv.chushou.zues.toolkit.b.a pny = tv.chushou.zues.toolkit.b.a.qdx;
-    private tv.chushou.zues.toolkit.a.a.a pnA;
+    private static final tv.chushou.zues.toolkit.b.a pwX = tv.chushou.zues.toolkit.b.a.qmS;
+    private static a pxa;
     private final Object d = new Object();
     private Map<View, String> e = Collections.synchronizedMap(new WeakHashMap());
-    private final tv.chushou.zues.toolkit.a.b.a<Drawable> pnz = new tv.chushou.zues.toolkit.a.b.a<>(15, new tv.chushou.zues.toolkit.a.b.b<Drawable>() { // from class: com.kascend.chushou.toolkit.b.a.1
+    private final tv.chushou.zues.toolkit.a.b.a<Drawable> pwY = new tv.chushou.zues.toolkit.a.b.a<>(15, new tv.chushou.zues.toolkit.a.b.b<Drawable>() { // from class: com.kascend.chushou.toolkit.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // tv.chushou.zues.toolkit.a.b.b
         /* renamed from: a */
@@ -32,25 +31,26 @@ public class a {
             return 1;
         }
     });
+    private tv.chushou.zues.toolkit.a.a.a pwZ;
 
-    public static a esi() {
-        if (pnB == null) {
+    public static a evX() {
+        if (pxa == null) {
             synchronized (a.class) {
-                if (pnB == null) {
-                    pnB = new a();
+                if (pxa == null) {
+                    pxa = new a();
                 }
             }
         }
-        return pnB;
+        return pxa;
     }
 
     public static void b() {
     }
 
     private a() {
-        this.pnA = null;
+        this.pwZ = null;
         try {
-            this.pnA = tv.chushou.zues.toolkit.a.a.a.b(com.kascend.chushou.d.c.oYp.e(), 1, 1, 10485760L);
+            this.pwZ = tv.chushou.zues.toolkit.a.a.a.b(com.kascend.chushou.d.c.phK.e(), 1, 1, 10485760L);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -64,8 +64,8 @@ public class a {
             }
             this.e.put(view, str);
             Drawable drawable = null;
-            if (this.pnz != null) {
-                drawable = this.pnz.get(str);
+            if (this.pwY != null) {
+                drawable = this.pwY.get(str);
             }
             if (drawable != null) {
                 view.setBackgroundDrawable(drawable.getConstantState().newDrawable());
@@ -81,11 +81,11 @@ public class a {
     public class c {
 
         /* renamed from: a  reason: collision with root package name */
-        String f4214a;
+        String f4216a;
         View b;
 
         c(String str, View view) {
-            this.f4214a = str;
+            this.f4216a = str;
             this.b = view;
         }
     }
@@ -93,25 +93,25 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(c cVar) {
         String str = this.e.get(cVar.b);
-        return str == null || !str.equals(cVar.f4214a);
+        return str == null || !str.equals(cVar.f4216a);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public class b implements Runnable {
-        c pnF;
+        c pxe;
 
         b(c cVar) {
-            this.pnF = cVar;
+            this.pxe = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Drawable Yi;
-            if (!a.this.a(this.pnF) && !h.isEmpty(this.pnF.f4214a) && (Yi = a.this.Yi(this.pnF.f4214a)) != null) {
-                a.this.pnz.put(this.pnF.f4214a, Yi);
-                if (!a.this.a(this.pnF)) {
-                    ((Activity) this.pnF.b.getContext()).runOnUiThread(new RunnableC0989a(Yi, this.pnF));
+            Drawable YM;
+            if (!a.this.a(this.pxe) && !h.isEmpty(this.pxe.f4216a) && (YM = a.this.YM(this.pxe.f4216a)) != null) {
+                a.this.pwY.put(this.pxe.f4216a, YM);
+                if (!a.this.a(this.pxe)) {
+                    ((Activity) this.pxe.b.getContext()).runOnUiThread(new RunnableC1008a(YM, this.pxe));
                 }
             }
         }
@@ -119,27 +119,27 @@ public class a {
 
     /* renamed from: com.kascend.chushou.toolkit.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    class RunnableC0989a implements Runnable {
+    class RunnableC1008a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        Drawable f4213a;
-        c pnD;
+        Drawable f4215a;
+        c pxc;
 
-        RunnableC0989a(Drawable drawable, c cVar) {
-            this.f4213a = drawable;
-            this.pnD = cVar;
+        RunnableC1008a(Drawable drawable, c cVar) {
+            this.f4215a = drawable;
+            this.pxc = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (!a.this.a(this.pnD)) {
-                this.pnD.b.setBackgroundDrawable(this.f4213a);
+            if (!a.this.a(this.pxc)) {
+                this.pxc.b.setBackgroundDrawable(this.f4215a);
             }
         }
     }
 
     private void b(String str, View view) {
-        tv.chushou.a.a.b.a.eDJ().M(new b(new c(str, view)));
+        tv.chushou.a.a.b.a.eHy().M(new b(new c(str, view)));
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [195=5, 197=4, 198=4, 199=4] */
@@ -147,16 +147,16 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private Drawable Yh(String str) {
+    private Drawable YL(String str) {
         InputStream inputStream;
         Throwable th;
         InputStream inputStream2 = null;
-        if (this.pnA == null) {
+        if (this.pwZ == null) {
             return null;
         }
         try {
-            a.c ZU = this.pnA.ZU(str);
-            if (ZU == null) {
+            a.c aay = this.pwZ.aay(str);
+            if (aay == null) {
                 if (0 != 0) {
                     try {
                         inputStream2.close();
@@ -168,7 +168,7 @@ public class a {
                 }
                 return null;
             }
-            inputStream = ZU.RE(0);
+            inputStream = aay.RZ(0);
             try {
                 try {
                     BitmapFactory.Options options = new BitmapFactory.Options();
@@ -227,34 +227,34 @@ public class a {
     /* JADX WARN: Type inference failed for: r1v10 */
     /* JADX WARN: Type inference failed for: r1v4 */
     /* JADX WARN: Type inference failed for: r1v7 */
-    public Drawable Yi(String str) {
-        Drawable Yh;
-        a.C1097a ZV;
+    public Drawable YM(String str) {
+        Drawable YL;
+        a.C1117a aaz;
         Drawable drawable = null;
-        if (this.pnA != null) {
-            ?? r1 = pny;
+        if (this.pwZ != null) {
+            ?? r1 = pwX;
             String generate = r1.generate(str);
             try {
                 try {
                     synchronized (this.d) {
                         try {
-                            Yh = Yh(generate);
+                            YL = YL(generate);
                         } catch (Throwable th) {
                             r1 = 0;
                             th = th;
                         }
                         try {
-                            if (Yh == null && (ZV = this.pnA.ZV(generate)) != null) {
-                                OutputStream RB = ZV.RB(0);
-                                Http http = (Http) tv.chushou.basis.d.b.eDB().S(Http.class);
+                            if (YL == null && (aaz = this.pwZ.aaz(generate)) != null) {
+                                OutputStream RW = aaz.RW(0);
+                                Http http = (Http) tv.chushou.basis.d.b.eHq().S(Http.class);
                                 if (http == null) {
-                                    ZV.abort();
-                                    drawable = Yh;
-                                } else if (http.downloadSync(str, RB)) {
-                                    ZV.commit();
-                                    drawable = Yh(generate);
+                                    aaz.abort();
+                                    drawable = YL;
+                                } else if (http.downloadSync(str, RW)) {
+                                    aaz.commit();
+                                    drawable = YL(generate);
                                 } else {
-                                    ZV.abort();
+                                    aaz.abort();
                                 }
                             }
                         } catch (Throwable th2) {
@@ -269,7 +269,7 @@ public class a {
                                 return drawable;
                             }
                         }
-                        drawable = Yh;
+                        drawable = YL;
                     }
                 } catch (Throwable th3) {
                     th = th3;

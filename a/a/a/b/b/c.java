@@ -5,13 +5,13 @@ import java.io.File;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f953a;
+    public String f955a;
     public File b;
     public long c;
     public long d;
 
     public c(String str, String str2, File file) {
-        this.f953a = str;
+        this.f955a = str;
         this.b = file;
     }
 

@@ -131,7 +131,7 @@ public final class CompositeException extends RuntimeException {
                 appendStackTrace(sb, it.next(), "\t");
                 i = i2 + 1;
             } else {
-                synchronized (aVar.eBL()) {
+                synchronized (aVar.eFA()) {
                     aVar.bM(sb.toString());
                 }
                 return;
@@ -155,7 +155,7 @@ public final class CompositeException extends RuntimeException {
     public static abstract class a {
         abstract void bM(Object obj);
 
-        abstract Object eBL();
+        abstract Object eFA();
 
         a() {
         }
@@ -164,39 +164,39 @@ public final class CompositeException extends RuntimeException {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes16.dex */
     public static final class b extends a {
-        private final PrintStream pCR;
+        private final PrintStream pMl;
 
         b(PrintStream printStream) {
-            this.pCR = printStream;
+            this.pMl = printStream;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        Object eBL() {
-            return this.pCR;
+        Object eFA() {
+            return this.pMl;
         }
 
         @Override // rx.exceptions.CompositeException.a
         void bM(Object obj) {
-            this.pCR.println(obj);
+            this.pMl.println(obj);
         }
     }
 
     /* loaded from: classes16.dex */
     static final class c extends a {
-        private final PrintWriter pCS;
+        private final PrintWriter pMm;
 
         c(PrintWriter printWriter) {
-            this.pCS = printWriter;
+            this.pMm = printWriter;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        Object eBL() {
-            return this.pCS;
+        Object eFA() {
+            return this.pMm;
         }
 
         @Override // rx.exceptions.CompositeException.a
         void bM(Object obj) {
-            this.pCS.println(obj);
+            this.pMm.println(obj);
         }
     }
 

@@ -60,7 +60,7 @@ public class e {
         Uri uriForFile;
         if (com.baidu.swan.apps.ap.c.hasNougat()) {
             try {
-                if (ak.aKA()) {
+                if (ak.aNa()) {
                     uriForFile = FileProvider.getUriForFile(context, context.getPackageName() + ".fileprovider", file);
                 } else {
                     uriForFile = FileProvider.getUriForFile(context, context.getPackageName() + ".swan.fileprovider", file);

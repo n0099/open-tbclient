@@ -11,25 +11,25 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.tieba.yuyinala.message.AlaGetRoomRankListResponseMessage;
 /* loaded from: classes4.dex */
 public class b extends BdBaseModel {
-    private HttpMessageListener hsN = new HttpMessageListener(1031033) { // from class: com.baidu.tieba.yuyinala.c.b.1
+    private HttpMessageListener hyK = new HttpMessageListener(1031033) { // from class: com.baidu.tieba.yuyinala.c.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetRoomRankListResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && b.this.nZH != null) {
-                b.this.nZH.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetRoomRankListResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && b.this.oiD != null) {
+                b.this.oiD.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
             }
         }
     };
-    private d nZH;
+    private d oiD;
 
     public void a(d dVar) {
-        this.nZH = dVar;
+        this.oiD = dVar;
     }
 
     public b(BdUniqueId bdUniqueId) {
         this.unique_id = bdUniqueId;
         registerTask();
-        registerListener(this.hsN);
+        registerListener(this.hyK);
     }
 
     private void registerTask() {
@@ -42,7 +42,7 @@ public class b extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void VC(String str) {
+    public void Wf(String str) {
         HttpMessage httpMessage = new HttpMessage(1031033);
         httpMessage.addParam(UbcStatConstant.KEY_CUSTOM_ROOM_ID, str);
         MessageManager.getInstance().sendMessage(httpMessage);

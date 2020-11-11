@@ -16,7 +16,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class FuFaceItem extends com.baidu.live.aa.b implements Serializable {
+public class FuFaceItem extends com.baidu.live.ab.b implements Serializable {
     public static final File FILE_NONE = new File("none");
     public static final String JK_ABILITY = "ability";
     public static final String JK_MAX_SDK_VERSION = "sdk_version_max";
@@ -59,7 +59,7 @@ public class FuFaceItem extends com.baidu.live.aa.b implements Serializable {
         @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
         public void onStarted() {
             super.onStarted();
-            if (com.baidu.tieba.ala.alaar.sticker.download.b.bKT().isRunning(FuFaceItem.this.file) && FuFaceItem.this.mCompositeDownloader != null) {
+            if (com.baidu.tieba.ala.alaar.sticker.download.b.bNs().isRunning(FuFaceItem.this.file) && FuFaceItem.this.mCompositeDownloader != null) {
                 FuFaceItem.this.mCompositeDownloader.onStarted();
             }
         }
@@ -70,7 +70,7 @@ public class FuFaceItem extends com.baidu.live.aa.b implements Serializable {
             com.baidu.tieba.ala.alaar.sticker.b.a.e(FuFaceItem.TAG, "mAbilityCb onCompleted:" + str);
             if (FuFaceItem.this.mAbilityModel == null || FuFaceItem.this.mAbilityModel.isLoaded()) {
                 if ((FuFaceItem.this.mSoFile == null || FuFaceItem.this.mSoFile.isLoaded()) && FuFaceItem.this.mCompositeDownloader != null) {
-                    FuFaceItem.this.mCompositeDownloader.FV(str);
+                    FuFaceItem.this.mCompositeDownloader.Gj(str);
                 }
             }
         }
@@ -199,7 +199,7 @@ public class FuFaceItem extends com.baidu.live.aa.b implements Serializable {
             }
             com.baidu.tieba.ala.alaar.sticker.b.c.d(file, file2);
             com.baidu.tieba.ala.alaar.sticker.b.a.d(TAG, "onUnzipFile: " + file2);
-            z = com.baidu.minivideo.arface.a.jd(file2.getAbsolutePath());
+            z = com.baidu.minivideo.arface.a.jq(file2.getAbsolutePath());
             if (!z) {
                 com.baidu.tieba.ala.alaar.sticker.b.a.d(TAG, getFilePath() + " not verify");
                 com.baidu.tieba.ala.alaar.sticker.b.c.deleteFile(file2);
@@ -268,13 +268,13 @@ public class FuFaceItem extends com.baidu.live.aa.b implements Serializable {
             this.mModelSk = jSONObject.optString(JK_MODEL_SK);
             this.mAbilityModel = getOrCreateDuAbilityModel(this.mModelSk, this.mModelUrl);
             if (this.mAbilityModel != null) {
-                this.mSticker.setAbility(this.mAbilityModel.bLl());
+                this.mSticker.setAbility(this.mAbilityModel.bNK());
             }
             JSONObject optJSONObject = jSONObject.optJSONObject(JK_SO_INFO);
             if (optJSONObject != null) {
                 this.mSoFile = getOrCreateSoModel(optJSONObject.optString(JK_SO_SK), optJSONObject.optString(JK_SO_URL));
                 if (this.mSoFile != null) {
-                    new ArrayList().add(this.mSoFile.bLl());
+                    new ArrayList().add(this.mSoFile.bNK());
                 }
             }
             setTouchAble(z);
@@ -290,29 +290,29 @@ public class FuFaceItem extends com.baidu.live.aa.b implements Serializable {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
-        b FK = com.baidu.tieba.ala.alaar.sticker.a.b.bLc().FK(str);
-        if (FK == null) {
+        b FY = com.baidu.tieba.ala.alaar.sticker.a.b.bNB().FY(str);
+        if (FY == null) {
             com.baidu.tieba.ala.alaar.sticker.model.a aVar = new com.baidu.tieba.ala.alaar.sticker.model.a();
             aVar.mUrl = str2;
-            aVar.fXg = str;
+            aVar.gcX = str;
             b bVar = new b(aVar);
-            com.baidu.tieba.ala.alaar.sticker.a.b.bLc().a(str, (String) bVar);
+            com.baidu.tieba.ala.alaar.sticker.a.b.bNB().a(str, (String) bVar);
             return bVar;
         }
-        return FK;
+        return FY;
     }
 
     private b getOrCreateSoModel(String str, String str2) {
-        d FK = com.baidu.tieba.ala.alaar.sticker.a.b.bLb().FK(str);
-        if (FK == null) {
+        d FY = com.baidu.tieba.ala.alaar.sticker.a.b.bNA().FY(str);
+        if (FY == null) {
             com.baidu.tieba.ala.alaar.sticker.model.a aVar = new com.baidu.tieba.ala.alaar.sticker.model.a();
             aVar.mUrl = str2;
-            aVar.fXg = str;
+            aVar.gcX = str;
             d dVar = new d(aVar);
-            com.baidu.tieba.ala.alaar.sticker.a.b.bLb().a(str, (String) dVar);
+            com.baidu.tieba.ala.alaar.sticker.a.b.bNA().a(str, (String) dVar);
             return dVar;
         }
-        return FK;
+        return FY;
     }
 
     public JSONObject toJson() {
@@ -379,17 +379,17 @@ public class FuFaceItem extends com.baidu.live.aa.b implements Serializable {
                                     th.printStackTrace();
                                 }
                             }
-                            com.baidu.tieba.ala.alaar.sticker.download.b.bKT().a(this.file, file.getParent(), file.getName(), this.mStickerCb);
+                            com.baidu.tieba.ala.alaar.sticker.download.b.bNs().a(this.file, file.getParent(), file.getName(), this.mStickerCb);
                         }
                         if (this.mAbilityModel != null || this.mSoFile != null) {
                             if (this.mAbilityModel != null) {
-                                com.baidu.tieba.ala.alaar.sticker.a.b.bLc().a(this.mModelSk, this.mAbilityCb);
+                                com.baidu.tieba.ala.alaar.sticker.a.b.bNB().a(this.mModelSk, this.mAbilityCb);
                             }
                             if (this.mSoFile != null) {
-                                com.baidu.tieba.ala.alaar.sticker.a.b.bLb().a(this.mSoFile.bLk(), this.mAbilityCb);
+                                com.baidu.tieba.ala.alaar.sticker.a.b.bNA().a(this.mSoFile.bNJ(), this.mAbilityCb);
                             }
                         } else if (this.mCompositeDownloader != null) {
-                            this.mCompositeDownloader.FV(null);
+                            this.mCompositeDownloader.Gj(null);
                         }
                     }
                 }
@@ -400,16 +400,16 @@ public class FuFaceItem extends com.baidu.live.aa.b implements Serializable {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
     public class a {
-        boolean bRN;
-        boolean fXy;
-        boolean fXz;
+        boolean bXx;
+        boolean gdp;
+        boolean gdq;
 
         a() {
         }
 
         public void onStarted() {
-            if (!this.bRN) {
-                this.bRN = true;
+            if (!this.bXx) {
+                this.bXx = true;
                 int i = 0;
                 while (true) {
                     int i2 = i;
@@ -426,19 +426,19 @@ public class FuFaceItem extends com.baidu.live.aa.b implements Serializable {
             }
         }
 
-        public void FU(String str) {
-            this.fXy = true;
+        public void Gi(String str) {
+            this.gdp = true;
             onCompleted();
         }
 
-        public void FV(String str) {
-            this.fXz = true;
+        public void Gj(String str) {
+            this.gdq = true;
             onCompleted();
         }
 
         public void onCompleted() {
-            com.baidu.tieba.ala.alaar.sticker.b.a.e(FuFaceItem.TAG, "CompositeDownloader onCompleted,mFinished:" + FuFaceItem.this.isLoading() + ", sticker:" + this.fXy + ", ability:" + this.fXz);
-            if (FuFaceItem.this.isLoading() && this.fXy && this.fXz) {
+            com.baidu.tieba.ala.alaar.sticker.b.a.e(FuFaceItem.TAG, "CompositeDownloader onCompleted,mFinished:" + FuFaceItem.this.isLoading() + ", sticker:" + this.gdp + ", ability:" + this.gdq);
+            if (FuFaceItem.this.isLoading() && this.gdp && this.gdq) {
                 synchronized (FuFaceItem.this) {
                     FuFaceItem.this.mCompositeDownloader = null;
                 }
@@ -494,7 +494,7 @@ public class FuFaceItem extends com.baidu.live.aa.b implements Serializable {
         public void onStarted() {
             super.onStarted();
             com.baidu.tieba.ala.alaar.sticker.b.a.e(FuFaceItem.TAG, "mStickerCb onStarted");
-            if (com.baidu.tieba.ala.alaar.sticker.download.b.bKT().isRunning(FuFaceItem.this.file) && FuFaceItem.this.mCompositeDownloader != null) {
+            if (com.baidu.tieba.ala.alaar.sticker.download.b.bNs().isRunning(FuFaceItem.this.file) && FuFaceItem.this.mCompositeDownloader != null) {
                 FuFaceItem.this.mCompositeDownloader.onStarted();
             }
         }
@@ -518,7 +518,7 @@ public class FuFaceItem extends com.baidu.live.aa.b implements Serializable {
                             @Override // java.lang.Runnable
                             public void run() {
                                 if (onResLoaded) {
-                                    FuFaceItem.this.mCompositeDownloader.FU(FuFaceItem.this.getFilePath());
+                                    FuFaceItem.this.mCompositeDownloader.Gi(FuFaceItem.this.getFilePath());
                                 } else {
                                     FuFaceItem.this.mCompositeDownloader.a(null);
                                 }

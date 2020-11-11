@@ -8,7 +8,7 @@ public class TransitResultNode implements Parcelable {
     public static final Parcelable.Creator<TransitResultNode> CREATOR = new p();
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2110a;
+    private int f2112a;
     private String b;
     private LatLng c;
     private String d;
@@ -17,7 +17,7 @@ public class TransitResultNode implements Parcelable {
         this.b = null;
         this.c = null;
         this.d = null;
-        this.f2110a = i;
+        this.f2112a = i;
         this.b = str;
         this.c = latLng;
         this.d = str2;
@@ -28,7 +28,7 @@ public class TransitResultNode implements Parcelable {
         this.b = null;
         this.c = null;
         this.d = null;
-        this.f2110a = parcel.readInt();
+        this.f2112a = parcel.readInt();
         this.b = parcel.readString();
         this.c = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
         this.d = parcel.readString();
@@ -40,7 +40,7 @@ public class TransitResultNode implements Parcelable {
     }
 
     public int getCityId() {
-        return this.f2110a;
+        return this.f2112a;
     }
 
     public String getCityName() {
@@ -57,7 +57,7 @@ public class TransitResultNode implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f2110a);
+        parcel.writeInt(this.f2112a);
         parcel.writeString(this.b);
         parcel.writeValue(this.c);
         parcel.writeString(this.d);

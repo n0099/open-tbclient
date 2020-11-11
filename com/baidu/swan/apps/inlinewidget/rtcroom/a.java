@@ -12,31 +12,31 @@ public class a extends com.baidu.swan.apps.inlinewidget.b<com.baidu.swan.apps.in
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@NonNull com.baidu.swan.apps.inlinewidget.rtcroom.c.a aVar) {
         super(aVar);
-        atk();
-        this.cPT.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.a.d());
-        this.cPT.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.a.e());
-        this.cPT.a(new f());
-        this.cPT.a(new g());
-        this.cPT.a(new h());
-        this.cPT.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.a.a());
-        this.cPT.a(new i());
-        this.cPT.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.a.b());
-        this.cPT.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.a.c());
+        avK();
+        this.cVM.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.a.d());
+        this.cVM.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.a.e());
+        this.cVM.a(new f());
+        this.cVM.a(new g());
+        this.cVM.a(new h());
+        this.cVM.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.a.a());
+        this.cVM.a(new i());
+        this.cVM.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.a.b());
+        this.cVM.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.a.c());
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.b, com.baidu.webkit.sdk.plugin.ZeusPlugin
     public void sendCommand(ZeusPlugin.Command command) {
         String str = command == null ? "" : command.what;
-        if (((com.baidu.swan.apps.inlinewidget.rtcroom.c.a) this.cPV).XA()) {
+        if (((com.baidu.swan.apps.inlinewidget.rtcroom.c.a) this.cVO).ZZ()) {
             com.baidu.swan.apps.console.c.i("InlineRtcItemController", "isReleased command：" + str);
             return;
         }
-        com.baidu.swan.apps.console.c.i("InlineRtcItemController", "authorize type：" + ((com.baidu.swan.apps.inlinewidget.rtcroom.c.a) this.cPV).att() + " command：" + str);
+        com.baidu.swan.apps.console.c.i("InlineRtcItemController", "authorize type：" + ((com.baidu.swan.apps.inlinewidget.rtcroom.c.a) this.cVO).avT() + " command：" + str);
         super.sendCommand(command);
     }
 
-    private void atk() {
-        ((com.baidu.swan.apps.inlinewidget.rtcroom.c.a) this.cPV).a(new a.InterfaceC0436a() { // from class: com.baidu.swan.apps.inlinewidget.rtcroom.a.1
+    private void avK() {
+        ((com.baidu.swan.apps.inlinewidget.rtcroom.c.a) this.cVO).a(new a.InterfaceC0448a() { // from class: com.baidu.swan.apps.inlinewidget.rtcroom.a.1
         });
     }
 }

@@ -12,7 +12,7 @@ import com.baidu.mobstat.al;
 public class ak {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile boolean f2527a = true;
+    private static volatile boolean f2529a = true;
     private a b;
     private Activity c;
     private Handler d = new Handler(Looper.getMainLooper()) { // from class: com.baidu.mobstat.ak.1
@@ -44,11 +44,11 @@ public class ak {
         if (z) {
             an.a();
         }
-        f2527a = z;
+        f2529a = z;
     }
 
     public static boolean a() {
-        return f2527a;
+        return f2529a;
     }
 
     public void a(Activity activity) {

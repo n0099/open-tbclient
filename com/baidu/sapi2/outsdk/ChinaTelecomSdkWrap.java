@@ -21,7 +21,7 @@ import org.json.JSONObject;
 public class ChinaTelecomSdkWrap {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f3472a = 30000;
+    private static final int f3475a = 30000;
     private static final int b = 15000;
     private static final int c = 15000;
     private static String d;
@@ -36,7 +36,7 @@ public class ChinaTelecomSdkWrap {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(SapiConfiguration sapiConfiguration, String str, String str2, int i, OneKeyLoginCallback oneKeyLoginCallback) {
-        Log.i(OneKeyLoginSdkCall.f3480a, "in china telecom login pre get phone info");
+        Log.i(OneKeyLoginSdkCall.f3483a, "in china telecom login pre get phone info");
         CtAuth.getInstance().init(sapiConfiguration.context, sapiConfiguration.chinaTelecomAppKey, sapiConfiguration.chinaTelecomAppSecret, null);
         d = str2;
         a(str, str2, i, (PreLoginCallback) null, oneKeyLoginCallback);
@@ -84,7 +84,7 @@ public class ChinaTelecomSdkWrap {
             @Override // cn.com.chinatelecom.account.api.ResultListener
             public void onResult(String str3) {
                 int i2 = 0;
-                Log.i(OneKeyLoginSdkCall.f3480a, "requestPreLogin result = " + str3);
+                Log.i(OneKeyLoginSdkCall.f3483a, "requestPreLogin result = " + str3);
                 String str4 = "-1";
                 try {
                     try {
@@ -165,7 +165,7 @@ public class ChinaTelecomSdkWrap {
                     }
                     jSONObject.put("code", jSONObject2.optInt("result"));
                     SapiContext.getInstance().put("china_telecom_expired_time", 0L);
-                    Log.i(OneKeyLoginSdkCall.f3480a, "in china telecom get token: " + jSONObject.toString());
+                    Log.i(OneKeyLoginSdkCall.f3483a, "in china telecom get token: " + jSONObject.toString());
                 } catch (Exception e) {
                     Log.e(e);
                 }

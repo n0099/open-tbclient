@@ -4,26 +4,26 @@ import android.content.Context;
 /* loaded from: classes.dex */
 public class m {
     private Context context;
-    public n fhv;
-    public int fij;
-    public int fik;
-    public int fil;
-    public boolean fim;
-    public boolean fin;
-    public int fiq;
-    public int fir;
-    public int[] fit;
-    public boolean fiu;
+    public n fnp;
+    public int foc;
+    public int fod;
+    public int foe;
+    public boolean fof;
+    public boolean fog;
+    public int foi;
+    public int foj;
+    public int[] fol;
+    public boolean fom;
     public int id;
     public String name;
-    public boolean fio = true;
-    public boolean fis = false;
-    private boolean fiv = true;
+    public boolean foh = true;
+    public boolean fok = false;
+    private boolean fon = true;
 
     public m(String str, int i, int i2) {
         this.name = str;
         this.id = i;
-        this.fiq = i2;
+        this.foi = i2;
     }
 
     public m(Context context, String str, int i) {
@@ -36,7 +36,7 @@ public class m {
         this.name = str;
         this.id = i;
         this.context = context;
-        this.fiq = i2;
+        this.foi = i2;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -48,14 +48,14 @@ public class m {
         return true;
     }
 
-    public void jV(boolean z) {
+    public void ke(boolean z) {
     }
 
-    public void jW(boolean z) {
-        this.fiv = z;
+    public void kf(boolean z) {
+        this.fon = z;
     }
 
-    public boolean bxo() {
-        return this.fiv;
+    public boolean bzN() {
+        return this.fon;
     }
 }

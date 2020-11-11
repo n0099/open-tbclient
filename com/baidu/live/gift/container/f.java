@@ -17,9 +17,9 @@ import android.widget.TextView;
 import com.baidu.live.adp.lib.safe.ShowUtil;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.data.w;
-import com.baidu.live.gift.ag;
+import com.baidu.live.gift.af;
 import com.baidu.live.gift.g;
-import com.baidu.live.gift.n;
+import com.baidu.live.gift.m;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
@@ -31,16 +31,16 @@ import com.baidu.live.tbadk.statics.SdkStaticKeys;
 import com.baidu.live.tbadk.util.ScreenHelper;
 import com.baidu.live.tbadk.widget.TbImageView;
 /* loaded from: classes4.dex */
-public class f extends Dialog implements ag {
-    private w aEc;
-    private g aZo;
-    private TextView aZp;
-    private TbImageView aZq;
-    private ImageView aZr;
-    private TextView aZs;
-    private CheckBox aZt;
-    private LinearLayout aZu;
+public class f extends Dialog implements af {
+    private w aES;
     private TextView aiQ;
+    private g baH;
+    private TextView baI;
+    private TbImageView baJ;
+    private ImageView baK;
+    private TextView baL;
+    private CheckBox baM;
+    private LinearLayout baN;
     private Context mContext;
     private TextView mName;
     private TbPageContext mPageContext;
@@ -51,122 +51,130 @@ public class f extends Dialog implements ag {
         this.mContext = context;
     }
 
-    @Override // com.baidu.live.gift.ag
+    @Override // com.baidu.live.gift.af
     public void setPageContext(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
     }
 
-    @Override // com.baidu.live.gift.ag
-    public void d(w wVar) {
-        this.aEc = wVar;
+    @Override // com.baidu.live.gift.af
+    public void setLiveShowData(w wVar) {
+        this.aES = wVar;
     }
 
-    @Override // com.baidu.live.gift.ag
+    @Override // com.baidu.live.gift.af
     public void setGiftItem(g gVar) {
-        this.aZo = gVar;
+        this.baH = gVar;
     }
 
-    @Override // com.baidu.live.gift.ag
+    @Override // com.baidu.live.gift.af
     public void setOtherParams(String str) {
         this.otherParams = str;
     }
 
-    @Override // com.baidu.live.gift.ag
+    @Override // com.baidu.live.gift.af
     public void initView() {
-        setContentView(a.h.view_quick_gift_guide_panel);
+        try {
+            View findViewById = findViewById(getContext().getResources().getIdentifier("android:id/titleDivider", null, null));
+            if (findViewById != null) {
+                findViewById.setBackgroundColor(0);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        setContentView(a.g.view_quick_gift_guide_panel);
         setCancelable(true);
         setCanceledOnTouchOutside(true);
         getWindow().setBackgroundDrawableResource(17170445);
         getWindow().setSoftInputMode(16);
         resize();
-        this.aZu = (LinearLayout) findViewById(a.g.quick_gift_panel_layout);
-        this.aZq = (TbImageView) findViewById(a.g.quick_gift_icon);
-        this.aZq.setDefaultBgResource(a.f.icon_live_gift_default);
-        this.aZq.setDefaultErrorResource(a.f.icon_live_gift_default);
-        this.aZq.setAutoChangeStyle(false);
-        this.mName = (TextView) findViewById(a.g.quick_gift_name);
-        this.aiQ = (TextView) findViewById(a.g.quick_gift_desc);
-        this.aZr = (ImageView) findViewById(a.g.quick_gift_amount_icon);
-        this.aZs = (TextView) findViewById(a.g.quick_gift_amount_count);
-        if (com.baidu.live.z.e.PD().bsJ != null) {
-            this.aZq.startLoad(com.baidu.live.z.e.PD().bsJ.Gr(), 10, false);
-            if (com.baidu.live.z.e.PD().bsJ.Gp() != null) {
-                this.mName.setText(com.baidu.live.z.e.PD().bsJ.Gp().Ft());
-                this.aiQ.setText(com.baidu.live.z.e.PD().bsJ.Gp().Fu());
-                this.aZs.setText(com.baidu.live.z.e.PD().bsJ.Gp().getPrice());
+        this.baN = (LinearLayout) findViewById(a.f.quick_gift_panel_layout);
+        this.baJ = (TbImageView) findViewById(a.f.quick_gift_icon);
+        this.baJ.setDefaultBgResource(a.e.icon_live_gift_default);
+        this.baJ.setDefaultErrorResource(a.e.icon_live_gift_default);
+        this.baJ.setAutoChangeStyle(false);
+        this.mName = (TextView) findViewById(a.f.quick_gift_name);
+        this.aiQ = (TextView) findViewById(a.f.quick_gift_desc);
+        this.baK = (ImageView) findViewById(a.f.quick_gift_amount_icon);
+        this.baL = (TextView) findViewById(a.f.quick_gift_amount_count);
+        if (com.baidu.live.aa.e.Qe().bue != null) {
+            this.baJ.startLoad(com.baidu.live.aa.e.Qe().bue.GS(), 10, false);
+            if (com.baidu.live.aa.e.Qe().bue.GQ() != null) {
+                this.mName.setText(com.baidu.live.aa.e.Qe().bue.GQ().FU());
+                this.aiQ.setText(com.baidu.live.aa.e.Qe().bue.GQ().FV());
+                this.baL.setText(com.baidu.live.aa.e.Qe().bue.GQ().getPrice());
             }
         }
-        this.aZp = (TextView) findViewById(a.g.quick_gift_send);
+        this.baI = (TextView) findViewById(a.f.quick_gift_send);
         if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-            this.aZp.setBackgroundResource(a.f.ala_live_follow_btn_radius_40_selector_bd);
+            this.baI.setBackgroundResource(a.e.ala_live_follow_btn_radius_40_selector_bd);
         }
-        this.aZp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.container.f.1
+        this.baI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.container.f.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
                     AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.QUICK_GIFT_DIALOG_CLCIK);
-                    alaStaticItem.addParams("gifts_value", f.this.aZo.getPrice());
-                    alaStaticItem.addParams(SdkStaticKeys.KEY_GIFTS_ID, f.this.aZo.Fs());
-                    alaStaticItem.addParams(QMStaticKeys.KEY_QM_GIFTS_NAME, f.this.aZo.Ft());
+                    alaStaticItem.addParams("gifts_value", f.this.baH.getPrice());
+                    alaStaticItem.addParams(SdkStaticKeys.KEY_GIFTS_ID, f.this.baH.FT());
+                    alaStaticItem.addParams(QMStaticKeys.KEY_QM_GIFTS_NAME, f.this.baH.FU());
                     alaStaticItem.addParams("other_params", f.this.otherParams);
-                    if (f.this.aEc != null && f.this.aEc.mLiveInfo != null) {
-                        alaStaticItem.addParams("feed_id", f.this.aEc.mLiveInfo.feed_id);
+                    if (f.this.aES != null && f.this.aES.mLiveInfo != null) {
+                        alaStaticItem.addParams("feed_id", f.this.aES.mLiveInfo.feed_id);
                     }
                     AlaStaticsManager.getInst().onStatic(alaStaticItem);
                 }
-                n.a(f.this.mPageContext, f.this.aEc, f.this.aZo, f.this.otherParams);
-                if (f.this.aZt != null && f.this.aZt.isChecked()) {
+                m.a(f.this.mPageContext, f.this.aES, f.this.baH, f.this.otherParams);
+                if (f.this.baM != null && f.this.baM.isChecked()) {
                     com.baidu.live.d.AZ().putBoolean("quick_gift_guide_show", false);
                 }
                 f.this.dismiss();
             }
         });
-        this.aZt = (CheckBox) findViewById(a.g.quick_gift_licence);
-        this.aZt.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.live.gift.container.f.2
+        this.baM = (CheckBox) findViewById(a.f.quick_gift_licence);
+        this.baM.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.live.gift.container.f.2
             @Override // android.widget.CompoundButton.OnCheckedChangeListener
             public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-                f.this.bL(z);
+                f.this.bM(z);
             }
         });
         if (UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
-            this.aZu.setBackgroundResource(a.f.sdk_161823_radius20);
+            this.baN.setBackgroundResource(a.e.sdk_161823_radius20);
         } else {
-            this.aZu.setBackgroundResource(a.f.tab_scrollview_bg);
+            this.baN.setBackgroundResource(a.e.tab_scrollview_bg);
         }
-        HX();
+        Iy();
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
             AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.QUICK_GIFT_DIALOG_SHOW);
-            alaStaticItem.addParams("gifts_value", this.aZo.getPrice());
-            alaStaticItem.addParams(SdkStaticKeys.KEY_GIFTS_ID, this.aZo.Fs());
-            alaStaticItem.addParams(QMStaticKeys.KEY_QM_GIFTS_NAME, this.aZo.Ft());
+            alaStaticItem.addParams("gifts_value", this.baH.getPrice());
+            alaStaticItem.addParams(SdkStaticKeys.KEY_GIFTS_ID, this.baH.FT());
+            alaStaticItem.addParams(QMStaticKeys.KEY_QM_GIFTS_NAME, this.baH.FU());
             alaStaticItem.addParams("other_params", this.otherParams);
-            if (this.aEc != null && this.aEc.mLiveInfo != null) {
-                alaStaticItem.addParams("feed_id", this.aEc.mLiveInfo.feed_id);
+            if (this.aES != null && this.aES.mLiveInfo != null) {
+                alaStaticItem.addParams("feed_id", this.aES.mLiveInfo.feed_id);
             }
             AlaStaticsManager.getInst().onStatic(alaStaticItem);
         }
     }
 
-    private void HX() {
+    private void Iy() {
         TranslateAnimation translateAnimation = new TranslateAnimation(0.0f, 0.0f, BdUtilHelper.dip2px(this.mContext, 200.0f), 0.0f);
         translateAnimation.setDuration(250L);
-        this.aZu.startAnimation(translateAnimation);
+        this.baN.startAnimation(translateAnimation);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bL(boolean z) {
-        if (this.aZt != null) {
+    public void bM(boolean z) {
+        if (this.baM != null) {
             if (z) {
-                this.aZt.setCompoundDrawablesWithIntrinsicBounds(this.mContext.getResources().getDrawable(a.f.icon_live_video_choose_s), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.baM.setCompoundDrawablesWithIntrinsicBounds(this.mContext.getResources().getDrawable(a.e.icon_live_video_choose_s), (Drawable) null, (Drawable) null, (Drawable) null);
             } else {
-                this.aZt.setCompoundDrawablesWithIntrinsicBounds(this.mContext.getResources().getDrawable(a.f.icon_live_video_choose_n), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.baM.setCompoundDrawablesWithIntrinsicBounds(this.mContext.getResources().getDrawable(a.e.icon_live_video_choose_n), (Drawable) null, (Drawable) null, (Drawable) null);
             }
         }
     }
 
-    @Override // com.baidu.live.gift.ag
+    @Override // com.baidu.live.gift.af
     public void resize() {
-        int screenWidth = n.getScreenWidth(this.mContext);
+        int screenWidth = m.getScreenWidth(this.mContext);
         int realScreenHeight = ScreenHelper.getRealScreenHeight(this.mContext);
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
         if (UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
@@ -179,7 +187,7 @@ public class f extends Dialog implements ag {
         getWindow().setAttributes(attributes);
     }
 
-    @Override // android.app.Dialog, com.baidu.live.gift.ag
+    @Override // android.app.Dialog, com.baidu.live.gift.af
     public void show() {
         super.show();
         ShowUtil.windowCount++;
@@ -193,12 +201,12 @@ public class f extends Dialog implements ag {
         }
     }
 
-    @Override // android.app.Dialog, com.baidu.live.gift.ag
+    @Override // android.app.Dialog, com.baidu.live.gift.af
     public boolean isShowing() {
         return super.isShowing();
     }
 
-    @Override // android.app.Dialog, com.baidu.live.gift.ag
+    @Override // android.app.Dialog, com.baidu.live.gift.af
     public void setOnDismissListener(@Nullable DialogInterface.OnDismissListener onDismissListener) {
         super.setOnDismissListener(onDismissListener);
     }

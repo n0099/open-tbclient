@@ -14,7 +14,7 @@ public class a {
 
     public static void d(Application application) {
         if (aAe == null) {
-            aAe = new C0169a();
+            aAe = new C0170a();
         }
         application.registerActivityLifecycleCallbacks(aAe);
     }
@@ -37,17 +37,17 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.live.activity.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0169a implements Application.ActivityLifecycleCallbacks {
+    public static class C0170a implements Application.ActivityLifecycleCallbacks {
         private n aAf;
         private CustomMessageListener aAg;
 
-        private C0169a() {
+        private C0170a() {
             this.aAg = new CustomMessageListener(2913191) { // from class: com.baidu.live.activity.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (C0169a.this.aAf != null) {
-                        C0169a.this.aAf.Lw();
+                    if (C0170a.this.aAf != null) {
+                        C0170a.this.aAf.LW();
                     }
                 }
             };
@@ -88,7 +88,7 @@ public class a {
         public void onActivityDestroyed(Activity activity) {
             if (a.p(activity)) {
                 if (this.aAf != null) {
-                    this.aAf.hD(String.valueOf(activity.hashCode()));
+                    this.aAf.hK(String.valueOf(activity.hashCode()));
                 }
                 MessageManager.getInstance().unRegisterListener(this.aAg);
             }

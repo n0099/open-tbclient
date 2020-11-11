@@ -1,21 +1,21 @@
 package com.baidu.tbadk.coreExtra.data;
 /* loaded from: classes.dex */
 public class l {
-    public static int eWP = 0;
-    public static int eWQ = 1;
-    public static int eWR = 2;
+    public static int fcF = 0;
+    public static int fcG = 1;
+    public static int fcH = 2;
     private String alT;
-    private int eWS;
-    private String eWT;
-    private String eWU;
+    private int fcI;
+    private String fcJ;
+    private String fcK;
     private String mIcon;
 
-    public int bsd() {
-        return this.eWS;
+    public int buD() {
+        return this.fcI;
     }
 
-    public void qt(int i) {
-        this.eWS = i;
+    public void qD(int i) {
+        this.fcI = i;
     }
 
     public String getIcon() {
@@ -26,20 +26,20 @@ public class l {
         this.mIcon = str;
     }
 
-    public String bse() {
-        return this.eWT;
+    public String buE() {
+        return this.fcJ;
     }
 
     public void setTabCode(String str) {
-        this.eWT = str;
+        this.fcJ = str;
     }
 
     public String getPopText() {
-        return this.eWU;
+        return this.fcK;
     }
 
-    public void Cv(String str) {
-        this.eWU = str;
+    public void CJ(String str) {
+        this.fcK = str;
     }
 
     public String getTid() {

@@ -8,21 +8,21 @@ import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes18.dex */
 public class ae implements aj<com.facebook.imagepipeline.g.e> {
-    private final com.facebook.common.memory.a oCc;
-    private final com.facebook.common.memory.g oKc;
-    private final af oMa;
+    private final com.facebook.common.memory.a oLv;
+    private final com.facebook.common.memory.g oTv;
+    private final af oVt;
 
     public ae(com.facebook.common.memory.g gVar, com.facebook.common.memory.a aVar, af afVar) {
-        this.oKc = gVar;
-        this.oCc = aVar;
-        this.oMa = afVar;
+        this.oTv = gVar;
+        this.oLv = aVar;
+        this.oVt = afVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        akVar.eng().gX(akVar.getId(), "NetworkFetchProducer");
-        final t b = this.oMa.b(kVar, akVar);
-        this.oMa.a((af) b, new af.a() { // from class: com.facebook.imagepipeline.producers.ae.1
+        akVar.eqW().gZ(akVar.getId(), "NetworkFetchProducer");
+        final t b = this.oVt.b(kVar, akVar);
+        this.oVt.a((af) b, new af.a() { // from class: com.facebook.imagepipeline.producers.ae.1
             @Override // com.facebook.imagepipeline.producers.af.a
             public void f(InputStream inputStream, int i) throws IOException {
                 ae.this.a(b, inputStream, i);
@@ -34,70 +34,70 @@ public class ae implements aj<com.facebook.imagepipeline.g.e> {
             }
 
             @Override // com.facebook.imagepipeline.producers.af.a
-            public void egk() {
+            public void ejZ() {
                 ae.this.b(b);
             }
         });
     }
 
     protected void a(t tVar, InputStream inputStream, int i) throws IOException {
-        com.facebook.common.memory.i egw;
+        com.facebook.common.memory.i ekl;
         if (i > 0) {
-            egw = this.oKc.NX(i);
+            ekl = this.oTv.Os(i);
         } else {
-            egw = this.oKc.egw();
+            ekl = this.oTv.ekl();
         }
-        byte[] bArr = this.oCc.get(16384);
+        byte[] bArr = this.oLv.get(16384);
         while (true) {
             try {
                 int read = inputStream.read(bArr);
                 if (read >= 0) {
                     if (read > 0) {
-                        egw.write(bArr, 0, read);
-                        a(egw, tVar);
-                        tVar.enr().aL(dY(egw.size(), i));
+                        ekl.write(bArr, 0, read);
+                        a(ekl, tVar);
+                        tVar.erh().aN(eb(ekl.size(), i));
                     }
                 } else {
-                    this.oMa.b((af) tVar, egw.size());
-                    b(egw, tVar);
+                    this.oVt.b((af) tVar, ekl.size());
+                    b(ekl, tVar);
                     return;
                 }
             } finally {
-                this.oCc.release(bArr);
-                egw.close();
+                this.oLv.release(bArr);
+                ekl.close();
             }
         }
     }
 
-    protected static float dY(int i, int i2) {
+    protected static float eb(int i, int i2) {
         return i2 > 0 ? i / i2 : 1.0f - ((float) Math.exp((-i) / 50000.0d));
     }
 
     protected void a(com.facebook.common.memory.i iVar, t tVar) {
         long uptimeMillis = SystemClock.uptimeMillis();
-        if (c(tVar) && uptimeMillis - tVar.ent() >= 100) {
-            tVar.ht(uptimeMillis);
-            tVar.eng().aN(tVar.getId(), "NetworkFetchProducer", "intermediate_result");
-            a(iVar, tVar.enu(), tVar.env(), tVar.enr());
+        if (c(tVar) && uptimeMillis - tVar.erj() >= 100) {
+            tVar.hP(uptimeMillis);
+            tVar.eqW().aO(tVar.getId(), "NetworkFetchProducer", "intermediate_result");
+            a(iVar, tVar.erk(), tVar.erl(), tVar.erh());
         }
     }
 
     protected void b(com.facebook.common.memory.i iVar, t tVar) {
         Map<String, String> a2 = a(tVar, iVar.size());
-        am eng = tVar.eng();
-        eng.a(tVar.getId(), "NetworkFetchProducer", a2);
-        eng.G(tVar.getId(), "NetworkFetchProducer", true);
-        a(iVar, tVar.enu() | 1, tVar.env(), tVar.enr());
+        am eqW = tVar.eqW();
+        eqW.a(tVar.getId(), "NetworkFetchProducer", a2);
+        eqW.H(tVar.getId(), "NetworkFetchProducer", true);
+        a(iVar, tVar.erk() | 1, tVar.erl(), tVar.erh());
     }
 
     private void a(com.facebook.common.memory.i iVar, int i, @Nullable com.facebook.imagepipeline.common.a aVar, k<com.facebook.imagepipeline.g.e> kVar) {
         com.facebook.imagepipeline.g.e eVar;
-        com.facebook.common.references.a e = com.facebook.common.references.a.e(iVar.egx());
+        com.facebook.common.references.a e = com.facebook.common.references.a.e(iVar.ekm());
         try {
             eVar = new com.facebook.imagepipeline.g.e(e);
             try {
                 eVar.b(aVar);
-                eVar.emj();
+                eVar.eqa();
                 kVar.h(eVar, i);
                 com.facebook.imagepipeline.g.e.e(eVar);
                 com.facebook.common.references.a.c(e);
@@ -115,28 +115,28 @@ public class ae implements aj<com.facebook.imagepipeline.g.e> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(t tVar, Throwable th) {
-        tVar.eng().a(tVar.getId(), "NetworkFetchProducer", th, (Map<String, String>) null);
-        tVar.eng().G(tVar.getId(), "NetworkFetchProducer", false);
-        tVar.enr().E(th);
+        tVar.eqW().a(tVar.getId(), "NetworkFetchProducer", th, (Map<String, String>) null);
+        tVar.eqW().H(tVar.getId(), "NetworkFetchProducer", false);
+        tVar.erh().E(th);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(t tVar) {
-        tVar.eng().b(tVar.getId(), "NetworkFetchProducer", null);
-        tVar.enr().egk();
+        tVar.eqW().b(tVar.getId(), "NetworkFetchProducer", null);
+        tVar.erh().ejZ();
     }
 
     private boolean c(t tVar) {
-        if (tVar.ens().enk()) {
-            return this.oMa.a(tVar);
+        if (tVar.eri().era()) {
+            return this.oVt.a(tVar);
         }
         return false;
     }
 
     @Nullable
     private Map<String, String> a(t tVar, int i) {
-        if (tVar.eng().XI(tVar.getId())) {
-            return this.oMa.a((af) tVar, i);
+        if (tVar.eqW().Ym(tVar.getId())) {
+            return this.oVt.a((af) tVar, i);
         }
         return null;
     }

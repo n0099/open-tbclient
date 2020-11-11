@@ -21,16 +21,16 @@ public class h extends com.baidu.swan.apps.api.a.d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b kP(String str) {
+    public com.baidu.swan.apps.api.c.b le(String str) {
         if (DEBUG) {
             Log.d("Api-ToastApi", "handle: " + str);
         }
-        if (aha()) {
+        if (ajA()) {
             com.baidu.swan.apps.console.c.e("Api-ToastApi", "Api-ToastApi does not supported when app is invisible.");
             return new com.baidu.swan.apps.api.c.b(1001, "Api-ToastApi does not supported when app is invisible.");
         }
-        com.baidu.swan.apps.runtime.e aEV = com.baidu.swan.apps.runtime.e.aEV();
-        if (aEV == null) {
+        com.baidu.swan.apps.runtime.e aHv = com.baidu.swan.apps.runtime.e.aHv();
+        if (aHv == null) {
             return new com.baidu.swan.apps.api.c.b(1001, "SwanApp is null");
         }
         Pair<com.baidu.swan.apps.api.c.b, JSONObject> bj = com.baidu.swan.apps.api.d.b.bj("Api-ToastApi", str);
@@ -44,7 +44,7 @@ public class h extends com.baidu.swan.apps.api.a.d {
         }
         JSONObject jSONObject = (JSONObject) bj.second;
         String optString = jSONObject.optString("type", "1");
-        final int aG = aG(jSONObject);
+        final int aM = aM(jSONObject);
         final String optString2 = jSONObject.optString("message");
         if (TextUtils.isEmpty(optString2)) {
             com.baidu.swan.apps.console.c.e("Api-ToastApi", "message is null");
@@ -52,7 +52,7 @@ public class h extends com.baidu.swan.apps.api.a.d {
         }
         final boolean optBoolean = jSONObject.optBoolean("mask");
         String optString3 = jSONObject.optString("image", "-1");
-        final Drawable a2 = a(getContext(), optString3, aEV);
+        final Drawable a2 = a(getContext(), optString3, aHv);
         if (DEBUG) {
             Log.e("Api-ToastApi", "imagepath = " + optString3);
         }
@@ -93,7 +93,7 @@ public class h extends com.baidu.swan.apps.api.a.d {
                 ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.h.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        h.this.b(h.this.getContext(), optString2, aG, optBoolean);
+                        h.this.b(h.this.getContext(), optString2, aM, optBoolean);
                     }
                 });
                 break;
@@ -101,7 +101,7 @@ public class h extends com.baidu.swan.apps.api.a.d {
                 ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.h.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        h.this.a(h.this.getContext(), optString2, aG, a2, optBoolean);
+                        h.this.a(h.this.getContext(), optString2, aM, a2, optBoolean);
                     }
                 });
                 break;
@@ -109,7 +109,7 @@ public class h extends com.baidu.swan.apps.api.a.d {
                 ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.h.3
                     @Override // java.lang.Runnable
                     public void run() {
-                        h.this.c(h.this.getContext(), optString2, aG, optBoolean);
+                        h.this.c(h.this.getContext(), optString2, aM, optBoolean);
                     }
                 });
                 break;
@@ -117,22 +117,22 @@ public class h extends com.baidu.swan.apps.api.a.d {
                 ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.h.4
                     @Override // java.lang.Runnable
                     public void run() {
-                        h.this.b(h.this.getContext(), optString2, aG, optString5, optString4);
+                        h.this.b(h.this.getContext(), optString2, aM, optString5, optString4);
                     }
                 });
                 break;
             default:
-                ahm();
+                ajM();
                 return new com.baidu.swan.apps.api.c.b(302, "the toast type is unknown");
         }
         return new com.baidu.swan.apps.api.c.b(0);
     }
 
-    public com.baidu.swan.apps.api.c.b ahl() {
+    public com.baidu.swan.apps.api.c.b ajL() {
         if (DEBUG) {
             Log.d("Api-ToastApi", "handle");
         }
-        if (com.baidu.swan.apps.runtime.e.aEV() == null) {
+        if (com.baidu.swan.apps.runtime.e.aHv() == null) {
             return new com.baidu.swan.apps.api.c.b(1001, "SwanApp is null");
         }
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.h.5
@@ -146,7 +146,7 @@ public class h extends com.baidu.swan.apps.api.a.d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(Context context, @NonNull String str, int i, @NonNull String str2, final String str3) {
-        com.baidu.swan.apps.res.widget.b.d.ct(context).h(str).i(str2).kc(i).b(new d.a() { // from class: com.baidu.swan.apps.api.module.e.h.6
+        com.baidu.swan.apps.res.widget.b.d.ct(context).h(str).i(str2).km(i).b(new d.a() { // from class: com.baidu.swan.apps.api.module.e.h.6
             @Override // com.baidu.swan.apps.res.widget.b.d.a
             public void onToastClick() {
                 if (!TextUtils.isEmpty(str3)) {
@@ -158,34 +158,34 @@ public class h extends com.baidu.swan.apps.api.a.d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(Context context, @NonNull String str, int i, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, str).kc(i).gq(z).jY(2).showToast();
+        com.baidu.swan.apps.res.widget.b.d.a(context, str).km(i).gz(z).ki(2).showToast();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, @NonNull String str, int i, Drawable drawable, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, J(str, 14)).d(drawable).kc(i).gq(z).showHighlightToast();
+        com.baidu.swan.apps.res.widget.b.d.a(context, L(str, 14)).d(drawable).km(i).gz(z).showHighlightToast();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(Context context, @NonNull String str, int i, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, J(str, 14)).kc(i).gq(z).showHighLoadingToast();
+        com.baidu.swan.apps.res.widget.b.d.a(context, L(str, 14)).km(i).gz(z).showHighLoadingToast();
     }
 
-    private void ahm() {
+    private void ajM() {
         if (DEBUG) {
             Log.w("Api-ToastApi", "the toast type is unknown");
         }
     }
 
-    public static int aG(JSONObject jSONObject) {
-        int kQ = kQ(jSONObject.optString("time")) / 1000;
-        if (kQ <= 0) {
+    public static int aM(JSONObject jSONObject) {
+        int lf = lf(jSONObject.optString("time")) / 1000;
+        if (lf <= 0) {
             return 2;
         }
-        return kQ;
+        return lf;
     }
 
-    public static String J(String str, int i) {
+    public static String L(String str, int i) {
         return b(str, i, false);
     }
 
@@ -225,7 +225,7 @@ public class h extends com.baidu.swan.apps.api.a.d {
         return stringBuffer.toString();
     }
 
-    private static int kQ(String str) {
+    private static int lf(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
@@ -244,16 +244,16 @@ public class h extends com.baidu.swan.apps.api.a.d {
         if (DEBUG) {
             Log.e("Api-ToastApi", "imagePath = " + str);
         }
-        ExifInterface kR = kR(str);
-        if (kR == null) {
+        ExifInterface lg = lg(str);
+        if (lg == null) {
             if (DEBUG) {
                 Log.e("Api-ToastApi", "exifInterface is null");
                 return null;
             }
             return null;
         }
-        int intValue = Integer.valueOf(kR.getAttribute(android.support.media.ExifInterface.TAG_IMAGE_WIDTH)).intValue();
-        int intValue2 = Integer.valueOf(kR.getAttribute(android.support.media.ExifInterface.TAG_IMAGE_LENGTH)).intValue();
+        int intValue = Integer.valueOf(lg.getAttribute(android.support.media.ExifInterface.TAG_IMAGE_WIDTH)).intValue();
+        int intValue2 = Integer.valueOf(lg.getAttribute(android.support.media.ExifInterface.TAG_IMAGE_LENGTH)).intValue();
         if (DEBUG) {
             Log.e("Api-ToastApi", "width = " + intValue + "， height = " + intValue2);
         }
@@ -277,7 +277,7 @@ public class h extends com.baidu.swan.apps.api.a.d {
         return bitmapDrawable;
     }
 
-    private static ExifInterface kR(String str) {
+    private static ExifInterface lg(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

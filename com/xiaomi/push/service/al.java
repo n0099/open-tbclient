@@ -19,7 +19,7 @@ public class al {
                 i = 1;
                 break;
         }
-        return akVar.f844a.getInt(a2, i);
+        return akVar.f846a.getInt(a2, i);
     }
 
     private static String a(hs hsVar) {
@@ -36,7 +36,7 @@ public class al {
             int a2 = hxVar.a();
             ht a3 = ht.a(hxVar.b());
             if (a3 != null) {
-                if (z && hxVar.f480a) {
+                if (z && hxVar.f482a) {
                     arrayList.add(new Pair(Integer.valueOf(a2), null));
                 } else {
                     switch (a3) {
@@ -64,7 +64,7 @@ public class al {
     }
 
     public static void a(ak akVar, hs hsVar, int i) {
-        akVar.f844a.edit().putInt(a(hsVar), i).commit();
+        akVar.f846a.edit().putInt(a(hsVar), i).commit();
     }
 
     public static void a(ak akVar, ij ijVar) {
@@ -76,7 +76,7 @@ public class al {
         for (hv hvVar : ikVar.a()) {
             if (hvVar.a() > a(akVar, hvVar.m358a())) {
                 a(akVar, hvVar.m358a(), hvVar.a());
-                akVar.a(a(hvVar.f472a, false));
+                akVar.a(a(hvVar.f474a, false));
             }
         }
         akVar.b();

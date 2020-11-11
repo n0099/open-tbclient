@@ -32,37 +32,37 @@ import kotlin.Pair;
 import org.webrtc.MediaStreamTrack;
 /* loaded from: classes4.dex */
 public class d implements e {
-    private boolean ing;
-    private b inh;
+    private boolean ite;
+    private b itf;
     private View mContentView;
     private Context mContext;
     protected UniversalPlayer mPlayer = null;
-    protected Config inb = new Config();
-    private int diD = 167;
-    private int inc = 94;
-    private int ind = 0;
-    private a ine = new a();
-    protected String inf = null;
+    protected Config isZ = new Config();
+    private int doy = 167;
+    private int ita = 94;
+    private int itb = 0;
+    private a itc = new a();
+    protected String itd = null;
 
     /* loaded from: classes4.dex */
     public interface b {
-        boolean crp();
+        boolean ctQ();
     }
 
-    public static boolean Np() {
+    public static boolean NP() {
         return OverlayPermissionCheck.INSTANCE.hasPermission(BDPlayerConfig.getAppContext());
     }
 
     public d(Context context) {
-        this.inb.setSize(new Pair<>(Integer.valueOf(this.diD), Integer.valueOf(this.inc)));
-        this.inb.setLocation(new Pair<>(15, 57));
-        this.inb.setShadow(this.ind);
+        this.isZ.setSize(new Pair<>(Integer.valueOf(this.doy), Integer.valueOf(this.ita)));
+        this.isZ.setLocation(new Pair<>(15, 57));
+        this.isZ.setShadow(this.itb);
         this.mContext = context;
     }
 
     @Override // com.baidu.searchbox.floating.IFloating
     public void onCreate() {
-        if (!this.ing) {
+        if (!this.ite) {
             d(MissionEvent.MESSAGE_CREATE);
         }
     }
@@ -76,21 +76,21 @@ public class d implements e {
         if (this.mPlayer != null) {
             this.mPlayer.setPlayerMode(PlayerConstant.HALF_MODE);
         }
-        if (this.inh == null || this.inh.crp()) {
+        if (this.itf == null || this.itf.ctQ()) {
         }
     }
 
-    public void SW() {
+    public void VC() {
         if (this.mPlayer != null) {
             this.mPlayer.setPlayerMode(PlayerConstant.HALF_MODE);
         }
         dismiss(true);
     }
 
-    public void crs() {
+    public void ctT() {
         if (this.mPlayer != null) {
-            this.ing = true;
-            this.inf = this.mPlayer.getCurrentMode();
+            this.ite = true;
+            this.itd = this.mPlayer.getCurrentMode();
             this.mPlayer.setPlayerMode(PlayerConstant.FLOATING_MODE);
             if (this.mPlayer instanceof BDVideoPlayer) {
                 this.mPlayer.sendEvent(LayerEvent.obtainEvent(LayerEvent.ACTION_SWITCH_FLOATING));
@@ -98,14 +98,14 @@ public class d implements e {
             final LayerContainer layerContainer = this.mPlayer.getLayerContainer();
             int measuredWidth = layerContainer.getMeasuredWidth();
             int measuredHeight = layerContainer.getMeasuredHeight();
-            float max = Math.max(this.inb.getSize().getFirst().intValue(), this.inb.getSize().getSecond().intValue()) / Math.max(measuredWidth, measuredHeight);
+            float max = Math.max(this.isZ.getSize().getFirst().intValue(), this.isZ.getSize().getSecond().intValue()) / Math.max(measuredWidth, measuredHeight);
             int i = (int) (measuredWidth * max);
             int i2 = (int) (max * measuredHeight);
             if (i <= 0 || i2 <= 0) {
-                i = this.diD;
-                i2 = this.inc;
+                i = this.doy;
+                i2 = this.ita;
             }
-            this.inb.setSize(new Pair<>(Integer.valueOf(i), Integer.valueOf(i2)));
+            this.isZ.setSize(new Pair<>(Integer.valueOf(i), Integer.valueOf(i2)));
             if (isDebug()) {
                 Log.d("FloatingPlayerContext", "switchToFloating ...");
             }
@@ -115,7 +115,7 @@ public class d implements e {
                     Context context = layerContainer.getContext();
                     FrameLayout frameLayout = new FrameLayout(context);
                     frameLayout.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
-                    FloatView.with(context).setConfig(d.this.inb).bindContext(d.this).setFloatingView(frameLayout).addFloatListener(d.this.ine).show();
+                    FloatView.with(context).setConfig(d.this.isZ).bindContext(d.this).setFloatingView(frameLayout).addFloatListener(d.this.itc).show();
                 }
             });
         }
@@ -123,37 +123,37 @@ public class d implements e {
 
     @Override // com.baidu.searchbox.floating.IFloating
     public void setDefaultSize(int i, int i2) {
-        this.inb.setSize(new Pair<>(Integer.valueOf(i), Integer.valueOf(i2)));
+        this.isZ.setSize(new Pair<>(Integer.valueOf(i), Integer.valueOf(i2)));
     }
 
     @Override // com.baidu.searchbox.floating.IFloating
     public void setBlockOffset(int i, int i2, int i3, int i4) {
-        this.inb.setBlockOffset(new Rect(i, i2, i3, i4));
+        this.isZ.setBlockOffset(new Rect(i, i2, i3, i4));
     }
 
     @Override // com.baidu.searchbox.floating.IFloating
     public void setAnimator(FloatViewAnimator floatViewAnimator) {
-        this.inb.setAnimator(floatViewAnimator);
+        this.isZ.setAnimator(floatViewAnimator);
     }
 
     @Override // com.baidu.searchbox.floating.IFloating
     public void startForeground(Notification notification) {
-        this.inb.setNotification(notification);
+        this.isZ.setNotification(notification);
     }
 
     @Override // com.baidu.searchbox.floating.IFloating
     public void setDragEnable(boolean z) {
-        this.inb.setCanDrag(z);
+        this.isZ.setCanDrag(z);
     }
 
     @Override // com.baidu.searchbox.floating.IFloating
     public void setLocation(int i, int i2) {
-        this.inb.setLocation(new Pair<>(Integer.valueOf(i), Integer.valueOf(i2)));
+        this.isZ.setLocation(new Pair<>(Integer.valueOf(i), Integer.valueOf(i2)));
     }
 
     @Override // com.baidu.searchbox.floating.IFloating
     public void addFloatListener(FloatViewListener floatViewListener) {
-        this.inb.getFloatViewListeners().add(floatViewListener);
+        this.isZ.getFloatViewListeners().add(floatViewListener);
     }
 
     @Override // com.baidu.searchbox.floating.IFloating
@@ -163,11 +163,11 @@ public class d implements e {
 
     @Override // com.baidu.searchbox.floating.IFloating
     public void dismiss(boolean z) {
-        this.ing = false;
+        this.ite = false;
         if (hasFloatingView()) {
             Context context = null;
-            if (this.inb.getFloatingView() != null) {
-                context = this.inb.getFloatingView().getContext();
+            if (this.isZ.getFloatingView() != null) {
+                context = this.isZ.getFloatingView().getContext();
             }
             FloatView.dismissAppFloatView(context, z);
         }
@@ -181,7 +181,7 @@ public class d implements e {
     @Override // com.baidu.searchbox.floating.IFloating
     public boolean nextScale() {
         Pair pair;
-        Pair<ScaleMode, ScaleMode> scaleMode = this.inb.getScaleMode();
+        Pair<ScaleMode, ScaleMode> scaleMode = this.isZ.getScaleMode();
         if (scaleMode.getFirst().ordinal() < scaleMode.getSecond().ordinal()) {
             pair = new Pair(scaleMode.getSecond(), scaleMode.getSecond().next());
         } else if (scaleMode.getFirst().ordinal() == scaleMode.getSecond().ordinal()) {
@@ -189,20 +189,20 @@ public class d implements e {
         } else {
             pair = scaleMode.getFirst().ordinal() > scaleMode.getSecond().ordinal() ? new Pair(scaleMode.getSecond(), scaleMode.getSecond().pre()) : null;
         }
-        this.inb.setScaleMode(pair);
+        this.isZ.setScaleMode(pair);
         if (hasFloatingView()) {
             FloatView.Companion.invalidate(FloatView.Companion.getAppContentView() != null ? FloatView.Companion.getAppContentView().getContext() : null);
         }
-        return crt();
+        return ctU();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean crt() {
-        if (this.inb.getScaleMode().getSecond() == ScaleMode.S) {
+    public boolean ctU() {
+        if (this.isZ.getScaleMode().getSecond() == ScaleMode.S) {
             return true;
         }
-        if (this.inb.getScaleMode().getSecond() != ScaleMode.L && this.inb.getScaleMode().getFirst() != ScaleMode.L) {
-            if (this.inb.getScaleMode().getFirst() == ScaleMode.S) {
+        if (this.isZ.getScaleMode().getSecond() != ScaleMode.L && this.isZ.getScaleMode().getFirst() != ScaleMode.L) {
+            if (this.isZ.getScaleMode().getFirst() == ScaleMode.S) {
             }
             return true;
         }
@@ -211,7 +211,7 @@ public class d implements e {
 
     @Override // com.baidu.searchbox.floating.IFloating
     public void reverse(boolean z) {
-        this.inb.setReverse(z);
+        this.isZ.setReverse(z);
     }
 
     @Override // com.baidu.searchbox.player.context.IPlayerContext
@@ -221,7 +221,7 @@ public class d implements e {
 
     @Override // com.baidu.searchbox.floating.IFloating
     public void setScaleMode(Pair<? extends ScaleMode, ? extends ScaleMode> pair) {
-        this.inb.setScaleMode(pair);
+        this.isZ.setScaleMode(pair);
     }
 
     public void setContext(Context context) {
@@ -233,7 +233,7 @@ public class d implements e {
     }
 
     public void a(b bVar) {
-        this.inh = bVar;
+        this.itf = bVar;
     }
 
     /* loaded from: classes4.dex */
@@ -246,7 +246,7 @@ public class d implements e {
             if (d.this.isDebug()) {
                 Log.d("FloatingPlayerContext", "onViewCreate1");
             }
-            if (d.this.ing) {
+            if (d.this.ite) {
                 if (d.this.isDebug()) {
                     Log.d("FloatingPlayerContext", "onViewCreate1= " + z + ", view=" + view + " mPlayer=" + (d.this.mPlayer == null ? "null" : Boolean.valueOf(d.this.mPlayer.isPlaying())));
                 }
@@ -277,14 +277,14 @@ public class d implements e {
                             liveFloatOperateView2.setScaleMode(!d.this.nextScale());
                         }
                     });
-                    liveFloatOperateView.setScaleMode(!d.this.crt());
+                    liveFloatOperateView.setScaleMode(!d.this.ctU());
                     if (liveFloatOperateView.getParent() != null) {
                         ((ViewGroup) liveFloatOperateView.getParent()).removeView(liveFloatOperateView);
                     }
                     viewGroup.addView(liveFloatOperateView);
                     viewGroup.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
                 }
-                if (!d.this.ing) {
+                if (!d.this.ite) {
                     d.this.d("onViewCreate");
                     return;
                 }
@@ -298,7 +298,7 @@ public class d implements e {
             if (d.this.mPlayer != null) {
                 d.this.mPlayer.getStatDispatcher().onFloatingDismiss(a(scaleMode), point);
             }
-            if (!d.this.ing) {
+            if (!d.this.ite) {
                 d.this.d("onDismiss");
             }
         }
@@ -322,7 +322,7 @@ public class d implements e {
             if (d.this.mPlayer != null && d.this.mPlayer.isFloatingMode() && !d.this.fm(view.getContext())) {
                 d.this.mPlayer.resume();
             }
-            if (!d.this.ing) {
+            if (!d.this.ite) {
                 d.this.d("onViewShow");
             }
         }
@@ -332,7 +332,7 @@ public class d implements e {
             if (d.this.mPlayer != null && d.this.mPlayer.isFloatingMode()) {
                 d.this.mPlayer.pause();
             }
-            if (!d.this.ing) {
+            if (!d.this.ite) {
                 d.this.d("onViewHide");
             }
         }
@@ -357,8 +357,8 @@ public class d implements e {
         return audioManager != null && audioManager.isMusicActive();
     }
 
-    public boolean cru() {
-        return this.ing;
+    public boolean ctV() {
+        return this.ite;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -1,8 +1,10 @@
 package com.baidu.android.imrtc.msg;
 
 import com.baidu.android.imrtc.BIMRtcInfo;
+import com.baidu.android.imrtc.notify.BIMKickReqSyncRtcInfo;
+import com.baidu.android.imrtc.notify.BIMKickResSyncRtcInfo;
 import com.baidu.android.imrtc.utils.RtcConstants;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public interface BIMRtcListener {
     void fetchRoomSignal(boolean z, BIMRtcInfo bIMRtcInfo);
 
@@ -24,5 +26,9 @@ public interface BIMRtcListener {
 
     void roomEventByMySelf(RtcConstants.RoomEventType roomEventType, BIMRtcInfo bIMRtcInfo);
 
+    void roomEventKickedStatusByKickedUser(BIMKickResSyncRtcInfo bIMKickResSyncRtcInfo);
+
     void roomEventSyncByOthers(RtcConstants.RoomEventType roomEventType, BIMRtcInfo bIMRtcInfo);
+
+    int roomKickedUserFromKickerSync(BIMKickReqSyncRtcInfo bIMKickReqSyncRtcInfo);
 }

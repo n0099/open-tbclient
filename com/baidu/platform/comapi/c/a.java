@@ -12,14 +12,14 @@ import java.util.HashMap;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private NANetworkDetect f2854a;
+    private NANetworkDetect f2856a;
 
     /* renamed from: com.baidu.platform.comapi.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    private static final class C0268a {
+    private static final class C0280a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final a f2855a = new a(null);
+        private static final a f2857a = new a(null);
     }
 
     private a() {
@@ -30,15 +30,15 @@ public class a {
     }
 
     public static a a() {
-        return C0268a.f2855a;
+        return C0280a.f2857a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str) {
         Log.d("NetworkLogic", "NetworkDetect");
-        if (this.f2854a == null) {
-            this.f2854a = new NANetworkDetect();
-            this.f2854a.create();
+        if (this.f2856a == null) {
+            this.f2856a = new NANetworkDetect();
+            this.f2856a.create();
         }
         String currentNetMode = NetworkUtil.getCurrentNetMode(com.baidu.platform.comapi.b.e());
         HashMap hashMap = new HashMap();
@@ -46,7 +46,7 @@ public class a {
         com.baidu.platform.comapi.e.a.a().a("update_net", hashMap);
         k.a(com.baidu.platform.comapi.b.e());
         SysOSUtil.getInstance().updateNetType(currentNetMode);
-        if (this.f2854a != null) {
+        if (this.f2856a != null) {
             try {
                 JsonBuilder jsonBuilder = new JsonBuilder();
                 jsonBuilder.object();
@@ -59,7 +59,7 @@ public class a {
                 jsonBuilder.key("telecomtype").value(networkOperatorType);
                 jsonBuilder.key("triggerType").value(str);
                 jsonBuilder.endObject();
-                this.f2854a.a(jsonBuilder.toString());
+                this.f2856a.a(jsonBuilder.toString());
                 hashMap.put("telcomtype", String.valueOf(networkOperatorType));
                 com.baidu.platform.comapi.e.a.a().a("net_detect", hashMap);
             } catch (Exception e2) {

@@ -53,16 +53,16 @@ public class BjhArticleLayout extends RelativeLayout implements View.OnClickList
     /* renamed from: b */
     public void H(AbsThreadDataSupport absThreadDataSupport) {
         this.afI = absThreadDataSupport;
-        bw bhz = absThreadDataSupport.bhz();
-        if (bhz.isShareThread && bhz.eAy != null) {
-            if (bhz.eAy.euX) {
+        bw bjZ = absThreadDataSupport.bjZ();
+        if (bjZ.isShareThread && bjZ.eGn != null) {
+            if (bjZ.eGn.eAQ) {
                 setVisibility(8);
                 return;
             }
-            bhz = bhz.eAy.biB();
+            bjZ = bjZ.eGn.blb();
         }
-        this.mTitle.setText(bhz.getTitle());
-        if (StringUtils.isNull(bhz.blY())) {
+        this.mTitle.setText(bjZ.getTitle());
+        if (StringUtils.isNull(bjZ.boy())) {
             this.ajb.setVisibility(8);
             this.ajc.setVisibility(8);
             this.ajd.setVisibility(8);
@@ -70,9 +70,9 @@ public class BjhArticleLayout extends RelativeLayout implements View.OnClickList
             this.ajb.setVisibility(0);
             this.ajc.setVisibility(0);
             this.ajd.setVisibility(0);
-            this.ajc.startLoad(bhz.blY(), 10, false);
+            this.ajc.startLoad(bjZ.boy(), 10, false);
         }
-        n.a(this.mTitle, bhz.getId(), this.ajc.getVisibility() == 0 ? R.color.cp_cont_a : R.color.cp_cont_b, R.color.cp_cont_d);
+        n.a(this.mTitle, bjZ.getId(), this.ajc.getVisibility() == 0 ? R.color.cp_cont_a : R.color.cp_cont_b, R.color.cp_cont_d);
     }
 
     private void initUI() {
@@ -126,11 +126,11 @@ public class BjhArticleLayout extends RelativeLayout implements View.OnClickList
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (this.afI != null && this.afI.bhz() != null) {
-            n.a(this.mTitle, this.afI.bhz().getId(), this.ajc.getVisibility() == 0 ? R.color.cp_cont_a : R.color.cp_cont_b, R.color.cp_cont_d);
+        if (this.afI != null && this.afI.bjZ() != null) {
+            n.a(this.mTitle, this.afI.bjZ().getId(), this.ajc.getVisibility() == 0 ? R.color.cp_cont_a : R.color.cp_cont_b, R.color.cp_cont_d);
         }
         ap.setViewTextColor(this.ajb, R.color.cp_cont_a);
-        com.baidu.tbadk.core.util.e.a.bpo().oZ(0).pb(R.color.cp_mask_b_alpha42).Z(this.aje).bg(this.ajb);
-        com.baidu.tbadk.core.util.e.a.bpo().oZ(0).j(R.color.cp_mask_b, R.color.cp_mask_b_alpha33).ab(l.getDimens(getContext(), R.dimen.tbds10)).aa(l.getDimens(getContext(), R.dimen.tbds10)).ad(l.getDimens(getContext(), R.dimen.tbds10)).ac(l.getDimens(getContext(), R.dimen.tbds10)).ph(128).bg(this.ajd);
+        com.baidu.tbadk.core.util.e.a.brO().pj(0).pl(R.color.cp_mask_b_alpha42).ab(this.aje).bk(this.ajb);
+        com.baidu.tbadk.core.util.e.a.brO().pj(0).j(R.color.cp_mask_b, R.color.cp_mask_b_alpha33).ad(l.getDimens(getContext(), R.dimen.tbds10)).ac(l.getDimens(getContext(), R.dimen.tbds10)).af(l.getDimens(getContext(), R.dimen.tbds10)).ae(l.getDimens(getContext(), R.dimen.tbds10)).ps(128).bk(this.ajd);
     }
 }

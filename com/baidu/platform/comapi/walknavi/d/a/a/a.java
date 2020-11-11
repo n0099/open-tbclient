@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.walknavi.d.a.a;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2963a;
+    private String f2965a;
     private String b;
     private int c;
     private boolean d = false;
@@ -18,7 +18,7 @@ public class a {
     }
 
     public String b() {
-        return this.f2963a;
+        return this.f2965a;
     }
 
     public int c() {

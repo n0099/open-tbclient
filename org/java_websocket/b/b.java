@@ -4,9 +4,9 @@ import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.Framedata;
 /* loaded from: classes11.dex */
 public interface b {
-    boolean Zx(String str);
+    boolean aab(String str);
 
-    boolean Zy(String str);
+    boolean aac(String str);
 
     void c(Framedata framedata) throws InvalidDataException;
 
@@ -14,11 +14,11 @@ public interface b {
 
     void e(Framedata framedata) throws InvalidDataException;
 
-    String eBc();
+    String eER();
 
-    String eBd();
+    String eES();
 
-    b eBe();
+    b eET();
 
     void reset();
 

@@ -6,17 +6,17 @@ import com.baidu.sapi2.utils.Log;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f3510a;
+    private static a f3513a;
 
     public static a a() {
-        a aVar = f3510a;
+        a aVar = f3513a;
         if (aVar == null) {
             try {
                 Class.forName(SapiAccount.class.getName(), true, SapiAccount.class.getClassLoader());
             } catch (Exception e) {
                 Log.e(e);
             }
-            return f3510a;
+            return f3513a;
         }
         return aVar;
     }
@@ -49,8 +49,8 @@ public abstract class a {
     public abstract void d(SapiAccount sapiAccount, String str);
 
     public static void a(a aVar) {
-        if (f3510a == null) {
-            f3510a = aVar;
+        if (f3513a == null) {
+            f3513a = aVar;
             return;
         }
         throw new IllegalStateException();

@@ -11,7 +11,7 @@ public final class DrivingRouteResult extends SearchResult implements Parcelable
     public static final Parcelable.Creator<DrivingRouteResult> CREATOR = new f();
 
     /* renamed from: a  reason: collision with root package name */
-    private List<DrivingRouteLine> f2133a;
+    private List<DrivingRouteLine> f2135a;
     private List<TaxiInfo> b;
     private TaxiInfo c;
     private SuggestAddrInfo d;
@@ -21,8 +21,8 @@ public final class DrivingRouteResult extends SearchResult implements Parcelable
 
     /* JADX INFO: Access modifiers changed from: protected */
     public DrivingRouteResult(Parcel parcel) {
-        this.f2133a = new ArrayList();
-        parcel.readTypedList(this.f2133a, DrivingRouteLine.CREATOR);
+        this.f2135a = new ArrayList();
+        parcel.readTypedList(this.f2135a, DrivingRouteLine.CREATOR);
         this.b = new ArrayList();
         parcel.readTypedList(this.b, TaxiInfo.CREATOR);
         this.d = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
@@ -34,7 +34,7 @@ public final class DrivingRouteResult extends SearchResult implements Parcelable
     }
 
     public List<DrivingRouteLine> getRouteLines() {
-        return this.f2133a;
+        return this.f2135a;
     }
 
     public SuggestAddrInfo getSuggestAddrInfo() {
@@ -51,7 +51,7 @@ public final class DrivingRouteResult extends SearchResult implements Parcelable
     }
 
     public void setRouteLines(List<DrivingRouteLine> list) {
-        this.f2133a = list;
+        this.f2135a = list;
     }
 
     public void setSuggestAddrInfo(SuggestAddrInfo suggestAddrInfo) {
@@ -64,7 +64,7 @@ public final class DrivingRouteResult extends SearchResult implements Parcelable
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeTypedList(this.f2133a);
+        parcel.writeTypedList(this.f2135a);
         parcel.writeTypedList(this.b);
         parcel.writeParcelable(this.d, 1);
     }

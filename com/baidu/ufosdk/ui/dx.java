@@ -7,21 +7,21 @@ import com.baidu.ufosdk.UfoSDK;
 final class dx implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackReportActivity f3842a;
+    final /* synthetic */ FeedbackReportActivity f3844a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dx(FeedbackReportActivity feedbackReportActivity) {
-        this.f3842a = feedbackReportActivity;
+        this.f3844a = feedbackReportActivity;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Handler handler;
-        Context applicationContext = this.f3842a.getApplicationContext();
+        Context applicationContext = this.f3844a.getApplicationContext();
         String str = UfoSDK.clientid;
         String c = com.baidu.ufosdk.e.a.c(applicationContext);
         if (c != null) {
-            handler = this.f3842a.K;
+            handler = this.f3844a.K;
             handler.obtainMessage(0, c).sendToTarget();
         }
     }

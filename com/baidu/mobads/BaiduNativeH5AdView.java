@@ -11,7 +11,7 @@ import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 public class BaiduNativeH5AdView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    IOAdEventListener f2300a;
+    IOAdEventListener f2302a;
     private BaiduNativeAdPlacement b;
     private com.baidu.mobads.production.c.a c;
     private BaiduNativeH5EventListner d;
@@ -48,7 +48,7 @@ public class BaiduNativeH5AdView extends RelativeLayout {
         this.d = null;
         this.f = false;
         this.g = false;
-        this.f2300a = new h(this);
+        this.f2302a = new h(this);
         a(context, i);
     }
 
@@ -57,7 +57,7 @@ public class BaiduNativeH5AdView extends RelativeLayout {
         this.d = null;
         this.f = false;
         this.g = false;
-        this.f2300a = new h(this);
+        this.f2302a = new h(this);
         a(context, 0);
     }
 
@@ -66,7 +66,7 @@ public class BaiduNativeH5AdView extends RelativeLayout {
         this.d = null;
         this.f = false;
         this.g = false;
-        this.f2300a = new h(this);
+        this.f2302a = new h(this);
         a(context, 0);
     }
 
@@ -103,11 +103,11 @@ public class BaiduNativeH5AdView extends RelativeLayout {
         }
         this.c = new com.baidu.mobads.production.c.a(getContext(), this);
         this.c.a(requestParameters);
-        this.c.addEventListener(IXAdEvent.AD_ERROR, this.f2300a);
-        this.c.addEventListener(IXAdEvent.AD_STARTED, this.f2300a);
-        this.c.addEventListener("AdUserClick", this.f2300a);
-        this.c.addEventListener(IXAdEvent.AD_IMPRESSION, this.f2300a);
-        this.c.addEventListener("AdLoadData", this.f2300a);
+        this.c.addEventListener(IXAdEvent.AD_ERROR, this.f2302a);
+        this.c.addEventListener(IXAdEvent.AD_STARTED, this.f2302a);
+        this.c.addEventListener("AdUserClick", this.f2302a);
+        this.c.addEventListener(IXAdEvent.AD_IMPRESSION, this.f2302a);
+        this.c.addEventListener("AdLoadData", this.f2302a);
         if (this.b != null && this.b.getAdResponse() != null) {
             this.c.setAdResponseInfo(this.b.getAdResponse());
         }

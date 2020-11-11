@@ -7,11 +7,11 @@ import com.baidu.mapapi.map.MapBaseIndoorMapInfo;
 public class d implements BaiduMap.OnBaseIndoorMapListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f3051a;
+    final /* synthetic */ a f3053a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.f3051a = aVar;
+        this.f3053a = aVar;
     }
 
     @Override // com.baidu.mapapi.map.BaiduMap.OnBaseIndoorMapListener
@@ -19,10 +19,10 @@ public class d implements BaiduMap.OnBaseIndoorMapListener {
         com.baidu.platform.comapi.walknavi.g.a.a aVar;
         com.baidu.platform.comapi.walknavi.g.a.a aVar2;
         if (!z || mapBaseIndoorMapInfo == null) {
-            aVar = this.f3051a.B;
+            aVar = this.f3053a.B;
             aVar.c();
         } else if (com.baidu.platform.comapi.wnplatform.a.a().d()) {
-            aVar2 = this.f3051a.B;
+            aVar2 = this.f3053a.B;
             aVar2.a(mapBaseIndoorMapInfo);
         }
     }

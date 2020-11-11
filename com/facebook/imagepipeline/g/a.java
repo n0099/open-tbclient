@@ -1,28 +1,28 @@
 package com.facebook.imagepipeline.g;
 /* loaded from: classes12.dex */
 public class a extends c {
-    private com.facebook.imagepipeline.animated.base.d oNw;
+    private com.facebook.imagepipeline.animated.base.d oWP;
 
     public a(com.facebook.imagepipeline.animated.base.d dVar) {
-        this.oNw = dVar;
+        this.oWP = dVar;
     }
 
     @Override // com.facebook.imagepipeline.g.f
     public synchronized int getWidth() {
-        return isClosed() ? 0 : this.oNw.ejo().getWidth();
+        return isClosed() ? 0 : this.oWP.ene().getWidth();
     }
 
     @Override // com.facebook.imagepipeline.g.f
     public synchronized int getHeight() {
-        return isClosed() ? 0 : this.oNw.ejo().getHeight();
+        return isClosed() ? 0 : this.oWP.ene().getHeight();
     }
 
     @Override // com.facebook.imagepipeline.g.c, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
         synchronized (this) {
-            if (this.oNw != null) {
-                com.facebook.imagepipeline.animated.base.d dVar = this.oNw;
-                this.oNw = null;
+            if (this.oWP != null) {
+                com.facebook.imagepipeline.animated.base.d dVar = this.oWP;
+                this.oWP = null;
                 dVar.dispose();
             }
         }
@@ -30,12 +30,12 @@ public class a extends c {
 
     @Override // com.facebook.imagepipeline.g.c
     public synchronized boolean isClosed() {
-        return this.oNw == null;
+        return this.oWP == null;
     }
 
     @Override // com.facebook.imagepipeline.g.c
     public synchronized int getSizeInBytes() {
-        return isClosed() ? 0 : this.oNw.ejo().getSizeInBytes();
+        return isClosed() ? 0 : this.oWP.ene().getSizeInBytes();
     }
 
     @Override // com.facebook.imagepipeline.g.c
@@ -43,7 +43,7 @@ public class a extends c {
         return true;
     }
 
-    public synchronized com.facebook.imagepipeline.animated.base.d elY() {
-        return this.oNw;
+    public synchronized com.facebook.imagepipeline.animated.base.d epP() {
+        return this.oWP;
     }
 }

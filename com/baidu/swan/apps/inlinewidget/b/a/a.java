@@ -9,7 +9,7 @@ import org.apache.http.cookie.SM;
 public class a extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.b.a> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String ata() {
+    public String avA() {
         return "extractMediaMetadata";
     }
 

@@ -15,7 +15,7 @@ import com.kascend.chushou.a;
 public class RoundProgressBar extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    private Paint f4249a;
+    private Paint f4251a;
     private int b;
     private int c;
     private int d;
@@ -25,7 +25,7 @@ public class RoundProgressBar extends View {
     private int h;
     private boolean i;
     private int j;
-    private final RectF pqr;
+    private final RectF pzM;
 
     public RoundProgressBar(Context context) {
         this(context, null);
@@ -37,8 +37,8 @@ public class RoundProgressBar extends View {
 
     public RoundProgressBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.pqr = new RectF();
-        this.f4249a = new Paint();
+        this.pzM = new RectF();
+        this.f4251a = new Paint();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.k.RoundProgressBar);
         this.b = obtainStyledAttributes.getColor(a.k.RoundProgressBar_roundColor, SupportMenu.CATEGORY_MASK);
         this.c = obtainStyledAttributes.getColor(a.k.RoundProgressBar_roundProgressColor, -16711936);
@@ -56,32 +56,32 @@ public class RoundProgressBar extends View {
         super.onDraw(canvas);
         int width = getWidth() / 2;
         int i = (int) (width - (this.f / 2.0f));
-        this.f4249a.setColor(this.b);
-        this.f4249a.setStyle(Paint.Style.STROKE);
-        this.f4249a.setStrokeWidth(this.f);
-        this.f4249a.setAntiAlias(true);
-        canvas.drawCircle(width, width, i, this.f4249a);
-        this.f4249a.setStrokeWidth(0.0f);
-        this.f4249a.setColor(this.d);
-        this.f4249a.setTextSize(this.e);
-        this.f4249a.setTypeface(Typeface.DEFAULT_BOLD);
+        this.f4251a.setColor(this.b);
+        this.f4251a.setStyle(Paint.Style.STROKE);
+        this.f4251a.setStrokeWidth(this.f);
+        this.f4251a.setAntiAlias(true);
+        canvas.drawCircle(width, width, i, this.f4251a);
+        this.f4251a.setStrokeWidth(0.0f);
+        this.f4251a.setColor(this.d);
+        this.f4251a.setTextSize(this.e);
+        this.f4251a.setTypeface(Typeface.DEFAULT_BOLD);
         int i2 = (int) ((this.h / this.g) * 100.0f);
-        float measureText = this.f4249a.measureText(i2 + "%");
+        float measureText = this.f4251a.measureText(i2 + "%");
         if (this.i && i2 != 0 && this.j == 0) {
-            canvas.drawText(i2 + "%", width - (measureText / 2.0f), width + (this.e / 2.0f), this.f4249a);
+            canvas.drawText(i2 + "%", width - (measureText / 2.0f), width + (this.e / 2.0f), this.f4251a);
         }
-        this.f4249a.setStrokeWidth(this.f);
-        this.f4249a.setColor(this.c);
-        this.pqr.set(width - i, width - i, width + i, width + i);
+        this.f4251a.setStrokeWidth(this.f);
+        this.f4251a.setColor(this.c);
+        this.pzM.set(width - i, width - i, width + i, width + i);
         switch (this.j) {
             case 0:
-                this.f4249a.setStyle(Paint.Style.STROKE);
-                canvas.drawArc(this.pqr, 90.0f, (this.h * EncoderTextureDrawer.X264_WIDTH) / this.g, false, this.f4249a);
+                this.f4251a.setStyle(Paint.Style.STROKE);
+                canvas.drawArc(this.pzM, 90.0f, (this.h * EncoderTextureDrawer.X264_WIDTH) / this.g, false, this.f4251a);
                 return;
             case 1:
-                this.f4249a.setStyle(Paint.Style.FILL_AND_STROKE);
+                this.f4251a.setStyle(Paint.Style.FILL_AND_STROKE);
                 if (this.h != 0) {
-                    canvas.drawArc(this.pqr, 90.0f, (this.h * EncoderTextureDrawer.X264_WIDTH) / this.g, true, this.f4249a);
+                    canvas.drawArc(this.pzM, 90.0f, (this.h * EncoderTextureDrawer.X264_WIDTH) / this.g, true, this.f4251a);
                     return;
                 }
                 return;

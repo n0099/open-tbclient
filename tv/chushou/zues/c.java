@@ -13,92 +13,92 @@ import java.util.concurrent.locks.ReentrantLock;
 public class c {
     private final Handler.Callback mCallback;
     private Lock mLock;
-    private final b qdc;
+    private final b qmx;
     @VisibleForTesting
-    final a qdd;
+    final a qmy;
 
     public c() {
         this.mLock = new ReentrantLock();
-        this.qdd = new a(this.mLock, null);
+        this.qmy = new a(this.mLock, null);
         this.mCallback = null;
-        this.qdc = new b();
+        this.qmx = new b();
     }
 
     public c(@Nullable Handler.Callback callback) {
         this.mLock = new ReentrantLock();
-        this.qdd = new a(this.mLock, null);
+        this.qmy = new a(this.mLock, null);
         this.mCallback = callback;
-        this.qdc = new b(new WeakReference(callback));
+        this.qmx = new b(new WeakReference(callback));
     }
 
     public c(@NonNull Looper looper) {
         this.mLock = new ReentrantLock();
-        this.qdd = new a(this.mLock, null);
+        this.qmy = new a(this.mLock, null);
         this.mCallback = null;
-        this.qdc = new b(looper);
+        this.qmx = new b(looper);
     }
 
     public c(@NonNull Looper looper, @NonNull Handler.Callback callback) {
         this.mLock = new ReentrantLock();
-        this.qdd = new a(this.mLock, null);
+        this.qmy = new a(this.mLock, null);
         this.mCallback = callback;
-        this.qdc = new b(looper, new WeakReference(callback));
+        this.qmx = new b(looper, new WeakReference(callback));
     }
 
     public final boolean o(@NonNull Runnable runnable) {
-        return this.qdc.post(O(runnable));
+        return this.qmx.post(O(runnable));
     }
 
     public final boolean f(Runnable runnable, long j) {
-        return this.qdc.postDelayed(O(runnable), j);
+        return this.qmx.postDelayed(O(runnable), j);
     }
 
     public final void N(Runnable runnable) {
-        RunnableC1096c P = this.qdd.P(runnable);
+        RunnableC1116c P = this.qmy.P(runnable);
         if (P != null) {
-            this.qdc.removeCallbacks(P);
+            this.qmx.removeCallbacks(P);
         }
     }
 
     public final boolean X(Message message) {
-        return this.qdc.sendMessage(message);
+        return this.qmx.sendMessage(message);
     }
 
-    public final boolean Ry(int i) {
-        return this.qdc.sendEmptyMessage(i);
+    public final boolean RT(int i) {
+        return this.qmx.sendEmptyMessage(i);
     }
 
-    public final boolean E(int i, long j) {
-        return this.qdc.sendEmptyMessageDelayed(i, j);
+    public final boolean D(int i, long j) {
+        return this.qmx.sendEmptyMessageDelayed(i, j);
     }
 
     public final boolean b(Message message, long j) {
-        return this.qdc.sendMessageDelayed(message, j);
+        return this.qmx.sendMessageDelayed(message, j);
     }
 
     public final void removeMessages(int i) {
-        this.qdc.removeMessages(i);
+        this.qmx.removeMessages(i);
     }
 
     public final void cs(Object obj) {
-        this.qdc.removeCallbacksAndMessages(obj);
+        this.qmx.removeCallbacksAndMessages(obj);
     }
 
-    public final boolean Rz(int i) {
-        return this.qdc.hasMessages(i);
+    public final boolean RU(int i) {
+        return this.qmx.hasMessages(i);
     }
 
-    public final Message RA(int i) {
-        return this.qdc.obtainMessage(i);
+    public final Message RV(int i) {
+        return this.qmx.obtainMessage(i);
     }
 
-    private RunnableC1096c O(@NonNull Runnable runnable) {
+    private RunnableC1116c O(@NonNull Runnable runnable) {
         if (runnable == null) {
             throw new NullPointerException("Runnable can't be null");
         }
         a aVar = new a(this.mLock, runnable);
-        this.qdd.a(aVar);
-        return aVar.qdg;
+        this.qmy.a(aVar);
+        return aVar.qmB;
     }
 
     /* loaded from: classes6.dex */
@@ -135,21 +135,21 @@ public class c {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: tv.chushou.zues.c$c  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class RunnableC1096c implements Runnable {
+    public static class RunnableC1116c implements Runnable {
         private final WeakReference<a> mReference;
-        private final WeakReference<Runnable> qdh;
+        private final WeakReference<Runnable> qmC;
 
-        RunnableC1096c(WeakReference<Runnable> weakReference, WeakReference<a> weakReference2) {
-            this.qdh = weakReference;
+        RunnableC1116c(WeakReference<Runnable> weakReference, WeakReference<a> weakReference2) {
+            this.qmC = weakReference;
             this.mReference = weakReference2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Runnable runnable = this.qdh.get();
+            Runnable runnable = this.qmC.get();
             a aVar = this.mReference.get();
             if (aVar != null) {
-                aVar.eDS();
+                aVar.eHH();
             }
             if (runnable != null) {
                 runnable.run();
@@ -163,33 +163,33 @@ public class c {
         @NonNull
         Lock lock;
         @Nullable
-        a qde;
-        @Nullable
-        a qdf;
+        a qmA;
         @NonNull
-        final RunnableC1096c qdg;
+        final RunnableC1116c qmB;
+        @Nullable
+        a qmz;
         @NonNull
         final Runnable runnable;
 
         public a(@NonNull Lock lock, @NonNull Runnable runnable) {
             this.runnable = runnable;
             this.lock = lock;
-            this.qdg = new RunnableC1096c(new WeakReference(runnable), new WeakReference(this));
+            this.qmB = new RunnableC1116c(new WeakReference(runnable), new WeakReference(this));
         }
 
-        public RunnableC1096c eDS() {
+        public RunnableC1116c eHH() {
             this.lock.lock();
             try {
-                if (this.qdf != null) {
-                    this.qdf.qde = this.qde;
+                if (this.qmA != null) {
+                    this.qmA.qmz = this.qmz;
                 }
-                if (this.qde != null) {
-                    this.qde.qdf = this.qdf;
+                if (this.qmz != null) {
+                    this.qmz.qmA = this.qmA;
                 }
-                this.qdf = null;
-                this.qde = null;
+                this.qmA = null;
+                this.qmz = null;
                 this.lock.unlock();
-                return this.qdg;
+                return this.qmB;
             } catch (Throwable th) {
                 this.lock.unlock();
                 throw th;
@@ -199,24 +199,24 @@ public class c {
         public void a(@NonNull a aVar) {
             this.lock.lock();
             try {
-                if (this.qde != null) {
-                    this.qde.qdf = aVar;
+                if (this.qmz != null) {
+                    this.qmz.qmA = aVar;
                 }
-                aVar.qde = this.qde;
-                this.qde = aVar;
-                aVar.qdf = this;
+                aVar.qmz = this.qmz;
+                this.qmz = aVar;
+                aVar.qmA = this;
             } finally {
                 this.lock.unlock();
             }
         }
 
         @Nullable
-        public RunnableC1096c P(Runnable runnable) {
+        public RunnableC1116c P(Runnable runnable) {
             this.lock.lock();
             try {
-                for (a aVar = this.qde; aVar != null; aVar = aVar.qde) {
+                for (a aVar = this.qmz; aVar != null; aVar = aVar.qmz) {
                     if (aVar.runnable == runnable) {
-                        return aVar.eDS();
+                        return aVar.eHH();
                     }
                 }
                 this.lock.unlock();

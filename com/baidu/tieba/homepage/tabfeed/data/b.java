@@ -26,7 +26,7 @@ public class b extends d {
             for (int i = 0; i < min; i++) {
                 arrayList.add(new com.baidu.tieba.homepage.hotTopic.tab.b.c(list.get(i)));
             }
-            dC(arrayList);
+            dK(arrayList);
         }
     }
 }

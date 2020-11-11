@@ -11,24 +11,24 @@ import java.util.HashSet;
 /* loaded from: classes10.dex */
 public class b extends f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private a.InterfaceC0406a cIh;
+    private a.InterfaceC0418a cOa;
 
-    public b(String str, a.InterfaceC0406a interfaceC0406a) {
+    public b(String str, a.InterfaceC0418a interfaceC0418a) {
         super(str);
-        this.cIh = interfaceC0406a;
+        this.cOa = interfaceC0418a;
     }
 
     @Override // com.baidu.swan.apps.core.pms.j
-    protected int anK() {
+    protected int aql() {
         return 7;
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void akQ() {
-        super.akQ();
-        if (this.cHj != null) {
-            anX();
-            a.nb(this.mAppId);
+    public void anq() {
+        super.anq();
+        if (this.cNc != null) {
+            aqy();
+            a.nq(this.mAppId);
         }
     }
 
@@ -38,49 +38,49 @@ public class b extends f {
         if (DEBUG) {
             Log.e("SwanAppPkgPreDownloadCallback", "onFetchError: " + aVar.toString());
         }
-        if (this.cIh != null) {
+        if (this.cOa != null) {
             if (aVar.errorNo == 1010) {
-                this.cIh.akV();
+                this.cOa.anv();
             } else {
-                this.cIh.hI(0);
+                this.cOa.hS(0);
             }
         }
-        hZ(aVar.errorNo);
+        ij(aVar.errorNo);
         if (a.c(aVar)) {
-            a.nb(this.mAppId);
+            a.nq(this.mAppId);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.pms.f
-    public void anO() {
-        super.anO();
-        this.cHk.add(new UbcFlowEvent("na_start_update_db"));
-        com.baidu.swan.apps.am.a anW = anW();
-        this.cHk.add(new UbcFlowEvent("na_end_update_db"));
-        if (anW == null) {
-            a.nb(this.mAppId);
-            if (this.cIh != null) {
-                this.cIh.akV();
+    public void aqp() {
+        super.aqp();
+        this.cNd.add(new UbcFlowEvent("na_start_update_db"));
+        com.baidu.swan.apps.am.a aqx = aqx();
+        this.cNd.add(new UbcFlowEvent("na_end_update_db"));
+        if (aqx == null) {
+            a.nq(this.mAppId);
+            if (this.cOa != null) {
+                this.cOa.anv();
             }
-        } else if (this.cIh != null) {
-            this.cIh.hI(5);
+        } else if (this.cOa != null) {
+            this.cOa.hS(5);
         }
-        by("main_pre_download", this.cHl);
+        by("main_pre_download", this.cNe);
         HashSet hashSet = new HashSet();
         hashSet.add(this.mAppId);
-        e.aqH().aqI().a(hashSet, c.arm().il(7).arn());
+        e.ati().atj().a(hashSet, c.atN().iv(7).atO());
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
     protected void o(Throwable th) {
-        if (this.cIh != null) {
-            this.cIh.hI(0);
+        if (this.cOa != null) {
+            this.cOa.hS(0);
         }
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
-    protected PMSDownloadType anP() {
+    protected PMSDownloadType aqq() {
         return PMSDownloadType.PRE;
     }
 }

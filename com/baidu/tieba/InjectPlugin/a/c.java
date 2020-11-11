@@ -1,13 +1,13 @@
 package com.baidu.tieba.InjectPlugin.a;
 /* loaded from: classes21.dex */
 public class c {
-    private Object fHS;
+    private Object fNI;
 
     public c(Object obj) {
-        this.fHS = obj;
+        this.fNI = obj;
     }
 
-    public Object bFh() {
-        return this.fHS;
+    public Object bHG() {
+        return this.fNI;
     }
 }

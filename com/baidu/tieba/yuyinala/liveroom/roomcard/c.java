@@ -7,42 +7,42 @@ import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes4.dex */
 public class c {
-    public static c nRX;
-    private a nRY;
-    private CustomMessageListener nRZ = new CustomMessageListener(2501061) { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.c.1
+    public static c nZk;
+    private a nZl;
+    private CustomMessageListener nZm = new CustomMessageListener(2501061) { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2501061) {
-                if (c.this.nRY != null) {
-                    c.this.nRY.yK(true);
+                if (c.this.nZl != null) {
+                    c.this.nZl.yT(true);
                 }
-                MessageManager.getInstance().unRegisterListener(c.this.nRZ);
+                MessageManager.getInstance().unRegisterListener(c.this.nZm);
             }
         }
     };
 
     /* loaded from: classes4.dex */
     public interface a {
-        void yK(boolean z);
+        void yT(boolean z);
     }
 
-    public static c dVB() {
-        if (nRX == null) {
-            nRX = new c();
+    public static c dYq() {
+        if (nZk == null) {
+            nZk = new c();
         }
-        return nRX;
+        return nZk;
     }
 
     public void a(Context context, Activity activity, a aVar) {
         if (i.a(context, activity)) {
             if (aVar != null) {
-                aVar.yK(true);
+                aVar.yT(true);
                 return;
             }
             return;
         }
-        this.nRY = aVar;
-        MessageManager.getInstance().registerListener(this.nRZ);
+        this.nZl = aVar;
+        MessageManager.getInstance().registerListener(this.nZm);
     }
 }

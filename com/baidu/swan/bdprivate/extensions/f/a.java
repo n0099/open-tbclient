@@ -14,22 +14,22 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class a implements ak {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.l.a dcp = new com.baidu.l.a();
+    private com.baidu.l.a dil = new com.baidu.l.a();
 
     @Override // com.baidu.swan.apps.adaptation.a.ak
     public boolean D(String str, String str2, String str3) {
-        e aEV;
-        b.a aEY;
-        if (!c.aGs() || (aEV = e.aEV()) == null || (aEY = aEV.aEY()) == null) {
+        e aHv;
+        b.a aHy;
+        if (!c.aIS() || (aHv = e.aHv()) == null || (aHy = aHv.aHy()) == null) {
             return false;
         }
-        b(str, com.baidu.swan.ubc.e.baS().getUserId(AppRuntime.getAppContext()), com.baidu.swan.apps.t.a.auf().bq(com.baidu.swan.apps.t.a.aua()), com.baidu.swan.bdprivate.a.a.cY(aEV.getApplicationContext()), str2, str3, com.baidu.swan.apps.t.a.auM().getHostName(), aEY.awd());
+        b(str, com.baidu.swan.ubc.e.bds().getUserId(AppRuntime.getAppContext()), com.baidu.swan.apps.t.a.awF().bq(com.baidu.swan.apps.t.a.awA()), com.baidu.swan.bdprivate.a.a.cY(aHv.getApplicationContext()), str2, str3, com.baidu.swan.apps.t.a.axm().getHostName(), aHy.ayD());
         return true;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ak
-    public void afR() {
-        String readFileData = d.readFileData(aMd());
+    public void air() {
+        String readFileData = d.readFileData(aOD());
         final long currentTimeMillis = System.currentTimeMillis() / 1000;
         if (!TextUtils.isEmpty(readFileData)) {
             try {
@@ -48,14 +48,14 @@ public class a implements ak {
                 return;
             }
         }
-        this.dcp.a(new com.baidu.poly.b.a() { // from class: com.baidu.swan.bdprivate.extensions.f.a.1
+        this.dil.a(new com.baidu.poly.b.a() { // from class: com.baidu.swan.bdprivate.extensions.f.a.1
             @Override // com.baidu.poly.b.a
             public void onResult(int i, String str) {
                 if (a.DEBUG) {
                     Log.d("RebateInfoManager", "requestBatchRebateInfo onResult: " + i + " " + str);
                 }
-                d.deleteFile(a.aMd());
-                d.saveFile(String.valueOf(currentTimeMillis), a.aMd());
+                d.deleteFile(a.aOD());
+                d.saveFile(String.valueOf(currentTimeMillis), a.aOD());
             }
         });
     }
@@ -73,7 +73,7 @@ public class a implements ak {
             jSONObject.put("businessId", str6);
             jSONObject.put("naid", str7);
             jSONObject.put("scene", str8);
-            this.dcp.a(jSONObject, new com.baidu.poly.b.a() { // from class: com.baidu.swan.bdprivate.extensions.f.a.2
+            this.dil.a(jSONObject, new com.baidu.poly.b.a() { // from class: com.baidu.swan.bdprivate.extensions.f.a.2
                 @Override // com.baidu.poly.b.a
                 public void onResult(int i, String str9) {
                     if (a.DEBUG) {
@@ -89,7 +89,7 @@ public class a implements ak {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static File aMd() {
+    public static File aOD() {
         return new File(AppRuntime.getAppContext().getFilesDir().getPath(), "rebate_info_timestamp");
     }
 }

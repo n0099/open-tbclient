@@ -12,8 +12,8 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes4.dex */
 public abstract class g {
-    private final int gVJ = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds589);
-    protected n gVK;
+    private final int hbN = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_tbds589);
+    protected n hbO;
     protected Context mContext;
     protected View mRootView;
 
@@ -21,7 +21,7 @@ public abstract class g {
 
     public g(Context context, n nVar) {
         this.mContext = context;
-        this.gVK = nVar;
+        this.hbO = nVar;
         if (this.mContext != null) {
             this.mRootView = createView();
             if (this.mRootView != null) {
@@ -30,14 +30,14 @@ public abstract class g {
                     public void onClick(View view) {
                     }
                 });
-                this.mRootView.setBackgroundResource(a.f.ala_challenge_panel_bg);
+                this.mRootView.setBackgroundResource(a.e.ala_challenge_panel_bg);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public int bXB() {
-        return this.gVJ;
+    public int cad() {
+        return this.hbN;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -47,14 +47,14 @@ public abstract class g {
                 ((ViewGroup) this.mRootView.getParent()).removeView(this.mRootView);
             }
             if (this.mRootView.getLayoutParams() == null) {
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, bXB());
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, cad());
                 layoutParams.gravity = 80;
                 frameLayout.addView(this.mRootView, layoutParams);
             } else {
                 frameLayout.addView(this.mRootView);
             }
             if (i <= 0) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.mContext, a.C0195a.sdk_push_up_in);
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.mContext, a.C0197a.sdk_push_up_in);
                 loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.g.2
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationStart(Animation animation) {
@@ -62,7 +62,7 @@ public abstract class g {
 
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationEnd(Animation animation) {
-                        g.this.OC();
+                        g.this.Pc();
                     }
 
                     @Override // android.view.animation.Animation.AnimationListener
@@ -70,8 +70,8 @@ public abstract class g {
                     }
                 });
                 this.mRootView.startAnimation(loadAnimation);
-            } else if (i != bXB()) {
-                ValueAnimator ofInt = ValueAnimator.ofInt(i, bXB());
+            } else if (i != cad()) {
+                ValueAnimator ofInt = ValueAnimator.ofInt(i, cad());
                 ofInt.setDuration(300L);
                 ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.g.3
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -90,7 +90,7 @@ public abstract class g {
 
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
-                        g.this.OC();
+                        g.this.Pc();
                     }
 
                     @Override // android.animation.Animator.AnimatorListener
@@ -103,17 +103,17 @@ public abstract class g {
                 });
                 ofInt.start();
             } else {
-                OC();
+                Pc();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void OC() {
+    public void Pc() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bXT() {
+    public void cav() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

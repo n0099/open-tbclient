@@ -18,78 +18,78 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.browser.BrowserHelper;
 /* loaded from: classes4.dex */
 public class c {
-    private static int hnt = 0;
-    private static volatile c hnu = null;
+    private static int htr = 0;
+    private static volatile c hts = null;
     private long currLiveId;
     private long duration;
     private Handler handler = new Handler();
-    Runnable hnv = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.task.c.1
+    Runnable htt = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.task.c.1
         @Override // java.lang.Runnable
         public void run() {
-            Log.i("TaskHelper", "@@ reportRunnable haokan=" + c.hnt + ", currLiveId=" + c.this.currLiveId + ", duration=" + c.this.duration);
-            c.this.arq();
+            Log.i("TaskHelper", "@@ reportRunnable haokan=" + c.htr + ", currLiveId=" + c.this.currLiveId + ", duration=" + c.this.duration);
+            c.this.atR();
             c.this.stopRecord();
         }
     };
     private long now;
 
-    public static c ceN() {
-        if (hnu == null) {
+    public static c chq() {
+        if (hts == null) {
             synchronized (c.class) {
-                if (hnu == null) {
-                    hnu = new c();
+                if (hts == null) {
+                    hts = new c();
                 }
             }
         }
-        return hnu;
+        return hts;
     }
 
-    public void eF(long j) {
-        Log.i("TaskHelper", "@@ startRecord watchCount=" + hnt + ", currLiveId=" + this.currLiveId + ", liveId=" + j + ", duration=" + this.duration);
-        if (ceO()) {
+    public void fb(long j) {
+        Log.i("TaskHelper", "@@ startRecord watchCount=" + htr + ", currLiveId=" + this.currLiveId + ", liveId=" + j + ", duration=" + this.duration);
+        if (chr()) {
             this.currLiveId = j;
             this.duration = 0L;
             this.now = System.currentTimeMillis();
-            this.handler.removeCallbacks(this.hnv);
-            this.handler.postDelayed(this.hnv, 60000 - this.duration);
+            this.handler.removeCallbacks(this.htt);
+            this.handler.postDelayed(this.htt, 60000 - this.duration);
         }
     }
 
     public void pauseRecord() {
-        Log.i("TaskHelper", "@@ pauseRecord watchCount=" + hnt + ", currLiveId=" + this.currLiveId + ", duration=" + this.duration);
-        this.handler.removeCallbacks(this.hnv);
+        Log.i("TaskHelper", "@@ pauseRecord watchCount=" + htr + ", currLiveId=" + this.currLiveId + ", duration=" + this.duration);
+        this.handler.removeCallbacks(this.htt);
         this.duration = System.currentTimeMillis() - this.now;
         if (this.duration < 0) {
             this.duration = 0L;
         }
     }
 
-    public void eG(long j) {
-        Log.i("TaskHelper", "@@ resumeRecord watchCount=" + hnt + ", currLiveId=" + this.currLiveId + ", liveId=" + j + ", duration=" + this.duration);
+    public void fc(long j) {
+        Log.i("TaskHelper", "@@ resumeRecord watchCount=" + htr + ", currLiveId=" + this.currLiveId + ", liveId=" + j + ", duration=" + this.duration);
         if (this.currLiveId == 0 || this.currLiveId != j) {
             stopRecord();
             return;
         }
         this.now = System.currentTimeMillis();
-        this.handler.removeCallbacks(this.hnv);
-        this.handler.postDelayed(this.hnv, 60000 - this.duration);
+        this.handler.removeCallbacks(this.htt);
+        this.handler.postDelayed(this.htt, 60000 - this.duration);
     }
 
     public void stopRecord() {
-        Log.i("TaskHelper", "@@ stopRecord watchCount=" + hnt + ", currLiveId=" + this.currLiveId + ", duration=" + this.duration);
+        Log.i("TaskHelper", "@@ stopRecord watchCount=" + htr + ", currLiveId=" + this.currLiveId + ", duration=" + this.duration);
         this.duration = 0L;
         this.currLiveId = 0L;
-        this.handler.removeCallbacks(this.hnv);
+        this.handler.removeCallbacks(this.htt);
     }
 
-    private boolean ceO() {
-        return hnt < 30;
+    private boolean chr() {
+        return htr < 30;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void arq() {
-        Log.i("TaskHelper", "@@ report watchCount=" + hnt + ", currLiveId=" + this.currLiveId + ", duration=" + this.duration + ", isNeed=" + ceO());
-        if (ceO()) {
+    public void atR() {
+        Log.i("TaskHelper", "@@ report watchCount=" + htr + ", currLiveId=" + this.currLiveId + ", duration=" + this.duration + ", isNeed=" + chr());
+        if (chr()) {
             HttpMessage httpMessage = new HttpMessage(1021127);
             httpMessage.addParam("live_id", this.currLiveId);
             httpMessage.addParam("client_ip", "");
@@ -99,28 +99,28 @@ public class c {
 
     public void a(Context context, a aVar) {
         if (aVar != null) {
-            hnt++;
-            if (context != null && (context instanceof Activity) && aVar.hni == 1 && !TextUtils.isEmpty(aVar.tips)) {
+            htr++;
+            if (context != null && (context instanceof Activity) && aVar.htg == 1 && !TextUtils.isEmpty(aVar.tips)) {
                 e(context, aVar.tips, aVar.url, aVar.title);
             }
         }
     }
 
     private void e(final Context context, String str, final String str2, String str3) {
-        View inflate = LayoutInflater.from(context).inflate(a.h.dialog_task_result, (ViewGroup) null);
-        final Dialog dialog = new Dialog(context, a.j.PlayLevelDialog);
+        View inflate = LayoutInflater.from(context).inflate(a.g.dialog_task_result, (ViewGroup) null);
+        final Dialog dialog = new Dialog(context, a.i.PlayLevelDialog);
         dialog.requestWindowFeature(1);
         dialog.setCancelable(true);
         dialog.setContentView(inflate);
         dialog.setCanceledOnTouchOutside(true);
         dialog.getWindow().getAttributes().gravity = 80;
-        ((TextView) inflate.findViewById(a.g.tip_textView)).setText(str);
-        TextView textView = (TextView) inflate.findViewById(a.g.right_textView);
+        ((TextView) inflate.findViewById(a.f.tip_textView)).setText(str);
+        TextView textView = (TextView) inflate.findViewById(a.f.right_textView);
         if (TextUtils.isEmpty(str3)) {
             str3 = "知道了";
         }
         textView.setText(str3);
-        View findViewById = inflate.findViewById(a.g.result_layout);
+        View findViewById = inflate.findViewById(a.f.result_layout);
         final Runnable runnable = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.task.c.2
             @Override // java.lang.Runnable
             public void run() {

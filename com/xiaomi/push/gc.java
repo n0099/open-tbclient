@@ -3,19 +3,19 @@ package com.xiaomi.push;
 class gc implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ fz f4917a;
+    final /* synthetic */ fz f4919a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String f382a;
+    final /* synthetic */ String f384a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public gc(fz fzVar, String str) {
-        this.f4917a = fzVar;
-        this.f382a = str;
+        this.f4919a = fzVar;
+        this.f384a = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        cz.a().a(this.f382a, true);
+        cz.a().a(this.f384a, true);
     }
 }

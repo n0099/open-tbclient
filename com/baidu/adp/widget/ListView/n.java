@@ -142,10 +142,10 @@ public class n {
                 if (this.Xa == null) {
                     this.Xa = new com.baidu.tbadk.n.a.a("anim_switch_slide");
                 }
-                this.Xa.bAc();
+                this.Xa.bCB();
             }
         } else if (i == 0 && this.Xa != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_slide")) {
-            this.Xa.bAd();
+            this.Xa.bCC();
         }
         if (this.mRecyclerView instanceof BdTypeRecyclerView) {
             this.WY.aQ(i);

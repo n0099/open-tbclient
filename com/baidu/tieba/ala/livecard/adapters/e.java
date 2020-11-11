@@ -8,7 +8,7 @@ import com.baidu.tieba.card.z;
 import com.baidu.tieba.frs.k;
 /* loaded from: classes4.dex */
 public class e extends k<com.baidu.tieba.tbadkCore.h, com.baidu.tieba.ala.livecard.a.c> implements z {
-    private com.baidu.tieba.ala.livecard.b.d gMh;
+    private com.baidu.tieba.ala.livecard.b.d gSG;
     private String mForumName;
 
     public e(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
@@ -21,20 +21,20 @@ public class e extends k<com.baidu.tieba.tbadkCore.h, com.baidu.tieba.ala.liveca
     }
 
     @Override // com.baidu.tieba.card.z
-    public void uQ(int i) {
+    public void vd(int i) {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: as */
+    /* renamed from: au */
     public com.baidu.tieba.ala.livecard.a.c c(ViewGroup viewGroup) {
         if (this.mPageContext == null) {
             return null;
         }
-        this.gMh = new com.baidu.tieba.ala.livecard.b.d(this.mPageContext);
-        this.gMh.setForumName(this.mForumName);
-        return new com.baidu.tieba.ala.livecard.a.c(this.gMh);
+        this.gSG = new com.baidu.tieba.ala.livecard.b.d(this.mPageContext);
+        this.gSG.setForumName(this.mForumName);
+        return new com.baidu.tieba.ala.livecard.a.c(this.gSG);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -44,12 +44,12 @@ public class e extends k<com.baidu.tieba.tbadkCore.h, com.baidu.tieba.ala.liveca
         super.a(i, view, viewGroup, (ViewGroup) hVar, (com.baidu.tieba.tbadkCore.h) cVar);
         if (hVar != null) {
             int i2 = 0;
-            if (this.iAQ != null) {
-                i2 = this.iAQ.getTopThreadSize();
+            if (this.iGN != null) {
+                i2 = this.iGN.getTopThreadSize();
             }
-            cVar.gMp.evR = (i + 1) - i2;
-            cVar.gMp.setForumName(this.mForumName);
-            cVar.gMp.a(hVar);
+            cVar.gSO.eBK = (i + 1) - i2;
+            cVar.gSO.setForumName(this.mForumName);
+            cVar.gSO.a(hVar);
         }
         return view;
     }

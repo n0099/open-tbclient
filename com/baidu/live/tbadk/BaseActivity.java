@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.drawable.Animatable;
 import android.os.Build;
 import android.os.Bundle;
@@ -27,7 +26,6 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.message.ResponsedMessage;
-import com.baidu.live.adp.lib.safe.ResourcesWrapper;
 import com.baidu.live.adp.lib.safe.ShowUtil;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
@@ -84,7 +82,6 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     private TbPageContext<T> pageContext;
     private PageStayDurationItem pageStayDurationItem;
     private List<PopupWindow> popupWindowList;
-    private ResourcesWrapper resourcesWrapper;
     protected BlueCircleProgressDialog mWaitingDialog = null;
     private BdListDialog mListMenu = null;
     private final Handler mSafeHandler = new Handler();
@@ -269,17 +266,6 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         }
     }
 
-    @Override // com.baidu.live.adp.base.BdBaseActivity, android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
-    public Resources getResources() {
-        if (BdBaseApplication.getInst().getIsPluginResourcOpen()) {
-            return super.getResources();
-        }
-        if (this.resourcesWrapper == null) {
-            this.resourcesWrapper = new ResourcesWrapper(super.getResources());
-        }
-        return this.resourcesWrapper;
-    }
-
     protected void onKeyboardHeightChanged(int i) {
     }
 
@@ -401,7 +387,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (this.mProgressBar == null) {
             try {
                 this.mProgressBar = new ProgressBar(getPageContext().getPageActivity());
-                this.mProgressBar.setIndeterminateDrawable(TbadkCoreApplication.getInst().getResources().getDrawable(a.f.sdk_progressbar));
+                this.mProgressBar.setIndeterminateDrawable(TbadkCoreApplication.getInst().getResources().getDrawable(a.e.sdk_progressbar));
                 FrameLayout frameLayout = (FrameLayout) findViewById(16908290);
                 frameLayout.addView(this.mProgressBar, frameLayout.getChildCount(), new FrameLayout.LayoutParams(-2, -2, 17));
             } catch (Throwable th) {
@@ -463,7 +449,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener, boolean z) {
         if (!getActivity().isFinishing() && ShowUtil.isActivityCanShowDialogOrPopupWindow(getPageContext())) {
             if (str == null) {
-                str = TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_waiting);
+                str = TbadkCoreApplication.getInst().getResources().getString(a.h.sdk_waiting);
             }
             this.mWaitingDialog = new BlueCircleProgressDialog(getPageContext());
             this.mWaitingDialog.setTipString(str);
@@ -561,7 +547,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
 
     protected BdListDialog newListMenu(String[] strArr, BdListDialog.OnItemClickListener onItemClickListener) {
         this.mListMenu = new BdListDialog(getPageContext().getPageActivity());
-        this.mListMenu.setTitle(TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_operation));
+        this.mListMenu.setTitle(TbadkCoreApplication.getInst().getResources().getString(a.h.sdk_operation));
         this.mListMenu.setItems(strArr, onItemClickListener);
         this.mListMenu.create(getPageContext());
         return this.mListMenu;
@@ -1017,7 +1003,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     public void setNetRefreshViewEmotionDefMarginTop() {
-        setNetRefreshViewEmotionMarginTop(BdUtilHelper.getDimens(getActivity(), a.e.sdk_ds300));
+        setNetRefreshViewEmotionMarginTop(BdUtilHelper.getDimens(getActivity(), a.d.sdk_ds300));
     }
 
     protected void setNetRefreshViewEmotionMarginTop(int i) {

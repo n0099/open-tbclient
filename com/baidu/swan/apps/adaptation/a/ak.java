@@ -3,5 +3,5 @@ package com.baidu.swan.apps.adaptation.a;
 public interface ak {
     boolean D(String str, String str2, String str3);
 
-    void afR();
+    void air();
 }

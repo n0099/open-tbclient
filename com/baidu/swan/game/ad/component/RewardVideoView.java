@@ -11,7 +11,7 @@ import com.baidu.swan.apps.media.b.c;
 import com.baidu.swan.apps.runtime.e;
 /* loaded from: classes14.dex */
 public class RewardVideoView extends RelativeLayout {
-    private a cpV;
+    private a cvT;
     private Context mContext;
     private boolean mIsMute;
 
@@ -30,16 +30,16 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     public void bs(String str) {
-        c aNB = aNB();
-        aNB.mSrc = str;
-        this.cpV.d(aNB);
-        this.cpV.fj(false);
+        c aQb = aQb();
+        aQb.mSrc = str;
+        this.cvT.d(aQb);
+        this.cvT.fs(false);
     }
 
     public void mute(boolean z) {
-        if (this.cpV != null) {
+        if (this.cvT != null) {
             this.mIsMute = z;
-            this.cpV.mute(z);
+            this.cvT.mute(z);
         }
     }
 
@@ -48,16 +48,16 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     public a getPlayer() {
-        return this.cpV;
+        return this.cvT;
     }
 
     private void initPlayer() {
-        e aEU = e.aEU();
-        if (aEU != null) {
-            this.cpV = new a(aEU.aEO(), aNB());
+        e aHu = e.aHu();
+        if (aHu != null) {
+            this.cvT = new a(aHu.aHo(), aQb());
             FrameLayout frameLayout = new FrameLayout(this.mContext);
             addView(frameLayout, new RelativeLayout.LayoutParams(-1, -1));
-            this.cpV.c(frameLayout);
+            this.cvT.f(frameLayout);
         }
     }
 
@@ -67,15 +67,15 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     @NonNull
-    private c aNB() {
+    private c aQb() {
         c cVar = new c();
-        cVar.cUQ = "SwanAdPlayer";
-        cVar.cxR = "SwanAdPlayer";
-        cVar.cUZ = true;
-        cVar.cYP = this.mIsMute;
-        cVar.cYX = false;
-        cVar.cZg = false;
-        cVar.cZd = false;
+        cVar.daK = "SwanAdPlayer";
+        cVar.cDK = "SwanAdPlayer";
+        cVar.daT = true;
+        cVar.deM = this.mIsMute;
+        cVar.deU = false;
+        cVar.dfd = false;
+        cVar.dfa = false;
         return cVar;
     }
 }

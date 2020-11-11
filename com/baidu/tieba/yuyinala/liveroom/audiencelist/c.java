@@ -30,26 +30,26 @@ import com.baidu.live.view.AlphaGradientHListView;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c {
-    private w aEc;
-    private ViewGroup bEg;
-    private com.baidu.live.liveroom.a.a gSJ;
-    public FrameLayout gSL;
-    public FrameLayout gSM;
-    private AlphaGradientHListView gSN;
-    private AdapterView.c gSQ = new AdapterView.c() { // from class: com.baidu.tieba.yuyinala.liveroom.audiencelist.c.1
+    private w aES;
+    private ViewGroup bJN;
+    private com.baidu.live.liveroom.a.a gYO;
+    public FrameLayout gYQ;
+    public FrameLayout gYR;
+    private AlphaGradientHListView gYS;
+    private AdapterView.c gYV = new AdapterView.c() { // from class: com.baidu.tieba.yuyinala.liveroom.audiencelist.c.1
         @Override // com.baidu.live.tieba.horizonallist.widget.AdapterView.c
         public void a(AdapterView<?> adapterView, View view, int i, long j) {
-            p pVar = (p) c.this.nOZ.getItem(i);
+            p pVar = (p) c.this.nUX.getItem(i);
             if (pVar != null) {
-                if (c.this.gSJ != null) {
-                    c.this.gSJ.eO(5);
+                if (c.this.gYO != null) {
+                    c.this.gYO.eO(5);
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(c.this.getPageContext().getPageActivity(), ExtraParamsManager.getDecryptUserId(pVar.aIe.userUk), pVar.aIe.userName, pVar.aIe.portrait, 0, 0, "", "", 0L, 0L, 0L, 0, "", c.this.mLiveId, false, "", "", pVar.aIe.userName, "")));
-                c.this.LI(i);
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(c.this.getPageContext().getPageActivity(), ExtraParamsManager.getDecryptUserId(pVar.aIV.userUk), pVar.aIV.userName, pVar.aIV.portrait, 0, 0, "", "", 0L, 0L, 0L, 0, "", c.this.mLiveId, false, "", "", pVar.aIV.userName, "")));
+                c.this.LY(i);
             }
         }
     };
-    CustomMessageListener gpA = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.yuyinala.liveroom.audiencelist.c.2
+    CustomMessageListener gvo = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.yuyinala.liveroom.audiencelist.c.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -64,13 +64,13 @@ public class c {
     };
     private String mLiveId;
     private TbPageContext mTbPageContext;
-    private a nOZ;
+    private a nUX;
     private String otherParams;
 
     public c(TbPageContext tbPageContext, com.baidu.live.liveroom.a.a aVar) {
         this.mTbPageContext = tbPageContext;
-        this.gSJ = aVar;
-        MessageManager.getInstance().registerListener(this.gpA);
+        this.gYO = aVar;
+        MessageManager.getInstance().registerListener(this.gvo);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -80,39 +80,39 @@ public class c {
 
     public void a(String str, w wVar) {
         this.mLiveId = str;
-        this.aEc = wVar;
+        this.aES = wVar;
     }
 
-    public void UX(String str) {
+    public void Vo(String str) {
         this.mLiveId = str;
     }
 
     public void c(ViewGroup viewGroup, int i, int i2) {
         if (viewGroup != null) {
-            if (this.gSL == null) {
-                this.gSL = (FrameLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(a.h.yuyin_ala_live_audience_list_layout, (ViewGroup) null);
+            if (this.gYQ == null) {
+                this.gYQ = (FrameLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(a.g.yuyin_ala_live_audience_list_layout, (ViewGroup) null);
             }
-            if (this.bEg != null && this.bEg.indexOfChild(this.gSL) > 0) {
-                this.bEg.removeView(this.gSL);
+            if (this.bJN != null && this.bJN.indexOfChild(this.gYQ) > 0) {
+                this.bJN.removeView(this.gYQ);
             }
-            this.bEg = viewGroup;
-            this.gSL.setId(a.g.ala_liveroom_audience);
-            this.gSM = (FrameLayout) this.gSL.findViewById(a.g.content_layout);
-            this.gSN = (AlphaGradientHListView) this.gSL.findViewById(a.g.ala_live_guest_listview);
-            this.gSN.setDividerWidth(BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.e.sdk_ds0));
-            this.nOZ = new a(getPageContext().getPageActivity());
-            this.gSN.setAdapter((ListAdapter) this.nOZ);
-            this.gSN.setSelector(getPageContext().getPageActivity().getResources().getDrawable(a.f.sdk_transparent_bg));
-            this.gSN.setOnItemClickListener(this.gSQ);
-            this.gSN.setColor(getPageContext().getResources().getColor(a.d.sdk_white_alpha100), getPageContext().getResources().getColor(a.d.sdk_white_alpha0));
-            this.gSN.setNeedAlphaShade(true);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.e.sdk_ds82));
+            this.bJN = viewGroup;
+            this.gYQ.setId(a.f.ala_liveroom_audience);
+            this.gYR = (FrameLayout) this.gYQ.findViewById(a.f.content_layout);
+            this.gYS = (AlphaGradientHListView) this.gYQ.findViewById(a.f.ala_live_guest_listview);
+            this.gYS.setDividerWidth(BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.d.sdk_ds0));
+            this.nUX = new a(getPageContext().getPageActivity());
+            this.gYS.setAdapter((ListAdapter) this.nUX);
+            this.gYS.setSelector(getPageContext().getPageActivity().getResources().getDrawable(a.e.sdk_transparent_bg));
+            this.gYS.setOnItemClickListener(this.gYV);
+            this.gYS.setColor(getPageContext().getResources().getColor(a.c.sdk_white_alpha100), getPageContext().getResources().getColor(a.c.sdk_white_alpha0));
+            this.gYS.setNeedAlphaShade(true);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.d.sdk_ds82));
             layoutParams.addRule(1, i);
             layoutParams.addRule(8, i);
             layoutParams.addRule(0, i2);
-            layoutParams.leftMargin = BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.e.sdk_ds10);
+            layoutParams.leftMargin = BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.d.sdk_ds10);
             layoutParams.rightMargin = BdUtilHelper.dip2px(getPageContext().getPageActivity(), -6.0f);
-            this.bEg.addView(this.gSL, layoutParams);
+            this.bJN.addView(this.gYQ, layoutParams);
         }
     }
 
@@ -120,11 +120,11 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void LI(int i) {
+    public void LY(int i) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.aEc.aIS.croom_id);
+            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.aES.aJK.croom_id);
             jSONObject.put("icon_num", i + 1);
         } catch (Exception e) {
             BdLog.e(e);
@@ -133,14 +133,14 @@ public class c {
     }
 
     public void e(q qVar) {
-        if ((qVar == null || TextUtils.isEmpty(qVar.liveId) || qVar.liveId.equals(this.mLiveId)) && this.nOZ != null) {
-            this.nOZ.d(qVar);
-            this.nOZ.notifyDataSetChanged();
+        if ((qVar == null || TextUtils.isEmpty(qVar.liveId) || qVar.liveId.equals(this.mLiveId)) && this.nUX != null) {
+            this.nUX.d(qVar);
+            this.nUX.notifyDataSetChanged();
         }
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.gpA);
+        MessageManager.getInstance().unRegisterListener(this.gvo);
     }
 
     public void setOtherParams(String str) {

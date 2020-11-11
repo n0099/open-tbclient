@@ -5,14 +5,14 @@ import java.util.concurrent.ThreadFactory;
 class c implements ThreadFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2944a;
+    private String f2946a;
 
     public c(String str) {
-        this.f2944a = "BaiduMapSDK-" + str;
+        this.f2946a = "BaiduMapSDK-" + str;
     }
 
     @Override // java.util.concurrent.ThreadFactory
     public Thread newThread(Runnable runnable) {
-        return new Thread(runnable, this.f2944a);
+        return new Thread(runnable, this.f2946a);
     }
 }

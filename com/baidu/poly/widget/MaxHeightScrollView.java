@@ -8,7 +8,7 @@ import android.widget.ScrollView;
 import com.baidu.poly.b;
 /* loaded from: classes6.dex */
 public class MaxHeightScrollView extends ScrollView {
-    private float bXW;
+    private float cdI;
 
     public MaxHeightScrollView(Context context) {
         this(context, null);
@@ -16,7 +16,7 @@ public class MaxHeightScrollView extends ScrollView {
 
     private void a(Context context, AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, b.i.MaxHeightScrollView);
-        this.bXW = obtainStyledAttributes.getFloat(b.i.MaxHeightScrollView_heightRatio, -1.0f);
+        this.cdI = obtainStyledAttributes.getFloat(b.i.MaxHeightScrollView_heightRatio, -1.0f);
         obtainStyledAttributes.recycle();
     }
 
@@ -26,8 +26,8 @@ public class MaxHeightScrollView extends ScrollView {
 
     @Override // android.widget.ScrollView, android.widget.FrameLayout, android.view.View
     protected void onMeasure(int i, int i2) {
-        if (this.bXW > 0.0f) {
-            i2 = View.MeasureSpec.makeMeasureSpec((int) Math.min(getScreenHeight() * this.bXW, View.MeasureSpec.getSize(i2)), Integer.MIN_VALUE);
+        if (this.cdI > 0.0f) {
+            i2 = View.MeasureSpec.makeMeasureSpec((int) Math.min(getScreenHeight() * this.cdI, View.MeasureSpec.getSize(i2)), Integer.MIN_VALUE);
         }
         super.onMeasure(i, i2);
     }

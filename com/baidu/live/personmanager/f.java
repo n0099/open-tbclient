@@ -38,7 +38,7 @@ public class f {
         return null;
     }
 
-    public static String as(long j) {
+    public static String aE(long j) {
         return j / 10000 > 0 ? p(Math.floor(j / 1000.0d) / 10.0d) + "w" : String.valueOf(j);
     }
 

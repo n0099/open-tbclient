@@ -60,11 +60,11 @@ public final class ObservableTakeUntil<T, U> extends io.reactivex.internal.opera
     /* loaded from: classes17.dex */
     final class a implements u<U> {
         private final ArrayCompositeDisposable frc;
-        private final io.reactivex.observers.b<T> pFi;
+        private final io.reactivex.observers.b<T> pOC;
 
         a(ArrayCompositeDisposable arrayCompositeDisposable, io.reactivex.observers.b<T> bVar) {
             this.frc = arrayCompositeDisposable;
-            this.pFi = bVar;
+            this.pOC = bVar;
         }
 
         @Override // io.reactivex.u
@@ -75,19 +75,19 @@ public final class ObservableTakeUntil<T, U> extends io.reactivex.internal.opera
         @Override // io.reactivex.u
         public void onNext(U u) {
             this.frc.dispose();
-            this.pFi.onComplete();
+            this.pOC.onComplete();
         }
 
         @Override // io.reactivex.u
         public void onError(Throwable th) {
             this.frc.dispose();
-            this.pFi.onError(th);
+            this.pOC.onError(th);
         }
 
         @Override // io.reactivex.u
         public void onComplete() {
             this.frc.dispose();
-            this.pFi.onComplete();
+            this.pOC.onComplete();
         }
     }
 }

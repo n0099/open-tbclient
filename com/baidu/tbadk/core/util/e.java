@@ -18,7 +18,7 @@ public class e {
         }
     };
 
-    public static e bnP() {
+    public static e bqp() {
         return new e();
     }
 

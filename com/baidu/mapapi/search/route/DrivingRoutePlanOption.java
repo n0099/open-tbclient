@@ -19,14 +19,14 @@ public class DrivingRoutePlanOption {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private int f2131a;
+        private int f2133a;
 
         DrivingPolicy(int i) {
-            this.f2131a = i;
+            this.f2133a = i;
         }
 
         public int getInt() {
-            return this.f2131a;
+            return this.f2133a;
         }
     }
 
@@ -37,14 +37,14 @@ public class DrivingRoutePlanOption {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private int f2132a;
+        private int f2134a;
 
         DrivingTrafficPolicy(int i) {
-            this.f2132a = i;
+            this.f2134a = i;
         }
 
         public int getInt() {
-            return this.f2132a;
+            return this.f2134a;
         }
     }
 

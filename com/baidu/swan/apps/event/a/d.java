@@ -6,15 +6,15 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public final class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public final String cGo;
+    public final String cMh;
     public final String mData;
 
     public d(String str, String str2) {
-        this.cGo = str;
+        this.cMh = str;
         this.mData = str2;
     }
 
-    public static d nW(String str) {
+    public static d ol(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
             return new d(jSONObject.optString("webviewid"), jSONObject.optString("message"));

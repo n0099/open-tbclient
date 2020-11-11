@@ -5,7 +5,7 @@ import java.io.IOException;
 /* loaded from: classes16.dex */
 class ag {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static com.tb.airbnb.lottie.model.content.k y(JsonReader jsonReader, com.tb.airbnb.lottie.d dVar) throws IOException {
+    public static com.tb.airbnb.lottie.model.content.k y(JsonReader jsonReader, com.tb.airbnb.lottie.e eVar) throws IOException {
         com.tb.airbnb.lottie.model.a.h hVar = null;
         int i = 0;
         String str = null;
@@ -40,7 +40,7 @@ class ag {
                     i = jsonReader.nextInt();
                     break;
                 case 2:
-                    hVar = d.j(jsonReader, dVar);
+                    hVar = d.j(jsonReader, eVar);
                     break;
                 default:
                     jsonReader.skipValue();

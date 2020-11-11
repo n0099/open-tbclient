@@ -10,39 +10,39 @@ import com.baidu.android.util.devices.RomUtils;
 public class aw {
 
     /* renamed from: a  reason: collision with root package name */
-    private static aw f5066a;
+    private static aw f5068a;
 
     /* renamed from: a  reason: collision with other field name */
-    private int f867a = 0;
+    private int f869a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f868a;
+    private Context f870a;
 
     private aw(Context context) {
-        this.f868a = context.getApplicationContext();
+        this.f870a = context.getApplicationContext();
     }
 
     public static aw a(Context context) {
-        if (f5066a == null) {
-            f5066a = new aw(context);
+        if (f5068a == null) {
+            f5068a = new aw(context);
         }
-        return f5066a;
+        return f5068a;
     }
 
     @SuppressLint({"NewApi"})
     public int a() {
-        if (this.f867a != 0) {
-            return this.f867a;
+        if (this.f869a != 0) {
+            return this.f869a;
         }
         if (Build.VERSION.SDK_INT >= 17) {
             try {
-                this.f867a = Settings.Global.getInt(this.f868a.getContentResolver(), "device_provisioned", 0);
+                this.f869a = Settings.Global.getInt(this.f870a.getContentResolver(), "device_provisioned", 0);
             } catch (Exception e) {
             }
-            return this.f867a;
+            return this.f869a;
         }
-        this.f867a = Settings.Secure.getInt(this.f868a.getContentResolver(), "device_provisioned", 0);
-        return this.f867a;
+        this.f869a = Settings.Secure.getInt(this.f870a.getContentResolver(), "device_provisioned", 0);
+        return this.f869a;
     }
 
     @SuppressLint({"NewApi"})
@@ -53,6 +53,6 @@ public class aw {
 
     /* renamed from: a  reason: collision with other method in class */
     public boolean m553a() {
-        return com.xiaomi.push.ab.f89a.contains("xmsf") || com.xiaomi.push.ab.f89a.contains(RomUtils.MANUFACTURER_XIAOMI) || com.xiaomi.push.ab.f89a.contains("miui");
+        return com.xiaomi.push.ab.f91a.contains("xmsf") || com.xiaomi.push.ab.f91a.contains(RomUtils.MANUFACTURER_XIAOMI) || com.xiaomi.push.ab.f91a.contains("miui");
     }
 }

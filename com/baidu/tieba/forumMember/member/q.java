@@ -8,9 +8,9 @@ import com.baidu.adp.widget.ListView.af;
 import com.baidu.tieba.R;
 /* loaded from: classes23.dex */
 public class q extends af.a {
-    public TextView iym;
-    public TextView iyn;
-    public RelativeLayout iyo;
+    public TextView iEj;
+    public TextView iEk;
+    public RelativeLayout iEl;
     public LinearLayout mRootLayout;
     public int mSkinType;
 
@@ -18,8 +18,8 @@ public class q extends af.a {
         super(view);
         this.mSkinType = 3;
         this.mRootLayout = (LinearLayout) view.findViewById(R.id.root_member_manager_apply);
-        this.iym = (TextView) view.findViewById(R.id.assist_apply_tip);
-        this.iyn = (TextView) view.findViewById(R.id.assist_left_tv);
-        this.iyo = (RelativeLayout) view.findViewById(R.id.assist_apply_layout);
+        this.iEj = (TextView) view.findViewById(R.id.assist_apply_tip);
+        this.iEk = (TextView) view.findViewById(R.id.assist_left_tv);
+        this.iEl = (RelativeLayout) view.findViewById(R.id.assist_apply_layout);
     }
 }

@@ -15,17 +15,17 @@ public interface d {
 
     void a(String str, boolean z, boolean z2, a aVar);
 
-    void avA();
+    com.baidu.swan.apps.scheme.actions.f.b axZ();
 
-    void avB();
+    void aya();
 
-    void avC();
+    void ayb();
 
-    void avD();
+    void ayc();
 
-    com.baidu.swan.apps.scheme.actions.f.b avz();
+    void ayd();
 
     double[] b(@NonNull com.baidu.swan.apps.scheme.actions.f.b bVar, @NonNull String str);
 
-    void fi(boolean z);
+    void fr(boolean z);
 }

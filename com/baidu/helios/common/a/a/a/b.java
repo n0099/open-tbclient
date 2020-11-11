@@ -14,7 +14,7 @@ import javax.crypto.spec.PSource;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final byte[] f1801a = new byte[0];
+    private static final byte[] f1803a = new byte[0];
     private d axZ;
     private com.baidu.helios.common.a.b.a aya;
     private int i;

@@ -8,7 +8,7 @@ import com.baidu.vi.VIContext;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2940a = -1;
+    private int f2942a = -1;
     private int b = -1;
     private float c = -1.0f;
     private int d = -1;
@@ -17,15 +17,15 @@ public class a {
     private double g = -1.0d;
 
     public int a() {
-        if (this.f2940a == -1) {
+        if (this.f2942a == -1) {
             a(VIContext.getContext());
         }
-        return this.f2940a;
+        return this.f2942a;
     }
 
     public void a(Context context) {
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-        this.f2940a = displayMetrics.widthPixels;
+        this.f2942a = displayMetrics.widthPixels;
         this.b = displayMetrics.heightPixels;
         this.c = displayMetrics.density;
         this.d = (int) displayMetrics.xdpi;

@@ -6,7 +6,7 @@ import android.content.Context;
 public final class RimAnimUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f1524a;
+    private static int f1526a;
     private static int b;
     private static int c;
     private static int d;
@@ -16,12 +16,12 @@ public final class RimAnimUtils {
 
     public static void startActivityAnim(Context context) {
         if (context != null) {
-            if (f1524a == 0 || b == 0) {
-                f1524a = ResUtils.anim(context, "rim_base_slide_from_right");
+            if (f1526a == 0 || b == 0) {
+                f1526a = ResUtils.anim(context, "rim_base_slide_from_right");
                 b = ResUtils.anim(context, "rim_base_slide_to_left");
             }
             if (context instanceof Activity) {
-                ((Activity) context).overridePendingTransition(f1524a, b);
+                ((Activity) context).overridePendingTransition(f1526a, b);
             }
         }
     }

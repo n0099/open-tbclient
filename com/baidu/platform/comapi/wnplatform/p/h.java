@@ -11,7 +11,7 @@ public class h {
     private static int d = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f3146a = Constants.METHOD_IM_FRIEND_GROUP_QUERY_MEMBER;
+    public static int f3148a = Constants.METHOD_IM_FRIEND_GROUP_QUERY_MEMBER;
     public static int b = 133;
 
     public static float a(Context context) {

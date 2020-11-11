@@ -35,21 +35,21 @@ public class t extends b<AbsThreadDataSupport> {
     @Override // com.baidu.card.p
     /* renamed from: b */
     public void H(AbsThreadDataSupport absThreadDataSupport) {
-        if (absThreadDataSupport == null || absThreadDataSupport.bhz() == null) {
+        if (absThreadDataSupport == null || absThreadDataSupport.bjZ() == null) {
             getView().setVisibility(8);
             return;
         }
         this.afI = absThreadDataSupport;
-        bw bhz = absThreadDataSupport.bhz();
-        com.baidu.tieba.card.n.a(bhz, this.agp);
-        this.ago.setData(bhz);
+        bw bjZ = absThreadDataSupport.bjZ();
+        com.baidu.tieba.card.n.a(bjZ, this.agp);
+        this.ago.setData(bjZ);
     }
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         this.ago.onChangeSkinType();
-        if (this.afI != null && this.afI.bhz() != null) {
-            com.baidu.tieba.card.n.a(this.agp, this.afI.bhz().getId(), R.color.cp_cont_b, R.color.cp_cont_d);
+        if (this.afI != null && this.afI.bjZ() != null) {
+            com.baidu.tieba.card.n.a(this.agp, this.afI.bjZ().getId(), R.color.cp_cont_b, R.color.cp_cont_d);
         }
     }
 

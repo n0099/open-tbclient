@@ -61,25 +61,25 @@ public abstract class at extends b<AbsThreadDataSupport> implements com.baidu.ti
             @Override // com.baidu.card.a.a.b
             public boolean a(a.C0097a c0097a) {
                 if (c0097a.getActionType() == 1) {
-                    com.baidu.tieba.card.n.a(at.this.mTitle, at.this.afI.bhz().getId(), R.color.cp_cont_b, R.color.cp_cont_d);
+                    com.baidu.tieba.card.n.a(at.this.mTitle, at.this.afI.bjZ().getId(), R.color.cp_cont_b, R.color.cp_cont_d);
                 } else if (c0097a.getActionType() == 2) {
                     if (at.this.aix != null) {
-                        at.this.aix.bRb();
+                        at.this.aix.bTA();
                     }
                 } else if (c0097a.getActionType() == 3) {
                     if (at.this.aix != null) {
-                        at.this.aix.dpJ();
+                        at.this.aix.dsl();
                     }
                 } else if (c0097a.getActionType() == 6) {
                     if (at.this.aix != null) {
-                        return at.this.aix.duZ();
+                        return at.this.aix.dxB();
                     }
                 } else if (c0097a.getActionType() == 7) {
                     if (at.this.aiw != null) {
                         at.this.aiw.aO(((Boolean) c0097a.ud()).booleanValue());
                     }
                 } else if (c0097a.getActionType() == 8 && at.this.aix != null && (c0097a.ud() instanceof Boolean)) {
-                    return at.this.aix.qV(((Boolean) c0097a.ud()).booleanValue());
+                    return at.this.aix.re(((Boolean) c0097a.ud()).booleanValue());
                 }
                 return false;
             }
@@ -107,7 +107,7 @@ public abstract class at extends b<AbsThreadDataSupport> implements com.baidu.ti
             com.baidu.tbadk.a.b.a.d(this.aiw, R.dimen.tbds28, R.dimen.tbds14);
             com.baidu.tbadk.a.b.a.a(this.mTitle, R.dimen.tbds7, R.dimen.tbds10);
             this.aix = tH();
-            this.aix.dun().setBackgroundResource(R.color.transparent);
+            this.aix.dwP().setBackgroundResource(R.color.transparent);
             this.aix.setUniqueId(this.aiz);
             this.aix.setFrom(this.mFrom);
             this.aix.setStageType(this.aiy);
@@ -130,16 +130,16 @@ public abstract class at extends b<AbsThreadDataSupport> implements com.baidu.ti
             this.mLastScreenWidth = equipmentWidth;
         }
         this.afI = absThreadDataSupport;
-        if (this.afI != null && this.afI.bhz() != null && this.afI.bhz().bks() != null) {
-            this.aix.setData(absThreadDataSupport.bhz());
+        if (this.afI != null && this.afI.bjZ() != null && this.afI.bjZ().bmS() != null) {
+            this.aix.setData(absThreadDataSupport.bjZ());
             final ViewGroup.LayoutParams layoutParams = this.aiw.getLayoutParams();
             int i = layoutParams.width;
             int i2 = layoutParams.height;
-            if (this.afI.bhz().bks().is_vertical.intValue() == 1) {
+            if (this.afI.bjZ().bmS().is_vertical.intValue() == 1) {
                 int i3 = (air / 9) * 16;
                 int i4 = ais;
-                int intValue = this.afI.bhz().bks().video_width.intValue();
-                int intValue2 = this.afI.bhz().bks().video_height.intValue();
+                int intValue = this.afI.bjZ().bmS().video_width.intValue();
+                int intValue2 = this.afI.bjZ().bmS().video_height.intValue();
                 layoutParams.width = air;
                 boolean z3 = i != layoutParams.width;
                 if (intValue == 0 || intValue2 == 0) {
@@ -169,7 +169,7 @@ public abstract class at extends b<AbsThreadDataSupport> implements com.baidu.ti
                 z = (i2 == layoutParams.height && i == layoutParams.width) ? false : true;
             }
             if (z) {
-                if (this.afI.bhz().bks().is_vertical.intValue() == 1) {
+                if (this.afI.bjZ().bmS().is_vertical.intValue() == 1) {
                     this.aiw.setLayoutParams(layoutParams);
                     this.aiw.post(new Runnable() { // from class: com.baidu.card.at.1
                         @Override // java.lang.Runnable
@@ -187,15 +187,15 @@ public abstract class at extends b<AbsThreadDataSupport> implements com.baidu.ti
                     });
                 }
             }
-            if (this.afI.bhz().blW()) {
+            if (this.afI.bjZ().bow()) {
                 this.mTitle.setMaxLines(5);
-                ay.a(this.mTitle, this.afI.bhz(), aiq, this.aik);
+                ay.a(this.mTitle, this.afI.bjZ(), aiq, this.aik);
             } else {
                 this.mTitle.setMaxLines(2);
-                ay.a(this.mTitle, this.afI.bhz(), 0, this.aik);
+                ay.a(this.mTitle, this.afI.bjZ(), 0, this.aik);
             }
             if (this.afG != null) {
-                this.aix.ac(this.aiA);
+                this.aix.ad(this.aiA);
             }
             if (tB() != null) {
                 this.aix.setAfterClickListener(this.mOnClickListener);
@@ -209,8 +209,8 @@ public abstract class at extends b<AbsThreadDataSupport> implements com.baidu.ti
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (this.afI != null && this.afI.bhz() != null) {
-            com.baidu.tieba.card.n.a(this.mTitle, this.afI.bhz().getId(), R.color.cp_cont_b, R.color.cp_cont_d);
+        if (this.afI != null && this.afI.bjZ() != null) {
+            com.baidu.tieba.card.n.a(this.mTitle, this.afI.bjZ().getId(), R.color.cp_cont_b, R.color.cp_cont_d);
             this.aiw.onChangeSkinType(i);
             this.aiw.setBackgroundColor(com.baidu.tbadk.core.util.ap.getColor(R.color.cp_bg_line_j));
         }
@@ -263,10 +263,10 @@ public abstract class at extends b<AbsThreadDataSupport> implements com.baidu.ti
 
     @Override // com.baidu.tieba.play.e
     public String getPlayUrl() {
-        if (this.afI == null || this.afI.bhz() == null) {
+        if (this.afI == null || this.afI.bjZ() == null) {
             return null;
         }
-        return this.afI.bhz().getVideoUrl();
+        return this.afI.bjZ().getVideoUrl();
     }
 
     public void setFrom(String str) {

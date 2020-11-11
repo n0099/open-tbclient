@@ -7,13 +7,13 @@ import java.util.concurrent.locks.ReadWriteLock;
 public class m implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ long f3177a;
+    final /* synthetic */ long f3179a;
     final /* synthetic */ NABaseMap b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(NABaseMap nABaseMap, long j) {
         this.b = nABaseMap;
-        this.f3177a = j;
+        this.f3179a = j;
     }
 
     @Override // java.lang.Runnable
@@ -32,11 +32,11 @@ public class m implements Runnable {
                 boolean tryLock = readWriteLock3.readLock().tryLock(2000L, TimeUnit.MILLISECONDS);
                 if (tryLock) {
                     try {
-                        a2 = this.b.a(this.f3177a);
+                        a2 = this.b.a(this.f3179a);
                         if (!a2) {
                             NABaseMap nABaseMap = this.b;
                             j = this.b.b;
-                            nABaseMap.nativeClearLayer(j, this.f3177a);
+                            nABaseMap.nativeClearLayer(j, this.f3179a);
                         }
                     } catch (Throwable th2) {
                         z = tryLock;

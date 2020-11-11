@@ -13,8 +13,8 @@ import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class AlaRoundProgress extends View {
-    private float aZm;
-    private int aZn;
+    private float baF;
+    private int baG;
     private int max;
     private Paint paint;
     private int progress;
@@ -34,13 +34,13 @@ public class AlaRoundProgress extends View {
         super(context, attributeSet, i);
         this.paint = new Paint();
         this.paint = new Paint();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.k.AlaRoundProgress);
-        this.roundColor = obtainStyledAttributes.getColor(a.k.AlaRoundProgress_ala_srp_roundColor, SupportMenu.CATEGORY_MASK);
-        this.roundWidth = obtainStyledAttributes.getDimension(a.k.AlaRoundProgress_ala_srp_roundWidth, 5.0f);
-        this.progressColor = obtainStyledAttributes.getColor(a.k.AlaRoundProgress_ala_srp_progressColor, -16711936);
-        this.aZm = obtainStyledAttributes.getDimension(a.k.AlaRoundProgress_ala_srp_progressWidth, this.roundWidth);
-        this.max = obtainStyledAttributes.getInteger(a.k.AlaRoundProgress_ala_srp_max, 100);
-        this.aZn = obtainStyledAttributes.getInt(a.k.AlaRoundProgress_ala_srp_startAngle, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.AlaRoundProgress);
+        this.roundColor = obtainStyledAttributes.getColor(a.j.AlaRoundProgress_ala_srp_roundColor, SupportMenu.CATEGORY_MASK);
+        this.roundWidth = obtainStyledAttributes.getDimension(a.j.AlaRoundProgress_ala_srp_roundWidth, 5.0f);
+        this.progressColor = obtainStyledAttributes.getColor(a.j.AlaRoundProgress_ala_srp_progressColor, -16711936);
+        this.baF = obtainStyledAttributes.getDimension(a.j.AlaRoundProgress_ala_srp_progressWidth, this.roundWidth);
+        this.max = obtainStyledAttributes.getInteger(a.j.AlaRoundProgress_ala_srp_max, 100);
+        this.baG = obtainStyledAttributes.getInt(a.j.AlaRoundProgress_ala_srp_startAngle, 0);
         obtainStyledAttributes.recycle();
     }
 
@@ -54,13 +54,13 @@ public class AlaRoundProgress extends View {
         this.paint.setAntiAlias(true);
         this.paint.setStyle(Paint.Style.STROKE);
         canvas.drawCircle(width, width, f, this.paint);
-        this.paint.setStrokeWidth(this.aZm);
+        this.paint.setStrokeWidth(this.baF);
         this.paint.setColor(this.progressColor);
         RectF rectF = new RectF(width - f, width - f, width + f, width + f);
         int i = (this.progress * EncoderTextureDrawer.X264_WIDTH) / this.max;
-        canvas.drawArc(rectF, this.aZn, i, false, this.paint);
+        canvas.drawArc(rectF, this.baG, i, false, this.paint);
         this.paint.setColor(this.roundColor);
-        canvas.drawArc(rectF, this.aZn + i, 630 - (this.aZn + i), false, this.paint);
+        canvas.drawArc(rectF, this.baG + i, 630 - (this.baG + i), false, this.paint);
     }
 
     public synchronized void setMax(int i) {

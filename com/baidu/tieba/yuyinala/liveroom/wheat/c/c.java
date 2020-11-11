@@ -1,70 +1,107 @@
 package com.baidu.tieba.yuyinala.liveroom.wheat.c;
 
-import com.baidu.live.adp.BdUniqueId;
-import com.baidu.live.adp.base.BdBaseModel;
+import android.app.Activity;
+import android.content.Context;
 import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.adp.framework.listener.HttpMessageListener;
-import com.baidu.live.adp.framework.message.HttpResponsedMessage;
-import com.baidu.live.adp.framework.task.HttpMessageTask;
-import com.baidu.live.tbadk.TbConfig;
-import com.baidu.live.tbadk.TbPageContext;
-import com.baidu.live.tbadk.task.TbHttpMessageTask;
+import com.baidu.live.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.yuyinala.liveroom.wheat.c.d;
 import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaApplyWheatHttpResponseMessage;
+import com.baidu.tieba.yuyinala.liveroom.wheat.model.c;
 /* loaded from: classes4.dex */
-public class c extends BdBaseModel {
-    private TbPageContext mPageContext;
-    private a nYM;
-    private HttpMessageListener messageListener = new HttpMessageListener(1031007) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.c.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.live.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaApplyWheatHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == c.this.bnb && c.this.nYM != null) {
-                AlaApplyWheatHttpResponseMessage alaApplyWheatHttpResponseMessage = (AlaApplyWheatHttpResponseMessage) httpResponsedMessage;
-                if (alaApplyWheatHttpResponseMessage.getError() != 0 || !alaApplyWheatHttpResponseMessage.isSuccess()) {
-                    c.this.nYM.c(alaApplyWheatHttpResponseMessage);
-                } else {
-                    c.this.nYM.b(alaApplyWheatHttpResponseMessage);
-                }
-            }
-        }
-    };
-    private BdUniqueId bnb = BdUniqueId.gen();
+public class c {
+    private static c odI;
+    private a odJ;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void b(AlaApplyWheatHttpResponseMessage alaApplyWheatHttpResponseMessage);
+        void dZd();
 
-        void c(AlaApplyWheatHttpResponseMessage alaApplyWheatHttpResponseMessage);
+        void daO();
     }
 
-    public c(TbPageContext tbPageContext, a aVar) {
-        setUniqueId(this.bnb);
-        this.mPageContext = tbPageContext;
-        this.nYM = aVar;
-        beS();
-        registerListener(this.messageListener);
+    public static c dZi() {
+        if (odI == null) {
+            odI = new c();
+        }
+        return odI;
     }
 
-    private void beS() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031007, TbConfig.SERVER_ADDRESS + "ala/audio/link/apply");
-        tbHttpMessageTask.setIsNeedTbs(true);
-        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
-        tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        tbHttpMessageTask.setResponsedClass(AlaApplyWheatHttpResponseMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    private c() {
     }
 
-    public void aL(String str, String str2, String str3) {
-        sendMessage(new com.baidu.tieba.yuyinala.liveroom.wheat.message.b(str, str2, str3));
+    public void a(Context context, Activity activity, String str, String str2) {
+        if (VH(str)) {
+            a(context, activity, str);
+        } else {
+            b(context, activity, str, str2);
+        }
     }
 
-    @Override // com.baidu.live.adp.base.BdBaseModel
-    protected boolean loadData() {
-        return false;
+    private void a(Context context, Activity activity, final String str) {
+        d.dZj().a(context, activity, new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.c.1
+            @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.d.a
+            public void yZ(boolean z) {
+                if (z) {
+                    if (c.this.odJ != null) {
+                        c.this.odJ.daO();
+                    }
+                    new com.baidu.tieba.yuyinala.liveroom.wheat.model.c(null, new c.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.c.1.1
+                        @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.c.a
+                        public void b(AlaApplyWheatHttpResponseMessage alaApplyWheatHttpResponseMessage) {
+                            l.dZw().Mv(2);
+                            c.this.a(alaApplyWheatHttpResponseMessage);
+                        }
+
+                        @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.c.a
+                        public void c(AlaApplyWheatHttpResponseMessage alaApplyWheatHttpResponseMessage) {
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501036, false));
+                        }
+                    }).L(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().Ca(), str, "", "");
+                }
+            }
+        });
     }
 
-    @Override // com.baidu.live.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        return false;
+    private void b(Context context, Activity activity, final String str, final String str2) {
+        d.dZj().a(context, activity, new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.c.2
+            @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.d.a
+            public void yZ(boolean z) {
+                if (z) {
+                    new com.baidu.tieba.yuyinala.liveroom.wheat.model.c(null, new c.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.c.2.1
+                        @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.c.a
+                        public void b(AlaApplyWheatHttpResponseMessage alaApplyWheatHttpResponseMessage) {
+                            if (!alaApplyWheatHttpResponseMessage.isError() && c.this.odJ != null) {
+                                c.this.odJ.dZd();
+                            }
+                        }
+
+                        @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.c.a
+                        public void c(AlaApplyWheatHttpResponseMessage alaApplyWheatHttpResponseMessage) {
+                        }
+                    }).L(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().Ca(), str, str2, "");
+                }
+            }
+        });
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(AlaApplyWheatHttpResponseMessage alaApplyWheatHttpResponseMessage) {
+        if (alaApplyWheatHttpResponseMessage.eah() == 1) {
+            com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().dYN().M(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().dYQ(), TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), alaApplyWheatHttpResponseMessage.getPushUrl(), alaApplyWheatHttpResponseMessage.eag());
+        }
+    }
+
+    private boolean VH(String str) {
+        return "1".equals(str);
+    }
+
+    public void onDestroy() {
+        odI = null;
+    }
+
+    public c a(a aVar) {
+        this.odJ = aVar;
+        return this;
     }
 }

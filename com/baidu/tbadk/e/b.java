@@ -11,35 +11,35 @@ import java.util.List;
 /* loaded from: classes24.dex */
 public abstract class b {
     protected static WeakReference<TbPageContext<?>> alP = null;
-    protected static boolean eoP = false;
-    protected String eoM = "183322726";
-    protected boolean eoO = true;
-    protected transient List<String> eoN = new ArrayList(5);
+    protected static boolean euI = false;
+    protected String euF = "183322726";
+    protected boolean euH = true;
+    protected transient List<String> euG = new ArrayList(5);
 
     /* loaded from: classes24.dex */
     public interface a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void bgb();
+    public abstract void biB();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void bgf();
+    public abstract void biF();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void bgg();
+    public abstract void biG();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void bgh();
+    public abstract void biH();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void bgi();
+    public abstract void biI();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void c(a aVar);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void nz(int i);
+    public abstract void nJ(int i);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void removeCallBack();
@@ -64,13 +64,13 @@ public abstract class b {
         alP = new WeakReference<>(tbPageContext);
     }
 
-    public boolean bge() {
-        return eoP;
+    public boolean biE() {
+        return euI;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ii(boolean z) {
-        this.eoO = z;
+    public void ir(boolean z) {
+        this.euH = z;
     }
 
     public void resetContext() {

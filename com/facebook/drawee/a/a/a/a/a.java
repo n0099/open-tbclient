@@ -7,61 +7,61 @@ import com.facebook.imagepipeline.g.f;
 import javax.annotation.Nullable;
 /* loaded from: classes18.dex */
 public class a extends com.facebook.drawee.controller.b<f> {
-    private final h oDX;
-    private final g oDu;
-    private final com.facebook.common.time.b oEe;
+    private final g oMN;
+    private final h oNq;
+    private final com.facebook.common.time.b oNx;
 
     public a(com.facebook.common.time.b bVar, h hVar, g gVar) {
-        this.oEe = bVar;
-        this.oDX = hVar;
-        this.oDu = gVar;
+        this.oNx = bVar;
+        this.oNq = hVar;
+        this.oMN = gVar;
     }
 
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     public void g(String str, Object obj) {
-        this.oDX.hi(this.oEe.now());
-        this.oDX.XC(str);
-        this.oDX.bk(obj);
-        this.oDu.a(this.oDX, 0);
+        this.oNq.hE(this.oNx.now());
+        this.oNq.Yg(str);
+        this.oNq.bk(obj);
+        this.oMN.a(this.oNq, 0);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     /* renamed from: a */
     public void h(String str, @Nullable f fVar) {
-        this.oDX.hj(this.oEe.now());
-        this.oDX.XC(str);
-        this.oDX.a(fVar);
-        this.oDu.a(this.oDX, 2);
+        this.oNq.hF(this.oNx.now());
+        this.oNq.Yg(str);
+        this.oNq.a(fVar);
+        this.oMN.a(this.oNq, 2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     public void a(String str, @Nullable f fVar, @Nullable Animatable animatable) {
-        this.oDX.hk(this.oEe.now());
-        this.oDX.XC(str);
-        this.oDX.a(fVar);
-        this.oDX.zP(true);
-        this.oDu.a(this.oDX, 3);
+        this.oNq.hG(this.oNx.now());
+        this.oNq.Yg(str);
+        this.oNq.a(fVar);
+        this.oNq.Aa(true);
+        this.oMN.a(this.oNq, 3);
     }
 
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     public void h(String str, Throwable th) {
-        this.oDX.hl(this.oEe.now());
-        this.oDX.XC(str);
-        this.oDX.zP(false);
-        this.oDu.a(this.oDX, 5);
+        this.oNq.hH(this.oNx.now());
+        this.oNq.Yg(str);
+        this.oNq.Aa(false);
+        this.oMN.a(this.oNq, 5);
     }
 
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
-    public void hf(String str) {
-        super.hf(str);
-        int ehv = this.oDX.ehv();
-        if (ehv != 3 && ehv != 5) {
-            this.oDX.hm(this.oEe.now());
-            this.oDX.XC(str);
-            this.oDX.zO(true);
-            this.oDu.a(this.oDX, 4);
+    public void hm(String str) {
+        super.hm(str);
+        int elk = this.oNq.elk();
+        if (elk != 3 && elk != 5) {
+            this.oNq.hI(this.oNx.now());
+            this.oNq.Yg(str);
+            this.oNq.zZ(true);
+            this.oMN.a(this.oNq, 4);
         }
     }
 }

@@ -38,7 +38,7 @@ public class au extends i {
     public void H(final AbsThreadDataSupport absThreadDataSupport) {
         if (c(absThreadDataSupport)) {
             this.aiE.setVisibility(0);
-            this.aiE.setData(absThreadDataSupport.bhz().bmf(), absThreadDataSupport.bhz().getTid(), absThreadDataSupport.bhz().getFid());
+            this.aiE.setData(absThreadDataSupport.bjZ().boF(), absThreadDataSupport.bjZ().getTid(), absThreadDataSupport.bjZ().getFid());
             this.aiE.setOnItemClickListener(new View.OnClickListener() { // from class: com.baidu.card.au.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
@@ -56,6 +56,6 @@ public class au extends i {
     }
 
     private boolean c(AbsThreadDataSupport absThreadDataSupport) {
-        return (absThreadDataSupport == null || absThreadDataSupport.bhz() == null || absThreadDataSupport.bhz().bmf() == null || absThreadDataSupport.bhz().bmf().getOptions() == null || absThreadDataSupport.bhz().bmf().getOptions().size() <= 0 || absThreadDataSupport.bhz().biG()) ? false : true;
+        return (absThreadDataSupport == null || absThreadDataSupport.bjZ() == null || absThreadDataSupport.bjZ().boF() == null || absThreadDataSupport.bjZ().boF().getOptions() == null || absThreadDataSupport.bjZ().boF().getOptions().size() <= 0 || absThreadDataSupport.bjZ().blg()) ? false : true;
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.share.single.interfaces.IShareCallback;
 import com.baidu.tieba.ala.liveroom.views.e;
 /* loaded from: classes4.dex */
 public class d {
-    private com.baidu.tieba.ala.liveroom.views.c has;
+    private com.baidu.tieba.ala.liveroom.views.c hgu;
     private TbPageContext mPageContext;
     private View mRootView;
 
@@ -17,19 +17,19 @@ public class d {
     }
 
     private void init() {
-        this.has = new com.baidu.tieba.ala.liveroom.views.c(this.mPageContext);
-        this.has.setTbPageContext(this.mPageContext);
-        this.mRootView = this.has.getView();
+        this.hgu = new com.baidu.tieba.ala.liveroom.views.c(this.mPageContext);
+        this.hgu.setTbPageContext(this.mPageContext);
+        this.mRootView = this.hgu.getView();
     }
 
     public void a(IShareCallback iShareCallback) {
-        if (this.has != null) {
-            this.has.a(iShareCallback);
+        if (this.hgu != null) {
+            this.hgu.a(iShareCallback);
         }
     }
 
-    private void bYE() {
-        this.has.bYE();
+    private void cbg() {
+        this.hgu.cbg();
     }
 
     public View getView() {
@@ -37,40 +37,40 @@ public class d {
     }
 
     public void a(AlaLiveRecorder alaLiveRecorder, int i) {
-        this.has.b(alaLiveRecorder);
-        bYE();
+        this.hgu.c(alaLiveRecorder);
+        cbg();
     }
 
-    public boolean bYF() {
-        return this.has.bYF();
+    public boolean cbh() {
+        return this.hgu.cbh();
     }
 
-    public boolean bYG() {
-        return this.has.bYG();
+    public boolean cbi() {
+        return this.hgu.cbi();
     }
 
     public String getLiveTitle() {
-        return this.has.getLiveTitle();
+        return this.hgu.getLiveTitle();
     }
 
-    public boolean bYH() {
-        return this.has.bYH();
+    public boolean cbj() {
+        return this.hgu.cbj();
     }
 
-    public boolean bYI() {
-        return this.has.bYI();
+    public boolean cbk() {
+        return this.hgu.cbk();
     }
 
-    public void mV(boolean z) {
-        this.has.mV(z);
+    public void ne(boolean z) {
+        this.hgu.ne(z);
     }
 
-    public void bYJ() {
-        this.has.hon = false;
+    public void cbl() {
+        this.hgu.hul = false;
     }
 
-    public String bYK() {
-        return this.has.bYK();
+    public String cbm() {
+        return this.hgu.cbm();
     }
 
     public void setVisibility(int i) {
@@ -82,68 +82,68 @@ public class d {
     }
 
     public void a(e.b bVar) {
-        this.has.a(bVar);
+        this.hgu.a(bVar);
     }
 
     public void P(boolean z, boolean z2) {
         if (z) {
-            this.has.onKeyboardVisibilityChanged(false);
+            this.hgu.onKeyboardVisibilityChanged(false);
         } else {
-            this.has.onKeyboardVisibilityChanged(z2);
+            this.hgu.onKeyboardVisibilityChanged(z2);
         }
     }
 
     public void a(e.a aVar) {
-        this.has.a(aVar);
+        this.hgu.a(aVar);
     }
 
-    public void HF(String str) {
-        this.has.HF(str);
+    public void HX(String str) {
+        this.hgu.HX(str);
     }
 
     public void onResume() {
-        this.has.onResume();
+        this.hgu.onResume();
     }
 
     public void onRefresh() {
-        this.has.onRefresh();
+        this.hgu.onRefresh();
     }
 
-    public boolean bYL() {
-        return this.has.bYL();
+    public boolean cbn() {
+        return this.hgu.cbn();
     }
 
-    public void bYM() {
-        this.has.bYM();
+    public void cbo() {
+        this.hgu.cbo();
     }
 
     public void release() {
-        this.has.release();
+        this.hgu.release();
     }
 
     public void destroy() {
-        this.has.destroy();
+        this.hgu.destroy();
     }
 
-    public void mW(boolean z) {
-        this.has.mW(z);
+    public void nf(boolean z) {
+        this.hgu.nf(z);
     }
 
-    public void bYN() {
-        if (this.has != null) {
-            this.has.bYN();
+    public void cbp() {
+        if (this.hgu != null) {
+            this.hgu.cbp();
         }
     }
 
-    public void mX(boolean z) {
-        if (this.has != null) {
-            this.has.mX(z);
+    public void ng(boolean z) {
+        if (this.hgu != null) {
+            this.hgu.ng(z);
         }
     }
 
     public void a(com.baidu.live.k.a aVar) {
-        if (this.has != null) {
-            this.has.a(aVar);
+        if (this.hgu != null) {
+            this.hgu.a(aVar);
         }
     }
 }

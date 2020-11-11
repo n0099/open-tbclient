@@ -37,11 +37,11 @@ public final class k {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static final kotlin.b.h a(MatchResult matchResult) {
-        return kotlin.b.l.et(matchResult.start(), matchResult.end());
+        return kotlin.b.l.ew(matchResult.start(), matchResult.end());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static final kotlin.b.h a(MatchResult matchResult, int i) {
-        return kotlin.b.l.et(matchResult.start(i), matchResult.end(i));
+        return kotlin.b.l.ew(matchResult.start(i), matchResult.end(i));
     }
 }

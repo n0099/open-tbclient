@@ -37,7 +37,7 @@ public class a {
     static class C0163a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f1822a;
+        public long f1824a;
 
         C0163a() {
         }
@@ -48,7 +48,7 @@ public class a {
                 if (!TextUtils.isEmpty(a2)) {
                     JSONObject jSONObject = new JSONObject(a2);
                     C0163a c0163a = new C0163a();
-                    c0163a.f1822a = jSONObject.getLong("version");
+                    c0163a.f1824a = jSONObject.getLong("version");
                     return c0163a;
                 }
             } catch (Exception e) {
@@ -339,7 +339,7 @@ public class a {
     public long g() {
         C0163a a2 = C0163a.a(this);
         if (a2 != null) {
-            return a2.f1822a;
+            return a2.f1824a;
         }
         return 0L;
     }

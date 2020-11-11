@@ -14,7 +14,7 @@ import java.util.List;
 public class ArBridge {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ArBridge f1193a = null;
+    private static ArBridge f1195a = null;
     private WeakReference<BaiduArView> b;
     private Handler d;
     private List<a> e;
@@ -32,7 +32,7 @@ public class ArBridge {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f1195a;
+        public int f1197a;
         public int b;
         public HashMap<String, Object> c;
         public int d;
@@ -137,10 +137,10 @@ public class ArBridge {
     public static synchronized ArBridge getInstance() {
         ArBridge arBridge;
         synchronized (ArBridge.class) {
-            if (f1193a == null) {
-                f1193a = new ArBridge();
+            if (f1195a == null) {
+                f1195a = new ArBridge();
             }
-            arBridge = f1193a;
+            arBridge = f1195a;
         }
         return arBridge;
     }
@@ -214,9 +214,9 @@ public class ArBridge {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(b bVar) {
         for (a aVar : this.e) {
-            if (aVar.f1194a == 0 || bVar.f1195a == aVar.f1194a) {
+            if (aVar.f1196a == 0 || bVar.f1197a == aVar.f1196a) {
                 if (-1 == aVar.b || bVar.d == aVar.b) {
-                    aVar.c.a(bVar.f1195a, bVar.b, bVar.c);
+                    aVar.c.a(bVar.f1197a, bVar.b, bVar.c);
                 }
             }
         }
@@ -227,12 +227,12 @@ public class ArBridge {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f1194a;
+        public int f1196a;
         public int b;
         public d c;
 
         public a(int i, int i2, d dVar) {
-            this.f1194a = i;
+            this.f1196a = i;
             this.b = i2;
             this.c = dVar;
         }

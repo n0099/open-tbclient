@@ -14,7 +14,7 @@ public class b {
     public static long k = -1;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1943a;
+    public String f1945a;
     public String b;
     public String c;
     public String d;
@@ -25,11 +25,11 @@ public class b {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f1944a = new b();
+        public static final b f1946a = new b();
     }
 
     private b() {
-        this.f1943a = null;
+        this.f1945a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -40,7 +40,7 @@ public class b {
     }
 
     public static b a() {
-        return a.f1944a;
+        return a.f1946a;
     }
 
     public String a(boolean z) {
@@ -89,13 +89,13 @@ public class b {
         }
         if (this.c == null) {
             stringBuffer.append("&im=");
-            stringBuffer.append(this.f1943a);
+            stringBuffer.append(this.f1945a);
         } else {
             stringBuffer.append("&cu=");
             stringBuffer.append(this.c);
-            if (this.f1943a != null && !this.f1943a.equals("NULL") && !this.c.contains(new StringBuffer(this.f1943a).reverse().toString())) {
+            if (this.f1945a != null && !this.f1945a.equals("NULL") && !this.c.contains(new StringBuffer(this.f1945a).reverse().toString())) {
                 stringBuffer.append("&Aim=");
-                stringBuffer.append(this.f1943a);
+                stringBuffer.append(this.f1945a);
             }
         }
         if (this.b != null) {
@@ -160,7 +160,7 @@ public class b {
             stringBuffer.append(this.c);
         } else {
             stringBuffer.append("&im=");
-            stringBuffer.append(this.f1943a);
+            stringBuffer.append(this.f1945a);
         }
         try {
             stringBuffer.append("&mb=");

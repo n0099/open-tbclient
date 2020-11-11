@@ -6,7 +6,7 @@ import com.baidu.cyberplayer.sdk.Keep;
 public class CyberRTCAudioSamples {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f1416a;
+    private final int f1418a;
     private final int b;
     private final int c;
     private final byte[] d;
@@ -18,14 +18,14 @@ public class CyberRTCAudioSamples {
     }
 
     public CyberRTCAudioSamples(int i, int i2, int i3, byte[] bArr) {
-        this.f1416a = i;
+        this.f1418a = i;
         this.b = i2;
         this.c = i3;
         this.d = bArr;
     }
 
     public int getAudioFormat() {
-        return this.f1416a;
+        return this.f1418a;
     }
 
     public int getChannelCount() {

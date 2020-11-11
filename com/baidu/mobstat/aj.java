@@ -15,7 +15,7 @@ public class aj {
     private static final ByteBuffer c = ByteBuffer.allocate(0);
 
     /* renamed from: a  reason: collision with root package name */
-    private a f2524a;
+    private a f2526a;
     private b b;
 
     /* loaded from: classes17.dex */
@@ -49,7 +49,7 @@ public class aj {
     }
 
     public aj(URI uri, a aVar) throws c {
-        this.f2524a = aVar;
+        this.f2526a = aVar;
         try {
             this.b = new b(uri, 5000, uri.toString().startsWith("wss://") ? c() : null);
             this.b.c();
@@ -87,8 +87,8 @@ public class aj {
             if (bd.c().b()) {
                 bd.c().a("onOpen");
             }
-            if (aj.this.f2524a != null) {
-                aj.this.f2524a.a();
+            if (aj.this.f2526a != null) {
+                aj.this.f2526a.a();
             }
         }
 
@@ -114,7 +114,7 @@ public class aj {
                     if (!TextUtils.isEmpty(str2)) {
                         if (str2.equals("deploy")) {
                             try {
-                                aj.this.f2524a.a(((JSONObject) jSONObject.get("data")).toString());
+                                aj.this.f2526a.a(((JSONObject) jSONObject.get("data")).toString());
                                 return;
                             } catch (Exception e3) {
                                 return;
@@ -141,8 +141,8 @@ public class aj {
                             case 801024:
                                 bc.c().a("autotrace: connect confirm");
                                 am.a().a(3);
-                                if (aj.this.f2524a != null) {
-                                    aj.this.f2524a.b();
+                                if (aj.this.f2526a != null) {
+                                    aj.this.f2526a.b();
                                     return;
                                 }
                                 return;
@@ -159,8 +159,8 @@ public class aj {
             }
             bc.c().a("autotrace: connect closed, server:" + z + " reason:" + str);
             am.a().a(5, "remote:" + z + "|reason:" + str);
-            if (aj.this.f2524a != null) {
-                aj.this.f2524a.a(z);
+            if (aj.this.f2526a != null) {
+                aj.this.f2526a.a(z);
             }
         }
 

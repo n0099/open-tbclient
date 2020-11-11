@@ -9,7 +9,7 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f1279a = 12323;
+    public static int f1281a = 12323;
     public static int b = 12324;
     public b afu;
     private JSONObject afv;
@@ -27,7 +27,7 @@ public final class a {
         try {
             if (this.d == null) {
                 this.d = new JSONObject();
-                this.d.put("type", f1279a);
+                this.d.put("type", f1281a);
             }
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 return;

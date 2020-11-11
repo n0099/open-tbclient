@@ -14,7 +14,7 @@ public final class TileOverlayOptions {
     public String urlString;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2049a = 209715200;
+    private int f2051a = 209715200;
     private int d = 20;
     private int e = 3;
     private int f = 15786414;
@@ -42,7 +42,7 @@ public final class TileOverlayOptions {
         c.putInt("datasource", this.datasource);
         c.putInt("maxDisplay", this.d);
         c.putInt("minDisplay", this.e);
-        c.putInt("sdktiletmpmax", this.f2049a);
+        c.putInt("sdktiletmpmax", this.f2051a);
         return c;
     }
 
@@ -52,7 +52,7 @@ public final class TileOverlayOptions {
     }
 
     public TileOverlayOptions setMaxTileTmp(int i) {
-        this.f2049a = i;
+        this.f2051a = i;
         return this;
     }
 

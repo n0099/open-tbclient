@@ -20,7 +20,7 @@ public final class BdZeusDownloadHelper {
     private Context h;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1286a = BdZeusDownloadHelper.class.getSimpleName();
+    public static final String f1288a = BdZeusDownloadHelper.class.getSimpleName();
     private static BdZeusDownloadHelper afx = null;
     protected static String f = "com.baidu.android.appswitchsdk:web";
     private String i = "";
@@ -58,7 +58,7 @@ public final class BdZeusDownloadHelper {
         @Override // com.baidu.browser.sailor.BdSailorClient.IDownloadTaskListener
         @Keep
         public void onDownloadStart(String str, long j, String str2) {
-            BdZeusDownloadHelper.this.j = a.f1287a;
+            BdZeusDownloadHelper.this.j = a.f1289a;
         }
 
         @Override // com.baidu.browser.sailor.BdSailorClient.IDownloadTaskListener
@@ -106,7 +106,7 @@ public final class BdZeusDownloadHelper {
         public void onDownloading(String str, long j, long j2) {
             BdZeusDownloadHelper.this.b += j;
             BdZeusDownloadHelper.this.c = j2;
-            BdZeusDownloadHelper.this.j = a.f1287a;
+            BdZeusDownloadHelper.this.j = a.f1289a;
         }
     }
 
@@ -116,14 +116,14 @@ public final class BdZeusDownloadHelper {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f1287a = 1;
+        public static final int f1289a = 1;
         public static final int b = 2;
         public static final int c = 3;
         public static final int d = 4;
         public static final int e = 5;
         public static final int f = 6;
         public static final int g = 7;
-        private static final /* synthetic */ int[] h = {f1287a, b, c, d, e, f, g};
+        private static final /* synthetic */ int[] h = {f1289a, b, c, d, e, f, g};
     }
 
     private BdZeusDownloadHelper(Context context) {

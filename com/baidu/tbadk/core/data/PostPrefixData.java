@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONObject;
@@ -14,7 +15,7 @@ public class PostPrefixData extends OrmObject implements Serializable {
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            int optInt = jSONObject.optInt("mode", 0);
+            int optInt = jSONObject.optInt(UbcStatConstant.KEY_CONTENT_EXT_MODE, 0);
             if (optInt == 0) {
                 String optString = jSONObject.optString("text");
                 if (!TextUtils.isEmpty(optString)) {

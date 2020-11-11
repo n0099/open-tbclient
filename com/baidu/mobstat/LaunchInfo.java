@@ -7,15 +7,15 @@ import org.json.JSONObject;
 public class LaunchInfo {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2496a;
+    private String f2498a;
     private String b;
     private String c;
 
     public String getPushLandingPage() {
-        if (TextUtils.isEmpty(this.f2496a)) {
+        if (TextUtils.isEmpty(this.f2498a)) {
             return "";
         }
-        return this.f2496a;
+        return this.f2498a;
     }
 
     public String getPushContent() {
@@ -33,7 +33,7 @@ public class LaunchInfo {
     }
 
     public void setPushInfo(String str, String str2) {
-        this.f2496a = str;
+        this.f2498a = str;
         this.b = bx.a(str2, 1024);
     }
 
@@ -42,7 +42,7 @@ public class LaunchInfo {
     }
 
     public int getLaunchType(Context context) {
-        if (!TextUtils.isEmpty(this.f2496a)) {
+        if (!TextUtils.isEmpty(this.f2498a)) {
             return 2;
         }
         String str = "";

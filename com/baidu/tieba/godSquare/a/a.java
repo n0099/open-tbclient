@@ -8,29 +8,29 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes24.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> bje = new ArrayList();
-    private BdTypeListView gcr;
-    private d jna;
-    private c jnb;
-    private b jnc;
+    private List<com.baidu.adp.widget.ListView.a> bky = new ArrayList();
+    private BdTypeListView gih;
+    private d jsX;
+    private c jsY;
+    private b jsZ;
 
-    public List<com.baidu.adp.widget.ListView.a> bMJ() {
-        return this.bje;
+    public List<com.baidu.adp.widget.ListView.a> bPj() {
+        return this.bky;
     }
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.gcr = bdTypeListView;
-        this.jna = new d(tbPageContext);
-        this.jnb = new c(tbPageContext);
-        this.jnc = new b(tbPageContext);
-        this.bje.add(this.jna);
-        this.bje.add(this.jnb);
-        this.bje.add(this.jnc);
+        this.gih = bdTypeListView;
+        this.jsX = new d(tbPageContext);
+        this.jsY = new c(tbPageContext);
+        this.jsZ = new b(tbPageContext);
+        this.bky.add(this.jsX);
+        this.bky.add(this.jsY);
+        this.bky.add(this.jsZ);
     }
 
     public void notifyDataSetChanged() {
-        if (this.gcr != null && (this.gcr.getAdapter() instanceof f)) {
-            this.gcr.getAdapter().notifyDataSetChanged();
+        if (this.gih != null && (this.gih.getAdapter() instanceof f)) {
+            this.gih.getAdapter().notifyDataSetChanged();
         }
     }
 }

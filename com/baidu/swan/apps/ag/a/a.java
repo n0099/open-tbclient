@@ -8,63 +8,63 @@ import java.util.HashMap;
 /* loaded from: classes10.dex */
 public class a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private c.a doE;
-    private c.a doF;
-    private HashMap<String, c.a> doG = new HashMap<>();
+    private c.a duA;
+    private HashMap<String, c.a> duB = new HashMap<>();
+    private c.a duz;
 
-    public void sb(String str) {
+    public void sp(String str) {
         if (TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 throw new RuntimeException("appId can not be empty");
             }
             return;
         }
-        gv(true);
+        gE(true);
         ac(str, true);
     }
 
-    public ArrayList<String> gv(boolean z) {
-        if (this.doF != null && this.doF.data != null && this.doF.data.size() > 0) {
+    public ArrayList<String> gE(boolean z) {
+        if (this.duA != null && this.duA.data != null && this.duA.data.size() > 0) {
             if (DEBUG) {
-                Log.e("SwanAppWebSafe", "read webActions from cache: token=" + this.doF.token + ", data=" + this.doF.data);
+                Log.e("SwanAppWebSafe", "read webActions from cache: token=" + this.duA.token + ", data=" + this.duA.data);
             }
-            return this.doF.data;
+            return this.duA.data;
         }
-        if (this.doF != null) {
-            this.doF.token = "";
-            this.doF.data.clear();
+        if (this.duA != null) {
+            this.duA.token = "";
+            this.duA.data.clear();
         } else {
-            this.doF = new c.a();
+            this.duA = new c.a();
         }
-        c.a(z, this.doF);
-        return this.doF.data;
+        c.a(z, this.duA);
+        return this.duA.data;
     }
 
-    public ArrayList<String> aFX() {
+    public ArrayList<String> aIx() {
         c.a aVar = new c.a();
         c.a(aVar);
         return aVar.data;
     }
 
     public ArrayList<String> ac(String str, boolean z) {
-        if (this.doE != null && this.doE.data != null && this.doE.data.size() > 0) {
+        if (this.duz != null && this.duz.data != null && this.duz.data.size() > 0) {
             if (DEBUG) {
-                Log.e("SwanAppWebSafe", "read webdomains from cache: token=" + this.doE.token + ", data=" + this.doE.data);
+                Log.e("SwanAppWebSafe", "read webdomains from cache: token=" + this.duz.token + ", data=" + this.duz.data);
             }
-            return this.doE.data;
+            return this.duz.data;
         }
-        if (this.doE != null) {
-            this.doE.token = "";
-            this.doE.data.clear();
+        if (this.duz != null) {
+            this.duz.token = "";
+            this.duz.data.clear();
         } else {
-            this.doE = new c.a();
+            this.duz = new c.a();
         }
-        c.a(z, str, this.doE);
-        return this.doE.data;
+        c.a(z, str, this.duz);
+        return this.duz.data;
     }
 
-    public c.a m(String str, String str2, boolean z) {
-        c.a aVar = this.doG.get(str2);
+    public c.a n(String str, String str2, boolean z) {
+        c.a aVar = this.duB.get(str2);
         if (aVar != null && aVar.data != null && aVar.data.size() > 0) {
             if (DEBUG) {
                 Log.e("SwanAppWebSafe", "read serverDomains from cache: data= " + aVar.data);
@@ -77,20 +77,20 @@ public class a {
                 aVar = new c.a();
             }
             c.a(z, str, str2, aVar);
-            this.doG.put(str2, aVar);
+            this.duB.put(str2, aVar);
         }
         return aVar;
     }
 
     public void release() {
-        if (this.doE != null) {
-            this.doE.data.clear();
+        if (this.duz != null) {
+            this.duz.data.clear();
         }
-        if (this.doF != null) {
-            this.doF.data.clear();
+        if (this.duA != null) {
+            this.duA.data.clear();
         }
-        this.doE = null;
-        this.doF = null;
+        this.duz = null;
+        this.duA = null;
         if (DEBUG) {
             Log.d("SwanAppWebSafe", "release cache done");
         }

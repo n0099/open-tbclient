@@ -5,7 +5,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.drawable.Animatable;
 import android.net.Uri;
 import android.os.Build;
@@ -31,7 +30,6 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.message.ResponsedMessage;
-import com.baidu.live.adp.lib.safe.ResourcesWrapper;
 import com.baidu.live.adp.lib.safe.ShowUtil;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
@@ -83,7 +81,6 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     private TbPageContext<BaseFragmentActivity> pageContext;
     private PageStayDurationItem pageStayDurationItem;
     private List<PopupWindow> popupWindowList;
-    private ResourcesWrapper resourcesWrapper;
     protected BlueCircleProgressDialog mWaitingDialog = null;
     private DialogInterface.OnCancelListener mDialogListener = null;
     protected int mSkinType = 3;
@@ -396,17 +393,6 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public void onKeyboardVisibilityChanged(boolean z) {
     }
 
-    @Override // com.baidu.live.adp.base.BdBaseFragmentActivity, android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
-    public Resources getResources() {
-        if (BdBaseApplication.getInst() != null && BdBaseApplication.getInst().getIsPluginResourcOpen()) {
-            return super.getResources();
-        }
-        if (this.resourcesWrapper == null) {
-            this.resourcesWrapper = new ResourcesWrapper(super.getResources());
-        }
-        return this.resourcesWrapper;
-    }
-
     public void changeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
@@ -498,7 +484,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             if (str != null) {
                 this.mWaitingDialog.setTipString(str);
             } else {
-                this.mWaitingDialog.setTipString(a.i.sdk_waiting);
+                this.mWaitingDialog.setTipString(a.h.sdk_waiting);
             }
             this.mWaitingDialog.setAutoSetCancelable(false);
             this.mWaitingDialog.setCancelable(false);
@@ -516,7 +502,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         if (str != null) {
             this.mWaitingDialog.setTipString(str);
         } else {
-            this.mWaitingDialog.setTipString(a.i.sdk_waiting);
+            this.mWaitingDialog.setTipString(a.h.sdk_waiting);
         }
         this.mWaitingDialog.setAutoSetCancelable(false);
         this.mWaitingDialog.setCancelable(true);
@@ -595,7 +581,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         if (this.mProgressBar == null) {
             try {
                 this.mProgressBar = new ProgressBar(getPageContext().getPageActivity());
-                this.mProgressBar.setIndeterminateDrawable(TbadkCoreApplication.getInst().getResources().getDrawable(a.f.sdk_progressbar));
+                this.mProgressBar.setIndeterminateDrawable(TbadkCoreApplication.getInst().getResources().getDrawable(a.e.sdk_progressbar));
                 ((FrameLayout) getActivity().findViewById(16908290)).addView(this.mProgressBar, new FrameLayout.LayoutParams(-2, -2, 17));
             } catch (Throwable th) {
                 return;
@@ -950,9 +936,9 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
                 if (!SharedPrefHelper.getInstance().getBoolean(SharedPrefConfig.KEY_IS_WINDOW_PERMISSION_DIALOG_SHOWN, false)) {
                     BdAlertDialog bdAlertDialog = new BdAlertDialog(getActivity());
                     bdAlertDialog.setCanceledOnTouchOutside(false);
-                    bdAlertDialog.setTitle(a.i.sdk_request_permission_default_title);
-                    bdAlertDialog.setMessageId(a.i.sdk_request_window_permission_default_text);
-                    bdAlertDialog.setPositiveButton(a.i.sdk_isopen, new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.tbadk.core.BaseFragmentActivity.7
+                    bdAlertDialog.setTitle(a.h.sdk_request_permission_default_title);
+                    bdAlertDialog.setMessageId(a.h.sdk_request_window_permission_default_text);
+                    bdAlertDialog.setPositiveButton(a.h.sdk_isopen, new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.tbadk.core.BaseFragmentActivity.7
                         @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                         public void onClick(BdAlertDialog bdAlertDialog2) {
                             bdAlertDialog2.dismiss();
@@ -961,13 +947,13 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
                                 intent.setData(Uri.parse("package:" + BaseFragmentActivity.this.getActivity().getPackageName()));
                                 BaseFragmentActivity.this.getActivity().startActivityForResult(intent, RequestResponseCode.REQUEST_CODE_WINDOW_PERMISSION);
                             } catch (Exception e) {
-                                BaseFragmentActivity.this.showToast(a.i.sdk_request_window_permission_default_text_by_yourself);
+                                BaseFragmentActivity.this.showToast(a.h.sdk_request_window_permission_default_text_by_yourself);
                                 if (BaseFragmentActivity.this.mPermissionCallback != null) {
                                     BaseFragmentActivity.this.mPermissionCallback.onPermissionResult(false);
                                 }
                             }
                         }
-                    }).setNegativeButton(a.i.sdk_cancel, new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.tbadk.core.BaseFragmentActivity.6
+                    }).setNegativeButton(a.h.sdk_cancel, new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.tbadk.core.BaseFragmentActivity.6
                         @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                         public void onClick(BdAlertDialog bdAlertDialog2) {
                             bdAlertDialog2.dismiss();

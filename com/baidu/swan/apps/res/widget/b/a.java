@@ -286,7 +286,7 @@ final class a {
         if (uri != null) {
             simpleDraweeView.setImageURI(uri);
             if (i != 1) {
-                simpleDraweeView.getHierarchy().a(new RoundingParams().zZ(false));
+                simpleDraweeView.getHierarchy().a(new RoundingParams().Ak(false));
             }
         } else {
             simpleDraweeView.setVisibility(8);
@@ -340,7 +340,7 @@ final class a {
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                     switch (motionEvent.getAction()) {
                         case 0:
-                            textView.setAlpha(com.baidu.swan.apps.t.a.auw().getNightModeSwitcherState() ? 0.5f : 0.2f);
+                            textView.setAlpha(com.baidu.swan.apps.t.a.awW().getNightModeSwitcherState() ? 0.5f : 0.2f);
                             return false;
                         case 1:
                         default:

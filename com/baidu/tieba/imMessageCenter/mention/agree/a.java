@@ -31,91 +31,91 @@ import java.util.List;
 /* loaded from: classes22.dex */
 public class a {
     private BdTypeRecyclerView Xe;
-    private TbPageContext eCn;
-    private NoNetworkView gdx;
-    private PbListView gdy;
-    protected BdSwipeRefreshLayout gfT;
-    private e kpA;
-    private boolean kpB;
-    private View kqe;
-    private InterfaceC0759a kqf;
+    private TbPageContext eIc;
+    private NoNetworkView gjn;
+    private PbListView gjo;
+    protected BdSwipeRefreshLayout glI;
+    private e kvw;
+    private boolean kvx;
+    private View kwa;
+    private InterfaceC0773a kwb;
     private RelativeLayout mContainer;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
     private g mPullView;
-    private View.OnClickListener kpF = new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.a.1
+    private View.OnClickListener kvB = new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.gdy != null && a.this.kqf != null) {
-                a.this.gdy.showEmptyView(0);
-                a.this.gdy.setOnClickListener(null);
-                a.this.gdy.startLoadData();
-                a.this.kqf.ckj();
+            if (a.this.gjo != null && a.this.kwb != null) {
+                a.this.gjo.showEmptyView(0);
+                a.this.gjo.setOnClickListener(null);
+                a.this.gjo.startLoadData();
+                a.this.kwb.cmL();
             }
         }
     };
-    private final f.c gkz = new f.c() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.a.2
+    private final f.c gqm = new f.c() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.a.2
         @Override // com.baidu.tbadk.core.view.f.c
         public void onListPullRefresh(boolean z) {
             if (j.isNetWorkAvailable()) {
-                if (a.this.kqf != null) {
-                    a.this.kqf.cyS();
+                if (a.this.kwb != null) {
+                    a.this.kwb.cBt();
                 }
-            } else if (a.this.gfT != null) {
-                a.this.gfT.setRefreshing(false);
+            } else if (a.this.glI != null) {
+                a.this.glI.setRefreshing(false);
             }
         }
     };
 
     /* renamed from: com.baidu.tieba.imMessageCenter.mention.agree.a$a  reason: collision with other inner class name */
     /* loaded from: classes22.dex */
-    public interface InterfaceC0759a {
-        void ckj();
+    public interface InterfaceC0773a {
+        void cBt();
 
-        void cyS();
+        void cmL();
     }
 
     public a(TbPageContext tbPageContext, View view) {
-        this.eCn = tbPageContext;
-        this.kqe = view.findViewById(R.id.agree_me_layout);
+        this.eIc = tbPageContext;
+        this.kwa = view.findViewById(R.id.agree_me_layout);
         w(tbPageContext);
-        this.kpA = new e(tbPageContext, this.Xe);
+        this.kvw = new e(tbPageContext, this.Xe);
     }
 
-    public void a(InterfaceC0759a interfaceC0759a) {
-        this.kqf = interfaceC0759a;
+    public void a(InterfaceC0773a interfaceC0773a) {
+        this.kwb = interfaceC0773a;
     }
 
     private void w(TbPageContext tbPageContext) {
-        if (this.kqe != null) {
+        if (this.kwa != null) {
             if (this.mPullView == null) {
                 this.mPullView = new g(tbPageContext);
-                this.mPullView.setListPullRefreshListener(this.gkz);
+                this.mPullView.setListPullRefreshListener(this.gqm);
             }
             this.mPullView.setTag(tbPageContext.getUniqueId());
-            if (this.gdy == null) {
-                this.gdy = new PbListView(tbPageContext.getPageActivity());
-                this.gdy.getView();
+            if (this.gjo == null) {
+                this.gjo = new PbListView(tbPageContext.getPageActivity());
+                this.gjo.getView();
             }
-            this.gdy.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
-            this.gdy.setHeight(l.getDimens(tbPageContext.getContext(), R.dimen.tbds182));
-            this.gdy.setLineGone();
-            this.gdy.setTextSize(R.dimen.tbfontsize33);
-            this.gdy.setTextColor(ap.getColor(R.color.cp_cont_d));
-            this.gdy.setNoMoreTextColorId(R.color.cp_cont_e);
-            this.gdy.setOnClickListener(this.kpF);
-            this.gdx = (NoNetworkView) this.kqe.findViewById(R.id.no_networkview);
-            this.gdx.onChangeSkinType(this.eCn, TbadkCoreApplication.getInst().getSkinType());
-            this.mContainer = (RelativeLayout) this.kqe.findViewById(R.id.container);
-            this.mNavigationBar = (NavigationBar) this.kqe.findViewById(R.id.view_navigation_bar);
+            this.gjo.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
+            this.gjo.setHeight(l.getDimens(tbPageContext.getContext(), R.dimen.tbds182));
+            this.gjo.setLineGone();
+            this.gjo.setTextSize(R.dimen.tbfontsize33);
+            this.gjo.setTextColor(ap.getColor(R.color.cp_cont_d));
+            this.gjo.setNoMoreTextColorId(R.color.cp_cont_e);
+            this.gjo.setOnClickListener(this.kvB);
+            this.gjn = (NoNetworkView) this.kwa.findViewById(R.id.no_networkview);
+            this.gjn.onChangeSkinType(this.eIc, TbadkCoreApplication.getInst().getSkinType());
+            this.mContainer = (RelativeLayout) this.kwa.findViewById(R.id.container);
+            this.mNavigationBar = (NavigationBar) this.kwa.findViewById(R.id.view_navigation_bar);
             this.mNavigationBar.showBottomLine();
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.mNavigationBar.setCenterTextTitle(this.eCn.getString(R.string.agree_me));
-            this.gfT = (BdSwipeRefreshLayout) this.kqe.findViewById(R.id.agree_me_pull_refresh_layout);
-            this.gfT.setProgressView(this.mPullView);
-            this.Xe = (BdTypeRecyclerView) this.kqe.findViewById(R.id.agree_me_recycler_view);
+            this.mNavigationBar.setCenterTextTitle(this.eIc.getString(R.string.agree_me));
+            this.glI = (BdSwipeRefreshLayout) this.kwa.findViewById(R.id.agree_me_pull_refresh_layout);
+            this.glI.setProgressView(this.mPullView);
+            this.Xe = (BdTypeRecyclerView) this.kwa.findViewById(R.id.agree_me_recycler_view);
             ((DefaultItemAnimator) this.Xe.getItemAnimator()).setSupportsChangeAnimations(false);
-            this.Xe.setLayoutManager(new LinearLayoutManager(this.eCn.getContext()));
+            this.Xe.setLayoutManager(new LinearLayoutManager(this.eIc.getContext()));
             this.Xe.setFadingEdgeLength(0);
             this.Xe.setBackgroundColor(ap.getColor(R.color.transparent));
             this.Xe.setOverScrollMode(2);
@@ -126,15 +126,15 @@ public class a {
                     View view = viewHolder.itemView;
                 }
             });
-            this.Xe.setNextPage(this.gdy);
+            this.Xe.setNextPage(this.gjo);
             this.Xe.setOnSrollToBottomListener(new BdListView.e() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.a.4
                 @Override // com.baidu.adp.widget.ListView.BdListView.e
                 public void onScrollToBottom() {
-                    if (a.this.gdy != null && a.this.kqf != null) {
-                        a.this.gdy.showEmptyView(0);
-                        a.this.gdy.setOnClickListener(null);
-                        a.this.gdy.showLoading();
-                        a.this.kqf.ckj();
+                    if (a.this.gjo != null && a.this.kwb != null) {
+                        a.this.gjo.showEmptyView(0);
+                        a.this.gjo.setOnClickListener(null);
+                        a.this.gjo.showLoading();
+                        a.this.kwb.cmL();
                     }
                 }
             });
@@ -142,44 +142,44 @@ public class a {
     }
 
     public void c(boolean z, ArrayList<q> arrayList) {
-        if (this.gfT != null && this.gdy != null && this.Xe != null && this.kpA != null) {
-            this.gfT.setRefreshing(false);
+        if (this.glI != null && this.gjo != null && this.Xe != null && this.kvw != null) {
+            this.glI.setRefreshing(false);
             if (z) {
-                this.gdy.showEmptyView(0);
-                this.gdy.endLoadData();
-                this.gdy.setOnClickListener(this.kpF);
+                this.gjo.showEmptyView(0);
+                this.gjo.endLoadData();
+                this.gjo.setOnClickListener(this.kvB);
             } else {
-                this.gdy.showEmptyView(0);
-                this.gdy.endLoadData();
-                this.gdy.setText(this.eCn.getResources().getString(R.string.list_no_more));
-                this.gdy.setOnClickListener(null);
+                this.gjo.showEmptyView(0);
+                this.gjo.endLoadData();
+                this.gjo.setText(this.eIc.getResources().getString(R.string.list_no_more));
+                this.gjo.setOnClickListener(null);
             }
             if (y.isEmpty(arrayList)) {
                 if (this.mNoDataView == null) {
-                    this.mNoDataView = NoDataViewFactory.a(this.eCn.getContext(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.CREATE), NoDataViewFactory.d.dS(null, this.eCn.getResources().getString(R.string.agree_me_nodata)), null);
+                    this.mNoDataView = NoDataViewFactory.a(this.eIc.getContext(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.CREATE), NoDataViewFactory.d.dS(null, this.eIc.getResources().getString(R.string.agree_me_nodata)), null);
                     this.mNoDataView.setLayoutParams(new RecyclerView.LayoutParams(-1, -1));
                     ap.setBackgroundColor(this.mNoDataView, R.color.cp_bg_line_d);
                 }
-                if (this.mNoDataView.getParent() == null && !this.kpB) {
-                    this.kpB = true;
+                if (this.mNoDataView.getParent() == null && !this.kvx) {
+                    this.kvx = true;
                     this.Xe.addHeaderView(this.mNoDataView, 0);
                     this.mNoDataView.setVisibility(0);
-                    this.mNoDataView.onChangeSkinType(this.eCn, TbadkCoreApplication.getInst().getSkinType());
+                    this.mNoDataView.onChangeSkinType(this.eIc, TbadkCoreApplication.getInst().getSkinType());
                 }
                 this.Xe.setNextPage(null);
                 return;
             }
             this.Xe.removeHeaderView(this.mNoDataView);
-            this.kpB = false;
-            this.Xe.setNextPage(this.gdy);
-            this.kpA.setData(arrayList);
-            this.kpA.notifyDataSetChanged();
+            this.kvx = false;
+            this.Xe.setNextPage(this.gjo);
+            this.kvw.setData(arrayList);
+            this.kvw.notifyDataSetChanged();
         }
     }
 
-    public void sp(boolean z) {
-        if (this.gfT != null) {
-            this.gfT.setRefreshing(z);
+    public void sy(boolean z) {
+        if (this.glI != null) {
+            this.glI.setRefreshing(z);
         }
     }
 
@@ -187,32 +187,32 @@ public class a {
         if (this.mPullView != null) {
             this.mPullView.changeSkin(i);
         }
-        if (this.gdx != null) {
-            this.gdx.onChangeSkinType(this.eCn, i);
+        if (this.gjn != null) {
+            this.gjn.onChangeSkinType(this.eIc, i);
         }
-        if (this.gdy != null) {
-            this.gdy.setTextColor(ap.getColor(R.color.cp_cont_d));
-            this.gdy.changeSkin(i);
+        if (this.gjo != null) {
+            this.gjo.setTextColor(ap.getColor(R.color.cp_cont_d));
+            this.gjo.changeSkin(i);
         }
         if (this.mNoDataView != null) {
-            this.mNoDataView.onChangeSkinType(this.eCn, i);
+            this.mNoDataView.onChangeSkinType(this.eIc, i);
             ap.setBackgroundColor(this.mNoDataView, R.color.cp_bg_line_d);
         }
         if (this.mNavigationBar != null) {
-            this.mNavigationBar.onChangeSkinType(this.eCn, i);
+            this.mNavigationBar.onChangeSkinType(this.eIc, i);
         }
-        if (this.kpA != null) {
-            this.kpA.notifyDataSetChanged();
+        if (this.kvw != null) {
+            this.kvw.notifyDataSetChanged();
         }
-        ap.setBackgroundColor(this.kqe, R.color.cp_bg_line_e);
+        ap.setBackgroundColor(this.kwa, R.color.cp_bg_line_e);
         ap.setBackgroundColor(this.mContainer, R.color.cp_bg_line_e);
-        ap.setBackgroundColor(this.gfT, R.color.cp_bg_line_e);
+        ap.setBackgroundColor(this.glI, R.color.cp_bg_line_e);
         ap.setBackgroundColor(this.Xe, R.color.cp_bg_line_c);
     }
 
     public void onDestroy() {
-        if (this.kpA != null) {
-            this.kpA.onDestory();
+        if (this.kvw != null) {
+            this.kvw.onDestory();
         }
         if (this.mPullView != null) {
             this.mPullView.release();
@@ -220,8 +220,8 @@ public class a {
     }
 
     public void e(ab abVar) {
-        if (this.kpA != null) {
-            this.kpA.e(abVar);
+        if (this.kvw != null) {
+            this.kvw.e(abVar);
         }
     }
 
@@ -233,10 +233,10 @@ public class a {
     }
 
     public View getRootView() {
-        return this.kqe;
+        return this.kwa;
     }
 
-    public RelativeLayout bMS() {
+    public RelativeLayout bPs() {
         return this.mContainer;
     }
 }

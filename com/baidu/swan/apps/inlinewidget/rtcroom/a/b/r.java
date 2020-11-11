@@ -6,7 +6,7 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 public class r extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.rtcroom.c.b> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String ata() {
+    public String avA() {
         return "setBackgroundMute";
     }
 
@@ -15,7 +15,7 @@ public class r extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
     public void a(@NonNull ZeusPlugin.Command command, @NonNull com.baidu.swan.apps.inlinewidget.rtcroom.c.b bVar) {
         a(bVar, command.what, "" + command.obj, true);
         if (command.obj instanceof Boolean) {
-            bVar.fd(((Boolean) command.obj).booleanValue());
+            bVar.fm(((Boolean) command.obj).booleanValue());
         }
     }
 }

@@ -14,6 +14,7 @@ public class DownloadData implements Serializable, Cloneable {
     public static final int FILE_DOWNLOAD_STATUS_SUCEED = 0;
     public static final int FILE_DOWNLOAD_TYPE_ALA_IM_RECORD = 16;
     public static final int FILE_DOWNLOAD_TYPE_APP = 12;
+    public static final int FILE_DOWNLOAD_TYPE_DATING_ANIM = 22;
     public static final int FILE_DOWNLOAD_TYPE_DYNAMIC = 19;
     public static final int FILE_DOWNLOAD_TYPE_EMOYION_APCKAGE = 11;
     public static final int FILE_DOWNLOAD_TYPE_ENTER_EFFECT = 20;

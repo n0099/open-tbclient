@@ -5,11 +5,11 @@ import com.baidu.pano.platform.a.q;
 public class d extends com.baidu.pano.platform.a.n<byte[]> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final q.b<byte[]> f2637a;
+    private final q.b<byte[]> f2639a;
 
     public d(int i, String str, q.b<byte[]> bVar, q.a aVar) {
         super(i, str, aVar);
-        this.f2637a = bVar;
+        this.f2639a = bVar;
     }
 
     public d(String str, q.b<byte[]> bVar, q.a aVar) {
@@ -20,7 +20,7 @@ public class d extends com.baidu.pano.platform.a.n<byte[]> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.pano.platform.a.n
     public void a(byte[] bArr) {
-        this.f2637a.a(bArr);
+        this.f2639a.a(bArr);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

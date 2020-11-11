@@ -12,7 +12,7 @@ import java.io.IOException;
 public class ImageBase64Utils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1511a = "ImageBase64Utils";
+    private static final String f1513a = "ImageBase64Utils";
     private static int b = 70;
     private static ImageBase64Utils c;
 
@@ -53,9 +53,9 @@ public class ImageBase64Utils {
             try {
                 bitmap.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream);
                 byte[] byteArray = byteArrayOutputStream.toByteArray();
-                LogUtil.d(f1511a, "compress size:\t" + byteArray.length + "\timagesize" + byteArray.length + "\twidth" + bitmap.getWidth());
+                LogUtil.d(f1513a, "compress size:\t" + byteArray.length + "\timagesize" + byteArray.length + "\twidth" + bitmap.getWidth());
                 byte[] encode = Base64.encode(byteArray, 0, byteArray.length, 2);
-                LogUtil.d(f1511a, "base64 size:\t" + (byteArray.length / 1024));
+                LogUtil.d(f1513a, "base64 size:\t" + (byteArray.length / 1024));
                 String str = new String(encode);
                 try {
                     byteArrayOutputStream.close();
@@ -93,7 +93,7 @@ public class ImageBase64Utils {
                     BitmapFactory.Options options = new BitmapFactory.Options();
                     options.inJustDecodeBounds = true;
                     BitmapFactory.decodeFile(str, options);
-                    LogUtil.d(f1511a, "original size\t " + (file.length() / 1000) + "\twidth" + options.outWidth + "\theight" + options.outHeight);
+                    LogUtil.d(f1513a, "original size\t " + (file.length() / 1000) + "\twidth" + options.outWidth + "\theight" + options.outHeight);
                     int computeSampleSize = ImageCompressor.computeSampleSize(options, i, -1);
                     options.inSampleSize = computeSampleSize;
                     options.inJustDecodeBounds = false;
@@ -101,11 +101,11 @@ public class ImageBase64Utils {
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                     decodeFile.compress(Bitmap.CompressFormat.JPEG, b, byteArrayOutputStream);
                     byte[] byteArray = byteArrayOutputStream.toByteArray();
-                    LogUtil.d(f1511a, "compress size:\t" + byteArray.length + "\tsampleSize" + computeSampleSize + "\twidth" + decodeFile.getWidth());
+                    LogUtil.d(f1513a, "compress size:\t" + byteArray.length + "\tsampleSize" + computeSampleSize + "\twidth" + decodeFile.getWidth());
                     decodeFile.recycle();
                     byteArrayOutputStream.close();
                     byte[] encode = Base64.encode(byteArray, 0, byteArray.length, 2);
-                    LogUtil.d(f1511a, "base64 size:\t" + (byteArray.length / 1024));
+                    LogUtil.d(f1513a, "base64 size:\t" + (byteArray.length / 1024));
                     return new String(encode);
                 }
             } catch (Throwable th) {

@@ -8,13 +8,13 @@ import kotlin.jvm.internal.q;
 /* loaded from: classes10.dex */
 public final class f {
     private static final String TAG;
-    private static com.baidu.swan.apps.a.a cqJ;
-    private static com.baidu.swan.apps.a.c cqK;
-    private static boolean cqL;
-    public static final f cqM = new f();
+    private static com.baidu.swan.apps.a.a cwH;
+    private static com.baidu.swan.apps.a.c cwI;
+    private static boolean cwJ;
+    public static final f cwK = new f();
 
     static {
-        String simpleName = cqM.getClass().getSimpleName();
+        String simpleName = cwK.getClass().getSimpleName();
         q.m(simpleName, "SwanAppAllianceLoginHelper.javaClass.simpleName");
         TAG = simpleName;
     }
@@ -22,46 +22,46 @@ public final class f {
     private f() {
     }
 
-    public final com.baidu.swan.apps.a.a agL() {
-        return cqJ;
+    public final com.baidu.swan.apps.a.a ajl() {
+        return cwH;
     }
 
-    public final com.baidu.swan.apps.a.c agM() {
-        return cqK;
+    public final com.baidu.swan.apps.a.c ajm() {
+        return cwI;
     }
 
-    public final boolean agN() {
-        return cqL;
+    public final boolean ajn() {
+        return cwJ;
+    }
+
+    public final void er(boolean z) {
+        cwJ = z;
+    }
+
+    public final void ajo() {
+        d.cwF.ajh();
+        h.cwN.ajs();
+        ei(false);
+    }
+
+    public final boolean ajp() {
+        if (g.ajr() == null) {
+            ajq();
+        }
+        Boolean ajr = g.ajr();
+        if (ajr == null) {
+            q.eBP();
+        }
+        return ajr.booleanValue();
     }
 
     public final void ei(boolean z) {
-        cqL = z;
-    }
-
-    public final void agO() {
-        d.cqH.agH();
-        h.cqP.agS();
-        dZ(false);
-    }
-
-    public final boolean agP() {
-        if (g.agR() == null) {
-            agQ();
-        }
-        Boolean agR = g.agR();
-        if (agR == null) {
-            q.eya();
-        }
-        return agR.booleanValue();
-    }
-
-    public final void dZ(boolean z) {
         Bundle bundle = new Bundle();
         bundle.putBoolean("status", z);
         DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, bundle);
     }
 
-    private final void agQ() {
+    private final void ajq() {
         boolean z;
         try {
             Class.forName("com.baidu.sapi2.SapiAccountManager");

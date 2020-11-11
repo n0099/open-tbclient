@@ -31,7 +31,7 @@ public class PendantData extends OrmObject {
         this.pendantType = i;
     }
 
-    public void dMG() {
+    public void dPi() {
         if (!TextUtils.isEmpty(this.size)) {
             String[] split = this.size.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
             if (split.length == 4) {

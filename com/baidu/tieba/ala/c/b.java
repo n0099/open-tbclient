@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.gift.g;
-import com.baidu.live.gift.i;
+import com.baidu.live.gift.h;
 import com.baidu.live.message.AlaSdkGetGiftListHttpResponseMessage;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
@@ -34,41 +34,41 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b extends d {
-    private static int gsb;
-    private CommonEmptyView boq;
-    private BdGridView gsc;
-    private a gsd;
-    private List<g> gse;
-    private g gsf;
+    private static int gxP;
+    private CommonEmptyView bpJ;
+    private BdGridView gxQ;
+    private a gxR;
+    private List<g> gxS;
+    private g gxT;
 
     public b(AlaChooseGiftActivity alaChooseGiftActivity, FrameLayout frameLayout, String str, ArrayList<String> arrayList, int i, int i2) {
         super(alaChooseGiftActivity, frameLayout, str, arrayList, i, i2);
         initView();
-        gsb = (int) (BdUtilHelper.getScreenDimensions(this.mContext)[0] / 4.0d);
+        gxP = (int) (BdUtilHelper.getScreenDimensions(this.mContext)[0] / 4.0d);
     }
 
     @Override // com.baidu.tieba.ala.c.d
-    protected int bOV() {
-        return a.h.ala_choose_gift;
+    protected int bRv() {
+        return a.g.ala_choose_gift;
     }
 
     @Override // com.baidu.tieba.ala.c.d
     protected void initView() {
-        this.gsc = (BdGridView) this.mRootView.findViewById(a.g.choose_gift_gridview);
-        this.gsc.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.ala.c.b.1
+        this.gxQ = (BdGridView) this.mRootView.findViewById(a.f.choose_gift_gridview);
+        this.gxQ.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.ala.c.b.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                b.this.gsf = (g) b.this.gse.get(i);
-                b.this.gsp = b.this.gsf.Fs();
-                b.this.gsd.GM(b.this.gsp);
+                b.this.gxT = (g) b.this.gxS.get(i);
+                b.this.gyd = b.this.gxT.FT();
+                b.this.gxR.GZ(b.this.gyd);
             }
         });
-        this.boq = (CommonEmptyView) this.mRootView.findViewById(a.g.choose_gift_empty_view);
+        this.bpJ = (CommonEmptyView) this.mRootView.findViewById(a.f.choose_gift_empty_view);
     }
 
     @Override // com.baidu.tieba.ala.c.d
-    public void f(TextView textView) {
-        textView.setText(a.i.sdk_choose_gift_title);
+    public void j(TextView textView) {
+        textView.setText(a.h.sdk_choose_gift_title);
     }
 
     @Override // com.baidu.tieba.ala.c.d
@@ -77,124 +77,126 @@ public class b extends d {
     }
 
     @Override // com.baidu.tieba.ala.c.d
-    public void aR(int i, String str) {
-        apc();
+    public void aV(int i, String str) {
+        arD();
     }
 
     @Override // com.baidu.tieba.ala.c.d
     public void confirm() {
-        if (this.gsf != null) {
+        if (this.gxT != null) {
             Intent intent = new Intent();
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("gift_title", this.gsf.Ft());
-                jSONObject.put("gift_url", this.gsf.getThumbnail_url());
-                jSONObject.put(LogConfig.LOG_GIFT_ID, this.gsf.Fs());
+                jSONObject.put("gift_title", this.gxT.FU());
+                jSONObject.put("gift_url", this.gxT.getThumbnail_url());
+                jSONObject.put(LogConfig.LOG_GIFT_ID, this.gxT.FT());
                 intent.putExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, jSONObject.toString());
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            this.gso.setResult(-1, intent);
+            this.gyc.setResult(-1, intent);
         }
-        this.gso.finish();
+        this.gyc.finish();
     }
 
     private void e(AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage) {
         int i;
-        if (alaSdkGetGiftListHttpResponseMessage == null || ListUtils.isEmpty(alaSdkGetGiftListHttpResponseMessage.IO())) {
+        if (alaSdkGetGiftListHttpResponseMessage == null || ListUtils.isEmpty(alaSdkGetGiftListHttpResponseMessage.Jp())) {
             showNoDataView();
             return;
         }
-        this.gsc.setVisibility(0);
-        this.boq.setVisibility(8);
+        this.gxQ.setVisibility(0);
+        this.bpJ.setVisibility(8);
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            i = com.baidu.live.z.a.Pq().bsy.aOL.aRo;
+            i = com.baidu.live.aa.a.PQ().btT.aPI.aSu;
         } else if (TbadkCoreApplication.getInst().isTieba()) {
-            i = com.baidu.live.z.a.Pq().bsy.aOL.aRn;
+            i = com.baidu.live.aa.a.PQ().btT.aPI.aSt;
+        } else if (TbadkCoreApplication.getInst().isQuanmin()) {
+            i = com.baidu.live.aa.a.PQ().btT.aPI.aSv;
         } else {
-            i = (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) ? com.baidu.live.z.a.Pq().bsy.aOL.aRp : 0;
+            i = TbadkCoreApplication.getInst().isYinbo() ? com.baidu.live.aa.a.PQ().btT.aPI.aSw : 0;
         }
-        Iterator<i> it = alaSdkGetGiftListHttpResponseMessage.IO().iterator();
+        Iterator<h> it = alaSdkGetGiftListHttpResponseMessage.Jp().iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
-            i next = it.next();
+            h next = it.next();
             if (next != null && i == next.getCategoryId()) {
-                this.gse = next.FT();
+                this.gxS = next.Gu();
                 break;
             }
         }
-        if (ListUtils.isEmpty(this.gse)) {
+        if (ListUtils.isEmpty(this.gxS)) {
             showNoDataView();
         } else {
-            bOX();
+            bRx();
         }
     }
 
-    private void apc() {
-        bME();
+    private void arD() {
+        bPe();
     }
 
     private void showNoDataView() {
-        bME();
+        bPe();
     }
 
-    private void bME() {
-        this.gsc.setVisibility(8);
-        this.boq.setVisibility(0);
-        this.boq.reset();
-        this.boq.setTitle(a.i.sdk_net_fail_tip_rank);
-        this.boq.setRefreshButton(a.i.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.c.b.2
+    private void bPe() {
+        this.gxQ.setVisibility(8);
+        this.bpJ.setVisibility(0);
+        this.bpJ.reset();
+        this.bpJ.setTitle(a.h.sdk_net_fail_tip_rank);
+        this.bpJ.setRefreshButton(a.h.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.c.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.boq.setVisibility(8);
-                b.this.bR(b.this.boq);
+                b.this.bpJ.setVisibility(8);
+                b.this.bV(b.this.bpJ);
             }
         });
-        this.boq.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
-        this.boq.setVisibility(0);
+        this.bpJ.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
+        this.bpJ.setVisibility(0);
     }
 
-    private void bOX() {
+    private void bRx() {
         ArrayList arrayList = new ArrayList();
-        for (g gVar : this.gse) {
-            if (gVar != null && gVar.Fs() != null) {
-                if (gVar.Fs().equals(this.gsp)) {
-                    this.gsf = gVar;
+        for (g gVar : this.gxS) {
+            if (gVar != null && gVar.FT() != null) {
+                if (gVar.FT().equals(this.gyd)) {
+                    this.gxT = gVar;
                 }
-                if (!ListUtils.isEmpty(this.fSn) && this.fSn.contains(gVar.Fs())) {
+                if (!ListUtils.isEmpty(this.fYd) && this.fYd.contains(gVar.FT())) {
                     arrayList.add(gVar);
                 }
             }
         }
         if (!ListUtils.isEmpty(arrayList)) {
-            this.gse.removeAll(arrayList);
+            this.gxS.removeAll(arrayList);
         }
-        this.gsd = new a(this.gso.getPageContext());
-        this.gsc.setAdapter((ListAdapter) this.gsd);
-        this.gsd.GL(this.gsp);
-        this.gsd.setData(this.gse);
+        this.gxR = new a(this.gyc.getPageContext());
+        this.gxQ.setAdapter((ListAdapter) this.gxR);
+        this.gxR.GY(this.gyd);
+        this.gxR.setData(this.gxS);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public class a extends BaseAdapter {
         private List<g> dataList;
-        private String fSm;
+        private String fYc;
         private Context mContext;
 
         public a(TbPageContext tbPageContext) {
             this.mContext = tbPageContext.getPageActivity();
         }
 
-        public void GL(String str) {
-            this.fSm = str;
+        public void GY(String str) {
+            this.fYc = str;
         }
 
-        public void GM(String str) {
-            if (this.fSm == null || !this.fSm.equals(str)) {
-                this.fSm = str;
+        public void GZ(String str) {
+            if (this.fYc == null || !this.fYc.equals(str)) {
+                this.fYc = str;
                 notifyDataSetChanged();
             }
         }
@@ -229,35 +231,35 @@ public class b extends d {
 
         @Override // android.widget.Adapter
         public View getView(int i, View view, ViewGroup viewGroup) {
-            C0623b c0623b;
+            C0635b c0635b;
             if (view == null) {
-                C0623b c0623b2 = new C0623b();
-                view = LayoutInflater.from(this.mContext).inflate(a.h.ala_choose_gift_item, viewGroup, false);
+                C0635b c0635b2 = new C0635b();
+                view = LayoutInflater.from(this.mContext).inflate(a.g.ala_choose_gift_item, viewGroup, false);
                 ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-                layoutParams.width = b.gsb;
-                layoutParams.height = b.gsb;
+                layoutParams.width = b.gxP;
+                layoutParams.height = b.gxP;
                 view.setLayoutParams(layoutParams);
-                c0623b2.gsh = (FrameLayout) view.findViewById(a.g.item_root);
-                c0623b2.gsi = (TbImageView) view.findViewById(a.g.item_gift_img);
-                c0623b2.gsi.setDefaultBgResource(a.f.icon_live_gift_default);
-                c0623b2.gsi.setDefaultErrorResource(a.f.icon_live_gift_default);
-                c0623b2.gsi.setAutoChangeStyle(false);
-                c0623b2.gsj = (TextView) view.findViewById(a.g.item_gift_title);
-                c0623b2.aWX = (TextView) view.findViewById(a.g.item_gift_price);
-                view.setTag(c0623b2);
-                c0623b = c0623b2;
+                c0635b2.gxV = (FrameLayout) view.findViewById(a.f.item_root);
+                c0635b2.gxW = (TbImageView) view.findViewById(a.f.item_gift_img);
+                c0635b2.gxW.setDefaultBgResource(a.e.icon_live_gift_default);
+                c0635b2.gxW.setDefaultErrorResource(a.e.icon_live_gift_default);
+                c0635b2.gxW.setAutoChangeStyle(false);
+                c0635b2.gxX = (TextView) view.findViewById(a.f.item_gift_title);
+                c0635b2.aYp = (TextView) view.findViewById(a.f.item_gift_price);
+                view.setTag(c0635b2);
+                c0635b = c0635b2;
             } else {
-                c0623b = (C0623b) view.getTag();
+                c0635b = (C0635b) view.getTag();
             }
             g item = getItem(i);
             if (item != null) {
-                c0623b.gsi.startLoad(item.getThumbnail_url(), 10, false);
-                c0623b.gsj.setText(item.Ft());
-                b(c0623b.aWX, item.getPrice());
-                if (item.Fs().equals(this.fSm)) {
-                    c0623b.gsh.setBackgroundResource(a.f.choose_gift_chosen_bg);
+                c0635b.gxW.startLoad(item.getThumbnail_url(), 10, false);
+                c0635b.gxX.setText(item.FU());
+                b(c0635b.aYp, item.getPrice());
+                if (item.FT().equals(this.fYc)) {
+                    c0635b.gxV.setBackgroundResource(a.e.choose_gift_chosen_bg);
                 } else {
-                    c0623b.gsh.setBackgroundColor(this.mContext.getResources().getColor(a.d.sdk_transparent));
+                    c0635b.gxV.setBackgroundColor(this.mContext.getResources().getColor(a.c.sdk_transparent));
                 }
             }
             return view;
@@ -266,24 +268,24 @@ public class b extends d {
         private void b(TextView textView, String str) {
             String formatGiftNumForTDouDisPlay;
             double d = JavaTypesHelper.toDouble(String.valueOf(str), 0.0d);
-            if (d >= 100.0d && com.baidu.live.z.a.Pq().bmJ.aLG) {
+            if (d >= 100.0d && com.baidu.live.aa.a.PQ().bod.aMG) {
                 formatGiftNumForTDouDisPlay = new DecimalFormat("0.###K").format(d / 1000.0d);
             } else {
                 formatGiftNumForTDouDisPlay = StringHelper.formatGiftNumForTDouDisPlay(Long.parseLong(str));
             }
-            textView.setText(String.format(this.mContext.getResources().getString(a.i.sdk_choose_tdou_suffix), formatGiftNumForTDouDisPlay));
+            textView.setText(String.format(this.mContext.getResources().getString(a.h.sdk_choose_tdou_suffix), formatGiftNumForTDouDisPlay));
         }
     }
 
     /* renamed from: com.baidu.tieba.ala.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private class C0623b {
-        public TextView aWX;
-        public FrameLayout gsh;
-        public TbImageView gsi;
-        public TextView gsj;
+    private class C0635b {
+        public TextView aYp;
+        public FrameLayout gxV;
+        public TbImageView gxW;
+        public TextView gxX;
 
-        private C0623b() {
+        private C0635b() {
         }
     }
 }

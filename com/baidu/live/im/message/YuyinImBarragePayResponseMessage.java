@@ -4,14 +4,14 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class YuyinImBarragePayResponseMessage extends JsonHttpResponsedMessage {
-    private long bky;
+    private long blS;
 
     public YuyinImBarragePayResponseMessage() {
         super(1031047);
     }
 
-    public long IS() {
-        return this.bky;
+    public long Jt() {
+        return this.blS;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -20,7 +20,7 @@ public class YuyinImBarragePayResponseMessage extends JsonHttpResponsedMessage {
             super.decodeLogicInBackGround(i, jSONObject);
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
-                this.bky = optJSONObject.optLong("left_scores");
+                this.blS = optJSONObject.optLong("left_scores");
             }
         }
     }

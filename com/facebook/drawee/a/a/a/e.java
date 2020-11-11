@@ -9,43 +9,43 @@ public class e {
     @Nullable
     private final String mRequestId;
     @Nullable
-    private final String oDF;
+    private final String oMY;
     @Nullable
-    private final Object oDH;
+    private final Object oNa;
     @Nullable
-    private final ImageRequest oDI;
+    private final ImageRequest oNb;
     @Nullable
-    private final com.facebook.imagepipeline.g.f oDJ;
-    private final long oDK;
-    private final long oDL;
-    private final long oDM;
-    private final long oDN;
-    private final long oDO;
-    private final long oDP;
-    private final long oDQ;
-    private final int oDR;
-    private final boolean oDS;
-    private final int oDT;
-    private final int oDU;
+    private final com.facebook.imagepipeline.g.f oNc;
+    private final long oNd;
+    private final long oNe;
+    private final long oNf;
+    private final long oNg;
+    private final long oNh;
+    private final long oNi;
+    private final long oNj;
+    private final int oNk;
+    private final boolean oNl;
+    private final int oNm;
+    private final int oNn;
 
     public e(@Nullable String str, @Nullable String str2, @Nullable ImageRequest imageRequest, @Nullable Object obj, @Nullable com.facebook.imagepipeline.g.f fVar, long j, long j2, long j3, long j4, long j5, long j6, long j7, int i, boolean z, boolean z2, boolean z3, int i2, int i3) {
-        this.oDF = str;
+        this.oMY = str;
         this.mRequestId = str2;
-        this.oDI = imageRequest;
-        this.oDH = obj;
-        this.oDJ = fVar;
-        this.oDK = j;
-        this.oDL = j2;
-        this.oDM = j3;
-        this.oDN = j4;
-        this.oDO = j5;
-        this.oDP = j6;
-        this.oDQ = j7;
-        this.oDR = i;
+        this.oNb = imageRequest;
+        this.oNa = obj;
+        this.oNc = fVar;
+        this.oNd = j;
+        this.oNe = j2;
+        this.oNf = j3;
+        this.oNg = j4;
+        this.oNh = j5;
+        this.oNi = j6;
+        this.oNj = j7;
+        this.oNk = i;
         this.mIsCanceled = z;
         this.UN = z2;
-        this.oDS = z3;
-        this.oDT = i2;
-        this.oDU = i3;
+        this.oNl = z3;
+        this.oNm = i2;
+        this.oNn = i3;
     }
 }

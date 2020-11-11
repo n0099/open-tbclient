@@ -44,9 +44,9 @@ public class AudienceStickerContainerView extends RelativeLayout {
                 }
                 textView.setBackground(new BitmapDrawable(createScaledBitmap));
             }
-            textView.setTextColor(getContext().getResources().getColor(a.d.sdk_cp_cont_q));
+            textView.setTextColor(getContext().getResources().getColor(a.c.sdk_cp_cont_q));
             if (alaLiveStickerInfo.type == 2) {
-                textView.setTextSize(0, getResources().getDimensionPixelSize(a.e.sdk_ds26));
+                textView.setTextSize(0, getResources().getDimensionPixelSize(a.d.sdk_ds26));
                 textView.setGravity(17);
                 textView.setSingleLine();
                 textView.setText(alaLiveStickerInfo.text);

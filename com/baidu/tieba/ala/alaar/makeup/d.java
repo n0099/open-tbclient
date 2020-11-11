@@ -8,46 +8,46 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d extends c {
-    public List<c> fVI;
-    public int fVJ;
-    public boolean fVK;
+    public int gbA;
+    public boolean gbB;
+    public List<c> gbz;
     private int mPosition = 0;
 
-    public List<c> bKr() {
-        return this.fVI;
+    public List<c> bMQ() {
+        return this.gbz;
     }
 
-    public void bN(List<c> list) {
-        this.fVI = list;
+    public void bU(List<c> list) {
+        this.gbz = list;
     }
 
-    public c bKs() {
-        if (this.fVI == null || this.mPosition < 0 || this.mPosition >= this.fVI.size()) {
+    public c bMR() {
+        if (this.gbz == null || this.mPosition < 0 || this.mPosition >= this.gbz.size()) {
             return null;
         }
-        return this.fVI.get(this.mPosition);
+        return this.gbz.get(this.mPosition);
     }
 
     @Override // com.baidu.tieba.ala.alaar.makeup.c
     public JSONObject toJson() {
-        return li(true);
+        return lr(true);
     }
 
-    public JSONObject li(boolean z) {
+    public JSONObject lr(boolean z) {
         JSONObject json = super.toJson();
         try {
             json.put("category_id", getId());
             json.put("position", this.mPosition);
             JSONArray jSONArray = new JSONArray();
-            if (this.fVI != null) {
-                for (c cVar : this.fVI) {
+            if (this.gbz != null) {
+                for (c cVar : this.gbz) {
                     if (cVar != null) {
                         jSONArray.put(cVar.toJson());
                     }
                 }
             }
             json.put("data", jSONArray);
-            json.put("independent", this.fVK ? 1 : 0);
+            json.put("independent", this.gbB ? 1 : 0);
         } catch (JSONException e) {
             e.printStackTrace();
             if (h.isDebug()) {
@@ -58,19 +58,19 @@ public class d extends c {
     }
 
     @Override // com.baidu.tieba.ala.alaar.makeup.c, com.baidu.tieba.ala.alaar.makeup.b.b
-    public boolean dt(JSONObject jSONObject) {
+    public boolean dz(JSONObject jSONObject) {
         if (jSONObject == null) {
             return false;
         }
-        super.dt(jSONObject);
+        super.dz(jSONObject);
         setId(jSONObject.optString("category_id"));
         this.mPosition = jSONObject.optInt("position", 0);
-        this.fVI = new ArrayList();
+        this.gbz = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("data");
         if (optJSONArray == null) {
             optJSONArray = jSONObject.optJSONArray("value");
         }
-        this.fVK = jSONObject.optInt("independent", 0) == 1;
+        this.gbB = jSONObject.optInt("independent", 0) == 1;
         if (optJSONArray != null) {
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
@@ -78,14 +78,14 @@ public class d extends c {
                 if (optJSONObject != null) {
                     c cVar = new c();
                     cVar.setTypeName(getTypeName());
-                    cVar.X(bKo());
-                    if (cVar.dt(optJSONObject)) {
-                        this.fVI.add(cVar);
+                    cVar.X(bMN());
+                    if (cVar.dz(optJSONObject)) {
+                        this.gbz.add(cVar);
                     }
                 }
             }
-            if (this.fVK) {
-                super.dt(optJSONArray.optJSONObject(0));
+            if (this.gbB) {
+                super.dz(optJSONArray.optJSONObject(0));
             }
         }
         return true;
@@ -111,7 +111,7 @@ public class d extends c {
         this.mPosition = i;
     }
 
-    public boolean awx() {
-        return this.fVK;
+    public boolean ayX() {
+        return this.gbB;
     }
 }

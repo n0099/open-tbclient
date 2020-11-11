@@ -64,7 +64,7 @@ public class TbListTextView extends TextView {
 
     private void fixSpannedWithSpaces(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         a a2 = a(spannableStringBuilder, i, i2);
-        if (a2.cyR) {
+        if (a2.cEK) {
             a(i, i2, spannableStringBuilder, a2);
         } else {
             fallbackToString(i, i2);
@@ -88,12 +88,12 @@ public class TbListTextView extends TextView {
             }
             try {
                 setTextAndMeasure(spannableStringBuilder, i, i2);
-                return a.n(arrayList, arrayList2);
+                return a.o(arrayList, arrayList2);
             } catch (IndexOutOfBoundsException e) {
                 BdLog.e(e.getMessage());
             }
         }
-        return a.bCg();
+        return a.bEF();
     }
 
     private boolean isNotSpace(CharSequence charSequence, int i) {
@@ -140,20 +140,20 @@ public class TbListTextView extends TextView {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public final boolean cyR;
+        public final boolean cEK;
         public final List<Object> spansWithSpacesAfter;
         public final List<Object> spansWithSpacesBefore;
 
-        public static a n(List<Object> list, List<Object> list2) {
+        public static a o(List<Object> list, List<Object> list2) {
             return new a(true, list, list2);
         }
 
-        public static a bCg() {
+        public static a bEF() {
             return new a(false, null, null);
         }
 
         private a(boolean z, List<Object> list, List<Object> list2) {
-            this.cyR = z;
+            this.cEK = z;
             this.spansWithSpacesBefore = list;
             this.spansWithSpacesAfter = list2;
         }

@@ -24,7 +24,7 @@ public class BikeNavigateHelper {
     private static BikeNavigateHelper d;
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f1971a;
+    boolean f1973a;
     Activity b;
     private a c = new a();
 
@@ -51,7 +51,7 @@ public class BikeNavigateHelper {
             this.c.d();
             this.c = null;
         }
-        this.f1971a = false;
+        this.f1973a = false;
         this.b = null;
         if (d != null) {
             d = null;
@@ -135,11 +135,11 @@ public class BikeNavigateHelper {
 
     public boolean startBikeNavi(Activity activity) {
         if (b.a().a(activity, (Bundle) null)) {
-            if (!this.f1971a) {
+            if (!this.f1973a) {
                 if (!b.a().s()) {
                     return false;
                 }
-                this.f1971a = true;
+                this.f1973a = true;
             }
             return true;
         }
@@ -203,7 +203,7 @@ public class BikeNavigateHelper {
             this.c.d();
             this.c = null;
         }
-        this.f1971a = false;
+        this.f1973a = false;
         this.b = null;
         if (d != null) {
             d = null;

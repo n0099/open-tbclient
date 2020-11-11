@@ -7,16 +7,16 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class u {
-    private String aIu;
-    private String aIv;
-    private String aIw;
-    private String aIx;
-    private List<ae> aIy;
+    private String aJl;
+    private String aJm;
+    private String aJn;
+    private String aJo;
+    private List<af> aJp;
     private String action;
     private String id;
     private String userId;
 
-    public static u w(JSONObject jSONObject) {
+    public static u z(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
@@ -24,58 +24,58 @@ public class u {
         uVar.action = jSONObject.optString("action");
         uVar.id = jSONObject.optString("id");
         uVar.userId = jSONObject.optString("user_id");
-        uVar.aIv = jSONObject.optString("toast_text");
-        uVar.aIw = jSONObject.optString("chosen_color_start", "#7C11FF");
-        uVar.aIx = jSONObject.optString("chosen_color_end", "#FF3656");
-        uVar.aIu = jSONObject.optString("theme");
+        uVar.aJm = jSONObject.optString("toast_text");
+        uVar.aJn = jSONObject.optString("chosen_color_start", "#7C11FF");
+        uVar.aJo = jSONObject.optString("chosen_color_end", "#FF3656");
+        uVar.aJl = jSONObject.optString("theme");
         JSONArray optJSONArray = jSONObject.optJSONArray("session_conf");
         if (optJSONArray != null && optJSONArray.length() > 0) {
-            uVar.aIy = new ArrayList();
+            uVar.aJp = new ArrayList();
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
-                ae aeVar = new ae();
+                af afVar = new af();
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                aeVar.imageUrl = optJSONObject.optString("img");
-                aeVar.aJp = optJSONObject.optString("btn_text");
-                aeVar.url = optJSONObject.optString("session_info");
-                aeVar.startColor = uVar.aIw;
-                aeVar.endColor = uVar.aIx;
-                uVar.aIy.add(aeVar);
+                afVar.imageUrl = optJSONObject.optString("img");
+                afVar.aKp = optJSONObject.optString("btn_text");
+                afVar.url = optJSONObject.optString("session_info");
+                afVar.startColor = uVar.aJn;
+                afVar.endColor = uVar.aJo;
+                uVar.aJp.add(afVar);
             }
             return uVar;
         }
         return uVar;
     }
 
-    public boolean DR() {
-        return (this.aIy == null || this.aIy.isEmpty()) ? false : true;
+    public boolean Ek() {
+        return (this.aJp == null || this.aJp.isEmpty()) ? false : true;
     }
 
-    public List<ae> DS() {
-        return this.aIy;
+    public List<af> El() {
+        return this.aJp;
     }
 
     public String getAction() {
         return this.action;
     }
 
-    public String DT() {
-        return this.aIx;
+    public String Em() {
+        return this.aJo;
     }
 
-    public String DU() {
-        return this.aIw;
+    public String En() {
+        return this.aJn;
     }
 
-    public String DV() {
-        return this.aIv;
+    public String Eo() {
+        return this.aJm;
     }
 
-    public boolean gj(String str) {
+    public boolean gn(String str) {
         return !TextUtils.isEmpty(this.action) && this.action.equals(str);
     }
 
-    public boolean gk(String str) {
+    public boolean go(String str) {
         return !TextUtils.isEmpty(this.id) && this.id.equals(str);
     }
 
@@ -84,6 +84,6 @@ public class u {
     }
 
     public String toString() {
-        return "AlaLiveMultiSession{id='" + this.id + "', userId='" + this.userId + "', theme='" + this.aIu + "', action='" + this.action + "', toastText='" + this.aIv + "', choseColorStart='" + this.aIw + "', choseColorEnd='" + this.aIx + "', sessionList=" + this.aIy + '}';
+        return "AlaLiveMultiSession{id='" + this.id + "', userId='" + this.userId + "', theme='" + this.aJl + "', action='" + this.action + "', toastText='" + this.aJm + "', choseColorStart='" + this.aJn + "', choseColorEnd='" + this.aJo + "', sessionList=" + this.aJp + '}';
     }
 }

@@ -14,100 +14,100 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes21.dex */
 public class i {
-    private String ksX;
-    private int ksY;
-    private int ksZ;
-    private int kta;
-    private long ksW = 0;
-    private HashMap<String, Boolean> ksV = new HashMap<>();
+    private String kyT;
+    private int kyU;
+    private int kyV;
+    private int kyW;
+    private long kyS = 0;
+    private HashMap<String, Boolean> kyR = new HashMap<>();
 
-    public void DD(int i) {
-        this.ksZ = i;
+    public void DQ(int i) {
+        this.kyV = i;
     }
 
-    public int cVn() {
-        return this.ksZ;
+    public int cXO() {
+        return this.kyV;
     }
 
-    public void DE(int i) {
-        this.kta = i;
+    public void DR(int i) {
+        this.kyW = i;
     }
 
-    public int cVo() {
-        return this.kta;
+    public int cXP() {
+        return this.kyW;
     }
 
     public void b(Bundle bundle, Intent intent) {
         if (bundle != null) {
-            this.ksX = bundle.getString(ImageViewerConfig.PV_TYPE);
+            this.kyT = bundle.getString(ImageViewerConfig.PV_TYPE);
         } else if (intent != null) {
-            this.ksX = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
+            this.kyT = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
             int intExtra = intent.getIntExtra("index", -1);
-            this.ksY = intExtra;
-            this.ksZ = intExtra;
-            this.kta = intExtra;
+            this.kyU = intExtra;
+            this.kyV = intExtra;
+            this.kyW = intExtra;
         }
     }
 
     public void ay(Bundle bundle) {
         if (bundle != null) {
-            bundle.putString(ImageViewerConfig.PV_TYPE, this.ksX);
+            bundle.putString(ImageViewerConfig.PV_TYPE, this.kyT);
         }
     }
 
     public void e(List<String> list, int i, int i2) {
-        synchronized (this.ksV) {
-            if (System.nanoTime() - this.ksW > 300000000 && list != null && i < list.size()) {
-                this.ksV.put(list.get(i), true);
+        synchronized (this.kyR) {
+            if (System.nanoTime() - this.kyS > 300000000 && list != null && i < list.size()) {
+                this.kyR.put(list.get(i), true);
             }
-            this.ksW = System.nanoTime();
-            if (list != null && i2 < list.size() && this.ksV.get(list.get(i2)) == null) {
-                this.ksV.put(list.get(i2), false);
+            this.kyS = System.nanoTime();
+            if (list != null && i2 < list.size() && this.kyR.get(list.get(i2)) == null) {
+                this.kyR.put(list.get(i2), false);
             }
         }
-        if (this.ksV.size() >= 100) {
-            cVp();
+        if (this.kyR.size() >= 100) {
+            cXQ();
         }
     }
 
-    public void cVp() {
-        if (this.ksV != null) {
-            synchronized (this.ksV) {
-                if (this.ksV.size() > 0) {
+    public void cXQ() {
+        if (this.kyR != null) {
+            synchronized (this.kyR) {
+                if (this.kyR.size() > 0) {
                     int i = 0;
-                    for (Map.Entry<String, Boolean> entry : this.ksV.entrySet()) {
+                    for (Map.Entry<String, Boolean> entry : this.kyR.entrySet()) {
                         if (entry.getValue().booleanValue()) {
                             i++;
                         }
                     }
-                    TbadkCoreApplication.getInst().sendImagePv(i, this.ksV.size(), this.ksX, this.ksY + 1, this.ksZ + 1);
-                    this.ksV.clear();
+                    TbadkCoreApplication.getInst().sendImagePv(i, this.kyR.size(), this.kyT, this.kyU + 1, this.kyV + 1);
+                    this.kyR.clear();
                 }
             }
         }
     }
 
-    public void by(int i, String str) {
-        if (i == 1 && System.nanoTime() - this.ksW > 300000000) {
-            this.ksV.put(str, true);
+    public void bC(int i, String str) {
+        if (i == 1 && System.nanoTime() - this.kyS > 300000000) {
+            this.kyR.put(str, true);
         }
     }
 
     public void a(int i, String str, String str2, String str3, String str4, String str5) {
         StringBuilder sb = new StringBuilder();
         StringBuilder sb2 = new StringBuilder();
-        if (this.kta == this.ksZ) {
-            sb.append(this.kta + 1);
-            if (this.ksZ == i - 1) {
+        if (this.kyW == this.kyV) {
+            sb.append(this.kyW + 1);
+            if (this.kyV == i - 1) {
                 sb2.append(1);
             } else {
                 sb2.append(0);
             }
         } else {
-            for (int i2 = this.kta; i2 <= this.ksZ; i2++) {
-                if (i2 == this.ksZ) {
+            for (int i2 = this.kyW; i2 <= this.kyV; i2++) {
+                if (i2 == this.kyV) {
                     sb.append(i2 + 1);
-                    if (this.ksZ == i - 1) {
+                    if (this.kyV == i - 1) {
                         sb2.append(1);
                     } else {
                         sb2.append(0);
@@ -129,14 +129,14 @@ public class i {
             aqVar.dR("tid", str3);
         }
         if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
-            aqVar.dR("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().eWH);
+            aqVar.dR("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().fcx);
         }
-        aqVar.aj("pic_count", i);
+        aqVar.al("pic_count", i);
         aqVar.dR("obj_floors", sb.toString());
         aqVar.dR("obj_isads", sb2.toString());
-        int i3 = (this.ksZ - this.kta) + 1;
+        int i3 = (this.kyV - this.kyW) + 1;
         if (i3 == 1) {
-            if (this.ksZ == i - 1) {
+            if (this.kyV == i - 1) {
                 aqVar.dR("obj_id", str);
             } else {
                 aqVar.dR("obj_id", "");
@@ -147,7 +147,7 @@ public class i {
             for (int i4 = 0; i4 < i3 - 1; i4++) {
                 sb3.append("|");
             }
-            if (this.ksZ == i - 1) {
+            if (this.kyV == i - 1) {
                 sb3.append(str);
             }
             aqVar.dR("obj_ids", str);

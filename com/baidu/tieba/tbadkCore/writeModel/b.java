@@ -18,9 +18,9 @@ public class b {
     private CustomDialogData mActDialogData;
     private ContriInfo mContriInfo;
     private bp mReplyPrivacyTip;
-    private String mVb;
-    private String mVc;
     private VideoEasterEggData mVideoEasterEggData;
+    private String naX;
+    private String naY;
     private String preMsg;
     private String videoId;
     private String threadId = null;
@@ -37,19 +37,19 @@ public class b {
         return this.errorCode != 0;
     }
 
-    public boolean dIO() {
+    public boolean dLq() {
         return this.errorCode == 5 || this.errorCode == 6;
     }
 
-    public boolean dIP() {
+    public boolean dLr() {
         return this.errorCode == 1990055;
     }
 
-    public boolean dIQ() {
+    public boolean dLs() {
         return this.errorCode == 3250012;
     }
 
-    public boolean dIR() {
+    public boolean dLt() {
         return this.errorCode == 227001;
     }
 
@@ -65,7 +65,7 @@ public class b {
         this.errorString = str;
     }
 
-    public AntiData cuM() {
+    public AntiData cxn() {
         return this.antiData;
     }
 
@@ -109,20 +109,20 @@ public class b {
         return this.isCopyTWZhibo;
     }
 
-    public String dIS() {
-        return this.mVb;
+    public String dLu() {
+        return this.naX;
     }
 
-    public void SP(String str) {
-        this.mVb = str;
+    public void Tg(String str) {
+        this.naX = str;
     }
 
-    public String dIT() {
-        return this.mVc;
+    public String dLv() {
+        return this.naY;
     }
 
-    public void SQ(String str) {
-        this.mVc = str;
+    public void Th(String str) {
+        this.naY = str;
     }
 
     public CustomDialogData getActivityDialog() {

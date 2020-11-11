@@ -5,14 +5,14 @@ import android.view.View;
 public abstract class a implements View.OnClickListener {
     private long lastClickTime = 0;
 
-    public abstract void dX(View view);
+    public abstract void ef(View view);
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.lastClickTime > 500) {
             this.lastClickTime = currentTimeMillis;
-            dX(view);
+            ef(view);
         }
     }
 }

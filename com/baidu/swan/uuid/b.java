@@ -9,39 +9,39 @@ import com.baidu.swan.uuid.a.f;
 import com.baidu.swan.uuid.a.g;
 /* loaded from: classes5.dex */
 public class b {
-    private static b ehm;
-    private final a<String> ehn = new a<>();
-    private String eho;
+    private static b ene;
+    private final a<String> enf = new a<>();
+    private String eng;
 
     private b(Context context) {
-        this.ehn.a(new c(context));
-        this.ehn.a(new e(context));
-        this.ehn.a(new d(context));
-        this.ehn.a(new g(context));
-        this.ehn.a(new com.baidu.swan.uuid.a.a(context));
-        this.ehn.a(new f(context));
+        this.enf.a(new c(context));
+        this.enf.a(new e(context));
+        this.enf.a(new d(context));
+        this.enf.a(new g(context));
+        this.enf.a(new com.baidu.swan.uuid.a.a(context));
+        this.enf.a(new f(context));
     }
 
     public static b dO(Context context) {
-        if (ehm == null) {
+        if (ene == null) {
             synchronized (b.class) {
-                if (ehm == null) {
-                    ehm = new b(context);
+                if (ene == null) {
+                    ene = new b(context);
                 }
             }
         }
-        return ehm;
+        return ene;
     }
 
     public String getUUID() {
-        if (TextUtils.isEmpty(this.eho)) {
+        if (TextUtils.isEmpty(this.eng)) {
             synchronized (this) {
-                if (TextUtils.isEmpty(this.eho)) {
-                    this.eho = this.ehn.bbM();
-                    this.ehn.ap(this.eho);
+                if (TextUtils.isEmpty(this.eng)) {
+                    this.eng = this.enf.bem();
+                    this.enf.ap(this.eng);
                 }
             }
         }
-        return this.eho;
+        return this.eng;
     }
 }

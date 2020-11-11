@@ -7,8 +7,8 @@ import org.json.JSONObject;
 public class b {
     public String giftId = "";
     public String giftName = "";
-    public e aSJ = null;
-    public d aSK = null;
+    public e aUc = null;
+    public d aUd = null;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
@@ -16,18 +16,18 @@ public class b {
             this.giftName = jSONObject.optString("gift_name");
             JSONObject optJSONObject = jSONObject.optJSONObject("config_info");
             if (optJSONObject != null) {
-                this.aSK = new d();
-                this.aSK.parseJson(optJSONObject);
+                this.aUd = new d();
+                this.aUd.parseJson(optJSONObject);
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("gift_zip");
             if (optJSONObject2 != null) {
-                this.aSJ = new e();
-                this.aSJ.parseJson(optJSONObject2);
+                this.aUc = new e();
+                this.aUc.parseJson(optJSONObject2);
             }
         }
     }
 
-    public boolean Fa() {
-        return (this.aSJ == null || TextUtils.isEmpty(this.aSJ.videoUrl) || TextUtils.isEmpty(this.aSJ.videoMd5)) ? false : true;
+    public boolean FB() {
+        return (this.aUc == null || TextUtils.isEmpty(this.aUc.videoUrl) || TextUtils.isEmpty(this.aUc.videoMd5)) ? false : true;
     }
 }

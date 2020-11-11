@@ -11,7 +11,7 @@ import java.util.List;
 public abstract class d<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f4671a = {34, 32, 33, 37, 33, 34, 32, 33, 33, 33, 34, 41, 35, 32, 32, 32};
+    public static final byte[] f4673a = {34, 32, 33, 37, 33, 34, 32, 33, 33, 33, 34, 41, 35, 32, 32, 32};
     public static final byte[] b = {33, 34, 35, 36, 37, 38, 39, 40, 41, 32, 38, 37, 36, 35, 34, 33};
     protected static final Object c = new Object();
     protected List<T> d = new ArrayList();

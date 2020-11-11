@@ -11,11 +11,11 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class TabTextView extends TextView {
-    private final float bAC;
-    private final float bAD;
-    private final boolean bAE;
-    private LinearGradient bxD;
-    private boolean bxE;
+    private LinearGradient bDO;
+    private boolean bDP;
+    private final float bGN;
+    private final float bGO;
+    private final boolean bGP;
     private final int endTextColor;
     private final int startTextColor;
 
@@ -29,43 +29,43 @@ public class TabTextView extends TextView {
 
     public TabTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bxE = true;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.k.sdk_TabTextView);
-        this.startTextColor = obtainStyledAttributes.getColor(a.k.sdk_TabTextView_startTextColor, -1);
-        this.endTextColor = obtainStyledAttributes.getColor(a.k.sdk_TabTextView_endTextColor, -1);
-        this.bAC = obtainStyledAttributes.getDimension(a.k.sdk_TabTextView_defaultTextSize, -1.0f);
-        this.bAD = obtainStyledAttributes.getDimension(a.k.sdk_TabTextView_selectedTextSize, -1.0f);
-        this.bAE = obtainStyledAttributes.getBoolean(a.k.sdk_TabTextView_selectedBold, false);
+        this.bDP = true;
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.sdk_TabTextView);
+        this.startTextColor = obtainStyledAttributes.getColor(a.j.sdk_TabTextView_startTextColor, -1);
+        this.endTextColor = obtainStyledAttributes.getColor(a.j.sdk_TabTextView_endTextColor, -1);
+        this.bGN = obtainStyledAttributes.getDimension(a.j.sdk_TabTextView_defaultTextSize, -1.0f);
+        this.bGO = obtainStyledAttributes.getDimension(a.j.sdk_TabTextView_selectedTextSize, -1.0f);
+        this.bGP = obtainStyledAttributes.getBoolean(a.j.sdk_TabTextView_selectedBold, false);
         obtainStyledAttributes.recycle();
-        cF(false);
+        cM(false);
     }
 
     @Override // android.view.View
     protected void dispatchSetSelected(boolean z) {
         super.dispatchSetSelected(z);
-        cF(z);
+        cM(z);
         setSelectedBold(z);
-        cH(z);
+        cO(z);
     }
 
-    private boolean QQ() {
+    private boolean Ty() {
         return (this.startTextColor == -1 || this.endTextColor == -1) ? false : true;
     }
 
-    private void cF(boolean z) {
-        if (this.bxE) {
+    private void cM(boolean z) {
+        if (this.bDP) {
             if (z) {
-                if (this.bAD != -1.0f) {
-                    setTextSize(0, this.bAD);
+                if (this.bGO != -1.0f) {
+                    setTextSize(0, this.bGO);
                 }
-            } else if (this.bAC != -1.0f) {
-                setTextSize(0, this.bAC);
+            } else if (this.bGN != -1.0f) {
+                setTextSize(0, this.bGN);
             }
         }
     }
 
     private void setSelectedBold(boolean z) {
-        if (this.bAE) {
+        if (this.bGP) {
             if (z) {
                 setTypeface(Typeface.DEFAULT_BOLD);
             } else {
@@ -74,16 +74,16 @@ public class TabTextView extends TextView {
         }
     }
 
-    private void cH(boolean z) {
-        if (z && QQ()) {
-            if (this.bxD == null) {
+    private void cO(boolean z) {
+        if (z && Ty()) {
+            if (this.bDO == null) {
                 if (getMeasuredWidth() == 0) {
                     int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
                     measure(makeMeasureSpec, makeMeasureSpec);
                 }
-                this.bxD = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight(), new int[]{this.startTextColor, this.endTextColor}, (float[]) null, Shader.TileMode.CLAMP);
+                this.bDO = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight(), new int[]{this.startTextColor, this.endTextColor}, (float[]) null, Shader.TileMode.CLAMP);
             }
-            getPaint().setShader(this.bxD);
+            getPaint().setShader(this.bDO);
             return;
         }
         getPaint().setShader(null);

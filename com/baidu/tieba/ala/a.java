@@ -15,62 +15,62 @@ import com.baidu.tbadk.TbPageContext;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private JSONObject fTk;
-    private HttpMessageListener fTl;
-    private BdUniqueId fTm = BdUniqueId.gen();
-    private BdUniqueId fTn = BdUniqueId.gen();
-    private CustomMessageListener fIT = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.a.2
+    private JSONObject fZa;
+    private HttpMessageListener fZb;
+    private BdUniqueId fZc = BdUniqueId.gen();
+    private BdUniqueId fZd = BdUniqueId.gen();
+    private CustomMessageListener fOJ = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.isNetworkAvailableForImmediately() && a.this.fTk != null) {
-                a.this.a(a.this.fTk, a.this.fTn);
+            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.isNetworkAvailableForImmediately() && a.this.fZa != null) {
+                a.this.a(a.this.fZa, a.this.fZd);
             }
         }
     };
-    private CustomMessageListener fTo = new CustomMessageListener(CmdConfigCustom.CMD_BUSINESS_NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.ala.a.3
+    private CustomMessageListener fZe = new CustomMessageListener(CmdConfigCustom.CMD_BUSINESS_NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.ala.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject)) {
-                a.this.ds((JSONObject) customResponsedMessage.getData());
+                a.this.dy((JSONObject) customResponsedMessage.getData());
             }
         }
     };
 
     public a(TbPageContext tbPageContext) {
-        if (this.fTl == null) {
-            this.fTl = new HttpMessageListener(1003390) { // from class: com.baidu.tieba.ala.a.1
+        if (this.fZb == null) {
+            this.fZb = new HttpMessageListener(1003390) { // from class: com.baidu.tieba.ala.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                     if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003390 && httpResponsedMessage.getError() == 0) {
-                        a.this.fTk = null;
+                        a.this.fZa = null;
                     }
                 }
             };
         }
-        MessageManager.getInstance().registerListener(this.fTl);
-        MessageManager.getInstance().registerListener(this.fIT);
-        this.fTo.setTag(tbPageContext.getUniqueId());
-        this.fTo.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.fTo);
+        MessageManager.getInstance().registerListener(this.fZb);
+        MessageManager.getInstance().registerListener(this.fOJ);
+        this.fZe.setTag(tbPageContext.getUniqueId());
+        this.fZe.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.fZe);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.fTl);
-        MessageManager.getInstance().unRegisterListener(this.fIT);
-        MessageManager.getInstance().unRegisterListener(this.fTo);
-        this.fTk = null;
+        MessageManager.getInstance().unRegisterListener(this.fZb);
+        MessageManager.getInstance().unRegisterListener(this.fOJ);
+        MessageManager.getInstance().unRegisterListener(this.fZe);
+        this.fZa = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ds(JSONObject jSONObject) {
+    public void dy(JSONObject jSONObject) {
         if (jSONObject != null) {
             if (j.isNetworkAvailableForImmediately()) {
-                a(jSONObject, this.fTm);
+                a(jSONObject, this.fZc);
             } else {
-                this.fTk = jSONObject;
+                this.fZa = jSONObject;
             }
         }
     }

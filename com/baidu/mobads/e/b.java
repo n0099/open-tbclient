@@ -10,20 +10,20 @@ import java.util.Map;
 public class b implements IXAdErrorCode {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final IXAdLogger f2327a;
+    protected final IXAdLogger f2329a;
 
     public b(IXAdLogger iXAdLogger) {
-        this.f2327a = iXAdLogger;
+        this.f2329a = iXAdLogger;
     }
 
     @Override // com.baidu.mobads.interfaces.error.IXAdErrorCode
     public void printErrorMessage(XAdErrorCode xAdErrorCode, String str) {
-        this.f2327a.e(genCompleteErrorMessage(xAdErrorCode, str));
+        this.f2329a.e(genCompleteErrorMessage(xAdErrorCode, str));
     }
 
     @Override // com.baidu.mobads.interfaces.error.IXAdErrorCode
     public void printErrorMessage(String str, String str2, String str3) {
-        this.f2327a.e(a(str, str2, str3));
+        this.f2329a.e(a(str, str2, str3));
     }
 
     @Override // com.baidu.mobads.interfaces.error.IXAdErrorCode

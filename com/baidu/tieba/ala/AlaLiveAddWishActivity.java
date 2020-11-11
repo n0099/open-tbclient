@@ -45,27 +45,27 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View.OnClickListener, i.a, i.b, i.c {
-    private ViewTreeObserver.OnGlobalLayoutListener aXF;
-    private int aXG;
-    private TbImageView fSH;
-    private RelativeLayout fSI;
-    private RelativeLayout fSJ;
-    private RelativeLayout fSK;
-    private RelativeLayout fSL;
-    private Button fSM;
-    private TextView fSN;
-    private TextView fSO;
-    private TextView fSP;
-    private TextView fSQ;
-    private String fSR;
-    private int fSS;
-    private int fST;
-    private RelativeLayout fSU;
-    private View fSe;
-    private FrameLayout fSi;
-    private AlaLiveInputEditView fSj;
-    private i fSv;
-    private String fSw;
+    private ViewTreeObserver.OnGlobalLayoutListener aYX;
+    private int aYY;
+    private View fXU;
+    private FrameLayout fXY;
+    private AlaLiveInputEditView fXZ;
+    private RelativeLayout fYA;
+    private RelativeLayout fYB;
+    private Button fYC;
+    private TextView fYD;
+    private TextView fYE;
+    private TextView fYF;
+    private TextView fYG;
+    private String fYH;
+    private int fYI;
+    private int fYJ;
+    private RelativeLayout fYK;
+    private i fYl;
+    private String fYm;
+    private TbImageView fYx;
+    private RelativeLayout fYy;
+    private RelativeLayout fYz;
     private Context mContext;
     private int mGiftNum;
     private boolean mIsKeyboardOpen;
@@ -73,18 +73,18 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
     private TextView mTitleTextView;
     private Pattern pattern;
     private Handler mHandler = new Handler();
-    private boolean aTK = false;
-    private boolean aXJ = false;
-    private boolean aXK = false;
-    private String aMj = "";
-    private CustomMessageListener aUa = new CustomMessageListener(2913054) { // from class: com.baidu.tieba.ala.AlaLiveAddWishActivity.7
+    private boolean aVc = false;
+    private boolean aZb = false;
+    private boolean aZc = false;
+    private String aNj = "";
+    private CustomMessageListener aVs = new CustomMessageListener(2913054) { // from class: com.baidu.tieba.ala.AlaLiveAddWishActivity.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AlaLiveAddWishActivity.this.closeActivity();
         }
     };
-    private CustomMessageListener aUb = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.AlaLiveAddWishActivity.8
+    private CustomMessageListener aVt = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.AlaLiveAddWishActivity.8
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -99,15 +99,15 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
         setUseStyleImmersiveSticky(true);
         super.onCreate(bundle);
         if (!isFinishing()) {
-            registerListener(this.aUb);
-            registerListener(this.aUa);
+            registerListener(this.aVt);
+            registerListener(this.aVs);
             addGlobalLayoutListener();
             initView();
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
-            this.aXJ = false;
+            this.aZb = false;
             this.mRootView.setVisibility(4);
-            this.fSv = new i(getPageContext(), this, this, this);
-            this.fST = getIntent().getIntExtra("item_count", 0);
+            this.fYl = new i(getPageContext(), this, this, this);
+            this.fYJ = getIntent().getIntExtra("item_count", 0);
         }
     }
 
@@ -115,20 +115,20 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        if (!this.aTK) {
+        if (!this.aVc) {
             this.mRootView.setVisibility(0);
-            Hv();
-            this.aTK = true;
+            HW();
+            this.aVc = true;
         }
     }
 
-    private void Hv() {
+    private void HW() {
         Animation loadAnimation;
-        this.aXJ = true;
+        this.aZb = true;
         if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_in_from_right);
+            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0197a.sdk_in_from_right);
         } else {
-            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_in_from_bottom);
+            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0197a.sdk_in_from_bottom);
         }
         loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.AlaLiveAddWishActivity.1
             @Override // android.view.animation.Animation.AnimationListener
@@ -137,7 +137,7 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                AlaLiveAddWishActivity.this.aXJ = false;
+                AlaLiveAddWishActivity.this.aZb = false;
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -147,13 +147,13 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
         this.mRootView.startAnimation(loadAnimation);
     }
 
-    private void Hw() {
+    private void HX() {
         Animation loadAnimation;
-        if (!this.aXK && !this.aXJ) {
+        if (!this.aZc && !this.aZb) {
             if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_out_to_right);
+                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0197a.sdk_out_to_right);
             } else {
-                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_out_to_bottom);
+                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0197a.sdk_out_to_bottom);
             }
             loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.AlaLiveAddWishActivity.4
                 @Override // android.view.animation.Animation.AnimationListener
@@ -170,59 +170,59 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
                 public void onAnimationRepeat(Animation animation) {
                 }
             });
-            this.aXK = true;
+            this.aZc = true;
             this.mRootView.startAnimation(loadAnimation);
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, android.app.Activity
     public void finish() {
-        Hw();
+        HX();
     }
 
     private void initView() {
-        this.mRootView = LayoutInflater.from(getPageContext().getPageActivity()).inflate(a.h.ala_live_add_wish_layout, (ViewGroup) null);
+        this.mRootView = LayoutInflater.from(getPageContext().getPageActivity()).inflate(a.g.ala_live_add_wish_layout, (ViewGroup) null);
         setContentView(this.mRootView);
-        this.fSU = (RelativeLayout) findViewById(a.g.ala_add_wish_list_content);
+        this.fYK = (RelativeLayout) findViewById(a.f.ala_add_wish_list_content);
         int[] screenDimensions = BdUtilHelper.getScreenDimensions(getPageContext().getPageActivity());
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fSU.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fYK.getLayoutParams();
         layoutParams.height = (int) (screenDimensions[1] * 0.68d);
-        this.fSU.setLayoutParams(layoutParams);
-        this.fSe = findViewById(a.g.add_wish_root_bg);
-        this.fSe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaLiveAddWishActivity.5
+        this.fYK.setLayoutParams(layoutParams);
+        this.fXU = findViewById(a.f.add_wish_root_bg);
+        this.fXU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaLiveAddWishActivity.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AlaLiveAddWishActivity.this.finish();
             }
         });
         this.mContext = this;
-        this.fSH = (TbImageView) this.mRootView.findViewById(a.g.add_wish_tile_icon_return);
-        this.fSI = (RelativeLayout) this.mRootView.findViewById(a.g.add_wish_center_edit_gift);
-        this.fSJ = (RelativeLayout) this.mRootView.findViewById(a.g.add_wish_center_edit_gift_num);
-        this.fSK = (RelativeLayout) this.mRootView.findViewById(a.g.add_wish_center_edit_deadline);
-        this.fSL = (RelativeLayout) this.mRootView.findViewById(a.g.add_wish_center_edit_thank_way);
-        this.fSM = (Button) this.mRootView.findViewById(a.g.add_wish_next_bt);
-        this.fSH.setOnClickListener(this);
-        this.fSI.setOnClickListener(this);
-        this.fSJ.setOnClickListener(this);
-        this.fSK.setOnClickListener(this);
-        this.fSL.setOnClickListener(this);
-        this.fSM.setOnClickListener(this);
-        this.fSN = (TextView) this.mRootView.findViewById(a.g.add_wish_center_edit_gift_action);
-        this.fSO = (TextView) this.mRootView.findViewById(a.g.add_wish_center_edit_gift_num_action);
-        this.fSP = (TextView) this.mRootView.findViewById(a.g.add_wish_center_edit_deadline_action);
-        this.fSQ = (TextView) this.mRootView.findViewById(a.g.add_wish_center_edit_thank_way_edit);
-        this.mTitleTextView = (TextView) this.mRootView.findViewById(a.g.add_wish_tile_txt);
-        this.mTitleTextView.setText(getPageContext().getResources().getString(a.i.add_wish_title));
-        this.fSi = (FrameLayout) this.mRootView.findViewById(a.g.choose_gift_input_layout);
-        this.fSi.setOnClickListener(new AnonymousClass6());
-        this.fSj = (AlaLiveInputEditView) this.mRootView.findViewById(a.g.choose_gift_input_edit);
-        this.fSj.getEditView().setInputType(1);
-        this.fSj.getEditView().setFilters(new InputFilter[]{new InputFilter.LengthFilter(8)});
-        this.fSj.setHintText(getPageContext().getResources().getString(a.i.add_wish_thank_way_hinit));
-        this.fSj.getTextView().setText(getPageContext().getResources().getString(a.i.add_wish_thank_way_send));
-        e(this.fSj);
-        bJs();
+        this.fYx = (TbImageView) this.mRootView.findViewById(a.f.add_wish_tile_icon_return);
+        this.fYy = (RelativeLayout) this.mRootView.findViewById(a.f.add_wish_center_edit_gift);
+        this.fYz = (RelativeLayout) this.mRootView.findViewById(a.f.add_wish_center_edit_gift_num);
+        this.fYA = (RelativeLayout) this.mRootView.findViewById(a.f.add_wish_center_edit_deadline);
+        this.fYB = (RelativeLayout) this.mRootView.findViewById(a.f.add_wish_center_edit_thank_way);
+        this.fYC = (Button) this.mRootView.findViewById(a.f.add_wish_next_bt);
+        this.fYx.setOnClickListener(this);
+        this.fYy.setOnClickListener(this);
+        this.fYz.setOnClickListener(this);
+        this.fYA.setOnClickListener(this);
+        this.fYB.setOnClickListener(this);
+        this.fYC.setOnClickListener(this);
+        this.fYD = (TextView) this.mRootView.findViewById(a.f.add_wish_center_edit_gift_action);
+        this.fYE = (TextView) this.mRootView.findViewById(a.f.add_wish_center_edit_gift_num_action);
+        this.fYF = (TextView) this.mRootView.findViewById(a.f.add_wish_center_edit_deadline_action);
+        this.fYG = (TextView) this.mRootView.findViewById(a.f.add_wish_center_edit_thank_way_edit);
+        this.mTitleTextView = (TextView) this.mRootView.findViewById(a.f.add_wish_tile_txt);
+        this.mTitleTextView.setText(getPageContext().getResources().getString(a.h.add_wish_title));
+        this.fXY = (FrameLayout) this.mRootView.findViewById(a.f.choose_gift_input_layout);
+        this.fXY.setOnClickListener(new AnonymousClass6());
+        this.fXZ = (AlaLiveInputEditView) this.mRootView.findViewById(a.f.choose_gift_input_edit);
+        this.fXZ.getEditView().setInputType(1);
+        this.fXZ.getEditView().setFilters(new InputFilter[]{new InputFilter.LengthFilter(8)});
+        this.fXZ.setHintText(getPageContext().getResources().getString(a.h.add_wish_thank_way_hinit));
+        this.fXZ.getTextView().setText(getPageContext().getResources().getString(a.h.add_wish_thank_way_send));
+        e(this.fXZ);
+        bLR();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -240,10 +240,10 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
                     try {
                         new Instrumentation().sendKeyDownUpSync(4);
                     } catch (Exception e) {
-                        AlaLiveAddWishActivity.this.fSi.post(new Runnable() { // from class: com.baidu.tieba.ala.AlaLiveAddWishActivity.6.1.1
+                        AlaLiveAddWishActivity.this.fXY.post(new Runnable() { // from class: com.baidu.tieba.ala.AlaLiveAddWishActivity.6.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                AlaLiveAddWishActivity.this.bJu();
+                                AlaLiveAddWishActivity.this.bLT();
                             }
                         });
                         e.printStackTrace();
@@ -265,46 +265,46 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.fSv != null) {
-            this.fSv.onDestroy();
+        if (this.fYl != null) {
+            this.fYl.onDestroy();
         }
         super.onDestroy();
         this.mHandler.removeCallbacksAndMessages(null);
-        getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.aXF);
-        this.aXF = null;
+        getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.aYX);
+        this.aYX = null;
     }
 
     @Override // com.baidu.live.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         int id = view.getId();
-        if (id == a.g.add_wish_tile_icon_return) {
+        if (id == a.f.add_wish_tile_icon_return) {
             finish();
-        } else if (id == a.g.add_wish_center_edit_gift) {
+        } else if (id == a.f.add_wish_center_edit_gift) {
             com.baidu.live.b.e eVar = new com.baidu.live.b.e(getPageContext().getPageActivity(), 1, 1001);
-            eVar.d(this.aMj, AlaLiveWishListActivity.fTd);
+            eVar.d(this.aNj, AlaLiveWishListActivity.fYT);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, eVar));
-        } else if (id == a.g.add_wish_center_edit_gift_num) {
+        } else if (id == a.f.add_wish_center_edit_gift_num) {
             com.baidu.live.b.e eVar2 = new com.baidu.live.b.e(getPageContext().getPageActivity(), 2, 1002);
             eVar2.dE(this.mGiftNum);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, eVar2));
-        } else if (id == a.g.add_wish_center_edit_deadline) {
+        } else if (id == a.f.add_wish_center_edit_deadline) {
             com.baidu.live.b.e eVar3 = new com.baidu.live.b.e(getPageContext().getPageActivity(), 3, 1003);
-            eVar3.dF(this.fSS);
+            eVar3.dF(this.fYI);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, eVar3));
-        } else if (id == a.g.add_wish_center_edit_thank_way) {
-            bJt();
-        } else if (id == a.g.add_wish_next_bt) {
-            if (TextUtils.isEmpty(this.aMj)) {
-                getPageContext().showToast(getPageContext().getResources().getString(a.i.add_wish_tips_txt));
+        } else if (id == a.f.add_wish_center_edit_thank_way) {
+            bLS();
+        } else if (id == a.f.add_wish_next_bt) {
+            if (TextUtils.isEmpty(this.aNj)) {
+                getPageContext().showToast(getPageContext().getResources().getString(a.h.add_wish_tips_txt));
             } else if (this.mGiftNum <= 0) {
-                getPageContext().showToast(getPageContext().getResources().getString(a.i.add_wish_gift_num_tip));
-            } else if (this.fSS <= 0) {
-                getPageContext().showToast(getPageContext().getResources().getString(a.i.add_wish_deadline_tip));
+                getPageContext().showToast(getPageContext().getResources().getString(a.h.add_wish_gift_num_tip));
+            } else if (this.fYI <= 0) {
+                getPageContext().showToast(getPageContext().getResources().getString(a.h.add_wish_deadline_tip));
             } else {
-                if (TextUtils.isEmpty(this.fSR)) {
-                    this.fSR = getPageContext().getResources().getString(a.i.add_wish_thank_way_txt);
+                if (TextUtils.isEmpty(this.fYH)) {
+                    this.fYH = getPageContext().getResources().getString(a.h.add_wish_thank_way_txt);
                 }
-                this.fSv.b(this.fSw, this.aMj, this.fSR, this.fSS, this.mGiftNum);
+                this.fYl.b(this.fYm, this.aNj, this.fYH, this.fYI, this.mGiftNum);
             }
         }
     }
@@ -319,39 +319,39 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
                 if (i == 1001) {
                     String optString = jSONObject.optString("gift_title");
                     jSONObject.optString("gift_url");
-                    this.aMj = jSONObject.optString(LogConfig.LOG_GIFT_ID);
-                    this.fSN.setText(optString);
-                    this.fSN.setTextColor(getPageContext().getResources().getColor(a.d.sdk_cp_cont_g));
+                    this.aNj = jSONObject.optString(LogConfig.LOG_GIFT_ID);
+                    this.fYD.setText(optString);
+                    this.fYD.setTextColor(getPageContext().getResources().getColor(a.c.sdk_cp_cont_g));
                 } else if (i == 1002) {
                     jSONObject.optBoolean("num_custom");
                     int optInt = jSONObject.optInt("num_number");
                     jSONObject.optString("num_name");
                     this.mGiftNum = optInt;
-                    this.fSO.setText(String.valueOf(optInt));
-                    this.fSO.setTextColor(getPageContext().getResources().getColor(a.d.sdk_cp_cont_g));
+                    this.fYE.setText(String.valueOf(optInt));
+                    this.fYE.setTextColor(getPageContext().getResources().getColor(a.c.sdk_cp_cont_g));
                 } else if (i == 1003) {
                     jSONObject.optBoolean("date_custom");
                     int optInt2 = jSONObject.optInt("date_value");
-                    this.fSS = optInt2;
-                    this.fSP.setText(String.valueOf(optInt2) + "小时");
-                    this.fSP.setTextColor(getPageContext().getResources().getColor(a.d.sdk_cp_cont_g));
+                    this.fYI = optInt2;
+                    this.fYF.setText(String.valueOf(optInt2) + "小时");
+                    this.fYF.setTextColor(getPageContext().getResources().getColor(a.c.sdk_cp_cont_g));
                 }
-                bJs();
+                bLR();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private void bJs() {
-        if (this.fSM != null) {
-            if (!TextUtils.isEmpty(this.aMj) && this.mGiftNum > 0 && this.fSS > 0) {
-                this.fSM.setTextColor(getPageContext().getResources().getColor(a.d.sdk_cp_cont_g));
-                this.fSM.setBackgroundResource(a.f.ala_live_create_wish_bt_bg);
+    private void bLR() {
+        if (this.fYC != null) {
+            if (!TextUtils.isEmpty(this.aNj) && this.mGiftNum > 0 && this.fYI > 0) {
+                this.fYC.setTextColor(getPageContext().getResources().getColor(a.c.sdk_cp_cont_g));
+                this.fYC.setBackgroundResource(a.e.ala_live_create_wish_bt_bg);
                 return;
             }
-            this.fSM.setTextColor(getPageContext().getResources().getColor(a.d.sdk_cp_cont_i_alpha80));
-            this.fSM.setBackgroundResource(a.f.ala_add_wish_edit_next_bt_bg);
+            this.fYC.setTextColor(getPageContext().getResources().getColor(a.c.sdk_cp_cont_i_alpha80));
+            this.fYC.setBackgroundResource(a.e.ala_add_wish_edit_next_bt_bg);
         }
     }
 
@@ -362,8 +362,8 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
     }
 
     @Override // com.baidu.tieba.ala.g.i.c
-    public void aJ(int i, String str) {
-        String string = getPageContext().getResources().getString(a.i.add_wish_add_tip_fail);
+    public void aN(int i, String str) {
+        String string = getPageContext().getResources().getString(a.h.add_wish_add_tip_fail);
         if (TextUtils.isEmpty(str)) {
             str = string;
         }
@@ -375,8 +375,8 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
     }
 
     @Override // com.baidu.tieba.ala.g.i.a
-    public void aI(int i, String str) {
-        getPageContext().showToast(getPageContext().getResources().getString(a.i.add_wish_delete_tip_fail));
+    public void aM(int i, String str) {
+        getPageContext().showToast(getPageContext().getResources().getString(a.h.add_wish_delete_tip_fail));
     }
 
     @Override // com.baidu.tieba.ala.g.i.b
@@ -384,13 +384,13 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
     }
 
     @Override // com.baidu.tieba.ala.g.i.b
-    public void aK(int i, String str) {
-        getPageContext().showToast(getPageContext().getResources().getString(a.i.add_wish_create_tip_fail));
+    public void aO(int i, String str) {
+        getPageContext().showToast(getPageContext().getResources().getString(a.h.add_wish_create_tip_fail));
     }
 
     public void e(AlaLiveInputEditView alaLiveInputEditView) {
-        this.fSj = alaLiveInputEditView;
-        this.fSj.setTextWatcher(new TextWatcher() { // from class: com.baidu.tieba.ala.AlaLiveAddWishActivity.9
+        this.fXZ = alaLiveInputEditView;
+        this.fXZ.setTextWatcher(new TextWatcher() { // from class: com.baidu.tieba.ala.AlaLiveAddWishActivity.9
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -398,11 +398,11 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
                 if (charSequence == null || TextUtils.isEmpty(charSequence.toString().trim())) {
-                    AlaLiveAddWishActivity.this.fSj.setSendEnabled(false);
+                    AlaLiveAddWishActivity.this.fXZ.setSendEnabled(false);
                     return;
                 }
-                AlaLiveAddWishActivity.this.fSj.setSendEnabled(true);
-                if (!AlaLiveAddWishActivity.this.FC(charSequence.toString())) {
+                AlaLiveAddWishActivity.this.fXZ.setSendEnabled(true);
+                if (!AlaLiveAddWishActivity.this.FQ(charSequence.toString())) {
                     AlaLiveAddWishActivity.this.a(charSequence, i, i3);
                 }
             }
@@ -411,14 +411,14 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
             public void afterTextChanged(Editable editable) {
             }
         });
-        this.fSj.setEditViewConfirmCallBack(new b.a() { // from class: com.baidu.tieba.ala.AlaLiveAddWishActivity.10
+        this.fXZ.setEditViewConfirmCallBack(new b.a() { // from class: com.baidu.tieba.ala.AlaLiveAddWishActivity.10
             @Override // com.baidu.live.view.input.b.a
-            public void hg(String str) {
+            public void hn(String str) {
                 if (str != null && !TextUtils.isEmpty(str.trim())) {
-                    AlaLiveAddWishActivity.this.fSR = str;
-                    AlaLiveAddWishActivity.this.fSQ.setText(str);
-                    AlaLiveAddWishActivity.this.fSQ.setTextColor(AlaLiveAddWishActivity.this.getPageContext().getResources().getColor(a.d.sdk_cp_cont_g));
-                    AlaLiveAddWishActivity.this.bJu();
+                    AlaLiveAddWishActivity.this.fYH = str;
+                    AlaLiveAddWishActivity.this.fYG.setText(str);
+                    AlaLiveAddWishActivity.this.fYG.setTextColor(AlaLiveAddWishActivity.this.getPageContext().getResources().getColor(a.c.sdk_cp_cont_g));
+                    AlaLiveAddWishActivity.this.bLT();
                 }
             }
         });
@@ -428,45 +428,45 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
     public void a(CharSequence charSequence, int i, int i2) {
         int length = charSequence.length();
         if (i >= 0 && length >= i2 && i + i2 <= length) {
-            this.fSj.setEditText(charSequence.toString().substring(0, length - i2));
-            getPageContext().showToast(getPageContext().getResources().getString(a.i.add_wish_gift_contain_emoji_tip));
+            this.fXZ.setEditText(charSequence.toString().substring(0, length - i2));
+            getPageContext().showToast(getPageContext().getResources().getString(a.h.add_wish_gift_contain_emoji_tip));
         }
     }
 
-    public void bJt() {
-        this.fSj.MG();
-        this.fSj.getEditView().setFocusable(true);
-        this.fSj.getEditView().setFocusableInTouchMode(true);
-        this.fSj.getEditView().postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.AlaLiveAddWishActivity.11
+    public void bLS() {
+        this.fXZ.Ng();
+        this.fXZ.getEditView().setFocusable(true);
+        this.fXZ.getEditView().setFocusableInTouchMode(true);
+        this.fXZ.getEditView().postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.AlaLiveAddWishActivity.11
             @Override // java.lang.Runnable
             public void run() {
-                AlaLiveAddWishActivity.this.fSj.getEditView().requestFocus();
-                BdUtilHelper.showSoftKeyPad(AlaLiveAddWishActivity.this.mContext, AlaLiveAddWishActivity.this.fSj.getEditView());
+                AlaLiveAddWishActivity.this.fXZ.getEditView().requestFocus();
+                BdUtilHelper.showSoftKeyPad(AlaLiveAddWishActivity.this.mContext, AlaLiveAddWishActivity.this.fXZ.getEditView());
             }
         }, 100L);
     }
 
-    public void bJu() {
-        this.fSj.setVisibility(8);
-        this.fSj.getEditView().post(new Runnable() { // from class: com.baidu.tieba.ala.AlaLiveAddWishActivity.2
+    public void bLT() {
+        this.fXZ.setVisibility(8);
+        this.fXZ.getEditView().post(new Runnable() { // from class: com.baidu.tieba.ala.AlaLiveAddWishActivity.2
             @Override // java.lang.Runnable
             public void run() {
-                BdUtilHelper.hideSoftKeyPad(AlaLiveAddWishActivity.this.mContext, AlaLiveAddWishActivity.this.fSj.getEditView());
+                BdUtilHelper.hideSoftKeyPad(AlaLiveAddWishActivity.this.mContext, AlaLiveAddWishActivity.this.fXZ.getEditView());
             }
         });
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity
     protected void addGlobalLayoutListener() {
-        this.aXF = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.ala.AlaLiveAddWishActivity.3
+        this.aYX = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.ala.AlaLiveAddWishActivity.3
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
                 Rect rect = new Rect();
                 AlaLiveAddWishActivity.this.getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
                 int statusBarHeight = BdUtilHelper.getStatusBarHeight(AlaLiveAddWishActivity.this.getPageContext().getPageActivity());
                 int[] screenDimensions = BdUtilHelper.getScreenDimensions(AlaLiveAddWishActivity.this.getPageContext().getPageActivity());
-                boolean z = AlaLiveAddWishActivity.this.aXG != rect.bottom;
-                AlaLiveAddWishActivity.this.aXG = rect.bottom;
+                boolean z = AlaLiveAddWishActivity.this.aYY != rect.bottom;
+                AlaLiveAddWishActivity.this.aYY = rect.bottom;
                 if (screenDimensions[1] - rect.bottom > screenDimensions[1] / 4 && (!AlaLiveAddWishActivity.this.mIsKeyboardOpen || z)) {
                     AlaLiveAddWishActivity.this.mIsKeyboardOpen = true;
                     AlaLiveAddWishActivity.this.onKeyboardVisibilityChanged(true);
@@ -476,7 +476,7 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
                 }
             }
         };
-        getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.aXF);
+        getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.aYX);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -486,32 +486,32 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
         if (z) {
             Rect rect = new Rect();
             this.mRootView.getRootView().getWindowVisibleDisplayFrame(rect);
-            int dimensionPixelSize = rect.bottom - getResources().getDimensionPixelSize(a.e.sdk_ds104);
+            int dimensionPixelSize = rect.bottom - getResources().getDimensionPixelSize(a.d.sdk_ds104);
             int statusBarHeight = !UtilHelper.canUseStyleImmersiveSticky() ? dimensionPixelSize - UtilHelper.getStatusBarHeight() : dimensionPixelSize;
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fSj.getLayoutParams();
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fXZ.getLayoutParams();
             layoutParams.topMargin = statusBarHeight;
-            this.fSj.setLayoutParams(layoutParams);
-            this.fSj.setVisibility(0);
-            this.fSi.setVisibility(0);
+            this.fXZ.setLayoutParams(layoutParams);
+            this.fXZ.setVisibility(0);
+            this.fXY.setVisibility(0);
             return;
         }
-        FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.fSj.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.fXZ.getLayoutParams();
         layoutParams2.topMargin = 0;
-        this.fSj.setLayoutParams(layoutParams2);
-        this.fSj.setVisibility(8);
-        this.fSi.setVisibility(8);
+        this.fXZ.setLayoutParams(layoutParams2);
+        this.fXZ.setVisibility(8);
+        this.fXY.setVisibility(8);
     }
 
     @Override // android.app.Activity
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.fSj.getVisibility() == 0) {
-            bJu();
+        if (this.fXZ.getVisibility() == 0) {
+            bLT();
             return true;
         }
         return super.onTouchEvent(motionEvent);
     }
 
-    public boolean FC(String str) {
+    public boolean FQ(String str) {
         if (this.pattern == null) {
             this.pattern = Pattern.compile("^[a-zA-Z0-9\\u4e00-\\u9fa5]+$");
         }

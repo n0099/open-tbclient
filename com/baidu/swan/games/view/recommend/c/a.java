@@ -10,14 +10,14 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
 /* loaded from: classes10.dex */
 public class a extends RecyclerView.Adapter<d> implements View.OnClickListener {
-    private InterfaceC0536a dVM;
-    private com.baidu.swan.games.view.recommend.model.a dVv;
+    private InterfaceC0548a ebE;
+    private com.baidu.swan.games.view.recommend.model.a ebn;
     private LayoutInflater mInflater;
 
     /* renamed from: com.baidu.swan.games.view.recommend.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC0536a {
-        void ml(int i);
+    public interface InterfaceC0548a {
+        void mv(int i);
     }
 
     public a(@NonNull Context context) {
@@ -35,40 +35,40 @@ public class a extends RecyclerView.Adapter<d> implements View.OnClickListener {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(d dVar, int i) {
-        RecommendItemModel recommendItemModel = this.dVv.dVY.get(i);
+        RecommendItemModel recommendItemModel = this.ebn.ebQ.get(i);
         if (recommendItemModel != null) {
-            dVar.dVK.setImageURI(recommendItemModel.iconUrl);
-            dVar.dVL.setText(recommendItemModel.appName);
-            dVar.dVV.setText(recommendItemModel.desc);
-            dVar.dVW.setText(recommendItemModel.buttonText);
+            dVar.ebC.setImageURI(recommendItemModel.iconUrl);
+            dVar.ebD.setText(recommendItemModel.appName);
+            dVar.ebN.setText(recommendItemModel.desc);
+            dVar.ebO.setText(recommendItemModel.buttonText);
             dVar.itemView.setTag(Integer.valueOf(i));
-            dVar.dVW.setTag(Integer.valueOf(i));
+            dVar.ebO.setTag(Integer.valueOf(i));
             dVar.itemView.setOnClickListener(this);
-            dVar.dVW.setOnClickListener(this);
+            dVar.ebO.setOnClickListener(this);
         }
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.dVv == null || this.dVv.dVY == null) {
+        if (this.ebn == null || this.ebn.ebQ == null) {
             return 0;
         }
-        return this.dVv.dVY.size();
+        return this.ebn.ebQ.size();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.dVM != null && view != null && (view.getTag() instanceof Integer)) {
-            this.dVM.ml(((Integer) view.getTag()).intValue());
+        if (this.ebE != null && view != null && (view.getTag() instanceof Integer)) {
+            this.ebE.mv(((Integer) view.getTag()).intValue());
         }
     }
 
     public void a(com.baidu.swan.games.view.recommend.model.a aVar) {
-        this.dVv = aVar;
+        this.ebn = aVar;
         notifyDataSetChanged();
     }
 
-    public void a(InterfaceC0536a interfaceC0536a) {
-        this.dVM = interfaceC0536a;
+    public void a(InterfaceC0548a interfaceC0548a) {
+        this.ebE = interfaceC0548a;
     }
 }

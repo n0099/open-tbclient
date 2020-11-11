@@ -12,54 +12,54 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private com.baidu.live.yuyingift.a bNq;
-    private YuyinAlaRoomGiftView bNr;
-    private List<c> bNs;
-    private boolean bNt = false;
-    private c bNu;
+    private com.baidu.live.yuyingift.a bSZ;
+    private YuyinAlaRoomGiftView bTa;
+    private List<c> bTb;
+    private boolean bTc = false;
+    private c bTd;
     private Context mContext;
 
     public a(Context context, com.baidu.live.yuyingift.a aVar) {
         this.mContext = context;
-        this.bNq = aVar;
+        this.bSZ = aVar;
         initData();
         initView();
     }
 
     private void initView() {
-        this.bNr = new YuyinAlaRoomGiftView(this.mContext);
-        this.bNr.setCallBack(new YuyinAlaRoomGiftView.a() { // from class: com.baidu.live.yuyingift.yuyinhousegift.a.1
+        this.bTa = new YuyinAlaRoomGiftView(this.mContext);
+        this.bTa.setCallBack(new YuyinAlaRoomGiftView.a() { // from class: com.baidu.live.yuyingift.yuyinhousegift.a.1
             @Override // com.baidu.live.yuyingift.yuyinhousegift.YuyinAlaRoomGiftView.a
             public void onAnimEnd() {
-                a.this.bNu = null;
-                a.this.bNt = false;
-                a.this.bNq.UX();
-                a.this.VB();
+                a.this.bTd = null;
+                a.this.bTc = false;
+                a.this.bSZ.Xw();
+                a.this.Ya();
             }
         });
     }
 
     private void initData() {
-        this.bNs = new ArrayList();
+        this.bTb = new ArrayList();
     }
 
     private boolean c(c cVar, c cVar2) {
-        return cVar != null && cVar2 != null && TextUtils.equals(cVar.giftId, cVar2.giftId) && TextUtils.equals(cVar.userId, cVar2.userId) && TextUtils.equals(cVar.bja, cVar2.bja);
+        return cVar != null && cVar2 != null && TextUtils.equals(cVar.giftId, cVar2.giftId) && TextUtils.equals(cVar.userId, cVar2.userId) && TextUtils.equals(cVar.bku, cVar2.bku);
     }
 
     public void h(c cVar) {
         if (cVar != null) {
-            boolean c = c(cVar, this.bNu);
+            boolean c = c(cVar, this.bTd);
             boolean z = false;
             if (c) {
-                b.a(this.bNu, cVar);
-                z = this.bNr.s(cVar);
+                b.a(this.bTd, cVar);
+                z = this.bTa.s(cVar);
             }
             if (!c || !z) {
                 if (TextUtils.equals(cVar.userId, TbadkCoreApplication.getCurrentAccount())) {
                     r(cVar);
                 } else {
-                    this.bNs.add(cVar);
+                    this.bTb.add(cVar);
                 }
                 play();
             }
@@ -67,64 +67,64 @@ public class a {
     }
 
     public void r(c cVar) {
-        if (this.bNs == null) {
-            this.bNs = new ArrayList();
+        if (this.bTb == null) {
+            this.bTb = new ArrayList();
         }
         if (cVar != null) {
             int i = 0;
             while (true) {
-                if (i >= this.bNs.size()) {
+                if (i >= this.bTb.size()) {
                     i = 0;
                     break;
-                } else if (!TextUtils.equals(this.bNs.get(i).userId, TbadkCoreApplication.getCurrentAccount())) {
+                } else if (!TextUtils.equals(this.bTb.get(i).userId, TbadkCoreApplication.getCurrentAccount())) {
                     break;
                 } else {
                     i++;
                 }
             }
-            this.bNs.add(i, cVar);
+            this.bTb.add(i, cVar);
         }
     }
 
     public void play() {
-        if (!this.bNt) {
-            VB();
+        if (!this.bTc) {
+            Ya();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void VB() {
-        this.bNu = VC();
-        if (this.bNu != null) {
-            Iterator<c> it = this.bNs.iterator();
+    public void Ya() {
+        this.bTd = Yb();
+        if (this.bTd != null) {
+            Iterator<c> it = this.bTb.iterator();
             while (it.hasNext()) {
                 c next = it.next();
-                if (!c(this.bNu, next)) {
+                if (!c(this.bTd, next)) {
                     break;
                 }
-                b.a(this.bNu, next);
-                this.bNu.aZP += next.aZP;
+                b.a(this.bTd, next);
+                this.bTd.bbi += next.bbi;
                 it.remove();
             }
-            this.bNt = true;
-            this.bNr.setData(this.bNu);
-            this.bNq.a(this.bNr, new RelativeLayout.LayoutParams(-1, -1));
+            this.bTc = true;
+            this.bTa.setData(this.bTd);
+            this.bSZ.a(this.bTa, new RelativeLayout.LayoutParams(-1, -1));
         }
     }
 
-    private c VC() {
-        if (this.bNs.isEmpty()) {
+    private c Yb() {
+        if (this.bTb.isEmpty()) {
             return null;
         }
-        return this.bNs.remove(0);
+        return this.bTb.remove(0);
     }
 
     public void onDestory() {
-        if (this.bNs != null) {
-            this.bNs.clear();
+        if (this.bTb != null) {
+            this.bTb.clear();
         }
-        if (this.bNr != null) {
-            this.bNr.onDestory();
+        if (this.bTa != null) {
+            this.bTa.onDestory();
         }
     }
 }

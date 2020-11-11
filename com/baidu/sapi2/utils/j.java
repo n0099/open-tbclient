@@ -12,7 +12,7 @@ public class j {
     public static final String l = "is_load_cache";
 
     /* renamed from: a  reason: collision with root package name */
-    public long f3557a;
+    public long f3560a;
     public long b;
     public long c;
     public long d;
@@ -22,7 +22,7 @@ public class j {
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(g, this.f3557a);
+            jSONObject.put(g, this.f3560a);
             jSONObject.put(h, this.b);
             jSONObject.put(i, this.c);
             jSONObject.put(j, this.d);

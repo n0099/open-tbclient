@@ -16,11 +16,11 @@ import java.util.List;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1267a;
+    private Context f1269a;
     private c adN;
 
     public g(Context context, c cVar) {
-        this.f1267a = context;
+        this.f1269a = context;
         this.adN = cVar;
     }
 
@@ -57,12 +57,12 @@ public class g {
     }
 
     private boolean b(String str) {
-        return this.f1267a.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
+        return this.f1269a.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
     }
 
     private String c(String str) {
         try {
-            return Settings.System.getString(this.f1267a.getContentResolver(), str);
+            return Settings.System.getString(this.f1269a.getContentResolver(), str);
         } catch (Exception e) {
             com.baidu.b.f.c.a(e);
             return null;
@@ -118,7 +118,7 @@ public class g {
     }
 
     public f da(String str) {
-        f O = 0 == 0 ? O(this.f1267a) : null;
+        f O = 0 == 0 ? O(this.f1269a) : null;
         if (O == null) {
             O = f.cY(c("com.baidu.deviceid.v2"));
         }

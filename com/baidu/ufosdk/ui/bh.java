@@ -3,15 +3,15 @@ package com.baidu.ufosdk.ui;
 final class bh implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackInputActivity f3773a;
+    final /* synthetic */ FeedbackInputActivity f3775a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bh(FeedbackInputActivity feedbackInputActivity) {
-        this.f3773a = feedbackInputActivity;
+        this.f3775a = feedbackInputActivity;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        FeedbackInputActivity.g(this.f3773a);
+        FeedbackInputActivity.g(this.f3775a);
     }
 }

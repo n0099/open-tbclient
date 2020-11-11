@@ -19,7 +19,7 @@ import java.util.List;
 public class BaiduNative {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f2264a;
+    private final Context f2266a;
     private final String b;
     private c c;
     private BaiduNativeNetworkListener d;
@@ -72,7 +72,7 @@ public class BaiduNative {
                                 z2 = true;
                             } else {
                                 hashSet.add(appPackageName);
-                                if (XAdSDKFoundationFacade.getInstance().getPackageUtils().isInstalled(BaiduNative.this.f2264a, appPackageName)) {
+                                if (XAdSDKFoundationFacade.getInstance().getPackageUtils().isInstalled(BaiduNative.this.f2266a, appPackageName)) {
                                     z = true;
                                     z2 = false;
                                 }
@@ -118,7 +118,7 @@ public class BaiduNative {
     }
 
     public BaiduNative(Context context, String str, BaiduNativeNetworkListener baiduNativeNetworkListener, c cVar) {
-        this.f2264a = context;
+        this.f2266a = context;
         XAdSDKFoundationFacade.getInstance().initializeApplicationContext(context.getApplicationContext());
         this.b = str;
         this.d = baiduNativeNetworkListener;

@@ -7,10 +7,10 @@ import java.text.SimpleDateFormat;
 public class cg {
 
     /* renamed from: a  reason: collision with other field name */
-    private static SimpleDateFormat f160a = new SimpleDateFormat("yyyy/MM/dd");
+    private static SimpleDateFormat f162a = new SimpleDateFormat("yyyy/MM/dd");
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f4835a = f160a.format(Long.valueOf(System.currentTimeMillis()));
+    private static String f4837a = f162a.format(Long.valueOf(System.currentTimeMillis()));
 
     public static hq a(Context context, String str) {
         if (TextUtils.isEmpty(str)) {

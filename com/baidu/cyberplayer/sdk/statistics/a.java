@@ -9,7 +9,7 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f1428a;
+    private static a f1430a;
     private boolean c = false;
     private c b = new c(DpStatConstants.SESSION_TYPE_KERNEL);
 
@@ -19,10 +19,10 @@ public class a {
     public static synchronized a a() {
         a aVar;
         synchronized (a.class) {
-            if (f1428a == null) {
-                f1428a = new a();
+            if (f1430a == null) {
+                f1430a = new a();
             }
-            aVar = f1428a;
+            aVar = f1430a;
         }
         return aVar;
     }

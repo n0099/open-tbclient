@@ -10,7 +10,7 @@ import java.util.concurrent.TimeoutException;
 public class c implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f1473a = 30000;
+    public static final int f1475a = 30000;
     public static final int b = 30000;
     public static final int c = 10;
     public static final int d = 10;

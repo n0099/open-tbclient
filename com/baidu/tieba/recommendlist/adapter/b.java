@@ -14,7 +14,7 @@ import com.baidu.live.tieba.horizonallist.widget.HTypeListView;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b extends AbsDelegateAdapter<com.baidu.tieba.recommendlist.data.b, a> {
-    private w bpz;
+    private w bqS;
 
     public b(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
@@ -23,9 +23,9 @@ public class b extends AbsDelegateAdapter<com.baidu.tieba.recommendlist.data.b, 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
-    /* renamed from: cL */
+    /* renamed from: cN */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        return new a(LayoutInflater.from(this.mContext).inflate(a.h.ala_follow_type_item_layout, viewGroup, false));
+        return new a(LayoutInflater.from(this.mContext).inflate(a.g.ala_follow_type_item_layout, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,20 +33,20 @@ public class b extends AbsDelegateAdapter<com.baidu.tieba.recommendlist.data.b, 
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.recommendlist.data.b bVar, a aVar) {
-        List<IAdapterData> list = bVar.mwb;
-        if (a(aVar.mvL, list)) {
-            aVar.mvM = new com.baidu.tieba.recommendlist.adapter.a(this.mContext, com.baidu.tieba.recommendlist.data.a.mvY);
-            aVar.mvL.addAdapter(aVar.mvM);
+        List<IAdapterData> list = bVar.mBY;
+        if (a(aVar.mBI, list)) {
+            aVar.mBJ = new com.baidu.tieba.recommendlist.adapter.a(this.mContext, com.baidu.tieba.recommendlist.data.a.mBV);
+            aVar.mBI.addAdapter(aVar.mBJ);
         }
         if (list.size() > 3) {
-            aVar.mvM.Ic(102);
-            aVar.mvL.setDividerWidth(this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds16));
+            aVar.mBJ.Ip(102);
+            aVar.mBI.setDividerWidth(this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds16));
         } else {
-            aVar.mvM.Ic(101);
-            aVar.mvL.setDividerWidth(this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds30));
+            aVar.mBJ.Ip(101);
+            aVar.mBI.setDividerWidth(this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds30));
         }
-        aVar.mvM.setAlaLiveShowData(this.bpz);
-        aVar.mvL.setData(bVar.mwb);
+        aVar.mBJ.setAlaLiveShowData(this.bqS);
+        aVar.mBI.setData(bVar.mBY);
         return view;
     }
 
@@ -55,19 +55,19 @@ public class b extends AbsDelegateAdapter<com.baidu.tieba.recommendlist.data.b, 
     }
 
     public void setAlaLiveShowData(w wVar) {
-        this.bpz = wVar;
+        this.bqS = wVar;
     }
 
     /* loaded from: classes4.dex */
     public static class a extends TypeAdapter.ViewHolder {
-        private HTypeListView mvL;
-        private com.baidu.tieba.recommendlist.adapter.a mvM;
+        private HTypeListView mBI;
+        private com.baidu.tieba.recommendlist.adapter.a mBJ;
 
         private a(View view) {
             super(view);
-            this.mvL = (HTypeListView) view.findViewById(a.g.followListView);
-            this.mvM = new com.baidu.tieba.recommendlist.adapter.a(view.getContext(), com.baidu.tieba.recommendlist.data.a.mvY);
-            this.mvL.addAdapter(this.mvM);
+            this.mBI = (HTypeListView) view.findViewById(a.f.followListView);
+            this.mBJ = new com.baidu.tieba.recommendlist.adapter.a(view.getContext(), com.baidu.tieba.recommendlist.data.a.mBV);
+            this.mBI.addAdapter(this.mBJ);
         }
     }
 }

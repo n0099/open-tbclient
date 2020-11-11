@@ -48,9 +48,9 @@ public class c extends b<AbsThreadDataSupport> {
         a(1, new a.b() { // from class: com.baidu.card.c.2
             @Override // com.baidu.card.a.a.b
             public boolean a(a.C0097a c0097a) {
-                if (c.this.afI != null && c.this.afI.bhz() != null) {
-                    com.baidu.tieba.card.n.II(c.this.afI.bhz().getId());
-                    com.baidu.tieba.card.n.a(c.this.afH.getTitle(), c.this.afI.bhz().getId(), R.color.cp_cont_a, R.color.cp_cont_d);
+                if (c.this.afI != null && c.this.afI.bjZ() != null) {
+                    com.baidu.tieba.card.n.IZ(c.this.afI.bjZ().getId());
+                    com.baidu.tieba.card.n.a(c.this.afH.getTitle(), c.this.afI.bjZ().getId(), R.color.cp_cont_a, R.color.cp_cont_d);
                 }
                 return false;
             }
@@ -70,7 +70,7 @@ public class c extends b<AbsThreadDataSupport> {
             if (qVar instanceof com.baidu.tieba.card.data.f) {
                 com.baidu.tieba.card.data.f fVar = (com.baidu.tieba.card.data.f) this.afI;
                 fVar.objType = 1;
-                ay.a((AbsThreadDataSupport) fVar, view.getContext(), fVar.erH.eAZ ? 2 : 1, false);
+                ay.a((AbsThreadDataSupport) fVar, view.getContext(), fVar.exA.eGO ? 2 : 1, false);
                 amVar.tW().b(new a.C0097a(1));
             } else if (qVar instanceof bw) {
                 bw bwVar = (bw) this.afI;

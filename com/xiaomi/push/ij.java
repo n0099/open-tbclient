@@ -7,13 +7,13 @@ import java.util.List;
 public class ij implements ix<ij, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public List<hx> f606a;
+    public List<hx> f608a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final jn f605a = new jn("XmPushActionCustomConfig");
+    private static final jn f607a = new jn("XmPushActionCustomConfig");
 
     /* renamed from: a  reason: collision with root package name */
-    private static final jf f4977a = new jf("", (byte) 15, 1);
+    private static final jf f4979a = new jf("", (byte) 15, 1);
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
@@ -23,7 +23,7 @@ public class ij implements ix<ij, Object>, Serializable, Cloneable {
         if (getClass().equals(ijVar.getClass())) {
             int compareTo = Boolean.valueOf(m428a()).compareTo(Boolean.valueOf(ijVar.m428a()));
             if (compareTo == 0) {
-                if (!m428a() || (a2 = iy.a(this.f606a, ijVar.f606a)) == 0) {
+                if (!m428a() || (a2 = iy.a(this.f608a, ijVar.f608a)) == 0) {
                     return 0;
                 }
                 return a2;
@@ -34,12 +34,12 @@ public class ij implements ix<ij, Object>, Serializable, Cloneable {
     }
 
     public List<hx> a() {
-        return this.f606a;
+        return this.f608a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public void m427a() {
-        if (this.f606a == null) {
+        if (this.f608a == null) {
             throw new jj("Required field 'customConfigs' was not present! Struct: " + toString());
         }
     }
@@ -49,29 +49,29 @@ public class ij implements ix<ij, Object>, Serializable, Cloneable {
         jiVar.m489a();
         while (true) {
             jf m485a = jiVar.m485a();
-            if (m485a.f4998a == 0) {
+            if (m485a.f5000a == 0) {
                 jiVar.f();
                 m427a();
                 return;
             }
-            switch (m485a.f776a) {
+            switch (m485a.f778a) {
                 case 1:
-                    if (m485a.f4998a == 15) {
+                    if (m485a.f5000a == 15) {
                         jg m486a = jiVar.m486a();
-                        this.f606a = new ArrayList(m486a.f777a);
-                        for (int i = 0; i < m486a.f777a; i++) {
+                        this.f608a = new ArrayList(m486a.f779a);
+                        for (int i = 0; i < m486a.f779a; i++) {
                             hx hxVar = new hx();
                             hxVar.a(jiVar);
-                            this.f606a.add(hxVar);
+                            this.f608a.add(hxVar);
                         }
                         jiVar.i();
                         break;
                     } else {
-                        jl.a(jiVar, m485a.f4998a);
+                        jl.a(jiVar, m485a.f5000a);
                         break;
                     }
                 default:
-                    jl.a(jiVar, m485a.f4998a);
+                    jl.a(jiVar, m485a.f5000a);
                     break;
             }
             jiVar.g();
@@ -80,7 +80,7 @@ public class ij implements ix<ij, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other method in class */
     public boolean m428a() {
-        return this.f606a != null;
+        return this.f608a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -90,17 +90,17 @@ public class ij implements ix<ij, Object>, Serializable, Cloneable {
         }
         boolean m428a = m428a();
         boolean m428a2 = ijVar.m428a();
-        return !(m428a || m428a2) || (m428a && m428a2 && this.f606a.equals(ijVar.f606a));
+        return !(m428a || m428a2) || (m428a && m428a2 && this.f608a.equals(ijVar.f608a));
     }
 
     @Override // com.xiaomi.push.ix
     public void b(ji jiVar) {
         m427a();
-        jiVar.a(f605a);
-        if (this.f606a != null) {
-            jiVar.a(f4977a);
-            jiVar.a(new jg((byte) 12, this.f606a.size()));
-            for (hx hxVar : this.f606a) {
+        jiVar.a(f607a);
+        if (this.f608a != null) {
+            jiVar.a(f4979a);
+            jiVar.a(new jg((byte) 12, this.f608a.size()));
+            for (hx hxVar : this.f608a) {
                 hxVar.b(jiVar);
             }
             jiVar.e();
@@ -124,10 +124,10 @@ public class ij implements ix<ij, Object>, Serializable, Cloneable {
     public String toString() {
         StringBuilder sb = new StringBuilder("XmPushActionCustomConfig(");
         sb.append("customConfigs:");
-        if (this.f606a == null) {
+        if (this.f608a == null) {
             sb.append("null");
         } else {
-            sb.append(this.f606a);
+            sb.append(this.f608a);
         }
         sb.append(")");
         return sb.toString();

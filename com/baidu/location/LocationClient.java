@@ -44,7 +44,7 @@ public final class LocationClient implements d.a {
     private String v;
 
     /* renamed from: a  reason: collision with root package name */
-    private long f1854a = 0;
+    private long f1856a = 0;
     private String b = null;
     private boolean e = false;
     private Messenger g = null;
@@ -78,16 +78,16 @@ public final class LocationClient implements d.a {
     public static class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        private final WeakReference<LocationClient> f1855a;
+        private final WeakReference<LocationClient> f1857a;
 
         a(Looper looper, LocationClient locationClient) {
             super(looper);
-            this.f1855a = new WeakReference<>(locationClient);
+            this.f1857a = new WeakReference<>(locationClient);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            LocationClient locationClient = this.f1855a.get();
+            LocationClient locationClient = this.f1857a.get();
             if (locationClient == null) {
                 return;
             }
@@ -504,7 +504,7 @@ public final class LocationClient implements d.a {
         bundle.putInt("timeOut", this.c.timeOut);
         bundle.putInt("priority", this.c.priority);
         bundle.putBoolean("map", this.y.booleanValue());
-        bundle.putBoolean(com.baidu.sapi2.utils.enums.a.f3551a, this.z.booleanValue());
+        bundle.putBoolean(com.baidu.sapi2.utils.enums.a.f3554a, this.z.booleanValue());
         bundle.putBoolean("needDirect", this.c.mIsNeedDeviceDirect);
         bundle.putBoolean("isneedaptag", this.c.isNeedAptag);
         bundle.putBoolean("isneedpoiregion", this.c.isNeedPoiRegion);
@@ -518,7 +518,7 @@ public final class LocationClient implements d.a {
         bundle.putFloat("autoNotifyLocSensitivity", this.c.b());
         bundle.putInt("wifitimeout", this.c.wifiCacheTimeOut);
         bundle.putInt("wfnum", com.baidu.location.b.a.a().b);
-        bundle.putBoolean("ischeckper", com.baidu.location.b.a.a().f1861a);
+        bundle.putBoolean("ischeckper", com.baidu.location.b.a.a().f1863a);
         bundle.putFloat("wfsm", (float) com.baidu.location.b.a.a().c);
         bundle.putDouble("gnmcrm", com.baidu.location.b.a.a().f);
         bundle.putInt("gnmcon", com.baidu.location.b.a.a().g);
@@ -558,7 +558,7 @@ public final class LocationClient implements d.a {
             try {
                 obtain.replyTo = this.i;
                 this.g.send(obtain);
-                this.f1854a = System.currentTimeMillis();
+                this.f1856a = System.currentTimeMillis();
                 this.m = true;
             } catch (Exception e) {
                 e.printStackTrace();
@@ -713,7 +713,7 @@ public final class LocationClient implements d.a {
         if ((this.j == null || this.j.size() < 1) && (this.k == null || this.k.size() < 1)) {
             return 2;
         }
-        if (System.currentTimeMillis() - this.f1854a < 1000) {
+        if (System.currentTimeMillis() - this.f1856a < 1000) {
             return 6;
         }
         this.n = true;

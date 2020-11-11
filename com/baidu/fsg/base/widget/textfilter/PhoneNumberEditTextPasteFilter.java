@@ -5,7 +5,7 @@ import android.text.TextUtils;
 public class PhoneNumberEditTextPasteFilter implements IEditTextPasteFilter {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1562a = PhoneNumberEditTextPasteFilter.class.getSimpleName();
+    private static final String f1564a = PhoneNumberEditTextPasteFilter.class.getSimpleName();
     private static final String b = "86";
 
     @Override // com.baidu.fsg.base.widget.textfilter.IEditTextPasteFilter

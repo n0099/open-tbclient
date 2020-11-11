@@ -18,49 +18,49 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class HotUserRankActivity extends BaseFragmentActivity {
-    private HotUserRankView ifm;
-    private com.baidu.tieba.enterForum.hotuserrank.model.a ifn;
-    private String ifo;
-    private String ifp;
+    private HotUserRankView ilj;
+    private com.baidu.tieba.enterForum.hotuserrank.model.a ilk;
+    private String ill;
+    private String ilm;
     private boolean isGod;
     private long mForumId;
     private List<d> mTabDataList = new ArrayList();
-    private int ifq = 0;
-    private Runnable ifr = new Runnable() { // from class: com.baidu.tieba.enterForum.hotuserrank.HotUserRankActivity.1
+    private int iln = 0;
+    private Runnable ilo = new Runnable() { // from class: com.baidu.tieba.enterForum.hotuserrank.HotUserRankActivity.1
         @Override // java.lang.Runnable
         public void run() {
-            HotUserRankActivity.this.ifm.a(HotUserRankActivity.this.mTabDataList, HotUserRankActivity.this.mForumId, HotUserRankActivity.this.ifq, HotUserRankActivity.this.ifp);
+            HotUserRankActivity.this.ilj.a(HotUserRankActivity.this.mTabDataList, HotUserRankActivity.this.mForumId, HotUserRankActivity.this.iln, HotUserRankActivity.this.ilm);
         }
     };
-    private Runnable ifs = new Runnable() { // from class: com.baidu.tieba.enterForum.hotuserrank.HotUserRankActivity.2
+    private Runnable ilp = new Runnable() { // from class: com.baidu.tieba.enterForum.hotuserrank.HotUserRankActivity.2
         @Override // java.lang.Runnable
         public void run() {
-            HotUserRankActivity.this.ifm.xA(8);
+            HotUserRankActivity.this.ilj.xN(8);
         }
     };
-    private a.InterfaceC0701a ift = new a.InterfaceC0701a() { // from class: com.baidu.tieba.enterForum.hotuserrank.HotUserRankActivity.3
-        @Override // com.baidu.tieba.enterForum.hotuserrank.model.a.InterfaceC0701a
+    private a.InterfaceC0715a ilq = new a.InterfaceC0715a() { // from class: com.baidu.tieba.enterForum.hotuserrank.HotUserRankActivity.3
+        @Override // com.baidu.tieba.enterForum.hotuserrank.model.a.InterfaceC0715a
         public void a(com.baidu.tieba.enterForum.hotuserrank.a.c cVar) {
-            HotUserRankActivity.this.hideLoadingView(HotUserRankActivity.this.ifm.getView());
-            if (cVar != null && cVar.ign != null) {
-                HotUserRankActivity.this.ifp = cVar.gEm;
+            HotUserRankActivity.this.hideLoadingView(HotUserRankActivity.this.ilj.getView());
+            if (cVar != null && cVar.iml != null) {
+                HotUserRankActivity.this.ilm = cVar.gJZ;
                 if (HotUserRankActivity.this.mForumId > 0) {
-                    e.mY().post(HotUserRankActivity.this.ifr);
-                } else if (cVar.ign.igi == null || y.isEmpty(cVar.ign.igi.tieba_fields)) {
-                    HotUserRankActivity.this.showNetRefreshView(HotUserRankActivity.this.ifm.getView(), HotUserRankActivity.this.getString(R.string.neterror), true);
+                    e.mY().post(HotUserRankActivity.this.ilo);
+                } else if (cVar.iml.imf == null || y.isEmpty(cVar.iml.imf.tieba_fields)) {
+                    HotUserRankActivity.this.showNetRefreshView(HotUserRankActivity.this.ilj.getView(), HotUserRankActivity.this.getString(R.string.neterror), true);
                 } else {
-                    List<String> list = cVar.ign.igi.tieba_fields;
+                    List<String> list = cVar.iml.imf.tieba_fields;
                     HotUserRankActivity.this.mTabDataList.clear();
                     int i = 0;
                     while (true) {
                         int i2 = i;
                         if (i2 >= list.size()) {
-                            e.mY().post(HotUserRankActivity.this.ifr);
+                            e.mY().post(HotUserRankActivity.this.ilo);
                             return;
                         }
                         String str = list.get(i2);
-                        if (str != null && str.equals(HotUserRankActivity.this.ifo)) {
-                            HotUserRankActivity.this.ifq = i2;
+                        if (str != null && str.equals(HotUserRankActivity.this.ill)) {
+                            HotUserRankActivity.this.iln = i2;
                         }
                         d dVar = new d();
                         dVar.category = str;
@@ -72,10 +72,10 @@ public class HotUserRankActivity extends BaseFragmentActivity {
             }
         }
 
-        @Override // com.baidu.tieba.enterForum.hotuserrank.model.a.InterfaceC0701a
+        @Override // com.baidu.tieba.enterForum.hotuserrank.model.a.InterfaceC0715a
         public void onError(int i, String str) {
-            HotUserRankActivity.this.hideLoadingView(HotUserRankActivity.this.ifm.getView());
-            HotUserRankActivity.this.showNetRefreshView(HotUserRankActivity.this.ifm.getView(), str, true);
+            HotUserRankActivity.this.hideLoadingView(HotUserRankActivity.this.ilj.getView());
+            HotUserRankActivity.this.showNetRefreshView(HotUserRankActivity.this.ilj.getView(), str, true);
         }
     };
 
@@ -83,32 +83,32 @@ public class HotUserRankActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.ifm = new HotUserRankView(this);
-        setContentView(this.ifm.getView());
-        this.ifn = new com.baidu.tieba.enterForum.hotuserrank.model.a(getUniqueId());
-        this.ifn.a(this.ift);
-        cpL();
-        if (!TextUtils.isEmpty(this.ifo)) {
-            this.ifn.Jh(this.ifo);
+        this.ilj = new HotUserRankView(this);
+        setContentView(this.ilj.getView());
+        this.ilk = new com.baidu.tieba.enterForum.hotuserrank.model.a(getUniqueId());
+        this.ilk.a(this.ilq);
+        csm();
+        if (!TextUtils.isEmpty(this.ill)) {
+            this.ilk.Jy(this.ill);
         } else if (this.mForumId > 0) {
-            this.ifm.setTitle(getString(R.string.forum_hot_user_rank));
-            this.ifn.fb(this.mForumId);
+            this.ilj.setTitle(getString(R.string.forum_hot_user_rank));
+            this.ilk.fx(this.mForumId);
         }
-        this.ifm.setIsGod(this.isGod);
+        this.ilj.setIsGod(this.isGod);
         if (this.isGod) {
-            this.ifm.setTitle(getString(R.string.all_god_user_rank));
+            this.ilj.setTitle(getString(R.string.all_god_user_rank));
         }
-        showLoadingView(this.ifm.getView());
+        showLoadingView(this.ilj.getView());
     }
 
-    private void cpL() {
+    private void csm() {
         Uri uri;
         if (getIntent() != null) {
-            this.ifo = getIntent().getStringExtra(HotUserRankActivityConfig.KEY_CATEGORY);
+            this.ill = getIntent().getStringExtra(HotUserRankActivityConfig.KEY_CATEGORY);
             this.mForumId = getIntent().getLongExtra(HotUserRankActivityConfig.KEY_FORUM_ID, -1L);
-            if (TextUtils.isEmpty(this.ifo) && this.mForumId == -1 && (uri = (Uri) getIntent().getParcelableExtra(IntentConfig.KEY_URI)) != null) {
-                this.ifo = uri.getQueryParameter(Info.kBaiduModuleKey);
-                if (TextUtils.isEmpty(this.ifo)) {
+            if (TextUtils.isEmpty(this.ill) && this.mForumId == -1 && (uri = (Uri) getIntent().getParcelableExtra(IntentConfig.KEY_URI)) != null) {
+                this.ill = uri.getQueryParameter(Info.kBaiduModuleKey);
+                if (TextUtils.isEmpty(this.ill)) {
                     this.mForumId = com.baidu.adp.lib.f.b.toLong(uri.getQueryParameter("fid"), -1L);
                 }
             }
@@ -119,14 +119,14 @@ public class HotUserRankActivity extends BaseFragmentActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onNetRefreshButtonClicked() {
-        this.ifn.Jh(this.ifo);
-        showLoadingView(this.ifm.getView());
-        hideNetRefreshView(this.ifm.getView());
+        this.ilk.Jy(this.ill);
+        showLoadingView(this.ilj.getView());
+        hideNetRefreshView(this.ilj.getView());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        this.ifm.onChangeSkinType(i);
+        this.ilj.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -144,10 +144,10 @@ public class HotUserRankActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        e.mY().removeCallbacks(this.ifr);
-        e.mY().removeCallbacks(this.ifs);
-        this.ifn.onDestroy();
-        this.ifm.onDestroy();
+        e.mY().removeCallbacks(this.ilo);
+        e.mY().removeCallbacks(this.ilp);
+        this.ilk.onDestroy();
+        this.ilj.onDestroy();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tbadk.m.a

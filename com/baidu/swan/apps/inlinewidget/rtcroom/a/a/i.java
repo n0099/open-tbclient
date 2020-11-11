@@ -6,7 +6,7 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 public class i extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.rtcroom.c.a> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String ata() {
+    public String avA() {
         return "onZoom";
     }
 
@@ -15,7 +15,7 @@ public class i extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
     public void a(@NonNull ZeusPlugin.Command command, @NonNull com.baidu.swan.apps.inlinewidget.rtcroom.c.a aVar) {
         a(aVar, command.what, "" + command.obj, true);
         if (command.obj instanceof Integer) {
-            aVar.iA(((Integer) command.obj).intValue());
+            aVar.iK(((Integer) command.obj).intValue());
         }
     }
 }

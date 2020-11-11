@@ -4,27 +4,27 @@ import android.view.View;
 import tv.chushou.zues.widget.kpswitch.b.d;
 /* loaded from: classes6.dex */
 public class a {
-    private final View fjj;
-    private boolean fjk;
-    private View fjl;
+    private final View fpa;
+    private boolean fpb;
+    private View fpc;
 
     public a(View view) {
-        this.fjj = view;
+        this.fpa = view;
     }
 
-    public void jX(boolean z) {
-        this.fjk = z;
-        if (!z && this.fjj.getVisibility() == 4) {
-            this.fjj.setVisibility(8);
+    public void kg(boolean z) {
+        this.fpb = z;
+        if (!z && this.fpa.getVisibility() == 4) {
+            this.fpa.setVisibility(8);
         }
-        if (!z && this.fjl != null) {
-            bxy();
-            this.fjl = null;
+        if (!z && this.fpc != null) {
+            bzX();
+            this.fpc = null;
         }
     }
 
-    private void bxy() {
-        this.fjj.setVisibility(4);
-        d.bz(this.fjl);
+    private void bzX() {
+        this.fpa.setVisibility(4);
+        d.bD(this.fpc);
     }
 }

@@ -58,15 +58,15 @@ public class FileHelper {
     public static String getSdErrorString() {
         String externalStorageState = Environment.getExternalStorageState();
         if (externalStorageState.equals("removed")) {
-            return TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_error_no_sdcard);
+            return TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_error_no_sdcard);
         }
         if (externalStorageState.equals("unmounted") || externalStorageState.equals("unmountable")) {
-            return TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_error_no_sdcard);
+            return TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_error_no_sdcard);
         }
         if (externalStorageState.equals("shared")) {
-            return TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_error_sd_shared);
+            return TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_error_sd_shared);
         }
-        return TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_error_sd_error);
+        return TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_error_sd_error);
     }
 
     public static boolean CheckTempDir(String str) {

@@ -28,7 +28,7 @@ public class b extends Dialog {
     public static final int u = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    private Activity f2769a;
+    private Activity f2771a;
     private TextView b;
     private ImageView c;
     private RelativeLayout d;
@@ -59,8 +59,8 @@ public class b extends Dialog {
 
     /* renamed from: com.baidu.pass.ecommerce.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes17.dex */
-    class View$OnClickListenerC0265b implements View.OnClickListener {
-        View$OnClickListenerC0265b() {
+    class View$OnClickListenerC0277b implements View.OnClickListener {
+        View$OnClickListenerC0277b() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -89,8 +89,8 @@ public class b extends Dialog {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
-            intent.setData(Uri.fromParts("package", b.this.f2769a.getPackageName(), null));
-            b.this.f2769a.startActivityForResult(intent, b.p);
+            intent.setData(Uri.fromParts("package", b.this.f2771a.getPackageName(), null));
+            b.this.f2771a.startActivityForResult(intent, b.p);
         }
     }
 
@@ -132,7 +132,7 @@ public class b extends Dialog {
     public b(Activity activity) {
         super(activity, R.style.sapi_sdk_speech_dialog);
         this.o = 1;
-        this.f2769a = activity;
+        this.f2771a = activity;
     }
 
     public void c(int i) {
@@ -205,7 +205,7 @@ public class b extends Dialog {
         window.setGravity(80);
         window.setWindowAnimations(R.style.sapi_sdk_anim_speech);
         setContentView(R.layout.layout_sapi_sdk_dialog_speech_recognition);
-        Display defaultDisplay = this.f2769a.getWindowManager().getDefaultDisplay();
+        Display defaultDisplay = this.f2771a.getWindowManager().getDefaultDisplay();
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
         attributes.width = defaultDisplay.getWidth();
         attributes.height = SapiUtils.dip2px(getContext(), 297.0f);
@@ -221,7 +221,7 @@ public class b extends Dialog {
         this.l.a(this.e);
         this.l.b();
         this.d.setOnClickListener(new a());
-        this.c.setOnClickListener(new View$OnClickListenerC0265b());
+        this.c.setOnClickListener(new View$OnClickListenerC0277b());
     }
 
     public void a(int i) {

@@ -16,10 +16,10 @@ import org.json.JSONObject;
 final class ag extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    private final WeakReference f3745a;
+    private final WeakReference f3747a;
 
     public ag(FeedbackEditActivity feedbackEditActivity) {
-        this.f3745a = new WeakReference(feedbackEditActivity);
+        this.f3747a = new WeakReference(feedbackEditActivity);
     }
 
     @Override // android.os.Handler
@@ -49,7 +49,7 @@ final class ag extends Handler {
         SharedPreferences.Editor editor6;
         String str10;
         super.handleMessage(message);
-        FeedbackEditActivity feedbackEditActivity = (FeedbackEditActivity) this.f3745a.get();
+        FeedbackEditActivity feedbackEditActivity = (FeedbackEditActivity) this.f3747a.get();
         feedbackEditActivity.a(true);
         com.baidu.ufosdk.f.c.a("msg.what = " + message.what);
         if (feedbackEditActivity == null) {

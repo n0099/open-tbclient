@@ -23,42 +23,42 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a sF(String str) {
-        return new a(com.baidu.swan.ubc.e.yG(str));
+    public static a sT(String str) {
+        return new a(com.baidu.swan.ubc.e.yU(str));
     }
 
     public static void a(@NonNull a aVar, String str, String str2) {
-        Flow aHB = aVar.aHB();
-        if (aHB != null) {
-            aHB.addEvent(str, str2);
+        Flow aKb = aVar.aKb();
+        if (aKb != null) {
+            aKb.addEvent(str, str2);
         }
     }
 
     public static void a(@NonNull a aVar, String str, String str2, long j) {
-        Flow aHB = aVar.aHB();
-        if (aHB != null) {
-            aHB.addEvent(str, str2, j);
+        Flow aKb = aVar.aKb();
+        if (aKb != null) {
+            aKb.addEvent(str, str2, j);
         }
     }
 
     public static void b(@NonNull a aVar) {
-        Flow aHB = aVar.aHB();
-        if (aHB != null) {
-            aHB.cancel();
+        Flow aKb = aVar.aKb();
+        if (aKb != null) {
+            aKb.cancel();
         }
     }
 
     public static void c(@NonNull a aVar) {
-        Flow aHB = aVar.aHB();
-        if (aHB != null) {
-            aHB.end();
+        Flow aKb = aVar.aKb();
+        if (aKb != null) {
+            aKb.end();
         }
     }
 
     public static void a(@NonNull a aVar, String str) {
-        Flow aHB = aVar.aHB();
-        if (aHB != null) {
-            aHB.setValueWithDuration(str);
+        Flow aKb = aVar.aKb();
+        if (aKb != null) {
+            aKb.setValueWithDuration(str);
         }
     }
 }

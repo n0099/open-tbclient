@@ -25,7 +25,7 @@ import java.util.regex.Pattern;
 /* loaded from: classes6.dex */
 public final class a implements Closeable {
     static final Pattern LEGAL_KEY_PATTERN = Pattern.compile("[a-z0-9_-]{1,120}");
-    private static final OutputStream qdl = new OutputStream() { // from class: tv.chushou.zues.toolkit.a.a.a.2
+    private static final OutputStream qmG = new OutputStream() { // from class: tv.chushou.zues.toolkit.a.a.a.2
         @Override // java.io.OutputStream
         public void write(int i) throws IOException {
         }
@@ -36,19 +36,19 @@ public final class a implements Closeable {
     private final File journalFileBackup;
     private final File journalFileTmp;
     private long maxSize;
-    private Writer qdi;
+    private Writer qmD;
     private int redundantOpCount;
     private final int valueCount;
     private long size = 0;
     private final LinkedHashMap<String, b> lruEntries = new LinkedHashMap<>(0, 0.75f, true);
     private long nextSequenceNumber = 0;
-    final ThreadPoolExecutor qdj = new ThreadPoolExecutor(0, 1, 60, TimeUnit.SECONDS, new LinkedBlockingQueue());
-    private final Callable<Void> qdk = new Callable<Void>() { // from class: tv.chushou.zues.toolkit.a.a.a.1
+    final ThreadPoolExecutor qmE = new ThreadPoolExecutor(0, 1, 60, TimeUnit.SECONDS, new LinkedBlockingQueue());
+    private final Callable<Void> qmF = new Callable<Void>() { // from class: tv.chushou.zues.toolkit.a.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         public Void call() throws Exception {
             synchronized (a.this) {
-                if (a.this.qdi != null) {
+                if (a.this.qmD != null) {
                     a.this.trimToSize();
                     if (a.this.journalRebuildRequired()) {
                         a.this.rebuildJournal();
@@ -121,10 +121,10 @@ public final class a implements Closeable {
                     i++;
                 } catch (EOFException e) {
                     this.redundantOpCount = i - this.lruEntries.size();
-                    if (bVar.eDV()) {
+                    if (bVar.eHK()) {
                         rebuildJournal();
                     } else {
-                        this.qdi = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.journalFile, true), tv.chushou.zues.toolkit.a.a.c.US_ASCII));
+                        this.qmD = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.journalFile, true), tv.chushou.zues.toolkit.a.a.c.US_ASCII));
                     }
                     tv.chushou.zues.toolkit.a.a.c.closeQuietly(bVar);
                     return;
@@ -162,14 +162,14 @@ public final class a implements Closeable {
         if (indexOf2 != -1 && indexOf == "CLEAN".length() && str.startsWith("CLEAN")) {
             String[] split = str.substring(indexOf2 + 1).split(" ");
             bVar.readable = true;
-            bVar.qdq = null;
+            bVar.qmL = null;
             bVar.setLengths(split);
         } else if (indexOf2 != -1 || indexOf != "DIRTY".length() || !str.startsWith("DIRTY")) {
             if (indexOf2 != -1 || indexOf != "READ".length() || !str.startsWith("READ")) {
                 throw new IOException("unexpected journal line: " + str);
             }
         } else {
-            bVar.qdq = new C1097a(bVar);
+            bVar.qmL = new C1117a(bVar);
         }
     }
 
@@ -178,15 +178,15 @@ public final class a implements Closeable {
         Iterator<b> it = this.lruEntries.values().iterator();
         while (it.hasNext()) {
             b next = it.next();
-            if (next.qdq == null) {
+            if (next.qmL == null) {
                 for (int i = 0; i < this.valueCount; i++) {
                     this.size += next.lengths[i];
                 }
             } else {
-                next.qdq = null;
+                next.qmL = null;
                 for (int i2 = 0; i2 < this.valueCount; i2++) {
-                    ay(next.RC(i2));
-                    ay(next.RD(i2));
+                    ay(next.RX(i2));
+                    ay(next.RY(i2));
                 }
                 it.remove();
             }
@@ -195,8 +195,8 @@ public final class a implements Closeable {
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void rebuildJournal() throws IOException {
-        if (this.qdi != null) {
-            this.qdi.close();
+        if (this.qmD != null) {
+            this.qmD.close();
         }
         BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.journalFileTmp), tv.chushou.zues.toolkit.a.a.c.US_ASCII));
         bufferedWriter.write("libcore.io.DiskLruCache");
@@ -209,10 +209,10 @@ public final class a implements Closeable {
         bufferedWriter.write("\n");
         bufferedWriter.write("\n");
         for (b bVar : this.lruEntries.values()) {
-            if (bVar.qdq != null) {
+            if (bVar.qmL != null) {
                 bufferedWriter.write("DIRTY " + bVar.key + '\n');
             } else {
-                bufferedWriter.write("CLEAN " + bVar.key + bVar.eDU() + '\n');
+                bufferedWriter.write("CLEAN " + bVar.key + bVar.eHJ() + '\n');
             }
         }
         bufferedWriter.close();
@@ -221,7 +221,7 @@ public final class a implements Closeable {
         }
         b(this.journalFileTmp, this.journalFile, false);
         this.journalFileBackup.delete();
-        this.qdi = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.journalFile, true), tv.chushou.zues.toolkit.a.a.c.US_ASCII));
+        this.qmD = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.journalFile, true), tv.chushou.zues.toolkit.a.a.c.US_ASCII));
     }
 
     private static void ay(File file) throws IOException {
@@ -239,7 +239,7 @@ public final class a implements Closeable {
         }
     }
 
-    public synchronized c ZU(String str) throws IOException {
+    public synchronized c aay(String str) throws IOException {
         c cVar = null;
         synchronized (this) {
             checkNotClosed();
@@ -249,7 +249,7 @@ public final class a implements Closeable {
                 InputStream[] inputStreamArr = new InputStream[this.valueCount];
                 for (int i = 0; i < this.valueCount; i++) {
                     try {
-                        inputStreamArr[i] = new FileInputStream(bVar.RC(i));
+                        inputStreamArr[i] = new FileInputStream(bVar.RX(i));
                     } catch (FileNotFoundException e) {
                         for (int i2 = 0; i2 < this.valueCount && inputStreamArr[i2] != null; i2++) {
                             tv.chushou.zues.toolkit.a.a.c.closeQuietly(inputStreamArr[i2]);
@@ -257,9 +257,9 @@ public final class a implements Closeable {
                     }
                 }
                 this.redundantOpCount++;
-                this.qdi.append((CharSequence) ("READ " + str + '\n'));
+                this.qmD.append((CharSequence) ("READ " + str + '\n'));
                 if (journalRebuildRequired()) {
-                    this.qdj.submit(this.qdk);
+                    this.qmE.submit(this.qmF);
                 }
                 cVar = new c(str, bVar.sequenceNumber, inputStreamArr, bVar.lengths);
             }
@@ -267,13 +267,13 @@ public final class a implements Closeable {
         return cVar;
     }
 
-    public C1097a ZV(String str) throws IOException {
+    public C1117a aaz(String str) throws IOException {
         return S(str, -1L);
     }
 
-    private synchronized C1097a S(String str, long j) throws IOException {
+    private synchronized C1117a S(String str, long j) throws IOException {
         b bVar;
-        C1097a c1097a;
+        C1117a c1117a;
         checkNotClosed();
         validateKey(str);
         b bVar2 = this.lruEntries.get(str);
@@ -282,59 +282,59 @@ public final class a implements Closeable {
                 b bVar3 = new b(str);
                 this.lruEntries.put(str, bVar3);
                 bVar = bVar3;
-            } else if (bVar2.qdq != null) {
-                c1097a = null;
+            } else if (bVar2.qmL != null) {
+                c1117a = null;
             } else {
                 bVar = bVar2;
             }
-            c1097a = new C1097a(bVar);
-            bVar.qdq = c1097a;
-            this.qdi.write("DIRTY " + str + '\n');
-            this.qdi.flush();
+            c1117a = new C1117a(bVar);
+            bVar.qmL = c1117a;
+            this.qmD.write("DIRTY " + str + '\n');
+            this.qmD.flush();
         } else {
-            c1097a = null;
+            c1117a = null;
         }
-        return c1097a;
+        return c1117a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void a(C1097a c1097a, boolean z) throws IOException {
+    public synchronized void a(C1117a c1117a, boolean z) throws IOException {
         synchronized (this) {
-            b bVar = c1097a.qdn;
-            if (bVar.qdq != c1097a) {
+            b bVar = c1117a.qmI;
+            if (bVar.qmL != c1117a) {
                 throw new IllegalStateException();
             }
             if (z && !bVar.readable) {
                 for (int i = 0; i < this.valueCount; i++) {
-                    if (!c1097a.written[i]) {
-                        c1097a.abort();
+                    if (!c1117a.written[i]) {
+                        c1117a.abort();
                         throw new IllegalStateException("Newly created entry didn't create value for index " + i);
-                    } else if (!bVar.RD(i).exists()) {
-                        c1097a.abort();
+                    } else if (!bVar.RY(i).exists()) {
+                        c1117a.abort();
                         break;
                     }
                 }
             }
             for (int i2 = 0; i2 < this.valueCount; i2++) {
-                File RD = bVar.RD(i2);
+                File RY = bVar.RY(i2);
                 if (z) {
-                    if (RD.exists()) {
-                        File RC = bVar.RC(i2);
-                        RD.renameTo(RC);
+                    if (RY.exists()) {
+                        File RX = bVar.RX(i2);
+                        RY.renameTo(RX);
                         long j = bVar.lengths[i2];
-                        long length = RC.length();
+                        long length = RX.length();
                         bVar.lengths[i2] = length;
                         this.size = (this.size - j) + length;
                     }
                 } else {
-                    ay(RD);
+                    ay(RY);
                 }
             }
             this.redundantOpCount++;
-            bVar.qdq = null;
+            bVar.qmL = null;
             if (bVar.readable | z) {
                 bVar.readable = true;
-                this.qdi.write("CLEAN " + bVar.key + bVar.eDU() + '\n');
+                this.qmD.write("CLEAN " + bVar.key + bVar.eHJ() + '\n');
                 if (z) {
                     long j2 = this.nextSequenceNumber;
                     this.nextSequenceNumber = 1 + j2;
@@ -342,11 +342,11 @@ public final class a implements Closeable {
                 }
             } else {
                 this.lruEntries.remove(bVar.key);
-                this.qdi.write("REMOVE " + bVar.key + '\n');
+                this.qmD.write("REMOVE " + bVar.key + '\n');
             }
-            this.qdi.flush();
+            this.qmD.flush();
             if (this.size > this.maxSize || journalRebuildRequired()) {
-                this.qdj.submit(this.qdk);
+                this.qmE.submit(this.qmF);
             }
         }
     }
@@ -362,22 +362,22 @@ public final class a implements Closeable {
             checkNotClosed();
             validateKey(str);
             b bVar = this.lruEntries.get(str);
-            if (bVar == null || bVar.qdq != null) {
+            if (bVar == null || bVar.qmL != null) {
                 z = false;
             } else {
                 for (int i = 0; i < this.valueCount; i++) {
-                    File RC = bVar.RC(i);
-                    if (RC.exists() && !RC.delete()) {
-                        throw new IOException("failed to delete " + RC);
+                    File RX = bVar.RX(i);
+                    if (RX.exists() && !RX.delete()) {
+                        throw new IOException("failed to delete " + RX);
                     }
                     this.size -= bVar.lengths[i];
                     bVar.lengths[i] = 0;
                 }
                 this.redundantOpCount++;
-                this.qdi.append((CharSequence) ("REMOVE " + str + '\n'));
+                this.qmD.append((CharSequence) ("REMOVE " + str + '\n'));
                 this.lruEntries.remove(str);
                 if (journalRebuildRequired()) {
-                    this.qdj.submit(this.qdk);
+                    this.qmE.submit(this.qmF);
                 }
                 z = true;
             }
@@ -386,24 +386,24 @@ public final class a implements Closeable {
     }
 
     private void checkNotClosed() {
-        if (this.qdi == null) {
+        if (this.qmD == null) {
             throw new IllegalStateException("cache is closed");
         }
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public synchronized void close() throws IOException {
-        if (this.qdi != null) {
+        if (this.qmD != null) {
             Iterator it = new ArrayList(this.lruEntries.values()).iterator();
             while (it.hasNext()) {
                 b bVar = (b) it.next();
-                if (bVar.qdq != null) {
-                    bVar.qdq.abort();
+                if (bVar.qmL != null) {
+                    bVar.qmL.abort();
                 }
             }
             trimToSize();
-            this.qdi.close();
-            this.qdi = null;
+            this.qmD.close();
+            this.qmD = null;
         }
     }
 
@@ -429,23 +429,23 @@ public final class a implements Closeable {
     public final class c implements Closeable {
         private final String key;
         private final long[] lengths;
-        private final InputStream[] qdr;
+        private final InputStream[] qmM;
         private final long sequenceNumber;
 
         private c(String str, long j, InputStream[] inputStreamArr, long[] jArr) {
             this.key = str;
             this.sequenceNumber = j;
-            this.qdr = inputStreamArr;
+            this.qmM = inputStreamArr;
             this.lengths = jArr;
         }
 
-        public InputStream RE(int i) {
-            return this.qdr[i];
+        public InputStream RZ(int i) {
+            return this.qmM[i];
         }
 
         @Override // java.io.Closeable, java.lang.AutoCloseable
         public void close() {
-            for (InputStream inputStream : this.qdr) {
+            for (InputStream inputStream : this.qmM) {
                 tv.chushou.zues.toolkit.a.a.c.closeQuietly(inputStream);
             }
         }
@@ -453,42 +453,42 @@ public final class a implements Closeable {
 
     /* renamed from: tv.chushou.zues.toolkit.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public final class C1097a {
+    public final class C1117a {
         private boolean hasErrors;
-        private final b qdn;
-        private boolean qdo;
+        private final b qmI;
+        private boolean qmJ;
         private final boolean[] written;
 
-        private C1097a(b bVar) {
-            this.qdn = bVar;
+        private C1117a(b bVar) {
+            this.qmI = bVar;
             this.written = bVar.readable ? null : new boolean[a.this.valueCount];
         }
 
-        public OutputStream RB(int i) throws IOException {
+        public OutputStream RW(int i) throws IOException {
             OutputStream outputStream;
             FileOutputStream fileOutputStream;
             if (i < 0 || i >= a.this.valueCount) {
                 throw new IllegalArgumentException("Expected index " + i + " to be greater than 0 and less than the maximum value count of " + a.this.valueCount);
             }
             synchronized (a.this) {
-                if (this.qdn.qdq != this) {
+                if (this.qmI.qmL != this) {
                     throw new IllegalStateException();
                 }
-                if (!this.qdn.readable) {
+                if (!this.qmI.readable) {
                     this.written[i] = true;
                 }
-                File RD = this.qdn.RD(i);
+                File RY = this.qmI.RY(i);
                 try {
-                    fileOutputStream = new FileOutputStream(RD);
+                    fileOutputStream = new FileOutputStream(RY);
                 } catch (FileNotFoundException e) {
                     a.this.directory.mkdirs();
                     try {
-                        fileOutputStream = new FileOutputStream(RD);
+                        fileOutputStream = new FileOutputStream(RY);
                     } catch (FileNotFoundException e2) {
-                        outputStream = a.qdl;
+                        outputStream = a.qmG;
                     }
                 }
-                outputStream = new C1098a(fileOutputStream);
+                outputStream = new C1118a(fileOutputStream);
             }
             return outputStream;
         }
@@ -496,11 +496,11 @@ public final class a implements Closeable {
         public void commit() throws IOException {
             if (this.hasErrors) {
                 a.this.a(this, false);
-                a.this.remove(this.qdn.key);
+                a.this.remove(this.qmI.key);
             } else {
                 a.this.a(this, true);
             }
-            this.qdo = true;
+            this.qmJ = true;
         }
 
         public void abort() throws IOException {
@@ -509,8 +509,8 @@ public final class a implements Closeable {
 
         /* renamed from: tv.chushou.zues.toolkit.a.a.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        private class C1098a extends FilterOutputStream {
-            private C1098a(OutputStream outputStream) {
+        private class C1118a extends FilterOutputStream {
+            private C1118a(OutputStream outputStream) {
                 super(outputStream);
             }
 
@@ -519,7 +519,7 @@ public final class a implements Closeable {
                 try {
                     this.out.write(i);
                 } catch (IOException e) {
-                    C1097a.this.hasErrors = true;
+                    C1117a.this.hasErrors = true;
                 }
             }
 
@@ -528,7 +528,7 @@ public final class a implements Closeable {
                 try {
                     this.out.write(bArr, i, i2);
                 } catch (IOException e) {
-                    C1097a.this.hasErrors = true;
+                    C1117a.this.hasErrors = true;
                 }
             }
 
@@ -537,7 +537,7 @@ public final class a implements Closeable {
                 try {
                     this.out.close();
                 } catch (IOException e) {
-                    C1097a.this.hasErrors = true;
+                    C1117a.this.hasErrors = true;
                 }
             }
 
@@ -546,7 +546,7 @@ public final class a implements Closeable {
                 try {
                     this.out.flush();
                 } catch (IOException e) {
-                    C1097a.this.hasErrors = true;
+                    C1117a.this.hasErrors = true;
                 }
             }
         }
@@ -557,7 +557,7 @@ public final class a implements Closeable {
     public final class b {
         private final String key;
         private final long[] lengths;
-        private C1097a qdq;
+        private C1117a qmL;
         private boolean readable;
         private long sequenceNumber;
 
@@ -566,7 +566,7 @@ public final class a implements Closeable {
             this.lengths = new long[a.this.valueCount];
         }
 
-        public String eDU() throws IOException {
+        public String eHJ() throws IOException {
             StringBuilder sb = new StringBuilder();
             for (long j : this.lengths) {
                 sb.append(' ').append(j);
@@ -592,11 +592,11 @@ public final class a implements Closeable {
             throw new IOException("unexpected journal line: " + Arrays.toString(strArr));
         }
 
-        public File RC(int i) {
+        public File RX(int i) {
             return new File(a.this.directory, this.key + "." + i);
         }
 
-        public File RD(int i) {
+        public File RY(int i) {
             return new File(a.this.directory, this.key + "." + i + ".tmp");
         }
     }

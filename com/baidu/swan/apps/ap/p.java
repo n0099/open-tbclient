@@ -10,11 +10,11 @@ import rx.schedulers.Schedulers;
 import rx.subjects.PublishSubject;
 /* loaded from: classes10.dex */
 public final class p {
-    private static volatile b dxM;
-    private static volatile b dxN;
-    private static volatile b dxO;
+    private static volatile b dDE;
+    private static volatile b dDF;
+    private static volatile b dDG;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final rx.functions.b dxP = new rx.functions.b<Pair<Runnable, String>>() { // from class: com.baidu.swan.apps.ap.p.1
+    private static final rx.functions.b dDH = new rx.functions.b<Pair<Runnable, String>>() { // from class: com.baidu.swan.apps.ap.p.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: a */
@@ -50,66 +50,66 @@ public final class p {
     private p() {
     }
 
-    public static a aJZ() {
-        if (dxM == null) {
+    public static a aMz() {
+        if (dDE == null) {
             synchronized (p.class) {
-                if (dxM == null) {
-                    dxM = new b(PublishSubject.eCY());
-                    dxM.eBB().c(new rx.functions.f<Pair<Runnable, String>, rx.d<?>>() { // from class: com.baidu.swan.apps.ap.p.4
+                if (dDE == null) {
+                    dDE = new b(PublishSubject.eGN());
+                    dDE.eFq().c(new rx.functions.f<Pair<Runnable, String>, rx.d<?>>() { // from class: com.baidu.swan.apps.ap.p.4
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // rx.functions.f
                         /* renamed from: b */
                         public rx.d<?> call(Pair<Runnable, String> pair) {
-                            return rx.h.ce(pair).e(Schedulers.io()).e(p.dxP).eBE();
+                            return rx.h.ce(pair).e(Schedulers.io()).e(p.dDH).eFt();
                         }
-                    }).eBD().eBs();
+                    }).eFs().eFh();
                 }
             }
         }
-        return dxM;
+        return dDE;
     }
 
-    public static a aKa() {
-        if (dxN == null) {
+    public static a aMA() {
+        if (dDF == null) {
             synchronized (p.class) {
-                if (dxN == null) {
-                    dxN = new b(PublishSubject.eCY());
-                    dxN.eBB().c(new rx.functions.f<Pair<Runnable, String>, rx.d<?>>() { // from class: com.baidu.swan.apps.ap.p.5
+                if (dDF == null) {
+                    dDF = new b(PublishSubject.eGN());
+                    dDF.eFq().c(new rx.functions.f<Pair<Runnable, String>, rx.d<?>>() { // from class: com.baidu.swan.apps.ap.p.5
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // rx.functions.f
                         /* renamed from: b */
                         public rx.d<?> call(Pair<Runnable, String> pair) {
-                            return rx.h.ce(pair).e(Schedulers.computation()).e(p.dxP).eBE();
+                            return rx.h.ce(pair).e(Schedulers.computation()).e(p.dDH).eFt();
                         }
-                    }).eBD().eBs();
+                    }).eFs().eFh();
                 }
             }
         }
-        return dxN;
+        return dDF;
     }
 
-    public static a aKb() {
-        if (dxO == null) {
+    public static a aMB() {
+        if (dDG == null) {
             synchronized (p.class) {
-                if (dxO == null) {
-                    dxO = new b(PublishSubject.eCY());
-                    dxO.eBB().c(Schedulers.io()).b(dxP).eBD().eBs();
+                if (dDG == null) {
+                    dDG = new b(PublishSubject.eGN());
+                    dDG.eFq().c(Schedulers.io()).b(dDH).eFs().eFh();
                 }
             }
         }
-        return dxO;
+        return dDG;
     }
 
     public static void postOnIO(@NonNull Runnable runnable, @NonNull String str) {
-        aJZ().execute(runnable, str);
+        aMz().execute(runnable, str);
     }
 
     public static void postOnComputation(@NonNull Runnable runnable, @NonNull String str) {
-        aKa().execute(runnable, str);
+        aMA().execute(runnable, str);
     }
 
     public static void postOnSerial(@NonNull Runnable runnable, @NonNull String str) {
-        aKb().execute(runnable, str);
+        aMB().execute(runnable, str);
     }
 
     public static rx.k a(@NonNull Runnable runnable, @NonNull final String str, @NonNull long j, @NonNull TimeUnit timeUnit) {
@@ -118,7 +118,7 @@ public final class p {
             @Override // rx.functions.b
             /* renamed from: a */
             public void call(Pair<Runnable, String> pair) {
-                p.aJZ().execute((Runnable) pair.first, (String) pair.second);
+                p.aMz().execute((Runnable) pair.first, (String) pair.second);
             }
         }).d(new rx.functions.b<Throwable>() { // from class: com.baidu.swan.apps.ap.p.6
             /* JADX DEBUG: Method merged with bridge method */
@@ -128,7 +128,7 @@ public final class p {
                     Log.wtf("SwanAppExecutorUtils", "delay task [" + str + "] fail!", th);
                 }
             }
-        }).eBs();
+        }).eFh();
     }
 
     public static rx.k b(@NonNull Runnable runnable, @NonNull final String str, @NonNull long j, @NonNull TimeUnit timeUnit) {
@@ -137,7 +137,7 @@ public final class p {
             @Override // rx.functions.b
             /* renamed from: a */
             public void call(Pair<Runnable, String> pair) {
-                p.aKa().execute((Runnable) pair.first, (String) pair.second);
+                p.aMA().execute((Runnable) pair.first, (String) pair.second);
             }
         }).d(new rx.functions.b<Throwable>() { // from class: com.baidu.swan.apps.ap.p.8
             /* JADX DEBUG: Method merged with bridge method */
@@ -147,7 +147,7 @@ public final class p {
                     Log.wtf("SwanAppExecutorUtils", "delay task [" + str + "] fail!", th);
                 }
             }
-        }).eBs();
+        }).eFh();
     }
 
     public static String getStandardThreadName(String str) {
@@ -198,6 +198,6 @@ public final class p {
                     Log.wtf("SwanAppExecutorUtils", "delay task fail", th);
                 }
             }
-        }).eBs();
+        }).eFh();
     }
 }

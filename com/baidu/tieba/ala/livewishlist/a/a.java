@@ -38,7 +38,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: wc */
+    /* renamed from: wp */
     public f getItem(int i) {
         if (this.aiK == null) {
             return null;
@@ -53,36 +53,36 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0675a c0675a;
+        C0689a c0689a;
         if (view == null) {
-            view = LayoutInflater.from(this.mContext).inflate(a.h.ala_my_assis_wish_list_item_view, (ViewGroup) null);
-            C0675a c0675a2 = new C0675a();
-            c0675a2.hrQ = (TbImageView) view.findViewById(a.g.gift_thumbnail);
-            c0675a2.hrQ.setDefaultBgResource(a.f.icon_live_gift_default);
-            c0675a2.hrQ.setDefaultErrorResource(a.f.icon_live_gift_default);
-            c0675a2.hrQ.setAutoChangeStyle(false);
-            c0675a2.hrS = (TextView) view.findViewById(a.g.wish_name);
-            c0675a2.hrR = (TextView) view.findViewById(a.g.wish_count);
-            c0675a2.hrT = (ImageView) view.findViewById(a.g.wish_icon_cheng);
-            view.setTag(c0675a2);
-            c0675a = c0675a2;
+            view = LayoutInflater.from(this.mContext).inflate(a.g.ala_my_assis_wish_list_item_view, (ViewGroup) null);
+            C0689a c0689a2 = new C0689a();
+            c0689a2.hxN = (TbImageView) view.findViewById(a.f.gift_thumbnail);
+            c0689a2.hxN.setDefaultBgResource(a.e.icon_live_gift_default);
+            c0689a2.hxN.setDefaultErrorResource(a.e.icon_live_gift_default);
+            c0689a2.hxN.setAutoChangeStyle(false);
+            c0689a2.hxP = (TextView) view.findViewById(a.f.wish_name);
+            c0689a2.hxO = (TextView) view.findViewById(a.f.wish_count);
+            c0689a2.hxQ = (ImageView) view.findViewById(a.f.wish_icon_cheng);
+            view.setTag(c0689a2);
+            c0689a = c0689a2;
         } else {
-            c0675a = (C0675a) view.getTag();
+            c0689a = (C0689a) view.getTag();
         }
         f item = getItem(i);
         if (item != null) {
-            c0675a.hrQ.startLoad(item.gui, 10, false);
-            c0675a.hrS.setText(item.mGiftName);
-            if (!TextUtils.isEmpty(item.gus) && JavaTypesHelper.toInt(item.gus, 0) <= 0) {
-                c0675a.hrT.setVisibility(8);
-                c0675a.hrR.setText(this.mContext.getString(a.i.ala_my_not_assist));
-                c0675a.hrR.setTextSize(0, this.mContext.getResources().getDimension(a.e.sdk_fontsize40));
-                c0675a.hrR.setTextColor(this.mContext.getResources().getColor(a.d.sdk_white_alpha60));
+            c0689a.hxN.startLoad(item.gzW, 10, false);
+            c0689a.hxP.setText(item.mGiftName);
+            if (!TextUtils.isEmpty(item.gAg) && JavaTypesHelper.toInt(item.gAg, 0) <= 0) {
+                c0689a.hxQ.setVisibility(8);
+                c0689a.hxO.setText(this.mContext.getString(a.h.ala_my_not_assist));
+                c0689a.hxO.setTextSize(0, this.mContext.getResources().getDimension(a.d.sdk_fontsize40));
+                c0689a.hxO.setTextColor(this.mContext.getResources().getColor(a.c.sdk_white_alpha60));
             } else {
-                c0675a.hrT.setVisibility(0);
-                c0675a.hrR.setText(String.format("%s", item.gus));
-                c0675a.hrR.setTextSize(0, this.mContext.getResources().getDimension(a.e.sdk_fontsize48));
-                c0675a.hrR.setTextColor(Color.parseColor("#C4586A"));
+                c0689a.hxQ.setVisibility(0);
+                c0689a.hxO.setText(String.format("%s", item.gAg));
+                c0689a.hxO.setTextSize(0, this.mContext.getResources().getDimension(a.d.sdk_fontsize48));
+                c0689a.hxO.setTextColor(Color.parseColor("#C4586A"));
             }
         }
         return view;
@@ -90,13 +90,13 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.ala.livewishlist.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private static class C0675a {
-        public TbImageView hrQ;
-        public TextView hrR;
-        public TextView hrS;
-        public ImageView hrT;
+    private static class C0689a {
+        public TbImageView hxN;
+        public TextView hxO;
+        public TextView hxP;
+        public ImageView hxQ;
 
-        private C0675a() {
+        private C0689a() {
         }
     }
 }

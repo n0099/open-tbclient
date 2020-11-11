@@ -79,7 +79,7 @@ public final class WebViewFactory {
         if (Build.VERSION.SDK_INT != 19) {
             return;
         }
-        if (d.a(mContext).f3926a.a()) {
+        if (d.a(mContext).f3928a.a()) {
             String str = aVar.d + GlobalConstants.LIB_ZEUS_CHROMIUM;
             File file = new File(str);
             if (GlobalConstants.FILE_SIZE_LIB_ZEUS_WEBVIEW_CHROMIUM != -1) {
@@ -111,7 +111,7 @@ public final class WebViewFactory {
             if (isVersionMatched(str, zeusNativeLibraryVersion, true) && isVersionMatched(str, zeusJarVersion, true) && isVersionMatched(sdkVersionCode, str, false)) {
                 return;
             }
-            SevenZipUtils.getInstance().clearTimestamp(d.a(mContext).f3926a.d);
+            SevenZipUtils.getInstance().clearTimestamp(d.a(mContext).f3928a.d);
             throw new Exception("sdk and native library dismatch " + str + ", " + zeusJarVersion + ", " + zeusNativeLibraryVersion);
         } catch (Exception e) {
             e.printStackTrace();
@@ -344,7 +344,7 @@ public final class WebViewFactory {
         try {
             ApplicationInfo applicationInfo = context.getApplicationInfo();
             d a2 = d.a(context);
-            d.a aVar = a2.f3926a;
+            d.a aVar = a2.f3928a;
             mIsInstallUpdate = false;
             String str = applicationInfo.nativeLibraryDir + SPLASH + "libcom.baidu.zeus.so";
             String downloadLibPath = UtilsBlink.getDownloadLibPath(context);
@@ -355,7 +355,7 @@ public final class WebViewFactory {
                     str = str2;
                 }
             }
-            if (!a2.f3926a.a() && !EngineManager.getInstance().isInstalled()) {
+            if (!a2.f3928a.a() && !EngineManager.getInstance().isInstalled()) {
                 LoadErrorCode.getInstance().trace(513);
             }
             packageInfo = context.getPackageManager().getPackageArchiveInfo(str, IMPushPb.PushImClient.ACTIONS_FIELD_NUMBER);
@@ -932,13 +932,13 @@ public final class WebViewFactory {
 
     public static void setUsingLzma(Context context, boolean z, WebKitUnzipCallback webKitUnzipCallback) {
         d a2 = d.a(context);
-        a2.f3926a.a(z);
+        a2.f3928a.a(z);
         if (!z || isRendererProcess()) {
             return;
         }
         synchronized (d.e) {
             if (context != null) {
-                if (a2.f3926a != null && a2.b == null) {
+                if (a2.f3928a != null && a2.b == null) {
                     a2.b = new d.b(context);
                 }
             }

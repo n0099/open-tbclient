@@ -11,7 +11,7 @@ import java.lang.ref.SoftReference;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    SoftReference<MapView> f3155a = null;
+    SoftReference<MapView> f3157a = null;
     private BaiduMap b;
     private WNaviBaiduMap c;
     private f d;
@@ -21,17 +21,17 @@ public class a {
     }
 
     public void a() {
-        this.f3155a = null;
+        this.f3157a = null;
     }
 
     public void a(MapView mapView) {
-        this.f3155a = new SoftReference<>(mapView);
-        this.b = this.f3155a.get().getMap();
+        this.f3157a = new SoftReference<>(mapView);
+        this.b = this.f3157a.get().getMap();
         this.c = WNaviBaiduMap.getInstance();
     }
 
     public void b() {
-        this.f3155a = null;
+        this.f3157a = null;
     }
 
     public void a(MapStatusUpdate mapStatusUpdate) {

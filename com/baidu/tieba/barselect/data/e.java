@@ -4,50 +4,50 @@ import tbclient.ElectionInfo.Basic;
 import tbclient.ElectionInfo.NoticeContent;
 /* loaded from: classes21.dex */
 public class e {
-    private long hLD;
-    private long hLE;
-    private long hLF;
-    private long hLG;
-    private int hLH;
-    private int hLI;
-    private boolean hLJ;
-    private NoticeContent hLK;
+    private long hRA;
+    private long hRB;
+    private long hRC;
+    private long hRD;
+    private int hRE;
+    private int hRF;
+    private boolean hRG;
+    private NoticeContent hRH;
     private int status = 0;
 
-    public int ckC() {
-        return this.hLH;
+    public int cne() {
+        return this.hRE;
     }
 
     public int getStatus() {
         return this.status;
     }
 
-    public long ckD() {
-        return this.hLD;
+    public long cnf() {
+        return this.hRA;
     }
 
-    public long ckE() {
-        return this.hLF;
+    public long cng() {
+        return this.hRC;
     }
 
-    public long ckF() {
-        return this.hLG;
+    public long cnh() {
+        return this.hRD;
     }
 
-    public long ckG() {
-        return this.hLE;
+    public long cni() {
+        return this.hRB;
     }
 
-    public boolean ckH() {
-        return this.hLJ;
+    public boolean cnj() {
+        return this.hRG;
     }
 
-    public NoticeContent ckI() {
-        return this.hLK;
+    public NoticeContent cnk() {
+        return this.hRH;
     }
 
     public void a(NoticeContent noticeContent) {
-        this.hLK = noticeContent;
+        this.hRH = noticeContent;
     }
 
     public static e a(Basic basic) {
@@ -55,19 +55,19 @@ public class e {
             return null;
         }
         e eVar = new e();
-        eVar.eV(IE(basic.remind_time));
+        eVar.fr(IV(basic.remind_time));
         eVar.setStatus(basic.status.intValue());
-        eVar.wG(basic.candidate_num.intValue());
-        eVar.wH(basic.total_vote_num.intValue());
-        eVar.eT(IE(basic.begin_apply_time));
-        eVar.eW(IE(basic.begin_vote_time));
-        eVar.eU(IE(basic.begin_public_time));
-        eVar.oe(basic.is_voted.booleanValue());
+        eVar.wT(basic.candidate_num.intValue());
+        eVar.wU(basic.total_vote_num.intValue());
+        eVar.fp(IV(basic.begin_apply_time));
+        eVar.fs(IV(basic.begin_vote_time));
+        eVar.fq(IV(basic.begin_public_time));
+        eVar.on(basic.is_voted.booleanValue());
         eVar.a(basic.notice);
         return eVar;
     }
 
-    private static long IE(String str) {
+    private static long IV(String str) {
         try {
             return Long.parseLong(str);
         } catch (Exception e) {
@@ -76,35 +76,35 @@ public class e {
         }
     }
 
-    public void wG(int i) {
-        this.hLH = i;
+    public void wT(int i) {
+        this.hRE = i;
     }
 
-    public void eT(long j) {
-        this.hLD = j;
+    public void fp(long j) {
+        this.hRA = j;
     }
 
-    public void eU(long j) {
-        this.hLF = j;
+    public void fq(long j) {
+        this.hRC = j;
     }
 
-    public void eV(long j) {
-        this.hLG = j;
+    public void fr(long j) {
+        this.hRD = j;
     }
 
     public void setStatus(int i) {
         this.status = i;
     }
 
-    public void wH(int i) {
-        this.hLI = i;
+    public void wU(int i) {
+        this.hRF = i;
     }
 
-    public void eW(long j) {
-        this.hLE = j;
+    public void fs(long j) {
+        this.hRB = j;
     }
 
-    public void oe(boolean z) {
-        this.hLJ = z;
+    public void on(boolean z) {
+        this.hRG = z;
     }
 }

@@ -6,17 +6,17 @@ import android.text.TextUtils;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private static j f3147a;
+    private static j f3149a;
     private MediaPlayer b = null;
     private boolean c = false;
 
     public static synchronized j a() {
         j jVar;
         synchronized (j.class) {
-            if (f3147a == null) {
-                f3147a = new j();
+            if (f3149a == null) {
+                f3149a = new j();
             }
-            jVar = f3147a;
+            jVar = f3149a;
         }
         return jVar;
     }

@@ -12,7 +12,7 @@ import com.baidu.fsg.face.base.d.h;
 public class DynamicWaveView extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f1746a = 1715238655;
+    private static final int f1748a = 1715238655;
     private static final float b = 30.0f;
     private static final int c = 0;
     private static final int d = 3;
@@ -51,7 +51,7 @@ public class DynamicWaveView extends View {
         this.s = new Paint();
         this.s.setAntiAlias(true);
         this.s.setStyle(Paint.Style.FILL);
-        this.s.setColor(f1746a);
+        this.s.setColor(f1748a);
         this.t = new PaintFlagsDrawFilter(0, 3);
         this.j = h.a(context, 5.0f);
         this.k = h.a(context, (float) b);

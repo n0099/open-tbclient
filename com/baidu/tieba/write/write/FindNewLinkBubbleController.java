@@ -8,9 +8,9 @@ import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class FindNewLinkBubbleController {
-    private com.baidu.tieba.c.e luR;
+    private com.baidu.tieba.c.e lAO;
     private TbPageContext mPageContext;
-    private a nES;
+    private a nKM;
 
     /* loaded from: classes3.dex */
     public enum ANCHOR_VIEW_FROM {
@@ -25,56 +25,56 @@ public class FindNewLinkBubbleController {
 
     public FindNewLinkBubbleController(TbPageContext tbPageContext, a aVar) {
         this.mPageContext = tbPageContext;
-        this.nES = aVar;
+        this.nKM = aVar;
     }
 
-    public void TT() {
-        if (this.luR != null) {
-            this.luR.Qh();
+    public void Wt() {
+        if (this.lAO != null) {
+            this.lAO.SR();
         }
     }
 
     public void a(@NonNull View view, @NonNull final String str, @NonNull ANCHOR_VIEW_FROM anchor_view_from) {
         if (this.mPageContext != null && view != null && !at.isEmpty(str)) {
-            if (this.luR == null) {
-                this.luR = new com.baidu.tieba.c.e(this.mPageContext, view);
-                this.luR.fh(R.drawable.pic_post_findlink);
-                this.luR.xe(2);
-                this.luR.oy(true);
-                this.luR.setTextViewGravity(19);
-                this.luR.setTextColor(R.color.cp_cont_b);
-                this.luR.fi(3000);
+            if (this.lAO == null) {
+                this.lAO = new com.baidu.tieba.c.e(this.mPageContext, view);
+                this.lAO.fu(R.drawable.pic_post_findlink);
+                this.lAO.xr(2);
+                this.lAO.oH(true);
+                this.lAO.setTextViewGravity(19);
+                this.lAO.setTextColor(R.color.cp_cont_b);
+                this.lAO.fv(3000);
             }
             if (anchor_view_from == ANCHOR_VIEW_FROM.FROM_EDITOR_TOOL) {
-                this.luR.fg(32);
-                this.luR.setAnchor(2);
+                this.lAO.ft(32);
+                this.lAO.setAnchor(2);
                 int dimensionPixelSize = this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds32);
                 int dimensionPixelSize2 = this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds4);
-                this.luR.A(dimensionPixelSize, 0, dimensionPixelSize, dimensionPixelSize);
-                this.luR.xd(0);
-                this.luR.setYOffset(-dimensionPixelSize2);
-                this.luR.setHeight(R.dimen.tbds177);
-                this.luR.setWidth(R.dimen.tbds484);
+                this.lAO.A(dimensionPixelSize, 0, dimensionPixelSize, dimensionPixelSize);
+                this.lAO.xq(0);
+                this.lAO.setYOffset(-dimensionPixelSize2);
+                this.lAO.setHeight(R.dimen.tbds177);
+                this.lAO.setWidth(R.dimen.tbds484);
             } else if (anchor_view_from == ANCHOR_VIEW_FROM.FROM_EDIT_TEXT) {
-                this.luR.fg(32);
-                this.luR.setAnchor(5);
+                this.lAO.ft(32);
+                this.lAO.setAnchor(5);
                 int dimensionPixelSize3 = this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds32);
                 int dimensionPixelSize4 = this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds32);
-                this.luR.A(dimensionPixelSize3, 0, dimensionPixelSize3, dimensionPixelSize3);
-                this.luR.xd(0);
-                this.luR.setYOffset(-dimensionPixelSize4);
-                this.luR.setHeight(R.dimen.tbds177);
-                this.luR.setWidth(R.dimen.tbds484);
+                this.lAO.A(dimensionPixelSize3, 0, dimensionPixelSize3, dimensionPixelSize3);
+                this.lAO.xq(0);
+                this.lAO.setYOffset(-dimensionPixelSize4);
+                this.lAO.setHeight(R.dimen.tbds177);
+                this.lAO.setWidth(R.dimen.tbds484);
             }
-            this.luR.c(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.FindNewLinkBubbleController.1
+            this.lAO.d(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.FindNewLinkBubbleController.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (FindNewLinkBubbleController.this.nES != null) {
-                        FindNewLinkBubbleController.this.nES.f(view2, str);
+                    if (FindNewLinkBubbleController.this.nKM != null) {
+                        FindNewLinkBubbleController.this.nKM.f(view2, str);
                     }
                 }
             });
-            this.luR.IS(this.mPageContext.getResources().getString(R.string.find_new_link) + "\n" + str);
+            this.lAO.Jj(this.mPageContext.getResources().getString(R.string.find_new_link) + "\n" + str);
             TiebaStatic.log("c13801");
         }
     }

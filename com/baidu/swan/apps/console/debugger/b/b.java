@@ -7,18 +7,18 @@ import java.io.File;
 /* loaded from: classes10.dex */
 public class b {
     public static d.f d(com.baidu.swan.apps.u.c.b bVar) {
-        File ajg = ajg();
-        com.baidu.swan.apps.r.d.a(ajA(), ajg, bVar);
+        File alG = alG();
+        com.baidu.swan.apps.r.d.a(ama(), alG, bVar);
         d.f fVar = new d.f();
-        File file = new File(ajg, "app.json");
-        SwanAppConfigData l = SwanAppConfigData.l(com.baidu.swan.c.d.readFileData(file), ajg);
-        fVar.cRt = ajg.getPath() + File.separator;
-        fVar.cRu = l;
-        com.baidu.swan.apps.console.c.bn("WirelessDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + fVar.cRt);
+        File file = new File(alG, "app.json");
+        SwanAppConfigData l = SwanAppConfigData.l(com.baidu.swan.c.d.readFileData(file), alG);
+        fVar.cXm = alG.getPath() + File.separator;
+        fVar.cXn = l;
+        com.baidu.swan.apps.console.c.bn("WirelessDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + fVar.cXm);
         return fVar;
     }
 
-    public static File ajg() {
+    public static File alG() {
         File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_wireless_debug");
         if (!file.exists()) {
             file.mkdirs();
@@ -26,11 +26,11 @@ public class b {
         return file;
     }
 
-    public static File ajA() {
-        return new File(ajB(), "wireless_debug.aiapps");
+    public static File ama() {
+        return new File(amb(), "wireless_debug.aiapps");
     }
 
-    public static File ajB() {
+    public static File amb() {
         File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_wireless_debug_zip");
         if (!file.exists()) {
             file.mkdirs();

@@ -9,107 +9,107 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static a dtu;
-    private com.baidu.swan.apps.ak.b.b dtv = new com.baidu.swan.apps.ak.b.b();
-    private c dtw = new c();
-    private C0362a dtx = new C0362a();
-    private com.baidu.swan.apps.ak.a.a dty = new com.baidu.swan.apps.ak.a.a();
+    private static a dzm;
+    private com.baidu.swan.apps.ak.b.b dzn = new com.baidu.swan.apps.ak.b.b();
+    private c dzo = new c();
+    private C0374a dzp = new C0374a();
+    private com.baidu.swan.apps.ak.a.a dzq = new com.baidu.swan.apps.ak.a.a();
 
     private a() {
     }
 
-    public static a aHs() {
-        if (dtu == null) {
+    public static a aJS() {
+        if (dzm == null) {
             synchronized (a.class) {
-                if (dtu == null) {
-                    dtu = new a();
+                if (dzm == null) {
+                    dzm = new a();
                 }
             }
         }
-        return dtu;
+        return dzm;
     }
 
-    public void bX(JSONObject jSONObject) {
-        this.dtv.bZ(jSONObject);
+    public void cd(JSONObject jSONObject) {
+        this.dzn.cf(jSONObject);
     }
 
-    public void sE(String str) {
+    public void sS(String str) {
         cw(str, null);
     }
 
     public void cw(String str, String str2) {
-        this.dtv.add(str, str2);
+        this.dzn.add(str, str2);
     }
 
-    public void bY(JSONObject jSONObject) {
-        this.dtw.bZ(jSONObject);
+    public void ce(JSONObject jSONObject) {
+        this.dzo.cf(jSONObject);
     }
 
-    public JSONObject aHt() {
-        JSONObject aHz = this.dtv.aHz();
+    public JSONObject aJT() {
+        JSONObject aJZ = this.dzn.aJZ();
         if (DEBUG) {
-            Log.d("SwanStabilityTracer", "LaunchTraces: " + aHz);
+            Log.d("SwanStabilityTracer", "LaunchTraces: " + aJZ);
         }
-        return aHz;
+        return aJZ;
     }
 
-    public JSONObject aHu() {
-        JSONObject aHz = this.dtw.aHz();
+    public JSONObject aJU() {
+        JSONObject aJZ = this.dzo.aJZ();
         if (DEBUG) {
-            Log.d("SwanStabilityTracer", "WhiteTraces: " + aHz);
+            Log.d("SwanStabilityTracer", "WhiteTraces: " + aJZ);
         }
-        return aHz;
+        return aJZ;
     }
 
-    public JSONObject aHv() {
-        JSONObject aHz = this.dtx.aHz();
+    public JSONObject aJV() {
+        JSONObject aJZ = this.dzp.aJZ();
         if (DEBUG) {
-            Log.d("SwanStabilityTracer", "extraTraces: " + aHz);
+            Log.d("SwanStabilityTracer", "extraTraces: " + aJZ);
         }
-        return aHz;
+        return aJZ;
     }
 
     public void clear() {
-        this.dtv.clear();
-        this.dtw.clear();
-        this.dtx.clear();
+        this.dzn.clear();
+        this.dzo.clear();
+        this.dzp.clear();
     }
 
-    public File aHw() {
+    public File aJW() {
         JSONArray jSONArray = new JSONArray();
-        jSONArray.put(aHt());
-        jSONArray.put(aHu());
-        jSONArray.put(aHv());
-        return this.dty.G(jSONArray);
+        jSONArray.put(aJT());
+        jSONArray.put(aJU());
+        jSONArray.put(aJV());
+        return this.dzq.G(jSONArray);
     }
 
-    public void aHx() {
-        if (this.dtx.dtz != null && this.dtx.dtz.length() != 0) {
+    public void aJX() {
+        if (this.dzp.dzr != null && this.dzp.dzr.length() != 0) {
             JSONArray jSONArray = new JSONArray();
-            jSONArray.put(aHt());
-            jSONArray.put(aHu());
-            jSONArray.put(aHv());
-            this.dty.G(jSONArray);
+            jSONArray.put(aJT());
+            jSONArray.put(aJU());
+            jSONArray.put(aJV());
+            this.dzq.G(jSONArray);
         }
     }
 
-    public com.baidu.swan.apps.ak.a.a aHy() {
-        return this.dty;
+    public com.baidu.swan.apps.ak.a.a aJY() {
+        return this.dzq;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.ak.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public class C0362a implements com.baidu.swan.apps.ak.b.a<JSONObject> {
-        private JSONArray dtz;
+    public class C0374a implements com.baidu.swan.apps.ak.b.a<JSONObject> {
+        private JSONArray dzr;
 
-        private C0362a() {
+        private C0374a() {
         }
 
-        public JSONObject aHz() {
+        public JSONObject aJZ() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("extra", this.dtz);
+                jSONObject.put("extra", this.dzr);
             } catch (JSONException e) {
                 if (DEBUG) {
                     Log.e("SwanStabilityTracer", Log.getStackTraceString(e));
@@ -119,7 +119,7 @@ public final class a {
         }
 
         public void clear() {
-            this.dtz = null;
+            this.dzr = null;
         }
     }
 }

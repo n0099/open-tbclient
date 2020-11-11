@@ -57,7 +57,7 @@ public final class SapiAccountManager implements ISAccountManager {
     private static final List<String> l = new ArrayList();
 
     /* renamed from: a  reason: collision with root package name */
-    private char f3221a = 0;
+    private char f3224a = 0;
 
     /* loaded from: classes5.dex */
     public interface CheckUrlIsAvailableListener {
@@ -526,15 +526,15 @@ public final class SapiAccountManager implements ISAccountManager {
     public SapiAccount getSession() {
         a();
         SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
-        if (this.f3221a == 0) {
+        if (this.f3224a == 0) {
             e sapiOptions = SapiContext.getInstance().getSapiOptions();
             if (sapiOptions.m().contains(getConfignation().tpl) && !sapiOptions.m) {
-                this.f3221a = (char) 1;
+                this.f3224a = (char) 1;
             } else {
-                this.f3221a = (char) 2;
+                this.f3224a = (char) 2;
             }
         }
-        if (currentAccount != null && this.f3221a == 1) {
+        if (currentAccount != null && this.f3224a == 1) {
             currentAccount.uid = "";
             currentAccount.bduss = "";
         }

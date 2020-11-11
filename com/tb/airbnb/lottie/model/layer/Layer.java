@@ -23,16 +23,16 @@ public class Layer {
     private final int Gu;
     private final int Gv;
     private final List<com.tb.airbnb.lottie.e.a<Float>> Gz;
-    private final com.tb.airbnb.lottie.d composition;
-    private final LayerType pAH;
+    private final com.tb.airbnb.lottie.e composition;
+    private final l pJQ;
+    private final LayerType pKb;
     @Nullable
-    private final j pAI;
+    private final j pKc;
     @Nullable
-    private final k pAJ;
+    private final k pKd;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.b pAK;
-    private final MatteType pAL;
-    private final l pAw;
+    private final com.tb.airbnb.lottie.model.a.b pKe;
+    private final MatteType pKf;
     private final List<com.tb.airbnb.lottie.model.content.b> shapes;
 
     /* loaded from: classes16.dex */
@@ -54,16 +54,16 @@ public class Layer {
         Unknown
     }
 
-    public Layer(List<com.tb.airbnb.lottie.model.content.b> list, com.tb.airbnb.lottie.d dVar, String str, long j, LayerType layerType, long j2, @Nullable String str2, List<Mask> list2, l lVar, int i, int i2, int i3, float f, float f2, int i4, int i5, @Nullable j jVar, @Nullable k kVar, List<com.tb.airbnb.lottie.e.a<Float>> list3, MatteType matteType, @Nullable com.tb.airbnb.lottie.model.a.b bVar) {
+    public Layer(List<com.tb.airbnb.lottie.model.content.b> list, com.tb.airbnb.lottie.e eVar, String str, long j, LayerType layerType, long j2, @Nullable String str2, List<Mask> list2, l lVar, int i, int i2, int i3, float f, float f2, int i4, int i5, @Nullable j jVar, @Nullable k kVar, List<com.tb.airbnb.lottie.e.a<Float>> list3, MatteType matteType, @Nullable com.tb.airbnb.lottie.model.a.b bVar) {
         this.shapes = list;
-        this.composition = dVar;
+        this.composition = eVar;
         this.Gl = str;
         this.Gm = j;
-        this.pAH = layerType;
+        this.pKb = layerType;
         this.Go = j2;
         this.Gp = str2;
         this.DV = list2;
-        this.pAw = lVar;
+        this.pJQ = lVar;
         this.Gq = i;
         this.Gr = i2;
         this.Gs = i3;
@@ -71,15 +71,15 @@ public class Layer {
         this.Bo = f2;
         this.Gu = i4;
         this.Gv = i5;
-        this.pAI = jVar;
-        this.pAJ = kVar;
+        this.pKc = jVar;
+        this.pKd = kVar;
         this.Gz = list3;
-        this.pAL = matteType;
-        this.pAK = bVar;
+        this.pKf = matteType;
+        this.pKe = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public com.tb.airbnb.lottie.d getComposition() {
+    public com.tb.airbnb.lottie.e getComposition() {
         return this.composition;
     }
 
@@ -128,13 +128,13 @@ public class Layer {
         return this.DV;
     }
 
-    public LayerType evH() {
-        return this.pAH;
+    public LayerType ezw() {
+        return this.pKb;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public MatteType evI() {
-        return this.pAL;
+    public MatteType ezx() {
+        return this.pKf;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -148,8 +148,8 @@ public class Layer {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l evB() {
-        return this.pAw;
+    public l ezq() {
+        return this.pJQ;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -169,20 +169,20 @@ public class Layer {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public j evJ() {
-        return this.pAI;
+    public j ezy() {
+        return this.pKc;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public k evK() {
-        return this.pAJ;
+    public k ezz() {
+        return this.pKd;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public com.tb.airbnb.lottie.model.a.b evL() {
-        return this.pAK;
+    public com.tb.airbnb.lottie.model.a.b ezA() {
+        return this.pKe;
     }
 
     public String toString() {
@@ -192,13 +192,13 @@ public class Layer {
     public String toString(String str) {
         StringBuilder sb = new StringBuilder();
         sb.append(str).append(getName()).append("\n");
-        Layer hG = this.composition.hG(kF());
-        if (hG != null) {
-            sb.append("\t\tParents: ").append(hG.getName());
-            Layer hG2 = this.composition.hG(hG.kF());
-            while (hG2 != null) {
-                sb.append("->").append(hG2.getName());
-                hG2 = this.composition.hG(hG2.kF());
+        Layer ic = this.composition.ic(kF());
+        if (ic != null) {
+            sb.append("\t\tParents: ").append(ic.getName());
+            Layer ic2 = this.composition.ic(ic.kF());
+            while (ic2 != null) {
+                sb.append("->").append(ic2.getName());
+                ic2 = this.composition.ic(ic2.kF());
             }
             sb.append(str).append("\n");
         }

@@ -19,13 +19,13 @@ import com.baidu.live.view.BackBar;
 import com.baidu.tieba.ala.guardclub.model.g;
 /* loaded from: classes4.dex */
 public class GuardClubMemberListActivity extends BaseActivity<GuardClubMemberListActivity> {
-    private TextView bHP;
-    private j gzY;
-    private g.a gAI = new g.a() { // from class: com.baidu.tieba.ala.guardclub.GuardClubMemberListActivity.3
+    private TextView bNu;
+    private j gFM;
+    private g.a gGw = new g.a() { // from class: com.baidu.tieba.ala.guardclub.GuardClubMemberListActivity.3
         @Override // com.baidu.tieba.ala.guardclub.model.g.a
-        public void uz(int i) {
-            if (GuardClubMemberListActivity.this.bHP != null) {
-                GuardClubMemberListActivity.this.bHP.setText(String.format(GuardClubMemberListActivity.this.getString(a.i.guard_member_number), Integer.valueOf(i)));
+        public void uJ(int i) {
+            if (GuardClubMemberListActivity.this.bNu != null) {
+                GuardClubMemberListActivity.this.bNu.setText(String.format(GuardClubMemberListActivity.this.getString(a.h.guard_member_number), Integer.valueOf(i)));
             }
         }
     };
@@ -45,8 +45,8 @@ public class GuardClubMemberListActivity extends BaseActivity<GuardClubMemberLis
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
         if (!isFinishing()) {
-            setContentView(a.h.activity_guard_club_menber_list);
-            View findViewById = findViewById(a.g.view_status_bar);
+            setContentView(a.g.activity_guard_club_menber_list);
+            View findViewById = findViewById(a.f.view_status_bar);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
                 layoutParams.height = UtilHelper.getStatusBarHeight();
@@ -55,16 +55,16 @@ public class GuardClubMemberListActivity extends BaseActivity<GuardClubMemberLis
             } else {
                 findViewById.setVisibility(8);
             }
-            FrameLayout frameLayout = (FrameLayout) findViewById(a.g.container_guard_club_member_list);
-            this.bHP = (TextView) findViewById(a.g.tv_guard_club_list_title);
-            View findViewById2 = findViewById(a.g.img_guard_club_list_back);
+            FrameLayout frameLayout = (FrameLayout) findViewById(a.f.container_guard_club_member_list);
+            this.bNu = (TextView) findViewById(a.f.tv_guard_club_list_title);
+            View findViewById2 = findViewById(a.f.img_guard_club_list_back);
             findViewById2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.GuardClubMemberListActivity.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     GuardClubMemberListActivity.this.finish();
                 }
             });
-            BackBar backBar = (BackBar) findViewById(a.g.backbar);
+            BackBar backBar = (BackBar) findViewById(a.f.backbar);
             backBar.setCallback(new BackBar.a() { // from class: com.baidu.tieba.ala.guardclub.GuardClubMemberListActivity.2
                 @Override // com.baidu.live.view.BackBar.a
                 public void onBack() {
@@ -78,8 +78,8 @@ public class GuardClubMemberListActivity extends BaseActivity<GuardClubMemberLis
                 findViewById2.setVisibility(0);
                 backBar.setVisibility(8);
             }
-            this.gzY = new j(this, getIntent().getLongExtra("live_id", 0L), getIntent().getLongExtra("room_id", 0L), getIntent().getLongExtra("anchor_id", 0L), getIntent().getStringExtra("feed_id"), getIntent().getBooleanExtra("is_live_owner", false), true, true, true, getIntent().getStringExtra(IntentConfig.OTHER_PARAMS), getUniqueId(), this.gAI);
-            View view = this.gzY.getView();
+            this.gFM = new j(this, getIntent().getLongExtra("live_id", 0L), getIntent().getLongExtra("room_id", 0L), getIntent().getLongExtra("anchor_id", 0L), getIntent().getStringExtra("feed_id"), getIntent().getBooleanExtra("is_live_owner", false), true, true, true, getIntent().getStringExtra(IntentConfig.OTHER_PARAMS), getUniqueId(), this.gGw);
+            View view = this.gFM.getView();
             if (view != null) {
                 frameLayout.addView(view, new FrameLayout.LayoutParams(-1, -1));
             }
@@ -107,8 +107,8 @@ public class GuardClubMemberListActivity extends BaseActivity<GuardClubMemberLis
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.gzY != null) {
-            this.gzY.aVG();
+        if (this.gFM != null) {
+            this.gFM.aYg();
         }
         MessageManager.getInstance().unRegisterListener(this.notifyDialogDismissListener);
     }

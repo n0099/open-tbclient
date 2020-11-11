@@ -11,13 +11,13 @@ import android.os.SystemClock;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f3991a;
+    private static Context f3993a;
     private static boolean b = false;
-    private static b oyU = null;
-    private static a oyV = null;
-    private static c oyW = null;
-    private static c oyX = null;
-    private static c oyY = null;
+    private static b oIn = null;
+    private static a oIo = null;
+    private static c oIp = null;
+    private static c oIq = null;
+    private static c oIr = null;
     private static Object h = new Object();
     private static HandlerThread i = null;
     private static Handler j = null;
@@ -45,16 +45,16 @@ public class b {
     private static void a(Context context, int i2, String str) {
         switch (i2) {
             case 0:
-                oyW = new c(oyU, 0, null);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, oyW);
+                oIp = new c(oIn, 0, null);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, oIp);
                 return;
             case 1:
-                oyX = new c(oyU, 1, str);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/VAID_" + str), false, oyX);
+                oIq = new c(oIn, 1, str);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/VAID_" + str), false, oIq);
                 return;
             case 2:
-                oyY = new c(oyU, 2, str);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/AAID_" + str), false, oyY);
+                oIr = new c(oIn, 2, str);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/AAID_" + str), false, oIr);
                 return;
             default:
                 return;
@@ -88,7 +88,7 @@ public class b {
                     return;
                 }
                 try {
-                    String unused = b.k = b.oyV.a(message.getData().getInt("type"), message.getData().getString("appid"));
+                    String unused = b.k = b.oIo.a(message.getData().getInt("type"), message.getData().getString("appid"));
                 } catch (Exception e) {
                     String unused2 = b.k = "";
                     com.bun.miitmdid.utils.a.a("VMS_IDLG_SDK_Client", "exception", e);
@@ -101,14 +101,14 @@ public class b {
     }
 
     public static b gR(Context context) {
-        if (oyU == null) {
-            oyU = new b();
-            f3991a = context;
+        if (oIn == null) {
+            oIn = new b();
+            f3993a = context;
             f();
-            oyV = new a(f3991a);
+            oIo = new a(f3993a);
             c();
         }
-        return oyU;
+        return oIn;
     }
 
     public String a(String str) {
@@ -117,8 +117,8 @@ public class b {
                 return m;
             }
             a(1, str);
-            if (oyX == null && m != null) {
-                a(f3991a, 1, str);
+            if (oIq == null && m != null) {
+                a(f3993a, 1, str);
             }
             return m;
         }
@@ -175,8 +175,8 @@ public class b {
                 return l;
             }
             a(0, (String) null);
-            if (oyW == null) {
-                a(f3991a, 0, null);
+            if (oIp == null) {
+                a(f3993a, 0, null);
             }
             return l;
         }
@@ -189,8 +189,8 @@ public class b {
                 return n;
             }
             a(2, str);
-            if (oyY == null && n != null) {
-                a(f3991a, 2, str);
+            if (oIr == null && n != null) {
+                a(f3993a, 2, str);
             }
             return n;
         }

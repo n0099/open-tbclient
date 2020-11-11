@@ -14,7 +14,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class j {
-    public static void Bq(String str) {
+    public static void BE(String str) {
         int i;
         CustomResponsedMessage runTask;
         int i2 = 0;
@@ -42,12 +42,12 @@ public class j {
         }
         if (i > 0) {
             aq aqVar = new aq(TbadkCoreStatisticKey.FACESHOP_USE_EMOTION);
-            aqVar.aj("obj_param1", i);
+            aqVar.al("obj_param1", i);
             TiebaStatic.log(aqVar);
         }
     }
 
-    public static void bnV() {
+    public static void bqv() {
         new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.j.1
             @Override // java.lang.Runnable
             public void run() {
@@ -68,7 +68,7 @@ public class j {
                                 com.baidu.adp.lib.util.n.close(cursor);
                                 aq aqVar = new aq(TbadkCoreStatisticKey.FACESHOP_TOTAL_NUM);
                                 aqVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
-                                aqVar.aj("obj_param1", i);
+                                aqVar.al("obj_param1", i);
                                 TiebaStatic.log(aqVar);
                             } catch (Throwable th3) {
                                 com.baidu.adp.lib.util.n.close(cursor);
@@ -84,7 +84,7 @@ public class j {
                 }
                 aq aqVar2 = new aq(TbadkCoreStatisticKey.FACESHOP_TOTAL_NUM);
                 aqVar2.dR("uid", TbadkCoreApplication.getCurrentAccount());
-                aqVar2.aj("obj_param1", i);
+                aqVar2.al("obj_param1", i);
                 TiebaStatic.log(aqVar2);
             }
         }).start();

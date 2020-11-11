@@ -11,12 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class d extends BaseAdapter {
-    private a gaB;
-    private ViewGroup gat;
-    public List<com.baidu.live.ar.f> aDs = new ArrayList();
-    private int fYF = -1;
-    private int fYG = -1;
-    private int gae = 0;
+    public List<com.baidu.live.ar.g> aDZ = new ArrayList();
+    private int gex = -1;
+    private int gey = -1;
+    private int gfV = 0;
+    private ViewGroup ggj;
+    private a ggr;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -24,26 +24,26 @@ public class d extends BaseAdapter {
     }
 
     public d(ViewGroup viewGroup) {
-        this.gat = viewGroup;
+        this.ggj = viewGroup;
     }
 
     public void a(a aVar) {
-        this.gaB = aVar;
+        this.ggr = aVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aDs == null) {
+        if (this.aDZ == null) {
             return 0;
         }
-        return this.aDs.size();
+        return this.aDZ.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: tA */
-    public com.baidu.live.ar.f getItem(int i) {
-        return (com.baidu.live.ar.f) ListUtils.getItem(this.aDs, i);
+    /* renamed from: tK */
+    public com.baidu.live.ar.g getItem(int i) {
+        return (com.baidu.live.ar.g) ListUtils.getItem(this.aDZ, i);
     }
 
     @Override // android.widget.Adapter
@@ -51,24 +51,24 @@ public class d extends BaseAdapter {
         return i;
     }
 
-    public void e(List<com.baidu.live.ar.f> list, int i) {
+    public void e(List<com.baidu.live.ar.g> list, int i) {
         if (!ListUtils.isEmpty(list)) {
-            this.aDs.clear();
-            this.aDs.addAll(list);
-            this.fYF = i;
+            this.aDZ.clear();
+            this.aDZ.addAll(list);
+            this.gex = i;
             notifyDataSetChanged();
         }
     }
 
-    public List<com.baidu.live.ar.f> getDatas() {
-        return this.aDs;
+    public List<com.baidu.live.ar.g> getDatas() {
+        return this.aDZ;
     }
 
     @Override // android.widget.Adapter
     public View getView(final int i, View view, ViewGroup viewGroup) {
         final e eVar;
         if (view == null) {
-            view = LayoutInflater.from(this.gat.getContext()).inflate(a.h.face_feature_ar_item_layout, (ViewGroup) null);
+            view = LayoutInflater.from(this.ggj.getContext()).inflate(a.g.face_feature_ar_item_layout, (ViewGroup) null);
             eVar = new e(view);
             view.setTag(eVar);
         } else {
@@ -86,14 +86,14 @@ public class d extends BaseAdapter {
         });
         if (eVar != null) {
             eVar.a(getItem(i));
-            if (this.fYF == i) {
-                eVar.bLR();
+            if (this.gex == i) {
+                eVar.bOr();
             } else {
-                eVar.bLQ();
+                eVar.bOq();
             }
         }
-        if (i == 0 && this.gae != 0) {
-            view.setPadding(this.gae, 0, 0, 0);
+        if (i == 0 && this.gfV != 0) {
+            view.setPadding(this.gfV, 0, 0, 0);
         } else {
             view.setPadding(0, 0, 0, 0);
         }
@@ -101,43 +101,43 @@ public class d extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.live.ar.f fVar, int i, e eVar, int[] iArr, boolean z) {
-        if (fVar != null) {
-            this.fYG = i;
-            if (this.gaB != null) {
-                this.gaB.i(i, eVar.mRootView, z);
+    public void a(com.baidu.live.ar.g gVar, int i, e eVar, int[] iArr, boolean z) {
+        if (gVar != null) {
+            this.gey = i;
+            if (this.ggr != null) {
+                this.ggr.i(i, eVar.mRootView, z);
             }
-            this.fYF = i;
+            this.gex = i;
             if (com.baidu.live.d.AZ().getInt("beauty_subitem_redot", 0) == 1) {
-                com.baidu.live.d.AZ().putBoolean(fVar.getType(), false);
+                com.baidu.live.d.AZ().putBoolean(gVar.getType(), false);
             }
             notifyDataSetChanged();
         }
     }
 
-    public int Gf(String str) {
+    public int Gt(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
-        for (int i = 0; i < this.aDs.size(); i++) {
-            if (TextUtils.equals(str, this.aDs.get(i).getType())) {
+        for (int i = 0; i < this.aDZ.size(); i++) {
+            if (TextUtils.equals(str, this.aDZ.get(i).getType())) {
                 return i;
             }
         }
         return 0;
     }
 
-    public String Gg(String str) {
+    public String Gu(String str) {
         int i = 0;
         if (TextUtils.equals(str, "goddessFace")) {
             i = 1;
         } else if (TextUtils.equals(str, "babyFace")) {
             i = 2;
         }
-        return com.baidu.minivideo.arface.c.gy(i);
+        return com.baidu.minivideo.arface.c.gI(i);
     }
 
-    public void ty(int i) {
-        this.gae = i;
+    public void tI(int i) {
+        this.gfV = i;
     }
 }

@@ -26,19 +26,19 @@ public class c extends e {
             com.baidu.swan.apps.console.c.e("updateWebView", "params is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (!TextUtils.isEmpty(p.mSrc) && d(p.mSrc, p.dqO)) {
+        } else if (!TextUtils.isEmpty(p.mSrc) && d(p.mSrc, p.dwJ)) {
             com.baidu.swan.apps.console.c.e("updateWebView", "params is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         } else {
-            final com.baidu.swan.apps.adaptation.b.c cVar = (com.baidu.swan.apps.adaptation.b.c) com.baidu.swan.apps.v.f.axo().ns(p.cxS);
+            final com.baidu.swan.apps.adaptation.b.c cVar = (com.baidu.swan.apps.adaptation.b.c) com.baidu.swan.apps.v.f.azO().nH(p.cDL);
             if (cVar == null) {
                 com.baidu.swan.apps.console.c.e("updateWebView", "viewManager is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
             if (TextUtils.equals(p.mType, "quickPass")) {
-                eVar.aFg().b(context, "scope_webview_extra_operation", new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.m.c.1
+                eVar.aHG().b(context, "scope_webview_extra_operation", new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.m.c.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.ap.e.b
                     /* renamed from: a */
@@ -47,7 +47,7 @@ public class c extends e {
                             com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, p.callback);
                             p.anz = null;
                         } else {
-                            p.dqN = false;
+                            p.dwI = false;
                             c.this.a(callbackHandler, (SwanAppSlaveManager) cVar, p);
                         }
                         if (!cVar.b(p)) {

@@ -57,10 +57,10 @@ public class v extends b<AbsThreadDataSupport> {
         a(1, new a.b() { // from class: com.baidu.card.v.1
             @Override // com.baidu.card.a.a.b
             public boolean a(a.C0097a c0097a) {
-                if (v.this.afI != null && v.this.afI.bhz() != null) {
-                    com.baidu.tieba.card.n.II(v.this.afI.bhz().getId());
-                    com.baidu.tieba.card.n.a(v.this.agD.mTitle, v.this.afI.bhz().getId(), R.color.cp_cont_b, R.color.cp_cont_d);
-                    com.baidu.tieba.card.n.a(v.this.agD.agm, v.this.afI.bhz().getId(), R.color.cp_cont_b, R.color.cp_cont_d);
+                if (v.this.afI != null && v.this.afI.bjZ() != null) {
+                    com.baidu.tieba.card.n.IZ(v.this.afI.bjZ().getId());
+                    com.baidu.tieba.card.n.a(v.this.agD.mTitle, v.this.afI.bjZ().getId(), R.color.cp_cont_b, R.color.cp_cont_d);
+                    com.baidu.tieba.card.n.a(v.this.agD.agm, v.this.afI.bjZ().getId(), R.color.cp_cont_b, R.color.cp_cont_d);
                 }
                 return false;
             }

@@ -9,7 +9,7 @@ import java.util.List;
 class t<T extends a> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final l f2082a;
+    private final l f2084a;
     private final int b;
     private List<T> c;
     private List<t<T>> d;
@@ -30,16 +30,16 @@ class t<T extends a> {
 
     private t(l lVar, int i) {
         this.d = null;
-        this.f2082a = lVar;
+        this.f2084a = lVar;
         this.b = i;
     }
 
     private void a() {
         this.d = new ArrayList(4);
-        this.d.add(new t<>(this.f2082a.f2074a, this.f2082a.e, this.f2082a.b, this.f2082a.f, this.b + 1));
-        this.d.add(new t<>(this.f2082a.e, this.f2082a.c, this.f2082a.b, this.f2082a.f, this.b + 1));
-        this.d.add(new t<>(this.f2082a.f2074a, this.f2082a.e, this.f2082a.f, this.f2082a.d, this.b + 1));
-        this.d.add(new t<>(this.f2082a.e, this.f2082a.c, this.f2082a.f, this.f2082a.d, this.b + 1));
+        this.d.add(new t<>(this.f2084a.f2076a, this.f2084a.e, this.f2084a.b, this.f2084a.f, this.b + 1));
+        this.d.add(new t<>(this.f2084a.e, this.f2084a.c, this.f2084a.b, this.f2084a.f, this.b + 1));
+        this.d.add(new t<>(this.f2084a.f2076a, this.f2084a.e, this.f2084a.f, this.f2084a.d, this.b + 1));
+        this.d.add(new t<>(this.f2084a.e, this.f2084a.c, this.f2084a.f, this.f2084a.d, this.b + 1));
         List<T> list = this.c;
         this.c = null;
         for (T t : list) {
@@ -57,13 +57,13 @@ class t<T extends a> {
                 return;
             }
             a();
-        } else if (d2 < this.f2082a.f) {
-            if (d < this.f2082a.e) {
+        } else if (d2 < this.f2084a.f) {
+            if (d < this.f2084a.e) {
                 this.d.get(0).a(d, d2, t);
             } else {
                 this.d.get(1).a(d, d2, t);
             }
-        } else if (d < this.f2082a.e) {
+        } else if (d < this.f2084a.e) {
             this.d.get(2).a(d, d2, t);
         } else {
             this.d.get(3).a(d, d2, t);
@@ -71,13 +71,13 @@ class t<T extends a> {
     }
 
     private void a(l lVar, Collection<T> collection) {
-        if (this.f2082a.a(lVar)) {
+        if (this.f2084a.a(lVar)) {
             if (this.d != null) {
                 for (t<T> tVar : this.d) {
                     tVar.a(lVar, collection);
                 }
             } else if (this.c != null) {
-                if (lVar.b(this.f2082a)) {
+                if (lVar.b(this.f2084a)) {
                     collection.addAll(this.c);
                     return;
                 }
@@ -98,7 +98,7 @@ class t<T extends a> {
 
     public void a(T t) {
         Point a2 = t.a();
-        if (this.f2082a.a(a2.x, a2.y)) {
+        if (this.f2084a.a(a2.x, a2.y)) {
             a(a2.x, a2.y, t);
         }
     }

@@ -36,8 +36,8 @@ public class i extends b<com.baidu.swan.pms.model.i> implements com.baidu.swan.p
     public ContentValues aj(com.baidu.swan.pms.model.i iVar) {
         ContentValues e = super.e(iVar);
         e.put("max_age", Long.valueOf(iVar.maxAge));
-        e.put("abi", iVar.ebU.id);
-        e.put("lib_name", iVar.cMz);
+        e.put("abi", iVar.ehM.id);
+        e.put("lib_name", iVar.cSs);
         return e;
     }
 
@@ -46,8 +46,8 @@ public class i extends b<com.baidu.swan.pms.model.i> implements com.baidu.swan.p
             com.baidu.swan.pms.model.i iVar = new com.baidu.swan.pms.model.i();
             if (a(cursor, iVar)) {
                 iVar.maxAge = cursor.getLong(a(cursor, "max_age"));
-                iVar.ebU = AbiType.findById(cursor.getString(a(cursor, "abi")), null);
-                iVar.cMz = cursor.getString(a(cursor, "lib_name"));
+                iVar.ehM = AbiType.findById(cursor.getString(a(cursor, "abi")), null);
+                iVar.cSs = cursor.getString(a(cursor, "lib_name"));
                 return iVar;
             }
         }

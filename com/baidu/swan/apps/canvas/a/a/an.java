@@ -4,24 +4,24 @@ import android.graphics.Canvas;
 import org.json.JSONArray;
 /* loaded from: classes10.dex */
 public class an extends a {
-    private i cwH;
+    private i cCA;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
         if (jSONArray.length() > 0) {
-            this.cwH = new i(jSONArray);
+            this.cCA = new i(jSONArray);
         }
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (this.cwH != null && this.cwH.isValid()) {
-            if (this.cwH.aia()) {
-                bVar.mStrokePaint.setShader(this.cwH.aib());
+        if (this.cCA != null && this.cCA.isValid()) {
+            if (this.cCA.akA()) {
+                bVar.mStrokePaint.setShader(this.cCA.akB());
                 return;
             }
-            bVar.mStrokeColor = this.cwH.getColor();
-            bVar.mStrokePaint.setColor(this.cwH.getColor());
+            bVar.mStrokeColor = this.cCA.getColor();
+            bVar.mStrokePaint.setColor(this.cCA.getColor());
             bVar.mFillPaint.setShader(null);
         }
     }

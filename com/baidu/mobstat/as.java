@@ -8,7 +8,7 @@ public class as {
     private static final as e = new as();
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f2544a = false;
+    private boolean f2546a = false;
     private float b = 50.0f;
     private long c = 500;
     private volatile boolean d;
@@ -25,7 +25,7 @@ public class as {
                     int optInt = jSONObject.optInt("close");
                     String optString = jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA);
                     String optString2 = jSONObject.optString("duration");
-                    this.f2544a = optInt != 0;
+                    this.f2546a = optInt != 0;
                     if (!TextUtils.isEmpty(optString)) {
                         try {
                             this.b = Float.valueOf(optString).floatValue();
@@ -46,7 +46,7 @@ public class as {
     }
 
     public boolean b() {
-        return this.f2544a;
+        return this.f2546a;
     }
 
     public float c() {

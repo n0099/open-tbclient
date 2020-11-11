@@ -3,14 +3,14 @@ package com.baidu.tieba.yuyinala.liveroom.messages;
 import com.baidu.live.adp.framework.message.HttpMessage;
 /* loaded from: classes4.dex */
 public class b extends HttpMessage {
-    private long bmB;
+    private long bnV;
 
     public void setLiveId(long j) {
-        this.bmB = j;
+        this.bnV = j;
     }
 
-    public long dVu() {
-        return this.bmB;
+    public long dYj() {
+        return this.bnV;
     }
 
     public b() {
@@ -18,6 +18,6 @@ public class b extends HttpMessage {
     }
 
     public void setParams() {
-        addParam("live_id", this.bmB);
+        addParam("live_id", this.bnV);
     }
 }

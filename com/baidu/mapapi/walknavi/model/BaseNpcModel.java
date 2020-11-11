@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 public class BaseNpcModel {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2173a = "";
+    private String f2175a = "";
     private String b = "";
     private String c = "";
     private Bitmap d = null;
@@ -13,11 +13,11 @@ public class BaseNpcModel {
     private boolean f = false;
 
     public String getDownLoadKey() {
-        return this.f2173a;
+        return this.f2175a;
     }
 
     public void setDownLoadKey(String str) {
-        this.f2173a = str;
+        this.f2175a = str;
     }
 
     public String getOriginTitle() {

@@ -3,7 +3,7 @@ package com.vivo.push.b;
 public final class j extends com.vivo.push.y {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4639a;
+    private String f4641a;
 
     public j() {
         super(2013);
@@ -11,16 +11,16 @@ public final class j extends com.vivo.push.y {
 
     public j(String str) {
         this();
-        this.f4639a = str;
+        this.f4641a = str;
     }
 
     @Override // com.vivo.push.y
     protected final void c(com.vivo.push.a aVar) {
-        aVar.a("MsgArriveCommand.MSG_TAG", this.f4639a);
+        aVar.a("MsgArriveCommand.MSG_TAG", this.f4641a);
     }
 
     @Override // com.vivo.push.y
     protected final void d(com.vivo.push.a aVar) {
-        this.f4639a = aVar.a("MsgArriveCommand.MSG_TAG");
+        this.f4641a = aVar.a("MsgArriveCommand.MSG_TAG");
     }
 }

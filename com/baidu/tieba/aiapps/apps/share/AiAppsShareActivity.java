@@ -39,7 +39,7 @@ public class AiAppsShareActivity extends Activity {
         }
         a aVar = new a();
         try {
-            aVar.dr(new JSONObject(stringExtra));
+            aVar.dx(new JSONObject(stringExtra));
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig(this, aVar, false)));
             MessageManager.getInstance().registerListener(this.listener);
         } catch (JSONException e) {

@@ -29,7 +29,7 @@ public abstract class a {
     public static class C0099a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f1292a;
+        public Context f1294a;
         public com.baidu.cesium.e.a ame;
     }
 
@@ -119,20 +119,20 @@ public abstract class a {
     public static class f {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f1293a;
+        public boolean f1295a;
     }
 
     /* loaded from: classes6.dex */
     public static class g {
 
         /* renamed from: a  reason: collision with root package name */
-        public g.a f1294a;
+        public g.a f1296a;
         public Exception acZ;
         public int b;
 
         public g(int i, g.a aVar, Exception exc) {
             this.b = i;
-            this.f1294a = aVar;
+            this.f1296a = aVar;
             this.acZ = exc;
         }
 

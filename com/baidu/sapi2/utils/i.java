@@ -8,7 +8,7 @@ import android.view.ViewTreeObserver;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f3555a;
+    private View f3558a;
     int b;
     private b c;
 
@@ -20,7 +20,7 @@ public class i {
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             Rect rect = new Rect();
-            i.this.f3555a.getWindowVisibleDisplayFrame(rect);
+            i.this.f3558a.getWindowVisibleDisplayFrame(rect);
             int height = rect.height();
             System.out.println("" + height);
             i iVar = i.this;
@@ -51,8 +51,8 @@ public class i {
     }
 
     public i(Activity activity) {
-        this.f3555a = activity.getWindow().getDecorView();
-        this.f3555a.getViewTreeObserver().addOnGlobalLayoutListener(new a());
+        this.f3558a = activity.getWindow().getDecorView();
+        this.f3558a.getViewTreeObserver().addOnGlobalLayoutListener(new a());
     }
 
     private void a(b bVar) {

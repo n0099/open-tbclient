@@ -10,7 +10,7 @@ public class a {
     private static final boolean c = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1472a;
+    public String f1474a;
     private String d;
     private String e;
     private String f;
@@ -53,6 +53,6 @@ public class a {
     }
 
     public String e() {
-        return this.f1472a;
+        return this.f1474a;
     }
 }

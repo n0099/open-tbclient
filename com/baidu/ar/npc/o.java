@@ -7,7 +7,7 @@ import com.baidu.ar.npc.ArBridge;
 public class o implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f1226a;
+    final /* synthetic */ int f1228a;
     final /* synthetic */ int b;
     final /* synthetic */ float c;
     final /* synthetic */ float d;
@@ -24,7 +24,7 @@ public class o implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(ArBridge arBridge, int i, int i2, float f, float f2, float f3, float f4, int i3, float f5, float f6, float f7, float f8, long j) {
         this.m = arBridge;
-        this.f1226a = i;
+        this.f1228a = i;
         this.b = i2;
         this.c = f;
         this.d = f2;
@@ -46,7 +46,7 @@ public class o implements Runnable {
         eVar = this.m.j;
         Log.d("orientation", append.append(eVar.name()).toString());
         ArBridge arBridge = this.m;
-        int i = this.f1226a;
+        int i = this.f1228a;
         int i2 = this.b;
         float f = this.c;
         float f2 = this.d;

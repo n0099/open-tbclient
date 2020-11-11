@@ -15,13 +15,13 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes4.dex */
 public class d extends BdBaseModel {
-    private a bnm;
-    private String bnn;
-    private TbHttpMessageTask bno;
-    private String bnp;
-    private TbHttpMessageTask bnq;
-    private HttpMessageListener bnr;
-    private HttpMessageListener bns;
+    private a boF;
+    private String boG;
+    private TbHttpMessageTask boH;
+    private String boI;
+    private TbHttpMessageTask boJ;
+    private HttpMessageListener boK;
+    private HttpMessageListener boL;
     private BdSwitchView.SwitchState mState;
 
     /* loaded from: classes4.dex */
@@ -33,52 +33,52 @@ public class d extends BdBaseModel {
 
     public d(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.bnr = new HttpMessageListener(1021028) { // from class: com.baidu.live.m.d.1
+        this.boK = new HttpMessageListener(1021028) { // from class: com.baidu.live.m.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021028 && d.this.bnm != null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021028 && d.this.boF != null) {
                     if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
-                        d.this.bnm.cR(httpResponsedMessage.getErrorString());
+                        d.this.boF.cR(httpResponsedMessage.getErrorString());
                     } else if (httpResponsedMessage.getError() == 0) {
-                        d.this.bnm.a(d.this.mState, 1);
+                        d.this.boF.a(d.this.mState, 1);
                     } else {
-                        d.this.bnm.cR(httpResponsedMessage.getErrorString());
+                        d.this.boF.cR(httpResponsedMessage.getErrorString());
                     }
                 }
             }
         };
-        this.bns = new HttpMessageListener(1021032) { // from class: com.baidu.live.m.d.2
+        this.boL = new HttpMessageListener(1021032) { // from class: com.baidu.live.m.d.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021032 && d.this.bnm != null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021032 && d.this.boF != null) {
                     if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
-                        d.this.bnm.cR(httpResponsedMessage.getErrorString());
+                        d.this.boF.cR(httpResponsedMessage.getErrorString());
                     } else if (httpResponsedMessage.getError() == 0) {
-                        d.this.bnm.a(d.this.mState, 2);
+                        d.this.boF.a(d.this.mState, 2);
                     } else {
-                        d.this.bnm.cR(httpResponsedMessage.getErrorString());
+                        d.this.boF.cR(httpResponsedMessage.getErrorString());
                     }
                 }
             }
         };
-        NR();
-        this.bnr.setTag(getUniqueId());
-        this.bns.setTag(getUniqueId());
-        registerListener(this.bnr);
-        registerListener(this.bns);
+        Or();
+        this.boK.setTag(getUniqueId());
+        this.boL.setTag(getUniqueId());
+        registerListener(this.boK);
+        registerListener(this.boL);
     }
 
-    private void NR() {
-        this.bnn = TbConfig.SERVER_ADDRESS + "ala/relation/switchPush";
-        this.bno = new TbHttpMessageTask(1021028, this.bnn);
-        this.bno.setResponsedClass(JsonHttpResponsedMessage.class);
-        MessageManager.getInstance().registerTask(this.bno);
-        this.bnp = TbConfig.SERVER_ADDRESS + "ala/relation/globalSwitchPush";
-        this.bnq = new TbHttpMessageTask(1021032, this.bnp);
-        this.bnq.setResponsedClass(JsonHttpResponsedMessage.class);
-        MessageManager.getInstance().registerTask(this.bnq);
+    private void Or() {
+        this.boG = TbConfig.SERVER_ADDRESS + "ala/relation/switchPush";
+        this.boH = new TbHttpMessageTask(1021028, this.boG);
+        this.boH.setResponsedClass(JsonHttpResponsedMessage.class);
+        MessageManager.getInstance().registerTask(this.boH);
+        this.boI = TbConfig.SERVER_ADDRESS + "ala/relation/globalSwitchPush";
+        this.boJ = new TbHttpMessageTask(1021032, this.boI);
+        this.boJ.setResponsedClass(JsonHttpResponsedMessage.class);
+        MessageManager.getInstance().registerTask(this.boJ);
     }
 
     public boolean a(BdSwitchView.SwitchState switchState, String str, int i) {

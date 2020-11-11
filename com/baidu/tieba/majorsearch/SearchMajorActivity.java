@@ -9,47 +9,47 @@ import com.baidu.tieba.majorsearch.model.SearchMajorModel;
 import java.util.List;
 /* loaded from: classes24.dex */
 public class SearchMajorActivity extends BaseActivity<SearchMajorActivity> implements SearchMajorModel.a {
-    private com.baidu.tieba.majorsearch.b.a kHH;
-    private SearchMajorModel kHI;
+    private com.baidu.tieba.majorsearch.b.a kND;
+    private SearchMajorModel kNE;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.kHH = new com.baidu.tieba.majorsearch.b.a(this);
-        this.kHI = new SearchMajorModel(getPageContext(), this);
+        this.kND = new com.baidu.tieba.majorsearch.b.a(this);
+        this.kNE = new SearchMajorModel(getPageContext(), this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.kHH.onResume();
+        this.kND.onResume();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.kHH != null) {
-            this.kHH.onChangeSkinType(i);
+        if (this.kND != null) {
+            this.kND.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.tieba.majorsearch.model.SearchMajorModel.a
-    public void aa(List<String> list) {
-        if (this.kHH != null && this.kHH.cZK() != null) {
-            this.kHH.ez(list);
-            hideNetRefreshView(this.kHH.cZK().cZF());
+    public void af(List<String> list) {
+        if (this.kND != null && this.kND.dcm() != null) {
+            this.kND.eH(list);
+            hideNetRefreshView(this.kND.dcm().dch());
         }
     }
 
     @Override // com.baidu.tieba.majorsearch.model.SearchMajorModel.a
     public void b(ErrorData errorData) {
-        if (this.kHH != null && this.kHH.cZK() != null) {
-            this.kHH.d(errorData);
-            getRefreshView().ru(R.drawable.new_pic_emotion_07);
-            showNetRefreshViewNoClick(this.kHH.cZK().cZF(), null);
-            getRefreshView().DP(getString(R.string.search_major_no_data));
+        if (this.kND != null && this.kND.dcm() != null) {
+            this.kND.d(errorData);
+            getRefreshView().rE(R.drawable.new_pic_emotion_07);
+            showNetRefreshViewNoClick(this.kND.dcm().dch(), null);
+            getRefreshView().Ed(getString(R.string.search_major_no_data));
         }
     }
 

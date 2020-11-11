@@ -3,7 +3,7 @@ package com.baidu.fsg.base;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f1442a = false;
+    public static final boolean f1444a = false;
     public static final String b = "com.baidu.fsg.base";
     public static final String c = "release";
     public static final String d = "";

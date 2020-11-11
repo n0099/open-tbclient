@@ -43,25 +43,25 @@ public abstract class a<T> extends b {
         c cVar = new c(inflate);
         T t = this.mData.get(i);
         a(cVar, t, i);
-        cVar.i(new View$OnClickListenerC0589a(t, i));
+        cVar.j(new View$OnClickListenerC0601a(t, i));
         return inflate;
     }
 
     /* renamed from: com.baidu.tbadk.widget.extend.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private class View$OnClickListenerC0589a implements View.OnClickListener {
-        private T fxR;
+    private class View$OnClickListenerC0601a implements View.OnClickListener {
+        private T fDH;
         private int position;
 
-        public View$OnClickListenerC0589a(T t, int i) {
-            this.fxR = t;
+        public View$OnClickListenerC0601a(T t, int i) {
+            this.fDH = t;
             this.position = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (a.this.akh != null) {
-                a.this.akh.a(view, this.fxR, this.position, this.position);
+                a.this.akh.a(view, this.fDH, this.position, this.position);
             }
         }
     }

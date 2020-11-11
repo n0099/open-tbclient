@@ -7,11 +7,11 @@ import java.io.FileFilter;
 class c implements FileFilter {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f2975a;
+    final /* synthetic */ b f2977a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.f2975a = bVar;
+        this.f2977a = bVar;
     }
 
     @Override // java.io.FileFilter

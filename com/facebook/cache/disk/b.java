@@ -11,96 +11,96 @@ import javax.annotation.Nullable;
 public class b {
     private final Context mContext;
     private final int mVersion;
-    private final CacheErrorLogger oAD;
-    private final String oAK;
-    private final j<File> oAL;
-    private final long oAM;
-    private final long oAN;
-    private final long oAO;
-    private final g oAP;
-    private final CacheEventListener oAQ;
-    private final com.facebook.common.a.b oAR;
-    private final boolean oAS;
+    private final CacheErrorLogger oJW;
+    private final String oKd;
+    private final j<File> oKe;
+    private final long oKf;
+    private final long oKg;
+    private final long oKh;
+    private final g oKi;
+    private final CacheEventListener oKj;
+    private final com.facebook.common.a.b oKk;
+    private final boolean oKl;
 
     private b(a aVar) {
         CacheErrorLogger cacheErrorLogger;
         CacheEventListener cacheEventListener;
         com.facebook.common.a.b bVar;
         this.mVersion = aVar.mVersion;
-        this.oAK = (String) com.facebook.common.internal.g.checkNotNull(aVar.oAK);
-        this.oAL = (j) com.facebook.common.internal.g.checkNotNull(aVar.oAL);
-        this.oAM = aVar.oAT;
-        this.oAN = aVar.oAU;
-        this.oAO = aVar.oAV;
-        this.oAP = (g) com.facebook.common.internal.g.checkNotNull(aVar.oAP);
-        if (aVar.oAD == null) {
-            cacheErrorLogger = com.facebook.cache.common.e.efB();
+        this.oKd = (String) com.facebook.common.internal.g.checkNotNull(aVar.oKd);
+        this.oKe = (j) com.facebook.common.internal.g.checkNotNull(aVar.oKe);
+        this.oKf = aVar.oKm;
+        this.oKg = aVar.oKn;
+        this.oKh = aVar.oKo;
+        this.oKi = (g) com.facebook.common.internal.g.checkNotNull(aVar.oKi);
+        if (aVar.oJW == null) {
+            cacheErrorLogger = com.facebook.cache.common.e.ejq();
         } else {
-            cacheErrorLogger = aVar.oAD;
+            cacheErrorLogger = aVar.oJW;
         }
-        this.oAD = cacheErrorLogger;
-        if (aVar.oAQ == null) {
-            cacheEventListener = com.facebook.cache.common.f.efC();
+        this.oJW = cacheErrorLogger;
+        if (aVar.oKj == null) {
+            cacheEventListener = com.facebook.cache.common.f.ejr();
         } else {
-            cacheEventListener = aVar.oAQ;
+            cacheEventListener = aVar.oKj;
         }
-        this.oAQ = cacheEventListener;
-        if (aVar.oAR == null) {
-            bVar = com.facebook.common.a.c.egf();
+        this.oKj = cacheEventListener;
+        if (aVar.oKk == null) {
+            bVar = com.facebook.common.a.c.ejU();
         } else {
-            bVar = aVar.oAR;
+            bVar = aVar.oKk;
         }
-        this.oAR = bVar;
+        this.oKk = bVar;
         this.mContext = aVar.mContext;
-        this.oAS = aVar.oAS;
+        this.oKl = aVar.oKl;
     }
 
     public int getVersion() {
         return this.mVersion;
     }
 
-    public String efK() {
-        return this.oAK;
+    public String ejz() {
+        return this.oKd;
     }
 
-    public j<File> efL() {
-        return this.oAL;
+    public j<File> ejA() {
+        return this.oKe;
     }
 
-    public long efM() {
-        return this.oAM;
+    public long ejB() {
+        return this.oKf;
     }
 
-    public long efN() {
-        return this.oAN;
+    public long ejC() {
+        return this.oKg;
     }
 
-    public long efO() {
-        return this.oAO;
+    public long ejD() {
+        return this.oKh;
     }
 
-    public g efP() {
-        return this.oAP;
+    public g ejE() {
+        return this.oKi;
     }
 
-    public CacheErrorLogger efQ() {
-        return this.oAD;
+    public CacheErrorLogger ejF() {
+        return this.oJW;
     }
 
-    public CacheEventListener efR() {
-        return this.oAQ;
+    public CacheEventListener ejG() {
+        return this.oKj;
     }
 
-    public com.facebook.common.a.b efS() {
-        return this.oAR;
+    public com.facebook.common.a.b ejH() {
+        return this.oKk;
     }
 
     public Context getContext() {
         return this.mContext;
     }
 
-    public boolean efT() {
-        return this.oAS;
+    public boolean ejI() {
+        return this.oKl;
     }
 
     public static a gX(@Nullable Context context) {
@@ -112,34 +112,34 @@ public class b {
         @Nullable
         private final Context mContext;
         private int mVersion;
-        private CacheErrorLogger oAD;
-        private String oAK;
-        private j<File> oAL;
-        private g oAP;
-        private CacheEventListener oAQ;
-        private com.facebook.common.a.b oAR;
-        private boolean oAS;
-        private long oAT;
-        private long oAU;
-        private long oAV;
+        private CacheErrorLogger oJW;
+        private String oKd;
+        private j<File> oKe;
+        private g oKi;
+        private CacheEventListener oKj;
+        private com.facebook.common.a.b oKk;
+        private boolean oKl;
+        private long oKm;
+        private long oKn;
+        private long oKo;
 
         private a(@Nullable Context context) {
             this.mVersion = 1;
-            this.oAK = "image_cache";
-            this.oAT = 41943040L;
-            this.oAU = 10485760L;
-            this.oAV = PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE;
-            this.oAP = new com.facebook.cache.disk.a();
+            this.oKd = "image_cache";
+            this.oKm = 41943040L;
+            this.oKn = 10485760L;
+            this.oKo = PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE;
+            this.oKi = new com.facebook.cache.disk.a();
             this.mContext = context;
         }
 
-        public b efU() {
-            com.facebook.common.internal.g.d((this.oAL == null && this.mContext == null) ? false : true, "Either a non-null context or a base directory path or supplier must be provided.");
-            if (this.oAL == null && this.mContext != null) {
-                this.oAL = new j<File>() { // from class: com.facebook.cache.disk.b.a.1
+        public b ejJ() {
+            com.facebook.common.internal.g.d((this.oKe == null && this.mContext == null) ? false : true, "Either a non-null context or a base directory path or supplier must be provided.");
+            if (this.oKe == null && this.mContext != null) {
+                this.oKe = new j<File>() { // from class: com.facebook.cache.disk.b.a.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.facebook.common.internal.j
-                    /* renamed from: efV */
+                    /* renamed from: ejK */
                     public File get() {
                         return a.this.mContext.getApplicationContext().getCacheDir();
                     }

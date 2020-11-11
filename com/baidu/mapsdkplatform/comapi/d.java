@@ -6,17 +6,17 @@ import java.io.FilenameFilter;
 class d implements FilenameFilter {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f2212a;
+    final /* synthetic */ String f2214a;
     final /* synthetic */ NativeLoader b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(NativeLoader nativeLoader, String str) {
         this.b = nativeLoader;
-        this.f2212a = str;
+        this.f2214a = str;
     }
 
     @Override // java.io.FilenameFilter
     public boolean accept(File file, String str) {
-        return (str == null || !str.contains("libBaiduMapSDK_") || str.contains(this.f2212a)) ? false : true;
+        return (str == null || !str.contains("libBaiduMapSDK_") || str.contains(this.f2214a)) ? false : true;
     }
 }

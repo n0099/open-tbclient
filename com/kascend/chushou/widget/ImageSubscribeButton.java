@@ -11,9 +11,9 @@ import tv.chushou.zues.widget.fresco.FrescoThumbnailView;
 public class ImageSubscribeButton extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4246a;
+    private String f4248a;
     private String b;
-    private FrescoThumbnailView pku;
+    private FrescoThumbnailView ptS;
 
     public ImageSubscribeButton(Context context) {
         this(context, null, 0);
@@ -26,11 +26,11 @@ public class ImageSubscribeButton extends LinearLayout {
     public ImageSubscribeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         LayoutInflater.from(context).inflate(a.h.widget_image_subscribe_button, (ViewGroup) this, true);
-        this.pku = (FrescoThumbnailView) findViewById(a.f.iv_image_subscribe_btn);
+        this.ptS = (FrescoThumbnailView) findViewById(a.f.iv_image_subscribe_btn);
     }
 
     public void a(String str, String str2) {
-        this.f4246a = str;
+        this.f4248a = str;
         this.b = str2;
     }
 
@@ -38,15 +38,15 @@ public class ImageSubscribeButton extends LinearLayout {
         if (i == 1) {
             setVisibility(0);
             setEnabled(false);
-            this.pku.cc(this.b, a.e.btn_follow_user_disabled);
+            this.ptS.ce(this.b, a.e.btn_follow_user_disabled);
         } else if (i == 2) {
             setVisibility(0);
             setEnabled(true);
-            this.pku.cc(this.b, a.e.btn_follow_user_disabled);
+            this.ptS.ce(this.b, a.e.btn_follow_user_disabled);
         } else if (i == 0) {
             setVisibility(0);
             setEnabled(true);
-            this.pku.cc(this.f4246a, a.e.btn_follow_user_enabled);
+            this.ptS.ce(this.f4248a, a.e.btn_follow_user_enabled);
         } else if (i == -1) {
             setVisibility(8);
         }

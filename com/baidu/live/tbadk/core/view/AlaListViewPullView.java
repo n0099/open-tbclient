@@ -16,8 +16,8 @@ public class AlaListViewPullView extends TbListCommonPullView {
 
     @Override // com.baidu.live.tbadk.core.view.TbListCommonPullView, com.baidu.live.adp.widget.listview.BdIListPullView
     public View createView() {
-        View inflate = LayoutInflater.from(getContext()).inflate(a.h.sdk_pull_to_refresh_view, (ViewGroup) null);
-        this.progressBar = (ProgressBar) inflate.findViewById(a.g.refresh_progress);
+        View inflate = LayoutInflater.from(getContext()).inflate(a.g.sdk_pull_to_refresh_view, (ViewGroup) null);
+        this.progressBar = (ProgressBar) inflate.findViewById(a.f.refresh_progress);
         return inflate;
     }
 

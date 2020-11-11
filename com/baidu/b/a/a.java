@@ -7,14 +7,14 @@ public class a {
 
     public byte[] a(byte[] bArr) {
         f fVar = new f();
-        byte[] a2 = c.a(bArr, bArr.length + ((this.acP.length + 1) * f.f1240a));
+        byte[] a2 = c.a(bArr, bArr.length + ((this.acP.length + 1) * f.f1242a));
         c.a(a2, fVar.a(), bArr.length);
         for (int i = 0; i < this.acP.length; i++) {
             g gVar = this.acP[i];
-            int length = bArr.length + ((i + 1) * f.f1240a);
+            int length = bArr.length + ((i + 1) * f.f1242a);
             fVar.a(gVar.i(a2, 0, length), gVar.a(), gVar.b(), gVar.c());
             c.a(a2, fVar.a(), length);
         }
-        return Arrays.copyOf(fVar.a(), f.f1240a);
+        return Arrays.copyOf(fVar.a(), f.f1242a);
     }
 }

@@ -14,7 +14,7 @@ import java.io.InputStream;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f2990a = "";
+    public static String f2992a = "";
     public static String b = "";
     public static String c = "";
 

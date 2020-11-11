@@ -12,10 +12,10 @@ import org.xmlpull.v1.XmlPullParserFactory;
 public class gq {
 
     /* renamed from: a  reason: collision with root package name */
-    private static gq f4930a;
+    private static gq f4932a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Map<String, Object> f403a = new ConcurrentHashMap();
+    private Map<String, Object> f405a = new ConcurrentHashMap();
     private Map<String, Object> b = new ConcurrentHashMap();
 
     private gq() {
@@ -25,10 +25,10 @@ public class gq {
     public static synchronized gq a() {
         gq gqVar;
         synchronized (gq.class) {
-            if (f4930a == null) {
-                f4930a = new gq();
+            if (f4932a == null) {
+                f4932a = new gq();
             }
-            gqVar = f4930a;
+            gqVar = f4932a;
         }
         return gqVar;
     }
@@ -56,7 +56,7 @@ public class gq {
 
     /* renamed from: a  reason: collision with other method in class */
     public Object m321a(String str, String str2) {
-        return this.f403a.get(a(str, str2));
+        return this.f405a.get(a(str, str2));
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -106,13 +106,13 @@ public class gq {
                                 newPullParser.next();
                                 String nextText6 = newPullParser.nextText();
                                 String a3 = a(nextText4, nextText5);
-                                if (!this.f403a.containsKey(a3)) {
+                                if (!this.f405a.containsKey(a3)) {
                                     try {
                                         Class<?> cls2 = Class.forName(nextText6);
                                         if (gp.class.isAssignableFrom(cls2)) {
-                                            this.f403a.put(a3, cls2.newInstance());
+                                            this.f405a.put(a3, cls2.newInstance());
                                         } else if (gk.class.isAssignableFrom(cls2)) {
-                                            this.f403a.put(a3, cls2);
+                                            this.f405a.put(a3, cls2);
                                         }
                                     } catch (ClassNotFoundException e2) {
                                         e2.printStackTrace();
@@ -137,6 +137,6 @@ public class gq {
         if (!(obj instanceof gp) && !(obj instanceof Class)) {
             throw new IllegalArgumentException("Provider must be a PacketExtensionProvider or a Class instance.");
         }
-        this.f403a.put(a(str, str2), obj);
+        this.f405a.put(a(str, str2), obj);
     }
 }

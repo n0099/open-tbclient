@@ -16,16 +16,16 @@ import org.json.JSONObject;
 public class CooperService implements ICooperService {
 
     /* renamed from: a  reason: collision with root package name */
-    private static CooperService f2488a;
+    private static CooperService f2490a;
     private HeadObject b = new HeadObject();
 
     public static synchronized CooperService instance() {
         CooperService cooperService;
         synchronized (CooperService.class) {
-            if (f2488a == null) {
-                f2488a = new CooperService();
+            if (f2490a == null) {
+                f2490a = new CooperService();
             }
-            cooperService = f2488a;
+            cooperService = f2490a;
         }
         return cooperService;
     }

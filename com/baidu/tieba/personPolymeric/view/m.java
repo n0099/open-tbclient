@@ -3,7 +3,7 @@ package com.baidu.tieba.personPolymeric.view;
 import android.content.Context;
 /* loaded from: classes24.dex */
 public class m extends com.baidu.card.h {
-    private com.baidu.tieba.play.operableVideoView.c mbe;
+    private com.baidu.tieba.play.operableVideoView.c mhb;
 
     public m(Context context) {
         super(context);
@@ -11,8 +11,8 @@ public class m extends com.baidu.card.h {
 
     @Override // com.baidu.card.h, com.baidu.card.at
     protected com.baidu.tieba.play.operableVideoView.a tH() {
-        this.mbe = new com.baidu.tieba.play.operableVideoView.c(this.mContext, this.aiw);
-        return this.mbe;
+        this.mhb = new com.baidu.tieba.play.operableVideoView.c(this.mContext, this.aiw);
+        return this.mhb;
     }
 
     @Override // com.baidu.card.at

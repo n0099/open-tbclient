@@ -11,8 +11,8 @@ public class z implements au {
     private z() {
     }
 
-    public static z aft() {
-        return a.cpF;
+    public static z ahT() {
+        return a.cvD;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.au
@@ -28,6 +28,6 @@ public class z implements au {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes10.dex */
     public static class a {
-        private static final z cpF = new z();
+        private static final z cvD = new z();
     }
 }

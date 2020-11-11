@@ -12,16 +12,16 @@ public class g extends com.baidu.platform.base.e {
     }
 
     private void a(IndoorRoutePlanOption indoorRoutePlanOption) {
-        this.f2814a.a("qt", "indoornavi");
-        this.f2814a.a("rp_format", "json");
-        this.f2814a.a("version", "1");
+        this.f2816a.a("qt", "indoornavi");
+        this.f2816a.a("rp_format", "json");
+        this.f2816a.a("version", "1");
         GeoPoint ll2mc = CoordUtil.ll2mc(indoorRoutePlanOption.mFrom.getLocation());
         if (ll2mc != null) {
-            this.f2814a.a(IXAdRequestInfo.SN, (String.format("%d,%d", Double.valueOf(ll2mc.getLongitudeE6()), Double.valueOf(ll2mc.getLatitudeE6())) + "|" + indoorRoutePlanOption.mFrom.getFloor()).replaceAll(" ", ""));
+            this.f2816a.a(IXAdRequestInfo.SN, (String.format("%d,%d", Double.valueOf(ll2mc.getLongitudeE6()), Double.valueOf(ll2mc.getLatitudeE6())) + "|" + indoorRoutePlanOption.mFrom.getFloor()).replaceAll(" ", ""));
         }
         GeoPoint ll2mc2 = CoordUtil.ll2mc(indoorRoutePlanOption.mTo.getLocation());
         if (ll2mc2 != null) {
-            this.f2814a.a(com.baidu.fsg.base.statistics.h.f1493a, (String.format("%d,%d", Double.valueOf(ll2mc2.getLongitudeE6()), Double.valueOf(ll2mc2.getLatitudeE6())) + "|" + indoorRoutePlanOption.mTo.getFloor()).replaceAll(" ", ""));
+            this.f2816a.a(com.baidu.fsg.base.statistics.h.f1495a, (String.format("%d,%d", Double.valueOf(ll2mc2.getLongitudeE6()), Double.valueOf(ll2mc2.getLatitudeE6())) + "|" + indoorRoutePlanOption.mTo.getFloor()).replaceAll(" ", ""));
         }
     }
 

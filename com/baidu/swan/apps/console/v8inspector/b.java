@@ -13,13 +13,13 @@ public class b {
     private static String mTitle = "background";
     private static String mType = "page";
     private static String mUrl = "runtime/index.js";
-    private static String cAG = "ws://localhost:4000";
+    private static String cGz = "ws://localhost:4000";
     private String mId = String.valueOf(System.currentTimeMillis());
-    private String cAH = "http://chrome-devtools-frontend.appspot.com/serve_rev/@793eb32f50bafcb87fb5d1a0fd3f44e66470e580/inspector.html?ws=localhost:4000";
+    private String cGA = "http://chrome-devtools-frontend.appspot.com/serve_rev/@793eb32f50bafcb87fb5d1a0fd3f44e66470e580/inspector.html?ws=localhost:4000";
     private boolean mAttached = false;
-    private boolean cAI = true;
-    private int cAJ = 0;
-    private int cAK = 0;
+    private boolean cGB = true;
+    private int cGC = 0;
+    private int cGD = 0;
     private boolean mVisible = true;
 
     public String toString() {
@@ -30,15 +30,15 @@ public class b {
             jSONObject.putOpt("title", mTitle);
             jSONObject.putOpt("type", mType);
             jSONObject.putOpt("url", mUrl);
-            jSONObject.putOpt("webSocketDebuggerUrl", cAG);
+            jSONObject.putOpt("webSocketDebuggerUrl", cGz);
             jSONObject.putOpt("id", this.mId);
-            jSONObject.putOpt("devtoolsFrontendUrl", this.cAH);
-            jSONObject.putOpt("swanJsVersion", com.baidu.swan.apps.swancore.b.kv(0));
+            jSONObject.putOpt("devtoolsFrontendUrl", this.cGA);
+            jSONObject.putOpt("swanJsVersion", com.baidu.swan.apps.swancore.b.kF(0));
             jSONObject.putOpt("appVersion", ak.getVersionName());
             jSONObject2.putOpt("attached", Boolean.valueOf(this.mAttached));
-            jSONObject2.putOpt(SchemeCollecter.CLASSIFY_EMPTY, Boolean.valueOf(this.cAI));
-            jSONObject2.putOpt("screenX", Integer.valueOf(this.cAJ));
-            jSONObject2.putOpt("screenY", Integer.valueOf(this.cAK));
+            jSONObject2.putOpt(SchemeCollecter.CLASSIFY_EMPTY, Boolean.valueOf(this.cGB));
+            jSONObject2.putOpt("screenX", Integer.valueOf(this.cGC));
+            jSONObject2.putOpt("screenY", Integer.valueOf(this.cGD));
             jSONObject2.putOpt(MapBundleKey.MapObjKey.OBJ_SL_VISI, Boolean.valueOf(this.mVisible));
             jSONObject.putOpt("description", jSONObject2.toString());
             jSONArray.put(jSONObject);

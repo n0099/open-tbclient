@@ -5,10 +5,10 @@ import android.support.v7.widget.ActivityChooserView;
 public class jl {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f5003a = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+    private static int f5005a = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
 
     public static void a(ji jiVar, byte b) {
-        a(jiVar, b, f5003a);
+        a(jiVar, b, f5005a);
     }
 
     public static void a(ji jiVar, byte b, int i) {
@@ -47,18 +47,18 @@ public class jl {
                 jiVar.m489a();
                 while (true) {
                     jf m485a = jiVar.m485a();
-                    if (m485a.f4998a == 0) {
+                    if (m485a.f5000a == 0) {
                         jiVar.f();
                         return;
                     } else {
-                        a(jiVar, m485a.f4998a, i - 1);
+                        a(jiVar, m485a.f5000a, i - 1);
                         jiVar.g();
                     }
                 }
             case 13:
                 jh m487a = jiVar.m487a();
-                while (i2 < m487a.f778a) {
-                    a(jiVar, m487a.f5000a, i - 1);
+                while (i2 < m487a.f780a) {
+                    a(jiVar, m487a.f5002a, i - 1);
                     a(jiVar, m487a.b, i - 1);
                     i2++;
                 }
@@ -66,16 +66,16 @@ public class jl {
                 return;
             case 14:
                 jm m488a = jiVar.m488a();
-                while (i2 < m488a.f779a) {
-                    a(jiVar, m488a.f5004a, i - 1);
+                while (i2 < m488a.f781a) {
+                    a(jiVar, m488a.f5006a, i - 1);
                     i2++;
                 }
                 jiVar.j();
                 return;
             case 15:
                 jg m486a = jiVar.m486a();
-                while (i2 < m486a.f777a) {
-                    a(jiVar, m486a.f4999a, i - 1);
+                while (i2 < m486a.f779a) {
+                    a(jiVar, m486a.f5001a, i - 1);
                     i2++;
                 }
                 jiVar.i();

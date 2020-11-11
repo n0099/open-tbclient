@@ -100,7 +100,7 @@ public class f {
                 }
                 e eVar = new e();
                 eVar.YQ = z;
-                eVar.YR = com.baidu.tieba.lego.card.b.Ns(optJSONObject4.optJSONObject("lego_card").toString());
+                eVar.YR = com.baidu.tieba.lego.card.b.NJ(optJSONObject4.optJSONObject("lego_card").toString());
                 eVar.ext = str2;
                 return eVar;
             } catch (JSONException e) {

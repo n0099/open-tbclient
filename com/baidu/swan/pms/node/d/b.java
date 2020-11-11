@@ -13,17 +13,17 @@ import org.json.JSONObject;
 /* loaded from: classes15.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.pms.d.DEBUG;
-    private static volatile b edB;
+    private static volatile b ejt;
 
-    public static b aZX() {
-        if (edB == null) {
+    public static b bcx() {
+        if (ejt == null) {
             synchronized (b.class) {
-                if (edB == null) {
-                    edB = new b();
+                if (ejt == null) {
+                    ejt = new b();
                 }
             }
         }
-        return edB;
+        return ejt;
     }
 
     public void b(JSONArray jSONArray, g gVar, g gVar2, g gVar3) {
@@ -39,7 +39,7 @@ public class b {
             if (gVar3 == null) {
                 cVar = null;
             } else {
-                cVar = gVar3.nR("so");
+                cVar = gVar3.og("so");
             }
             if (DEBUG) {
                 Log.i("SoBundleId", "updateConfig: soNodeHandler=" + cVar);
@@ -83,7 +83,7 @@ public class b {
                                     com.baidu.swan.pms.model.d dVar = (com.baidu.swan.pms.model.d) com.baidu.swan.pms.utils.e.a(jSONObject2, new com.baidu.swan.pms.model.d());
                                     if (dVar != null) {
                                         a(dVar, fVar);
-                                        aVar.edz = dVar;
+                                        aVar.ejr = dVar;
                                         break;
                                     } else {
                                         continue;
@@ -92,7 +92,7 @@ public class b {
                                     com.baidu.swan.pms.model.d dVar2 = (com.baidu.swan.pms.model.d) com.baidu.swan.pms.utils.e.a(jSONObject2, new com.baidu.swan.pms.model.d());
                                     if (dVar2 != null) {
                                         a(dVar2, fVar2);
-                                        aVar2.edy = dVar2;
+                                        aVar2.ejq = dVar2;
                                         break;
                                     } else {
                                         continue;
@@ -101,7 +101,7 @@ public class b {
                                     com.baidu.swan.pms.model.b bVar = (com.baidu.swan.pms.model.b) com.baidu.swan.pms.utils.e.a(jSONObject2, new com.baidu.swan.pms.model.b());
                                     if (bVar != null) {
                                         a(bVar, fVar);
-                                        aVar.ecM = bVar;
+                                        aVar.eiE = bVar;
                                         break;
                                     } else {
                                         continue;
@@ -131,8 +131,8 @@ public class b {
                 Log.i("SoBundleId", "updateConfig: end parse soNodeHandler=" + cVar);
             }
             if (gVar != null) {
-                if (fVar.aZY() == 0) {
-                    gVar.akQ();
+                if (fVar.bcy() == 0) {
+                    gVar.anq();
                 } else {
                     gVar.a(fVar);
                     com.baidu.swan.pms.c.a.a.a(aVar, gVar);
@@ -142,8 +142,8 @@ public class b {
                 Log.i("SoBundleId", "updateConfig: handle core end");
             }
             if (gVar2 != null) {
-                if (fVar2.aZY() == 0) {
-                    gVar2.akQ();
+                if (fVar2.bcy() == 0) {
+                    gVar2.anq();
                 } else {
                     gVar2.a(fVar2);
                     com.baidu.swan.pms.c.a.a.a(aVar2, gVar2);
@@ -153,7 +153,7 @@ public class b {
                 Log.i("SoBundleId", "updateConfig: handle game end");
             }
             if (cVar != null) {
-                cVar.arj();
+                cVar.atK();
             }
             if (DEBUG) {
                 Log.i("SoBundleId", "updateConfig: handle so end");

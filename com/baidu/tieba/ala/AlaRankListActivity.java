@@ -40,19 +40,19 @@ import com.baidu.tieba.ala.adapter.AlaRankListFragmentAdapter;
 import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class AlaRankListActivity extends BaseActivity implements View.OnTouchListener {
-    private AlaLiveRoomPanelTabHost aFp;
-    private ImageView aFv;
-    private int aJw;
-    private String baa;
-    private TextView fTq;
-    private long fTr;
-    private String fTs;
-    private String fTt;
-    private boolean fTu;
-    private ImageView fTv;
-    private AlaRankListFragmentAdapter fTw;
-    private int fTx;
-    private TextView fTy;
+    private AlaLiveRoomPanelTabHost aGf;
+    private ImageView aGl;
+    private int aKw;
+    private String bbt;
+    private TextView fZg;
+    private long fZh;
+    private String fZi;
+    private String fZj;
+    private boolean fZk;
+    private ImageView fZl;
+    private AlaRankListFragmentAdapter fZm;
+    private int fZn;
+    private TextView fZo;
     private String mPortrait;
     private View mRootView;
     private int mScreenWidth;
@@ -60,24 +60,24 @@ public class AlaRankListActivity extends BaseActivity implements View.OnTouchLis
     private String mUserName;
     private String otherParams;
     private Handler mHandler = new Handler();
-    private boolean aTK = false;
-    private boolean aXJ = false;
-    private boolean aXK = false;
-    private CustomMessageListener aUa = new CustomMessageListener(2913054) { // from class: com.baidu.tieba.ala.AlaRankListActivity.5
+    private boolean aVc = false;
+    private boolean aZb = false;
+    private boolean aZc = false;
+    private CustomMessageListener aVs = new CustomMessageListener(2913054) { // from class: com.baidu.tieba.ala.AlaRankListActivity.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AlaRankListActivity.this.closeActivity();
         }
     };
-    CustomMessageListener aUb = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.AlaRankListActivity.6
+    CustomMessageListener aVt = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.AlaRankListActivity.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AlaRankListActivity.this.closeActivity();
         }
     };
-    private ViewTreeObserver.OnGlobalLayoutListener aXF = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.ala.AlaRankListActivity.7
+    private ViewTreeObserver.OnGlobalLayoutListener aYX = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.ala.AlaRankListActivity.7
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(AlaRankListActivity.this.getPageContext().getPageActivity());
@@ -88,7 +88,7 @@ public class AlaRankListActivity extends BaseActivity implements View.OnTouchLis
                         @Override // java.lang.Runnable
                         public void run() {
                             if (AlaRankListActivity.this.mRootView != null) {
-                                i.aa(AlaRankListActivity.this.mRootView);
+                                i.ae(AlaRankListActivity.this.mRootView);
                                 q.e(AlaRankListActivity.this.getActivity(), false);
                             }
                         }
@@ -106,33 +106,33 @@ public class AlaRankListActivity extends BaseActivity implements View.OnTouchLis
         super.onCreate(bundle);
         if (!isFinishing()) {
             if (bundle != null) {
-                this.aJw = bundle.getInt(UbcStatConstant.KEY_LIVE_TYPE, 1);
+                this.aKw = bundle.getInt(UbcStatConstant.KEY_LIVE_TYPE, 1);
                 this.mUserId = bundle.getLong(TbEnum.SystemMessage.KEY_USER_ID, 0L);
                 this.mUserName = bundle.getString(TbEnum.SystemMessage.KEY_USER_NAME, "");
-                this.fTt = bundle.getString("rank_list_type", "");
-                this.fTu = bundle.getBoolean("rank_list_from");
+                this.fZj = bundle.getString("rank_list_type", "");
+                this.fZk = bundle.getBoolean("rank_list_from");
                 this.mPortrait = bundle.getString("portrait", "");
                 this.otherParams = bundle.getString(IntentConfig.OTHER_PARAMS, "");
-                this.baa = bundle.getString("feed_id", "");
-                this.fTr = bundle.getLong("cur_live_id", -1L);
-                this.fTs = bundle.getString("cur_hour", "");
+                this.bbt = bundle.getString("feed_id", "");
+                this.fZh = bundle.getLong("cur_live_id", -1L);
+                this.fZi = bundle.getString("cur_hour", "");
             } else {
-                this.aJw = getIntent().getIntExtra(UbcStatConstant.KEY_LIVE_TYPE, 1);
+                this.aKw = getIntent().getIntExtra(UbcStatConstant.KEY_LIVE_TYPE, 1);
                 this.mUserId = getIntent().getLongExtra(TbEnum.SystemMessage.KEY_USER_ID, 0L);
                 this.mUserName = getIntent().getStringExtra(TbEnum.SystemMessage.KEY_USER_NAME);
-                this.fTt = getIntent().getStringExtra("rank_list_type");
-                this.fTu = getIntent().getBooleanExtra("rank_list_from", false);
+                this.fZj = getIntent().getStringExtra("rank_list_type");
+                this.fZk = getIntent().getBooleanExtra("rank_list_from", false);
                 this.mPortrait = getIntent().getStringExtra("portrait");
-                this.baa = getIntent().getStringExtra("feed_id");
-                this.fTr = getIntent().getLongExtra("cur_live_id", -1L);
-                this.fTs = getIntent().getStringExtra("cur_hour");
+                this.bbt = getIntent().getStringExtra("feed_id");
+                this.fZh = getIntent().getLongExtra("cur_live_id", -1L);
+                this.fZi = getIntent().getStringExtra("cur_hour");
                 this.otherParams = getIntent().getStringExtra(IntentConfig.OTHER_PARAMS);
             }
-            registerListener(this.aUb);
-            registerListener(this.aUa);
+            registerListener(this.aVt);
+            registerListener(this.aVs);
             initView();
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
-            this.aXJ = false;
+            this.aZb = false;
             this.mRootView.setVisibility(4);
         }
     }
@@ -141,20 +141,20 @@ public class AlaRankListActivity extends BaseActivity implements View.OnTouchLis
     @Override // com.baidu.live.tbadk.BaseActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        if (!this.aTK) {
+        if (!this.aVc) {
             this.mRootView.setVisibility(0);
-            Hv();
-            this.aTK = true;
+            HW();
+            this.aVc = true;
         }
     }
 
-    private void Hv() {
+    private void HW() {
         Animation loadAnimation;
-        this.aXJ = true;
+        this.aZb = true;
         if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_in_from_right);
+            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0197a.sdk_in_from_right);
         } else {
-            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_in_from_bottom);
+            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0197a.sdk_in_from_bottom);
         }
         loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.AlaRankListActivity.1
             @Override // android.view.animation.Animation.AnimationListener
@@ -163,7 +163,7 @@ public class AlaRankListActivity extends BaseActivity implements View.OnTouchLis
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                AlaRankListActivity.this.aXJ = false;
+                AlaRankListActivity.this.aZb = false;
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -173,13 +173,13 @@ public class AlaRankListActivity extends BaseActivity implements View.OnTouchLis
         this.mRootView.startAnimation(loadAnimation);
     }
 
-    private void Hw() {
+    private void HX() {
         Animation loadAnimation;
-        if (!this.aXK && !this.aXJ) {
+        if (!this.aZc && !this.aZb) {
             if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_out_to_right);
+                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0197a.sdk_out_to_right);
             } else {
-                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_out_to_bottom);
+                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0197a.sdk_out_to_bottom);
             }
             loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.AlaRankListActivity.2
                 @Override // android.view.animation.Animation.AnimationListener
@@ -196,14 +196,14 @@ public class AlaRankListActivity extends BaseActivity implements View.OnTouchLis
                 public void onAnimationRepeat(Animation animation) {
                 }
             });
-            this.aXK = true;
+            this.aZc = true;
             this.mRootView.startAnimation(loadAnimation);
         }
     }
 
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity
     public void finish() {
-        Hw();
+        HX();
     }
 
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
@@ -211,52 +211,52 @@ public class AlaRankListActivity extends BaseActivity implements View.OnTouchLis
         super.onConfigurationChanged(configuration);
         if (this.mRootView != null) {
             if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-                i.aa(this.mRootView);
+                i.ae(this.mRootView);
                 q.e(getActivity(), false);
             } else {
-                i.ab(this.mRootView);
+                i.af(this.mRootView);
                 q.e(getActivity(), true);
             }
             if (UtilHelper.getRealScreenOrientation(getPageContext().getPageActivity()) == 2) {
-                this.mRootView.setBackgroundResource(a.f.ala_rank_list_landscape_corner_bg);
+                this.mRootView.setBackgroundResource(a.e.ala_rank_list_landscape_corner_bg);
             } else {
-                this.mRootView.setBackgroundResource(a.f.ala_rank_list_top_corner_bg);
+                this.mRootView.setBackgroundResource(a.e.ala_rank_list_top_corner_bg);
             }
-            RJ();
+            Ur();
         }
     }
 
     private void initView() {
-        this.mRootView = LayoutInflater.from(getPageContext().getPageActivity()).inflate(a.h.ala_rank_list_layout, (ViewGroup) null);
+        this.mRootView = LayoutInflater.from(getPageContext().getPageActivity()).inflate(a.g.ala_rank_list_layout, (ViewGroup) null);
         if (UtilHelper.getRealScreenOrientation(getPageContext().getPageActivity()) == 2) {
-            this.mRootView.setBackgroundResource(a.f.ala_rank_list_landscape_corner_bg);
+            this.mRootView.setBackgroundResource(a.e.ala_rank_list_landscape_corner_bg);
         } else {
-            this.mRootView.setBackgroundResource(a.f.ala_rank_list_top_corner_bg);
+            this.mRootView.setBackgroundResource(a.e.ala_rank_list_top_corner_bg);
         }
         setContentView(this.mRootView);
-        this.aFv = (ImageView) this.mRootView.findViewById(a.g.ala_rank_list_back);
-        this.fTy = (TextView) this.mRootView.findViewById(a.g.ala_rank_list_title);
-        this.fTq = (TextView) this.mRootView.findViewById(a.g.ala_rank_list_full_entrance);
-        this.fTy.setText(a.i.hkqm_rank_list_sub_panel_title);
-        this.fTq.setVisibility(4);
-        this.aFv.setVisibility(8);
-        this.fTq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaRankListActivity.3
+        this.aGl = (ImageView) this.mRootView.findViewById(a.f.ala_rank_list_back);
+        this.fZo = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_title);
+        this.fZg = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_full_entrance);
+        this.fZo.setText(a.h.hkqm_rank_list_sub_panel_title);
+        this.fZg.setVisibility(4);
+        this.aGl.setVisibility(8);
+        this.fZg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaRankListActivity.3
             /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.tieba.ala.AlaRankListActivity */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (!StringUtils.isNull(com.baidu.live.z.a.Pq().bmJ.aKS)) {
+                if (!StringUtils.isNull(com.baidu.live.aa.a.PQ().bod.aLS)) {
                     TiebaInitialize.log(new StatisticItem("c12964"));
-                    UrlManager.getInstance().dealOneLink(AlaRankListActivity.this.getPageContext(), new String[]{com.baidu.live.z.a.Pq().bmJ.aKS}, true);
+                    UrlManager.getInstance().dealOneLink(AlaRankListActivity.this.getPageContext(), new String[]{com.baidu.live.aa.a.PQ().bod.aLS}, true);
                 }
             }
         });
-        this.fTv = (ImageView) this.mRootView.findViewById(a.g.rule_icon);
-        this.fTv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaRankListActivity.4
+        this.fZl = (ImageView) this.mRootView.findViewById(a.f.rule_icon);
+        this.fZl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaRankListActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String string;
-                LogManager.getCommonLogger().doClickHourRankRuleIconLog(AlaRankListActivity.this.baa, AlaRankListActivity.this.otherParams);
+                LogManager.getCommonLogger().doClickHourRankRuleIconLog(AlaRankListActivity.this.bbt, AlaRankListActivity.this.otherParams);
                 if (TbadkCoreApplication.getInst().isHaokan()) {
                     string = com.baidu.live.d.AZ().getString("hour_rank_rule_hk_190808", "");
                 } else if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
@@ -269,7 +269,7 @@ public class AlaRankListActivity extends BaseActivity implements View.OnTouchLis
         });
         initTabSpec();
         if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-            i.aa(this.mRootView);
+            i.ae(this.mRootView);
             q.e(getActivity(), false);
         }
     }
@@ -279,28 +279,14 @@ public class AlaRankListActivity extends BaseActivity implements View.OnTouchLis
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         bundle.putLong(TbEnum.SystemMessage.KEY_USER_ID, this.mUserId);
-        bundle.putInt(UbcStatConstant.KEY_LIVE_TYPE, this.aJw);
-        bundle.putString("rank_list_type", this.fTt);
-        bundle.putBoolean("rank_list_from", this.fTu);
+        bundle.putInt(UbcStatConstant.KEY_LIVE_TYPE, this.aKw);
+        bundle.putString("rank_list_type", this.fZj);
+        bundle.putBoolean("rank_list_from", this.fZk);
         bundle.putString("portrait", this.mPortrait);
-        bundle.putString("feed_id", this.baa);
-        bundle.putLong("cur_live_id", this.fTr);
-        bundle.putString("cur_hour", this.fTs);
+        bundle.putString("feed_id", this.bbt);
+        bundle.putLong("cur_live_id", this.fZh);
+        bundle.putString("cur_hour", this.fZi);
         bundle.putString(IntentConfig.OTHER_PARAMS, this.otherParams);
-    }
-
-    @Override // android.app.Activity
-    protected void onRestoreInstanceState(Bundle bundle) {
-        bundle.putLong(TbEnum.SystemMessage.KEY_USER_ID, this.mUserId);
-        bundle.putInt(UbcStatConstant.KEY_LIVE_TYPE, this.aJw);
-        bundle.putString("rank_list_type", this.fTt);
-        bundle.putBoolean("rank_list_from", this.fTu);
-        bundle.putString("portrait", this.mPortrait);
-        bundle.putString(IntentConfig.OTHER_PARAMS, this.otherParams);
-        bundle.putString("feed_id", this.baa);
-        bundle.putLong("cur_live_id", this.fTr);
-        bundle.putString("cur_hour", this.fTs);
-        super.onRestoreInstanceState(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -312,10 +298,10 @@ public class AlaRankListActivity extends BaseActivity implements View.OnTouchLis
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity, android.view.Window.Callback
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        RJ();
+        Ur();
     }
 
-    private void RJ() {
+    private void Ur() {
         Window window = getWindow();
         if (window != null) {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(getPageContext().getPageActivity());
@@ -334,7 +320,7 @@ public class AlaRankListActivity extends BaseActivity implements View.OnTouchLis
             }
             this.mScreenWidth = screenDimensions[0];
             window.setBackgroundDrawableResource(17170445);
-            window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.aXF);
+            window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.aYX);
             if (this.mRootView.getLayoutParams() instanceof FrameLayout.LayoutParams) {
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mRootView.getLayoutParams();
                 if (screenDimensions[1] > screenDimensions[0]) {
@@ -365,17 +351,17 @@ public class AlaRankListActivity extends BaseActivity implements View.OnTouchLis
     }
 
     private void initTabSpec() {
-        this.fTw = new AlaRankListFragmentAdapter(this, this.aJw, this.mUserId, this.mUserName, this.fTu, this.mPortrait, this.otherParams, this.baa, this.fTr, this.fTs);
-        this.fTx = this.fTw.FD(this.fTt);
-        this.aFp = (AlaLiveRoomPanelTabHost) this.mRootView.findViewById(a.g.ala_charm_tab_host);
-        this.aFp.setIndicatorWidthAuto(true);
-        this.aFp.setPageSelectedListener(new AlaLiveRoomPanelTabHost.b() { // from class: com.baidu.tieba.ala.AlaRankListActivity.8
+        this.fZm = new AlaRankListFragmentAdapter(this, this.aKw, this.mUserId, this.mUserName, this.fZk, this.mPortrait, this.otherParams, this.bbt, this.fZh, this.fZi);
+        this.fZn = this.fZm.FR(this.fZj);
+        this.aGf = (AlaLiveRoomPanelTabHost) this.mRootView.findViewById(a.f.ala_charm_tab_host);
+        this.aGf.setIndicatorWidthAuto(true);
+        this.aGf.setPageSelectedListener(new AlaLiveRoomPanelTabHost.b() { // from class: com.baidu.tieba.ala.AlaRankListActivity.8
             @Override // com.baidu.live.bottompanel.AlaLiveRoomPanelTabHost.b
             public void onPageSelected(int i) {
-                AlaRankListActivity.this.fTw.tq(i);
+                AlaRankListActivity.this.fZm.tA(i);
             }
         });
-        this.aFp.setData(this.fTw.getDataList());
+        this.aGf.setData(this.fZm.getDataList());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -387,12 +373,12 @@ public class AlaRankListActivity extends BaseActivity implements View.OnTouchLis
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        Iterator<com.baidu.live.liveroom.d.d> it = this.fTw.getDataList().iterator();
+        Iterator<com.baidu.live.liveroom.d.d> it = this.fZm.getDataList().iterator();
         while (it.hasNext()) {
             it.next().onDestroy();
         }
         this.mHandler.removeCallbacksAndMessages(null);
-        getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.aXF);
-        this.aXF = null;
+        getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.aYX);
+        this.aYX = null;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.sofire.f;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f3621a;
+    public int f3624a;
     public String b;
     public int c;
     public String d;

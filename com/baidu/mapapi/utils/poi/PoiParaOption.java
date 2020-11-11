@@ -5,7 +5,7 @@ import com.baidu.mapapi.model.LatLng;
 public class PoiParaOption {
 
     /* renamed from: a  reason: collision with root package name */
-    String f2161a;
+    String f2163a;
     String b;
     LatLng c;
     int d;
@@ -28,7 +28,7 @@ public class PoiParaOption {
     }
 
     public String getUid() {
-        return this.f2161a;
+        return this.f2163a;
     }
 
     public PoiParaOption key(String str) {
@@ -42,7 +42,7 @@ public class PoiParaOption {
     }
 
     public PoiParaOption uid(String str) {
-        this.f2161a = str;
+        this.f2163a = str;
         return this;
     }
 }

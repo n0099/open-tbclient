@@ -13,17 +13,17 @@ import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.topic.topicdetail.b.c, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.topic.topicdetail.view.d>> {
-    private com.baidu.adp.lib.d.b<ConstrainImageLayout> iHO;
-    private com.baidu.adp.lib.d.b<TbImageView> iHP;
+    private com.baidu.adp.lib.d.b<ConstrainImageLayout> iNL;
+    private com.baidu.adp.lib.d.b<TbImageView> iNM;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.topic.topicdetail.b.c.jDA);
-        this.iHO = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.homepage.topic.topicdetail.a.a.1
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.topic.topicdetail.b.c.jJx);
+        this.iNL = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.homepage.topic.topicdetail.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cyu */
+            /* renamed from: cAV */
             public ConstrainImageLayout makeObject() {
                 return new ConstrainImageLayout(a.this.mPageContext.getPageActivity());
             }
@@ -49,10 +49,10 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
                 return constrainImageLayout;
             }
         }, 6, 0);
-        this.iHP = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.homepage.topic.topicdetail.a.a.2
+        this.iNM = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.homepage.topic.topicdetail.a.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bqz */
+            /* renamed from: bsZ */
             public TbImageView makeObject() {
                 TbImageView tbImageView = new TbImageView(a.this.mPageContext.getPageActivity());
                 tbImageView.setDrawBorder(true);
@@ -90,8 +90,8 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
                 com.baidu.tieba.homepage.topic.topicdetail.view.d dVar;
-                if ((view.getTag() instanceof com.baidu.tieba.card.a.a) && (dVar = (com.baidu.tieba.homepage.topic.topicdetail.view.d) ((com.baidu.tieba.card.a.a) view.getTag()).cmx()) != null) {
-                    dVar.bvc();
+                if ((view.getTag() instanceof com.baidu.tieba.card.a.a) && (dVar = (com.baidu.tieba.homepage.topic.topicdetail.view.d) ((com.baidu.tieba.card.a.a) view.getTag()).coY()) != null) {
+                    dVar.bxB();
                 }
             }
         });
@@ -100,11 +100,11 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aN */
+    /* renamed from: aP */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.topic.topicdetail.view.d> c(ViewGroup viewGroup) {
         com.baidu.tieba.homepage.topic.topicdetail.view.d dVar = new com.baidu.tieba.homepage.topic.topicdetail.view.d(this.mPageContext);
-        dVar.setConstrainLayoutPool(this.iHO);
-        dVar.setConstrainImagePool(this.iHP);
+        dVar.setConstrainLayoutPool(this.iNL);
+        dVar.setConstrainImagePool(this.iNM);
         dVar.setTag(this.mPageId);
         return new com.baidu.tieba.card.a.a<>(dVar);
     }
@@ -113,10 +113,10 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.topic.topicdetail.b.c cVar, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.topic.topicdetail.view.d> aVar) {
-        if (cVar == null || aVar == null || aVar.cmx() == null) {
+        if (cVar == null || aVar == null || aVar.coY() == null) {
             return null;
         }
-        aVar.cmx().a(cVar);
+        aVar.coY().a(cVar);
         return aVar.getView();
     }
 }

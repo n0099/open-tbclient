@@ -9,7 +9,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class StatService {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1482a = "logsender";
+    private static final String f1484a = "logsender";
     private ConcurrentHashMap<String, Long> b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -26,7 +26,7 @@ public class StatService {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static StatService f1483a = new StatService();
+        private static StatService f1485a = new StatService();
 
         private a() {
         }
@@ -37,7 +37,7 @@ public class StatService {
     }
 
     static StatService a() {
-        return a.f1483a;
+        return a.f1485a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

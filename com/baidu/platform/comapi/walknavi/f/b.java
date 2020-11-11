@@ -3,22 +3,22 @@ package com.baidu.platform.comapi.walknavi.f;
 class b implements com.baidu.platform.comapi.wnplatform.n.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f3007a;
+    final /* synthetic */ a f3009a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.f3007a = aVar;
+        this.f3009a = aVar;
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.n.b
     public int a(String str, int i, int i2) {
         int a2;
-        a2 = this.f3007a.a(str, i2);
+        a2 = this.f3009a.a(str, i2);
         return a2;
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.n.b
     public int a() {
-        return this.f3007a.b();
+        return this.f3009a.b();
     }
 }

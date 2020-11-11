@@ -17,7 +17,7 @@ import java.util.HashMap;
 final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f3514a;
+    private static String f3517a;
 
     c() {
     }
@@ -59,7 +59,7 @@ final class c {
     private static String a(Context context) {
         String str;
         String str2 = null;
-        String str3 = f3514a;
+        String str3 = f3517a;
         if (str3 == null) {
             String deviceId = Build.VERSION.SDK_INT < 23 ? ((TelephonyManager) context.getSystemService("phone")).getDeviceId() : null;
             String str4 = Build.MODEL;
@@ -77,8 +77,8 @@ final class c {
             if (substring.length() < 16) {
                 substring = (substring + "----------------").substring(0, 16);
             }
-            f3514a = substring;
-            return f3514a;
+            f3517a = substring;
+            return f3517a;
         }
         return str3;
     }

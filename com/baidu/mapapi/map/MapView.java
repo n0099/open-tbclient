@@ -57,7 +57,7 @@ public final class MapView extends ViewGroup {
     private int z;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2023a = MapView.class.getSimpleName();
+    private static final String f2025a = MapView.class.getSimpleName();
     private static int c = 0;
     private static int d = 0;
     private static final SparseIntArray q = new SparseIntArray();
@@ -204,13 +204,13 @@ public final class MapView extends ViewGroup {
             return;
         }
         if (TextUtils.isEmpty(str)) {
-            Log.e(f2023a, "customStyleFilePath is empty or null, please check!");
+            Log.e(f2025a, "customStyleFilePath is empty or null, please check!");
         } else if (!str.endsWith(".sty")) {
-            Log.e(f2023a, "customStyleFile format is incorrect , please check!");
+            Log.e(f2025a, "customStyleFile format is incorrect , please check!");
         } else if (new File(str).exists()) {
             this.e.getBaseMap().a(str, i);
         } else {
-            Log.e(f2023a, "customStyleFile does not exist , please check!");
+            Log.e(f2025a, "customStyleFile does not exist , please check!");
         }
     }
 
@@ -232,9 +232,9 @@ public final class MapView extends ViewGroup {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         if (this.i.a()) {
-            float f = this.e.getBaseMap().B().f2240a;
+            float f = this.e.getBaseMap().B().f2242a;
             this.i.b(f > this.e.getBaseMap().b);
-            this.i.a(f < this.e.getBaseMap().f2222a);
+            this.i.a(f < this.e.getBaseMap().f2224a);
         }
     }
 
@@ -340,7 +340,7 @@ public final class MapView extends ViewGroup {
     }
 
     public final BaiduMap getMap() {
-        this.f.f1995a = this;
+        this.f.f1997a = this;
         return this.f;
     }
 
@@ -520,7 +520,7 @@ public final class MapView extends ViewGroup {
                     ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
                     if (layoutParams instanceof MapViewLayoutParams) {
                         MapViewLayoutParams mapViewLayoutParams = (MapViewLayoutParams) layoutParams;
-                        Point a2 = mapViewLayoutParams.c == MapViewLayoutParams.ELayoutMode.absoluteMode ? mapViewLayoutParams.b : this.e.getBaseMap().a(CoordUtil.ll2mc(mapViewLayoutParams.f2024a));
+                        Point a2 = mapViewLayoutParams.c == MapViewLayoutParams.ELayoutMode.absoluteMode ? mapViewLayoutParams.b : this.e.getBaseMap().a(CoordUtil.ll2mc(mapViewLayoutParams.f2026a));
                         a(childAt);
                         int measuredWidth2 = childAt.getMeasuredWidth();
                         int measuredHeight3 = childAt.getMeasuredHeight();

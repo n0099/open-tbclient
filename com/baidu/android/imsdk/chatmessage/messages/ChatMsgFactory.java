@@ -3,11 +3,11 @@ package com.baidu.android.imsdk.chatmessage.messages;
 import android.content.Context;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class ChatMsgFactory {
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes18.dex */
     public static class SingletonHolder {
         static final ChatMsgFactory INSTANCE = new ChatMsgFactory();
 

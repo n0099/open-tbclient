@@ -5,15 +5,15 @@ public class a {
         return "https://mbd.baidu.com";
     }
 
-    public static String aiG() {
+    public static String alg() {
         return String.format("%s/smtapp/ad/similar", getSearchboxHostForHttps());
     }
 
-    public static String aiH() {
+    public static String alh() {
         return String.format("%s/smtapp/ad/auto", getSearchboxHostForHttps());
     }
 
-    public static String aiI() {
+    public static String ali() {
         return String.format("%s/searchbox?action=userx&type=attribute", getSearchboxHostForHttps());
     }
 

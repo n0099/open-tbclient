@@ -6,7 +6,7 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f1037a = 0;
+    public long f1039a = 0;
     public long b = 0;
     public String c = "";
     public String d = "";
@@ -19,8 +19,8 @@ public class b {
 
     public JSONObject a() throws JSONException {
         JSONObject jSONObject = new JSONObject();
-        if (this.f1037a > -1) {
-            jSONObject.put("push_priority", this.f1037a);
+        if (this.f1039a > -1) {
+            jSONObject.put("push_priority", this.f1039a);
         }
         if (this.b > -1) {
             jSONObject.put("push_version", this.b);

@@ -23,81 +23,81 @@ public class a {
     private final CustomMessageListener bookMarksGiftAndFansListener;
     private CustomMessageListener feedBackRedTipListener;
     private boolean isPrimary;
-    private boolean jEY;
-    private CustomMessageListener jsn;
+    private boolean jKW;
+    private CustomMessageListener jyk;
+    private boolean mCA;
+    private boolean mCB;
+    private boolean mCC;
+    private boolean mCD;
+    private boolean mCE;
+    private boolean mCF;
+    private int mCG;
+    private int mCH;
+    private int mCI;
+    private int mCJ;
+    private boolean mCK;
+    private boolean mCL;
+    private boolean mCM;
+    private boolean mCN;
+    private boolean mCO;
+    private boolean mCP;
+    private boolean mCQ;
+    CustomMessageListener mCR;
+    private CustomMessageListener mCS;
+    private CustomMessageListener mCT;
+    private boolean mCx;
+    private boolean mCy;
+    private boolean mCz;
     private boolean mHasNewVersion;
     private CustomMessageListener memberCenterRedTipListener;
-    private boolean mwA;
-    private boolean mwB;
-    private boolean mwC;
-    private boolean mwD;
-    private boolean mwE;
-    private boolean mwF;
-    private boolean mwG;
-    private boolean mwH;
-    private int mwI;
-    private int mwJ;
-    private int mwK;
-    private int mwL;
-    private boolean mwM;
-    private boolean mwN;
-    private boolean mwO;
-    private boolean mwP;
-    private boolean mwQ;
-    private boolean mwR;
-    private boolean mwS;
-    CustomMessageListener mwT;
-    private CustomMessageListener mwU;
-    private CustomMessageListener mwV;
-    private boolean mwz;
     private CustomMessageListener syncFinishListener;
 
-    public boolean dzs() {
-        return this.mwz;
+    public boolean dBU() {
+        return this.mCx;
     }
 
-    public boolean dzt() {
-        return this.mwA;
+    public boolean dBV() {
+        return this.mCy;
     }
 
-    public boolean dzu() {
-        return this.mwE;
+    public boolean dBW() {
+        return this.mCC;
     }
 
-    public boolean dzv() {
-        return this.mwF;
+    public boolean dBX() {
+        return this.mCD;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0787a {
-        private static final a mwX = new a();
+    public static class C0802a {
+        private static final a mCV = new a();
     }
 
     private a() {
         this.isPrimary = false;
-        this.mwz = false;
-        this.mwA = false;
-        this.mwB = false;
-        this.mwC = false;
-        this.mwD = false;
-        this.mwE = false;
-        this.mwF = false;
-        this.mwG = com.baidu.tbadk.core.sharedPref.b.bnH().getBoolean(SharedPrefConfig.KEY_FEEDBACK_TIP_SHOW, false);
-        this.mwH = false;
-        this.mwI = 0;
-        this.mwJ = 0;
-        this.mwK = 0;
-        this.mwL = 0;
-        this.mwM = false;
+        this.mCx = false;
+        this.mCy = false;
+        this.mCz = false;
+        this.mCA = false;
+        this.mCB = false;
+        this.mCC = false;
+        this.mCD = false;
+        this.mCE = com.baidu.tbadk.core.sharedPref.b.bqh().getBoolean(SharedPrefConfig.KEY_FEEDBACK_TIP_SHOW, false);
+        this.mCF = false;
+        this.mCG = 0;
+        this.mCH = 0;
+        this.mCI = 0;
+        this.mCJ = 0;
+        this.mCK = false;
         this.mHasNewVersion = false;
-        this.mwN = false;
-        this.mwO = false;
-        this.mwP = false;
-        this.mwQ = false;
-        this.mwR = false;
-        this.mwS = false;
+        this.mCL = false;
+        this.mCM = false;
+        this.mCN = false;
+        this.mCO = false;
+        this.mCP = false;
+        this.mCQ = false;
         this.bookMarksGiftAndFansListener = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL) { // from class: com.baidu.tieba.p.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -107,22 +107,22 @@ public class a {
                 }
             }
         };
-        this.mwT = new CustomMessageListener(CmdConfigCustom.CMD_RESPONSE_UNREAD_NEW_FRIENDS_NUM) { // from class: com.baidu.tieba.p.a.2
+        this.mCR = new CustomMessageListener(CmdConfigCustom.CMD_RESPONSE_UNREAD_NEW_FRIENDS_NUM) { // from class: com.baidu.tieba.p.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001176 && customResponsedMessage.getError() == 0 && (customResponsedMessage instanceof ResponseUnreadPointNum)) {
                     ResponseUnreadPointNum responseUnreadPointNum = (ResponseUnreadPointNum) customResponsedMessage;
-                    if (responseUnreadPointNum.getNum() <= 0 || a.this.mwL >= responseUnreadPointNum.getNum()) {
-                        a.this.mwL = responseUnreadPointNum.getNum();
-                        a.this.mwM = false;
+                    if (responseUnreadPointNum.getNum() <= 0 || a.this.mCJ >= responseUnreadPointNum.getNum()) {
+                        a.this.mCJ = responseUnreadPointNum.getNum();
+                        a.this.mCK = false;
                     } else {
-                        a.this.mwM = true;
-                        a.this.mwC = a.this.mwM ? true : a.this.mwC;
-                        a.this.mwL = responseUnreadPointNum.getNum();
-                        a.this.dzA();
+                        a.this.mCK = true;
+                        a.this.mCA = a.this.mCK ? true : a.this.mCA;
+                        a.this.mCJ = responseUnreadPointNum.getNum();
+                        a.this.dCc();
                     }
-                    a.this.dzz();
+                    a.this.dCb();
                 }
             }
         };
@@ -133,11 +133,11 @@ public class a {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                     boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
                     if (booleanValue) {
-                        com.baidu.tbadk.core.sharedPref.b.bnH().putBoolean(SharedPrefConfig.KEY_FEEDBACK_TIP_SHOW, true);
+                        com.baidu.tbadk.core.sharedPref.b.bqh().putBoolean(SharedPrefConfig.KEY_FEEDBACK_TIP_SHOW, true);
                     }
-                    a.this.mwG = booleanValue;
-                    a.this.mwS = booleanValue;
-                    a.this.dzA();
+                    a.this.mCE = booleanValue;
+                    a.this.mCQ = booleanValue;
+                    a.this.dCc();
                 }
             }
         };
@@ -149,52 +149,52 @@ public class a {
                     boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
                     if (booleanValue) {
                         if (TbadkCoreApplication.isLogin()) {
-                            if (TbadkCoreApplication.getInst().getLastUpdateMemberCenterTime() <= com.baidu.tbadk.core.sharedPref.b.bnH().getLong(SharedPrefConfig.MAINTAB_MEMBER_CENTER_RED_TIP + TbadkCoreApplication.getCurrentAccount(), 0L)) {
+                            if (TbadkCoreApplication.getInst().getLastUpdateMemberCenterTime() <= com.baidu.tbadk.core.sharedPref.b.bqh().getLong(SharedPrefConfig.MAINTAB_MEMBER_CENTER_RED_TIP + TbadkCoreApplication.getCurrentAccount(), 0L)) {
                                 booleanValue = false;
                             }
                         } else {
                             booleanValue = false;
                         }
                     }
-                    a.this.mwQ = booleanValue;
-                    a.this.mwE = booleanValue;
-                    a.this.dzA();
+                    a.this.mCO = booleanValue;
+                    a.this.mCC = booleanValue;
+                    a.this.dCc();
                 }
             }
         };
-        this.mwU = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_VERSION_MSG) { // from class: com.baidu.tieba.p.a.5
+        this.mCS = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_VERSION_MSG) { // from class: com.baidu.tieba.p.a.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean)) {
                     a.this.mHasNewVersion = ((Boolean) customResponsedMessage.getData()).booleanValue();
-                    a.this.mwD = a.this.mHasNewVersion ? true : a.this.mwD;
-                    a.this.dzA();
+                    a.this.mCB = a.this.mHasNewVersion ? true : a.this.mCB;
+                    a.this.dCc();
                 }
             }
         };
-        this.jsn = new CustomMessageListener(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK) { // from class: com.baidu.tieba.p.a.6
+        this.jyk = new CustomMessageListener(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK) { // from class: com.baidu.tieba.p.a.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null) {
                     Object data = customResponsedMessage.getData();
                     if ((data instanceof Integer) && ((Integer) data).intValue() == 4) {
-                        a.this.dzC();
-                        if (a.this.mwH) {
-                            TiebaStatic.log(new aq("c13688").w("uid", TbadkCoreApplication.getCurrentAccountId()).aj("obj_locate", 1));
-                            a.this.mwH = false;
+                        a.this.dCe();
+                        if (a.this.mCF) {
+                            TiebaStatic.log(new aq("c13688").w("uid", TbadkCoreApplication.getCurrentAccountId()).al("obj_locate", 1));
+                            a.this.mCF = false;
                         }
                     }
                 }
             }
         };
-        this.mwV = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.p.a.7
+        this.mCT = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.p.a.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null) {
-                    a.this.dzE();
+                    a.this.dCg();
                 }
             }
         };
@@ -207,11 +207,11 @@ public class a {
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
                     if (!StringUtils.isNull(currentAccount)) {
                         String dotTimestamp = activityPrizeData.getDotTimestamp();
-                        String string = com.baidu.tbadk.core.sharedPref.b.bnH().getString(SharedPrefConfig.PERSON_ITEM_ACTIVITY_PRIZE_RED_TIP + currentAccount, "");
+                        String string = com.baidu.tbadk.core.sharedPref.b.bqh().getString(SharedPrefConfig.PERSON_ITEM_ACTIVITY_PRIZE_RED_TIP + currentAccount, "");
                         if (!StringUtils.isNull(dotTimestamp) && !dotTimestamp.equals(string)) {
-                            a.this.mwF = true;
-                            a.this.mwR = true;
-                            a.this.dzA();
+                            a.this.mCD = true;
+                            a.this.mCP = true;
+                            a.this.dCc();
                         }
                     }
                 }
@@ -220,35 +220,35 @@ public class a {
         initListener();
     }
 
-    public static final a dzw() {
-        return C0787a.mwX;
+    public static final a dBY() {
+        return C0802a.mCV;
     }
 
     private void initListener() {
         MessageManager.getInstance().registerListener(this.bookMarksGiftAndFansListener);
-        MessageManager.getInstance().registerListener(this.mwT);
-        MessageManager.getInstance().registerListener(this.mwU);
-        MessageManager.getInstance().registerListener(this.mwV);
+        MessageManager.getInstance().registerListener(this.mCR);
+        MessageManager.getInstance().registerListener(this.mCS);
+        MessageManager.getInstance().registerListener(this.mCT);
         MessageManager.getInstance().registerListener(this.memberCenterRedTipListener);
-        MessageManager.getInstance().registerListener(this.jsn);
+        MessageManager.getInstance().registerListener(this.jyk);
         MessageManager.getInstance().registerListener(this.feedBackRedTipListener);
         MessageManager.getInstance().registerListener(this.syncFinishListener);
     }
 
-    private void dzx() {
+    private void dBZ() {
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-        if (!com.baidu.tbadk.core.sharedPref.b.bnH().getBoolean(SharedPrefConfig.MEMBER_CLOSE_AD_SETTING_CLICKED, false) && currentAccountObj != null && currentAccountObj.isMemberCloseAdIsOpen()) {
-            this.mwD = true;
+        if (!com.baidu.tbadk.core.sharedPref.b.bqh().getBoolean(SharedPrefConfig.MEMBER_CLOSE_AD_SETTING_CLICKED, false) && currentAccountObj != null && currentAccountObj.isMemberCloseAdIsOpen()) {
+            this.mCB = true;
         }
         TbadkSettings inst = TbadkSettings.getInst();
         StringBuilder append = new StringBuilder().append(SharedPrefConfig.HAS_CLICKED_ADDRESSLIST_ITEM_IN_LEFTNAVI);
         TbadkCoreApplication.getInst();
-        this.jEY = inst.loadBoolean(append.append(TbadkCoreApplication.getCurrentAccount()).toString(), false);
+        this.jKW = inst.loadBoolean(append.append(TbadkCoreApplication.getCurrentAccount()).toString(), false);
     }
 
-    private void dzy() {
+    private void dCa() {
         if (TbadkCoreApplication.isLogin()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_PERSON_TIP, new com.baidu.tbadk.mainTab.a(this.mwD)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_PERSON_TIP, new com.baidu.tbadk.mainTab.a(this.mCB)));
         }
     }
 
@@ -256,90 +256,90 @@ public class a {
     public void d(ResponsedMessage<?> responsedMessage) {
         if (responsedMessage != null && (responsedMessage instanceof NewsNotifyMessage)) {
             NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) responsedMessage;
-            this.mwP = newsNotifyMessage.getMsgBookmark() > this.mwK;
-            this.mwN = newsNotifyMessage.getMsgFans() > this.mwI;
-            this.mwO = newsNotifyMessage.getMsgGiftNum() > this.mwJ;
-            this.mwK = newsNotifyMessage.getMsgBookmark();
-            this.mwI = newsNotifyMessage.getMsgFans();
-            this.mwJ = newsNotifyMessage.getMsgGiftNum();
-            if (this.mwP || this.mwN || this.mwO || this.mHasNewVersion) {
-                this.mwz = this.mwN ? true : this.mwz;
-                this.mwA = this.mwP ? true : this.mwA;
-                this.mwB = this.mwO ? true : this.mwB;
-                this.mwD = this.mHasNewVersion ? true : this.mwD;
-                dzA();
+            this.mCN = newsNotifyMessage.getMsgBookmark() > this.mCI;
+            this.mCL = newsNotifyMessage.getMsgFans() > this.mCG;
+            this.mCM = newsNotifyMessage.getMsgGiftNum() > this.mCH;
+            this.mCI = newsNotifyMessage.getMsgBookmark();
+            this.mCG = newsNotifyMessage.getMsgFans();
+            this.mCH = newsNotifyMessage.getMsgGiftNum();
+            if (this.mCN || this.mCL || this.mCM || this.mHasNewVersion) {
+                this.mCx = this.mCL ? true : this.mCx;
+                this.mCy = this.mCN ? true : this.mCy;
+                this.mCz = this.mCM ? true : this.mCz;
+                this.mCB = this.mHasNewVersion ? true : this.mCB;
+                dCc();
             }
         }
     }
 
-    public void dzz() {
+    public void dCb() {
         TbadkSettings inst = TbadkSettings.getInst();
         StringBuilder append = new StringBuilder().append(SharedPrefConfig.HAS_CLICKED_ADDRESSLIST_ITEM_IN_LEFTNAVI);
         TbadkCoreApplication.getInst();
-        inst.saveBoolean(append.append(TbadkCoreApplication.getCurrentAccount()).toString(), !this.mwM);
+        inst.saveBoolean(append.append(TbadkCoreApplication.getCurrentAccount()).toString(), !this.mCK);
     }
 
-    public void wD(boolean z) {
+    public void wM(boolean z) {
         this.isPrimary = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dzA() {
+    public void dCc() {
         SparseArray sparseArray = new SparseArray();
-        if (this.mwM) {
-            sparseArray.append(4, new b.a(this.mwC, this.mwL));
+        if (this.mCK) {
+            sparseArray.append(4, new b.a(this.mCA, this.mCJ));
         }
-        if (this.mwN) {
-            sparseArray.append(2, new b.a(this.mwz, this.mwI));
+        if (this.mCL) {
+            sparseArray.append(2, new b.a(this.mCx, this.mCG));
         }
-        if (this.mwO) {
-            sparseArray.append(1, new b.a(this.mwB, this.mwJ));
+        if (this.mCM) {
+            sparseArray.append(1, new b.a(this.mCz, this.mCH));
         }
-        if (this.mwP) {
-            sparseArray.append(3, new b.a(this.mwA, this.mwK));
+        if (this.mCN) {
+            sparseArray.append(3, new b.a(this.mCy, this.mCI));
         }
         if (this.mHasNewVersion) {
-            sparseArray.append(5, new b.a(this.mwD, 0));
+            sparseArray.append(5, new b.a(this.mCB, 0));
         }
-        if (this.mwQ) {
-            sparseArray.append(7, new b.a(this.mwE, 0));
+        if (this.mCO) {
+            sparseArray.append(7, new b.a(this.mCC, 0));
         }
-        if (this.mwR) {
-            sparseArray.append(9, new b.a(this.mwF, 0));
+        if (this.mCP) {
+            sparseArray.append(9, new b.a(this.mCD, 0));
         }
-        if (this.mwS) {
-            sparseArray.append(10, new b.a(this.mwG, 0));
+        if (this.mCQ) {
+            sparseArray.append(10, new b.a(this.mCE, 0));
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_RED_TIP, new b(sparseArray)));
-        dzB();
+        dCd();
     }
 
-    public void wE(boolean z) {
+    public void wN(boolean z) {
         if (z) {
             SparseArray sparseArray = new SparseArray();
-            sparseArray.append(4, new b.a(this.mwC, this.mwL));
-            sparseArray.append(2, new b.a(this.mwz, this.mwI));
-            sparseArray.append(1, new b.a(this.mwB, this.mwJ));
-            sparseArray.append(3, new b.a(this.mwA, this.mwK));
-            sparseArray.append(5, new b.a(this.mwD, 0));
-            sparseArray.append(7, new b.a(this.mwE, 0));
-            sparseArray.append(9, new b.a(this.mwF, 0));
-            sparseArray.append(10, new b.a(this.mwG, 0));
-            sparseArray.append(11, new b.a(this.mwH, 0));
+            sparseArray.append(4, new b.a(this.mCA, this.mCJ));
+            sparseArray.append(2, new b.a(this.mCx, this.mCG));
+            sparseArray.append(1, new b.a(this.mCz, this.mCH));
+            sparseArray.append(3, new b.a(this.mCy, this.mCI));
+            sparseArray.append(5, new b.a(this.mCB, 0));
+            sparseArray.append(7, new b.a(this.mCC, 0));
+            sparseArray.append(9, new b.a(this.mCD, 0));
+            sparseArray.append(10, new b.a(this.mCE, 0));
+            sparseArray.append(11, new b.a(this.mCF, 0));
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_RED_TIP, new b(sparseArray)));
         }
     }
 
-    private void dzB() {
-        if (((this.mwI > 0 && this.mwN) || (this.mwK > 0 && this.mwP) || this.mHasNewVersion || this.mwR || this.mwS) && !this.isPrimary && TbadkCoreApplication.isLogin()) {
-            if (this.mwS) {
-                com.baidu.tbadk.core.sharedPref.b.bnH().putBoolean(SharedPrefConfig.KEY_FEEDBACK_PERSON_TAB_SHOW, true);
+    private void dCd() {
+        if (((this.mCG > 0 && this.mCL) || (this.mCI > 0 && this.mCN) || this.mHasNewVersion || this.mCP || this.mCQ) && !this.isPrimary && TbadkCoreApplication.isLogin()) {
+            if (this.mCQ) {
+                com.baidu.tbadk.core.sharedPref.b.bqh().putBoolean(SharedPrefConfig.KEY_FEEDBACK_PERSON_TAB_SHOW, true);
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_PERSON_TIP, new com.baidu.tbadk.mainTab.a(true, 0)));
         }
     }
 
-    public void dzC() {
+    public void dCe() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_PERSON_TIP, new com.baidu.tbadk.mainTab.a(false)));
     }
 
@@ -348,23 +348,23 @@ public class a {
         if (z2) {
             switch (i) {
                 case 1:
-                    this.mwB = z;
+                    this.mCz = z;
                     break;
                 case 2:
-                    this.mwz = z;
+                    this.mCx = z;
                     break;
                 case 3:
-                    this.mwA = z;
+                    this.mCy = z;
                     break;
                 case 4:
-                    this.mwC = z;
+                    this.mCA = z;
                     break;
                 case 5:
                     AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
                     if (currentAccountObj != null && currentAccountObj.isMemberCloseAdIsOpen()) {
-                        com.baidu.tbadk.core.sharedPref.b.bnH().putBoolean(SharedPrefConfig.MEMBER_CLOSE_AD_SETTING_CLICKED, true);
+                        com.baidu.tbadk.core.sharedPref.b.bqh().putBoolean(SharedPrefConfig.MEMBER_CLOSE_AD_SETTING_CLICKED, true);
                     }
-                    this.mwD = z;
+                    this.mCB = z;
                     break;
                 case 7:
                     if (!TbadkCoreApplication.isLogin()) {
@@ -372,60 +372,60 @@ public class a {
                     } else {
                         currentAccount = TbadkCoreApplication.getCurrentAccount();
                     }
-                    com.baidu.tbadk.core.sharedPref.b.bnH().putLong(SharedPrefConfig.MAINTAB_MEMBER_CENTER_RED_TIP + currentAccount, TbadkCoreApplication.getInst().getLastUpdateMemberCenterTime());
-                    this.mwE = z;
+                    com.baidu.tbadk.core.sharedPref.b.bqh().putLong(SharedPrefConfig.MAINTAB_MEMBER_CENTER_RED_TIP + currentAccount, TbadkCoreApplication.getInst().getLastUpdateMemberCenterTime());
+                    this.mCC = z;
                     break;
                 case 9:
-                    this.mwF = z;
-                    com.baidu.tbadk.core.sharedPref.b.bnH().putString(SharedPrefConfig.PERSON_ITEM_ACTIVITY_PRIZE_RED_TIP + TbadkCoreApplication.getCurrentAccount(), TbadkCoreApplication.getInst().getActivityPrizeData().getDotTimestamp());
+                    this.mCD = z;
+                    com.baidu.tbadk.core.sharedPref.b.bqh().putString(SharedPrefConfig.PERSON_ITEM_ACTIVITY_PRIZE_RED_TIP + TbadkCoreApplication.getCurrentAccount(), TbadkCoreApplication.getInst().getActivityPrizeData().getDotTimestamp());
                     break;
                 case 10:
-                    this.mwG = z;
+                    this.mCE = z;
                     break;
                 case 11:
-                    this.mwH = z;
+                    this.mCF = z;
                     break;
             }
-            wE(true);
-            dzD();
+            wN(true);
+            dCf();
         }
     }
 
-    private void dzD() {
-        boolean z = this.mwB || this.mwA || this.mwz || this.mwC || this.mwD || this.mwE || this.mwF || this.mwH;
+    private void dCf() {
+        boolean z = this.mCz || this.mCy || this.mCx || this.mCA || this.mCB || this.mCC || this.mCD || this.mCF;
         if (!this.isPrimary && TbadkCoreApplication.isLogin()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_PERSON_TIP, new com.baidu.tbadk.mainTab.a(z, 0)));
         }
     }
 
-    public void dzE() {
-        this.mwz = false;
-        this.mwA = false;
-        this.mwB = false;
-        this.mwC = false;
-        this.mwD = false;
-        this.mwE = false;
-        this.mwF = false;
-        this.mwI = 0;
-        this.mwJ = 0;
-        this.mwK = 0;
-        this.mwL = 0;
-        this.mwM = false;
+    public void dCg() {
+        this.mCx = false;
+        this.mCy = false;
+        this.mCz = false;
+        this.mCA = false;
+        this.mCB = false;
+        this.mCC = false;
+        this.mCD = false;
+        this.mCG = 0;
+        this.mCH = 0;
+        this.mCI = 0;
+        this.mCJ = 0;
+        this.mCK = false;
         this.mHasNewVersion = false;
-        this.mwN = false;
-        this.mwO = false;
-        this.mwP = false;
-        this.mwQ = false;
-        this.mwR = false;
-        dzx();
+        this.mCL = false;
+        this.mCM = false;
+        this.mCN = false;
+        this.mCO = false;
+        this.mCP = false;
+        dBZ();
         e.mY().post(new Runnable() { // from class: com.baidu.tieba.p.a.9
             @Override // java.lang.Runnable
             public void run() {
-                if (!a.this.jEY) {
+                if (!a.this.jKW) {
                     MessageManager.getInstance().dispatchResponsedMessage(new RequestUnreadPointNum());
                 }
             }
         });
-        dzy();
+        dCa();
     }
 }

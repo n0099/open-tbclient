@@ -7,12 +7,12 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 /* loaded from: classes4.dex */
 public abstract class d {
-    public TextView olU;
-    public ImageView olX;
-    public ImageView olZ;
-    public TextView iJS = null;
-    public TextView lTM = null;
-    public TextView olY = null;
+    public TextView ovq;
+    public ImageView ovt;
+    public ImageView ovv;
+    public TextView iPP = null;
+    public TextView lZI = null;
+    public TextView ovu = null;
 
     public abstract View getContentView();
 

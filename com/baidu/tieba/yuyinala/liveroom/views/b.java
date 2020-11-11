@@ -31,27 +31,27 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b extends a {
-    private View.OnClickListener hqY;
-    private ImageView hqr;
-    private TbImageView hqy;
-    private TextView hqz;
-    private d.a nTp;
-    private CubicRoundRectRelativeLayout nTq;
-    private LinearLayout nTr;
+    private View.OnClickListener hwV;
+    private ImageView hwp;
+    private TbImageView hwv;
+    private TextView hww;
+    private d.a oaC;
+    private CubicRoundRectRelativeLayout oaD;
+    private LinearLayout oaE;
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.hqY = new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.views.b.2
+        this.hwV = new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.views.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view.getId() == a.g.ala_live_prepare_start) {
+                if (view.getId() == a.f.ala_live_prepare_start) {
                     if (!UtilHelper.isFastDoubleClick()) {
                         if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo() || TbadkCoreApplication.getInst().isTieba() || TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isOther()) {
-                            if (b.this.nTh != null) {
-                                b.this.nTh.ccE();
+                            if (b.this.oau != null) {
+                                b.this.oau.cff();
                             }
                         } else {
-                            b.this.cfb();
+                            b.this.chE();
                         }
                         JSONObject jSONObject = new JSONObject();
                         try {
@@ -61,10 +61,10 @@ public class b extends a {
                         }
                         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_CREATE_ROOM, "createroom_clk").setContentExt(jSONObject));
                     }
-                } else if (view.getId() == a.g.ala_prepare_cover_frame_layout) {
-                    b.this.cfD();
-                } else if (view.getId() == a.g.ala_prepare_close && b.this.nTh != null) {
-                    b.this.nTh.onCloseClicked();
+                } else if (view.getId() == a.f.ala_prepare_cover_frame_layout) {
+                    b.this.cif();
+                } else if (view.getId() == a.f.ala_prepare_close && b.this.oau != null) {
+                    b.this.oau.onCloseClicked();
                 }
             }
         };
@@ -72,74 +72,74 @@ public class b extends a {
     }
 
     private void initViews() {
-        this.mRootView = (ViewGroup) View.inflate(this.mPageContext.getPageActivity(), a.h.yuyin_ala_live_prepare_common_view, null);
+        this.mRootView = (ViewGroup) View.inflate(this.mPageContext.getPageActivity(), a.g.yuyin_ala_live_prepare_common_view, null);
         this.mRootView.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.yuyinala.liveroom.views.b.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                b.this.cfe();
+                b.this.chH();
                 return false;
             }
         });
-        ceW();
-        this.hol.setOnClickListener(this.hqY);
-        this.nTq = (CubicRoundRectRelativeLayout) this.mRootView.findViewById(a.g.ala_prepare_cover_frame_layout);
-        this.hqy = (TbImageView) this.mRootView.findViewById(a.g.ala_prepare_portrait);
-        this.hqz = (TextView) this.mRootView.findViewById(a.g.ala_prepare_photo_label);
-        this.hqy.setIsRound(false);
-        this.hqy.setGifIconSupport(false);
-        this.hqz.setText(a.i.yuyin_ala_live_add_cover);
-        this.hqy.setDefaultResource(a.f.icon_live_yuyin_createroom_default_bg);
-        this.hqy.setDefaultBgResource(a.d.sdk_transparent);
-        this.hol.setBackgroundResource(a.f.sdk_round_btn_qm_bg_radius_circle_selector);
-        this.hqr = (ImageView) this.mRootView.findViewById(a.g.ala_prepare_close);
-        this.hqr.setOnClickListener(this.hqY);
+        chz();
+        this.huj.setOnClickListener(this.hwV);
+        this.oaD = (CubicRoundRectRelativeLayout) this.mRootView.findViewById(a.f.ala_prepare_cover_frame_layout);
+        this.hwv = (TbImageView) this.mRootView.findViewById(a.f.ala_prepare_portrait);
+        this.hww = (TextView) this.mRootView.findViewById(a.f.ala_prepare_photo_label);
+        this.hwv.setIsRound(false);
+        this.hwv.setGifIconSupport(false);
+        this.hww.setText(a.h.yuyin_ala_live_add_cover);
+        this.hwv.setDefaultResource(a.e.icon_live_yuyin_createroom_default_bg);
+        this.hwv.setDefaultBgResource(a.c.sdk_transparent);
+        this.huj.setBackgroundResource(a.e.sdk_round_btn_qm_bg_radius_circle_selector);
+        this.hwp = (ImageView) this.mRootView.findViewById(a.f.ala_prepare_close);
+        this.hwp.setOnClickListener(this.hwV);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.hqr.getLayoutParams();
-            layoutParams.topMargin += this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds24);
-            this.hqr.setLayoutParams(layoutParams);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.hwp.getLayoutParams();
+            layoutParams.topMargin += this.mPageContext.getResources().getDimensionPixelSize(a.d.sdk_ds24);
+            this.hwp.setLayoutParams(layoutParams);
         }
-        this.nTr = (LinearLayout) this.mRootView.findViewById(a.g.ala_prepare_bottom_view_container);
-        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.nTq.getLayoutParams();
+        this.oaE = (LinearLayout) this.mRootView.findViewById(a.f.ala_prepare_bottom_view_container);
+        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.oaD.getLayoutParams();
         layoutParams2.topMargin = (int) (ScreenHelper.getRealScreenHeight(this.mPageContext.getPageActivity()) * 0.145d);
-        this.nTq.setLayoutParams(layoutParams2);
-        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.nTr.getLayoutParams();
+        this.oaD.setLayoutParams(layoutParams2);
+        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.oaE.getLayoutParams();
         layoutParams3.bottomMargin = (int) (ScreenHelper.getRealScreenHeight(this.mPageContext.getPageActivity()) * 0.125d);
-        this.nTr.setLayoutParams(layoutParams3);
-        Ga();
+        this.oaE.setLayoutParams(layoutParams3);
+        GB();
     }
 
-    private void Ga() {
-        this.nTq.setOnClickListener(this.hqY);
+    private void GB() {
+        this.oaD.setOnClickListener(this.hwV);
     }
 
-    public void bYN() {
-        cfb();
+    public void cbp() {
+        chE();
     }
 
-    public boolean bYH() {
+    public boolean cbj() {
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cfD() {
+    public void cif() {
         AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.mPageContext.getPageActivity(), "{\"maxImagesAllowed\":1,\"isOriginalImg\":false}", true, true);
         albumActivityConfig.setRequestCode(RequestResponseCode.REQUEST_CAMERA);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, albumActivityConfig));
     }
 
-    public void HF(String str) {
-        this.hqD = str;
-        this.hqz.setText(a.i.yuyin_ala_live_change_cover);
-        this.hqz.setTextColor(this.mPageContext.getResources().getColor(a.d.sdk_white_alpha50));
-        this.hqz.setBackgroundColor(this.mPageContext.getResources().getColor(a.d.sdk_black_alpha40));
-        l.a(this.hqy, str, true, false);
+    public void HX(String str) {
+        this.hwA = str;
+        this.hww.setText(a.h.yuyin_ala_live_change_cover);
+        this.hww.setTextColor(this.mPageContext.getResources().getColor(a.c.sdk_white_alpha50));
+        this.hww.setBackgroundColor(this.mPageContext.getResources().getColor(a.c.sdk_black_alpha40));
+        l.a(this.hwv, str, true, false);
     }
 
-    public String bYK() {
-        return this.hqD;
+    public String cbm() {
+        return this.hwA;
     }
 
     public void a(d.a aVar) {
-        this.nTp = aVar;
+        this.oaC = aVar;
     }
 }

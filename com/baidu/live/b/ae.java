@@ -1,6 +1,7 @@
 package com.baidu.live.b;
 
 import android.content.Context;
+import android.util.Log;
 import com.baidu.ala.atomdata.AlaSDKShareEmptyActivityConfig;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
 /* loaded from: classes4.dex */
@@ -15,5 +16,6 @@ public class ae extends IntentConfig {
         getIntent().putExtra("groupid", str5);
         getIntent().putExtra("paid", str6);
         getIntent().putExtra("userIcon", str7);
+        Log.i("chat_im_chatactivity", "nickname=>" + str2 + "；msgType=>" + str3 + "；isMediaRole=>" + z + "；id=>" + str + "；paid=>" + str6);
     }
 }

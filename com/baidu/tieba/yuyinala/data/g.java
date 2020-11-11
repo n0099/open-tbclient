@@ -4,12 +4,12 @@ import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class g {
-    public int aHl;
-    public long aHm;
-    public long aHn;
-    public long aHo;
-    public boolean aHp;
-    public long aHq;
+    public int aIc;
+    public long aId;
+    public long aIe;
+    public long aIf;
+    public boolean aIg;
+    public long aIh;
     public String cover;
     public int live_status;
     public String room_name;
@@ -19,10 +19,10 @@ public class g {
             this.room_name = jSONObject.optString(DpStatConstants.KEY_ROOM_NAME);
             this.cover = jSONObject.optString("cover");
             this.live_status = jSONObject.optInt("live_status");
-            this.aHl = jSONObject.optInt("current_rank");
-            this.aHm = jSONObject.optLong("current_charm_value");
-            this.aHn = jSONObject.optLong("up_charm_value");
-            this.aHo = jSONObject.optLong("down_charm_value");
+            this.aIc = jSONObject.optInt("current_rank");
+            this.aId = jSONObject.optLong("current_charm_value");
+            this.aIe = jSONObject.optLong("up_charm_value");
+            this.aIf = jSONObject.optLong("down_charm_value");
         }
     }
 
@@ -30,11 +30,11 @@ public class g {
         return this.room_name;
     }
 
-    public void bn(boolean z) {
-        this.aHp = z;
+    public void bo(boolean z) {
+        this.aIg = z;
     }
 
-    public void ab(long j) {
-        this.aHq = j;
+    public void an(long j) {
+        this.aIh = j;
     }
 }

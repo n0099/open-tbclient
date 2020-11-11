@@ -4,19 +4,17 @@ import android.content.Context;
 import android.hardware.SensorManager;
 /* loaded from: classes4.dex */
 public final class b {
-    private static Boolean fVp;
+    private static Boolean gbg;
 
     public static boolean eU(Context context) {
-        boolean z;
-        if (fVp != null) {
-            return fVp.booleanValue();
+        SensorManager sensorManager;
+        if (gbg != null) {
+            return gbg.booleanValue();
         }
-        if (((SensorManager) context.getSystemService("sensor")).getDefaultSensor(4) != null) {
-            z = true;
-        } else {
-            z = false;
+        if (context == null || (sensorManager = (SensorManager) context.getSystemService("sensor")) == null) {
+            return false;
         }
-        fVp = Boolean.valueOf(z);
-        return fVp.booleanValue();
+        gbg = Boolean.valueOf(sensorManager.getDefaultSensor(4) != null);
+        return gbg.booleanValue();
     }
 }

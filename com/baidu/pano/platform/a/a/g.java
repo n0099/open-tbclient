@@ -21,10 +21,10 @@ import org.apache.http.params.HttpParams;
 public class g implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final HttpClient f2641a;
+    protected final HttpClient f2643a;
 
     public g(HttpClient httpClient) {
-        this.f2641a = httpClient;
+        this.f2643a = httpClient;
     }
 
     private static void a(HttpUriRequest httpUriRequest, Map<String, String> map) {
@@ -43,7 +43,7 @@ public class g implements i {
         int t = nVar.t();
         HttpConnectionParams.setConnectionTimeout(params, 5000);
         HttpConnectionParams.setSoTimeout(params, t);
-        return this.f2641a.execute(b);
+        return this.f2643a.execute(b);
     }
 
     static HttpUriRequest b(com.baidu.pano.platform.a.n<?> nVar, Map<String, String> map) throws com.baidu.pano.platform.a.a {

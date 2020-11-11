@@ -7,8 +7,8 @@ import org.json.JSONObject;
 /* loaded from: classes15.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.pms.d.DEBUG;
-    private String ebX;
-    private long ebY;
+    private String ehP;
+    private long ehQ;
     private JSONObject mData;
     private int mErrorCode = -1;
     private String mErrorMessage;
@@ -37,24 +37,24 @@ public class c {
         this.mErrorMessage = str;
     }
 
-    public String aYV() {
-        return this.ebX;
+    public String bbv() {
+        return this.ehP;
     }
 
     public void setTipMessage(String str) {
-        this.ebX = str;
+        this.ehP = str;
     }
 
-    public void cs(long j) {
-        this.ebY = j;
+    public void cO(long j) {
+        this.ehQ = j;
     }
 
-    public static c yd(String str) {
+    public static c yr(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
-            return cD(new JSONObject(str));
+            return cJ(new JSONObject(str));
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -64,12 +64,12 @@ public class c {
         }
     }
 
-    public static c cD(JSONObject jSONObject) {
+    public static c cJ(JSONObject jSONObject) {
         c cVar = new c();
         cVar.setErrorCode(jSONObject.optInt(BaseJsonData.TAG_ERRNO, -1));
         cVar.setErrorMessage(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
         cVar.setTipMessage(jSONObject.optString("tipmsg"));
-        cVar.cs(jSONObject.optLong("request_id"));
+        cVar.cO(jSONObject.optLong("request_id"));
         cVar.setData(jSONObject.optJSONObject("data"));
         return cVar;
     }

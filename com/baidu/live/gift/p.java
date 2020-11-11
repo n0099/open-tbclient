@@ -1,25 +1,37 @@
 package com.baidu.live.gift;
 
+import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.live.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class p extends HttpMessage {
-    public long aUe;
-    public long aUf;
-    public String aUg;
-    public String aUh;
-    public long aUi;
-    public Map<Long, Long> aUk;
+    public long aVA;
+    public Map<Long, Long> aVC;
+    public int aWg;
     public String giftId;
     public String giftName;
-    public String liveId;
-    public String otherParams;
-    public String roomId;
     public String sceneFrom;
 
     public p() {
-        super(1021014);
-        this.aUk = new HashMap();
+        super(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR);
+        this.aVC = new HashMap();
+    }
+
+    public void a(String str, String str2, String str3, String str4, int i, int i2, String str5, long j) {
+        this.giftId = str;
+        this.sceneFrom = com.baidu.live.utils.p.UK();
+        this.aWg = i;
+        addParam("scene_from", this.sceneFrom);
+        addParam(LegoListActivityConfig.ITEM_ID, str);
+        addParam("item_type", str2);
+        addParam("platform", "2");
+        addParam("benefit_uid", str3);
+        addParam("live_id", str4);
+        addParam("consume_amount", i);
+        addParam("is_combo", i2);
+        addParam("attach", str5);
+        addParam("pk_id", j);
     }
 }

@@ -4,39 +4,39 @@ import com.baidu.swan.apps.ap.ah;
 /* loaded from: classes14.dex */
 public class b {
     private int Zs;
-    private String dHr;
-    private String dHs;
-    private String dHt;
-    private int dHu;
-    private int dHv;
+    private String dNj;
+    private String dNk;
+    private String dNl;
+    private int dNm;
+    private int dNn;
 
     private b(a aVar) {
-        this.dHs = aVar.dHs;
-        this.dHr = aVar.dHr;
-        this.dHu = aVar.dHu;
-        this.dHv = aVar.dHv;
-        this.dHt = aVar.dHt;
+        this.dNk = aVar.dNk;
+        this.dNj = aVar.dNj;
+        this.dNm = aVar.dNm;
+        this.dNn = aVar.dNn;
+        this.dNl = aVar.dNl;
         this.Zs = aVar.Zs;
     }
 
-    public int aOr() {
-        return this.dHu;
+    public int aQR() {
+        return this.dNm;
     }
 
-    public int aOs() {
-        return this.dHv;
+    public int aQS() {
+        return this.dNn;
     }
 
     public String getAppSid() {
-        return this.dHs;
+        return this.dNk;
     }
 
-    public String aOt() {
-        return this.dHr;
+    public String aQT() {
+        return this.dNj;
     }
 
-    public String aOu() {
-        return this.dHt;
+    public String aQU() {
+        return this.dNl;
     }
 
     public int rT() {
@@ -46,43 +46,43 @@ public class b {
     /* loaded from: classes14.dex */
     public static class a {
         private int Zs;
-        private String dHr;
-        private String dHs;
-        private String dHt;
-        private int dHu;
-        private int dHv;
+        private String dNj;
+        private String dNk;
+        private String dNl;
+        private int dNm;
+        private int dNn;
 
-        public a vu(String str) {
-            this.dHs = str;
+        public a vI(String str) {
+            this.dNk = str;
             return this;
         }
 
-        public a vv(String str) {
-            this.dHr = str;
+        public a vJ(String str) {
+            this.dNj = str;
             return this;
         }
 
-        public a vw(String str) {
-            this.dHt = str;
+        public a vK(String str) {
+            this.dNl = str;
             return this;
         }
 
-        public a lF(int i) {
-            this.dHu = ah.L(i);
+        public a lP(int i) {
+            this.dNm = ah.N(i);
             return this;
         }
 
-        public a lG(int i) {
-            this.dHv = ah.L(i);
+        public a lQ(int i) {
+            this.dNn = ah.N(i);
             return this;
         }
 
-        public a lH(int i) {
+        public a lR(int i) {
             this.Zs = i;
             return this;
         }
 
-        public b aOv() {
+        public b aQV() {
             return new b(this);
         }
     }

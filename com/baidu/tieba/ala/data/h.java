@@ -11,10 +11,10 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class h extends r {
     public String avatar;
-    public int eyT;
-    public String guv;
-    public String guw;
-    public ArrayList<a> gux;
+    public int eEI;
+    public String gAj;
+    public String gAk;
+    public ArrayList<a> gAl;
     public String is_follow;
     public long live_id;
     public String point;
@@ -28,10 +28,10 @@ public class h extends r {
     public void parserJson(JSONObject jSONObject) {
         this.user_id = JavaTypesHelper.toLong(jSONObject.optString("user_id"), 0L);
         this.rank = JavaTypesHelper.toInt(jSONObject.optString("rank"), 0);
-        this.eyT = JavaTypesHelper.toInt(jSONObject.optString("is_live"), 0);
+        this.eEI = JavaTypesHelper.toInt(jSONObject.optString("is_live"), 0);
         this.live_id = JavaTypesHelper.toLong(jSONObject.optString("live_id"), 0L);
         this.point = jSONObject.optString(Config.EVENT_HEAT_POINT);
-        this.guv = jSONObject.optString("point_behind");
+        this.gAj = jSONObject.optString("point_behind");
         this.user_nickname = jSONObject.optString("user_nickname");
         if (!TextUtils.isEmpty(jSONObject.optString("bd_portrait"))) {
             this.avatar = jSONObject.optString("bd_portrait");
@@ -40,16 +40,16 @@ public class h extends r {
         }
         this.is_follow = jSONObject.optString("is_follow");
         this.user_name = jSONObject.optString("user_name");
-        this.guw = jSONObject.optString("rule_url");
+        this.gAk = jSONObject.optString("rule_url");
         this.room_id = jSONObject.optInt("room_id");
         JSONArray optJSONArray = jSONObject.optJSONArray("bro_list");
         if (optJSONArray != null) {
-            this.gux = new ArrayList<>();
+            this.gAl = new ArrayList<>();
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 a aVar = new a();
                 aVar.parserJson(optJSONObject);
-                this.gux.add(aVar);
+                this.gAl.add(aVar);
             }
         }
     }
@@ -60,7 +60,7 @@ public class h extends r {
 
     /* loaded from: classes4.dex */
     public class a {
-        public long biA;
+        public long bjT;
         public String portrait;
         public String userId;
         public String userName;
@@ -75,7 +75,7 @@ public class h extends r {
                 this.userName = jSONObject.optString("user_name");
                 this.userNickName = jSONObject.optString("user_nickname");
                 this.portrait = jSONObject.optString("bd_portrait");
-                this.biA = jSONObject.optLong("charm_value");
+                this.bjT = jSONObject.optLong("charm_value");
             }
         }
 

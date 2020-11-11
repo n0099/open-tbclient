@@ -9,21 +9,21 @@ import tbclient.GiftInfo;
 import tbclient.User;
 /* loaded from: classes24.dex */
 public class g extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId lXu = BdUniqueId.gen();
+    public static final BdUniqueId mdt = BdUniqueId.gen();
     public String NA;
     public int giftNum = 0;
-    public boolean lXv;
-    public String lXw;
-    public List<com.baidu.adp.widget.ListView.q> lXx;
     public boolean mIsHost;
     public int mSex;
     public String mUid;
+    public boolean mdu;
+    public String mdv;
+    public List<com.baidu.adp.widget.ListView.q> mdw;
 
     public void parserProtoBuf(User user) {
         if (user != null && !y.isEmpty(user.gift_list)) {
             this.mUid = String.valueOf(user.id);
             this.NA = user.name;
-            this.lXw = user.name_show;
+            this.mdv = user.name_show;
             this.mSex = user.sex.intValue();
             if (this.mUid != null && this.mUid.equals(TbadkCoreApplication.getCurrentAccount())) {
                 this.mIsHost = true;
@@ -31,28 +31,28 @@ public class g extends com.baidu.tieba.card.data.b {
                 this.mIsHost = false;
             }
             if (user.sex.intValue() == 2) {
-                this.lXv = false;
+                this.mdu = false;
             } else {
-                this.lXv = true;
+                this.mdu = true;
             }
             this.giftNum = user.gift_num != null ? user.gift_num.intValue() : 0;
-            this.lXx = new ArrayList();
+            this.mdw = new ArrayList();
             for (GiftInfo giftInfo : user.gift_list) {
                 if (giftInfo != null) {
                     o oVar = new o();
                     oVar.a(giftInfo);
-                    this.lXx.add(oVar);
+                    this.mdw.add(oVar);
                 }
             }
         }
     }
 
     public boolean isValid() {
-        return !y.isEmpty(this.lXx);
+        return !y.isEmpty(this.mdw);
     }
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return lXu;
+        return mdt;
     }
 }

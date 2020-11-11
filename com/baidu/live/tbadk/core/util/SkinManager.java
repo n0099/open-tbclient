@@ -64,9 +64,9 @@ public class SkinManager {
         if (textView != null) {
             Application app = BdBaseApplication.getInst().getApp();
             if (i == 1) {
-                textView.setTextColor(app.getResources().getColor(a.d.sdk_common_color_10212));
+                textView.setTextColor(app.getResources().getColor(a.c.sdk_common_color_10212));
             } else {
-                textView.setTextColor(app.getResources().getColor(a.d.sdk_cp_bg_line_d));
+                textView.setTextColor(app.getResources().getColor(a.c.sdk_cp_bg_line_d));
             }
         }
     }
@@ -76,9 +76,9 @@ public class SkinManager {
         if (textView != null) {
             Application app = BdBaseApplication.getInst().getApp();
             if (i == 1) {
-                textView.setTextColor(app.getResources().getColor(a.d.sdk_common_color_10004));
+                textView.setTextColor(app.getResources().getColor(a.c.sdk_common_color_10004));
             } else {
-                textView.setTextColor(app.getResources().getColor(a.d.sdk_cp_bg_line_k));
+                textView.setTextColor(app.getResources().getColor(a.c.sdk_cp_bg_line_k));
             }
         }
     }
@@ -86,31 +86,31 @@ public class SkinManager {
     @Deprecated
     public static void setBlueTextColor1(TextView textView, int i) {
         if (textView != null) {
-            setViewTextColor(textView, a.d.sdk_common_color_10213, 1);
+            setViewTextColor(textView, a.c.sdk_common_color_10213, 1);
         }
     }
 
     public static void setBlueTextColor2(TextView textView, int i) {
         if (textView != null) {
-            setViewTextColor(textView, a.d.sdk_common_color_10214, 1);
+            setViewTextColor(textView, a.c.sdk_common_color_10214, 1);
         }
     }
 
     public static void setGrayTextColor1(TextView textView, int i) {
         if (textView != null) {
-            setViewTextColor(textView, a.d.sdk_cp_cont_b, 1);
+            setViewTextColor(textView, a.c.sdk_cp_cont_b, 1);
         }
     }
 
     public static void setGrayTextColor2(TextView textView, int i) {
         if (textView != null) {
-            setViewTextColor(textView, a.d.sdk_common_color_10005, 1);
+            setViewTextColor(textView, a.c.sdk_common_color_10005, 1);
         }
     }
 
     public static void setGrayTextColor3(TextView textView, int i) {
         if (textView != null) {
-            setViewTextColor(textView, a.d.sdk_common_color_10215, 1);
+            setViewTextColor(textView, a.c.sdk_common_color_10215, 1);
         }
     }
 
@@ -118,16 +118,16 @@ public class SkinManager {
         if (view != null) {
             Application app = BdBaseApplication.getInst().getApp();
             if (i == 1) {
-                view.setBackgroundColor(app.getResources().getColor(a.d.sdk_common_color_10150));
+                view.setBackgroundColor(app.getResources().getColor(a.c.sdk_common_color_10150));
             } else {
-                view.setBackgroundColor(app.getResources().getColor(a.d.sdk_common_color_10163));
+                view.setBackgroundColor(app.getResources().getColor(a.c.sdk_common_color_10163));
             }
         }
     }
 
     public static void setFrsPBBgColor(View view, int i) {
         if (view != null) {
-            setBackgroundResource(view, a.f.sdk_common_bg);
+            setBackgroundResource(view, a.e.sdk_common_bg);
         }
     }
 
@@ -135,9 +135,9 @@ public class SkinManager {
         if (view != null) {
             Application app = BdBaseApplication.getInst().getApp();
             if (i == 1) {
-                view.setBackgroundColor(app.getResources().getColor(a.d.sdk_common_color_10150));
+                view.setBackgroundColor(app.getResources().getColor(a.c.sdk_common_color_10150));
             } else {
-                view.setBackgroundColor(app.getResources().getColor(a.d.sdk_common_color_10216));
+                view.setBackgroundColor(app.getResources().getColor(a.c.sdk_common_color_10216));
             }
         }
     }
@@ -146,55 +146,55 @@ public class SkinManager {
         if (textView != null) {
             Application app = BdBaseApplication.getInst().getApp();
             if (i == 1) {
-                textView.setTextColor(app.getResources().getColor(a.d.sdk_common_color_10004));
+                textView.setTextColor(app.getResources().getColor(a.c.sdk_common_color_10004));
             } else {
-                textView.setTextColor(app.getResources().getColor(a.d.sdk_cp_bg_line_d));
+                textView.setTextColor(app.getResources().getColor(a.c.sdk_cp_bg_line_d));
             }
         }
     }
 
     public static void setTopBarBgImage(View view, int i) {
         if (view != null) {
-            setBackgroundResource(view, a.f.sdk_titlebar_bg);
+            setBackgroundResource(view, a.e.sdk_titlebar_bg);
         }
     }
 
     public static void setSubPbBgHeadImage(View view, int i) {
         if (view != null) {
-            setBackgroundResource(view, a.f.sdk_bg_pb_list_top);
+            setBackgroundResource(view, a.e.sdk_bg_pb_list_top);
         }
     }
 
     public static void setSubPbBgFootImage(View view, int i) {
         if (view != null) {
-            setBackgroundResource(view, a.f.sdk_bg_pb_list_bottom);
+            setBackgroundResource(view, a.e.sdk_bg_pb_list_bottom);
         }
     }
 
     public static void setTopBarCommonButtonBgImage(TextView textView, int i) {
         if (textView != null) {
-            setBackgroundResource(textView, a.f.sdk_title_comm);
+            setBackgroundResource(textView, a.e.sdk_title_comm);
         }
         setTopBarTitleColor(textView, i);
     }
 
     public static void setTopBarCommonHiliteButton(TextView textView, int i) {
         if (textView != null) {
-            setBackgroundResource(textView, a.f.sdk_title_comm_hilite);
+            setBackgroundResource(textView, a.e.sdk_title_comm_hilite);
         }
         setTopBarTitleColor(textView, i);
     }
 
     public static void setTopBarCommonFinishButton(TextView textView, int i) {
         if (textView != null) {
-            setBackgroundResource(textView, a.f.sdk_navi_done_text_bg);
+            setBackgroundResource(textView, a.e.sdk_navi_done_text_bg);
         }
         setTopBarCommonFinishButtonText(textView, i);
     }
 
     public static void setTopBarCommonFinishButtonText(TextView textView, int i) {
         if (textView != null) {
-            setViewTextColor(textView, a.d.sdk_navi_done_text, 1);
+            setViewTextColor(textView, a.c.sdk_navi_done_text, 1);
         }
     }
 
@@ -204,122 +204,122 @@ public class SkinManager {
 
     public static void setTopBarCommonOperateButtonText(TextView textView, int i) {
         if (textView != null) {
-            setViewTextColor(textView, a.d.sdk_navi_op_text, 1);
+            setViewTextColor(textView, a.c.sdk_navi_op_text, 1);
         }
     }
 
     public static void setTopBarCommonDeleteButton(TextView textView, int i) {
         if (textView != null) {
-            setBackgroundResource(textView, a.f.sdk_navi_del_text_bg);
+            setBackgroundResource(textView, a.e.sdk_navi_del_text_bg);
         }
         setTopBarCommonDeleteButtonText(textView, i);
     }
 
     public static void setTopBarCommonDeleteButtonText(TextView textView, int i) {
         if (textView != null) {
-            setViewTextColor(textView, a.d.sdk_navi_del_text, 1);
+            setViewTextColor(textView, a.c.sdk_navi_del_text, 1);
         }
     }
 
     public static void setTopBarBackBgImage(ImageView imageView, int i) {
         if (imageView != null) {
             imageView.setScaleType(ImageView.ScaleType.CENTER);
-            setImageResource(imageView, a.f.sdk_icon_topbar_return_n);
+            setImageResource(imageView, a.e.sdk_icon_topbar_return_n);
         }
     }
 
     public static void setCommonTabBgImage(View view, int i) {
         if (view != null) {
-            setBackgroundResource(view, a.f.sdk_home_radio_button);
+            setBackgroundResource(view, a.e.sdk_home_radio_button);
         }
     }
 
     public static void setTopBarRefrshBgImage(ImageView imageView, int i) {
         if (imageView != null) {
             imageView.setScaleType(ImageView.ScaleType.CENTER);
-            setImageResource(imageView, a.f.sdk_icon_refresh_n);
+            setImageResource(imageView, a.e.sdk_icon_refresh_n);
         }
     }
 
     public static void setTopBarSearchBgImage(ImageView imageView, int i) {
         if (imageView != null) {
             imageView.setScaleType(ImageView.ScaleType.CENTER);
-            setImageResource(imageView, a.f.sdk_icon_topbar_search_n);
+            setImageResource(imageView, a.e.sdk_icon_topbar_search_n);
         }
     }
 
     public static int getCommentTextColor(int i) {
         if (i == 1) {
-            return BdBaseApplication.getInst().getApp().getResources().getColor(a.d.sdk_common_color_10004);
+            return BdBaseApplication.getInst().getApp().getResources().getColor(a.c.sdk_common_color_10004);
         }
         throw new IllegalArgumentException(TYPE_ERROR);
     }
 
     public static int getSecondCommentTextColor(int i) {
         if (i == 1) {
-            return BdBaseApplication.getInst().getApp().getResources().getColor(a.d.sdk_common_color_10217);
+            return BdBaseApplication.getInst().getApp().getResources().getColor(a.c.sdk_common_color_10217);
         }
         throw new IllegalArgumentException(TYPE_ERROR);
     }
 
     public static int getThirdCommentTextColor(int i) {
         if (i == 1) {
-            return BdBaseApplication.getInst().getApp().getResources().getColor(a.d.sdk_common_color_10218);
+            return BdBaseApplication.getInst().getApp().getResources().getColor(a.c.sdk_common_color_10218);
         }
         throw new IllegalArgumentException(TYPE_ERROR);
     }
 
     public static int getBarTextUnselColor(int i) {
         if (i == 1) {
-            return BdBaseApplication.getInst().getApp().getResources().getColor(a.d.sdk_common_color_10219);
+            return BdBaseApplication.getInst().getApp().getResources().getColor(a.c.sdk_common_color_10219);
         }
         throw new IllegalArgumentException(TYPE_ERROR);
     }
 
     public static int getBgColor(int i) {
         Application app = BdBaseApplication.getInst().getApp();
-        return i == 1 ? app.getResources().getColor(a.d.sdk_common_color_10150) : app.getResources().getColor(a.d.sdk_common_color_10163);
+        return i == 1 ? app.getResources().getColor(a.c.sdk_common_color_10150) : app.getResources().getColor(a.c.sdk_common_color_10163);
     }
 
     public static void setNineTextColorMode(TextView textView, boolean z) {
         Application app = BdBaseApplication.getInst().getApp();
         if (z) {
-            textView.setTextColor(app.getResources().getColor(a.d.sdk_cp_bg_line_d));
+            textView.setTextColor(app.getResources().getColor(a.c.sdk_cp_bg_line_d));
         } else {
-            setViewTextColor(textView, a.d.sdk_cp_bg_line_d, 1);
+            setViewTextColor(textView, a.c.sdk_cp_bg_line_d, 1);
         }
     }
 
     public static void setLvSelector(ListView listView, int i) {
         if (listView != null) {
-            listView.setSelector(getDrawable(a.f.sdk_list_selector));
+            listView.setSelector(getDrawable(a.e.sdk_list_selector));
         }
     }
 
     public static void setCommonListView(ListView listView, int i) {
         if (listView != null) {
             Application app = BdBaseApplication.getInst().getApp();
-            setBackgroundColor(listView, a.d.sdk_common_color_10163);
+            setBackgroundColor(listView, a.c.sdk_common_color_10163);
             listView.setCacheColorHint(app.getResources().getColor(17170445));
-            listView.setDivider(getDrawable(a.f.sdk_list_divider));
-            listView.setSelector(getDrawable(a.f.sdk_list_selector));
+            listView.setDivider(getDrawable(a.e.sdk_list_divider));
+            listView.setSelector(getDrawable(a.e.sdk_list_selector));
         }
     }
 
     public static void setCommonListViewNoBackground(ListView listView, int i) {
         if (listView != null) {
             listView.setCacheColorHint(BdBaseApplication.getInst().getApp().getResources().getColor(17170445));
-            listView.setDivider(getDrawable(a.f.sdk_list_divider));
-            listView.setSelector(getDrawable(a.f.sdk_list_selector));
+            listView.setDivider(getDrawable(a.e.sdk_list_divider));
+            listView.setSelector(getDrawable(a.e.sdk_list_selector));
         }
     }
 
     public static void setListViewNoDivider(ListView listView, int i) {
         if (listView != null) {
             Application app = BdBaseApplication.getInst().getApp();
-            setBackgroundColor(listView, a.d.sdk_common_color_10163);
+            setBackgroundColor(listView, a.c.sdk_common_color_10163);
             listView.setCacheColorHint(app.getResources().getColor(17170445));
-            listView.setSelector(getDrawable(a.f.sdk_list_selector));
+            listView.setSelector(getDrawable(a.e.sdk_list_selector));
         }
     }
 

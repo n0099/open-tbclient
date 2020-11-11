@@ -13,7 +13,7 @@ public final class LatLngBounds implements Parcelable {
     public static final class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        private double f2090a;
+        private double f2092a;
         private double b;
         private double c;
         private double d;
@@ -25,8 +25,8 @@ public final class LatLngBounds implements Parcelable {
             }
             double d = latLng.latitude;
             double d2 = latLng.longitude;
-            if (d < this.f2090a) {
-                this.f2090a = d;
+            if (d < this.f2092a) {
+                this.f2092a = d;
             }
             if (d > this.b) {
                 this.b = d;
@@ -40,7 +40,7 @@ public final class LatLngBounds implements Parcelable {
         }
 
         public LatLngBounds build() {
-            return new LatLngBounds(new LatLng(this.b, this.d), new LatLng(this.f2090a, this.c));
+            return new LatLngBounds(new LatLng(this.b, this.d), new LatLng(this.f2092a, this.c));
         }
 
         public Builder include(LatLng latLng) {
@@ -48,7 +48,7 @@ public final class LatLngBounds implements Parcelable {
                 if (this.e) {
                     this.e = false;
                     double d = latLng.latitude;
-                    this.f2090a = d;
+                    this.f2092a = d;
                     this.b = d;
                     double d2 = latLng.longitude;
                     this.c = d2;
@@ -64,7 +64,7 @@ public final class LatLngBounds implements Parcelable {
                 if (list.get(0) != null && this.e) {
                     this.e = false;
                     double d = list.get(0).latitude;
-                    this.f2090a = d;
+                    this.f2092a = d;
                     this.b = d;
                     double d2 = list.get(0).longitude;
                     this.c = d2;

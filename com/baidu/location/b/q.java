@@ -13,7 +13,7 @@ import java.util.Map;
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final double[] f1904a = {1999.0d, 8.0d, 22.0d, 0.0d, 0.0d, 0.0d};
+    private static final double[] f1906a = {1999.0d, 8.0d, 22.0d, 0.0d, 0.0d, 0.0d};
     private HashMap<String, c> b = new HashMap<>();
     private HashMap<String, String> c = new HashMap<>();
 
@@ -21,7 +21,7 @@ public class q {
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static q f1905a = new q();
+        private static q f1907a = new q();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -29,7 +29,7 @@ public class q {
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        int f1906a = 0;
+        int f1908a = 0;
         double b = 0.0d;
 
         public b() {
@@ -62,9 +62,9 @@ public class q {
         }
 
         private b a(int i, double d) {
-            b a2 = a(q.f1904a);
+            b a2 = a(q.f1906a);
             d = (d < -1.0E9d || 1.0E9d < d) ? 0.0d : 0.0d;
-            a2.f1906a += (604800 * i) + ((int) d);
+            a2.f1908a += (604800 * i) + ((int) d);
             a2.b = d - ((int) d);
             return a2;
         }
@@ -84,7 +84,7 @@ public class q {
                 i = 0;
             }
             int floor = (int) Math.floor(dArr[5]);
-            bVar.f1906a = ((i + i5) * 86400) + (((int) dArr[3]) * 3600) + (((int) dArr[4]) * 60) + floor;
+            bVar.f1908a = ((i + i5) * 86400) + (((int) dArr[3]) * 3600) + (((int) dArr[4]) * 60) + floor;
             bVar.b = dArr[5] - floor;
             return bVar;
         }
@@ -220,7 +220,7 @@ public class q {
                 if (this.f == 1537) {
                     c();
                 }
-                sb.append(this.m.f1906a);
+                sb.append(this.m.f1908a);
                 sb.append('|');
                 int i = 0;
                 boolean z2 = true;
@@ -249,7 +249,7 @@ public class q {
         private void c() {
             b a2;
             b a3 = a(this.h, this.i);
-            double d = ((a2.f1906a - a3.f1906a) + a(this.h, this.j).b) - a3.b;
+            double d = ((a2.f1908a - a3.f1908a) + a(this.h, this.j).b) - a3.b;
             if (d > 302400.0d) {
                 this.h--;
             } else if (d < -302400.0d) {
@@ -269,7 +269,7 @@ public class q {
     }
 
     public static q a() {
-        return a.f1905a;
+        return a.f1907a;
     }
 
     @TargetApi(24)

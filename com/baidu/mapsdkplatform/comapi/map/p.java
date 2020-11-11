@@ -5,7 +5,7 @@ import com.baidu.platform.comapi.basestruct.GeoPoint;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f2234a;
+    public int f2236a;
     public String b;
     public String c;
     public String d;

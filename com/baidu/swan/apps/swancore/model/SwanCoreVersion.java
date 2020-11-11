@@ -17,7 +17,7 @@ public class SwanCoreVersion extends SwanAppIPCData {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: kA */
+        /* renamed from: kK */
         public SwanCoreVersion[] newArray(int i) {
             return new SwanCoreVersion[i];
         }

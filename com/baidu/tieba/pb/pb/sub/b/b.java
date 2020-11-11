@@ -4,7 +4,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
 /* loaded from: classes22.dex */
 public class b implements q {
-    public static final BdUniqueId lEm = BdUniqueId.gen();
+    public static final BdUniqueId lKi = BdUniqueId.gen();
     private int auV = 0;
 
     public void setReplyNum(int i) {
@@ -17,6 +17,6 @@ public class b implements q {
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return lEm;
+        return lKi;
     }
 }

@@ -30,14 +30,14 @@ public final class f {
     /* loaded from: classes6.dex */
     public static final class a {
         private final String className;
-        private C0948a oBJ;
-        private C0948a oBK;
-        private boolean oBL;
+        private C0967a oLc;
+        private C0967a oLd;
+        private boolean oLe;
 
         private a(String str) {
-            this.oBJ = new C0948a();
-            this.oBK = this.oBJ;
-            this.oBL = false;
+            this.oLc = new C0967a();
+            this.oLd = this.oLc;
+            this.oLe = false;
             this.className = (String) g.checkNotNull(str);
         }
 
@@ -45,56 +45,56 @@ public final class f {
             return G(str, obj);
         }
 
-        public a bl(String str, boolean z) {
+        public a bn(String str, boolean z) {
             return G(str, String.valueOf(z));
         }
 
-        public a bU(String str, int i) {
+        public a bW(String str, int i) {
             return G(str, String.valueOf(i));
         }
 
         public String toString() {
-            boolean z = this.oBL;
+            boolean z = this.oLe;
             StringBuilder append = new StringBuilder(32).append(this.className).append('{');
             String str = "";
-            for (C0948a c0948a = this.oBJ.oBM; c0948a != null; c0948a = c0948a.oBM) {
-                if (!z || c0948a.value != null) {
+            for (C0967a c0967a = this.oLc.oLf; c0967a != null; c0967a = c0967a.oLf) {
+                if (!z || c0967a.value != null) {
                     append.append(str);
                     str = ", ";
-                    if (c0948a.name != null) {
-                        append.append(c0948a.name).append('=');
+                    if (c0967a.name != null) {
+                        append.append(c0967a.name).append('=');
                     }
-                    append.append(c0948a.value);
+                    append.append(c0967a.value);
                 }
             }
             return append.append('}').toString();
         }
 
-        private C0948a egm() {
-            C0948a c0948a = new C0948a();
-            this.oBK.oBM = c0948a;
-            this.oBK = c0948a;
-            return c0948a;
+        private C0967a ekb() {
+            C0967a c0967a = new C0967a();
+            this.oLd.oLf = c0967a;
+            this.oLd = c0967a;
+            return c0967a;
         }
 
         private a G(String str, @Nullable Object obj) {
-            C0948a egm = egm();
-            egm.value = obj;
-            egm.name = (String) g.checkNotNull(str);
+            C0967a ekb = ekb();
+            ekb.value = obj;
+            ekb.name = (String) g.checkNotNull(str);
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.facebook.common.internal.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static final class C0948a {
+        public static final class C0967a {
             @Nullable
             String name;
-            C0948a oBM;
+            C0967a oLf;
             @Nullable
             Object value;
 
-            private C0948a() {
+            private C0967a() {
             }
         }
     }

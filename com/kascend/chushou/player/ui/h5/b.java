@@ -17,26 +17,26 @@ import com.kascend.chushou.widget.cswebview.e;
 public class b extends FrameLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f4166a;
+    private Context f4168a;
     private View b;
     private View c;
     private int e;
-    private CommonH5Item pkP;
-    private H5Positon pkQ;
-    private com.kascend.chushou.widget.cswebview.d pkS;
-    private com.kascend.chushou.player.ui.h5.c.b plm;
+    private com.kascend.chushou.player.ui.h5.c.b puK;
+    private CommonH5Item pun;
+    private H5Positon puo;
+    private com.kascend.chushou.widget.cswebview.d puq;
 
     public b(@NonNull Context context) {
         super(context);
         this.e = 2;
-        this.f4166a = context;
+        this.f4168a = context;
     }
 
     public void a(int i, H5Positon h5Positon, com.kascend.chushou.player.ui.h5.c.b bVar) {
         int i2;
         this.e = i;
-        this.pkQ = h5Positon;
-        this.plm = bVar;
+        this.puo = h5Positon;
+        this.puK = bVar;
         if (this.b == null) {
             b();
         }
@@ -51,7 +51,7 @@ public class b extends FrameLayout implements View.OnClickListener {
             i2 = 0;
         }
         setBackgroundColor(i2);
-        this.pkP.a(bVar);
+        this.pun.a(bVar);
     }
 
     private void b() {
@@ -59,15 +59,15 @@ public class b extends FrameLayout implements View.OnClickListener {
         if (this.e == 1) {
             i = a.h.layout_common_room_webview_landscape;
         }
-        this.b = LayoutInflater.from(this.f4166a).inflate(i, (ViewGroup) this, false);
+        this.b = LayoutInflater.from(this.f4168a).inflate(i, (ViewGroup) this, false);
         this.c = this.b.findViewById(a.f.view_redpacketlist_close);
-        if (this.plm.i == 0) {
+        if (this.puK.i == 0) {
             this.c.setVisibility(4);
         } else {
             this.c.setOnClickListener(this);
         }
-        this.pkP = (CommonH5Item) this.b.findViewById(a.f.view_smallh5);
-        this.pkP.setListener(new e() { // from class: com.kascend.chushou.player.ui.h5.b.1
+        this.pun = (CommonH5Item) this.b.findViewById(a.f.view_smallh5);
+        this.pun.setListener(new e() { // from class: com.kascend.chushou.player.ui.h5.b.1
             @Override // com.kascend.chushou.widget.cswebview.e, com.kascend.chushou.widget.cswebview.d
             public void a(Object obj) {
                 b.this.a();
@@ -82,29 +82,29 @@ public class b extends FrameLayout implements View.OnClickListener {
         layoutParams.height = -1;
         layoutParams.gravity = 17;
         this.b.setLayoutParams(layoutParams);
-        Point hD = tv.chushou.zues.utils.a.hD(this.f4166a);
-        int statusBarHeight = tv.chushou.zues.utils.systemBar.b.getStatusBarHeight(this.f4166a);
+        Point hD = tv.chushou.zues.utils.a.hD(this.f4168a);
+        int statusBarHeight = tv.chushou.zues.utils.systemBar.b.getStatusBarHeight(this.f4168a);
         int i = hD.x;
         int i2 = hD.y - statusBarHeight;
         View findViewById = this.b.findViewById(a.f.empty_view);
         LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) findViewById.getLayoutParams();
-        int i3 = (int) (((((100 - this.pkQ.mHeight) * 1.0d) / 2.0d) / 100.0d) * i2);
+        int i3 = (int) (((((100 - this.puo.mHeight) * 1.0d) / 2.0d) / 100.0d) * i2);
         layoutParams2.height = i3;
         findViewById.setLayoutParams(layoutParams2);
-        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.pkP.getLayoutParams();
-        layoutParams3.width = (int) (i * ((this.pkQ.mWidth * 1.0d) / 100.0d));
-        layoutParams3.height = (int) (((this.pkQ.mHeight * 1.0d) / 100.0d) * i2);
-        this.pkP.setLayoutParams(layoutParams3);
+        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.pun.getLayoutParams();
+        layoutParams3.width = (int) (i * ((this.puo.mWidth * 1.0d) / 100.0d));
+        layoutParams3.height = (int) (((this.puo.mHeight * 1.0d) / 100.0d) * i2);
+        this.pun.setLayoutParams(layoutParams3);
         LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.c.getLayoutParams();
         layoutParams4.topMargin = (int) (i3 * 0.2d);
         this.c.setLayoutParams(layoutParams4);
     }
 
     private void d() {
-        Point hD = tv.chushou.zues.utils.a.hD(this.f4166a);
-        int i = (int) (((this.pkQ.mHeight * 1.0d) / 100.0d) * hD.y);
-        int i2 = (int) (((this.pkQ.mAspectRadio * 1.0d) / 100.0d) * i);
-        if (this.plm.i == 0) {
+        Point hD = tv.chushou.zues.utils.a.hD(this.f4168a);
+        int i = (int) (((this.puo.mHeight * 1.0d) / 100.0d) * hD.y);
+        int i2 = (int) (((this.puo.mAspectRadio * 1.0d) / 100.0d) * i);
+        if (this.puK.i == 0) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.b.getLayoutParams();
             layoutParams.width = i2;
             layoutParams.height = i;
@@ -115,7 +115,7 @@ public class b extends FrameLayout implements View.OnClickListener {
         RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
         layoutParams2.topMargin = (int) (hD.y * 0.05d);
         this.c.setLayoutParams(layoutParams2);
-        int dip2px = tv.chushou.zues.utils.a.dip2px(this.f4166a, 60.0f);
+        int dip2px = tv.chushou.zues.utils.a.dip2px(this.f4168a, 60.0f);
         FrameLayout.LayoutParams layoutParams3 = (FrameLayout.LayoutParams) this.b.getLayoutParams();
         layoutParams3.width = dip2px + i2;
         layoutParams3.height = i;
@@ -125,13 +125,13 @@ public class b extends FrameLayout implements View.OnClickListener {
     }
 
     public void a() {
-        if (this.pkS != null) {
-            this.pkS.a(this);
+        if (this.puq != null) {
+            this.puq.a(this);
         }
     }
 
     public void setCloseH5Listener(com.kascend.chushou.widget.cswebview.d dVar) {
-        this.pkS = dVar;
+        this.puq = dVar;
     }
 
     @Override // android.view.View.OnClickListener

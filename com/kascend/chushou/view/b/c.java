@@ -18,7 +18,7 @@ import tv.chushou.zues.widget.fresco.b;
 public class c extends com.kascend.chushou.view.base.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f4226a;
+    private TextView f4228a;
     private TextView d;
     private TextView e;
     private TextView f;
@@ -26,8 +26,8 @@ public class c extends com.kascend.chushou.view.base.a {
     private String i;
     private int j;
     private String k;
-    private FrescoThumbnailView pkq;
-    private a poy;
+    private FrescoThumbnailView ptO;
+    private a pxU;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -74,10 +74,10 @@ public class c extends com.kascend.chushou.view.base.a {
                 c.this.dismissAllowingStateLoss();
             }
         });
-        this.f4226a = (TextView) inflate.findViewById(a.f.tv_point);
+        this.f4228a = (TextView) inflate.findViewById(a.f.tv_point);
         this.d = (TextView) inflate.findViewById(a.f.tv_cancel);
         this.e = (TextView) inflate.findViewById(a.f.tv_sure);
-        this.pkq = (FrescoThumbnailView) inflate.findViewById(a.f.iv_icon);
+        this.ptO = (FrescoThumbnailView) inflate.findViewById(a.f.iv_icon);
         this.d.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.view.b.c.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -87,8 +87,8 @@ public class c extends com.kascend.chushou.view.base.a {
         this.e.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.view.b.c.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.poy != null) {
-                    c.this.poy.a(c.this.j, c.this.h);
+                if (c.this.pxU != null) {
+                    c.this.pxU.a(c.this.j, c.this.h);
                 }
             }
         });
@@ -108,11 +108,11 @@ public class c extends com.kascend.chushou.view.base.a {
 
     @Override // com.kascend.chushou.view.base.a
     public void a(View view) {
-        this.pkq.j(this.i, a.e.default_gift, b.a.qfa, b.a.qfa);
-        this.f4226a.setText(String.format(this.b.getString(a.i.send_loyalfans3), Integer.valueOf(this.j)));
+        this.ptO.i(this.i, a.e.default_gift, b.a.qov, b.a.qov);
+        this.f4228a.setText(String.format(this.b.getString(a.i.send_loyalfans3), Integer.valueOf(this.j)));
     }
 
     public void a(a aVar) {
-        this.poy = aVar;
+        this.pxU = aVar;
     }
 }

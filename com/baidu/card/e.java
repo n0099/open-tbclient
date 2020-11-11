@@ -78,7 +78,7 @@ public class e extends b<AbsThreadDataSupport> {
     /* renamed from: b */
     public void H(AbsThreadDataSupport absThreadDataSupport) {
         this.afI = absThreadDataSupport;
-        this.afO.setData(absThreadDataSupport.bhz());
+        this.afO.setData(absThreadDataSupport.bjZ());
     }
 
     public void aE(boolean z) {

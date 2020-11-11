@@ -10,7 +10,7 @@ import java.util.List;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f3143a = {"m", "km", "米", "公里"};
+    public static final String[] f3145a = {"m", "km", "米", "公里"};
     public static final String[] b = {"m", "h", "分钟", "小时"};
     public static final String[] c = {"m", "h", "d", "分钟", "小时", "天"};
 
@@ -18,7 +18,7 @@ public class g {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static int f3144a = 1;
+        public static int f3146a = 1;
         public static int b = 2;
     }
 
@@ -51,13 +51,13 @@ public class g {
             if (stringBuffer != null) {
                 int i3 = i / 1000;
                 if (i3 >= 100) {
-                    stringBuffer.append(String.format("%d%s", Integer.valueOf(i3), f3143a[i2 + 1]));
+                    stringBuffer.append(String.format("%d%s", Integer.valueOf(i3), f3145a[i2 + 1]));
                 } else {
-                    stringBuffer.append(String.format(str, Double.valueOf(i / 1000.0d), f3143a[i2 + 1]));
+                    stringBuffer.append(String.format(str, Double.valueOf(i / 1000.0d), f3145a[i2 + 1]));
                 }
             }
         } else if (stringBuffer != null) {
-            stringBuffer.append(String.format("%d%s", Integer.valueOf(i), f3143a[0 + i2]));
+            stringBuffer.append(String.format("%d%s", Integer.valueOf(i), f3145a[0 + i2]));
         }
     }
 
@@ -246,7 +246,7 @@ public class g {
         } else if (d()) {
             return 3;
         } else {
-            return a(d) == a.f3144a ? 2 : 0;
+            return a(d) == a.f3146a ? 2 : 0;
         }
     }
 }

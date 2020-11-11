@@ -10,10 +10,10 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public final class d {
     /* JADX INFO: Access modifiers changed from: private */
-    public static final JSONArray aAu() {
-        e aEV = e.aEV();
-        if (aEV != null) {
-            String string = aEV.aFg().getString("note_data_pay_check_list", "");
+    public static final JSONArray aCU() {
+        e aHv = e.aHv();
+        if (aHv != null) {
+            String string = aHv.aHG().getString("note_data_pay_check_list", "");
             String str = string;
             if (str == null || l.isBlank(str)) {
                 return null;
@@ -26,29 +26,29 @@ public final class d {
     @h
     /* loaded from: classes10.dex */
     static final class a implements com.baidu.swan.apps.network.c.a.a {
-        final /* synthetic */ kotlin.jvm.a.b cMN;
-        final /* synthetic */ String dbX;
+        final /* synthetic */ kotlin.jvm.a.b cSG;
+        final /* synthetic */ String dhS;
 
         a(kotlin.jvm.a.b bVar, String str) {
-            this.cMN = bVar;
-            this.dbX = str;
+            this.cSG = bVar;
+            this.dhS = str;
         }
 
         @Override // com.baidu.swan.apps.network.c.a.a
-        public final void aAn() {
-            JSONArray aAu = d.aAu();
-            if (aAu == null || aAu.length() == 0) {
-                kotlin.jvm.a.b bVar = this.cMN;
+        public final void aCN() {
+            JSONArray aCU = d.aCU();
+            if (aCU == null || aCU.length() == 0) {
+                kotlin.jvm.a.b bVar = this.cSG;
                 if (bVar != null) {
                     kotlin.l lVar = (kotlin.l) bVar.invoke(true);
                     return;
                 }
                 return;
             }
-            int length = aAu.length();
+            int length = aCU.length();
             for (int i = 0; i < length; i++) {
-                if (q.l(this.dbX, aAu.get(i))) {
-                    kotlin.jvm.a.b bVar2 = this.cMN;
+                if (q.l(this.dhS, aCU.get(i))) {
+                    kotlin.jvm.a.b bVar2 = this.cSG;
                     if (bVar2 != null) {
                         kotlin.l lVar2 = (kotlin.l) bVar2.invoke(true);
                         return;
@@ -56,7 +56,7 @@ public final class d {
                     return;
                 }
             }
-            kotlin.jvm.a.b bVar3 = this.cMN;
+            kotlin.jvm.a.b bVar3 = this.cSG;
             if (bVar3 != null) {
                 kotlin.l lVar3 = (kotlin.l) bVar3.invoke(false);
             }
@@ -64,6 +64,6 @@ public final class d {
     }
 
     public static final void b(String str, kotlin.jvm.a.b<? super Boolean, kotlin.l> bVar) {
-        com.baidu.swan.apps.network.c.a.aAk().a(new a(bVar, str));
+        com.baidu.swan.apps.network.c.a.aCK().a(new a(bVar, str));
     }
 }

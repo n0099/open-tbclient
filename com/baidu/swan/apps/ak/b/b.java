@@ -8,7 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class b implements a<JSONObject> {
-    private JSONArray dtz = new JSONArray();
+    private JSONArray dzr = new JSONArray();
 
     public void add(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
@@ -23,7 +23,7 @@ public class b implements a<JSONObject> {
             jSONObject.put("actionId", str);
             jSONObject.put("timeStamp", String.valueOf(System.currentTimeMillis()));
             jSONObject.put("info", str2);
-            bZ(jSONObject);
+            cf(jSONObject);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.w("LaunchTraceCollector", Log.getStackTraceString(e));
@@ -31,24 +31,24 @@ public class b implements a<JSONObject> {
         }
     }
 
-    public void bZ(JSONObject jSONObject) {
+    public void cf(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.dtz.put(jSONObject);
+            this.dzr.put(jSONObject);
         }
     }
 
-    public JSONObject aHz() {
+    public JSONObject aJZ() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("launchLog", this.dtz);
-            jSONObject.put("performance", e.aBe());
+            jSONObject.put("launchLog", this.dzr);
+            jSONObject.put("performance", e.aDE());
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e("LaunchTraceCollector", Log.getStackTraceString(e));
             }
         }
         try {
-            jSONObject.put("abtest", com.baidu.swan.apps.t.a.aud().getRawSwitch());
+            jSONObject.put("abtest", com.baidu.swan.apps.t.a.awD().getRawSwitch());
         } catch (Exception e2) {
             if (DEBUG) {
                 Log.e("LaunchTraceCollector", Log.getStackTraceString(e2));
@@ -58,6 +58,6 @@ public class b implements a<JSONObject> {
     }
 
     public void clear() {
-        this.dtz = new JSONArray();
+        this.dzr = new JSONArray();
     }
 }

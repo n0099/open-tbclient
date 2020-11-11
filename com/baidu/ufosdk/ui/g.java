@@ -6,20 +6,20 @@ import android.view.View;
 public final class g implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f3875a;
+    final /* synthetic */ e f3877a;
     final /* synthetic */ f b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar, e eVar) {
         this.b = fVar;
-        this.f3875a = eVar;
+        this.f3877a = eVar;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         ey eyVar;
         ey eyVar2;
-        String b = this.f3875a.b();
+        String b = this.f3877a.b();
         for (int i = 0; i < this.b.b.getChildCount(); i++) {
             View childAt = this.b.b.getChildAt(i);
             if (childAt instanceof e) {

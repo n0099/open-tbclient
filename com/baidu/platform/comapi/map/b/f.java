@@ -10,7 +10,7 @@ import com.baidu.platform.comapi.map.b.a;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f2911a;
+    public final int f2913a;
     public final int b;
     private VelocityTracker c;
 
@@ -18,11 +18,11 @@ public class f {
         ViewConfiguration viewConfiguration = ViewConfiguration.get(com.baidu.platform.comapi.b.e());
         if (viewConfiguration == null) {
             this.b = ViewConfiguration.getMinimumFlingVelocity();
-            this.f2911a = ViewConfiguration.getMaximumFlingVelocity();
+            this.f2913a = ViewConfiguration.getMaximumFlingVelocity();
             return;
         }
         this.b = viewConfiguration.getScaledMinimumFlingVelocity();
-        this.f2911a = viewConfiguration.getScaledMaximumFlingVelocity();
+        this.f2913a = viewConfiguration.getScaledMaximumFlingVelocity();
     }
 
     public void a() {
@@ -52,7 +52,7 @@ public class f {
         if (this.c == null) {
             return new Pair<>(new a.d(0.0d, 0.0d), new a.d(0.0d, 0.0d));
         }
-        this.c.computeCurrentVelocity(1000, this.f2911a);
+        this.c.computeCurrentVelocity(1000, this.f2913a);
         if (Build.VERSION.SDK_INT < 8) {
             xVelocity = this.c.getXVelocity();
             yVelocity = this.c.getYVelocity();

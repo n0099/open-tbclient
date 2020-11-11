@@ -8,11 +8,11 @@ import javax.net.ssl.SSLSession;
 public class h implements HostnameVerifier {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ g f1837a;
+    final /* synthetic */ g f1839a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.f1837a = gVar;
+        this.f1839a = gVar;
     }
 
     @Override // javax.net.ssl.HostnameVerifier

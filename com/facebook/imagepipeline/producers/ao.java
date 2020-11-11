@@ -14,55 +14,55 @@ import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 /* loaded from: classes18.dex */
 public class ao implements aj<com.facebook.imagepipeline.g.e> {
-    private static final ImmutableList<Integer> oQn = ImmutableList.of((Object[]) new Integer[]{2, 7, 4, 5});
+    private static final ImmutableList<Integer> oZG = ImmutableList.of((Object[]) new Integer[]{2, 7, 4, 5});
     private final Executor mExecutor;
-    private final com.facebook.common.memory.g oKc;
-    private final boolean oMO;
-    private final aj<com.facebook.imagepipeline.g.e> oOJ;
-    private final boolean oQo;
+    private final com.facebook.common.memory.g oTv;
+    private final boolean oWh;
+    private final aj<com.facebook.imagepipeline.g.e> oYc;
+    private final boolean oZH;
 
     public ao(Executor executor, com.facebook.common.memory.g gVar, boolean z, aj<com.facebook.imagepipeline.g.e> ajVar, boolean z2) {
         this.mExecutor = (Executor) com.facebook.common.internal.g.checkNotNull(executor);
-        this.oKc = (com.facebook.common.memory.g) com.facebook.common.internal.g.checkNotNull(gVar);
-        this.oQo = z;
-        this.oOJ = (aj) com.facebook.common.internal.g.checkNotNull(ajVar);
-        this.oMO = z2;
+        this.oTv = (com.facebook.common.memory.g) com.facebook.common.internal.g.checkNotNull(gVar);
+        this.oZH = z;
+        this.oYc = (aj) com.facebook.common.internal.g.checkNotNull(ajVar);
+        this.oWh = z2;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        this.oOJ.c(new a(kVar, akVar), akVar);
+        this.oYc.c(new a(kVar, akVar), akVar);
     }
 
     /* loaded from: classes18.dex */
     private class a extends n<com.facebook.imagepipeline.g.e, com.facebook.imagepipeline.g.e> {
-        private boolean eVO;
-        private final ak oOW;
-        private final JobScheduler oPc;
+        private boolean fbD;
+        private final ak oYp;
+        private final JobScheduler oYv;
 
         public a(final k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
             super(kVar);
-            this.eVO = false;
-            this.oOW = akVar;
-            this.oPc = new JobScheduler(ao.this.mExecutor, new JobScheduler.a() { // from class: com.facebook.imagepipeline.producers.ao.a.1
+            this.fbD = false;
+            this.oYp = akVar;
+            this.oYv = new JobScheduler(ao.this.mExecutor, new JobScheduler.a() { // from class: com.facebook.imagepipeline.producers.ao.a.1
                 @Override // com.facebook.imagepipeline.producers.JobScheduler.a
                 public void d(com.facebook.imagepipeline.g.e eVar, int i) {
                     a.this.g(eVar, i);
                 }
             }, 100);
-            this.oOW.a(new e() { // from class: com.facebook.imagepipeline.producers.ao.a.2
+            this.oYp.a(new e() { // from class: com.facebook.imagepipeline.producers.ao.a.2
                 @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-                public void enn() {
-                    if (a.this.oOW.enk()) {
-                        a.this.oPc.eny();
+                public void erd() {
+                    if (a.this.oYp.era()) {
+                        a.this.oYv.ero();
                     }
                 }
 
                 @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-                public void ejw() {
-                    a.this.oPc.enx();
-                    a.this.eVO = true;
-                    kVar.egk();
+                public void enm() {
+                    a.this.oYv.ern();
+                    a.this.fbD = true;
+                    kVar.ejZ();
                 }
             });
         }
@@ -72,25 +72,25 @@ public class ao implements aj<com.facebook.imagepipeline.g.e> {
         @Override // com.facebook.imagepipeline.producers.b
         /* renamed from: a */
         public void g(@Nullable com.facebook.imagepipeline.g.e eVar, int i) {
-            if (!this.eVO) {
-                boolean Pn = Pn(i);
+            if (!this.fbD) {
+                boolean PI = PI(i);
                 if (eVar != null) {
-                    TriState a2 = ao.a(this.oOW.enf(), eVar, ao.this.oQo);
-                    if (Pn || a2 != TriState.UNSET) {
+                    TriState a2 = ao.a(this.oYp.eqV(), eVar, ao.this.oZH);
+                    if (PI || a2 != TriState.UNSET) {
                         if (a2 != TriState.YES) {
-                            if (!this.oOW.enf().eoa().ekl() && eVar.emd() != 0 && eVar.emd() != -1) {
+                            if (!this.oYp.eqV().erQ().eob() && eVar.epU() != 0 && eVar.epU() != -1) {
                                 eVar = k(eVar);
-                                eVar.OP(0);
+                                eVar.Pk(0);
                             }
-                            enr().h(eVar, i);
-                        } else if (this.oPc.e(eVar, i)) {
-                            if (Pn || this.oOW.enk()) {
-                                this.oPc.eny();
+                            erh().h(eVar, i);
+                        } else if (this.oYv.e(eVar, i)) {
+                            if (PI || this.oYp.era()) {
+                                this.oYv.ero();
                             }
                         }
                     }
-                } else if (Pn) {
-                    enr().h(null, 1);
+                } else if (PI) {
+                    erh().h(null, 1);
                 }
             }
         }
@@ -107,38 +107,38 @@ public class ao implements aj<com.facebook.imagepipeline.g.e> {
             InputStream inputStream;
             InputStream inputStream2;
             Map<String, String> a2;
-            this.oOW.eng().gX(this.oOW.getId(), "ResizeAndRotateProducer");
-            ImageRequest enf = this.oOW.enf();
-            com.facebook.common.memory.i egw = ao.this.oKc.egw();
+            this.oYp.eqW().gZ(this.oYp.getId(), "ResizeAndRotateProducer");
+            ImageRequest eqV = this.oYp.eqV();
+            com.facebook.common.memory.i ekl = ao.this.oTv.ekl();
             try {
-                int b = ao.b(enf, eVar, ao.this.oQo);
-                int a3 = q.a(enf, eVar);
-                int Pt = ao.Pt(a3);
-                int i2 = ao.this.oMO ? Pt : b;
+                int b = ao.b(eqV, eVar, ao.this.oZH);
+                int a3 = q.a(eqV, eVar);
+                int PO = ao.PO(a3);
+                int i2 = ao.this.oWh ? PO : b;
                 inputStream = eVar.getInputStream();
                 try {
-                    if (ao.oQn.contains(Integer.valueOf(eVar.eme()))) {
-                        int b2 = ao.b(enf.eoa(), eVar);
-                        a2 = a(eVar, enf, i2, Pt, b, 0);
-                        JpegTranscoder.b(inputStream, egw, b2, i2, 85);
+                    if (ao.oZG.contains(Integer.valueOf(eVar.epV()))) {
+                        int b2 = ao.b(eqV.erQ(), eVar);
+                        a2 = a(eVar, eqV, i2, PO, b, 0);
+                        JpegTranscoder.b(inputStream, ekl, b2, i2, 85);
                     } else {
-                        int a4 = ao.a(enf.eoa(), eVar);
-                        a2 = a(eVar, enf, i2, Pt, b, a4);
-                        JpegTranscoder.a(inputStream, egw, a4, i2, 85);
+                        int a4 = ao.a(eqV.erQ(), eVar);
+                        a2 = a(eVar, eqV, i2, PO, b, a4);
+                        JpegTranscoder.a(inputStream, ekl, a4, i2, 85);
                     }
-                    com.facebook.common.references.a e = com.facebook.common.references.a.e(egw.egx());
+                    com.facebook.common.references.a e = com.facebook.common.references.a.e(ekl.ekm());
                     try {
                         com.facebook.imagepipeline.g.e eVar2 = new com.facebook.imagepipeline.g.e(e);
-                        eVar2.c(com.facebook.c.b.oIX);
-                        eVar2.emj();
-                        this.oOW.eng().a(this.oOW.getId(), "ResizeAndRotateProducer", a2);
+                        eVar2.c(com.facebook.c.b.oSq);
+                        eVar2.eqa();
+                        this.oYp.eqW().a(this.oYp.getId(), "ResizeAndRotateProducer", a2);
                         if (a3 != 1) {
                             i |= 16;
                         }
-                        enr().h(eVar2, i);
+                        erh().h(eVar2, i);
                         com.facebook.imagepipeline.g.e.e(eVar2);
                         com.facebook.common.internal.b.q(inputStream);
-                        egw.close();
+                        ekl.close();
                     } finally {
                         com.facebook.common.references.a.c(e);
                     }
@@ -146,23 +146,23 @@ public class ao implements aj<com.facebook.imagepipeline.g.e> {
                     e = e2;
                     inputStream2 = inputStream;
                     try {
-                        this.oOW.eng().a(this.oOW.getId(), "ResizeAndRotateProducer", e, (Map<String, String>) null);
-                        if (Pn(i)) {
-                            enr().E(e);
+                        this.oYp.eqW().a(this.oYp.getId(), "ResizeAndRotateProducer", e, (Map<String, String>) null);
+                        if (PI(i)) {
+                            erh().E(e);
                         }
                         com.facebook.common.internal.b.q(inputStream2);
-                        egw.close();
+                        ekl.close();
                     } catch (Throwable th) {
                         th = th;
                         inputStream = inputStream2;
                         com.facebook.common.internal.b.q(inputStream);
-                        egw.close();
+                        ekl.close();
                         throw th;
                     }
                 } catch (Throwable th2) {
                     th = th2;
                     com.facebook.common.internal.b.q(inputStream);
-                    egw.close();
+                    ekl.close();
                     throw th;
                 }
             } catch (Exception e3) {
@@ -176,12 +176,12 @@ public class ao implements aj<com.facebook.imagepipeline.g.e> {
 
         private Map<String, String> a(com.facebook.imagepipeline.g.e eVar, ImageRequest imageRequest, int i, int i2, int i3, int i4) {
             String str;
-            if (!this.oOW.eng().XI(this.oOW.getId())) {
+            if (!this.oYp.eqW().Ym(this.oYp.getId())) {
                 return null;
             }
             String str2 = eVar.getWidth() + "x" + eVar.getHeight();
-            if (imageRequest.enZ() != null) {
-                str = imageRequest.enZ().width + "x" + imageRequest.enZ().height;
+            if (imageRequest.erP() != null) {
+                str = imageRequest.erP().width + "x" + imageRequest.erP().height;
             } else {
                 str = "Unspecified";
             }
@@ -190,7 +190,7 @@ public class ao implements aj<com.facebook.imagepipeline.g.e> {
             hashMap.put("Original size", str2);
             hashMap.put("Requested size", str);
             hashMap.put("Fraction", str3);
-            hashMap.put("queueTime", String.valueOf(this.oPc.enC()));
+            hashMap.put("queueTime", String.valueOf(this.oYv.ers()));
             hashMap.put("downsampleEnumerator", Integer.toString(i2));
             hashMap.put("softwareEnumerator", Integer.toString(i3));
             hashMap.put("rotationAngle", Integer.toString(i4));
@@ -200,13 +200,13 @@ public class ao implements aj<com.facebook.imagepipeline.g.e> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static TriState a(ImageRequest imageRequest, com.facebook.imagepipeline.g.e eVar, boolean z) {
-        if (eVar == null || eVar.emh() == com.facebook.c.c.oJh) {
+        if (eVar == null || eVar.epY() == com.facebook.c.c.oSA) {
             return TriState.UNSET;
         }
-        if (eVar.emh() != com.facebook.c.b.oIX) {
+        if (eVar.epY() != com.facebook.c.b.oSq) {
             return TriState.NO;
         }
-        return TriState.valueOf(c(imageRequest.eoa(), eVar) || Ps(b(imageRequest, eVar, z)));
+        return TriState.valueOf(c(imageRequest.erQ(), eVar) || PN(b(imageRequest, eVar, z)));
     }
 
     static float a(com.facebook.imagepipeline.common.d dVar, int i, int i2) {
@@ -214,88 +214,88 @@ public class ao implements aj<com.facebook.imagepipeline.g.e> {
             return 1.0f;
         }
         float max = Math.max(dVar.width / i, dVar.height / i2);
-        if (i * max > dVar.oLr) {
-            max = dVar.oLr / i;
+        if (i * max > dVar.oUK) {
+            max = dVar.oUK / i;
         }
-        if (i2 * max > dVar.oLr) {
-            return dVar.oLr / i2;
+        if (i2 * max > dVar.oUK) {
+            return dVar.oUK / i2;
         }
         return max;
     }
 
-    static int G(float f, float f2) {
+    static int I(float f, float f2) {
         return (int) ((8.0f * f) + f2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static int b(ImageRequest imageRequest, com.facebook.imagepipeline.g.e eVar, boolean z) {
-        com.facebook.imagepipeline.common.d enZ;
-        if (z && (enZ = imageRequest.enZ()) != null) {
-            int a2 = a(imageRequest.eoa(), eVar);
-            int b = oQn.contains(Integer.valueOf(eVar.eme())) ? b(imageRequest.eoa(), eVar) : 0;
+        com.facebook.imagepipeline.common.d erP;
+        if (z && (erP = imageRequest.erP()) != null) {
+            int a2 = a(imageRequest.erQ(), eVar);
+            int b = oZG.contains(Integer.valueOf(eVar.epV())) ? b(imageRequest.erQ(), eVar) : 0;
             boolean z2 = a2 == 90 || a2 == 270 || b == 5 || b == 7;
-            int G = G(a(enZ, z2 ? eVar.getHeight() : eVar.getWidth(), z2 ? eVar.getWidth() : eVar.getHeight()), enZ.oLs);
-            if (G > 8) {
+            int I = I(a(erP, z2 ? eVar.getHeight() : eVar.getWidth(), z2 ? eVar.getWidth() : eVar.getHeight()), erP.oUL);
+            if (I > 8) {
                 return 8;
             }
-            if (G < 1) {
+            if (I < 1) {
                 return 1;
             }
-            return G;
+            return I;
         }
         return 8;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static int a(com.facebook.imagepipeline.common.e eVar, com.facebook.imagepipeline.g.e eVar2) {
-        if (!eVar.ekj()) {
+        if (!eVar.enZ()) {
             return 0;
         }
         int j = j(eVar2);
-        return !eVar.eki() ? (j + eVar.ekk()) % EncoderTextureDrawer.X264_WIDTH : j;
+        return !eVar.enY() ? (j + eVar.eoa()) % EncoderTextureDrawer.X264_WIDTH : j;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static int b(com.facebook.imagepipeline.common.e eVar, com.facebook.imagepipeline.g.e eVar2) {
-        int indexOf = oQn.indexOf(Integer.valueOf(eVar2.eme()));
+        int indexOf = oZG.indexOf(Integer.valueOf(eVar2.epV()));
         if (indexOf < 0) {
             throw new IllegalArgumentException("Only accepts inverted exif orientations");
         }
         int i = 0;
-        if (!eVar.eki()) {
-            i = eVar.ekk();
+        if (!eVar.enY()) {
+            i = eVar.eoa();
         }
-        return oQn.get(((i / 90) + indexOf) % oQn.size()).intValue();
+        return oZG.get(((i / 90) + indexOf) % oZG.size()).intValue();
     }
 
     private static int j(com.facebook.imagepipeline.g.e eVar) {
-        switch (eVar.emd()) {
+        switch (eVar.epU()) {
             case 90:
             case 180:
             case 270:
-                return eVar.emd();
+                return eVar.epU();
             default:
                 return 0;
         }
     }
 
-    private static boolean Ps(int i) {
+    private static boolean PN(int i) {
         return i < 8;
     }
 
     private static boolean c(com.facebook.imagepipeline.common.e eVar, com.facebook.imagepipeline.g.e eVar2) {
-        return !eVar.ekl() && (a(eVar, eVar2) != 0 || d(eVar, eVar2));
+        return !eVar.eob() && (a(eVar, eVar2) != 0 || d(eVar, eVar2));
     }
 
     private static boolean d(com.facebook.imagepipeline.common.e eVar, com.facebook.imagepipeline.g.e eVar2) {
-        if (!eVar.ekj() || eVar.ekl()) {
-            eVar2.OQ(0);
+        if (!eVar.enZ() || eVar.eob()) {
+            eVar2.Pl(0);
             return false;
         }
-        return oQn.contains(Integer.valueOf(eVar2.eme()));
+        return oZG.contains(Integer.valueOf(eVar2.epV()));
     }
 
-    static int Pt(int i) {
+    static int PO(int i) {
         return Math.max(1, 8 / i);
     }
 }

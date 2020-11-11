@@ -16,7 +16,7 @@ public class AlaLiveStreamSessionInfo implements Serializable {
     public static final String STREAM_LEVEL_LOW = "L1";
     public static final String STREAM_LEVEL_MEDIUM = "L2";
     public static final String STREAM_LEVEL_SUPER_HIGH = "L4";
-    private static bf iReplaceUrl;
+    private static bh iReplaceUrl;
     public String defaultLine;
     public String flvUrl;
     public String hlsUrl;
@@ -198,16 +198,16 @@ public class AlaLiveStreamSessionInfo implements Serializable {
 
     public static String streamLevelKeyToName(String str) {
         if (STREAM_LEVEL_LOW.equals(str)) {
-            return TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_live_play_level_low);
+            return TbadkCoreApplication.getInst().getResources().getString(a.h.sdk_live_play_level_low);
         }
         if (STREAM_LEVEL_MEDIUM.equals(str)) {
-            return TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_live_play_level_medium);
+            return TbadkCoreApplication.getInst().getResources().getString(a.h.sdk_live_play_level_medium);
         }
         if (STREAM_LEVEL_HIGH.equals(str)) {
-            return TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_live_play_level_high);
+            return TbadkCoreApplication.getInst().getResources().getString(a.h.sdk_live_play_level_high);
         }
         if (STREAM_LEVEL_SUPER_HIGH.equals(str)) {
-            return TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_live_play_level_super_high);
+            return TbadkCoreApplication.getInst().getResources().getString(a.h.sdk_live_play_level_super_high);
         }
         return null;
     }
@@ -216,11 +216,11 @@ public class AlaLiveStreamSessionInfo implements Serializable {
         return iReplaceUrl != null ? iReplaceUrl.replacePushUrl(this.pushUrl) : this.pushUrl;
     }
 
-    public static bf getIReplaceUrl() {
+    public static bh getIReplaceUrl() {
         return iReplaceUrl;
     }
 
-    public static void setIReplaceUrl(bf bfVar) {
-        iReplaceUrl = bfVar;
+    public static void setIReplaceUrl(bh bhVar) {
+        iReplaceUrl = bhVar;
     }
 }

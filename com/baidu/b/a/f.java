@@ -3,7 +3,7 @@ package com.baidu.b.a;
 class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f1240a = 5;
+    public static int f1242a = 5;
     public static int b = 40;
     private b acQ = new b(b);
 

@@ -17,7 +17,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class IMUserQueryRequest extends IMUserBaseHttpRequest {
     private long mAppid;
     private String mKey;

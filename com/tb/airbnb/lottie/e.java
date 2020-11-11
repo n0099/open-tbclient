@@ -1,233 +1,147 @@
 package com.tb.airbnb.lottie;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.graphics.Rect;
 import android.support.annotation.Nullable;
-import android.support.annotation.RawRes;
-import android.support.annotation.WorkerThread;
-import android.util.JsonReader;
+import android.support.annotation.RestrictTo;
+import android.support.v4.util.LongSparseArray;
+import android.support.v4.util.SparseArrayCompat;
 import android.util.Log;
-import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
-import com.tb.airbnb.lottie.c.t;
-import java.io.IOException;
+import com.tb.airbnb.lottie.model.layer.Layer;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.concurrent.Callable;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
 /* loaded from: classes16.dex */
 public class e {
-    private static final Map<String, l<d>> Bs = new HashMap();
+    private Map<String, List<Layer>> Bj;
+    private Map<String, com.tb.airbnb.lottie.model.c> Bk;
+    private SparseArrayCompat<com.tb.airbnb.lottie.model.d> Bl;
+    private LongSparseArray<Layer> Bm;
+    private List<Layer> Bn;
+    private float Bo;
+    private float Bp;
+    private float Bq;
+    private Rect bounds;
+    private Map<String, h> images;
+    private final o pHQ = new o();
+    private final HashSet<String> Bi = new HashSet<>();
 
-    public static l<d> bu(Context context, String str) {
-        return com.tb.airbnb.lottie.network.b.bx(context, str);
+    public void a(Rect rect, float f, float f2, float f3, List<Layer> list, LongSparseArray<Layer> longSparseArray, Map<String, List<Layer>> map, Map<String, h> map2, SparseArrayCompat<com.tb.airbnb.lottie.model.d> sparseArrayCompat, Map<String, com.tb.airbnb.lottie.model.c> map3) {
+        this.bounds = rect;
+        this.Bo = f;
+        this.Bp = f2;
+        this.Bq = f3;
+        this.Bn = list;
+        this.Bm = longSparseArray;
+        this.Bj = map;
+        this.images = map2;
+        this.Bl = sparseArrayCompat;
+        this.Bk = map3;
     }
 
-    public static l<d> bv(Context context, final String str) {
-        final Context applicationContext = context.getApplicationContext();
-        return b(str, new Callable<k<d>>() { // from class: com.tb.airbnb.lottie.e.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // java.util.concurrent.Callable
-            /* renamed from: euI */
-            public k<d> call() {
-                return e.bw(applicationContext, str);
-            }
-        });
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public void bc(String str) {
+        Log.w("LOTTIE", str);
+        this.Bi.add(str);
     }
 
-    @WorkerThread
-    public static k<d> bw(Context context, String str) {
-        k<d> k;
-        try {
-            String str2 = "asset_" + str;
-            if (str.endsWith(".zip")) {
-                k = c(new ZipInputStream(context.getAssets().open(str)), str2);
-            } else {
-                k = k(context.getAssets().open(str), str2);
-            }
-            return k;
-        } catch (IOException e) {
-            return new k<>(e);
-        }
+    public void setPerformanceTrackingEnabled(boolean z) {
+        this.pHQ.setEnabled(z);
     }
 
-    public static l<d> L(Context context, @RawRes final int i) {
-        final Context applicationContext = context.getApplicationContext();
-        return b(U(i), new Callable<k<d>>() { // from class: com.tb.airbnb.lottie.e.3
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // java.util.concurrent.Callable
-            /* renamed from: euI */
-            public k<d> call() {
-                return e.M(applicationContext, i);
-            }
-        });
+    public o getPerformanceTracker() {
+        return this.pHQ;
     }
 
-    @WorkerThread
-    public static k<d> M(Context context, @RawRes int i) {
-        try {
-            return k(context.getResources().openRawResource(i), U(i));
-        } catch (Resources.NotFoundException e) {
-            return new k<>(e);
-        }
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public Layer ic(long j) {
+        return this.Bm.get(j);
     }
 
-    private static String U(@RawRes int i) {
-        return "rawRes_" + i;
+    public Rect iu() {
+        return this.bounds;
     }
 
-    public static l<d> j(final InputStream inputStream, @Nullable final String str) {
-        return b(str, new Callable<k<d>>() { // from class: com.tb.airbnb.lottie.e.4
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // java.util.concurrent.Callable
-            /* renamed from: euI */
-            public k<d> call() {
-                return e.k(inputStream, str);
-            }
-        });
+    public float iv() {
+        return (iD() / this.Bq) * 1000.0f;
     }
 
-    @WorkerThread
-    public static k<d> k(InputStream inputStream, @Nullable String str) {
-        return b(inputStream, str, true);
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public float iw() {
+        return this.Bo;
     }
 
-    @WorkerThread
-    private static k<d> b(InputStream inputStream, @Nullable String str, boolean z) {
-        try {
-            return d(new JsonReader(new InputStreamReader(inputStream)), str);
-        } finally {
-            if (z) {
-                com.tb.airbnb.lottie.d.f.closeQuietly(inputStream);
-            }
-        }
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public float ix() {
+        return this.Bp;
     }
 
-    public static l<d> c(final JsonReader jsonReader, @Nullable final String str) {
-        return b(str, new Callable<k<d>>() { // from class: com.tb.airbnb.lottie.e.5
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // java.util.concurrent.Callable
-            /* renamed from: euI */
-            public k<d> call() {
-                return e.d(jsonReader, str);
-            }
-        });
+    public float iy() {
+        return this.Bq;
     }
 
-    @WorkerThread
-    public static k<d> d(JsonReader jsonReader, @Nullable String str) {
-        try {
-            d g = t.g(jsonReader);
-            com.tb.airbnb.lottie.model.g.euV().a(str, g);
-            return new k<>(g);
-        } catch (Exception e) {
-            return new k<>(e);
-        }
-    }
-
-    @WorkerThread
-    public static k<d> c(ZipInputStream zipInputStream, @Nullable String str) {
-        try {
-            return d(zipInputStream, str);
-        } finally {
-            com.tb.airbnb.lottie.d.f.closeQuietly(zipInputStream);
-        }
-    }
-
-    @WorkerThread
-    private static k<d> d(ZipInputStream zipInputStream, @Nullable String str) {
-        d dVar;
-        String[] split;
-        HashMap hashMap = new HashMap();
-        try {
-            ZipEntry nextEntry = zipInputStream.getNextEntry();
-            d dVar2 = null;
-            while (nextEntry != null) {
-                if (nextEntry.getName().contains("__MACOSX")) {
-                    zipInputStream.closeEntry();
-                    dVar = dVar2;
-                } else if (nextEntry.getName().contains(".json")) {
-                    dVar = b(zipInputStream, str, false).getValue();
-                } else if (nextEntry.getName().contains(ComboPraiseProvider.RES_NAME_PRAISE_NUMBER_SUFFIX)) {
-                    hashMap.put(nextEntry.getName().split("/")[split.length - 1], BitmapFactory.decodeStream(zipInputStream));
-                    dVar = dVar2;
-                } else {
-                    zipInputStream.closeEntry();
-                    dVar = dVar2;
-                }
-                nextEntry = zipInputStream.getNextEntry();
-                dVar2 = dVar;
-            }
-            if (dVar2 == null) {
-                return new k<>(new IllegalArgumentException("Unable to parse composition"));
-            }
-            for (Map.Entry entry : hashMap.entrySet()) {
-                g a2 = a(dVar2, (String) entry.getKey());
-                if (a2 != null) {
-                    a2.setBitmap((Bitmap) entry.getValue());
-                }
-            }
-            for (Map.Entry<String, g> entry2 : dVar2.iC().entrySet()) {
-                if (entry2.getValue().getBitmap() == null) {
-                    return new k<>(new IllegalStateException("There is no image for " + entry2.getValue().getFileName()));
-                }
-            }
-            com.tb.airbnb.lottie.model.g.euV().a(str, dVar2);
-            return new k<>(dVar2);
-        } catch (IOException e) {
-            return new k<>(e);
-        }
+    public List<Layer> iz() {
+        return this.Bn;
     }
 
     @Nullable
-    private static g a(d dVar, String str) {
-        for (g gVar : dVar.iC().values()) {
-            if (gVar.getFileName().equals(str)) {
-                return gVar;
-            }
-        }
-        return null;
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public List<Layer> bd(String str) {
+        return this.Bj.get(str);
     }
 
-    private static l<d> b(@Nullable final String str, Callable<k<d>> callable) {
-        final d YI = com.tb.airbnb.lottie.model.g.euV().YI(str);
-        if (YI != null) {
-            return new l<>(new Callable<k<d>>() { // from class: com.tb.airbnb.lottie.e.6
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // java.util.concurrent.Callable
-                /* renamed from: euI */
-                public k<d> call() {
-                    Log.d("Gabe", "call\treturning from cache");
-                    return new k<>(d.this);
-                }
-            });
+    public SparseArrayCompat<com.tb.airbnb.lottie.model.d> iA() {
+        return this.Bl;
+    }
+
+    public Map<String, com.tb.airbnb.lottie.model.c> iB() {
+        return this.Bk;
+    }
+
+    public Map<String, h> iC() {
+        return this.images;
+    }
+
+    public float iD() {
+        return this.Bp - this.Bo;
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder("LottieComposition:\n");
+        for (Layer layer : this.Bn) {
+            sb.append(layer.toString("\t"));
         }
-        if (Bs.containsKey(str)) {
-            return Bs.get(str);
+        return sb.toString();
+    }
+
+    @Deprecated
+    /* loaded from: classes16.dex */
+    public static class a {
+        @Deprecated
+        public static com.tb.airbnb.lottie.a a(InputStream inputStream, n nVar) {
+            C1039a c1039a = new C1039a(nVar);
+            f.j(inputStream, null).a(c1039a);
+            return c1039a;
         }
-        l<d> lVar = new l<>(callable);
-        lVar.a(new h<d>() { // from class: com.tb.airbnb.lottie.e.7
+
+        /* renamed from: com.tb.airbnb.lottie.e$a$a  reason: collision with other inner class name */
+        /* loaded from: classes16.dex */
+        private static final class C1039a implements com.tb.airbnb.lottie.a, i<e> {
+            private boolean cancelled;
+            private final n pHR;
+
+            private C1039a(n nVar) {
+                this.cancelled = false;
+                this.pHR = nVar;
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.tb.airbnb.lottie.h
-            public void onResult(d dVar) {
-                if (str != null) {
-                    com.tb.airbnb.lottie.model.g.euV().a(str, dVar);
+            @Override // com.tb.airbnb.lottie.i
+            public void onResult(e eVar) {
+                if (!this.cancelled) {
+                    this.pHR.a(eVar);
                 }
-                e.Bs.remove(str);
             }
-        });
-        lVar.c(new h<Throwable>() { // from class: com.tb.airbnb.lottie.e.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.tb.airbnb.lottie.h
-            public void onResult(Throwable th) {
-                e.Bs.remove(str);
-            }
-        });
-        Bs.put(str, lVar);
-        return lVar;
+        }
     }
 }

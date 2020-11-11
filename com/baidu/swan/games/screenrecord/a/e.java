@@ -9,8 +9,8 @@ import java.util.Iterator;
 /* loaded from: classes10.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private ArrayList<a> dTd;
-    private int dTe;
+    private ArrayList<a> dYV;
+    private int dYW;
     private String mSavePath;
     private String mVideoPath;
 
@@ -18,10 +18,10 @@ public class e {
         if (DEBUG) {
             Log.d("ClipVideoTask", "videoPath=" + str + "clipList=" + arrayList);
         }
-        this.dTd = v(arrayList);
+        this.dYV = v(arrayList);
         this.mVideoPath = str;
         this.mSavePath = str2;
-        this.dTe = this.dTd.size();
+        this.dYW = this.dYV.size();
     }
 
     public void a(final c cVar) {
@@ -29,19 +29,19 @@ public class e {
             p.postOnSerial(new Runnable() { // from class: com.baidu.swan.games.screenrecord.a.e.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    ArrayList<long[]> aUt = e.this.aUt();
+                    ArrayList<long[]> aWT = e.this.aWT();
                     d dVar = new d();
                     dVar.videoPath = e.this.mVideoPath;
-                    dVar.dTc = aUt;
+                    dVar.dYU = aWT;
                     dVar.clipPath = e.this.mSavePath;
-                    com.baidu.swan.games.m.a.aTE().a(dVar, cVar);
+                    com.baidu.swan.games.m.a.aWe().a(dVar, cVar);
                 }
             }, "clipVideo");
         }
     }
 
     private ArrayList<a> v(ArrayList<b> arrayList) {
-        a aUs;
+        a aWS;
         ArrayList<a> arrayList2 = new ArrayList<>();
         if (arrayList == null || arrayList.size() == 0) {
             return arrayList2;
@@ -49,25 +49,25 @@ public class e {
         Iterator<b> it = arrayList.iterator();
         while (it.hasNext()) {
             b next = it.next();
-            if (next != null && (aUs = next.aUs()) != null) {
-                arrayList2.add(aUs);
+            if (next != null && (aWS = next.aWS()) != null) {
+                arrayList2.add(aWS);
             }
         }
         return arrayList2;
     }
 
-    public ArrayList<long[]> aUt() {
+    public ArrayList<long[]> aWT() {
         ArrayList<long[]> arrayList = new ArrayList<>();
-        if (this.dTe == 0) {
+        if (this.dYW == 0) {
             return arrayList;
         }
         if (DEBUG) {
-            Log.d("ClipVideoTask", "mergeRange mRangeList = " + this.dTd);
+            Log.d("ClipVideoTask", "mergeRange mRangeList = " + this.dYV);
         }
-        Collections.sort(this.dTd, new a.C0531a());
-        a aVar = this.dTd.get(0);
-        for (int i = 1; i < this.dTe; i++) {
-            a aVar2 = this.dTd.get(i);
+        Collections.sort(this.dYV, new a.C0543a());
+        a aVar = this.dYV.get(0);
+        for (int i = 1; i < this.dYW; i++) {
+            a aVar2 = this.dYV.get(i);
             if (!aVar.b(aVar2)) {
                 arrayList.add(a.a(aVar));
                 aVar = aVar2;

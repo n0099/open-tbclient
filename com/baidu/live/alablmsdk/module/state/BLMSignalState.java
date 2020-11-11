@@ -3,9 +3,8 @@ package com.baidu.live.alablmsdk.module.state;
 public enum BLMSignalState {
     DEFAULT,
     RING,
-    ACCEPT,
     REJECT,
     TIMEOUT,
     EXIT,
-    JOIN
+    JOINED
 }

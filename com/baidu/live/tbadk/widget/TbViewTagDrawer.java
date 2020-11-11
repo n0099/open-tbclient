@@ -36,18 +36,18 @@ public class TbViewTagDrawer {
         this.extraHeight = 16;
         this.extraWidth = 32;
         this.view = view;
-        this.tagBGColor = getContext().getResources().getColor(a.d.sdk_black_alpha40);
+        this.tagBGColor = getContext().getResources().getColor(a.c.sdk_black_alpha40);
         this.tagBGPaint.setColor(this.tagBGColor);
         this.tagBGPaint.setAntiAlias(true);
-        this.tagTextSize = (int) getContext().getResources().getDimension(a.e.sdk_tbfontsize26);
-        this.tagTextColor = getContext().getResources().getColor(a.d.sdk_cp_cont_i);
+        this.tagTextSize = (int) getContext().getResources().getDimension(a.d.sdk_tbfontsize26);
+        this.tagTextColor = getContext().getResources().getColor(a.c.sdk_cp_cont_i);
         this.tagPaint.setColor(this.tagTextColor);
         this.tagPaint.setTextSize(this.tagTextSize);
         this.tagPaint.setAntiAlias(true);
-        this.tagDisY = BdUtilHelper.getDimens(getContext(), a.e.sdk_tbds20);
-        this.tagDisX = BdUtilHelper.getDimens(getContext(), a.e.sdk_tbds20);
-        this.extraHeight = BdUtilHelper.getDimens(getContext(), a.e.sdk_ds16);
-        this.extraWidth = BdUtilHelper.getDimens(getContext(), a.e.sdk_tbds40);
+        this.tagDisY = BdUtilHelper.getDimens(getContext(), a.d.sdk_tbds20);
+        this.tagDisX = BdUtilHelper.getDimens(getContext(), a.d.sdk_tbds20);
+        this.extraHeight = BdUtilHelper.getDimens(getContext(), a.d.sdk_ds16);
+        this.extraWidth = BdUtilHelper.getDimens(getContext(), a.d.sdk_tbds40);
     }
 
     public void drawBottomRightTag(Canvas canvas, String str) {

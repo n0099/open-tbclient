@@ -18,12 +18,12 @@ public final class FragmentState implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: mV */
+        /* renamed from: nf */
         public FragmentState[] newArray(int i) {
             return new FragmentState[i];
         }
     };
-    Fragment eeG;
+    Fragment eky;
     final Bundle mArguments;
     final String mClassName;
     final int mContainerId;
@@ -61,31 +61,31 @@ public final class FragmentState implements Parcelable {
     }
 
     public Fragment a(j jVar, Fragment fragment) {
-        if (this.eeG != null) {
-            return this.eeG;
+        if (this.eky != null) {
+            return this.eky;
         }
         Context context = jVar.getContext();
         if (this.mArguments != null) {
             this.mArguments.setClassLoader(context.getClassLoader());
         }
-        this.eeG = Fragment.b(context, this.mClassName, this.mArguments);
+        this.eky = Fragment.b(context, this.mClassName, this.mArguments);
         if (this.mSavedFragmentState != null) {
             this.mSavedFragmentState.setClassLoader(context.getClassLoader());
-            this.eeG.mSavedFragmentState = this.mSavedFragmentState;
+            this.eky.mSavedFragmentState = this.mSavedFragmentState;
         }
-        this.eeG.b(this.mIndex, fragment);
-        this.eeG.mFromLayout = this.mFromLayout;
-        this.eeG.mRestored = true;
-        this.eeG.mFragmentId = this.mFragmentId;
-        this.eeG.mContainerId = this.mContainerId;
-        this.eeG.mTag = this.mTag;
-        this.eeG.mRetainInstance = this.mRetainInstance;
-        this.eeG.mDetached = this.mDetached;
-        this.eeG.eee = jVar.eee;
+        this.eky.b(this.mIndex, fragment);
+        this.eky.mFromLayout = this.mFromLayout;
+        this.eky.mRestored = true;
+        this.eky.mFragmentId = this.mFragmentId;
+        this.eky.mContainerId = this.mContainerId;
+        this.eky.mTag = this.mTag;
+        this.eky.mRetainInstance = this.mRetainInstance;
+        this.eky.mDetached = this.mDetached;
+        this.eky.ejW = jVar.ejW;
         if (l.DEBUG) {
-            Log.v("FragmentManager", "Instantiated fragment " + this.eeG);
+            Log.v("FragmentManager", "Instantiated fragment " + this.eky);
         }
-        return this.eeG;
+        return this.eky;
     }
 
     @Override // android.os.Parcelable

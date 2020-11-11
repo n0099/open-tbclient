@@ -9,6 +9,7 @@ public class UbcStatConstant {
     public static final String KEY_CONTENT_EXT_LIVESDK = "livesdk";
     public static final String KEY_CONTENT_EXT_LIVE_ID = "live_id";
     public static final String KEY_CONTENT_EXT_LOC = "loc";
+    public static final String KEY_CONTENT_EXT_MODE = "mode";
     public static final String KEY_CONTENT_EXT_ROOM_ID = "room_id";
     public static final String KEY_CONTENT_EXT_SID = "sid";
     public static final String KEY_CONTENT_EXT_STATUS = "status";
@@ -121,7 +122,32 @@ public class UbcStatConstant {
     }
 
     /* loaded from: classes4.dex */
+    public static class SubPage {
+        public static final String POPUP = "popup";
+    }
+
+    /* loaded from: classes4.dex */
     public static class Value {
+        public static final String VALUE_BC_CHAT_APPLY_CFM = "linkapply_cfm";
+        public static final String VALUE_BC_CHAT_APPLY_CLICK = "linkapply_clk";
+        public static final String VALUE_BC_CHAT_DUO_BEAUTY_SHOW = "chatbeauty_show";
+        public static final String VALUE_BC_CHAT_DUO_CHAT_CLICK = "duochat_clk";
+        public static final String VALUE_BC_CHAT_DUO_LINK_APPLY_CLICK = "linkapply_clk";
+        public static final String VALUE_BC_CHAT_DUO_LINK_APPLY_FAIL = "linkapply_fail";
+        public static final String VALUE_BC_CHAT_DUO_LINK_APPLY_SUCCESS = "linkapply_succ";
+        public static final String VALUE_BC_CHAT_DUO_LINK_CLOSE_CAN = "linkclose_can";
+        public static final String VALUE_BC_CHAT_DUO_LINK_CLOSE_CFM = "linkclose_cfm";
+        public static final String VALUE_BC_CHAT_DUO_LINK_CLOSE_SHOW = "linkclose_show";
+        public static final String VALUE_BC_CHAT_DUO_LINK_SUCCESS = "duolink_succ";
+        public static final String VALUE_BC_CHAT_DUO_PRE_BEAUTY_CLICK = "chatbeauty_clk";
+        public static final String VALUE_BC_CHAT_DUO_PRE_POP_SEC = "duochatpop_esc";
+        public static final String VALUE_BC_CHAT_DUO_PRE_POP_SHOW = "duochatpop_show";
+        public static final String VALUE_BC_CHAT_LINK_CANCEL_CLICK = "linkcancel_clk";
+        public static final String VALUE_BC_CHAT_LINK_CANCEL_SHOW = "linkcancel_show";
+        public static final String VALUE_BC_CHAT_LINK_CLOSE_CLICK = "linkclose_clk";
+        public static final String VALUE_BC_CHAT_LINK_CONFIRM_CLICK = "linkcfm_clk";
+        public static final String VALUE_BC_CHAT_LINK_CONFIRM_SHOW = "linkcfm_show";
+        public static final String VALUE_BC_CHAT_SHOW_APPLY_PANEL = "linkapply_show";
         public static final String VALUE_CHAT_INVITE_TAB_SHOW = "invitetab_show";
         public static final String VALUE_CHAT_LINK_CLICK = "chatlink_clk";
         public static final String VALUE_CHAT_LINK_CLOSE_CAN = "linkclose_can";

@@ -7,7 +7,7 @@ import android.text.TextUtils;
 public abstract class y {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4714a;
+    private int f4716a;
     private String b;
 
     protected abstract void c(a aVar);
@@ -15,11 +15,11 @@ public abstract class y {
     protected abstract void d(a aVar);
 
     public y(int i) {
-        this.f4714a = -1;
+        this.f4716a = -1;
         if (i < 0) {
             throw new IllegalArgumentException("PushCommand: the value of command must > 0.");
         }
-        this.f4714a = i;
+        this.f4716a = i;
     }
 
     public final String a() {
@@ -31,7 +31,7 @@ public abstract class y {
     }
 
     public final int b() {
-        return this.f4714a;
+        return this.f4716a;
     }
 
     public final void a(Intent intent) {
@@ -48,7 +48,7 @@ public abstract class y {
     }
 
     public final void a(a aVar) {
-        String a2 = z.a(this.f4714a);
+        String a2 = z.a(this.f4716a);
         if (a2 == null) {
             a2 = "";
         }
@@ -62,7 +62,7 @@ public abstract class y {
             com.vivo.push.util.p.b("PushCommand", "bundleWapper is null");
             return;
         }
-        a2.a("method", this.f4714a);
+        a2.a("method", this.f4716a);
         e(a2);
         Bundle b = a2.b();
         if (b != null) {
@@ -71,7 +71,7 @@ public abstract class y {
     }
 
     private final void e(a aVar) {
-        aVar.a("command", this.f4714a);
+        aVar.a("command", this.f4716a);
         aVar.a("client_pkgname", this.b);
         c(aVar);
     }

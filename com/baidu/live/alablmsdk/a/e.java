@@ -4,22 +4,22 @@ import android.content.Context;
 import android.content.SharedPreferences;
 /* loaded from: classes4.dex */
 public class e {
-    private static e aAx;
+    private static e aAu;
     private static boolean isInited = false;
     private static Context mContext;
 
     private e() {
     }
 
-    public static e Bj() {
-        if (aAx == null) {
+    public static e Bi() {
+        if (aAu == null) {
             synchronized (e.class) {
-                if (aAx == null) {
-                    aAx = new e();
+                if (aAu == null) {
+                    aAu = new e();
                 }
             }
         }
-        return aAx;
+        return aAu;
     }
 
     public void init(Context context) {

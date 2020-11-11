@@ -7,7 +7,7 @@ import com.baidu.cyberplayer.sdk.dlna.DlnaProvider;
 public class Dlna {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f1375a = "com.baidu.media.dlna.DlnaProviderImpl";
+    private static String f1377a = "com.baidu.media.dlna.DlnaProviderImpl";
     private static DlnaProvider b = null;
     public static int DLNA_ERROR_PLAY_ACTION_NOT_FOUND = -1001;
     public static int DLNA_ERROR_DEVICE_CONNECT_TIMEOUT = -1002;
@@ -32,19 +32,19 @@ public class Dlna {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final Dlna f1376a = new Dlna();
+        private static final Dlna f1378a = new Dlna();
     }
 
     private Dlna() {
     }
 
     public static Dlna getInstance() {
-        return a.f1376a;
+        return a.f1378a;
     }
 
     public static void init(ClassLoader classLoader) {
         try {
-            b = (DlnaProvider) Class.forName(f1375a, true, classLoader).newInstance();
+            b = (DlnaProvider) Class.forName(f1377a, true, classLoader).newInstance();
         } catch (Exception e) {
             e.printStackTrace();
             b = null;

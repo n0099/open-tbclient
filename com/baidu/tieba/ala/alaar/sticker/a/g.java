@@ -6,8 +6,8 @@ import com.baidu.live.data.AlaLiveStickerInfo;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes4.dex */
 public class g {
-    private static int fWZ = 0;
-    private static volatile boolean fXa = false;
+    private static int gcQ = 0;
+    private static volatile boolean gcR = false;
 
     public static void a(BdUniqueId bdUniqueId, String str, int i, int i2) {
         com.baidu.tieba.ala.alaar.messages.c cVar = new com.baidu.tieba.ala.alaar.messages.c(bdUniqueId, str, i, i2);
@@ -15,7 +15,7 @@ public class g {
         MessageManager.getInstance().sendMessage(cVar);
     }
 
-    public static void PK() {
+    public static void Qk() {
         com.baidu.tieba.ala.alaar.messages.b bVar = new com.baidu.tieba.ala.alaar.messages.b("");
         bVar.setParams();
         MessageManager.getInstance().sendMessage(bVar);
@@ -32,18 +32,18 @@ public class g {
     }
 
     public static void a(long j, int i, AlaLiveStickerInfo alaLiveStickerInfo) {
-        fWZ = i;
-        fXa = true;
+        gcQ = i;
+        gcR = true;
         com.baidu.tieba.ala.alaar.messages.d dVar = new com.baidu.tieba.ala.alaar.messages.d(j, i, alaLiveStickerInfo);
         dVar.setParams();
         MessageManager.getInstance().sendMessage(dVar);
     }
 
-    public static void bLi() {
-        fXa = false;
+    public static void bNH() {
+        gcR = false;
     }
 
-    public static boolean bLj() {
-        return fXa;
+    public static boolean bNI() {
+        return gcR;
     }
 }

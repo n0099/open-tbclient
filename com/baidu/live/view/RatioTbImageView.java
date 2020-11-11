@@ -8,31 +8,31 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.TbImageView;
 /* loaded from: classes4.dex */
 public class RatioTbImageView extends TbImageView {
-    private float bGv;
+    private float bMa;
 
     public RatioTbImageView(Context context) {
         super(context);
-        this.bGv = 1.7777778f;
+        this.bMa = 1.7777778f;
     }
 
     public RatioTbImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bGv = 1.7777778f;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.k.sdk_MHRatioTbImageView);
-        this.bGv = obtainStyledAttributes.getFloat(a.k.sdk_MHRatioTbImageView_sdk_wh_ratio, 1.7777778f);
+        this.bMa = 1.7777778f;
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.sdk_MHRatioTbImageView);
+        this.bMa = obtainStyledAttributes.getFloat(a.j.sdk_MHRatioTbImageView_sdk_wh_ratio, 1.7777778f);
         obtainStyledAttributes.recycle();
     }
 
     public RatioTbImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bGv = 1.7777778f;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.k.sdk_MHRatioTbImageView);
-        this.bGv = obtainStyledAttributes.getFloat(a.k.sdk_MHRatioTbImageView_sdk_wh_ratio, 1.7777778f);
+        this.bMa = 1.7777778f;
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.sdk_MHRatioTbImageView);
+        this.bMa = obtainStyledAttributes.getFloat(a.j.sdk_MHRatioTbImageView_sdk_wh_ratio, 1.7777778f);
         obtainStyledAttributes.recycle();
     }
 
     public void setWidthHeightRatio(float f) {
-        this.bGv = f;
+        this.bMa = f;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -42,6 +42,6 @@ public class RatioTbImageView extends TbImageView {
         View.MeasureSpec.getMode(i2);
         int size = (View.MeasureSpec.getSize(i) - getPaddingLeft()) - getPaddingRight();
         int size2 = (View.MeasureSpec.getSize(i2) - getPaddingBottom()) - getPaddingTop();
-        super.onMeasure(i, View.MeasureSpec.makeMeasureSpec((int) ((size / this.bGv) + 0.5f), 1073741824));
+        super.onMeasure(i, View.MeasureSpec.makeMeasureSpec((int) ((size / this.bMa) + 0.5f), 1073741824));
     }
 }

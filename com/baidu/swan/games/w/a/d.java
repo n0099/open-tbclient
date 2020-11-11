@@ -21,12 +21,12 @@ public class d {
 
     public String dk(String str, String str2) {
         if (isSuccess()) {
-            return a.xt(str);
+            return a.xH(str);
         }
-        return a.ab(str, str2, aUM());
+        return a.ab(str, str2, aXm());
     }
 
-    public String aUM() {
+    public String aXm() {
         return this.error;
     }
 
@@ -34,11 +34,11 @@ public class d {
         return this.data;
     }
 
-    public static Object aUN() {
+    public static Object aXn() {
         return new JsObject();
     }
 
-    public static String ma(int i) {
+    public static String mk(int i) {
         switch (i) {
             case 1:
                 return "boolean";
@@ -70,7 +70,7 @@ public class d {
         return new d(null, obj);
     }
 
-    public static d xu(@NonNull String str) {
+    public static d xI(@NonNull String str) {
         return new d(str, null);
     }
 
@@ -78,7 +78,7 @@ public class d {
         if (dVar.isSuccess()) {
             return dVar.getData();
         }
-        String ab = a.ab(str, str2, dVar.aUM());
+        String ab = a.ab(str, str2, dVar.aXm());
         bVar.throwJSException(JSExceptionType.Error, ab);
         return ab;
     }

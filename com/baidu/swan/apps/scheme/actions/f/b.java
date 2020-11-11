@@ -14,9 +14,9 @@ public class b {
     public final String country;
     public final String countryCode;
     public final String district;
-    public final double dqo;
-    public final double dqp = 0.0d;
-    public final double dqq;
+    public final double dwj;
+    public final double dwk = 0.0d;
+    public final double dwl;
     public final double latitude;
     public final double longitude;
     public final String province;
@@ -29,9 +29,9 @@ public class b {
         this.longitude = d;
         this.latitude = d2;
         this.speed = f;
-        this.dqo = d3;
+        this.dwj = d3;
         this.altitude = d4;
-        this.dqq = d3;
+        this.dwl = d3;
         this.country = str2;
         this.countryCode = str3;
         this.city = str4;
@@ -48,10 +48,10 @@ public class b {
             jSONObject.put("longitude", this.longitude);
             jSONObject.put("latitude", this.latitude);
             jSONObject.put("speed", this.speed);
-            jSONObject.put("accuracy", this.dqo);
+            jSONObject.put("accuracy", this.dwj);
             jSONObject.put("altitude", this.altitude);
-            jSONObject.put("verticalAccuracy", this.dqp);
-            jSONObject.put("horizontalAccuracy", this.dqq);
+            jSONObject.put("verticalAccuracy", this.dwk);
+            jSONObject.put("horizontalAccuracy", this.dwl);
             jSONObject.put("country", this.country);
             jSONObject.put("countryCode", this.countryCode);
             jSONObject.put("city", this.city);

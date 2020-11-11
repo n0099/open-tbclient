@@ -10,7 +10,7 @@ import org.json.JSONArray;
 public class af {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile boolean f2520a = true;
+    private static volatile boolean f2522a = true;
     private static volatile boolean b = false;
 
     public static boolean a() {
@@ -27,7 +27,7 @@ public class af {
     }
 
     public static boolean b() {
-        return f2520a;
+        return f2522a;
     }
 
     public static JSONArray c() {

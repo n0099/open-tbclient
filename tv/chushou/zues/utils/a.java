@@ -74,12 +74,12 @@ public class a {
         return packageInfo != null;
     }
 
-    public static boolean eDX() {
-        Application eDz = h.eDz();
-        if (eDz == null) {
+    public static boolean eHM() {
+        Application eHo = h.eHo();
+        if (eHo == null) {
             return false;
         }
-        NetworkInfo activeNetworkInfo = ((ConnectivityManager) eDz.getSystemService("connectivity")).getActiveNetworkInfo();
+        NetworkInfo activeNetworkInfo = ((ConnectivityManager) eHo.getSystemService("connectivity")).getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isAvailable();
     }
 
@@ -100,7 +100,7 @@ public class a {
         return networkInfo != null && networkInfo.getState() == NetworkInfo.State.CONNECTED;
     }
 
-    public static boolean eDY() {
+    public static boolean eHN() {
         FileInputStream fileInputStream;
         boolean z = false;
         try {
@@ -137,7 +137,7 @@ public class a {
         return true;
     }
 
-    public static String RF(@ColorInt int i) {
+    public static String Sa(@ColorInt int i) {
         int red = Color.red(i);
         int green = Color.green(i);
         int blue = Color.blue(i);

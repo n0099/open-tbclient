@@ -21,7 +21,7 @@ public final class b<T> extends io.reactivex.internal.operators.flowable.a<T, T>
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.pDq.a((j) new a(this.delayError ? cVar : new io.reactivex.subscribers.b<>(cVar), this.delay, this.unit, this.scheduler.ewL(), this.delayError));
+        this.pMK.a((j) new a(this.delayError ? cVar : new io.reactivex.subscribers.b<>(cVar), this.delay, this.unit, this.scheduler.eAA(), this.delayError));
     }
 
     /* loaded from: classes17.dex */
@@ -56,12 +56,12 @@ public final class b<T> extends io.reactivex.internal.operators.flowable.a<T, T>
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            this.w.c(new RunnableC1051b(th), this.delayError ? this.delay : 0L, this.unit);
+            this.w.c(new RunnableC1071b(th), this.delayError ? this.delay : 0L, this.unit);
         }
 
         @Override // org.a.c
         public void onComplete() {
-            this.w.c(new RunnableC1050a(), this.delay, this.unit);
+            this.w.c(new RunnableC1070a(), this.delay, this.unit);
         }
 
         @Override // org.a.d
@@ -92,10 +92,10 @@ public final class b<T> extends io.reactivex.internal.operators.flowable.a<T, T>
 
         /* renamed from: io.reactivex.internal.operators.flowable.b$a$b  reason: collision with other inner class name */
         /* loaded from: classes17.dex */
-        final class RunnableC1051b implements Runnable {
+        final class RunnableC1071b implements Runnable {
             private final Throwable axH;
 
-            RunnableC1051b(Throwable th) {
+            RunnableC1071b(Throwable th) {
                 this.axH = th;
             }
 
@@ -111,8 +111,8 @@ public final class b<T> extends io.reactivex.internal.operators.flowable.a<T, T>
 
         /* renamed from: io.reactivex.internal.operators.flowable.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes17.dex */
-        final class RunnableC1050a implements Runnable {
-            RunnableC1050a() {
+        final class RunnableC1070a implements Runnable {
+            RunnableC1070a() {
             }
 
             @Override // java.lang.Runnable

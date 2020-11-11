@@ -7,7 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ClosePageRecHttpResponseMessage extends JsonHttpResponsedMessage {
-    public ArrayList<AlaLiveInfoData> gvF;
+    public ArrayList<AlaLiveInfoData> gBt;
 
     public ClosePageRecHttpResponseMessage() {
         super(1021207);
@@ -17,14 +17,14 @@ public class ClosePageRecHttpResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         JSONArray optJSONArray;
         super.decodeLogicInBackGround(i, jSONObject);
-        this.gvF = new ArrayList<>();
+        this.gBt = new ArrayList<>();
         if (getError() == 0 && (optJSONArray = jSONObject.optJSONArray("live")) != null && optJSONArray.length() > 0) {
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                 if (optJSONObject != null) {
                     AlaLiveInfoData alaLiveInfoData = new AlaLiveInfoData();
                     alaLiveInfoData.parserJson(optJSONObject);
-                    this.gvF.add(alaLiveInfoData);
+                    this.gBt.add(alaLiveInfoData);
                 }
             }
         }

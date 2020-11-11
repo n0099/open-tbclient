@@ -18,15 +18,15 @@ import java.io.File;
 public class h {
     public static final boolean a(Context context, AdvertAppInfo advertAppInfo, int i, DownloadStaticsData downloadStaticsData) {
         com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        if (adAdSense != null && !adAdSense.brW()) {
+        if (adAdSense != null && !adAdSense.buw()) {
             return s.a(context, advertAppInfo, i, downloadStaticsData);
         }
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.esV;
-        if (StringUtils.isNull(str) && advertAppInfo.ete != null) {
-            str = advertAppInfo.ete.userName;
+        String str = advertAppInfo.eyP;
+        if (StringUtils.isNull(str) && advertAppInfo.eyX != null) {
+            str = advertAppInfo.eyX.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -38,21 +38,21 @@ public class h {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        com.baidu.tbadk.distribute.a.bwL().b(advertAppInfo);
-        String str2 = advertAppInfo.esV;
+        com.baidu.tbadk.distribute.a.bzk().b(advertAppInfo);
+        String str2 = advertAppInfo.eyP;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        i.dxY().a(advertAppInfo.esX, advertAppInfo.apkUrl, str2, i, i.Rd(advertAppInfo.esX).intValue(), null, true, false, true, advertAppInfo.ete.userPortrait, downloadStaticsData, advertAppInfo.ete.userName);
+        i.dAA().a(advertAppInfo.eyR, advertAppInfo.apkUrl, str2, i, i.Ru(advertAppInfo.eyR).intValue(), null, true, false, true, advertAppInfo.eyX.userPortrait, downloadStaticsData, advertAppInfo.eyX.userName);
         return true;
     }
 
     public static final void e(AdvertAppInfo advertAppInfo) {
         com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        if (adAdSense != null && !adAdSense.brW()) {
+        if (adAdSense != null && !adAdSense.buw()) {
             s.e(advertAppInfo);
         } else {
-            i.dxY().B(advertAppInfo.apkUrl, advertAppInfo.esX, true);
+            i.dAA().C(advertAppInfo.apkUrl, advertAppInfo.eyR, true);
         }
     }
 

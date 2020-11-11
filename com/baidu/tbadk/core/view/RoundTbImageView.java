@@ -9,8 +9,8 @@ import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class RoundTbImageView extends TbClipImageView {
-    private float eMy;
-    private float eMz;
+    private float eSn;
+    private float eSo;
     private int height;
     private int mDefaultBgId;
     private int mDefaultId;
@@ -54,8 +54,8 @@ public class RoundTbImageView extends TbClipImageView {
     public void startLogPerf() {
         if (!this.canLogPerf) {
             this.canLogPerf = true;
-        } else if (this.fuZ != null && this.fuZ.fpk) {
-            this.fuZ.bzQ();
+        } else if (this.fAP != null && this.fAP.fvf) {
+            this.fAP.bCp();
         }
     }
 
@@ -64,7 +64,7 @@ public class RoundTbImageView extends TbClipImageView {
         super.dispatchDraw(canvas);
         if (canvas != null && this.mMaskColor != 0) {
             this.mPaint.setColor(this.mMaskColor);
-            canvas.drawCircle(this.eMy, this.eMz, this.eMy, this.mPaint);
+            canvas.drawCircle(this.eSn, this.eSo, this.eSn, this.mPaint);
         }
     }
 
@@ -78,7 +78,7 @@ public class RoundTbImageView extends TbClipImageView {
         super.onSizeChanged(i, i2, i3, i4);
         this.width = getWidth();
         this.height = getHeight();
-        this.eMy = this.width / 2.0f;
-        this.eMz = this.height / 2.0f;
+        this.eSn = this.width / 2.0f;
+        this.eSo = this.height / 2.0f;
     }
 }

@@ -1,15 +1,15 @@
 package com.baidu.swan.apps.al.f;
 /* loaded from: classes10.dex */
 public class b {
-    private a dvW;
+    private a dBO;
 
     public void a(a aVar) {
-        this.dvW = aVar;
+        this.dBO = aVar;
     }
 
-    public void kU(int i) {
-        if (this.dvW != null) {
-            this.dvW.kT(i);
+    public void le(int i) {
+        if (this.dBO != null) {
+            this.dBO.ld(i);
         }
     }
 }

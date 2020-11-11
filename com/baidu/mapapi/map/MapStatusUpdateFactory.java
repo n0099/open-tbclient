@@ -78,7 +78,7 @@ public final class MapStatusUpdateFactory {
             return null;
         }
         MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(1);
-        mapStatusUpdate.f2022a = mapStatus;
+        mapStatusUpdate.f2024a = mapStatus;
         return mapStatusUpdate;
     }
 

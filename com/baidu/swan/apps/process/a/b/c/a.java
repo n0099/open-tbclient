@@ -3,9 +3,9 @@ package com.baidu.swan.apps.process.a.b.c;
 import android.support.annotation.NonNull;
 /* loaded from: classes10.dex */
 public interface a<T> {
-    String aCw();
+    String aEW();
 
-    boolean aCy();
+    boolean aEY();
 
     long getTimeoutMillis();
 

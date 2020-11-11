@@ -8,41 +8,41 @@ import com.baidu.tieba.im.message.RequestGetGroupActivityLocalMessage;
 import com.baidu.tieba.im.message.RequestGetGroupActivityMessage;
 /* loaded from: classes23.dex */
 public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
-    private int ekx;
-    private RequestGetGroupActivityMessage kbH;
-    private RequestGetGroupActivityLocalMessage kbI;
-    private RequestDelGroupActivityMessage kbJ;
-    private GroupActivityActivity kbK;
-    private GroupActivityData kbL;
+    private int eqr;
+    private RequestGetGroupActivityMessage khE;
+    private RequestGetGroupActivityLocalMessage khF;
+    private RequestDelGroupActivityMessage khG;
+    private GroupActivityActivity khH;
+    private GroupActivityData khI;
     private int mFrom;
     private long mGroupId;
 
     public GroupActivityModel(GroupActivityActivity groupActivityActivity) {
         super(groupActivityActivity.getPageContext());
-        this.kbK = groupActivityActivity;
+        this.khH = groupActivityActivity;
     }
 
-    public int cQj() {
+    public int cSK() {
         return this.mFrom;
     }
 
-    public void CM(int i) {
+    public void CZ(int i) {
         this.mFrom = i;
     }
 
-    public int cQk() {
-        return this.ekx;
+    public int cSL() {
+        return this.eqr;
     }
 
-    public void CN(int i) {
-        this.ekx = i;
+    public void Da(int i) {
+        this.eqr = i;
     }
 
-    public long cQl() {
+    public long cSM() {
         return this.mGroupId;
     }
 
-    public void fL(long j) {
+    public void gh(long j) {
         this.mGroupId = j;
     }
 
@@ -56,14 +56,14 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
         return false;
     }
 
-    private RequestGetGroupActivityMessage CO(int i) {
+    private RequestGetGroupActivityMessage Db(int i) {
         RequestGetGroupActivityMessage requestGetGroupActivityMessage = new RequestGetGroupActivityMessage();
         requestGetGroupActivityMessage.setActivityId(i);
         requestGetGroupActivityMessage.setFrom(this.mFrom);
         return requestGetGroupActivityMessage;
     }
 
-    private RequestGetGroupActivityLocalMessage CP(int i) {
+    private RequestGetGroupActivityLocalMessage Dc(int i) {
         RequestGetGroupActivityLocalMessage requestGetGroupActivityLocalMessage = new RequestGetGroupActivityLocalMessage();
         requestGetGroupActivityLocalMessage.setActivityId(i);
         requestGetGroupActivityLocalMessage.setFrom(this.mFrom);
@@ -71,45 +71,45 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
     }
 
     public void sendMessage(int i) {
-        this.kbH = CO(i);
-        this.kbK.sendMessage(this.kbH);
+        this.khE = Db(i);
+        this.khH.sendMessage(this.khE);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
     }
 
-    public void CQ(int i) {
-        this.kbI = CP(i);
-        this.kbK.sendMessage(this.kbI);
+    public void Dd(int i) {
+        this.khF = Dc(i);
+        this.khH.sendMessage(this.khF);
     }
 
     public Message<?> getLocalSendMsg() {
-        return this.kbI;
+        return this.khF;
     }
 
     public Message<?> getSendMsg() {
-        return this.kbH;
+        return this.khE;
     }
 
-    public Message<?> cQm() {
-        return this.kbJ;
+    public Message<?> cSN() {
+        return this.khG;
     }
 
-    public void z(long j, int i) {
-        this.kbJ = new RequestDelGroupActivityMessage();
-        this.kbJ.setActivityId(i);
-        this.kbJ.setGroupId(j);
-        this.kbK.sendMessage(this.kbJ);
+    public void D(long j, int i) {
+        this.khG = new RequestDelGroupActivityMessage();
+        this.khG.setActivityId(i);
+        this.khG.setGroupId(j);
+        this.khH.sendMessage(this.khG);
     }
 
-    public GroupActivityData cQn() {
-        return this.kbL;
+    public GroupActivityData cSO() {
+        return this.khI;
     }
 
     public void a(GroupActivityData groupActivityData) {
         if (groupActivityData != null) {
-            this.kbL = groupActivityData;
+            this.khI = groupActivityData;
         }
     }
 }

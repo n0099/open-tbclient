@@ -4,7 +4,7 @@ import com.facebook.imagepipeline.producers.am;
 import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes18.dex */
 public interface c extends am {
-    void XD(String str);
+    void Yh(String str);
 
     void a(ImageRequest imageRequest, Object obj, String str, boolean z);
 

@@ -10,11 +10,11 @@ import com.baidu.fsg.base.widget.SafeKeyBoardEditText;
 public class d implements View.OnFocusChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SafeKeyBoardEditText f1548a;
+    final /* synthetic */ SafeKeyBoardEditText f1550a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(SafeKeyBoardEditText safeKeyBoardEditText) {
-        this.f1548a = safeKeyBoardEditText;
+        this.f1550a = safeKeyBoardEditText;
     }
 
     @Override // android.view.View.OnFocusChangeListener
@@ -33,38 +33,38 @@ public class d implements View.OnFocusChangeListener {
         Context context2;
         SafeScrollView safeScrollView6;
         if (z) {
-            z2 = this.f1548a.l;
+            z2 = this.f1550a.l;
             if (z2) {
-                context = this.f1548a.b;
-                RimGlobalUtils.hideInputMethod(context, this.f1548a);
-                safeScrollView = this.f1548a.d;
+                context = this.f1550a.b;
+                RimGlobalUtils.hideInputMethod(context, this.f1550a);
+                safeScrollView = this.f1550a.d;
                 if (safeScrollView != null) {
-                    safeScrollView2 = this.f1548a.d;
+                    safeScrollView2 = this.f1550a.d;
                     if (safeScrollView2.hasWindowFocus()) {
-                        safeScrollView3 = this.f1548a.d;
+                        safeScrollView3 = this.f1550a.d;
                         if (!safeScrollView3.isPopupWindowShowing()) {
-                            safeScrollView4 = this.f1548a.d;
-                            viewGroup = this.f1548a.c;
-                            SafeKeyBoardEditText safeKeyBoardEditText = this.f1548a;
-                            view2 = this.f1548a.e;
+                            safeScrollView4 = this.f1550a.d;
+                            viewGroup = this.f1550a.c;
+                            SafeKeyBoardEditText safeKeyBoardEditText = this.f1550a;
+                            view2 = this.f1550a.e;
                             safeScrollView4.showKeyBoard(viewGroup, safeKeyBoardEditText, view2);
                         }
                     }
                 }
             }
-        } else if (!this.f1548a.isAlwaysShow) {
-            safeScrollView5 = this.f1548a.d;
+        } else if (!this.f1550a.isAlwaysShow) {
+            safeScrollView5 = this.f1550a.d;
             if (safeScrollView5 != null) {
-                safeScrollView6 = this.f1548a.d;
-                safeScrollView6.dismissKeyBoard(this.f1548a);
+                safeScrollView6 = this.f1550a.d;
+                safeScrollView6.dismissKeyBoard(this.f1550a);
             } else {
-                context2 = this.f1548a.b;
-                RimGlobalUtils.hideInputMethod(context2, this.f1548a);
+                context2 = this.f1550a.b;
+                RimGlobalUtils.hideInputMethod(context2, this.f1550a);
             }
         }
-        onMyFocusChangeListener = this.f1548a.n;
+        onMyFocusChangeListener = this.f1550a.n;
         if (onMyFocusChangeListener != null) {
-            onMyFocusChangeListener2 = this.f1548a.n;
+            onMyFocusChangeListener2 = this.f1550a.n;
             onMyFocusChangeListener2.onMyFocusChange(view, z);
         }
     }

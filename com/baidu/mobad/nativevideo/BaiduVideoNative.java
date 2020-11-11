@@ -14,7 +14,7 @@ import java.util.List;
 public class BaiduVideoNative implements BaiduNative.BaiduNativeNetworkListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private c f2275a;
+    private c f2277a;
     private BaiduVideoNetworkListener b;
     private BaiduNative c;
 
@@ -26,9 +26,9 @@ public class BaiduVideoNative implements BaiduNative.BaiduNativeNetworkListener 
     }
 
     public BaiduVideoNative(Context context, String str, BaiduVideoNetworkListener baiduVideoNetworkListener) {
-        this.f2275a = new a(context, str);
+        this.f2277a = new a(context, str);
         this.b = baiduVideoNetworkListener;
-        this.c = new BaiduNative(context, str, this, this.f2275a);
+        this.c = new BaiduNative(context, str, this, this.f2277a);
     }
 
     public void makeRequest(RequestParameters requestParameters) {

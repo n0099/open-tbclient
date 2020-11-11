@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class aa {
 
     /* renamed from: a  reason: collision with root package name */
-    private b f1864a;
+    private b f1866a;
     private long b = 0;
     private long c = 0;
 
@@ -22,7 +22,7 @@ public class aa {
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static aa f1865a = new aa();
+        private static aa f1867a = new aa();
     }
 
     /* loaded from: classes7.dex */
@@ -31,7 +31,7 @@ public class aa {
         private String e = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f1866a = false;
+        public boolean f1868a = false;
         public long b = 0;
 
         public b() {
@@ -75,7 +75,7 @@ public class aa {
             if (z && this.j != null) {
                 try {
                     new JSONObject(this.j);
-                    this.f1866a = true;
+                    this.f1868a = true;
                 } catch (Throwable th) {
                 }
             }
@@ -91,7 +91,7 @@ public class aa {
     }
 
     public static aa a() {
-        return a.f1865a;
+        return a.f1867a;
     }
 
     @TargetApi(24)
@@ -106,10 +106,10 @@ public class aa {
         if (this.b == 0 || Math.abs(System.currentTimeMillis() - this.b) >= 20000) {
             return;
         }
-        if (this.f1864a == null) {
-            this.f1864a = new b();
+        if (this.f1866a == null) {
+            this.f1866a = new b();
         }
-        if (this.f1864a == null || this.f1864a.b() || (b2 = q.a().b()) == null || b2.size() <= 0) {
+        if (this.f1866a == null || this.f1866a.b() || (b2 = q.a().b()) == null || b2.size() <= 0) {
             return;
         }
         StringBuffer stringBuffer = new StringBuffer();
@@ -118,7 +118,7 @@ public class aa {
         while (true) {
             int i2 = i;
             if (!it.hasNext()) {
-                this.f1864a.a(stringBuffer.toString(), this.c);
+                this.f1866a.a(stringBuffer.toString(), this.c);
                 return;
             }
             stringBuffer.append(it.next());

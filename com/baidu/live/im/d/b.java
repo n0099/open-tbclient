@@ -11,9 +11,9 @@ public interface b {
         void C(String str, int i);
     }
 
-    void Mk();
+    void MK();
 
-    void Ml();
+    void ML();
 
     @NonNull
     View getView();

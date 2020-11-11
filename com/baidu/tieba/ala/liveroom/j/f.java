@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.apk.ApkData;
 import com.baidu.live.tbadk.apk.ApkStatus;
 /* loaded from: classes4.dex */
 public interface f {
-    void HN(String str);
+    void Ie(String str);
 
     ApkStatus a(ApkData apkData);
 

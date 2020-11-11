@@ -7,7 +7,7 @@ import java.util.concurrent.Executor;
 public class h implements com.baidu.cloudbase.download.a.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Executor f955a;
+    public Executor f957a;
 
     /* loaded from: classes9.dex */
     private static class a implements Runnable {
@@ -64,24 +64,24 @@ public class h implements com.baidu.cloudbase.download.a.c {
     public class b implements Executor {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Handler f956a;
+        public final /* synthetic */ Handler f958a;
 
         public b(h hVar, Handler handler) {
-            this.f956a = handler;
+            this.f958a = handler;
         }
 
         @Override // java.util.concurrent.Executor
         public void execute(Runnable runnable) {
-            this.f956a.post(runnable);
+            this.f958a.post(runnable);
         }
     }
 
     public h(Handler handler) {
-        this.f955a = new b(this, handler);
+        this.f957a = new b(this, handler);
     }
 
     @Override // com.baidu.cloudbase.download.a.c
     public void a(com.baidu.cloudbase.download.a.b bVar) {
-        this.f955a.execute(new a(bVar));
+        this.f957a.execute(new a(bVar));
     }
 }

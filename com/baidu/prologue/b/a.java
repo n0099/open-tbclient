@@ -13,10 +13,10 @@ import java.io.FileInputStream;
 import org.webrtc.MediaStreamTrack;
 /* loaded from: classes19.dex */
 public class a {
-    private b ccn;
-    private InterfaceC0305a cdc;
-    private SurfaceView cdm;
-    private int cdn;
+    private b chZ;
+    private InterfaceC0317a ciO;
+    private SurfaceView ciX;
+    private int ciY;
     private AudioManager mAudioManager;
     private Context mContext;
     private MediaPlayer mMediaPlayer = new MediaPlayer();
@@ -24,16 +24,16 @@ public class a {
 
     /* renamed from: com.baidu.prologue.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes19.dex */
-    public interface InterfaceC0305a {
-        void gO(int i);
+    public interface InterfaceC0317a {
+        void gY(int i);
     }
 
     public a(@NonNull Context context) {
-        this.cdn = -1;
+        this.ciY = -1;
         this.mContext = context;
-        this.cdn = 1;
-        this.cdm = new SurfaceView(this.mContext);
-        this.cdm.getHolder().addCallback(new SurfaceHolder.Callback() { // from class: com.baidu.prologue.b.a.1
+        this.ciY = 1;
+        this.ciX = new SurfaceView(this.mContext);
+        this.ciX.getHolder().addCallback(new SurfaceHolder.Callback() { // from class: com.baidu.prologue.b.a.1
             @Override // android.view.SurfaceHolder.Callback
             public void surfaceCreated(SurfaceHolder surfaceHolder) {
                 if (a.this.mMediaPlayer != null) {
@@ -51,23 +51,23 @@ public class a {
         });
     }
 
-    public void a(InterfaceC0305a interfaceC0305a) {
-        this.cdc = interfaceC0305a;
+    public void a(InterfaceC0317a interfaceC0317a) {
+        this.ciO = interfaceC0317a;
     }
 
     public void a(@NonNull b bVar) {
-        this.ccn = bVar;
+        this.chZ = bVar;
         this.mMediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.prologue.b.a.2
             @Override // android.media.MediaPlayer.OnPreparedListener
             public void onPrepared(MediaPlayer mediaPlayer) {
-                a.this.cdn = 3;
-                a.this.ccn.onPrepared();
+                a.this.ciY = 3;
+                a.this.chZ.onPrepared();
             }
         });
         this.mMediaPlayer.setOnSeekCompleteListener(new MediaPlayer.OnSeekCompleteListener() { // from class: com.baidu.prologue.b.a.3
             @Override // android.media.MediaPlayer.OnSeekCompleteListener
             public void onSeekComplete(MediaPlayer mediaPlayer) {
-                a.this.ccn.onSeekComplete();
+                a.this.chZ.onSeekComplete();
             }
         });
         this.mMediaPlayer.setOnVideoSizeChangedListener(new MediaPlayer.OnVideoSizeChangedListener() { // from class: com.baidu.prologue.b.a.4
@@ -76,7 +76,7 @@ public class a {
             public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i, int i2) {
                 try {
                     a.this.mMediaPlayer.setVideoScalingMode(2);
-                    a.this.ccn.onVideoSizeChanged(i, i2);
+                    a.this.chZ.onVideoSizeChanged(i, i2);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -86,33 +86,33 @@ public class a {
             @Override // android.media.MediaPlayer.OnCompletionListener
             public void onCompletion(MediaPlayer mediaPlayer) {
                 a.this.abandonAudioFocus();
-                a.this.cdn = 7;
-                a.this.ccn.onCompletion();
+                a.this.ciY = 7;
+                a.this.chZ.onCompletion();
             }
         });
         this.mMediaPlayer.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener() { // from class: com.baidu.prologue.b.a.6
             @Override // android.media.MediaPlayer.OnBufferingUpdateListener
             public void onBufferingUpdate(MediaPlayer mediaPlayer, int i) {
-                a.this.ccn.onBufferingUpdate(i);
+                a.this.chZ.onBufferingUpdate(i);
             }
         });
         this.mMediaPlayer.setOnErrorListener(new MediaPlayer.OnErrorListener() { // from class: com.baidu.prologue.b.a.7
             @Override // android.media.MediaPlayer.OnErrorListener
             public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
-                return a.this.ccn.onError(i, i2);
+                return a.this.chZ.onError(i, i2);
             }
         });
         this.mMediaPlayer.setOnInfoListener(new MediaPlayer.OnInfoListener() { // from class: com.baidu.prologue.b.a.8
             @Override // android.media.MediaPlayer.OnInfoListener
             public boolean onInfo(MediaPlayer mediaPlayer, int i, int i2) {
-                return a.this.ccn.U(i, i2);
+                return a.this.chZ.U(i, i2);
             }
         });
     }
 
-    public void A(@NonNull ViewGroup viewGroup) {
+    public void C(@NonNull ViewGroup viewGroup) {
         this.mViewGroup = viewGroup;
-        this.mViewGroup.addView(this.cdm, new ViewGroup.LayoutParams(-1, -1));
+        this.mViewGroup.addView(this.ciX, new ViewGroup.LayoutParams(-1, -1));
     }
 
     public void a(@NonNull c cVar) {
@@ -121,8 +121,8 @@ public class a {
 
     @SuppressLint({"NewApi"})
     public void a(@NonNull c cVar, @NonNull boolean z) {
-        if (this.cdn != 1) {
-            if (com.baidu.prologue.a.b.a.cbs.get().Zu()) {
+        if (this.ciY != 1) {
+            if (com.baidu.prologue.a.b.a.che.get().abT()) {
                 throw new IllegalStateException();
             }
             return;
@@ -133,10 +133,10 @@ public class a {
                 if (z) {
                     str = h.t(cVar.mFile);
                 }
-                if (z && !str.equals(cVar.cdq)) {
+                if (z && !str.equals(cVar.cjb)) {
                     boolean equals = str.equals("");
-                    if (this.cdc != null) {
-                        this.cdc.gO(equals ? 1 : 2);
+                    if (this.ciO != null) {
+                        this.ciO.gY(equals ? 1 : 2);
                         return;
                     }
                     return;
@@ -144,42 +144,42 @@ public class a {
                 this.mMediaPlayer.setDataSource(new FileInputStream(cVar.mFile).getFD(), 0L, cVar.mFile.length());
                 this.mMediaPlayer.setVideoScalingMode(2);
             } else {
-                this.mMediaPlayer.setDataSource(cVar.cdp);
+                this.mMediaPlayer.setDataSource(cVar.cja);
                 this.mMediaPlayer.setVideoScalingMode(2);
             }
-            this.cdn = 2;
+            this.ciY = 2;
         } catch (Exception e) {
-            this.cdn = -1;
-            if (this.cdc != null) {
-                this.cdc.gO(3);
+            this.ciY = -1;
+            if (this.ciO != null) {
+                this.ciO.gY(3);
             }
             e.printStackTrace();
         }
     }
 
     public void prepareAsync() {
-        if (this.cdn == 2 || this.cdn == 6) {
+        if (this.ciY == 2 || this.ciY == 6) {
             this.mMediaPlayer.prepareAsync();
-        } else if (com.baidu.prologue.a.b.a.cbs.get().Zu()) {
+        } else if (com.baidu.prologue.a.b.a.che.get().abT()) {
             throw new IllegalStateException();
         }
     }
 
     public void start() {
-        if (this.cdn == 5 || this.cdn == 4 || this.cdn == 3 || this.cdn == 7) {
-            aav();
+        if (this.ciY == 5 || this.ciY == 4 || this.ciY == 3 || this.ciY == 7) {
+            acU();
             this.mMediaPlayer.start();
-            this.cdn = 4;
-        } else if (com.baidu.prologue.a.b.a.cbs.get().Zu()) {
+            this.ciY = 4;
+        } else if (com.baidu.prologue.a.b.a.che.get().abT()) {
             throw new IllegalStateException();
         }
     }
 
     public void pause() {
-        if (this.cdn == 5 || this.cdn == 4) {
+        if (this.ciY == 5 || this.ciY == 4) {
             this.mMediaPlayer.pause();
-            this.cdn = 5;
-        } else if (com.baidu.prologue.a.b.a.cbs.get().Zu()) {
+            this.ciY = 5;
+        } else if (com.baidu.prologue.a.b.a.che.get().abT()) {
             throw new IllegalStateException();
         }
     }
@@ -199,11 +199,11 @@ public class a {
         }
     }
 
-    public boolean aad() {
-        return this.cdn == 5 || this.cdn == 4;
+    public boolean acC() {
+        return this.ciY == 5 || this.ciY == 4;
     }
 
-    private boolean aav() {
+    private boolean acU() {
         if (this.mAudioManager == null) {
             this.mAudioManager = (AudioManager) this.mContext.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
             if (this.mAudioManager == null) {

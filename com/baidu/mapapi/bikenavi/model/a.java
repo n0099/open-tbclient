@@ -6,18 +6,18 @@ public class a {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f1977a;
+        private String f1979a;
         private String b;
         private String c;
         private String d;
         private String e;
 
         public String a() {
-            return this.f1977a;
+            return this.f1979a;
         }
 
         public void a(String str) {
-            this.f1977a = str;
+            this.f1979a = str;
         }
 
         public String b() {
@@ -53,7 +53,7 @@ public class a {
         }
 
         public String toString() {
-            return "TopGuideLayoutID{guideIconID='" + this.f1977a + "', guideGpsWeakLayoutID='" + this.b + "', guideTextID='" + this.c + "', guideGpsWeakId='" + this.d + "', guideGpsHintId='" + this.e + "'}";
+            return "TopGuideLayoutID{guideIconID='" + this.f1979a + "', guideGpsWeakLayoutID='" + this.b + "', guideTextID='" + this.c + "', guideGpsWeakId='" + this.d + "', guideGpsHintId='" + this.e + "'}";
         }
     }
 
@@ -61,15 +61,15 @@ public class a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f1976a;
+        private String f1978a;
         private String b;
 
         public String a() {
-            return this.f1976a;
+            return this.f1978a;
         }
 
         public void a(String str) {
-            this.f1976a = str;
+            this.f1978a = str;
         }
 
         public String b() {
@@ -81,25 +81,25 @@ public class a {
         }
 
         public String toString() {
-            return "SpeedLayoutID{speedID='" + this.f1976a + "', speedUnitID='" + this.b + "'}";
+            return "SpeedLayoutID{speedID='" + this.f1978a + "', speedUnitID='" + this.b + "'}";
         }
     }
 
     /* renamed from: com.baidu.mapapi.bikenavi.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0239a {
+    public static class C0251a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f1975a;
+        private String f1977a;
         private String b;
         private String c;
 
         public String a() {
-            return this.f1975a;
+            return this.f1977a;
         }
 
         public void a(String str) {
-            this.f1975a = str;
+            this.f1977a = str;
         }
 
         public String b() {
@@ -119,7 +119,7 @@ public class a {
         }
 
         public String toString() {
-            return "BottomSettingLayoutID{quitIconID='" + this.f1975a + "', botSetlookOverID='" + this.b + "', botSetRemain='" + this.c + "'}";
+            return "BottomSettingLayoutID{quitIconID='" + this.f1977a + "', botSetlookOverID='" + this.b + "', botSetRemain='" + this.c + "'}";
         }
     }
 }

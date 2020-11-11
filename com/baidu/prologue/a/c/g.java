@@ -1,7 +1,7 @@
 package com.baidu.prologue.a.c;
 /* loaded from: classes19.dex */
 public interface g {
-    public static final g cbu = new a();
+    public static final g chg = new a();
 
     int d(String str, String str2);
 

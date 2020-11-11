@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f4701a = z.b("ro.vivo.product.overseas", "no").equals("yes");
+    public static final boolean f4703a = z.b("ro.vivo.product.overseas", "no").equals("yes");
     public static final String b;
     public static final boolean c;
     public static final boolean d;

@@ -16,9 +16,9 @@ public abstract class b {
     protected Dialog mDialog;
     protected View mRootView;
 
-    abstract void Ga();
+    abstract void GB();
 
-    abstract void bSz();
+    abstract void bUY();
 
     abstract void initView();
 
@@ -29,11 +29,11 @@ public abstract class b {
 
     private void initDialog() {
         this.mDialog = new e(this.mContext);
-        OE();
-        bSz();
+        Pe();
+        bUY();
         initView();
         this.mDialog.setContentView(this.mRootView);
-        Ga();
+        GB();
     }
 
     public void show() {
@@ -48,7 +48,7 @@ public abstract class b {
         }
     }
 
-    protected void OE() {
+    protected void Pe() {
         this.mDialog.setCancelable(true);
         this.mDialog.setCanceledOnTouchOutside(true);
         Window window = this.mDialog.getWindow();

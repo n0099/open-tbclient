@@ -5,11 +5,11 @@ import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public interface b {
-    public static final boolean cNr = com.baidu.swan.apps.b.DEBUG;
+    public static final boolean cTk = com.baidu.swan.apps.b.DEBUG;
 
     /* loaded from: classes10.dex */
     public interface a {
-        String arl();
+        String atM();
 
         boolean isValid();
 
@@ -18,10 +18,10 @@ public interface b {
 
     /* renamed from: com.baidu.swan.apps.env.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static final class C0427b {
-        final Map<String, a> cNs = new HashMap();
+    public static final class C0439b {
+        final Map<String, a> cTl = new HashMap();
         boolean mIsValid = true;
-        int cNt = 0;
-        int cNu = this.cNt;
+        int cTm = 0;
+        int cTn = this.cTm;
     }
 }

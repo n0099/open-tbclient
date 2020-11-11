@@ -7,7 +7,7 @@ import java.util.Set;
 /* loaded from: classes10.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private HashMap<com.baidu.swan.pms.model.e, Set<b>> cGQ;
+    private HashMap<com.baidu.swan.pms.model.e, Set<b>> cMJ;
 
     /* loaded from: classes10.dex */
     public interface b {
@@ -17,21 +17,21 @@ public class c {
     }
 
     private c() {
-        this.cGQ = new HashMap<>();
+        this.cMJ = new HashMap<>();
     }
 
     public synchronized void a(com.baidu.swan.pms.model.e eVar, PMSDownloadType pMSDownloadType) {
         if (DEBUG) {
             Log.i("PMSDownloadRepeatSync", "downloadSuccess:" + eVar + " : " + pMSDownloadType);
         }
-        Set<b> set = this.cGQ.get(eVar);
+        Set<b> set = this.cMJ.get(eVar);
         if (set != null) {
             for (b bVar : set) {
                 if (bVar != null) {
                     bVar.a(pMSDownloadType);
                 }
             }
-            this.cGQ.remove(eVar);
+            this.cMJ.remove(eVar);
         }
     }
 
@@ -39,14 +39,14 @@ public class c {
         if (DEBUG) {
             Log.i("PMSDownloadRepeatSync", "downloadError:" + eVar + " : " + pMSDownloadType);
         }
-        Set<b> set = this.cGQ.get(eVar);
+        Set<b> set = this.cMJ.get(eVar);
         if (set != null) {
             for (b bVar : set) {
                 if (bVar != null) {
                     bVar.a(pMSDownloadType, aVar);
                 }
             }
-            this.cGQ.remove(eVar);
+            this.cMJ.remove(eVar);
         }
     }
 
@@ -55,23 +55,23 @@ public class c {
             Log.i("PMSDownloadRepeatSync", "registerResultListener:" + eVar);
         }
         if (eVar != null && bVar != null) {
-            Set<b> set = this.cGQ.get(eVar);
+            Set<b> set = this.cMJ.get(eVar);
             if (set != null) {
                 set.add(bVar);
             } else {
                 HashSet hashSet = new HashSet();
                 hashSet.add(bVar);
-                this.cGQ.put(eVar, hashSet);
+                this.cMJ.put(eVar, hashSet);
             }
         }
     }
 
-    public static c anI() {
-        return a.cGR;
+    public static c aqj() {
+        return a.cMK;
     }
 
     /* loaded from: classes10.dex */
     private static class a {
-        private static c cGR = new c();
+        private static c cMK = new c();
     }
 }

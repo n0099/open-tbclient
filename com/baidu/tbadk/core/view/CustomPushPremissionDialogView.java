@@ -15,12 +15,12 @@ import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class CustomPushPremissionDialogView extends LinearLayout {
-    private TextView eMl;
-    private TBLottieAnimationView eMm;
-    private View eMn;
-    private View eMo;
-    private TBSpecificationBtn eMp;
-    private TBSpecificationBtn eMq;
+    private TextView eSa;
+    private TBLottieAnimationView eSb;
+    private View eSc;
+    private View eSd;
+    private TBSpecificationBtn eSe;
+    private TBSpecificationBtn eSf;
 
     public CustomPushPremissionDialogView(Context context) {
         this(context, null);
@@ -45,44 +45,44 @@ public class CustomPushPremissionDialogView extends LinearLayout {
         gradientDrawable.setColor(ap.getColor(R.color.cp_bg_line_k));
         setBackgroundDrawable(gradientDrawable);
         inflate(context, R.layout.custom_push_premission_dialog_view, this);
-        this.eMm = (TBLottieAnimationView) findViewById(R.id.custom_push_permission_dialog_animation_view);
-        this.eMm.loop(true);
-        this.eMm.setFrame(0);
-        ap.a(this.eMm, R.raw.lottie_push_permission_dialog_animation);
-        this.eMm.playAnimation();
-        this.eMl = (TextView) findViewById(R.id.custom_push_permission_dialog_description_view);
-        this.eMl.setTextColor(ap.getColor(R.color.cp_cont_b));
-        this.eMn = findViewById(R.id.custom_push_permission_dialog_animation_floor_view);
+        this.eSb = (TBLottieAnimationView) findViewById(R.id.custom_push_permission_dialog_animation_view);
+        this.eSb.loop(true);
+        this.eSb.setFrame(0);
+        ap.a(this.eSb, R.raw.lottie_push_permission_dialog_animation);
+        this.eSb.playAnimation();
+        this.eSa = (TextView) findViewById(R.id.custom_push_permission_dialog_description_view);
+        this.eSa.setTextColor(ap.getColor(R.color.cp_cont_b));
+        this.eSc = findViewById(R.id.custom_push_permission_dialog_animation_floor_view);
         if (TbadkCoreApplication.getInst().getSkinType() == 0) {
-            this.eMo = findViewById(R.id.animation_layout);
-            com.baidu.tbadk.core.util.e.a.bpn().pi(1).pk(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds26)).pj(273).a(R.color.cp_shadow_a, 0.16f, 0, 0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds22)).bg(this.eMo);
-            ViewGroup.LayoutParams layoutParams2 = this.eMn.getLayoutParams();
+            this.eSd = findViewById(R.id.animation_layout);
+            com.baidu.tbadk.core.util.e.a.brN().pt(1).pv(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds26)).pu(273).a(R.color.cp_shadow_a, 0.16f, 0, 0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds22)).bk(this.eSd);
+            ViewGroup.LayoutParams layoutParams2 = this.eSc.getLayoutParams();
             layoutParams2.width = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds774);
-            this.eMn.setLayoutParams(layoutParams2);
-            com.baidu.tbadk.core.util.e.a.bpo().oZ(0).b("TOP_BOTTOM", ap.oM(R.color.common_color_10262), ap.oM(R.color.cp_bg_line_e)).bg(this.eMn);
+            this.eSc.setLayoutParams(layoutParams2);
+            com.baidu.tbadk.core.util.e.a.brO().pj(0).b("TOP_BOTTOM", ap.oW(R.color.common_color_10262), ap.oW(R.color.cp_bg_line_e)).bk(this.eSc);
         } else {
-            com.baidu.tbadk.core.util.e.a.bpo().oZ(0).Z(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds26)).b("TOP_BOTTOM", ap.oM(R.color.cp_bg_line_e), ap.oM(R.color.cp_bg_line_e), ap.oM(R.color.cp_bg_line_e), ap.oM(R.color.cp_bg_line_e), ap.oM(R.color.cp_bg_line_k)).bg(this.eMn);
+            com.baidu.tbadk.core.util.e.a.brO().pj(0).ab(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds26)).b("TOP_BOTTOM", ap.oW(R.color.cp_bg_line_e), ap.oW(R.color.cp_bg_line_e), ap.oW(R.color.cp_bg_line_e), ap.oW(R.color.cp_bg_line_e), ap.oW(R.color.cp_bg_line_k)).bk(this.eSc);
         }
-        this.eMp = (TBSpecificationBtn) findViewById(R.id.custom_push_permission_dialog_cancel_button);
-        this.eMp.setTextSize(R.dimen.tbds34);
-        this.eMp.setText(context.getString(R.string.push_permission_dialog_cancel_button_text));
+        this.eSe = (TBSpecificationBtn) findViewById(R.id.custom_push_permission_dialog_cancel_button);
+        this.eSe.setTextSize(R.dimen.tbds34);
+        this.eSe.setText(context.getString(R.string.push_permission_dialog_cancel_button_text));
         com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
-        cVar.qa(R.color.cp_cont_b);
-        this.eMp.setConfig(cVar);
-        this.eMp.bqd();
-        this.eMq = (TBSpecificationBtn) findViewById(R.id.custom_push_permission_dialog_confirm_button);
-        this.eMq.setTextSize(R.dimen.tbds34);
-        this.eMq.setText(context.getString(R.string.push_permission_dialog_confirm_button_text));
+        cVar.qk(R.color.cp_cont_b);
+        this.eSe.setConfig(cVar);
+        this.eSe.bsD();
+        this.eSf = (TBSpecificationBtn) findViewById(R.id.custom_push_permission_dialog_confirm_button);
+        this.eSf.setTextSize(R.dimen.tbds34);
+        this.eSf.setText(context.getString(R.string.push_permission_dialog_confirm_button_text));
         com.baidu.tbadk.core.view.commonBtn.c cVar2 = new com.baidu.tbadk.core.view.commonBtn.c();
-        cVar2.pY(R.color.cp_link_tip_a);
-        this.eMq.setConfig(cVar2);
+        cVar2.qi(R.color.cp_link_tip_a);
+        this.eSf.setConfig(cVar2);
     }
 
     public TBSpecificationBtn getPushPermissionDialogCancelButton() {
-        return this.eMp;
+        return this.eSe;
     }
 
     public TBSpecificationBtn getPushPermissionDialogConfirmButton() {
-        return this.eMq;
+        return this.eSf;
     }
 }

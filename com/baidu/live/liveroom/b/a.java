@@ -6,7 +6,7 @@ import com.baidu.live.pendantview.PendantParentView;
 public interface a {
     void a(int i, PendantParentView pendantParentView);
 
-    void j(w wVar);
+    void i(w wVar);
 
     void setHost(boolean z);
 }

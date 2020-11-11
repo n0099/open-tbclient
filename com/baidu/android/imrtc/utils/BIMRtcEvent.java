@@ -1,5 +1,5 @@
 package com.baidu.android.imrtc.utils;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class BIMRtcEvent {
     public int requestAction = -1;
     public String requestRoomId = "-1";

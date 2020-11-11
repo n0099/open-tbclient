@@ -34,8 +34,8 @@ public class BlueCircleProgressDialog {
         if (this.mActivity != null) {
             this.mWaitingDialog = new AlertDialog.Builder(this.mActivity).create();
             ShowUtil.showDialog(this.mWaitingDialog, this.mActivity);
-            View inflate = LayoutInflater.from(this.mActivity).inflate(a.h.sdk_custom_loading_toast, (ViewGroup) null);
-            this.mTipView = (TextView) inflate.findViewById(a.g.custom_loading_text);
+            View inflate = LayoutInflater.from(this.mActivity).inflate(a.g.sdk_custom_loading_toast, (ViewGroup) null);
+            this.mTipView = (TextView) inflate.findViewById(a.f.custom_loading_text);
             if (!StringUtils.isNull(this.tipString) && this.mTipView != null) {
                 this.mTipView.setText(this.tipString);
             }
@@ -58,8 +58,8 @@ public class BlueCircleProgressDialog {
         if (this.mActivity != null) {
             this.mWaitingDialog = new AlertDialog.Builder(this.mActivity).create();
             ShowUtil.showDialog(this.mWaitingDialog, this.mActivity);
-            View inflate = LayoutInflater.from(this.mActivity).inflate(a.h.sdk_custom_loading_toast, (ViewGroup) null);
-            this.mTipView = (TextView) inflate.findViewById(a.g.custom_loading_text);
+            View inflate = LayoutInflater.from(this.mActivity).inflate(a.g.sdk_custom_loading_toast, (ViewGroup) null);
+            this.mTipView = (TextView) inflate.findViewById(a.f.custom_loading_text);
             if (!StringUtils.isNull(this.tipString) && this.mTipView != null) {
                 this.mTipView.setText(this.tipString);
             }

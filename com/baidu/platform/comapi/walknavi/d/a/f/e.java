@@ -20,7 +20,7 @@ public final class e {
         if (TextUtils.isEmpty(a2)) {
             return null;
         }
-        String str = com.baidu.platform.comapi.walknavi.d.a.g.d.f2987a + com.baidu.platform.comapi.walknavi.d.a.g.d.b + "/queryARResource";
+        String str = com.baidu.platform.comapi.walknavi.d.a.g.d.f2989a + com.baidu.platform.comapi.walknavi.d.a.g.d.b + "/queryARResource";
         com.baidu.platform.comapi.walknavi.d.a.g.a.a("doQueryArResource: " + str);
         d dVar = new d(str, aVar2);
         dVar.execute(a2);
@@ -66,7 +66,7 @@ public final class e {
         jSONObject2.put(HttpConstants.HTTP_SYSTEM_VERSION, Build.VERSION.SDK_INT);
         jSONObject2.put("user_id", a2.toString());
         jSONObject2.put("publish_id", "6");
-        if (!com.baidu.platform.comapi.walknavi.d.a.b.f2965a) {
+        if (!com.baidu.platform.comapi.walknavi.d.a.b.f2967a) {
             jSONObject2.put("update_check", 1);
         }
         a(context, jSONObject2);

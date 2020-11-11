@@ -8,48 +8,48 @@ import tbclient.GetTagList.DataRes;
 import tbclient.GetTagList.ResponseTagInfo;
 /* loaded from: classes23.dex */
 public class b {
-    private List<a> kve;
-    private List<Integer> kvf;
-    private List<a> kvi;
+    private List<a> kAZ;
+    private List<Integer> kBa;
+    private List<a> kBd;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             if (!y.isEmpty(dataRes.sex_taglist)) {
-                this.kvi = new ArrayList();
-                A(this.kvi, dataRes.sex_taglist);
+                this.kBd = new ArrayList();
+                B(this.kBd, dataRes.sex_taglist);
             }
             if (!y.isEmpty(dataRes.taglist)) {
-                this.kve = new ArrayList();
-                this.kvf = new ArrayList();
-                A(this.kve, dataRes.taglist);
+                this.kAZ = new ArrayList();
+                this.kBa = new ArrayList();
+                B(this.kAZ, dataRes.taglist);
             }
         }
     }
 
-    private void A(List<a> list, List<ResponseTagInfo> list2) {
+    private void B(List<a> list, List<ResponseTagInfo> list2) {
         if (list != null && list2 != null) {
             for (ResponseTagInfo responseTagInfo : list2) {
                 if (responseTagInfo != null && !StringUtils.isNull(responseTagInfo.tag_name)) {
                     a aVar = new a();
                     aVar.a(responseTagInfo);
                     list.add(aVar);
-                    if (this.kvf != null && aVar.isFollow) {
-                        this.kvf.add(Integer.valueOf(aVar.labelId));
+                    if (this.kBa != null && aVar.isFollow) {
+                        this.kBa.add(Integer.valueOf(aVar.labelId));
                     }
                 }
             }
         }
     }
 
-    public List<a> cVF() {
-        return this.kvi;
+    public List<a> cYg() {
+        return this.kBd;
     }
 
-    public List<a> cVG() {
-        return this.kve;
+    public List<a> cYh() {
+        return this.kAZ;
     }
 
-    public List<Integer> cVH() {
-        return this.kvf;
+    public List<Integer> cYi() {
+        return this.kBa;
     }
 }

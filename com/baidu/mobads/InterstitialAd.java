@@ -13,7 +13,7 @@ public class InterstitialAd {
     public static final String TAG = InterstitialAd.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    IOAdEventListener f2303a;
+    IOAdEventListener f2305a;
     private AdSize b;
     private com.baidu.mobads.production.f.a c;
     private final IXAdLogger d;
@@ -26,7 +26,7 @@ public class InterstitialAd {
     public InterstitialAd(Context context, AdSize adSize, String str) {
         this.d = XAdSDKFoundationFacade.getInstance().getAdLogger();
         this.e = new m(this);
-        this.f2303a = new n(this);
+        this.f2305a = new n(this);
         XAdView xAdView = new XAdView(context);
         xAdView.setListener(new p(this));
         this.b = adSize;
@@ -35,12 +35,12 @@ public class InterstitialAd {
         } else if (b()) {
             this.c = new com.baidu.mobads.production.e.b(context, xAdView, true, adSize, str);
         }
-        this.c.addEventListener(IXAdEvent.AD_LOADED, this.f2303a);
-        this.c.addEventListener(IXAdEvent.AD_ERROR, this.f2303a);
-        this.c.addEventListener(IXAdEvent.AD_STOPPED, this.f2303a);
-        this.c.addEventListener(IXAdEvent.AD_USER_CLOSE, this.f2303a);
-        this.c.addEventListener(IXAdEvent.AD_STARTED, this.f2303a);
-        this.c.addEventListener("AdUserClick", this.f2303a);
+        this.c.addEventListener(IXAdEvent.AD_LOADED, this.f2305a);
+        this.c.addEventListener(IXAdEvent.AD_ERROR, this.f2305a);
+        this.c.addEventListener(IXAdEvent.AD_STOPPED, this.f2305a);
+        this.c.addEventListener(IXAdEvent.AD_USER_CLOSE, this.f2305a);
+        this.c.addEventListener(IXAdEvent.AD_STARTED, this.f2305a);
+        this.c.addEventListener("AdUserClick", this.f2305a);
         this.c.request();
     }
 

@@ -63,7 +63,7 @@ public class a {
         return simpleDateFormat.format(new Date((l.longValue() * 1000) - 28800000));
     }
 
-    public static String Hi(String str) {
+    public static String Hv(String str) {
         try {
             long parseLong = Long.parseLong(str);
             if (parseLong >= 10000000) {

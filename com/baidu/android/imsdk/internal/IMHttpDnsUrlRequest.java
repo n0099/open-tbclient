@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class IMHttpDnsUrlRequest extends BaseHttpRequest {
     public static final String HTTP_DNS_HOST = "https://httpsdns.baidu.com/";
     private static final String HTTP_DNS_URL = "https://180.76.76.112/v6/0025";

@@ -7,7 +7,7 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
 import com.baidu.live.im.k;
 import com.baidu.live.tbadk.TbPageContext;
-import com.baidu.live.view.c;
+import com.baidu.live.view.b;
 import com.baidu.live.yuyinim.view.ALALiveTextView;
 /* loaded from: classes4.dex */
 public class ALaImInitialize {
@@ -32,7 +32,7 @@ public class ALaImInitialize {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                c.bFL.clear();
+                b.bLq.clear();
             }
         });
     }

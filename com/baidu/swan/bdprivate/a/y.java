@@ -17,9 +17,9 @@ import java.util.SimpleTimeZone;
 /* loaded from: classes8.dex */
 public class y {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static String dBX = "cookieMap";
-    public static String dBY = "ptokenDomains";
-    public static String dBZ = "bdussDomains";
+    public static String dHP = "cookieMap";
+    public static String dHQ = "ptokenDomains";
+    public static String dHR = "bdussDomains";
 
     public static void dm(Context context) {
         dn(context);
@@ -29,8 +29,8 @@ public class y {
         if (context != null) {
             String cY = a.cY(context);
             String df = a.df(context);
-            b(context, cY, aLD());
-            c(context, df, aLD());
+            b(context, cY, aOd());
+            c(context, df, aOd());
         }
     }
 
@@ -49,7 +49,7 @@ public class y {
             } else {
                 buildBDUSSCookie = buildBDUSSCookie(str2, str);
             }
-            p("http://www." + str2, buildBDUSSCookie, false);
+            q("http://www." + str2, buildBDUSSCookie, false);
         }
     }
 
@@ -89,18 +89,18 @@ public class y {
             } else {
                 buildPtokenCookie = buildPtokenCookie(str2, str);
             }
-            p("http://www." + str2, buildPtokenCookie, false);
+            q("http://www." + str2, buildPtokenCookie, false);
         }
     }
 
-    private static void p(String str, String str2, boolean z) {
+    private static void q(String str, String str2, boolean z) {
         CookieManager.getInstance().setCookie(str, str2);
         if (z) {
             CookieSyncManager.getInstance().sync();
         }
     }
 
-    private static List<String> aLD() {
+    private static List<String> aOd() {
         ArrayList arrayList = new ArrayList();
         arrayList.add("baidu.com");
         arrayList.add("hao123.com");

@@ -17,7 +17,7 @@ import java.util.TreeSet;
 import org.apache.http.cookie.SM;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 abstract class IMMediaBaseHttpRequest extends BaseHttpRequest {
     private static final String TAG = "IMMediaBaseHttpRequest";
 

@@ -3,19 +3,19 @@ package com.xiaomi.push;
 public class cl {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f4837a;
+    public int f4839a;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f164a;
+    public long f166a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f165a;
+    public String f167a;
 
     public cl() {
     }
 
     public cl(cj cjVar) {
-        this.f164a = cjVar.f161a;
-        this.f4837a = cjVar.f4836a;
+        this.f166a = cjVar.f163a;
+        this.f4839a = cjVar.f4838a;
     }
 }

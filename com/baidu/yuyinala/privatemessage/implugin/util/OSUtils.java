@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 @Deprecated
 /* loaded from: classes4.dex */
 public class OSUtils {
-    private static final ROM ovc = eep();
+    private static final ROM oEu = eie();
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [332=17, 334=16, 335=16, 336=16] */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -21,7 +21,7 @@ public class OSUtils {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static ROM eep() {
+    private static ROM eie() {
         FileInputStream fileInputStream;
         IOException iOException;
         ROM rom;

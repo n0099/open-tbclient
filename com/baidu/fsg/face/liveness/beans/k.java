@@ -79,7 +79,7 @@ public class k extends l {
         }
         String randomString = RandomUtils.getRandomString(4096);
         try {
-            arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.f1713a, randomString).getBytes("UTF-8"))));
+            arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.f1715a, randomString).getBytes("UTF-8"))));
         } catch (UnsupportedEncodingException e2) {
             e2.printStackTrace();
         }

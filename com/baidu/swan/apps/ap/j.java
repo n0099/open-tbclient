@@ -8,23 +8,23 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes10.dex */
 public final class j {
-    private static final Set<Integer> dxJ = new HashSet();
-    private static final Set<Integer> dxK = new HashSet();
-    private static final Set<Integer> dxL = new HashSet();
+    private static final Set<Integer> dDB = new HashSet();
+    private static final Set<Integer> dDC = new HashSet();
+    private static final Set<Integer> dDD = new HashSet();
 
     static {
-        dxJ.add(2);
-        dxJ.add(3);
-        dxJ.add(4);
-        dxJ.add(5);
-        dxJ.add(6);
-        dxK.add(7);
-        dxK.add(1);
-        dxL.addAll(dxJ);
-        dxL.addAll(dxK);
+        dDB.add(2);
+        dDB.add(3);
+        dDB.add(4);
+        dDB.add(5);
+        dDB.add(6);
+        dDC.add(7);
+        dDC.add(1);
+        dDD.addAll(dDB);
+        dDD.addAll(dDC);
     }
 
-    public static Date aJV() {
+    public static Date aMv() {
         return new Date();
     }
 
@@ -93,7 +93,7 @@ public final class j {
         }
     }
 
-    public static String g(long j, String str) {
+    public static String h(long j, String str) {
         try {
             return new SimpleDateFormat((str == null || str.isEmpty()) ? "yyyy-MM-dd HH:mm:ss" : "yyyy-MM-dd HH:mm:ss").format(new Date(j));
         } catch (NumberFormatException e) {

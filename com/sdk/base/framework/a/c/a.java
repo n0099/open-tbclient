@@ -3,7 +3,7 @@ package com.sdk.base.framework.a.c;
 final class a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    a<T> f4460a;
+    a<T> f4462a;
     private boolean b = false;
     private k<?> c;
 
@@ -13,14 +13,14 @@ final class a<T> {
     }
 
     public final int a() {
-        return this.c.f4468a;
+        return this.c.f4470a;
     }
 
     public final void a(T t) {
         if (t == null) {
             this.c = null;
         } else if (!(t instanceof k)) {
-            this.c = new k<>(b.f4461a, t);
+            this.c = new k<>(b.f4463a, t);
         } else {
             this.c = (k) t;
             this.b = true;

@@ -8,42 +8,42 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes21.dex */
 public class b {
-    private List<com.baidu.adp.widget.ListView.a> bje = new ArrayList();
-    private BdTypeListView gcr;
-    private d jHk;
-    private c jHl;
-    private m jHm;
+    private List<com.baidu.adp.widget.ListView.a> bky = new ArrayList();
+    private BdTypeListView gih;
+    private d jNi;
+    private c jNj;
+    private m jNk;
 
     public b(HotRanklistActivity hotRanklistActivity, BdTypeListView bdTypeListView) {
         a(hotRanklistActivity, bdTypeListView);
     }
 
     private void a(HotRanklistActivity hotRanklistActivity, BdTypeListView bdTypeListView) {
-        this.jHk = new d(hotRanklistActivity, com.baidu.tieba.hottopic.data.c.jJb);
-        this.jHl = new c(hotRanklistActivity, com.baidu.tieba.hottopic.data.b.jJa);
-        this.jHm = new m(hotRanklistActivity, o.jKg);
-        this.bje.add(this.jHk);
-        this.bje.add(this.jHl);
-        this.bje.add(this.jHm);
-        this.gcr = bdTypeListView;
-        this.gcr.addAdapters(this.bje);
+        this.jNi = new d(hotRanklistActivity, com.baidu.tieba.hottopic.data.c.jOZ);
+        this.jNj = new c(hotRanklistActivity, com.baidu.tieba.hottopic.data.b.jOY);
+        this.jNk = new m(hotRanklistActivity, o.jQe);
+        this.bky.add(this.jNi);
+        this.bky.add(this.jNj);
+        this.bky.add(this.jNk);
+        this.gih = bdTypeListView;
+        this.gih.addAdapters(this.bky);
     }
 
     public void a(com.baidu.tieba.hottopic.data.j jVar, String str) {
         ArrayList<q> arrayList;
-        if (jVar.cKD() != null) {
-            arrayList = jVar.cKD();
+        if (jVar.cNe() != null) {
+            arrayList = jVar.cNe();
         } else {
             arrayList = new ArrayList<>();
         }
-        if (this.jHm != null) {
-            this.jHm.cJT();
+        if (this.jNk != null) {
+            this.jNk.cMu();
         }
-        if (this.jHk != null) {
-            this.jHk.LD(str);
+        if (this.jNi != null) {
+            this.jNi.LU(str);
         }
-        if (this.gcr != null) {
-            this.gcr.setData(arrayList);
+        if (this.gih != null) {
+            this.gih.setData(arrayList);
         }
     }
 }

@@ -29,7 +29,7 @@ public class c {
         if (es == null) {
             return null;
         }
-        return es.bzE();
+        return es.bCd();
     }
 
     public static TbPageTag eu(Context context) {
@@ -56,11 +56,11 @@ public class c {
     }
 
     public static aq a(aq aqVar, b bVar) {
-        return (bVar == null || aqVar == null) ? aqVar : a(aqVar, bVar.getPrePageTag(), bVar.bzE());
+        return (bVar == null || aqVar == null) ? aqVar : a(aqVar, bVar.getPrePageTag(), bVar.bCd());
     }
 
     public static aq b(aq aqVar, b bVar) {
-        return (bVar == null || aqVar == null) ? aqVar : b(aqVar, bVar.getPrePageTag(), bVar.bzE());
+        return (bVar == null || aqVar == null) ? aqVar : b(aqVar, bVar.getPrePageTag(), bVar.bCd());
     }
 
     public static aq a(aq aqVar, TbPageTag tbPageTag, TbPageTag tbPageTag2) {
@@ -71,7 +71,7 @@ public class c {
             if (!TextUtils.isEmpty(tbPageTag2.locatePage)) {
                 aqVar.dR("obj_tab", tbPageTag2.locatePage);
             }
-            aqVar.aj("sort_tab", tbPageTag2.sortType);
+            aqVar.al("sort_tab", tbPageTag2.sortType);
         }
         if (tbPageTag != null && !TextUtils.isEmpty(tbPageTag.locatePage)) {
             aqVar.dR(GuildActivityConfig.FROM_PAGE, tbPageTag.locatePage);
@@ -88,7 +88,7 @@ public class c {
             if (!TextUtils.isEmpty(tbPageTag2.locatePage)) {
                 aqVar.dR("obj_page", tbPageTag2.locatePage);
             }
-            aqVar.aj("sort_tab", tbPageTag2.sortType);
+            aqVar.al("sort_tab", tbPageTag2.sortType);
         }
         if (tbPageTag != null && !TextUtils.isEmpty(tbPageTag.locatePage)) {
             aqVar.dR("obj_tab", tbPageTag.locatePage);
@@ -104,7 +104,7 @@ public class c {
         if (!TextUtils.isEmpty(tbPageTag.locatePage)) {
             aqVar.dR("obj_tab", tbPageTag.locatePage);
         }
-        aqVar.aj("sort_tab", tbPageTag.sortType);
+        aqVar.al("sort_tab", tbPageTag.sortType);
         return aqVar;
     }
 
@@ -117,7 +117,7 @@ public class c {
             if (!TextUtils.isEmpty(eu.locatePage)) {
                 aqVar.dR("obj_tab", eu.locatePage);
             }
-            aqVar.aj("sort_tab", eu.sortType);
+            aqVar.al("sort_tab", eu.sortType);
             return aqVar;
         }
         return aqVar;
@@ -128,7 +128,7 @@ public class c {
             return null;
         }
         aq aqVar = new aq(str);
-        aqVar.dR("tid", bwVar.getId()).w("fid", bwVar.getFid()).aj(IntentConfig.CARD_TYPE, bwVar.blZ()).dR("nid", bwVar.getNid());
+        aqVar.dR("tid", bwVar.getId()).w("fid", bwVar.getFid()).al(IntentConfig.CARD_TYPE, bwVar.boz()).dR("nid", bwVar.getNid());
         if (bwVar.getBaijiahaoData() != null && !at.isEmpty(bwVar.getBaijiahaoData().oriUgcVid)) {
             aqVar.dR("obj_param6", bwVar.getBaijiahaoData().oriUgcVid);
         }

@@ -11,20 +11,20 @@ import java.util.HashMap;
 public class d implements ArBridge.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2970a;
+    private Context f2972a;
     private BaiduArView b;
     private com.baidu.platform.comapi.walknavi.d.a.b.a c;
     private boolean d = false;
     private boolean e = false;
 
     public d(Context context, com.baidu.platform.comapi.walknavi.d.a.b.a aVar) {
-        this.f2970a = context.getApplicationContext();
+        this.f2972a = context.getApplicationContext();
         this.c = aVar;
     }
 
     public BaiduArView a() {
         if (this.b == null) {
-            this.b = new BaiduArView(this.f2970a);
+            this.b = new BaiduArView(this.f2972a);
         }
         return this.b;
     }
@@ -42,7 +42,7 @@ public class d implements ArBridge.d {
         com.baidu.platform.comapi.walknavi.d.a.a.a aVar = new com.baidu.platform.comapi.walknavi.d.a.a.a();
         aVar.a(a(str));
         aVar.a(4);
-        com.baidu.platform.comapi.walknavi.d.a.e.a.a().a(this.f2970a, aVar);
+        com.baidu.platform.comapi.walknavi.d.a.e.a.a().a(this.f2972a, aVar);
         com.baidu.platform.comapi.walknavi.d.a.e.a.a().a("start_ar");
     }
 

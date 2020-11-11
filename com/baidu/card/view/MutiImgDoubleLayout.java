@@ -104,36 +104,36 @@ public class MutiImgDoubleLayout extends LinearLayout implements p<AbsThreadData
                     subClickListener.a(view, MutiImgDoubleLayout.this.afI);
                     MutiImgDoubleLayout.this.afI.objType = 1;
                 }
-                ay.a(view, MutiImgDoubleLayout.this.akk, MutiImgDoubleLayout.this.akA, i, MutiImgDoubleLayout.this.afI.bhz(), MutiImgDoubleLayout.this.mFrom);
+                ay.a(view, MutiImgDoubleLayout.this.akk, MutiImgDoubleLayout.this.akA, i, MutiImgDoubleLayout.this.afI.bjZ(), MutiImgDoubleLayout.this.mFrom);
             }
         };
     }
 
     private void setVoiceData(bw bwVar) {
-        ArrayList<VoiceData.VoiceModel> bkn = bwVar.bkn();
-        if (y.isEmpty(bkn)) {
+        ArrayList<VoiceData.VoiceModel> bmN = bwVar.bmN();
+        if (y.isEmpty(bmN)) {
             this.akw.setVisibility(8);
             this.akz = false;
             return;
         }
         this.akw.setVisibility(0);
-        VoiceData.VoiceModel voiceModel = bkn.get(0);
+        VoiceData.VoiceModel voiceModel = bmN.get(0);
         this.akw.setVoiceModel(voiceModel);
         this.akw.setTag(voiceModel);
         this.akw.changeSkin();
         if (voiceModel != null) {
-            this.akw.Dm(voiceModel.voice_status.intValue());
+            this.akw.Dz(voiceModel.voice_status.intValue());
         }
-        this.akw.bWJ();
+        this.akw.bZl();
         this.akz = true;
     }
 
     private void setImageData(bw bwVar) {
-        ArrayList<MediaData> bkj = bwVar.bkj();
-        if (k.bhh().isShowImages() && y.getCount(bkj) != 0) {
+        ArrayList<MediaData> bmJ = bwVar.bmJ();
+        if (k.bjH().isShowImages() && y.getCount(bmJ) != 0) {
             LinkedList<MediaData> linkedList = new LinkedList<>();
-            for (int i = 0; i < bkj.size(); i++) {
-                MediaData mediaData = (MediaData) y.getItem(bkj, i);
+            for (int i = 0; i < bmJ.size(); i++) {
+                MediaData mediaData = (MediaData) y.getItem(bmJ, i);
                 if (mediaData != null && mediaData.getType() == 3) {
                     linkedList.add(mediaData);
                 }
@@ -144,9 +144,9 @@ public class MutiImgDoubleLayout extends LinearLayout implements p<AbsThreadData
             if (y.getCount(linkedList) == 2) {
                 this.akO.setVisibility(0);
                 this.akP.setConrers(15);
-                a((MediaData) y.getItem(bkj, 0), this.akP, true, false, false, 0);
+                a((MediaData) y.getItem(bmJ, 0), this.akP, true, false, false, 0);
                 this.akQ.setConrers(15);
-                a((MediaData) y.getItem(bkj, 1), this.akQ, true, false, true, 1);
+                a((MediaData) y.getItem(bmJ, 1), this.akQ, true, false, true, 1);
                 return;
             }
             this.akO.setVisibility(8);
@@ -169,11 +169,11 @@ public class MutiImgDoubleLayout extends LinearLayout implements p<AbsThreadData
     /* renamed from: b */
     public void H(AbsThreadDataSupport absThreadDataSupport) {
         this.afI = absThreadDataSupport;
-        bw bhz = absThreadDataSupport.bhz();
-        ay.a(this.mTitle, bhz);
-        ay.a(this.agm, this.mTitle, bhz, agk);
-        setImageData(bhz);
-        setVoiceData(bhz);
+        bw bjZ = absThreadDataSupport.bjZ();
+        ay.a(this.mTitle, bjZ);
+        ay.a(this.agm, this.mTitle, bjZ, agk);
+        setImageData(bjZ);
+        setVoiceData(bjZ);
         ua();
     }
 

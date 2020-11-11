@@ -12,7 +12,7 @@ public final class MapStatusUpdate {
     private static final String o = MapStatusUpdate.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    MapStatus f2022a;
+    MapStatus f2024a;
     LatLng b;
     LatLngBounds c;
     int d;
@@ -50,7 +50,7 @@ public final class MapStatusUpdate {
     private MapStatusUpdate a(MapStatus mapStatus) {
         MapStatusUpdate mapStatusUpdate = new MapStatusUpdate();
         synchronized (this) {
-            mapStatusUpdate.f2022a = mapStatus;
+            mapStatusUpdate.f2024a = mapStatus;
             mapStatusUpdate.c = this.c;
             mapStatusUpdate.k = this.k;
             mapStatusUpdate.l = this.l;
@@ -92,7 +92,7 @@ public final class MapStatusUpdate {
         }
         switch (this.p) {
             case 1:
-                return this.f2022a;
+                return this.f2024a;
             case 2:
                 return new MapStatus(mapStatus.rotate, this.b, mapStatus.overlook, mapStatus.zoom, mapStatus.targetScreen, null);
             case 3:
@@ -101,7 +101,7 @@ public final class MapStatusUpdate {
                 }
                 GeoPoint ll2mc = CoordUtil.ll2mc(this.c.southwest);
                 GeoPoint ll2mc2 = CoordUtil.ll2mc(this.c.northeast);
-                float a2 = dVar.a((int) ll2mc.getLongitudeE6(), (int) ll2mc2.getLatitudeE6(), (int) ll2mc2.getLongitudeE6(), (int) ll2mc.getLatitudeE6(), mapStatus.f2020a.j.right - mapStatus.f2020a.j.left, mapStatus.f2020a.j.bottom - mapStatus.f2020a.j.top);
+                float a2 = dVar.a((int) ll2mc.getLongitudeE6(), (int) ll2mc2.getLatitudeE6(), (int) ll2mc2.getLongitudeE6(), (int) ll2mc.getLatitudeE6(), mapStatus.f2022a.j.right - mapStatus.f2022a.j.left, mapStatus.f2022a.j.bottom - mapStatus.f2022a.j.top);
                 return new MapStatus(mapStatus.rotate, this.c.getCenter(), mapStatus.overlook, a2, mapStatus.targetScreen, null);
             case 4:
                 return new MapStatus(mapStatus.rotate, this.b, mapStatus.overlook, this.f, mapStatus.targetScreen, null);
@@ -149,7 +149,7 @@ public final class MapStatusUpdate {
                     dVar.a(a(mapStatus2));
                     return mapStatus2;
                 } else if (dVar.D() != null) {
-                    return dVar.D().f2022a;
+                    return dVar.D().f2024a;
                 } else {
                     return null;
                 }

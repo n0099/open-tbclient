@@ -8,70 +8,70 @@ import java.util.List;
 /* loaded from: classes10.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private a dRH;
+    private a dXz;
     private final Object mLock = new Object();
-    private boolean dRF = true;
-    private List<b> dRG = new ArrayList(3);
+    private boolean dXx = true;
+    private List<b> dXy = new ArrayList(3);
 
     public e(@NonNull a aVar) {
-        this.dRH = aVar;
+        this.dXz = aVar;
     }
 
-    public void aTT() {
+    public void aWt() {
         synchronized (this.mLock) {
-            this.dRF = false;
-            aTU();
+            this.dXx = false;
+            aWu();
         }
     }
 
     public void onSuccess(Object obj) {
         synchronized (this.mLock) {
-            if (this.dRF) {
-                g(1, obj);
+            if (this.dXx) {
+                f(1, obj);
             } else {
-                this.dRH.a(new b(1, obj));
+                this.dXz.a(new b(1, obj));
             }
         }
     }
 
-    public void k(String str, int i, String str2) {
+    public void l(String str, int i, String str2) {
         synchronized (this.mLock) {
             com.baidu.swan.games.network.c.b bVar = new com.baidu.swan.games.network.c.b();
             bVar.errMsg = str2;
             bVar.statusCode = i;
             bVar.url = str;
-            if (this.dRF) {
-                g(2, bVar);
+            if (this.dXx) {
+                f(2, bVar);
             } else {
-                this.dRH.a(new b(2, bVar));
+                this.dXz.a(new b(2, bVar));
             }
         }
     }
 
     public boolean b(JSEvent jSEvent) {
         synchronized (this.mLock) {
-            if (this.dRF) {
-                g(3, jSEvent);
+            if (this.dXx) {
+                f(3, jSEvent);
             } else {
-                this.dRH.a(new b(3, jSEvent));
+                this.dXz.a(new b(3, jSEvent));
             }
         }
         return true;
     }
 
-    private void aTU() {
-        for (b bVar : this.dRG) {
-            this.dRH.a(bVar);
+    private void aWu() {
+        for (b bVar : this.dXy) {
+            this.dXz.a(bVar);
         }
-        this.dRG.clear();
+        this.dXy.clear();
     }
 
-    private void g(int i, Object obj) {
+    private void f(int i, Object obj) {
         if (obj != null) {
             if (DEBUG) {
                 Log.d("SwanGameResponseCache", "addToCacheList type:" + i);
             }
-            this.dRG.add(new b(i, obj));
+            this.dXy.add(new b(i, obj));
         }
     }
 }

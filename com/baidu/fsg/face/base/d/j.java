@@ -19,7 +19,7 @@ import java.lang.reflect.Method;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f1588a = -1728053248;
+    public static final int f1590a = -1728053248;
     private static String b;
     private final a c;
     private boolean d;
@@ -134,7 +134,7 @@ public class j {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f1589a = "status_bar_height";
+        private static final String f1591a = "status_bar_height";
         private static final String b = "navigation_bar_height";
         private static final String c = "navigation_bar_height_landscape";
         private static final String d = "navigation_bar_width";
@@ -150,7 +150,7 @@ public class j {
             Resources resources = activity.getResources();
             this.j = resources.getConfiguration().orientation == 1;
             this.k = a(activity);
-            this.f = a(resources, f1589a);
+            this.f = a(resources, f1591a);
             this.h = a((Context) activity);
             this.i = b(activity);
             this.g = this.h > 0;

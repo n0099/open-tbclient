@@ -10,21 +10,21 @@ import kotlin.jvm.internal.q;
 public final class b extends com.baidu.swan.apps.process.a.a.a {
     @Override // com.baidu.swan.apps.process.a.a.a
     public void y(Bundle bundle) {
-        c.a aDA;
-        c.a aDA2;
+        c.a aGa;
+        c.a aGa2;
         q.n(bundle, "params");
         String string = bundle.getString("openId");
         String string2 = bundle.getString("swanId");
         String string3 = bundle.getString("appId");
         String string4 = bundle.getString("hostName");
         if (ProcessUtils.isMainProcess()) {
-            if (string != null && (aDA2 = c.dgE.aDA()) != null) {
-                aDA2.R(string, string3, string4);
+            if (string != null && (aGa2 = c.dmz.aGa()) != null) {
+                aGa2.R(string, string3, string4);
             }
-            if (string2 == null || (aDA = c.dgE.aDA()) == null) {
+            if (string2 == null || (aGa = c.dmz.aGa()) == null) {
                 return;
             }
-            aDA.Q(string2, string3, string4);
+            aGa.Q(string2, string3, string4);
         }
     }
 }

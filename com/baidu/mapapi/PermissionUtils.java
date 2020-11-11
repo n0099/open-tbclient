@@ -8,14 +8,14 @@ public class PermissionUtils {
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final PermissionUtils f1959a = new PermissionUtils();
+        private static final PermissionUtils f1961a = new PermissionUtils();
     }
 
     private PermissionUtils() {
     }
 
     public static PermissionUtils getInstance() {
-        return a.f1959a;
+        return a.f1961a;
     }
 
     public boolean isIndoorNaviAuthorized() {

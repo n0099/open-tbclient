@@ -9,10 +9,10 @@ import com.bun.miitmdid.utils.sysParamters;
 public class b implements InnerIdSupplier {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f3994a;
+    private Context f3996a;
 
     public b(Context context) {
-        this.f3994a = context;
+        this.f3996a = context;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
@@ -26,13 +26,13 @@ public class b implements InnerIdSupplier {
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getAAID() {
-        String c = a.c(this.f3994a);
+        String c = a.c(this.f3996a);
         return TextUtils.isEmpty(c) ? sysParamters.f() : c;
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getOAID() {
-        String a2 = a.a(this.f3994a);
+        String a2 = a.a(this.f3996a);
         return a2 == null ? "" : a2;
     }
 
@@ -43,7 +43,7 @@ public class b implements InnerIdSupplier {
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getVAID() {
-        String b = a.b(this.f3994a);
+        String b = a.b(this.f3996a);
         return b == null ? "" : b;
     }
 

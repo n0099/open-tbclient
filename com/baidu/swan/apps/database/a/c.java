@@ -5,13 +5,13 @@ import android.database.sqlite.SQLiteDatabase;
 public class c {
     public static void z(SQLiteDatabase sQLiteDatabase) {
         try {
-            sQLiteDatabase.execSQL(aqg());
+            sQLiteDatabase.execSQL(asH());
         } catch (Exception e) {
             e.getStackTrace();
         }
     }
 
-    private static String aqg() {
+    private static String asH() {
         return "CREATE TABLE IF NOT EXISTS ai_apps_history (_id INTEGER PRIMARY KEY AUTOINCREMENT,app_id TEXT NOT NULL UNIQUE,app_from TEXT,visit_time INTEGER DEFAULT 0);";
     }
 

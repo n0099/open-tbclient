@@ -27,7 +27,7 @@ import org.apache.http.message.BasicStatusLine;
 public class j implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    private final a f2642a;
+    private final a f2644a;
     private final SSLSocketFactory b;
 
     /* loaded from: classes7.dex */
@@ -44,7 +44,7 @@ public class j implements i {
     }
 
     public j(a aVar, SSLSocketFactory sSLSocketFactory) {
-        this.f2642a = aVar;
+        this.f2644a = aVar;
         this.b = sSLSocketFactory;
     }
 
@@ -55,8 +55,8 @@ public class j implements i {
         HashMap hashMap = new HashMap();
         hashMap.putAll(nVar.i());
         hashMap.putAll(map);
-        if (this.f2642a != null) {
-            str = this.f2642a.a(c);
+        if (this.f2644a != null) {
+            str = this.f2644a.a(c);
             if (str == null) {
                 throw new IOException("URL blocked by rewriter: " + c);
             }

@@ -1,34 +1,21 @@
 package com.baidu.live.ah;
 
-import android.view.KeyEvent;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.live.data.w;
+import com.baidu.live.data.AlaLiveUserInfoData;
 /* loaded from: classes4.dex */
 public interface a {
-    void L(Object obj);
 
-    void Se();
+    /* renamed from: com.baidu.live.ah.a$a  reason: collision with other inner class name */
+    /* loaded from: classes4.dex */
+    public interface InterfaceC0172a {
+    }
 
-    boolean Sf();
+    a a(int i, String str, String str2, String str3, String str4, int i2, String str5);
 
-    boolean Sg();
+    void a(InterfaceC0172a interfaceC0172a);
 
-    void Sh();
+    void a(AlaLiveUserInfoData alaLiveUserInfoData, String str);
 
-    void a(FrameLayout frameLayout);
-
-    void a(b bVar);
+    void gg(int i);
 
     void onDestroy();
-
-    boolean onKeyDown(int i, KeyEvent keyEvent);
-
-    void r(w wVar);
-
-    void setMute(boolean z);
-
-    void w(ViewGroup viewGroup);
-
-    void x(ViewGroup viewGroup);
 }

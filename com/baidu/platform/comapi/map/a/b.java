@@ -3,13 +3,13 @@ package com.baidu.platform.comapi.map.a;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f2888a;
+    public boolean f2890a;
     public boolean b;
 
     public b(boolean z, boolean z2) {
-        this.f2888a = false;
+        this.f2890a = false;
         this.b = false;
-        this.f2888a = z;
+        this.f2890a = z;
         this.b = z2;
     }
 }

@@ -6,31 +6,31 @@ import com.tb.airbnb.lottie.model.a.m;
 public class a implements b {
     private final boolean Fc;
     private final String name;
-    private final com.tb.airbnb.lottie.model.a.f pAa;
-    private final m<PointF, PointF> pzU;
+    private final m<PointF, PointF> pJo;
+    private final com.tb.airbnb.lottie.model.a.f pJu;
 
     public a(String str, m<PointF, PointF> mVar, com.tb.airbnb.lottie.model.a.f fVar, boolean z) {
         this.name = str;
-        this.pzU = mVar;
-        this.pAa = fVar;
+        this.pJo = mVar;
+        this.pJu = fVar;
         this.Fc = z;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b
-    public com.tb.airbnb.lottie.a.a.b a(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar) {
-        return new com.tb.airbnb.lottie.a.a.e(fVar, aVar, this);
+    public com.tb.airbnb.lottie.a.a.b a(com.tb.airbnb.lottie.g gVar, com.tb.airbnb.lottie.model.layer.a aVar) {
+        return new com.tb.airbnb.lottie.a.a.e(gVar, aVar, this);
     }
 
     public String getName() {
         return this.name;
     }
 
-    public m<PointF, PointF> euZ() {
-        return this.pzU;
+    public m<PointF, PointF> eyO() {
+        return this.pJo;
     }
 
-    public com.tb.airbnb.lottie.model.a.f evg() {
-        return this.pAa;
+    public com.tb.airbnb.lottie.model.a.f eyV() {
+        return this.pJu;
     }
 
     public boolean isReversed() {

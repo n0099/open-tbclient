@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.view.TbCheckBox;
 import java.util.ArrayList;
 /* loaded from: classes26.dex */
 public class InviteFriendData extends AbstractImageProvider implements TbCheckBox.b {
-    private String jVU;
+    private String kbR;
     private boolean mIsChecked = false;
 
     @Override // com.baidu.tbadk.core.util.AbstractImageProvider
@@ -16,7 +16,7 @@ public class InviteFriendData extends AbstractImageProvider implements TbCheckBo
     @Override // com.baidu.tbadk.core.util.AbstractImageProvider
     public ArrayList<String> getPhotoUrl() {
         ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add(this.jVU);
+        arrayList.add(this.kbR);
         return arrayList;
     }
 

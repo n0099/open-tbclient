@@ -55,14 +55,14 @@ public class a extends aa {
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.l.a.1
             @Override // java.lang.Runnable
             public void run() {
-                final Bitmap aKo = ah.aKo();
-                if (aKo == null) {
+                final Bitmap aMO = ah.aMO();
+                if (aMO == null) {
                     a.this.d(unitedSchemeEntity, callbackHandler, "can't get screenshot");
                 } else {
                     p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.l.a.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.a(aKo, unitedSchemeEntity, callbackHandler, eVar);
+                            a.this.a(aMO, unitedSchemeEntity, callbackHandler, eVar);
                         }
                     }, "savescreenshot");
                 }
@@ -93,9 +93,9 @@ public class a extends aa {
     */
     public void a(@NonNull Bitmap bitmap, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, @NonNull e eVar) {
         FileOutputStream fileOutputStream;
-        String th = b.th(eVar.id);
-        if (th != null) {
-            String str = th + File.separator + StatisticConstants.SCREENSHOT;
+        String tv2 = b.tv(eVar.id);
+        if (tv2 != null) {
+            String str = tv2 + File.separator + StatisticConstants.SCREENSHOT;
             File file = new File(str);
             if (!file.exists() || !file.isDirectory()) {
                 file.delete();
@@ -141,8 +141,8 @@ public class a extends aa {
                             }
                         }
                     }
-                } catch (Throwable th2) {
-                    th = th2;
+                } catch (Throwable th) {
+                    th = th;
                     if (r1 != 0) {
                         try {
                             r1.close();
@@ -156,8 +156,8 @@ public class a extends aa {
             } catch (FileNotFoundException e5) {
                 e = e5;
                 fileOutputStream = null;
-            } catch (Throwable th3) {
-                th = th3;
+            } catch (Throwable th2) {
+                th = th2;
                 r1 = 0;
                 if (r1 != 0) {
                 }

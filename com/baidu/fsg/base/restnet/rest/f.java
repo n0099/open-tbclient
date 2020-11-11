@@ -6,7 +6,7 @@ import com.baidu.fsg.base.restnet.http.HttpStatus;
 public class f<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1474a = f.class.getSimpleName();
+    private static final String f1476a = f.class.getSimpleName();
     private final Class<T> b;
     private final com.baidu.fsg.base.restnet.a.a<?> c;
 
@@ -25,8 +25,8 @@ public class f<T> {
         if (!b(eVar)) {
             return null;
         }
-        if (eVar.d().i() == null && Log.isLoggable(f1474a, 3)) {
-            Log.d(f1474a, "No Content-Type header found, defaulting to application/octet-stream");
+        if (eVar.d().i() == null && Log.isLoggable(f1476a, 3)) {
+            Log.d(f1476a, "No Content-Type header found, defaulting to application/octet-stream");
         }
         return (T) this.c.a(this.b, eVar);
     }

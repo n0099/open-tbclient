@@ -36,7 +36,7 @@ public class SwanAppJsBridge extends a {
         } else {
             d dVar = new d(str, str2);
             h.E("postMessage", "PostMsg setData start");
-            f.axo().a(dVar, false);
+            f.azO().a(dVar, false);
             h.E("postMessage", "PostMsg setData end");
         }
         return UnitedSchemeUtility.wrapCallbackParams(i).toString();

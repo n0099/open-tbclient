@@ -50,53 +50,53 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.tieba.yuyinala.liveroom.a implements View.OnClickListener, b, d {
-    private View aEJ;
-    private ViewGroup bEg;
-    private List<AbsDelegateAdapter> bje;
-    private CommonEmptyView byP;
+    private View aFz;
+    private CommonEmptyView bFa;
+    private ViewGroup bJN;
+    private List<AbsDelegateAdapter> bky;
     private int cardWidth;
-    private float cqF;
-    private LoadMoreFooter gBa;
-    private TbListCommonPullView huF;
-    private float lNh;
+    private float cwD;
+    private LoadMoreFooter gGO;
+    private TbListCommonPullView hAC;
+    private float lTd;
     private ValueAnimator mAnimator;
+    private ViewGroup mBf;
+    private View mBj;
+    private int mBk;
+    private float mBl;
+    private final int mBo;
+    private TextView mBr;
+    private boolean mBs;
+    private w mBt;
+    private View mBv;
+    private View mBw;
     private Context mContext;
     private float mDownX;
     private int mOrientation;
     private int mScreenWidth;
     private int mShowType;
     private int mTouchSlop;
-    private ViewGroup mvj;
-    private View mvm;
-    private int mvn;
-    private float mvo;
-    private final int mvr;
-    private TextView mvu;
-    private boolean mvv;
-    private w mvw;
-    private View mvy;
-    private View mvz;
-    private RecommendViewPager nRu;
-    private AlaRecommendLiveListView nRv;
-    private InterfaceC0896a nRw;
-    private com.baidu.tieba.yuyinala.liveroom.recommend.model.b nRx;
-    private AlaLiveView nRy;
-    private FrameLayout nRz;
+    private RecommendViewPager nYG;
+    private AlaRecommendLiveListView nYH;
+    private InterfaceC0912a nYI;
+    private com.baidu.tieba.yuyinala.liveroom.recommend.model.b nYJ;
+    private AlaLiveView nYK;
+    private FrameLayout nYL;
 
     /* renamed from: com.baidu.tieba.yuyinala.liveroom.recommend.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0896a {
-        void cq(boolean z);
+    public interface InterfaceC0912a {
+        void cr(boolean z);
     }
 
     public a(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.mvr = 100;
+        this.mBo = 100;
         if (tbPageContext != null) {
             this.mContext = getPageContext().getPageActivity();
             this.mScreenWidth = BdUtilHelper.getEquipmentWidth(this.mContext);
-            this.mvn = this.mScreenWidth;
-            dzl();
+            this.mBk = this.mScreenWidth;
+            dBN();
             this.mTouchSlop = ViewConfiguration.get(this.mContext).getScaledTouchSlop();
             if (com.baidu.live.d.AZ().getBoolean("yuyin_ala_recommend_live_first_show", true)) {
                 this.mShowType = 1;
@@ -104,115 +104,115 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a implements View.OnCli
         }
     }
 
-    public void a(InterfaceC0896a interfaceC0896a) {
-        this.nRw = interfaceC0896a;
+    public void a(InterfaceC0912a interfaceC0912a) {
+        this.nYI = interfaceC0912a;
     }
 
-    public void o(w wVar) {
-        this.mvw = wVar;
+    public void n(w wVar) {
+        this.mBt = wVar;
     }
 
     public void D(int i, int i2) {
         this.mOrientation = i2;
         if (i2 == 2) {
-            this.mvm.setVisibility(8);
+            this.mBj.setVisibility(8);
             if (isOpen()) {
                 onClose();
                 return;
             }
             return;
         }
-        this.mvm.setVisibility(0);
+        this.mBj.setVisibility(0);
     }
 
     public void a(AlaLiveView alaLiveView) {
-        this.nRy = alaLiveView;
+        this.nYK = alaLiveView;
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
-    public void av(ViewGroup viewGroup) {
-        super.av(viewGroup);
+    public void ax(ViewGroup viewGroup) {
+        super.ax(viewGroup);
         if (viewGroup != null) {
-            this.bEg = viewGroup;
-            this.mvj = (ViewGroup) this.bEg.findViewById(a.g.ala_live_header_view);
-            dzm();
-            dzk();
-            if (!this.mvv && com.baidu.live.z.a.Pq().bmJ != null && this.mShowType != 1) {
+            this.bJN = viewGroup;
+            this.mBf = (ViewGroup) this.bJN.findViewById(a.f.ala_live_header_view);
+            dBO();
+            dBM();
+            if (!this.mBs && com.baidu.live.aa.a.PQ().bod != null && this.mShowType != 1) {
                 long j = com.baidu.live.d.AZ().getLong("yuyin_ala_recommend_live_last_show", 0L);
                 long currentTimeMillis = System.currentTimeMillis();
-                int Pv = com.baidu.live.z.a.Pq().Pv();
-                if (j != 0 && ((float) (currentTimeMillis - j)) / 8.64E7f > Pv) {
+                int PW = com.baidu.live.aa.a.PQ().PW();
+                if (j != 0 && ((float) (currentTimeMillis - j)) / 8.64E7f > PW) {
                     this.mShowType = 2;
                 }
             }
-            Ib(0);
+            Io(0);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
-    public void CT() {
-        super.CT();
+    public void Dm() {
+        super.Dm();
         if (this.mAnimator != null && this.mAnimator.isRunning()) {
             this.mAnimator.cancel();
             this.mAnimator = null;
         }
-        if (this.bEg != null) {
-            this.bEg.removeView(this.nRu);
-            this.bEg.removeView(this.mvy);
+        if (this.bJN != null) {
+            this.bJN.removeView(this.nYG);
+            this.bJN.removeView(this.mBv);
         }
-        this.nRw = null;
-        if (this.mvv) {
+        this.nYI = null;
+        if (this.mBs) {
             com.baidu.live.d.AZ().putLong("yuyin_ala_recommend_live_last_show", System.currentTimeMillis());
         }
-        this.mvw = null;
-        if (this.nRx != null) {
-            this.nRx.reset();
+        this.mBt = null;
+        if (this.nYJ != null) {
+            this.nYJ.reset();
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
     public void onDestroy() {
         super.onDestroy();
-        CT();
-        if (this.nRx != null) {
-            this.nRx.onDestroy();
+        Dm();
+        if (this.nYJ != null) {
+            this.nYJ.onDestroy();
         }
     }
 
-    private void dzk() {
-        if (this.aEJ == null) {
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.mvn, -1);
-            this.aEJ = LayoutInflater.from(this.mContext).inflate(a.h.yuyinala_recommend_live_content_layout, (ViewGroup) null);
-            this.aEJ.setLayoutParams(layoutParams);
+    private void dBM() {
+        if (this.aFz == null) {
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.mBk, -1);
+            this.aFz = LayoutInflater.from(this.mContext).inflate(a.g.yuyinala_recommend_live_content_layout, (ViewGroup) null);
+            this.aFz.setLayoutParams(layoutParams);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
-                this.aEJ.findViewById(a.g.right_layout).setPadding(0, BdUtilHelper.getStatusBarHeight(getPageContext().getPageActivity()), 0, 0);
+                this.aFz.findViewById(a.f.right_layout).setPadding(0, BdUtilHelper.getStatusBarHeight(getPageContext().getPageActivity()), 0, 0);
             }
-            this.mvz = this.aEJ.findViewById(a.g.block_view);
-            this.mvz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.recommend.a.1
+            this.mBw = this.aFz.findViewById(a.f.block_view);
+            this.mBw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.recommend.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     a.this.onClose();
                 }
             });
-            this.nRz = (FrameLayout) this.aEJ.findViewById(a.g.listView_layout);
-            this.nRv = (AlaRecommendLiveListView) this.aEJ.findViewById(a.g.recommendLiveListView);
-            this.huF = new AlaListViewPullView(this.mContext);
-            this.nRv.setPullRefresh(this.huF);
-            this.gBa = new LoadMoreFooter(this.mContext);
-            this.gBa.setBackgroundColor(this.mContext.getResources().getColor(a.d.sdk_transparent));
-            this.gBa.setFooterHeight(this.cardWidth / 2);
-            this.gBa.createView();
-            Ly();
-            this.nRv.addAdapters(this.bje);
-            this.huF.setListPullRefreshListener(new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.yuyinala.liveroom.recommend.a.2
+            this.nYL = (FrameLayout) this.aFz.findViewById(a.f.listView_layout);
+            this.nYH = (AlaRecommendLiveListView) this.aFz.findViewById(a.f.recommendLiveListView);
+            this.hAC = new AlaListViewPullView(this.mContext);
+            this.nYH.setPullRefresh(this.hAC);
+            this.gGO = new LoadMoreFooter(this.mContext);
+            this.gGO.setBackgroundColor(this.mContext.getResources().getColor(a.c.sdk_transparent));
+            this.gGO.setFooterHeight(this.cardWidth / 2);
+            this.gGO.createView();
+            LY();
+            this.nYH.addAdapters(this.bky);
+            this.hAC.setListPullRefreshListener(new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.yuyinala.liveroom.recommend.a.2
                 @Override // com.baidu.live.tbadk.core.view.TbListCommonPullView.ListPullRefreshListener
                 public void onListPullRefresh(boolean z) {
-                    a.this.Ib(0);
+                    a.this.Io(0);
                     if (!z) {
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-                            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, a.this.mvw.aIS.croom_id);
+                            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, a.this.mBt.aJK.croom_id);
                         } catch (Exception e) {
                             BdLog.e(e);
                         }
@@ -220,35 +220,35 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a implements View.OnCli
                     }
                 }
             });
-            this.nRv.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.yuyinala.liveroom.recommend.a.3
+            this.nYH.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.yuyinala.liveroom.recommend.a.3
                 @Override // android.widget.AbsListView.OnScrollListener
                 public void onScrollStateChanged(AbsListView absListView, int i) {
                 }
 
                 @Override // android.widget.AbsListView.OnScrollListener
                 public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-                    if (!a.this.gBa.isLoading() && a.this.nRx != null && a.this.nRx.hasMore && i + i2 > i3 - 2) {
-                        a.this.bMx();
-                        a.this.Ib(1);
+                    if (!a.this.gGO.isLoading() && a.this.nYJ != null && a.this.nYJ.hasMore && i + i2 > i3 - 2) {
+                        a.this.bOX();
+                        a.this.Io(1);
                     }
                 }
             });
         }
-        if (this.mvy == null) {
-            this.mvy = new View(this.mContext);
-            this.mvy.setBackgroundColor(this.mContext.getResources().getColor(a.d.sdk_black_alpha65));
-            this.mvy.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            this.mvy.setAlpha(0.0f);
+        if (this.mBv == null) {
+            this.mBv = new View(this.mContext);
+            this.mBv.setBackgroundColor(this.mContext.getResources().getColor(a.c.sdk_black_alpha65));
+            this.mBv.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            this.mBv.setAlpha(0.0f);
         }
-        this.bEg.addView(this.mvy);
-        if (this.nRu == null) {
-            this.nRu = new RecommendViewPager(getPageContext().getPageActivity());
-            this.nRu.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            this.nRu.addOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.yuyinala.liveroom.recommend.a.4
+        this.bJN.addView(this.mBv);
+        if (this.nYG == null) {
+            this.nYG = new RecommendViewPager(getPageContext().getPageActivity());
+            this.nYG.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            this.nYG.addOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.yuyinala.liveroom.recommend.a.4
                 @Override // android.support.v4.view.ViewPager.OnPageChangeListener
                 public void onPageScrolled(int i, float f, int i2) {
                     if (a.this.isOpen() && i == 0) {
-                        a.this.mvy.setAlpha(f);
+                        a.this.mBv.setAlpha(f);
                     }
                 }
 
@@ -258,11 +258,11 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a implements View.OnCli
 
                 @Override // android.support.v4.view.ViewPager.OnPageChangeListener
                 public void onPageScrollStateChanged(int i) {
-                    if (i == 0 && a.this.nRu != null) {
-                        if (a.this.nRu.getCurrentItem() == 0) {
+                    if (i == 0 && a.this.nYG != null) {
+                        if (a.this.nYG.getCurrentItem() == 0) {
                             a.this.close();
                         } else {
-                            a.this.dzo();
+                            a.this.dBQ();
                         }
                     }
                 }
@@ -271,18 +271,18 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a implements View.OnCli
             Space space = new Space(getPageContext().getPageActivity());
             space.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             arrayList.add(space);
-            arrayList.add(this.aEJ);
-            this.nRu.setAdapter(new RecommendPagerAdapter(arrayList));
-            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(this.mvn, -1);
+            arrayList.add(this.aFz);
+            this.nYG.setAdapter(new RecommendPagerAdapter(arrayList));
+            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(this.mBk, -1);
             layoutParams2.gravity = 5;
-            layoutParams2.rightMargin = -this.mvn;
-            this.nRu.setLayoutParams(layoutParams2);
+            layoutParams2.rightMargin = -this.mBk;
+            this.nYG.setLayoutParams(layoutParams2);
         }
-        this.bEg.addView(this.nRu);
-        this.nRu.setCurrentItem(1, false);
-        if (this.nRx == null) {
-            this.nRx = new com.baidu.tieba.yuyinala.liveroom.recommend.model.b(getPageContext());
-            this.nRx.a(new b.a() { // from class: com.baidu.tieba.yuyinala.liveroom.recommend.a.5
+        this.bJN.addView(this.nYG);
+        this.nYG.setCurrentItem(1, false);
+        if (this.nYJ == null) {
+            this.nYJ = new com.baidu.tieba.yuyinala.liveroom.recommend.model.b(getPageContext());
+            this.nYJ.a(new b.a() { // from class: com.baidu.tieba.yuyinala.liveroom.recommend.a.5
                 @Override // com.baidu.tieba.yuyinala.liveroom.recommend.model.b.a
                 public void h(List<IAdapterData> list, int i, int i2) {
                     a.this.g(list, i, i2);
@@ -296,37 +296,37 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a implements View.OnCli
         }
     }
 
-    private void dzl() {
-        this.cardWidth = ((((this.mvn - this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds80)) - this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds40)) - this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds20)) - this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds4)) / 2;
+    private void dBN() {
+        this.cardWidth = ((((this.mBk - this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds80)) - this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds40)) - this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds20)) - this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds4)) / 2;
         if (this.cardWidth <= 0) {
-            this.cardWidth = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds340);
+            this.cardWidth = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds340);
         }
     }
 
-    private void Ly() {
-        if (this.bje == null) {
-            this.bje = new ArrayList();
-            this.bje.add(new com.baidu.tieba.yuyinala.liveroom.recommend.adapter.b(this.mContext, c.mwf));
-            this.bje.add(new com.baidu.tieba.yuyinala.liveroom.recommend.adapter.a(this.mContext, com.baidu.tieba.yuyinala.liveroom.recommend.data.a.mwc, this.cardWidth, getPageContext()));
+    private void LY() {
+        if (this.bky == null) {
+            this.bky = new ArrayList();
+            this.bky.add(new com.baidu.tieba.yuyinala.liveroom.recommend.adapter.b(this.mContext, c.mCc));
+            this.bky.add(new com.baidu.tieba.yuyinala.liveroom.recommend.adapter.a(this.mContext, com.baidu.tieba.yuyinala.liveroom.recommend.data.a.mBZ, this.cardWidth, getPageContext()));
         }
     }
 
-    private void dzm() {
-        this.mvm = LayoutInflater.from(this.mContext).inflate(a.h.yuyin_ala_recommend_live_header_entrance, (ViewGroup) null);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds44));
-        layoutParams.topMargin = this.mContext.getResources().getDimensionPixelOffset(a.e.sdk_ds14);
+    private void dBO() {
+        this.mBj = LayoutInflater.from(this.mContext).inflate(a.g.yuyin_ala_recommend_live_header_entrance, (ViewGroup) null);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds44));
+        layoutParams.topMargin = this.mContext.getResources().getDimensionPixelOffset(a.d.sdk_ds14);
         layoutParams.addRule(11);
-        layoutParams.addRule(3, a.g.ala_liveroom_hostheader);
-        this.mvm.setLayoutParams(layoutParams);
-        if (this.mvj != null) {
-            this.mvj.addView(this.mvm);
+        layoutParams.addRule(3, a.f.ala_liveroom_hostheader);
+        this.mBj.setLayoutParams(layoutParams);
+        if (this.mBf != null) {
+            this.mBf.addView(this.mBj);
         }
-        this.mvm.setOnClickListener(this);
+        this.mBj.setOnClickListener(this);
     }
 
     @Override // com.baidu.live.liveroom.g.d
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (!ac(motionEvent)) {
+        if (!ad(motionEvent)) {
             return false;
         }
         if (this.mAnimator != null && this.mAnimator.isRunning()) {
@@ -339,25 +339,25 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a implements View.OnCli
         switch (motionEvent.getAction()) {
             case 0:
                 this.mDownX = motionEvent.getX(i);
-                this.cqF = motionEvent.getY(i);
-                this.lNh = this.mDownX;
-                this.mvo = this.cqF;
+                this.cwD = motionEvent.getY(i);
+                this.lTd = this.mDownX;
+                this.mBl = this.cwD;
                 break;
             case 1:
                 float x = motionEvent.getX(i);
                 float y = motionEvent.getY(i);
                 float f = this.mDownX - x;
-                float f2 = this.cqF - y;
-                if (Math.abs(f) < this.mTouchSlop && Math.abs(f2) < this.mTouchSlop && x > 0.0f && x < this.mScreenWidth - this.mvn) {
+                float f2 = this.cwD - y;
+                if (Math.abs(f) < this.mTouchSlop && Math.abs(f2) < this.mTouchSlop && x > 0.0f && x < this.mScreenWidth - this.mBk) {
                     onClose();
                     return true;
                 }
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.nRu.getLayoutParams();
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.nYG.getLayoutParams();
                 if (f > this.mTouchSlop) {
-                    wB(true);
-                    dzn();
+                    wK(true);
+                    dBP();
                     return true;
-                } else if (layoutParams.rightMargin > (-this.mvn)) {
+                } else if (layoutParams.rightMargin > (-this.mBk)) {
                     onClose();
                     return true;
                 }
@@ -365,30 +365,30 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a implements View.OnCli
             case 2:
                 float x2 = motionEvent.getX(i);
                 float y2 = motionEvent.getY(i);
-                float f3 = this.lNh - x2;
-                float f4 = this.mvo - y2;
-                this.lNh = x2;
-                this.mvo = y2;
-                FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.nRu.getLayoutParams();
+                float f3 = this.lTd - x2;
+                float f4 = this.mBl - y2;
+                this.lTd = x2;
+                this.mBl = y2;
+                FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.nYG.getLayoutParams();
                 if (f3 > 0.0f) {
                     int i2 = (int) (layoutParams2.rightMargin + f3);
                     if (i2 <= 0) {
                         layoutParams2.rightMargin = i2;
-                        this.nRu.setLayoutParams(layoutParams2);
-                        this.mvy.setAlpha(1.0f - Math.abs((i2 * 1.0f) / this.mvn));
+                        this.nYG.setLayoutParams(layoutParams2);
+                        this.mBv.setAlpha(1.0f - Math.abs((i2 * 1.0f) / this.mBk));
                     }
                     return true;
                 } else if (f3 <= 0.0f) {
                     int i3 = (int) (layoutParams2.rightMargin + f3);
-                    if (i3 >= (-this.mvn)) {
+                    if (i3 >= (-this.mBk)) {
                         layoutParams2.rightMargin = i3;
-                        this.nRu.setLayoutParams(layoutParams2);
-                        this.mvy.setAlpha(1.0f - Math.abs((i3 * 1.0f) / this.mvn));
+                        this.nYG.setLayoutParams(layoutParams2);
+                        this.mBv.setAlpha(1.0f - Math.abs((i3 * 1.0f) / this.mBk));
                         return true;
-                    } else if (i3 < (-this.mvn)) {
-                        layoutParams2.rightMargin = -this.mvn;
-                        this.nRu.setLayoutParams(layoutParams2);
-                        this.mvy.setAlpha(1.0f - Math.abs((i3 * 1.0f) / this.mvn));
+                    } else if (i3 < (-this.mBk)) {
+                        layoutParams2.rightMargin = -this.mBk;
+                        this.nYG.setLayoutParams(layoutParams2);
+                        this.mBv.setAlpha(1.0f - Math.abs((i3 * 1.0f) / this.mBk));
                         return false;
                     }
                 }
@@ -400,18 +400,18 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a implements View.OnCli
         return false;
     }
 
-    private boolean ac(MotionEvent motionEvent) {
+    private boolean ad(MotionEvent motionEvent) {
         if (motionEvent == null || this.mOrientation == 2) {
             return false;
         }
-        if (this.nRy != null) {
-            if (this.nRy.getKeyboardVisibility()) {
+        if (this.nYK != null) {
+            if (this.nYK.getKeyboardVisibility()) {
                 return false;
             }
-            if (!this.nRy.cfw()) {
+            if (!this.nYK.chZ()) {
                 close();
                 return false;
-            } else if (this.nRy.getScrollX() != 0) {
+            } else if (this.nYK.getScrollX() != 0) {
                 close();
                 return false;
             }
@@ -419,36 +419,36 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a implements View.OnCli
         return true;
     }
 
-    private void dzn() {
+    private void dBP() {
     }
 
-    public void wB(boolean z) {
+    public void wK(boolean z) {
         if ((this.mAnimator == null || !this.mAnimator.isRunning()) && UtilHelper.getRealScreenOrientation(this.mContext) != 2) {
-            wC(true);
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.nRu.getLayoutParams();
+            wL(true);
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.nYG.getLayoutParams();
             if (layoutParams.rightMargin < 0) {
                 int i = layoutParams.rightMargin;
-                ac(i, 0, (int) (100.0f * ((Math.abs(0 - i) * 1.0f) / this.mvn)));
+                ac(i, 0, (int) (100.0f * ((Math.abs(0 - i) * 1.0f) / this.mBk)));
             }
-            if (this.nRw != null) {
-                this.nRw.cq(true);
+            if (this.nYI != null) {
+                this.nYI.cr(true);
             }
-            if (!this.mvv) {
-                this.mvv = true;
+            if (!this.mBs) {
+                this.mBs = true;
             }
-            this.nRv.completePullRefresh();
+            this.nYH.completePullRefresh();
             if (z) {
-                Ib(0);
+                Io(0);
             }
-            dVx();
+            dYm();
         }
     }
 
-    private void dVx() {
+    private void dYm() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.mvw.aIS.croom_id);
+            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.mBt.aJK.croom_id);
         } catch (Exception e) {
             BdLog.e(e);
         }
@@ -456,42 +456,42 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a implements View.OnCli
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ib(int i) {
+    public void Io(int i) {
         if (!BdNetTypeUtil.isNetWorkAvailable()) {
             b(CommonEmptyView.ImgType.NO_NET);
             return;
         }
         hideNoDataView();
         long j = 0;
-        if (this.mvw != null && this.mvw.mLiveInfo != null) {
-            j = this.mvw.mLiveInfo.live_id;
+        if (this.mBt != null && this.mBt.mLiveInfo != null) {
+            j = this.mBt.mLiveInfo.live_id;
         }
-        this.nRx.t(j, i);
+        this.nYJ.x(j, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g(List<IAdapterData> list, int i, int i2) {
-        if (this.nRx.hasMore) {
-            bQH();
+        if (this.nYJ.hasMore) {
+            bTh();
         } else if (i2 == 1) {
-            bQH();
+            bTh();
         }
         if (ListUtils.isEmpty(list)) {
             b(CommonEmptyView.ImgType.NO_DATA);
             return;
         }
         hideNoDataView();
-        this.nRv.setData(list);
-        if (this.bje != null) {
-            Iterator<AbsDelegateAdapter> it = this.bje.iterator();
+        this.nYH.setData(list);
+        if (this.bky != null) {
+            Iterator<AbsDelegateAdapter> it = this.bky.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 AbsDelegateAdapter next = it.next();
                 if (next instanceof com.baidu.tieba.yuyinala.liveroom.recommend.adapter.a) {
-                    ((com.baidu.tieba.yuyinala.liveroom.recommend.adapter.a) next).LU(i);
-                    ((com.baidu.tieba.yuyinala.liveroom.recommend.adapter.a) next).setAlaLiveShowData(this.mvw);
+                    ((com.baidu.tieba.yuyinala.liveroom.recommend.adapter.a) next).Ml(i);
+                    ((com.baidu.tieba.yuyinala.liveroom.recommend.adapter.a) next).setAlaLiveShowData(this.mBt);
                     break;
                 }
             }
@@ -504,74 +504,74 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a implements View.OnCli
             }
             this.mShowType = 0;
         }
-        this.nRv.completePullRefresh();
+        this.nYH.completePullRefresh();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(CommonEmptyView.ImgType imgType) {
         int i;
-        if (this.nRv != null) {
-            if (this.nRv != null && this.nRv.getAdapter() != null && this.nRv.getAdapter().getCount() > 0) {
-                this.nRv.completePullRefresh();
-            } else if (this.nRx != null && !this.nRx.bzx() && this.nRv != null) {
+        if (this.nYH != null) {
+            if (this.nYH != null && this.nYH.getAdapter() != null && this.nYH.getAdapter().getCount() > 0) {
+                this.nYH.completePullRefresh();
+            } else if (this.nYJ != null && !this.nYJ.bBW() && this.nYH != null) {
                 if (imgType == CommonEmptyView.ImgType.NO_NET || imgType == CommonEmptyView.ImgType.SERVER_ERROR) {
-                    BdUtilHelper.showToast(this.mContext, a.i.recommend_live_net_weak);
+                    BdUtilHelper.showToast(this.mContext, a.h.recommend_live_net_weak);
                 }
-                this.nRv.completePullRefresh();
+                this.nYH.completePullRefresh();
             } else {
-                if (this.byP == null) {
-                    this.byP = new CommonEmptyView(this.mContext);
-                    ImageView imageView = (ImageView) this.byP.findViewById(a.g.sdk_cev_img);
+                if (this.bFa == null) {
+                    this.bFa = new CommonEmptyView(this.mContext);
+                    ImageView imageView = (ImageView) this.bFa.findViewById(a.f.sdk_cev_img);
                     LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) imageView.getLayoutParams();
-                    layoutParams.width = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds180);
-                    layoutParams.height = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds180);
+                    layoutParams.width = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds180);
+                    layoutParams.height = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds180);
                     imageView.setLayoutParams(layoutParams);
-                    ((TextView) this.byP.findViewById(a.g.sdk_cev_title)).setTextSize(0, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_fontsize24));
-                    this.mvu = (TextView) this.byP.findViewById(a.g.sdk_cev_refresh_btn);
-                    this.mvu.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_fontsize22));
-                    LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.mvu.getLayoutParams();
-                    layoutParams2.width = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds152);
-                    layoutParams2.height = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds54);
-                    layoutParams2.topMargin = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds30);
-                    this.mvu.setLayoutParams(layoutParams2);
-                    if (this.nRz != null) {
-                        this.byP.addToParent(this.nRz);
+                    ((TextView) this.bFa.findViewById(a.f.sdk_cev_title)).setTextSize(0, this.mContext.getResources().getDimensionPixelSize(a.d.sdk_fontsize24));
+                    this.mBr = (TextView) this.bFa.findViewById(a.f.sdk_cev_refresh_btn);
+                    this.mBr.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(a.d.sdk_fontsize22));
+                    LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.mBr.getLayoutParams();
+                    layoutParams2.width = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds152);
+                    layoutParams2.height = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds54);
+                    layoutParams2.topMargin = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds30);
+                    this.mBr.setLayoutParams(layoutParams2);
+                    if (this.nYL != null) {
+                        this.bFa.addToParent(this.nYL);
                     }
                 }
-                this.byP.reset();
+                this.bFa.reset();
                 switch (imgType) {
                     case NO_NET:
-                        i = a.i.recommend_live_no_net;
+                        i = a.h.recommend_live_no_net;
                         break;
                     case SERVER_ERROR:
-                        i = a.i.recommend_live_no_response;
+                        i = a.h.recommend_live_no_response;
                         break;
                     default:
-                        i = a.i.recommend_live_no_data;
+                        i = a.h.recommend_live_no_data;
                         break;
                 }
-                this.byP.setTitle(i);
-                this.byP.setRefreshButton(this.mContext.getResources().getString(a.i.recommend_live_refresh), new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.recommend.a.6
+                this.bFa.setTitle(i);
+                this.bFa.setRefreshButton(this.mContext.getResources().getString(a.h.recommend_live_refresh), new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.recommend.a.6
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         a.this.hideNoDataView();
-                        a.this.nRv.startPullRefresh();
+                        a.this.nYH.startPullRefresh();
                     }
                 });
-                this.byP.setup(imgType, CommonEmptyView.StyleType.DARK);
+                this.bFa.setup(imgType, CommonEmptyView.StyleType.DARK);
                 if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo() || TbadkCoreApplication.getInst().isTieba()) {
-                    this.mvu.setBackgroundResource(a.f.ala_recommend_live_empty_refresh_btn_selector);
+                    this.mBr.setBackgroundResource(a.e.ala_recommend_live_empty_refresh_btn_selector);
                 }
-                this.byP.setVisibility(0);
-                this.nRv.completePullRefresh();
+                this.bFa.setVisibility(0);
+                this.nYH.completePullRefresh();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideNoDataView() {
-        if (this.byP != null) {
-            this.byP.setVisibility(8);
+        if (this.bFa != null) {
+            this.bFa.setVisibility(8);
         }
     }
 
@@ -580,44 +580,44 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a implements View.OnCli
         if (this.mAnimator != null && this.mAnimator.isRunning()) {
             this.mAnimator.cancel();
         }
-        if (this.nRw != null) {
-            this.nRw.cq(false);
+        if (this.nYI != null) {
+            this.nYI.cr(false);
         }
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.nRu.getLayoutParams();
-        layoutParams.rightMargin = -this.mvn;
-        this.nRu.setLayoutParams(layoutParams);
-        this.nRu.setCurrentItem(1, false);
-        this.mvy.setAlpha(0.0f);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.nYG.getLayoutParams();
+        layoutParams.rightMargin = -this.mBk;
+        this.nYG.setLayoutParams(layoutParams);
+        this.nYG.setCurrentItem(1, false);
+        this.mBv.setAlpha(0.0f);
     }
 
     public boolean isOpen() {
-        return ((FrameLayout.LayoutParams) this.nRu.getLayoutParams()).rightMargin > (-this.mvn);
+        return ((FrameLayout.LayoutParams) this.nYG.getLayoutParams()).rightMargin > (-this.mBk);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dzo() {
-        float abs = 1.0f - Math.abs((((FrameLayout.LayoutParams) this.nRu.getLayoutParams()).rightMargin * 1.0f) / this.mvn);
+    public void dBQ() {
+        float abs = 1.0f - Math.abs((((FrameLayout.LayoutParams) this.nYG.getLayoutParams()).rightMargin * 1.0f) / this.mBk);
         if (abs < 0.0f) {
             abs = 0.0f;
         } else if (abs > 1.0f) {
             abs = 1.0f;
         }
-        this.mvy.setAlpha(abs);
+        this.mBv.setAlpha(abs);
     }
 
     public void onClose() {
         if (this.mAnimator == null || !this.mAnimator.isRunning()) {
-            wC(false);
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.nRu.getLayoutParams();
-            if (layoutParams.rightMargin > (-this.mvn)) {
+            wL(false);
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.nYG.getLayoutParams();
+            if (layoutParams.rightMargin > (-this.mBk)) {
                 int i = layoutParams.rightMargin;
-                int i2 = -this.mvn;
-                ac(i, i2, (int) (100.0f * ((Math.abs(i2 - i) * 1.0f) / this.mvn)));
+                int i2 = -this.mBk;
+                ac(i, i2, (int) (100.0f * ((Math.abs(i2 - i) * 1.0f) / this.mBk)));
             }
-            if (this.nRw != null) {
-                this.nRw.cq(false);
+            if (this.nYI != null) {
+                this.nYI.cr(false);
             }
-            this.nRv.completePullRefresh();
+            this.nYH.completePullRefresh();
         }
     }
 
@@ -628,10 +628,10 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a implements View.OnCli
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float animatedFraction = valueAnimator.getAnimatedFraction();
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) a.this.nRu.getLayoutParams();
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) a.this.nYG.getLayoutParams();
                 layoutParams.rightMargin = ((int) (animatedFraction * i4)) + i;
-                a.this.mvy.setAlpha(1.0f - Math.abs((layoutParams.rightMargin * 1.0f) / a.this.mvn));
-                a.this.nRu.setLayoutParams(layoutParams);
+                a.this.mBv.setAlpha(1.0f - Math.abs((layoutParams.rightMargin * 1.0f) / a.this.mBk));
+                a.this.nYG.setLayoutParams(layoutParams);
             }
         });
         this.mAnimator.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.yuyinala.liveroom.recommend.a.8
@@ -641,9 +641,9 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a implements View.OnCli
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                a.this.nRu.setCurrentItem(1, false);
+                a.this.nYG.setCurrentItem(1, false);
                 if (i2 == 0) {
-                    a.this.mvy.setAlpha(1.0f);
+                    a.this.mBv.setAlpha(1.0f);
                 }
             }
 
@@ -660,17 +660,17 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a implements View.OnCli
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.mvm) {
-            wB(true);
-            dVy();
+        if (view == this.mBj) {
+            wK(true);
+            dYn();
         }
     }
 
-    private void dVy() {
+    private void dYn() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.mvw.aIS.croom_id);
+            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.mBt.aJK.croom_id);
         } catch (Exception e) {
             BdLog.e(e);
         }
@@ -679,34 +679,34 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a implements View.OnCli
 
     @Override // com.baidu.live.liveroom.g.b
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (ac(motionEvent) && isOpen()) {
+        if (ad(motionEvent) && isOpen()) {
             return d(motionEvent, motionEvent.getActionIndex());
         }
         return false;
     }
 
     @Override // com.baidu.live.liveroom.g.b
-    public boolean NA() {
+    public boolean Oa() {
         return false;
     }
 
-    public void bQH() {
-        if (this.gBa != null) {
-            this.gBa.endLoadData();
-            this.nRv.setNextPage(null);
+    public void bTh() {
+        if (this.gGO != null) {
+            this.gGO.endLoadData();
+            this.nYH.setNextPage(null);
         }
     }
 
-    public void bMx() {
-        if (this.gBa != null) {
-            if (this.gBa.getView().getParent() == null) {
-                this.nRv.setNextPage(this.gBa);
+    public void bOX() {
+        if (this.gGO != null) {
+            if (this.gGO.getView().getParent() == null) {
+                this.nYH.setNextPage(this.gGO);
             }
-            this.gBa.showLoadView();
+            this.gGO.showLoadView();
         }
     }
 
-    private void wC(boolean z) {
+    private void wL(boolean z) {
         if (this.mContext != null && (this.mContext instanceof Activity)) {
             UtilHelper.changeStatusBarIconAndTextColor(z, (Activity) this.mContext);
         }

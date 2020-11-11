@@ -32,7 +32,7 @@ public final class GsonBuilder {
     private int timeStyle;
 
     public GsonBuilder() {
-        this.excluder = Excluder.oTE;
+        this.excluder = Excluder.pcZ;
         this.longSerializationPolicy = LongSerializationPolicy.DEFAULT;
         this.fieldNamingPolicy = FieldNamingPolicy.IDENTITY;
         this.instanceCreators = new HashMap();
@@ -51,7 +51,7 @@ public final class GsonBuilder {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public GsonBuilder(Gson gson) {
-        this.excluder = Excluder.oTE;
+        this.excluder = Excluder.pcZ;
         this.longSerializationPolicy = LongSerializationPolicy.DEFAULT;
         this.fieldNamingPolicy = FieldNamingPolicy.IDENTITY;
         this.instanceCreators = new HashMap();
@@ -90,7 +90,7 @@ public final class GsonBuilder {
     }
 
     public GsonBuilder excludeFieldsWithModifiers(int... iArr) {
-        this.excluder = this.excluder.q(iArr);
+        this.excluder = this.excluder.s(iArr);
         return this;
     }
 
@@ -100,7 +100,7 @@ public final class GsonBuilder {
     }
 
     public GsonBuilder excludeFieldsWithoutExposeAnnotation() {
-        this.excluder = this.excluder.eoR();
+        this.excluder = this.excluder.esG();
         return this;
     }
 
@@ -115,7 +115,7 @@ public final class GsonBuilder {
     }
 
     public GsonBuilder disableInnerClassSerialization() {
-        this.excluder = this.excluder.eoQ();
+        this.excluder = this.excluder.esF();
         return this;
     }
 

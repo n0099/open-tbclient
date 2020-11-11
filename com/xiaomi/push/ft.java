@@ -5,21 +5,21 @@ import java.util.Map;
 public class ft implements Cloneable {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4911a = "wcc-ml-test10.bj";
-    public static final String b = ae.f4785a;
+    public static String f4913a = "wcc-ml-test10.bj";
+    public static final String b = ae.f4787a;
     public static String c = null;
 
     /* renamed from: a  reason: collision with other field name */
-    private int f371a;
+    private int f373a;
 
     /* renamed from: a  reason: collision with other field name */
-    private fw f372a;
+    private fw f374a;
 
     /* renamed from: a  reason: collision with other field name */
-    private boolean f373a = fs.f356a;
+    private boolean f375a = fs.f358a;
 
     /* renamed from: b  reason: collision with other field name */
-    private boolean f374b = true;
+    private boolean f376b = true;
     private String d;
     private String e;
     private String f;
@@ -37,23 +37,23 @@ public class ft implements Cloneable {
     }
 
     private void a(Map<String, Integer> map, int i, String str, fw fwVar) {
-        this.f371a = i;
+        this.f373a = i;
         this.d = str;
-        this.f372a = fwVar;
+        this.f374a = fwVar;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public int mo301a() {
-        return this.f371a;
+        return this.f373a;
     }
 
     public void a(boolean z) {
-        this.f373a = z;
+        this.f375a = z;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public boolean m302a() {
-        return this.f373a;
+        return this.f375a;
     }
 
     /* renamed from: a  reason: collision with other method in class */

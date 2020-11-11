@@ -31,25 +31,25 @@ public class g extends com.baidu.adp.widget.ListView.a<l, am<l>> implements com.
     private ab<l> afF;
     private String ahu;
     private boolean akk;
-    public BdUniqueId fmX;
-    private int hvC;
-    private com.baidu.adp.lib.d.b<ConstrainImageLayout> iHO;
-    private com.baidu.adp.lib.d.b<TbImageView> iHP;
-    private int lVA;
-    private int lVB;
+    public BdUniqueId fsQ;
+    private int hBz;
+    private com.baidu.adp.lib.d.b<ConstrainImageLayout> iNL;
+    private com.baidu.adp.lib.d.b<TbImageView> iNM;
     private boolean mIsHost;
     private TbPageContext<?> mPageContext;
+    private int mbA;
+    private int mbz;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.akk = true;
-        this.lVA = 0;
-        this.lVB = 0;
-        this.hvC = 0;
-        this.iHO = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.personPolymeric.a.a.g.1
+        this.mbz = 0;
+        this.mbA = 0;
+        this.hBz = 0;
+        this.iNL = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.personPolymeric.a.a.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cyu */
+            /* renamed from: cAV */
             public ConstrainImageLayout makeObject() {
                 return new ConstrainImageLayout(g.this.mPageContext.getPageActivity());
             }
@@ -75,10 +75,10 @@ public class g extends com.baidu.adp.widget.ListView.a<l, am<l>> implements com.
                 return constrainImageLayout;
             }
         }, 6, 0);
-        this.iHP = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.personPolymeric.a.a.g.2
+        this.iNM = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.personPolymeric.a.a.g.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bqz */
+            /* renamed from: bsZ */
             public TbImageView makeObject() {
                 TbImageView tbImageView = new TbImageView(g.this.mPageContext.getPageActivity());
                 tbImageView.setDrawBorder(true);
@@ -115,12 +115,12 @@ public class g extends com.baidu.adp.widget.ListView.a<l, am<l>> implements com.
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, l lVar) {
-                if (view != null && lVar != null && lVar.bhz() != null) {
+                if (view != null && lVar != null && lVar.bjZ() != null) {
                     int id = view.getId();
                     if (id == R.id.thread_card_root) {
-                        aq IM = lVar.IM("c13543");
-                        IM.aj("obj_type", lVar.ae(lVar.erH));
-                        TiebaStatic.log(IM);
+                        aq Jd = lVar.Jd("c13543");
+                        Jd.al("obj_type", lVar.ae(lVar.exA));
+                        TiebaStatic.log(Jd);
                         com.baidu.tieba.personPolymeric.a.a(view, lVar, 2);
                     } else if (id == R.id.forum_name_text) {
                         com.baidu.tieba.personPolymeric.a.a(view, lVar, 7);
@@ -131,29 +131,29 @@ public class g extends com.baidu.adp.widget.ListView.a<l, am<l>> implements com.
             }
         };
         this.mPageContext = tbPageContext;
-        cGu();
+        cIV();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aT */
+    /* renamed from: aV */
     public am c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity());
         com.baidu.card.e eVar = new com.baidu.card.e(this.mPageContext.getPageActivity());
-        eVar.setPageUniqueId(this.fmX);
+        eVar.setPageUniqueId(this.fsQ);
         eVar.bp(1024);
         eVar.bp(32768);
-        if (this.lVA > 0) {
-            eVar.bo(this.lVA);
+        if (this.mbz > 0) {
+            eVar.bo(this.mbz);
         }
         eVar.aE(false);
         eVar.aF(false);
         aVar.a(eVar);
         final w wVar = new w(this.mPageContext.getPageActivity());
         wVar.setFrom("index");
-        wVar.setConstrainLayoutPool(this.iHO);
-        wVar.setConstrainImagePool(this.iHP);
+        wVar.setConstrainLayoutPool(this.iNL);
+        wVar.setConstrainImagePool(this.iNM);
         wVar.setFromCDN(this.akk);
         aVar.c(wVar);
         aVar.tU().bv(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds25));
@@ -185,8 +185,8 @@ public class g extends com.baidu.adp.widget.ListView.a<l, am<l>> implements com.
         aVar.a((com.baidu.card.i) new k(this.mPageContext.getPageActivity()));
         an anVar = new an(this.mPageContext.getPageActivity());
         com.baidu.tbadk.core.data.c cVar = new com.baidu.tbadk.core.data.c();
-        cVar.etA = 3;
-        cVar.etG = 3;
+        cVar.ezt = 3;
+        cVar.ezz = 3;
         anVar.setAgreeStatisticData(cVar);
         anVar.setFrom(8);
         anVar.setShareReportFrom(6);
@@ -196,8 +196,8 @@ public class g extends com.baidu.adp.widget.ListView.a<l, am<l>> implements com.
         ak tV = aVar.tV();
         tV.setSourceForPb(4);
         am amVar = new am(tV);
-        amVar.setPageId(this.fmX);
-        amVar.bC(this.lVB);
+        amVar.setPageId(this.fsQ);
+        amVar.bC(this.mbA);
         a(new com.baidu.adp.widget.ListView.ab() { // from class: com.baidu.tieba.personPolymeric.a.a.g.5
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -220,10 +220,10 @@ public class g extends com.baidu.adp.widget.ListView.a<l, am<l>> implements com.
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, l lVar, am<l> amVar) {
-        if (lVar == null || amVar == null || amVar.getView() == null || lVar.erH == null) {
+        if (lVar == null || amVar == null || amVar.getView() == null || lVar.exA == null) {
             return null;
         }
-        lVar.wW(lVar.position + 1);
+        lVar.xj(lVar.position + 1);
         amVar.tW().setPage(this.ahu);
         if (!this.mIsHost) {
             amVar.tY();
@@ -236,24 +236,24 @@ public class g extends com.baidu.adp.widget.ListView.a<l, am<l>> implements com.
     }
 
     @Override // com.baidu.tieba.a.f
-    public void EL(String str) {
+    public void EZ(String str) {
         this.ahu = str;
     }
 
-    public void GQ(int i) {
-        this.lVA = i;
+    public void Hd(int i) {
+        this.mbz = i;
     }
 
-    public void GP(int i) {
-        this.lVB = i;
+    public void Hc(int i) {
+        this.mbA = i;
     }
 
-    private void cGu() {
-        l.hVy = "c13542";
+    private void cIV() {
+        l.ibv = "c13542";
     }
 
     public void setTabType(int i) {
-        this.hvC = i;
+        this.hBz = i;
     }
 
     public void setIsHost(boolean z) {

@@ -10,7 +10,7 @@ import java.util.List;
 public final class Polygon extends Overlay {
 
     /* renamed from: a  reason: collision with root package name */
-    Stroke f2032a;
+    Stroke f2034a;
     int b;
     List<LatLng> c;
     List<HoleOptions> d;
@@ -48,11 +48,11 @@ public final class Polygon extends Overlay {
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
         Overlay.a(this.c, bundle);
         Overlay.a(this.b, bundle);
-        if (this.f2032a == null) {
+        if (this.f2034a == null) {
             bundle.putInt("has_stroke", 0);
         } else {
             bundle.putInt("has_stroke", 1);
-            bundle.putBundle("stroke", this.f2032a.a(new Bundle()));
+            bundle.putBundle("stroke", this.f2034a.a(new Bundle()));
         }
         if (this.d != null && this.d.size() != 0) {
             c(this.d, bundle);
@@ -91,7 +91,7 @@ public final class Polygon extends Overlay {
     }
 
     public Stroke getStroke() {
-        return this.f2032a;
+        return this.f2034a;
     }
 
     public void setFillColor(int i) {
@@ -144,7 +144,7 @@ public final class Polygon extends Overlay {
     }
 
     public void setStroke(Stroke stroke) {
-        this.f2032a = stroke;
+        this.f2034a = stroke;
         this.listener.b(this);
     }
 }

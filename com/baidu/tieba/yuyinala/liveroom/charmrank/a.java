@@ -7,14 +7,14 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.tieba.yuyinala.liveroom.a {
-    private int aJw;
-    private String baa;
-    private long fTr;
-    private String hmA;
-    private long hmz;
+    private int aKw;
+    private String bbt;
+    private long fZh;
+    private long hsx;
+    private String hsy;
     private boolean mIsHost;
     private String mPortrait;
-    public CharmRankView nPg;
+    public CharmRankView nVe;
     public String otherParams;
 
     public a(TbPageContext tbPageContext) {
@@ -22,67 +22,67 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a {
     }
 
     public void a(int i, long j, String str, boolean z, String str2, String str3, String str4, long j2) {
-        this.aJw = i;
-        this.hmz = j;
-        this.hmA = str;
+        this.aKw = i;
+        this.hsx = j;
+        this.hsy = str;
         this.mIsHost = z;
         this.mPortrait = str2;
-        this.baa = str4;
-        this.fTr = j2;
+        this.bbt = str4;
+        this.fZh = j2;
         this.otherParams = str3;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        if (this.nPg != null) {
-            this.nPg.setOnClickListener(onClickListener);
+        if (this.nVe != null) {
+            this.nVe.setOnClickListener(onClickListener);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
-    public void av(ViewGroup viewGroup) {
-        super.av(viewGroup);
-        aD(viewGroup);
+    public void ax(ViewGroup viewGroup) {
+        super.ax(viewGroup);
+        aF(viewGroup);
     }
 
-    private void aD(ViewGroup viewGroup) {
-        if (this.nPg != null && this.nPg.getParent() != null) {
-            ((ViewGroup) this.nPg.getParent()).removeView(this.nPg);
+    private void aF(ViewGroup viewGroup) {
+        if (this.nVe != null && this.nVe.getParent() != null) {
+            ((ViewGroup) this.nVe.getParent()).removeView(this.nVe);
         }
-        if (this.nPg == null) {
-            this.nPg = new CharmRankView(getPageContext().getPageActivity());
+        if (this.nVe == null) {
+            this.nVe = new CharmRankView(getPageContext().getPageActivity());
         }
-        this.nPg.setId(a.g.ala_liveroom_charm_rank);
+        this.nVe.setId(a.f.ala_liveroom_charm_rank);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams.addRule(1, a.g.ala_liveroom_ranklist);
-        layoutParams.addRule(3, a.g.ala_liveroom_hostheader);
-        layoutParams.leftMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds19);
-        layoutParams.topMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds14);
-        viewGroup.addView(this.nPg, layoutParams);
+        layoutParams.addRule(1, a.f.ala_liveroom_ranklist);
+        layoutParams.addRule(3, a.f.ala_liveroom_hostheader);
+        layoutParams.leftMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds19);
+        layoutParams.topMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds14);
+        viewGroup.addView(this.nVe, layoutParams);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
-    public void CT() {
-        super.CT();
-        if (this.nPg != null && this.nPg.getParent() != null) {
-            ((ViewGroup) this.nPg.getParent()).removeView(this.nPg);
+    public void Dm() {
+        super.Dm();
+        if (this.nVe != null && this.nVe.getParent() != null) {
+            ((ViewGroup) this.nVe.getParent()).removeView(this.nVe);
         }
-        if (this.nPg != null) {
-            this.nPg.destory();
-            this.nPg = null;
+        if (this.nVe != null) {
+            this.nVe.destory();
+            this.nVe = null;
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
     public void onDestroy() {
-        if (this.nPg != null) {
-            this.nPg.destory();
-            this.nPg = null;
+        if (this.nVe != null) {
+            this.nVe.destory();
+            this.nVe = null;
         }
     }
 
-    public void cey() {
+    public void chb() {
     }
 
-    public void cez() {
+    public void chc() {
     }
 }

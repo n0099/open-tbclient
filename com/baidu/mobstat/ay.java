@@ -64,7 +64,7 @@ public class ay {
     private static final ay b = new ay();
 
     /* renamed from: a  reason: collision with root package name */
-    private HashMap<String, String> f2570a = new HashMap<>();
+    private HashMap<String, String> f2572a = new HashMap<>();
 
     public static ay a() {
         return b;
@@ -81,7 +81,7 @@ public class ay {
     }
 
     private void b() {
-        if (Build.VERSION.SDK_INT >= 14 && this.f2570a.size() == 0) {
+        if (Build.VERSION.SDK_INT >= 14 && this.f2572a.size() == 0) {
             try {
                 a(AutoCompleteTextView.class.getSimpleName(), "A0");
             } catch (Throwable th) {
@@ -361,12 +361,12 @@ public class ay {
     }
 
     private void a(String str, String str2) {
-        if (!TextUtils.isEmpty(str) && !this.f2570a.containsKey(str)) {
-            this.f2570a.put(str, str2.toUpperCase(Locale.ENGLISH));
+        if (!TextUtils.isEmpty(str) && !this.f2572a.containsKey(str)) {
+            this.f2572a.put(str, str2.toUpperCase(Locale.ENGLISH));
         }
     }
 
     public String a(String str) {
-        return this.f2570a.get(str);
+        return this.f2572a.get(str);
     }
 }

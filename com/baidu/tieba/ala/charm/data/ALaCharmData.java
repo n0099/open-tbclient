@@ -14,11 +14,13 @@ public class ALaCharmData extends BaseData implements Serializable {
     public String charm_count;
     public String create_time;
     public String description;
+    public int disableClick;
     public String enter_live;
     public int fans_count;
     public int follow_count;
     public int follow_status;
     public long forwardDiff;
+    public int isPrivacy;
     public int is_official;
     public String lat;
     public String level_exp;
@@ -81,6 +83,8 @@ public class ALaCharmData extends BaseData implements Serializable {
                 this.follow_status = jSONObject.optInt("follow_status", 0);
                 this.appId = jSONObject.optString("third_app_id");
                 this.forwardDiff = jSONObject.optLong("forward_diff");
+                this.isPrivacy = jSONObject.optInt("is_privacy");
+                this.disableClick = jSONObject.optInt("disable_click");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

@@ -7,8 +7,8 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.swan.apps.ap.ak;
 /* loaded from: classes25.dex */
 public abstract class c {
-    protected String dZw;
-    protected boolean dZx = false;
+    protected String efn;
+    protected boolean efo = false;
     protected String mId;
     protected String mName;
 
@@ -18,15 +18,15 @@ public abstract class c {
     public c(String str, String str2, String str3) {
         this.mId = str;
         this.mName = str2;
-        this.dZw = str3;
+        this.efn = str3;
     }
 
     public boolean dF(Context context) {
-        return ak.getPackageInfo(context.getApplicationContext(), this.dZw) != null;
+        return ak.getPackageInfo(context.getApplicationContext(), this.efn) != null;
     }
 
-    public boolean aXE() {
-        return this.dZx;
+    public boolean bae() {
+        return this.efo;
     }
 
     public String getName() {
@@ -34,8 +34,8 @@ public abstract class c {
     }
 
     public void b(Context context, LatLng latLng, LatLng latLng2, String str, String str2) {
-        if (!dF(context) && this.dZx) {
-            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + this.dZw));
+        if (!dF(context) && this.efo) {
+            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + this.efn));
             intent.addFlags(268435456);
             context.startActivity(intent);
             return;

@@ -6,7 +6,7 @@ public final class MapBaseIndoorMapInfo {
     private static final String d = MapBaseIndoorMapInfo.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    String f2014a;
+    String f2016a;
     String b;
     ArrayList<String> c;
 
@@ -23,13 +23,13 @@ public final class MapBaseIndoorMapInfo {
     }
 
     public MapBaseIndoorMapInfo(MapBaseIndoorMapInfo mapBaseIndoorMapInfo) {
-        this.f2014a = mapBaseIndoorMapInfo.f2014a;
+        this.f2016a = mapBaseIndoorMapInfo.f2016a;
         this.b = mapBaseIndoorMapInfo.b;
         this.c = mapBaseIndoorMapInfo.c;
     }
 
     public MapBaseIndoorMapInfo(String str, String str2, ArrayList<String> arrayList) {
-        this.f2014a = str;
+        this.f2016a = str;
         this.b = str2;
         this.c = arrayList;
     }
@@ -43,6 +43,6 @@ public final class MapBaseIndoorMapInfo {
     }
 
     public String getID() {
-        return this.f2014a;
+        return this.f2016a;
     }
 }

@@ -3,17 +3,17 @@ package com.baidu.platform.comapi.wnplatform.p;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private static p f3153a;
+    private static p f3155a;
     private String b;
     private String c;
 
     public static synchronized p a() {
         p pVar;
         synchronized (p.class) {
-            if (f3153a == null) {
-                f3153a = new p();
+            if (f3155a == null) {
+                f3155a = new p();
             }
-            pVar = f3153a;
+            pVar = f3155a;
         }
         return pVar;
     }

@@ -5,7 +5,7 @@ import java.util.concurrent.ExecutorService;
 import org.json.JSONArray;
 /* loaded from: classes9.dex */
 public interface l {
-    void I(String str, int i);
+    void K(String str, int i);
 
     void a(String str, int i, JSONArray jSONArray);
 
@@ -13,23 +13,23 @@ public interface l {
 
     void a(String str, String str2, int i, String str3, long j, int i2);
 
-    boolean aAA();
+    String aCZ();
 
-    boolean aAB();
+    boolean aDa();
 
-    boolean aAC();
+    boolean aDb();
 
-    String aAz();
+    boolean aDc();
 
-    int ade();
+    int afE();
 
-    m afQ();
+    ExecutorService ahR();
 
-    ExecutorService afr();
+    m aiq();
 
-    String avm();
+    String axM();
 
-    String avn();
+    String axN();
 
     String cq(Context context);
 
@@ -43,7 +43,7 @@ public interface l {
 
     String getUserId(Context context);
 
-    void h(String str, int i, String str2);
+    void i(String str, int i, String str2);
 
-    boolean qp(String str);
+    boolean qD(String str);
 }

@@ -8,9 +8,9 @@ import com.facebook.imagepipeline.d.j;
 import javax.annotation.Nullable;
 /* loaded from: classes18.dex */
 public class c {
-    private static a oDl;
-    private static final Class<?> oAy = c.class;
-    private static volatile boolean oDm = false;
+    private static a oME;
+    private static final Class<?> oJR = c.class;
+    private static volatile boolean oMF = false;
 
     private c() {
     }
@@ -24,10 +24,10 @@ public class c {
     }
 
     public static void a(Context context, @Nullable h hVar, @Nullable b bVar) {
-        if (oDm) {
-            com.facebook.common.c.a.g(oAy, "Fresco has already been initialized! `Fresco.initialize(...)` should only be called 1 single time to avoid memory leaks!");
+        if (oMF) {
+            com.facebook.common.c.a.g(oJR, "Fresco has already been initialized! `Fresco.initialize(...)` should only be called 1 single time to avoid memory leaks!");
         } else {
-            oDm = true;
+            oMF = true;
         }
         Context applicationContext = context.getApplicationContext();
         if (hVar == null) {
@@ -39,50 +39,50 @@ public class c {
     }
 
     private static void a(Context context, @Nullable b bVar) {
-        oDl = new a(context, bVar);
-        SimpleDraweeView.b(oDl);
+        oME = new a(context, bVar);
+        SimpleDraweeView.b(oME);
     }
 
-    public static e ehd() {
-        return oDl.get().get();
+    public static e ekS() {
+        return oME.get().get();
     }
 
-    public static j ehe() {
-        return j.ele();
+    public static j ekT() {
+        return j.eoV();
     }
 
-    public static com.facebook.imagepipeline.d.g ehf() {
-        return ehe().ehf();
+    public static com.facebook.imagepipeline.d.g ekU() {
+        return ekT().ekU();
     }
 
-    public static boolean ehg() {
-        return oDm;
+    public static boolean ekV() {
+        return oMF;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes18.dex */
     public static class a implements com.facebook.common.internal.j<com.facebook.common.internal.j<? extends AbstractDraweeControllerBuilder>> {
         private Context mContext;
-        private b oDn;
-        private volatile f oDo = null;
+        private b oMG;
+        private volatile f oMH = null;
 
         a(Context context, b bVar) {
             this.mContext = context;
-            this.oDn = bVar;
+            this.oMG = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.common.internal.j
-        /* renamed from: ehh */
+        /* renamed from: ekW */
         public com.facebook.common.internal.j<e> get() {
-            if (this.oDo == null) {
+            if (this.oMH == null) {
                 synchronized (this) {
-                    if (this.oDo == null) {
-                        this.oDo = new f(this.mContext, this.oDn);
+                    if (this.oMH == null) {
+                        this.oMH = new f(this.mContext, this.oMG);
                     }
                 }
             }
-            return this.oDo;
+            return this.oMH;
         }
     }
 }

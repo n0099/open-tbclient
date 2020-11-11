@@ -406,7 +406,7 @@ public class MultiSrcBinaryReqTask extends BinaryReqTask {
                                     StatisticInfo statisticInfo = new StatisticInfo();
                                     statisticInfo.sid = MultiSrcBinaryReqTask.this.mSid;
                                     statisticInfo.sdkVer = Constants.SDK_VER;
-                                    MultiSrcBinaryReqTask.this.mDownInfoMode = Integer.parseInt(optJSONObject.optString(MultiSrcBinaryReqTask.DOWNFLOW_MODE, "-1"));
+                                    MultiSrcBinaryReqTask.this.mDownInfoMode = Integer.parseInt(optJSONObject.optString("mode", "-1"));
                                     statisticInfo.mode = MultiSrcBinaryReqTask.this.mDownInfoMode;
                                     int parseInt = Integer.parseInt(optJSONObject.optString("tn", "-1"));
                                     if (parseInt > 0) {

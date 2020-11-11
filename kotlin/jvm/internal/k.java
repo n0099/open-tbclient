@@ -6,22 +6,22 @@ import kotlin.collections.ap;
 /* loaded from: classes10.dex */
 final class k extends ap {
     private int index;
-    private final short[] pJj;
+    private final short[] pSD;
 
     public k(short[] sArr) {
         q.n(sArr, com.baidu.fsg.base.statistics.b.j);
-        this.pJj = sArr;
+        this.pSD = sArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.pJj.length;
+        return this.index < this.pSD.length;
     }
 
     @Override // kotlin.collections.ap
-    public short exR() {
+    public short eBG() {
         try {
-            short[] sArr = this.pJj;
+            short[] sArr = this.pSD;
             int i = this.index;
             this.index = i + 1;
             return sArr[i];

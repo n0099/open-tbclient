@@ -20,23 +20,23 @@ import com.baidu.live.view.input.b;
 import java.lang.reflect.Field;
 /* loaded from: classes4.dex */
 public class AlaLiveInputEditView extends LinearLayout implements b {
-    private TextView bHv;
-    private b.a bHw;
-    private GradientDrawable bHx;
-    private String bHy;
-    private EditText blg;
-    private View.OnClickListener blx;
+    private TextView bNa;
+    private b.a bNb;
+    private GradientDrawable bNc;
+    private String bNd;
+    private EditText bmA;
+    private View.OnClickListener bmR;
     private TextWatcher mTextWatcher;
 
     public AlaLiveInputEditView(Context context) {
         super(context);
-        this.blx = new View.OnClickListener() { // from class: com.baidu.live.view.input.AlaLiveInputEditView.1
+        this.bmR = new View.OnClickListener() { // from class: com.baidu.live.view.input.AlaLiveInputEditView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (AlaLiveInputEditView.this.bHw != null) {
-                    AlaLiveInputEditView.this.bHw.hg(AlaLiveInputEditView.this.blg.getText().toString());
+                if (AlaLiveInputEditView.this.bNb != null) {
+                    AlaLiveInputEditView.this.bNb.hn(AlaLiveInputEditView.this.bmA.getText().toString());
                 }
-                AlaLiveInputEditView.this.MG();
+                AlaLiveInputEditView.this.Ng();
             }
         };
         this.mTextWatcher = new TextWatcher() { // from class: com.baidu.live.view.input.AlaLiveInputEditView.2
@@ -46,12 +46,12 @@ public class AlaLiveInputEditView extends LinearLayout implements b {
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                if (AlaLiveInputEditView.this.bHv != null) {
-                    AlaLiveInputEditView.this.setSendEnabled(!TextUtils.isEmpty(AlaLiveInputEditView.this.blg.getText()));
+                if (AlaLiveInputEditView.this.bNa != null) {
+                    AlaLiveInputEditView.this.setSendEnabled(!TextUtils.isEmpty(AlaLiveInputEditView.this.bmA.getText()));
                 }
-                if (AlaLiveInputEditView.this.blg.getText() != null && AlaLiveInputEditView.this.bHy != null && AlaLiveInputEditView.this.blg.getText().length() > AlaLiveInputEditView.this.bHy.length()) {
-                    AlaLiveInputEditView.this.blg.setText(AlaLiveInputEditView.this.bHy);
-                    AlaLiveInputEditView.this.blg.setSelection(AlaLiveInputEditView.this.blg.getText().length());
+                if (AlaLiveInputEditView.this.bmA.getText() != null && AlaLiveInputEditView.this.bNd != null && AlaLiveInputEditView.this.bmA.getText().length() > AlaLiveInputEditView.this.bNd.length()) {
+                    AlaLiveInputEditView.this.bmA.setText(AlaLiveInputEditView.this.bNd);
+                    AlaLiveInputEditView.this.bmA.setSelection(AlaLiveInputEditView.this.bmA.getText().length());
                 }
             }
 
@@ -64,13 +64,13 @@ public class AlaLiveInputEditView extends LinearLayout implements b {
 
     public AlaLiveInputEditView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.blx = new View.OnClickListener() { // from class: com.baidu.live.view.input.AlaLiveInputEditView.1
+        this.bmR = new View.OnClickListener() { // from class: com.baidu.live.view.input.AlaLiveInputEditView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (AlaLiveInputEditView.this.bHw != null) {
-                    AlaLiveInputEditView.this.bHw.hg(AlaLiveInputEditView.this.blg.getText().toString());
+                if (AlaLiveInputEditView.this.bNb != null) {
+                    AlaLiveInputEditView.this.bNb.hn(AlaLiveInputEditView.this.bmA.getText().toString());
                 }
-                AlaLiveInputEditView.this.MG();
+                AlaLiveInputEditView.this.Ng();
             }
         };
         this.mTextWatcher = new TextWatcher() { // from class: com.baidu.live.view.input.AlaLiveInputEditView.2
@@ -80,12 +80,12 @@ public class AlaLiveInputEditView extends LinearLayout implements b {
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                if (AlaLiveInputEditView.this.bHv != null) {
-                    AlaLiveInputEditView.this.setSendEnabled(!TextUtils.isEmpty(AlaLiveInputEditView.this.blg.getText()));
+                if (AlaLiveInputEditView.this.bNa != null) {
+                    AlaLiveInputEditView.this.setSendEnabled(!TextUtils.isEmpty(AlaLiveInputEditView.this.bmA.getText()));
                 }
-                if (AlaLiveInputEditView.this.blg.getText() != null && AlaLiveInputEditView.this.bHy != null && AlaLiveInputEditView.this.blg.getText().length() > AlaLiveInputEditView.this.bHy.length()) {
-                    AlaLiveInputEditView.this.blg.setText(AlaLiveInputEditView.this.bHy);
-                    AlaLiveInputEditView.this.blg.setSelection(AlaLiveInputEditView.this.blg.getText().length());
+                if (AlaLiveInputEditView.this.bmA.getText() != null && AlaLiveInputEditView.this.bNd != null && AlaLiveInputEditView.this.bmA.getText().length() > AlaLiveInputEditView.this.bNd.length()) {
+                    AlaLiveInputEditView.this.bmA.setText(AlaLiveInputEditView.this.bNd);
+                    AlaLiveInputEditView.this.bmA.setSelection(AlaLiveInputEditView.this.bmA.getText().length());
                 }
             }
 
@@ -98,13 +98,13 @@ public class AlaLiveInputEditView extends LinearLayout implements b {
 
     public AlaLiveInputEditView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.blx = new View.OnClickListener() { // from class: com.baidu.live.view.input.AlaLiveInputEditView.1
+        this.bmR = new View.OnClickListener() { // from class: com.baidu.live.view.input.AlaLiveInputEditView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (AlaLiveInputEditView.this.bHw != null) {
-                    AlaLiveInputEditView.this.bHw.hg(AlaLiveInputEditView.this.blg.getText().toString());
+                if (AlaLiveInputEditView.this.bNb != null) {
+                    AlaLiveInputEditView.this.bNb.hn(AlaLiveInputEditView.this.bmA.getText().toString());
                 }
-                AlaLiveInputEditView.this.MG();
+                AlaLiveInputEditView.this.Ng();
             }
         };
         this.mTextWatcher = new TextWatcher() { // from class: com.baidu.live.view.input.AlaLiveInputEditView.2
@@ -114,12 +114,12 @@ public class AlaLiveInputEditView extends LinearLayout implements b {
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i2, int i22, int i3) {
-                if (AlaLiveInputEditView.this.bHv != null) {
-                    AlaLiveInputEditView.this.setSendEnabled(!TextUtils.isEmpty(AlaLiveInputEditView.this.blg.getText()));
+                if (AlaLiveInputEditView.this.bNa != null) {
+                    AlaLiveInputEditView.this.setSendEnabled(!TextUtils.isEmpty(AlaLiveInputEditView.this.bmA.getText()));
                 }
-                if (AlaLiveInputEditView.this.blg.getText() != null && AlaLiveInputEditView.this.bHy != null && AlaLiveInputEditView.this.blg.getText().length() > AlaLiveInputEditView.this.bHy.length()) {
-                    AlaLiveInputEditView.this.blg.setText(AlaLiveInputEditView.this.bHy);
-                    AlaLiveInputEditView.this.blg.setSelection(AlaLiveInputEditView.this.blg.getText().length());
+                if (AlaLiveInputEditView.this.bmA.getText() != null && AlaLiveInputEditView.this.bNd != null && AlaLiveInputEditView.this.bmA.getText().length() > AlaLiveInputEditView.this.bNd.length()) {
+                    AlaLiveInputEditView.this.bmA.setText(AlaLiveInputEditView.this.bNd);
+                    AlaLiveInputEditView.this.bmA.setSelection(AlaLiveInputEditView.this.bmA.getText().length());
                 }
             }
 
@@ -131,120 +131,120 @@ public class AlaLiveInputEditView extends LinearLayout implements b {
     }
 
     private void init(Context context) {
-        LayoutInflater.from(context).inflate(a.h.sdk_live_input_edit_view, this);
+        LayoutInflater.from(context).inflate(a.g.sdk_live_input_edit_view, this);
         setOrientation(0);
-        int dimensionPixelOffset = getResources().getDimensionPixelOffset(a.e.sdk_ds20);
-        int dimensionPixelOffset2 = getResources().getDimensionPixelOffset(a.e.sdk_ds24);
+        int dimensionPixelOffset = getResources().getDimensionPixelOffset(a.d.sdk_ds20);
+        int dimensionPixelOffset2 = getResources().getDimensionPixelOffset(a.d.sdk_ds24);
         setPadding(dimensionPixelOffset, dimensionPixelOffset2, dimensionPixelOffset, dimensionPixelOffset2);
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setShape(0);
         gradientDrawable.setColor(-15329245);
-        float dimensionPixelOffset3 = getResources().getDimensionPixelOffset(a.e.sdk_ds26);
+        float dimensionPixelOffset3 = getResources().getDimensionPixelOffset(a.d.sdk_ds26);
         gradientDrawable.setCornerRadii(new float[]{dimensionPixelOffset3, dimensionPixelOffset3, dimensionPixelOffset3, dimensionPixelOffset3, 0.0f, 0.0f, 0.0f, 0.0f});
         setBackgroundDrawable(gradientDrawable);
-        this.blg = (EditText) findViewById(a.g.edit_text);
-        this.blg.setIncludeFontPadding(false);
-        this.blg.addTextChangedListener(this.mTextWatcher);
-        this.blg.setInputType(2);
-        this.blg.setSingleLine(true);
-        this.blg.setImeOptions(RouterCallback.CODE_ROUTER_NOT_REGISTER);
-        this.blg.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.live.view.input.AlaLiveInputEditView.3
+        this.bmA = (EditText) findViewById(a.f.edit_text);
+        this.bmA.setIncludeFontPadding(false);
+        this.bmA.addTextChangedListener(this.mTextWatcher);
+        this.bmA.setInputType(2);
+        this.bmA.setSingleLine(true);
+        this.bmA.setImeOptions(RouterCallback.CODE_ROUTER_NOT_REGISTER);
+        this.bmA.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.live.view.input.AlaLiveInputEditView.3
             @Override // android.widget.TextView.OnEditorActionListener
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == 4) {
-                    if (AlaLiveInputEditView.this.bHw != null && !TextUtils.isEmpty(AlaLiveInputEditView.this.blg.getText())) {
-                        AlaLiveInputEditView.this.bHw.hg(AlaLiveInputEditView.this.blg.getText().toString());
+                    if (AlaLiveInputEditView.this.bNb != null && !TextUtils.isEmpty(AlaLiveInputEditView.this.bmA.getText())) {
+                        AlaLiveInputEditView.this.bNb.hn(AlaLiveInputEditView.this.bmA.getText().toString());
                     }
                     return true;
                 }
                 return false;
             }
         });
-        this.bHv = (TextView) findViewById(a.g.tv_send);
-        this.bHv.setOnClickListener(this.blx);
+        this.bNa = (TextView) findViewById(a.f.tv_send);
+        this.bNa.setOnClickListener(this.bmR);
         setSendEnabled(false);
         try {
             Field declaredField = TextView.class.getDeclaredField("mCursorDrawableRes");
             declaredField.setAccessible(true);
-            declaredField.set(this.blg, Integer.valueOf(a.f.sdk_cursor_edit_input));
+            declaredField.set(this.bmA, Integer.valueOf(a.e.sdk_cursor_edit_input));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public void setEditViewConfirmCallBack(b.a aVar) {
-        this.bHw = aVar;
+        this.bNb = aVar;
     }
 
-    public void MG() {
-        this.blg.setText("");
+    public void Ng() {
+        this.bmA.setText("");
     }
 
     public void setEditText(String str) {
         if (str != null) {
             try {
-                this.blg.setText(str);
-                this.blg.setSelection(str.length());
+                this.bmA.setText(str);
+                this.bmA.setSelection(str.length());
             } catch (Exception e) {
-                this.blg.setText(str);
+                this.bmA.setText(str);
             }
         }
     }
 
     public void setHintText(String str) {
-        this.blg.setHint(str);
+        this.bmA.setHint(str);
     }
 
     public void setMaxText(String str) {
-        this.bHy = str;
+        this.bNd = str;
     }
 
     public void setInputEditType(int i) {
-        this.blg.setInputType(i);
+        this.bmA.setInputType(i);
     }
 
     public EditText getEditView() {
-        return this.blg;
+        return this.bmA;
     }
 
     public TextView getTextView() {
-        return this.bHv;
+        return this.bNa;
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
         super.setVisibility(i);
         if (i == 0) {
-            this.blg.requestFocus();
+            this.bmA.requestFocus();
         } else {
-            this.blg.clearFocus();
+            this.bmA.clearFocus();
         }
     }
 
     public void setTextWatcher(TextWatcher textWatcher) {
-        this.blg.removeTextChangedListener(this.mTextWatcher);
-        this.blg.addTextChangedListener(textWatcher);
+        this.bmA.removeTextChangedListener(this.mTextWatcher);
+        this.bmA.addTextChangedListener(textWatcher);
     }
 
     public void setSendEnabled(boolean z) {
-        if (this.bHx == null) {
-            this.bHx = new GradientDrawable();
-            this.bHx.setShape(0);
-            this.bHx.setCornerRadius(getResources().getDimensionPixelOffset(a.e.sdk_ds32));
-            this.bHx.setGradientType(0);
+        if (this.bNc == null) {
+            this.bNc = new GradientDrawable();
+            this.bNc.setShape(0);
+            this.bNc.setCornerRadius(getResources().getDimensionPixelOffset(a.d.sdk_ds32));
+            this.bNc.setGradientType(0);
             if (Build.VERSION.SDK_INT >= 16) {
-                this.bHx.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
-                this.bHx.setColors(new int[]{-57754, -39399});
+                this.bNc.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
+                this.bNc.setColors(new int[]{-57754, -39399});
             }
         }
         if (z) {
-            this.bHx.clearColorFilter();
-            this.bHv.setTextColor(-1);
+            this.bNc.clearColorFilter();
+            this.bNa.setTextColor(-1);
         } else {
-            this.bHx.setColorFilter(Integer.MIN_VALUE, PorterDuff.Mode.SRC_ATOP);
-            this.bHv.setTextColor(-2130706433);
+            this.bNc.setColorFilter(Integer.MIN_VALUE, PorterDuff.Mode.SRC_ATOP);
+            this.bNa.setTextColor(-2130706433);
         }
-        this.bHv.setBackgroundDrawable(this.bHx);
-        this.bHv.setEnabled(z);
+        this.bNa.setBackgroundDrawable(this.bNc);
+        this.bNa.setEnabled(z);
     }
 }

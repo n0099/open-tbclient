@@ -35,7 +35,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
     private static c e;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.sofire.e f3602a;
+    public com.baidu.sofire.e f3605a;
     private volatile boolean d = false;
     private com.baidu.sofire.g f;
     private com.baidu.sofire.c.a h;
@@ -48,10 +48,10 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
             try {
                 if (str.equals("xytk")) {
                     com.baidu.sofire.b.a();
-                    d.f3606a = this.f.a();
+                    d.f3609a = this.f.a();
                 }
                 if (str.equals("xyus")) {
-                    this.f3602a.l();
+                    this.f3605a.l();
                     com.baidu.sofire.b.a();
                 }
             } catch (Throwable th) {
@@ -64,13 +64,13 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
         com.baidu.sofire.b.a();
         b = context.getApplicationContext();
         this.h = com.baidu.sofire.c.a.a(b);
-        this.f3602a = new com.baidu.sofire.e(b);
+        this.f3605a = new com.baidu.sofire.e(b);
         this.f = new com.baidu.sofire.g(b);
         com.baidu.sofire.g gVar = this.f;
-        if (gVar.f3623a == null) {
+        if (gVar.f3626a == null) {
             return;
         }
-        gVar.f3623a.registerOnSharedPreferenceChangeListener(this);
+        gVar.f3626a.registerOnSharedPreferenceChangeListener(this);
     }
 
     public static c a() {
@@ -93,12 +93,12 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
         if (!this.d) {
             this.d = true;
             com.baidu.sofire.i.e.n(b);
-            this.f3602a.a(true);
+            this.f3605a.a(true);
             JSONObject o = com.baidu.sofire.i.e.o(b);
             com.baidu.sofire.i.e.d(b);
             new StringBuilder().append(this.d);
             com.baidu.sofire.b.a();
-            com.baidu.sofire.e eVar = this.f3602a;
+            com.baidu.sofire.e eVar = this.f3605a;
             eVar.c.putString("ssv", "3.4.4.1");
             eVar.c.commit();
             Report.getInstance(b).n();
@@ -116,10 +116,10 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
             }
             this.h.d();
             com.baidu.sofire.b.a();
-            new StringBuilder().append(this.f3602a.a());
+            new StringBuilder().append(this.f3605a.a());
             com.baidu.sofire.b.a();
-            if (!this.f3602a.a()) {
-                com.baidu.sofire.e eVar2 = this.f3602a;
+            if (!this.f3605a.a()) {
+                com.baidu.sofire.e eVar2 = this.f3605a;
                 eVar2.c.putBoolean("iio", true);
                 eVar2.c.commit();
             } else {
@@ -137,8 +137,8 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
             List<ApkInfo> a2 = this.h.a();
             new StringBuilder("all=").append(a2);
             com.baidu.sofire.b.a();
-            final List<Integer> r = this.f3602a.r();
-            List<Integer> q = this.f3602a.q();
+            final List<Integer> r = this.f3605a.r();
+            List<Integer> q = this.f3605a.q();
             for (int i = 0; i < q.size(); i++) {
                 if (!r.contains(q.get(i))) {
                     r.add(q.get(i));
@@ -178,7 +178,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                         com.baidu.sofire.b.a();
                         z = false;
                     }
-                    if (this.f3602a.c() && z) {
+                    if (this.f3605a.c() && z) {
                         File file = new File(b.getFilesDir(), ".b");
                         if (!file.exists()) {
                             file.mkdir();
@@ -211,10 +211,10 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
     public final void a(JSONObject jSONObject) {
         ApkInfo apkInfo;
         try {
-            if (!this.f3602a.t() && jSONObject != null) {
+            if (!this.f3605a.t() && jSONObject != null) {
                 JSONArray optJSONArray = jSONObject.optJSONArray("6");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
-                    this.f3602a.s();
+                    this.f3605a.s();
                 }
                 if (optJSONArray != null) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
@@ -431,7 +431,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
             if (r5 != r6) goto L273
             com.baidu.sofire.b.a()     // Catch: java.lang.Throwable -> L80
         L14f:
-            com.baidu.sofire.e r4 = r9.f3602a     // Catch: java.lang.Throwable -> L80
+            com.baidu.sofire.e r4 = r9.f3605a     // Catch: java.lang.Throwable -> L80
             boolean r4 = r4.c()     // Catch: java.lang.Throwable -> L80
             if (r4 == 0) goto L1be
             if (r3 == 0) goto L1be
@@ -1395,7 +1395,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
             new StringBuilder("push::").append(b2);
             com.baidu.sofire.b.a();
             if (b2 != null) {
-                if (this.f3602a.c()) {
+                if (this.f3605a.c()) {
                     File file = new File(b.getFilesDir(), ".b");
                     if (!file.exists()) {
                         file.mkdir();

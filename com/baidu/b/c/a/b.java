@@ -176,8 +176,8 @@ public final class b implements a {
     }
 
     static final boolean a(int i2) {
-        for (int i3 = 0; i3 < f1252a.length; i3++) {
-            if (i2 == f1252a[i3]) {
+        for (int i3 = 0; i3 < f1254a.length; i3++) {
+            if (i2 == f1254a[i3]) {
                 return true;
             }
         }

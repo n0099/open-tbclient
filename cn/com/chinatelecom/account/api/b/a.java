@@ -9,5 +9,5 @@ public class a {
     private static Executor b = Executors.newSingleThreadExecutor();
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f971a = new Handler(Looper.getMainLooper());
+    public Handler f973a = new Handler(Looper.getMainLooper());
 }

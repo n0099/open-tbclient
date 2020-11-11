@@ -28,7 +28,7 @@ final class LocaleListHelper {
     private final String mStringRepresentation;
     private static final Locale[] sEmptyList = new Locale[0];
     private static final LocaleListHelper sEmptyLocaleList = new LocaleListHelper(new Locale[0]);
-    private static final Locale LOCALE_EN_XA = new Locale(h.f1493a, "XA");
+    private static final Locale LOCALE_EN_XA = new Locale(h.f1495a, "XA");
     private static final Locale LOCALE_AR_XB = new Locale("ar", "XB");
     private static final Locale EN_LATN = LocaleHelper.forLanguageTag("en-Latn");
     private static final Object sLock = new Object();

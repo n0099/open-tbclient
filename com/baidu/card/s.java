@@ -28,9 +28,9 @@ public class s extends i {
     @Override // com.baidu.card.p
     /* renamed from: b */
     public void H(AbsThreadDataSupport absThreadDataSupport) {
-        if (absThreadDataSupport != null && absThreadDataSupport.bhz() != null && absThreadDataSupport.bhz().bmd() != null) {
+        if (absThreadDataSupport != null && absThreadDataSupport.bjZ() != null && absThreadDataSupport.bjZ().boD() != null) {
             this.agn.setVisibility(0);
-            this.agn.setData(absThreadDataSupport.bhz().bmd(), 13);
+            this.agn.setData(absThreadDataSupport.bjZ().boD(), 13);
             return;
         }
         this.agn.setVisibility(8);

@@ -10,13 +10,13 @@ import java.util.ArrayList;
 public final class a implements Serializable {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<b> f3600a;
+    public ArrayList<b> f3603a;
 
     public a(ActivityInfo[] activityInfoArr) {
         int length;
-        this.f3600a = null;
+        this.f3603a = null;
         if (activityInfoArr != null && (length = activityInfoArr.length) > 0) {
-            this.f3600a = new ArrayList<>(length);
+            this.f3603a = new ArrayList<>(length);
             for (int i = 0; i < length; i++) {
                 if (activityInfoArr[i] != null) {
                     b bVar = new b();
@@ -34,8 +34,8 @@ public final class a implements Serializable {
                     bVar.i = activityInfoArr[i].softInputMode;
                     bVar.e = activityInfoArr[i].targetActivity;
                     bVar.d = activityInfoArr[i].taskAffinity;
-                    bVar.f3601a = activityInfoArr[i].theme;
-                    this.f3600a.add(bVar);
+                    bVar.f3604a = activityInfoArr[i].theme;
+                    this.f3603a.add(bVar);
                 }
             }
         }
@@ -51,7 +51,7 @@ public final class a implements Serializable {
             try {
                 objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
                 try {
-                    objectOutputStream.writeObject(this.f3600a);
+                    objectOutputStream.writeObject(this.f3603a);
                     objectOutputStream.close();
                     byteArrayOutputStream.close();
                     bArr = byteArrayOutputStream.toByteArray();

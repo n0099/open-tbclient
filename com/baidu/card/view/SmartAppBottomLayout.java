@@ -51,15 +51,15 @@ public class SmartAppBottomLayout extends LinearLayout implements p<AbsThreadDat
     @Override // com.baidu.card.p
     /* renamed from: b */
     public void H(AbsThreadDataSupport absThreadDataSupport) {
-        bw bhz = absThreadDataSupport.bhz();
-        if (bhz != null && bhz.bkP() != null) {
-            if (!TextUtils.isEmpty(bhz.bkP().avatar)) {
-                this.alB.startLoad(bhz.bkP().avatar, 10, false);
+        bw bjZ = absThreadDataSupport.bjZ();
+        if (bjZ != null && bjZ.bnp() != null) {
+            if (!TextUtils.isEmpty(bjZ.bnp().avatar)) {
+                this.alB.startLoad(bjZ.bnp().avatar, 10, false);
             } else {
                 ap.setImageResource(this.alB, R.drawable.icon_avatar_smallapp_tie);
             }
-            if (bhz.bkP() != null && !TextUtils.isEmpty(bhz.bkP().name)) {
-                ay.a(this.alC, bhz.bkP().name, R.string.ai_smart_app, R.dimen.tbds0, 1, agk, false);
+            if (bjZ.bnp() != null && !TextUtils.isEmpty(bjZ.bnp().name)) {
+                ay.a(this.alC, bjZ.bnp().name, R.string.ai_smart_app, R.dimen.tbds0, 1, agk, false);
             } else {
                 this.alC.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.ai_smart_app));
             }

@@ -1,19 +1,19 @@
 package com.facebook.imagepipeline.producers;
 /* loaded from: classes18.dex */
 public class ar<T> implements aj<Void> {
-    private final aj<T> oOJ;
+    private final aj<T> oYc;
 
     public ar(aj<T> ajVar) {
-        this.oOJ = ajVar;
+        this.oYc = ajVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(k<Void> kVar, ak akVar) {
-        this.oOJ.c(new n<T, Void>(kVar) { // from class: com.facebook.imagepipeline.producers.ar.1
+        this.oYc.c(new n<T, Void>(kVar) { // from class: com.facebook.imagepipeline.producers.ar.1
             @Override // com.facebook.imagepipeline.producers.b
             protected void g(T t, int i) {
-                if (Pn(i)) {
-                    enr().h(null, i);
+                if (PI(i)) {
+                    erh().h(null, i);
                 }
             }
         }, akVar);

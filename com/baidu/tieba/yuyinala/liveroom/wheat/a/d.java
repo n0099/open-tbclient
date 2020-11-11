@@ -4,23 +4,23 @@ import com.baidu.android.imrtc.BIMRtcInfo;
 import com.baidu.android.imrtc.notify.BIMInviteSyncRtcInfo;
 /* loaded from: classes4.dex */
 public interface d {
-    void Mb(int i);
+    void Ms(int i);
 
-    void Mc(int i);
+    void Mt(int i);
+
+    void QD();
 
     void a(BIMInviteSyncRtcInfo bIMInviteSyncRtcInfo);
 
-    void aQ(long j);
-
     void b(BIMRtcInfo bIMRtcInfo, int i);
 
-    void dWe();
+    void bm(long j);
 
-    void e(int i, long j, String str);
+    void hj(long j);
 
-    void gN(long j);
+    void hk(long j);
 
-    void gO(long j);
+    void j(int i, long j, String str);
 
     void onError(int i, int i2, String str);
 

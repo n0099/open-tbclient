@@ -8,67 +8,67 @@ import com.baidu.swan.apps.console.debugger.b.d;
 import java.io.File;
 /* loaded from: classes10.dex */
 public class b {
-    private static a czp;
+    private static a cFi;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String czn = "";
-    private static String czo = "";
-    private static int czq = 0;
+    private static String cFg = "";
+    private static String cFh = "";
+    private static int cFj = 0;
 
-    public static void me(String str) {
-        czn = str;
+    public static void mt(String str) {
+        cFg = str;
     }
 
-    public static void mf(String str) {
-        czo = str;
+    public static void mu(String str) {
+        cFh = str;
     }
 
-    public static String aja() {
-        return czn;
+    public static String alA() {
+        return cFg;
     }
 
-    public static String ajb() {
-        return czo;
+    public static String alB() {
+        return cFh;
     }
 
-    public static String ajc() {
-        return czp != null ? czp.aiZ() + File.separator + czo : "";
+    public static String alC() {
+        return cFi != null ? cFi.alz() + File.separator + cFh : "";
     }
 
-    public static String ajd() {
-        return czp != null ? czp.aiZ() + File.separator + czn : "";
+    public static String alD() {
+        return cFi != null ? cFi.alz() + File.separator + cFg : "";
     }
 
-    public static boolean aje() {
-        return czq == 2;
+    public static boolean alE() {
+        return cFj == 2;
     }
 
-    public static boolean ajf() {
-        return czq == 1;
+    public static boolean alF() {
+        return cFj == 1;
     }
 
     public static void n(Bundle bundle) {
         String g = u.g(bundle, "extraWSUrl");
         String g2 = u.g(bundle, "adb_debug_path");
         if (!TextUtils.isEmpty(g)) {
-            czp = new d();
-            czq = 1;
+            cFi = new d();
+            cFj = 1;
         } else if (!TextUtils.isEmpty(g2)) {
-            czp = new com.baidu.swan.apps.console.debugger.adbdebug.b();
-            czq = 2;
+            cFi = new com.baidu.swan.apps.console.debugger.adbdebug.b();
+            cFj = 2;
         } else {
             if (DEBUG) {
                 Log.d("UserDebugParams", "not debug mode");
             }
-            czq = 0;
-            czp = null;
+            cFj = 0;
+            cFi = null;
             return;
         }
-        czp.n(bundle);
+        cFi.n(bundle);
     }
 
     public static void o(Bundle bundle) {
-        if (czp != null) {
-            czp.o(bundle);
+        if (cFi != null) {
+            cFi.o(bundle);
         }
     }
 }

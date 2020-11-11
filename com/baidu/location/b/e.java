@@ -6,11 +6,11 @@ import java.util.Comparator;
 class e implements Comparator<d.c> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f1880a;
+    final /* synthetic */ d f1882a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.f1880a = dVar;
+        this.f1882a = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

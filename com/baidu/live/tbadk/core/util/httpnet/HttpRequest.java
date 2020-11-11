@@ -25,6 +25,7 @@ public class HttpRequest {
     public static final String IMAGE_FROM_OTHER = "other";
     public static final String IMAGE_FROM_PB = "pb";
     public static final String LIVE_ENTER_TYPE = "live_enter_type";
+    public static final String LIVE_SCENE = "live_scene";
     public static final String NET_CLASS = "net";
     public static final String NET_TYPE = "net_type";
     public static final String PHONE_IMEI = "_phone_imei";
@@ -74,6 +75,7 @@ public class HttpRequest {
         iNetWorkCore.addPostData(SUBAPP_VERSION, TbConfig.getSubappVersionCode() + "");
         iNetWorkCore.addPostData(SUBAPP_VERSION_NAME, TbConfig.getSubappVersionName());
         iNetWorkCore.addPostData(SDK_VERSION, TbConfig.SDK_VERSION);
+        iNetWorkCore.addPostData(LIVE_SCENE, TbConfig.liveScene + "");
         if (AlaLiveSwitchData.isHotLive == 1) {
             iNetWorkCore.addPostData(SDK_LIVE_IS_HOT, "1");
         }

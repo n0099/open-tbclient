@@ -13,12 +13,12 @@ import java.util.concurrent.TimeUnit;
 public class LivePKPrepareAnimView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f4203a;
+    private TextView f4205a;
     private ImageView b;
     private io.reactivex.disposables.b d;
     private int[] e;
-    private AnimationSet pmY;
-    private a pmZ;
+    private AnimationSet pwx;
+    private a pwy;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -51,9 +51,9 @@ public class LivePKPrepareAnimView extends RelativeLayout {
 
     private void a(Context context) {
         inflate(context, a.h.layout_live_pk_prepare_anim_view, this);
-        this.f4203a = (TextView) findViewById(a.f.tv_live_pk_prepare);
+        this.f4205a = (TextView) findViewById(a.f.tv_live_pk_prepare);
         this.b = (ImageView) findViewById(a.f.img_live_pk_prepare);
-        this.pmY = (AnimationSet) AnimationUtils.loadAnimation(context, a.C0969a.pk_live_online_count_down_last_three);
+        this.pwx = (AnimationSet) AnimationUtils.loadAnimation(context, a.C0988a.pk_live_online_count_down_last_three);
     }
 
     private void b() {
@@ -62,33 +62,33 @@ public class LivePKPrepareAnimView extends RelativeLayout {
 
     public void a(final long j) {
         if (j <= 0) {
-            if (this.pmZ != null) {
-                this.pmZ.a();
+            if (this.pwy != null) {
+                this.pwy.a();
                 return;
             }
             return;
         }
         setVisibility(0);
-        this.d = io.reactivex.g.a(0L, 1L, TimeUnit.SECONDS).a(io.reactivex.a.b.a.ewM()).b(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.pk.LivePKPrepareAnimView.1
+        this.d = io.reactivex.g.a(0L, 1L, TimeUnit.SECONDS).a(io.reactivex.a.b.a.eAB()).b(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.pk.LivePKPrepareAnimView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // io.reactivex.c.g
             /* renamed from: a */
             public void accept(Long l) throws Exception {
                 int longValue = (int) (j - l.longValue());
                 if (longValue == j) {
-                    LivePKPrepareAnimView.this.f4203a.setVisibility(0);
+                    LivePKPrepareAnimView.this.f4205a.setVisibility(0);
                     LivePKPrepareAnimView.this.b.setVisibility(8);
                 } else if (longValue > 0) {
                     if (longValue <= LivePKPrepareAnimView.this.e.length) {
-                        LivePKPrepareAnimView.this.f4203a.setVisibility(8);
+                        LivePKPrepareAnimView.this.f4205a.setVisibility(8);
                         LivePKPrepareAnimView.this.b.setVisibility(0);
                         LivePKPrepareAnimView.this.b.setImageResource(LivePKPrepareAnimView.this.e[longValue - 1]);
-                        LivePKPrepareAnimView.this.b.startAnimation(LivePKPrepareAnimView.this.pmY);
+                        LivePKPrepareAnimView.this.b.startAnimation(LivePKPrepareAnimView.this.pwx);
                     }
                 } else if (longValue <= 0) {
                     LivePKPrepareAnimView.this.a();
-                    if (LivePKPrepareAnimView.this.pmZ != null) {
-                        LivePKPrepareAnimView.this.pmZ.a();
+                    if (LivePKPrepareAnimView.this.pwy != null) {
+                        LivePKPrepareAnimView.this.pwy.a();
                     }
                 }
             }
@@ -102,11 +102,11 @@ public class LivePKPrepareAnimView extends RelativeLayout {
         }
         this.b.clearAnimation();
         this.b.setVisibility(8);
-        this.f4203a.setVisibility(8);
+        this.f4205a.setVisibility(8);
         setVisibility(8);
     }
 
     public void setCallBack(a aVar) {
-        this.pmZ = aVar;
+        this.pwy = aVar;
     }
 }

@@ -8,48 +8,48 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class g {
-    private BaseFragmentActivity ifx;
-    private d lEV;
+    private BaseFragmentActivity ilu;
+    private d lKR;
     private int mSkinType = 3;
 
     public g(BaseFragmentActivity baseFragmentActivity) {
-        this.ifx = baseFragmentActivity;
+        this.ilu = baseFragmentActivity;
     }
 
     public void b(com.baidu.tieba.pb.data.f fVar, String str) {
-        if (fVar != null && fVar.dfI() != null) {
+        if (fVar != null && fVar.dik() != null) {
             c(fVar, str);
         }
     }
 
     private void c(com.baidu.tieba.pb.data.f fVar, String str) {
         if (fVar != null) {
-            if (this.lEV == null) {
-                this.lEV = new d(LayoutInflater.from(this.ifx.getPageContext().getPageActivity()).inflate(R.layout.pb_header_video_abstract_layout, (ViewGroup) null));
+            if (this.lKR == null) {
+                this.lKR = new d(LayoutInflater.from(this.ilu.getPageContext().getPageActivity()).inflate(R.layout.pb_header_video_abstract_layout, (ViewGroup) null));
             }
-            this.lEV.a(fVar, str);
+            this.lKR.a(fVar, str);
         }
     }
 
-    public View dnS() {
-        if (this.lEV == null) {
+    public View dqu() {
+        if (this.lKR == null) {
             return null;
         }
-        return this.lEV.mRootView;
+        return this.lKR.mRootView;
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            if (this.lEV != null) {
-                this.lEV.bvf();
+            if (this.lKR != null) {
+                this.lKR.bxE();
             }
             this.mSkinType = i;
         }
     }
 
     public void e(BdTypeListView bdTypeListView) {
-        if (this.lEV != null) {
-            bdTypeListView.removeHeaderView(this.lEV.mRootView);
+        if (this.lKR != null) {
+            bdTypeListView.removeHeaderView(this.lKR.mRootView);
         }
     }
 }

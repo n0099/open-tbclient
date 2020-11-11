@@ -5,17 +5,17 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 /* loaded from: classes13.dex */
 public class d {
-    private static volatile d hZm = null;
+    private static volatile d ifn = null;
 
-    public static final d cnu() {
-        if (hZm == null) {
+    public static final d cpV() {
+        if (ifn == null) {
             synchronized (d.class) {
-                if (hZm == null) {
-                    hZm = new d();
+                if (ifn == null) {
+                    ifn = new d();
                 }
             }
         }
-        return hZm;
+        return ifn;
     }
 
     private d() {
@@ -35,7 +35,7 @@ public class d {
         }
     }
 
-    public void ax(String str, String str2, String str3) {
+    public void ay(String str, String str2, String str3) {
         if (!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2) || !TextUtils.isEmpty(str3)) {
             com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.append("workflow", "dnsproxy_event");

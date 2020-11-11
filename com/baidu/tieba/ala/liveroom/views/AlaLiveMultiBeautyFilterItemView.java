@@ -11,8 +11,8 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 /* loaded from: classes4.dex */
 public class AlaLiveMultiBeautyFilterItemView extends LinearLayout {
-    private HeadImageView gaj;
-    private TextView gak;
+    private HeadImageView gga;
+    private TextView ggb;
 
     public AlaLiveMultiBeautyFilterItemView(Context context) {
         super(context);
@@ -20,29 +20,29 @@ public class AlaLiveMultiBeautyFilterItemView extends LinearLayout {
     }
 
     private void init(Context context) {
-        View inflate = LayoutInflater.from(context).inflate(a.h.ala_live_beauty_filter_item_view, (ViewGroup) this, true);
-        this.gaj = (HeadImageView) inflate.findViewById(a.g.item_icon);
-        this.gaj.setIsRound(true);
-        this.gaj.setAutoChangeStyle(false);
-        this.gaj.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.gak = (TextView) inflate.findViewById(a.g.item_text);
+        View inflate = LayoutInflater.from(context).inflate(a.g.ala_live_beauty_filter_item_view, (ViewGroup) this, true);
+        this.gga = (HeadImageView) inflate.findViewById(a.f.item_icon);
+        this.gga.setIsRound(true);
+        this.gga.setAutoChangeStyle(false);
+        this.gga.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.ggb = (TextView) inflate.findViewById(a.f.item_text);
     }
 
     public void setUnselectedBackground() {
-        this.gaj.setBackgroundColor(getResources().getColor(a.d.sdk_black_alpha0));
-        this.gak.setTextColor(getResources().getColor(a.d.sdk_cp_cont_d));
+        this.gga.setBackgroundColor(getResources().getColor(a.c.sdk_black_alpha0));
+        this.ggb.setTextColor(getResources().getColor(a.c.sdk_cp_cont_d));
     }
 
     public void setSelectedBackground() {
-        this.gak.setTextColor(getResources().getColor(a.d.sdk_cp_other_b));
-        this.gaj.setBackgroundDrawable(getResources().getDrawable(a.f.ala_live_effect_item_selected));
+        this.ggb.setTextColor(getResources().getColor(a.c.sdk_cp_other_b));
+        this.gga.setBackgroundDrawable(getResources().getDrawable(a.e.ala_live_effect_item_selected));
     }
 
     public void setItemIcon(int i) {
-        this.gaj.setImageDrawable(getResources().getDrawable(i));
+        this.gga.setImageDrawable(getResources().getDrawable(i));
     }
 
     public void setItemText(String str) {
-        this.gak.setText(str);
+        this.ggb.setText(str);
     }
 }

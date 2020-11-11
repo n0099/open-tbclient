@@ -7,13 +7,13 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static JSONObject dde;
+    private static JSONObject djb;
 
-    public static void aBd() {
+    public static void aDD() {
         try {
-            dde = i.aBg().aBb();
-            if (dde != null) {
-                dde.put("_ts", com.baidu.swan.apps.ap.j.a(new Date(), "yyyy-MM-dd HH:mm:ss"));
+            djb = i.aDG().aDB();
+            if (djb != null) {
+                djb.put("_ts", com.baidu.swan.apps.ap.j.a(new Date(), "yyyy-MM-dd HH:mm:ss"));
             }
         } catch (JSONException e) {
             if (DEBUG) {
@@ -22,20 +22,20 @@ public class e {
         }
     }
 
-    public static JSONObject aBe() {
+    public static JSONObject aDE() {
         JSONObject jSONObject = new JSONObject();
         try {
-            JSONObject aBb = i.aBg().aBb();
-            if (aBb == null || !aBb.has("events")) {
-                aBb = dde != null ? dde : jSONObject;
+            JSONObject aDB = i.aDG().aDB();
+            if (aDB == null || !aDB.has("events")) {
+                aDB = djb != null ? djb : jSONObject;
             }
-            jSONObject = aBb;
+            jSONObject = aDB;
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e("PerformanceUbcSnapshot", "JSONException:", e);
             }
         }
-        dde = null;
+        djb = null;
         return jSONObject;
     }
 }

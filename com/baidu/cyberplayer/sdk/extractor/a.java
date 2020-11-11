@@ -3,7 +3,7 @@ package com.baidu.cyberplayer.sdk.extractor;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f1380a = null;
+    private static a f1382a = null;
 
     private a() {
     }
@@ -12,10 +12,10 @@ public class a {
     public static synchronized a a() {
         a aVar;
         synchronized (a.class) {
-            if (f1380a == null) {
-                f1380a = new a();
+            if (f1382a == null) {
+                f1382a = new a();
             }
-            aVar = f1380a;
+            aVar = f1382a;
         }
         return aVar;
     }

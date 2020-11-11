@@ -7,20 +7,20 @@ import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes22.dex */
 public class a {
-    private int jtm = 1;
-    private final List<x> jtn = new ArrayList();
+    private int jzj = 1;
+    private final List<x> jzk = new ArrayList();
 
     public a() {
-        List<x> cHa = cHa();
-        if (!y.isEmpty(cHa)) {
-            this.jtn.addAll(cHa);
+        List<x> cJB = cJB();
+        if (!y.isEmpty(cJB)) {
+            this.jzk.addAll(cJB);
         }
     }
 
-    private List<x> cHa() {
+    private List<x> cJB() {
         ArrayList arrayList = new ArrayList();
         try {
-            JSONArray jSONArray = new JSONArray(com.baidu.tbadk.core.sharedPref.b.bnH().getString("key_index_tab_info_list", "[]"));
+            JSONArray jSONArray = new JSONArray(com.baidu.tbadk.core.sharedPref.b.bqh().getString("key_index_tab_info_list", "[]"));
             for (int i = 0; i < jSONArray.length(); i++) {
                 x xVar = new x();
                 xVar.parserJson(jSONArray.getJSONObject(i));
@@ -34,11 +34,11 @@ public class a {
         return arrayList;
     }
 
-    public List<x> cHb() {
-        return this.jtn;
+    public List<x> cJC() {
+        return this.jzk;
     }
 
-    public int cHc() {
-        return this.jtm;
+    public int cJD() {
+        return this.jzj;
     }
 }

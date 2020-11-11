@@ -18,7 +18,7 @@ public class l extends b {
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.f.b
-    public String ebI() {
+    public String efx() {
         return IMTrack.DbBuilder.ACTION_UPDATE;
     }
 

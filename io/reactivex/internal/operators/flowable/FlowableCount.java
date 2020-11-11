@@ -7,7 +7,7 @@ import io.reactivex.j;
 public final class FlowableCount<T> extends a<T, Long> {
     @Override // io.reactivex.g
     protected void a(org.a.c<? super Long> cVar) {
-        this.pDq.a((j) new CountSubscriber(cVar));
+        this.pMK.a((j) new CountSubscriber(cVar));
     }
 
     /* loaded from: classes17.dex */

@@ -12,17 +12,17 @@ class a {
 
     /* renamed from: com.baidu.pass.common.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    static class C0261a {
+    static class C0273a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f2758a = "UTF-8";
+        private static final String f2760a = "UTF-8";
         private static final String b = "AES/CBC/NoPadding";
         private static final String c = "AES";
         private String d;
         private String e;
         private String f;
 
-        public C0261a() {
+        public C0273a() {
             this("AES", b, "UTF-8");
         }
 
@@ -45,7 +45,7 @@ class a {
             throw new Exception("Empty string");
         }
 
-        public C0261a(String str, String str2, String str3) {
+        public C0273a(String str, String str2, String str3) {
             this.d = "UTF-8";
             this.e = b;
             this.f = "AES";

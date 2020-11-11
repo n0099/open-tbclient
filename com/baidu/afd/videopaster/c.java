@@ -59,7 +59,7 @@ public class c implements a {
     public void u(HashMap hashMap) {
         this.YK = hashMap;
         if (!this.YK.containsKey("iadex")) {
-            hashMap.put("iadex", com.baidu.tbadk.util.c.bAL());
+            hashMap.put("iadex", com.baidu.tbadk.util.c.bDk());
         }
     }
 }

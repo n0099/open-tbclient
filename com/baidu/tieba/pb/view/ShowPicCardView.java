@@ -16,11 +16,11 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class ShowPicCardView extends FrameLayout implements View.OnClickListener {
-    private boolean fBX;
-    private LinearLayout itA;
-    private com.baidu.tieba.tbadkCore.data.a lKV;
-    private TbImageView lKW;
-    private TextView lKX;
+    private boolean fHN;
+    private LinearLayout izx;
+    private com.baidu.tieba.tbadkCore.data.a lQR;
+    private TbImageView lQS;
+    private TextView lQT;
     private Context mContext;
     private ImageView mIcon;
     private View mRootView;
@@ -36,25 +36,25 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
 
     public ShowPicCardView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fBX = false;
+        this.fHN = false;
         this.mContext = context;
         init();
     }
 
     public com.baidu.tieba.tbadkCore.data.a getData() {
-        return this.lKV;
+        return this.lQR;
     }
 
     public void setSupportNoImage() {
-        this.fBX = true;
+        this.fHN = true;
     }
 
     private void init() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.pic_show_cardview_layout, (ViewGroup) this, true);
-        this.lKW = (TbImageView) findViewById(R.id.pic_img);
-        this.itA = (LinearLayout) findViewById(R.id.bottom_ll);
+        this.lQS = (TbImageView) findViewById(R.id.pic_img);
+        this.izx = (LinearLayout) findViewById(R.id.bottom_ll);
         this.mTitle = (TextView) findViewById(R.id.title_ll);
-        this.lKX = (TextView) findViewById(R.id.desc_ll);
+        this.lQT = (TextView) findViewById(R.id.desc_ll);
         this.mIcon = (ImageView) findViewById(R.id.show_pic_icon);
     }
 
@@ -64,8 +64,8 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
 
     public void setData(com.baidu.tieba.tbadkCore.data.a aVar) {
         int i;
-        if (aVar != null && this.lKV != aVar) {
-            this.lKV = aVar;
+        if (aVar != null && this.lQR != aVar) {
+            this.lQR = aVar;
             if (!StringUtils.isNULL(aVar.getTitle())) {
                 this.mTitle.setVisibility(0);
                 this.mTitle.setText(aVar.getTitle());
@@ -73,22 +73,22 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
                 this.mTitle.setVisibility(8);
             }
             if (!StringUtils.isNULL(aVar.getDescription())) {
-                this.lKX.setVisibility(0);
-                this.lKX.setText(aVar.getDescription());
+                this.lQT.setVisibility(0);
+                this.lQT.setText(aVar.getDescription());
             } else {
-                this.lKX.setVisibility(8);
+                this.lQT.setVisibility(8);
             }
-            if (this.fBX) {
-                this.lKW.setSupportNoImage(true);
+            if (this.fHN) {
+                this.lQS.setSupportNoImage(true);
             }
             int imageWidth = aVar.getImageWidth();
             int imageHeight = aVar.getImageHeight();
             if (imageWidth > 0 && imageHeight > 0) {
-                this.lKW.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                this.lKW.setOnClickListener(this);
-                this.lKW.setInterceptOnClick(true);
-                this.lKW.setDefaultResource(R.drawable.icon_click);
-                this.lKW.startLoad(aVar.dHa(), 18, false);
+                this.lQS.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                this.lQS.setOnClickListener(this);
+                this.lQS.setInterceptOnClick(true);
+                this.lQS.setDefaultResource(R.drawable.icon_click);
+                this.lQS.startLoad(aVar.dJC(), 18, false);
                 int equipmentWidth = l.getEquipmentWidth(this.mContext) - (l.getDimens(this.mContext, R.dimen.ds30) * 2);
                 float f = imageHeight / imageWidth;
                 if (f > 1.7777778f) {
@@ -98,22 +98,22 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
                 } else {
                     i = (int) (f * equipmentWidth);
                 }
-                this.lKW.setLayoutParams(new FrameLayout.LayoutParams(equipmentWidth, i));
-                removeView(this.lKW);
-                addView(this.lKW);
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.itA.getLayoutParams();
+                this.lQS.setLayoutParams(new FrameLayout.LayoutParams(equipmentWidth, i));
+                removeView(this.lQS);
+                addView(this.lQS);
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.izx.getLayoutParams();
                 layoutParams.width = equipmentWidth;
                 layoutParams.height = l.getDimens(this.mContext, R.dimen.ds110);
-                removeView(this.itA);
-                addView(this.itA, layoutParams);
+                removeView(this.izx);
+                addView(this.izx, layoutParams);
             }
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.lKV != null) {
-            com.baidu.tbadk.browser.a.startWebActivity(this.mContext, this.lKV.dHb());
+        if (this.lQR != null) {
+            com.baidu.tbadk.browser.a.startWebActivity(this.mContext, this.lQR.dJD());
         }
     }
 

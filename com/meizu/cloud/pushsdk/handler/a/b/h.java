@@ -23,12 +23,12 @@ public class h implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private b f4420a;
+    private b f4422a;
     private String b;
     private int c;
 
     protected h(Parcel parcel) {
-        this.f4420a = (b) parcel.readParcelable(b.class.getClassLoader());
+        this.f4422a = (b) parcel.readParcelable(b.class.getClassLoader());
         this.b = parcel.readString();
         this.c = parcel.readInt();
     }
@@ -43,11 +43,11 @@ public class h implements Parcelable {
         } catch (JSONException e) {
             com.meizu.cloud.a.a.e("WithDrawMessage", "parse WithDrawMessage error " + e.getMessage());
         }
-        this.f4420a = new b(str3, str4, str5);
+        this.f4422a = new b(str3, str4, str5);
     }
 
     public b a() {
-        return this.f4420a;
+        return this.f4422a;
     }
 
     public int b() {
@@ -64,12 +64,12 @@ public class h implements Parcelable {
     }
 
     public String toString() {
-        return "WithDrawMessage{controlMessage=" + this.f4420a + ", revokePackageName='" + this.b + "', notifyId=" + this.c + '}';
+        return "WithDrawMessage{controlMessage=" + this.f4422a + ", revokePackageName='" + this.b + "', notifyId=" + this.c + '}';
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.f4420a, i);
+        parcel.writeParcelable(this.f4422a, i);
         parcel.writeString(this.b);
         parcel.writeInt(this.c);
     }

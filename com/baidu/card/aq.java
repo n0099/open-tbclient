@@ -30,12 +30,12 @@ public class aq extends b<AbsThreadDataSupport> {
         this.ail = new OriginalThreadCardView.a() { // from class: com.baidu.card.aq.1
             @Override // com.baidu.tieba.card.OriginalThreadCardView.a
             public void a(OriginalThreadInfo originalThreadInfo) {
-                if (aq.this.afI != null && aq.this.afI.bhz() != null) {
+                if (aq.this.afI != null && aq.this.afI.bjZ() != null) {
                     if (aq.this.tB() != null) {
                         aq.this.tB().a(aq.this.aij, aq.this.afI);
                     }
-                    String id = aq.this.afI.bhz().getId();
-                    com.baidu.tieba.card.n.II(id);
+                    String id = aq.this.afI.bjZ().getId();
+                    com.baidu.tieba.card.n.IZ(id);
                     aq.this.dk(id);
                     aq.this.afD.b(new a.C0097a(1));
                 }
@@ -60,23 +60,23 @@ public class aq extends b<AbsThreadDataSupport> {
     @Override // com.baidu.card.p
     /* renamed from: b */
     public void H(AbsThreadDataSupport absThreadDataSupport) {
-        if (absThreadDataSupport != null && absThreadDataSupport.bhz() != null) {
+        if (absThreadDataSupport != null && absThreadDataSupport.bjZ() != null) {
             this.afI = absThreadDataSupport;
-            ay.a(this.mTitle, absThreadDataSupport.bhz(), this.aik);
-            ay.a(this.agm, this.mTitle, absThreadDataSupport.bhz(), agk, this.aik);
-            this.aij.b(absThreadDataSupport.bhz().eAy);
+            ay.a(this.mTitle, absThreadDataSupport.bjZ(), this.aik);
+            ay.a(this.agm, this.mTitle, absThreadDataSupport.bjZ(), agk, this.aik);
+            this.aij.b(absThreadDataSupport.bjZ().eGn);
         }
     }
 
     public void bD(int i) {
-        this.aij.hUm = i;
+        this.aij.iaj = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dk(String str) {
         com.baidu.tieba.card.n.a(this.mTitle, str, R.color.cp_cont_b, R.color.cp_cont_d);
         com.baidu.tieba.card.n.a(this.agm, str, R.color.cp_cont_b, R.color.cp_cont_d);
-        this.aij.setReadState(com.baidu.tieba.card.n.IJ(str));
+        this.aij.setReadState(com.baidu.tieba.card.n.Ja(str));
     }
 
     @Override // com.baidu.card.q

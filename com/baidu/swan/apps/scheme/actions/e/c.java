@@ -38,7 +38,7 @@ public class c extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        if (eVar != null && eVar.aha()) {
+        if (eVar != null && eVar.ajA()) {
             if (DEBUG) {
                 Log.d("ShowActionSheet", "ShowActionSheet does not supported when app is invisible.");
             }
@@ -85,7 +85,7 @@ public class c extends aa {
         }
         if (!TextUtils.isEmpty(optString)) {
             if (optString.length() == 4 && optString.charAt(0) == '#') {
-                optString = SwanAppConfigData.rS(optString);
+                optString = SwanAppConfigData.sg(optString);
             }
             i = Color.parseColor(optString);
             if (!arrayList.isEmpty()) {
@@ -93,7 +93,7 @@ public class c extends aa {
                 return false;
             }
             final int color = i == -1 ? context.getResources().getColor(a.c.aiapps_action_sheet_item_color) : i;
-            g.a a2 = new f(context).gg(true).gn(true).gl(true).gm(false).gi(true).a(new com.baidu.swan.apps.view.c.a()).jN(context.getResources().getDimensionPixelSize(a.d.aiapps_action_sheet_bottom_divider)).jW(a.e.aiapps_action_sheet_bg).jU(a.c.swan_app_action_sheet_cancel_text).d(a.h.aiapps_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.actions.e.c.2
+            g.a a2 = new f(context).gp(true).gw(true).gu(true).gv(false).gr(true).a(new com.baidu.swan.apps.view.c.a()).jX(context.getResources().getDimensionPixelSize(a.d.aiapps_action_sheet_bottom_divider)).kg(a.e.aiapps_action_sheet_bg).ke(a.c.swan_app_action_sheet_cancel_text).d(a.h.aiapps_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.actions.e.c.2
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i3) {
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(201, "showActionSheet:fail cancel"));
@@ -144,19 +144,19 @@ public class c extends aa {
                     }
                 }
             });
-            a2.aw(inflate);
-            a2.aEz();
-            a2.jO(l(context, arrayList.size()));
-            final g ano = a2.ano();
-            Window window = ano.getWindow();
+            a2.aA(inflate);
+            a2.aGZ();
+            a2.jY(l(context, arrayList.size()));
+            final g apP = a2.apP();
+            Window window = apP.getWindow();
             if (window != null) {
                 window.setGravity(80);
                 window.setDimAmount(0.65f);
                 window.setLayout(ah.cO(context), -2);
                 window.setWindowAnimations(a.i.action_sheet_animation);
             }
-            ano.setEnableImmersion(false);
-            ano.setCanceledOnTouchOutside(true);
+            apP.setEnableImmersion(false);
+            apP.setCanceledOnTouchOutside(true);
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.swan.apps.scheme.actions.e.c.4
                 @Override // android.widget.AdapterView.OnItemClickListener
                 public void onItemClick(AdapterView<?> adapterView, View view, int i3, long j) {
@@ -164,7 +164,7 @@ public class c extends aa {
                     try {
                         jSONObject.put("tapIndex", i3);
                         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                        ano.dismiss();
+                        apP.dismiss();
                     } catch (JSONException e2) {
                         if (c.DEBUG) {
                             e2.printStackTrace();
@@ -173,7 +173,7 @@ public class c extends aa {
                     }
                 }
             });
-            ano.show();
+            apP.show();
             return true;
         }
         i = -1;

@@ -8,13 +8,13 @@ import java.util.concurrent.locks.ReadWriteLock;
 public class g implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Bundle f3171a;
+    final /* synthetic */ Bundle f3173a;
     final /* synthetic */ NABaseMap b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(NABaseMap nABaseMap, Bundle bundle) {
         this.b = nABaseMap;
-        this.f3171a = bundle;
+        this.f3173a = bundle;
     }
 
     @Override // java.lang.Runnable
@@ -39,7 +39,7 @@ public class g implements Runnable {
                     try {
                         NABaseMap nABaseMap = this.b;
                         j = this.b.b;
-                        nABaseMap.nativeRemoveOneOverlayItem(j, this.f3171a);
+                        nABaseMap.nativeRemoveOneOverlayItem(j, this.f3173a);
                     } catch (Throwable th2) {
                         z = tryLock;
                         th = th2;

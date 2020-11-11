@@ -3,11 +3,11 @@ package com.facebook.imagepipeline.nativecode;
 import android.os.Build;
 /* loaded from: classes17.dex */
 public class b {
-    private static boolean oAu;
+    private static boolean oJN;
 
-    public static synchronized void eft() {
+    public static synchronized void eji() {
         synchronized (b.class) {
-            if (!oAu) {
+            if (!oJN) {
                 if (Build.VERSION.SDK_INT <= 16) {
                     try {
                         com.facebook.common.e.a.loadLibrary("fb_jpegturbo");
@@ -15,7 +15,7 @@ public class b {
                     }
                 }
                 com.facebook.common.e.a.loadLibrary("static-webp");
-                oAu = true;
+                oJN = true;
             }
         }
     }

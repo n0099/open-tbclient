@@ -9,20 +9,20 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c {
-    public r hyg;
+    public r hEd;
     private boolean isHost = false;
     private AlaUserInfoData user_info = new AlaUserInfoData();
-    private i hyb = new i();
-    private q hyc = new q();
-    private final a hyf = new a();
-    private List<AlaLiveInfoData> hyd = new ArrayList();
-    private List<p> hye = new ArrayList();
+    private i hDY = new i();
+    private q hDZ = new q();
+    private final a hEc = new a();
+    private List<AlaLiveInfoData> hEa = new ArrayList();
+    private List<p> hEb = new ArrayList();
 
-    public a cgZ() {
-        return this.hyf;
+    public a cjB() {
+        return this.hEc;
     }
 
-    public AlaUserInfoData cha() {
+    public AlaUserInfoData cjC() {
         return this.user_info;
     }
 
@@ -46,21 +46,21 @@ public class c {
                 for (int i = 0; optJSONArray != null && i < optJSONArray.length(); i++) {
                     p pVar = new p();
                     pVar.parseJson(optJSONArray.getJSONObject(i));
-                    this.hye.add(pVar);
+                    this.hEb.add(pVar);
                 }
                 JSONArray optJSONArray2 = jSONObject2.optJSONArray("live_list");
                 for (int i2 = 0; optJSONArray2 != null && optJSONArray2.length() < i2; i2++) {
                     AlaLiveInfoData alaLiveInfoData = new AlaLiveInfoData();
                     alaLiveInfoData.parserJson(optJSONArray2.getJSONObject(i2));
-                    this.hyd.add(alaLiveInfoData);
+                    this.hEa.add(alaLiveInfoData);
                 }
-                this.hyb.parserJson(jSONObject2.optJSONObject("media"));
-                this.hyc.parserJson(jSONObject2.optJSONObject("privacy_set"));
-                this.hyf.parserJson(jSONObject2.optJSONObject("authority_info"));
+                this.hDY.parserJson(jSONObject2.optJSONObject("media"));
+                this.hDZ.parserJson(jSONObject2.optJSONObject("privacy_set"));
+                this.hEc.parserJson(jSONObject2.optJSONObject("authority_info"));
                 JSONObject optJSONObject2 = jSONObject2.optJSONObject("dating_room");
                 if (optJSONObject2 != null) {
-                    this.hyg = new r();
-                    this.hyg.parseJson(optJSONObject2);
+                    this.hEd = new r();
+                    this.hEd.parseJson(optJSONObject2);
                 }
             } catch (Exception e) {
                 e.printStackTrace();

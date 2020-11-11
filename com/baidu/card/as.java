@@ -54,7 +54,7 @@ public class as extends i {
             this.mLastScreenWidth = equipmentWidth;
         }
         this.afI = absThreadDataSupport;
-        if (this.afI == null || this.afI.bhz() == null || this.afI.bhz().eAy == null || this.afI.bhz().eAy.euX) {
+        if (this.afI == null || this.afI.bjZ() == null || this.afI.bjZ().eGn == null || this.afI.bjZ().eGn.eAQ) {
             this.ait.setVisibility(8);
             return;
         }
@@ -64,8 +64,8 @@ public class as extends i {
         ViewGroup.LayoutParams layoutParams2 = this.ait.alQ.getLayoutParams();
         int i = layoutParams.width;
         int i2 = layoutParams.height;
-        if (this.afI.bhz().eAy.videoInfo.is_vertical.intValue() == 1) {
-            VideoInfo videoInfo = this.afI.bhz().eAy.videoInfo;
+        if (this.afI.bjZ().eGn.videoInfo.is_vertical.intValue() == 1) {
+            VideoInfo videoInfo = this.afI.bjZ().eGn.videoInfo;
             if (videoInfo != null) {
                 int i3 = (air / 9) * 16;
                 int i4 = ais;

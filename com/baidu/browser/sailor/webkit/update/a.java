@@ -29,7 +29,7 @@ public class a {
     private static a afy = null;
 
     /* renamed from: a  reason: collision with root package name */
-    protected String f1288a;
+    protected String f1290a;
     protected String b;
     protected String c;
     boolean d;
@@ -95,7 +95,7 @@ public class a {
                                 a.this.b = jSONObject2.getString("version");
                             }
                             if (jSONObject2.has("link")) {
-                                a.this.f1288a = jSONObject2.getString("link");
+                                a.this.f1290a = jSONObject2.getString("link");
                             }
                             if (jSONObject2.has("md5")) {
                                 a.this.c = jSONObject2.getString("md5");
@@ -345,7 +345,7 @@ public class a {
             String zeusVersionName = WebKitFactory.getZeusVersionName();
             if (WebKitFactory.getCurEngine() == 1) {
                 if (a(zeusVersionName, this.b)) {
-                    BdZeusDownloadHelper.T(BdSailor.getInstance().getAppContext()).a(this.f1288a, this.c);
+                    BdZeusDownloadHelper.T(BdSailor.getInstance().getAppContext()).a(this.f1290a, this.c);
                     return;
                 }
                 return;
@@ -367,7 +367,7 @@ public class a {
             BdSailorPlatform.getStatic().b("download-webkit-start", String.valueOf(System.currentTimeMillis()));
             BdSailorPlatform.getStatic().a();
             Log.i(EngineManager.LOG_TAG, "start download zeus");
-            BdZeusDownloadHelper.T(BdSailor.getInstance().getAppContext()).a(this.f1288a, this.c);
+            BdZeusDownloadHelper.T(BdSailor.getInstance().getAppContext()).a(this.f1290a, this.c);
         }
     }
 }

@@ -22,7 +22,7 @@ public class XAdSDKFoundationFacade {
     private static final XAdSDKFoundationFacade o = new XAdSDKFoundationFacade();
 
     /* renamed from: a  reason: collision with root package name */
-    private i f2432a;
+    private i f2434a;
     private Context p;
     private IXAdContainerFactory q;
     private IBase64 c = new a();
@@ -50,7 +50,7 @@ public class XAdSDKFoundationFacade {
         if (this.p == null) {
             this.p = context;
         }
-        this.f2432a = new i(this.p);
+        this.f2434a = new i(this.p);
     }
 
     public void initializeAdContainerFactory(IXAdContainerFactory iXAdContainerFactory) {
@@ -60,7 +60,7 @@ public class XAdSDKFoundationFacade {
     }
 
     public i getAdCreativeCacheManager() {
-        return this.f2432a;
+        return this.f2434a;
     }
 
     public IXAdContainerFactory getAdContainerFactory() {

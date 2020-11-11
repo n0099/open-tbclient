@@ -5,10 +5,10 @@ import java.util.NoSuchElementException;
 @kotlin.h
 /* loaded from: classes10.dex */
 public abstract class b<T> implements Iterator<T> {
-    private T pIA;
-    private State pIz = State.NotReady;
+    private State pRT = State.NotReady;
+    private T pRU;
 
-    protected abstract void exE();
+    protected abstract void eBt();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -17,14 +17,14 @@ public abstract class b<T> implements Iterator<T> {
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        if (this.pIz != State.Failed) {
-            switch (this.pIz) {
+        if (this.pRT != State.Failed) {
+            switch (this.pRT) {
                 case Done:
                     return false;
                 case Ready:
                     return true;
                 default:
-                    return exD();
+                    return eBs();
             }
         }
         throw new IllegalArgumentException("Failed requirement.".toString());
@@ -33,26 +33,26 @@ public abstract class b<T> implements Iterator<T> {
     @Override // java.util.Iterator
     public T next() {
         if (hasNext()) {
-            this.pIz = State.NotReady;
-            return this.pIA;
+            this.pRT = State.NotReady;
+            return this.pRU;
         }
         throw new NoSuchElementException();
     }
 
-    private final boolean exD() {
-        this.pIz = State.Failed;
-        exE();
-        return this.pIz == State.Ready;
+    private final boolean eBs() {
+        this.pRT = State.Failed;
+        eBt();
+        return this.pRT == State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void bT(T t) {
-        this.pIA = t;
-        this.pIz = State.Ready;
+        this.pRU = t;
+        this.pRT = State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void done() {
-        this.pIz = State.Done;
+        this.pRT = State.Done;
     }
 }

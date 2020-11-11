@@ -4,13 +4,13 @@ import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class v {
-    public String aIz;
+    public String aJq;
     public String imgUrl;
     public String subTitle;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aIz = jSONObject.optString("main_title");
+            this.aJq = jSONObject.optString("main_title");
             this.subTitle = jSONObject.optString("subtitle");
             this.imgUrl = jSONObject.optString(BigdayActivityConfig.IMG_URL);
         }

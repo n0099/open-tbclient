@@ -18,7 +18,7 @@ public class SelectedLocationInfo implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: mo */
+        /* renamed from: my */
         public SelectedLocationInfo[] newArray(int i) {
             return new SelectedLocationInfo[i];
         }

@@ -4,13 +4,13 @@ import android.view.View;
 import com.baidu.swan.apps.adaptation.b.d;
 /* loaded from: classes10.dex */
 public interface g<T extends d> extends e<T> {
-    boolean afY();
+    void aiO();
 
-    void ago();
+    void aiP();
 
-    void agp();
+    boolean aiy();
 
-    void d(View.OnClickListener onClickListener);
+    void e(View.OnClickListener onClickListener);
 
-    void ef(boolean z);
+    void eo(boolean z);
 }

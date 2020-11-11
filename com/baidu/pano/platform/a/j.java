@@ -10,14 +10,14 @@ import java.util.concurrent.BlockingQueue;
 public class j extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    private final BlockingQueue<n<?>> f2654a;
+    private final BlockingQueue<n<?>> f2656a;
     private final i b;
     private final b c;
     private final r d;
     private volatile boolean e = false;
 
     public j(BlockingQueue<n<?>> blockingQueue, i iVar, b bVar, r rVar) {
-        this.f2654a = blockingQueue;
+        this.f2656a = blockingQueue;
         this.b = iVar;
         this.c = bVar;
         this.d = rVar;
@@ -41,7 +41,7 @@ public class j extends Thread {
         while (true) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             try {
-                n<?> take = this.f2654a.take();
+                n<?> take = this.f2656a.take();
                 try {
                     take.a("network-queue-take");
                     if (take.h()) {

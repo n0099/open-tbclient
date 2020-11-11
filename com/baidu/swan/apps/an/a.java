@@ -3,16 +3,16 @@ package com.baidu.swan.apps.an;
 import android.text.TextUtils;
 /* loaded from: classes10.dex */
 public final class a {
-    private static String dxh;
+    private static String dCZ;
 
-    public static String tN(String str) {
-        return String.format("%s %s", str, aJv());
+    public static String ub(String str) {
+        return String.format("%s %s", str, aLV());
     }
 
-    public static String aJv() {
-        if (TextUtils.isEmpty(dxh)) {
-            dxh = b.aJv();
+    public static String aLV() {
+        if (TextUtils.isEmpty(dCZ)) {
+            dCZ = b.aLV();
         }
-        return dxh;
+        return dCZ;
     }
 }

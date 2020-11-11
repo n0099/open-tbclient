@@ -13,7 +13,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.sapi2.SapiContext;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class IMQuitCastMsg extends Message {
     private static final String TAG = "IMQuitCastMsg";
     private Context mContext;

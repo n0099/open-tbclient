@@ -41,10 +41,10 @@ public class aj extends d implements p<bw> {
     }
 
     public void b(bw bwVar) {
-        MetaData bka;
-        if (bwVar != null && this.ahg != null && (bka = bwVar.bka()) != null) {
-            final ThemeCardInUserData themeCard = bka.getThemeCard();
-            if (themeCard == null || StringUtils.isNull(themeCard.getCardImageUrlAndroid()) || bwVar.eAV) {
+        MetaData bmA;
+        if (bwVar != null && this.ahg != null && (bmA = bwVar.bmA()) != null) {
+            final ThemeCardInUserData themeCard = bmA.getThemeCard();
+            if (themeCard == null || StringUtils.isNull(themeCard.getCardImageUrlAndroid()) || bwVar.eGK) {
                 this.ahg.setVisibility(8);
                 return;
             }

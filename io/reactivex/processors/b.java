@@ -7,17 +7,17 @@ import org.a.d;
 final class b<T> extends a<T> {
     volatile boolean done;
     boolean emitting;
-    final a<T> pHR;
+    final a<T> pRl;
     io.reactivex.internal.util.a<Object> queue;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a<T> aVar) {
-        this.pHR = aVar;
+        this.pRl = aVar;
     }
 
     @Override // io.reactivex.g
     protected void a(c<? super T> cVar) {
-        this.pHR.subscribe(cVar);
+        this.pRl.subscribe(cVar);
     }
 
     @Override // io.reactivex.j, org.a.c
@@ -44,7 +44,7 @@ final class b<T> extends a<T> {
             dVar.cancel();
             return;
         }
-        this.pHR.onSubscribe(dVar);
+        this.pRl.onSubscribe(dVar);
         emitLoop();
     }
 
@@ -63,7 +63,7 @@ final class b<T> extends a<T> {
                         return;
                     }
                     this.emitting = true;
-                    this.pHR.onNext(t);
+                    this.pRl.onNext(t);
                     emitLoop();
                 }
             }
@@ -95,7 +95,7 @@ final class b<T> extends a<T> {
             if (z) {
                 io.reactivex.e.a.onError(th);
             } else {
-                this.pHR.onError(th);
+                this.pRl.onError(th);
             }
         }
     }
@@ -116,7 +116,7 @@ final class b<T> extends a<T> {
                         return;
                     }
                     this.emitting = true;
-                    this.pHR.onComplete();
+                    this.pRl.onComplete();
                 }
             }
         }
@@ -133,7 +133,7 @@ final class b<T> extends a<T> {
                 }
                 this.queue = null;
             }
-            aVar.b(this.pHR);
+            aVar.b(this.pRl);
         }
     }
 }

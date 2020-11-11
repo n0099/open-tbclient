@@ -33,7 +33,7 @@ public class PublishButton extends TBSpecificationBtn {
     private void init() {
         com.baidu.tbadk.core.view.commonBtn.a aVar = new com.baidu.tbadk.core.view.commonBtn.a();
         aVar.a(R.drawable.ic_icon_pure_send12, 0, TBSpecificationButtonConfig.IconType.SVG);
-        aVar.pT(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds27));
+        aVar.qd(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds27));
         setConfig(aVar);
         setTextSize(R.dimen.tbds36);
         setText(TbadkCoreApplication.getInst().getResources().getString(R.string.home_write_thread_publish));

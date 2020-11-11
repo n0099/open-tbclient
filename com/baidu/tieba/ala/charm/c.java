@@ -7,11 +7,11 @@ public interface c {
 
     /* loaded from: classes4.dex */
     public interface a {
-        void d(List<ALaCharmData> list, List<ALaCharmData> list2, String str);
+        void b(List<ALaCharmData> list, List<ALaCharmData> list2, String str);
 
         void onClose();
 
-        void us(String str);
+        void uG(String str);
     }
 
     void a(a aVar);
@@ -20,7 +20,7 @@ public interface c {
 
     void a(String str, String str2, String str3, boolean z, String str4, String str5);
 
-    void bAy();
+    void bCX();
 
     void release();
 }

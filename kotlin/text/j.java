@@ -8,27 +8,27 @@ import java.util.regex.Matcher;
 @kotlin.h
 /* loaded from: classes10.dex */
 public final class j implements i {
-    private final CharSequence pKh;
-    private final g pKp;
-    private final Matcher pKq;
+    private final CharSequence pTB;
+    private final g pTJ;
+    private final Matcher pTK;
 
     public j(Matcher matcher, CharSequence charSequence) {
         kotlin.jvm.internal.q.n(matcher, "matcher");
         kotlin.jvm.internal.q.n(charSequence, Config.INPUT_PART);
-        this.pKq = matcher;
-        this.pKh = charSequence;
-        this.pKp = new a();
+        this.pTK = matcher;
+        this.pTB = charSequence;
+        this.pTJ = new a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final MatchResult eyx() {
-        return this.pKq;
+    public final MatchResult eCm() {
+        return this.pTK;
     }
 
     @Override // kotlin.text.i
-    public kotlin.b.h eyv() {
+    public kotlin.b.h eCk() {
         kotlin.b.h a2;
-        a2 = k.a(eyx());
+        a2 = k.a(eCm());
         return a2;
     }
 
@@ -53,7 +53,7 @@ public final class j implements i {
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return j.this.eyx().groupCount() + 1;
+            return j.this.eCm().groupCount() + 1;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
@@ -66,11 +66,11 @@ public final class j implements i {
             return kotlin.sequences.e.c(kotlin.collections.o.i(kotlin.collections.o.o(this)), new MatcherMatchResult$groups$1$iterator$1(this)).iterator();
         }
 
-        public f Rb(int i) {
+        public f Rw(int i) {
             kotlin.b.h a2;
-            a2 = k.a(j.this.eyx(), i);
-            if (a2.eym().intValue() >= 0) {
-                String group = j.this.eyx().group(i);
+            a2 = k.a(j.this.eCm(), i);
+            if (a2.eCb().intValue() >= 0) {
+                String group = j.this.eCm().group(i);
                 kotlin.jvm.internal.q.m(group, "matchResult.group(index)");
                 return new f(group, a2);
             }
@@ -79,13 +79,13 @@ public final class j implements i {
     }
 
     @Override // kotlin.text.i
-    public i eyw() {
+    public i eCl() {
         i a2;
-        int end = (eyx().end() == eyx().start() ? 1 : 0) + eyx().end();
-        if (end <= this.pKh.length()) {
-            Matcher matcher = this.pKq.pattern().matcher(this.pKh);
+        int end = (eCm().end() == eCm().start() ? 1 : 0) + eCm().end();
+        if (end <= this.pTB.length()) {
+            Matcher matcher = this.pTK.pattern().matcher(this.pTB);
             kotlin.jvm.internal.q.m(matcher, "matcher.pattern().matcher(input)");
-            a2 = k.a(matcher, end, this.pKh);
+            a2 = k.a(matcher, end, this.pTB);
             return a2;
         }
         return null;

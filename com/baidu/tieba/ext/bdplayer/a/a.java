@@ -9,19 +9,19 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class a extends UniversalPlayer {
-    private String ino;
+    private String itm;
 
     public a(Context context, String str) {
         super(context);
-        this.ino = str;
-        crw();
+        this.itm = str;
+        ctX();
     }
 
-    public void crw() {
+    public void ctX() {
         setOption(CyberPlayerManager.OPT_IS_LIVE_VIDEO, "true");
         HashMap hashMap = new HashMap();
         hashMap.put(CyberPlayerManager.STAGE_INFO_TYPE, SoUtils.SO_EVENT_ID_DEFAULT);
-        hashMap.put(CyberPlayerManager.STAGE_INFO_TITLE, this.ino);
+        hashMap.put(CyberPlayerManager.STAGE_INFO_TITLE, this.itm);
         setExternalInfo(CyberPlayerManager.STR_STAGE_INFO, hashMap);
     }
 

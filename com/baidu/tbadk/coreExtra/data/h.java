@@ -7,7 +7,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class h {
-    private List<i> eWM = new ArrayList();
+    private List<i> fcC = new ArrayList();
 
     public void parserJson(JSONObject jSONObject) throws JSONException {
         JSONArray optJSONArray;
@@ -17,7 +17,7 @@ public class h {
                 if (jSONObject2 != null) {
                     i iVar = new i();
                     iVar.parserJson(jSONObject2);
-                    this.eWM.add(iVar);
+                    this.fcC.add(iVar);
                 }
             }
         }

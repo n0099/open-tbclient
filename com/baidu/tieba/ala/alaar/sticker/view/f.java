@@ -10,69 +10,69 @@ import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tieba.ala.alaar.sticker.model.FuFaceItem;
 /* loaded from: classes4.dex */
 public class f extends i {
-    private TbImageView fZA;
-    public ImageView fZB;
-    private ObjectAnimator fZC;
-    public ImageView fZD;
+    private TbImageView gfs;
+    public ImageView gft;
+    private ObjectAnimator gfu;
+    public ImageView gfv;
 
     public f(View view) {
         this.mRootView = view;
-        this.fZA = (TbImageView) this.mRootView.findViewById(a.g.sticker_img);
-        this.fZA.setDefaultBgResource(a.f.icon_live_gift_default);
-        this.fZA.setDefaultErrorResource(a.f.icon_live_gift_default);
-        this.fZA.setAutoChangeStyle(false);
-        this.fZB = (ImageView) this.mRootView.findViewById(a.g.sticker_unload);
-        this.fZG = (MaskStrokeView) this.mRootView.findViewById(a.g.sticker_bg);
-        this.fZD = (ImageView) this.mRootView.findViewById(a.g.sticker_cancel);
+        this.gfs = (TbImageView) this.mRootView.findViewById(a.f.sticker_img);
+        this.gfs.setDefaultBgResource(a.e.icon_live_gift_default);
+        this.gfs.setDefaultErrorResource(a.e.icon_live_gift_default);
+        this.gfs.setAutoChangeStyle(false);
+        this.gft = (ImageView) this.mRootView.findViewById(a.f.sticker_unload);
+        this.gfy = (MaskStrokeView) this.mRootView.findViewById(a.f.sticker_bg);
+        this.gfv = (ImageView) this.mRootView.findViewById(a.f.sticker_cancel);
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.view.i
     public void d(FuFaceItem fuFaceItem) {
         if (fuFaceItem.isCancelItem) {
-            this.fZD.setVisibility(0);
-            this.fZA.setVisibility(8);
-            this.fZB.setVisibility(8);
-            this.fZG.setVisibility(8);
+            this.gfv.setVisibility(0);
+            this.gfs.setVisibility(8);
+            this.gft.setVisibility(8);
+            this.gfy.setVisibility(8);
             return;
         }
-        this.fZD.setVisibility(8);
-        this.fZA.setVisibility(0);
+        this.gfv.setVisibility(8);
+        this.gfs.setVisibility(0);
         if (fuFaceItem.isResLoaded()) {
-            this.fZB.setVisibility(4);
-            bLF();
-        } else if (!TextUtils.isEmpty(fuFaceItem.file) && com.baidu.tieba.ala.alaar.sticker.download.b.bKT().isRunning(fuFaceItem.file)) {
-            this.fZB.setVisibility(0);
-            bLE();
+            this.gft.setVisibility(4);
+            bOe();
+        } else if (!TextUtils.isEmpty(fuFaceItem.file) && com.baidu.tieba.ala.alaar.sticker.download.b.bNs().isRunning(fuFaceItem.file)) {
+            this.gft.setVisibility(0);
+            bOd();
         } else {
-            this.fZB.setVisibility(0);
-            this.fZB.setRotation(0.0f);
-            this.fZB.setImageResource(a.f.sticker_unload);
-            bLF();
+            this.gft.setVisibility(0);
+            this.gft.setRotation(0.0f);
+            this.gft.setImageResource(a.e.sticker_unload);
+            bOe();
         }
         e(fuFaceItem);
     }
 
     public void e(FuFaceItem fuFaceItem) {
         if (fuFaceItem != null) {
-            this.fZA.startLoad(fuFaceItem.bgurl, 10, false);
+            this.gfs.startLoad(fuFaceItem.bgurl, 10, false);
         }
     }
 
-    public void bLE() {
-        if (this.fZC == null) {
-            this.fZC = ObjectAnimator.ofFloat(this.fZB, MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION, 0.0f, 359.0f);
-            this.fZC.setRepeatCount(-1);
-            this.fZC.setDuration(1000L);
+    public void bOd() {
+        if (this.gfu == null) {
+            this.gfu = ObjectAnimator.ofFloat(this.gft, MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION, 0.0f, 359.0f);
+            this.gfu.setRepeatCount(-1);
+            this.gfu.setDuration(1000L);
         }
-        if (!this.fZC.isRunning()) {
-            this.fZB.setImageResource(a.f.sticker_loading);
-            this.fZC.start();
+        if (!this.gfu.isRunning()) {
+            this.gft.setImageResource(a.e.sticker_loading);
+            this.gfu.start();
         }
     }
 
-    public void bLF() {
-        if (this.fZC != null && this.fZC.isRunning()) {
-            this.fZC.cancel();
+    public void bOe() {
+        if (this.gfu != null && this.gfu.isRunning()) {
+            this.gfu.cancel();
         }
     }
 }

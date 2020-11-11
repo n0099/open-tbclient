@@ -6,15 +6,15 @@ import java.io.File;
 public class i extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ g f1885a;
+    final /* synthetic */ g f1887a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(g gVar) {
-        this.f1885a = gVar;
+        this.f1887a = gVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        this.f1885a.a(new File(com.baidu.location.e.l.k() + "/baidu/tempdata", "intime.dat"), "https://itsdata.map.baidu.com/long-conn-gps/sdk.php");
+        this.f1887a.a(new File(com.baidu.location.e.l.k() + "/baidu/tempdata", "intime.dat"), "https://itsdata.map.baidu.com/long-conn-gps/sdk.php");
     }
 }

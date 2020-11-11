@@ -12,7 +12,7 @@ import org.json.JSONObject;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes6.dex */
 public class g {
-    public static ParserRet eB(JSONObject jSONObject) {
+    public static ParserRet eH(JSONObject jSONObject) {
         String str;
         MyUserInfo myUserInfo;
         int i;

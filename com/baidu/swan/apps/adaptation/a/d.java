@@ -3,83 +3,83 @@ package com.baidu.swan.apps.adaptation.a;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public interface d {
-    String adN();
+    boolean agA();
 
-    int adO();
+    boolean agB();
 
-    int adP();
+    long agC();
 
-    int adQ();
+    boolean agD();
 
-    int adR();
+    boolean agE();
 
-    boolean adS();
+    long agF();
 
-    boolean adT();
+    boolean agG();
 
-    boolean adU();
+    boolean agH();
 
-    boolean adV();
+    boolean agI();
 
-    boolean adW();
+    boolean agJ();
 
-    String adX();
+    long agK();
 
-    boolean adY();
+    boolean agL();
 
-    boolean adZ();
+    boolean agM();
 
-    boolean aea();
+    int agN();
 
-    boolean aeb();
+    int agO();
 
-    long aec();
+    double agP();
 
-    boolean aed();
+    boolean agQ();
 
-    boolean aee();
+    double agR();
 
-    long aef();
+    double agS();
 
-    boolean aeg();
+    int agT();
 
-    boolean aeh();
+    boolean agU();
 
-    boolean aei();
+    boolean agV();
 
-    boolean aej();
+    boolean agW();
 
-    long aek();
+    boolean agX();
 
-    boolean ael();
+    int agY();
 
-    boolean aem();
+    boolean agZ();
 
-    int aen();
+    String agn();
 
-    int aeo();
+    int ago();
 
-    double aep();
+    int agp();
 
-    boolean aeq();
+    int agq();
 
-    double aer();
+    int agr();
 
-    double aes();
+    boolean ags();
 
-    int aet();
+    boolean agt();
 
-    boolean aeu();
+    boolean agu();
 
-    boolean aev();
+    boolean agv();
 
-    boolean aew();
+    boolean agw();
 
-    boolean aex();
+    String agx();
 
-    int aey();
+    boolean agy();
 
-    boolean aez();
+    boolean agz();
 
     JSONObject getRawSwitch();
 
@@ -89,5 +89,5 @@ public interface d {
 
     boolean getSwitch(String str, boolean z);
 
-    boolean hi(int i);
+    boolean hs(int i);
 }

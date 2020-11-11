@@ -58,7 +58,7 @@ public class p implements IXAdSystemUtils {
     private String m;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONArray f2444a = new JSONArray();
+    public JSONArray f2446a = new JSONArray();
     private String b = "";
     private String c = "";
     private int h = -1;
@@ -812,7 +812,7 @@ public class p implements IXAdSystemUtils {
                 if (packageManager.getLaunchIntentForPackage(runningAppProcessInfo.processName) != null && packageManager.getApplicationInfo(runningAppProcessInfo.processName, 128) != null) {
                     for (String str : supportedBrowsers) {
                         if (runningAppProcessInfo.processName.equals(str)) {
-                            this.f2444a.put(runningAppProcessInfo.processName);
+                            this.f2446a.put(runningAppProcessInfo.processName);
                         }
                     }
                 }
@@ -820,8 +820,8 @@ public class p implements IXAdSystemUtils {
         } catch (Exception e) {
             adLogger.d(e);
         }
-        adLogger.d("bgBrowsers:" + this.f2444a);
-        return this.f2444a;
+        adLogger.d("bgBrowsers:" + this.f2446a);
+        return this.f2446a;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils

@@ -10,16 +10,16 @@ import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.data.be;
+import com.baidu.live.data.bg;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 /* loaded from: classes4.dex */
 public class e extends a {
-    private HeadImageView aEp;
-    private TextView aVA;
-    private View cnT;
-    private TextView hed;
+    private HeadImageView aFf;
+    private TextView aWS;
+    private View ctR;
+    private TextView hjZ;
 
     public e(@NonNull Context context) {
         super(context);
@@ -28,90 +28,90 @@ public class e extends a {
     @Override // com.baidu.tieba.ala.liveroom.o.a
     public void init() {
         super.init();
-        Ga();
+        GB();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.o.a
     public void initView() {
-        setContentView(a.h.ala_hor_guide_follow_float);
-        this.cnT = findViewById(a.g.layout_root);
-        this.cnT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.o.e.1
+        setContentView(a.g.ala_hor_guide_follow_float);
+        this.ctR = findViewById(a.f.layout_root);
+        this.ctR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.o.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 e.this.dismiss();
             }
         });
-        this.aVA = (TextView) findViewById(a.g.tv_guide_folllow_tip);
-        this.hed = (TextView) findViewById(a.g.ala_live_name);
-        this.aEp = (HeadImageView) findViewById(a.g.iv_avatar);
+        this.aWS = (TextView) findViewById(a.f.tv_guide_folllow_tip);
+        this.hjZ = (TextView) findViewById(a.f.ala_live_name);
+        this.aFf = (HeadImageView) findViewById(a.f.iv_avatar);
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            this.aEp.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def_hk);
-            this.aEp.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def_hk);
+            this.aFf.setDefaultResource(a.e.sdk_pic_mycenter_avatar_def_hk);
+            this.aFf.setDefaultErrorResource(a.e.sdk_pic_mycenter_avatar_def_hk);
         } else {
-            this.aEp.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def);
-            this.aEp.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def);
+            this.aFf.setDefaultResource(a.e.sdk_pic_mycenter_avatar_def);
+            this.aFf.setDefaultErrorResource(a.e.sdk_pic_mycenter_avatar_def);
         }
-        this.aEp.setIsRound(true);
-        this.aEp.setAutoChangeStyle(false);
-        this.aEp.setBorderWidth(BdUtilHelper.getDimens(getContext(), a.e.sdk_ds4));
-        this.aEp.setBorderColor(872415231);
-        this.aEp.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        TextView textView = (TextView) findViewById(a.g.tv_confirm);
+        this.aFf.setIsRound(true);
+        this.aFf.setAutoChangeStyle(false);
+        this.aFf.setBorderWidth(BdUtilHelper.getDimens(getContext(), a.d.sdk_ds4));
+        this.aFf.setBorderColor(872415231);
+        this.aFf.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        TextView textView = (TextView) findViewById(a.f.tv_confirm);
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            textView.setBackgroundResource(a.f.ala_live_follow_btn_radius_16_selector_hk);
+            textView.setBackgroundResource(a.e.ala_live_follow_btn_radius_16_selector_hk);
         } else if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-            textView.setBackgroundResource(a.f.ala_live_room_follow_btn_radius_16_selector_bd);
+            textView.setBackgroundResource(a.e.ala_live_room_follow_btn_radius_16_selector_bd);
         } else {
-            textView.setBackgroundResource(a.f.ala_live_follow_btn_radius_16_selector);
+            textView.setBackgroundResource(a.e.ala_live_follow_btn_radius_16_selector);
         }
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.o.e.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (e.this.hdO != null) {
-                    e.this.hdO.onConfirm();
+                if (e.this.hjK != null) {
+                    e.this.hjK.onConfirm();
                 }
             }
         });
-        this.hdP = textView.getText().toString();
-        car();
+        this.hjL = textView.getText().toString();
+        ccS();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.o.a
     public void eu(String str, String str2) {
-        caq();
-        this.aEp.startLoad(str, 25, false, false);
-        this.hed.setText(str2);
-        Mr();
+        ccR();
+        this.aFf.startLoad(str, 25, false, false);
+        this.hjZ.setText(str2);
+        MR();
         show();
     }
 
-    private void car() {
-        be beVar;
-        if (com.baidu.live.z.a.Pq().bmJ != null && (beVar = com.baidu.live.z.a.Pq().bmJ.aLV) != null && !TextUtils.isEmpty(beVar.aOd)) {
-            this.aVA.setText(beVar.aOd);
+    private void ccS() {
+        bg bgVar;
+        if (com.baidu.live.aa.a.PQ().bod != null && (bgVar = com.baidu.live.aa.a.PQ().bod.aMV) != null && !TextUtils.isEmpty(bgVar.aPg)) {
+            this.aWS.setText(bgVar.aPg);
         }
     }
 
-    private void Ga() {
+    private void GB() {
         setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.liveroom.o.e.3
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                e.this.caq();
+                e.this.ccR();
             }
         });
     }
 
-    private void Mr() {
+    private void MR() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 1.0f, 1, 0.0f);
         translateAnimation.setDuration(400L);
         translateAnimation.setInterpolator(new LinearInterpolator());
-        this.cnT.startAnimation(translateAnimation);
+        this.ctR.startAnimation(translateAnimation);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void caq() {
-        if (this.aEp != null) {
-            this.aEp.stopLoad();
+    public void ccR() {
+        if (this.aFf != null) {
+            this.aFf.stopLoad();
         }
     }
 }

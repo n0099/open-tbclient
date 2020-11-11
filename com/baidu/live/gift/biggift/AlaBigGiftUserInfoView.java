@@ -15,11 +15,11 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 /* loaded from: classes4.dex */
 public class AlaBigGiftUserInfoView extends RelativeLayout {
-    public HeadImageView aVD;
-    public TextView aVE;
-    public TextView aVF;
-    private com.baidu.live.gift.a.c aVG;
-    private RelativeLayout aVH;
+    public HeadImageView aWV;
+    public TextView aWW;
+    public TextView aWX;
+    private com.baidu.live.gift.a.c aWY;
+    private RelativeLayout aWZ;
 
     public AlaBigGiftUserInfoView(Context context) {
         super(context);
@@ -37,54 +37,54 @@ public class AlaBigGiftUserInfoView extends RelativeLayout {
     }
 
     private void init(Context context) {
-        LayoutInflater.from(getContext()).inflate(a.h.popup_user_info_layout, this);
-        this.aVH = (RelativeLayout) findViewById(a.g.sender_user_info);
-        this.aVD = (HeadImageView) findViewById(a.g.sender_avatar);
-        this.aVD.setIsRound(true);
-        this.aVD.setAutoChangeStyle(false);
-        this.aVD.setDefaultBgResource(a.f.sdk_default_avatar);
-        this.aVE = (TextView) findViewById(a.g.sender_name);
-        this.aVF = (TextView) findViewById(a.g.gift_name);
+        LayoutInflater.from(getContext()).inflate(a.g.popup_user_info_layout, this);
+        this.aWZ = (RelativeLayout) findViewById(a.f.sender_user_info);
+        this.aWV = (HeadImageView) findViewById(a.f.sender_avatar);
+        this.aWV.setIsRound(true);
+        this.aWV.setAutoChangeStyle(false);
+        this.aWV.setDefaultBgResource(a.e.sdk_default_avatar);
+        this.aWW = (TextView) findViewById(a.f.sender_name);
+        this.aWX = (TextView) findViewById(a.f.gift_name);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.biggift.AlaBigGiftUserInfoView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaBigGiftUserInfoView.this.Ha();
+                AlaBigGiftUserInfoView.this.HB();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ha() {
-        if (this.aVG != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(getContext(), String.valueOf(this.aVG.userId), this.aVG.userName, this.aVG.portrait, this.aVG.sex, this.aVG.aZL, this.aVG.location, this.aVG.description, 0L, this.aVG.fansCount, this.aVG.aZM, this.aVG.userStatus, this.aVG.liveId, this.aVG.groupId, this.aVG.aZR, this.aVG.aZS, this.aVG.appId, this.aVG.userName, "")));
+    public void HB() {
+        if (this.aWY != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(getContext(), String.valueOf(this.aWY.userId), this.aWY.userName, this.aWY.portrait, this.aWY.sex, this.aWY.bbe, this.aWY.location, this.aWY.description, 0L, this.aWY.fansCount, this.aWY.bbf, this.aWY.userStatus, this.aWY.liveId, this.aWY.groupId, this.aWY.bbk, this.aWY.bbl, this.aWY.appId, this.aWY.userName, "")));
         }
     }
 
     public void setData(com.baidu.live.gift.a.c cVar) {
         if (cVar != null) {
-            this.aVG = cVar;
+            this.aWY = cVar;
             if (cVar.portrait != null) {
-                this.aVD.startLoad(cVar.portrait, 12, false);
+                this.aWV.startLoad(cVar.portrait, 12, false);
             }
-            he(cVar.userName);
-            if (cVar.aZJ != null) {
-                this.aVF.setText(cVar.aZJ.Ft());
+            hl(cVar.userName);
+            if (cVar.bbc != null) {
+                this.aWX.setText(cVar.bbc.FU());
             }
         }
     }
 
-    private void he(String str) {
-        this.aVE.setTag(Long.valueOf(System.currentTimeMillis()));
+    private void hl(String str) {
+        this.aWW.setTag(Long.valueOf(System.currentTimeMillis()));
         if (!TextUtils.isEmpty(str)) {
-            this.aVE.setText(str);
+            this.aWW.setText(str);
         }
     }
 
     public void setSenderUserInfoMarginLeftZero() {
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aVH.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aWZ.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.leftMargin = 0;
-            this.aVH.setLayoutParams(layoutParams);
+            this.aWZ.setLayoutParams(layoutParams);
         }
     }
 }

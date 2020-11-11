@@ -19,24 +19,24 @@ import com.baidu.swan.menu.PopupWindow;
 import java.util.ArrayList;
 /* loaded from: classes10.dex */
 public class c extends PopupWindow implements View.OnClickListener {
-    private View cZU;
-    private com.baidu.swan.menu.a cZV;
-    private View cZW;
-    private FontSizeSettingMenuView cZX;
-    private a cZY;
+    private View dfR;
+    private com.baidu.swan.menu.a dfS;
+    private View dfT;
+    private FontSizeSettingMenuView dfU;
+    private a dfV;
     private Context mContext;
     private ViewGroup mRootView;
 
     /* loaded from: classes10.dex */
     public interface a {
-        void jl(int i);
+        void jv(int i);
     }
 
     public c(Context context, View view, @Nullable com.baidu.swan.menu.a aVar) {
         super(context);
         this.mContext = context;
-        this.cZU = view;
-        this.cZV = aVar;
+        this.dfR = view;
+        this.dfS = aVar;
         setClippingEnabled(false);
         setFocusable(true);
         setOutsideTouchable(true);
@@ -48,15 +48,15 @@ public class c extends PopupWindow implements View.OnClickListener {
 
     private void initViews() {
         this.mRootView = (FrameLayout) LayoutInflater.from(this.mContext).inflate(a.g.swan_app_font_setting_layout, (ViewGroup) null);
-        this.cZW = this.mRootView.findViewById(a.f.mask);
-        this.cZX = (FontSizeSettingMenuView) this.mRootView.findViewById(a.f.font_size_setting);
-        this.cZW.setOnClickListener(this);
-        this.cZX.setClickListener(this);
-        this.cZX.setOnSliderBarChangeListener(new SliderBar.b() { // from class: com.baidu.swan.apps.menu.fontsize.c.1
+        this.dfT = this.mRootView.findViewById(a.f.mask);
+        this.dfU = (FontSizeSettingMenuView) this.mRootView.findViewById(a.f.font_size_setting);
+        this.dfT.setOnClickListener(this);
+        this.dfU.setClickListener(this);
+        this.dfU.setOnSliderBarChangeListener(new SliderBar.b() { // from class: com.baidu.swan.apps.menu.fontsize.c.1
             @Override // com.baidu.swan.apps.res.ui.SliderBar.b
             public void a(SliderBar sliderBar, int i) {
-                if (c.this.cZY != null) {
-                    c.this.cZY.jl(i);
+                if (c.this.dfV != null) {
+                    c.this.dfV.jv(i);
                 }
             }
         });
@@ -68,53 +68,53 @@ public class c extends PopupWindow implements View.OnClickListener {
     public void onClick(View view) {
         int id = view.getId();
         if (id == a.f.cancel || id == a.f.mask) {
-            fy(true);
+            fH(true);
         }
     }
 
     public void showView() {
         if (!isShowing()) {
-            azv();
+            aBV();
             Activity activity = (Activity) this.mContext;
             if (activity != null && !activity.isFinishing() && !activity.isDestroyed()) {
-                this.cZX.setMode();
-                showAtLocation(this.cZU, 81, 0, 0);
+                this.dfU.setMode();
+                showAtLocation(this.dfR, 81, 0, 0);
                 getContentView().setSystemUiVisibility(5120);
                 setFocusable(true);
                 update();
-                final View contentView = this.cZX.getContentView();
+                final View contentView = this.dfU.getContentView();
                 if (contentView.getHeight() == 0) {
                     contentView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.swan.apps.menu.fontsize.c.2
                         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                         public void onGlobalLayout() {
-                            c.this.cZX.mq(contentView.getHeight());
-                            c.this.azw();
+                            c.this.dfU.mA(contentView.getHeight());
+                            c.this.aBW();
                             contentView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                         }
                     });
                 } else {
-                    azw();
+                    aBW();
                 }
             }
         }
     }
 
-    public void azv() {
-        if (this.cZV != null) {
-            this.cZV.a(this.cZX);
+    public void aBV() {
+        if (this.dfS != null) {
+            this.dfS.a(this.dfU);
         }
     }
 
     public void a(a aVar) {
-        this.cZY = aVar;
+        this.dfV = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void azw() {
-        this.cZW.setAlpha(0.0f);
-        this.cZX.setTranslationY(this.cZX.getHeight());
-        ObjectAnimator a2 = com.baidu.swan.menu.c.a(this.cZW, this.cZX);
-        ObjectAnimator b = com.baidu.swan.menu.c.b(this.cZX);
+    public void aBW() {
+        this.dfT.setAlpha(0.0f);
+        this.dfU.setTranslationY(this.dfU.getHeight());
+        ObjectAnimator a2 = com.baidu.swan.menu.c.a(this.dfT, this.dfU);
+        ObjectAnimator b = com.baidu.swan.menu.c.b(this.dfU);
         ArrayList arrayList = new ArrayList();
         arrayList.add(a2);
         arrayList.add(b);
@@ -123,12 +123,12 @@ public class c extends PopupWindow implements View.OnClickListener {
         animatorSet.start();
     }
 
-    public void fy(boolean z) {
+    public void fH(boolean z) {
         if (!z) {
             super.dismiss();
         } else if (isShowing()) {
-            ObjectAnimator aU = com.baidu.swan.menu.c.aU(this.cZW);
-            ObjectAnimator c = com.baidu.swan.menu.c.c(this.cZX);
+            ObjectAnimator aY = com.baidu.swan.menu.c.aY(this.dfT);
+            ObjectAnimator c = com.baidu.swan.menu.c.c(this.dfU);
             AnimatorSet animatorSet = new AnimatorSet();
             animatorSet.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.swan.apps.menu.fontsize.c.3
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -139,7 +139,7 @@ public class c extends PopupWindow implements View.OnClickListener {
                     }
                 }
             });
-            animatorSet.playTogether(aU, c);
+            animatorSet.playTogether(aY, c);
             animatorSet.start();
         }
     }

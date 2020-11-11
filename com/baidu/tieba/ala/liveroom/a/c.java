@@ -1,9 +1,9 @@
 package com.baidu.tieba.ala.liveroom.a;
 /* loaded from: classes4.dex */
 public interface c {
-    void Hs(String str);
+    void HG(String str);
 
-    void aE(String str, int i);
+    void aG(String str, int i);
 
     void dI(int i);
 

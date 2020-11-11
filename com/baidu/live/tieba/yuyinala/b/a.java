@@ -10,41 +10,41 @@ import com.baidu.live.tieba.yuyinala.d.c;
 import com.baidu.live.tieba.yuyinala.e.a;
 /* loaded from: classes4.dex */
 public class a {
-    private com.baidu.live.tieba.yuyinala.e.a bzL;
-    private c bzM;
-    private com.baidu.live.tieba.yuyinala.d.b bzN;
-    private String bzz;
+    private String bFK;
+    private com.baidu.live.tieba.yuyinala.e.a bFW;
+    private c bFX;
+    private com.baidu.live.tieba.yuyinala.d.b bFY;
     private String mLiveId;
     private String mRoomId;
     private TbPageContext mTbPageContext;
-    private final c.a bzO = new c.a() { // from class: com.baidu.live.tieba.yuyinala.b.a.1
+    private final c.a bFZ = new c.a() { // from class: com.baidu.live.tieba.yuyinala.b.a.1
         @Override // com.baidu.live.tieba.yuyinala.d.c.a
-        public void Ol() {
-            BdUtilHelper.showToast(a.this.mTbPageContext.getPageActivity(), a.i.txt_person_report_success);
+        public void OL() {
+            BdUtilHelper.showToast(a.this.mTbPageContext.getPageActivity(), a.h.txt_person_report_success);
             a.this.mTbPageContext.getPageActivity().finish();
         }
 
         @Override // com.baidu.live.tieba.yuyinala.d.c.a
         public void onFail(String str) {
-            BdUtilHelper.showToast(a.this.mTbPageContext.getPageActivity(), a.i.txt_person_report_fail);
+            BdUtilHelper.showToast(a.this.mTbPageContext.getPageActivity(), a.h.txt_person_report_fail);
         }
     };
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.live.tieba.yuyinala.b.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.bzL.RR().length() > 20) {
-                BdUtilHelper.showToast(a.this.mTbPageContext.getPageActivity(), a.i.txt_describe_feedback_reason_text_max_limit);
-            } else if (TextUtils.isEmpty(a.this.mRoomId) || a.this.bzM == null) {
-                if (!TextUtils.isEmpty(a.this.mRoomId) && !TextUtils.isEmpty(a.this.bzz) && a.this.bzN != null) {
-                    a.this.bzN.y(a.this.mRoomId, a.this.bzL.RR(), a.this.bzz);
+            if (a.this.bFW.Uz().length() > 20) {
+                BdUtilHelper.showToast(a.this.mTbPageContext.getPageActivity(), a.h.txt_describe_feedback_reason_text_max_limit);
+            } else if (TextUtils.isEmpty(a.this.mRoomId) || a.this.bFX == null) {
+                if (!TextUtils.isEmpty(a.this.mRoomId) && !TextUtils.isEmpty(a.this.bFK) && a.this.bFY != null) {
+                    a.this.bFY.y(a.this.mRoomId, a.this.bFW.Uz(), a.this.bFK);
                 }
             } else {
-                a.this.bzM.aQ(a.this.mRoomId, a.this.bzL.RR());
+                a.this.bFX.aR(a.this.mRoomId, a.this.bFW.Uz());
             }
         }
     };
-    private final a.InterfaceC0211a bzP = new a.InterfaceC0211a() { // from class: com.baidu.live.tieba.yuyinala.b.a.3
-        @Override // com.baidu.live.tieba.yuyinala.e.a.InterfaceC0211a
+    private final a.InterfaceC0223a bGa = new a.InterfaceC0223a() { // from class: com.baidu.live.tieba.yuyinala.b.a.3
+        @Override // com.baidu.live.tieba.yuyinala.e.a.InterfaceC0223a
         public void afterTextChanged(Editable editable) {
         }
     };
@@ -53,40 +53,40 @@ public class a {
         this.mTbPageContext = tbPageContext;
         this.mLiveId = str;
         this.mRoomId = str2;
-        this.bzL = new com.baidu.live.tieba.yuyinala.e.a(this.mTbPageContext, this.mOnClickListener, this.bzP);
-        this.bzL.aP(this.mLiveId, str2);
-        this.bzM = new c(this.mTbPageContext.getContext());
-        this.bzM.a(this.bzO);
+        this.bFW = new com.baidu.live.tieba.yuyinala.e.a(this.mTbPageContext, this.mOnClickListener, this.bGa);
+        this.bFW.aQ(this.mLiveId, str2);
+        this.bFX = new c(this.mTbPageContext.getContext());
+        this.bFX.a(this.bFZ);
     }
 
     public a(TbPageContext tbPageContext, String str, String str2, String str3) {
         this.mTbPageContext = tbPageContext;
         this.mLiveId = str;
         this.mRoomId = str2;
-        this.bzz = str3;
-        this.bzL = new com.baidu.live.tieba.yuyinala.e.a(this.mTbPageContext, this.mOnClickListener, this.bzP);
-        this.bzL.aP(this.mLiveId, str2);
-        this.bzN = new com.baidu.live.tieba.yuyinala.d.b(this.mTbPageContext.getContext());
-        this.bzN.a(this.bzO);
+        this.bFK = str3;
+        this.bFW = new com.baidu.live.tieba.yuyinala.e.a(this.mTbPageContext, this.mOnClickListener, this.bGa);
+        this.bFW.aQ(this.mLiveId, str2);
+        this.bFY = new com.baidu.live.tieba.yuyinala.d.b(this.mTbPageContext.getContext());
+        this.bFY.a(this.bFZ);
     }
 
     public View getView() {
-        return this.bzL.getView();
+        return this.bFW.getView();
     }
 
     public void onDestroy() {
-        if (this.bzM != null) {
-            this.bzM.onDestroy();
+        if (this.bFX != null) {
+            this.bFX.onDestroy();
         }
-        if (this.bzN != null) {
-            this.bzN.onDestroy();
+        if (this.bFY != null) {
+            this.bFY.onDestroy();
         }
-        this.bzL.onDestroy();
+        this.bFW.onDestroy();
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.bzL != null) {
-            this.bzL.onKeyboardVisibilityChanged(z);
+        if (this.bFW != null) {
+            this.bFW.onKeyboardVisibilityChanged(z);
         }
     }
 }

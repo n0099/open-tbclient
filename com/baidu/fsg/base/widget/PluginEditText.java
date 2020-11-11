@@ -21,7 +21,7 @@ import java.util.List;
 public class PluginEditText extends EditText implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1539a;
+    private String f1541a;
     private boolean b;
     private List<IEditTextPasteFilter> c;
     protected boolean isAlwaysShow;
@@ -34,7 +34,7 @@ public class PluginEditText extends EditText implements View.OnTouchListener {
 
     public PluginEditText(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1539a = getClass().getSimpleName();
+        this.f1541a = getClass().getSimpleName();
         this.isAlwaysShow = false;
         this.b = true;
         this.c = new ArrayList();
@@ -46,7 +46,7 @@ public class PluginEditText extends EditText implements View.OnTouchListener {
 
     public PluginEditText(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1539a = getClass().getSimpleName();
+        this.f1541a = getClass().getSimpleName();
         this.isAlwaysShow = false;
         this.b = true;
         this.c = new ArrayList();
@@ -87,7 +87,7 @@ public class PluginEditText extends EditText implements View.OnTouchListener {
             try {
                 int selectionStart = getSelectionStart();
                 int selectionEnd = getSelectionEnd();
-                LogUtil.d(this.f1539a, "\tstart:" + selectionStart + "\tend:" + selectionEnd);
+                LogUtil.d(this.f1541a, "\tstart:" + selectionStart + "\tend:" + selectionEnd);
                 Editable editableText = getEditableText();
                 if (editableText != null) {
                     String obj = editableText.toString();
@@ -113,7 +113,7 @@ public class PluginEditText extends EditText implements View.OnTouchListener {
                 return super.onTextContextMenuItem(i);
             } catch (Exception e) {
                 if (e != null) {
-                    LogUtil.d(this.f1539a, e.getMessage());
+                    LogUtil.d(this.f1541a, e.getMessage());
                 }
                 return super.onTextContextMenuItem(i);
             }

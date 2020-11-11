@@ -21,7 +21,7 @@ public class d extends a<bv, am<bw>> {
     private ab<bw> afF;
 
     public d(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, bw.exR);
+        super(tbPageContext, bw.eDI);
         this.afF = new ab<bw>() { // from class: com.baidu.tieba.homepage.hotTopic.tab.a.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
@@ -35,7 +35,7 @@ public class d extends a<bv, am<bw>> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aT */
+    /* renamed from: aV */
     public am c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
         y yVar = new y(this.mPageContext.getPageActivity());
@@ -51,7 +51,7 @@ public class d extends a<bv, am<bw>> {
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
                 if ((qVar instanceof bv) && (view.getTag() instanceof am)) {
                     am amVar2 = (am) view.getTag();
-                    bw bwVar = ((bv) qVar).erH;
+                    bw bwVar = ((bv) qVar).exA;
                     bwVar.objType = 1;
                     if (d.this.afF != null) {
                         d.this.afF.a(amVar2.getView(), bwVar);
@@ -68,22 +68,22 @@ public class d extends a<bv, am<bw>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.homepage.hotTopic.tab.a.a, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bv bvVar, am<bw> amVar) {
-        if (bvVar == null || amVar == null || amVar.getView() == null || bvVar.erH == null) {
+        if (bvVar == null || amVar == null || amVar.getView() == null || bvVar.exA == null) {
             return null;
         }
-        bvVar.erH.evR = getPositionByType(i) + 1;
+        bvVar.exA.eBK = getPositionByType(i) + 1;
         amVar.tW().setPosition(i);
-        amVar.b((am<bw>) bvVar.erH);
+        amVar.b((am<bw>) bvVar.exA);
         amVar.tW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         amVar.tW().a(this.afF);
         y yVar = (y) amVar.tW().tP();
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) yVar.agI.akI.getLayoutParams();
-        layoutParams.width = bvVar.exG;
-        layoutParams.height = bvVar.exH;
+        layoutParams.width = bvVar.eDx;
+        layoutParams.height = bvVar.eDy;
         if (yVar.agI.akI.getVisibility() != 8) {
             yVar.agI.akI.setLayoutParams(layoutParams);
         }
-        a(amVar.getView(), bvVar.erH, i, i);
+        a(amVar.getView(), bvVar.exA, i, i);
         return amVar.getView();
     }
 }

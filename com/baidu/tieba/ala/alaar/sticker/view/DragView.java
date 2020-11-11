@@ -11,8 +11,8 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.TbImageView;
 /* loaded from: classes4.dex */
 public class DragView extends FrameLayout {
-    private DragTextView fZu;
-    private TbImageView fZv;
+    private DragTextView gfm;
+    private TbImageView gfn;
 
     public DragView(Context context) {
         super(context);
@@ -30,9 +30,9 @@ public class DragView extends FrameLayout {
     }
 
     private void init(Context context) {
-        View inflate = LayoutInflater.from(context).inflate(a.h.drag_layout, this);
-        this.fZu = (DragTextView) inflate.findViewById(a.g.drag_tv);
-        this.fZv = (TbImageView) inflate.findViewById(a.g.drag_bg);
+        View inflate = LayoutInflater.from(context).inflate(a.g.drag_layout, this);
+        this.gfm = (DragTextView) inflate.findViewById(a.f.drag_tv);
+        this.gfn = (TbImageView) inflate.findViewById(a.f.drag_bg);
     }
 
     @Override // android.view.View

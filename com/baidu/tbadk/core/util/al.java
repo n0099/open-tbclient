@@ -13,8 +13,8 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class al {
     private BdUniqueId aiz;
-    private a eHu;
-    private HttpMessageListener eHv = new HttpMessageListener(1003396) { // from class: com.baidu.tbadk.core.util.al.1
+    private a eNj;
+    private HttpMessageListener eNk = new HttpMessageListener(1003396) { // from class: com.baidu.tbadk.core.util.al.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -22,8 +22,8 @@ public class al {
             if (httpResponsedMessage != null && (orginalMessage = httpResponsedMessage.getOrginalMessage()) != null && (orginalMessage.getExtra() instanceof Long)) {
                 long longValue = ((Long) orginalMessage.getExtra()).longValue();
                 boolean z = httpResponsedMessage.getOrginalMessage().getTag() == al.this.aiz;
-                if (al.this.eHu != null) {
-                    al.this.eHu.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), longValue, z);
+                if (al.this.eNj != null) {
+                    al.this.eNj.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), longValue, z);
                 }
             }
         }
@@ -38,12 +38,12 @@ public class al {
     public al(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
         this.aiz = bdUniqueId;
-        this.eHv.setTag(bdUniqueId);
-        this.mPageContext.registerListener(this.eHv);
-        boB();
+        this.eNk.setTag(bdUniqueId);
+        this.mPageContext.registerListener(this.eNk);
+        brb();
     }
 
-    private static void boB() {
+    private static void brb() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003396, TbConfig.SERVER_ADDRESS + TbConfig.URL_REMOVE_FANS);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -52,7 +52,7 @@ public class al {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void cQ(long j) {
+    public void dm(long j) {
         HttpMessage httpMessage = new HttpMessage(1003396);
         httpMessage.addParam("fans_uid", j);
         httpMessage.setTag(this.aiz);
@@ -61,6 +61,6 @@ public class al {
     }
 
     public void a(a aVar) {
-        this.eHu = aVar;
+        this.eNj = aVar;
     }
 }

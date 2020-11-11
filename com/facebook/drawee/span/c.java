@@ -12,17 +12,17 @@ import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class c extends CharacterStyle implements UpdateAppearance {
     private int[] colors = {-17920, -6748254};
-    public int oHs = 90;
-    private int oxV = 8;
-    private Shader oHt = null;
+    public int oQL = 90;
+    private int oHo = 8;
+    private Shader oQM = null;
     private Matrix matrix = new Matrix();
-    private float oHu = 0.0f;
+    private float oQN = 0.0f;
 
     /* loaded from: classes6.dex */
     public static class a {
         private int[] mColors;
-        private int oHs;
-        private int oxV;
+        private int oHo;
+        private int oQL;
 
         public a bn(ArrayList<String> arrayList) {
             if (arrayList != null && arrayList.size() > 0) {
@@ -34,7 +34,7 @@ public class c extends CharacterStyle implements UpdateAppearance {
                         break;
                     }
                     try {
-                        this.mColors[i2] = Color.parseColor(XF(arrayList.get(i2)));
+                        this.mColors[i2] = Color.parseColor(Yj(arrayList.get(i2)));
                     } catch (Exception e) {
                     }
                     i = i2 + 1;
@@ -43,48 +43,48 @@ public class c extends CharacterStyle implements UpdateAppearance {
             return this;
         }
 
-        public a Ou(int i) {
-            this.oxV = i;
+        public a OP(int i) {
+            this.oHo = i;
             return this;
         }
 
-        private String XF(String str) {
+        private String Yj(String str) {
             if (str.indexOf("#") == -1) {
                 return null;
             }
             return str.replace("#", "#FF");
         }
 
-        public c eiO() {
+        public c emD() {
             c cVar = new c();
             if (this.mColors != null) {
                 cVar.colors = this.mColors;
             }
-            if (this.oHs != 0) {
-                cVar.oHs = this.oHs;
+            if (this.oQL != 0) {
+                cVar.oQL = this.oQL;
             }
-            if (this.oxV != 0) {
-                cVar.oxV = this.oxV;
+            if (this.oHo != 0) {
+                cVar.oHo = this.oHo;
             }
             return cVar;
         }
     }
 
-    public void bo(float f) {
-        this.oHu = f;
+    public void bq(float f) {
+        this.oQN = f;
     }
 
     @Override // android.text.style.CharacterStyle
     public void updateDrawState(TextPaint textPaint) {
         textPaint.setStyle(Paint.Style.FILL);
-        float textSize = textPaint.getTextSize() * this.oxV;
-        if (this.oHt == null) {
-            this.oHt = new LinearGradient(0.0f, 0.0f, 0.0f, textSize, this.colors, (float[]) null, Shader.TileMode.MIRROR);
+        float textSize = textPaint.getTextSize() * this.oHo;
+        if (this.oQM == null) {
+            this.oQM = new LinearGradient(0.0f, 0.0f, 0.0f, textSize, this.colors, (float[]) null, Shader.TileMode.MIRROR);
         }
         this.matrix.reset();
-        this.matrix.setRotate(this.oHs);
-        this.matrix.postTranslate(this.oHu * textSize, 0.0f);
-        this.oHt.setLocalMatrix(this.matrix);
-        textPaint.setShader(this.oHt);
+        this.matrix.setRotate(this.oQL);
+        this.matrix.postTranslate(this.oQN * textSize, 0.0f);
+        this.oQM.setLocalMatrix(this.matrix);
+        textPaint.setShader(this.oQM);
     }
 }

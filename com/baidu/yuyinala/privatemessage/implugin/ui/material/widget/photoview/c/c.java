@@ -21,7 +21,7 @@ public class c extends d {
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.c.d
-    public void zJ(boolean z) {
+    public void zU(boolean z) {
         this.mScroller.forceFinished(z);
     }
 

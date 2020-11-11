@@ -18,12 +18,12 @@ public class e extends com.baidu.swan.pms.c.d.b {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.c.d.b
     public void a(@NonNull Map<String, PMSAppInfo> map, @NonNull Map<String, com.baidu.swan.pms.model.f> map2, @NonNull b.a aVar, @Nullable com.baidu.swan.pms.utils.a aVar2) {
-        int ya;
+        int yo;
         super.a(map, map2, aVar, aVar2);
         if (aVar instanceof b) {
             b bVar = (b) aVar;
-            if (bVar.aSG() != null && bVar.aZG() == null && (ya = com.baidu.swan.pms.database.a.aYH().ya(bVar.getBundleId())) >= 0) {
-                bVar.aP(a.aO(com.baidu.swan.pms.database.a.aYH().ad(bVar.getBundleId(), ya)));
+            if (bVar.aVg() != null && bVar.bcg() == null && (yo = com.baidu.swan.pms.database.a.bbh().yo(bVar.getBundleId())) >= 0) {
+                bVar.aW(a.aV(com.baidu.swan.pms.database.a.bbh().af(bVar.getBundleId(), yo)));
             }
         }
     }
@@ -31,7 +31,7 @@ public class e extends com.baidu.swan.pms.c.d.b {
     /* loaded from: classes15.dex */
     public static class b extends b.a {
         @Nullable
-        private List<a> ecX;
+        private List<a> eiP;
         @Nullable
         private String[] mPaths;
 
@@ -40,7 +40,7 @@ public class e extends com.baidu.swan.pms.c.d.b {
         }
 
         @Nullable
-        public String[] aSG() {
+        public String[] aVg() {
             return this.mPaths;
         }
 
@@ -49,27 +49,27 @@ public class e extends com.baidu.swan.pms.c.d.b {
         }
 
         @Nullable
-        public List<a> aZG() {
-            return this.ecX;
+        public List<a> bcg() {
+            return this.eiP;
         }
 
-        public void aP(@Nullable List<a> list) {
-            this.ecX = list;
+        public void aW(@Nullable List<a> list) {
+            this.eiP = list;
         }
     }
 
     /* loaded from: classes15.dex */
     public static class a {
-        private final String ecW;
+        private final String eiO;
         private String mType;
         private long mVersion = 0;
 
         public a(String str) {
-            this.ecW = str;
+            this.eiO = str;
         }
 
-        public String aZF() {
-            return this.ecW;
+        public String bcf() {
+            return this.eiO;
         }
 
         public String getType() {
@@ -84,21 +84,21 @@ public class e extends com.baidu.swan.pms.c.d.b {
             return this.mVersion;
         }
 
-        public void cy(long j) {
+        public void cU(long j) {
             this.mVersion = j;
         }
 
         @NonNull
-        public static List<a> aO(@Nullable List<com.baidu.swan.pms.model.g> list) {
+        public static List<a> aV(@Nullable List<com.baidu.swan.pms.model.g> list) {
             ArrayList arrayList = new ArrayList();
             if (list == null || list.isEmpty()) {
                 return arrayList;
             }
             for (com.baidu.swan.pms.model.g gVar : list) {
                 if (gVar != null) {
-                    a aVar = new a(gVar.ebO);
-                    aVar.setType(gVar.ebT ? "independent" : "normal");
-                    aVar.cy(gVar.versionCode);
+                    a aVar = new a(gVar.ehG);
+                    aVar.setType(gVar.ehL ? "independent" : "normal");
+                    aVar.cU(gVar.versionCode);
                     arrayList.add(aVar);
                 }
             }

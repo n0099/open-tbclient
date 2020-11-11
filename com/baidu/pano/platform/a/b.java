@@ -14,7 +14,7 @@ public interface b {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public byte[] f2646a;
+        public byte[] f2648a;
         public String b;
         public long c;
         public long d;

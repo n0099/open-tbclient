@@ -8,29 +8,29 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes10.dex */
 public class b {
-    public static final Set<String> cMD = i.N("zeus");
-    public static final Set<String> cME = new HashSet(cMD);
-    private static final Set<String> cMF = new HashSet(cME);
-    private static final Map<String, a> cMG = new HashMap();
-    private static boolean cMH = false;
+    public static final Set<String> cSw = i.N("zeus");
+    public static final Set<String> cSx = new HashSet(cSw);
+    private static final Set<String> cSy = new HashSet(cSx);
+    private static final Map<String, a> cSz = new HashMap();
+    private static boolean cSA = false;
 
-    public static a nI(String str) {
-        aqS();
-        return cMG.get(str);
+    public static a nW(String str) {
+        att();
+        return cSz.get(str);
     }
 
-    private static void aqS() {
-        if (!cMH) {
-            for (String str : cMF) {
+    private static void att() {
+        if (!cSA) {
+            for (String str : cSy) {
                 if ("zeus".equals(str)) {
-                    cMG.put(str, aqT());
+                    cSz.put(str, atu());
                 }
             }
         }
-        cMH = true;
+        cSA = true;
     }
 
-    private static a aqT() {
-        return new a.C0426a().nH("zeus").a(com.baidu.swan.apps.t.a.auN().afV()).eT(com.baidu.swan.apps.t.a.auN().afT()).aqR();
+    private static a atu() {
+        return new a.C0438a().nV("zeus").a(com.baidu.swan.apps.t.a.axn().aiv()).fc(com.baidu.swan.apps.t.a.axn().ait()).ats();
     }
 }

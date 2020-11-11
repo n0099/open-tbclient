@@ -6,57 +6,57 @@ import java.io.PrintWriter;
 public class gd extends Exception {
 
     /* renamed from: a  reason: collision with root package name */
-    private gm f4918a;
+    private gm f4920a;
 
     /* renamed from: a  reason: collision with other field name */
-    private gn f383a;
+    private gn f385a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Throwable f384a;
+    private Throwable f386a;
 
     public gd() {
-        this.f4918a = null;
-        this.f383a = null;
-        this.f384a = null;
+        this.f4920a = null;
+        this.f385a = null;
+        this.f386a = null;
     }
 
     public gd(gm gmVar) {
-        this.f4918a = null;
-        this.f383a = null;
-        this.f384a = null;
-        this.f4918a = gmVar;
+        this.f4920a = null;
+        this.f385a = null;
+        this.f386a = null;
+        this.f4920a = gmVar;
     }
 
     public gd(String str) {
         super(str);
-        this.f4918a = null;
-        this.f383a = null;
-        this.f384a = null;
+        this.f4920a = null;
+        this.f385a = null;
+        this.f386a = null;
     }
 
     public gd(String str, Throwable th) {
         super(str);
-        this.f4918a = null;
-        this.f383a = null;
-        this.f384a = null;
-        this.f384a = th;
+        this.f4920a = null;
+        this.f385a = null;
+        this.f386a = null;
+        this.f386a = th;
     }
 
     public gd(Throwable th) {
-        this.f4918a = null;
-        this.f383a = null;
-        this.f384a = null;
-        this.f384a = th;
+        this.f4920a = null;
+        this.f385a = null;
+        this.f386a = null;
+        this.f386a = th;
     }
 
     public Throwable a() {
-        return this.f384a;
+        return this.f386a;
     }
 
     @Override // java.lang.Throwable
     public String getMessage() {
         String message = super.getMessage();
-        return (message != null || this.f383a == null) ? (message != null || this.f4918a == null) ? message : this.f4918a.toString() : this.f383a.toString();
+        return (message != null || this.f385a == null) ? (message != null || this.f4920a == null) ? message : this.f4920a.toString() : this.f385a.toString();
     }
 
     @Override // java.lang.Throwable
@@ -67,18 +67,18 @@ public class gd extends Exception {
     @Override // java.lang.Throwable
     public void printStackTrace(PrintStream printStream) {
         super.printStackTrace(printStream);
-        if (this.f384a != null) {
+        if (this.f386a != null) {
             printStream.println("Nested Exception: ");
-            this.f384a.printStackTrace(printStream);
+            this.f386a.printStackTrace(printStream);
         }
     }
 
     @Override // java.lang.Throwable
     public void printStackTrace(PrintWriter printWriter) {
         super.printStackTrace(printWriter);
-        if (this.f384a != null) {
+        if (this.f386a != null) {
             printWriter.println("Nested Exception: ");
-            this.f384a.printStackTrace(printWriter);
+            this.f386a.printStackTrace(printWriter);
         }
     }
 
@@ -89,14 +89,14 @@ public class gd extends Exception {
         if (message != null) {
             sb.append(message).append(": ");
         }
-        if (this.f383a != null) {
-            sb.append(this.f383a);
+        if (this.f385a != null) {
+            sb.append(this.f385a);
         }
-        if (this.f4918a != null) {
-            sb.append(this.f4918a);
+        if (this.f4920a != null) {
+            sb.append(this.f4920a);
         }
-        if (this.f384a != null) {
-            sb.append("\n  -- caused by: ").append(this.f384a);
+        if (this.f386a != null) {
+            sb.append("\n  -- caused by: ").append(this.f386a);
         }
         return sb.toString();
     }

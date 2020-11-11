@@ -9,8 +9,8 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 public class a {
     private String appId;
     private String downloadUrl;
-    private String ebO;
-    private long ebP = 0;
+    private String ehG;
+    private long ehH = 0;
     private String md5;
     private String sign;
     private long size;
@@ -34,7 +34,7 @@ public class a {
         int columnIndex9 = cursor.getColumnIndex(IMConstants.MSG_ROW_ID);
         String string = cursor.getString(columnIndex2);
         if (!TextUtils.isEmpty(string)) {
-            aVar.ebO = string;
+            aVar.ehG = string;
             aVar.appId = cursor.getString(columnIndex);
             aVar.versionName = cursor.getString(columnIndex3);
             aVar.versionCode = cursor.getInt(columnIndex4);
@@ -42,14 +42,14 @@ public class a {
             aVar.md5 = cursor.getString(columnIndex6);
             aVar.sign = cursor.getString(columnIndex7);
             aVar.downloadUrl = cursor.getString(columnIndex8);
-            aVar.ebP = cursor.getLong(columnIndex9);
+            aVar.ehH = cursor.getLong(columnIndex9);
         }
         return aVar;
     }
 
     @NonNull
     public String toString() {
-        return "SwanMiniPackageInfo{appId='" + this.appId + "', bundleId='" + this.ebO + "', versionCode=" + this.versionCode + ", versionName='" + this.versionName + "', size=" + this.size + ", md5='" + this.md5 + "', sign='" + this.sign + "', downloadUrl='" + this.downloadUrl + "', rawid=" + this.ebP + '}';
+        return "SwanMiniPackageInfo{appId='" + this.appId + "', bundleId='" + this.ehG + "', versionCode=" + this.versionCode + ", versionName='" + this.versionName + "', size=" + this.size + ", md5='" + this.md5 + "', sign='" + this.sign + "', downloadUrl='" + this.downloadUrl + "', rawid=" + this.ehH + '}';
     }
 
     public String getAppId() {
@@ -57,7 +57,7 @@ public class a {
     }
 
     public String getBundleId() {
-        return this.ebO;
+        return this.ehG;
     }
 
     public int getVersionCode() {

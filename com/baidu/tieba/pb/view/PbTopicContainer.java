@@ -22,7 +22,7 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class PbTopicContainer extends LinearLayout implements View.OnClickListener {
-    private int lKR;
+    private int lQN;
     private TbPageContext pageContext;
 
     public PbTopicContainer(Context context) {
@@ -31,7 +31,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
 
     public PbTopicContainer(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.lKR = 3;
+        this.lQN = 3;
         setOrientation(0);
     }
 
@@ -40,10 +40,10 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         int i3 = 0;
         int size = (View.MeasureSpec.getSize(i) - getPaddingRight()) - getPaddingLeft();
         int childCount = getChildCount();
-        if (childCount > this.lKR) {
+        if (childCount > this.lQN) {
             while (true) {
                 childCount--;
-                if (childCount <= this.lKR) {
+                if (childCount <= this.lQN) {
                     break;
                 }
                 removeViewAt(childCount);
@@ -96,7 +96,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
             int dimens = l.getDimens(context, R.dimen.tbds22);
             layoutParams.rightMargin = dimens;
             textView.setTag(aVar);
-            textView.setText(com.baidu.tbadk.plugins.b.Eb(aVar.getTopicName()));
+            textView.setText(com.baidu.tbadk.plugins.b.Ep(aVar.getTopicName()));
             addView(textView, layoutParams);
             textView.setTextSize(0, l.getDimens(context, R.dimen.tbds33));
             textView.setGravity(17);
@@ -112,7 +112,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
     }
 
     public void setMaxChildCount(int i) {
-        this.lKR = i;
+        this.lQN = i;
     }
 
     @Override // android.view.View.OnClickListener

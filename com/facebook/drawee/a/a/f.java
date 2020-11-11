@@ -8,12 +8,12 @@ import javax.annotation.Nullable;
 /* loaded from: classes18.dex */
 public class f implements j<e> {
     private final Context mContext;
-    private final Set<com.facebook.drawee.controller.c> oDA;
-    private final g oDj;
-    private final com.facebook.imagepipeline.d.g oDx;
+    private final g oMC;
+    private final com.facebook.imagepipeline.d.g oMQ;
+    private final Set<com.facebook.drawee.controller.c> oMT;
 
     public f(Context context, @Nullable b bVar) {
-        this(context, com.facebook.imagepipeline.d.j.ele(), bVar);
+        this(context, com.facebook.imagepipeline.d.j.eoV(), bVar);
     }
 
     public f(Context context, com.facebook.imagepipeline.d.j jVar, @Nullable b bVar) {
@@ -22,20 +22,20 @@ public class f implements j<e> {
 
     public f(Context context, com.facebook.imagepipeline.d.j jVar, Set<com.facebook.drawee.controller.c> set, @Nullable b bVar) {
         this.mContext = context;
-        this.oDx = jVar.ehf();
-        if (bVar != null && bVar.ehb() != null) {
-            this.oDj = bVar.ehb();
+        this.oMQ = jVar.ekU();
+        if (bVar != null && bVar.ekQ() != null) {
+            this.oMC = bVar.ekQ();
         } else {
-            this.oDj = new g();
+            this.oMC = new g();
         }
-        this.oDj.a(context.getResources(), com.facebook.drawee.components.a.ehx(), jVar.ha(context), i.egl(), this.oDx.eks(), bVar != null ? bVar.eha() : null, bVar != null ? bVar.ehc() : null);
-        this.oDA = set;
+        this.oMC.a(context.getResources(), com.facebook.drawee.components.a.elm(), jVar.ha(context), i.eka(), this.oMQ.eoj(), bVar != null ? bVar.ekP() : null, bVar != null ? bVar.ekR() : null);
+        this.oMT = set;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.j
-    /* renamed from: ehq */
+    /* renamed from: elf */
     public e get() {
-        return new e(this.mContext, this.oDj, this.oDx, this.oDA);
+        return new e(this.mContext, this.oMC, this.oMQ, this.oMT);
     }
 }

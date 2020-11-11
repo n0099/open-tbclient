@@ -5,7 +5,7 @@ import com.baidu.pass.biometrics.base.utils.PassBioEnv;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1711a = PassBioEnv.PASSPORT_DOMAIN;
+    public static String f1713a = PassBioEnv.PASSPORT_DOMAIN;
     public static String b = PassBioEnv.PASSPORT_QA_DOMAIN;
     public static String c = PassBioEnv.PASSPORT_RD_DOMAIN;
     public static String d = "http://wappass.baidu.com";

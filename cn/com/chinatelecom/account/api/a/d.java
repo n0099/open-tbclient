@@ -5,7 +5,7 @@ import java.nio.charset.Charset;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f970a = d.class.getSimpleName();
+    private static final String f972a = d.class.getSimpleName();
     private static final Charset b = Charset.forName("UTF-8");
     private static byte[] c = "D@^12S".getBytes(b);
 

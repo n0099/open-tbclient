@@ -7,7 +7,7 @@ import java.util.Map;
 public class c implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f4379a = c.class.getSimpleName();
+    private final String f4381a = c.class.getSimpleName();
     private final HashMap<String, Object> b = new HashMap<>();
 
     @Override // com.meizu.cloud.pushsdk.c.a.a
@@ -17,7 +17,7 @@ public class c implements a {
 
     public void a(String str, Object obj) {
         if (obj == null) {
-            com.meizu.cloud.pushsdk.c.f.c.c(this.f4379a, "The keys value is empty, returning without adding key: " + str, new Object[0]);
+            com.meizu.cloud.pushsdk.c.f.c.c(this.f4381a, "The keys value is empty, returning without adding key: " + str, new Object[0]);
         } else {
             this.b.put(str, obj);
         }
@@ -26,7 +26,7 @@ public class c implements a {
     @Override // com.meizu.cloud.pushsdk.c.a.a
     public void a(String str, String str2) {
         if (str2 == null || str2.isEmpty()) {
-            com.meizu.cloud.pushsdk.c.f.c.c(this.f4379a, "The keys value is empty, returning without adding key: " + str, new Object[0]);
+            com.meizu.cloud.pushsdk.c.f.c.c(this.f4381a, "The keys value is empty, returning without adding key: " + str, new Object[0]);
         } else {
             this.b.put(str, str2);
         }
@@ -34,7 +34,7 @@ public class c implements a {
 
     public void a(Map<String, Object> map) {
         if (map == null) {
-            com.meizu.cloud.pushsdk.c.f.c.c(this.f4379a, "Map passed in is null, returning without adding map.", new Object[0]);
+            com.meizu.cloud.pushsdk.c.f.c.c(this.f4381a, "Map passed in is null, returning without adding map.", new Object[0]);
         } else {
             this.b.putAll(map);
         }

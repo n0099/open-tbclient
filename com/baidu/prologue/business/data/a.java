@@ -30,7 +30,7 @@ public class a {
 
     public static List<e> o(JSONObject jSONObject, String str) throws ParseError {
         List<e> list;
-        List<e> ZX;
+        List<e> acw;
         if (DEBUG) {
             Log.d("AfdResponseParser", "AFD response : " + jSONObject.toString());
         }
@@ -46,7 +46,7 @@ public class a {
         JSONArray optJSONArray = optJSONObject.optJSONArray(MapBundleKey.MapObjKey.OBJ_AD);
         if (optJSONObject2 != null) {
             String optString = optJSONObject2.optString("cmd");
-            SplashStyleRecorder.aq(optJSONObject2.optJSONObject("style_desc"));
+            SplashStyleRecorder.aw(optJSONObject2.optJSONObject("style_desc"));
             if (TextUtils.equals(IMTrack.DbBuilder.ACTION_UPDATE, optString)) {
                 list = a(optJSONArray, str, false);
                 String optString2 = optJSONObject2.optString("empty_ext_info");
@@ -60,9 +60,9 @@ public class a {
                     list = a(optJSONArray, str, true);
                 } else {
                     String optString3 = optJSONObject2.optString("ukey");
-                    if (!TextUtils.isEmpty(optString3) && (ZX = d.ZX()) != null) {
-                        for (e eVar : ZX) {
-                            if (TextUtils.equals(eVar.cbS, optString3)) {
+                    if (!TextUtils.isEmpty(optString3) && (acw = d.acw()) != null) {
+                        for (e eVar : acw) {
+                            if (TextUtils.equals(eVar.chE, optString3)) {
                                 arrayList.add(eVar);
                                 list = arrayList;
                                 break;
@@ -86,18 +86,18 @@ public class a {
         List<e> p = e.p(jSONArray);
         if (z) {
             for (e eVar : p) {
-                eVar.ccc = true;
+                eVar.chO = true;
             }
         } else {
             new ArrayList();
-            HashMap<String, e> ZY = d.ZY();
-            if (ZY == null || ZY.size() == 0) {
-                d.an(p);
+            HashMap<String, e> acx = d.acx();
+            if (acx == null || acx.size() == 0) {
+                d.au(p);
             } else {
-                d.ZW();
-                d.an(p);
+                d.acv();
+                d.au(p);
             }
-            d.ao(p);
+            d.av(p);
         }
         return p;
     }

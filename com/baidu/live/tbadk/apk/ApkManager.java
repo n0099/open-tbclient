@@ -326,7 +326,7 @@ public class ApkManager {
     private void launchByClipboard(Context context, ApkData apkData) {
         ClipboardManager clipboardManager;
         if (context != null && apkData != null && !TextUtils.isEmpty(apkData.apkClipBoardScheme) && (clipboardManager = (ClipboardManager) context.getSystemService("clipboard")) != null) {
-            clipboardManager.setPrimaryClip(ClipData.newPlainText(context.getResources().getString(a.i.sdk_live_room_jump_clipboard_tip), apkData.apkClipBoardScheme));
+            clipboardManager.setPrimaryClip(ClipData.newPlainText(context.getResources().getString(a.h.sdk_live_room_jump_clipboard_tip), apkData.apkClipBoardScheme));
         }
     }
 

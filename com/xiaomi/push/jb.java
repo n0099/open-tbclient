@@ -5,26 +5,26 @@ import com.xiaomi.push.je;
 public class jb {
 
     /* renamed from: a  reason: collision with root package name */
-    private final ji f4994a;
+    private final ji f4996a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final jr f766a;
+    private final jr f768a;
 
     public jb() {
         this(new je.a());
     }
 
     public jb(jk jkVar) {
-        this.f766a = new jr();
-        this.f4994a = jkVar.a(this.f766a);
+        this.f768a = new jr();
+        this.f4996a = jkVar.a(this.f768a);
     }
 
     public void a(ix ixVar, byte[] bArr) {
         try {
-            this.f766a.a(bArr);
-            ixVar.a(this.f4994a);
+            this.f768a.a(bArr);
+            ixVar.a(this.f4996a);
         } finally {
-            this.f4994a.k();
+            this.f4996a.k();
         }
     }
 }

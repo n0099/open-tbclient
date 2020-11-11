@@ -92,13 +92,13 @@ public class ac extends aa {
                 com.baidu.swan.apps.api.module.l.f.x(optParamsAsJo.optJSONArray("data"));
                 break;
             case 4:
-                com.baidu.swan.apps.api.module.l.f.aS(optParamsAsJo);
+                com.baidu.swan.apps.api.module.l.f.aY(optParamsAsJo);
                 break;
             case 5:
                 com.baidu.swan.apps.console.debugger.a.d.z(optParamsAsJo.optJSONArray("data"));
                 break;
             case 6:
-                com.baidu.swan.apps.api.module.l.f.aR(optParamsAsJo);
+                com.baidu.swan.apps.api.module.l.f.aX(optParamsAsJo);
                 break;
             default:
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "unknown flowId");

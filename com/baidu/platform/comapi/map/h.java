@@ -6,15 +6,15 @@ import android.view.View;
 public class h implements View.OnLayoutChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GLTextureView f2919a;
+    final /* synthetic */ GLTextureView f2921a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(GLTextureView gLTextureView) {
-        this.f2919a = gLTextureView;
+        this.f2921a = gLTextureView;
     }
 
     @Override // android.view.View.OnLayoutChangeListener
     public void onLayoutChange(View view, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
-        this.f2919a.onSurfaceTextureSizeChanged(this.f2919a.getSurfaceTexture(), i3 - i, i4 - i2);
+        this.f2921a.onSurfaceTextureSizeChanged(this.f2921a.getSurfaceTexture(), i3 - i, i4 - i2);
     }
 }

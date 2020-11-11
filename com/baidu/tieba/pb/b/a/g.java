@@ -7,26 +7,26 @@ import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes23.dex */
 public class g implements c {
     private String color;
-    private SpannableStringBuilder lEt;
-    private int lEu;
+    private SpannableStringBuilder lKp;
+    private int lKq;
     private int textSize;
 
     public g() {
-        this.lEu = 0;
+        this.lKq = 0;
         this.textSize = -1;
-        this.lEt = new SpannableStringBuilder();
+        this.lKp = new SpannableStringBuilder();
     }
 
     public g(Context context, ExcContent excContent) {
-        this.lEu = 0;
+        this.lKq = 0;
         this.textSize = -1;
         if (excContent != null) {
-            this.lEt = new SpannableStringBuilder();
+            this.lKp = new SpannableStringBuilder();
             if (excContent != null) {
-                this.lEt.append((CharSequence) excContent.text);
+                this.lKp.append((CharSequence) excContent.text);
             }
             if (excContent.align != null) {
-                this.lEu = excContent.align.intValue();
+                this.lKq = excContent.align.intValue();
             }
             if (!StringUtils.isNull(excContent.color)) {
                 this.color = excContent.color;
@@ -42,7 +42,7 @@ public class g implements c {
 
     public void r(CharSequence charSequence) {
         if (charSequence != null) {
-            this.lEt.append(charSequence);
+            this.lKp.append(charSequence);
         }
     }
 
@@ -52,21 +52,21 @@ public class g implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public CharSequence dnN() {
-        return this.lEt;
+    public CharSequence dqp() {
+        return this.lKp;
     }
 
-    public int dnP() {
-        return this.lEu;
+    public int dqr() {
+        return this.lKq;
     }
 
-    public String dnQ() {
+    public String dqs() {
         return this.color;
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public boolean dnO() {
-        return (this.lEu > 0 && this.lEu < 3) || !StringUtils.isNull(this.color);
+    public boolean dqq() {
+        return (this.lKq > 0 && this.lKq < 3) || !StringUtils.isNull(this.color);
     }
 
     public int getTextSize() {

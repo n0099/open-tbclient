@@ -14,14 +14,14 @@ import java.util.List;
 public final class j implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ UnvarnishedMessage f4678a;
+    final /* synthetic */ UnvarnishedMessage f4680a;
     final /* synthetic */ LocalAliasTagsManager.LocalMessageCallback b;
     final /* synthetic */ LocalAliasTagsManager c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(LocalAliasTagsManager localAliasTagsManager, UnvarnishedMessage unvarnishedMessage, LocalAliasTagsManager.LocalMessageCallback localMessageCallback) {
         this.c = localAliasTagsManager;
-        this.f4678a = unvarnishedMessage;
+        this.f4680a = unvarnishedMessage;
         this.b = localMessageCallback;
     }
 
@@ -30,8 +30,8 @@ public final class j implements Runnable {
         Handler handler;
         ISubscribeAppTagManager iSubscribeAppTagManager;
         ISubscribeAppAliasManager iSubscribeAppAliasManager;
-        int targetType = this.f4678a.getTargetType();
-        String tragetContent = this.f4678a.getTragetContent();
+        int targetType = this.f4680a.getTargetType();
+        String tragetContent = this.f4680a.getTragetContent();
         if (!TextUtils.isEmpty(tragetContent) && targetType != 0) {
             switch (targetType) {
                 case 3:

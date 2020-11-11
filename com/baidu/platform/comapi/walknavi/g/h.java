@@ -3,18 +3,18 @@ package com.baidu.platform.comapi.walknavi.g;
 import com.baidu.platform.comapi.walknavi.widget.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes7.dex */
-public class h implements a.InterfaceC0281a {
+public class h implements a.InterfaceC0293a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f3061a;
+    final /* synthetic */ a f3063a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar) {
-        this.f3061a = aVar;
+        this.f3063a = aVar;
     }
 
-    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0281a
+    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0293a
     public void a() {
-        this.f3061a.Q();
+        this.f3063a.Q();
     }
 }

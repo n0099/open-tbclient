@@ -12,9 +12,9 @@ import java.util.List;
 public abstract class a<T> extends BaseAdapter {
     protected Context context;
     protected List<T> data;
-    protected final int pre;
+    protected final int pAz;
 
-    public abstract void a(C1100a c1100a, T t);
+    public abstract void a(C1120a c1120a, T t);
 
     public a(Context context, List<T> list, int i) {
         this.context = context;
@@ -23,7 +23,7 @@ public abstract class a<T> extends BaseAdapter {
         } else {
             this.data = list;
         }
-        this.pre = i;
+        this.pAz = i;
     }
 
     @Override // android.widget.Adapter
@@ -49,38 +49,38 @@ public abstract class a<T> extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C1100a c1100a;
+        C1120a c1120a;
         if (view == null) {
-            view = LayoutInflater.from(this.context).inflate(Qt(getItemViewType(i)), viewGroup, false);
-            c1100a = new C1100a(view);
-            view.setTag(c1100a);
+            view = LayoutInflater.from(this.context).inflate(QO(getItemViewType(i)), viewGroup, false);
+            c1120a = new C1120a(view);
+            view.setTag(c1120a);
         } else {
-            c1100a = (C1100a) view.getTag();
+            c1120a = (C1120a) view.getTag();
         }
-        a(c1100a, this.data.get(i));
+        a(c1120a, this.data.get(i));
         return view;
     }
 
-    protected int Qt(int i) {
-        return this.pre;
+    protected int QO(int i) {
+        return this.pAz;
     }
 
     /* renamed from: tv.chushou.zues.widget.adapterview.abslistview.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C1100a {
-        private final SparseArray<View> pro = new SparseArray<>();
-        public View qdV;
+    public static class C1120a {
+        private final SparseArray<View> pAJ = new SparseArray<>();
+        public View qnq;
 
-        public C1100a(View view) {
-            this.qdV = view;
+        public C1120a(View view) {
+            this.qnq = view;
         }
 
         /* JADX WARN: Incorrect return type in method signature: <T:Landroid/view/View;>(I)TT; */
-        public View rW(int i) {
-            View view = this.pro.get(i);
+        public View sg(int i) {
+            View view = this.pAJ.get(i);
             if (view == null) {
-                View findViewById = this.qdV.findViewById(i);
-                this.pro.put(i, findViewById);
+                View findViewById = this.qnq.findViewById(i);
+                this.pAJ.put(i, findViewById);
                 return findViewById;
             }
             return view;

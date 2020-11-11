@@ -20,7 +20,7 @@ import com.baidu.sapi2.SapiContext;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class IMUserLoginByTokenMsg extends Message {
     public static int sRetrytimes = 0;
     private String cFrom;

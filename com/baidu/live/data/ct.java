@@ -1,48 +1,61 @@
 package com.baidu.live.data;
 
-import com.baidu.android.imrtc.utils.RtcConstants;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.heytap.mcssdk.mode.Message;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ct {
-    public int aRA;
-    public int aRB;
-    public a aRC;
-    public int aRD;
-    public String aRy;
-    public String aRz;
-    public String bg_cover;
-    public String cover;
-    public String croom_id;
-    public boolean is_followed;
-    public String live_id;
-    public String room_name;
-
-    /* loaded from: classes4.dex */
-    public static class a {
-        public String content;
-        public String title;
-    }
+    public List<a> aSA = new ArrayList();
+    public ArrayList<String> aSB;
+    public String aSC;
+    public int aSz;
+    public int mStep;
 
     public void parserJson(JSONObject jSONObject) {
+        JSONObject optJSONObject;
         if (jSONObject != null) {
-            this.croom_id = jSONObject.optString("croom_id");
-            this.aRy = jSONObject.optString("room_id");
-            this.aRz = jSONObject.optString(RtcConstants.EXTRA_RTC_ROOM_ID);
-            this.room_name = jSONObject.optString(DpStatConstants.KEY_ROOM_NAME);
-            this.cover = jSONObject.optString("cover");
-            this.bg_cover = jSONObject.optString("bg_cover");
-            this.live_id = jSONObject.optString("live_id");
-            this.aRA = jSONObject.optInt("phone_host_num");
-            this.aRB = jSONObject.optInt("phone_normal_num");
-            this.is_followed = jSONObject.optInt("is_followed") == 1;
-            this.aRD = jSONObject.optInt("room_daily_rank");
-            JSONObject optJSONObject = jSONObject.optJSONObject("play_rules");
-            if (optJSONObject != null) {
-                this.aRC = new a();
-                this.aRC.title = optJSONObject.optString("game_title");
-                this.aRC.content = optJSONObject.optString("game_content");
+            this.mStep = jSONObject.optInt("step");
+            this.aSC = jSONObject.optString(Message.RULE);
+            this.aSz = jSONObject.optInt("num_fields");
+            JSONArray optJSONArray = jSONObject.optJSONArray(TableDefine.MessageColumns.COLUME_TIPS);
+            if (optJSONArray != null) {
+                this.aSB = new ArrayList<>();
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    try {
+                        this.aSB.add(optJSONArray.getString(i));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("sweet_moments");
+            if (optJSONArray2 != null) {
+                for (int i2 = 0; i2 < optJSONArray2.length() && (optJSONObject = optJSONArray2.optJSONObject(i2)) != null; i2++) {
+                    a aVar = new a();
+                    aVar.aSD = optJSONObject.optInt("end_time");
+                    aVar.aSE = optJSONObject.optString("uk_1");
+                    aVar.aSF = optJSONObject.optString("avatar_1");
+                    aVar.aSG = optJSONObject.optString("uk_2");
+                    aVar.aSH = optJSONObject.optString("avatar_2");
+                    this.aSA.add(aVar);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class a {
+        public int aSD;
+        public String aSE;
+        public String aSF;
+        public String aSG;
+        public String aSH;
+
+        public a() {
         }
     }
 }

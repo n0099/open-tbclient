@@ -5,7 +5,7 @@ import android.graphics.Rect;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Rect f1581a;
+    public Rect f1583a;
     public Rect b;
     public int c;
     public int d;

@@ -23,13 +23,13 @@ public class AlaImAddTagTextView extends TextView {
     }
 
     private void init() {
-        setText(a.i.ala_im_add_tag);
-        setTextColor(getResources().getColor(a.d.sdk_white_alpha100));
+        setText(a.h.ala_im_add_tag);
+        setTextColor(getResources().getColor(a.c.sdk_white_alpha100));
         setTextSize(14.0f);
-        setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(a.f.icon_arrow12_white_right), (Drawable) null);
-        int dimensionPixelOffset = getResources().getDimensionPixelOffset(a.e.sdk_tbds20);
+        setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(a.e.icon_arrow12_white_right), (Drawable) null);
+        int dimensionPixelOffset = getResources().getDimensionPixelOffset(a.d.sdk_tbds20);
         setIncludeFontPadding(false);
         setPadding(dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset);
-        setBackgroundResource(a.f.bg_add_tag);
+        setBackgroundResource(a.e.bg_add_tag);
     }
 }

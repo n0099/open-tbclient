@@ -31,12 +31,12 @@ public abstract class d implements com.baidu.swan.apps.api.a.a {
 
     public d(@NonNull b bVar) {
         this.mSwanApiContext = bVar;
-        this.mCallbackHandler = bVar.agW();
+        this.mCallbackHandler = bVar.ajw();
     }
 
     @Override // com.baidu.swan.apps.api.a.a
     @NonNull
-    public final b agY() {
+    public final b ajy() {
         return this.mSwanApiContext;
     }
 
@@ -77,7 +77,7 @@ public abstract class d implements com.baidu.swan.apps.api.a.a {
     }
 
     @NonNull
-    public static Pair<com.baidu.swan.apps.api.c.a, JSONObject> kn(String str) {
+    public static Pair<com.baidu.swan.apps.api.c.a, JSONObject> kC(String str) {
         if (DEBUG) {
             Log.d("Api-Base", "parseParams(String): String");
         }
@@ -269,12 +269,12 @@ public abstract class d implements com.baidu.swan.apps.api.a.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final boolean aha() {
-        e aEV = e.aEV();
-        if (aEV == null) {
+    public final boolean ajA() {
+        e aHv = e.aHv();
+        if (aHv == null) {
             return true;
         }
-        return aEV.aha();
+        return aHv.ajA();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -312,8 +312,8 @@ public abstract class d implements com.baidu.swan.apps.api.a.a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public com.baidu.swan.apps.api.c.b a(String str, boolean z, a aVar) {
-        e aEU = e.aEU();
-        if (aEU == null) {
+        e aHu = e.aHu();
+        if (aHu == null) {
             return new com.baidu.swan.apps.api.c.b(1001, "swan app is null");
         }
         Pair<com.baidu.swan.apps.api.c.b, JSONObject> bj = com.baidu.swan.apps.api.d.b.bj("Api-Base", str);
@@ -331,11 +331,11 @@ public abstract class d implements com.baidu.swan.apps.api.a.a {
                 return new com.baidu.swan.apps.api.c.b(202, "callback is null");
             }
         }
-        return aVar.a(aEU, jSONObject, str2);
+        return aVar.a(aHu, jSONObject, str2);
     }
 
     @Nullable
-    public static JSONObject ko(String str) {
+    public static JSONObject kD(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

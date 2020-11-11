@@ -22,7 +22,7 @@ import java.util.Map;
 public class FileProvider extends ContentProvider {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String[] f2367a = {"_display_name", "_size"};
+    private static final String[] f2369a = {"_display_name", "_size"};
     private static final File b = new File("/");
     private static HashMap<String, a> c = new HashMap<>();
     private a d;
@@ -68,7 +68,7 @@ public class FileProvider extends ContentProvider {
         }
         File a2 = this.d.a(uri);
         if (strArr == null) {
-            strArr = f2367a;
+            strArr = f2369a;
         }
         String[] strArr3 = new String[strArr.length];
         Object[] objArr = new Object[strArr.length];
@@ -203,11 +203,11 @@ public class FileProvider extends ContentProvider {
     public static class b implements a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f2368a;
+        private final String f2370a;
         private final HashMap<String, File> b = new HashMap<>();
 
         public b(String str) {
-            this.f2368a = str;
+            this.f2370a = str;
         }
 
         public void a(String str, File file) {
@@ -243,7 +243,7 @@ public class FileProvider extends ContentProvider {
                 } else {
                     substring = canonicalPath.substring(path2.length() + 1);
                 }
-                return new Uri.Builder().scheme("content").authority(this.f2368a).encodedPath(Uri.encode(entry.getKey()) + '/' + Uri.encode(substring, "/")).build();
+                return new Uri.Builder().scheme("content").authority(this.f2370a).encodedPath(Uri.encode(entry.getKey()) + '/' + Uri.encode(substring, "/")).build();
             } catch (IOException e) {
                 throw new IllegalArgumentException("Failed to resolve canonical path for " + file);
             }

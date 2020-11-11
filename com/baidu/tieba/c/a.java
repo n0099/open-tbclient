@@ -19,8 +19,8 @@ public class a {
             String queryParameter = uri.getQueryParameter("portrait");
             if (TbadkCoreApplication.getCurrentPortrait() != null && queryParameter != null && !TbadkCoreApplication.getCurrentPortrait().contains(queryParameter)) {
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-                aVar.op(1);
-                aVar.Ba(tbPageContext.getString(R.string.account_not_the_same_as_pc));
+                aVar.oz(1);
+                aVar.Bo(tbPageContext.getString(R.string.account_not_the_same_as_pc));
                 aVar.a(R.string.change_account, new a.b() { // from class: com.baidu.tieba.c.a.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -34,7 +34,7 @@ public class a {
                         aVar2.dismiss();
                     }
                 });
-                aVar.b(tbPageContext).bmC();
+                aVar.b(tbPageContext).bpc();
             }
         }
     }

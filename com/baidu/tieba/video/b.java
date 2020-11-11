@@ -13,12 +13,12 @@ public abstract class b {
     public String filterName;
     public boolean isMute;
     public String musicPath;
-    public String nfO;
+    public String nlK;
     public String originPath;
 
-    public abstract void dLK();
+    public abstract void dOm();
 
-    public abstract void dLL();
+    public abstract void dOn();
 
     public b(BaseActivity baseActivity, String str, String str2) {
         this.originPath = str;
@@ -47,7 +47,7 @@ public abstract class b {
         }
     }
 
-    public void xH(boolean z) {
+    public void xQ(boolean z) {
         this.Mo = z;
     }
 
@@ -55,25 +55,25 @@ public abstract class b {
         return this.Mo;
     }
 
-    private void dLJ() {
-        if (!at.isEmpty(this.nfO)) {
-            n.deleteFile(new File(this.nfO));
+    private void dOl() {
+        if (!at.isEmpty(this.nlK)) {
+            n.deleteFile(new File(this.nlK));
         }
     }
 
     public void onCancel() {
-        dLJ();
+        dOl();
     }
 
-    public void bR(int i, String str) {
-        dLJ();
+    public void bV(int i, String str) {
+        dOl();
     }
 
-    public void bS(int i, String str) {
-        dLJ();
+    public void bW(int i, String str) {
+        dOl();
     }
 
     public void a(VideoInfo videoInfo) {
-        dLJ();
+        dOl();
     }
 }

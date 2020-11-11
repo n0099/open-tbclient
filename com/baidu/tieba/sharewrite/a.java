@@ -26,15 +26,15 @@ import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes24.dex */
 public class a {
-    private DialogInterface.OnKeyListener gIl;
+    private DialogInterface.OnKeyListener gNX;
     protected final Activity mActivity;
     private DialogInterface.OnCancelListener mCancelListenr;
     private View mContentView;
     private AlertDialog mDialog;
-    private String mFS;
-    private b mFT;
-    private b mFU;
-    private b mFV;
+    private String mLT;
+    private b mLU;
+    private b mLV;
+    private b mLW;
     private String mMessage;
     private String mNegativeButtonTip;
     private String mPositiveButtonTip;
@@ -42,8 +42,8 @@ public class a {
     private String mTitle;
     private int mDialogGravity = -1;
     private int mIconResId = -1;
-    private int mFQ = R.drawable.btn_blue_bg;
-    private int mFR = R.color.cp_cont_g;
+    private int mLR = R.drawable.btn_blue_bg;
+    private int mLS = R.color.cp_cont_g;
     private boolean mDialogCreated = false;
     private boolean cancelableFlag = true;
 
@@ -52,27 +52,27 @@ public class a {
         void a(a aVar);
     }
 
-    public a IO(int i) {
+    public a Jb(int i) {
         this.mIconResId = i;
         return this;
     }
 
-    public a IP(int i) {
-        this.mFQ = i;
+    public a Jc(int i) {
+        this.mLR = i;
         return this;
     }
 
-    public a IQ(int i) {
-        this.mFR = i;
+    public a Jd(int i) {
+        this.mLS = i;
         return this;
     }
 
     public a b(DialogInterface.OnKeyListener onKeyListener) {
-        this.gIl = onKeyListener;
+        this.gNX = onKeyListener;
         return this;
     }
 
-    public a IR(int i) {
+    public a Je(int i) {
         if (this.mActivity != null) {
             this.mMessage = this.mActivity.getResources().getString(i);
         }
@@ -82,7 +82,7 @@ public class a {
     public a a(int i, b bVar) {
         if (this.mActivity != null) {
             this.mPositiveButtonTip = this.mActivity.getResources().getString(i);
-            this.mFT = bVar;
+            this.mLU = bVar;
         }
         return this;
     }
@@ -90,12 +90,12 @@ public class a {
     public a b(int i, b bVar) {
         if (this.mActivity != null) {
             this.mNegativeButtonTip = this.mActivity.getResources().getString(i);
-            this.mFU = bVar;
+            this.mLV = bVar;
         }
         return this;
     }
 
-    public a wR(boolean z) {
+    public a xa(boolean z) {
         this.cancelableFlag = z;
         return this;
     }
@@ -117,8 +117,8 @@ public class a {
             ImageView imageView = (ImageView) this.mRootView.findViewById(R.id.bdalert_icon);
             TextView textView2 = (TextView) this.mRootView.findViewById(R.id.message);
             Button button = (Button) this.mRootView.findViewById(R.id.yes);
-            ap.setBackgroundResource(button, this.mFQ);
-            ap.setViewTextColor(button, this.mFR, 3);
+            ap.setBackgroundResource(button, this.mLR);
+            ap.setViewTextColor(button, this.mLS, 3);
             Button button2 = (Button) this.mRootView.findViewById(R.id.no);
             Button button3 = (Button) this.mRootView.findViewById(R.id.cancel);
             if (!TextUtils.isEmpty(this.mTitle)) {
@@ -143,8 +143,8 @@ public class a {
                 z = false;
             } else {
                 button.setText(this.mPositiveButtonTip);
-                if (this.mFT != null) {
-                    button.setOnClickListener(new View$OnClickListenerC0830a(this, this.mFT));
+                if (this.mLU != null) {
+                    button.setOnClickListener(new View$OnClickListenerC0845a(this, this.mLU));
                 }
                 z = true;
             }
@@ -152,17 +152,17 @@ public class a {
                 z2 = false;
             } else {
                 button2.setText(this.mNegativeButtonTip);
-                if (this.mFU != null) {
-                    button2.setOnClickListener(new View$OnClickListenerC0830a(this, this.mFU));
+                if (this.mLV != null) {
+                    button2.setOnClickListener(new View$OnClickListenerC0845a(this, this.mLV));
                 }
                 z2 = true;
             }
-            if (TextUtils.isEmpty(this.mFS)) {
+            if (TextUtils.isEmpty(this.mLT)) {
                 z3 = false;
             } else {
-                button3.setText(this.mFS);
-                if (this.mFV != null) {
-                    button3.setOnClickListener(new View$OnClickListenerC0830a(this, this.mFV));
+                button3.setText(this.mLT);
+                if (this.mLW != null) {
+                    button3.setOnClickListener(new View$OnClickListenerC0845a(this, this.mLW));
                 }
                 z3 = true;
             }
@@ -226,7 +226,7 @@ public class a {
         button.setLayoutParams(layoutParams);
     }
 
-    private a wS(boolean z) {
+    private a xb(boolean z) {
         if (!this.mDialogCreated) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
@@ -242,8 +242,8 @@ public class a {
             if (this.mCancelListenr != null) {
                 this.mDialog.setOnCancelListener(this.mCancelListenr);
             }
-            if (this.gIl != null) {
-                this.mDialog.setOnKeyListener(this.gIl);
+            if (this.gNX != null) {
+                this.mDialog.setOnKeyListener(this.gNX);
             }
             if (z) {
                 g.showDialog(this.mDialog, this.mActivity);
@@ -264,7 +264,7 @@ public class a {
             final AtomicBoolean atomicBoolean = new AtomicBoolean(false);
             bg.a(this.mRootView, false, new bg.a() { // from class: com.baidu.tieba.sharewrite.a.1
                 @Override // com.baidu.tbadk.core.util.bg.a
-                public boolean bc(View view) {
+                public boolean bg(View view) {
                     if (view instanceof EditText) {
                         atomicBoolean.set(true);
                         return true;
@@ -279,8 +279,8 @@ public class a {
         return this;
     }
 
-    public a dDJ() {
-        return wS(true);
+    public a dGl() {
+        return xb(true);
     }
 
     public void dismiss() {
@@ -291,19 +291,19 @@ public class a {
 
     /* renamed from: com.baidu.tieba.sharewrite.a$a  reason: collision with other inner class name */
     /* loaded from: classes24.dex */
-    private class View$OnClickListenerC0830a implements View.OnClickListener {
-        private final a mFX;
-        private final b mFY;
+    private class View$OnClickListenerC0845a implements View.OnClickListener {
+        private final a mLY;
+        private final b mLZ;
 
-        public View$OnClickListenerC0830a(a aVar, b bVar) {
-            this.mFX = aVar;
-            this.mFY = bVar;
+        public View$OnClickListenerC0845a(a aVar, b bVar) {
+            this.mLY = aVar;
+            this.mLZ = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.mFY != null) {
-                this.mFY.a(this.mFX);
+            if (this.mLZ != null) {
+                this.mLZ.a(this.mLY);
             }
         }
     }

@@ -11,13 +11,13 @@ public interface b extends IInterface {
 
         /* renamed from: com.huawei.android.hms.pps.a.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes11.dex */
-        public static class C0968a implements b {
+        public static class C0987a implements b {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f4060a;
+            private IBinder f4062a;
 
-            public C0968a(IBinder iBinder) {
-                this.f4060a = iBinder;
+            public C0987a(IBinder iBinder) {
+                this.f4062a = iBinder;
             }
 
             @Override // com.huawei.android.hms.pps.a.b
@@ -26,7 +26,7 @@ public interface b extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
-                    this.f4060a.transact(1, obtain, obtain2, 0);
+                    this.f4062a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -37,7 +37,7 @@ public interface b extends IInterface {
 
             @Override // android.os.IInterface
             public final IBinder asBinder() {
-                return this.f4060a;
+                return this.f4062a;
             }
 
             @Override // com.huawei.android.hms.pps.a.b
@@ -46,7 +46,7 @@ public interface b extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
-                    this.f4060a.transact(2, obtain, obtain2, 0);
+                    this.f4062a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {

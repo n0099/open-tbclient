@@ -18,43 +18,43 @@ public class a extends d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b kp(String str) {
+    public com.baidu.swan.apps.api.c.b kE(String str) {
         if (DEBUG) {
             Log.d("Api-CheckSession", "start check session");
         }
-        final CallbackHandler agW = agY().agW();
-        e aEV = e.aEV();
-        if (aEV == null) {
-            c.h(agW, UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp").toString());
+        final CallbackHandler ajw = ajy().ajw();
+        e aHv = e.aHv();
+        if (aHv == null) {
+            c.h(ajw, UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp").toString());
             return new com.baidu.swan.apps.api.c.b(1001, "empty swanApp");
         }
-        String appKey = aEV.getAppKey();
+        String appKey = aHv.getAppKey();
         if (TextUtils.isEmpty(appKey)) {
-            c.h(agW, UnitedSchemeUtility.wrapCallbackParams(1001, "empty app key").toString());
+            c.h(ajw, UnitedSchemeUtility.wrapCallbackParams(1001, "empty app key").toString());
             return new com.baidu.swan.apps.api.c.b(1001, "empty app key");
         }
-        JSONObject ko = ko(str);
-        if (ko == null) {
-            c.h(agW, UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams").toString());
+        JSONObject kD = kD(str);
+        if (kD == null) {
+            c.h(ajw, UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams").toString());
             return new com.baidu.swan.apps.api.c.b(201, "empty joParams");
         }
-        final String optString = ko.optString("cb");
+        final String optString = kD.optString("cb");
         if (TextUtils.isEmpty(optString)) {
-            c.h(agW, UnitedSchemeUtility.wrapCallbackParams(201, "empty cb").toString());
+            c.h(ajw, UnitedSchemeUtility.wrapCallbackParams(201, "empty cb").toString());
             return new com.baidu.swan.apps.api.c.b(201, "empty cb");
         }
         Context context = getContext();
-        if (!aEV.aFh().isLogin(context)) {
-            c.h(agW, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
+        if (!aHv.aHH().isLogin(context)) {
+            c.h(ajw, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
             return new com.baidu.swan.apps.api.c.b(10004, "user not logged in");
         }
-        com.baidu.swan.apps.runtime.d.aEQ().aES().adF().afw().W(context, appKey).A(new com.baidu.swan.apps.ap.e.b<h<JSONObject>>() { // from class: com.baidu.swan.apps.api.module.a.a.1
+        com.baidu.swan.apps.runtime.d.aHq().aHs().agf().ahW().W(context, appKey).A(new com.baidu.swan.apps.ap.e.b<h<JSONObject>>() { // from class: com.baidu.swan.apps.api.module.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: a */
             public void M(h<JSONObject> hVar) {
                 JSONObject wrapCallbackParams;
-                if (hVar.isOk() && a.aD(hVar.mData)) {
+                if (hVar.isOk() && a.aJ(hVar.mData)) {
                     JSONObject optJSONObject = hVar.mData.optJSONObject("data");
                     if (optJSONObject != null && optJSONObject.optBoolean("result")) {
                         wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(optJSONObject, 0);
@@ -63,15 +63,15 @@ public class a extends d {
                     }
                 } else {
                     wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(hVar.getErrorCode());
-                    c.h(agW, wrapCallbackParams.toString());
+                    c.h(ajw, wrapCallbackParams.toString());
                 }
-                agW.handleSchemeDispatchCallback(optString, wrapCallbackParams.toString());
+                ajw.handleSchemeDispatchCallback(optString, wrapCallbackParams.toString());
             }
-        }).aGL();
+        }).aJl();
         return new com.baidu.swan.apps.api.c.b(0);
     }
 
-    public static boolean aD(JSONObject jSONObject) {
+    public static boolean aJ(JSONObject jSONObject) {
         return jSONObject != null && TextUtils.equals(jSONObject.optString(BaseJsonData.TAG_ERRNO), "0");
     }
 }

@@ -5,29 +5,29 @@ import android.text.TextUtils;
 import android.util.Log;
 /* loaded from: classes15.dex */
 public class c {
-    private static String bUA;
-    private static String bUB;
-    private static String bUi;
-    private static String bUj;
-    private static String bUk;
-    private static String bUl;
-    private static String bUm;
-    private static String bUn;
-    private static String bUp;
-    private static String bUq;
-    private static String bUr;
-    private static String bUs;
-    private static String bUt;
-    private static String bUu;
-    private static String bUv;
-    private static String bUw;
-    private static String bUx;
-    private static String bUy;
-    private static String bUz;
-    public static String bUf = "arface_main_res_version";
-    public static int bUg = 0;
-    public static boolean bUh = true;
-    public static String bUo = "global/res/filter";
+    private static String bZS;
+    private static String bZT;
+    private static String bZU;
+    private static String bZV;
+    private static String bZW;
+    private static String bZX;
+    private static String bZZ;
+    private static String caa;
+    private static String cab;
+    private static String cac;
+    private static String cad;
+    private static String cae;
+    private static String caf;
+    private static String cag;
+    private static String cah;
+    private static String cai;
+    private static String caj;
+    private static String cak;
+    private static String cal;
+    public static String bZP = "arface_main_res_version";
+    public static int bZQ = 0;
+    public static boolean bZR = true;
+    public static String bZY = "global/res/filter";
 
     public c(String str) {
         setPath(str);
@@ -37,78 +37,78 @@ public class c {
         if (b.isDebug()) {
             Log.d("DUAR_DuArResConfig", "setPath: " + str);
         }
-        bUi = str + "/";
-        bUj = bUi;
-        bUk = bUi + "ext/";
-        bUl = bUj + "faceModels/";
+        bZS = str + "/";
+        bZT = bZS;
+        bZU = bZS + "ext/";
+        bZV = bZT + "faceModels/";
         if (TextUtils.isEmpty(str)) {
-            bUu = "file:///android_asset/arsource/filters/yuantu/yuantu.png";
-            bUs = "file:///android_asset/arsource/filter/beauty_skin_stream.png";
-            bUt = "file:///android_asset/arsource/filter/beauty_skin_small_video.png";
-            bUl = "file:///android_asset/arsource/faceModels/";
+            cae = "file:///android_asset/arsource/filters/yuantu/yuantu.png";
+            cac = "file:///android_asset/arsource/filter/beauty_skin_stream.png";
+            cad = "file:///android_asset/arsource/filter/beauty_skin_small_video.png";
+            bZV = "file:///android_asset/arsource/faceModels/";
             String str2 = Environment.getExternalStorageDirectory() + "/baidu/quanminvideo/arsource";
-            bUv = str2 + "/makeup";
-            bUw = str2 + "/beauty";
-            bUx = str2 + "/arFilterInit";
-            bUy = str2 + "/arFilterEditInit";
-            bUz = bUw + "/liveVideoFace/live_face_knead.json";
-            bUA = bUw + "/liveVideoFace/goddess_face_knead.json";
-            bUB = bUw + "/liveVideoFace/baby_face_knead.json";
+            caf = str2 + "/makeup";
+            cag = str2 + "/beauty";
+            cah = str2 + "/arFilterInit";
+            cai = str2 + "/arFilterEditInit";
+            caj = cag + "/liveVideoFace/live_face_knead.json";
+            cak = cag + "/liveVideoFace/goddess_face_knead.json";
+            cal = cag + "/liveVideoFace/baby_face_knead.json";
         } else {
-            bUu = bUj + "filters/yuantu/yuantu.png";
-            bUs = bUj + "filter/beauty_skin_stream.png";
-            bUt = bUj + "filter/beauty_skin_small_video.png";
-            bUv = bUi + "makeup/";
-            bUw = bUi + "beauty/";
-            bUx = bUi + "arFilterInit/";
-            bUy = bUi + "arFilterEditInit/";
-            bUz = bUw + "liveVideoFace/live_face_knead.json";
-            bUA = bUw + "liveVideoFace/goddess_face_knead.json";
-            bUB = bUw + "liveVideoFace/baby_face_knead.json";
+            cae = bZT + "filters/yuantu/yuantu.png";
+            cac = bZT + "filter/beauty_skin_stream.png";
+            cad = bZT + "filter/beauty_skin_small_video.png";
+            caf = bZS + "makeup/";
+            cag = bZS + "beauty/";
+            cah = bZS + "arFilterInit/";
+            cai = bZS + "arFilterEditInit/";
+            caj = cag + "liveVideoFace/live_face_knead.json";
+            cak = cag + "liveVideoFace/goddess_face_knead.json";
+            cal = cag + "liveVideoFace/baby_face_knead.json";
         }
-        bUn = bUj + "global";
-        bUr = bUj + "vip_list.json";
-        bUq = bUj + "filters";
-        bUm = bUj + "dlModels/";
-        bUp = bUq + "/all";
-        bUo = bUj + "global/res/filter";
+        bZX = bZT + "global";
+        cab = bZT + "vip_list.json";
+        caa = bZT + "filters";
+        bZW = bZT + "dlModels/";
+        bZZ = caa + "/all";
+        bZY = bZT + "global/res/filter";
     }
 
-    public static String XH() {
-        return bUu;
+    public static String aag() {
+        return cae;
     }
 
-    public static String XI() {
-        return bUj;
+    public static String aah() {
+        return bZT;
     }
 
-    public static String XJ() {
-        return bUl;
+    public static String aai() {
+        return bZV;
     }
 
-    public static String XK() {
-        return bUn;
+    public static String aaj() {
+        return bZX;
     }
 
-    public static String XL() {
+    public static String aak() {
         return "/filter_config.json";
     }
 
-    public static String XM() {
-        return gy(0);
+    public static String aal() {
+        return gI(0);
     }
 
-    public static String gy(int i) {
+    public static String gI(int i) {
         if (i == 1) {
-            return bUA;
+            return cak;
         }
         if (i == 2) {
-            return bUB;
+            return cal;
         }
-        return bUz;
+        return caj;
     }
 
-    public static String dt(boolean z) {
-        return z ? bUx : bUy;
+    public static String dA(boolean z) {
+        return z ? cah : cai;
     }
 }

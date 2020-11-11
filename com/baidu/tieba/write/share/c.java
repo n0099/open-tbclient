@@ -8,10 +8,10 @@ public class c {
     public String forumId;
     public String imageUrl;
     public String linkUrl;
-    public String nCc;
-    public String nCd;
-    public String nCe;
-    public String nCf;
-    public String nCg;
+    public String nHW;
+    public String nHX;
+    public String nHY;
+    public String nHZ;
+    public String nIa;
     public String title;
 }

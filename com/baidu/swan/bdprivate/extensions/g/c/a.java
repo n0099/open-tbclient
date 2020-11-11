@@ -42,7 +42,7 @@ public class a {
         return 0;
     }
 
-    public static int aMg() {
+    public static int aOG() {
         String networkClass = SwanAppNetworkUtils.getNetworkClass();
         if ("wifi".equals(networkClass)) {
             return 1;
@@ -60,7 +60,7 @@ public class a {
     }
 
     @Nullable
-    public static String uL(String str) {
+    public static String uZ(String str) {
         try {
             Cipher cipher = Cipher.getInstance(e.p);
             cipher.init(1, new SecretKeySpec((EncryptConstant.getPartRecommendAesKey() + "rtad@mic").getBytes(), e.q), new IvParameterSpec((EncryptConstant.getPartRecommendAesIv() + "21248000").getBytes()));
@@ -75,7 +75,7 @@ public class a {
                     e2.printStackTrace();
                 }
             }
-            uM(jSONObject.toString());
+            va(jSONObject.toString());
             return null;
         }
     }
@@ -85,7 +85,7 @@ public class a {
         boolean z;
         int i;
         if (aVar != null && bVar != null) {
-            String str = TextUtils.isEmpty(bVar.dDQ) ? "unknown" : bVar.dDQ;
+            String str = TextUtils.isEmpty(bVar.dJI) ? "unknown" : bVar.dJI;
             switch (str.hashCode()) {
                 case -1395470197:
                     if (str.equals("bd09ll")) {
@@ -136,18 +136,18 @@ public class a {
                     i = -1;
                     break;
             }
-            aVar.dDH.coordType = i;
-            aVar.dDH.latitude = bVar.latitude;
-            aVar.dDH.longitude = bVar.longitude;
+            aVar.dJz.coordType = i;
+            aVar.dJz.latitude = bVar.latitude;
+            aVar.dJz.longitude = bVar.longitude;
         }
     }
 
-    public static void uM(String str) {
+    public static void va(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.d("recommend", "reportInfoWhenResponseIsNull: " + str);
             }
-            new c.a(10003).sJ(str).sI(com.baidu.swan.apps.runtime.e.aEW()).arq();
+            new c.a(10003).sX(str).sW(com.baidu.swan.apps.runtime.e.aHw()).atR();
         }
     }
 }

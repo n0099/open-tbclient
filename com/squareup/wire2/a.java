@@ -14,14 +14,14 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     private ProtoAdapter<Object> adapter;
     private final Field messageField;
     public final String name;
-    public final WireField.Label pyf;
-    private final String pyg;
-    private final String pyh;
-    public final boolean pyi;
-    private final Field pyj;
-    private final Method pyk;
-    private ProtoAdapter<?> pyl;
-    private ProtoAdapter<?> pym;
+    private final String pHA;
+    public final boolean pHB;
+    private final Field pHC;
+    private final Method pHD;
+    private ProtoAdapter<?> pHE;
+    private ProtoAdapter<?> pHF;
+    public final WireField.Label pHy;
+    private final String pHz;
     public final int tag;
 
     private static Field i(Class<?> cls, String str) {
@@ -42,40 +42,40 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(WireField wireField, Field field, Class<B> cls) {
-        this.pyf = wireField.euE();
+        this.pHy = wireField.eyt();
         this.name = field.getName();
         this.tag = wireField.tag();
-        this.pyg = wireField.euC();
-        this.pyh = wireField.euD();
-        this.pyi = wireField.euF();
+        this.pHz = wireField.eyr();
+        this.pHA = wireField.eys();
+        this.pHB = wireField.eyu();
         this.messageField = field;
-        this.pyj = i(cls, this.name);
-        this.pyk = a(cls, this.name, field.getType());
+        this.pHC = i(cls, this.name);
+        this.pHD = a(cls, this.name, field.getType());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean eus() {
-        return !this.pyg.isEmpty();
+    public boolean eyh() {
+        return !this.pHz.isEmpty();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ProtoAdapter<?> eut() {
-        ProtoAdapter<?> protoAdapter = this.pyl;
+    public ProtoAdapter<?> eyi() {
+        ProtoAdapter<?> protoAdapter = this.pHE;
         if (protoAdapter != null) {
             return protoAdapter;
         }
-        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.pyh);
-        this.pyl = protoAdapter2;
+        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.pHA);
+        this.pHE = protoAdapter2;
         return protoAdapter2;
     }
 
-    ProtoAdapter<?> euu() {
-        ProtoAdapter<?> protoAdapter = this.pym;
+    ProtoAdapter<?> eyj() {
+        ProtoAdapter<?> protoAdapter = this.pHF;
         if (protoAdapter != null) {
             return protoAdapter;
         }
-        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.pyg);
-        this.pym = protoAdapter2;
+        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.pHz);
+        this.pHF = protoAdapter2;
         return protoAdapter2;
     }
 
@@ -83,12 +83,12 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     public ProtoAdapter<Object> adapter() {
         ProtoAdapter<Object> protoAdapter = this.adapter;
         if (protoAdapter == null) {
-            if (eus()) {
-                ProtoAdapter<Object> newMapAdapter = ProtoAdapter.newMapAdapter(euu(), eut());
+            if (eyh()) {
+                ProtoAdapter<Object> newMapAdapter = ProtoAdapter.newMapAdapter(eyj(), eyi());
                 this.adapter = newMapAdapter;
                 return newMapAdapter;
             }
-            ProtoAdapter<?> withLabel = eut().withLabel(this.pyf);
+            ProtoAdapter<?> withLabel = eyi().withLabel(this.pHy);
             this.adapter = withLabel;
             return withLabel;
         }
@@ -97,9 +97,9 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(B b, Object obj) {
-        if (this.pyf.isRepeated()) {
+        if (this.pHy.isRepeated()) {
             ((List) a((a<M, B>) b)).add(obj);
-        } else if (!this.pyg.isEmpty()) {
+        } else if (!this.pHz.isEmpty()) {
             ((Map) a((a<M, B>) b)).putAll((Map) obj);
         } else {
             b(b, obj);
@@ -109,10 +109,10 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(B b, Object obj) {
         try {
-            if (this.pyf.isOneOf()) {
-                this.pyk.invoke(b, obj);
+            if (this.pHy.isOneOf()) {
+                this.pHD.invoke(b, obj);
             } else {
-                this.pyj.set(b, obj);
+                this.pHC.set(b, obj);
             }
         } catch (IllegalAccessException | InvocationTargetException e) {
             throw new AssertionError(e);
@@ -131,7 +131,7 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public Object a(B b) {
         try {
-            return this.pyj.get(b);
+            return this.pHC.get(b);
         } catch (IllegalAccessException e) {
             throw new AssertionError(e);
         }

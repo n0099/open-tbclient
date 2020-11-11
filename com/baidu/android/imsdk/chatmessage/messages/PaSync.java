@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import org.json.JSONException;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class PaSync extends NotifyMsg implements Parcelable, NoProGuard {
     public static final Parcelable.Creator<PaSync> CREATOR = new Parcelable.Creator<PaSync>() { // from class: com.baidu.android.imsdk.chatmessage.messages.PaSync.1
         /* JADX DEBUG: Method merged with bridge method */

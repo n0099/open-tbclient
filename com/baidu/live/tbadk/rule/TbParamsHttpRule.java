@@ -128,6 +128,7 @@ public class TbParamsHttpRule extends HttpRule {
         httpMessage.addParam(HttpRequest.SUBAPP_VERSION, TbConfig.getSubappVersionCode());
         httpMessage.addParam(HttpRequest.SUBAPP_VERSION_NAME, TbConfig.getSubappVersionName());
         httpMessage.addParam(HttpRequest.SDK_VERSION, TbConfig.SDK_VERSION);
+        httpMessage.addParam(HttpRequest.LIVE_SCENE, TbConfig.liveScene + "");
         if (AlaLiveSwitchData.isHotLive == 1) {
             httpMessage.addParam(HttpRequest.SDK_LIVE_IS_HOT, 1);
         }

@@ -8,18 +8,18 @@ import com.baidu.ar.npc.ArBridge;
 public class a implements Handler.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ArBridge f1207a;
+    final /* synthetic */ ArBridge f1209a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(ArBridge arBridge) {
-        this.f1207a = arBridge;
+        this.f1209a = arBridge;
     }
 
     @Override // android.os.Handler.Callback
     public boolean handleMessage(Message message) {
         switch (message.what) {
             case 1:
-                this.f1207a.a((ArBridge.b) message.obj);
+                this.f1209a.a((ArBridge.b) message.obj);
                 return false;
             default:
                 return false;

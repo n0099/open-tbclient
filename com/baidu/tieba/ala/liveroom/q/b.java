@@ -12,7 +12,7 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.liveroom.messages.AlaRoomAllowFollowedSetResponseMessage;
 /* loaded from: classes4.dex */
 public class b {
-    public final HttpMessageListener hje = new HttpMessageListener(1021022) { // from class: com.baidu.tieba.ala.liveroom.q.b.1
+    public final HttpMessageListener hoV = new HttpMessageListener(1021022) { // from class: com.baidu.tieba.ala.liveroom.q.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -26,7 +26,7 @@ public class b {
                 }
                 Message<?> message = alaRoomAllowFollowedSetResponseMessage.getmOrginalMessage();
                 if (message != null && message.getTag() != null && message.getTag().equals(b.this.mPageContext.getUniqueId())) {
-                    b.this.mPageContext.showToast(b.this.mPageContext.getString(a.i.ala_allow_follow_success));
+                    b.this.mPageContext.showToast(b.this.mPageContext.getString(a.h.ala_allow_follow_success));
                 }
             }
         }
@@ -35,11 +35,11 @@ public class b {
 
     public b(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        cds();
-        this.mPageContext.registerListener(this.hje);
+        cfT();
+        this.mPageContext.registerListener(this.hoV);
     }
 
-    private void cds() {
+    private void cfT() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021022, TbConfig.SERVER_ADDRESS + "ala/user/setUserStatus");
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -47,7 +47,7 @@ public class b {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public void cdt() {
+    public void cfU() {
         HttpMessage httpMessage = new HttpMessage(1021022);
         httpMessage.setTag(this.mPageContext.getUniqueId());
         MessageManager.getInstance().sendMessage(httpMessage);

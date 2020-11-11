@@ -13,32 +13,32 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b extends BaseAdapter {
-    private int gGK;
+    private int gMw;
     private Context mContext;
-    private ArrayList<g> eCX = new ArrayList<>();
-    private double gGL = -1.0d;
+    private ArrayList<g> eIM = new ArrayList<>();
+    private double gMx = -1.0d;
 
     public b(Context context) {
         this.mContext = context;
     }
 
     public void a(List<g> list, double d) {
-        if (list != null && this.gGL != d) {
-            this.eCX.clear();
-            this.eCX.addAll(list);
+        if (list != null && this.gMx != d) {
+            this.eIM.clear();
+            this.eIM.addAll(list);
             notifyDataSetChanged();
-            this.gGL = d;
+            this.gMx = d;
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.eCX.size();
+        return this.eIM.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.eCX.get(i);
+        return this.eIM.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -50,7 +50,7 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            view = LayoutInflater.from(this.mContext).inflate(a.h.sdk_get_headline_gift_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.mContext).inflate(a.g.sdk_get_headline_gift_item, (ViewGroup) null);
             a aVar2 = new a(view);
             view.setTag(aVar2);
             aVar = aVar2;
@@ -59,14 +59,14 @@ public class b extends BaseAdapter {
         }
         g gVar = (g) getItem(i);
         if (gVar != null) {
-            aVar.gGM.setText(gVar.Ft() + " x" + gVar.Fv());
-            aVar.gGN.setText(com.baidu.tieba.ala.headline.a.em(Long.parseLong(gVar.Fv()) * Long.parseLong(gVar.getPrice())));
-            if (!gVar.getThumbnail_url().equals(aVar.fUQ.getUrl())) {
-                aVar.fUQ.startLoad(gVar.getThumbnail_url(), 10, false);
-                aVar.fUQ.setTag(gVar.getThumbnail_url());
+            aVar.gMy.setText(gVar.FU() + " x" + gVar.FW());
+            aVar.gMz.setText(com.baidu.tieba.ala.headline.a.eI(Long.parseLong(gVar.FW()) * Long.parseLong(gVar.getPrice())));
+            if (!gVar.getThumbnail_url().equals(aVar.gaH.getUrl())) {
+                aVar.gaH.startLoad(gVar.getThumbnail_url(), 10, false);
+                aVar.gaH.setTag(gVar.getThumbnail_url());
             }
-            if (this.gGK == i) {
-                aVar.rootView.setBackgroundResource(a.f.sdk_get_headline_item_bg_stroke);
+            if (this.gMw == i) {
+                aVar.rootView.setBackgroundResource(a.e.sdk_get_headline_item_bg_stroke);
             } else {
                 aVar.rootView.setBackgroundResource(0);
             }
@@ -74,31 +74,31 @@ public class b extends BaseAdapter {
         return view;
     }
 
-    public int bRW() {
-        return this.gGK;
+    public int bUv() {
+        return this.gMw;
     }
 
-    public void uE(int i) {
-        this.gGK = i;
+    public void uO(int i) {
+        this.gMw = i;
     }
 
-    public void bRX() {
-        this.gGL = -1.0d;
+    public void bUw() {
+        this.gMx = -1.0d;
     }
 
     /* loaded from: classes4.dex */
     public static class a {
-        public TbImageView fUQ;
-        public TextView gGM;
-        public TextView gGN;
+        public TextView gMy;
+        public TextView gMz;
+        public TbImageView gaH;
         public View rootView;
 
         public a(View view) {
             this.rootView = view;
-            this.gGM = (TextView) view.findViewById(a.g.get_view_gift_item_info);
-            this.gGN = (TextView) view.findViewById(a.g.get_view_gift_item_cost);
-            this.fUQ = (TbImageView) view.findViewById(a.g.get_view_gift_item_image);
-            this.fUQ.setDefaultBgResource(a.f.sdk_shape_transparent);
+            this.gMy = (TextView) view.findViewById(a.f.get_view_gift_item_info);
+            this.gMz = (TextView) view.findViewById(a.f.get_view_gift_item_cost);
+            this.gaH = (TbImageView) view.findViewById(a.f.get_view_gift_item_image);
+            this.gaH.setDefaultBgResource(a.e.sdk_shape_transparent);
         }
     }
 }

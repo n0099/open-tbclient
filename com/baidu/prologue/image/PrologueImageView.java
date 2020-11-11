@@ -14,8 +14,8 @@ import com.bumptech.glide.request.RequestOptions;
 @SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes19.dex */
 public class PrologueImageView extends ImageView {
-    private RequestOptions cdj;
-    private boolean cdk;
+    private RequestOptions ciV;
+    private boolean ciW;
 
     public PrologueImageView(@NonNull Context context) {
         this(context, null);
@@ -27,8 +27,8 @@ public class PrologueImageView extends ImageView {
 
     public PrologueImageView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cdj = null;
-        this.cdk = false;
+        this.ciV = null;
+        this.ciW = false;
         d(attributeSet);
     }
 
@@ -37,35 +37,35 @@ public class PrologueImageView extends ImageView {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, b.e.PrologueImageView);
             int resourceId = obtainStyledAttributes.getResourceId(b.e.PrologueImageView_prologue_holder, 0);
             if (resourceId != 0) {
-                aau();
-                this.cdj = this.cdj.placeholder(resourceId);
+                acT();
+                this.ciV = this.ciV.placeholder(resourceId);
             }
             int resourceId2 = obtainStyledAttributes.getResourceId(b.e.PrologueImageView_prologue_errorHolder, 0);
             if (resourceId2 != 0) {
-                aau();
-                this.cdj = this.cdj.error(resourceId2);
+                acT();
+                this.ciV = this.ciV.error(resourceId2);
             }
             Transformation transformation = null;
             if (obtainStyledAttributes.getBoolean(b.e.PrologueImageView_prologue_circleType, false)) {
-                transformation = new a(com.baidu.prologue.a.b.a.cbs.get().Zk());
+                transformation = new a(com.baidu.prologue.a.b.a.che.get().abJ());
             } else {
                 int i = obtainStyledAttributes.getInt(b.e.PrologueImageView_prologue_cornerRadius, 0);
                 if (i > 0) {
-                    this.cdk = true;
+                    this.ciW = true;
                     transformation = new RoundedCorners(i);
                 }
             }
             if (transformation != null) {
-                aau();
-                this.cdj = this.cdj.transform(transformation);
+                acT();
+                this.ciV = this.ciV.transform(transformation);
             }
             obtainStyledAttributes.recycle();
         }
     }
 
-    private void aau() {
-        if (this.cdj == null) {
-            this.cdj = new RequestOptions();
+    private void acT() {
+        if (this.ciV == null) {
+            this.ciV = new RequestOptions();
         }
     }
 }

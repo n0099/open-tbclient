@@ -3,14 +3,14 @@ package com.baidu.tbadk.util;
 import android.view.View;
 /* loaded from: classes.dex */
 public class ab {
-    private aa fti;
-    private View.OnTouchListener ftj;
+    private aa fza;
+    private View.OnTouchListener fzb;
 
-    public aa bBt() {
-        return this.fti;
+    public aa bDS() {
+        return this.fza;
     }
 
-    public View.OnTouchListener bBu() {
-        return this.ftj;
+    public View.OnTouchListener bDT() {
+        return this.fzb;
     }
 }

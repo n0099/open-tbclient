@@ -4,15 +4,15 @@ package com.baidu.ar.npc;
 public class n implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ArBridge f1225a;
+    final /* synthetic */ ArBridge f1227a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(ArBridge arBridge) {
-        this.f1225a = arBridge;
+        this.f1227a = arBridge;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f1225a.nativeOnResume();
+        this.f1227a.nativeOnResume();
     }
 }

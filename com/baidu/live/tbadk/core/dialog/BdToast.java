@@ -37,16 +37,16 @@ public class BdToast {
     }
 
     static {
-        sDefaultIconMap.put(DefaultIcon.SUCCESS, Integer.valueOf(a.f.sdk_icon_unite_pass));
-        sDefaultIconMap.put(DefaultIcon.FAILURE, Integer.valueOf(a.f.sdk_icon_unite_lose));
+        sDefaultIconMap.put(DefaultIcon.SUCCESS, Integer.valueOf(a.e.sdk_icon_unite_pass));
+        sDefaultIconMap.put(DefaultIcon.FAILURE, Integer.valueOf(a.e.sdk_icon_unite_lose));
         sDefaultIconMap.put(DefaultIcon.NOT, 0);
     }
 
     private BdToast(Context context) {
         this.mContext = context;
-        this.mRootView = (ViewGroup) LayoutInflater.from(context).inflate(a.h.sdk_dialog_bdtoast, (ViewGroup) null);
-        this.mIconView = (ImageView) this.mRootView.findViewById(a.g.toast_icon);
-        this.mTextView = (TextView) this.mRootView.findViewById(a.g.toast_message);
+        this.mRootView = (ViewGroup) LayoutInflater.from(context).inflate(a.g.sdk_dialog_bdtoast, (ViewGroup) null);
+        this.mIconView = (ImageView) this.mRootView.findViewById(a.f.toast_icon);
+        this.mTextView = (TextView) this.mRootView.findViewById(a.f.toast_message);
     }
 
     public void cancel() {
@@ -101,7 +101,7 @@ public class BdToast {
         } else {
             this.mIconView.setVisibility(8);
         }
-        SkinManager.setViewTextColor(this.mTextView, a.d.sdk_cp_cont_g, 1);
+        SkinManager.setViewTextColor(this.mTextView, a.c.sdk_cp_cont_g, 1);
         this.mTextView.setText(this.mText);
         this.mToast.setGravity(this.mGravity, this.offsetX, this.offsetY);
         this.mToast.setDuration(this.mDuration);

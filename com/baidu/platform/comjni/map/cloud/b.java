@@ -7,19 +7,19 @@ import com.baidu.mapapi.http.HttpClient;
 public class b extends HttpClient.ProtoResultCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f3181a;
+    final /* synthetic */ a f3183a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.f3181a = aVar;
+        this.f3183a = aVar;
     }
 
     @Override // com.baidu.mapapi.http.HttpClient.ProtoResultCallback
     public void onFailed(HttpClient.HttpStateError httpStateError) {
         if (httpStateError == HttpClient.HttpStateError.NETWORK_ERROR) {
-            this.f3181a.a(-3);
+            this.f3183a.a(-3);
         } else {
-            this.f3181a.a(1);
+            this.f3183a.a(1);
         }
     }
 
@@ -27,13 +27,13 @@ public class b extends HttpClient.ProtoResultCallback {
     public void onSuccess(String str) {
         boolean a2;
         Handler handler;
-        this.f3181a.h = str;
-        a2 = this.f3181a.a();
+        this.f3183a.h = str;
+        a2 = this.f3183a.a();
         if (a2) {
-            this.f3181a.f(str);
+            this.f3183a.f(str);
             return;
         }
-        handler = this.f3181a.g;
+        handler = this.f3183a.g;
         handler.post(new c(this, str));
     }
 }

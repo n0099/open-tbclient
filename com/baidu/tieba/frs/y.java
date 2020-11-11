@@ -9,22 +9,22 @@ import tbclient.FrsPageUserExtend;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class y implements com.baidu.adp.widget.ListView.q {
-    public static final BdUniqueId iFq = BdUniqueId.gen();
-    private List<MetaData> iFn;
-    private int iFm = 0;
-    private String iFo = "本吧都在关注";
-    private boolean iFp = false;
+    public static final BdUniqueId iLn = BdUniqueId.gen();
+    private List<MetaData> iLk;
+    private int iLj = 0;
+    private String iLl = "本吧都在关注";
+    private boolean iLm = false;
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return iFq;
+        return iLn;
     }
 
     public void a(FrsPageUserExtend frsPageUserExtend) {
         if (frsPageUserExtend != null && !com.baidu.tbadk.core.util.y.isEmpty(frsPageUserExtend.data)) {
             List<User> list = frsPageUserExtend.data;
-            this.iFm = frsPageUserExtend.user_extend_storey.intValue();
-            this.iFn = new ArrayList(list.size());
+            this.iLj = frsPageUserExtend.user_extend_storey.intValue();
+            this.iLk = new ArrayList(list.size());
             int i = 0;
             while (true) {
                 int i2 = i;
@@ -33,11 +33,11 @@ public class y implements com.baidu.adp.widget.ListView.q {
                     if (user != null && user.id.longValue() != 0) {
                         MetaData metaData = new MetaData();
                         metaData.parserProtobuf(list.get(i2));
-                        this.iFn.add(metaData);
+                        this.iLk.add(metaData);
                     }
                     i = i2 + 1;
                 } else {
-                    this.iFo = frsPageUserExtend.tips;
+                    this.iLl = frsPageUserExtend.tips;
                     return;
                 }
             }
@@ -46,29 +46,29 @@ public class y implements com.baidu.adp.widget.ListView.q {
 
     public void a(FeatureCardGod featureCardGod) {
         if (featureCardGod != null && !com.baidu.tbadk.core.util.y.isEmpty(featureCardGod.sub_nodes)) {
-            this.iFm = featureCardGod.floor.intValue();
-            this.iFn = featureCardGod.sub_nodes;
-            this.iFo = featureCardGod.title;
+            this.iLj = featureCardGod.floor.intValue();
+            this.iLk = featureCardGod.sub_nodes;
+            this.iLl = featureCardGod.title;
         }
     }
 
-    public int blo() {
-        return this.iFm;
+    public int bnO() {
+        return this.iLj;
     }
 
     public List<MetaData> getUserInfo() {
-        return this.iFn;
+        return this.iLk;
     }
 
-    public String cxB() {
-        return this.iFo;
+    public String cAc() {
+        return this.iLl;
     }
 
-    public boolean cxC() {
-        return this.iFp;
+    public boolean cAd() {
+        return this.iLm;
     }
 
-    public void py(boolean z) {
-        this.iFp = z;
+    public void pH(boolean z) {
+        this.iLm = z;
     }
 }

@@ -15,32 +15,32 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerAutoScrollView;
 /* loaded from: classes4.dex */
 public class h extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.special_forum.data.c> {
-    public AlaBannerAutoScrollView<com.baidu.tieba.ala.alasquare.special_forum.data.b> gly;
-    private com.baidu.tieba.ala.alasquare.widget.banner.c glz;
+    public AlaBannerAutoScrollView<com.baidu.tieba.ala.alasquare.special_forum.data.b> grl;
+    private com.baidu.tieba.ala.alasquare.widget.banner.c grm;
     private TbPageContext mTbPageContext;
 
     public h(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.glz = new com.baidu.tieba.ala.alasquare.widget.banner.c() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.a.h.2
+        this.grm = new com.baidu.tieba.ala.alasquare.widget.banner.c() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.a.h.2
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.c
             public com.baidu.tieba.ala.alasquare.widget.banner.b p(ViewGroup viewGroup2, int i) {
                 return new com.baidu.tieba.ala.alasquare.widget.banner.b<com.baidu.tieba.ala.alasquare.special_forum.data.b>(LayoutInflater.from(h.this.mTbPageContext.getPageActivity()).inflate(R.layout.special_bar_recommend_activity, viewGroup2, false)) { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.a.h.2.1
-                    public TbImageView glB;
+                    public TbImageView gro;
 
                     @Override // com.baidu.tieba.ala.alasquare.widget.banner.b
-                    protected void ah(View view) {
-                        this.glB = (TbImageView) view.findViewById(R.id.cover);
-                        this.glB.setDefaultErrorResource(0);
-                        this.glB.setDefaultBgResource(R.drawable.pic_bg_video_frs);
+                    protected void al(View view) {
+                        this.gro = (TbImageView) view.findViewById(R.id.cover);
+                        this.gro.setDefaultErrorResource(0);
+                        this.gro.setDefaultBgResource(R.drawable.pic_bg_video_frs);
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.tieba.ala.alasquare.widget.banner.b
                     /* renamed from: a */
-                    public void l(int i2, com.baidu.tieba.ala.alasquare.special_forum.data.b bVar) {
-                        if (bVar != null && this.glB != null && !StringUtils.isNull(bVar.pic)) {
-                            this.glB.startLoad(bVar.pic, 10, false);
+                    public void k(int i2, com.baidu.tieba.ala.alasquare.special_forum.data.b bVar) {
+                        if (bVar != null && this.gro != null && !StringUtils.isNull(bVar.pic)) {
+                            this.gro.startLoad(bVar.pic, 10, false);
                         }
                     }
 
@@ -52,15 +52,15 @@ public class h extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.spec
             }
         };
         this.mTbPageContext = tbPageContext;
-        this.gly = (AlaBannerAutoScrollView) getView().findViewById(R.id.banner_container);
-        this.gly.setViewHolderAdapter(this.glz);
-        this.gly.setOnBannerClickListener(new com.baidu.tieba.ala.alasquare.widget.banner.d() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.a.h.1
+        this.grl = (AlaBannerAutoScrollView) getView().findViewById(R.id.banner_container);
+        this.grl.setViewHolderAdapter(this.grm);
+        this.grl.setOnBannerClickListener(new com.baidu.tieba.ala.alasquare.widget.banner.d() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.a.h.1
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.d
             public void aF(Object obj) {
                 if (obj != null && (obj instanceof com.baidu.tieba.ala.alasquare.special_forum.data.b)) {
                     com.baidu.tieba.ala.alasquare.special_forum.data.b bVar = (com.baidu.tieba.ala.alasquare.special_forum.data.b) obj;
                     if (!StringUtils.isNull(bVar.url)) {
-                        be.boR().a((TbPageContext) com.baidu.adp.base.i.I(h.this.mTbPageContext.getPageActivity()), new String[]{bVar.url}, true);
+                        be.brr().a((TbPageContext) com.baidu.adp.base.i.I(h.this.mTbPageContext.getPageActivity()), new String[]{bVar.url}, true);
                     }
                     TiebaStatic.log("c12902");
                 }
@@ -71,7 +71,7 @@ public class h extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.spec
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        this.gly.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        this.grl.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
@@ -88,8 +88,8 @@ public class h extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.spec
     @Override // com.baidu.tieba.card.b
     /* renamed from: b */
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.c cVar) {
-        if (cVar != null && !y.isEmpty(cVar.gjV)) {
-            this.gly.a(cVar.gjV, this.glz);
+        if (cVar != null && !y.isEmpty(cVar.gpI)) {
+            this.grl.a(cVar.gpI, this.grm);
             TiebaStatic.log("c12901");
         }
     }
@@ -100,13 +100,13 @@ public class h extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.spec
 
     /* loaded from: classes4.dex */
     public static class a extends af.a {
-        public View dVJ;
-        public h glD;
+        public View ebB;
+        public h grq;
 
         public a(h hVar) {
             super(hVar.getView());
-            this.glD = hVar;
-            this.dVJ = hVar.getView();
+            this.grq = hVar;
+            this.ebB = hVar.getView();
         }
     }
 }

@@ -6,7 +6,7 @@ import android.os.Build;
  */
 /* loaded from: classes19.dex */
 public class a {
-    public static boolean Yr() {
+    public static boolean aaQ() {
         return Build.VERSION.SDK_INT >= 23;
     }
 }

@@ -11,6 +11,7 @@ import android.opengl.GLES20;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.view.Surface;
 import com.baidu.live.tbadk.core.data.ConstantData;
 import java.nio.ByteBuffer;
@@ -43,10 +44,13 @@ public class MediaCodecVideoEncoder {
     private static final int VIDEO_AVCLevel3 = 256;
     private static final int VIDEO_AVCProfileHigh = 8;
     private static final int VIDEO_ControlRateConstant = 2;
+    private static final int VIDEO_ControlRateDisable = 0;
+    private static final int VIDEO_ControlRateVariable = 1;
     private static int VIDEO_HEIGHT = 0;
     private static int VIDEO_WIDTH = 0;
     private static final String VP8_MIME_TYPE = "video/x-vnd.on2.vp8";
     private static final String VP9_MIME_TYPE = "video/x-vnd.on2.vp9";
+    private static int bitrateMode = 2;
     private static int codecErrors;
     @Nullable
     private static MediaCodecVideoEncoderErrorCallback errorCallback;
@@ -57,7 +61,6 @@ public class MediaCodecVideoEncoder {
     private double bitrateAccumulator;
     private double bitrateAccumulatorMax;
     private int bitrateAdjustmentScaleExp;
-    private BitrateAdjustmentType bitrateAdjustmentType = BitrateAdjustmentType.NO_ADJUSTMENT;
     private double bitrateObservationTimeMs;
     private int colorFormat;
     @Nullable
@@ -98,6 +101,7 @@ public class MediaCodecVideoEncoder {
     private static final MediaCodecProperties NvidiaH264HwProperties = new MediaCodecProperties("OMX.Nvidia.", 21, BitrateAdjustmentType.NO_ADJUSTMENT);
     private static final MediaCodecProperties huaweiIMGH264HwProperties = new MediaCodecProperties("OMX.IMG.", 21, BitrateAdjustmentType.NO_ADJUSTMENT);
     private static final MediaCodecProperties googH264HwProperties = new MediaCodecProperties("OMX.google.", 21, BitrateAdjustmentType.NO_ADJUSTMENT);
+    private static final MediaCodecProperties sprdH264HwProperties = new MediaCodecProperties("OMX.sprd.", 21, BitrateAdjustmentType.NO_ADJUSTMENT);
     private static final MediaCodecProperties amlogicH264HwProperties = new MediaCodecProperties("OMX.amlogic.", 21, BitrateAdjustmentType.NO_ADJUSTMENT);
     private static final MediaCodecProperties exynosH264HighProfileHwProperties = new MediaCodecProperties("OMX.Exynos.", 23, BitrateAdjustmentType.FRAMERATE_ADJUSTMENT);
     private static final MediaCodecProperties[] h264HighProfileHwList = {exynosH264HighProfileHwProperties};
@@ -105,6 +109,8 @@ public class MediaCodecVideoEncoder {
     private static final int COLOR_QCOM_FORMATYUV420PackedSemiPlanar32m = 2141391876;
     private static final int[] supportedColorList = {19, 21, 2141391872, COLOR_QCOM_FORMATYUV420PackedSemiPlanar32m};
     private static final int[] supportedSurfaceColorList = {2130708361};
+    private String bitrateModePreset = PeerConnectionFactory.fieldTrialsFindFullName("BRTC-Encoder-BitrateMode");
+    private BitrateAdjustmentType bitrateAdjustmentType = BitrateAdjustmentType.NO_ADJUSTMENT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: org.webrtc.MediaCodecVideoEncoder$1CaughtException  reason: invalid class name */
@@ -461,6 +467,7 @@ public class MediaCodecVideoEncoder {
         arrayList.add(huaweiIMGH264HwProperties);
         arrayList.add(googH264HwProperties);
         arrayList.add(amlogicH264HwProperties);
+        arrayList.add(sprdH264HwProperties);
         PeerConnectionFactory.fieldTrialsFindFullName("WebRTC-MediaTekH264").equals(PeerConnectionFactory.TRIAL_ENABLED);
         return (MediaCodecProperties[]) arrayList.toArray(new MediaCodecProperties[arrayList.size()]);
     }
@@ -774,19 +781,19 @@ public class MediaCodecVideoEncoder {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:14:0x0098  */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x0128  */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x012a  */
     @CalledByNativeUnchecked
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     boolean initEncode(VideoCodecType videoCodecType, int i, int i2, int i3, int i4, int i5, boolean z) {
         boolean z2;
-        String str;
-        int i6;
         EncoderProperties encoderProperties;
+        String str;
         boolean z3;
         EncoderProperties findHwEncoder;
         String str2;
+        int parseInt;
         Logging.d(TAG, "Java initEncode: " + videoCodecType + ". Profile: " + i + " : " + i2 + " x " + i3 + ". @ " + i4 + " kbps. Fps: " + i5 + ". Encode from texture : " + z);
         VIDEO_WIDTH = i2;
         VIDEO_HEIGHT = i3;
@@ -796,6 +803,7 @@ public class MediaCodecVideoEncoder {
         if (this.mediaCodecThread != null) {
             throw new RuntimeException("Forgot to release()?");
         }
+        int i6 = 100;
         if (videoCodecType == VideoCodecType.VIDEO_CODEC_VP8) {
             findHwEncoder = findHwEncoder(VP8_MIME_TYPE, vp8HwList(), z ? supportedSurfaceColorList : supportedColorList, i2, i3);
             str2 = VP8_MIME_TYPE;
@@ -810,9 +818,9 @@ public class MediaCodecVideoEncoder {
                 if (findHwEncoder("video/avc", h264HighProfileHwList, z ? supportedSurfaceColorList : supportedColorList, i2, i3) != null) {
                     Logging.d(TAG, "High profile H.264 encoder supported.");
                     z2 = true;
-                    str = "video/avc";
-                    i6 = 20;
                     encoderProperties = findHwEncoder2;
+                    i6 = 20;
+                    str = "video/avc";
                     z3 = z2;
                     if (encoderProperties == null) {
                         throw new RuntimeException("Can not find HW encoder for " + videoCodecType);
@@ -832,7 +840,10 @@ public class MediaCodecVideoEncoder {
                             this.forcedKeyFrameMs = 15000L;
                         }
                     }
-                    Logging.d(TAG, "Color format: " + this.colorFormat + ". Bitrate adjustment: " + this.bitrateAdjustmentType + ". Key frame interval: " + this.forcedKeyFrameMs + " . Initial fps: " + min);
+                    if (!TextUtils.isEmpty(this.bitrateModePreset) && ((parseInt = Integer.parseInt(this.bitrateModePreset)) == 0 || parseInt == 1 || parseInt == 2)) {
+                        bitrateMode = parseInt;
+                    }
+                    Logging.d(TAG, "Color format: " + this.colorFormat + ". Bitrate adjustment: " + this.bitrateAdjustmentType + ". Key frame interval: " + this.forcedKeyFrameMs + " . Initial fps: " + min + ". BitrateMode: " + bitrateMode);
                     this.targetBitrateBps = i4 * 1000;
                     this.targetFps = min;
                     this.bitrateAccumulatorMax = ((double) this.targetBitrateBps) / 8.0d;
@@ -843,7 +854,7 @@ public class MediaCodecVideoEncoder {
                     try {
                         MediaFormat createVideoFormat = MediaFormat.createVideoFormat(str, i2, i3);
                         createVideoFormat.setInteger("bitrate", this.targetBitrateBps);
-                        createVideoFormat.setInteger("bitrate-mode", 2);
+                        createVideoFormat.setInteger("bitrate-mode", bitrateMode);
                         createVideoFormat.setInteger("color-format", encoderProperties.colorFormat);
                         createVideoFormat.setInteger("frame-rate", this.targetFps);
                         createVideoFormat.setInteger("i-frame-interval", i6);
@@ -879,16 +890,15 @@ public class MediaCodecVideoEncoder {
                 Logging.d(TAG, "High profile H.264 encoder requested, but not supported. Use baseline.");
             }
             z2 = false;
-            str = "video/avc";
-            i6 = 20;
             encoderProperties = findHwEncoder2;
+            i6 = 20;
+            str = "video/avc";
             z3 = z2;
             if (encoderProperties == null) {
             }
         }
-        z3 = false;
-        i6 = 100;
         encoderProperties = findHwEncoder;
+        z3 = false;
         str = str2;
         if (encoderProperties == null) {
         }

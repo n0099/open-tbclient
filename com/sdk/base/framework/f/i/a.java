@@ -12,7 +12,7 @@ import java.security.spec.X509EncodedKeySpec;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4501a = a.class.getSimpleName();
+    private static final String f4503a = a.class.getSimpleName();
     private static Boolean b = Boolean.valueOf(f.b);
 
     public static PublicKey a(String str) {
@@ -25,7 +25,7 @@ public class a {
             aVar.a(byteArrayInputStream, byteArrayOutputStream);
             return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(byteArrayOutputStream.toByteArray()));
         } catch (Exception e) {
-            c.b(f4501a, e.toString(), b);
+            c.b(f4503a, e.toString(), b);
             return null;
         }
     }

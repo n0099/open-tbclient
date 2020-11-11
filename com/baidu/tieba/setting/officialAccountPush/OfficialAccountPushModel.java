@@ -11,23 +11,23 @@ import tbclient.GetOfficialSwitch.OfficialList;
 /* loaded from: classes26.dex */
 public class OfficialAccountPushModel extends BdBaseModel {
     public static int NET_SUCCESS = 0;
-    private a mBY;
+    private a mIa;
     public List<OfficialList> official_list;
     public ArrayList<OfficialAccountPushInfo> list = new ArrayList<>();
-    private com.baidu.adp.framework.listener.a mDO = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_OFFICIAL_ACCOUNT_PUSH, 309620) { // from class: com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushModel.1
+    private com.baidu.adp.framework.listener.a mJQ = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_OFFICIAL_ACCOUNT_PUSH, 309620) { // from class: com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushModel.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             OfficialAccountPushHttpResponseMessage officialAccountPushHttpResponseMessage;
             if (responsedMessage instanceof OfficialAccountPushSocketResponseMessage) {
                 OfficialAccountPushSocketResponseMessage officialAccountPushSocketResponseMessage = (OfficialAccountPushSocketResponseMessage) responsedMessage;
                 if (officialAccountPushSocketResponseMessage != null && officialAccountPushSocketResponseMessage.getList() != null) {
-                    OfficialAccountPushModel.this.mBY.a(officialAccountPushSocketResponseMessage.getList(), officialAccountPushSocketResponseMessage.getError(), officialAccountPushSocketResponseMessage.getErrorString());
+                    OfficialAccountPushModel.this.mIa.a(officialAccountPushSocketResponseMessage.getList(), officialAccountPushSocketResponseMessage.getError(), officialAccountPushSocketResponseMessage.getErrorString());
                 } else {
                     return;
                 }
             }
             if ((responsedMessage instanceof OfficialAccountPushHttpResponseMessage) && (officialAccountPushHttpResponseMessage = (OfficialAccountPushHttpResponseMessage) responsedMessage) != null) {
-                OfficialAccountPushModel.this.mBY.a(officialAccountPushHttpResponseMessage.getList(), officialAccountPushHttpResponseMessage.getError(), officialAccountPushHttpResponseMessage.getErrorString());
+                OfficialAccountPushModel.this.mIa.a(officialAccountPushHttpResponseMessage.getList(), officialAccountPushHttpResponseMessage.getError(), officialAccountPushHttpResponseMessage.getErrorString());
             }
         }
     };
@@ -38,13 +38,13 @@ public class OfficialAccountPushModel extends BdBaseModel {
     }
 
     public OfficialAccountPushModel(a aVar) {
-        this.mBY = aVar;
-        registerListener(this.mDO);
+        this.mIa = aVar;
+        registerListener(this.mJQ);
         com.baidu.tieba.tbadkCore.a.a.c(309620, OfficialAccountPushSocketResponseMessage.class, false);
         com.baidu.tieba.tbadkCore.a.a.a(309620, CmdConfigHttp.CMD_OFFICIAL_ACCOUNT_PUSH, TbConfig.CHECK_OFFICIAL_SWITCH_URL, OfficialAccountPushHttpResponseMessage.class, true, false, true, false);
     }
 
-    public void dDd() {
+    public void dFF() {
         sendMessage(new OfficialAccountPushRequestMessage());
     }
 
@@ -60,6 +60,6 @@ public class OfficialAccountPushModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.mDO);
+        MessageManager.getInstance().unRegisterListener(this.mJQ);
     }
 }

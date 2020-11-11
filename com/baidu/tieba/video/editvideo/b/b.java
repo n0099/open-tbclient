@@ -10,98 +10,98 @@ public class b {
     private String mFilterName;
     private boolean mIsRunning = false;
     private String mSourcePath;
-    private String ngh;
-    private a nhU;
-    private f nhV;
-    private d nhW;
-    private e nhX;
-    private volatile boolean nhY;
-    private volatile boolean nhZ;
-    private volatile boolean nia;
+    private String nmd;
+    private a nnQ;
+    private f nnR;
+    private d nnS;
+    private e nnT;
+    private volatile boolean nnU;
+    private volatile boolean nnV;
+    private volatile boolean nnW;
 
     /* loaded from: classes23.dex */
     public interface a {
-        void Tu(String str);
+        void TL(String str);
 
-        void bT(int i, String str);
+        void bX(int i, String str);
 
-        void bU(int i, String str);
+        void bY(int i, String str);
     }
 
     public b(Context context, String str, String str2, String str3) {
         this.mContext = context;
         this.mSourcePath = str;
-        this.ngh = str2;
+        this.nmd = str2;
         this.mFilterName = str3;
     }
 
-    public void dMx() {
+    public void dOZ() {
         if (!this.mIsRunning) {
             this.mIsRunning = true;
-            this.nhY = false;
-            this.nhZ = false;
-            this.nia = false;
+            this.nnU = false;
+            this.nnV = false;
+            this.nnW = false;
             try {
-                File file = new File(new File(this.ngh).getParent());
+                File file = new File(new File(this.nmd).getParent());
                 if (!file.exists()) {
                     file.mkdirs();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                if (this.nhU != null) {
-                    this.nhU.bT(222, com.baidu.tieba.k.a.r(e));
+                if (this.nnQ != null) {
+                    this.nnQ.bX(222, com.baidu.tieba.k.a.r(e));
                 }
             }
             try {
-                this.nhX = new e(this.ngh);
-                this.nhV = new f(this.mContext, this.mSourcePath, this.mFilterName, this.nhX, this.nhU) { // from class: com.baidu.tieba.video.editvideo.b.b.1
+                this.nnT = new e(this.nmd);
+                this.nnR = new f(this.mContext, this.mSourcePath, this.mFilterName, this.nnT, this.nnQ) { // from class: com.baidu.tieba.video.editvideo.b.b.1
                     @Override // com.baidu.tieba.video.editvideo.b.f
                     public void onPostExecute() {
-                        b.this.nhY = true;
-                        b.this.dMz();
+                        b.this.nnU = true;
+                        b.this.dPb();
                     }
                 };
-                this.nhV.start();
-                this.nhW = new d(this.mContext, this.mSourcePath, this.nhX, this.nhU) { // from class: com.baidu.tieba.video.editvideo.b.b.2
+                this.nnR.start();
+                this.nnS = new d(this.mContext, this.mSourcePath, this.nnT, this.nnQ) { // from class: com.baidu.tieba.video.editvideo.b.b.2
                     @Override // com.baidu.tieba.video.editvideo.b.d
                     public void onPostExecute() {
-                        b.this.nhZ = true;
-                        b.this.dMz();
+                        b.this.nnV = true;
+                        b.this.dPb();
                     }
                 };
-                this.nhW.start();
+                this.nnS.start();
             } catch (Exception e2) {
             }
         }
     }
 
-    public void dMy() {
-        if (this.nhV != null) {
-            this.nhV.interrupt();
-            this.nhV = null;
+    public void dPa() {
+        if (this.nnR != null) {
+            this.nnR.interrupt();
+            this.nnR = null;
         }
-        if (this.nhW != null) {
-            this.nhW.interrupt();
-            this.nhW = null;
+        if (this.nnS != null) {
+            this.nnS.interrupt();
+            this.nnS = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dMz() {
-        if (this.nhY && this.nhZ && !this.nia) {
-            this.nhX.stop();
-            this.nia = true;
-            dMA();
+    public void dPb() {
+        if (this.nnU && this.nnV && !this.nnW) {
+            this.nnT.stop();
+            this.nnW = true;
+            dPc();
         }
     }
 
-    private void dMA() {
-        if (this.nhU != null) {
-            File file = new File(this.ngh);
+    private void dPc() {
+        if (this.nnQ != null) {
+            File file = new File(this.nmd);
             if (file.exists() && file.length() > 0) {
-                this.nhU.Tu(this.ngh);
+                this.nnQ.TL(this.nmd);
             } else {
-                this.nhU.bT(223, "Err empty outputFile");
+                this.nnQ.bX(223, "Err empty outputFile");
             }
         }
         this.mIsRunning = false;
@@ -112,6 +112,6 @@ public class b {
     }
 
     public void a(a aVar) {
-        this.nhU = aVar;
+        this.nnQ = aVar;
     }
 }

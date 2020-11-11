@@ -7,38 +7,38 @@ import tbclient.SearchPostForum.DataRes;
 import tbclient.SearchPostForum.SearchForum;
 /* loaded from: classes24.dex */
 public class c {
-    private SearchForum izG;
-    private List<SearchForum> izH;
-    private ArrayList<q> izI;
-    private String izg;
+    private SearchForum iFD;
+    private List<SearchForum> iFE;
+    private ArrayList<q> iFF;
+    private String iFd;
 
     public c(String str) {
-        this.izg = str;
+        this.iFd = str;
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.izG = dataRes.exact_match;
-            this.izH = dataRes.fuzzy_match;
-            this.izI = new ArrayList<>();
-            b bVar = new b(this.izg);
-            if (this.izG != null) {
-                bVar.a(this.izG);
-                this.izI.add(bVar);
+            this.iFD = dataRes.exact_match;
+            this.iFE = dataRes.fuzzy_match;
+            this.iFF = new ArrayList<>();
+            b bVar = new b(this.iFd);
+            if (this.iFD != null) {
+                bVar.a(this.iFD);
+                this.iFF.add(bVar);
             }
-            if (this.izH != null) {
-                for (SearchForum searchForum : this.izH) {
+            if (this.iFE != null) {
+                for (SearchForum searchForum : this.iFE) {
                     if (searchForum != null) {
-                        b bVar2 = new b(this.izg);
+                        b bVar2 = new b(this.iFd);
                         bVar2.a(searchForum);
-                        this.izI.add(bVar2);
+                        this.iFF.add(bVar2);
                     }
                 }
             }
         }
     }
 
-    public ArrayList<q> cuC() {
-        return this.izI;
+    public ArrayList<q> cxd() {
+        return this.iFF;
     }
 }

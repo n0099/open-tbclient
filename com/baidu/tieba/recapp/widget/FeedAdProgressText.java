@@ -8,17 +8,17 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes26.dex */
 public class FeedAdProgressText extends AppCompatTextView implements a {
+    private int mBe;
     private int mColor;
     private int mMax;
     private int mProgress;
-    private int mvi;
 
     public FeedAdProgressText(Context context) {
         super(context);
         this.mMax = 100;
         this.mProgress = 0;
         this.mColor = 0;
-        this.mvi = 0;
+        this.mBe = 0;
         init(context);
     }
 
@@ -27,7 +27,7 @@ public class FeedAdProgressText extends AppCompatTextView implements a {
         this.mMax = 100;
         this.mProgress = 0;
         this.mColor = 0;
-        this.mvi = 0;
+        this.mBe = 0;
         init(context);
     }
 
@@ -36,7 +36,7 @@ public class FeedAdProgressText extends AppCompatTextView implements a {
         this.mMax = 100;
         this.mProgress = 0;
         this.mColor = 0;
-        this.mvi = 0;
+        this.mBe = 0;
         init(context);
     }
 
@@ -72,7 +72,7 @@ public class FeedAdProgressText extends AppCompatTextView implements a {
 
     @Override // com.baidu.tieba.recapp.widget.a
     public void setButtonTextNightColor(int i) {
-        this.mvi = i;
+        this.mBe = i;
     }
 
     @Override // com.baidu.tieba.recapp.widget.a

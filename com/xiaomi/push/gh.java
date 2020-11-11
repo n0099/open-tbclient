@@ -8,26 +8,26 @@ import java.util.Map;
 public class gh extends gj {
 
     /* renamed from: a  reason: collision with root package name */
-    private a f4920a;
+    private a f4922a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final Map<String, String> f388a;
+    private final Map<String, String> f390a;
 
     /* loaded from: classes12.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f4921a = new a("get");
+        public static final a f4923a = new a("get");
         public static final a b = new a("set");
         public static final a c = new a("result");
         public static final a d = new a(BdStatsConstant.StatsType.ERROR);
         public static final a e = new a("command");
 
         /* renamed from: a  reason: collision with other field name */
-        private String f389a;
+        private String f391a;
 
         private a(String str) {
-            this.f389a = str;
+            this.f391a = str;
         }
 
         public static a a(String str) {
@@ -35,8 +35,8 @@ public class gh extends gj {
                 return null;
             }
             String lowerCase = str.toLowerCase();
-            if (f4921a.toString().equals(lowerCase)) {
-                return f4921a;
+            if (f4923a.toString().equals(lowerCase)) {
+                return f4923a;
             }
             if (b.toString().equals(lowerCase)) {
                 return b;
@@ -54,36 +54,36 @@ public class gh extends gj {
         }
 
         public String toString() {
-            return this.f389a;
+            return this.f391a;
         }
     }
 
     public gh() {
-        this.f4920a = a.f4921a;
-        this.f388a = new HashMap();
+        this.f4922a = a.f4923a;
+        this.f390a = new HashMap();
     }
 
     public gh(Bundle bundle) {
         super(bundle);
-        this.f4920a = a.f4921a;
-        this.f388a = new HashMap();
+        this.f4922a = a.f4923a;
+        this.f390a = new HashMap();
         if (bundle.containsKey("ext_iq_type")) {
-            this.f4920a = a.a(bundle.getString("ext_iq_type"));
+            this.f4922a = a.a(bundle.getString("ext_iq_type"));
         }
     }
 
     @Override // com.xiaomi.push.gj
     public Bundle a() {
         Bundle a2 = super.a();
-        if (this.f4920a != null) {
-            a2.putString("ext_iq_type", this.f4920a.toString());
+        if (this.f4922a != null) {
+            a2.putString("ext_iq_type", this.f4922a.toString());
         }
         return a2;
     }
 
     @Override // com.xiaomi.push.gj
     public a a() {
-        return this.f4920a;
+        return this.f4922a;
     }
 
     @Override // com.xiaomi.push.gj
@@ -102,11 +102,11 @@ public class gh extends gj {
         if (k() != null) {
             sb.append("chid=\"").append(gu.a(k())).append("\" ");
         }
-        for (Map.Entry<String, String> entry : this.f388a.entrySet()) {
+        for (Map.Entry<String, String> entry : this.f390a.entrySet()) {
             sb.append(gu.a(entry.getKey())).append("=\"");
             sb.append(gu.a(entry.getValue())).append("\" ");
         }
-        if (this.f4920a == null) {
+        if (this.f4922a == null) {
             sb.append("type=\"get\">");
         } else {
             sb.append("type=\"").append(a()).append("\">");
@@ -126,14 +126,14 @@ public class gh extends gj {
 
     public void a(a aVar) {
         if (aVar == null) {
-            this.f4920a = a.f4921a;
+            this.f4922a = a.f4923a;
         } else {
-            this.f4920a = aVar;
+            this.f4922a = aVar;
         }
     }
 
     public synchronized void a(Map<String, String> map) {
-        this.f388a.putAll(map);
+        this.f390a.putAll(map);
     }
 
     @Override // com.xiaomi.push.gj

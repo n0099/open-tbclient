@@ -16,41 +16,41 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes24.dex */
 public class d extends BaseAdapter {
-    private boolean gKL;
-    private View.OnClickListener kSX;
-    private View.OnClickListener kTD;
-    private PersonFriendActivity lUo;
+    private boolean gQx;
+    private View.OnClickListener kYT;
+    private View.OnClickListener kZz;
     private int mPageType;
-    private ArrayList<UserData> eCX = null;
+    private PersonFriendActivity mal;
+    private ArrayList<UserData> eIM = null;
     private boolean mHasMore = false;
-    private boolean lUp = false;
-    private boolean gKJ = false;
-    private ArrayList<ProgressBar> lUq = new ArrayList<>();
+    private boolean mam = false;
+    private boolean gQv = false;
+    private ArrayList<ProgressBar> man = new ArrayList<>();
 
-    public void dsv() {
-        if (this.lUq != null) {
+    public void duX() {
+        if (this.man != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.lUq.size()) {
+                if (i2 < this.man.size()) {
                     try {
-                        this.lUq.get(i2).setVisibility(8);
+                        this.man.get(i2).setVisibility(8);
                     } catch (Exception e) {
                         BdLog.e(e.getMessage());
                     }
                     i = i2 + 1;
                 } else {
-                    this.lUq.clear();
+                    this.man.clear();
                     return;
                 }
             }
         }
     }
 
-    public void bTb() {
-        this.gKJ = false;
-        if (this.eCX != null && this.eCX.size() == 0) {
-            this.gKJ = true;
+    public void bVA() {
+        this.gQv = false;
+        if (this.eIM != null && this.eIM.size() == 0) {
+            this.gQv = true;
         }
     }
 
@@ -58,35 +58,35 @@ public class d extends BaseAdapter {
         this.mHasMore = z;
     }
 
-    public void vI(boolean z) {
-        this.lUp = z;
+    public void vR(boolean z) {
+        this.mam = z;
     }
 
     public d(PersonFriendActivity personFriendActivity, boolean z, int i, View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
-        this.lUo = null;
-        this.gKL = true;
+        this.mal = null;
+        this.gQx = true;
         this.mPageType = 0;
-        this.kTD = null;
-        this.kSX = null;
-        this.lUo = personFriendActivity;
-        this.gKL = z;
+        this.kZz = null;
+        this.kYT = null;
+        this.mal = personFriendActivity;
+        this.gQx = z;
         this.mPageType = i;
-        this.kTD = onClickListener;
-        this.kSX = onClickListener2;
+        this.kZz = onClickListener;
+        this.kYT = onClickListener2;
     }
 
     public void setData(ArrayList<UserData> arrayList) {
-        this.eCX = arrayList;
+        this.eIM = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.gKJ) {
+        if (this.gQv) {
             return 1;
         }
         int i = 0;
-        if (this.eCX != null) {
-            i = this.eCX.size();
+        if (this.eIM != null) {
+            i = this.eIM.size();
         }
         if (this.mHasMore) {
             return i + 1;
@@ -96,15 +96,15 @@ public class d extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.eCX == null || i >= this.eCX.size()) {
+        if (this.eIM == null || i >= this.eIM.size()) {
             return null;
         }
-        return this.eCX.get(i);
+        return this.eIM.get(i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (this.eCX == null || i >= this.eCX.size()) {
+        if (this.eIM == null || i >= this.eIM.size()) {
             return -1L;
         }
         return i;
@@ -114,28 +114,28 @@ public class d extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         View view2;
-        if (this.eCX != null) {
+        if (this.eIM != null) {
             if (view == null) {
                 a aVar2 = new a();
                 if (getItemViewType(i) == 0) {
-                    View inflate = LayoutInflater.from(this.lUo.getPageContext().getPageActivity()).inflate(R.layout.person_list_item_friend, (ViewGroup) null);
-                    aVar2.iEX = (HeadImageView) inflate.findViewById(R.id.photo);
-                    aVar2.iEX.setIsRound(false);
-                    aVar2.iEX.setAutoChangeStyle(true);
-                    aVar2.gLO = (LinearLayout) inflate.findViewById(R.id.info);
+                    View inflate = LayoutInflater.from(this.mal.getPageContext().getPageActivity()).inflate(R.layout.person_list_item_friend, (ViewGroup) null);
+                    aVar2.iKU = (HeadImageView) inflate.findViewById(R.id.photo);
+                    aVar2.iKU.setIsRound(false);
+                    aVar2.iKU.setAutoChangeStyle(true);
+                    aVar2.gRA = (LinearLayout) inflate.findViewById(R.id.info);
                     aVar2.mName = (TextView) inflate.findViewById(R.id.name);
-                    aVar2.gKN = (TextView) inflate.findViewById(R.id.at_list_nodata);
-                    aVar2.grt = (TextView) inflate.findViewById(R.id.intro);
-                    aVar2.lUr = (ImageView) inflate.findViewById(R.id.chat);
-                    aVar2.kht = (ImageView) inflate.findViewById(R.id.diver_buttom_px);
-                    aVar2.lUr.setOnClickListener(this.kTD);
+                    aVar2.gQz = (TextView) inflate.findViewById(R.id.at_list_nodata);
+                    aVar2.gxh = (TextView) inflate.findViewById(R.id.intro);
+                    aVar2.mao = (ImageView) inflate.findViewById(R.id.chat);
+                    aVar2.knq = (ImageView) inflate.findViewById(R.id.diver_buttom_px);
+                    aVar2.mao.setOnClickListener(this.kZz);
                     view2 = inflate;
                 } else {
-                    View inflate2 = LayoutInflater.from(this.lUo.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
+                    View inflate2 = LayoutInflater.from(this.mal.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
                     aVar2.mName = (TextView) inflate2.findViewById(R.id.pb_more_text);
-                    inflate2.setOnClickListener(this.kSX);
+                    inflate2.setOnClickListener(this.kYT);
                     aVar2.mProgress = (ProgressBar) inflate2.findViewById(R.id.progress);
-                    this.lUq.add(aVar2.mProgress);
+                    this.man.add(aVar2.mProgress);
                     view2 = inflate2;
                 }
                 view2.setTag(aVar2);
@@ -145,48 +145,48 @@ public class d extends BaseAdapter {
                 aVar = (a) view.getTag();
             }
             if (getItemViewType(i) == 0) {
-                if (this.gKJ) {
-                    aVar.gLO.setVisibility(8);
-                    aVar.lUr.setVisibility(8);
-                    aVar.gKN.setVisibility(8);
-                    aVar.kht.setVisibility(8);
+                if (this.gQv) {
+                    aVar.gRA.setVisibility(8);
+                    aVar.mao.setVisibility(8);
+                    aVar.gQz.setVisibility(8);
+                    aVar.knq.setVisibility(8);
                 } else {
-                    if (!this.gKL && this.mPageType == 0) {
-                        aVar.lUr.setVisibility(8);
+                    if (!this.gQx && this.mPageType == 0) {
+                        aVar.mao.setVisibility(8);
                     } else {
-                        aVar.lUr.setVisibility(0);
+                        aVar.mao.setVisibility(0);
                     }
-                    aVar.gLO.setVisibility(0);
-                    aVar.gLO.setTag(Integer.valueOf(i));
-                    aVar.kht.setVisibility(0);
-                    aVar.gKN.setVisibility(8);
-                    String portrait = this.eCX.get(i).getPortrait();
-                    aVar.iEX.setImageDrawable(null);
-                    aVar.iEX.startLoad(portrait, 12, false);
-                    aVar.mName.setText(this.eCX.get(i).getName_show());
-                    aVar.grt.setText(this.eCX.get(i).getIntro());
-                    aVar.lUr.setTag(Integer.valueOf(i));
+                    aVar.gRA.setVisibility(0);
+                    aVar.gRA.setTag(Integer.valueOf(i));
+                    aVar.knq.setVisibility(0);
+                    aVar.gQz.setVisibility(8);
+                    String portrait = this.eIM.get(i).getPortrait();
+                    aVar.iKU.setImageDrawable(null);
+                    aVar.iKU.startLoad(portrait, 12, false);
+                    aVar.mName.setText(this.eIM.get(i).getName_show());
+                    aVar.gxh.setText(this.eIM.get(i).getIntro());
+                    aVar.mao.setTag(Integer.valueOf(i));
                 }
             } else {
-                aVar.mName.setText(this.lUo.getPageContext().getString(R.string.loading));
+                aVar.mName.setText(this.mal.getPageContext().getString(R.string.loading));
                 aVar.mProgress.setVisibility(0);
             }
-            cF(view);
+            cK(view);
         }
         return view;
     }
 
-    private void cF(View view) {
-        this.lUo.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.lUo.getLayoutMode().onModeChanged(view);
+    private void cK(View view) {
+        this.mal.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.mal.getLayoutMode().onModeChanged(view);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        if (this.gKJ) {
+        if (this.gQv) {
             return 0;
         }
-        return (this.eCX == null || i >= this.eCX.size()) ? 1 : 0;
+        return (this.eIM == null || i >= this.eIM.size()) ? 1 : 0;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -196,7 +196,7 @@ public class d extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int i) {
-        if (this.gKJ) {
+        if (this.gQv) {
             return false;
         }
         return super.isEnabled(i);
@@ -204,14 +204,14 @@ public class d extends BaseAdapter {
 
     /* loaded from: classes24.dex */
     private class a {
-        TextView gKN;
-        LinearLayout gLO;
-        TextView grt;
-        HeadImageView iEX;
-        ImageView kht;
-        ImageView lUr;
+        TextView gQz;
+        LinearLayout gRA;
+        TextView gxh;
+        HeadImageView iKU;
+        ImageView knq;
         TextView mName;
         ProgressBar mProgress;
+        ImageView mao;
 
         private a() {
         }

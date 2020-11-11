@@ -5,12 +5,12 @@ import org.json.JSONObject;
 /* loaded from: classes24.dex */
 public class k {
     public String link;
-    public String mJv;
+    public String mPs;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.mJv = jSONObject.optString("banner");
+                this.mPs = jSONObject.optString("banner");
                 this.link = jSONObject.optString("link");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());

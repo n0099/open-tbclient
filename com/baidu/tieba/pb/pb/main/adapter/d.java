@@ -25,7 +25,7 @@ public class d extends com.baidu.adp.widget.ListView.a<h, a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cr */
+    /* renamed from: ct */
     public a c(ViewGroup viewGroup) {
         FrameLayout frameLayout = new FrameLayout(this.mContext);
         CardForumHeadLayout cardForumHeadLayout = new CardForumHeadLayout(this.mContext);
@@ -58,51 +58,51 @@ public class d extends com.baidu.adp.widget.ListView.a<h, a> {
         if (hVar != null) {
             aVar.a(hVar);
         }
-        aVar.bqd();
+        aVar.bsD();
         return view;
     }
 
     /* loaded from: classes22.dex */
     public class a extends af.a implements View.OnClickListener {
-        View bEb;
-        View eCZ;
-        ImageView jgo;
-        CardForumHeadLayout lxP;
-        private h lxQ;
+        View bJI;
+        View eIO;
+        ImageView jmm;
+        CardForumHeadLayout lDM;
+        private h lDN;
 
         public a(View view) {
             super(view);
-            this.lxP = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
-            if (this.lxP != null) {
-                this.lxP.setOnClickListener(this.lxP);
-                this.lxP.setAfterClickListener(this);
+            this.lDM = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
+            if (this.lDM != null) {
+                this.lDM.setOnClickListener(this.lDM);
+                this.lDM.setAfterClickListener(this);
             }
-            this.eCZ = ((ViewGroup) view).getChildAt(1);
-            this.jgo = (ImageView) ((ViewGroup) view).getChildAt(2);
-            this.bEb = ((ViewGroup) view).getChildAt(3);
+            this.eIO = ((ViewGroup) view).getChildAt(1);
+            this.jmm = (ImageView) ((ViewGroup) view).getChildAt(2);
+            this.bJI = ((ViewGroup) view).getChildAt(3);
         }
 
         public void a(h hVar) {
             if (hVar != null) {
-                this.lxQ = hVar;
-                this.bEb.setVisibility(hVar.lhT ? 0 : 8);
+                this.lDN = hVar;
+                this.bJI.setVisibility(hVar.lnQ ? 0 : 8);
                 if (getView() != null) {
-                    getView().setPadding(0, 0, 0, hVar.lhT ? l.getDimens(d.this.mContext, R.dimen.tbds42) : 0);
+                    getView().setPadding(0, 0, 0, hVar.lnQ ? l.getDimens(d.this.mContext, R.dimen.tbds42) : 0);
                 }
-                this.lxP.setData(hVar.forumName, hVar.lhS, hVar.postNum, hVar.memberNum);
+                this.lDM.setData(hVar.forumName, hVar.lnP, hVar.postNum, hVar.memberNum);
             }
         }
 
-        public void bqd() {
-            SvgManager.boN().a(this.jgo, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_j, (SvgManager.SvgResourceStateType) null);
-            ap.setBackgroundColor(this.eCZ, R.color.cp_bg_line_b);
-            ap.setBackgroundColor(this.bEb, R.color.cp_bg_line_b);
-            this.lxP.onChangeSkinType();
+        public void bsD() {
+            SvgManager.brn().a(this.jmm, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_j, (SvgManager.SvgResourceStateType) null);
+            ap.setBackgroundColor(this.eIO, R.color.cp_bg_line_b);
+            ap.setBackgroundColor(this.bJI, R.color.cp_bg_line_b);
+            this.lDM.onChangeSkinType();
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TiebaStatic.log(new aq("c13698").dR("tid", this.lxQ.tid).dR("fid", this.lxQ.fid).w("uid", TbadkCoreApplication.getCurrentAccountId()));
+            TiebaStatic.log(new aq("c13698").dR("tid", this.lDN.tid).dR("fid", this.lDN.fid).w("uid", TbadkCoreApplication.getCurrentAccountId()));
         }
     }
 }

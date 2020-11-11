@@ -15,23 +15,23 @@ import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.utils.l;
 /* loaded from: classes4.dex */
 public class b extends TypeAdapter.ViewHolder {
-    private HeadImageView gCW;
-    private TextView gKe;
-    private TextView gKf;
-    private com.baidu.tieba.ala.live.personcenter.forbidden.b.b gLw;
+    private HeadImageView gIK;
+    private TextView gPQ;
+    private TextView gPR;
+    private com.baidu.tieba.ala.live.personcenter.forbidden.b.b gRi;
 
     public b(Context context, final BdUniqueId bdUniqueId) {
-        super(LayoutInflater.from(context).inflate(a.h.sdk_prc_person_forbiddenlist_item, (ViewGroup) null));
-        this.gCW = (HeadImageView) getView().findViewById(a.g.view_header);
-        this.gCW.setIsRound(true);
-        this.gKe = (TextView) getView().findViewById(a.g.text_user_name);
-        this.gKf = (TextView) getView().findViewById(a.g.btn_right);
-        this.gKf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.d.b.1
+        super(LayoutInflater.from(context).inflate(a.g.sdk_prc_person_forbiddenlist_item, (ViewGroup) null));
+        this.gIK = (HeadImageView) getView().findViewById(a.f.view_header);
+        this.gIK.setIsRound(true);
+        this.gPQ = (TextView) getView().findViewById(a.f.text_user_name);
+        this.gPR = (TextView) getView().findViewById(a.f.btn_right);
+        this.gPR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.d.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                CustomMessage customMessage = new CustomMessage(2913051, b.this.gLw);
+                CustomMessage customMessage = new CustomMessage(2913051, b.this.gRi);
                 customMessage.setTag(bdUniqueId);
-                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2913051, b.this.gLw);
+                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2913051, b.this.gRi);
                 customResponsedMessage.setOrginalMessage(customMessage);
                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
             }
@@ -39,8 +39,8 @@ public class b extends TypeAdapter.ViewHolder {
     }
 
     public void b(com.baidu.tieba.ala.live.personcenter.forbidden.b.b bVar) {
-        this.gLw = bVar;
-        l.a(this.gCW, bVar.getPortrait(), false, false);
-        this.gKe.setText(bVar.buS());
+        this.gRi = bVar;
+        l.a(this.gIK, bVar.getPortrait(), false, false);
+        this.gPQ.setText(bVar.bxr());
     }
 }

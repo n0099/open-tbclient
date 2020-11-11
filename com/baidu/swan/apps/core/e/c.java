@@ -14,9 +14,9 @@ import com.baidu.swan.apps.res.widget.dialog.b;
 import com.baidu.swan.apps.res.widget.dialog.g;
 /* loaded from: classes10.dex */
 public class c extends com.baidu.swan.apps.res.widget.dialog.b {
-    private TextView cGd;
-    private SelectorTextView cGe;
-    private a cGf;
+    private TextView cLW;
+    private SelectorTextView cLX;
+    private a cLY;
     private View mView;
 
     protected c(Context context) {
@@ -24,98 +24,98 @@ public class c extends com.baidu.swan.apps.res.widget.dialog.b {
     }
 
     public void a(a aVar) {
-        this.cGf = aVar;
+        this.cLY = aVar;
     }
 
     @Override // com.baidu.swan.apps.res.widget.dialog.b
     protected View createContentView(ViewGroup viewGroup) {
         this.mView = LayoutInflater.from(this.mContext).inflate(a.g.aiapps_safe_dialog, viewGroup, false);
-        this.cGd = (TextView) this.mView.findViewById(a.f.safe_dialog_content);
-        this.cGd.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_message));
-        this.cGe = (SelectorTextView) this.mView.findViewById(a.f.safe_dialog_sub_content);
-        this.cGe.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_btn_blue));
-        ann();
+        this.cLW = (TextView) this.mView.findViewById(a.f.safe_dialog_content);
+        this.cLW.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_message));
+        this.cLX = (SelectorTextView) this.mView.findViewById(a.f.safe_dialog_sub_content);
+        this.cLX.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_btn_blue));
+        apO();
         return this.mView;
     }
 
-    private void ann() {
-        if (this.cGf == null) {
+    private void apO() {
+        if (this.cLY == null) {
             return;
         }
-        this.cGd.setText(this.mContext.getText(this.cGf.mMessageId));
-        this.cGd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.e.c.1
+        this.cLW.setText(this.mContext.getText(this.cLY.mMessageId));
+        this.cLW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.e.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.cGf.cGk != null) {
-                    c.this.cGf.cGk.onItemClick(view);
+                if (c.this.cLY.cMd != null) {
+                    c.this.cLY.cMd.onItemClick(view);
                 }
             }
         });
-        if (this.cGf.cGh > 0) {
-            this.cGe.setVisibility(0);
-            this.cGe.setText(this.mContext.getText(this.cGf.cGh));
-            this.cGe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.e.c.2
+        if (this.cLY.cMa > 0) {
+            this.cLX.setVisibility(0);
+            this.cLX.setText(this.mContext.getText(this.cLY.cMa));
+            this.cLX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.e.c.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (c.this.cGf.cGj != null) {
-                        c.this.cGf.cGj.onItemClick(view);
+                    if (c.this.cLY.cMc != null) {
+                        c.this.cLY.cMc.onItemClick(view);
                     }
                 }
             });
         } else {
-            this.cGe.setVisibility(8);
+            this.cLX.setVisibility(8);
         }
-        if (this.cGf.cGi <= 0) {
+        if (this.cLY.cMb <= 0) {
             return;
         }
-        Drawable drawable = this.mContext.getResources().getDrawable(this.cGf.cGi);
+        Drawable drawable = this.mContext.getResources().getDrawable(this.cLY.cMb);
         z.decorateSrcATopMode(getContext(), drawable);
         drawable.setBounds(0, 0, ah.dip2px(this.mContext, 12.0f), ah.dip2px(this.mContext, 12.0f));
-        this.cGe.setCompoundDrawables(drawable, null, null, null);
+        this.cLX.setCompoundDrawables(drawable, null, null, null);
     }
 
     /* loaded from: classes10.dex */
-    public static class a extends b.C0457b {
-        private int cGh;
-        private int cGi;
-        public b.c cGj;
-        public b.c cGk;
+    public static class a extends b.C0469b {
+        private int cMa;
+        private int cMb;
+        public b.c cMc;
+        public b.c cMd;
         private int mMessageId;
 
         public a(Context context) {
             super(context);
         }
 
-        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0457b, com.baidu.swan.apps.res.widget.dialog.g.a
+        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0469b, com.baidu.swan.apps.res.widget.dialog.g.a
         protected g bX(Context context) {
             return new c(context);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.res.widget.dialog.g.a
-        /* renamed from: hS */
-        public a hV(int i) {
-            super.hV(i);
+        /* renamed from: ic */
+        public a mo33if(int i) {
+            super.mo33if(i);
             return this;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.res.widget.dialog.g.a
-        /* renamed from: hT */
-        public a hU(int i) {
+        /* renamed from: id */
+        public a ie(int i) {
             this.mMessageId = i;
             return this;
         }
 
         public a a(int i, b.c cVar) {
             this.mMessageId = i;
-            this.cGk = cVar;
+            this.cMd = cVar;
             return this;
         }
 
-        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0457b, com.baidu.swan.apps.res.widget.dialog.g.a
-        public g ano() {
-            c cVar = (c) super.ano();
+        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0469b, com.baidu.swan.apps.res.widget.dialog.g.a
+        public g apP() {
+            c cVar = (c) super.apP();
             cVar.a(this);
             return cVar;
         }

@@ -8,12 +8,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 /* loaded from: classes16.dex */
 public class a {
-    public static com.tb.airbnb.lottie.model.a.e a(JsonReader jsonReader, com.tb.airbnb.lottie.d dVar) throws IOException {
+    public static com.tb.airbnb.lottie.model.a.e a(JsonReader jsonReader, com.tb.airbnb.lottie.e eVar) throws IOException {
         ArrayList arrayList = new ArrayList();
         if (jsonReader.peek() == JsonToken.BEGIN_ARRAY) {
             jsonReader.beginArray();
             while (jsonReader.hasNext()) {
-                arrayList.add(w.s(jsonReader, dVar));
+                arrayList.add(w.s(jsonReader, eVar));
             }
             jsonReader.endArray();
             r.m(arrayList);
@@ -24,12 +24,12 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static com.tb.airbnb.lottie.model.a.m<PointF, PointF> b(JsonReader jsonReader, com.tb.airbnb.lottie.d dVar) throws IOException {
+    public static com.tb.airbnb.lottie.model.a.m<PointF, PointF> b(JsonReader jsonReader, com.tb.airbnb.lottie.e eVar) throws IOException {
         com.tb.airbnb.lottie.model.a.b bVar = null;
         jsonReader.beginObject();
         boolean z = false;
         com.tb.airbnb.lottie.model.a.b bVar2 = null;
-        com.tb.airbnb.lottie.model.a.e eVar = null;
+        com.tb.airbnb.lottie.model.a.e eVar2 = null;
         while (jsonReader.peek() != JsonToken.END_OBJECT) {
             String nextName = jsonReader.nextName();
             char c = 65535;
@@ -55,7 +55,7 @@ public class a {
             }
             switch (c) {
                 case 0:
-                    eVar = a(jsonReader, dVar);
+                    eVar2 = a(jsonReader, eVar);
                     break;
                 case 1:
                     if (jsonReader.peek() == JsonToken.STRING) {
@@ -63,7 +63,7 @@ public class a {
                         z = true;
                         break;
                     } else {
-                        bVar2 = d.f(jsonReader, dVar);
+                        bVar2 = d.f(jsonReader, eVar);
                         break;
                     }
                 case 2:
@@ -72,7 +72,7 @@ public class a {
                         z = true;
                         break;
                     } else {
-                        bVar = d.f(jsonReader, dVar);
+                        bVar = d.f(jsonReader, eVar);
                         break;
                     }
                 default:
@@ -82,8 +82,8 @@ public class a {
         }
         jsonReader.endObject();
         if (z) {
-            dVar.bc("Lottie doesn't support expressions.");
+            eVar.bc("Lottie doesn't support expressions.");
         }
-        return eVar != null ? eVar : new com.tb.airbnb.lottie.model.a.i(bVar2, bVar);
+        return eVar2 != null ? eVar2 : new com.tb.airbnb.lottie.model.a.i(bVar2, bVar);
     }
 }

@@ -12,23 +12,23 @@ import com.baidu.swan.apps.database.SwanAppDbControl;
 public class SwanAppSubscribeMsgProvider extends ContentProvider {
     @Nullable
     private SQLiteDatabase mDatabase;
-    private static final String cLz = com.baidu.swan.apps.t.a.aua().getPackageName() + ".swan.subscribe_msg";
-    public static final Uri CONTENT_URI = Uri.parse("content://" + cLz);
+    private static final String cRs = com.baidu.swan.apps.t.a.awA().getPackageName() + ".swan.subscribe_msg";
+    public static final Uri CONTENT_URI = Uri.parse("content://" + cRs);
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
         return false;
     }
 
-    private synchronized boolean aqy() {
+    private synchronized boolean asZ() {
         boolean z = true;
         synchronized (this) {
             if (this.mDatabase != null) {
                 z = false;
             } else {
-                SQLiteOpenHelper aqa = SwanAppDbControl.cd(com.baidu.swan.apps.t.a.aua()).aqa();
-                if (aqa != null) {
-                    this.mDatabase = aqa.getWritableDatabase();
+                SQLiteOpenHelper asB = SwanAppDbControl.cd(com.baidu.swan.apps.t.a.awA()).asB();
+                if (asB != null) {
+                    this.mDatabase = asB.getWritableDatabase();
                     if (this.mDatabase != null) {
                         z = false;
                     }
@@ -41,7 +41,7 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     @Nullable
     public Cursor query(@Nullable Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        if (aqy()) {
+        if (asZ()) {
             return null;
         }
         return this.mDatabase.query("swanapp_subscribe_msg", strArr, str, strArr2, null, null, str2);
@@ -50,13 +50,13 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     @Nullable
     public String getType(@Nullable Uri uri) {
-        return cLz;
+        return cRs;
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public Uri insert(@Nullable Uri uri, @Nullable ContentValues contentValues) {
-        if (aqy()) {
+        if (asZ()) {
             return null;
         }
         if (this.mDatabase.insert("swanapp_subscribe_msg", null, contentValues) <= 0) {
@@ -67,7 +67,7 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public int delete(@Nullable Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        if (aqy()) {
+        if (asZ()) {
             return 0;
         }
         return this.mDatabase.delete("swanapp_subscribe_msg", str, strArr);
@@ -75,7 +75,7 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public int update(@Nullable Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        if (aqy()) {
+        if (asZ()) {
             return 0;
         }
         return this.mDatabase.update("swanapp_subscribe_msg", contentValues, str, strArr);

@@ -6,13 +6,13 @@ import com.bun.miitmdid.utils.sysParamters;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f3974a;
+    private static String f3976a;
 
     public static String a() {
-        if (TextUtils.isEmpty(f3974a)) {
-            f3974a = "miitmdid(sdkv_" + sysParamters.eeT().c() + ")";
-            return f3974a;
+        if (TextUtils.isEmpty(f3976a)) {
+            f3976a = "miitmdid(sdkv_" + sysParamters.eiI().c() + ")";
+            return f3976a;
         }
-        return f3974a;
+        return f3976a;
     }
 }

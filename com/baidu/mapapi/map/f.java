@@ -9,11 +9,11 @@ import java.util.concurrent.locks.Lock;
 public class f implements com.baidu.mapsdkplatform.comapi.map.z {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BaiduMap f2069a;
+    final /* synthetic */ BaiduMap f2071a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(BaiduMap baiduMap) {
-        this.f2069a = baiduMap;
+        this.f2071a = baiduMap;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.z
@@ -23,23 +23,23 @@ public class f implements com.baidu.mapsdkplatform.comapi.map.z {
         TileOverlay tileOverlay;
         Lock lock3;
         TileOverlay tileOverlay2;
-        lock = this.f2069a.J;
+        lock = this.f2071a.J;
         lock.lock();
         try {
-            tileOverlay = this.f2069a.G;
+            tileOverlay = this.f2071a.G;
             if (tileOverlay != null) {
-                tileOverlay2 = this.f2069a.G;
+                tileOverlay2 = this.f2071a.G;
                 Tile a2 = tileOverlay2.a(i, i2, i3);
                 Log.e("SDKTileLayer", "mapLayerDataReq tile t == null = " + (a2 == null));
                 if (a2 != null) {
                     return a2.toBundle();
                 }
             }
-            lock3 = this.f2069a.J;
+            lock3 = this.f2071a.J;
             lock3.unlock();
             return null;
         } finally {
-            lock2 = this.f2069a.J;
+            lock2 = this.f2071a.J;
             lock2.unlock();
         }
     }

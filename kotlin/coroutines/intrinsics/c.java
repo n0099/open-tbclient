@@ -5,7 +5,7 @@ import kotlin.h;
 @h
 /* loaded from: classes10.dex */
 public class c extends b {
-    public static final Object exU() {
+    public static final Object eBJ() {
         return CoroutineSingletons.COROUTINE_SUSPENDED;
     }
 }

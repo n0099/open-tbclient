@@ -10,9 +10,9 @@ import com.baidu.swan.games.f.h;
 /* loaded from: classes10.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.games.f.a cAO;
-    private com.baidu.swan.games.binding.a cGp = new com.baidu.swan.games.binding.a();
-    private b cGq;
+    private com.baidu.swan.games.f.a cGH;
+    private com.baidu.swan.games.binding.a cMi = new com.baidu.swan.games.binding.a();
+    private b cMj;
 
     /* loaded from: classes10.dex */
     public interface b {
@@ -20,39 +20,39 @@ public class d {
     }
 
     public d(@NonNull String str, @NonNull String str2) {
-        this.cAO = g.a(anq(), new a(str, str2), null);
+        this.cGH = g.a(apR(), new a(str, str2), null);
     }
 
     public void setCodeCacheSetting(V8EngineConfiguration.CodeCacheSetting codeCacheSetting) {
-        this.cAO.setCodeCacheSetting(codeCacheSetting);
+        this.cGH.setCodeCacheSetting(codeCacheSetting);
     }
 
     public void a(V8EngineConfiguration.JSCacheCallback jSCacheCallback) {
-        this.cAO.a(jSCacheCallback);
+        this.cGH.a(jSCacheCallback);
     }
 
     public com.baidu.swan.games.f.a getV8Engine() {
-        return this.cAO;
+        return this.cGH;
     }
 
-    public String anp() {
-        return this.cAO.dNF;
+    public String apQ() {
+        return this.cGH.dTx;
     }
 
     public void finish() {
-        this.cAO.finish();
+        this.cGH.finish();
     }
 
-    private h anq() {
-        return new h.a().lU(1).wu(com.baidu.swan.apps.core.g.a.a.next()).aSx();
+    private h apR() {
+        return new h.a().me(1).wI(com.baidu.swan.apps.core.g.a.a.next()).aUX();
     }
 
     public void G(Activity activity) {
-        this.cGp.W(activity);
+        this.cMi.W(activity);
     }
 
     public void a(b bVar) {
-        this.cGq = bVar;
+        this.cMj = bVar;
     }
 
     /* loaded from: classes10.dex */
@@ -70,8 +70,8 @@ public class d {
 
         @Override // com.baidu.swan.games.f.d.a, com.baidu.swan.games.f.d.b
         @Nullable
-        public V8EngineConfiguration.CodeCacheSetting anr() {
-            if (com.baidu.swan.apps.t.a.aud().hi(0)) {
+        public V8EngineConfiguration.CodeCacheSetting apS() {
+            if (com.baidu.swan.apps.t.a.awD().hs(0)) {
                 if (d.DEBUG) {
                     Log.d("SwanAppV8Master", "pathList item: " + this.mBasePath);
                 }
@@ -86,19 +86,19 @@ public class d {
         }
 
         @Override // com.baidu.swan.games.f.d.a, com.baidu.swan.games.f.d.b
-        public String ans() {
+        public String apT() {
             return this.mFileName;
         }
 
         @Override // com.baidu.swan.games.f.d.a, com.baidu.swan.games.f.d.b
         public void a(com.baidu.swan.games.f.a aVar) {
-            d.this.cGp.a(aVar, com.baidu.swan.apps.t.a.aua());
+            d.this.cMi.a(aVar, com.baidu.swan.apps.t.a.awA());
         }
 
         @Override // com.baidu.swan.games.f.d.a, com.baidu.swan.games.f.d.b
         public void b(com.baidu.swan.games.f.a aVar) {
-            if (d.this.cGq != null) {
-                d.this.cGq.c(aVar);
+            if (d.this.cMj != null) {
+                d.this.cMj.c(aVar);
             }
             aVar.onLoad();
         }
