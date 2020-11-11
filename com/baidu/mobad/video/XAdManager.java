@@ -11,7 +11,7 @@ public class XAdManager implements IXAdManager {
     private static IXAdManager d;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2284a;
+    private String f2286a;
     private Location b;
     private Context c;
 
@@ -28,7 +28,7 @@ public class XAdManager implements IXAdManager {
 
     @Override // com.baidu.mobads.interfaces.IXAdManager
     public void setAppSid(String str) {
-        this.f2284a = str;
+        this.f2286a = str;
         XAdSDKFoundationFacade.getInstance().getCommonUtils().setAppId(str);
     }
 
@@ -39,7 +39,7 @@ public class XAdManager implements IXAdManager {
 
     @Override // com.baidu.mobads.interfaces.IXAdManager
     public IXAdContext newAdContext() {
-        return new XAdContext(this.c, this.f2284a, this.b);
+        return new XAdContext(this.c, this.f2286a, this.b);
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdManager

@@ -3,104 +3,104 @@ package com.baidu.tbadk.n;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 /* loaded from: classes.dex */
 public class j extends l {
-    public static int fpI = 100;
-    public static int fpJ = 10;
+    public static int fvC = 100;
+    public static int fvD = 10;
 
-    public static void bzT() {
-        if (m.bzV().bzW()) {
-            if (b.fpN > fpJ) {
-                b.bzP();
+    public static void bCs() {
+        if (m.bCu().bCv()) {
+            if (b.fvH > fvD) {
+                b.bCo();
             }
-            if (a.fpK > fpJ) {
-                a.bzP();
+            if (a.fvE > fvD) {
+                a.bCo();
             }
         }
     }
 
     public static void g(boolean z, boolean z2, boolean z3) {
-        a.fpK++;
+        a.fvE++;
         if (z2) {
-            a.fpL++;
+            a.fvF++;
         } else if (z3) {
-            a.fpM++;
+            a.fvG++;
         }
-        if (a.fpK > fpI) {
-            a.bzP();
+        if (a.fvE > fvC) {
+            a.bCo();
         }
     }
 
     public void c(f fVar) {
-        if (m.bzV().bzW()) {
-            if (b.fpN < fpI) {
-                b.fpO += fVar.Ls;
-                b.fpP += fVar.fpd;
-                b.fpQ += fVar.fpe;
-                b.fpR += fVar.fpf;
-                b.fpT += fVar.costTime;
-                b.fpS += fVar.fpg;
-                b.fpN++;
+        if (m.bCu().bCv()) {
+            if (b.fvH < fvC) {
+                b.fvI += fVar.Ls;
+                b.fvJ += fVar.fuY;
+                b.fvK += fVar.fuZ;
+                b.fvL += fVar.fva;
+                b.fvN += fVar.costTime;
+                b.fvM += fVar.fvb;
+                b.fvH++;
                 return;
             }
-            b.bzP();
+            b.bCo();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public static int fpK;
-        public static int fpL;
-        public static int fpM;
+        public static int fvE;
+        public static int fvF;
+        public static int fvG;
 
-        public static void bzP() {
+        public static void bCo() {
             com.baidu.adp.lib.stats.a mT = l.mT();
             mT.append("action", "imbusy");
-            mT.append("totalNum", String.valueOf(fpK));
-            mT.append("tfailNum", String.valueOf(fpL));
-            mT.append("qfailNum", String.valueOf(fpM));
+            mT.append("totalNum", String.valueOf(fvE));
+            mT.append("tfailNum", String.valueOf(fvF));
+            mT.append("qfailNum", String.valueOf(fvG));
             BdStatisticsManager.getInstance().performance("im", mT);
             resetData();
         }
 
         public static void resetData() {
-            fpK = 0;
-            fpL = 0;
-            fpM = 0;
+            fvE = 0;
+            fvF = 0;
+            fvG = 0;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b {
-        public static int fpN;
-        public static long fpO;
-        public static long fpP;
-        public static long fpQ;
-        public static int fpR;
-        public static int fpS;
-        public static long fpT;
+        public static int fvH;
+        public static long fvI;
+        public static long fvJ;
+        public static long fvK;
+        public static int fvL;
+        public static int fvM;
+        public static long fvN;
 
-        public static void bzP() {
+        public static void bCo() {
             com.baidu.adp.lib.stats.a mT = l.mT();
             mT.append("action", "imcost");
-            mT.append("dect", String.valueOf(fpO));
-            mT.append("dlsize", String.valueOf(fpP));
-            mT.append("dbt", String.valueOf(fpQ));
-            mT.append("pnum", String.valueOf(fpR));
-            mT.append("reqcost", String.valueOf(fpT));
-            mT.append(com.baidu.fsg.face.base.b.c.i, String.valueOf(fpS));
-            mT.append("totalNum", String.valueOf(fpN));
+            mT.append("dect", String.valueOf(fvI));
+            mT.append("dlsize", String.valueOf(fvJ));
+            mT.append("dbt", String.valueOf(fvK));
+            mT.append("pnum", String.valueOf(fvL));
+            mT.append("reqcost", String.valueOf(fvN));
+            mT.append(com.baidu.fsg.face.base.b.c.i, String.valueOf(fvM));
+            mT.append("totalNum", String.valueOf(fvH));
             BdStatisticsManager.getInstance().performance("im", mT);
-            bzU();
+            bCt();
         }
 
-        public static void bzU() {
-            fpN = 0;
-            fpO = 0L;
-            fpP = 0L;
-            fpQ = 0L;
-            fpR = 0;
-            fpS = 0;
+        public static void bCt() {
+            fvH = 0;
+            fvI = 0L;
+            fvJ = 0L;
+            fvK = 0L;
+            fvL = 0;
+            fvM = 0;
         }
     }
 }

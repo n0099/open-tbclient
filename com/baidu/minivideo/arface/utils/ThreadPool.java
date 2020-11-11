@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes15.dex */
 public class ThreadPool {
-    private static volatile b bUO;
+    private static volatile b cay;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes15.dex */
@@ -19,24 +19,24 @@ public class ThreadPool {
         LIFO
     }
 
-    public static b XQ() {
-        if (bUO == null) {
+    public static b aap() {
+        if (cay == null) {
             synchronized (ThreadPool.class) {
-                if (bUO == null) {
+                if (cay == null) {
                     b bVar = new b("IOThreadPool", b.MAXIMUM_POOL_SIZE);
-                    bVar.XR();
-                    bUO = bVar;
+                    bVar.aaq();
+                    cay = bVar;
                 }
             }
         }
-        return bUO;
+        return cay;
     }
 
     /* loaded from: classes15.dex */
     public static class b {
-        private ExecutorService bUU;
-        private int bUV;
-        private QueueProcessingType bUW;
+        private ExecutorService caE;
+        private int caF;
+        private QueueProcessingType caG;
         private String mName;
         private int mPriority;
         private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
@@ -48,21 +48,21 @@ public class ThreadPool {
         }
 
         public b(String str, int i, int i2, QueueProcessingType queueProcessingType) {
-            this.bUV = CORE_POOL_SIZE;
+            this.caF = CORE_POOL_SIZE;
             this.mPriority = 4;
-            this.bUW = QueueProcessingType.FIFO;
+            this.caG = QueueProcessingType.FIFO;
             this.mName = str;
-            this.bUV = i;
+            this.caF = i;
             this.mPriority = i2;
-            this.bUW = queueProcessingType;
-            if (this.bUU == null) {
-                this.bUU = a(this.mName, this.bUV, this.mPriority, this.bUW);
+            this.caG = queueProcessingType;
+            if (this.caE == null) {
+                this.caE = a(this.mName, this.caF, this.mPriority, this.caG);
             }
         }
 
-        protected void XR() {
-            if ((this.bUU instanceof ThreadPoolExecutor) && this.bUU != null && !this.bUU.isShutdown()) {
-                ((ThreadPoolExecutor) this.bUU).allowsCoreThreadTimeOut();
+        protected void aaq() {
+            if ((this.caE instanceof ThreadPoolExecutor) && this.caE != null && !this.caE.isShutdown()) {
+                ((ThreadPoolExecutor) this.caE).allowsCoreThreadTimeOut();
             }
         }
 
@@ -71,7 +71,7 @@ public class ThreadPool {
         }
 
         public void execute(Runnable runnable) {
-            this.bUU.execute(runnable);
+            this.caE.execute(runnable);
         }
     }
 
@@ -97,26 +97,26 @@ public class ThreadPool {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes15.dex */
     public static class a implements ThreadFactory {
-        private static final AtomicInteger bUP = new AtomicInteger(1);
-        private final ThreadGroup bUQ;
-        private final AtomicInteger bUR = new AtomicInteger(1);
-        private final String bUS;
-        private final int bUT;
+        private static final AtomicInteger caz = new AtomicInteger(1);
+        private final ThreadGroup caA;
+        private final AtomicInteger caB = new AtomicInteger(1);
+        private final String caC;
+        private final int caD;
 
         public a(String str, int i) {
-            this.bUT = i;
+            this.caD = i;
             SecurityManager securityManager = System.getSecurityManager();
-            this.bUQ = securityManager == null ? Thread.currentThread().getThreadGroup() : securityManager.getThreadGroup();
-            this.bUS = str + Constants.ACCEPT_TIME_SEPARATOR_SERVER + bUP.getAndIncrement() + "-thread-";
+            this.caA = securityManager == null ? Thread.currentThread().getThreadGroup() : securityManager.getThreadGroup();
+            this.caC = str + Constants.ACCEPT_TIME_SEPARATOR_SERVER + caz.getAndIncrement() + "-thread-";
         }
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            Thread thread = new Thread(this.bUQ, runnable, this.bUS + this.bUR.getAndIncrement(), 0L);
+            Thread thread = new Thread(this.caA, runnable, this.caC + this.caB.getAndIncrement(), 0L);
             if (thread.isDaemon()) {
                 thread.setDaemon(false);
             }
-            thread.setPriority(this.bUT);
+            thread.setPriority(this.caD);
             return thread;
         }
     }

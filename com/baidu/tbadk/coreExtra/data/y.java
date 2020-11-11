@@ -9,10 +9,10 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes.dex */
 public class y {
-    public static final List<String> eXr = Arrays.asList(".baidu.com", ".nuomi.com", ".baifubao.com", ".hao123.com");
-    private static List<String> eXs;
+    public static final List<String> fdh = Arrays.asList(".baidu.com", ".nuomi.com", ".baifubao.com", ".hao123.com");
+    private static List<String> fdi;
 
-    public static boolean Cx(String str) {
+    public static boolean CL(String str) {
         String string;
         if (TbadkCoreApplication.getInst().isDebugMode() || TbSingleton.getInstance().isDebugToolMode()) {
             return true;
@@ -20,16 +20,16 @@ public class y {
         if (at.isEmpty(str)) {
             return false;
         }
-        if (eXs == null && (string = com.baidu.tbadk.core.sharedPref.b.bnH().getString("js_host_white_list", null)) != null) {
-            eXs = Cz(string);
+        if (fdi == null && (string = com.baidu.tbadk.core.sharedPref.b.bqh().getString("js_host_white_list", null)) != null) {
+            fdi = CN(string);
         }
-        if (eXs == null) {
-            eXs = eXr;
+        if (fdi == null) {
+            fdi = fdh;
         }
         Uri parse = Uri.parse(str);
         if (parse != null) {
             String host = parse.getHost();
-            for (String str2 : eXs) {
+            for (String str2 : fdi) {
                 if (host.endsWith(str2)) {
                     return true;
                 }
@@ -38,16 +38,16 @@ public class y {
         return false;
     }
 
-    public static void Cy(String str) {
+    public static void CM(String str) {
         if (str == null) {
-            com.baidu.tbadk.core.sharedPref.b.bnH().putString("js_host_white_list", "");
+            com.baidu.tbadk.core.sharedPref.b.bqh().putString("js_host_white_list", "");
         } else {
-            com.baidu.tbadk.core.sharedPref.b.bnH().putString("js_host_white_list", str);
+            com.baidu.tbadk.core.sharedPref.b.bqh().putString("js_host_white_list", str);
         }
-        eXs = Cz(str);
+        fdi = CN(str);
     }
 
-    private static List<String> Cz(String str) {
+    private static List<String> CN(String str) {
         if (at.isEmpty(str)) {
             return null;
         }

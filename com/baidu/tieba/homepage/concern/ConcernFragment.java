@@ -31,11 +31,11 @@ import java.util.List;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes22.dex */
 public class ConcernFragment extends BaseFragment implements aq {
-    private boolean iuh;
-    private ConcernPageView jps;
-    private ConcernPageView.a jpt;
-    private boolean jpu = false;
-    private CustomMessageListener iCO = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.homepage.concern.ConcernFragment.1
+    private boolean iAe;
+    private ConcernPageView jvp;
+    private ConcernPageView.a jvq;
+    private boolean jvr = false;
+    private CustomMessageListener iIL = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.homepage.concern.ConcernFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -43,9 +43,9 @@ public class ConcernFragment extends BaseFragment implements aq {
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null && (message = updateAttentionMessage.getmOrginalMessage()) != null && message.getTag() != null && message.getTag().equals(ConcernFragment.this.getUniqueId())) {
-                    if (updateAttentionMessage.getData().eYM != null) {
-                        if (AntiHelper.a(ConcernFragment.this.getActivity(), updateAttentionMessage.getData().eYM, ConcernFragment.this.iCN) != null) {
-                            TiebaStatic.log(new com.baidu.tbadk.core.util.aq(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).aj("obj_locate", ax.a.LOCATE_LIKE_PERSON));
+                    if (updateAttentionMessage.getData().feD != null) {
+                        if (AntiHelper.a(ConcernFragment.this.getActivity(), updateAttentionMessage.getData().feD, ConcernFragment.this.iIK) != null) {
+                            TiebaStatic.log(new com.baidu.tbadk.core.util.aq(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).al("obj_locate", ax.a.LOCATE_LIKE_PERSON));
                         }
                     } else if (updateAttentionMessage.getData().isSucc && updateAttentionMessage.getData().isAttention) {
                         l.showToast(ConcernFragment.this.getActivity(), R.string.attention_success);
@@ -54,23 +54,23 @@ public class ConcernFragment extends BaseFragment implements aq {
             }
         }
     };
-    private final AntiHelper.a iCN = new AntiHelper.a() { // from class: com.baidu.tieba.homepage.concern.ConcernFragment.2
+    private final AntiHelper.a iIK = new AntiHelper.a() { // from class: com.baidu.tieba.homepage.concern.ConcernFragment.2
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
         public void onPositiveButtonClick(com.baidu.tbadk.core.dialog.a aVar) {
-            TiebaStatic.log(new com.baidu.tbadk.core.util.aq(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).aj("obj_locate", ax.a.LOCATE_LIKE_PERSON));
+            TiebaStatic.log(new com.baidu.tbadk.core.util.aq(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).al("obj_locate", ax.a.LOCATE_LIKE_PERSON));
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
         public void onNavigationButtonClick(com.baidu.tbadk.core.dialog.a aVar) {
-            TiebaStatic.log(new com.baidu.tbadk.core.util.aq(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).aj("obj_locate", ax.a.LOCATE_LIKE_PERSON));
+            TiebaStatic.log(new com.baidu.tbadk.core.util.aq(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).al("obj_locate", ax.a.LOCATE_LIKE_PERSON));
         }
     };
-    private CustomMessageListener iDh = new CustomMessageListener(2921414) { // from class: com.baidu.tieba.homepage.concern.ConcernFragment.3
+    private CustomMessageListener iJe = new CustomMessageListener(2921414) { // from class: com.baidu.tieba.homepage.concern.ConcernFragment.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (ConcernFragment.this.jps != null) {
-                ConcernFragment.this.jps.Gh();
+            if (ConcernFragment.this.jvp != null) {
+                ConcernFragment.this.jvp.GI();
             }
         }
     };
@@ -80,26 +80,26 @@ public class ConcernFragment extends BaseFragment implements aq {
 
     @SuppressLint({"ValidFragment"})
     public ConcernFragment(Context context) {
-        this.jps = new ConcernPageView(context);
-        this.jps.bTF();
-        registerListener(this.iCO);
-        registerListener(this.iDh);
+        this.jvp = new ConcernPageView(context);
+        this.jvp.bWm();
+        registerListener(this.iIL);
+        registerListener(this.iJe);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        if (this.jps.getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.jps.getParent()).removeView(this.jps);
-            if (this.jpt != null) {
-                this.jps.setCallback(this.jpt);
+        if (this.jvp.getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.jvp.getParent()).removeView(this.jvp);
+            if (this.jvq != null) {
+                this.jvp.setCallback(this.jvq);
             }
         }
-        this.jps.setPageUniqueId(getUniqueId());
-        if (this.jpu) {
-            this.jps.bTF();
-            this.jpu = false;
+        this.jvp.setPageUniqueId(getUniqueId());
+        if (this.jvr) {
+            this.jvp.bWm();
+            this.jvr = false;
         }
-        return this.jps;
+        return this.jvp;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -108,15 +108,15 @@ public class ConcernFragment extends BaseFragment implements aq {
     }
 
     public void setScrollFragmentTabHost(ScrollFragmentTabHost scrollFragmentTabHost) {
-        if (this.jps != null) {
-            this.jps.setScrollFragmentTabHost(scrollFragmentTabHost);
+        if (this.jvp != null) {
+            this.jvp.setScrollFragmentTabHost(scrollFragmentTabHost);
         }
     }
 
     @Override // com.baidu.tieba.frs.aq
     public void setRecommendFrsNavigationAnimDispatcher(ab abVar) {
-        if (this.jps != null) {
-            this.jps.setRecommendFrsNavigationAnimDispatcher(abVar);
+        if (this.jvp != null) {
+            this.jvp.setRecommendFrsNavigationAnimDispatcher(abVar);
         }
     }
 
@@ -132,15 +132,15 @@ public class ConcernFragment extends BaseFragment implements aq {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.jps != null) {
-            this.jps.onResume();
+        if (this.jvp != null) {
+            this.jvp.onResume();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        this.jps.setTabInForeBackgroundState(true);
+        this.jvp.setTabInForeBackgroundState(true);
     }
 
     @Override // android.support.v4.app.Fragment
@@ -150,73 +150,73 @@ public class ConcernFragment extends BaseFragment implements aq {
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDetach() {
-        MessageManager.getInstance().unRegisterListener(this.iCO);
-        MessageManager.getInstance().unRegisterListener(this.iDh);
+        MessageManager.getInstance().unRegisterListener(this.iIL);
+        MessageManager.getInstance().unRegisterListener(this.iJe);
         super.onDetach();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.jps.onDestroy();
-        this.jpu = true;
+        this.jvp.onDestroy();
+        this.jvr = true;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            if (!this.iuh) {
-                if (this.jps != null) {
-                    this.jps.cFZ();
+            if (!this.iAe) {
+                if (this.jvp != null) {
+                    this.jvp.cIA();
                 }
-                this.iuh = true;
+                this.iAe = true;
             }
-            this.jps.setViewForeground();
+            this.jvp.setViewForeground();
             return;
         }
-        this.jps.cGf();
+        this.jvp.cIG();
         completePullRefresh();
     }
 
     public void completePullRefresh() {
-        this.jps.completePullRefresh();
+        this.jvp.completePullRefresh();
     }
 
     public void setCallback(ConcernPageView.a aVar) {
-        this.jpt = aVar;
-        this.jps.setCallback(aVar);
+        this.jvq = aVar;
+        this.jvp.setCallback(aVar);
     }
 
-    public void aS(String str, int i) {
-        this.jps.aS(str, i);
+    public void aU(String str, int i) {
+        this.jvp.aU(str, i);
     }
 
     public void a(DataRes dataRes, boolean z) {
-        if (this.jps != null) {
-            this.jps.a(dataRes, z);
+        if (this.jvp != null) {
+            this.jvp.a(dataRes, z);
         }
     }
 
-    public void cFY() {
-        if (this.jps != null) {
-            this.jps.cGa();
-        }
-    }
-
-    @Override // com.baidu.tieba.frs.aq
-    public void Rd() {
-        if (this.iuh) {
-            this.jps.reload();
+    public void cIz() {
+        if (this.jvp != null) {
+            this.jvp.cIB();
         }
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void bMC() {
+    public void TL() {
+        if (this.iAe) {
+            this.jvp.reload();
+        }
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void bMD() {
+    public void bPc() {
+    }
+
+    @Override // com.baidu.tieba.frs.aq
+    public void bPd() {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.m.a
@@ -241,12 +241,12 @@ public class ConcernFragment extends BaseFragment implements aq {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.jps.onChangeSkinType(i);
+        this.jvp.onChangeSkinType(i);
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void bqd() {
+    public void bsD() {
         changeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.jps.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        this.jvp.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 }

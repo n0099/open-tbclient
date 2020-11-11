@@ -11,8 +11,8 @@ import org.json.JSONObject;
 @h
 /* loaded from: classes10.dex */
 public final class c {
-    private static a dgD;
-    public static final c dgE = new c();
+    private static a dmy;
+    public static final c dmz = new c();
 
     @h
     /* loaded from: classes10.dex */
@@ -25,22 +25,22 @@ public final class c {
     private c() {
     }
 
-    public final a aDA() {
-        return dgD;
+    public final a aGa() {
+        return dmy;
     }
 
-    public final void aDB() {
-        d aEQ = d.aEQ();
-        q.m(aEQ, "Swan.get()");
-        com.baidu.swan.apps.adaptation.a aES = aEQ.aES();
-        q.m(aES, "Swan.get().adaptationProducer");
-        aES.adF().afw().bn(d.aEQ()).A(b.dgF).aGL();
+    public final void aGb() {
+        d aHq = d.aHq();
+        q.m(aHq, "Swan.get()");
+        com.baidu.swan.apps.adaptation.a aHs = aHq.aHs();
+        q.m(aHs, "Swan.get().adaptationProducer");
+        aHs.agf().ahW().bn(d.aHq()).A(b.dmA).aJl();
     }
 
     @h
     /* loaded from: classes10.dex */
     static final class b<MsgType> implements com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<JSONObject>> {
-        public static final b dgF = new b();
+        public static final b dmA = new b();
 
         b() {
         }
@@ -53,40 +53,40 @@ public final class c {
             if (hVar.isOk()) {
                 JSONObject jSONObject = hVar.mData;
                 JSONObject optJSONObject = jSONObject != null ? jSONObject.optJSONObject("data") : null;
-                a aDA = c.dgE.aDA();
+                a aGa = c.dmz.aGa();
                 if (optJSONObject != null) {
                     String optString = optJSONObject.optString("openid");
-                    if (aDA == null || !ProcessUtils.isMainProcess()) {
-                        c.dgE.cp(null, optString);
+                    if (aGa == null || !ProcessUtils.isMainProcess()) {
+                        c.dmz.cp(null, optString);
                         return;
                     }
                     q.m(optString, "openId");
-                    d aEQ = d.aEQ();
-                    q.m(aEQ, "Swan.get()");
-                    String appId = aEQ.getAppId();
-                    am auM = com.baidu.swan.apps.t.a.auM();
-                    q.m(auM, "SwanAppRuntime.getConfig()");
-                    aDA.R(optString, appId, auM.getHostName());
+                    d aHq = d.aHq();
+                    q.m(aHq, "Swan.get()");
+                    String appId = aHq.getAppId();
+                    am axm = com.baidu.swan.apps.t.a.axm();
+                    q.m(axm, "SwanAppRuntime.getConfig()");
+                    aGa.R(optString, appId, axm.getHostName());
                 }
             }
         }
     }
 
-    public final void aDC() {
-        d aEQ = d.aEQ();
-        q.m(aEQ, "Swan.get()");
-        com.baidu.swan.apps.adaptation.a aES = aEQ.aES();
-        q.m(aES, "Swan.get().adaptationProducer");
-        aES.adF().afw().bm(d.aEQ()).A(C0358c.dgG).aGL();
+    public final void aGc() {
+        d aHq = d.aHq();
+        q.m(aHq, "Swan.get()");
+        com.baidu.swan.apps.adaptation.a aHs = aHq.aHs();
+        q.m(aHs, "Swan.get().adaptationProducer");
+        aHs.agf().ahW().bm(d.aHq()).A(C0370c.dmB).aJl();
     }
 
     @h
     /* renamed from: com.baidu.swan.apps.ae.c$c  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    static final class C0358c<MsgType> implements com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<JSONObject>> {
-        public static final C0358c dgG = new C0358c();
+    static final class C0370c<MsgType> implements com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<JSONObject>> {
+        public static final C0370c dmB = new C0370c();
 
-        C0358c() {
+        C0370c() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -97,20 +97,20 @@ public final class c {
             if (hVar.isOk()) {
                 JSONObject jSONObject = hVar.mData;
                 JSONObject optJSONObject = jSONObject != null ? jSONObject.optJSONObject("data") : null;
-                a aDA = c.dgE.aDA();
+                a aGa = c.dmz.aGa();
                 if (optJSONObject != null) {
                     String optString = optJSONObject.optString("swanid");
-                    if (aDA == null || !ProcessUtils.isMainProcess()) {
-                        c.dgE.cp(optString, null);
+                    if (aGa == null || !ProcessUtils.isMainProcess()) {
+                        c.dmz.cp(optString, null);
                         return;
                     }
                     q.m(optString, "swanId");
-                    d aEQ = d.aEQ();
-                    q.m(aEQ, "Swan.get()");
-                    String appId = aEQ.getAppId();
-                    am auM = com.baidu.swan.apps.t.a.auM();
-                    q.m(auM, "SwanAppRuntime.getConfig()");
-                    aDA.Q(optString, appId, auM.getHostName());
+                    d aHq = d.aHq();
+                    q.m(aHq, "Swan.get()");
+                    String appId = aHq.getAppId();
+                    am axm = com.baidu.swan.apps.t.a.axm();
+                    q.m(axm, "SwanAppRuntime.getConfig()");
+                    aGa.Q(optString, appId, axm.getHostName());
                 }
             }
         }
@@ -118,20 +118,20 @@ public final class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public final void cp(String str, String str2) {
-        d aEQ = d.aEQ();
-        q.m(aEQ, "Swan.get()");
-        com.baidu.swan.apps.process.messaging.client.a aEL = aEQ.aEL();
-        if (aEL != null) {
+        d aHq = d.aHq();
+        q.m(aHq, "Swan.get()");
+        com.baidu.swan.apps.process.messaging.client.a aHl = aHq.aHl();
+        if (aHl != null) {
             Bundle bundle = new Bundle();
             bundle.putString("swanId", str);
             bundle.putString("openId", str2);
-            d aEQ2 = d.aEQ();
-            q.m(aEQ2, "Swan.get()");
-            bundle.putString("appId", aEQ2.getAppId());
-            am auM = com.baidu.swan.apps.t.a.auM();
-            q.m(auM, "SwanAppRuntime.getConfig()");
-            bundle.putString("hostName", auM.getHostName());
-            aEL.b(bundle, com.baidu.swan.apps.ae.b.class);
+            d aHq2 = d.aHq();
+            q.m(aHq2, "Swan.get()");
+            bundle.putString("appId", aHq2.getAppId());
+            am axm = com.baidu.swan.apps.t.a.axm();
+            q.m(axm, "SwanAppRuntime.getConfig()");
+            bundle.putString("hostName", axm.getHostName());
+            aHl.b(bundle, com.baidu.swan.apps.ae.b.class);
         }
     }
 }

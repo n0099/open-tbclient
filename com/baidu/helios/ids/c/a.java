@@ -31,26 +31,26 @@ public class a extends com.baidu.helios.ids.a {
     class AnonymousClass2 implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ Handler f1807a;
+        final /* synthetic */ Handler f1809a;
         final /* synthetic */ C0160a ayS;
         final /* synthetic */ Context b;
 
         AnonymousClass2(Handler handler, Context context, C0160a c0160a) {
-            this.f1807a = handler;
+            this.f1809a = handler;
             this.b = context;
             this.ayS = c0160a;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f1807a.sendEmptyMessageDelayed(0, 50000L);
+            this.f1809a.sendEmptyMessageDelayed(0, 50000L);
             final long elapsedRealtime = SystemClock.elapsedRealtime();
             try {
                 final int InitSdk = new MdidSdk().InitSdk(this.b, new c() { // from class: com.baidu.helios.ids.c.a.2.1
                     @Override // com.baidu.helios.ids.c.a.c
                     public void a(final boolean z, IdSupplier idSupplier) {
                         final String oaid = idSupplier.getOAID();
-                        AnonymousClass2.this.f1807a.removeMessages(0);
+                        AnonymousClass2.this.f1809a.removeMessages(0);
                         final long elapsedRealtime2 = SystemClock.elapsedRealtime();
                         AnonymousClass2.this.ayS.ayX = a.this.ayp.aww.submit(new Runnable() { // from class: com.baidu.helios.ids.c.a.2.1.1
                             @Override // java.lang.Runnable
@@ -86,7 +86,7 @@ public class a extends com.baidu.helios.ids.a {
                                 AnonymousClass2.this.ayS.d.set(true);
                                 a.this.a();
                             }
-                            AnonymousClass2.this.f1807a.removeMessages(0);
+                            AnonymousClass2.this.f1809a.removeMessages(0);
                         }
                         a.this.ayN.a(InitSdk);
                         a.this.ayN.a(8L, 124L);
@@ -97,7 +97,7 @@ public class a extends com.baidu.helios.ids.a {
                 a.this.ayp.aww.submit(new Runnable() { // from class: com.baidu.helios.ids.c.a.2.3
                     @Override // java.lang.Runnable
                     public void run() {
-                        AnonymousClass2.this.f1807a.removeMessages(0);
+                        AnonymousClass2.this.f1809a.removeMessages(0);
                         a.this.ayN.c(Log.getStackTraceString(th));
                         a.this.ayN.d();
                         if (AnonymousClass2.this.ayS.d.get()) {
@@ -116,7 +116,7 @@ public class a extends com.baidu.helios.ids.a {
     public class C0160a {
 
         /* renamed from: a  reason: collision with root package name */
-        Future<?> f1812a;
+        Future<?> f1814a;
         Future<?> ayW;
         Future<?> ayX;
         AtomicBoolean d = new AtomicBoolean(false);
@@ -345,7 +345,7 @@ public class a extends com.baidu.helios.ids.a {
         this.ayN.a(4L, 124L);
         this.ayN.c(0L);
         this.ayN.d();
-        c0160a.f1812a = this.ayp.awx.submit(new AnonymousClass2(new Handler(Looper.getMainLooper()) { // from class: com.baidu.helios.ids.c.a.1
+        c0160a.f1814a = this.ayp.awx.submit(new AnonymousClass2(new Handler(Looper.getMainLooper()) { // from class: com.baidu.helios.ids.c.a.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 if (message.what == 0) {

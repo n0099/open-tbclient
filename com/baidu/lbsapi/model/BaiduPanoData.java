@@ -6,7 +6,7 @@ import com.baidu.pano.platform.c.j;
 public class BaiduPanoData {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1843a;
+    private String f1845a;
     private String b;
     private int c = 0;
     private int d = 0;
@@ -37,11 +37,11 @@ public class BaiduPanoData {
     }
 
     public String getPid() {
-        return this.f1843a;
+        return this.f1845a;
     }
 
     public void setPid(String str) {
-        this.f1843a = str;
+        this.f1845a = str;
     }
 
     public String getName() {
@@ -65,10 +65,10 @@ public class BaiduPanoData {
     }
 
     public boolean hasStreetPano() {
-        return !TextUtils.isEmpty(this.f1843a);
+        return !TextUtils.isEmpty(this.f1845a);
     }
 
     public String toString() {
-        return "BaiduPanoData [pid = " + this.f1843a + ", name=" + this.b + ",x=" + this.c + ", y=" + this.d + ", sdkVersion=" + this.e + ", errorCode=" + this.f + ", hasStreetPano=" + hasStreetPano() + "]";
+        return "BaiduPanoData [pid = " + this.f1845a + ", name=" + this.b + ",x=" + this.c + ", y=" + this.d + ", sdkVersion=" + this.e + ", errorCode=" + this.f + ", hasStreetPano=" + hasStreetPano() + "]";
     }
 }

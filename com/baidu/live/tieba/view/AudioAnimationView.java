@@ -23,7 +23,7 @@ public class AudioAnimationView extends View {
     private int abG;
     private final Runnable abH;
     private int abz;
-    private Rect[] bxc;
+    private Rect[] bDn;
     private int mCanvasHeight;
     private int mCanvasWidth;
     private Paint mPaint;
@@ -39,8 +39,8 @@ public class AudioAnimationView extends View {
         this.abB = false;
         this.abC = true;
         this.abE = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.abF = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.e.sdk_ds4);
-        this.abG = a.d.sdk_cp_link_tip_a;
+        this.abF = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.d.sdk_ds4);
+        this.abG = a.c.sdk_cp_link_tip_a;
         this.abH = new Runnable() { // from class: com.baidu.live.tieba.view.AudioAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
@@ -60,8 +60,8 @@ public class AudioAnimationView extends View {
         this.abB = false;
         this.abC = true;
         this.abE = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.abF = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.e.sdk_ds4);
-        this.abG = a.d.sdk_cp_link_tip_a;
+        this.abF = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.d.sdk_ds4);
+        this.abG = a.c.sdk_cp_link_tip_a;
         this.abH = new Runnable() { // from class: com.baidu.live.tieba.view.AudioAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
@@ -106,8 +106,8 @@ public class AudioAnimationView extends View {
         if (this.abB) {
             for (int i = 0; i < this.abA; i++) {
                 sx();
-                if (i < this.bxc.length) {
-                    canvas.drawRect(this.bxc[i], this.mPaint);
+                if (i < this.bDn.length) {
+                    canvas.drawRect(this.bDn[i], this.mPaint);
                 }
             }
         }
@@ -123,8 +123,8 @@ public class AudioAnimationView extends View {
 
     private void sx() {
         int nextInt;
-        if (this.bxc == null || this.bxc.length != this.abA) {
-            this.bxc = new Rect[this.abA];
+        if (this.bDn == null || this.bDn.length != this.abA) {
+            this.bDn = new Rect[this.abA];
         }
         for (int i = 0; i < this.abA; i++) {
             int i2 = this.abF * i * 2;
@@ -135,10 +135,10 @@ public class AudioAnimationView extends View {
             }
             int i3 = this.abF + i2;
             int i4 = this.mCanvasHeight;
-            if (this.bxc[i] == null) {
-                this.bxc[i] = new Rect(i2, nextInt, i3, i4);
+            if (this.bDn[i] == null) {
+                this.bDn[i] = new Rect(i2, nextInt, i3, i4);
             } else {
-                this.bxc[i].set(i2, nextInt, i3, i4);
+                this.bDn[i].set(i2, nextInt, i3, i4);
             }
         }
     }

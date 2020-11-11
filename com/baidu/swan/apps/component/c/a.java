@@ -5,12 +5,12 @@ import android.support.annotation.NonNull;
 import com.baidu.swan.apps.component.container.c;
 /* loaded from: classes10.dex */
 public class a {
-    private c czc;
+    private c cEV;
     private Context mContext;
 
     public a(@NonNull Context context, @NonNull com.baidu.swan.apps.view.b.a aVar) {
         this.mContext = context;
-        this.czc = new c(aVar);
+        this.cEV = new c(aVar);
     }
 
     @NonNull
@@ -19,12 +19,12 @@ public class a {
     }
 
     @NonNull
-    public c aiF() {
-        return this.czc;
+    public c alf() {
+        return this.cEV;
     }
 
     public void onDestroy() {
-        this.czc.onDestroy();
+        this.cEV.onDestroy();
     }
 
     public void bR(@NonNull Context context) {

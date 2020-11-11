@@ -24,22 +24,22 @@ import com.tencent.connect.common.Constants;
 import org.json.JSONObject;
 /* loaded from: classes23.dex */
 public class VideoPlatformStatic {
-    private static CustomMessageListener fKM = new CustomMessageListener(CmdConfigCustom.MAINTAB_ONCREATE_END) { // from class: com.baidu.tieba.VideoPlatformStatic.1
+    private static CustomMessageListener fQC = new CustomMessageListener(CmdConfigCustom.MAINTAB_ONCREATE_END) { // from class: com.baidu.tieba.VideoPlatformStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            com.baidu.tieba.u.e.dLu().dLq();
-            com.baidu.tieba.u.b.dLp().dLq();
+            com.baidu.tieba.u.e.dNW().dNS();
+            com.baidu.tieba.u.b.dNR().dNS();
         }
     };
 
     static {
-        bGm();
-        MessageManager.getInstance().registerListener(fKM);
-        bGn();
+        bIL();
+        MessageManager.getInstance().registerListener(fQC);
+        bIM();
     }
 
-    private static void bGm() {
+    private static void bIL() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, new CustomMessageTask.CustomRunnable<l>() { // from class: com.baidu.tieba.VideoPlatformStatic.2
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -51,7 +51,7 @@ public class VideoPlatformStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bGn() {
+    private static void bIM() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003388, TbConfig.SERVER_ADDRESS + TbConfig.URL_MOOV_REPORT);
         tbHttpMessageTask.setResponsedClass(TbHttpResponsedMessage.class);
@@ -59,7 +59,7 @@ public class VideoPlatformStatic {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public static int sX(int i) {
+    public static int th(int i) {
         switch (i) {
             case -400:
                 return 4;
@@ -72,7 +72,7 @@ public class VideoPlatformStatic {
         }
     }
 
-    public static String EI(String str) {
+    public static String EW(String str) {
         if (TextUtils.equals(str, "1")) {
             return "index";
         }
@@ -100,7 +100,7 @@ public class VideoPlatformStatic {
         return str;
     }
 
-    public static JSONObject bGo() {
+    public static JSONObject bIN() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("appVer", TbConfig.getVersion());
@@ -143,7 +143,7 @@ public class VideoPlatformStatic {
         return "4G";
     }
 
-    public static String sY(int i) {
+    public static String ti(int i) {
         switch (i) {
             case 101:
                 return TbadkCoreApplication.getInst().getString(R.string.post_error_compress_success);

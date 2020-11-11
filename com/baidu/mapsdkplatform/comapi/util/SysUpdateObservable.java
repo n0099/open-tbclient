@@ -7,7 +7,7 @@ import java.util.List;
 public class SysUpdateObservable {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile SysUpdateObservable f2244a;
+    private static volatile SysUpdateObservable f2246a;
     private List<SysUpdateObserver> b;
 
     private SysUpdateObservable() {
@@ -16,14 +16,14 @@ public class SysUpdateObservable {
     }
 
     public static SysUpdateObservable getInstance() {
-        if (f2244a == null) {
+        if (f2246a == null) {
             synchronized (SysUpdateObservable.class) {
-                if (f2244a == null) {
-                    f2244a = new SysUpdateObservable();
+                if (f2246a == null) {
+                    f2246a = new SysUpdateObservable();
                 }
             }
         }
-        return f2244a;
+        return f2246a;
     }
 
     public void addObserver(SysUpdateObserver sysUpdateObserver) {

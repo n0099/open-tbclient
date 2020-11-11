@@ -24,11 +24,11 @@ public class aa extends i {
     @Override // com.baidu.card.p
     /* renamed from: b */
     public void H(AbsThreadDataSupport absThreadDataSupport) {
-        if (c(absThreadDataSupport) || d(absThreadDataSupport) || absThreadDataSupport == null || absThreadDataSupport.bhz() == null || ((com.baidu.tbadk.core.util.y.isEmpty(absThreadDataSupport.bhz().bmg()) && com.baidu.tbadk.core.util.y.getCount(absThreadDataSupport.bhz().bmh()) <= 1) || ((com.baidu.tbadk.core.util.y.isEmpty(absThreadDataSupport.bhz().bmh()) && com.baidu.tbadk.core.util.y.getCount(absThreadDataSupport.bhz().bmg()) <= 1) || com.baidu.tbadk.core.util.y.getCount(absThreadDataSupport.bhz().bmg()) + com.baidu.tbadk.core.util.y.getCount(absThreadDataSupport.bhz().bmh()) <= 1))) {
+        if (c(absThreadDataSupport) || d(absThreadDataSupport) || absThreadDataSupport == null || absThreadDataSupport.bjZ() == null || ((com.baidu.tbadk.core.util.y.isEmpty(absThreadDataSupport.bjZ().boG()) && com.baidu.tbadk.core.util.y.getCount(absThreadDataSupport.bjZ().boH()) <= 1) || ((com.baidu.tbadk.core.util.y.isEmpty(absThreadDataSupport.bjZ().boH()) && com.baidu.tbadk.core.util.y.getCount(absThreadDataSupport.bjZ().boG()) <= 1) || com.baidu.tbadk.core.util.y.getCount(absThreadDataSupport.bjZ().boG()) + com.baidu.tbadk.core.util.y.getCount(absThreadDataSupport.bjZ().boH()) <= 1))) {
             this.agM.setVisibility(8);
             return;
         }
-        this.agM.k(absThreadDataSupport.bhz().bmg(), absThreadDataSupport.bhz().bmh());
+        this.agM.l(absThreadDataSupport.bjZ().boG(), absThreadDataSupport.bjZ().boH());
         this.agM.setVisibility(0);
     }
 
@@ -38,10 +38,10 @@ public class aa extends i {
     }
 
     private boolean c(AbsThreadDataSupport absThreadDataSupport) {
-        return (absThreadDataSupport == null || absThreadDataSupport.bhz() == null || absThreadDataSupport.bhz().bmf() == null || absThreadDataSupport.bhz().bmf().getOptions() == null || absThreadDataSupport.bhz().bmf().getOptions().size() <= 0) ? false : true;
+        return (absThreadDataSupport == null || absThreadDataSupport.bjZ() == null || absThreadDataSupport.bjZ().boF() == null || absThreadDataSupport.bjZ().boF().getOptions() == null || absThreadDataSupport.bjZ().boF().getOptions().size() <= 0) ? false : true;
     }
 
     private boolean d(AbsThreadDataSupport absThreadDataSupport) {
-        return (absThreadDataSupport == null || absThreadDataSupport.bhz() == null || !absThreadDataSupport.bhz().biG() || absThreadDataSupport.bhz().bks() == null) ? false : true;
+        return (absThreadDataSupport == null || absThreadDataSupport.bjZ() == null || !absThreadDataSupport.bjZ().blg() || absThreadDataSupport.bjZ().bmS() == null) ? false : true;
     }
 }

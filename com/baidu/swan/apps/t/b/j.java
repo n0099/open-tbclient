@@ -54,13 +54,13 @@ public interface j {
 
     void a(f fVar);
 
-    void avG();
+    void ayg();
 
     void b(com.baidu.swan.apps.media.b.c cVar);
 
-    void c(FrameLayout frameLayout);
+    void f(FrameLayout frameLayout);
 
-    void fj(boolean z);
+    void fs(boolean z);
 
     int getCurrentPosition();
 
@@ -74,7 +74,7 @@ public interface j {
 
     void mute(boolean z);
 
-    void oJ(String str);
+    void oX(String str);
 
     boolean onBackPressed();
 

@@ -12,7 +12,7 @@ class a {
             return null;
         }
         FavoritePoiInfo favoritePoiInfo = new FavoritePoiInfo();
-        favoritePoiInfo.f1988a = favSyncPoi.f2215a;
+        favoritePoiInfo.f1990a = favSyncPoi.f2217a;
         favoritePoiInfo.b = favSyncPoi.b;
         favoritePoiInfo.c = new LatLng(favSyncPoi.c.y / 1000000.0d, favSyncPoi.c.x / 1000000.0d);
         favoritePoiInfo.e = favSyncPoi.e;
@@ -37,7 +37,7 @@ class a {
         favoritePoiInfo.d = jSONObject.optString("addr");
         favoritePoiInfo.f = jSONObject.optString("uspoiuid");
         favoritePoiInfo.e = jSONObject.optString("ncityid");
-        favoritePoiInfo.f1988a = jSONObject.optString("key");
+        favoritePoiInfo.f1990a = jSONObject.optString("key");
         return favoritePoiInfo;
     }
 

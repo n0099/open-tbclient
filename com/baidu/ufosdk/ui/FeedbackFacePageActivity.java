@@ -30,7 +30,7 @@ import java.util.Timer;
 public class FeedbackFacePageActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    private SharedPreferences.Editor f3732a;
+    private SharedPreferences.Editor f3734a;
     private SharedPreferences b;
     private RelativeLayout f;
     private LinearLayout g;
@@ -101,11 +101,11 @@ public class FeedbackFacePageActivity extends Activity {
             setContentView(this.f);
             this.b = getSharedPreferences("UfoSharePreference", 0);
             if (this.b != null) {
-                this.f3732a = this.b.edit();
+                this.f3734a = this.b.edit();
             }
-            if (this.f3732a != null) {
-                this.f3732a.putBoolean("ADD_PIC_FLAG", true);
-                this.f3732a.commit();
+            if (this.f3734a != null) {
+                this.f3734a.putBoolean("ADD_PIC_FLAG", true);
+                this.f3734a.commit();
             }
             Intent intent = getIntent();
             if (intent != null) {
@@ -381,8 +381,8 @@ public class FeedbackFacePageActivity extends Activity {
                 }
                 this.n.setVisibility(8);
             } else {
-                this.f3732a.putBoolean("CHECK_WEBVIEW", false);
-                this.f3732a.commit();
+                this.f3734a.putBoolean("CHECK_WEBVIEW", false);
+                this.f3734a.commit();
                 this.g.setVisibility(8);
                 this.o.setVisibility(0);
                 this.o.getSettings().setCacheMode(-1);
@@ -423,7 +423,7 @@ public class FeedbackFacePageActivity extends Activity {
     @Override // android.app.Activity
     protected void onDestroy() {
         super.onDestroy();
-        com.baidu.ufosdk.f.a.f3709a = null;
+        com.baidu.ufosdk.f.a.f3711a = null;
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback

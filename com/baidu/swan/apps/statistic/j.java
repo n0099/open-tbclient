@@ -21,7 +21,7 @@ public class j extends com.baidu.swan.apps.process.a.a.a {
     @Override // com.baidu.swan.apps.process.a.a.a
     public void y(@NonNull Bundle bundle) {
         JSONObject jSONObject;
-        com.baidu.swan.apps.database.a nu;
+        com.baidu.swan.apps.database.a nJ;
         String string = bundle.getString("key_swan_appid", "");
         String string2 = bundle.getString("key_report_info", "");
         if (TextUtils.isEmpty(string2)) {
@@ -39,9 +39,9 @@ public class j extends com.baidu.swan.apps.process.a.a.a {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        if (!TextUtils.isEmpty(string) && (nu = SwanAppDbControl.cd(AppRuntime.getAppContext()).nu(string)) != null) {
+        if (!TextUtils.isEmpty(string) && (nJ = SwanAppDbControl.cd(AppRuntime.getAppContext()).nJ(string)) != null) {
             try {
-                jSONObject.put("appDbInfo", nu.aqd());
+                jSONObject.put("appDbInfo", nJ.asE());
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -49,17 +49,17 @@ public class j extends com.baidu.swan.apps.process.a.a.a {
         if (DEBUG) {
             Log.d("VersionBusinessUbc", "report info: " + jSONObject.toString());
         }
-        new c.a(10002).sJ(jSONObject.toString()).arq();
+        new c.a(10002).sX(jSONObject.toString()).atR();
         finish();
     }
 
-    public static boolean sR(@Nullable String str) {
+    public static boolean tf(@Nullable String str) {
         return TextUtils.isEmpty(str) || TextUtils.equals("0", str);
     }
 
     public static void h(String str, String str2, @Nullable JSONObject jSONObject) {
         Intent intent;
-        if (sR(str2)) {
+        if (tf(str2)) {
             JSONObject jSONObject2 = new JSONObject();
             if (str2 == null) {
                 str2 = "null";
@@ -67,20 +67,20 @@ public class j extends com.baidu.swan.apps.process.a.a.a {
             try {
                 jSONObject2.put("version", str2);
                 jSONObject2.put("appId", str == null ? "null" : str);
-                com.baidu.swan.apps.runtime.e aEU = com.baidu.swan.apps.runtime.e.aEU();
-                if (aEU != null) {
-                    b.a ado = aEU.ado();
-                    jSONObject2.put("launchInfo", ado == null ? "null" : ado.aqd());
-                    SwanAppActivity aEO = aEU.aEO();
+                com.baidu.swan.apps.runtime.e aHu = com.baidu.swan.apps.runtime.e.aHu();
+                if (aHu != null) {
+                    b.a afO = aHu.afO();
+                    jSONObject2.put("launchInfo", afO == null ? "null" : afO.asE());
+                    SwanAppActivity aHo = aHu.aHo();
                     com.baidu.swan.apps.u.c.b bVar = null;
-                    if (aEO != null && (intent = aEO.getIntent()) != null) {
+                    if (aHo != null && (intent = aHo.getIntent()) != null) {
                         bVar = com.baidu.swan.apps.u.c.b.t(intent);
                     }
-                    jSONObject2.put("launchInfoIntent", bVar == null ? "null" : bVar.aqd());
+                    jSONObject2.put("launchInfoIntent", bVar == null ? "null" : bVar.asE());
                 } else {
                     jSONObject2.put("swanApp", "null");
                 }
-                jSONObject2.put("stackTrace", ak.aKv());
+                jSONObject2.put("stackTrace", ak.aMV());
                 if (jSONObject != null) {
                     jSONObject2.put("reportExtInfo", jSONObject);
                 }
@@ -89,12 +89,12 @@ public class j extends com.baidu.swan.apps.process.a.a.a {
                     e.printStackTrace();
                 }
             }
-            com.baidu.swan.apps.process.messaging.client.a aEL = com.baidu.swan.apps.runtime.d.aEQ().aEL();
-            if (aEL != null) {
+            com.baidu.swan.apps.process.messaging.client.a aHl = com.baidu.swan.apps.runtime.d.aHq().aHl();
+            if (aHl != null) {
                 Bundle bundle = new Bundle();
                 bundle.putString("key_swan_appid", str);
                 bundle.putString("key_report_info", jSONObject2.toString());
-                aEL.b(bundle, j.class);
+                aHl.b(bundle, j.class);
             }
         }
     }

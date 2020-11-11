@@ -100,42 +100,42 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
         this.ajh.startLoad(str2, 10, false);
         this.ajk.setText(String.format(getContext().getString(R.string.forum_thread_number), at.numberUniformFormatExtra(i)));
         this.ajj.setText(String.format(getContext().getString(R.string.concern), at.numberUniformFormatExtra(i2)));
-        com.baidu.tbadk.a.b.a.a(this.aji);
+        com.baidu.tbadk.a.b.a.e(this.aji);
     }
 
     public void setData(bw bwVar) {
         this.ajr = bwVar;
-        if (bwVar == null || bwVar.blO() == null) {
+        if (bwVar == null || bwVar.boo() == null) {
             uh();
-        } else if (bwVar.eBe) {
+        } else if (bwVar.eGT) {
             this.ajk.setVisibility(8);
             this.ajj.setVisibility(8);
             this.ajl.setVisibility(0);
             this.ajm.setVisibility(0);
             this.ajn.setVisibility(0);
-            this.ajn.setText(bwVar.bjy());
-            int i = bwVar.eBs >= 1000 ? bwVar.eBs : 1000;
+            this.ajn.setText(bwVar.blY());
+            int i = bwVar.eHh >= 1000 ? bwVar.eHh : 1000;
             this.ajm.setVisibility(0);
-            this.ajm.setText(this.ajm.getContext().getResources().getString(R.string.thread_rank_tag, at.dc(i)));
+            this.ajm.setText(this.ajm.getContext().getResources().getString(R.string.thread_rank_tag, at.dy(i)));
             int i2 = bwVar.position + 1;
             this.ajl.setText(i2 >= 10 ? String.valueOf(i2) : "0" + i2);
             ui();
-            bs blO = bwVar.blO();
+            bs boo = bwVar.boo();
             this.ajh.setPlaceHolder(1);
             this.ajh.setVisibility(0);
-            this.ajh.startLoad(blO.getAvatar(), 10, false);
+            this.ajh.startLoad(boo.getAvatar(), 10, false);
             this.aji.setVisibility(0);
-            this.ajo = blO.forumName;
+            this.ajo = boo.forumName;
             this.aji.setText(String.format(getContext().getString(R.string.chosen_pb_original_bar), this.ajo));
-            com.baidu.tbadk.a.b.a.a(this.aji);
+            com.baidu.tbadk.a.b.a.e(this.aji);
         } else {
-            if (bwVar.blS()) {
+            if (bwVar.bos()) {
                 this.ajk.setVisibility(8);
                 this.ajj.setVisibility(8);
                 this.ajl.setVisibility(8);
                 this.ajm.setVisibility(8);
                 this.ajn.setVisibility(0);
-                this.ajn.setText(bwVar.bjy());
+                this.ajn.setText(bwVar.blY());
             } else {
                 this.ajn.setVisibility(8);
                 this.ajl.setVisibility(8);
@@ -143,31 +143,31 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
                 this.ajk.setVisibility(0);
                 this.ajj.setVisibility(0);
             }
-            setData(bwVar.blO().forumName, bwVar.blO().getAvatar(), bwVar.blO().postNum, bwVar.blO().memberNum);
-            if (bwVar.bhJ()) {
-                if (bwVar.bka() != null && !StringUtils.isNull(bwVar.bka().getName_show())) {
-                    this.ajj.setText(bwVar.bka().getName_show());
+            setData(bwVar.boo().forumName, bwVar.boo().getAvatar(), bwVar.boo().postNum, bwVar.boo().memberNum);
+            if (bwVar.bkj()) {
+                if (bwVar.bmA() != null && !StringUtils.isNull(bwVar.bmA().getName_show())) {
+                    this.ajj.setText(bwVar.bmA().getName_show());
                 } else {
                     this.ajj.setText(R.string.user_name_default_txt);
                 }
-                this.ajk.setText(bwVar.bjy());
+                this.ajk.setText(bwVar.blY());
             }
         }
     }
 
     private void ui() {
         if (this.ajr != null) {
-            int oU = TagTextHelper.oU(this.ajr.position + 1);
+            int pe = TagTextHelper.pe(this.ajr.position + 1);
             this.ajl.setCompoundDrawablePadding(l.getDimens(getContext(), R.dimen.tbds10));
-            int color = ap.getColor(oU);
+            int color = ap.getColor(pe);
             Drawable mutate = ap.getDrawable(R.drawable.icon_pure_topic_hot).mutate();
             int dimens = l.getDimens(getContext(), R.dimen.tbds42);
             mutate.setBounds(0, 0, dimens, dimens);
             DrawableCompat.setTint(mutate, color);
             this.ajl.setCompoundDrawables(mutate, null, null, null);
             this.ajl.setBackgroundDrawable(null);
-            ap.setViewTextColor(this.ajl, oU);
-            ap.setViewTextColor(this.ajm, oU);
+            ap.setViewTextColor(this.ajl, pe);
+            ap.setViewTextColor(this.ajm, pe);
         }
     }
 
@@ -187,7 +187,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.ajq) {
             this.ajq = skinType;
-            Drawable a2 = SvgManager.boN().a(R.drawable.icon_pure_card_ba16_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
+            Drawable a2 = SvgManager.brn().a(R.drawable.icon_pure_card_ba16_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
             int dimens = l.getDimens(getContext(), R.dimen.tbds42);
             a2.setBounds(0, 0, dimens, dimens);
             this.aji.setCompoundDrawables(null, null, a2, null);
@@ -202,7 +202,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
     }
 
     private void uj() {
-        com.baidu.tbadk.a.b.a.b(this.aji);
+        com.baidu.tbadk.a.b.a.f(this.aji);
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {

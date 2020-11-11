@@ -30,7 +30,7 @@ public class AlaFeedBackReasonListResponse extends JsonHttpResponsedMessage {
         }
     }
 
-    public List<b> RN() {
+    public List<b> Uv() {
         return this.mList;
     }
 }

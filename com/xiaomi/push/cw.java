@@ -10,10 +10,10 @@ import org.json.JSONObject;
 public class cw {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4844a;
+    private String f4846a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final ArrayList<cv> f183a = new ArrayList<>();
+    private final ArrayList<cv> f185a = new ArrayList<>();
 
     public cw() {
     }
@@ -22,7 +22,7 @@ public class cw {
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("the host is empty");
         }
-        this.f4844a = str;
+        this.f4846a = str;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:7:0x001a, code lost:
@@ -33,13 +33,13 @@ public class cw {
     */
     public synchronized cv a() {
         cv cvVar;
-        int size = this.f183a.size() - 1;
+        int size = this.f185a.size() - 1;
         while (true) {
             if (size < 0) {
                 cvVar = null;
                 break;
             }
-            cvVar = this.f183a.get(size);
+            cvVar = this.f185a.get(size);
             if (cvVar.m209a()) {
                 break;
             }
@@ -49,31 +49,31 @@ public class cw {
     }
 
     public synchronized cw a(JSONObject jSONObject) {
-        this.f4844a = jSONObject.getString("host");
+        this.f4846a = jSONObject.getString("host");
         JSONArray jSONArray = jSONObject.getJSONArray("fbs");
         for (int i = 0; i < jSONArray.length(); i++) {
-            this.f183a.add(new cv(this.f4844a).a(jSONArray.getJSONObject(i)));
+            this.f185a.add(new cv(this.f4846a).a(jSONArray.getJSONObject(i)));
         }
         return this;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public String m210a() {
-        return this.f4844a;
+        return this.f4846a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public ArrayList<cv> m211a() {
-        return this.f183a;
+        return this.f185a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public synchronized JSONObject m212a() {
         JSONObject jSONObject;
         jSONObject = new JSONObject();
-        jSONObject.put("host", this.f4844a);
+        jSONObject.put("host", this.f4846a);
         JSONArray jSONArray = new JSONArray();
-        Iterator<cv> it = this.f183a.iterator();
+        Iterator<cv> it = this.f185a.iterator();
         while (it.hasNext()) {
             jSONArray.put(it.next().m207a());
         }
@@ -86,38 +86,38 @@ public class cw {
         int i2 = 0;
         while (true) {
             i = i2;
-            if (i >= this.f183a.size()) {
+            if (i >= this.f185a.size()) {
                 break;
-            } else if (this.f183a.get(i).a(cvVar)) {
-                this.f183a.set(i, cvVar);
+            } else if (this.f185a.get(i).a(cvVar)) {
+                this.f185a.set(i, cvVar);
                 break;
             } else {
                 i2 = i + 1;
             }
         }
-        if (i >= this.f183a.size()) {
-            this.f183a.add(cvVar);
+        if (i >= this.f185a.size()) {
+            this.f185a.add(cvVar);
         }
     }
 
     public synchronized void a(boolean z) {
-        for (int size = this.f183a.size() - 1; size >= 0; size--) {
-            cv cvVar = this.f183a.get(size);
+        for (int size = this.f185a.size() - 1; size >= 0; size--) {
+            cv cvVar = this.f185a.get(size);
             if (z) {
                 if (cvVar.c()) {
-                    this.f183a.remove(size);
+                    this.f185a.remove(size);
                 }
             } else if (!cvVar.b()) {
-                this.f183a.remove(size);
+                this.f185a.remove(size);
             }
         }
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(this.f4844a);
+        sb.append(this.f4846a);
         sb.append("\n");
-        Iterator<cv> it = this.f183a.iterator();
+        Iterator<cv> it = this.f185a.iterator();
         while (it.hasNext()) {
             sb.append(it.next());
         }

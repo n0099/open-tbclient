@@ -151,7 +151,7 @@ public final class g {
         hashMap.put("uid", t.R());
         hashMap.put("batVN", "7.5.1");
         hashMap.put("nativeVN", CrabSDK.NDK_VERSION);
-        hashMap.put("developerName", com.baidu.crabsdk.a.f1333a);
+        hashMap.put("developerName", com.baidu.crabsdk.a.f1335a);
         hashMap.put("isRoot", Integer.valueOf(com.baidu.crabsdk.b.q.N()));
         hashMap.put(PushClientConstants.TAG_PKG_NAME, com.baidu.crabsdk.b.p.vo());
         hashMap.put("appLabel", com.baidu.crabsdk.b.p.vp());

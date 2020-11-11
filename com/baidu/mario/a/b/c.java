@@ -1,12 +1,11 @@
 package com.baidu.mario.a.b;
 /* loaded from: classes5.dex */
 public interface c {
-    void dl(boolean z);
+    void ds(boolean z);
 
-    void dm(boolean z);
+    void dt(boolean z);
 
-    void dn(boolean z);
+    void du(boolean z);
 
-    /* renamed from: do  reason: not valid java name */
-    void mo29do(boolean z);
+    void dv(boolean z);
 }

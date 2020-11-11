@@ -10,7 +10,7 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class b {
     @NonNull
-    public static c xL(String str) {
+    public static c xZ(String str) {
         c cVar = new c();
         try {
             JSONObject jSONObject = new JSONObject(str);
@@ -28,27 +28,27 @@ public class b {
     }
 
     @NonNull
-    public static a cA(JSONObject jSONObject) {
+    public static a cG(JSONObject jSONObject) {
         a aVar = new a();
         if (jSONObject == null) {
             return aVar;
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("game_center");
         if (optJSONObject != null) {
-            aVar.dVX = cB(optJSONObject);
+            aVar.ebP = cH(optJSONObject);
         }
-        aVar.dVY = new ArrayList();
+        aVar.ebQ = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("app_list");
         if (optJSONArray != null) {
             for (int i = 0; i < optJSONArray.length(); i++) {
-                aVar.dVY.add(cB(optJSONArray.optJSONObject(i)));
+                aVar.ebQ.add(cH(optJSONArray.optJSONObject(i)));
             }
         }
         return aVar;
     }
 
     @NonNull
-    private static RecommendItemModel cB(@NonNull JSONObject jSONObject) {
+    private static RecommendItemModel cH(@NonNull JSONObject jSONObject) {
         RecommendItemModel recommendItemModel = new RecommendItemModel();
         recommendItemModel.appName = jSONObject.optString("app_name");
         recommendItemModel.appKey = jSONObject.optString("app_key");

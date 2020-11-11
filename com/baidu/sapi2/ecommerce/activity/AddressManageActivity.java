@@ -332,7 +332,7 @@ public class AddressManageActivity extends SlideActiviy {
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
-                            jSONObject.put("name", aVar.f2762a);
+                            jSONObject.put("name", aVar.f2764a);
                             jSONObject.put("phone", aVar.b);
                         } catch (Exception e) {
                             Log.e(e);

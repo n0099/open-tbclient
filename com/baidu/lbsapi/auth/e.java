@@ -10,7 +10,7 @@ import org.json.JSONObject;
 class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1834a;
+    private Context f1836a;
     private List<HashMap<String, String>> b = null;
     private a<String> c = null;
 
@@ -22,7 +22,7 @@ class e {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public e(Context context) {
-        this.f1834a = context;
+        this.f1836a = context;
     }
 
     private List<HashMap<String, String>> a(HashMap<String, String> hashMap, String[] strArr) {
@@ -108,7 +108,7 @@ class e {
             }
             com.baidu.lbsapi.auth.a.a("syncConnect resuest " + i2 + "  start!!!");
             HashMap<String, String> hashMap = list.get(i2);
-            g gVar = new g(this.f1834a);
+            g gVar = new g(this.f1836a);
             if (gVar.a()) {
                 String a2 = gVar.a(hashMap);
                 if (a2 == null) {

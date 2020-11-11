@@ -10,15 +10,15 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes17.dex */
 public final class SingleZipArray<T, R> extends w<R> {
-    final aa<? extends T>[] pFA;
+    final aa<? extends T>[] pOU;
     final h<? super Object[], ? extends R> zipper;
 
     @Override // io.reactivex.w
     protected void b(y<? super R> yVar) {
-        aa<? extends T>[] aaVarArr = this.pFA;
+        aa<? extends T>[] aaVarArr = this.pOU;
         int length = aaVarArr.length;
         if (length == 1) {
-            aaVarArr[0].a(new a.C1052a(yVar, new a()));
+            aaVarArr[0].a(new a.C1072a(yVar, new a()));
             return;
         }
         ZipCoordinator zipCoordinator = new ZipCoordinator(yVar, length, this.zipper);

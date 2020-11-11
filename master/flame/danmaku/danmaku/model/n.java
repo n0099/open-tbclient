@@ -3,9 +3,9 @@ package master.flame.danmaku.danmaku.model;
 public interface n<T> {
     void destroy();
 
-    boolean ezQ();
+    boolean eDF();
 
-    void ezR();
+    void eDG();
 
     T get();
 

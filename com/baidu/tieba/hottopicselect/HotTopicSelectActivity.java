@@ -39,61 +39,61 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes21.dex */
 public class HotTopicSelectActivity extends SuspendedActivity implements com.baidu.tbadk.suspended.a, HotTopicSelectModel.a {
-    private Intent fJV;
-    private TextView iSS;
-    private HotTopicSelectModel jNX;
-    private View jNZ;
-    private BdListView jOa;
-    private ExpandableListView jOb;
-    private e jOc;
-    private b jOd;
-    private ViewGroup jOe;
-    private EditText jOf;
-    private ImageView jOg;
-    private TextView jOh;
+    private Intent fPL;
+    private TextView iYP;
+    private HotTopicSelectModel jTU;
+    private View jTW;
+    private BdListView jTX;
+    private ExpandableListView jTY;
+    private e jTZ;
+    private b jUa;
+    private ViewGroup jUb;
+    private EditText jUc;
+    private ImageView jUd;
+    private TextView jUe;
     private NoDataView mNoDataView;
-    private final List<d> jNY = new ArrayList();
+    private final List<d> jTV = new ArrayList();
     final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == HotTopicSelectActivity.this.jOg) {
-                HotTopicSelectActivity.this.cLj();
-            } else if (view == HotTopicSelectActivity.this.iSS) {
-                HotTopicSelectActivity.this.LG("");
+            if (view == HotTopicSelectActivity.this.jUd) {
+                HotTopicSelectActivity.this.cNK();
+            } else if (view == HotTopicSelectActivity.this.iYP) {
+                HotTopicSelectActivity.this.LX("");
             }
         }
     };
     final AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.2
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            d dVar = (d) y.getItem(HotTopicSelectActivity.this.jOd.getList(), i);
+            d dVar = (d) y.getItem(HotTopicSelectActivity.this.jUa.getList(), i);
             if (dVar != null) {
                 String topicName = dVar.getTopicName();
-                HotTopicSelectActivity.this.LG(topicName);
-                HotTopicSelectActivity.this.aV(topicName, 3);
+                HotTopicSelectActivity.this.LX(topicName);
+                HotTopicSelectActivity.this.aX(topicName, 3);
             }
         }
     };
-    final ExpandableListView.OnGroupClickListener jOi = new ExpandableListView.OnGroupClickListener() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.3
+    final ExpandableListView.OnGroupClickListener jUf = new ExpandableListView.OnGroupClickListener() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.3
         @Override // android.widget.ExpandableListView.OnGroupClickListener
         public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long j) {
-            if (HotTopicSelectActivity.this.jOb != null) {
-                HotTopicSelectActivity.this.jOb.expandGroup(i);
+            if (HotTopicSelectActivity.this.jTY != null) {
+                HotTopicSelectActivity.this.jTY.expandGroup(i);
                 return true;
             }
             return true;
         }
     };
-    final ExpandableListView.OnChildClickListener jOj = new ExpandableListView.OnChildClickListener() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.4
+    final ExpandableListView.OnChildClickListener jUg = new ExpandableListView.OnChildClickListener() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.4
         @Override // android.widget.ExpandableListView.OnChildClickListener
         public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i2, long j) {
             d child;
-            if (HotTopicSelectActivity.this.jOc != null && (child = HotTopicSelectActivity.this.jOc.getChild(i, i2)) != null) {
+            if (HotTopicSelectActivity.this.jTZ != null && (child = HotTopicSelectActivity.this.jTZ.getChild(i, i2)) != null) {
                 String topicName = child.getTopicName();
-                HotTopicSelectActivity.this.LG(topicName);
-                c group = HotTopicSelectActivity.this.jOc.getGroup(i);
+                HotTopicSelectActivity.this.LX(topicName);
+                c group = HotTopicSelectActivity.this.jTZ.getGroup(i);
                 if (group != null) {
-                    HotTopicSelectActivity.this.aV(topicName, group.getType() == 0 ? 1 : 2);
+                    HotTopicSelectActivity.this.aX(topicName, group.getType() == 0 ? 1 : 2);
                     return false;
                 }
                 return false;
@@ -106,128 +106,128 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.jNX = new HotTopicSelectModel(getPageContext(), this);
-        this.jNX.V(getIntent());
-        this.jNX.cLt();
+        this.jTU = new HotTopicSelectModel(getPageContext(), this);
+        this.jTU.V(getIntent());
+        this.jTU.cNU();
         initUI();
         getWindow().setSoftInputMode(1);
         showLoadingView();
-        this.jNX.cLp();
+        this.jTU.cNQ();
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
     protected com.baidu.tbadk.suspended.a a(LinearLayout linearLayout, NavigationBar navigationBar) {
         LayoutInflater.from(this).inflate(R.layout.hot_navigation_view_layout, (ViewGroup) navigationBar.getContentLayout(), true);
-        this.bKf.setVisibility(8);
+        this.bPL.setVisibility(8);
         LayoutInflater.from(this).inflate(R.layout.hot_select_main, (ViewGroup) linearLayout, true);
         return this;
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public boolean bAs() {
+    public boolean bCR() {
         ListView listView;
         View childAt;
-        if (this.jOa.getVisibility() == 0) {
-            listView = this.jOa;
+        if (this.jTX.getVisibility() == 0) {
+            listView = this.jTX;
         } else {
-            listView = this.jOb;
+            listView = this.jTY;
         }
         return listView != null && listView.getFirstVisiblePosition() == 0 && (childAt = listView.getChildAt(0)) != null && childAt.getTop() == 0;
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public boolean bAt() {
+    public boolean bCS() {
         return true;
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public void rE(int i) {
+    public void rO(int i) {
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public Intent bAu() {
-        return this.fJV;
+    public Intent bCT() {
+        return this.fPL;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    protected void bAy() {
+    protected void bCX() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showLoadingView() {
-        this.jNZ.setVisibility(8);
-        showLoadingView(this.jOe, true, getResources().getDimensionPixelSize(R.dimen.ds320));
+        this.jTW.setVisibility(8);
+        showLoadingView(this.jUb, true, getResources().getDimensionPixelSize(R.dimen.ds320));
     }
 
     private void initUI() {
-        this.jOe = (ViewGroup) findViewById(R.id.frame_main_view);
-        this.iSS = (TextView) findViewById(R.id.btn_confirm);
-        this.jOh = (TextView) findViewById(R.id.topic_text);
-        this.jOg = (ImageView) findViewById(R.id.clear_right_img);
-        this.jNZ = findViewById(R.id.home_search_list);
-        this.jOa = (BdListView) findViewById(R.id.home_lv_search_suggest);
+        this.jUb = (ViewGroup) findViewById(R.id.frame_main_view);
+        this.iYP = (TextView) findViewById(R.id.btn_confirm);
+        this.jUe = (TextView) findViewById(R.id.topic_text);
+        this.jUd = (ImageView) findViewById(R.id.clear_right_img);
+        this.jTW = findViewById(R.id.home_search_list);
+        this.jTX = (BdListView) findViewById(R.id.home_lv_search_suggest);
         this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.ds420)), null, null);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
         layoutParams.gravity = 17;
-        this.jOe.addView(this.mNoDataView, layoutParams);
+        this.jUb.addView(this.mNoDataView, layoutParams);
         this.mNoDataView.setVisibility(8);
-        this.jOd = new b(getPageContext());
-        this.jOa.setAdapter((ListAdapter) this.jOd);
-        this.jOb = (ExpandableListView) findViewById(R.id.home_no_search_listview);
-        this.jOc = new e(getPageContext());
-        this.jOb.setAdapter(this.jOc);
-        this.jOa.setOnItemClickListener(this.mOnItemClickListener);
-        this.jOb.setOnGroupClickListener(this.jOi);
-        this.jOb.setOnChildClickListener(this.jOj);
-        this.iSS.setOnClickListener(this.mOnClickListener);
-        this.jOg.setOnClickListener(this.mOnClickListener);
-        oc(false);
-        cLl();
+        this.jUa = new b(getPageContext());
+        this.jTX.setAdapter((ListAdapter) this.jUa);
+        this.jTY = (ExpandableListView) findViewById(R.id.home_no_search_listview);
+        this.jTZ = new e(getPageContext());
+        this.jTY.setAdapter(this.jTZ);
+        this.jTX.setOnItemClickListener(this.mOnItemClickListener);
+        this.jTY.setOnGroupClickListener(this.jUf);
+        this.jTY.setOnChildClickListener(this.jUg);
+        this.iYP.setOnClickListener(this.mOnClickListener);
+        this.jUd.setOnClickListener(this.mOnClickListener);
+        ol(false);
+        cNM();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aV(String str, int i) {
+    public void aX(String str, int i) {
         aq aqVar = new aq("c11665");
         aqVar.dR("obj_name", str);
-        aqVar.aj("obj_locate", i);
+        aqVar.al("obj_locate", i);
         TiebaStatic.log(aqVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String cuA() {
-        String cuA = this.jNX != null ? this.jNX.cuA() : "";
-        return cuA != null ? cuA : "";
+    public String cxb() {
+        String cxb = this.jTU != null ? this.jTU.cxb() : "";
+        return cxb != null ? cxb : "";
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cLj() {
-        this.jNX.LL("");
-        this.jOf.setText("");
+    public void cNK() {
+        this.jTU.Mc("");
+        this.jUc.setText("");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cLk() {
-        this.jOb.setVisibility(0);
-        this.jOa.setVisibility(8);
-        this.jOd.clearList();
-        if (this.jOc != null && !y.isEmpty(this.jOc.getList())) {
-            this.jNZ.setVisibility(0);
+    public void cNL() {
+        this.jTY.setVisibility(0);
+        this.jTX.setVisibility(8);
+        this.jUa.clearList();
+        if (this.jTZ != null && !y.isEmpty(this.jTZ.getList())) {
+            this.jTW.setVisibility(0);
             return;
         }
         showLoadingView();
-        this.jNX.getCacheData();
+        this.jTU.getCacheData();
     }
 
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onBackPressed() {
-        LG("");
+        LX("");
         super.onBackPressed();
     }
 
-    private void cLl() {
-        this.jOf = (EditText) findViewById(R.id.search_root);
-        this.jOf.setCompoundDrawablePadding(l.getDimens(getPageContext().getPageActivity(), R.dimen.ds8));
-        this.jOf.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.5
+    private void cNM() {
+        this.jUc = (EditText) findViewById(R.id.search_root);
+        this.jUc.setCompoundDrawablePadding(l.getDimens(getPageContext().getPageActivity(), R.dimen.ds8));
+        this.jUc.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.5
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
                 if (!z) {
@@ -235,20 +235,20 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
                 }
             }
         });
-        this.jOf.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.6
+        this.jUc.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.6
             @Override // android.widget.TextView.OnEditorActionListener
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == 6) {
                     l.showSoftKeyPad(HotTopicSelectActivity.this.getPageContext().getPageActivity(), textView);
-                    if (!TextUtils.isEmpty(HotTopicSelectActivity.this.cuA())) {
-                        HotTopicSelectActivity.this.LG(HotTopicSelectActivity.this.cuA());
+                    if (!TextUtils.isEmpty(HotTopicSelectActivity.this.cxb())) {
+                        HotTopicSelectActivity.this.LX(HotTopicSelectActivity.this.cxb());
                     }
                     return true;
                 }
                 return false;
             }
         });
-        this.jOf.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.7
+        this.jUc.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.7
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -261,64 +261,64 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
             public void afterTextChanged(Editable editable) {
                 String obj = editable.toString();
                 if (obj == null || obj.trim().length() <= 0) {
-                    HotTopicSelectActivity.this.cLk();
+                    HotTopicSelectActivity.this.cNL();
                 } else {
                     HotTopicSelectActivity.this.mNoDataView.setVisibility(8);
-                    HotTopicSelectActivity.this.jNZ.setVisibility(8);
+                    HotTopicSelectActivity.this.jTW.setVisibility(8);
                     HotTopicSelectActivity.this.showLoadingView();
-                    HotTopicSelectActivity.this.jNX.LK(obj);
+                    HotTopicSelectActivity.this.jTU.Mb(obj);
                 }
-                HotTopicSelectActivity.this.oc(!StringUtils.isNull(editable.toString()));
-                HotTopicSelectActivity.this.cLm();
+                HotTopicSelectActivity.this.ol(!StringUtils.isNull(editable.toString()));
+                HotTopicSelectActivity.this.cNN();
             }
         });
-        this.jOf.requestFocus();
+        this.jUc.requestFocus();
     }
 
-    public void oc(boolean z) {
-        this.jOg.setVisibility(z ? 0 : 8);
+    public void ol(boolean z) {
+        this.jUd.setVisibility(z ? 0 : 8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cLm() {
-        if (this.jOf != null && this.jOh != null) {
-            if (TextUtils.isEmpty(this.jOf.getText())) {
-                ap.setViewTextColor(this.jOh, R.color.cp_cont_d, 1);
+    public void cNN() {
+        if (this.jUc != null && this.jUe != null) {
+            if (TextUtils.isEmpty(this.jUc.getText())) {
+                ap.setViewTextColor(this.jUe, R.color.cp_cont_d, 1);
             } else {
-                ap.setViewTextColor(this.jOh, R.color.cp_cont_b, 1);
+                ap.setViewTextColor(this.jUe, R.color.cp_cont_b, 1);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void LG(String str) {
-        if (this.jOf != null && this.jOf.hasFocus()) {
-            l.hideSoftKeyPad(getPageContext().getPageActivity(), this.jOf);
+    public void LX(String str) {
+        if (this.jUc != null && this.jUc.hasFocus()) {
+            l.hideSoftKeyPad(getPageContext().getPageActivity(), this.jUc);
         }
         if (TextUtils.isEmpty(str)) {
             setResult(0, new Intent());
         } else {
-            this.fJV = new Intent();
-            this.fJV.putExtra(HotTopicActivityConfig.HOT_TOPIC_SELECT_STRING, str + HotSelectActivityConfig.HOT_TOPIC_SING);
+            this.fPL = new Intent();
+            this.fPL.putExtra(HotTopicActivityConfig.HOT_TOPIC_SELECT_STRING, str + HotSelectActivityConfig.HOT_TOPIC_SING);
         }
         finish();
     }
 
-    private d LH(String str) {
+    private d LY(String str) {
         d dVar = new d();
         dVar.setTopicName(str);
         return dVar;
     }
 
     @Override // com.baidu.tieba.hottopicselect.HotTopicSelectModel.a
-    public void LI(String str) {
-        hideLoadingView(this.jOe);
-        this.jNZ.setVisibility(8);
+    public void LZ(String str) {
+        hideLoadingView(this.jUb);
+        this.jTW.setVisibility(8);
         if (!j.isNetWorkAvailable()) {
-            this.mNoDataView.setTextOption(NoDataViewFactory.d.pG(R.string.neterror));
+            this.mNoDataView.setTextOption(NoDataViewFactory.d.pQ(R.string.neterror));
             this.mNoDataView.setVisibility(0);
         } else if (!TextUtils.isEmpty(str)) {
-            this.mNoDataView.setTextOption(NoDataViewFactory.d.pG(R.string.refresh_view_title_text));
+            this.mNoDataView.setTextOption(NoDataViewFactory.d.pQ(R.string.refresh_view_title_text));
             this.mNoDataView.setVisibility(0);
             showToast(str);
         }
@@ -326,57 +326,57 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
 
     private void a(c cVar, boolean z) {
         if (cVar != null && !y.isEmpty(cVar.getList())) {
-            if (TextUtils.isEmpty(cVar.cLn())) {
+            if (TextUtils.isEmpty(cVar.cNO())) {
                 cVar.setTitle(getString(z ? R.string.group_topic_default : R.string.group_topic_hot));
             }
-            this.jOc.b(cVar);
+            this.jTZ.b(cVar);
         }
     }
 
     @Override // com.baidu.tieba.hottopicselect.HotTopicSelectModel.a
     public void a(c cVar, c cVar2) {
-        this.jNZ.setVisibility(0);
-        this.jOb.setVisibility(0);
-        this.jOa.setVisibility(8);
-        hideLoadingView(this.jOe);
-        this.jOc.clearList();
+        this.jTW.setVisibility(0);
+        this.jTY.setVisibility(0);
+        this.jTX.setVisibility(8);
+        hideLoadingView(this.jUb);
+        this.jTZ.clearList();
         a(cVar, true);
         a(cVar2, false);
-        this.jOc.notifyDataSetChanged();
-        int count = this.jOb.getCount();
+        this.jTZ.notifyDataSetChanged();
+        int count = this.jTY.getCount();
         for (int i = 0; i < count; i++) {
-            this.jOb.expandGroup(i);
+            this.jTY.expandGroup(i);
         }
     }
 
     @Override // com.baidu.tieba.hottopicselect.HotTopicSelectModel.a
-    public void LJ(String str) {
-        this.jNZ.setVisibility(0);
-        this.jOb.setVisibility(8);
-        this.jOa.setVisibility(0);
-        hideLoadingView(this.jOe);
-        String cuA = cuA();
-        d LH = LH(cuA);
-        this.jNY.clear();
-        this.jNY.add(LH);
-        this.jOd.j(cuA, this.jNY);
+    public void Ma(String str) {
+        this.jTW.setVisibility(0);
+        this.jTY.setVisibility(8);
+        this.jTX.setVisibility(0);
+        hideLoadingView(this.jUb);
+        String cxb = cxb();
+        d LY = LY(cxb);
+        this.jTV.clear();
+        this.jTV.add(LY);
+        this.jUa.j(cxb, this.jTV);
     }
 
     @Override // com.baidu.tieba.hottopicselect.HotTopicSelectModel.a
     public void a(c cVar) {
-        this.jNZ.setVisibility(0);
-        this.jOb.setVisibility(8);
-        this.jOa.setVisibility(0);
-        hideLoadingView(this.jOe);
-        this.jNY.clear();
-        String cuA = cuA();
-        this.jNY.add(LH(cuA));
+        this.jTW.setVisibility(0);
+        this.jTY.setVisibility(8);
+        this.jTX.setVisibility(0);
+        hideLoadingView(this.jUb);
+        this.jTV.clear();
+        String cxb = cxb();
+        this.jTV.add(LY(cxb));
         if (cVar == null || cVar.getList() == null) {
-            this.jOd.j(cuA, this.jNY);
+            this.jUa.j(cxb, this.jTV);
             return;
         }
-        this.jNY.addAll(cVar.getList());
-        this.jOd.j(cuA, this.jNY);
+        this.jTV.addAll(cVar.getList());
+        this.jUa.j(cxb, this.jTV);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -385,7 +385,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
         super.onStop();
         setSkinType(3);
         if (this.mNoDataView != null) {
-            this.mNoDataView.bpO();
+            this.mNoDataView.bso();
         }
     }
 
@@ -397,19 +397,19 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(getPageContext(), i);
         }
-        if (this.jOd != null) {
-            this.jOd.notifyDataSetChanged();
+        if (this.jUa != null) {
+            this.jUa.notifyDataSetChanged();
         }
-        if (this.jOc != null) {
-            this.jOc.notifyDataSetChanged();
+        if (this.jTZ != null) {
+            this.jTZ.notifyDataSetChanged();
         }
-        if (this.jOf != null) {
-            this.jOf.setHintTextColor(ap.getColor(R.color.cp_cont_d));
+        if (this.jUc != null) {
+            this.jUc.setHintTextColor(ap.getColor(R.color.cp_cont_d));
         }
-        ap.setViewTextColor(this.iSS, R.color.cp_link_tip_a, 1);
-        ap.setViewTextColor(this.jOf, R.color.cp_cont_b, 2);
-        ap.setImageResource(this.jOg, R.drawable.del_search_btn);
-        cLm();
+        ap.setViewTextColor(this.iYP, R.color.cp_link_tip_a, 1);
+        ap.setViewTextColor(this.jUc, R.color.cp_cont_b, 2);
+        ap.setImageResource(this.jUd, R.drawable.del_search_btn);
+        cNN();
         if (this.mSkinType == 2) {
             StatusBarUtil.from(getPageContext().getPageActivity()).setTransparentStatusbar(true).setLightStatusBar(true).process();
         }
@@ -418,9 +418,9 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        this.jNX.onDestroy();
-        this.mNoDataView.bpO();
-        hideLoadingView(this.jOe);
+        this.jTU.onDestroy();
+        this.mNoDataView.bso();
+        hideLoadingView(this.jUb);
         super.onDestroy();
     }
 }

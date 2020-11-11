@@ -14,5 +14,5 @@ public interface c<INFO> {
 
     void h(String str, Throwable th);
 
-    void hf(String str);
+    void hm(String str);
 }

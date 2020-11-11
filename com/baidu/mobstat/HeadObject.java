@@ -32,7 +32,7 @@ public class HeadObject {
     String z;
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f2495a = false;
+    boolean f2497a = false;
     String d = "0";
     String e = null;
     String f = null;
@@ -47,7 +47,7 @@ public class HeadObject {
     }
 
     private synchronized void a(Context context) {
-        if (!this.f2495a) {
+        if (!this.f2497a) {
             bo.e(context, "android.permission.READ_PHONE_STATE");
             bo.e(context, "android.permission.INTERNET");
             bo.e(context, "android.permission.ACCESS_NETWORK_STATE");
@@ -124,7 +124,7 @@ public class HeadObject {
             this.x = android.os.Build.BOARD;
             this.y = android.os.Build.BRAND;
             this.C = CooperService.instance().getUserId(context);
-            this.f2495a = true;
+            this.f2497a = true;
         }
     }
 

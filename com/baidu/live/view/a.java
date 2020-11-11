@@ -24,6 +24,7 @@ import com.baidu.live.tbadk.core.util.StatisticItem;
 import com.baidu.live.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.core.util.UtilHelper;
+import com.baidu.live.tbadk.core.util.httpnet.HttpRequest;
 import com.baidu.live.tbadk.coreextra.message.UpdateAttentionMessage;
 import com.baidu.live.tbadk.ubc.UbcStatisticItem;
 import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
@@ -33,23 +34,23 @@ import java.util.LinkedList;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    private static volatile a bFA;
+    private static volatile a bLg;
     private String mUserId;
     private HashMap<String, LinkedList<com.baidu.live.data.f>> mUserAttentionRequestMap = new HashMap<>();
-    private HashMap<String, C0219a> mAttentionTaskMap = new HashMap<>();
+    private HashMap<String, C0231a> mAttentionTaskMap = new HashMap<>();
 
     private a() {
     }
 
-    public static a TX() {
-        if (bFA == null) {
+    public static a Wx() {
+        if (bLg == null) {
             synchronized (a.class) {
-                if (bFA == null) {
-                    bFA = new a();
+                if (bLg == null) {
+                    bLg = new a();
                 }
             }
         }
-        return bFA;
+        return bLg;
     }
 
     public void a(String str, com.baidu.live.data.f fVar) {
@@ -107,19 +108,19 @@ public class a {
     public void executeAttentionTask(String str) {
         LinkedList<com.baidu.live.data.f> linkedList;
         if (!StringUtils.isNull(str) && this.mAttentionTaskMap.get(str) == null && (linkedList = this.mUserAttentionRequestMap.get(str)) != null && linkedList.size() > 0) {
-            C0219a c0219a = new C0219a();
-            this.mAttentionTaskMap.put(str, c0219a);
-            c0219a.setPriority(2);
-            c0219a.a(linkedList.getFirst());
-            c0219a.execute(new Integer[0]);
+            C0231a c0231a = new C0231a();
+            this.mAttentionTaskMap.put(str, c0231a);
+            c0231a.setPriority(2);
+            c0231a.a(linkedList.getFirst());
+            c0231a.execute(new Integer[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.live.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0219a extends BdAsyncTask<Integer, Integer, String> {
-        private BdUniqueId bFF;
+    public class C0231a extends BdAsyncTask<Integer, Integer, String> {
+        private BdUniqueId bLl;
         private String forumId;
         private String from;
         private String inLive;
@@ -130,7 +131,7 @@ public class a {
         private boolean showToastAfterAttentionSuc;
         private String toUid;
 
-        private C0219a() {
+        private C0231a() {
             this.mNetwork = null;
             this.metaKey = "";
             this.isGod = false;
@@ -144,9 +145,9 @@ public class a {
             this.isAttention = fVar.isAttention();
             this.toUid = fVar.getUserId();
             this.inLive = fVar.getInLive();
-            this.bFF = fVar.DL();
+            this.bLl = fVar.Ee();
             this.from = fVar.getFrom();
-            this.metaKey = fVar.DM();
+            this.metaKey = fVar.Ef();
             if (this.forumId != null) {
                 this.showToastAfterAttentionSuc = true;
             }
@@ -171,6 +172,7 @@ public class a {
                     this.mNetwork.addPostData("forum_id", this.forumId);
                 }
                 this.mNetwork.addPostData("in_live", this.inLive);
+                this.mNetwork.addPostData(HttpRequest.LIVE_SCENE, TbConfig.liveScene + "");
                 this.mNetwork.isNeedTbs = true;
                 return this.mNetwork.postNetData();
             } catch (Exception e) {
@@ -183,7 +185,7 @@ public class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
         public void onPostExecute(String str) {
-            super.onPostExecute((C0219a) str);
+            super.onPostExecute((C0231a) str);
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.UpdateAttentionData updateAttentionData = new UpdateAttentionMessage.UpdateAttentionData();
                 updateAttentionData.isSucc = this.mNetwork.isRequestSuccess();
@@ -198,7 +200,7 @@ public class a {
                     updateAttentionData.isSucc = updateAttentionData.response.mServerErrorCode == 0;
                 }
                 UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(updateAttentionData);
-                updateAttentionMessage.setOrginalMessage(new CustomMessage((int) MessageConfig.BASE_CUSTOM_CMD, this.bFF));
+                updateAttentionMessage.setOrginalMessage(new CustomMessage((int) MessageConfig.BASE_CUSTOM_CMD, this.bLl));
                 MessageManager.getInstance().dispatchResponsedMessage(updateAttentionMessage);
                 a.this.a(updateAttentionData, this.from);
             }
@@ -255,19 +257,19 @@ public class a {
     public void e(final TbPageContext<?> tbPageContext) {
         if (tbPageContext != null) {
             if (UtilHelper.getRealScreenOrientation(tbPageContext.getPageActivity()) == 2) {
-                tbPageContext.showToast(a.i.sdk_attention_success_toast);
+                tbPageContext.showToast(a.h.sdk_attention_success_toast);
                 return;
             }
-            final Dialog dialog = new Dialog(tbPageContext.getPageActivity(), a.j.sdk_ActionSheetDialogStyle);
-            dialog.setContentView(a.h.sdk_attention_tip_layout);
+            final Dialog dialog = new Dialog(tbPageContext.getPageActivity(), a.i.sdk_ActionSheetDialogStyle);
+            dialog.setContentView(a.g.sdk_attention_tip_layout);
             Window window = dialog.getWindow();
-            ((TextView) window.findViewById(a.g.ala_attention_tip_content_btn)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.view.a.1
+            ((TextView) window.findViewById(a.f.ala_attention_tip_content_btn)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.view.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     ShowUtil.dismissDialog(dialog, tbPageContext.getPageActivity());
                 }
             });
-            window.findViewById(a.g.ala_attention_tip_root).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.view.a.2
+            window.findViewById(a.f.ala_attention_tip_root).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.view.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     ShowUtil.dismissDialog(dialog, tbPageContext.getPageActivity());
@@ -329,12 +331,12 @@ public class a {
 
     public void o(String[] strArr) {
         for (String str : strArr) {
-            if (TY() != null && TY().equals(str)) {
+            if (Wy() != null && Wy().equals(str)) {
                 UpdateAttentionMessage.UpdateAttentionData updateAttentionData = new UpdateAttentionMessage.UpdateAttentionData();
                 updateAttentionData.isSucc = true;
                 updateAttentionData.errorString = null;
                 updateAttentionData.isAttention = true;
-                updateAttentionData.toUid = TY();
+                updateAttentionData.toUid = Wy();
                 updateAttentionData.isGod = false;
                 updateAttentionData.isShowMessage = false;
                 UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(updateAttentionData);
@@ -345,11 +347,11 @@ public class a {
         }
     }
 
-    public String TY() {
+    public String Wy() {
         return this.mUserId;
     }
 
-    public void iz(String str) {
+    public void iM(String str) {
         this.mUserId = str;
     }
 }

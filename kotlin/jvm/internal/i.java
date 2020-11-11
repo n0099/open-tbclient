@@ -23,7 +23,7 @@ public final class i {
         return new k(sArr);
     }
 
-    public static final ad s(int[] iArr) {
+    public static final ad u(int[] iArr) {
         q.n(iArr, com.baidu.fsg.base.statistics.b.j);
         return new f(iArr);
     }

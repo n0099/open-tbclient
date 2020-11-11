@@ -9,35 +9,35 @@ import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes18.dex */
 public class d implements ak {
     @GuardedBy("this")
-    private boolean eVO = false;
+    private boolean fbD = false;
     @GuardedBy("this")
     private final List<al> mCallbacks = new ArrayList();
     private final String mId;
-    private final Object oDH;
-    private final ImageRequest oDI;
+    private final Object oNa;
+    private final ImageRequest oNb;
     @GuardedBy("this")
-    private boolean oDS;
-    private final am oOL;
-    private final ImageRequest.RequestLevel oOM;
+    private boolean oNl;
+    private final am oYe;
+    private final ImageRequest.RequestLevel oYf;
     @GuardedBy("this")
-    private Priority oON;
+    private Priority oYg;
     @GuardedBy("this")
-    private boolean oOO;
+    private boolean oYh;
 
     public d(ImageRequest imageRequest, String str, am amVar, Object obj, ImageRequest.RequestLevel requestLevel, boolean z, boolean z2, Priority priority) {
-        this.oDI = imageRequest;
+        this.oNb = imageRequest;
         this.mId = str;
-        this.oOL = amVar;
-        this.oDH = obj;
-        this.oOM = requestLevel;
-        this.oDS = z;
-        this.oON = priority;
-        this.oOO = z2;
+        this.oYe = amVar;
+        this.oNa = obj;
+        this.oYf = requestLevel;
+        this.oNl = z;
+        this.oYg = priority;
+        this.oYh = z2;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
-    public ImageRequest enf() {
-        return this.oDI;
+    public ImageRequest eqV() {
+        return this.oNb;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
@@ -46,33 +46,33 @@ public class d implements ak {
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
-    public am eng() {
-        return this.oOL;
+    public am eqW() {
+        return this.oYe;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
-    public Object ehK() {
-        return this.oDH;
+    public Object elz() {
+        return this.oNa;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
-    public ImageRequest.RequestLevel enh() {
-        return this.oOM;
+    public ImageRequest.RequestLevel eqX() {
+        return this.oYf;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
-    public synchronized boolean eni() {
-        return this.oDS;
+    public synchronized boolean eqY() {
+        return this.oNl;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
-    public synchronized Priority enj() {
-        return this.oON;
+    public synchronized Priority eqZ() {
+        return this.oYg;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
-    public synchronized boolean enk() {
-        return this.oOO;
+    public synchronized boolean era() {
+        return this.oYh;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
@@ -80,26 +80,26 @@ public class d implements ak {
         boolean z = false;
         synchronized (this) {
             this.mCallbacks.add(alVar);
-            if (this.eVO) {
+            if (this.fbD) {
                 z = true;
             }
         }
         if (z) {
-            alVar.ejw();
+            alVar.enm();
         }
     }
 
     public void cancel() {
-        gs(enl());
+        gB(erb());
     }
 
     @Nullable
-    public synchronized List<al> Ae(boolean z) {
+    public synchronized List<al> Ap(boolean z) {
         ArrayList arrayList;
-        if (z == this.oDS) {
+        if (z == this.oNl) {
             arrayList = null;
         } else {
-            this.oDS = z;
+            this.oNl = z;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;
@@ -108,48 +108,40 @@ public class d implements ak {
     @Nullable
     public synchronized List<al> a(Priority priority) {
         ArrayList arrayList;
-        if (priority == this.oON) {
+        if (priority == this.oYg) {
             arrayList = null;
         } else {
-            this.oON = priority;
+            this.oYg = priority;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;
     }
 
     @Nullable
-    public synchronized List<al> Af(boolean z) {
+    public synchronized List<al> Aq(boolean z) {
         ArrayList arrayList;
-        if (z == this.oOO) {
+        if (z == this.oYh) {
             arrayList = null;
         } else {
-            this.oOO = z;
+            this.oYh = z;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;
     }
 
     @Nullable
-    public synchronized List<al> enl() {
+    public synchronized List<al> erb() {
         ArrayList arrayList;
-        if (this.eVO) {
+        if (this.fbD) {
             arrayList = null;
         } else {
-            this.eVO = true;
+            this.fbD = true;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;
     }
 
-    public static void gs(@Nullable List<al> list) {
-        if (list != null) {
-            for (al alVar : list) {
-                alVar.ejw();
-            }
-        }
-    }
-
-    public static void gt(@Nullable List<al> list) {
+    public static void gB(@Nullable List<al> list) {
         if (list != null) {
             for (al alVar : list) {
                 alVar.enm();
@@ -157,18 +149,26 @@ public class d implements ak {
         }
     }
 
-    public static void gu(@Nullable List<al> list) {
+    public static void gC(@Nullable List<al> list) {
         if (list != null) {
             for (al alVar : list) {
-                alVar.enn();
+                alVar.erc();
             }
         }
     }
 
-    public static void gv(@Nullable List<al> list) {
+    public static void gD(@Nullable List<al> list) {
         if (list != null) {
             for (al alVar : list) {
-                alVar.eno();
+                alVar.erd();
+            }
+        }
+    }
+
+    public static void gE(@Nullable List<al> list) {
+        if (list != null) {
+            for (al alVar : list) {
+                alVar.ere();
             }
         }
     }

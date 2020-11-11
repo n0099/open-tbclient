@@ -3,8 +3,8 @@ package com.baidu.tbadk.b;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes.dex */
 public class c implements e {
-    public static final AtomicReference<e> eoh = new AtomicReference<>(null);
-    private static final e eoi = bfK();
+    public static final AtomicReference<e> eua = new AtomicReference<>(null);
+    private static final e eub = bik();
 
     private c() {
     }
@@ -12,10 +12,10 @@ public class c implements e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static c eoj = new c();
+        private static c euc = new c();
     }
 
-    public static c bfK() {
-        return a.eoj;
+    public static c bik() {
+        return a.euc;
     }
 }

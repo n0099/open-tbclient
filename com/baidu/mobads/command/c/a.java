@@ -38,16 +38,16 @@ public class a extends b {
             xAdLandingPageExtraInfo.from = 0;
             xAdLandingPageExtraInfo.adid = this.c.getAdId();
             xAdLandingPageExtraInfo.qk = this.c.getQueryKey();
-            xAdLandingPageExtraInfo.packageNameOfPubliser = this.f2323a.getPackageName();
-            xAdLandingPageExtraInfo.appsid = commonUtils.getAppId(this.f2323a);
-            xAdLandingPageExtraInfo.appsec = commonUtils.getAppSec(this.f2323a);
+            xAdLandingPageExtraInfo.packageNameOfPubliser = this.f2325a.getPackageName();
+            xAdLandingPageExtraInfo.appsid = commonUtils.getAppId(this.f2325a);
+            xAdLandingPageExtraInfo.appsec = commonUtils.getAppSec(this.f2325a);
             xAdLandingPageExtraInfo.title = this.c.getTitle();
             xAdLandingPageExtraInfo.lpShoubaiStyle = this.f;
-            Intent intent = new Intent(this.f2323a, AppActivity.getActivityClass());
+            Intent intent = new Intent(this.f2325a, AppActivity.getActivityClass());
             if (this.b.getActivity() != null) {
                 xAdLandingPageExtraInfo.isFullScreen = activityUtils.isFullScreen(this.b.getActivity()).booleanValue();
             }
-            xAdLandingPageExtraInfo.orientation = this.f2323a.getResources().getConfiguration().orientation;
+            xAdLandingPageExtraInfo.orientation = this.f2325a.getResources().getConfiguration().orientation;
             if (AppActivity.isAnti()) {
                 intent.putExtra(AppActivityImp.EXTRA_LANDINGPAGE_EXTRA_INFO, AppActivityImp.classToString(XAdLandingPageExtraInfo.class, xAdLandingPageExtraInfo));
                 intent.putExtra(AppActivityImp.EXTRA_COMMAND_EXTRA_INFO, AppActivityImp.classToString(XAdCommandExtraInfo.class, xAdLandingPageExtraInfo));
@@ -57,7 +57,7 @@ public class a extends b {
             }
             intent.addFlags(268435456);
             if (!AppActivityImp.isAppActivityOpening()) {
-                this.f2323a.startActivity(intent);
+                this.f2325a.startActivity(intent);
             }
         } catch (Exception e) {
             m.a().e(e);

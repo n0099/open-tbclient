@@ -2,141 +2,141 @@ package master.flame.danmaku.danmaku.model;
 /* loaded from: classes6.dex */
 public abstract class d {
     public int index;
-    public boolean kUV;
+    public boolean laS;
     public Object obj;
-    protected f pLY;
-    public n<?> pME;
-    public boolean pMF;
-    public String pMG;
-    public boolean pMH;
-    public boolean pMN;
-    public long pMs;
-    public String[] pMt;
-    public float pMu;
-    public int pMv;
-    public g pMz;
+    public long pVM;
+    public String[] pVN;
+    public float pVO;
+    public int pVP;
+    public g pVT;
+    public n<?> pVY;
+    public boolean pVZ;
+    protected f pVs;
+    public String pWa;
+    public boolean pWb;
+    public boolean pWh;
     public float rotationY;
     public Object tag;
     public CharSequence text;
     public int textColor;
     private long time;
     public int visibility;
-    public boolean pMr = false;
+    public boolean pVL = false;
     public int underlineColor = 0;
-    public float bGw = -1.0f;
+    public float bMb = -1.0f;
     public int borderColor = 0;
     public int padding = 0;
-    public byte pMw = 0;
-    public float pMx = -1.0f;
-    public float pMy = -1.0f;
-    private int pMA = 0;
-    public int pMB = 0;
-    public int pMC = 0;
-    public int pMD = -1;
+    public byte pVQ = 0;
+    public float pVR = -1.0f;
+    public float pVS = -1.0f;
+    private int pVU = 0;
+    public int pVV = 0;
+    public int pVW = 0;
+    public int pVX = -1;
     public int userId = 0;
     protected int alpha = c.MAX;
-    public int pMI = 0;
-    public int pMJ = -1;
-    public j pMK = null;
-    public int pML = 0;
-    public int pMM = -1;
+    public int pWc = 0;
+    public int pWd = -1;
+    public j pWe = null;
+    public int pWf = 0;
+    public int pWg = -1;
 
     public abstract void a(m mVar, float f, float f2);
 
     public abstract float[] a(m mVar, long j);
 
-    public abstract float ezu();
+    public abstract float eDj();
 
-    public abstract float ezv();
+    public abstract float eDk();
 
-    public abstract float ezw();
+    public abstract float eDl();
 
-    public abstract float ezx();
+    public abstract float eDm();
 
     public abstract int getType();
 
     public long getDuration() {
-        return this.pMz.value;
+        return this.pVT.value;
     }
 
     public int a(m mVar) {
         return mVar.n(this);
     }
 
-    public boolean ezn() {
-        return this.pMx > -1.0f && this.pMy > -1.0f && this.pMB == this.pMK.pMW;
+    public boolean eDc() {
+        return this.pVR > -1.0f && this.pVS > -1.0f && this.pVV == this.pWe.pWq;
     }
 
     public void a(m mVar, boolean z) {
         mVar.c(this, z);
-        this.pMB = this.pMK.pMW;
+        this.pVV = this.pWe.pWq;
     }
 
     public boolean isPrepared() {
-        return this.pMD == this.pMK.pNb;
+        return this.pVX == this.pWe.pWv;
     }
 
     public void b(m mVar, boolean z) {
         mVar.b(this, z);
-        this.pMD = this.pMK.pNb;
+        this.pVX = this.pWe.pWv;
     }
 
-    public n<?> ezo() {
-        return this.pME;
+    public n<?> eDd() {
+        return this.pVY;
     }
 
     public boolean isShown() {
-        return this.visibility == 1 && this.pMA == this.pMK.pMX;
+        return this.visibility == 1 && this.pVU == this.pWe.pWr;
     }
 
-    public boolean ezp() {
-        return this.pLY == null || hQ(this.pLY.pMO);
+    public boolean eDe() {
+        return this.pVs == null || im(this.pVs.pWi);
     }
 
-    public boolean hQ(long j) {
-        return j - ezz() >= this.pMz.value;
+    public boolean im(long j) {
+        return j - eDo() >= this.pVT.value;
     }
 
-    public boolean ezq() {
-        return this.pLY == null || hR(this.pLY.pMO);
+    public boolean eDf() {
+        return this.pVs == null || in(this.pVs.pWi);
     }
 
-    public boolean hR(long j) {
-        long ezz = j - ezz();
-        return ezz <= 0 || ezz >= this.pMz.value;
+    public boolean in(long j) {
+        long eDo = j - eDo();
+        return eDo <= 0 || eDo >= this.pVT.value;
     }
 
-    public boolean ezr() {
-        return this.pLY == null || this.pLY.pMO < ezz();
+    public boolean eDg() {
+        return this.pVs == null || this.pVs.pWi < eDo();
     }
 
-    public boolean ezs() {
-        if (this.pMJ != this.pMK.pMY) {
-            this.pMI = 0;
+    public boolean eDh() {
+        if (this.pWd != this.pWe.pWs) {
+            this.pWc = 0;
             return false;
         }
         return true;
     }
 
-    public boolean ezt() {
-        return this.pMJ == this.pMK.pMY && this.pMI != 0;
+    public boolean eDi() {
+        return this.pWd == this.pWe.pWs && this.pWc != 0;
     }
 
     public void setVisibility(boolean z) {
         if (z) {
-            this.pMA = this.pMK.pMX;
+            this.pVU = this.pWe.pWr;
             this.visibility = 1;
             return;
         }
         this.visibility = 0;
     }
 
-    public f ezy() {
-        return this.pLY;
+    public f eDn() {
+        return this.pVs;
     }
 
     public void c(f fVar) {
-        this.pLY = fVar;
+        this.pVs = fVar;
     }
 
     public int getAlpha() {
@@ -147,28 +147,28 @@ public abstract class d {
         this.tag = obj;
     }
 
-    public void hS(long j) {
-        this.pMs = j;
-        this.pMC = this.pMK.pNa;
+    public void io(long j) {
+        this.pVM = j;
+        this.pVW = this.pWe.pWu;
     }
 
     public void setTime(long j) {
         this.time = j;
-        this.pMs = 0L;
+        this.pVM = 0L;
     }
 
     public long getTime() {
         return this.time;
     }
 
-    public long ezz() {
-        return (this.pMK == null || this.pMK.pNa != this.pMC) ? this.time : this.time + this.pMs;
+    public long eDo() {
+        return (this.pWe == null || this.pWe.pWu != this.pVW) ? this.time : this.time + this.pVM;
     }
 
-    public boolean ezA() {
-        if (this.pMK == null || this.pMK.pNa != this.pMC) {
+    public boolean eDp() {
+        if (this.pWe == null || this.pWe.pWu != this.pVW) {
             return false;
         }
-        return this.pMN;
+        return this.pWh;
     }
 }

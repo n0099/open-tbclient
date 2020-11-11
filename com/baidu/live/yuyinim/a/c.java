@@ -8,95 +8,95 @@ import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.live.data.AlaLiveMarkData;
-import com.baidu.live.gift.ai;
+import com.baidu.live.gift.ah;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.log.LogConfig;
-import com.baidu.live.view.c;
+import com.baidu.live.view.b;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c extends b {
     /* JADX INFO: Access modifiers changed from: protected */
     public c(Context context) {
-        super(context, com.baidu.live.im.a.bfR);
+        super(context, com.baidu.live.im.a.bhl);
     }
 
     @Override // com.baidu.live.yuyinim.a.b
-    protected void LB() {
-        if (LC()) {
-            LD();
+    protected void Mb() {
+        if (Mc()) {
+            Md();
         } else {
-            LE();
+            Me();
         }
     }
 
     @Override // com.baidu.live.yuyinim.a.b
     protected int getColor() {
-        if (LC()) {
+        if (Mc()) {
             return -19840;
         }
-        return TbadkCoreApplication.getInst().getResources().getColor(a.d.sdk_cp_other_b);
+        return TbadkCoreApplication.getInst().getResources().getColor(a.c.sdk_cp_other_b);
     }
 
     @Override // com.baidu.live.yuyinim.a.b
     protected SpannableStringBuilder a(com.baidu.live.im.data.a aVar, final com.baidu.live.yuyinim.a aVar2) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        a(spannableStringBuilder, aVar.LO(), aVar2, false, false);
-        a z = z(aVar);
-        String string = (z == null || TextUtils.isEmpty(z.giftName)) ? this.mContext.getString(a.i.sdk_gift) : z.giftName;
+        a(spannableStringBuilder, aVar.Mo(), aVar2, false, false);
+        a A = A(aVar);
+        String string = (A == null || TextUtils.isEmpty(A.giftName)) ? this.mContext.getString(a.h.sdk_gift) : A.giftName;
         SpannableString valueOf = SpannableString.valueOf("送给");
         valueOf.setSpan(new ForegroundColorSpan(getColor()), 0, valueOf.length(), 33);
         spannableStringBuilder.append((CharSequence) valueOf);
-        SpannableString valueOf2 = SpannableString.valueOf(" " + aVar.bkn + " ");
+        SpannableString valueOf2 = SpannableString.valueOf(" " + aVar.blH + " ");
         valueOf2.setSpan(new ForegroundColorSpan(-5462), 0, valueOf2.length(), 33);
         spannableStringBuilder.append((CharSequence) valueOf2);
         SpannableString valueOf3 = SpannableString.valueOf(string);
         valueOf3.setSpan(new ForegroundColorSpan(getColor()), 0, valueOf3.length(), 33);
         spannableStringBuilder.append((CharSequence) valueOf3);
-        if (z != null && !TextUtils.isEmpty(z.aUh)) {
+        if (A != null && !TextUtils.isEmpty(A.aVz)) {
             AlaLiveMarkData alaLiveMarkData = new AlaLiveMarkData();
-            alaLiveMarkData.mark_pic = z.aUh;
+            alaLiveMarkData.mark_pic = A.aVz;
             alaLiveMarkData.isWidthAutoFit = true;
-            com.baidu.live.view.c cVar = new com.baidu.live.view.c(this.mContext, alaLiveMarkData, false, new c.a() { // from class: com.baidu.live.yuyinim.a.c.1
-                @Override // com.baidu.live.view.c.a
+            com.baidu.live.view.b bVar = new com.baidu.live.view.b(this.mContext, alaLiveMarkData, false, new b.a() { // from class: com.baidu.live.yuyinim.a.c.1
+                @Override // com.baidu.live.view.b.a
                 public void d(Bitmap bitmap) {
-                    aVar2.bgh.forceLayout();
+                    aVar2.bhB.forceLayout();
                 }
 
-                @Override // com.baidu.live.view.c.a
-                public void a(com.baidu.live.view.c cVar2, Bitmap bitmap) {
+                @Override // com.baidu.live.view.b.a
+                public void a(com.baidu.live.view.b bVar2, Bitmap bitmap) {
                 }
             });
             SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(" [img]");
-            spannableStringBuilder2.setSpan(cVar, 1, spannableStringBuilder2.length(), 33);
+            spannableStringBuilder2.setSpan(bVar, 1, spannableStringBuilder2.length(), 33);
             spannableStringBuilder.append((CharSequence) spannableStringBuilder2);
         }
-        a(spannableStringBuilder, z);
+        a(spannableStringBuilder, A);
         return spannableStringBuilder;
     }
 
     private void a(SpannableStringBuilder spannableStringBuilder, a aVar) {
         if (aVar != null) {
-            String str = !TextUtils.isEmpty(aVar.bjC) ? aVar.bjC : "1";
-            String str2 = !TextUtils.isEmpty(aVar.bjD) ? aVar.bjD : "1";
+            String str = !TextUtils.isEmpty(aVar.bkW) ? aVar.bkW : "1";
+            String str2 = !TextUtils.isEmpty(aVar.bkX) ? aVar.bkX : "1";
             if (!TextUtils.isEmpty(str)) {
                 SpannableString valueOf = SpannableString.valueOf("×" + str);
                 valueOf.setSpan(new ForegroundColorSpan(getColor()), 0, valueOf.length(), 33);
                 spannableStringBuilder.append((CharSequence) valueOf);
             }
-            if (this.bjs && !aVar.biC && !TextUtils.isEmpty(str2)) {
-                SpannableString valueOf2 = SpannableString.valueOf(String.format(this.mContext.getString(a.i.ala_rec_gift_charm_value), str2));
+            if (this.bkM && !aVar.bjV && !TextUtils.isEmpty(str2)) {
+                SpannableString valueOf2 = SpannableString.valueOf(String.format(this.mContext.getString(a.h.ala_rec_gift_charm_value), str2));
                 valueOf2.setSpan(new ForegroundColorSpan(getColor()), 0, valueOf2.length(), 33);
                 spannableStringBuilder.append((CharSequence) valueOf2);
             }
-            if (ai.ha(aVar.giftId) && !ai.gY(aVar.giftId) && ai.gZ(aVar.giftId)) {
-                SpannableString valueOf3 = SpannableString.valueOf(this.mContext.getString(a.i.ala_dynamic_gift_downloading));
+            if (ah.hg(aVar.giftId) && !ah.he(aVar.giftId) && ah.hf(aVar.giftId)) {
+                SpannableString valueOf3 = SpannableString.valueOf(this.mContext.getString(a.h.ala_dynamic_gift_downloading));
                 valueOf3.setSpan(new ForegroundColorSpan(getColor()), 0, valueOf3.length(), 33);
                 spannableStringBuilder.append((CharSequence) valueOf3);
             }
-            if (!aVar.biC && aVar.biB > 0.0d) {
-                com.baidu.live.yuyinim.view.a aVar2 = new com.baidu.live.yuyinim.view.a(this.mContext, aVar.biB + "倍");
+            if (!aVar.bjV && aVar.bjU > 0.0d) {
+                com.baidu.live.yuyinim.view.a aVar2 = new com.baidu.live.yuyinim.view.a(this.mContext, aVar.bjU + "倍");
                 SpannableString spannableString = new SpannableString(" rate");
                 spannableString.setSpan(aVar2, 1, spannableString.length(), 33);
                 spannableStringBuilder.append((CharSequence) spannableString);
@@ -108,7 +108,7 @@ public class c extends b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private a z(com.baidu.live.im.data.a aVar) {
+    private a A(com.baidu.live.im.data.a aVar) {
         JSONObject jSONObject;
         boolean z = true;
         try {
@@ -119,30 +119,30 @@ public class c extends b {
             }
             a aVar2 = new a();
             aVar2.giftId = jSONObject.optString(LogConfig.LOG_GIFT_ID);
-            aVar2.bNS = jSONObject.optBoolean("is_owner");
+            aVar2.bTB = jSONObject.optBoolean("is_owner");
             aVar2.room_name = jSONObject.optString(DpStatConstants.KEY_ROOM_NAME);
-            aVar2.bjC = aVar.LW() + "";
-            if (aVar.LY() > 0) {
-                aVar2.bjD = aVar.LY() + "";
+            aVar2.bkW = aVar.Mw() + "";
+            if (aVar.My() > 0) {
+                aVar2.bkX = aVar.My() + "";
             } else {
-                aVar2.bjD = "";
+                aVar2.bkX = "";
             }
-            aVar2.biC = jSONObject.optInt("is_free") == 1;
-            aVar2.biB = aVar.LX();
-            com.baidu.live.gift.g gW = ai.gW(aVar2.giftId);
-            if (gW != null) {
-                if (gW.Fz()) {
-                    aVar2.giftName = this.mContext.getString(a.i.sdk_text_gift_graffiti);
+            aVar2.bjV = jSONObject.optInt("is_free") == 1;
+            aVar2.bjU = aVar.Mx();
+            com.baidu.live.gift.g hc = ah.hc(aVar2.giftId);
+            if (hc != null) {
+                if (hc.Ga()) {
+                    aVar2.giftName = this.mContext.getString(a.h.sdk_text_gift_graffiti);
                     if (TextUtils.isEmpty(aVar2.giftName)) {
                         aVar2.giftName = jSONObject.optString("gift_name");
                     }
-                    if (z && TextUtils.isEmpty(aVar2.aUh)) {
-                        aVar2.aUh = jSONObject.optString("gift_url");
+                    if (z && TextUtils.isEmpty(aVar2.aVz)) {
+                        aVar2.aVz = jSONObject.optString("gift_url");
                         return aVar2;
                     }
                 }
-                aVar2.giftName = gW.Ft();
-                aVar2.aUh = gW.getThumbnail_url();
+                aVar2.giftName = hc.FU();
+                aVar2.aVz = hc.getThumbnail_url();
             }
             z = false;
             if (TextUtils.isEmpty(aVar2.giftName)) {
@@ -156,12 +156,12 @@ public class c extends b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public static class a {
-        public String aUh;
-        public boolean bNS;
-        public double biB;
-        public boolean biC;
-        public String bjC;
-        public String bjD;
+        public String aVz;
+        public boolean bTB;
+        public double bjU;
+        public boolean bjV;
+        public String bkW;
+        public String bkX;
         public String giftId;
         public String giftName;
         public String room_name;

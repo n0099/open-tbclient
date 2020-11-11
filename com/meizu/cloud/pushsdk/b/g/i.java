@@ -6,7 +6,7 @@ import java.io.InputStream;
 final class i implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    public final b f4353a;
+    public final b f4355a;
     public final m b;
     private boolean c;
 
@@ -18,7 +18,7 @@ final class i implements d {
         if (mVar == null) {
             throw new IllegalArgumentException("source == null");
         }
-        this.f4353a = bVar;
+        this.f4355a = bVar;
         this.b = mVar;
     }
 
@@ -33,10 +33,10 @@ final class i implements d {
         if (this.c) {
             throw new IllegalStateException("closed");
         }
-        if (this.f4353a.b == 0 && this.b.b(this.f4353a, 2048L) == -1) {
+        if (this.f4355a.b == 0 && this.b.b(this.f4355a, 2048L) == -1) {
             return -1L;
         }
-        return this.f4353a.b(bVar, Math.min(j, this.f4353a.b));
+        return this.f4355a.b(bVar, Math.min(j, this.f4355a.b));
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.m, java.lang.AutoCloseable
@@ -46,7 +46,7 @@ final class i implements d {
         }
         this.c = true;
         this.b.close();
-        this.f4353a.j();
+        this.f4355a.j();
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.d
@@ -57,7 +57,7 @@ final class i implements d {
                 if (i.this.c) {
                     throw new IOException("closed");
                 }
-                return (int) Math.min(i.this.f4353a.b, 2147483647L);
+                return (int) Math.min(i.this.f4355a.b, 2147483647L);
             }
 
             @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
@@ -70,10 +70,10 @@ final class i implements d {
                 if (i.this.c) {
                     throw new IOException("closed");
                 }
-                if (i.this.f4353a.b == 0 && i.this.b.b(i.this.f4353a, 2048L) == -1) {
+                if (i.this.f4355a.b == 0 && i.this.b.b(i.this.f4355a, 2048L) == -1) {
                     return -1;
                 }
-                return i.this.f4353a.f() & 255;
+                return i.this.f4355a.f() & 255;
             }
 
             @Override // java.io.InputStream
@@ -82,10 +82,10 @@ final class i implements d {
                     throw new IOException("closed");
                 }
                 o.a(bArr.length, i, i2);
-                if (i.this.f4353a.b == 0 && i.this.b.b(i.this.f4353a, 2048L) == -1) {
+                if (i.this.f4355a.b == 0 && i.this.b.b(i.this.f4355a, 2048L) == -1) {
                     return -1;
                 }
-                return i.this.f4353a.a(bArr, i, i2);
+                return i.this.f4355a.a(bArr, i, i2);
             }
 
             public String toString() {
@@ -96,14 +96,14 @@ final class i implements d {
 
     @Override // com.meizu.cloud.pushsdk.b.g.d
     public String h() throws IOException {
-        this.f4353a.a(this.b);
-        return this.f4353a.h();
+        this.f4355a.a(this.b);
+        return this.f4355a.h();
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.d
     public byte[] i() throws IOException {
-        this.f4353a.a(this.b);
-        return this.f4353a.i();
+        this.f4355a.a(this.b);
+        return this.f4355a.i();
     }
 
     public String toString() {

@@ -52,7 +52,7 @@ import org.json.JSONObject;
 public class e implements IXAdCommonUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f2435a;
+    private static String f2437a;
     private static String b;
     private static String c;
     private static String d;
@@ -261,10 +261,10 @@ public class e implements IXAdCommonUtils {
     @Override // com.baidu.mobads.interfaces.utils.IXAdCommonUtils
     public String getAppId(Context context) {
         try {
-            if (f2435a == null) {
-                f2435a = d(context, IXAdCommonUtils.APPSID);
+            if (f2437a == null) {
+                f2437a = d(context, IXAdCommonUtils.APPSID);
             }
-            return f2435a;
+            return f2437a;
         } catch (Exception e) {
             return "";
         }
@@ -563,7 +563,7 @@ public class e implements IXAdCommonUtils {
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdCommonUtils
     public void setAppId(String str) {
-        f2435a = str;
+        f2437a = str;
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:51:0x010a -> B:13:0x004f). Please submit an issue!!! */

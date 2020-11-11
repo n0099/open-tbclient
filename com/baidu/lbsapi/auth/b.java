@@ -86,7 +86,7 @@ class b {
         String[] strArr = new String[b.length];
         for (int i = 0; i < strArr.length; i++) {
             strArr[i] = b[i] + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + packageName;
-            if (com.baidu.lbsapi.auth.a.f1831a) {
+            if (com.baidu.lbsapi.auth.a.f1833a) {
                 com.baidu.lbsapi.auth.a.a("mcode" + strArr[i]);
             }
         }

@@ -6,6 +6,6 @@ public class b {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static String f4003a = "aes_key";
+        public static String f4005a = "aes_key";
     }
 }

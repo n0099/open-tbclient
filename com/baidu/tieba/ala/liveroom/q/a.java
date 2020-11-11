@@ -14,14 +14,14 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.ala.liveroom.q.d;
 /* loaded from: classes4.dex */
 public class a extends BdBaseModel {
-    private w aEc;
-    private String bmC;
-    private long hfT;
-    private d.a hgd;
-    private boolean hiZ;
-    private long hja;
+    private w aES;
+    private String bnW;
+    private long hlO;
+    private d.a hlY;
+    private boolean hoQ;
+    private long hoR;
     private Handler mHandler = new Handler();
-    private HttpMessageListener hjb = new HttpMessageListener(1021007) { // from class: com.baidu.tieba.ala.liveroom.q.a.1
+    private HttpMessageListener hoS = new HttpMessageListener(1021007) { // from class: com.baidu.tieba.ala.liveroom.q.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -30,118 +30,118 @@ public class a extends BdBaseModel {
                     a.this.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), 1, null);
                     return;
                 }
-                w GH = httpResponsedMessage instanceof AlaGetLiveInfoHttpResponseMessage ? ((AlaGetLiveInfoHttpResponseMessage) httpResponsedMessage).GH() : null;
-                a.this.hja = System.currentTimeMillis();
-                if (GH == null) {
-                    a.this.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), 1, GH);
+                w Hi = httpResponsedMessage instanceof AlaGetLiveInfoHttpResponseMessage ? ((AlaGetLiveInfoHttpResponseMessage) httpResponsedMessage).Hi() : null;
+                a.this.hoR = System.currentTimeMillis();
+                if (Hi == null) {
+                    a.this.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), 1, Hi);
                     return;
                 }
-                if (a.this.aEc == null) {
-                    a.this.aEc = GH;
-                } else if (a.this.aEc.mLiveInfo != null && GH.mLiveInfo != null && a.this.aEc.mLiveInfo.live_id != GH.mLiveInfo.live_id) {
-                    a.this.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), 1, a.this.aEc);
+                if (a.this.aES == null) {
+                    a.this.aES = Hi;
+                } else if (a.this.aES.mLiveInfo != null && Hi.mLiveInfo != null && a.this.aES.mLiveInfo.live_id != Hi.mLiveInfo.live_id) {
+                    a.this.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), 1, a.this.aES);
                     return;
                 }
-                if (a.this.aEc.mLiveInfo != null && GH.mLiveInfo != null && a.this.aEc.mLiveInfo.user_id == GH.mLiveInfo.user_id) {
-                    if (a.this.aEc.mLiveInfo.imEffect != null && GH.mLiveInfo.imEffect == null) {
-                        GH.mLiveInfo.imEffect = a.this.aEc.mLiveInfo.imEffect;
+                if (a.this.aES.mLiveInfo != null && Hi.mLiveInfo != null && a.this.aES.mLiveInfo.user_id == Hi.mLiveInfo.user_id) {
+                    if (a.this.aES.mLiveInfo.imEffect != null && Hi.mLiveInfo.imEffect == null) {
+                        Hi.mLiveInfo.imEffect = a.this.aES.mLiveInfo.imEffect;
                     }
-                    if (a.this.aEc.mLiveInfo.mLiveCloseData != null && GH.mLiveInfo.mLiveCloseData == null) {
-                        GH.mLiveInfo.mLiveCloseData = a.this.aEc.mLiveInfo.mLiveCloseData;
+                    if (a.this.aES.mLiveInfo.mLiveCloseData != null && Hi.mLiveInfo.mLiveCloseData == null) {
+                        Hi.mLiveInfo.mLiveCloseData = a.this.aES.mLiveInfo.mLiveCloseData;
                     }
-                    if (a.this.aEc.mLiveInfo.mAlaLiveSwitchData != null && GH.mLiveInfo.mAlaLiveSwitchData == null) {
-                        GH.mLiveInfo.mAlaLiveSwitchData = a.this.aEc.mLiveInfo.mAlaLiveSwitchData;
+                    if (a.this.aES.mLiveInfo.mAlaLiveSwitchData != null && Hi.mLiveInfo.mAlaLiveSwitchData == null) {
+                        Hi.mLiveInfo.mAlaLiveSwitchData = a.this.aES.mLiveInfo.mAlaLiveSwitchData;
                     }
                 }
-                a.this.aEc.mLiveInfo = GH.mLiveInfo;
-                a.this.aEc.serverTime = GH.serverTime;
-                a.this.aEc.aIT = GH.aIT;
-                a.this.aEc.aIe = GH.aIe;
-                a.this.aEc.aIf = GH.aIf;
-                a.this.aEc.aIj = GH.aIj;
-                a.this.aEc.aIK = GH.aIK;
-                a.this.aEc.aII = GH.aII;
-                a.this.aEc.aIF = GH.aIF;
-                a.this.aEc.aIG = GH.aIG;
-                a.this.aEc.aIH = GH.aIH;
-                if (GH.aIC != null) {
-                    a.this.aEc.aIC = GH.aIC;
+                a.this.aES.mLiveInfo = Hi.mLiveInfo;
+                a.this.aES.serverTime = Hi.serverTime;
+                a.this.aES.aJM = Hi.aJM;
+                a.this.aES.aIV = Hi.aIV;
+                a.this.aES.aIW = Hi.aIW;
+                a.this.aES.aJa = Hi.aJa;
+                a.this.aES.aJB = Hi.aJB;
+                a.this.aES.aJz = Hi.aJz;
+                a.this.aES.aJw = Hi.aJw;
+                a.this.aES.aJx = Hi.aJx;
+                a.this.aES.aJy = Hi.aJy;
+                if (Hi.aJt != null) {
+                    a.this.aES.aJt = Hi.aJt;
                 }
-                if (GH.aIN != null && GH.aIN.aMM != null && !GH.aIN.aMM.isEmpty()) {
-                    a.this.aEc.aIN = GH.aIN;
+                if (Hi.aJE != null && Hi.aJE.aNO != null && !Hi.aJE.aNO.isEmpty()) {
+                    a.this.aES.aJE = Hi.aJE;
                 }
-                if (GH.aIA != null) {
-                    if (GH.aIA.userId == 0) {
-                        if (a.this.aEc.aIA == null) {
-                            a.this.aEc.aIA = new AlaLiveUserInfoData();
+                if (Hi.aJr != null) {
+                    if (Hi.aJr.userId == 0) {
+                        if (a.this.aES.aJr == null) {
+                            a.this.aES.aJr = new AlaLiveUserInfoData();
                         }
-                        a.this.aEc.aIA.throneUid = GH.aIA.throneUid;
+                        a.this.aES.aJr.throneUid = Hi.aJr.throneUid;
                     } else {
-                        boolean z = GH.aIA.isNewUser;
-                        if (a.this.aEc.aIA != null) {
-                            z = a.this.aEc.aIA.isNewUser;
+                        boolean z = Hi.aJr.isNewUser;
+                        if (a.this.aES.aJr != null) {
+                            z = a.this.aES.aJr.isNewUser;
                         }
-                        GH.aIA.isNewUser = z;
-                        a.this.aEc.aIA = GH.aIA;
-                        TbadkCoreApplication.getCurrentAccountObj().setNameShow(a.this.aEc.aIA.nickName);
+                        Hi.aJr.isNewUser = z;
+                        a.this.aES.aJr = Hi.aJr;
+                        TbadkCoreApplication.getCurrentAccountObj().setNameShow(a.this.aES.aJr.nickName);
                     }
                 }
-                if (GH.aIE != null) {
-                    a.this.aEc.aIE = GH.aIE;
+                if (Hi.aJv != null) {
+                    a.this.aES.aJv = Hi.aJv;
                 }
-                if (GH.aII) {
-                    a.this.aEc.aIJ = GH.aIJ;
+                if (Hi.aJz) {
+                    a.this.aES.aJA = Hi.aJA;
                 }
-                a.this.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), 1, a.this.aEc);
-                a.this.F(a.this.aEc);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913082, a.this.aEc));
-                if (a.this.aEc != null) {
-                    com.baidu.live.im.b.d.LG().U(a.this.aEc.aIJ);
+                a.this.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), 1, a.this.aES);
+                a.this.K(a.this.aES);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913082, a.this.aES));
+                if (a.this.aES != null) {
+                    com.baidu.live.im.b.d.Mg().U(a.this.aES.aJA);
                 }
             }
         }
     };
-    private Runnable hjc = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.q.a.2
+    private Runnable hoT = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.q.a.2
         @Override // java.lang.Runnable
         public void run() {
-            a.this.cdr();
+            a.this.cfS();
         }
     };
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void F(w wVar) {
-        if (wVar != null && this.hiZ) {
-            this.mHandler.removeCallbacks(this.hjc);
-            this.mHandler.postDelayed(this.hjc, wVar.aIj);
+    public void K(w wVar) {
+        if (wVar != null && this.hoQ) {
+            this.mHandler.removeCallbacks(this.hoT);
+            this.mHandler.postDelayed(this.hoT, wVar.aJa);
         }
     }
 
-    public void cdq() {
-        this.mHandler.removeCallbacks(this.hjc);
+    public void cfR() {
+        this.mHandler.removeCallbacks(this.hoT);
     }
 
     public void a(w wVar, String str, long j) {
-        this.aEc = wVar;
-        this.bmC = str;
-        this.hfT = j;
+        this.aES = wVar;
+        this.bnW = str;
+        this.hlO = j;
         if (getUniqueId() == null) {
             setUniqueId(BdUniqueId.gen());
         }
-        registerListener(this.hjb);
-        this.hiZ = true;
-        F(this.aEc);
+        registerListener(this.hoS);
+        this.hoQ = true;
+        K(this.aES);
     }
 
     public void stop() {
-        this.hiZ = false;
-        MessageManager.getInstance().unRegisterListener(this.hjb);
-        cdq();
+        this.hoQ = false;
+        MessageManager.getInstance().unRegisterListener(this.hoS);
+        cfR();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cdr() {
-        if (this.aEc != null && this.aEc.mLiveInfo != null) {
-            a(this.aEc.mLiveInfo.live_id, this.bmC, this.hfT);
+    public void cfS() {
+        if (this.aES != null && this.aES.mLiveInfo != null) {
+            a(this.aES.mLiveInfo.live_id, this.bnW, this.hlO);
         }
     }
 
@@ -149,7 +149,7 @@ public class a extends BdBaseModel {
         com.baidu.live.message.c cVar = new com.baidu.live.message.c();
         cVar.setLiveId(j);
         cVar.setFrom(str);
-        cVar.ap(j2);
+        cVar.aB(j2);
         cVar.setParams();
         sendMessage(cVar);
     }
@@ -166,13 +166,13 @@ public class a extends BdBaseModel {
     }
 
     public void a(d.a aVar) {
-        this.hgd = aVar;
+        this.hlY = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i, String str, int i2, Object obj) {
-        if (this.hgd != null) {
-            this.hgd.a(i, str, i2, obj);
+        if (this.hlY != null) {
+            this.hlY.a(i, str, i2, obj);
         }
     }
 }

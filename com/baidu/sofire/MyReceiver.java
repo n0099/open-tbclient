@@ -13,7 +13,7 @@ import java.util.List;
 public class MyReceiver extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    Callback f3584a = new Callback() { // from class: com.baidu.sofire.MyReceiver.1
+    Callback f3587a = new Callback() { // from class: com.baidu.sofire.MyReceiver.1
         @Override // com.baidu.sofire.ac.Callback
         public final Object onEnd(Object... objArr) {
             return super.onEnd(objArr);
@@ -63,7 +63,7 @@ public class MyReceiver extends BroadcastReceiver {
                                 } else {
                                     z2 = false;
                                 }
-                                if (z && "android.net.conn.CONNECTIVITY_CHANGE".equals(action) && com.baidu.sofire.i.e.f3628a && !z2 && com.baidu.sofire.i.e.e(applicationContext)) {
+                                if (z && "android.net.conn.CONNECTIVITY_CHANGE".equals(action) && com.baidu.sofire.i.e.f3631a && !z2 && com.baidu.sofire.i.e.e(applicationContext)) {
                                     new U(applicationContext.getApplicationContext(), 3, false).start();
                                 }
                                 if (!z) {

@@ -9,31 +9,31 @@ import com.baidu.live.sdk.a;
 public class g extends b {
     /* JADX INFO: Access modifiers changed from: protected */
     public g(Context context) {
-        super(context, com.baidu.live.im.a.bfT);
+        super(context, com.baidu.live.im.a.bhn);
     }
 
     @Override // com.baidu.live.im.a.b
-    protected void LB() {
-        if (LC()) {
-            LD();
+    protected void Mb() {
+        if (Mc()) {
+            Md();
         } else {
-            LE();
+            Me();
         }
     }
 
     @Override // com.baidu.live.im.a.b
     protected int getColor() {
-        if (LC()) {
+        if (Mc()) {
             return -7479041;
         }
-        return this.mContext.getResources().getColor(a.d.sdk_cp_cont_d);
+        return this.mContext.getResources().getColor(a.c.sdk_cp_cont_d);
     }
 
     @Override // com.baidu.live.im.a.b
     protected SpannableStringBuilder a(com.baidu.live.im.data.a aVar, com.baidu.live.im.c cVar) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        a(spannableStringBuilder, aVar.LO(), cVar, false, false);
-        String string = this.mContext.getString(a.i.ala_zan_content);
+        a(spannableStringBuilder, aVar.Mo(), cVar, false, false);
+        String string = this.mContext.getString(a.h.ala_zan_content);
         SpannableString valueOf = SpannableString.valueOf(string);
         if (string != null) {
             valueOf.setSpan(new ForegroundColorSpan(getColor()), 0, string.length(), 33);

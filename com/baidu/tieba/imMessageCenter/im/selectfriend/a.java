@@ -14,9 +14,9 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class a extends BaseAdapter {
-    private List<com.baidu.tbadk.coreExtra.relationship.a> fNQ;
-    private int fNT = R.color.cp_cont_b;
-    private int fNU = R.color.cp_cont_c;
+    private List<com.baidu.tbadk.coreExtra.relationship.a> fTG;
+    private int fTJ = R.color.cp_cont_b;
+    private int fTK = R.color.cp_cont_c;
     private Context mContext;
 
     public a(Context context) {
@@ -24,26 +24,26 @@ public class a extends BaseAdapter {
     }
 
     public void setContacts(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.fNQ = list;
+        this.fTG = list;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.fNQ == null) {
+        if (this.fTG == null) {
             return 0;
         }
-        return this.fNQ.size();
+        return this.fTG.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: th */
+    /* renamed from: tr */
     public com.baidu.tbadk.coreExtra.relationship.a getItem(int i) {
-        if (this.fNQ == null || i < 0 || i >= this.fNQ.size()) {
+        if (this.fTG == null || i < 0 || i >= this.fTG.size()) {
             return null;
         }
-        return this.fNQ.get(i);
+        return this.fTG.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -62,7 +62,7 @@ public class a extends BaseAdapter {
         if (item == null) {
             return 2;
         }
-        if (!TextUtils.isEmpty(item.buR()) && TextUtils.isEmpty(item.getUserName()) && TextUtils.isEmpty(item.buQ())) {
+        if (!TextUtils.isEmpty(item.bxq()) && TextUtils.isEmpty(item.getUserName()) && TextUtils.isEmpty(item.getUserPortrait())) {
             return 0;
         }
         return 1;
@@ -70,7 +70,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0757a c0757a;
+        C0771a c0771a;
         b bVar;
         if (getItemViewType(i) == 2) {
             return null;
@@ -82,37 +82,37 @@ public class a extends BaseAdapter {
             if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
                 view = LayoutInflater.from(this.mContext).inflate(R.layout.select_friend_group_item, (ViewGroup) null);
                 b bVar2 = new b();
-                bVar2.fOc = (TextView) view.findViewById(R.id.addresslist_group_item_key);
-                bVar2.eCZ = view.findViewById(R.id.addresslist_group_item_divider);
+                bVar2.fTS = (TextView) view.findViewById(R.id.addresslist_group_item_key);
+                bVar2.eIO = view.findViewById(R.id.addresslist_group_item_divider);
                 view.setTag(bVar2);
                 bVar = bVar2;
             } else {
                 bVar = (b) view.getTag();
             }
-            if (item.buR() != null) {
-                bVar.fOc.setText(item.buR());
+            if (item.bxq() != null) {
+                bVar.fTS.setText(item.bxq());
             }
-            ap.setViewTextColor(bVar.fOc, this.fNU, 1);
-            ap.setBackgroundColor(bVar.eCZ, R.color.cp_bg_line_c);
+            ap.setViewTextColor(bVar.fTS, this.fTK, 1);
+            ap.setBackgroundColor(bVar.eIO, R.color.cp_bg_line_c);
             return view;
         } else if (getItemViewType(i) == 1) {
-            if (view == null || view.getTag() == null || !(view.getTag() instanceof C0757a)) {
-                C0757a c0757a2 = new C0757a();
+            if (view == null || view.getTag() == null || !(view.getTag() instanceof C0771a)) {
+                C0771a c0771a2 = new C0771a();
                 view = LayoutInflater.from(this.mContext).inflate(R.layout.select_friend_child_item, (ViewGroup) null);
-                c0757a2.fNR = (HeadImageView) view.findViewById(R.id.addresslist_child_item_icon);
-                c0757a2.fNS = (TextView) view.findViewById(R.id.addresslist_child_item_name);
-                c0757a2.eCZ = view.findViewById(R.id.addresslist_child_item_divider);
-                view.setTag(c0757a2);
-                c0757a = c0757a2;
+                c0771a2.fTH = (HeadImageView) view.findViewById(R.id.addresslist_child_item_icon);
+                c0771a2.fTI = (TextView) view.findViewById(R.id.addresslist_child_item_name);
+                c0771a2.eIO = view.findViewById(R.id.addresslist_child_item_divider);
+                view.setTag(c0771a2);
+                c0771a = c0771a2;
             } else {
-                c0757a = (C0757a) view.getTag();
+                c0771a = (C0771a) view.getTag();
             }
             if (item.getUserName() != null) {
-                c0757a.fNS.setText(item.getUserName());
-                c0757a.fNR.startLoad(item.buQ(), 12, false);
+                c0771a.fTI.setText(item.getUserName());
+                c0771a.fTH.startLoad(item.getUserPortrait(), 12, false);
             }
-            ap.setViewTextColor(c0757a.fNS, this.fNT, 1);
-            ap.setBackgroundResource(c0757a.eCZ, R.color.cp_bg_line_c);
+            ap.setViewTextColor(c0771a.fTI, this.fTJ, 1);
+            ap.setBackgroundResource(c0771a.eIO, R.color.cp_bg_line_c);
             ap.setBackgroundResource(view, R.drawable.select_friend_item_bg);
             return view;
         } else {
@@ -122,8 +122,8 @@ public class a extends BaseAdapter {
 
     /* loaded from: classes22.dex */
     private class b {
-        View eCZ;
-        TextView fOc;
+        View eIO;
+        TextView fTS;
 
         private b() {
         }
@@ -131,12 +131,12 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.imMessageCenter.im.selectfriend.a$a  reason: collision with other inner class name */
     /* loaded from: classes22.dex */
-    private class C0757a {
-        View eCZ;
-        HeadImageView fNR;
-        TextView fNS;
+    private class C0771a {
+        View eIO;
+        HeadImageView fTH;
+        TextView fTI;
 
-        private C0757a() {
+        private C0771a() {
         }
     }
 }

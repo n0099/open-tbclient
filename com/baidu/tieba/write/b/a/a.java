@@ -3,7 +3,7 @@ package com.baidu.tieba.write.b.a;
 import com.baidu.android.bdutil.cuid.sdk.AppCuidRuntime;
 /* loaded from: classes3.dex */
 public class a implements com.baidu.d.c.d {
-    private static String nBz = "";
+    private static String nHt = "";
 
     @Override // com.baidu.d.c.d
     public String getDeviceId() {
@@ -17,11 +17,11 @@ public class a implements com.baidu.d.c.d {
 
     @Override // com.baidu.d.c.d
     public String getZid() {
-        return nBz;
+        return nHt;
     }
 
     public static void setZid(String str) {
-        nBz = str;
+        nHt = str;
     }
 
     @Override // com.baidu.d.c.d

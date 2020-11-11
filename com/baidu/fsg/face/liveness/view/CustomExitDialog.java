@@ -10,7 +10,7 @@ import com.baidu.sapi2.biometrics.liveness.R;
 public class CustomExitDialog extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f1741a;
+    private TextView f1743a;
     private TextView b;
     private TextView c;
     private TextView d;
@@ -33,14 +33,14 @@ public class CustomExitDialog extends Dialog {
     private void a() {
         setContentView(R.layout.layout_sapi_liveness_dialog_exit);
         setCanceledOnTouchOutside(false);
-        this.f1741a = (TextView) findViewById(R.id.exit_dialog_title);
+        this.f1743a = (TextView) findViewById(R.id.exit_dialog_title);
         this.b = (TextView) findViewById(R.id.exit_dialog_content);
         this.c = (TextView) findViewById(R.id.exit_dialog_positive);
         this.d = (TextView) findViewById(R.id.exit_dialog_negative);
     }
 
     public void setDialogTitle(String str) {
-        this.f1741a.setText(str);
+        this.f1743a.setText(str);
     }
 
     public void setDialogContext(String str) {

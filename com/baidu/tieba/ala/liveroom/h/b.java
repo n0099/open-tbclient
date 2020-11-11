@@ -3,6 +3,7 @@ package com.baidu.tieba.ala.liveroom.h;
 import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.ala.recorder.AlaLiveRecorder;
@@ -11,75 +12,73 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.ar.AlaFilterAndBeautyData;
 import com.baidu.live.ar.ILiveMultiBeautyView;
-import com.baidu.live.ar.k;
-import com.baidu.live.data.bk;
+import com.baidu.live.ar.l;
+import com.baidu.live.data.bl;
 import com.baidu.live.data.w;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ala.liveroom.data.f;
 import com.baidu.tieba.ala.liveroom.views.AlaLiveMultiBeautyView;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b {
-    public AlaLiveRecorder bAM;
-    private f hak;
-    private ILiveMultiBeautyView hal;
-    private k ham = new k() { // from class: com.baidu.tieba.ala.liveroom.h.b.1
-        @Override // com.baidu.live.ar.k
-        public void Cj() {
+    private ILiveMultiBeautyView bxp;
+    public AlaLiveRecorder bxq;
+    private l bxw = new l() { // from class: com.baidu.tieba.ala.liveroom.h.b.1
+        @Override // com.baidu.live.ar.l
+        public void CB() {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913147));
         }
 
-        @Override // com.baidu.live.ar.k
+        @Override // com.baidu.live.ar.l
         public void a(float f, AlaFilterAndBeautyData.BeautyAdjustKey beautyAdjustKey) {
-            if (!TextUtils.equals(beautyAdjustKey.getJsonKey(), AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey()) && b.this.bAM != null && AlaFilterAndBeautyData.aDw != null && AlaFilterAndBeautyData.aDw.get(beautyAdjustKey) != null) {
-                b.this.bAM.onBeautyParamsChanged(f, AlaFilterAndBeautyData.aDw.get(beautyAdjustKey).BY());
+            if (!TextUtils.equals(beautyAdjustKey.getJsonKey(), AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey()) && b.this.bxq != null && AlaFilterAndBeautyData.aEd != null && AlaFilterAndBeautyData.aEd.get(beautyAdjustKey) != null) {
+                b.this.bxq.onBeautyParamsChanged(f, AlaFilterAndBeautyData.aEd.get(beautyAdjustKey).Cq());
             }
         }
 
-        @Override // com.baidu.live.ar.k
-        public void a(k.a aVar) {
-            if (b.this.bAM != null && aVar != null && !TextUtils.isEmpty(aVar.getType())) {
-                b.this.bAM.onBeautyParamsChanged(aVar.getType(), aVar.Cm());
+        @Override // com.baidu.live.ar.l
+        public void a(l.a aVar) {
+            if (b.this.bxq != null && aVar != null && !TextUtils.isEmpty(aVar.getType())) {
+                b.this.bxq.onBeautyParamsChanged(aVar.getType(), aVar.CE());
             }
         }
 
-        @Override // com.baidu.live.ar.k
+        @Override // com.baidu.live.ar.l
         public void a(float f, HashMap<String, Object> hashMap) {
-            if (b.this.bAM != null) {
-                b.this.bAM.onBeautyParamsChanged(f, hashMap);
+            if (b.this.bxq != null) {
+                b.this.bxq.onBeautyParamsChanged(f, hashMap);
             }
         }
 
-        @Override // com.baidu.live.ar.k
-        public void Ck() {
+        @Override // com.baidu.live.ar.l
+        public void CC() {
             AlaFilterAndBeautyData.BeautyAdjustKey[] values;
             for (AlaFilterAndBeautyData.BeautyAdjustKey beautyAdjustKey : AlaFilterAndBeautyData.BeautyAdjustKey.values()) {
-                if (AlaFilterAndBeautyData.aDw != null && AlaFilterAndBeautyData.aDw.get(beautyAdjustKey) != null) {
+                if (AlaFilterAndBeautyData.aEd != null && AlaFilterAndBeautyData.aEd.get(beautyAdjustKey) != null) {
                     String jsonKey = beautyAdjustKey.getJsonKey();
                     if (!TextUtils.equals(jsonKey, AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey())) {
                         if (beautyAdjustKey.equals(AlaFilterAndBeautyData.BeautyAdjustKey.chin) || beautyAdjustKey.equals(AlaFilterAndBeautyData.BeautyAdjustKey.threeCounts) || beautyAdjustKey.equals(AlaFilterAndBeautyData.BeautyAdjustKey.mouthWidth) || beautyAdjustKey.equals(AlaFilterAndBeautyData.BeautyAdjustKey.noseLength) || beautyAdjustKey.equals(AlaFilterAndBeautyData.BeautyAdjustKey.eyeDistance) || beautyAdjustKey.equals(AlaFilterAndBeautyData.BeautyAdjustKey.upCount)) {
-                            a(((AlaFilterAndBeautyData.aDw.get(beautyAdjustKey).BX() + 50) * 1.0f) / 100.0f, beautyAdjustKey);
+                            a(((AlaFilterAndBeautyData.aEd.get(beautyAdjustKey).Cp() + 50) * 1.0f) / 100.0f, beautyAdjustKey);
                         } else if (TextUtils.equals(jsonKey, AlaFilterAndBeautyData.BeautyAdjustKey.whiten.getJsonKey()) || TextUtils.equals(jsonKey, AlaFilterAndBeautyData.BeautyAdjustKey.smooth.getJsonKey())) {
                             try {
-                                a((new JSONObject(com.baidu.live.ar.d.aDS.toJsonString()).getInt(jsonKey) * 1.0f) / 100.0f, beautyAdjustKey);
+                                a((new JSONObject(com.baidu.live.ar.d.aEz.toJsonString()).getInt(jsonKey) * 1.0f) / 100.0f, beautyAdjustKey);
                             } catch (Exception e) {
                                 e.printStackTrace();
-                                a((AlaFilterAndBeautyData.aDw.get(beautyAdjustKey).BX() * 1.0f) / 100.0f, beautyAdjustKey);
+                                a((AlaFilterAndBeautyData.aEd.get(beautyAdjustKey).Cp() * 1.0f) / 100.0f, beautyAdjustKey);
                             }
                         } else {
-                            a((AlaFilterAndBeautyData.aDw.get(beautyAdjustKey).BX() * 1.0f) / 100.0f, beautyAdjustKey);
+                            a((AlaFilterAndBeautyData.aEd.get(beautyAdjustKey).Cp() * 1.0f) / 100.0f, beautyAdjustKey);
                         }
                     }
                 }
             }
         }
 
-        @Override // com.baidu.live.ar.k
-        public void Cl() {
+        @Override // com.baidu.live.ar.l
+        public void CD() {
             AlaFilterAndBeautyData.BeautyAdjustKey[] values;
             for (AlaFilterAndBeautyData.BeautyAdjustKey beautyAdjustKey : AlaFilterAndBeautyData.BeautyAdjustKey.values()) {
-                if (AlaFilterAndBeautyData.aDw != null && AlaFilterAndBeautyData.aDw.get(beautyAdjustKey) != null && !TextUtils.equals(beautyAdjustKey.getJsonKey(), AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey())) {
+                if (AlaFilterAndBeautyData.aEd != null && AlaFilterAndBeautyData.aEd.get(beautyAdjustKey) != null && !TextUtils.equals(beautyAdjustKey.getJsonKey(), AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey())) {
                     if (beautyAdjustKey.equals(AlaFilterAndBeautyData.BeautyAdjustKey.chin) || beautyAdjustKey.equals(AlaFilterAndBeautyData.BeautyAdjustKey.threeCounts) || beautyAdjustKey.equals(AlaFilterAndBeautyData.BeautyAdjustKey.mouthWidth) || beautyAdjustKey.equals(AlaFilterAndBeautyData.BeautyAdjustKey.noseLength) || beautyAdjustKey.equals(AlaFilterAndBeautyData.BeautyAdjustKey.eyeDistance) || beautyAdjustKey.equals(AlaFilterAndBeautyData.BeautyAdjustKey.upCount)) {
                         a(0.5f, beautyAdjustKey);
                     } else {
@@ -89,166 +88,171 @@ public class b {
             }
         }
 
-        @Override // com.baidu.live.ar.k
+        @Override // com.baidu.live.ar.l
         public void onBlurLevelSelected(int i) {
-            if (b.this.bAM != null) {
-                b.this.bAM.onBlurLevelSelected(i);
+            if (b.this.bxq != null) {
+                b.this.bxq.onBlurLevelSelected(i);
             }
         }
 
-        @Override // com.baidu.live.ar.k
+        @Override // com.baidu.live.ar.l
         public void onFilterSelected(String str, String str2, float f) {
-            if (b.this.bAM != null) {
-                b.this.bAM.onFilterSelected(str, str2, f);
+            if (b.this.bxq != null) {
+                b.this.bxq.onFilterSelected(str, str2, f);
             }
         }
 
-        @Override // com.baidu.live.ar.k
+        @Override // com.baidu.live.ar.l
         public void s(int i, int i2) {
-            if (b.this.bAM != null) {
-                b.this.bAM.onColorLevelSelected((1.0f * i) / i2);
+            if (b.this.bxq != null) {
+                b.this.bxq.onColorLevelSelected((1.0f * i) / i2);
             }
         }
 
-        @Override // com.baidu.live.ar.k
+        @Override // com.baidu.live.ar.l
         public void t(int i, int i2) {
-            if (b.this.bAM != null) {
-                b.this.bAM.onCheekThinSelected((1.0f * i) / i2);
+            if (b.this.bxq != null) {
+                b.this.bxq.onCheekThinSelected((1.0f * i) / i2);
             }
         }
 
-        @Override // com.baidu.live.ar.k
+        @Override // com.baidu.live.ar.l
         public void u(int i, int i2) {
-            if (b.this.bAM != null) {
-                b.this.bAM.onEnlargeEyeSelected((0.8f * i) / i2);
+            if (b.this.bxq != null) {
+                b.this.bxq.onEnlargeEyeSelected((0.8f * i) / i2);
             }
         }
 
-        @Override // com.baidu.live.ar.k
+        @Override // com.baidu.live.ar.l
         public void v(int i, int i2) {
-            if (b.this.bAM != null) {
-                b.this.bAM.onRedLevelSelected((1.0f * i) / i2);
+            if (b.this.bxq != null) {
+                b.this.bxq.onRedLevelSelected((1.0f * i) / i2);
             }
         }
     };
+    private com.baidu.tieba.ala.liveroom.data.e hgo;
     private Context mContext;
     private ViewGroup mParent;
 
-    public b(ViewGroup viewGroup, f fVar, AlaLiveRecorder alaLiveRecorder) {
-        this.hak = fVar;
-        this.mContext = fVar.pageContext.getPageActivity();
+    public b(ViewGroup viewGroup, com.baidu.tieba.ala.liveroom.data.e eVar, AlaLiveRecorder alaLiveRecorder) {
+        this.hgo = eVar;
+        this.mContext = eVar.pageContext.getPageActivity();
         this.mParent = viewGroup;
-        this.bAM = alaLiveRecorder;
-        if (bk.b(com.baidu.live.z.a.Pq().bsy)) {
+        this.bxq = alaLiveRecorder;
+        if (bl.b(com.baidu.live.aa.a.PQ().btT)) {
             com.baidu.live.ar.a aVar = new com.baidu.live.ar.a();
-            aVar.aCN = fVar.pageContext;
+            aVar.aDu = eVar.pageContext;
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913176, ILiveMultiBeautyView.class, aVar);
             if (runTask != null && runTask.getData() != null) {
-                this.hal = (ILiveMultiBeautyView) runTask.getData();
-                this.hal.setArModel(fVar.hbe);
+                this.bxp = (ILiveMultiBeautyView) runTask.getData();
+                this.bxp.setArModel(eVar.hgZ);
             }
-        } else if (bk.a(com.baidu.live.z.a.Pq().bsy)) {
-            this.hal = new AlaLiveMultiBeautyView(fVar.pageContext.getPageActivity());
+        } else if (bl.a(com.baidu.live.aa.a.PQ().btT)) {
+            this.bxp = new AlaLiveMultiBeautyView(eVar.pageContext.getPageActivity());
         }
-        this.hal.setBdPageContext(this.hak.pageContext);
-        this.hal.setOnEffectSelectedListener(this.ham);
+        this.bxp.setBdPageContext(this.hgo.pageContext);
+        this.bxp.setOnEffectSelectedListener(this.bxw);
         w wVar = null;
-        if (fVar != null && fVar.haB != null) {
-            wVar = fVar.haB.GH();
+        if (eVar != null && eVar.hgD != null) {
+            wVar = eVar.hgD.Hi();
         }
-        this.hal.setAlaLiveShowData(wVar);
+        this.bxp.setAlaLiveShowData(wVar);
     }
 
     public void a(AlaLiveVideoConfig alaLiveVideoConfig, boolean z) {
-        if (this.hal != null) {
+        if (this.bxp != null) {
             w wVar = null;
-            if (this.hak != null && this.hak.haB != null) {
-                wVar = this.hak.haB.GH();
+            if (this.hgo != null && this.hgo.hgD != null) {
+                wVar = this.hgo.hgD.Hi();
             }
-            this.hal.setAlaLiveShowData(wVar);
+            this.bxp.setAlaLiveShowData(wVar);
             if (z) {
-                this.hal.Ch();
-            } else if (bk.b(com.baidu.live.z.a.Pq().bsy)) {
-                this.hal.setViewData();
-            } else if (bk.a(com.baidu.live.z.a.Pq().bsy)) {
-                com.baidu.tieba.ala.liveroom.data.d dVar = new com.baidu.tieba.ala.liveroom.data.d();
-                dVar.haL = 40;
-                dVar.haN = 5;
-                dVar.haO = 50;
-                dVar.haP = 50;
-                dVar.HG(com.baidu.live.d.AZ().getString("ala_beauty_5.4_config_str", ""));
-                ((AlaLiveMultiBeautyView) this.hal).setViewData(dVar, alaLiveVideoConfig);
+                this.bxp.Cz();
+            } else if (bl.b(com.baidu.live.aa.a.PQ().btT)) {
+                this.bxp.setViewData();
+            } else if (bl.a(com.baidu.live.aa.a.PQ().btT)) {
+                com.baidu.live.ar.e eVar = new com.baidu.live.ar.e();
+                eVar.aEB = 40;
+                eVar.aED = 5;
+                eVar.aEE = 50;
+                eVar.aEF = 50;
+                eVar.fZ(com.baidu.live.d.AZ().getString("ala_beauty_5.4_config_str", ""));
+                ((AlaLiveMultiBeautyView) this.bxp).setViewData(eVar, alaLiveVideoConfig);
             }
         }
     }
 
-    public void bYD() {
-        if (this.hal != null) {
-            this.hal.Ci();
+    public void cbf() {
+        if (this.bxp != null) {
+            this.bxp.CA();
         }
     }
 
     public void setVisible(int i) {
-        if (this.hal != null) {
+        if (this.bxp != null) {
             if (i == 0) {
                 w wVar = null;
-                if (this.hak != null && this.hak.haB != null) {
-                    wVar = this.hak.haB.GH();
+                if (this.hgo != null && this.hgo.hgD != null) {
+                    wVar = this.hgo.hgD.Hi();
                 }
-                this.hal.setAlaLiveShowData(wVar);
+                this.bxp.setAlaLiveShowData(wVar);
             }
-            this.hal.setVisibility(i);
+            this.bxp.setVisibility(i);
         }
     }
 
     public void a(AlaLiveVideoConfig alaLiveVideoConfig) {
-        if (this.hal != null) {
+        if (this.bxp != null) {
             w wVar = null;
-            if (this.hak != null && this.hak.haB != null) {
-                wVar = this.hak.haB.GH();
+            if (this.hgo != null && this.hgo.hgD != null) {
+                wVar = this.hgo.hgD.Hi();
             }
-            this.hal.setAlaLiveShowData(wVar);
-            if (this.hal.getParent() != null) {
-                ((ViewGroup) this.hal.getParent()).removeView(this.hal);
+            this.bxp.setAlaLiveShowData(wVar);
+            if (this.bxp.getParent() != null) {
+                ((ViewGroup) this.bxp.getParent()).removeView(this.bxp);
             }
             if (TbadkCoreApplication.getInst().isNotMobileBaidu() && (this.mContext instanceof Activity)) {
                 if (((Activity) this.mContext).getApplication().getResources().getConfiguration().orientation == 1) {
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
                     layoutParams.gravity = 80;
-                    this.mParent.addView(this.hal, layoutParams);
+                    this.mParent.addView(this.bxp, layoutParams);
                 } else {
                     FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-2, -1);
                     layoutParams2.gravity = 5;
-                    this.mParent.addView(this.hal, layoutParams2);
+                    this.mParent.addView(this.bxp, layoutParams2);
                 }
             } else if (this.mContext.getResources().getConfiguration().orientation == 1) {
                 FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-1, -2);
                 layoutParams3.gravity = 80;
-                this.mParent.addView(this.hal, layoutParams3);
+                this.mParent.addView(this.bxp, layoutParams3);
             } else {
                 FrameLayout.LayoutParams layoutParams4 = new FrameLayout.LayoutParams(-2, -1);
                 layoutParams4.gravity = 5;
-                this.mParent.addView(this.hal, layoutParams4);
+                this.mParent.addView(this.bxp, layoutParams4);
             }
-            this.hal.setVisibility(0);
+            this.bxp.setVisibility(0);
         }
     }
 
-    public void mU(boolean z) {
-        if (this.hal != null) {
+    public void nd(boolean z) {
+        if (this.bxp != null) {
             if (z) {
-                this.hal.Ci();
+                this.bxp.CA();
             }
-            if (this.hal.getParent() != null) {
-                ((ViewGroup) this.hal.getParent()).removeView(this.hal);
+            if (this.bxp.getParent() != null) {
+                ((ViewGroup) this.bxp.getParent()).removeView(this.bxp);
             }
-            com.baidu.live.ar.d.aDT.aDH = AlaFilterAndBeautyData.BeautyAdjustKey.whiten.getJsonKey();
+            com.baidu.live.ar.d.aEA.aEo = AlaFilterAndBeautyData.BeautyAdjustKey.whiten.getJsonKey();
         }
     }
 
     public void b(short s) {
-        if (this.hal != null) {
-            this.hal.b(s);
+        if (this.bxp != null) {
+            this.bxp.b(s);
         }
+    }
+
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        return this.bxp != null && this.bxp.onKeyDown(i, keyEvent);
     }
 }

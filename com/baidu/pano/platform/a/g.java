@@ -5,15 +5,15 @@ import java.util.concurrent.Executor;
 class g implements Executor {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f2652a;
+    final /* synthetic */ f f2654a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.f2652a = fVar;
+        this.f2654a = fVar;
     }
 
     @Override // java.util.concurrent.Executor
     public void execute(Runnable runnable) {
-        this.f2652a.f2650a.execute(runnable);
+        this.f2654a.f2652a.execute(runnable);
     }
 }

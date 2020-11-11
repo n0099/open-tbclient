@@ -2,7 +2,7 @@ package com.baidu.android.imsdk.utils;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class SyncTimeManager {
     private static long lightAppId = 0;
 

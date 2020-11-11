@@ -20,14 +20,14 @@ public class a<T> {
     public PointF Ht;
     public PointF Hu;
     @Nullable
-    private final com.tb.airbnb.lottie.d composition;
+    private final com.tb.airbnb.lottie.e composition;
 
-    public a(com.tb.airbnb.lottie.d dVar, @Nullable T t, @Nullable T t2, @Nullable Interpolator interpolator, float f, @Nullable Float f2) {
+    public a(com.tb.airbnb.lottie.e eVar, @Nullable T t, @Nullable T t2, @Nullable Interpolator interpolator, float f, @Nullable Float f2) {
         this.Hr = Float.MIN_VALUE;
         this.Hs = Float.MIN_VALUE;
         this.Ht = null;
         this.Hu = null;
-        this.composition = dVar;
+        this.composition = eVar;
         this.Hn = t;
         this.Ho = t2;
         this.Hp = interpolator;

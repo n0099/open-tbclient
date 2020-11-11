@@ -19,19 +19,19 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.widget.CommonEmptyView;
 /* loaded from: classes4.dex */
 public class b implements View.OnClickListener {
-    private com.baidu.live.yuyinnoble.e.a bOG;
-    private com.baidu.live.yuyinnoble.a.a bOH;
-    private a bOI;
-    private LinearLayout bOJ;
-    private TextView bOK;
-    private boolean bOt;
-    private com.baidu.live.yuyinnoble.c.a bOw;
-    private String bmv;
-    private LinearLayout bol;
-    private RelativeLayout bon;
-    private TextView boo;
-    private ImageView bop;
-    private CommonEmptyView boq;
+    private boolean bUd;
+    private com.baidu.live.yuyinnoble.c.a bUg;
+    private com.baidu.live.yuyinnoble.e.a bUq;
+    private com.baidu.live.yuyinnoble.a.a bUr;
+    private a bUs;
+    private LinearLayout bUt;
+    private TextView bUu;
+    private String bnP;
+    private LinearLayout bpE;
+    private RelativeLayout bpG;
+    private TextView bpH;
+    private ImageView bpI;
+    private CommonEmptyView bpJ;
     private boolean mIsHost;
     private BdListView mListView;
     private String mLiveId;
@@ -40,44 +40,44 @@ public class b implements View.OnClickListener {
 
     /* loaded from: classes4.dex */
     public interface a {
-        void NY();
+        void Oy();
     }
 
     public b(TbPageContext tbPageContext, String str, String str2, boolean z, boolean z2) {
-        this.bOt = true;
+        this.bUd = true;
         this.mTbPageContext = tbPageContext;
         this.mLiveId = str;
-        this.bmv = str2;
+        this.bnP = str2;
         this.mIsHost = z;
-        this.bOt = z2;
-        this.mRootView = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(a.h.yuyin_ala_noble_list_main_layout, (ViewGroup) null);
-        this.bon = (RelativeLayout) this.mRootView.findViewById(a.g.ala_noble_user_list_num_layout);
-        this.boo = (TextView) this.mRootView.findViewById(a.g.tv_noble_online_num);
-        this.boo.setText(String.format(this.mTbPageContext.getResources().getString(a.i.noble_online_num), 0));
-        this.bop = (ImageView) this.mRootView.findViewById(a.g.iv_regulation);
-        this.bop.setOnClickListener(this);
-        this.mListView = (BdListView) this.mRootView.findViewById(a.g.noble_list_view);
-        this.bOJ = (LinearLayout) LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(a.h.yuyin_noble_list_footer_view, (ViewGroup) null);
-        this.bOK = (TextView) this.bOJ.findViewById(a.g.tv_footer);
-        this.mListView.addFooterView(this.bOJ);
-        this.bOJ.setVisibility(0);
-        this.boq = (CommonEmptyView) this.mRootView.findViewById(a.g.noble_list_empty_view);
-        this.bOH = new com.baidu.live.yuyinnoble.a.a(this.mTbPageContext, this.mLiveId, this.bmv, this.mIsHost);
-        this.mListView.setAdapter((ListAdapter) this.bOH);
-        if (this.bOt) {
-            this.bop.setVisibility(0);
+        this.bUd = z2;
+        this.mRootView = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(a.g.yuyin_ala_noble_list_main_layout, (ViewGroup) null);
+        this.bpG = (RelativeLayout) this.mRootView.findViewById(a.f.ala_noble_user_list_num_layout);
+        this.bpH = (TextView) this.mRootView.findViewById(a.f.tv_noble_online_num);
+        this.bpH.setText(String.format(this.mTbPageContext.getResources().getString(a.h.noble_online_num), 0));
+        this.bpI = (ImageView) this.mRootView.findViewById(a.f.iv_regulation);
+        this.bpI.setOnClickListener(this);
+        this.mListView = (BdListView) this.mRootView.findViewById(a.f.noble_list_view);
+        this.bUt = (LinearLayout) LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(a.g.yuyin_noble_list_footer_view, (ViewGroup) null);
+        this.bUu = (TextView) this.bUt.findViewById(a.f.tv_footer);
+        this.mListView.addFooterView(this.bUt);
+        this.bUt.setVisibility(0);
+        this.bpJ = (CommonEmptyView) this.mRootView.findViewById(a.f.noble_list_empty_view);
+        this.bUr = new com.baidu.live.yuyinnoble.a.a(this.mTbPageContext, this.mLiveId, this.bnP, this.mIsHost);
+        this.mListView.setAdapter((ListAdapter) this.bUr);
+        if (this.bUd) {
+            this.bpI.setVisibility(0);
         } else {
-            this.bop.setVisibility(8);
+            this.bpI.setVisibility(8);
         }
-        Oi();
+        OI();
     }
 
-    private void Oi() {
-        this.bol = (LinearLayout) this.mRootView.findViewById(a.g.noble_list_bottom_container);
-        this.bOG = new com.baidu.live.yuyinnoble.e.a(this.mTbPageContext);
+    private void OI() {
+        this.bpE = (LinearLayout) this.mRootView.findViewById(a.f.noble_list_bottom_container);
+        this.bUq = new com.baidu.live.yuyinnoble.e.a(this.mTbPageContext);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-        if (this.bOG != null && this.bOG.getRootView() != null && this.bOG.getRootView().getParent() == null) {
-            this.bol.addView(this.bOG.getRootView(), layoutParams);
+        if (this.bUq != null && this.bUq.getRootView() != null && this.bUq.getRootView().getParent() == null) {
+            this.bpE.addView(this.bUq.getRootView(), layoutParams);
         }
     }
 
@@ -87,100 +87,100 @@ public class b implements View.OnClickListener {
 
     public void b(com.baidu.live.yuyinnoble.c.a aVar) {
         if (aVar == null) {
-            cl(true);
+            cm(true);
             return;
         }
         if (ListUtils.isEmpty(aVar.list)) {
-            dj(true);
+            dq(true);
         } else {
-            this.bOH.setList(aVar.list);
+            this.bUr.setList(aVar.list);
             this.mListView.setVisibility(0);
-            Oj();
+            OJ();
         }
-        this.bOw = aVar;
-        this.bon.setVisibility(0);
-        this.boo.setText(String.format(this.mTbPageContext.getResources().getString(a.i.noble_online_num), Integer.valueOf(aVar.bnP)));
+        this.bUg = aVar;
+        this.bpG.setVisibility(0);
+        this.bpH.setText(String.format(this.mTbPageContext.getResources().getString(a.h.noble_online_num), Integer.valueOf(aVar.bpi)));
         if (this.mIsHost) {
-            this.bol.setVisibility(8);
-        } else if (this.bOt) {
-            this.bol.setVisibility(0);
-            this.bOG.b(aVar);
+            this.bpE.setVisibility(8);
+        } else if (this.bUd) {
+            this.bpE.setVisibility(0);
+            this.bUq.b(aVar);
         } else {
-            this.bol.setVisibility(8);
+            this.bpE.setVisibility(8);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bop && !UtilHelper.isFastDoubleClick() && this.bOw != null && !StringUtils.isNull(this.bOw.bnQ)) {
-            UrlManager.getInstance().dealOneLink(this.mTbPageContext, new String[]{this.bOw.bnQ});
+        if (view == this.bpI && !UtilHelper.isFastDoubleClick() && this.bUg != null && !StringUtils.isNull(this.bUg.bpj)) {
+            UrlManager.getInstance().dealOneLink(this.mTbPageContext, new String[]{this.bUg.bpj});
         }
     }
 
     public void a(Configuration configuration) {
         if (configuration != null) {
             if (configuration.orientation == 2) {
-                this.bol.setBackgroundResource(a.f.ala_noble_ulist_land_bottom_bg);
+                this.bpE.setBackgroundResource(a.e.ala_noble_ulist_land_bottom_bg);
             } else {
-                this.bol.setBackgroundResource(a.f.ala_noble_ulist_portrait_bottom_bg);
+                this.bpE.setBackgroundResource(a.e.ala_noble_ulist_portrait_bottom_bg);
             }
         }
     }
 
-    public void dj(boolean z) {
+    public void dq(boolean z) {
         if (z) {
-            gr(8);
-            this.boq.reset();
-            this.boq.setTitle("还没有贵族哦~");
-            this.boq.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK);
-            this.boq.setTextColor(this.mTbPageContext.getResources().getColor(a.d.sdk_color_525252));
-            this.boq.setVisibility(0);
+            gB(8);
+            this.bpJ.reset();
+            this.bpJ.setTitle("还没有贵族哦~");
+            this.bpJ.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK);
+            this.bpJ.setTextColor(this.mTbPageContext.getResources().getColor(a.c.sdk_color_525252));
+            this.bpJ.setVisibility(0);
         } else {
-            this.boq.setVisibility(8);
+            this.bpJ.setVisibility(8);
         }
         this.mListView.setVisibility(8);
     }
 
-    public void cl(boolean z) {
-        gr(8);
-        if (this.boq != null) {
-            this.boq.reset();
+    public void cm(boolean z) {
+        gB(8);
+        if (this.bpJ != null) {
+            this.bpJ.reset();
             if (z) {
-                this.boq.setRefreshButton("点击重试", new View.OnClickListener() { // from class: com.baidu.live.yuyinnoble.e.b.1
+                this.bpJ.setRefreshButton("点击重试", new View.OnClickListener() { // from class: com.baidu.live.yuyinnoble.e.b.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (b.this.bOI != null) {
-                            b.this.bOI.NY();
+                        if (b.this.bUs != null) {
+                            b.this.bUs.Oy();
                         }
                     }
                 });
-                this.boq.setTitle("网络加载失败了哦~");
-                this.boq.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
-                this.boq.setTextColor(this.mTbPageContext.getResources().getColor(a.d.sdk_color_525252));
+                this.bpJ.setTitle("网络加载失败了哦~");
+                this.bpJ.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
+                this.bpJ.setTextColor(this.mTbPageContext.getResources().getColor(a.c.sdk_color_525252));
             }
-            this.boq.setVisibility(0);
+            this.bpJ.setVisibility(0);
         }
         if (z) {
-            this.bon.setVisibility(8);
-            this.bol.setVisibility(8);
+            this.bpG.setVisibility(8);
+            this.bpE.setVisibility(8);
         }
         this.mListView.setVisibility(8);
     }
 
-    public void Oj() {
-        if (this.boq != null) {
-            this.boq.setVisibility(8);
+    public void OJ() {
+        if (this.bpJ != null) {
+            this.bpJ.setVisibility(8);
         }
-        gr(0);
+        gB(0);
     }
 
     public void a(a aVar) {
-        this.bOI = aVar;
+        this.bUs = aVar;
     }
 
-    public void gr(int i) {
-        if (this.bOJ != null) {
-            this.bOJ.setVisibility(i);
+    public void gB(int i) {
+        if (this.bUt != null) {
+            this.bUt.setVisibility(i);
         }
     }
 }

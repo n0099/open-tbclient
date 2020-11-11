@@ -23,7 +23,7 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
                 b.this.mAppId = bundle2.getString("key_launch_app_id");
                 b.this.mStatus = bundle2.getInt("key_launch_status");
                 if (TextUtils.equals(string, b.this.mAppId)) {
-                    b.this.dfo.putInt("ok", b.this.mStatus);
+                    b.this.dlj.putInt("ok", b.this.mStatus);
                     b.this.finish();
                 }
                 b.zb.remove(string);
@@ -31,8 +31,8 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
         });
     }
 
-    public static void b(final String str, final a.InterfaceC0478a interfaceC0478a) {
-        if (!TextUtils.isEmpty(str) && interfaceC0478a != null) {
+    public static void b(final String str, final a.InterfaceC0490a interfaceC0490a) {
+        if (!TextUtils.isEmpty(str) && interfaceC0490a != null) {
             zb.put(str, new com.baidu.swan.apps.ap.e.b<Bundle>() { // from class: com.baidu.swan.apps.u.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ap.e.b
@@ -42,9 +42,9 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
                     int i = bundle.getInt("key_launch_status");
                     if (TextUtils.equals(str, string)) {
                         if (i == 0) {
-                            interfaceC0478a.avH();
+                            interfaceC0490a.ayh();
                         } else {
-                            interfaceC0478a.avI();
+                            interfaceC0490a.ayi();
                         }
                     }
                     b.zb.remove(str);
@@ -53,7 +53,7 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
         }
     }
 
-    public static void oK(String str) {
+    public static void oY(String str) {
         com.baidu.swan.apps.ap.e.b<Bundle> bVar = zb.get(str);
         if (bVar != null) {
             Bundle bundle = new Bundle();
@@ -63,7 +63,7 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
         }
     }
 
-    public static void oL(String str) {
+    public static void oZ(String str) {
         com.baidu.swan.apps.ap.e.b<Bundle> bVar = zb.get(str);
         if (bVar != null) {
             Bundle bundle = new Bundle();

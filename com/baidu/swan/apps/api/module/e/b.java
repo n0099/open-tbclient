@@ -17,7 +17,7 @@ public class b extends com.baidu.swan.apps.api.a.d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b kz(String str) {
+    public com.baidu.swan.apps.api.c.b kO(String str) {
         if (DEBUG) {
             Log.d("Api-Modal", "start show modal");
         }
@@ -40,11 +40,11 @@ public class b extends com.baidu.swan.apps.api.a.d {
             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.b.1.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (eVar.aEO() != null && !eVar.aEO().isFinishing() && !eVar.aEO().isDestroyed()) {
+                    if (eVar.aHo() != null && !eVar.aHo().isFinishing() && !eVar.aHo().isDestroyed()) {
                         g.a aVar = new g.a(b.this.getContext());
-                        aVar.f(jSONObject.optString("title")).rD(jSONObject.optString("content")).a(new com.baidu.swan.apps.view.c.a()).gi(false);
+                        aVar.f(jSONObject.optString("title")).rR(jSONObject.optString("content")).a(new com.baidu.swan.apps.view.c.a()).gr(false);
                         if (jSONObject.optBoolean("showCancel", true)) {
-                            aVar.T(jSONObject.optString("cancelColor"), a.c.aiapps_modal_cancel_color);
+                            aVar.V(jSONObject.optString("cancelColor"), a.c.aiapps_modal_cancel_color);
                             String optString2 = jSONObject.optString("cancelText");
                             if (TextUtils.isEmpty(optString2)) {
                                 optString2 = b.this.getContext().getString(a.h.aiapps_cancel);
@@ -65,7 +65,7 @@ public class b extends com.baidu.swan.apps.api.a.d {
                                 }
                             });
                         }
-                        aVar.S(jSONObject.optString("confirmColor"), a.c.aiapps_modal_confirm_color);
+                        aVar.U(jSONObject.optString("confirmColor"), a.c.aiapps_modal_confirm_color);
                         aVar.a(optString, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.api.module.e.b.1.1.2
                             @Override // android.content.DialogInterface.OnClickListener
                             public void onClick(DialogInterface dialogInterface, int i) {
@@ -81,7 +81,7 @@ public class b extends com.baidu.swan.apps.api.a.d {
                                 }
                             }
                         });
-                        aVar.aEB();
+                        aVar.aHb();
                     }
                 }
             });

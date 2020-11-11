@@ -19,8 +19,8 @@ import com.baidu.tieba.R;
 import java.util.Random;
 /* loaded from: classes22.dex */
 public class ay {
-    private static TextView ftn;
-    private static final int[] luX = {R.string.reply_hint_text_1, R.string.reply_hint_text_2, R.string.reply_hint_text_3};
+    private static TextView fzf;
+    private static final int[] lAU = {R.string.reply_hint_text_1, R.string.reply_hint_text_2, R.string.reply_hint_text_3};
 
     public static Intent aM(Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
@@ -34,11 +34,11 @@ public class ay {
         return intent;
     }
 
-    public static int dkB() {
-        return luX[new Random().nextInt(luX.length)];
+    public static int dnd() {
+        return lAU[new Random().nextInt(lAU.length)];
     }
 
-    public static String Pv(String str) {
+    public static String PM(String str) {
         return TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar, new Object[]{UtilHelper.getFixedBarText(str, 7, false)});
     }
 
@@ -47,9 +47,9 @@ public class ay {
             return null;
         }
         String str = "";
-        if (bwVar.blX() == 1) {
+        if (bwVar.box() == 1) {
             str = TbadkCoreApplication.getInst().getString(R.string.yuanchuang);
-        } else if (bwVar.blX() == 2) {
+        } else if (bwVar.box() == 2) {
             str = TbadkCoreApplication.getInst().getString(R.string.shoufa);
         }
         if (TextUtils.isEmpty(str)) {
@@ -65,10 +65,10 @@ public class ay {
         int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(context) - (com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds44) * 2);
         int contentSize = TbConfig.getContentSize();
         try {
-            if (ftn == null) {
-                ftn = new TextView(TbadkCoreApplication.getInst().getContext());
+            if (fzf == null) {
+                fzf = new TextView(TbadkCoreApplication.getInst().getContext());
             }
-            TextView textView = ftn;
+            TextView textView = fzf;
             if (textView.getLayoutParams() == null) {
                 textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             }
@@ -84,20 +84,20 @@ public class ay {
         }
     }
 
-    public static int dkC() {
+    public static int dne() {
         return UtilHelper.getDimenPixelSize(R.dimen.tbds88);
     }
 
-    public static int dkD() {
+    public static int dnf() {
         return UtilHelper.getDimenPixelSize(R.dimen.tbds195);
     }
 
     public static int r(com.baidu.tieba.pb.data.f fVar) {
-        if (fVar == null || fVar.dfI() == null) {
+        if (fVar == null || fVar.dik() == null) {
             return 0;
         }
-        if (fVar.dfI().blx()) {
-            return (com.baidu.tbadk.core.util.y.isEmpty(fVar.dgf()) && (fVar.dfH() == null || StringUtils.isNull(fVar.dfH().getForumName()))) ? 0 : 2;
+        if (fVar.dik().bnX()) {
+            return (com.baidu.tbadk.core.util.y.isEmpty(fVar.diH()) && (fVar.dij() == null || StringUtils.isNull(fVar.dij().getForumName()))) ? 0 : 2;
         }
         return 1;
     }

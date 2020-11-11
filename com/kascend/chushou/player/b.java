@@ -20,67 +20,67 @@ import tv.chushou.zues.utils.h;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f4117a;
+    public String f4119a;
     public ArrayList<PlayUrl> f;
     public String h;
-    private PlayUrl oZZ;
-    public ListItem paf;
-    public ListItem pag;
-    public ListItem pah;
-    public ListItem pai;
-    public ListItem paj;
-    public ListItem pak;
-    public ListItem pal;
-    public ListItem pam;
-    public TrumpetPocket paq;
+    public ListItem pjC;
+    public ListItem pjD;
+    public ListItem pjE;
+    public ListItem pjF;
+    public ListItem pjG;
+    public ListItem pjH;
+    public ListItem pjI;
+    public ListItem pjJ;
+    public TrumpetPocket pjN;
+    private PlayUrl pjx;
     public List<ListItem> t;
     private final String A = "PlayerViewHelper";
     private boolean B = false;
-    private FullRoomInfo paa = null;
+    private FullRoomInfo pjy = null;
     public int b = 0;
     public int c = 0;
     public boolean d = false;
     public boolean e = false;
-    private ArrayList<ChatInfo> pab = null;
+    private ArrayList<ChatInfo> pjz = null;
     private HashMap<String, com.kascend.chushou.player.ui.h5.c.a> F = null;
     private boolean I = true;
-    public IconConfig pao = new IconConfig();
-    public final Map<String, SkinConfig.SkinRes> par = new HashMap();
+    public IconConfig pjL = new IconConfig();
+    public final Map<String, SkinConfig.SkinRes> pjO = new HashMap();
     public boolean z = false;
     public List<tv.chushou.zues.widget.gift.a.a> i = new ArrayList();
     public List<GeneralTabGift> j = new ArrayList();
-    a pac = new a();
+    a pjA = new a();
     private List<ListItem> G = new ArrayList();
-    private List<ListItem> pae = new ArrayList();
-    public List<ListItem> pan = new ArrayList();
-    public List<ListItem> pap = new ArrayList();
+    private List<ListItem> pjB = new ArrayList();
+    public List<ListItem> pjK = new ArrayList();
+    public List<ListItem> pjM = new ArrayList();
     public List<g.a> w = new ArrayList();
 
     public b(String str) {
-        this.f4117a = str;
+        this.f4119a = str;
     }
 
     public void a() {
-        this.par.clear();
+        this.pjO.clear();
         this.z = false;
     }
 
     public void b() {
-        if (this.pac != null) {
-            this.pac.a();
-            this.pac = null;
+        if (this.pjA != null) {
+            this.pjA.a();
+            this.pjA = null;
         }
         if (this.f != null) {
             this.f.clear();
             this.f = null;
         }
-        if (this.pab != null) {
-            this.pab.clear();
-            this.pab = null;
+        if (this.pjz != null) {
+            this.pjz.clear();
+            this.pjz = null;
         }
-        if (this.paa != null) {
-            this.paa.release();
-            this.paa = null;
+        if (this.pjy != null) {
+            this.pjy.release();
+            this.pjy = null;
         }
         if (this.F != null) {
             this.F.clear();
@@ -100,22 +100,22 @@ public class b {
                     arrayList2.add(arrayList.get(i));
                 }
             }
-            if (this.pab == null) {
-                this.pab = new ArrayList<>(arrayList2);
+            if (this.pjz == null) {
+                this.pjz = new ArrayList<>(arrayList2);
                 return;
             }
-            this.pab.addAll(new ArrayList(arrayList2));
-            int size = this.pab.size();
+            this.pjz.addAll(new ArrayList(arrayList2));
+            int size = this.pjz.size();
             if (size > 100) {
                 for (int i2 = 0; i2 < size - 100; i2++) {
-                    this.pab.remove(i2);
+                    this.pjz.remove(i2);
                 }
             }
         }
     }
 
     public ArrayList<ChatInfo> c() {
-        return this.pab;
+        return this.pjz;
     }
 
     public void a(boolean z) {
@@ -127,7 +127,7 @@ public class b {
     }
 
     public void a(FullRoomInfo fullRoomInfo) {
-        this.paa = fullRoomInfo;
+        this.pjy = fullRoomInfo;
     }
 
     public void a(com.kascend.chushou.player.ui.h5.c.a aVar) {
@@ -155,16 +155,16 @@ public class b {
         }
     }
 
-    public FullRoomInfo eqU() {
-        return this.paa;
+    public FullRoomInfo euJ() {
+        return this.pjy;
     }
 
     public void a(PlayUrl playUrl) {
-        this.oZZ = playUrl;
+        this.pjx = playUrl;
     }
 
-    public PlayUrl eqV() {
-        return this.oZZ;
+    public PlayUrl euK() {
+        return this.pjx;
     }
 
     public List<ListItem> i() {
@@ -172,22 +172,22 @@ public class b {
     }
 
     public List<ListItem> j() {
-        return this.pae;
+        return this.pjB;
     }
 
-    public b gw(List<ListItem> list) {
+    public b gF(List<ListItem> list) {
         this.G = list;
-        this.pae.clear();
+        this.pjB.clear();
         if (list != null) {
-            this.pae.addAll(list);
+            this.pjB.addAll(list);
         }
         return this;
     }
 
     @Nullable
-    public RoomInfo eqW() {
-        if (this.paa != null) {
-            return this.paa.mRoominfo;
+    public RoomInfo euL() {
+        if (this.pjy != null) {
+            return this.pjy.mRoominfo;
         }
         return null;
     }
@@ -201,11 +201,11 @@ public class b {
     }
 
     public boolean m() {
-        return (this.paa == null || this.paa.mRoominfo == null || !this.paa.mRoominfo.mIsSubscribed) ? false : true;
+        return (this.pjy == null || this.pjy.mRoominfo == null || !this.pjy.mRoominfo.mIsSubscribed) ? false : true;
     }
 
     public String b(String str) {
-        SkinConfig.SkinRes skinRes = this.par.get(str);
+        SkinConfig.SkinRes skinRes = this.pjO.get(str);
         if (skinRes != null) {
             return skinRes.image;
         }

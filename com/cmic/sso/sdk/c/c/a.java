@@ -18,20 +18,20 @@ import com.cmic.sso.sdk.e.s;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class a {
-    private static a ozs = null;
+    private static a oIL = null;
 
     private a() {
     }
 
-    public static a eeZ() {
-        if (ozs == null) {
+    public static a eiO() {
+        if (oIL == null) {
             synchronized (a.class) {
-                if (ozs == null) {
-                    ozs = new a();
+                if (oIL == null) {
+                    oIL = new a();
                 }
             }
         }
-        return ozs;
+        return oIL;
     }
 
     public void a(boolean z, com.cmic.sso.sdk.a aVar, d dVar) {
@@ -59,8 +59,8 @@ public class a {
         aVar2.i(aVar.b("smskey", ""));
         aVar2.j(aVar.b("imsi"));
         aVar2.k(aVar.b("imei"));
-        aVar2.c(j.efe().c());
-        aVar2.d(j.efe().d());
+        aVar2.c(j.eiT().c());
+        aVar2.d(j.eiT().d());
         aVar2.l(aVar.b("operatortype"));
         aVar2.m(c + "");
         aVar2.n(n.a());
@@ -72,13 +72,13 @@ public class a {
         aVar2.s(p.a());
         aVar2.t(aVar.b("apppackage"));
         aVar2.u(aVar.b("appsign"));
-        eVar.a(aVar.a(b.a.f4003a));
+        eVar.a(aVar.a(b.a.f4005a));
         if (aVar.b("use2048PublicKey", false)) {
             com.cmic.sso.sdk.e.c.a("BaseRequest", "使用2对应的编码");
             eVar.a("2");
-            a2 = i.efd().b(aVar.a(b.a.f4003a));
+            a2 = i.eiS().b(aVar.a(b.a.f4005a));
         } else {
-            a2 = i.efd().a(aVar.a(b.a.f4003a));
+            a2 = i.eiS().a(aVar.a(b.a.f4005a));
         }
         eVar.b(a2);
         eVar.a(aVar2);
@@ -102,7 +102,7 @@ public class a {
     public void b(com.cmic.sso.sdk.a aVar, d dVar) {
         int c = aVar.c("networktype");
         com.cmic.sso.sdk.c.b.a aVar2 = new com.cmic.sso.sdk.c.b.a();
-        a.C0946a c0946a = new a.C0946a();
+        a.C0965a c0965a = new a.C0965a();
         aVar2.f("0.1");
         aVar2.i(aVar.b("phonescrip"));
         aVar2.h(aVar.b("appid"));
@@ -115,24 +115,24 @@ public class a {
         aVar2.b(aVar.b(UgcConstant.SOURCE_ID));
         aVar2.k(aVar.b("authenticated_appid"));
         aVar2.l(aVar.b("genTokenByAppid"));
-        aVar2.j(aVar2.Xh(aVar.b("appkey")));
-        c0946a.b(n.c());
-        c0946a.a(k.b("AID", ""));
-        c0946a.c(n.b());
-        c0946a.d(n.a());
-        c0946a.e(aVar.b("operatortype", ""));
-        c0946a.f("0");
-        c0946a.g(c + "");
-        c0946a.h(r.a(false));
-        c0946a.i(r.aH(false, false));
-        c0946a.j(aVar.b("CLOSE_CERT_VERIFY", true) ? "0" : "1");
+        aVar2.j(aVar2.XL(aVar.b("appkey")));
+        c0965a.b(n.c());
+        c0965a.a(k.b("AID", ""));
+        c0965a.c(n.b());
+        c0965a.d(n.a());
+        c0965a.e(aVar.b("operatortype", ""));
+        c0965a.f("0");
+        c0965a.g(c + "");
+        c0965a.h(r.a(false));
+        c0965a.i(r.aH(false, false));
+        c0965a.j(aVar.b("CLOSE_CERT_VERIFY", true) ? "0" : "1");
         String f = q.f();
         if (m.a()) {
-            c0946a.k("1");
+            c0965a.k("1");
         } else {
-            c0946a.k("0");
+            c0965a.k("0");
         }
-        aVar2.a(c0946a.a());
+        aVar2.a(c0965a.a());
         s.a(aVar, "getAuthToken");
         aVar.a("interfaceVersion", "6.0");
         a(new c(f + "/api/getAuthToken", aVar2, "POST", aVar.b("traceId")), dVar, aVar);
@@ -176,7 +176,7 @@ public class a {
                         s.b(aVar, string);
                         dVar.j(string, jSONObject.optString("desc"), jSONObject);
                     } catch (Exception e) {
-                        a(com.cmic.sso.sdk.c.d.a.NO(102223));
+                        a(com.cmic.sso.sdk.c.d.a.Oj(102223));
                     }
                 }
             }

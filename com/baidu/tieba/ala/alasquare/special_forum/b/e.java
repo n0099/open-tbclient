@@ -4,8 +4,8 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public class e {
-    public a glK;
-    private int glL = -1;
+    public a grx;
+    private int gry = -1;
     private TbPageContext mTbPageContext;
 
     public e(TbPageContext tbPageContext) {
@@ -14,95 +14,95 @@ public class e {
 
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar, boolean z) {
         if (aVar == null) {
-            this.glL = -1;
-            this.glK = new b(this.mTbPageContext);
+            this.gry = -1;
+            this.grx = new b(this.mTbPageContext);
         } else if (z) {
-            this.glL = aVar.gjT;
-            switch (aVar.gjT) {
+            this.gry = aVar.gpG;
+            switch (aVar.gpG) {
                 case 1:
-                    this.glK = new d(this.mTbPageContext);
+                    this.grx = new d(this.mTbPageContext);
                     break;
                 case 2:
-                    this.glK = new f(this.mTbPageContext);
+                    this.grx = new f(this.mTbPageContext);
                     break;
                 case 3:
-                    this.glK = new c(this.mTbPageContext);
+                    this.grx = new c(this.mTbPageContext);
                     break;
                 default:
-                    this.glK = new b(this.mTbPageContext);
+                    this.grx = new b(this.mTbPageContext);
                     break;
             }
         }
-        if (this.glK.b(aVar)) {
+        if (this.grx.b(aVar)) {
             if (z) {
-                this.glK.init();
+                this.grx.init();
             }
-            this.glK.a(aVar);
+            this.grx.a(aVar);
             return;
         }
-        this.glL = -1;
-        this.glK = new b(this.mTbPageContext);
+        this.gry = -1;
+        this.grx = new b(this.mTbPageContext);
         if (z) {
-            this.glK.init();
+            this.grx.init();
         }
-        this.glK.a(aVar);
+        this.grx.a(aVar);
     }
 
     public boolean c(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar) {
-        return aVar == null || this.glL != aVar.gjT;
+        return aVar == null || this.gry != aVar.gpG;
     }
 
     public void pause() {
-        if (this.glK != null) {
-            this.glK.pause();
+        if (this.grx != null) {
+            this.grx.pause();
         }
     }
 
     public void resume() {
-        if (this.glK != null) {
-            this.glK.resume();
+        if (this.grx != null) {
+            this.grx.resume();
         }
     }
 
-    public void ls(boolean z) {
-        if (this.glK != null) {
-            this.glK.ls(z);
+    public void lB(boolean z) {
+        if (this.grx != null) {
+            this.grx.lB(z);
         }
     }
 
-    public void ab(ViewGroup viewGroup) {
-        if (this.glK != null) {
-            this.glK.ab(viewGroup);
+    public void ad(ViewGroup viewGroup) {
+        if (this.grx != null) {
+            this.grx.ad(viewGroup);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.glK != null) {
-            this.glK.onChangeSkinType(i);
+        if (this.grx != null) {
+            this.grx.onChangeSkinType(i);
         }
     }
 
     public void startPlay() {
-        if (this.glK != null) {
-            this.glK.startPlay();
+        if (this.grx != null) {
+            this.grx.startPlay();
         }
     }
 
     public void stopPlay() {
-        if (this.glK != null) {
-            this.glK.stopPlay();
+        if (this.grx != null) {
+            this.grx.stopPlay();
         }
     }
 
-    public void bNy() {
-        if (this.glK != null) {
-            this.glK.bNy();
+    public void bPY() {
+        if (this.grx != null) {
+            this.grx.bPY();
         }
     }
 
     public void onDestroy() {
-        if (this.glK != null) {
-            this.glK.onDestroy();
+        if (this.grx != null) {
+            this.grx.onDestroy();
         }
     }
 }

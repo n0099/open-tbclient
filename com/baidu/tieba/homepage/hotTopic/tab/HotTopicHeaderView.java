@@ -21,11 +21,11 @@ import tbclient.HotThreadList.HotThreadListResIdl;
 /* loaded from: classes22.dex */
 public class HotTopicHeaderView extends LinearLayout {
     protected f aiM;
-    private HotTopicTabRankListLayout jvi;
-    private TextView jvj;
-    private View jvk;
-    private TextView jvl;
-    private com.baidu.tieba.homepage.hotTopic.tab.view.a jvm;
+    private HotTopicTabRankListLayout jBf;
+    private TextView jBg;
+    private View jBh;
+    private TextView jBi;
+    private com.baidu.tieba.homepage.hotTopic.tab.view.a jBj;
     private int mSkinType;
     private TextView mTitleView;
 
@@ -56,22 +56,22 @@ public class HotTopicHeaderView extends LinearLayout {
         int dimens = l.getDimens(getContext(), R.dimen.tbds44);
         int dimens2 = l.getDimens(getContext(), R.dimen.tbds38);
         int dimens3 = l.getDimens(getContext(), R.dimen.tbds25);
-        this.jvj = new TextView(getContext());
-        this.jvj.setTextColor(getContext().getResources().getColor(R.color.cp_cont_b));
-        this.jvj.setTextSize(0, l.getDimens(getContext(), R.dimen.tbds44));
-        this.jvj.setTypeface(Typeface.DEFAULT_BOLD);
-        this.jvj.setIncludeFontPadding(false);
-        this.jvj.setSingleLine();
-        this.jvj.setEllipsize(TextUtils.TruncateAt.END);
-        this.jvj.setGravity(16);
-        this.jvj.setPadding(dimens, dimens2, dimens, dimens3);
-        addView(this.jvj);
-        this.jvi = new HotTopicTabRankListLayout(getContext());
-        this.jvi.setPadding(0, 0, 0, dimens3);
-        addView(this.jvi);
-        this.jvk = new View(getContext());
-        this.jvk.setLayoutParams(new LinearLayout.LayoutParams(-1, l.getDimens(getContext(), R.dimen.tbds17)));
-        addView(this.jvk);
+        this.jBg = new TextView(getContext());
+        this.jBg.setTextColor(getContext().getResources().getColor(R.color.cp_cont_b));
+        this.jBg.setTextSize(0, l.getDimens(getContext(), R.dimen.tbds44));
+        this.jBg.setTypeface(Typeface.DEFAULT_BOLD);
+        this.jBg.setIncludeFontPadding(false);
+        this.jBg.setSingleLine();
+        this.jBg.setEllipsize(TextUtils.TruncateAt.END);
+        this.jBg.setGravity(16);
+        this.jBg.setPadding(dimens, dimens2, dimens, dimens3);
+        addView(this.jBg);
+        this.jBf = new HotTopicTabRankListLayout(getContext());
+        this.jBf.setPadding(0, 0, 0, dimens3);
+        addView(this.jBf);
+        this.jBh = new View(getContext());
+        this.jBh.setLayoutParams(new LinearLayout.LayoutParams(-1, l.getDimens(getContext(), R.dimen.tbds17)));
+        addView(this.jBh);
         LinearLayout linearLayout = new LinearLayout(getContext());
         linearLayout.setOrientation(0);
         linearLayout.setGravity(16);
@@ -95,14 +95,14 @@ public class HotTopicHeaderView extends LinearLayout {
         textView2.setEllipsize(TextUtils.TruncateAt.END);
         textView2.setGravity(16);
         linearLayout.addView(textView2);
-        this.jvl = textView2;
+        this.jBi = textView2;
         addView(linearLayout);
-        this.jvm = new com.baidu.tieba.homepage.hotTopic.tab.view.a(getContext());
-        this.jvm.cIc().setLayoutParams(new LinearLayout.LayoutParams(-1, l.getDimens(getContext(), R.dimen.tbds138)));
-        addView(this.jvm.cIc());
-        this.jvj.setText(getString(R.string.hot_topic_tab_rank_list_title));
+        this.jBj = new com.baidu.tieba.homepage.hotTopic.tab.view.a(getContext());
+        this.jBj.cKD().setLayoutParams(new LinearLayout.LayoutParams(-1, l.getDimens(getContext(), R.dimen.tbds138)));
+        addView(this.jBj.cKD());
+        this.jBg.setText(getString(R.string.hot_topic_tab_rank_list_title));
         this.mTitleView.setText(getString(R.string.hot_topic_hot_tie_title));
-        this.jvl.setText(getString(R.string.hot_topic_hot_tie_sub_title));
+        this.jBi.setText(getString(R.string.hot_topic_hot_tie_sub_title));
     }
 
     private String getString(int i) {
@@ -111,36 +111,36 @@ public class HotTopicHeaderView extends LinearLayout {
 
     public void setData(HotThreadListResIdl hotThreadListResIdl) {
         if (hotThreadListResIdl != null && hotThreadListResIdl.data != null && !y.isEmpty(hotThreadListResIdl.data.topic_list)) {
-            this.jvj.setVisibility(0);
-            this.jvi.setVisibility(0);
-            this.jvi.setOnItemCoverListener(this.aiM);
-            this.jvi.a(new d(hotThreadListResIdl.data.topic_list));
+            this.jBg.setVisibility(0);
+            this.jBf.setVisibility(0);
+            this.jBf.setOnItemCoverListener(this.aiM);
+            this.jBf.a(new d(hotThreadListResIdl.data.topic_list));
         } else {
-            this.jvj.setVisibility(8);
-            this.jvi.setVisibility(8);
+            this.jBg.setVisibility(8);
+            this.jBf.setVisibility(8);
         }
         this.mTitleView.setVisibility(0);
-        this.jvl.setVisibility(0);
-        this.jvm.a(c.dB((hotThreadListResIdl == null || hotThreadListResIdl.data == null) ? null : hotThreadListResIdl.data.hot_thread_tab_info).cwt());
+        this.jBi.setVisibility(0);
+        this.jBj.a(c.dJ((hotThreadListResIdl == null || hotThreadListResIdl.data == null) ? null : hotThreadListResIdl.data.hot_thread_tab_info).cyU());
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setOnTabSelectedListener(TabLayout.OnTabSelectedListener onTabSelectedListener) {
-        this.jvm.setOnTabSelectedListener(onTabSelectedListener);
+        this.jBj.setOnTabSelectedListener(onTabSelectedListener);
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            ap.setViewTextColor(this.jvj, R.color.cp_cont_b);
+            ap.setViewTextColor(this.jBg, R.color.cp_cont_b);
             ap.setViewTextColor(this.mTitleView, R.color.cp_cont_b);
-            ap.setViewTextColor(this.jvl, R.color.cp_cont_d);
-            ap.setBackgroundColor(this.jvk, R.color.cp_bg_line_c);
-            if (this.jvi != null) {
-                this.jvi.onChangeSkinType(i);
+            ap.setViewTextColor(this.jBi, R.color.cp_cont_d);
+            ap.setBackgroundColor(this.jBh, R.color.cp_bg_line_c);
+            if (this.jBf != null) {
+                this.jBf.onChangeSkinType(i);
             }
-            if (this.jvm != null) {
-                this.jvm.onChangeSkinType(i);
+            if (this.jBj != null) {
+                this.jBj.onChangeSkinType(i);
             }
         }
     }

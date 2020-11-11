@@ -50,28 +50,28 @@ public abstract class TurbonetEngine {
     /* JADX INFO: Access modifiers changed from: package-private */
     public abstract void a(String str, String str2, int i, int i2, long j, long j2, long j3, long j4);
 
-    public abstract boolean dYg();
+    public abstract boolean ebO();
 
     abstract boolean isEnabled();
 
     /* loaded from: classes17.dex */
     public static class Builder {
-        private String egN;
+        private String emE;
         private String mAppName;
         private final Context mContext;
         private String mUserAgent;
-        private boolean odW;
-        private boolean odu;
-        private String ofp;
-        private String ofr;
-        private LibraryLoader ofs;
-        private String oft;
-        private boolean ofu;
-        private boolean ofv;
-        private int ofw;
-        private long ofx;
-        private JSONObject ofy;
-        private String ofz;
+        private boolean omy;
+        private boolean ona;
+        private int ooA;
+        private long ooB;
+        private JSONObject ooC;
+        private String ooD;
+        private String oot;
+        private String oov;
+        private LibraryLoader oow;
+        private String oox;
+        private boolean ooy;
+        private boolean ooz;
 
         @Retention(RetentionPolicy.SOURCE)
         /* loaded from: classes17.dex */
@@ -85,44 +85,44 @@ public abstract class TurbonetEngine {
 
         public Builder(Context context) {
             this.mContext = context;
-            VO("turbonet");
-            this.ofy = new JSONObject();
-            zn(false);
+            Wr("turbonet");
+            this.ooC = new JSONObject();
+            zy(false);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void dYE() {
-            if (this.ofs == null) {
-                if (this.oft.equals("turbonet")) {
-                    System.loadLibrary(this.oft);
+        public void ecm() {
+            if (this.oow == null) {
+                if (this.oox.equals("turbonet")) {
+                    System.loadLibrary(this.oox);
                     return;
                 } else {
-                    System.load(this.oft);
+                    System.load(this.oox);
                     return;
                 }
             }
-            this.ofs.loadLibrary(this.oft);
+            this.oow.loadLibrary(this.oox);
         }
 
-        public Builder VO(String str) {
-            this.oft = str;
+        public Builder Wr(String str) {
+            this.oox = str;
             return this;
         }
 
         private void e(String str, String str2, Object obj) {
             try {
-                JSONObject optJSONObject = this.ofy.optJSONObject(str);
+                JSONObject optJSONObject = this.ooC.optJSONObject(str);
                 if (optJSONObject == null) {
                     optJSONObject = new JSONObject();
                 }
                 optJSONObject.put(str2, obj);
-                this.ofy.put(str, optJSONObject);
+                this.ooC.put(str, optJSONObject);
             } catch (JSONException e) {
                 throw new IllegalStateException("JSON expcetion:", e);
             }
         }
 
-        public Builder VP(String str) {
+        public Builder Ws(String str) {
             e(SchemeCollecter.CLASSIFY_BASE, "user_agent", str);
             this.mUserAgent = str;
             return this;
@@ -133,91 +133,91 @@ public abstract class TurbonetEngine {
             return this.mUserAgent;
         }
 
-        public Builder zn(boolean z) {
+        public Builder zy(boolean z) {
             e(SchemeCollecter.CLASSIFY_BASE, "http2_enabled", Boolean.valueOf(z));
-            this.ofu = z;
+            this.ooy = z;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public boolean dYF() {
-            return this.ofu;
+        public boolean ecn() {
+            return this.ooy;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public boolean dYG() {
-            return this.ofv;
+        public boolean eco() {
+            return this.ooz;
         }
 
-        public Builder VQ(String str) {
+        public Builder Wt(String str) {
             if (!new File(str).isDirectory()) {
                 throw new IllegalArgumentException("Storage path must be set to existing directory");
             }
-            this.ofp = str;
+            this.oot = str;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String dYA() {
-            return this.ofp;
+        public String eci() {
+            return this.oot;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public boolean cacheDisabled() {
-            return this.odu;
+            return this.omy;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public long dYH() {
-            return this.ofx;
+        public long ecp() {
+            return this.ooB;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public int dYI() {
-            return this.ofw;
+        public int ecq() {
+            return this.ooA;
         }
 
         public String getAppPackageName() {
-            return this.egN;
+            return this.emE;
         }
 
         public Builder I(boolean z, String str) {
             e("nq", "network_quality_enabled", Boolean.valueOf(z));
             e("nq", "watched_groups", str);
-            this.odW = z;
+            this.ona = z;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public boolean dYJ() {
-            return this.odW;
+        public boolean ecr() {
+            return this.ona;
         }
 
-        public Builder VR(String str) {
+        public Builder Wu(String str) {
             e("app", "cuid", str);
-            this.ofr = str;
+            this.oov = str;
             return this;
         }
 
-        public Builder VS(String str) {
+        public Builder Wv(String str) {
             e("app", "app_name", str);
             this.mAppName = str;
             return this;
         }
 
-        public Builder VT(String str) {
-            this.ofz = str;
+        public Builder Ww(String str) {
+            this.ooD = str;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String dYK() {
-            return this.ofz;
+        public String ecs() {
+            return this.ooD;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String dYL() {
-            return this.ofy.toString();
+        public String ect() {
+            return this.ooC.toString();
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -225,7 +225,7 @@ public abstract class TurbonetEngine {
             return this.mContext;
         }
 
-        public TurbonetEngine dYM() {
+        public TurbonetEngine ecu() {
             String str = "";
             if (Environment.getExternalStorageState().equals("mounted")) {
                 str = Environment.getExternalStorageDirectory().getPath();
@@ -234,7 +234,7 @@ public abstract class TurbonetEngine {
             }
             e(SchemeCollecter.CLASSIFY_BASE, "config_path", str);
             if (getUserAgent() == null) {
-                VP(c.gm(this.mContext));
+                Ws(c.gm(this.mContext));
             }
             return TurbonetEngine.a(this);
         }
@@ -258,23 +258,23 @@ public abstract class TurbonetEngine {
     /* loaded from: classes17.dex */
     public static final class UrlRequestMetrics {
         @Nullable
-        private final Long odO;
+        private final Long omS;
         @Nullable
-        private final Long odP;
+        private final Long omT;
         @Nullable
-        private final Long ofA;
+        private final Long ooE;
         @Nullable
-        private final Long ofB;
+        private final Long ooF;
 
         public UrlRequestMetrics(@Nullable Long l, @Nullable Long l2, @Nullable Long l3, @Nullable Long l4) {
-            this.odO = l;
-            this.odP = l2;
-            this.ofA = l3;
-            this.ofB = l4;
+            this.omS = l;
+            this.omT = l2;
+            this.ooE = l3;
+            this.ooF = l4;
         }
     }
 
-    public long dXN() {
+    public long ebv() {
         return 0L;
     }
 }

@@ -6,26 +6,26 @@ import android.util.LruCache;
 /* loaded from: classes10.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final LruCache<String, Object> cSp;
+    private final LruCache<String, Object> cYi;
 
     /* loaded from: classes10.dex */
     private static class a {
-        static final b cSq = new b();
+        static final b cYj = new b();
     }
 
     private b() {
-        this.cSp = new LruCache<>(10);
+        this.cYi = new LruCache<>(10);
     }
 
-    public static b avK() {
-        return a.cSq;
+    public static b ayk() {
+        return a.cYj;
     }
 
-    public synchronized <RESULT> RESULT oM(String str) {
+    public synchronized <RESULT> RESULT pa(String str) {
         RESULT result = null;
         synchronized (this) {
             if (!TextUtils.isEmpty(str)) {
-                Object obj = this.cSp.get(str);
+                Object obj = this.cYi.get(str);
                 if (obj == null) {
                     if (DEBUG) {
                         Log.d("SwanAppLaunchCache", "doesn't hit the cache result, key = " + str);
@@ -52,22 +52,22 @@ public final class b {
             if (DEBUG) {
                 Log.d("SwanAppLaunchCache", "putConfig key: " + str);
             }
-            this.cSp.put(str, result);
+            this.cYi.put(str, result);
         }
     }
 
-    public synchronized void oN(String str) {
+    public synchronized void pb(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.d("SwanAppLaunchCache", "removeConfig key: " + str);
             }
-            this.cSp.remove(str);
+            this.cYi.remove(str);
         }
     }
 
     public synchronized void clear() {
-        if (this.cSp != null) {
-            this.cSp.evictAll();
+        if (this.cYi != null) {
+            this.cYi.evictAll();
         }
     }
 }

@@ -6,18 +6,18 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Set;
 /* loaded from: classes22.dex */
 public class e {
-    private final SharedPreferences fHx = TbadkCoreApplication.getInst().getSharedPreferences("frs_guide_sp", 0);
+    private final SharedPreferences fNn = TbadkCoreApplication.getInst().getSharedPreferences("frs_guide_sp", 0);
 
     public boolean fa(String str, String str2) {
         if (ec(str, str2)) {
-            return this.fHx.getBoolean(str + '_' + str2 + "_show", false);
+            return this.fNn.getBoolean(str + '_' + str2 + "_show", false);
         }
         return false;
     }
 
     public long fb(String str, String str2) {
         if (ec(str, str2)) {
-            return this.fHx.getLong(str + '_' + str2 + "_show_time", 0L);
+            return this.fNn.getLong(str + '_' + str2 + "_show_time", 0L);
         }
         return 0L;
     }
@@ -26,8 +26,8 @@ public class e {
         if (ec(str, str2)) {
             String str3 = str + '_' + str2 + "_show_time";
             String str4 = str + '_' + str2 + "_show_cnt";
-            int i = this.fHx.getInt(str4, 0);
-            SharedPreferences.Editor edit = this.fHx.edit();
+            int i = this.fNn.getInt(str4, 0);
+            SharedPreferences.Editor edit = this.fNn.edit();
             if (i > 3) {
                 edit.putInt(str4, i + 1);
             }
@@ -41,14 +41,14 @@ public class e {
 
     public int fc(String str, String str2) {
         if (ec(str, str2)) {
-            return this.fHx.getInt(str + '_' + str2 + "_show_cnt", 0);
+            return this.fNn.getInt(str + '_' + str2 + "_show_cnt", 0);
         }
         return 0;
     }
 
     public void i(String str, String str2, long j) {
         if (ec(str, str2)) {
-            SharedPreferences.Editor edit = this.fHx.edit();
+            SharedPreferences.Editor edit = this.fNn.edit();
             edit.putLong(str + '_' + str2 + "_visit_time", j);
             edit.apply();
         }
@@ -56,7 +56,7 @@ public class e {
 
     public long fd(String str, String str2) {
         if (ec(str, str2)) {
-            return this.fHx.getLong(str + '_' + str2 + "_visit_time", 0L);
+            return this.fNn.getLong(str + '_' + str2 + "_visit_time", 0L);
         }
         return 0L;
     }
@@ -64,8 +64,8 @@ public class e {
     public void fe(String str, String str2) {
         if (ec(str, str2)) {
             String str3 = str + '_' + str2;
-            Set<String> keySet = this.fHx.getAll().keySet();
-            SharedPreferences.Editor edit = this.fHx.edit();
+            Set<String> keySet = this.fNn.getAll().keySet();
+            SharedPreferences.Editor edit = this.fNn.edit();
             for (String str4 : keySet) {
                 if (str4.startsWith(str3)) {
                     edit.remove(str4);

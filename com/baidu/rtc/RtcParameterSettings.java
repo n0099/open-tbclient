@@ -21,13 +21,15 @@ public class RtcParameterSettings {
     public boolean AutoPublish = true;
     public boolean AutoSubScribe = true;
     public int AudioContentType = 1;
-    public RtcVideoRenderMode cgo = RtcVideoRenderMode.RTC_VIDEO_RENDER_MODE_INTERNAL;
-    public boolean cgn = false;
-    public boolean cgi = false;
-    public boolean cgk = false;
-    public boolean cgm = false;
-    public boolean cgj = false;
-    public boolean cgl = false;
+    public RtcVideoRenderMode cmh = RtcVideoRenderMode.RTC_VIDEO_RENDER_MODE_INTERNAL;
+    public boolean cmg = false;
+    public boolean clY = false;
+    public boolean cmb = false;
+    public boolean cme = false;
+    public boolean cma = false;
+    public boolean cmc = false;
+    public boolean clZ = false;
+    public int cmf = RtcVideoBitrateMode.RTC_VIDEO_CONTROLRATECONSTANT.ordinal();
 
     /* loaded from: classes9.dex */
     public enum RtcParamSettingType {
@@ -50,12 +52,19 @@ public class RtcParameterSettings {
     }
 
     /* loaded from: classes9.dex */
+    public enum RtcVideoBitrateMode {
+        RTC_VIDEO_CONTROLRATEDISABLE,
+        RTC_VIDEO_CONTROLRATEVARIABLE,
+        RTC_VIDEO_CONTROLRATECONSTANT
+    }
+
+    /* loaded from: classes9.dex */
     public enum RtcVideoRenderMode {
         RTC_VIDEO_RENDER_MODE_INTERNAL,
         RTC_VIDEO_RENDER_MODE_EXTERNAL
     }
 
-    public static RtcParameterSettings abt() {
+    public static RtcParameterSettings adT() {
         return new RtcParameterSettings();
     }
 }

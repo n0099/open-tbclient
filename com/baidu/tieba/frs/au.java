@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 public interface au {
-    void bqb();
+    void bsB();
 
-    void bqc();
+    void bsC();
 }

@@ -18,8 +18,8 @@ public class g {
         while (true) {
             int i2 = i;
             if (i2 < list.size()) {
-                this.DT.add(list.get(i2).evq().euW());
-                this.DU.add(list.get(i2).evc().euW());
+                this.DT.add(list.get(i2).ezf().eyL());
+                this.DU.add(list.get(i2).eyR().eyL());
                 i = i2 + 1;
             } else {
                 return;

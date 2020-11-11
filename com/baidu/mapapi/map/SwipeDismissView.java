@@ -9,23 +9,23 @@ import com.baidu.mapapi.map.WearMapView;
 public class SwipeDismissView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    WearMapView.OnDismissCallback f2043a;
+    WearMapView.OnDismissCallback f2045a;
 
     public SwipeDismissView(Context context, AttributeSet attributeSet, int i, View view) {
         super(context, attributeSet, i);
-        this.f2043a = null;
+        this.f2045a = null;
         a(context, view);
     }
 
     public SwipeDismissView(Context context, AttributeSet attributeSet, View view) {
         super(context, attributeSet);
-        this.f2043a = null;
+        this.f2045a = null;
         a(context, view);
     }
 
     public SwipeDismissView(Context context, View view) {
         super(context);
-        this.f2043a = null;
+        this.f2045a = null;
         a(context, view);
     }
 
@@ -34,6 +34,6 @@ public class SwipeDismissView extends RelativeLayout {
     }
 
     public void setCallback(WearMapView.OnDismissCallback onDismissCallback) {
-        this.f2043a = onDismissCallback;
+        this.f2045a = onDismissCallback;
     }
 }

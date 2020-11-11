@@ -82,8 +82,8 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
     @SuppressLint({"ResourceAsColor"})
     private void init(Context context) {
         this.mContext = context;
-        LayoutInflater.from(context).inflate(a.h.sdk_fragment_tabhost, (ViewGroup) this, true);
-        this.tabWrapper = (FrameLayout) findViewById(a.g.tabcontainer_wrapper);
+        LayoutInflater.from(context).inflate(a.g.sdk_fragment_tabhost, (ViewGroup) this, true);
+        this.tabWrapper = (FrameLayout) findViewById(a.f.tabcontainer_wrapper);
         this.mCurrentTabIndex = -1;
         this.mCurentTabSpec = null;
     }
@@ -122,7 +122,7 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
 
     public void needShowTopDiver(boolean z) {
         if (this.topDvider == null) {
-            this.topDvider = findViewById(a.g.topDvider);
+            this.topDvider = findViewById(a.f.topDvider);
         }
         if (!z) {
             this.topDvider.setVisibility(8);
@@ -137,7 +137,7 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
         layoutParams.height = dip2px;
         this.topDvider.setLayoutParams(layoutParams);
         this.topDvider.setVisibility(0);
-        SkinManager.setBackgroundColor(this.topDvider, a.d.sdk_cp_bg_line_b);
+        SkinManager.setBackgroundColor(this.topDvider, a.c.sdk_cp_bg_line_b);
         if (this.mTabWidgetView != null) {
             ((FrameLayout.LayoutParams) this.mTabWidgetView.getLayoutParams()).gravity = 80;
         }
@@ -145,7 +145,7 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
 
     public void setup(FragmentManager fragmentManager) {
         this.mFragmentManager = fragmentManager;
-        this.mTabWidgetView = (FragmentTabWidget) findViewById(a.g.tabcontainer);
+        this.mTabWidgetView = (FragmentTabWidget) findViewById(a.f.tabcontainer);
         this.mTabWidgetView.setTabSelectionListener(this);
     }
 
@@ -199,7 +199,7 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
             removeView(this.mViewPager);
         }
         this.mViewPager = new CustomViewPager(this.mContext);
-        this.mViewPager.setId(a.g.sdk_tab_content);
+        this.mViewPager.setId(a.f.sdk_tab_content);
         changeStyle(i);
         addView(this.mViewPager);
         removeView(this.tabWrapper);
@@ -215,7 +215,7 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
             removeView(this.mViewPager);
         }
         this.mViewPager = new CustomViewPager(this.mContext);
-        this.mViewPager.setId(a.g.sdk_tab_content);
+        this.mViewPager.setId(a.f.sdk_tab_content);
         addView(this.mViewPager);
         removeView(this.tabWrapper);
         addView(this.tabWrapper);
@@ -248,14 +248,14 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
                 layoutParams.bottomMargin = 0;
             } else if (i == 0) {
                 layoutParams2.addRule(10, -1);
-                layoutParams.addRule(3, a.g.tabcontainer_wrapper);
+                layoutParams.addRule(3, a.f.tabcontainer_wrapper);
                 layoutParams.bottomMargin = 0;
             } else if (i == 2) {
                 layoutParams2.addRule(12, -1);
                 layoutParams.addRule(10, -1);
-                layoutParams.bottomMargin = BdUtilHelper.getDimens(this.mContext, a.e.sdk_ds98);
+                layoutParams.bottomMargin = BdUtilHelper.getDimens(this.mContext, a.d.sdk_ds98);
             } else if (i == 3) {
-                layoutParams2.topMargin = UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(this.mContext, a.e.sdk_ds88);
+                layoutParams2.topMargin = UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(this.mContext, a.d.sdk_ds88);
             }
             this.mViewPager.setLayoutParams(layoutParams);
         }
@@ -393,11 +393,11 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
     }
 
     public void onChangeSkinType(int i) {
-        new BitmapDrawable(SkinManager.getBitmap565Quality(a.f.sdk_s_tabbar_bg));
-        SkinManager.setBackgroundColor(this.tabWrapper, a.d.sdk_cp_bg_line_d);
+        new BitmapDrawable(SkinManager.getBitmap565Quality(a.e.sdk_s_tabbar_bg));
+        SkinManager.setBackgroundColor(this.tabWrapper, a.c.sdk_cp_bg_line_d);
         this.mTabWidgetView.onChangeSkinType(i);
         if (this.topDvider != null) {
-            SkinManager.setBackgroundColor(this.topDvider, a.d.sdk_cp_bg_line_b);
+            SkinManager.setBackgroundColor(this.topDvider, a.c.sdk_cp_bg_line_b);
         }
         for (TabSpec tabSpec : this.mTabSpecs) {
             tabSpec.mIndicatorView.onChangeSkin(i);

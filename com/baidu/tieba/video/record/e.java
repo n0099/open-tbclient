@@ -4,7 +4,7 @@ public class e<T> {
     private String mName;
     private int mType;
     private T mValue;
-    private int nml;
+    private int nsi;
 
     public e() {
     }
@@ -13,7 +13,7 @@ public class e<T> {
         this.mType = i;
         this.mName = str;
         this.mValue = t;
-        this.nml = i2;
+        this.nsi = i2;
     }
 
     public String getName() {
@@ -24,12 +24,12 @@ public class e<T> {
         this.mName = str;
     }
 
-    public int dNM() {
-        return this.nml;
+    public int dQo() {
+        return this.nsi;
     }
 
-    public void KB(int i) {
-        this.nml = i;
+    public void KO(int i) {
+        this.nsi = i;
     }
 
     public T getValue() {

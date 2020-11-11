@@ -7,14 +7,14 @@ import com.xiaomi.mipush.sdk.Constants;
 public class ee extends ed {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f4871a;
+    private boolean f4873a;
     private boolean b;
     private boolean c;
     private boolean d;
 
     public ee(Context context, int i, boolean z, boolean z2, boolean z3, boolean z4) {
         super(context, i);
-        this.f4871a = z;
+        this.f4873a = z;
         this.b = z2;
         if (l.d()) {
             this.b = false;
@@ -28,7 +28,7 @@ public class ee extends ed {
     }
 
     private String b() {
-        if (this.f4871a) {
+        if (this.f4873a) {
             try {
                 String c = c();
                 return TextUtils.isEmpty(c) ? "" : bf.a(c) + Constants.ACCEPT_TIME_SEPARATOR_SP + bf.b(c);
@@ -66,6 +66,6 @@ public class ee extends ed {
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
     public String mo166a() {
-        return b() + "|" + d() + "|" + e() + "|" + a(this.f229a);
+        return b() + "|" + d() + "|" + e() + "|" + a(this.f231a);
     }
 }

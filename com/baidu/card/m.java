@@ -35,7 +35,7 @@ public class m extends b<AbsThreadDataSupport> {
     public void H(AbsThreadDataSupport absThreadDataSupport) {
         if (this.afS != null && absThreadDataSupport != null) {
             this.afI = absThreadDataSupport;
-            this.afS.setData(absThreadDataSupport.bhz());
+            this.afS.setData(absThreadDataSupport.bjZ());
         }
     }
 

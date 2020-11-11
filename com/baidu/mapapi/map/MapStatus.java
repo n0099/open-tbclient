@@ -12,7 +12,7 @@ public final class MapStatus implements Parcelable {
     public static final Parcelable.Creator<MapStatus> CREATOR = new o();
 
     /* renamed from: a  reason: collision with root package name */
-    com.baidu.mapsdkplatform.comapi.map.w f2020a;
+    com.baidu.mapsdkplatform.comapi.map.w f2022a;
     private double b;
     public final LatLngBounds bound;
     private double c;
@@ -27,7 +27,7 @@ public final class MapStatus implements Parcelable {
     public static final class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        private float f2021a;
+        private float f2023a;
         private LatLng b;
         private float c;
         private float d;
@@ -38,7 +38,7 @@ public final class MapStatus implements Parcelable {
         private final float i;
 
         public Builder() {
-            this.f2021a = -2.1474836E9f;
+            this.f2023a = -2.1474836E9f;
             this.b = null;
             this.c = -2.1474836E9f;
             this.d = -2.1474836E9f;
@@ -50,7 +50,7 @@ public final class MapStatus implements Parcelable {
         }
 
         public Builder(MapStatus mapStatus) {
-            this.f2021a = -2.1474836E9f;
+            this.f2023a = -2.1474836E9f;
             this.b = null;
             this.c = -2.1474836E9f;
             this.d = -2.1474836E9f;
@@ -59,7 +59,7 @@ public final class MapStatus implements Parcelable {
             this.g = 0.0d;
             this.h = 0.0d;
             this.i = 15.0f;
-            this.f2021a = mapStatus.rotate;
+            this.f2023a = mapStatus.rotate;
             this.b = mapStatus.target;
             this.c = mapStatus.overlook;
             this.d = mapStatus.zoom;
@@ -76,7 +76,7 @@ public final class MapStatus implements Parcelable {
         }
 
         public MapStatus build() {
-            return new MapStatus(this.f2021a, this.b, this.c, this.d, this.e, this.f);
+            return new MapStatus(this.f2023a, this.b, this.c, this.d, this.e, this.f);
         }
 
         public Builder overlook(float f) {
@@ -85,7 +85,7 @@ public final class MapStatus implements Parcelable {
         }
 
         public Builder rotate(float f) {
-            this.f2021a = f;
+            this.f2023a = f;
             return this;
         }
 
@@ -137,7 +137,7 @@ public final class MapStatus implements Parcelable {
         this.overlook = f2;
         this.zoom = f3;
         this.targetScreen = point;
-        this.f2020a = wVar;
+        this.f2022a = wVar;
         this.b = d;
         this.c = d2;
         this.bound = latLngBounds;
@@ -166,7 +166,7 @@ public final class MapStatus implements Parcelable {
         double d2 = wVar.d;
         LatLng mc2ll = CoordUtil.mc2ll(new GeoPoint(d, d2));
         float f2 = wVar.c;
-        float f3 = wVar.f2240a;
+        float f3 = wVar.f2242a;
         Point point = new Point(wVar.f, wVar.g);
         LatLng mc2ll2 = CoordUtil.mc2ll(new GeoPoint(wVar.k.e.getDoubleY(), wVar.k.e.getDoubleX()));
         LatLng mc2ll3 = CoordUtil.mc2ll(new GeoPoint(wVar.k.f.getDoubleY(), wVar.k.f.getDoubleX()));
@@ -199,7 +199,7 @@ public final class MapStatus implements Parcelable {
             wVar.b = (int) this.rotate;
         }
         if (this.zoom != -2.1474836E9f) {
-            wVar.f2240a = this.zoom;
+            wVar.f2242a = this.zoom;
         }
         if (this.overlook != -2.1474836E9f) {
             wVar.c = (int) this.overlook;

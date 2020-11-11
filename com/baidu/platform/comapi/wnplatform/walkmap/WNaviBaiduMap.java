@@ -15,7 +15,7 @@ public class WNaviBaiduMap {
     private static WNaviBaiduMap c;
 
     /* renamed from: a  reason: collision with root package name */
-    private NABaseMap f3154a = new NABaseMap();
+    private NABaseMap f3156a = new NABaseMap();
 
     public void setId(long j) {
         b = j;
@@ -120,6 +120,6 @@ public class WNaviBaiduMap {
         bundle.putInt("hasHW", 1);
         bundle.putInt("width", i);
         bundle.putInt("height", i2);
-        return this.f3154a.getZoomToBound(b, bundle, i, i2);
+        return this.f3156a.getZoomToBound(b, bundle, i, i2);
     }
 }

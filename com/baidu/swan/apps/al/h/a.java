@@ -26,19 +26,19 @@ public class a extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        com.baidu.swan.apps.adaptation.a.e auf = com.baidu.swan.apps.t.a.auf();
+        com.baidu.swan.apps.adaptation.a.e awF = com.baidu.swan.apps.t.a.awF();
         JSONObject jSONObject = new JSONObject();
         if (context == null) {
             try {
-                context = com.baidu.swan.apps.t.a.aua();
+                context = com.baidu.swan.apps.t.a.awA();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
-        jSONObject.put(DpStatConstants.KEY_USER_ID, auf == null ? "" : auf.bp(context));
-        jSONObject.put("zid", auf == null ? "" : com.baidu.swan.apps.t.a.auS().cg(context));
+        jSONObject.put(DpStatConstants.KEY_USER_ID, awF == null ? "" : awF.bp(context));
+        jSONObject.put("zid", awF == null ? "" : com.baidu.swan.apps.t.a.axs().cg(context));
         jSONObject.put("idfa", "");
-        jSONObject.put("imei", ak.aKz());
+        jSONObject.put("imei", ak.aMZ());
         jSONObject.put("appkey", eVar == null ? "" : eVar.getAppKey());
         jSONObject.put("os", "android");
         jSONObject.put("osVersion", Build.VERSION.RELEASE);
@@ -47,7 +47,7 @@ public class a extends aa {
         jSONObject.put("model", Build.MODEL);
         jSONObject.put("uuid", com.baidu.swan.uuid.b.dO(context).getUUID());
         jSONObject.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
-        jSONObject.put("cuid", auf == null ? "" : auf.bq(context));
+        jSONObject.put("cuid", awF == null ? "" : awF.bq(context));
         if (DEBUG) {
             Log.d("GetSystemRiskInfoAction", jSONObject.toString());
         }

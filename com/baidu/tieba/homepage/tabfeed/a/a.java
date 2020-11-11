@@ -25,17 +25,17 @@ public class a extends com.baidu.adp.widget.ListView.a<bj, am<bj>> implements co
     private v alD;
     private View.OnClickListener als;
     private PullLeftRefreshLayout.a alt;
-    public BdUniqueId fmX;
+    public BdUniqueId fsQ;
     private String mClassName;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cJi() {
+    public void cLJ() {
         this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumSquareActivityConfig(this.mPageContext.getPageActivity(), this.mClassName)));
         aq aqVar = new aq("c13757");
         aqVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
-        aqVar.boK();
+        aqVar.brk();
     }
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -43,13 +43,13 @@ public class a extends com.baidu.adp.widget.ListView.a<bj, am<bj>> implements co
         this.als = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.tabfeed.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.cJi();
+                a.this.cLJ();
             }
         };
         this.alt = new PullLeftRefreshLayout.a() { // from class: com.baidu.tieba.homepage.tabfeed.a.a.2
             @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.a
-            public void bCG() {
-                a.this.cJi();
+            public void bFf() {
+                a.this.cLJ();
             }
         };
         this.aiM = new com.baidu.tbadk.h.f<bi>() { // from class: com.baidu.tieba.homepage.tabfeed.a.a.3
@@ -57,7 +57,7 @@ public class a extends com.baidu.adp.widget.ListView.a<bj, am<bj>> implements co
             @Override // com.baidu.tbadk.h.f
             public void a(View view, bi biVar, int i, long j) {
                 if (biVar == null) {
-                    a.this.cJi();
+                    a.this.cLJ();
                     return;
                 }
                 String forumName = biVar.getForumName();
@@ -85,10 +85,10 @@ public class a extends com.baidu.adp.widget.ListView.a<bj, am<bj>> implements co
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aT */
+    /* renamed from: aV */
     public am c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
-        ae aeVar = new ae(this.mPageContext, this.fmX);
+        ae aeVar = new ae(this.mPageContext, this.fsQ);
         aeVar.setOnRullOkCallbackr(this.alt);
         aeVar.setOnClickRightArrowListener(this.als);
         aeVar.setOnItemCoverListener(this.aiM);
@@ -98,7 +98,7 @@ public class a extends com.baidu.adp.widget.ListView.a<bj, am<bj>> implements co
         aVar.tU().bA(0);
         aVar.tU().bv(0);
         am amVar = new am(aVar.a(true, viewGroup, this.alD));
-        amVar.setPageId(this.fmX);
+        amVar.setPageId(this.fsQ);
         return amVar;
     }
 
@@ -120,7 +120,7 @@ public class a extends com.baidu.adp.widget.ListView.a<bj, am<bj>> implements co
     }
 
     @Override // com.baidu.tieba.a.f
-    public void EL(String str) {
+    public void EZ(String str) {
         this.ahu = str;
     }
 

@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 /* loaded from: classes22.dex */
 public class ad extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.g, am<com.baidu.tieba.homepage.personalize.data.g>> {
-    public BdUniqueId fmX;
+    public BdUniqueId fsQ;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -24,7 +24,7 @@ public class ad extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aT */
+    /* renamed from: aV */
     public am<com.baidu.tieba.homepage.personalize.data.g> c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
         com.baidu.tieba.homepage.personalize.view.d dVar = new com.baidu.tieba.homepage.personalize.view.d(this.mPageContext.getPageActivity(), this.mPageContext);
@@ -38,7 +38,7 @@ public class ad extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage
         ak tV = aVar.tV();
         tV.setSourceForPb(2);
         am<com.baidu.tieba.homepage.personalize.data.g> amVar = new am<>(tV);
-        amVar.setPageId(this.fmX);
+        amVar.setPageId(this.fsQ);
         return amVar;
     }
 
@@ -49,7 +49,7 @@ public class ad extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage
         if (gVar == null || amVar == null || amVar.getView() == null) {
             return null;
         }
-        TiebaStatic.log(new aq("c13742").aj("obj_source", 3).aj("obj_type", 1));
+        TiebaStatic.log(new aq("c13742").al("obj_source", 3).al("obj_type", 1));
         amVar.b((am<com.baidu.tieba.homepage.personalize.data.g>) gVar);
         amVar.tW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return amVar.getView();

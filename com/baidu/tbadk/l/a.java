@@ -3,9 +3,9 @@ package com.baidu.tbadk.l;
 import com.baidu.tbadk.core.BaseFragment;
 /* loaded from: classes.dex */
 public class a {
-    private BaseFragment foC;
+    private BaseFragment fux;
 
     public a(BaseFragment baseFragment) {
-        this.foC = baseFragment;
+        this.fux = baseFragment;
     }
 }

@@ -27,7 +27,7 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
     public void s(boolean z, int i) {
         if (z) {
             b bVar = new b();
-            bVar.qa(R.color.cp_cont_d);
+            bVar.qk(R.color.cp_cont_d);
             setConfig(bVar);
             setClickable(true);
             if (i == 1) {
@@ -37,7 +37,7 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
             }
         } else {
             b bVar2 = new b();
-            bVar2.pY(R.color.cp_link_tip_a);
+            bVar2.qi(R.color.cp_link_tip_a);
             setConfig(bVar2);
             setClickable(true);
             setText(TbadkCoreApplication.getInst().getString(R.string.attention));

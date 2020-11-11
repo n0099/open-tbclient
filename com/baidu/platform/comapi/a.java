@@ -8,16 +8,16 @@ import com.baidu.platform.comjni.engine.NAEngine;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    static boolean f2817a = false;
+    static boolean f2819a = false;
     private NAEngine b;
 
     public boolean a() {
-        f2817a = false;
+        f2819a = false;
         return true;
     }
 
     public boolean a(Context context) {
-        f2817a = false;
+        f2819a = false;
         this.b = new NAEngine();
         boolean a2 = NAEngine.a(context, (String) null);
         if (a2) {
@@ -28,7 +28,7 @@ public class a {
     }
 
     public void b() {
-        if (f2817a) {
+        if (f2819a) {
             a();
         }
         MessageProxy.destroy();

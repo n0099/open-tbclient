@@ -15,7 +15,7 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 /* loaded from: classes4.dex */
 public class AlaStickerDragContentView extends RelativeLayout {
     private int borderWidth;
-    private int fYw;
+    private int gen;
 
     public AlaStickerDragContentView(Context context) {
         super(context);
@@ -31,7 +31,7 @@ public class AlaStickerDragContentView extends RelativeLayout {
 
     public void bB(int i, int i2) {
         this.borderWidth = i;
-        this.fYw = i2;
+        this.gen = i2;
     }
 
     public DragTextView a(int i, Bitmap bitmap, int i2, e eVar, AlaLiveStickerInfo alaLiveStickerInfo) {
@@ -51,17 +51,17 @@ public class AlaStickerDragContentView extends RelativeLayout {
             dragTextView.setBackground(new BitmapDrawable(createScaledBitmap));
         }
         dragTextView.setType(i);
-        dragTextView.setParentBorder(0, 0, this.borderWidth, this.fYw);
+        dragTextView.setParentBorder(0, 0, this.borderWidth, this.gen);
         dragTextView.setOnDragViewEventListener(eVar);
         dragTextView.setTextColor(getContext().getResources().getColor(i2));
         if (i == 1) {
             dragTextView.setCanEdit(false);
         } else {
-            dragTextView.setTextSize(0, getResources().getDimensionPixelSize(a.e.sdk_ds26));
+            dragTextView.setTextSize(0, getResources().getDimensionPixelSize(a.d.sdk_ds26));
             dragTextView.setCanEdit(true);
             dragTextView.setGravity(17);
             dragTextView.setSingleLine();
-            String string = getContext().getResources().getString(a.i.ala_live_striker_text);
+            String string = getContext().getResources().getString(a.h.ala_live_striker_text);
             dragTextView.setText(string);
             alaLiveStickerInfo.text = string;
         }
@@ -70,12 +70,12 @@ public class AlaStickerDragContentView extends RelativeLayout {
         } else {
             layoutParams = new RelativeLayout.LayoutParams(dip2px3 * 2, dip2px4 * 2);
         }
-        int childCount = (getChildCount() * getResources().getDimensionPixelOffset(a.e.sdk_ds40)) + ((int) (this.borderWidth * 0.2f));
-        int dimensionPixelOffset = getResources().getDimensionPixelOffset(a.e.sdk_ds266);
+        int childCount = (getChildCount() * getResources().getDimensionPixelOffset(a.d.sdk_ds40)) + ((int) (this.borderWidth * 0.2f));
+        int dimensionPixelOffset = getResources().getDimensionPixelOffset(a.d.sdk_ds266);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
             dimensionPixelOffset += UtilHelper.getImmersiveStickyBarHeight();
         }
-        int childCount2 = (getChildCount() * getResources().getDimensionPixelOffset(a.e.sdk_ds80)) + dimensionPixelOffset;
+        int childCount2 = (getChildCount() * getResources().getDimensionPixelOffset(a.d.sdk_ds80)) + dimensionPixelOffset;
         int width = ((View) getParent()).getWidth();
         int height = ((View) getParent()).getHeight();
         if (i == 1) {
@@ -111,17 +111,17 @@ public class AlaStickerDragContentView extends RelativeLayout {
             dragTextView.setBackground(new BitmapDrawable(createScaledBitmap));
         }
         dragTextView.setType(i);
-        dragTextView.setParentBorder(0, 0, this.borderWidth, this.fYw);
+        dragTextView.setParentBorder(0, 0, this.borderWidth, this.gen);
         dragTextView.setOnDragViewEventListener(eVar);
         dragTextView.setTextColor(getContext().getResources().getColor(i2));
         if (i == 1) {
             dragTextView.setCanEdit(false);
         } else {
-            dragTextView.setTextSize(0, getResources().getDimensionPixelSize(a.e.sdk_ds26));
+            dragTextView.setTextSize(0, getResources().getDimensionPixelSize(a.d.sdk_ds26));
             dragTextView.setCanEdit(true);
             dragTextView.setGravity(17);
             dragTextView.setSingleLine();
-            String string = getContext().getResources().getString(a.i.ala_live_striker_text);
+            String string = getContext().getResources().getString(a.h.ala_live_striker_text);
             dragTextView.setText(string);
             alaLiveStickerInfo.text = string;
         }
@@ -145,7 +145,7 @@ public class AlaStickerDragContentView extends RelativeLayout {
         addView(dragTextView, layoutParams);
     }
 
-    public void bO(View view) {
+    public void bS(View view) {
         if (view.getParent() != null) {
             view.setVisibility(8);
             ((ViewGroup) view.getParent()).removeView(view);

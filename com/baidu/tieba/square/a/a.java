@@ -18,12 +18,12 @@ import java.util.List;
 public class a extends RecyclerView.Adapter<b> {
     private Context mContext;
     private List<String> mDataList;
-    private InterfaceC0831a mJQ = null;
-    private int mJR = 0;
+    private InterfaceC0846a mPN = null;
+    private int mPO = 0;
 
     /* renamed from: com.baidu.tieba.square.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes22.dex */
-    public interface InterfaceC0831a {
+    public interface InterfaceC0846a {
         void a(View view, int i, String str);
     }
 
@@ -45,29 +45,29 @@ public class a extends RecyclerView.Adapter<b> {
     public void onBindViewHolder(@NonNull final b bVar, final int i) {
         final String str = this.mDataList.get(i);
         bVar.itemView.setTag(Integer.valueOf(i));
-        bVar.mJU.setText(str);
-        if (this.mJR == i) {
-            bVar.mJV.setVisibility(0);
-            ap.setBackgroundColor(bVar.mJV, R.color.cp_link_tip_e);
+        bVar.mPR.setText(str);
+        if (this.mPO == i) {
+            bVar.mPS.setVisibility(0);
+            ap.setBackgroundColor(bVar.mPS, R.color.cp_link_tip_e);
             ap.setBackgroundColor(bVar.itemView, R.color.cp_bg_line_e);
-            ap.setViewTextColor(bVar.mJU, R.color.cp_cont_b);
+            ap.setViewTextColor(bVar.mPR, (int) R.color.cp_cont_b);
         } else {
-            bVar.mJV.setVisibility(8);
+            bVar.mPS.setVisibility(8);
             ap.setBackgroundColor(bVar.itemView, R.color.cp_bg_line_c);
-            ap.setViewTextColor(bVar.mJU, R.color.cp_cont_j);
+            ap.setViewTextColor(bVar.mPR, (int) R.color.cp_cont_j);
         }
-        if ("推荐".equals(dFI())) {
+        if ("推荐".equals(dIk())) {
             aq aqVar = new aq("c13641");
             aqVar.w("uid", TbadkApplication.getCurrentAccountId());
-            aqVar.aj("obj_locate", 3);
+            aqVar.al("obj_locate", 3);
             TiebaStatic.log(aqVar);
         }
         bVar.itemView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.uE(i);
-                if (a.this.mJQ != null) {
-                    a.this.mJQ.a(bVar.itemView, i, str);
+                a.this.uO(i);
+                if (a.this.mPN != null) {
+                    a.this.mPN.a(bVar.itemView, i, str);
                 }
                 aq aqVar2 = new aq("c13649");
                 aqVar2.dR("resource_id", str);
@@ -84,42 +84,42 @@ public class a extends RecyclerView.Adapter<b> {
         return this.mDataList.size();
     }
 
-    public void b(InterfaceC0831a interfaceC0831a) {
-        this.mJQ = interfaceC0831a;
+    public void b(InterfaceC0846a interfaceC0846a) {
+        this.mPN = interfaceC0846a;
     }
 
     public void p(int i, List<String> list) {
-        this.mJR = i;
+        this.mPO = i;
         this.mDataList = list;
         notifyDataSetChanged();
     }
 
-    public void uE(int i) {
-        this.mJR = i;
+    public void uO(int i) {
+        this.mPO = i;
         notifyDataSetChanged();
     }
 
-    public String dFI() {
-        return Ja(this.mJR);
+    public String dIk() {
+        return Jn(this.mPO);
     }
 
-    public String Ja(int i) {
+    public String Jn(int i) {
         return (String) y.getItem(this.mDataList, i);
     }
 
-    public int Se(String str) {
+    public int Sv(String str) {
         return y.getPosition(this.mDataList, str);
     }
 
     /* loaded from: classes22.dex */
     public class b extends RecyclerView.ViewHolder {
-        private TextView mJU;
-        private View mJV;
+        private TextView mPR;
+        private View mPS;
 
         public b(@NonNull View view) {
             super(view);
-            this.mJU = (TextView) view.findViewById(R.id.tv_class_name);
-            this.mJV = view.findViewById(R.id.tv_line);
+            this.mPR = (TextView) view.findViewById(R.id.tv_class_name);
+            this.mPS = view.findViewById(R.id.tv_line);
         }
     }
 }

@@ -13,15 +13,15 @@ import okio.ByteString;
 public final class AudioEntity extends Message<AudioEntity, Builder> {
     public static final String DEFAULT_AUDIOKEY = "";
     private static final long serialVersionUID = 0;
-    @WireField(euD = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
+    @WireField(eys = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
     public final String audioKey;
-    @WireField(euD = "com.squareup.wire.ProtoAdapter#INT32", tag = 3)
+    @WireField(eys = "com.squareup.wire.ProtoAdapter#INT32", tag = 3)
     public final Integer endFrame;
-    @WireField(euD = "com.squareup.wire.ProtoAdapter#INT32", tag = 2)
+    @WireField(eys = "com.squareup.wire.ProtoAdapter#INT32", tag = 2)
     public final Integer startFrame;
-    @WireField(euD = "com.squareup.wire.ProtoAdapter#INT32", tag = 4)
+    @WireField(eys = "com.squareup.wire.ProtoAdapter#INT32", tag = 4)
     public final Integer startTime;
-    @WireField(euD = "com.squareup.wire.ProtoAdapter#INT32", tag = 5)
+    @WireField(eys = "com.squareup.wire.ProtoAdapter#INT32", tag = 5)
     public final Integer totalTime;
     public static final ProtoAdapter<AudioEntity> ADAPTER = new ProtoAdapter_AudioEntity();
     public static final Integer DEFAULT_STARTFRAME = 0;
@@ -178,11 +178,11 @@ public final class AudioEntity extends Message<AudioEntity, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public AudioEntity decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long euv = cVar.euv();
+            long eyk = cVar.eyk();
             while (true) {
-                int euw = cVar.euw();
-                if (euw != -1) {
-                    switch (euw) {
+                int eyl = cVar.eyl();
+                if (eyl != -1) {
+                    switch (eyl) {
                         case 1:
                             builder.audioKey(ProtoAdapter.STRING.decode(cVar));
                             break;
@@ -199,12 +199,12 @@ public final class AudioEntity extends Message<AudioEntity, Builder> {
                             builder.totalTime(ProtoAdapter.INT32.decode(cVar));
                             break;
                         default:
-                            FieldEncoding eux = cVar.eux();
-                            builder.addUnknownField(euw, eux, eux.rawProtoAdapter().decode(cVar));
+                            FieldEncoding eym = cVar.eym();
+                            builder.addUnknownField(eyl, eym, eym.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.hF(euv);
+                    cVar.ib(eyk);
                     return builder.build();
                 }
             }

@@ -37,7 +37,7 @@ public final class InnerQueuedObserver<T> extends AtomicReference<io.reactivex.d
                     return;
                 }
             }
-            this.queue = i.QU(-this.prefetch);
+            this.queue = i.Rp(-this.prefetch);
         }
     }
 

@@ -7,17 +7,17 @@ import com.baidu.prologue.b;
 import com.baidu.prologue.image.PrologueImageView;
 /* loaded from: classes19.dex */
 public class c extends b<com.baidu.prologue.business.b.b> {
-    protected PrologueImageView ccO;
-    View ccP;
-    String ccQ;
+    protected PrologueImageView ciA;
+    View ciB;
+    String ciC;
     protected Bitmap mBitmap;
 
     public c(Context context) {
         super(context);
-        this.ccO = null;
+        this.ciA = null;
         this.mBitmap = null;
-        this.ccP = null;
-        this.ccQ = "";
+        this.ciB = null;
+        this.ciC = "";
     }
 
     @Override // com.baidu.prologue.business.c.a
@@ -26,23 +26,23 @@ public class c extends b<com.baidu.prologue.business.b.b> {
     }
 
     @Override // com.baidu.prologue.business.c.a
-    public void Vr() {
-        this.ccO = (PrologueImageView) this.mRootView.findViewById(b.C0306b.splash_ad_image);
-        this.ccP = this.mRootView.findViewById(b.C0306b.image_splash_clickable);
-        if (this.ccL) {
-            com.baidu.prologue.image.d.aas().a(this.ccQ, this.ccO);
+    public void XQ() {
+        this.ciA = (PrologueImageView) this.mRootView.findViewById(b.C0318b.splash_ad_image);
+        this.ciB = this.mRootView.findViewById(b.C0318b.image_splash_clickable);
+        if (this.cix) {
+            com.baidu.prologue.image.d.acR().a(this.ciC, this.ciA);
         } else {
-            this.ccO.setImageBitmap(this.mBitmap);
+            this.ciA.setImageBitmap(this.mBitmap);
         }
     }
 
     @Override // com.baidu.prologue.business.c.a
-    public View aae() {
-        return this.ccP;
+    public View acD() {
+        return this.ciB;
     }
 
     public void setImageUrl(String str) {
-        this.ccQ = str;
+        this.ciC = str;
     }
 
     public c g(Bitmap bitmap) {

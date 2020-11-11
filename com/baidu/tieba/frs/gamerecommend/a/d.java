@@ -18,15 +18,15 @@ import com.baidu.tieba.card.CardFrsGameCompetitionLayout;
 import com.baidu.tieba.frs.k;
 /* loaded from: classes22.dex */
 public class d extends k<com.baidu.tieba.e.c, a> {
-    private com.baidu.adp.lib.d.b<CardFrsGameCompetitionItemView> iME;
+    private com.baidu.adp.lib.d.b<CardFrsGameCompetitionItemView> iSB;
     private String mForumId;
 
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.iME = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<CardFrsGameCompetitionItemView>() { // from class: com.baidu.tieba.frs.gamerecommend.a.d.1
+        this.iSB = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<CardFrsGameCompetitionItemView>() { // from class: com.baidu.tieba.frs.gamerecommend.a.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cAo */
+            /* renamed from: cCP */
             public CardFrsGameCompetitionItemView makeObject() {
                 CardFrsGameCompetitionItemView cardFrsGameCompetitionItemView = new CardFrsGameCompetitionItemView(d.this.mContext);
                 cardFrsGameCompetitionItemView.setForumId(d.this.mForumId);
@@ -59,10 +59,10 @@ public class d extends k<com.baidu.tieba.e.c, a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bu */
+    /* renamed from: bw */
     public a c(ViewGroup viewGroup) {
         a aVar = new a(LayoutInflater.from(this.mContext).inflate(R.layout.card_frs_game_competition_layout, viewGroup, false));
-        aVar.iRD.setViewPool(this.iME);
+        aVar.iXA.setViewPool(this.iSB);
         return aVar;
     }
 
@@ -70,39 +70,39 @@ public class d extends k<com.baidu.tieba.e.c, a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.e.c cVar, a aVar) {
-        if (cVar != null && cVar.cnj() != null) {
+        if (cVar != null && cVar.cpK() != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            aVar.iRB.setText(cVar.cnj().title);
-            aVar.iRB.setTextColor(ap.getColor(skinType, R.color.cp_cont_b));
-            aVar.iRD.setPageContext(this.mPageContext);
-            aVar.iRD.setData(cVar.cnj().sub_nodes);
-            aVar.iRC.setMaxOverScrollDistance(aVar.iRD.getChildItemWidth());
-            aVar.iRA.setBackgroundColor(ap.getColor(skinType, R.color.cp_bg_line_d));
-            ap.setBackgroundResource(aVar.iRE, R.color.cp_bg_line_e);
-            ap.setBackgroundResource(aVar.ius, R.color.cp_bg_line_e);
+            aVar.iXy.setText(cVar.cpK().title);
+            aVar.iXy.setTextColor(ap.getColor(skinType, R.color.cp_cont_b));
+            aVar.iXA.setPageContext(this.mPageContext);
+            aVar.iXA.setData(cVar.cpK().sub_nodes);
+            aVar.iXz.setMaxOverScrollDistance(aVar.iXA.getChildItemWidth());
+            aVar.iXx.setBackgroundColor(ap.getColor(skinType, R.color.cp_bg_line_d));
+            ap.setBackgroundResource(aVar.iXB, R.color.cp_bg_line_e);
+            ap.setBackgroundResource(aVar.iAp, R.color.cp_bg_line_e);
         }
         return aVar.getView();
     }
 
     /* loaded from: classes22.dex */
     public class a extends af.a {
-        private LinearLayout iRA;
-        private TextView iRB;
-        private FlexibleHorizontalScrollView iRC;
-        private CardFrsGameCompetitionLayout iRD;
-        private View iRE;
-        private View ius;
+        private View iAp;
+        private CardFrsGameCompetitionLayout iXA;
+        private View iXB;
+        private LinearLayout iXx;
+        private TextView iXy;
+        private FlexibleHorizontalScrollView iXz;
 
         public a(View view) {
             super(view);
-            this.iRA = (LinearLayout) view.findViewById(R.id.card_game_competition_content);
-            this.iRB = (TextView) view.findViewById(R.id.game_competition_title);
-            this.iRC = (FlexibleHorizontalScrollView) view.findViewById(R.id.game_competition_scroll_container);
-            this.iRD = (CardFrsGameCompetitionLayout) view.findViewById(R.id.game_competition_container);
-            this.iRD.setItemSpace(l.getDimens(view.getContext(), R.dimen.tbds20));
-            this.iRD.setItemWidth(((l.getDimens(view.getContext(), R.dimen.tbds170) * 2) * 21) / 9);
-            this.iRE = view.findViewById(R.id.divider_line_1);
-            this.ius = view.findViewById(R.id.divider_line_2);
+            this.iXx = (LinearLayout) view.findViewById(R.id.card_game_competition_content);
+            this.iXy = (TextView) view.findViewById(R.id.game_competition_title);
+            this.iXz = (FlexibleHorizontalScrollView) view.findViewById(R.id.game_competition_scroll_container);
+            this.iXA = (CardFrsGameCompetitionLayout) view.findViewById(R.id.game_competition_container);
+            this.iXA.setItemSpace(l.getDimens(view.getContext(), R.dimen.tbds20));
+            this.iXA.setItemWidth(((l.getDimens(view.getContext(), R.dimen.tbds170) * 2) * 21) / 9);
+            this.iXB = view.findViewById(R.id.divider_line_1);
+            this.iAp = view.findViewById(R.id.divider_line_2);
         }
     }
 }

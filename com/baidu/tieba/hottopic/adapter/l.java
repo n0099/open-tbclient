@@ -19,33 +19,33 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes21.dex */
 public class l extends BaseAdapter {
-    private String eLl;
-    private RelateTopicForumActivity jHM;
+    private String eRa;
+    private RelateTopicForumActivity jNK;
     private ArrayList<RelateForumItemData> dataList = new ArrayList<>();
-    private View.OnClickListener jHN = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.l.1
+    private View.OnClickListener jNL = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.l.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             int intValue;
-            if (l.this.jHM != null && l.this.jHM.checkUpIsLogin() && view.getId() == R.id.forum_add_love && (intValue = ((Integer) view.getTag()).intValue()) >= 0) {
+            if (l.this.jNK != null && l.this.jNK.checkUpIsLogin() && view.getId() == R.id.forum_add_love && (intValue = ((Integer) view.getTag()).intValue()) >= 0) {
                 RelateForumItemData relateForumItemData = (RelateForumItemData) l.this.dataList.get(intValue);
                 if (relateForumItemData.forumId != 0) {
-                    TiebaStatic.log(new aq("c10371").dR("fid", String.valueOf(relateForumItemData.forumId)).aj("obj_type", com.baidu.tieba.hottopic.data.k.jJY).dR("topic_id", l.this.eLl));
+                    TiebaStatic.log(new aq("c10371").dR("fid", String.valueOf(relateForumItemData.forumId)).al("obj_type", com.baidu.tieba.hottopic.data.k.jPW).dR("topic_id", l.this.eRa));
                 }
                 if (at.isForumName(relateForumItemData.forumName)) {
-                    l.this.jHM.jrr.gp(relateForumItemData.forumName, String.valueOf(relateForumItemData.forumId));
+                    l.this.jNK.jxo.gp(relateForumItemData.forumName, String.valueOf(relateForumItemData.forumId));
                 }
             }
         }
     };
 
     public l(RelateTopicForumActivity relateTopicForumActivity) {
-        this.jHM = relateTopicForumActivity;
+        this.jNK = relateTopicForumActivity;
     }
 
     public void c(List<RelateForumItemData> list, String str) {
         this.dataList.clear();
         this.dataList.addAll(list);
-        this.eLl = str;
+        this.eRa = str;
         notifyDataSetChanged();
     }
 
@@ -68,39 +68,39 @@ public class l extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         com.baidu.tieba.hottopic.a.f fVar;
         if (view == null) {
-            view = LayoutInflater.from(this.jHM.getPageContext().getContext()).inflate(R.layout.hot_topic_list_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.jNK.getPageContext().getContext()).inflate(R.layout.hot_topic_list_item, (ViewGroup) null);
             com.baidu.tieba.hottopic.a.f fVar2 = new com.baidu.tieba.hottopic.a.f(view);
             view.setTag(fVar2);
-            fVar2.jLb.setOnClickListener(this.jHN);
+            fVar2.jQY.setOnClickListener(this.jNL);
             fVar = fVar2;
         } else {
             fVar = (com.baidu.tieba.hottopic.a.f) view.getTag();
         }
-        fVar.jLb.setTag(Integer.valueOf(i));
+        fVar.jQY.setTag(Integer.valueOf(i));
         if (this.dataList != null && this.dataList.get(i) != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (fVar.ajq != skinType) {
-                ap.setViewTextColor(fVar.jKX, R.color.cp_cont_b, 1);
-                ap.setViewTextColor(fVar.jih, R.color.cp_cont_c, 1);
-                ap.setViewTextColor(fVar.jii, R.color.cp_cont_c, 1);
-                ap.setViewTextColor(fVar.jKY, R.color.cp_cont_c, 1);
-                ap.setViewTextColor(fVar.jKZ, R.color.cp_cont_c, 1);
-                ap.setViewTextColor(fVar.jLa, R.color.cp_cont_d, 1);
-                ap.setBackgroundResource(fVar.hzG, R.color.cp_bg_line_c);
-                ap.setBackgroundResource(fVar.jLb, R.drawable.btn_appdownload);
+                ap.setViewTextColor(fVar.jQV, R.color.cp_cont_b, 1);
+                ap.setViewTextColor(fVar.jof, R.color.cp_cont_c, 1);
+                ap.setViewTextColor(fVar.jog, R.color.cp_cont_c, 1);
+                ap.setViewTextColor(fVar.jQW, R.color.cp_cont_c, 1);
+                ap.setViewTextColor(fVar.jQX, R.color.cp_cont_c, 1);
+                ap.setViewTextColor(fVar.gSc, R.color.cp_cont_d, 1);
+                ap.setBackgroundResource(fVar.hFD, R.color.cp_bg_line_c);
+                ap.setBackgroundResource(fVar.jQY, R.drawable.btn_appdownload);
                 ap.setBackgroundResource(view, R.drawable.list_item_selector);
                 fVar.ajq = skinType;
             }
-            fVar.jKX.setText(this.dataList.get(i).forumName);
+            fVar.jQV.setText(this.dataList.get(i).forumName);
             if (!StringUtils.isNULL(this.dataList.get(i).forumAvatar)) {
-                fVar.jKW.startLoad(this.dataList.get(i).forumAvatar, 10, false);
+                fVar.jQU.startLoad(this.dataList.get(i).forumAvatar, 10, false);
             }
-            fVar.jih.setText(at.numberUniformFormat(this.dataList.get(i).postNum));
-            fVar.jii.setText(at.numberUniformFormat(this.dataList.get(i).followNum));
-            fVar.jLa.setText(at.forceLToR(this.dataList.get(i).forumAbstract));
-            d(fVar.jLb, this.dataList.get(i).isLiked);
+            fVar.jof.setText(at.numberUniformFormat(this.dataList.get(i).postNum));
+            fVar.jog.setText(at.numberUniformFormat(this.dataList.get(i).followNum));
+            fVar.gSc.setText(at.forceLToR(this.dataList.get(i).forumAbstract));
+            d(fVar.jQY, this.dataList.get(i).isLiked);
             if (i == this.dataList.size() - 1) {
-                cJ(fVar.hzG);
+                cO(fVar.hFD);
             }
         }
         return view;
@@ -120,7 +120,7 @@ public class l extends BaseAdapter {
         textView.setEnabled(true);
     }
 
-    public void cJ(View view) {
+    public void cO(View view) {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view.getLayoutParams();
         layoutParams.leftMargin = 0;
         layoutParams.rightMargin = 0;

@@ -98,8 +98,8 @@ public final class c extends com.baidu.swan.apps.core.pms.b.a implements com.bai
         }
         if (com.baidu.swan.apps.process.b.c.co(str, "pms_http_with_ipc")) {
             String string = aVar.getString("pms_http_with_ipc_key_url");
-            Map<String, String> p = p(aVar.pp("pms_http_with_ipc_key_url_param_map"));
-            Map<String, String> p2 = p(aVar.pp("pms_http_with_ipc_key_header_param_map"));
+            Map<String, String> p = p(aVar.pD("pms_http_with_ipc_key_url_param_map"));
+            Map<String, String> p2 = p(aVar.pD("pms_http_with_ipc_key_header_param_map"));
             String string2 = aVar.getString("pms_http_with_ipc_keyjson_body");
             try {
                 jSONObject = TextUtils.isEmpty(string2) ? null : new JSONObject(string2);
@@ -118,7 +118,7 @@ public final class c extends com.baidu.swan.apps.core.pms.b.a implements com.bai
 
                     @Override // com.baidu.swan.pms.c.f.a
                     public void onSuccess(String str2, int i) {
-                        c.this.a(str, "pms_http_with_ipc_action_success", new c.a().bV("pms_http_with_ipc_key_response", str2).P("pms_http_with_ipc_key_status_code", i));
+                        c.this.a(str, "pms_http_with_ipc_action_success", new c.a().bV("pms_http_with_ipc_key_response", str2).R("pms_http_with_ipc_key_status_code", i));
                     }
 
                     @Override // com.baidu.swan.pms.c.f.a
@@ -159,14 +159,14 @@ public final class c extends com.baidu.swan.apps.core.pms.b.a implements com.bai
                         }
                         return;
                     }
-                    com.baidu.swan.apps.process.b.b bV = com.baidu.swan.apps.process.b.c.rh(str).bV("pms_http_with_ipc_key_action", str2);
+                    com.baidu.swan.apps.process.b.b bV = com.baidu.swan.apps.process.b.c.rv(str).bV("pms_http_with_ipc_key_action", str2);
                     if (aVar != null) {
                         bV.H(aVar.toBundle());
                     }
                     if (c.DEBUG) {
                         c.this.E("callbackIpcSession", "ipcSession= " + bV);
                     }
-                    bV.aCA();
+                    bV.aFa();
                 }
             });
         }

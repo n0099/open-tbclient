@@ -9,33 +9,33 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class d {
-    private LinearLayout gLR;
-    private TextView gLS;
+    private LinearLayout gRD;
+    private TextView gRE;
     protected Context mContext;
     private View mRootView;
 
     public d(Context context) {
         this.mContext = context;
-        ah(bSY());
+        al(bVx());
     }
 
-    public View bSY() {
+    public View bVx() {
         if (this.mRootView == null) {
-            this.mRootView = LayoutInflater.from(this.mContext).inflate(a.h.sdk_prc_person_center_guardian_header, (ViewGroup) null);
+            this.mRootView = LayoutInflater.from(this.mContext).inflate(a.g.sdk_prc_person_center_guardian_header, (ViewGroup) null);
         }
         return this.mRootView;
     }
 
-    private void ah(View view) {
-        this.gLR = (LinearLayout) view.findViewById(a.g.ala_guardian_header_root);
-        this.gLS = (TextView) view.findViewById(a.g.ala_guardian_header_title);
+    private void al(View view) {
+        this.gRD = (LinearLayout) view.findViewById(a.f.ala_guardian_header_root);
+        this.gRE = (TextView) view.findViewById(a.f.ala_guardian_header_title);
     }
 
-    public void Hq(String str) {
-        this.gLS.setText(str);
+    public void HD(String str) {
+        this.gRE.setText(str);
     }
 
     public void a(AlaGuardianListActivity alaGuardianListActivity, int i) {
-        alaGuardianListActivity.getLayoutMode().onModeChanged(this.gLR);
+        alaGuardianListActivity.getLayoutMode().onModeChanged(this.gRD);
     }
 }

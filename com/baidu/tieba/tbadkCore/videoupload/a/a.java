@@ -9,9 +9,9 @@ import org.json.JSONObject;
 public class a {
     public String mErrorMessage;
     public int mErrorNo;
-    public ArrayList<Integer> mUj;
-    public String mUl;
     public String mVideoUrl;
+    public ArrayList<Integer> nah;
+    public String nai;
 
     public void parseJson(String str) {
         if (!StringUtils.isNull(str)) {
@@ -21,12 +21,12 @@ public class a {
                     JSONArray optJSONArray = optJSONObject.optJSONArray("chunk_nolist");
                     if (optJSONArray != null) {
                         int length = optJSONArray.length();
-                        this.mUj = new ArrayList<>();
+                        this.nah = new ArrayList<>();
                         for (int i = 0; i < length; i++) {
-                            this.mUj.add(Integer.valueOf(optJSONArray.getInt(i)));
+                            this.nah.add(Integer.valueOf(optJSONArray.getInt(i)));
                         }
                     }
-                    this.mUl = optJSONObject.optString("upload_id");
+                    this.nai = optJSONObject.optString("upload_id");
                     this.mVideoUrl = optJSONObject.optString("video_url");
                 }
             } catch (JSONException e) {

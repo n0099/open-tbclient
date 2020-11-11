@@ -54,40 +54,40 @@ public class MessageRedDotView extends FrameLayout {
     }
 
     private void initView() {
-        LayoutInflater.from(getContext()).inflate(a.h.sdk_message_red_dot_view, (ViewGroup) this, true);
-        this.mRedDot = (ImageView) findViewById(a.g.red_dot);
-        this.mOneNumRedDot = (TextView) findViewById(a.g.one_num_red_dot);
-        this.mTwoNumRedDot = (TextView) findViewById(a.g.two_num_red_dot);
-        this.mThreeNumRedDot = (TextView) findViewById(a.g.three_num_red_dot);
-        this.mMoreRedDot = (RelativeLayout) findViewById(a.g.more_num_red_dot);
-        this.mMoreRedDotBg = (ImageView) findViewById(a.g.more_num_red_dot_bg);
-        this.mMoreWhiteDotCenter = (ImageView) findViewById(a.g.more_num_white_dot_center);
-        this.mMoreWhiteDotLeft = (ImageView) findViewById(a.g.more_num_white_dot_left);
-        this.mMoreWhiteDotRight = (ImageView) findViewById(a.g.more_num_white_dot_right);
+        LayoutInflater.from(getContext()).inflate(a.g.sdk_message_red_dot_view, (ViewGroup) this, true);
+        this.mRedDot = (ImageView) findViewById(a.f.red_dot);
+        this.mOneNumRedDot = (TextView) findViewById(a.f.one_num_red_dot);
+        this.mTwoNumRedDot = (TextView) findViewById(a.f.two_num_red_dot);
+        this.mThreeNumRedDot = (TextView) findViewById(a.f.three_num_red_dot);
+        this.mMoreRedDot = (RelativeLayout) findViewById(a.f.more_num_red_dot);
+        this.mMoreRedDotBg = (ImageView) findViewById(a.f.more_num_red_dot_bg);
+        this.mMoreWhiteDotCenter = (ImageView) findViewById(a.f.more_num_white_dot_center);
+        this.mMoreWhiteDotLeft = (ImageView) findViewById(a.f.more_num_white_dot_left);
+        this.mMoreWhiteDotRight = (ImageView) findViewById(a.f.more_num_white_dot_right);
         onChangeSkinType();
     }
 
     public final void onChangeSkinType() {
         if (this.mRedDot != null) {
-            SkinManager.setImageResource(this.mRedDot, a.f.sdk_icon_news_red_dot);
+            SkinManager.setImageResource(this.mRedDot, a.e.sdk_icon_news_red_dot);
         }
         if (this.mOneNumRedDot != null) {
-            SkinManager.setViewTextColor(this.mOneNumRedDot, a.d.sdk_cp_cont_i, 1);
-            SkinManager.setBackgroundResource(this.mOneNumRedDot, a.f.sdk_icon_news_red_dot_one_number);
+            SkinManager.setViewTextColor(this.mOneNumRedDot, a.c.sdk_cp_cont_i, 1);
+            SkinManager.setBackgroundResource(this.mOneNumRedDot, a.e.sdk_icon_news_red_dot_one_number);
         }
         if (this.mTwoNumRedDot != null) {
-            SkinManager.setViewTextColor(this.mTwoNumRedDot, a.d.sdk_cp_cont_i, 1);
-            SkinManager.setBackgroundResource(this.mTwoNumRedDot, a.f.sdk_icon_news_red_dot_two_number);
+            SkinManager.setViewTextColor(this.mTwoNumRedDot, a.c.sdk_cp_cont_i, 1);
+            SkinManager.setBackgroundResource(this.mTwoNumRedDot, a.e.sdk_icon_news_red_dot_two_number);
         }
         if (this.mThreeNumRedDot != null) {
-            SkinManager.setViewTextColor(this.mThreeNumRedDot, a.d.sdk_cp_cont_i, 1);
-            SkinManager.setBackgroundResource(this.mThreeNumRedDot, a.f.sdk_icon_news_red_dot_three_number);
+            SkinManager.setViewTextColor(this.mThreeNumRedDot, a.c.sdk_cp_cont_i, 1);
+            SkinManager.setBackgroundResource(this.mThreeNumRedDot, a.e.sdk_icon_news_red_dot_three_number);
         }
         if (this.mMoreRedDotBg != null && this.mMoreWhiteDotCenter != null && this.mMoreWhiteDotLeft != null && this.mMoreWhiteDotRight != null) {
-            SkinManager.setImageResource(this.mMoreRedDotBg, a.f.sdk_icon_news_red_dot_two_number);
-            SkinManager.setImageResource(this.mMoreWhiteDotCenter, a.f.sdk_icon_news_white_dot);
-            SkinManager.setImageResource(this.mMoreWhiteDotLeft, a.f.sdk_icon_news_white_dot);
-            SkinManager.setImageResource(this.mMoreWhiteDotRight, a.f.sdk_icon_news_white_dot);
+            SkinManager.setImageResource(this.mMoreRedDotBg, a.e.sdk_icon_news_red_dot_two_number);
+            SkinManager.setImageResource(this.mMoreWhiteDotCenter, a.e.sdk_icon_news_white_dot);
+            SkinManager.setImageResource(this.mMoreWhiteDotLeft, a.e.sdk_icon_news_white_dot);
+            SkinManager.setImageResource(this.mMoreWhiteDotRight, a.e.sdk_icon_news_white_dot);
         }
     }
 

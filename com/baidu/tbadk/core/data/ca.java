@@ -5,12 +5,12 @@ import org.json.JSONObject;
 import tbclient.Topic;
 /* loaded from: classes.dex */
 public class ca {
-    private int eBH = 0;
-    private int eBI = 0;
+    private int eHw = 0;
+    private int eHx = 0;
     private String link = "";
 
-    public int bmp() {
-        return this.eBH;
+    public int boP() {
+        return this.eHw;
     }
 
     public String getLink() {
@@ -20,8 +20,8 @@ public class ca {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.eBH = jSONObject.optInt("is_lpost", 0);
-                this.eBI = jSONObject.optInt("topic_type", 0);
+                this.eHw = jSONObject.optInt("is_lpost", 0);
+                this.eHx = jSONObject.optInt("topic_type", 0);
                 this.link = jSONObject.optString("link", "");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -31,8 +31,8 @@ public class ca {
 
     public void a(Topic topic) {
         if (topic != null) {
-            this.eBH = topic.is_lpost.intValue();
-            this.eBI = topic.topic_type.intValue();
+            this.eHw = topic.is_lpost.intValue();
+            this.eHx = topic.topic_type.intValue();
             this.link = topic.link;
         }
     }

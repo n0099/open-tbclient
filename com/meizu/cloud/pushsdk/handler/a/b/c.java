@@ -22,24 +22,24 @@ public class c implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private MessageV3 f4413a;
+    private MessageV3 f4415a;
     private String b;
     private int c;
     private int d;
 
     protected c(Parcel parcel) {
-        this.f4413a = (MessageV3) parcel.readParcelable(MessageV3.class.getClassLoader());
+        this.f4415a = (MessageV3) parcel.readParcelable(MessageV3.class.getClassLoader());
         this.b = parcel.readString();
         this.c = parcel.readInt();
         this.d = parcel.readInt();
     }
 
     public c(MessageV3 messageV3) {
-        this.f4413a = messageV3;
+        this.f4415a = messageV3;
     }
 
     public MessageV3 a() {
-        return this.f4413a;
+        return this.f4415a;
     }
 
     public void a(int i) {
@@ -68,12 +68,12 @@ public class c implements Parcelable {
     }
 
     public String toString() {
-        return "NotificationState{messageV3=" + this.f4413a + ", notificationPkg='" + this.b + "', notificationId='" + this.c + "', state='" + this.d + "'}";
+        return "NotificationState{messageV3=" + this.f4415a + ", notificationPkg='" + this.b + "', notificationId='" + this.c + "', state='" + this.d + "'}";
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.f4413a, i);
+        parcel.writeParcelable(this.f4415a, i);
         parcel.writeString(this.b);
         parcel.writeInt(this.c);
         parcel.writeInt(this.d);

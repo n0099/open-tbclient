@@ -5,7 +5,7 @@ import android.os.Build;
 public final class aa {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f2515a = true;
+    public static boolean f2517a = true;
     public static final String b;
     public static final String c;
 

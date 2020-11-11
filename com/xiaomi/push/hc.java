@@ -10,10 +10,10 @@ final class hc {
     static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        fh f4942a;
+        fh f4944a;
 
         /* renamed from: a  reason: collision with other field name */
-        String f420a;
+        String f422a;
 
         a() {
         }
@@ -39,13 +39,13 @@ final class hc {
         String str = exc2.getClass().getSimpleName() + ":" + message;
         int a3 = fu.a(exc2);
         if (a3 != 0) {
-            aVar.f4942a = fh.a(a3 + fh.GSLB_REQUEST_SUCCESS.a());
+            aVar.f4944a = fh.a(a3 + fh.GSLB_REQUEST_SUCCESS.a());
         }
-        if (aVar.f4942a == null) {
-            aVar.f4942a = fh.GSLB_TCP_ERR_OTHER;
+        if (aVar.f4944a == null) {
+            aVar.f4944a = fh.GSLB_TCP_ERR_OTHER;
         }
-        if (aVar.f4942a == fh.GSLB_TCP_ERR_OTHER) {
-            aVar.f420a = str;
+        if (aVar.f4944a == fh.GSLB_TCP_ERR_OTHER) {
+            aVar.f422a = str;
         }
         return aVar;
     }
@@ -78,15 +78,15 @@ final class hc {
         int a3 = fu.a(exc2);
         String str = exc2.getClass().getSimpleName() + ":" + message;
         if (a3 != 0) {
-            aVar.f4942a = fh.a(a3 + fh.CONN_SUCCESS.a());
-            if (aVar.f4942a == fh.CONN_BOSH_ERR && (cause = exc2.getCause()) != null && (cause instanceof UnknownHostException)) {
-                aVar.f4942a = fh.CONN_BOSH_UNKNOWNHOST;
+            aVar.f4944a = fh.a(a3 + fh.CONN_SUCCESS.a());
+            if (aVar.f4944a == fh.CONN_BOSH_ERR && (cause = exc2.getCause()) != null && (cause instanceof UnknownHostException)) {
+                aVar.f4944a = fh.CONN_BOSH_UNKNOWNHOST;
             }
         } else {
-            aVar.f4942a = fh.CONN_XMPP_ERR;
+            aVar.f4944a = fh.CONN_XMPP_ERR;
         }
-        if (aVar.f4942a == fh.CONN_TCP_ERR_OTHER || aVar.f4942a == fh.CONN_XMPP_ERR || aVar.f4942a == fh.CONN_BOSH_ERR) {
-            aVar.f420a = str;
+        if (aVar.f4944a == fh.CONN_TCP_ERR_OTHER || aVar.f4944a == fh.CONN_XMPP_ERR || aVar.f4944a == fh.CONN_BOSH_ERR) {
+            aVar.f422a = str;
         }
         return aVar;
     }
@@ -111,30 +111,30 @@ final class hc {
         String str = exc2.getClass().getSimpleName() + ":" + message;
         switch (fu.a(exc2)) {
             case 105:
-                aVar.f4942a = fh.BIND_TCP_READ_TIMEOUT;
+                aVar.f4944a = fh.BIND_TCP_READ_TIMEOUT;
                 break;
             case 109:
-                aVar.f4942a = fh.BIND_TCP_CONNRESET;
+                aVar.f4944a = fh.BIND_TCP_CONNRESET;
                 break;
             case 110:
-                aVar.f4942a = fh.BIND_TCP_BROKEN_PIPE;
+                aVar.f4944a = fh.BIND_TCP_BROKEN_PIPE;
                 break;
             case Opcodes.IFNONNULL /* 199 */:
-                aVar.f4942a = fh.BIND_TCP_ERR;
+                aVar.f4944a = fh.BIND_TCP_ERR;
                 break;
             case DownloadConstants.STATUS_DEVICE_NOT_FOUND_ERROR /* 499 */:
-                aVar.f4942a = fh.BIND_BOSH_ERR;
+                aVar.f4944a = fh.BIND_BOSH_ERR;
                 if (message.startsWith("Terminal binding condition encountered: item-not-found")) {
-                    aVar.f4942a = fh.BIND_BOSH_ITEM_NOT_FOUND;
+                    aVar.f4944a = fh.BIND_BOSH_ITEM_NOT_FOUND;
                     break;
                 }
                 break;
             default:
-                aVar.f4942a = fh.BIND_XMPP_ERR;
+                aVar.f4944a = fh.BIND_XMPP_ERR;
                 break;
         }
-        if (aVar.f4942a == fh.BIND_TCP_ERR || aVar.f4942a == fh.BIND_XMPP_ERR || aVar.f4942a == fh.BIND_BOSH_ERR) {
-            aVar.f420a = str;
+        if (aVar.f4944a == fh.BIND_TCP_ERR || aVar.f4944a == fh.BIND_XMPP_ERR || aVar.f4944a == fh.BIND_BOSH_ERR) {
+            aVar.f422a = str;
         }
         return aVar;
     }
@@ -156,30 +156,30 @@ final class hc {
         String str = exc2.getClass().getSimpleName() + ":" + message;
         switch (fu.a(exc2)) {
             case 105:
-                aVar.f4942a = fh.CHANNEL_TCP_READTIMEOUT;
+                aVar.f4944a = fh.CHANNEL_TCP_READTIMEOUT;
                 break;
             case 109:
-                aVar.f4942a = fh.CHANNEL_TCP_CONNRESET;
+                aVar.f4944a = fh.CHANNEL_TCP_CONNRESET;
                 break;
             case 110:
-                aVar.f4942a = fh.CHANNEL_TCP_BROKEN_PIPE;
+                aVar.f4944a = fh.CHANNEL_TCP_BROKEN_PIPE;
                 break;
             case Opcodes.IFNONNULL /* 199 */:
-                aVar.f4942a = fh.CHANNEL_TCP_ERR;
+                aVar.f4944a = fh.CHANNEL_TCP_ERR;
                 break;
             case DownloadConstants.STATUS_DEVICE_NOT_FOUND_ERROR /* 499 */:
-                aVar.f4942a = fh.CHANNEL_BOSH_EXCEPTION;
+                aVar.f4944a = fh.CHANNEL_BOSH_EXCEPTION;
                 if (message.startsWith("Terminal binding condition encountered: item-not-found")) {
-                    aVar.f4942a = fh.CHANNEL_BOSH_ITEMNOTFIND;
+                    aVar.f4944a = fh.CHANNEL_BOSH_ITEMNOTFIND;
                     break;
                 }
                 break;
             default:
-                aVar.f4942a = fh.CHANNEL_XMPPEXCEPTION;
+                aVar.f4944a = fh.CHANNEL_XMPPEXCEPTION;
                 break;
         }
-        if (aVar.f4942a == fh.CHANNEL_TCP_ERR || aVar.f4942a == fh.CHANNEL_XMPPEXCEPTION || aVar.f4942a == fh.CHANNEL_BOSH_EXCEPTION) {
-            aVar.f420a = str;
+        if (aVar.f4944a == fh.CHANNEL_TCP_ERR || aVar.f4944a == fh.CHANNEL_XMPPEXCEPTION || aVar.f4944a == fh.CHANNEL_BOSH_EXCEPTION) {
+            aVar.f422a = str;
         }
         return aVar;
     }

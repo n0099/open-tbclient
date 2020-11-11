@@ -3,15 +3,15 @@ package com.baidu.platform.comapi.walknavi.g.c;
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f3025a;
+    private boolean f3027a;
 
     public void e() {
-        this.f3025a = true;
+        this.f3027a = true;
         a();
     }
 
     public void f() {
-        this.f3025a = false;
+        this.f3027a = false;
         b();
     }
 

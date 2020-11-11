@@ -213,7 +213,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements f<T>
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_APP_ENTER_FOREGROUND, this));
         }
         TbSingleton.getInstance().setLastResumeTime(System.currentTimeMillis());
-        r.o(getPageId(), 0L);
+        r.n(getPageId(), 0L);
     }
 
     public void setUseStyleImmersiveSticky(boolean z) {
@@ -233,7 +233,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements f<T>
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             d pageStayDurationItem = getPageStayDurationItem();
             pageStayDurationItem.setStayDurationTime(currentTimeMillis);
-            e.bzH().a(getPageContext().getPageActivity(), pageStayDurationItem, null);
+            e.bCg().a(getPageContext().getPageActivity(), pageStayDurationItem, null);
         }
         TbadkCoreApplication.getInst().DelResumeNum();
         TbadkCoreApplication.getInst().setCurrentActivity(null);
@@ -337,7 +337,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements f<T>
 
             @Override // com.baidu.tbadk.m.b
             public int getMaxCost() {
-                return e.bzH().getMaxCostFromServer();
+                return e.bCg().getMaxCostFromServer();
             }
 
             @Override // com.baidu.tbadk.m.b

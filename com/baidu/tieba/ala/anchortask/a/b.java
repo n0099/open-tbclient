@@ -14,74 +14,74 @@ import com.baidu.live.view.web.g;
 import com.baidu.searchbox.ugc.model.UgcConstant;
 /* loaded from: classes4.dex */
 public class b implements com.baidu.live.a.b {
-    private Activity bIs;
-    private CustomMessageListener bIu;
-    private c gnw;
-    private PopupWindow.OnDismissListener gnx;
+    private Activity bNY;
+    private CustomMessageListener bOa;
+    private c gtj;
+    private PopupWindow.OnDismissListener gtk;
 
     public b(Activity activity) {
-        this.bIs = activity;
-        Uy();
+        this.bNY = activity;
+        WY();
     }
 
     @Override // com.baidu.live.a.b
     public void c(String str, long j, long j2) {
-        this.gnw = new c(this.bIs);
-        this.gnw.setOnDismissListener(this.gnx);
-        this.gnw.Uz().setBackgroundColor(hP(str));
+        this.gtj = new c(this.bNY);
+        this.gtj.setOnDismissListener(this.gtk);
+        this.gtj.WZ().setBackgroundColor(hW(str));
         g gVar = new g();
-        gVar.x(this.bIs).a(this.gnw).a(this.gnw.Uz().getSchemeCallback());
-        com.baidu.live.view.web.a[] Ux = gVar.Ux();
-        for (com.baidu.live.view.web.a aVar : Ux) {
-            this.gnw.Uz().addJavascriptInterface(aVar, aVar.getName());
+        gVar.y(this.bNY).a(this.gtj).a(this.gtj.WZ().getSchemeCallback());
+        com.baidu.live.view.web.a[] WX = gVar.WX();
+        for (com.baidu.live.view.web.a aVar : WX) {
+            this.gtj.WZ().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.gnw.FZ(str + "?anchor_id=" + j2 + "&live_id=" + j + "&subapp_type=" + TbConfig.getSubappType());
+        this.gtj.Gn(str + "?anchor_id=" + j2 + "&live_id=" + j + "&subapp_type=" + TbConfig.getSubappType());
     }
 
     @Override // com.baidu.live.a.b
     public void resume() {
-        if (this.gnw != null && this.gnw.isShowing() && this.gnw.Uz() != null) {
-            this.gnw.Uz().onResume();
+        if (this.gtj != null && this.gtj.isShowing() && this.gtj.WZ() != null) {
+            this.gtj.WZ().onResume();
         }
     }
 
     @Override // com.baidu.live.a.b
     public void pause() {
-        if (this.gnw != null && this.gnw.isShowing() && this.gnw.Uz() != null) {
-            this.gnw.Uz().onPause();
+        if (this.gtj != null && this.gtj.isShowing() && this.gtj.WZ() != null) {
+            this.gtj.WZ().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.gnw != null) {
-            this.gnw.UA();
+        if (this.gtj != null) {
+            this.gtj.Xa();
         }
     }
 
-    public void GS() {
+    public void Ht() {
         dismiss();
     }
 
     @Override // com.baidu.live.a.b
     public void release() {
-        GS();
-        MessageManager.getInstance().unRegisterListener(this.bIu);
+        Ht();
+        MessageManager.getInstance().unRegisterListener(this.bOa);
     }
 
-    private void Uy() {
-        this.bIu = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.anchortask.a.b.1
+    private void WY() {
+        this.bOa = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.anchortask.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.gnw != null && b.this.gnw.isShowing()) {
-                    b.this.gnw.dismiss();
+                if (b.this.gtj != null && b.this.gtj.isShowing()) {
+                    b.this.gtj.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.bIu);
+        MessageManager.getInstance().registerListener(this.bOa);
     }
 
-    private int hP(String str) {
+    private int hW(String str) {
         int indexOf;
         String queryParameter = Uri.parse(str).getQueryParameter("background");
         if ((TextUtils.isEmpty(queryParameter) || queryParameter.length() != 8) && (indexOf = str.indexOf("background=")) >= 0 && indexOf + 19 <= str.length()) {

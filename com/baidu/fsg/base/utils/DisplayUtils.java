@@ -6,7 +6,7 @@ import android.util.DisplayMetrics;
 public final class DisplayUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final float f1509a = 0.5f;
+    private static final float f1511a = 0.5f;
     private static DisplayMetrics b;
 
     private DisplayUtils() {

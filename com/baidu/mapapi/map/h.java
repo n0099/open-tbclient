@@ -6,17 +6,17 @@ import com.baidu.mapapi.map.BaiduMap;
 class h implements com.baidu.platform.comapi.map.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BaiduMap f2071a;
+    final /* synthetic */ BaiduMap f2073a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(BaiduMap baiduMap) {
-        this.f2071a = baiduMap;
+        this.f2073a = baiduMap;
     }
 
     @Override // com.baidu.platform.comapi.map.c
     public void a(Bitmap bitmap) {
         BaiduMap.SnapshotReadyCallback snapshotReadyCallback;
-        snapshotReadyCallback = this.f2071a.B;
+        snapshotReadyCallback = this.f2073a.B;
         snapshotReadyCallback.onSnapshotReady(bitmap);
     }
 }

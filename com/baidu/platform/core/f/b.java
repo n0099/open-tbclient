@@ -9,16 +9,16 @@ public class b extends com.baidu.platform.base.a implements a {
 
     @Override // com.baidu.platform.core.f.a
     public void a() {
-        this.f2810a.lock();
+        this.f2812a.lock();
         this.b = null;
-        this.f2810a.unlock();
+        this.f2812a.unlock();
     }
 
     @Override // com.baidu.platform.core.f.a
     public void a(OnGetSuggestionResultListener onGetSuggestionResultListener) {
-        this.f2810a.lock();
+        this.f2812a.lock();
         this.b = onGetSuggestionResultListener;
-        this.f2810a.unlock();
+        this.f2812a.unlock();
     }
 
     @Override // com.baidu.platform.core.f.a

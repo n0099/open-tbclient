@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class GuardClubRankTabView extends LinearLayout {
-    private a gDQ;
+    private a gJD;
     private MotionEvent mMotionEvent;
 
     /* loaded from: classes4.dex */
@@ -29,26 +29,26 @@ public class GuardClubRankTabView extends LinearLayout {
     }
 
     public void setCallback(a aVar) {
-        this.gDQ = aVar;
+        this.gJD = aVar;
     }
 
     public void setSelect(int i) {
         View childAt;
         if (i >= 0 && i < getChildCount() && (childAt = getChildAt(i)) != null && !childAt.isSelected()) {
             for (int i2 = 0; i2 < getChildCount(); i2++) {
-                bT(getChildAt(i2));
+                bX(getChildAt(i2));
             }
-            bS(childAt);
-            if (this.gDQ != null) {
-                this.gDQ.ei(i);
+            bW(childAt);
+            if (this.gJD != null) {
+                this.gJD.ei(i);
             }
         }
     }
 
     public void setNames(String... strArr) {
-        int dimensionPixelOffset = getResources().getDimensionPixelOffset(a.e.sdk_ds30);
+        int dimensionPixelOffset = getResources().getDimensionPixelOffset(a.d.sdk_ds30);
         for (String str : strArr) {
-            addView(aD(str, dimensionPixelOffset), new LinearLayout.LayoutParams(-2, -1));
+            addView(aF(str, dimensionPixelOffset), new LinearLayout.LayoutParams(-2, -1));
         }
     }
 
@@ -75,19 +75,19 @@ public class GuardClubRankTabView extends LinearLayout {
 
     private void init() {
         setClickable(true);
-        JV();
+        Kv();
         setOrientation(0);
     }
 
-    private void JV() {
+    private void Kv() {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setColor(0);
-        gradientDrawable.setCornerRadius(getResources().getDimensionPixelOffset(a.e.sdk_ds28));
-        gradientDrawable.setStroke(getResources().getDimensionPixelOffset(a.e.sdk_ds1), -2130706433);
+        gradientDrawable.setCornerRadius(getResources().getDimensionPixelOffset(a.d.sdk_ds28));
+        gradientDrawable.setStroke(getResources().getDimensionPixelOffset(a.d.sdk_ds1), -2130706433);
         setBackgroundDrawable(gradientDrawable);
     }
 
-    private TextView aD(String str, int i) {
+    private TextView aF(String str, int i) {
         TextView textView = new TextView(getContext());
         textView.setGravity(17);
         textView.setIncludeFontPadding(false);
@@ -97,7 +97,7 @@ public class GuardClubRankTabView extends LinearLayout {
         textView.setTextColor(new ColorStateList(new int[][]{new int[]{16842913}, new int[]{-16842913}}, new int[]{-1, -838860801}));
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setColor(-2130706433);
-        gradientDrawable.setCornerRadius(getResources().getDimensionPixelOffset(a.e.sdk_ds28));
+        gradientDrawable.setCornerRadius(getResources().getDimensionPixelOffset(a.d.sdk_ds28));
         StateListDrawable stateListDrawable = new StateListDrawable();
         stateListDrawable.addState(new int[]{16842913}, gradientDrawable);
         stateListDrawable.addState(new int[]{-16842913}, new ColorDrawable(0));
@@ -105,17 +105,17 @@ public class GuardClubRankTabView extends LinearLayout {
         return textView;
     }
 
-    private void bS(View view) {
+    private void bW(View view) {
         view.setSelected(true);
         if (view instanceof TextView) {
-            ((TextView) view).setTextSize(0, getResources().getDimensionPixelOffset(a.e.sdk_fontsize28));
+            ((TextView) view).setTextSize(0, getResources().getDimensionPixelOffset(a.d.sdk_fontsize28));
         }
     }
 
-    private void bT(View view) {
+    private void bX(View view) {
         view.setSelected(false);
         if (view instanceof TextView) {
-            ((TextView) view).setTextSize(0, getResources().getDimensionPixelOffset(a.e.sdk_fontsize24));
+            ((TextView) view).setTextSize(0, getResources().getDimensionPixelOffset(a.d.sdk_fontsize24));
         }
     }
 

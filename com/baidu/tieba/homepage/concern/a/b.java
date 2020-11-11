@@ -11,18 +11,18 @@ import tbclient.User;
 import tbclient.Userlike.ConcernData;
 /* loaded from: classes22.dex */
 public class b extends bo {
-    public static final Integer jqV = 6;
-    private boolean ewV;
-    private List<MetaData> ewW = new ArrayList();
+    public static final Integer jwS = 6;
+    private boolean eCN;
+    private List<MetaData> eCO = new ArrayList();
 
     @Override // com.baidu.tbadk.core.data.bo
-    public void bd(List<User> list) {
+    public void bk(List<User> list) {
         if (list != null) {
             int min = Math.min(list.size(), 10);
             for (int i = 0; i < min; i++) {
                 MetaData metaData = new MetaData();
                 metaData.parserProtobuf(list.get(i));
-                this.ewW.add(metaData);
+                this.eCO.add(metaData);
             }
         }
     }
@@ -31,36 +31,36 @@ public class b extends bo {
         if (concernData == null) {
             return false;
         }
-        return concernData.recom_type.equals(jqV);
+        return concernData.recom_type.equals(jwS);
     }
 
     @Override // com.baidu.tbadk.core.data.bo, com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return euv;
+        return eAo;
     }
 
     @Override // com.baidu.tbadk.core.data.bo
-    public List<MetaData> bjn() {
-        return this.ewW;
+    public List<MetaData> blN() {
+        return this.eCO;
     }
 
     @Override // com.baidu.tbadk.core.data.bo, com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bw bhz() {
+    public bw bjZ() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.bo, com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public ar bhB() {
+    public ar bkb() {
         return new ar();
     }
 
     @Override // com.baidu.tbadk.core.data.bo
-    public boolean bjo() {
-        return this.ewV;
+    public boolean blO() {
+        return this.eCN;
     }
 
     @Override // com.baidu.tbadk.core.data.bo
-    public void iC(boolean z) {
-        this.ewV = z;
+    public void iL(boolean z) {
+        this.eCN = z;
     }
 }

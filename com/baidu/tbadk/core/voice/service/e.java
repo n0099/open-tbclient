@@ -5,24 +5,24 @@ import com.baidu.adp.lib.voice.h;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class e extends MediaPlayer implements c {
-    private static Object eWe = new Object();
-    private static e eWf = null;
-    private boolean eWg = false;
-    private boolean eWh = true;
+    private static Object fbT = new Object();
+    private static e fbU = null;
+    private boolean fbV = false;
+    private boolean fbW = true;
     private int errorNo = -1;
 
     private e() {
     }
 
-    public static e brF() {
-        if (eWf == null) {
-            synchronized (eWe) {
-                if (eWf == null) {
-                    eWf = new e();
+    public static e buf() {
+        if (fbU == null) {
+            synchronized (fbT) {
+                if (fbU == null) {
+                    fbU = new e();
                 }
             }
         }
-        return eWf;
+        return fbU;
     }
 
     public void setStreamType(int i) {
@@ -30,10 +30,10 @@ public class e extends MediaPlayer implements c {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public boolean Ct(String str) {
+    public boolean CH(String str) {
         this.errorNo = -1;
-        if (!this.eWg) {
-            this.eWh = true;
+        if (!this.fbV) {
+            this.fbW = true;
             reset();
             try {
                 setDataSource(str);
@@ -59,35 +59,35 @@ public class e extends MediaPlayer implements c {
                 return false;
             }
         }
-        this.eWg = true;
+        this.fbV = true;
         return true;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public void brC() {
+    public void buc() {
         start();
-        this.eWh = false;
+        this.fbW = false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public void bry() {
-        if (!this.eWh) {
+    public void btY() {
+        if (!this.fbW) {
             stop();
-            this.eWh = true;
-            this.eWg = false;
+            this.fbW = true;
+            this.fbV = false;
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public void brD() {
+    public void bud() {
         pause();
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public void brE() {
+    public void bue() {
         reset();
-        this.eWg = false;
-        this.eWh = true;
+        this.fbV = false;
+        this.fbW = true;
         this.errorNo = -1;
     }
 
@@ -98,15 +98,15 @@ public class e extends MediaPlayer implements c {
 
     @Override // com.baidu.tbadk.core.voice.service.c
     public boolean isPrepared() {
-        return this.eWg;
+        return this.fbV;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
     public void seek(int i) {
-        qs(i);
+        qC(i);
     }
 
-    public void qs(int i) {
+    public void qC(int i) {
         try {
             seekTo(i);
         } catch (Exception e) {

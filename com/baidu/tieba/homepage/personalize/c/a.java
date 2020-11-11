@@ -16,9 +16,9 @@ public class a {
         String str;
         int i2;
         if (bwVar != null) {
-            if (bwVar.eBi) {
+            if (bwVar.eGX) {
                 z = true;
-                str = bwVar.eBj;
+                str = bwVar.eGY;
                 i2 = 20;
             } else {
                 z = false;
@@ -28,14 +28,14 @@ public class a {
             String a2 = com.baidu.tieba.s.a.a(bwVar.getTid(), str, "", bwVar.getBaijiahaoData());
             aq a3 = com.baidu.tieba.s.a.a(bwVar, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE, "common_exp", i, z, str, (String) null, i2);
             if (a3 != null) {
-                if (bwVar.eBi) {
+                if (bwVar.eGX) {
                     a3.delete("thread_type");
-                    a3.aj("thread_type", bwVar.getThreadType());
+                    a3.al("thread_type", bwVar.getThreadType());
                 }
-                c.dGv().a(bdUniqueId, a2, a3);
+                c.dIX().a(bdUniqueId, a2, a3);
                 if (g.isEnabled()) {
-                    g.LA(a2);
-                    if (g.cIG() >= 10) {
+                    g.LR(a2);
+                    if (g.cLh() >= 10) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921482));
                         g.setEnabled(false);
                     }
@@ -49,9 +49,9 @@ public class a {
         int i3;
         boolean z = false;
         if (bwVar != null) {
-            if (bwVar.eBi) {
+            if (bwVar.eGX) {
                 z = true;
-                str = bwVar.eBj;
+                str = bwVar.eGY;
                 i3 = 20;
             } else {
                 str = null;
@@ -59,11 +59,11 @@ public class a {
             }
             aq a2 = com.baidu.tieba.s.a.a(bwVar, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE, "common_click", i2, i, z, str, (String) null, i3);
             if (a2 != null) {
-                if (bwVar.eBi) {
+                if (bwVar.eGX) {
                     a2.delete("thread_type");
-                    a2.aj("thread_type", bwVar.getThreadType());
+                    a2.al("thread_type", bwVar.getThreadType());
                 }
-                c.dGv().b(bdUniqueId, a2);
+                c.dIX().b(bdUniqueId, a2);
                 d(bwVar, i2);
             }
         }

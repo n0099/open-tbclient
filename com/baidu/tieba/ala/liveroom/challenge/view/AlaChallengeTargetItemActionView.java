@@ -23,8 +23,8 @@ public class AlaChallengeTargetItemActionView extends TextView {
                 case 1:
                     GradientDrawable gradientDrawable = new GradientDrawable();
                     gradientDrawable.setShape(0);
-                    gradientDrawable.setColor(getResources().getColor(a.d.ala_challenge_latest_primary));
-                    gradientDrawable.setCornerRadius(getResources().getDimensionPixelOffset(a.e.sdk_ds12));
+                    gradientDrawable.setColor(getResources().getColor(a.c.ala_challenge_latest_primary));
+                    gradientDrawable.setCornerRadius(getResources().getDimensionPixelOffset(a.d.sdk_ds12));
                     setBackgroundDrawable(gradientDrawable);
                     setText("邀请");
                     setTextColor(-1);
@@ -32,7 +32,7 @@ public class AlaChallengeTargetItemActionView extends TextView {
                 case 2:
                     setBackgroundColor(0);
                     setText("挑战中");
-                    setTextColor(getResources().getColor(a.d.ala_challenge_latest_primary));
+                    setTextColor(getResources().getColor(a.c.ala_challenge_latest_primary));
                     return;
                 case 3:
                     setBackgroundColor(0);
@@ -42,7 +42,7 @@ public class AlaChallengeTargetItemActionView extends TextView {
                 case 4:
                     setBackgroundColor(0);
                     setText("PK中");
-                    setTextColor(getResources().getColor(a.d.ala_challenge_latest_primary));
+                    setTextColor(getResources().getColor(a.c.ala_challenge_latest_primary));
                     return;
                 default:
                     setBackgroundColor(0);

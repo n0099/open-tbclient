@@ -15,7 +15,7 @@ import com.baidu.tieba.write.upload.VideoUploadData;
 /* loaded from: classes3.dex */
 public final class b {
     private boolean isInit;
-    private com.baidu.tieba.write.b.b.a nBP;
+    private com.baidu.tieba.write.b.b.a nHJ;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -26,12 +26,12 @@ public final class b {
 
     /* renamed from: com.baidu.tieba.write.b.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private static class C0860b {
-        private static final b nBS = new b();
+    private static class C0875b {
+        private static final b nHM = new b();
     }
 
-    public static final b dRt() {
-        return C0860b.nBS;
+    public static final b dTT() {
+        return C0875b.nHM;
     }
 
     private b() {
@@ -45,16 +45,16 @@ public final class b {
             UgcServerApiUtils.setHostAddress(UgcServerApiUtils.ONLINE_HOST_ADRESS);
             UgcServerApiUtils.setPublisherUserAgent(UgcServerApiUtils.DEFAULT_PUBLISHER_USER_AGENT);
             com.baidu.d.b.a.uS().setAppName("tieba");
-            if (this.nBP == null) {
-                this.nBP = new com.baidu.tieba.write.b.b.a();
+            if (this.nHJ == null) {
+                this.nHJ = new com.baidu.tieba.write.b.b.a();
             }
-            this.nBP.yr(false);
+            this.nHJ.yA(false);
             MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.write.b.c.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && b.this.nBP != null) {
-                        b.this.nBP.yr(false);
+                    if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && b.this.nHJ != null) {
+                        b.this.nHJ.yA(false);
                     }
                 }
             });

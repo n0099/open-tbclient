@@ -5,7 +5,7 @@ import kotlin.h;
 @h
 /* loaded from: classes10.dex */
 public class b {
-    public static final Object exU() {
-        return kotlin.coroutines.intrinsics.a.exU();
+    public static final Object eBJ() {
+        return kotlin.coroutines.intrinsics.a.eBJ();
     }
 }

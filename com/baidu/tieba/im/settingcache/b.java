@@ -11,13 +11,13 @@ import com.baidu.tbadk.util.m;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
 public class b extends a {
-    private static b kjb = new b();
+    private static b koX = new b();
 
     private b() {
     }
 
-    public static b cSD() {
-        return kjb;
+    public static b cVe() {
+        return koX;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,8 +29,8 @@ public class b extends a {
             return null;
         }
         String str3 = str + UgcConstant.AT_RULE_TAG + str2;
-        synchronized (this.kiZ) {
-            ChatSetting chatSetting = this.kiZ.get(str3);
+        synchronized (this.koV) {
+            ChatSetting chatSetting = this.koV.get(str3);
             groupSettingItemData = chatSetting instanceof GroupSettingItemData ? (GroupSettingItemData) chatSetting : null;
         }
         if (groupSettingItemData == null) {
@@ -44,7 +44,7 @@ public class b extends a {
         return groupSettingItemData;
     }
 
-    public void cOs() {
+    public void cQT() {
         super.y(GroupSettingItemData.class);
     }
 
@@ -83,8 +83,8 @@ public class b extends a {
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected l<String> cSC() {
-        return com.baidu.tbadk.core.c.a.bmx().AY("tb.im_group_setting");
+    protected l<String> cVd() {
+        return com.baidu.tbadk.core.c.a.boX().Bm("tb.im_group_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -99,13 +99,13 @@ public class b extends a {
                 }
                 return;
             }
-            l<String> cSC = cSC();
+            l<String> cVd = cVd();
             String str = uid + UgcConstant.AT_RULE_TAG + gid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(groupSettingItemData);
-            synchronized (this.kiZ) {
-                this.kiZ.put(str, groupSettingItemData);
+            synchronized (this.koV) {
+                this.koV.put(str, groupSettingItemData);
             }
-            cSC.setForever(str, jsonStrWithObject);
+            cVd.setForever(str, jsonStrWithObject);
         }
     }
 
@@ -122,15 +122,15 @@ public class b extends a {
                 return;
             }
             final String str = uid + UgcConstant.AT_RULE_TAG + gid;
-            synchronized (this.kiZ) {
-                this.kiZ.put(str, groupSettingItemData);
+            synchronized (this.koV) {
+                this.koV.put(str, groupSettingItemData);
             }
             ae.b(new ad<Void>() { // from class: com.baidu.tieba.im.settingcache.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.ad
-                /* renamed from: bHt */
+                /* renamed from: bJS */
                 public Void doInBackground() {
-                    b.this.cSC().setForever(str, OrmObject.jsonStrWithObject(groupSettingItemData));
+                    b.this.cVd().setForever(str, OrmObject.jsonStrWithObject(groupSettingItemData));
                     return null;
                 }
             }, mVar);
@@ -140,15 +140,15 @@ public class b extends a {
     public void b(String str, String str2, m<Void> mVar) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             final String str3 = str + UgcConstant.AT_RULE_TAG + str2;
-            synchronized (this.kiZ) {
-                this.kiZ.remove(str3);
+            synchronized (this.koV) {
+                this.koV.remove(str3);
             }
             ae.b(new ad<Void>() { // from class: com.baidu.tieba.im.settingcache.b.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.ad
-                /* renamed from: bHt */
+                /* renamed from: bJS */
                 public Void doInBackground() {
-                    b.this.cSC().remove(str3);
+                    b.this.cVd().remove(str3);
                     return null;
                 }
             }, mVar);

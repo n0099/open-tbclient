@@ -7,7 +7,7 @@ import java.util.Calendar;
 import java.util.Date;
 /* loaded from: classes4.dex */
 public class k {
-    public static String ay(long j) {
+    public static String aU(long j) {
         long j2 = j / 60000;
         long j3 = (j % 60000) / 1000;
         String str = (j2 < 10 ? "0" : "") + j2 + ":";
@@ -21,7 +21,7 @@ public class k {
         return new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT).format(date);
     }
 
-    public static Date il(String str) {
+    public static Date iE(String str) {
         try {
             return new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT).parse(str);
         } catch (ParseException e) {

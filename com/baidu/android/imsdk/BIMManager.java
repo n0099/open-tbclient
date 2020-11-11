@@ -60,13 +60,13 @@ import com.baidu.imsdk.a;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class BIMManager extends BaseManager implements NoProGuard {
     private static IConnectListener mConnectListener;
     private static Context sContext = null;
     private static List<IConnectListener> mConnectListeners = new ArrayList();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes18.dex */
     public enum CATEGORY {
         ALL(-1),
         SINGLEPERSON(0),

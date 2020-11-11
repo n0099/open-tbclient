@@ -4,5 +4,5 @@ import com.baidu.tbadk.core.data.bw;
 /* loaded from: classes4.dex */
 public class c {
     public bw akq;
-    public int gcz;
+    public int gip;
 }

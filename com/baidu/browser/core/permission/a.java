@@ -6,7 +6,7 @@ import java.util.Map;
 /* loaded from: classes10.dex */
 public class a {
     private static a afg = new a();
-    private Map<Integer, a.InterfaceC0238a> aff = new HashMap();
+    private Map<Integer, a.InterfaceC0250a> aff = new HashMap();
 
     private a() {
     }
@@ -15,13 +15,13 @@ public class a {
         return afg;
     }
 
-    public void a(int i, a.InterfaceC0238a interfaceC0238a) {
+    public void a(int i, a.InterfaceC0250a interfaceC0250a) {
         if (this.aff != null) {
             synchronized (a.class) {
                 if (this.aff.containsKey(Integer.valueOf(i))) {
                     this.aff.remove(Integer.valueOf(i));
                 }
-                this.aff.put(Integer.valueOf(i), interfaceC0238a);
+                this.aff.put(Integer.valueOf(i), interfaceC0250a);
             }
         }
     }
@@ -34,7 +34,7 @@ public class a {
         }
     }
 
-    public a.InterfaceC0238a bn(int i) {
+    public a.InterfaceC0250a bn(int i) {
         if (this.aff == null || !this.aff.containsKey(Integer.valueOf(i))) {
             return null;
         }

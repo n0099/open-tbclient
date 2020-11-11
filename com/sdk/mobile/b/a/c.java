@@ -7,13 +7,13 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 public final class c implements com.sdk.base.framework.b.a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private /* synthetic */ String f4516a;
+    private /* synthetic */ String f4518a;
     private /* synthetic */ a b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar, String str) {
         this.b = aVar;
-        this.f4516a = str;
+        this.f4518a = str;
     }
 
     @Override // com.sdk.base.framework.b.a
@@ -27,7 +27,7 @@ public final class c implements com.sdk.base.framework.b.a<T> {
     public final void a(int i, String str, int i2, T t, String str2) {
         String str3;
         Context context;
-        if (i == 0 && com.sdk.base.framework.a.a.c.a(this.f4516a).booleanValue()) {
+        if (i == 0 && com.sdk.base.framework.a.a.c.a(this.f4518a).booleanValue()) {
             context = this.b.d;
             str3 = com.sdk.base.framework.f.l.a.a(context, String.valueOf(t));
             if (str3 == null) {

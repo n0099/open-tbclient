@@ -5,40 +5,40 @@ import org.json.JSONObject;
 /* loaded from: classes26.dex */
 public class f {
     public String forumName;
-    public int mmZ;
-    public int mna;
-    public int mnb;
+    public int msX;
+    public int msY;
+    public int msZ;
     public int refreshCount;
 
     public f() {
         this.refreshCount = 0;
-        this.mmZ = 0;
-        this.mna = 0;
-        this.mnb = 0;
+        this.msX = 0;
+        this.msY = 0;
+        this.msZ = 0;
     }
 
     public f(JSONObject jSONObject) {
         this.refreshCount = 0;
-        this.mmZ = 0;
-        this.mna = 0;
-        this.mnb = 0;
+        this.msX = 0;
+        this.msY = 0;
+        this.msZ = 0;
         if (jSONObject != null) {
             this.forumName = jSONObject.optString("forum_name");
             this.refreshCount = jSONObject.optInt("refresh_count");
-            this.mmZ = jSONObject.optInt("loadmore_count");
-            this.mna = jSONObject.optInt("loadmore_count_pb");
-            this.mnb = jSONObject.optInt("refresh_count_pb");
+            this.msX = jSONObject.optInt("loadmore_count");
+            this.msY = jSONObject.optInt("loadmore_count_pb");
+            this.msZ = jSONObject.optInt("refresh_count_pb");
         }
     }
 
-    public JSONObject agG() {
+    public JSONObject ajg() {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("forum_name", this.forumName);
             jSONObject.put("refresh_count", this.refreshCount);
-            jSONObject.put("loadmore_count", this.mmZ);
-            jSONObject.put("loadmore_count_pb", this.mna);
-            jSONObject.put("refresh_count_pb", this.mnb);
+            jSONObject.put("loadmore_count", this.msX);
+            jSONObject.put("loadmore_count_pb", this.msY);
+            jSONObject.put("refresh_count_pb", this.msZ);
             return jSONObject;
         } catch (JSONException e) {
             return null;
@@ -46,20 +46,20 @@ public class f {
     }
 
     public int az(boolean z, boolean z2) {
-        return z2 ? z ? this.mnb : this.mna : z ? this.refreshCount : this.mmZ;
+        return z2 ? z ? this.msZ : this.msY : z ? this.refreshCount : this.msX;
     }
 
     public void aA(boolean z, boolean z2) {
         if (z2) {
             if (z) {
-                this.mnb++;
+                this.msZ++;
             } else {
-                this.mna++;
+                this.msY++;
             }
         } else if (z) {
             this.refreshCount++;
         } else {
-            this.mmZ++;
+            this.msX++;
         }
     }
 }

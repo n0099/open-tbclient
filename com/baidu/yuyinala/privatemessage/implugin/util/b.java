@@ -15,46 +15,46 @@ import com.baidubce.services.bos.BosClientConfiguration;
 import java.io.File;
 /* loaded from: classes4.dex */
 public class b {
-    private static b ouW;
-    private static DisplayImageOptions ouY;
-    private static DisplayImageOptions ouZ;
-    private static DisplayImageOptions ova;
-    public static final String ouX = Environment.getExternalStorageDirectory() + "/baidu/implugin/appcache";
-    private static int ovb = BosClientConfiguration.DEFAULT_STREAM_BUFFER_SIZE;
+    private static b oEo;
+    private static DisplayImageOptions oEq;
+    private static DisplayImageOptions oEr;
+    private static DisplayImageOptions oEs;
+    public static final String oEp = Environment.getExternalStorageDirectory() + "/baidu/implugin/appcache";
+    private static int oEt = BosClientConfiguration.DEFAULT_STREAM_BUFFER_SIZE;
 
     private b(Context context) {
         gL(context);
     }
 
     public static b gK(Context context) {
-        if (ouW == null) {
+        if (oEo == null) {
             synchronized (b.class) {
-                if (ouW == null) {
-                    ouW = new b(context);
+                if (oEo == null) {
+                    oEo = new b(context);
                 }
             }
         }
-        return ouW;
+        return oEo;
     }
 
-    public static DisplayImageOptions eem() {
-        return ouY;
+    public static DisplayImageOptions eib() {
+        return oEq;
     }
 
-    public static DisplayImageOptions een() {
-        return ouZ;
+    public static DisplayImageOptions eic() {
+        return oEr;
     }
 
-    public static DisplayImageOptions eeo() {
-        return ova;
+    public static DisplayImageOptions eid() {
+        return oEs;
     }
 
     private void gL(Context context) {
         int i;
-        ouY = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisc(true).showImageOnLoading(a.f.bd_im_head_left).showImageForEmptyUri(a.f.bd_im_head_left).showImageOnFail(a.f.bd_im_head_left).imageScaleType(ImageScaleType.EXACTLY).resetViewBeforeLoading(true).considerExifParams(true).bitmapConfig(Bitmap.Config.RGB_565).build();
-        ouZ = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisc(true).showImageOnLoading(a.f.bd_im_head_user).showImageForEmptyUri(a.f.bd_im_head_user).showImageOnFail(a.f.bd_im_head_user).imageScaleType(ImageScaleType.EXACTLY).resetViewBeforeLoading(true).considerExifParams(true).bitmapConfig(Bitmap.Config.RGB_565).build();
-        ova = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisc(true).showImageOnLoading(a.f.bd_im_loading_default).showImageForEmptyUri(a.f.bd_im_loading_failed).showImageOnFail(a.f.bd_im_loading_failed).imageScaleType(ImageScaleType.EXACTLY).resetViewBeforeLoading(true).considerExifParams(true).bitmapConfig(Bitmap.Config.RGB_565).build();
-        int i2 = ovb;
+        oEq = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisc(true).showImageOnLoading(a.e.bd_im_head_left).showImageForEmptyUri(a.e.bd_im_head_left).showImageOnFail(a.e.bd_im_head_left).imageScaleType(ImageScaleType.EXACTLY).resetViewBeforeLoading(true).considerExifParams(true).bitmapConfig(Bitmap.Config.RGB_565).build();
+        oEr = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisc(true).showImageOnLoading(a.e.bd_im_head_user).showImageForEmptyUri(a.e.bd_im_head_user).showImageOnFail(a.e.bd_im_head_user).imageScaleType(ImageScaleType.EXACTLY).resetViewBeforeLoading(true).considerExifParams(true).bitmapConfig(Bitmap.Config.RGB_565).build();
+        oEs = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisc(true).showImageOnLoading(a.e.bd_im_loading_default).showImageForEmptyUri(a.e.bd_im_loading_failed).showImageOnFail(a.e.bd_im_loading_failed).imageScaleType(ImageScaleType.EXACTLY).resetViewBeforeLoading(true).considerExifParams(true).bitmapConfig(Bitmap.Config.RGB_565).build();
+        int i2 = oEt;
         try {
             i = (int) (Runtime.getRuntime().freeMemory() / 10);
         } catch (Exception e) {
@@ -62,8 +62,8 @@ public class b {
             i = i2;
         }
         if (i <= 0) {
-            i = ovb;
+            i = oEt;
         }
-        ImageLoader.getInstance().init(new ImageLoaderConfiguration.Builder(context).threadPriority(3).denyCacheImageMultipleSizesInMemory().memoryCacheSize(i).discCache(new UnlimitedDiscCache(new File(ouX))).discCacheFileNameGenerator(new Md5FileNameGenerator()).imageDownloader(new com.baidu.yuyinala.privatemessage.implugin.util.a.a(context)).tasksProcessingOrder(QueueProcessingType.LIFO).build());
+        ImageLoader.getInstance().init(new ImageLoaderConfiguration.Builder(context).threadPriority(3).denyCacheImageMultipleSizesInMemory().memoryCacheSize(i).discCache(new UnlimitedDiscCache(new File(oEp))).discCacheFileNameGenerator(new Md5FileNameGenerator()).imageDownloader(new com.baidu.yuyinala.privatemessage.implugin.util.a.a(context)).tasksProcessingOrder(QueueProcessingType.LIFO).build());
     }
 }

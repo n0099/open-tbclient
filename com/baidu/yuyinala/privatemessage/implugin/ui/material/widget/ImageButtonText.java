@@ -16,24 +16,24 @@ public class ImageButtonText extends ImageButton {
     private int mColor;
     Paint mPaint;
     private String mText;
-    private boolean osv;
-    private a osw;
-    private float osx;
+    private boolean oBO;
+    private a oBP;
+    private float oBQ;
 
     /* loaded from: classes4.dex */
     private class a {
         int Xo;
-        float bGL;
+        float bMq;
         int color;
-        int fbW;
+        int fhN;
 
         a() {
             float f = ImageButtonText.this.getContext().getResources().getDisplayMetrics().density;
-            this.bGL = (float) (2.5d * f);
+            this.bMq = (float) (2.5d * f);
             this.Xo = (int) (3.0f * f);
-            this.fbW = (int) (f * 9.0f);
+            this.fhN = (int) (f * 9.0f);
             this.color = Color.parseColor("#F43531");
-            if (ThemeManager.eel() == ThemeManager.ThemeMode.NIGHT) {
+            if (ThemeManager.eia() == ThemeManager.ThemeMode.NIGHT) {
                 this.color = Color.parseColor("#79251f");
             }
         }
@@ -41,35 +41,35 @@ public class ImageButtonText extends ImageButton {
 
     public ImageButtonText(Context context) {
         super(context);
-        this.osv = false;
+        this.oBO = false;
         this.mText = "";
         this.mColor = 0;
-        this.osx = 0.0f;
+        this.oBQ = 0.0f;
         this.mPaint = new Paint();
         this.mBounds = new Rect();
-        this.osw = new a();
+        this.oBP = new a();
     }
 
     public ImageButtonText(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.osv = false;
+        this.oBO = false;
         this.mText = "";
         this.mColor = 0;
-        this.osx = 0.0f;
+        this.oBQ = 0.0f;
         this.mPaint = new Paint();
         this.mBounds = new Rect();
-        this.osw = new a();
+        this.oBP = new a();
     }
 
     public ImageButtonText(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.osv = false;
+        this.oBO = false;
         this.mText = "";
         this.mColor = 0;
-        this.osx = 0.0f;
+        this.oBQ = 0.0f;
         this.mPaint = new Paint();
         this.mBounds = new Rect();
-        this.osw = new a();
+        this.oBP = new a();
     }
 
     public void setText(String str) {
@@ -86,36 +86,36 @@ public class ImageButtonText extends ImageButton {
     }
 
     public void setTextSize(float f) {
-        this.osx = f;
+        this.oBQ = f;
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
         int intrinsicWidth;
         super.onDraw(canvas);
-        if (this.osv) {
-            float width = (getWidth() - this.osw.fbW) - this.osw.bGL;
-            float f = this.osw.Xo + this.osw.bGL;
+        if (this.oBO) {
+            float width = (getWidth() - this.oBP.fhN) - this.oBP.bMq;
+            float f = this.oBP.Xo + this.oBP.bMq;
             Drawable drawable = getDrawable();
             if (drawable != null && (intrinsicWidth = drawable.getIntrinsicWidth()) > 0) {
-                width = (getWidth() / 2) + (intrinsicWidth / 2) + this.osw.bGL;
+                width = (getWidth() / 2) + (intrinsicWidth / 2) + this.oBP.bMq;
             }
             int color = this.mPaint.getColor();
-            this.mPaint.setColor(this.osw.color);
+            this.mPaint.setColor(this.oBP.color);
             this.mPaint.setStyle(Paint.Style.FILL);
-            canvas.drawCircle(width, f, this.osw.bGL, this.mPaint);
+            canvas.drawCircle(width, f, this.oBP.bMq, this.mPaint);
             this.mPaint.setColor(color);
         }
         this.mPaint.setTextAlign(Paint.Align.CENTER);
         this.mPaint.setColor(this.mColor);
-        this.mPaint.setTextSize(this.osx);
+        this.mPaint.setTextSize(this.oBQ);
         this.mPaint.setTypeface(Typeface.DEFAULT_BOLD);
         this.mPaint.getTextBounds(this.mText, 0, this.mText.length(), this.mBounds);
         canvas.drawText(this.mText, getWidth() / 2.0f, ((this.mBounds.height() / 2.0f) + (getHeight() / 2.0f)) - 2.0f, this.mPaint);
     }
 
     public void setTipOn(boolean z) {
-        this.osv = z;
+        this.oBO = z;
         invalidate();
     }
 }

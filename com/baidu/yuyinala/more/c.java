@@ -1,6 +1,7 @@
 package com.baidu.yuyinala.more;
 
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.live.adp.framework.MessageManager;
@@ -9,12 +10,12 @@ import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.ListUtils;
-import com.baidu.live.tbadk.core.view.BdGridView;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.live.tbadk.ubc.UbcStatisticItem;
 import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
-import com.baidu.live.view.d;
+import com.baidu.live.tieba.horizonallist.widget.HListView;
+import com.baidu.live.view.c;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.yuyinala.more.a.a;
 import com.baidu.yuyinala.more.c.a;
@@ -23,18 +24,18 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreFunctionDialogData> implements a.b, a.InterfaceC0923a {
-    private View dZZ;
-    private com.baidu.live.tieba.pb.interactionpopupwindow.c gXb;
-    private AlaMoreFunctionDialogData okD;
-    private TextView okF;
-    private TextView okG;
-    private BdGridView okH;
-    private BdGridView okI;
-    private com.baidu.yuyinala.more.a.a okJ;
-    private com.baidu.yuyinala.more.a.a okK;
-    private com.baidu.yuyinala.more.c.a okL;
-    private com.baidu.live.c.c okM;
+public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreFunctionDialogData> implements a.b, a.InterfaceC0941a {
+    private View efQ;
+    private com.baidu.live.tieba.pb.interactionpopupwindow.c hdf;
+    private AlaMoreFunctionDialogData oua;
+    private TextView ouc;
+    private TextView oud;
+    private HListView oue;
+    private HListView ouf;
+    private com.baidu.yuyinala.more.a.a oug;
+    private com.baidu.yuyinala.more.a.a ouh;
+    private com.baidu.yuyinala.more.c.a oui;
+    private com.baidu.live.c.c ouj;
 
     public c(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
@@ -42,67 +43,74 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.d
     public int getLayout() {
-        return a.h.activity_ala_audio_more_feature;
+        return a.g.activity_ala_audio_more_feature;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.d
     public void a(AlaMoreFunctionDialogData alaMoreFunctionDialogData) {
-        this.okD = alaMoreFunctionDialogData;
-        if (this.okD != null) {
-            this.okL.O(this.okD.getLiveId(), this.okD.getRoomId(), this.okD.getCustomRoomId(), this.okD.getGroupId());
-            gg(new ArrayList(this.okD.getGroupList()));
+        this.oua = alaMoreFunctionDialogData;
+        if (this.oua != null) {
+            this.oui.O(this.oua.getLiveId(), this.oua.getRoomId(), this.oua.getCustomRoomId(), this.oua.getGroupId());
+            gp(new ArrayList(this.oua.getGroupList()));
         }
     }
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.d
     public void initView() {
-        this.okF = (TextView) getViewGroup().findViewById(a.g.func_group_title1_tv);
-        this.okG = (TextView) getViewGroup().findViewById(a.g.func_group_title2_tv);
-        this.okH = (BdGridView) getViewGroup().findViewById(a.g.function_gv1);
-        this.okI = (BdGridView) getViewGroup().findViewById(a.g.function_gv2);
-        this.dZZ = getViewGroup().findViewById(a.g.group_divider_view);
-        this.okJ = new com.baidu.yuyinala.more.a.a(getTbPageContext());
-        this.okK = new com.baidu.yuyinala.more.a.a(getTbPageContext());
-        this.okL = new com.baidu.yuyinala.more.c.a(this);
-        this.okH.setAdapter((ListAdapter) this.okJ);
-        this.okI.setAdapter((ListAdapter) this.okK);
-        this.okJ.a(this);
-        this.okK.a(this);
+        this.ouc = (TextView) getViewGroup().findViewById(a.f.func_group_title1_tv);
+        this.oud = (TextView) getViewGroup().findViewById(a.f.func_group_title2_tv);
+        this.oue = (HListView) getViewGroup().findViewById(a.f.function_hlv1);
+        this.ouf = (HListView) getViewGroup().findViewById(a.f.function_hlv2);
+        this.efQ = getViewGroup().findViewById(a.f.group_divider_view);
+        this.oug = new com.baidu.yuyinala.more.a.a(getTbPageContext());
+        this.ouh = new com.baidu.yuyinala.more.a.a(getTbPageContext());
+        this.oui = new com.baidu.yuyinala.more.c.a(this);
+        this.oue.setAdapter((ListAdapter) this.oug);
+        this.ouf.setAdapter((ListAdapter) this.ouh);
+        this.oug.a(this);
+        this.ouh.a(this);
+        int dimension = (int) this.mTbPageContext.getPageActivity().getResources().getDimension(a.d.sdk_ds138);
+        ViewGroup.LayoutParams layoutParams = this.oue.getLayoutParams();
+        layoutParams.height = dimension;
+        this.oue.setLayoutParams(layoutParams);
+        ViewGroup.LayoutParams layoutParams2 = this.oue.getLayoutParams();
+        layoutParams2.height = dimension;
+        this.ouf.setLayoutParams(layoutParams2);
     }
 
     public void b(com.baidu.live.c.c cVar) {
-        this.okM = cVar;
+        this.ouj = cVar;
     }
 
     public void a(com.baidu.live.tieba.pb.interactionpopupwindow.c cVar) {
-        this.gXb = cVar;
+        this.hdf = cVar;
     }
 
-    private void gg(List<com.baidu.yuyinala.more.b.b> list) {
+    private void gp(List<com.baidu.yuyinala.more.b.b> list) {
         int count = ListUtils.getCount(list);
         com.baidu.yuyinala.more.b.b bVar = (com.baidu.yuyinala.more.b.b) ListUtils.getItem(list, count - 2);
         if (bVar != null) {
-            this.okF.setText(bVar.getTitle());
-            this.okJ.gh(bVar.ebn());
-            this.okF.setVisibility(0);
-            this.okH.setVisibility(0);
-            this.dZZ.setVisibility(0);
+            this.ouc.setText(bVar.getTitle());
+            this.oug.gq(bVar.efc());
+            this.ouc.setVisibility(0);
+            this.oue.setVisibility(0);
+            this.efQ.setVisibility(0);
         } else {
-            this.okF.setVisibility(8);
-            this.okH.setVisibility(8);
-            this.dZZ.setVisibility(8);
+            this.ouc.setVisibility(8);
+            this.oue.setVisibility(8);
+            this.efQ.setVisibility(8);
         }
         com.baidu.yuyinala.more.b.b bVar2 = (com.baidu.yuyinala.more.b.b) ListUtils.getItem(list, count - 1);
         if (bVar2 != null) {
-            this.okG.setText(bVar2.getTitle());
-            this.okK.gh(bVar2.ebn());
-            this.okG.setVisibility(0);
-            this.okI.setVisibility(0);
+            this.oud.setText(bVar2.getTitle());
+            this.ouh.gq(bVar2.efc());
+            this.oud.setVisibility(0);
+            this.ouf.setVisibility(0);
             return;
         }
-        this.okG.setVisibility(8);
-        this.okI.setVisibility(8);
+        this.oud.setVisibility(8);
+        this.ouf.setVisibility(8);
     }
 
     @Override // com.baidu.yuyinala.more.a.a.b
@@ -114,13 +122,13 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
             switch (action.hashCode()) {
                 case -2061609278:
                     if (action.equals("close_room")) {
-                        c = 4;
+                        c = 5;
                         break;
                     }
                     break;
                 case -1890252483:
                     if (action.equals("sticker")) {
-                        c = 6;
+                        c = 7;
                         break;
                     }
                     break;
@@ -132,13 +140,13 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
                     break;
                 case -1466768554:
                     if (action.equals("first_recharge")) {
-                        c = 7;
+                        c = '\b';
                         break;
                     }
                     break;
                 case -1257946267:
                     if (action.equals("clear_charm")) {
-                        c = 3;
+                        c = 4;
                         break;
                     }
                     break;
@@ -150,7 +158,7 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
                     break;
                 case 109400031:
                     if (action.equals(TbConfig.TMP_SHARE_DIR_NAME)) {
-                        c = 5;
+                        c = 6;
                         break;
                     }
                     break;
@@ -162,77 +170,89 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
                     break;
                 case 847411947:
                     if (action.equals("super_recharge")) {
-                        c = '\b';
+                        c = '\t';
                         break;
                     }
                     break;
                 case 1280882667:
                     if (action.equals("transfer")) {
-                        c = '\t';
+                        c = '\n';
+                        break;
+                    }
+                    break;
+                case 1946687661:
+                    if (action.equals("change_roommode")) {
+                        c = 3;
                         break;
                     }
                     break;
             }
             switch (c) {
                 case 0:
-                    if (this.okM != null) {
-                        this.okM.Cn();
+                    if (this.ouj != null) {
+                        this.ouj.CF();
                         break;
                     }
                     break;
                 case 1:
-                    if (this.okM != null) {
-                        this.okM.Co();
+                    if (this.ouj != null) {
+                        this.ouj.CG();
                         break;
                     }
                     break;
                 case 2:
-                    if (this.okM != null) {
-                        this.okM.Cp();
+                    if (this.ouj != null) {
+                        this.ouj.CH();
                         break;
                     }
                     break;
                 case 3:
-                    ebi();
-                    break;
-                case 4:
-                    ebj();
-                    break;
-                case 5:
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501002));
-                    break;
-                case 6:
-                    if (this.okM != null) {
-                        this.okM.Cq();
+                    if (this.ouj != null) {
+                        this.ouj.CJ();
                         break;
                     }
                     break;
+                case 4:
+                    eeX();
+                    break;
+                case 5:
+                    eeY();
+                    break;
+                case 6:
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501002));
+                    break;
                 case 7:
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501003));
+                    if (this.ouj != null) {
+                        this.ouj.CI();
+                        break;
+                    }
                     break;
                 case '\b':
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501004));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501003));
                     break;
                 case '\t':
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501004));
+                    break;
+                case '\n':
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501005));
                     break;
             }
-            gP(aVar.getAction(), aVar.getId());
-            this.gXb.dismiss();
+            gR(aVar.getAction(), aVar.getId());
+            this.hdf.dismiss();
             if (z) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501017, Boolean.valueOf(ebh())));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501017, Boolean.valueOf(eeW())));
             }
         }
     }
 
-    private boolean ebh() {
-        if (this.okD == null || ListUtils.isEmpty(this.okD.getGroupList())) {
+    private boolean eeW() {
+        if (this.oua == null || ListUtils.isEmpty(this.oua.getGroupList())) {
             return false;
         }
-        for (com.baidu.yuyinala.more.b.b bVar : this.okD.getGroupList()) {
-            if (bVar != null && !ListUtils.isEmpty(bVar.ebn())) {
-                for (com.baidu.yuyinala.more.b.a aVar : bVar.ebn()) {
-                    if (aVar != null && aVar.ebm()) {
+        for (com.baidu.yuyinala.more.b.b bVar : this.oua.getGroupList()) {
+            if (bVar != null && !ListUtils.isEmpty(bVar.efc())) {
+                for (com.baidu.yuyinala.more.b.a aVar : bVar.efc()) {
+                    if (aVar != null && aVar.efb()) {
                         return true;
                     }
                 }
@@ -242,73 +262,73 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
         return false;
     }
 
-    private void ebi() {
-        final d dVar = new d(getTbPageContext().getPageActivity());
-        dVar.setCancelable(false);
-        dVar.setCanceledOnTouchOutside(false);
-        dVar.cZ(false);
-        dVar.o(getTbPageContext().getString(a.i.clear_charm_title), getTbPageContext().getString(a.i.clear_charm_content), getTbPageContext().getString(a.i.sdk_alert_yes_button), getTbPageContext().getString(a.i.sdk_live_cancel));
-        dVar.gi(getTbPageContext().getResources().getColor(a.d.sdk_black_alpha100));
-        dVar.gj(getTbPageContext().getResources().getColor(a.d.sdk_black_alpha100));
-        dVar.db(false);
-        dVar.dc(false);
-        dVar.B(getTbPageContext().getResources().getDimension(a.e.sdk_ds12));
-        dVar.setTitleTextSize(getTbPageContext().getResources().getDimension(a.e.sdk_fontsize34));
-        dVar.gh(getTbPageContext().getResources().getColor(a.d.sdk_common_color_10215));
-        dVar.C(getTbPageContext().getResources().getDimension(a.e.sdk_fontsize28));
-        dVar.a(new d.a() { // from class: com.baidu.yuyinala.more.c.1
-            @Override // com.baidu.live.view.d.a
-            public void Pi() {
-                c.this.okL.ebo();
-                dVar.dismiss();
-                c.this.WL("xdremove_cfm");
+    private void eeX() {
+        final com.baidu.live.view.c cVar = new com.baidu.live.view.c(getTbPageContext().getPageActivity());
+        cVar.setCancelable(false);
+        cVar.setCanceledOnTouchOutside(false);
+        cVar.dg(false);
+        cVar.o(getTbPageContext().getString(a.h.clear_charm_title), getTbPageContext().getString(a.h.clear_charm_content), getTbPageContext().getString(a.h.sdk_alert_yes_button), getTbPageContext().getString(a.h.sdk_live_cancel));
+        cVar.gt(getTbPageContext().getResources().getColor(a.c.sdk_black_alpha100));
+        cVar.gu(getTbPageContext().getResources().getColor(a.c.sdk_black_alpha100));
+        cVar.di(false);
+        cVar.dj(false);
+        cVar.C(getTbPageContext().getResources().getDimension(a.d.sdk_ds12));
+        cVar.setTitleTextSize(getTbPageContext().getResources().getDimension(a.d.sdk_fontsize34));
+        cVar.gs(getTbPageContext().getResources().getColor(a.c.sdk_common_color_10215));
+        cVar.D(getTbPageContext().getResources().getDimension(a.d.sdk_fontsize28));
+        cVar.a(new c.a() { // from class: com.baidu.yuyinala.more.c.1
+            @Override // com.baidu.live.view.c.a
+            public void PI() {
+                c.this.oui.efd();
+                cVar.dismiss();
+                c.this.Xp("xdremove_cfm");
             }
 
-            @Override // com.baidu.live.view.d.a
-            public void Pj() {
-                dVar.dismiss();
-            }
-        });
-        dVar.show();
-    }
-
-    private void ebj() {
-        final d dVar = new d(getTbPageContext().getPageActivity());
-        dVar.setCancelable(false);
-        dVar.setCanceledOnTouchOutside(false);
-        dVar.cZ(false);
-        dVar.o(getTbPageContext().getString(a.i.ala_audio_close_room_title), "", getTbPageContext().getString(a.i.sdk_alert_yes_button), getTbPageContext().getString(a.i.sdk_live_cancel));
-        dVar.gi(getTbPageContext().getResources().getColor(a.d.sdk_black_alpha100));
-        dVar.gj(getTbPageContext().getResources().getColor(a.d.sdk_black_alpha100));
-        dVar.db(false);
-        dVar.dc(false);
-        dVar.B(getTbPageContext().getResources().getDimension(a.e.sdk_ds12));
-        dVar.setTitleTextSize(getTbPageContext().getResources().getDimension(a.e.sdk_fontsize34));
-        dVar.da(false);
-        dVar.a(new d.a() { // from class: com.baidu.yuyinala.more.c.2
-            @Override // com.baidu.live.view.d.a
-            public void Pi() {
-                c.this.okL.ebp();
-                c.this.okL.ebq();
-                dVar.dismiss();
-                c.this.WL("roomclose_cfm");
-            }
-
-            @Override // com.baidu.live.view.d.a
-            public void Pj() {
-                dVar.dismiss();
+            @Override // com.baidu.live.view.c.a
+            public void PJ() {
+                cVar.dismiss();
             }
         });
-        dVar.show();
+        cVar.show();
     }
 
-    private void gP(String str, String str2) {
+    private void eeY() {
+        final com.baidu.live.view.c cVar = new com.baidu.live.view.c(getTbPageContext().getPageActivity());
+        cVar.setCancelable(false);
+        cVar.setCanceledOnTouchOutside(false);
+        cVar.dg(false);
+        cVar.o(getTbPageContext().getString(a.h.ala_audio_close_room_title), "", getTbPageContext().getString(a.h.sdk_alert_yes_button), getTbPageContext().getString(a.h.sdk_live_cancel));
+        cVar.gt(getTbPageContext().getResources().getColor(a.c.sdk_black_alpha100));
+        cVar.gu(getTbPageContext().getResources().getColor(a.c.sdk_black_alpha100));
+        cVar.di(false);
+        cVar.dj(false);
+        cVar.C(getTbPageContext().getResources().getDimension(a.d.sdk_ds12));
+        cVar.setTitleTextSize(getTbPageContext().getResources().getDimension(a.d.sdk_fontsize34));
+        cVar.dh(false);
+        cVar.a(new c.a() { // from class: com.baidu.yuyinala.more.c.2
+            @Override // com.baidu.live.view.c.a
+            public void PI() {
+                c.this.oui.efe();
+                c.this.oui.eff();
+                cVar.dismiss();
+                c.this.Xp("roomclose_cfm");
+            }
+
+            @Override // com.baidu.live.view.c.a
+            public void PJ() {
+                cVar.dismiss();
+            }
+        });
+        cVar.show();
+    }
+
+    private void gR(String str, String str2) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "moretab");
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            if (this.okD != null) {
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.okD.getCustomRoomId());
+            if (this.oua != null) {
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.oua.getCustomRoomId());
             }
             if (str == "first_recharge" || str == "super_recharge" || str == "transfer") {
                 jSONObject.put("cloudctl_id", str2);
@@ -316,10 +336,10 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
         } catch (JSONException e) {
             BdLog.e(e);
         }
-        UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, WK(str)).setContentExt(jSONObject));
+        UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, Xo(str)).setContentExt(jSONObject));
     }
 
-    private String WK(String str) {
+    private String Xo(String str) {
         char c = 65535;
         switch (str.hashCode()) {
             case -2061609278:
@@ -408,13 +428,13 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void WL(String str) {
+    public void Xp(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "moretab");
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            if (this.okD != null) {
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.okD.getCustomRoomId());
+            if (this.oua != null) {
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.oua.getCustomRoomId());
             }
         } catch (JSONException e) {
             BdLog.e(e);
@@ -422,13 +442,13 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, str).setContentExt(jSONObject));
     }
 
-    @Override // com.baidu.yuyinala.more.c.a.InterfaceC0923a
-    public void zw(boolean z) {
-        this.mTbPageContext.showToast(z ? a.i.ala_audio_clear_charm_succ : a.i.ala_audio_clear_charm_fail);
+    @Override // com.baidu.yuyinala.more.c.a.InterfaceC0941a
+    public void zH(boolean z) {
+        this.mTbPageContext.showToast(z ? a.h.ala_audio_clear_charm_succ : a.h.ala_audio_clear_charm_fail);
     }
 
-    @Override // com.baidu.yuyinala.more.c.a.InterfaceC0923a
-    public void ebk() {
-        this.mTbPageContext.showToast(a.i.ala_audio_close_room_fail);
+    @Override // com.baidu.yuyinala.more.c.a.InterfaceC0941a
+    public void eeZ() {
+        this.mTbPageContext.showToast(a.h.ala_audio_close_room_fail);
     }
 }

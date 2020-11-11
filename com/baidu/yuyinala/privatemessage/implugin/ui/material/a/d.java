@@ -9,28 +9,28 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class d extends Dialog {
-    private Animation osj;
+    private Animation oBC;
 
     public d(Context context) {
-        super(context, a.j.CustomProgressDialog);
+        super(context, a.i.CustomProgressDialog);
         setCanceledOnTouchOutside(false);
-        setContentView(a.h.bd_im_syncwaitdialog);
+        setContentView(a.g.bd_im_syncwaitdialog);
         getWindow().getAttributes().gravity = 17;
         getWindow().setDimAmount(0.0f);
     }
 
     @Override // android.app.Dialog, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
-        ImageView imageView = (ImageView) findViewById(a.g.loadingImageView);
-        this.osj = new RotateAnimation(0.0f, 359.0f, 1, 0.5f, 1, 0.5f);
-        this.osj.setRepeatMode(-1);
-        this.osj.setRepeatCount(-1);
-        this.osj.setDuration(1500L);
-        imageView.startAnimation(this.osj);
+        ImageView imageView = (ImageView) findViewById(a.f.loadingImageView);
+        this.oBC = new RotateAnimation(0.0f, 359.0f, 1, 0.5f, 1, 0.5f);
+        this.oBC.setRepeatMode(-1);
+        this.oBC.setRepeatCount(-1);
+        this.oBC.setDuration(1500L);
+        imageView.startAnimation(this.oBC);
     }
 
     public void setMessage(String str) {
-        TextView textView = (TextView) findViewById(a.g.id_tv_loadingmsg);
+        TextView textView = (TextView) findViewById(a.f.id_tv_loadingmsg);
         if (textView != null) {
             textView.setText(str);
         }

@@ -8,13 +8,13 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 /* loaded from: classes6.dex */
 public @interface WireField {
-    String euC() default "";
+    String eyr() default "";
 
-    String euD();
+    String eys();
 
-    Label euE() default Label.OPTIONAL;
+    Label eyt() default Label.OPTIONAL;
 
-    boolean euF() default false;
+    boolean eyu() default false;
 
     int tag();
 

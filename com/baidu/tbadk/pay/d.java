@@ -6,8 +6,8 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
     public Activity context;
-    public Map<String, String> foU;
-    public boolean foV;
+    public Map<String, String> fuP;
+    public boolean fuQ;
     public String message;
     public Map<String, String> params;
     public BdUniqueId tag;

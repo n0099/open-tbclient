@@ -10,7 +10,7 @@ import java.util.HashMap;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3534a = "login_";
+    public static final String f3537a = "login_";
     public static final String b = "login_pop";
     public static final String c = "modifyPWD_widge";
     public static final String d = "normal_incomplete";

@@ -12,8 +12,8 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class TipGuideView extends LinearLayout implements View.OnClickListener {
-    private TextView nZq;
-    private View nZr;
+    private TextView ohW;
+    private View ohX;
 
     public TipGuideView(Context context) {
         this(context, null);
@@ -30,23 +30,23 @@ public class TipGuideView extends LinearLayout implements View.OnClickListener {
     }
 
     private void initView() {
-        View inflate = LayoutInflater.from(getContext()).inflate(a.h.layout_tip_guide_view, (ViewGroup) this, false);
-        inflate.findViewById(a.g.rl_root).setOnClickListener(this);
-        this.nZr = inflate.findViewById(a.g.iv_top_arrows);
-        this.nZq = (TextView) inflate.findViewById(a.g.tv_guide_text);
+        View inflate = LayoutInflater.from(getContext()).inflate(a.g.layout_tip_guide_view, (ViewGroup) this, false);
+        inflate.findViewById(a.f.rl_root).setOnClickListener(this);
+        this.ohX = inflate.findViewById(a.f.iv_top_arrows);
+        this.ohW = (TextView) inflate.findViewById(a.f.tv_guide_text);
         addView(inflate);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == a.g.rl_root) {
+        if (view.getId() == a.f.rl_root) {
             setVisibility(8);
         }
     }
 
     public void setText(String str) {
-        if (this.nZq != null && !TextUtils.isEmpty(str)) {
-            this.nZq.setText(str);
+        if (this.ohW != null && !TextUtils.isEmpty(str)) {
+            this.ohW.setText(str);
         }
     }
 }

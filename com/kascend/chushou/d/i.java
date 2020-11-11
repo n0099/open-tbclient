@@ -14,7 +14,7 @@ import org.webrtc.MediaStreamTrack;
 /* loaded from: classes6.dex */
 public final class i {
     @Nullable
-    public static Uri XR(@Nullable String str) {
+    public static Uri Yv(@Nullable String str) {
         if (str != null) {
             return Uri.parse(str);
         }

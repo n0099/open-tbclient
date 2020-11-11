@@ -4,10 +4,10 @@ import com.baidu.tbadk.core.data.MetaData;
 import tbclient.TiebaFieldsInfo;
 /* loaded from: classes22.dex */
 public class a {
-    public String ige;
-    public MetaData igf;
-    public long igg;
-    public String igh;
-    public TiebaFieldsInfo igi;
+    public String imb;
+    public MetaData imc;
+    public long imd;
+    public String ime;
+    public TiebaFieldsInfo imf;
     public String rankName;
 }

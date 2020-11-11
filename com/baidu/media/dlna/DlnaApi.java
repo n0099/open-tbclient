@@ -17,7 +17,7 @@ import java.util.Map;
 @Keep
 /* loaded from: classes16.dex */
 public class DlnaApi {
-    private static DlnaProvider.DlnaSearchListener bSN = null;
+    private static DlnaProvider.DlnaSearchListener bYx = null;
     private static Handler b = new Handler(Looper.getMainLooper()) { // from class: com.baidu.media.dlna.DlnaApi.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -26,8 +26,8 @@ public class DlnaApi {
                     Map<String, Object> map = (Map) message.obj;
                     try {
                         synchronized (DlnaApi.class) {
-                            if (DlnaApi.bSN != null && map != null) {
-                                DlnaApi.bSN.onDeviceChangeNotification(map);
+                            if (DlnaApi.bYx != null && map != null) {
+                                DlnaApi.bYx.onDeviceChangeNotification(map);
                             }
                         }
                         break;
@@ -38,8 +38,8 @@ public class DlnaApi {
                 case 2:
                     try {
                         synchronized (DlnaApi.class) {
-                            if (DlnaApi.bSN != null) {
-                                DlnaApi.bSN.onRefreshFinishNotification(message.arg1, message.arg2);
+                            if (DlnaApi.bYx != null) {
+                                DlnaApi.bYx.onRefreshFinishNotification(message.arg1, message.arg2);
                             }
                         }
                         break;
@@ -179,13 +179,13 @@ public class DlnaApi {
     }
 
     public static void search(DlnaProvider.DlnaSearchListener dlnaSearchListener) {
-        bSN = dlnaSearchListener;
+        bYx = dlnaSearchListener;
         nativeSearch();
     }
 
     public static void stop() {
         synchronized (DlnaApi.class) {
-            bSN = null;
+            bYx = null;
         }
         nativeStop();
     }

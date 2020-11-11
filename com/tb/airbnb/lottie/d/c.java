@@ -9,7 +9,7 @@ import com.baidu.mapapi.map.WeightedLatLng;
 /* loaded from: classes16.dex */
 public class c extends a implements Choreographer.FrameCallback {
     @Nullable
-    private com.tb.airbnb.lottie.d composition;
+    private com.tb.airbnb.lottie.e composition;
     private float speed = 1.0f;
     private boolean He = false;
     private long Hf = 0;
@@ -111,13 +111,13 @@ public class c extends a implements Choreographer.FrameCallback {
         this.Hi = 2.1474836E9f;
     }
 
-    public void setComposition(com.tb.airbnb.lottie.d dVar) {
+    public void setComposition(com.tb.airbnb.lottie.e eVar) {
         boolean z = this.composition == null;
-        this.composition = dVar;
+        this.composition = eVar;
         if (z) {
-            k((int) Math.max(this.Hh, dVar.iw()), (int) Math.min(this.Hi, dVar.ix()));
+            k((int) Math.max(this.Hh, eVar.iw()), (int) Math.min(this.Hi, eVar.ix()));
         } else {
-            k((int) dVar.iw(), (int) dVar.ix());
+            k((int) eVar.iw(), (int) eVar.ix());
         }
         setFrame((int) this.Hg);
         this.Hf = System.nanoTime();

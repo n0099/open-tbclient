@@ -6,13 +6,13 @@ import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a implements IAdapterData {
-    public static final BdUniqueId okU = BdUniqueId.gen();
+    public static final BdUniqueId our = BdUniqueId.gen();
     private String mAction;
     private String mIconUrl;
     private String mId;
     private String mName;
-    private boolean okV;
-    private boolean okW;
+    private boolean ous;
+    private boolean ouu;
 
     public String getId() {
         return this.mId;
@@ -30,16 +30,16 @@ public class a implements IAdapterData {
         return this.mAction;
     }
 
-    public boolean ebl() {
-        return this.okV;
+    public boolean efa() {
+        return this.ous;
     }
 
-    public boolean ebm() {
-        return this.okW;
+    public boolean efb() {
+        return this.ouu;
     }
 
-    public void zx(boolean z) {
-        this.okW = z;
+    public void zI(boolean z) {
+        this.ouu = z;
     }
 
     public void parse(JSONObject jSONObject) {
@@ -48,12 +48,12 @@ public class a implements IAdapterData {
             this.mIconUrl = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
             this.mName = jSONObject.optString("text");
             this.mAction = jSONObject.optString("action");
-            this.okV = jSONObject.optInt("red_note", 0) == 1;
+            this.ous = jSONObject.optInt("red_note", 0) == 1;
         }
     }
 
     @Override // com.baidu.live.adp.widget.listview.IAdapterData
     public BdUniqueId getType() {
-        return okU;
+        return our;
     }
 }

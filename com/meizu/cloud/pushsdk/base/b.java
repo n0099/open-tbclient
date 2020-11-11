@@ -20,7 +20,7 @@ public class b implements g {
     private boolean i = false;
 
     /* renamed from: a  reason: collision with root package name */
-    private SimpleDateFormat f4366a = new SimpleDateFormat("MM-dd HH:mm:ss");
+    private SimpleDateFormat f4368a = new SimpleDateFormat("MM-dd HH:mm:ss");
     private List<a> b = Collections.synchronizedList(new ArrayList());
     private Handler c = new Handler(Looper.getMainLooper());
     private String g = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdk/defaultLog";
@@ -32,12 +32,12 @@ public class b implements g {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        String f4369a;
+        String f4371a;
         String b;
         String c;
 
         public a(String str, String str2, String str3) {
-            StringBuffer stringBuffer = new StringBuffer(b.this.f4366a.format(new Date()));
+            StringBuffer stringBuffer = new StringBuffer(b.this.f4368a.format(new Date()));
             stringBuffer.append(" ");
             stringBuffer.append(b.this.h);
             stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
@@ -45,7 +45,7 @@ public class b implements g {
             stringBuffer.append(" ");
             stringBuffer.append(str);
             stringBuffer.append("/");
-            this.f4369a = stringBuffer.toString();
+            this.f4371a = stringBuffer.toString();
             this.b = str2;
             this.c = str3;
         }
@@ -119,7 +119,7 @@ public class b implements g {
                 try {
                     b.this.f.a(b.this.g);
                     for (a aVar : arrayList) {
-                        b.this.f.a(aVar.f4369a, aVar.b, aVar.c);
+                        b.this.f.a(aVar.f4371a, aVar.b, aVar.c);
                     }
                     try {
                         b.this.f.a();

@@ -7,7 +7,7 @@ public class AudioRecorder {
     private static Handler j = new com.baidu.vi.a();
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile AudioRecord f3897a;
+    private volatile AudioRecord f3899a;
     private int b;
     private int c;
     private int d;
@@ -23,12 +23,12 @@ public class AudioRecorder {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        AudioRecorder f3898a;
+        AudioRecorder f3900a;
         byte[] b;
         int c;
 
         public a(AudioRecorder audioRecorder, byte[] bArr, int i) {
-            this.f3898a = audioRecorder;
+            this.f3900a = audioRecorder;
             this.b = bArr;
             this.c = i;
         }

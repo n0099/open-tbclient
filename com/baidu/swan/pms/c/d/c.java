@@ -1,74 +1,74 @@
 package com.baidu.swan.pms.c.d;
 /* loaded from: classes15.dex */
 public class c extends g {
-    private String ecP;
-    private long ecQ;
-    private long ecR;
-    private String ecS;
-    private String ecT;
-    private int ecU;
+    private String eiH;
+    private long eiI;
+    private long eiJ;
+    private String eiK;
+    private String eiL;
+    private int eiM;
     private String mPath;
 
     public c(String str, int i) {
         super(i);
-        this.ecQ = -1L;
-        this.ecR = -1L;
-        this.ecU = -1;
-        this.ecP = str;
+        this.eiI = -1L;
+        this.eiJ = -1L;
+        this.eiM = -1;
+        this.eiH = str;
     }
 
-    public c mM(int i) {
-        this.ecU = i;
+    public c mW(int i) {
+        this.eiM = i;
         return this;
     }
 
-    public int aZA() {
-        return this.ecU;
+    public int bca() {
+        return this.eiM;
     }
 
-    public c yg(String str) {
-        this.ecS = str;
+    public c yu(String str) {
+        this.eiK = str;
         return this;
     }
 
-    public c cw(long j) {
-        this.ecQ = j;
+    public c cS(long j) {
+        this.eiI = j;
         return this;
     }
 
-    public c cx(long j) {
-        this.ecR = j;
+    public c cT(long j) {
+        this.eiJ = j;
         return this;
     }
 
-    public c yh(String str) {
-        this.ecT = str;
+    public c yv(String str) {
+        this.eiL = str;
         return this;
     }
 
-    public c yi(String str) {
+    public c yw(String str) {
         this.mPath = str;
         return this;
     }
 
     public String getBundleId() {
-        return this.ecP;
+        return this.eiH;
     }
 
-    public long aZy() {
-        return this.ecQ;
+    public long bbY() {
+        return this.eiI;
     }
 
-    public long aZz() {
-        return this.ecR;
+    public long bbZ() {
+        return this.eiJ;
     }
 
-    public String aZB() {
-        return this.ecS;
+    public String bcb() {
+        return this.eiK;
     }
 
-    public String aZC() {
-        return this.ecT;
+    public String bcc() {
+        return this.eiL;
     }
 
     public String getPath() {

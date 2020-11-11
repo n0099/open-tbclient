@@ -1,58 +1,68 @@
 package com.baidu.live.data;
 
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.baidu.tieba.ala.live.walletconfig.CashierData;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class br {
-    public int has_more;
-    public List<bc> user_list;
-
-    public void parserJson(String str) {
-        JSONObject jSONObject;
-        try {
-            jSONObject = new JSONObject(str);
-        } catch (JSONException e) {
-            e.printStackTrace();
-            jSONObject = null;
-        }
-        parserJson(jSONObject);
-    }
+    public long aQh;
+    public int aQi;
+    public int aQj;
+    public long aQk;
+    public long aQl;
+    public int aQm;
+    public int aQn;
+    public bq aQo;
+    public String aQp;
+    public String call_type;
+    public String extData;
+    public String imei;
+    public String itemInfo;
+    public String mobile;
+    public String notifyUrl;
+    public String orderId;
+    public String passuid;
+    public String pay_channel;
+    public String pay_url;
+    public String service;
+    public String sign;
+    public int signType;
+    public String tag;
+    public String title;
+    public String tn;
+    public String url;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.user_list = new ArrayList(optJSONArray.length());
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        bc bcVar = new bc();
-                        bcVar.parserJson(optJSONObject);
-                        this.user_list.add(bcVar);
-                    }
-                }
+            this.aQh = jSONObject.optInt(CashierData.CUSTOMER_ID);
+            this.service = jSONObject.optString("service");
+            this.orderId = jSONObject.optString(CashierData.ORDERID);
+            this.aQi = jSONObject.optInt(CashierData.ORDER_CREATE_TIME);
+            this.aQj = jSONObject.optInt(CashierData.DEVICE_TYPE);
+            this.aQk = jSONObject.optLong(CashierData.PAY_AMOUNT);
+            this.aQl = jSONObject.optLong(CashierData.ORIGINALAMOUNT_AMOUNT);
+            this.notifyUrl = jSONObject.optString(CashierData.NOTIFY_URL);
+            this.passuid = jSONObject.optString(CashierData.PASS_UID);
+            this.title = jSONObject.optString("title");
+            this.tn = jSONObject.optString(CashierData.TN);
+            this.url = jSONObject.optString("url");
+            this.mobile = jSONObject.optString("mobile");
+            this.itemInfo = jSONObject.optString(CashierData.ITEM_INFO);
+            this.imei = jSONObject.optString("imei");
+            this.aQm = jSONObject.optInt(CashierData.SDK);
+            this.aQn = jSONObject.optInt(CashierData.SDK_STYLE);
+            this.extData = jSONObject.optString(CashierData.EXT_DATA);
+            this.signType = jSONObject.optInt(CashierData.SIGN_TYPE);
+            this.tag = jSONObject.optString("tag");
+            this.sign = jSONObject.optString("sign");
+            JSONObject optJSONObject = jSONObject.optJSONObject("popup");
+            if (optJSONObject != null) {
+                this.aQo = new bq();
+                this.aQo.parserJson(optJSONObject);
             }
-            this.has_more = jSONObject.optInt("has_more");
+            this.pay_url = jSONObject.optString("pay_url");
+            this.call_type = jSONObject.optString("call_type");
+            this.pay_channel = jSONObject.optString("pay_channel");
+            this.aQp = jSONObject.optString("real_channel");
         }
-    }
-
-    public String toString() {
-        JSONObject jSONObject = new JSONObject();
-        JSONArray jSONArray = new JSONArray();
-        if (this.user_list != null && !this.user_list.isEmpty()) {
-            for (bc bcVar : this.user_list) {
-                jSONArray.put(bcVar.toString());
-            }
-        }
-        try {
-            jSONObject.put("user_list", jSONArray.toString());
-            jSONObject.put("has_more", this.has_more);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return jSONObject.toString();
     }
 }

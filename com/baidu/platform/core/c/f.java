@@ -13,16 +13,16 @@ public class f extends com.baidu.platform.base.a implements a {
 
     @Override // com.baidu.platform.core.c.a
     public void a() {
-        this.f2810a.lock();
+        this.f2812a.lock();
         this.b = null;
-        this.f2810a.unlock();
+        this.f2812a.unlock();
     }
 
     @Override // com.baidu.platform.core.c.a
     public void a(OnGetPoiSearchResultListener onGetPoiSearchResultListener) {
-        this.f2810a.lock();
+        this.f2812a.lock();
         this.b = onGetPoiSearchResultListener;
-        this.f2810a.unlock();
+        this.f2812a.unlock();
     }
 
     @Override // com.baidu.platform.core.c.a

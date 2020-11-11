@@ -1,40 +1,35 @@
 package com.baidu.live.data;
 
-import com.coremedia.iso.boxes.TrackReferenceTypeBox;
+import com.baidu.live.tbadk.core.data.BaseData;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class bp {
-    public int aPg;
-    public int aPh;
-    public int aPi;
-    public int aPj;
-    public int app_size;
-    public String app_version;
-    public String appendix_link;
-    public String appendix_text;
-    public String changelogs;
-    public String hint;
-    public String n_btn_link;
-    public String n_btn_text;
-    public String y_btn_link;
-    public String y_btn_text;
+public class bp extends BaseData {
+    public int aPS;
+    public int aPT;
+    public int aPU;
+    public int aPV;
+    public int aPW;
+    public int aPX;
+    public int aPY;
+    public int aPZ;
+    public int aQa;
+    public int aQb;
+    public int aQc;
 
+    @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aPg = jSONObject.optInt("popup_id");
-            this.aPh = jSONObject.optInt("popup_times");
-            this.aPi = jSONObject.optInt("popup_type");
-            this.hint = jSONObject.optString(TrackReferenceTypeBox.TYPE1);
-            this.app_version = jSONObject.optString("app_version");
-            this.app_size = jSONObject.optInt("app_size");
-            this.changelogs = jSONObject.optString("changelogs");
-            this.appendix_text = jSONObject.optString("appendix_text");
-            this.appendix_link = jSONObject.optString("appendix_link");
-            this.aPj = jSONObject.optInt("appendix_optional");
-            this.y_btn_text = jSONObject.optString("y_btn_text");
-            this.y_btn_link = jSONObject.optString("y_btn_link");
-            this.n_btn_text = jSONObject.optString("n_btn_text");
-            this.n_btn_link = jSONObject.optString("n_btn_link");
+            this.aPS = jSONObject.optInt("switch");
+            this.aPT = jSONObject.optInt("show_scene_zan");
+            this.aPU = jSONObject.optInt("show_scene_sendtext");
+            this.aPV = jSONObject.optInt("show_scene_sendfreegift");
+            this.aPW = jSONObject.optInt("show_scene_follow");
+            this.aPX = jSONObject.optInt("show_scene_placeorder");
+            this.aPY = jSONObject.optInt("show_scene_barrage");
+            this.aPZ = jSONObject.optInt("show_scene_guardclub");
+            this.aQa = jSONObject.optInt("show_scene_redpacket");
+            this.aQb = jSONObject.optInt("condition");
+            this.aQc = jSONObject.optInt("show_every_days");
         }
     }
 }

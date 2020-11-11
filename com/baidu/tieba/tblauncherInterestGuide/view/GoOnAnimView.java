@@ -12,9 +12,9 @@ import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class GoOnAnimView extends LinearLayout {
     private Handler mHandler;
-    private ImageView mYw;
-    private ImageView mYx;
-    private ImageView mYy;
+    private ImageView ner;
+    private ImageView nes;
+    private ImageView neu;
     private int tag;
 
     static /* synthetic */ int e(GoOnAnimView goOnAnimView) {
@@ -32,24 +32,24 @@ public class GoOnAnimView extends LinearLayout {
                 GoOnAnimView.this.tag %= 4;
                 switch (GoOnAnimView.this.tag) {
                     case 0:
-                        GoOnAnimView.this.mYw.setImageResource(R.drawable.pic_startpage1_next_3);
-                        GoOnAnimView.this.mYx.setImageResource(R.drawable.pic_startpage1_next_2);
-                        GoOnAnimView.this.mYy.setImageResource(R.drawable.pic_startpage1_next_1);
+                        GoOnAnimView.this.ner.setImageResource(R.drawable.pic_startpage1_next_3);
+                        GoOnAnimView.this.nes.setImageResource(R.drawable.pic_startpage1_next_2);
+                        GoOnAnimView.this.neu.setImageResource(R.drawable.pic_startpage1_next_1);
                         break;
                     case 1:
-                        GoOnAnimView.this.mYw.setImageResource(R.drawable.pic_startpage1_next_2);
-                        GoOnAnimView.this.mYx.setImageResource(R.drawable.pic_startpage1_next_1);
-                        GoOnAnimView.this.mYy.setImageResource(R.drawable.pic_startpage1_next_3);
+                        GoOnAnimView.this.ner.setImageResource(R.drawable.pic_startpage1_next_2);
+                        GoOnAnimView.this.nes.setImageResource(R.drawable.pic_startpage1_next_1);
+                        GoOnAnimView.this.neu.setImageResource(R.drawable.pic_startpage1_next_3);
                         break;
                     case 2:
-                        GoOnAnimView.this.mYw.setImageResource(R.drawable.pic_startpage1_next_1);
-                        GoOnAnimView.this.mYx.setImageResource(R.drawable.pic_startpage1_next_3);
-                        GoOnAnimView.this.mYy.setImageResource(R.drawable.pic_startpage1_next_2);
+                        GoOnAnimView.this.ner.setImageResource(R.drawable.pic_startpage1_next_1);
+                        GoOnAnimView.this.nes.setImageResource(R.drawable.pic_startpage1_next_3);
+                        GoOnAnimView.this.neu.setImageResource(R.drawable.pic_startpage1_next_2);
                         break;
                     case 3:
-                        GoOnAnimView.this.mYw.setImageResource(R.drawable.pic_startpage1_next_2);
-                        GoOnAnimView.this.mYx.setImageResource(R.drawable.pic_startpage1_next_2);
-                        GoOnAnimView.this.mYy.setImageResource(R.drawable.pic_startpage1_next_2);
+                        GoOnAnimView.this.ner.setImageResource(R.drawable.pic_startpage1_next_2);
+                        GoOnAnimView.this.nes.setImageResource(R.drawable.pic_startpage1_next_2);
+                        GoOnAnimView.this.neu.setImageResource(R.drawable.pic_startpage1_next_2);
                         break;
                 }
                 GoOnAnimView.e(GoOnAnimView.this);
@@ -69,24 +69,24 @@ public class GoOnAnimView extends LinearLayout {
                 GoOnAnimView.this.tag %= 4;
                 switch (GoOnAnimView.this.tag) {
                     case 0:
-                        GoOnAnimView.this.mYw.setImageResource(R.drawable.pic_startpage1_next_3);
-                        GoOnAnimView.this.mYx.setImageResource(R.drawable.pic_startpage1_next_2);
-                        GoOnAnimView.this.mYy.setImageResource(R.drawable.pic_startpage1_next_1);
+                        GoOnAnimView.this.ner.setImageResource(R.drawable.pic_startpage1_next_3);
+                        GoOnAnimView.this.nes.setImageResource(R.drawable.pic_startpage1_next_2);
+                        GoOnAnimView.this.neu.setImageResource(R.drawable.pic_startpage1_next_1);
                         break;
                     case 1:
-                        GoOnAnimView.this.mYw.setImageResource(R.drawable.pic_startpage1_next_2);
-                        GoOnAnimView.this.mYx.setImageResource(R.drawable.pic_startpage1_next_1);
-                        GoOnAnimView.this.mYy.setImageResource(R.drawable.pic_startpage1_next_3);
+                        GoOnAnimView.this.ner.setImageResource(R.drawable.pic_startpage1_next_2);
+                        GoOnAnimView.this.nes.setImageResource(R.drawable.pic_startpage1_next_1);
+                        GoOnAnimView.this.neu.setImageResource(R.drawable.pic_startpage1_next_3);
                         break;
                     case 2:
-                        GoOnAnimView.this.mYw.setImageResource(R.drawable.pic_startpage1_next_1);
-                        GoOnAnimView.this.mYx.setImageResource(R.drawable.pic_startpage1_next_3);
-                        GoOnAnimView.this.mYy.setImageResource(R.drawable.pic_startpage1_next_2);
+                        GoOnAnimView.this.ner.setImageResource(R.drawable.pic_startpage1_next_1);
+                        GoOnAnimView.this.nes.setImageResource(R.drawable.pic_startpage1_next_3);
+                        GoOnAnimView.this.neu.setImageResource(R.drawable.pic_startpage1_next_2);
                         break;
                     case 3:
-                        GoOnAnimView.this.mYw.setImageResource(R.drawable.pic_startpage1_next_2);
-                        GoOnAnimView.this.mYx.setImageResource(R.drawable.pic_startpage1_next_2);
-                        GoOnAnimView.this.mYy.setImageResource(R.drawable.pic_startpage1_next_2);
+                        GoOnAnimView.this.ner.setImageResource(R.drawable.pic_startpage1_next_2);
+                        GoOnAnimView.this.nes.setImageResource(R.drawable.pic_startpage1_next_2);
+                        GoOnAnimView.this.neu.setImageResource(R.drawable.pic_startpage1_next_2);
                         break;
                 }
                 GoOnAnimView.e(GoOnAnimView.this);
@@ -99,12 +99,12 @@ public class GoOnAnimView extends LinearLayout {
 
     private void init(Context context) {
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.go_on_anim, (ViewGroup) null, false);
-        this.mYw = (ImageView) linearLayout.findViewById(R.id.tip_go_on_1);
-        this.mYx = (ImageView) linearLayout.findViewById(R.id.tip_go_on_2);
-        this.mYy = (ImageView) linearLayout.findViewById(R.id.tip_go_on_3);
-        this.mYw.setImageResource(R.drawable.pic_startpage1_next_3);
-        this.mYx.setImageResource(R.drawable.pic_startpage1_next_2);
-        this.mYy.setImageResource(R.drawable.pic_startpage1_next_1);
+        this.ner = (ImageView) linearLayout.findViewById(R.id.tip_go_on_1);
+        this.nes = (ImageView) linearLayout.findViewById(R.id.tip_go_on_2);
+        this.neu = (ImageView) linearLayout.findViewById(R.id.tip_go_on_3);
+        this.ner.setImageResource(R.drawable.pic_startpage1_next_3);
+        this.nes.setImageResource(R.drawable.pic_startpage1_next_2);
+        this.neu.setImageResource(R.drawable.pic_startpage1_next_1);
         addView(linearLayout);
     }
 
@@ -119,14 +119,14 @@ public class GoOnAnimView extends LinearLayout {
 
     public void onDestroy() {
         this.mHandler.removeMessages(0);
-        if (this.mYw != null) {
-            this.mYw.setImageDrawable(null);
+        if (this.ner != null) {
+            this.ner.setImageDrawable(null);
         }
-        if (this.mYx != null) {
-            this.mYx.setImageDrawable(null);
+        if (this.nes != null) {
+            this.nes.setImageDrawable(null);
         }
-        if (this.mYy != null) {
-            this.mYy.setImageDrawable(null);
+        if (this.neu != null) {
+            this.neu.setImageDrawable(null);
         }
     }
 }

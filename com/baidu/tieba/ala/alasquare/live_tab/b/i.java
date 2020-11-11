@@ -3,11 +3,11 @@ package com.baidu.tieba.ala.alasquare.live_tab.b;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes4.dex */
 public class i extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId gel = BdUniqueId.gen();
-    public h gem;
+    public static final BdUniqueId gkb = BdUniqueId.gen();
+    public h gkc;
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return gel;
+        return gkb;
     }
 }

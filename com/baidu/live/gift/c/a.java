@@ -12,7 +12,6 @@ import com.baidu.live.gift.GiftPackageConsumeHttpResponsedMessage;
 import com.baidu.live.gift.b.e;
 import com.baidu.live.gift.c.c;
 import com.baidu.live.gift.http.GiftPackageListHttpResponsedMessage;
-import com.baidu.live.gift.q;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.live.tbadk.ubc.UbcStatisticItem;
@@ -26,23 +25,23 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a implements c {
     public static long pkId = 0;
-    private CustomMessageListener bbL;
-    private c.a bcG;
-    private HttpMessageListener bcH;
-    private HttpMessageListener bcI;
+    private c.a bdZ;
+    private CustomMessageListener bde;
+    private HttpMessageListener bea;
+    private HttpMessageListener beb;
 
     public a() {
         registerListener();
     }
 
     public void a(c.a aVar) {
-        this.bcG = aVar;
+        this.bdZ = aVar;
     }
 
     @Override // com.baidu.live.gift.c.c
-    public void hr(String str) {
+    public void hy(String str) {
         com.baidu.live.gift.message.a aVar = new com.baidu.live.gift.message.a(str);
-        aVar.addParam("scene_from", p.Sc());
+        aVar.addParam("scene_from", p.UK());
         aVar.addParam("platform", "2");
         MessageManager.getInstance().sendMessage(aVar);
         UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_GIFT_LIST_REQ, UbcStatConstant.ContentType.UBC_TYPE_GIFT_PACKAGE_LIST, "liveroom", ""));
@@ -50,34 +49,34 @@ public class a implements c {
 
     @Override // com.baidu.live.gift.c.c
     public void a(String str, String str2, String str3, String str4, String str5, int i, int i2, String str6, long j) {
-        e.av(UbcStatisticLiveKey.KEY_ID_SEND_GIFT_REQ, UbcStatConstant.ContentType.UBC_TYPE_GIFT_SEND_PACKAGE);
-        q qVar = new q();
-        qVar.a(str, str3, str4, str5, i, i2, str6, pkId);
-        qVar.aUi = j;
-        qVar.aUk.put(Long.valueOf(j), Long.valueOf(i));
-        MessageManager.getInstance().sendMessage(qVar);
+        e.aw(UbcStatisticLiveKey.KEY_ID_SEND_GIFT_REQ, UbcStatConstant.ContentType.UBC_TYPE_GIFT_SEND_PACKAGE);
+        com.baidu.live.gift.p pVar = new com.baidu.live.gift.p();
+        pVar.a(str, str3, str4, str5, i, i2, str6, pkId);
+        pVar.aVA = j;
+        pVar.aVC.put(Long.valueOf(j), Long.valueOf(i));
+        MessageManager.getInstance().sendMessage(pVar);
     }
 
     @Override // com.baidu.live.gift.c.c
     public void release() {
-        this.bcG = null;
+        this.bdZ = null;
         unregisterListener();
     }
 
     private void registerListener() {
-        IW();
-        IX();
-        IV();
+        Jx();
+        Jy();
+        Jw();
     }
 
     private void unregisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.bcH);
-        MessageManager.getInstance().unRegisterListener(this.bcI);
-        MessageManager.getInstance().unRegisterListener(this.bbL);
+        MessageManager.getInstance().unRegisterListener(this.bea);
+        MessageManager.getInstance().unRegisterListener(this.beb);
+        MessageManager.getInstance().unRegisterListener(this.bde);
     }
 
-    private void IV() {
-        this.bbL = new CustomMessageListener(2913234) { // from class: com.baidu.live.gift.c.a.1
+    private void Jw() {
+        this.bde = new CustomMessageListener(2913234) { // from class: com.baidu.live.gift.c.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -93,42 +92,42 @@ public class a implements c {
                 a.pkId = 0L;
             }
         };
-        MessageManager.getInstance().registerListener(this.bbL);
+        MessageManager.getInstance().registerListener(this.bde);
     }
 
-    private void IW() {
-        this.bcH = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GAME_LIVE_LIST) { // from class: com.baidu.live.gift.c.a.2
+    private void Jx() {
+        this.bea = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GAME_LIVE_LIST) { // from class: com.baidu.live.gift.c.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof GiftPackageListHttpResponsedMessage) {
                     GiftPackageListHttpResponsedMessage giftPackageListHttpResponsedMessage = (GiftPackageListHttpResponsedMessage) httpResponsedMessage;
-                    com.baidu.live.gift.b.b.ID().e(giftPackageListHttpResponsedMessage.getSceneFrom(), giftPackageListHttpResponsedMessage.IO());
-                    if (a.this.bcG != null) {
-                        a.this.bcG.a(!giftPackageListHttpResponsedMessage.hasError() && giftPackageListHttpResponsedMessage.getError() == 0, giftPackageListHttpResponsedMessage.getError(), giftPackageListHttpResponsedMessage.getErrorString(), giftPackageListHttpResponsedMessage.IO(), giftPackageListHttpResponsedMessage.getCategoryList(), giftPackageListHttpResponsedMessage.IP());
+                    com.baidu.live.gift.b.b.Je().e(giftPackageListHttpResponsedMessage.getSceneFrom(), giftPackageListHttpResponsedMessage.Jp());
+                    if (a.this.bdZ != null) {
+                        a.this.bdZ.a(!giftPackageListHttpResponsedMessage.hasError() && giftPackageListHttpResponsedMessage.getError() == 0, giftPackageListHttpResponsedMessage.getError(), giftPackageListHttpResponsedMessage.getErrorString(), giftPackageListHttpResponsedMessage.Jp(), giftPackageListHttpResponsedMessage.getCategoryList(), giftPackageListHttpResponsedMessage.Jq());
                     }
                     a.this.a(giftPackageListHttpResponsedMessage);
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.bcH);
+        MessageManager.getInstance().registerListener(this.bea);
     }
 
-    private void IX() {
-        this.bcI = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR) { // from class: com.baidu.live.gift.c.a.3
+    private void Jy() {
+        this.beb = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR) { // from class: com.baidu.live.gift.c.a.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof GiftPackageConsumeHttpResponsedMessage) {
                     GiftPackageConsumeHttpResponsedMessage giftPackageConsumeHttpResponsedMessage = (GiftPackageConsumeHttpResponsedMessage) httpResponsedMessage;
                     a.this.a(httpResponsedMessage, giftPackageConsumeHttpResponsedMessage);
-                    if (a.this.bcG != null) {
-                        a.this.bcG.a(!giftPackageConsumeHttpResponsedMessage.hasError() && giftPackageConsumeHttpResponsedMessage.getError() == 0, giftPackageConsumeHttpResponsedMessage.getError(), giftPackageConsumeHttpResponsedMessage.getErrorString(), giftPackageConsumeHttpResponsedMessage.aVg, giftPackageConsumeHttpResponsedMessage.aVh);
+                    if (a.this.bdZ != null) {
+                        a.this.bdZ.a(!giftPackageConsumeHttpResponsedMessage.hasError() && giftPackageConsumeHttpResponsedMessage.getError() == 0, giftPackageConsumeHttpResponsedMessage.getError(), giftPackageConsumeHttpResponsedMessage.getErrorString(), giftPackageConsumeHttpResponsedMessage.aWy, giftPackageConsumeHttpResponsedMessage.aWz);
                     }
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.bcI);
+        MessageManager.getInstance().registerListener(this.beb);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -146,7 +145,7 @@ public class a implements c {
                     BdLog.e(e);
                     jSONObject2 = jSONObject3;
                 }
-            } else if (giftPackageListHttpResponsedMessage.IO() == null || giftPackageListHttpResponsedMessage.IO().isEmpty() || giftPackageListHttpResponsedMessage.getCategoryList() == null || giftPackageListHttpResponsedMessage.getCategoryList().isEmpty()) {
+            } else if (giftPackageListHttpResponsedMessage.Jp() == null || giftPackageListHttpResponsedMessage.Jp().isEmpty() || giftPackageListHttpResponsedMessage.getCategoryList() == null || giftPackageListHttpResponsedMessage.getCategoryList().isEmpty()) {
                 JSONObject jSONObject4 = new JSONObject();
                 try {
                     jSONObject4.put(PushMessageHelper.ERROR_TYPE, "list_empty");
@@ -158,9 +157,9 @@ public class a implements c {
                 }
             }
             if (jSONObject2 != null) {
-                if (!TextUtils.isEmpty(giftPackageListHttpResponsedMessage.IQ())) {
+                if (!TextUtils.isEmpty(giftPackageListHttpResponsedMessage.Jr())) {
                     try {
-                        jSONObject2.put("req_loc", giftPackageListHttpResponsedMessage.IQ());
+                        jSONObject2.put("req_loc", giftPackageListHttpResponsedMessage.Jr());
                         jSONObject.put("result", jSONObject2);
                     } catch (JSONException e3) {
                         e3.printStackTrace();
@@ -174,13 +173,13 @@ public class a implements c {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(HttpResponsedMessage httpResponsedMessage, GiftPackageConsumeHttpResponsedMessage giftPackageConsumeHttpResponsedMessage) {
         if (giftPackageConsumeHttpResponsedMessage.getError() == 0 && !giftPackageConsumeHttpResponsedMessage.hasError()) {
-            if (httpResponsedMessage.getOrginalMessage() instanceof q) {
-                q qVar = (q) httpResponsedMessage.getOrginalMessage();
-                e.a(giftPackageConsumeHttpResponsedMessage, UbcStatisticLiveKey.KEY_ID_SEND_GIFT_RESP, UbcStatConstant.ContentType.UBC_TYPE_GIFT_SEND_PACKAGE_SUCC, qVar.sceneFrom, qVar.giftId, String.valueOf(qVar.aUO), String.valueOf(TbadkCoreApplication.getInst().currentAccountTdouNum), true);
+            if (httpResponsedMessage.getOrginalMessage() instanceof com.baidu.live.gift.p) {
+                com.baidu.live.gift.p pVar = (com.baidu.live.gift.p) httpResponsedMessage.getOrginalMessage();
+                e.a(giftPackageConsumeHttpResponsedMessage, UbcStatisticLiveKey.KEY_ID_SEND_GIFT_RESP, UbcStatConstant.ContentType.UBC_TYPE_GIFT_SEND_PACKAGE_SUCC, pVar.sceneFrom, pVar.giftId, String.valueOf(pVar.aWg), String.valueOf(TbadkCoreApplication.getInst().currentAccountTdouNum), true);
             }
-        } else if (httpResponsedMessage.getOrginalMessage() instanceof q) {
-            q qVar2 = (q) httpResponsedMessage.getOrginalMessage();
-            e.a(giftPackageConsumeHttpResponsedMessage, UbcStatisticLiveKey.KEY_ID_SEND_GIFT_RESP, UbcStatConstant.ContentType.UBC_TYPE_GIFT_SEND_PACKAGE, qVar2.sceneFrom, qVar2.giftId, String.valueOf(qVar2.aUO), String.valueOf(TbadkCoreApplication.getInst().currentAccountTdouNum), true);
+        } else if (httpResponsedMessage.getOrginalMessage() instanceof com.baidu.live.gift.p) {
+            com.baidu.live.gift.p pVar2 = (com.baidu.live.gift.p) httpResponsedMessage.getOrginalMessage();
+            e.a(giftPackageConsumeHttpResponsedMessage, UbcStatisticLiveKey.KEY_ID_SEND_GIFT_RESP, UbcStatConstant.ContentType.UBC_TYPE_GIFT_SEND_PACKAGE, pVar2.sceneFrom, pVar2.giftId, String.valueOf(pVar2.aWg), String.valueOf(TbadkCoreApplication.getInst().currentAccountTdouNum), true);
         }
     }
 }

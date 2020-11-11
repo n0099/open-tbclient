@@ -9,8 +9,8 @@ import java.io.InputStream;
 import org.apache.http.HttpStatus;
 /* loaded from: classes12.dex */
 public class b {
-    public static int Pw(int i) {
-        return d.Pw(i);
+    public static int PR(int i) {
+        return d.PR(i);
     }
 
     public static int y(InputStream inputStream) {
@@ -32,7 +32,7 @@ public class b {
             while (i2 == 255) {
                 i2 = c.a(inputStream, 1, false);
             }
-            if ((i == 192 && Px(i2)) || i2 == i) {
+            if ((i == 192 && PS(i2)) || i2 == i) {
                 return true;
             }
             if (i2 != 216 && i2 != 1) {
@@ -45,7 +45,7 @@ public class b {
         return false;
     }
 
-    private static boolean Px(int i) {
+    private static boolean PS(int i) {
         switch (i) {
             case 192:
             case 193:

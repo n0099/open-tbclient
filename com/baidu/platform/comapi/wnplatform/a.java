@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.wnplatform;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3096a;
+    private int f3098a;
     private int b;
     private int c;
     private boolean d;
@@ -12,14 +12,14 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.platform.comapi.wnplatform.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0282a {
+    public static class C0294a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final a f3097a = new a();
+        static final a f3099a = new a();
     }
 
     public static a a() {
-        return C0282a.f3097a;
+        return C0294a.f3099a;
     }
 
     private a() {
@@ -50,15 +50,15 @@ public class a {
     }
 
     public void b(int i) {
-        this.f3096a = i;
+        this.f3098a = i;
     }
 
     public boolean f() {
-        return this.f3096a == 0;
+        return this.f3098a == 0;
     }
 
     public boolean g() {
-        return this.f3096a == 1 || this.f3096a == 2;
+        return this.f3098a == 1 || this.f3098a == 2;
     }
 
     public int h() {

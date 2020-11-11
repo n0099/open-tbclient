@@ -6,39 +6,39 @@ import com.baidu.swan.apps.v.f;
 /* loaded from: classes10.dex */
 public class c {
     public static boolean c(View view, com.baidu.swan.apps.model.a.a.a aVar) {
-        d axr = f.axo().axr();
-        return axr != null && axr.a(view, aVar);
+        d azR = f.azO().azR();
+        return azR != null && azR.a(view, aVar);
     }
 
     public static boolean b(View view, com.baidu.swan.apps.model.a.a.a aVar) {
-        d axr = f.axo().axr();
-        return axr != null && axr.b(view, aVar);
+        d azR = f.azO().azR();
+        return azR != null && azR.b(view, aVar);
     }
 
     public static boolean removeView(View view) {
-        d axr = f.axo().axr();
-        return axr != null && axr.removeView(view);
+        d azR = f.azO().azR();
+        return azR != null && azR.removeView(view);
     }
 
-    public static Context aVB() {
-        d axr = f.axo().axr();
-        if (axr != null) {
-            return axr.getContext();
+    public static Context aYb() {
+        d azR = f.azO().azR();
+        if (azR != null) {
+            return azR.getContext();
         }
         return null;
     }
 
     public static void a(a aVar) {
-        d axr = f.axo().axr();
-        if (axr != null) {
-            axr.a(aVar);
+        d azR = f.azO().azR();
+        if (azR != null) {
+            azR.a(aVar);
         }
     }
 
     public static void b(a aVar) {
-        d axr = f.axo().axr();
-        if (axr != null) {
-            axr.b(aVar);
+        d azR = f.azO().azR();
+        if (azR != null) {
+            azR.b(aVar);
         }
     }
 }

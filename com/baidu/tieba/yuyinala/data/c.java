@@ -8,10 +8,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c extends g {
-    public String aRy;
+    public String aSP;
     public String cover;
-    public int eyT;
-    public ArrayList<a> gux;
+    public int eEI;
+    public ArrayList<a> gAl;
     public String liveId;
     public int point;
     public int rank;
@@ -21,19 +21,19 @@ public class c extends g {
     public void parserJson(JSONObject jSONObject) {
         this.rank = jSONObject.optInt("rank");
         this.point = jSONObject.optInt(Config.EVENT_HEAT_POINT);
-        this.aRy = jSONObject.optString("room_id");
+        this.aSP = jSONObject.optString("room_id");
         this.liveId = jSONObject.optString("live_id");
         this.room_name = jSONObject.optString(DpStatConstants.KEY_ROOM_NAME);
         this.cover = jSONObject.optString("cover");
-        this.eyT = jSONObject.optInt("live_status");
+        this.eEI = jSONObject.optInt("live_status");
         JSONArray optJSONArray = jSONObject.optJSONArray("bro_list");
         if (optJSONArray != null) {
-            this.gux = new ArrayList<>();
+            this.gAl = new ArrayList<>();
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 a aVar = new a();
                 aVar.parserJson(optJSONObject);
-                this.gux.add(aVar);
+                this.gAl.add(aVar);
             }
         }
     }
@@ -45,7 +45,7 @@ public class c extends g {
 
     /* loaded from: classes4.dex */
     public class a {
-        public long biA;
+        public long bjT;
         public String portrait;
         public String uk;
         public String userName;
@@ -60,7 +60,7 @@ public class c extends g {
                 this.userName = jSONObject.optString("user_name");
                 this.userNickName = jSONObject.optString("user_nickname");
                 this.portrait = jSONObject.optString("bd_portrait");
-                this.biA = jSONObject.optLong("charm_value");
+                this.bjT = jSONObject.optLong("charm_value");
             }
         }
 

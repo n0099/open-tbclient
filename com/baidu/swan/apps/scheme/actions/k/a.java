@@ -22,7 +22,7 @@ import org.json.JSONObject;
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static JSONObject ss(String str) {
+    public static JSONObject sG(String str) {
         return cu(str, "");
     }
 
@@ -68,7 +68,7 @@ public final class a {
     }
 
     @Nullable
-    public static String bN(JSONObject jSONObject) {
+    public static String bT(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
@@ -97,37 +97,37 @@ public final class a {
     public static void a(com.baidu.swan.apps.adaptation.b.c cVar, com.baidu.swan.apps.model.b bVar, String str) {
         com.baidu.swan.apps.performance.h.E("route", "createAndLoadPage start.");
         String Y = ak.Y(bVar.mBaseUrl, bVar.mPage, bVar.mParams);
-        com.baidu.swan.apps.runtime.config.c px = com.baidu.swan.apps.v.f.axo().px(bVar.dag);
+        com.baidu.swan.apps.runtime.config.c pL = com.baidu.swan.apps.v.f.azO().pL(bVar.dgd);
         com.baidu.swan.apps.core.turbo.b bVar2 = new com.baidu.swan.apps.core.turbo.b();
-        bVar2.cKd = cVar.age();
+        bVar2.cPW = cVar.aiE();
         bVar2.appPath = bVar.mBaseUrl;
-        if (com.baidu.swan.apps.runtime.e.aEU() != null) {
-            bVar2.pageType = com.baidu.swan.apps.runtime.e.aEU().rL(bVar.dag);
+        if (com.baidu.swan.apps.runtime.e.aHu() != null) {
+            bVar2.pageType = com.baidu.swan.apps.runtime.e.aHu().rZ(bVar.dgd);
         }
-        bVar2.cKb = com.baidu.swan.apps.core.turbo.a.b(com.baidu.swan.apps.runtime.e.aEU(), bVar.mPage);
-        bVar2.cKf = com.baidu.swan.apps.model.b.d(bVar);
-        bVar2.cKg = px.cKg;
-        bVar2.cKa = String.valueOf(com.baidu.swan.apps.console.a.aiV());
-        if (com.baidu.swan.apps.runtime.e.aEU() != null) {
-            String rN = com.baidu.swan.apps.runtime.e.aEU().rN(bVar.dag);
-            if (!TextUtils.isEmpty(rN)) {
+        bVar2.cPU = com.baidu.swan.apps.core.turbo.a.b(com.baidu.swan.apps.runtime.e.aHu(), bVar.mPage);
+        bVar2.cPY = com.baidu.swan.apps.model.b.d(bVar);
+        bVar2.cPZ = pL.cPZ;
+        bVar2.cPT = String.valueOf(com.baidu.swan.apps.console.a.alv());
+        if (com.baidu.swan.apps.runtime.e.aHu() != null) {
+            String sb = com.baidu.swan.apps.runtime.e.aHu().sb(bVar.dgd);
+            if (!TextUtils.isEmpty(sb)) {
                 if (DEBUG) {
-                    Log.d("ActionUtils", "add initData: " + rN);
+                    Log.d("ActionUtils", "add initData: " + sb);
                 }
-                bVar2.cKh = rN;
+                bVar2.cQa = sb;
             }
         }
-        bVar2.cKc = DEBUG || com.baidu.swan.apps.v.f.axo().awS();
-        bVar2.cKi = str;
-        if (com.baidu.swan.apps.ad.a.a.aCr()) {
-            bVar2.cKe = com.baidu.swan.apps.console.debugger.b.ajc();
+        bVar2.cPV = DEBUG || com.baidu.swan.apps.v.f.azO().azs();
+        bVar2.cQb = str;
+        if (com.baidu.swan.apps.ad.a.a.aER()) {
+            bVar2.cPX = com.baidu.swan.apps.console.debugger.b.alC();
         }
         com.baidu.swan.apps.performance.i.cf("route", str).f(new UbcFlowEvent("slave_dispatch_start"));
-        ab.aKh();
-        cVar.agh().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, bVar.getPage());
-        cVar.ki(bVar2.cKf);
-        com.baidu.swan.apps.v.f.axo().a(cVar.agj(), com.baidu.swan.apps.core.turbo.b.b(bVar2));
-        com.baidu.swan.apps.statistic.e.cx(cVar.agj(), bVar2.cKf);
+        ab.aMH();
+        cVar.aiH().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, bVar.getPage());
+        cVar.kx(bVar2.cPY);
+        com.baidu.swan.apps.v.f.azO().a(cVar.aiJ(), com.baidu.swan.apps.core.turbo.b.b(bVar2));
+        com.baidu.swan.apps.statistic.e.cx(cVar.aiJ(), bVar2.cPY);
         com.baidu.swan.apps.core.slave.b.a(Y, cVar);
         com.baidu.swan.apps.performance.h.E("route", "createAndLoadPage end.");
     }
@@ -138,38 +138,38 @@ public final class a {
             hashMap.put("from", str2);
         }
         hashMap.put("url", str3);
-        com.baidu.swan.apps.v.f.axo().b(new com.baidu.swan.apps.event.a.b(str, hashMap));
+        com.baidu.swan.apps.v.f.azO().b(new com.baidu.swan.apps.event.a.b(str, hashMap));
     }
 
-    public static boolean st(@NonNull String str) {
-        String aGm = aGm();
+    public static boolean sH(@NonNull String str) {
+        String aIM = aIM();
         if (DEBUG) {
-            Log.i("ActionUtils", "lastPageUrl: " + aGm + "\ncurPageUrl: " + str);
+            Log.i("ActionUtils", "lastPageUrl: " + aIM + "\ncurPageUrl: " + str);
         }
-        if (aGm == null || str == null) {
+        if (aIM == null || str == null) {
             return false;
         }
-        String oO = com.baidu.swan.apps.u.c.b.oO(aGm);
-        String oO2 = com.baidu.swan.apps.u.c.b.oO(str);
-        return (TextUtils.equals(oO, oO2) || TextUtils.equals(Uri.decode(oO), oO2) || TextUtils.equals(oO, Uri.decode(oO2))) ? false : true;
+        String pc = com.baidu.swan.apps.u.c.b.pc(aIM);
+        String pc2 = com.baidu.swan.apps.u.c.b.pc(str);
+        return (TextUtils.equals(pc, pc2) || TextUtils.equals(Uri.decode(pc), pc2) || TextUtils.equals(pc, Uri.decode(pc2))) ? false : true;
     }
 
-    private static String aGm() {
-        com.baidu.swan.apps.adaptation.b.c amq;
-        com.baidu.swan.apps.core.d.e amC = com.baidu.swan.apps.v.f.axo().amC();
-        if (amC == null || (amq = amC.amq()) == null) {
+    private static String aIM() {
+        com.baidu.swan.apps.adaptation.b.c aoQ;
+        com.baidu.swan.apps.core.d.e apc = com.baidu.swan.apps.v.f.azO().apc();
+        if (apc == null || (aoQ = apc.aoQ()) == null) {
             return null;
         }
-        return amq.agg();
+        return aoQ.aiG();
     }
 
-    public static void su(final String str) {
+    public static void sI(final String str) {
         ak.m(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.k.a.1
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.apps.core.d.f adm = com.baidu.swan.apps.v.f.axo().adm();
-                if (adm != null) {
-                    adm.mM(str).amK().amM();
+                com.baidu.swan.apps.core.d.f afM = com.baidu.swan.apps.v.f.azO().afM();
+                if (afM != null) {
+                    afM.nb(str).apl().apn();
                 }
             }
         });
@@ -178,22 +178,22 @@ public final class a {
     private static JSONObject a(@NonNull com.baidu.swan.apps.runtime.e eVar, String str, String str2, List<String> list) {
         String delAllParamsFromUrl = ai.delAllParamsFromUrl(str);
         String params = ai.getParams(str);
-        String sw = j.sw(delAllParamsFromUrl);
-        String kl = eVar.kl(delAllParamsFromUrl);
-        String rL = eVar.rL(delAllParamsFromUrl);
+        String sK = j.sK(delAllParamsFromUrl);
+        String kA = eVar.kA(delAllParamsFromUrl);
+        String rZ = eVar.rZ(delAllParamsFromUrl);
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("wvID", str2);
-            jSONObject.put("root", kl);
-            jSONObject.put(InvokeNewImMessageCenterFragmentConfig.PAGE_TYPE, rL);
+            jSONObject.put("root", kA);
+            jSONObject.put(InvokeNewImMessageCenterFragmentConfig.PAGE_TYPE, rZ);
             if (!TextUtils.isEmpty(str)) {
                 jSONObject.put("pageUrl", str);
             }
-            if (!TextUtils.equals(delAllParamsFromUrl, sw)) {
+            if (!TextUtils.equals(delAllParamsFromUrl, sK)) {
                 if (!TextUtils.isEmpty(params)) {
-                    sw = sw + "?" + params;
+                    sK = sK + "?" + params;
                 }
-                jSONObject.put("pageRoutePath", sw);
+                jSONObject.put("pageRoutePath", sK);
             }
             if (list != null && !list.isEmpty()) {
                 JSONArray jSONArray = new JSONArray();
@@ -211,9 +211,9 @@ public final class a {
     }
 
     public static List<String> e(com.baidu.swan.apps.core.d.f fVar) {
-        com.baidu.swan.apps.core.d.c hP;
-        if (fVar != null && fVar.amE() >= com.baidu.swan.apps.api.module.g.b.cua && (hP = fVar.hP(0)) != null && (hP instanceof com.baidu.swan.apps.core.d.e)) {
-            return ((com.baidu.swan.apps.core.d.e) hP).amm();
+        com.baidu.swan.apps.core.d.c hZ;
+        if (fVar != null && fVar.ape() >= com.baidu.swan.apps.api.module.g.b.czV && (hZ = fVar.hZ(0)) != null && (hZ instanceof com.baidu.swan.apps.core.d.e)) {
+            return ((com.baidu.swan.apps.core.d.e) hZ).aoM();
         }
         return null;
     }

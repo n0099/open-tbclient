@@ -9,7 +9,7 @@ public class VCompass {
     private float b;
 
     /* renamed from: a  reason: collision with root package name */
-    private SensorManager f3899a = null;
+    private SensorManager f3901a = null;
     private float c = 2.0f;
     private int d = 0;
     private SensorEventListener f = new d(this);

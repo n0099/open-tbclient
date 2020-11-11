@@ -12,27 +12,27 @@ import com.baidu.tieba.ala.guardclub.model.k;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class d implements e {
-    private boolean aRP;
-    private String bmv;
-    private a gCC;
-    private b gCF;
-    private m gCG;
-    private int gCH;
-    private i gCt;
+    private boolean aTh;
+    private String bnP;
+    private i gIh;
+    private a gIq;
+    private b gIt;
+    private m gIu;
+    private int gIv;
     private Context mContext;
     private int mType;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void bQY();
+        void bTx();
 
         void c(k kVar);
 
         void d(k kVar);
 
-        void ml(boolean z);
+        void mu(boolean z);
 
-        void uA(int i);
+        void uK(int i);
     }
 
     /* loaded from: classes4.dex */
@@ -41,9 +41,9 @@ public class d implements e {
 
         void a(BaseAdapter baseAdapter);
 
-        void bRa();
+        void bTz();
 
-        void cj(List<k> list);
+        void cq(List<k> list);
 
         void g(String str, String str2, String str3, String str4, boolean z);
     }
@@ -54,26 +54,26 @@ public class d implements e {
 
     public void k(int i, String str, boolean z) {
         this.mType = i;
-        this.bmv = str;
-        this.aRP = z;
+        this.bnP = str;
+        this.aTh = z;
     }
 
     public void a(b bVar) {
-        this.gCF = bVar;
+        this.gIt = bVar;
     }
 
     public void a(a aVar) {
-        this.gCC = aVar;
+        this.gIq = aVar;
     }
 
     public int getType() {
         return this.mType;
     }
 
-    public void bRe() {
-        if (this.gCt == null) {
-            this.gCt = new i();
-            this.gCt.a(new com.baidu.tieba.ala.guardclub.model.b() { // from class: com.baidu.tieba.ala.guardclub.rank.d.1
+    public void bTD() {
+        if (this.gIh == null) {
+            this.gIh = new i();
+            this.gIh.a(new com.baidu.tieba.ala.guardclub.model.b() { // from class: com.baidu.tieba.ala.guardclub.rank.d.1
                 @Override // com.baidu.tieba.ala.guardclub.model.b, com.baidu.tieba.ala.guardclub.model.m.a
                 public void a(int i, com.baidu.live.guardclub.a aVar, List<k> list, f fVar, int i2, boolean z, boolean z2) {
                     super.a(i, aVar, list, fVar, i2, z, z2);
@@ -83,53 +83,53 @@ public class d implements e {
                 }
             });
         }
-        this.gCt.c(this.bmv, this.gCH, 20, this.mType);
+        this.gIh.c(this.bnP, this.gIv, 20, this.mType);
     }
 
-    public void uD(int i) {
-        if (this.gCC != null) {
-            this.gCC.uA(i);
+    public void uN(int i) {
+        if (this.gIq != null) {
+            this.gIq.uK(i);
         }
     }
 
-    public void bRf() {
-        if (this.gCG != null) {
-            this.gCG.notifyDataSetChanged();
+    public void bTE() {
+        if (this.gIu != null) {
+            this.gIu.notifyDataSetChanged();
         }
     }
 
     public void y(String str, long j) {
         List<k> datas;
-        if (this.gCG != null && (datas = this.gCG.getDatas()) != null && !datas.isEmpty()) {
+        if (this.gIu != null && (datas = this.gIu.getDatas()) != null && !datas.isEmpty()) {
             for (k kVar : datas) {
                 if (kVar.id.equals(str)) {
-                    kVar.gCp = true;
+                    kVar.gId = true;
                     if (j > 0) {
                         kVar.score = String.valueOf(j);
                     }
                 }
             }
-            this.gCG.notifyDataSetChanged();
+            this.gIu.notifyDataSetChanged();
         }
     }
 
     public void f(k kVar) {
-        if (this.gCC != null) {
-            this.gCC.c(kVar);
+        if (this.gIq != null) {
+            this.gIq.c(kVar);
         }
     }
 
-    public void bQY() {
-        if (this.gCC != null) {
-            this.gCC.bQY();
+    public void bTx() {
+        if (this.gIq != null) {
+            this.gIq.bTx();
         }
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.e
     public void onInitial() {
-        this.gCH = 1;
-        bRg();
-        bRe();
+        this.gIv = 1;
+        bTF();
+        bTD();
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.e
@@ -150,85 +150,85 @@ public class d implements e {
 
     @Override // com.baidu.tieba.ala.guardclub.rank.e
     public void onDestroy() {
-        this.gCF = null;
-        this.gCC = null;
-        if (this.gCt != null) {
-            this.gCt.release();
+        this.gIt = null;
+        this.gIq = null;
+        if (this.gIh != null) {
+            this.gIh.release();
         }
     }
 
-    private void bRg() {
-        this.gCG = new m(this.mContext);
+    private void bTF() {
+        this.gIu = new m(this.mContext);
         switch (this.mType) {
             case 1:
-                this.gCG.setType(1);
+                this.gIu.setType(1);
                 break;
             case 2:
-                this.gCG.setType(0);
+                this.gIu.setType(0);
                 break;
         }
-        this.gCG.fX(String.valueOf(TbadkCoreApplication.getCurrentAccountId()));
-        this.gCG.a(new m.a() { // from class: com.baidu.tieba.ala.guardclub.rank.d.2
+        this.gIu.gc(String.valueOf(TbadkCoreApplication.getCurrentAccountId()));
+        this.gIu.a(new m.a() { // from class: com.baidu.tieba.ala.guardclub.rank.d.2
             @Override // com.baidu.tieba.ala.guardclub.m.a
             public void a(k kVar) {
-                if (d.this.gCC != null) {
-                    d.this.gCC.c(kVar);
+                if (d.this.gIq != null) {
+                    d.this.gIq.c(kVar);
                 }
             }
 
             @Override // com.baidu.tieba.ala.guardclub.m.a
             public void b(k kVar) {
-                if (d.this.gCC != null) {
-                    d.this.gCC.d(kVar);
+                if (d.this.gIq != null) {
+                    d.this.gIq.d(kVar);
                 }
             }
         });
-        if (this.gCF != null) {
-            this.gCF.a(this.gCG);
+        if (this.gIt != null) {
+            this.gIt.a(this.gIu);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.live.guardclub.a aVar, List<k> list, f fVar, int i, boolean z, boolean z2) {
-        if (this.gCC != null) {
-            this.gCC.ml(z2 && aVar != null && aVar.liveStatus == 1);
+        if (this.gIq != null) {
+            this.gIq.mu(z2 && aVar != null && aVar.liveStatus == 1);
         }
         if (list != null && !list.isEmpty()) {
-            this.gCH = i + 1;
-            if (this.gCG != null) {
+            this.gIv = i + 1;
+            if (this.gIu != null) {
                 if (i == 1) {
-                    if (this.gCF != null) {
-                        this.gCF.cj(list.subList(0, list.size() >= 3 ? 3 : list.size()));
+                    if (this.gIt != null) {
+                        this.gIt.cq(list.subList(0, list.size() >= 3 ? 3 : list.size()));
                     }
                     if (list.size() > 3) {
-                        this.gCG.setData(list.subList(3, list.size()));
+                        this.gIu.setData(list.subList(3, list.size()));
                     }
                 } else {
-                    this.gCG.ci(list);
+                    this.gIu.cp(list);
                 }
             }
-        } else if (this.gCH == 1) {
-            if (this.gCF != null) {
-                this.gCF.bRa();
+        } else if (this.gIv == 1) {
+            if (this.gIt != null) {
+                this.gIt.bTz();
                 return;
             }
             return;
         }
-        if (this.gCF != null) {
-            this.gCF.K(z, i == 1);
+        if (this.gIt != null) {
+            this.gIt.K(z, i == 1);
         }
         if (aVar != null) {
-            if (z2 || (fVar != null && !TextUtils.isEmpty(fVar.bfu))) {
+            if (z2 || (fVar != null && !TextUtils.isEmpty(fVar.bgO))) {
                 String str = null;
                 String str2 = null;
                 switch (this.mType) {
                     case 1:
                         str = aVar.rank;
-                        str2 = String.format(this.mContext.getString(a.i.guard_club_rank_list_contribution_total), Long.valueOf(aVar.beT));
+                        str2 = String.format(this.mContext.getString(a.h.guard_club_rank_list_contribution_total), Long.valueOf(aVar.bgo));
                         break;
                     case 2:
-                        str = aVar.beZ;
-                        str2 = String.format(this.mContext.getString(a.i.guard_club_rank_list_contribution_week), Long.valueOf(aVar.beU));
+                        str = aVar.bgv;
+                        str2 = String.format(this.mContext.getString(a.h.guard_club_rank_list_contribution_week), Long.valueOf(aVar.bgp));
                         break;
                 }
                 if (str == null) {
@@ -237,8 +237,8 @@ public class d implements e {
                 if (str2 == null) {
                     str2 = "";
                 }
-                if (this.gCF != null) {
-                    this.gCF.g(str, aVar.beY, aVar.beR, str2, aVar.liveStatus == 1 && !this.aRP);
+                if (this.gIt != null) {
+                    this.gIt.g(str, aVar.bgu, aVar.bgm, str2, aVar.liveStatus == 1 && !this.aTh);
                 }
             }
         }

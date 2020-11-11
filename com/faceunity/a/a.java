@@ -9,11 +9,11 @@ import com.baidu.ala.helper.StreamConfig;
 import java.nio.ByteBuffer;
 /* loaded from: classes23.dex */
 public class a {
-    private boolean bSm;
+    private boolean bXW;
     private MediaCodec.BufferInfo mBufferInfo = new MediaCodec.BufferInfo();
     private MediaCodec mEncoder;
     private int mTrackIndex;
-    private c oRh;
+    private c paC;
 
     public a(c cVar) {
         MediaFormat createAudioFormat = MediaFormat.createAudioFormat("audio/mp4a-latm", StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, 1);
@@ -28,8 +28,8 @@ public class a {
         this.mEncoder.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
         this.mEncoder.start();
         this.mTrackIndex = -1;
-        this.bSm = false;
-        this.oRh = cVar;
+        this.bXW = false;
+        this.paC = cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -64,7 +64,7 @@ public class a {
         }
     }
 
-    public void eol() throws Exception {
+    public void esa() throws Exception {
         ByteBuffer[] outputBuffers = this.mEncoder.getOutputBuffers();
         while (true) {
             int dequeueOutputBuffer = this.mEncoder.dequeueOutputBuffer(this.mBufferInfo, 10000L);
@@ -72,24 +72,24 @@ public class a {
                 if (dequeueOutputBuffer == -3) {
                     outputBuffers = this.mEncoder.getOutputBuffers();
                 } else if (dequeueOutputBuffer == -2) {
-                    if (this.bSm) {
+                    if (this.bXW) {
                         throw new RuntimeException("format changed twice");
                     }
                     MediaFormat outputFormat = this.mEncoder.getOutputFormat();
                     Log.d("AudioEncoder", "encoder output format changed: " + outputFormat);
-                    this.mTrackIndex = this.oRh.c(outputFormat);
-                    if (!this.oRh.start()) {
-                        synchronized (this.oRh) {
-                            while (!this.oRh.isStarted()) {
+                    this.mTrackIndex = this.paC.c(outputFormat);
+                    if (!this.paC.start()) {
+                        synchronized (this.paC) {
+                            while (!this.paC.isStarted()) {
                                 try {
-                                    this.oRh.wait(100L);
+                                    this.paC.wait(100L);
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
                             }
                         }
                     }
-                    this.bSm = true;
+                    this.bXW = true;
                 } else if (dequeueOutputBuffer < 0) {
                     Log.w("AudioEncoder", "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
                 } else {
@@ -101,12 +101,12 @@ public class a {
                         this.mBufferInfo.size = 0;
                     }
                     if (this.mBufferInfo.size != 0) {
-                        if (!this.bSm) {
+                        if (!this.bXW) {
                             throw new RuntimeException("muxer hasn't started");
                         }
                         byteBuffer.position(this.mBufferInfo.offset);
                         byteBuffer.limit(this.mBufferInfo.offset + this.mBufferInfo.size);
-                        this.oRh.c(this.mTrackIndex, byteBuffer, this.mBufferInfo);
+                        this.paC.c(this.mTrackIndex, byteBuffer, this.mBufferInfo);
                     }
                     this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
                     if ((this.mBufferInfo.flags & 4) != 0) {
@@ -126,9 +126,9 @@ public class a {
                 this.mEncoder.release();
                 this.mEncoder = null;
             }
-            if (this.oRh != null) {
-                this.oRh.stop();
-                this.oRh = null;
+            if (this.paC != null) {
+                this.paC.stop();
+                this.paC = null;
             }
         } catch (Exception e) {
             e.printStackTrace();

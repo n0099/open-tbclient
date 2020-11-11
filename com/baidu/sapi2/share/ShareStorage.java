@@ -50,13 +50,13 @@ public class ShareStorage {
     public boolean readSpFromChmodFile = false;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f3505a = SapiAccountManager.getInstance().getConfignation().context;
+    private Context f3508a = SapiAccountManager.getInstance().getConfignation().context;
 
     /* loaded from: classes5.dex */
     public static class StorageModel {
 
         /* renamed from: a  reason: collision with root package name */
-        String f3506a;
+        String f3509a;
         public String app;
         int b;
         int c;
@@ -71,11 +71,11 @@ public class ShareStorage {
         public static class a extends GetUserInfoCallback {
 
             /* renamed from: a  reason: collision with root package name */
-            final /* synthetic */ b f3507a;
+            final /* synthetic */ b f3510a;
             final /* synthetic */ Context b;
 
             a(b bVar, Context context) {
-                this.f3507a = bVar;
+                this.f3510a = bVar;
                 this.b = context;
             }
 
@@ -92,7 +92,7 @@ public class ShareStorage {
             public void onBdussExpired(GetUserInfoResult getUserInfoResult) {
                 StorageModel storageModel = new StorageModel(null);
                 storageModel.flag = 1;
-                this.f3507a.a(storageModel);
+                this.f3510a.a(storageModel);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -100,7 +100,7 @@ public class ShareStorage {
             public void onFailure(GetUserInfoResult getUserInfoResult) {
                 StorageModel storageModel = new StorageModel(null);
                 storageModel.flag = 1;
-                this.f3507a.a(storageModel);
+                this.f3510a.a(storageModel);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -118,10 +118,10 @@ public class ShareStorage {
                 storageModel.app = SapiUtils.getAppName(this.b);
                 storageModel.tpl = SapiAccountManager.getInstance().getSapiConfiguration().tpl;
                 storageModel.pkg = this.b.getPackageName();
-                storageModel.f3506a = UUID.randomUUID().toString();
+                storageModel.f3509a = UUID.randomUUID().toString();
                 storageModel.flag = 0;
                 storageModel.c = SapiAccountManager.getInstance().getConfignation().environment.ordinal();
-                this.f3507a.a(storageModel);
+                this.f3510a.a(storageModel);
             }
         }
 
@@ -135,7 +135,7 @@ public class ShareStorage {
             storageModel.displayname = jSONObject.optString(SapiAccountManager.SESSION_DISPLAYNAME);
             storageModel.app = jSONObject.optString("app");
             storageModel.tpl = jSONObject.optString("tpl");
-            storageModel.f3506a = jSONObject.optString("uid");
+            storageModel.f3509a = jSONObject.optString("uid");
             storageModel.pkg = jSONObject.optString(Config.INPUT_DEF_PKG);
             storageModel.flag = jSONObject.optInt(FrsActivityConfig.FLAG, -1);
             storageModel.c = jSONObject.optInt("env", Domain.DOMAIN_ONLINE.ordinal());
@@ -185,7 +185,7 @@ public class ShareStorage {
                 jSONObject.put(SapiAccountManager.SESSION_DISPLAYNAME, this.displayname);
                 jSONObject.put("app", this.app);
                 jSONObject.put("tpl", this.tpl);
-                jSONObject.put("uid", this.f3506a);
+                jSONObject.put("uid", this.f3509a);
                 jSONObject.put(Config.INPUT_DEF_PKG, this.pkg);
                 jSONObject.put(FrsActivityConfig.FLAG, this.flag);
                 jSONObject.put("env", this.c);
@@ -210,7 +210,7 @@ public class ShareStorage {
                 storageModel2.app = SapiUtils.getAppName(context);
                 storageModel2.pkg = context.getPackageName();
                 storageModel2.tpl = SapiAccountManager.getInstance().getSapiConfiguration().tpl;
-                storageModel2.f3506a = UUID.randomUUID().toString();
+                storageModel2.f3509a = UUID.randomUUID().toString();
                 storageModel2.flag = 0;
                 storageModel2.c = SapiAccountManager.getInstance().getConfignation().environment.ordinal();
                 bVar.a(storageModel2);
@@ -223,17 +223,17 @@ public class ShareStorage {
     public class a implements b {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ int f3508a;
+        final /* synthetic */ int f3511a;
 
         /* renamed from: com.baidu.sapi2.share.ShareStorage$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        class RunnableC0330a implements Runnable {
+        class RunnableC0342a implements Runnable {
 
             /* renamed from: a  reason: collision with root package name */
-            final /* synthetic */ StorageModel f3509a;
+            final /* synthetic */ StorageModel f3512a;
 
-            RunnableC0330a(StorageModel storageModel) {
-                this.f3509a = storageModel;
+            RunnableC0342a(StorageModel storageModel) {
+                this.f3512a = storageModel;
             }
 
             @Override // java.lang.Runnable
@@ -242,33 +242,33 @@ public class ShareStorage {
                 String str;
                 LoginShareStrategy loginShareStrategy = SapiAccountManager.getInstance().getConfignation().loginShareStrategy();
                 String loginShareDirection = SapiAccountManager.getInstance().getConfignation().loginShareDirection();
-                if (loginShareStrategy == LoginShareStrategy.DISABLED || com.baidu.sapi2.utils.enums.a.f3551a.equals(loginShareDirection)) {
-                    this.f3509a.flag = 1;
+                if (loginShareStrategy == LoginShareStrategy.DISABLED || com.baidu.sapi2.utils.enums.a.f3554a.equals(loginShareDirection)) {
+                    this.f3512a.flag = 1;
                 }
-                String md5 = SecurityUtil.md5(ShareStorage.this.f3505a.getPackageName().getBytes(), false);
+                String md5 = SecurityUtil.md5(ShareStorage.this.f3508a.getPackageName().getBytes(), false);
                 try {
-                    str = new String(Base64.encode(new AES().encrypt(this.f3509a.a().toString(), ShareStorage.g, ShareStorage.f), 0));
+                    str = new String(Base64.encode(new AES().encrypt(this.f3512a.a().toString(), ShareStorage.g, ShareStorage.f), 0));
                 } catch (Exception e) {
                     Log.e(e);
                     str = "";
                 }
                 ShareStorage.this.setSp(md5, str);
                 ShareStorage.this.setSd(md5, str);
-                int i = a.this.f3508a;
+                int i = a.this.f3511a;
                 if (i == 2 || i == 3 || i == 4) {
                     a aVar = a.this;
-                    ShareStorage.this.a(aVar.f3508a, this.f3509a);
+                    ShareStorage.this.a(aVar.f3511a, this.f3512a);
                 }
             }
         }
 
         a(int i) {
-            this.f3508a = i;
+            this.f3511a = i;
         }
 
         @Override // com.baidu.sapi2.share.ShareStorage.b
         public void a(StorageModel storageModel) {
-            ThreadPoolService.getInstance().run(new TPRunnable(new RunnableC0330a(storageModel)));
+            ThreadPoolService.getInstance().run(new TPRunnable(new RunnableC0342a(storageModel)));
         }
     }
 
@@ -305,7 +305,7 @@ public class ShareStorage {
 
     public String getSd(String str) {
         try {
-            if (SapiUtils.checkRequestPermission("android.permission.READ_EXTERNAL_STORAGE", this.f3505a)) {
+            if (SapiUtils.checkRequestPermission("android.permission.READ_EXTERNAL_STORAGE", this.f3508a)) {
                 String str2 = Environment.getExternalStorageDirectory().getAbsolutePath().toString() + File.separator + c + str;
                 if (com.baidu.sapi2.utils.a.a(str2)) {
                     return com.baidu.sapi2.utils.a.b(str2);
@@ -324,7 +324,7 @@ public class ShareStorage {
 
     public boolean setSd(String str, String str2) {
         try {
-            if (SapiUtils.checkRequestPermission("android.permission.WRITE_EXTERNAL_STORAGE", this.f3505a)) {
+            if (SapiUtils.checkRequestPermission("android.permission.WRITE_EXTERNAL_STORAGE", this.f3508a)) {
                 File file = new File(Environment.getExternalStorageDirectory(), c + str);
                 if (TextUtils.isEmpty(str2)) {
                     com.baidu.sapi2.utils.a.a(file);
@@ -342,7 +342,7 @@ public class ShareStorage {
     @TargetApi(4)
     public boolean setSp(String str, String str2) {
         try {
-            SharedPreferences sharedPreferences = this.f3505a.getSharedPreferences(b, 5);
+            SharedPreferences sharedPreferences = this.f3508a.getSharedPreferences(b, 5);
             if (Build.VERSION.SDK_INT > 8) {
                 sharedPreferences.edit().putString(str, str2).apply();
             } else {
@@ -350,16 +350,16 @@ public class ShareStorage {
             }
             return true;
         } catch (Throwable th) {
-            if (Build.VERSION.SDK_INT >= 24 && this.f3505a.getApplicationInfo().targetSdkVersion >= 24 && b() && !SapiContext.getInstance().getResetFileExecPer()) {
+            if (Build.VERSION.SDK_INT >= 24 && this.f3508a.getApplicationInfo().targetSdkVersion >= 24 && b() && !SapiContext.getInstance().getResetFileExecPer()) {
                 try {
-                    File file = new File(this.f3505a.getApplicationInfo().dataDir + "/" + d + str);
+                    File file = new File(this.f3508a.getApplicationInfo().dataDir + "/" + d + str);
                     if (!file.exists()) {
                         file.getParentFile().mkdirs();
                         file.createNewFile();
-                        SapiContext.getInstance().setModifiedDirExecPer(com.baidu.sapi2.utils.d.a(this.f3505a, file));
+                        SapiContext.getInstance().setModifiedDirExecPer(com.baidu.sapi2.utils.d.a(this.f3508a, file));
                     }
                     if (!SapiContext.getInstance().getModifiedDirExecPer()) {
-                        boolean a2 = com.baidu.sapi2.utils.d.a(this.f3505a, file);
+                        boolean a2 = com.baidu.sapi2.utils.d.a(this.f3508a, file);
                         Log.i(TAG, "chmodFileSuc", Boolean.valueOf(a2));
                         SapiContext.getInstance().setModifiedDirExecPer(a2);
                     }
@@ -379,9 +379,9 @@ public class ShareStorage {
         SharedPreferences sharedPreferences;
         try {
             if (TextUtils.isEmpty(str)) {
-                sharedPreferences = this.f3505a.getSharedPreferences(b, 5);
+                sharedPreferences = this.f3508a.getSharedPreferences(b, 5);
             } else {
-                sharedPreferences = this.f3505a.createPackageContext(str, 2).getSharedPreferences(b, 5);
+                sharedPreferences = this.f3508a.createPackageContext(str, 2).getSharedPreferences(b, 5);
             }
             return sharedPreferences.getString(str2, "");
         } catch (Throwable th) {
@@ -396,7 +396,7 @@ public class ShareStorage {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(int i) {
-        StorageModel.a(this.f3505a, i, new a(i));
+        StorageModel.a(this.f3508a, i, new a(i));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -409,9 +409,9 @@ public class ShareStorage {
     private String a(String str, String str2) {
         Log.e(TAG, "getDataFromShareInternal");
         if (TextUtils.isEmpty(str)) {
-            str = this.f3505a.getPackageName();
+            str = this.f3508a.getPackageName();
         }
-        String str3 = (this.f3505a.getApplicationInfo().dataDir.replace(this.f3505a.getPackageName(), "") + str) + "/" + d + str2;
+        String str3 = (this.f3508a.getApplicationInfo().dataDir.replace(this.f3508a.getPackageName(), "") + str) + "/" + d + str2;
         Log.e(TAG, "getDataFromShareInternal", "fileName", str3);
         try {
             return com.baidu.sapi2.utils.a.b(str3);

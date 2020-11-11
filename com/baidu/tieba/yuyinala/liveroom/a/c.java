@@ -1,7 +1,7 @@
 package com.baidu.tieba.yuyinala.liveroom.a;
 /* loaded from: classes4.dex */
 public interface c {
-    void bQ(String str, int i);
+    void bS(String str, int i);
 
     void e(long j, String str, String str2);
 

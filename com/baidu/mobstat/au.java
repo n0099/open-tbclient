@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public class au {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final au f2559a = new au();
+    private static final au f2561a = new au();
     private HashMap<String, String> b = new HashMap<>();
     private HashMap<Character, Integer> c = new HashMap<>();
     private HashMap<String, String> d = new HashMap<>();
@@ -23,20 +23,20 @@ public class au {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static int f2561a = 0;
+        public static int f2563a = 0;
         public static int b = 1;
         public static int c = 2;
     }
 
     public static au a() {
-        return f2559a;
+        return f2561a;
     }
 
     public String a(String str, int i) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        if (i == a.f2561a) {
+        if (i == a.f2563a) {
             String str2 = this.b.get(str);
             if (TextUtils.isEmpty(str2)) {
                 a(str, this.c, this.b);
@@ -70,7 +70,7 @@ public class au {
 
     public JSONObject a(int i) {
         HashMap<String, String> hashMap;
-        if (i == a.f2561a) {
+        if (i == a.f2563a) {
             hashMap = this.b;
         } else if (i == a.c) {
             hashMap = this.f;
@@ -103,7 +103,7 @@ public class au {
     }
 
     public void b(int i) {
-        if (i == a.f2561a) {
+        if (i == a.f2563a) {
             this.c.clear();
             this.b.clear();
         } else if (i == a.c) {
@@ -116,7 +116,7 @@ public class au {
     }
 
     public void b() {
-        b(a.f2561a);
+        b(a.f2563a);
         b(a.c);
         b(a.b);
     }

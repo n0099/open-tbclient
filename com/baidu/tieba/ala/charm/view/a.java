@@ -12,63 +12,63 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private ArrayList<ALaCharmData> eCX = new ArrayList<>();
-    private View.OnClickListener gqW;
-    private View.OnClickListener gqX;
-    private View.OnClickListener gqY;
-    private int gqZ;
+    private ArrayList<ALaCharmData> eIM = new ArrayList<>();
+    private View.OnClickListener gwK;
+    private View.OnClickListener gwL;
+    private View.OnClickListener gwM;
+    private int gwN;
     private TbPageContext mPageContext;
     private int mSkinType;
 
     public a(TbPageContext tbPageContext, int i) {
-        this.gqZ = 1;
+        this.gwN = 1;
         this.mPageContext = tbPageContext;
-        this.gqZ = i;
-    }
-
-    public void m(View.OnClickListener onClickListener) {
-        this.gqW = onClickListener;
+        this.gwN = i;
     }
 
     public void n(View.OnClickListener onClickListener) {
-        this.gqY = onClickListener;
+        this.gwK = onClickListener;
     }
 
     public void o(View.OnClickListener onClickListener) {
-        this.gqX = onClickListener;
+        this.gwM = onClickListener;
+    }
+
+    public void p(View.OnClickListener onClickListener) {
+        this.gwL = onClickListener;
     }
 
     public void setData(ArrayList<ALaCharmData> arrayList) {
         if (arrayList != null) {
-            this.eCX.clear();
-            this.eCX.addAll(arrayList);
+            this.eIM.clear();
+            this.eIM.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     public void ab(ArrayList<ALaCharmData> arrayList) {
         if (!ListUtils.isEmpty(arrayList)) {
-            this.eCX.addAll(arrayList);
+            this.eIM.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eCX == null) {
+        if (this.eIM == null) {
             return 0;
         }
-        return this.eCX.size();
+        return this.eIM.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: uj */
+    /* renamed from: ut */
     public ALaCharmData getItem(int i) {
-        if (this.eCX == null) {
+        if (this.eIM == null) {
             return null;
         }
-        return this.eCX.get(i);
+        return this.eIM.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -81,17 +81,17 @@ public class a extends BaseAdapter {
         d dVar;
         View inflate;
         if (view == null) {
-            if (this.gqZ == 1) {
-                inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_charm_detail_list_layout, (ViewGroup) null);
-            } else if (this.gqZ == 2) {
-                inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_charm_game_live_list_layout, (ViewGroup) null);
+            if (this.gwN == 1) {
+                inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.g.ala_charm_detail_list_layout, (ViewGroup) null);
+            } else if (this.gwN == 2) {
+                inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.g.ala_charm_game_live_list_layout, (ViewGroup) null);
             } else {
-                inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_charm_detail_list_layout, (ViewGroup) null);
+                inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.g.ala_charm_detail_list_layout, (ViewGroup) null);
             }
-            d dVar2 = new d(inflate, this.gqZ);
-            dVar2.p(this.gqY);
-            dVar2.m(this.gqW);
-            dVar2.q(this.gqX);
+            d dVar2 = new d(inflate, this.gwN);
+            dVar2.q(this.gwM);
+            dVar2.n(this.gwK);
+            dVar2.r(this.gwL);
             inflate.setTag(dVar2);
             view = inflate;
             dVar = dVar2;
@@ -106,8 +106,8 @@ public class a extends BaseAdapter {
     }
 
     public void az(String str, boolean z) {
-        if (this.eCX != null && str != null) {
-            Iterator<ALaCharmData> it = this.eCX.iterator();
+        if (this.eIM != null && str != null) {
+            Iterator<ALaCharmData> it = this.eIM.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;

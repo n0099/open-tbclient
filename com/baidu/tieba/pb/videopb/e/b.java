@@ -37,160 +37,160 @@ import tbclient.PbContent;
 /* loaded from: classes22.dex */
 public class b extends af.a {
     public TBLottieAnimationView ajt;
-    public TextView eqE;
-    public TextView fzM;
-    private final int jjb;
-    public View lJA;
-    public VoteView lJB;
-    public TbRichTextView lJC;
-    public TextView lJD;
-    public TextView lJE;
-    public TextView lJF;
-    public TextView lJG;
-    public TextView lJH;
-    private int lJI;
-    private int lJJ;
-    private boolean lJK;
-    private final int lJh;
-    public ImageView lJi;
-    public HeadPendantClickableView lJj;
-    public UserIconBox lJk;
-    public TextView lJl;
-    public ImageView lJm;
-    public UserIconBox lJn;
-    public TextView lJo;
-    public TextView lJp;
-    public PbFirstFloorUserLikeButton lJq;
-    public RelativeLayout lJr;
-    public TbRichTextView lJs;
-    private final TextView lJt;
-    public ImageView lJu;
-    public RelativeLayout lJv;
-    public View lJw;
-    public final View lJx;
-    public TextView lJy;
-    public TextView lJz;
-    public LinearLayout lmN;
+    public TextView ewx;
+    public TextView fFC;
+    private final int joZ;
+    public TextView lPA;
+    public TextView lPB;
+    public TextView lPC;
+    public TextView lPD;
+    private int lPE;
+    private int lPF;
+    private boolean lPG;
+    private final int lPd;
+    public ImageView lPe;
+    public HeadPendantClickableView lPf;
+    public UserIconBox lPg;
+    public TextView lPh;
+    public ImageView lPi;
+    public UserIconBox lPj;
+    public TextView lPk;
+    public TextView lPl;
+    public PbFirstFloorUserLikeButton lPm;
+    public RelativeLayout lPn;
+    public TbRichTextView lPo;
+    private final TextView lPp;
+    public ImageView lPq;
+    public RelativeLayout lPr;
+    public View lPs;
+    public final View lPt;
+    public TextView lPu;
+    public TextView lPv;
+    public View lPw;
+    public VoteView lPx;
+    public TbRichTextView lPy;
+    public TextView lPz;
+    public LinearLayout lsO;
     public View mRoot;
     private int mSkinType;
 
     public b(Context context, View view) {
         super(view);
-        this.lJh = 2;
-        this.jjb = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+        this.lPd = 2;
+        this.joZ = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
         this.mSkinType = 3;
         this.mRoot = view;
-        this.lJi = (ImageView) view.findViewById(R.id.thread_stamp_video_info_item);
-        this.lJj = (HeadPendantClickableView) view.findViewById(R.id.head_view_video_info_item);
-        this.lJj.setHasPendantStyle();
-        this.lJj.getHeadView().setIsRound(true);
-        this.lJj.getHeadView().setDrawBorder(false);
-        this.lJj.getHeadView().setPlaceHolder(1);
+        this.lPe = (ImageView) view.findViewById(R.id.thread_stamp_video_info_item);
+        this.lPf = (HeadPendantClickableView) view.findViewById(R.id.head_view_video_info_item);
+        this.lPf.setHasPendantStyle();
+        this.lPf.getHeadView().setIsRound(true);
+        this.lPf.getHeadView().setDrawBorder(false);
+        this.lPf.getHeadView().setPlaceHolder(1);
         this.ajt = (TBLottieAnimationView) view.findViewById(R.id.user_living_lottie);
-        this.lJk = (UserIconBox) view.findViewById(R.id.vip_icon_video_info_item);
-        this.eqE = (TextView) view.findViewById(R.id.user_name_video_info_item);
-        this.lJl = (TextView) view.findViewById(R.id.user_identity_video_info_item);
-        this.lJm = (ImageView) view.findViewById(R.id.user_forum_level_video_info_item);
-        this.lJn = (UserIconBox) view.findViewById(R.id.user_yinji_video_info_item);
-        this.lJo = (TextView) view.findViewById(R.id.bjh_author_auth_video_info_item);
-        this.lJp = (TextView) view.findViewById(R.id.fans_count_video_info_item);
-        this.lJq = (PbFirstFloorUserLikeButton) view.findViewById(R.id.concern_video_info_item);
-        this.lJr = (RelativeLayout) view.findViewById(R.id.video_info_area_video_info_item);
-        this.lJs = (TbRichTextView) view.findViewById(R.id.title_video_info_item);
-        this.lJt = (TextView) view.findViewById(R.id.title_measure_text);
-        this.lJA = view.findViewById(R.id.video_info_item_layout);
-        this.lJw = view.findViewById(R.id.video_title_area_video_info_item);
-        this.lJx = view.findViewById(R.id.video_info_item_collapsible_layout);
-        this.lJs.setLayoutStrategy(new d(this.lJs.getLayoutStrategy()));
-        this.lJs.setTextSize(TbConfig.getContentSize());
-        this.lJt.setTextSize(0, TbConfig.getContentSize());
-        this.lJt.setLineSpacing(TbConfig.getContentLineSpace(), 1.0f);
-        this.lJu = (ImageView) view.findViewById(R.id.btn_title_expand_video_info_item);
-        this.lJv = (RelativeLayout) view.findViewById(R.id.btn_wrapper_title_expand_video_info_item);
-        this.lJI = (l.getEquipmentWidth(TbadkCoreApplication.getInst()) - this.lJr.getPaddingLeft()) - this.lJr.getPaddingRight();
-        Gt(0);
-        this.fzM = (TextView) view.findViewById(R.id.play_count_video_info_item);
-        this.lJy = (TextView) view.findViewById(R.id.publish_time_video_info_item);
-        this.lJz = (TextView) view.findViewById(R.id.publish_location_video_info_item);
-        this.lJD = (TextView) view.findViewById(R.id.publish_distance_video_info_item);
-        this.lJE = (TextView) view.findViewById(R.id.play_count_video_info_item_collapsible);
-        this.lJF = (TextView) view.findViewById(R.id.publish_time_video_info_item_collapsible);
-        this.lJG = (TextView) view.findViewById(R.id.publish_location_video_info_item_collapsible);
-        this.lJH = (TextView) view.findViewById(R.id.publish_distance_video_info_item_collapsible);
-        this.lJB = (VoteView) view.findViewById(R.id.pb_video_vote_view);
-        this.lJC = (TbRichTextView) view.findViewById(R.id.video_abstract_item);
-        this.lmN = (LinearLayout) view.findViewById(R.id.pb_link_container_layout);
-        d dVar = new d(this.lJC.getLayoutStrategy());
+        this.lPg = (UserIconBox) view.findViewById(R.id.vip_icon_video_info_item);
+        this.ewx = (TextView) view.findViewById(R.id.user_name_video_info_item);
+        this.lPh = (TextView) view.findViewById(R.id.user_identity_video_info_item);
+        this.lPi = (ImageView) view.findViewById(R.id.user_forum_level_video_info_item);
+        this.lPj = (UserIconBox) view.findViewById(R.id.user_yinji_video_info_item);
+        this.lPk = (TextView) view.findViewById(R.id.bjh_author_auth_video_info_item);
+        this.lPl = (TextView) view.findViewById(R.id.fans_count_video_info_item);
+        this.lPm = (PbFirstFloorUserLikeButton) view.findViewById(R.id.concern_video_info_item);
+        this.lPn = (RelativeLayout) view.findViewById(R.id.video_info_area_video_info_item);
+        this.lPo = (TbRichTextView) view.findViewById(R.id.title_video_info_item);
+        this.lPp = (TextView) view.findViewById(R.id.title_measure_text);
+        this.lPw = view.findViewById(R.id.video_info_item_layout);
+        this.lPs = view.findViewById(R.id.video_title_area_video_info_item);
+        this.lPt = view.findViewById(R.id.video_info_item_collapsible_layout);
+        this.lPo.setLayoutStrategy(new d(this.lPo.getLayoutStrategy()));
+        this.lPo.setTextSize(TbConfig.getContentSize());
+        this.lPp.setTextSize(0, TbConfig.getContentSize());
+        this.lPp.setLineSpacing(TbConfig.getContentLineSpace(), 1.0f);
+        this.lPq = (ImageView) view.findViewById(R.id.btn_title_expand_video_info_item);
+        this.lPr = (RelativeLayout) view.findViewById(R.id.btn_wrapper_title_expand_video_info_item);
+        this.lPE = (l.getEquipmentWidth(TbadkCoreApplication.getInst()) - this.lPn.getPaddingLeft()) - this.lPn.getPaddingRight();
+        GG(0);
+        this.fFC = (TextView) view.findViewById(R.id.play_count_video_info_item);
+        this.lPu = (TextView) view.findViewById(R.id.publish_time_video_info_item);
+        this.lPv = (TextView) view.findViewById(R.id.publish_location_video_info_item);
+        this.lPz = (TextView) view.findViewById(R.id.publish_distance_video_info_item);
+        this.lPA = (TextView) view.findViewById(R.id.play_count_video_info_item_collapsible);
+        this.lPB = (TextView) view.findViewById(R.id.publish_time_video_info_item_collapsible);
+        this.lPC = (TextView) view.findViewById(R.id.publish_location_video_info_item_collapsible);
+        this.lPD = (TextView) view.findViewById(R.id.publish_distance_video_info_item_collapsible);
+        this.lPx = (VoteView) view.findViewById(R.id.pb_video_vote_view);
+        this.lPy = (TbRichTextView) view.findViewById(R.id.video_abstract_item);
+        this.lsO = (LinearLayout) view.findViewById(R.id.pb_link_container_layout);
+        d dVar = new d(this.lPy.getLayoutStrategy());
         dVar.setTextSize(l.getDimens(context, R.dimen.tbds40));
-        this.lJC.setLayoutStrategy(dVar);
+        this.lPy.setLayoutStrategy(dVar);
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         ap.setBackgroundColor(this.mRoot, R.color.cp_bg_line_e);
-        this.lJo.setTextColor(ap.getColor(R.color.cp_cont_d));
-        this.lJp.setTextColor(ap.getColor(R.color.cp_cont_d));
-        this.lJq.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.lJs.setTextColor(ap.getColor(R.color.cp_cont_b));
-        Gt(this.lJJ);
-        this.fzM.setTextColor(ap.getColor(R.color.cp_cont_d));
-        this.lJy.setTextColor(ap.getColor(R.color.cp_cont_d));
-        this.lJz.setTextColor(ap.getColor(R.color.cp_cont_d));
-        this.lJD.setTextColor(ap.getColor(R.color.cp_cont_d));
-        this.lJE.setTextColor(ap.getColor(R.color.cp_cont_d));
-        this.lJF.setTextColor(ap.getColor(R.color.cp_cont_d));
-        this.lJG.setTextColor(ap.getColor(R.color.cp_cont_d));
-        this.lJH.setTextColor(ap.getColor(R.color.cp_cont_d));
-        this.lJB.onChangeSkinType(skinType);
-        this.lJC.setTextColor(ap.getColor(R.color.cp_cont_j));
+        this.lPk.setTextColor(ap.getColor(R.color.cp_cont_d));
+        this.lPl.setTextColor(ap.getColor(R.color.cp_cont_d));
+        this.lPm.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        this.lPo.setTextColor(ap.getColor(R.color.cp_cont_b));
+        GG(this.lPF);
+        this.fFC.setTextColor(ap.getColor(R.color.cp_cont_d));
+        this.lPu.setTextColor(ap.getColor(R.color.cp_cont_d));
+        this.lPv.setTextColor(ap.getColor(R.color.cp_cont_d));
+        this.lPz.setTextColor(ap.getColor(R.color.cp_cont_d));
+        this.lPA.setTextColor(ap.getColor(R.color.cp_cont_d));
+        this.lPB.setTextColor(ap.getColor(R.color.cp_cont_d));
+        this.lPC.setTextColor(ap.getColor(R.color.cp_cont_d));
+        this.lPD.setTextColor(ap.getColor(R.color.cp_cont_d));
+        this.lPx.onChangeSkinType(skinType);
+        this.lPy.setTextColor(ap.getColor(R.color.cp_cont_j));
         if (this.mSkinType != skinType) {
-            DC(skinType);
+            DP(skinType);
         }
         this.mSkinType = skinType;
     }
 
-    public void vu(boolean z) {
+    public void vD(boolean z) {
         if (z) {
-            ap.setViewTextColor(this.eqE, R.color.cp_cont_h, 1);
+            ap.setViewTextColor(this.ewx, R.color.cp_cont_h, 1);
         } else {
-            ap.setViewTextColor(this.eqE, R.color.cp_cont_b, 1);
+            ap.setViewTextColor(this.ewx, R.color.cp_cont_b, 1);
         }
     }
 
-    public void Gs(int i) {
+    public void GF(int i) {
         if (i > 0) {
-            ap.setImageResource(this.lJm, BitmapHelper.getGradeResourceIdInEnterForum(i));
+            ap.setImageResource(this.lPi, BitmapHelper.getGradeResourceIdInEnterForum(i));
         }
     }
 
     public void k(boolean z, boolean z2, boolean z3) {
         if (z) {
-            this.lJi.setImageResource(R.drawable.pic_frs_headlines_n);
-            this.lJi.setVisibility(0);
+            this.lPe.setImageResource(R.drawable.pic_frs_headlines_n);
+            this.lPe.setVisibility(0);
         } else if (z2 && z3) {
-            this.lJi.setImageResource(R.drawable.pic_pb_stick_refined_n);
-            this.lJi.setVisibility(0);
+            this.lPe.setImageResource(R.drawable.pic_pb_stick_refined_n);
+            this.lPe.setVisibility(0);
         } else if (z2) {
-            this.lJi.setImageResource(R.drawable.pic_pb_refined_n);
-            this.lJi.setVisibility(0);
+            this.lPe.setImageResource(R.drawable.pic_pb_refined_n);
+            this.lPe.setVisibility(0);
         } else if (z3) {
-            this.lJi.setImageResource(R.drawable.pic_pb_stick_n);
-            this.lJi.setVisibility(0);
+            this.lPe.setImageResource(R.drawable.pic_pb_stick_n);
+            this.lPe.setVisibility(0);
         } else {
-            this.lJi.setVisibility(8);
+            this.lPe.setVisibility(8);
         }
     }
 
-    public void PT(String str) {
+    public void Qk(String str) {
         StateListDrawable stateListDrawable;
         StateListDrawable stateListDrawable2 = null;
         if (Config.BAWU_TYPE_MANAGER.equals(str) || Config.BAWU_TYPE_ASSIST.equals(str)) {
             if (Config.BAWU_TYPE_MANAGER.equals(str)) {
-                stateListDrawable = com.baidu.tbadk.core.util.e.a.b.bpp().oZ(0).Z(this.jjb).b("TL_BR", R.color.ba_zhu_start, R.color.ba_zhu_end).bpr();
-                stateListDrawable2 = com.baidu.tbadk.core.util.e.a.b.bpp().oZ(0).Z(this.jjb).BY("#4D000000").bpr();
+                stateListDrawable = com.baidu.tbadk.core.util.e.a.b.brP().pj(0).ab(this.joZ).b("TL_BR", R.color.ba_zhu_start, R.color.ba_zhu_end).brR();
+                stateListDrawable2 = com.baidu.tbadk.core.util.e.a.b.brP().pj(0).ab(this.joZ).Cm("#4D000000").brR();
             } else if (Config.BAWU_TYPE_ASSIST.equals(str)) {
-                stateListDrawable = com.baidu.tbadk.core.util.e.a.b.bpp().oZ(0).Z(this.jjb).b("TL_BR", R.color.xiao_ba_zhu_start, R.color.xiao_ba_zhu_end).bpr();
-                stateListDrawable2 = com.baidu.tbadk.core.util.e.a.b.bpp().oZ(0).Z(this.jjb).BY("#4D000000").bpr();
+                stateListDrawable = com.baidu.tbadk.core.util.e.a.b.brP().pj(0).ab(this.joZ).b("TL_BR", R.color.xiao_ba_zhu_start, R.color.xiao_ba_zhu_end).brR();
+                stateListDrawable2 = com.baidu.tbadk.core.util.e.a.b.brP().pj(0).ab(this.joZ).Cm("#4D000000").brR();
             } else {
                 stateListDrawable = null;
             }
@@ -202,88 +202,88 @@ public class b extends af.a {
             } else if (layerDrawable.getDrawable(1) != null) {
                 layerDrawable.getDrawable(1).setAlpha(0);
             }
-            this.lJl.setBackgroundDrawable(layerDrawable);
-            ap.setViewTextColor(this.lJl, R.color.cp_cont_a);
+            this.lPh.setBackgroundDrawable(layerDrawable);
+            ap.setViewTextColor(this.lPh, R.color.cp_cont_a);
         }
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.lJj.setOnClickListener(onClickListener);
-        this.lJv.setOnClickListener(onClickListener);
-        this.lJw.setOnClickListener(onClickListener);
-        this.lJk.setOnClickListener(onClickListener);
-        this.eqE.setOnClickListener(onClickListener);
-        this.lJn.setOnClickListener(onClickListener);
+        this.lPf.setOnClickListener(onClickListener);
+        this.lPr.setOnClickListener(onClickListener);
+        this.lPs.setOnClickListener(onClickListener);
+        this.lPg.setOnClickListener(onClickListener);
+        this.ewx.setOnClickListener(onClickListener);
+        this.lPj.setOnClickListener(onClickListener);
     }
 
     public void a(Context context, List<PbContent> list, String str, boolean z) {
         int i;
         if (!y.isEmpty(list) || !StringUtils.isNull(str)) {
-            String spannableStringBuilder = !y.isEmpty(list) ? e.bx(list).toString() : str;
-            if (this.lJt.getPaint().measureText(spannableStringBuilder, 0, spannableStringBuilder.length()) + (this.lJt.getTextSize() * 2.0f) > this.lJI * 2 || z) {
-                i = (this.lJJ == 1 || this.lJJ == 2) ? this.lJJ : 1;
+            String spannableStringBuilder = !y.isEmpty(list) ? e.bE(list).toString() : str;
+            if (this.lPp.getPaint().measureText(spannableStringBuilder, 0, spannableStringBuilder.length()) + (this.lPp.getTextSize() * 2.0f) > this.lPE * 2 || z) {
+                i = (this.lPF == 1 || this.lPF == 2) ? this.lPF : 1;
             } else {
                 i = 0;
             }
-            Gt(i);
+            GG(i);
             if (!y.isEmpty(list)) {
-                this.lJs.setText(TbRichTextView.a(context, list, true));
+                this.lPo.setText(TbRichTextView.a(context, list, true));
             } else {
-                this.lJs.setText(new TbRichText(context, com.baidu.tieba.im.chat.a.d(context, str, 1)));
+                this.lPo.setText(new TbRichText(context, com.baidu.tieba.im.chat.a.d(context, str, 1)));
             }
         }
     }
 
-    public int dpP() {
-        return this.lJJ;
+    public int dsr() {
+        return this.lPF;
     }
 
-    public void Gt(int i) {
-        this.lJJ = i;
+    public void GG(int i) {
+        this.lPF = i;
         if (i == 0) {
-            dpQ();
+            dss();
         } else if (i == 1) {
-            dpR();
+            dst();
         } else if (i == 2) {
-            dpS();
+            dsu();
         }
     }
 
-    private void dpQ() {
-        this.lJv.setVisibility(8);
-        this.lJs.setTextEllipsize(null);
-        this.lJs.setMaxLines(2);
+    private void dss() {
+        this.lPr.setVisibility(8);
+        this.lPo.setTextEllipsize(null);
+        this.lPo.setMaxLines(2);
     }
 
-    private void dpR() {
-        this.lJv.setVisibility(0);
-        SvgManager.boN().a(this.lJu, R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
-        this.lJs.setTextEllipsize(TextUtils.TruncateAt.END);
-        this.lJs.setMaxLines(2);
-        this.lJx.setVisibility(8);
-        this.lJC.setVisibility(8);
-        this.fzM.setVisibility(0);
-        this.lJy.setVisibility(0);
-        this.lJz.setVisibility(0);
-        this.lJD.setVisibility(0);
+    private void dst() {
+        this.lPr.setVisibility(0);
+        SvgManager.brn().a(this.lPq, R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
+        this.lPo.setTextEllipsize(TextUtils.TruncateAt.END);
+        this.lPo.setMaxLines(2);
+        this.lPt.setVisibility(8);
+        this.lPy.setVisibility(8);
+        this.fFC.setVisibility(0);
+        this.lPu.setVisibility(0);
+        this.lPv.setVisibility(0);
+        this.lPz.setVisibility(0);
     }
 
-    private void dpS() {
-        this.lJv.setVisibility(0);
-        SvgManager.boN().a(this.lJu, R.drawable.icon_pure_fold12_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
-        this.lJs.setTextEllipsize(null);
-        this.lJs.setMaxLines(3);
-        if (this.lJK) {
-            this.lJC.setVisibility(0);
+    private void dsu() {
+        this.lPr.setVisibility(0);
+        SvgManager.brn().a(this.lPq, R.drawable.icon_pure_fold12_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
+        this.lPo.setTextEllipsize(null);
+        this.lPo.setMaxLines(3);
+        if (this.lPG) {
+            this.lPy.setVisibility(0);
         }
-        this.lJx.setVisibility(0);
-        this.fzM.setVisibility(8);
-        this.lJy.setVisibility(8);
-        this.lJz.setVisibility(8);
-        this.lJD.setVisibility(8);
+        this.lPt.setVisibility(0);
+        this.fFC.setVisibility(8);
+        this.lPu.setVisibility(8);
+        this.lPv.setVisibility(8);
+        this.lPz.setVisibility(8);
     }
 
-    public void sB(boolean z) {
+    public void sK(boolean z) {
         if (z) {
             this.ajt.setVisibility(0);
             if (!this.ajt.isAnimating()) {
@@ -305,7 +305,7 @@ public class b extends af.a {
         }
     }
 
-    private void DC(int i) {
+    private void DP(int i) {
         if (i == 1) {
             this.ajt.setAnimation("live/card_live_bg_night.json");
         } else if (i == 4) {
@@ -317,16 +317,16 @@ public class b extends af.a {
 
     public void a(Context context, f fVar) {
         if (fVar == null || !fVar.isValid()) {
-            this.lJK = false;
+            this.lPG = false;
             return;
         }
-        PostData postData = fVar.dfK().get(0);
-        if (postData == null || y.getCount(postData.mRM) < 2) {
-            this.lJK = false;
+        PostData postData = fVar.dim().get(0);
+        if (postData == null || y.getCount(postData.mXP) < 2) {
+            this.lPG = false;
             return;
         }
-        List<PbContent> list = postData.mRM;
-        this.lJC.setText(TbRichTextView.a(context, (List<PbContent>) y.subList(list, 1, list.size()), true));
-        this.lJK = true;
+        List<PbContent> list = postData.mXP;
+        this.lPy.setText(TbRichTextView.a(context, (List<PbContent>) y.subList(list, 1, list.size()), true));
+        this.lPG = true;
     }
 }

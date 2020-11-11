@@ -9,7 +9,7 @@ import javax.crypto.spec.SecretKeySpec;
 public class AES {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2708a = "UTF-8";
+    private static final String f2710a = "UTF-8";
     private static final String b = "AES/CBC/NoPadding";
     private static final String c = "AES";
     private String d;

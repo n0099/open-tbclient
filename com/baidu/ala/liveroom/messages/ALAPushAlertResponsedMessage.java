@@ -47,7 +47,7 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                         int optInt2 = jSONObject.optInt("video_channel_id", 0);
                         intent.putExtra("video_channel_id", optInt2);
                         intent.putExtra("id", jSONObject.optString("tid"));
-                        TiebaStatic.log(new aq("c11917").aj("obj_id", optInt2));
+                        TiebaStatic.log(new aq("c11917").al("obj_id", optInt2));
                     } else if (optInt == 126) {
                         TiebaStatic.log(new aq("c12100"));
                         intent.putExtra("is_live", 1);
@@ -64,9 +64,9 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                             optString2 = "";
                         }
                         if (!StringUtils.isNull(optString3)) {
-                            a DN = c.byE().DN(optString4 + 10);
-                            if (DN != null && DN.getRawBitmap() != null) {
-                                NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), optString2, optString3, optString3, service, DN.getRawBitmap(), false);
+                            a Eb = c.bBd().Eb(optString4 + 10);
+                            if (Eb != null && Eb.getRawBitmap() != null) {
+                                NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), optString2, optString3, optString3, service, Eb.getRawBitmap(), false);
                                 return;
                             } else if (!StringUtils.isNull(optString4)) {
                                 final String str = optString2;

@@ -16,11 +16,11 @@ public class MyService extends Service {
     private static long b = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile int f3587a = 0;
+    private volatile int f3590a = 0;
 
     static /* synthetic */ int a(MyService myService) {
-        int i = myService.f3587a;
-        myService.f3587a = i + 1;
+        int i = myService.f3590a;
+        myService.f3590a = i + 1;
         return i;
     }
 
@@ -109,9 +109,9 @@ public class MyService extends Service {
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         try {
-            this.f3587a--;
-            if (this.f3587a <= 0) {
-                this.f3587a = 0;
+            this.f3590a--;
+            if (this.f3590a <= 0) {
+                this.f3590a = 0;
                 b.a();
                 stopSelf();
             }

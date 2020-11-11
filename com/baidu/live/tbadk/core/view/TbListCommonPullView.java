@@ -53,9 +53,9 @@ public class TbListCommonPullView extends BdIListPullView {
 
     @Override // com.baidu.live.adp.widget.listview.BdIListPullView
     public View createView() {
-        this.mHeaderView = LayoutInflater.from(getContext()).inflate(a.h.sdk_tb_pull_view, (ViewGroup) null);
-        this.mPullRoot = (LinearLayout) this.mHeaderView.findViewById(a.g.pull_root);
-        this.mPullImage = (ImageView) this.mHeaderView.findViewById(a.g.pull_image);
+        this.mHeaderView = LayoutInflater.from(getContext()).inflate(a.g.sdk_tb_pull_view, (ViewGroup) null);
+        this.mPullRoot = (LinearLayout) this.mHeaderView.findViewById(a.f.pull_root);
+        this.mPullImage = (ImageView) this.mHeaderView.findViewById(a.f.pull_image);
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (this.mSkinType != Integer.MIN_VALUE) {
             skinType = this.mSkinType;

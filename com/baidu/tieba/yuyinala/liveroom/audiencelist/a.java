@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private List<p> aIk;
+    private List<p> aJb;
     private Context mContext;
 
     public a(Context context) {
@@ -27,11 +27,11 @@ public class a extends BaseAdapter {
     }
 
     public void d(q qVar) {
-        this.aIk = new ArrayList();
+        this.aJb = new ArrayList();
         if (qVar != null && qVar.getList() != null && !qVar.getList().isEmpty()) {
             for (p pVar : qVar.getList()) {
-                if (pVar != null && pVar.aIe != null) {
-                    this.aIk.add(pVar);
+                if (pVar != null && pVar.aIV != null) {
+                    this.aJb.add(pVar);
                 }
             }
         }
@@ -39,18 +39,18 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aIk == null) {
+        if (this.aJb == null) {
             return 0;
         }
-        return this.aIk.size();
+        return this.aJb.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.aIk == null) {
+        if (this.aJb == null) {
             return null;
         }
-        return this.aIk.get(i);
+        return this.aJb.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -60,67 +60,67 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0888a c0888a;
+        C0903a c0903a;
         if (view == null) {
-            view = LayoutInflater.from(this.mContext).inflate(a.h.yuyin_ala_live_audience_header_image, (ViewGroup) null);
-            C0888a c0888a2 = new C0888a(view);
+            view = LayoutInflater.from(this.mContext).inflate(a.g.yuyin_ala_live_audience_header_image, (ViewGroup) null);
+            C0903a c0903a2 = new C0903a(view);
             if (TbadkCoreApplication.getInst().isHaokan()) {
-                c0888a2.gSD.setDefaultResource(a.f.sdk_icon_default_avatar100_hk);
+                c0903a2.gYI.setDefaultResource(a.e.sdk_icon_default_avatar100_hk);
             } else {
-                c0888a2.gSD.setDefaultResource(a.f.sdk_icon_default_avatar100);
+                c0903a2.gYI.setDefaultResource(a.e.sdk_icon_default_avatar100);
             }
-            c0888a2.gSD.setIsRound(true);
-            c0888a2.gSD.setDrawBorder(true);
-            c0888a2.gSD.setBorderColor(this.mContext.getResources().getColor(a.d.sdk_cp_bg_line_k_alpha10_1));
-            c0888a2.gSD.setAutoChangeStyle(false);
-            c0888a2.gSD.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            c0888a2.gSE.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            view.setTag(c0888a2);
-            c0888a = c0888a2;
+            c0903a2.gYI.setIsRound(true);
+            c0903a2.gYI.setDrawBorder(true);
+            c0903a2.gYI.setBorderColor(this.mContext.getResources().getColor(a.c.sdk_cp_bg_line_k_alpha10_1));
+            c0903a2.gYI.setAutoChangeStyle(false);
+            c0903a2.gYI.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            c0903a2.gYJ.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            view.setTag(c0903a2);
+            c0903a = c0903a2;
         } else {
-            c0888a = (C0888a) view.getTag();
+            c0903a = (C0903a) view.getTag();
         }
         p pVar = (p) getItem(i);
-        c0888a.gSD.setDrawBorder(true);
-        if (i == 0 && pVar.aIe.contribution > 0) {
-            c0888a.gSE.setVisibility(0);
-            c0888a.gSE.setImageResource(a.f.pic_live_top1);
-            c0888a.gSF.setBackgroundResource(a.f.round_header_day_list_bg_1);
-        } else if (i == 1 && pVar.aIe.contribution > 0) {
-            c0888a.gSE.setVisibility(0);
-            c0888a.gSE.setImageResource(a.f.pic_live_top2);
-            c0888a.gSF.setBackgroundResource(a.f.round_header_day_list_bg_2);
-        } else if (i == 2 && pVar.aIe.contribution > 0) {
-            c0888a.gSE.setVisibility(0);
-            c0888a.gSE.setImageResource(a.f.pic_live_top3);
-            c0888a.gSF.setBackgroundResource(a.f.round_header_day_list_bg_3);
+        c0903a.gYI.setDrawBorder(true);
+        if (i == 0 && pVar.aIV.contribution > 0) {
+            c0903a.gYJ.setVisibility(0);
+            c0903a.gYJ.setImageResource(a.e.pic_live_top1);
+            c0903a.gYK.setBackgroundResource(a.e.round_header_day_list_bg_1);
+        } else if (i == 1 && pVar.aIV.contribution > 0) {
+            c0903a.gYJ.setVisibility(0);
+            c0903a.gYJ.setImageResource(a.e.pic_live_top2);
+            c0903a.gYK.setBackgroundResource(a.e.round_header_day_list_bg_2);
+        } else if (i == 2 && pVar.aIV.contribution > 0) {
+            c0903a.gYJ.setVisibility(0);
+            c0903a.gYJ.setImageResource(a.e.pic_live_top3);
+            c0903a.gYK.setBackgroundResource(a.e.round_header_day_list_bg_3);
         } else {
-            c0888a.gSE.setVisibility(8);
-            c0888a.gSF.setBackgroundResource(a.f.round_header_day_list_bg_normal);
+            c0903a.gYJ.setVisibility(8);
+            c0903a.gYK.setBackgroundResource(a.e.round_header_day_list_bg_normal);
         }
-        c0888a.gSF.setText(StringHelper.formatForHeaderDayCharmValue(pVar.aIe.contribution));
-        if (pVar.aIe.contribution <= 0) {
-            c0888a.gSF.setVisibility(4);
+        c0903a.gYK.setText(StringHelper.formatForHeaderDayCharmValue(pVar.aIV.contribution));
+        if (pVar.aIV.contribution <= 0) {
+            c0903a.gYK.setVisibility(4);
         } else {
-            c0888a.gSF.setVisibility(0);
+            c0903a.gYK.setVisibility(0);
         }
-        l.a(c0888a.gSD, pVar.aIe.portrait, true, !StringUtils.isNull(pVar.aIe.appId));
+        l.a(c0903a.gYI, pVar.aIV.portrait, true, !StringUtils.isNull(pVar.aIV.appId));
         return view;
     }
 
     /* renamed from: com.baidu.tieba.yuyinala.liveroom.audiencelist.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0888a {
-        public HeadImageView gSD;
-        public ImageView gSE;
-        public TextView gSF;
+    public static class C0903a {
+        public HeadImageView gYI;
+        public ImageView gYJ;
+        public TextView gYK;
         public View rootView;
 
-        public C0888a(View view) {
+        public C0903a(View view) {
             this.rootView = view;
-            this.gSD = (HeadImageView) view.findViewById(a.g.ala_live_room_audience_header_img);
-            this.gSE = (ImageView) view.findViewById(a.g.ala_live_room_audience_pendant);
-            this.gSF = (TextView) view.findViewById(a.g.ala_live_room_audience_charm_count);
+            this.gYI = (HeadImageView) view.findViewById(a.f.ala_live_room_audience_header_img);
+            this.gYJ = (ImageView) view.findViewById(a.f.ala_live_room_audience_pendant);
+            this.gYK = (TextView) view.findViewById(a.f.ala_live_room_audience_charm_count);
         }
     }
 }

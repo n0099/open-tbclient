@@ -19,14 +19,14 @@ public class u extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        com.baidu.swan.apps.event.a.d nW = com.baidu.swan.apps.event.a.d.nW(str);
-        if (nW == null) {
+        com.baidu.swan.apps.event.a.d ol = com.baidu.swan.apps.event.a.d.ol(str);
+        if (ol == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         com.baidu.swan.apps.performance.h.E("postMessage", "PostEvent start");
-        com.baidu.swan.apps.v.f.axo().a(nW, true);
+        com.baidu.swan.apps.v.f.azO().a(ol, true);
         com.baidu.swan.apps.performance.h.E("postMessage", "PostEvent end.");
         return true;
     }

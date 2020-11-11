@@ -29,10 +29,10 @@ public class a {
                 a.this.a(bVar, 1, 0);
             }
         });
-        aVar.ebt = false;
-        aVar.ebu = false;
-        aVar.ebv = false;
-        com.baidu.swan.a.c.a.aYk().a(aVar);
+        aVar.ehl = false;
+        aVar.ehm = false;
+        aVar.ehn = false;
+        com.baidu.swan.a.c.a.baK().a(aVar);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [117=4] */

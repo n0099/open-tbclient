@@ -164,14 +164,14 @@ public class d extends com.baidu.b.b.a {
         PackageInfo packageInfo;
         b bVar = null;
         try {
-            packageInfo = this.acT.f1244a.getPackageManager().getPackageInfo(str, 0);
+            packageInfo = this.acT.f1246a.getPackageManager().getPackageInfo(str, 0);
         } catch (PackageManager.NameNotFoundException e) {
             packageInfo = null;
         }
         if (packageInfo == null) {
             return a.e.bj(-2);
         }
-        if (dVar.f1245a) {
+        if (dVar.f1247a) {
             bVar = new b(str);
             bVar.a();
             if (str.equals(bVar.c()) && packageInfo.lastUpdateTime == bVar.e()) {
@@ -180,7 +180,7 @@ public class d extends com.baidu.b.b.a {
         }
         a aVar = new a();
         if (aVar.a(packageInfo)) {
-            if (dVar.f1245a && bVar != null) {
+            if (dVar.f1247a && bVar != null) {
                 bVar.a(aVar);
                 bVar.a(System.currentTimeMillis());
                 bVar.Q(packageInfo.lastUpdateTime);

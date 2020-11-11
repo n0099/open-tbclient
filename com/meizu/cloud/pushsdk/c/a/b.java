@@ -8,7 +8,7 @@ import java.util.Map;
 public class b implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f4378a = b.class.getSimpleName();
+    private final String f4380a = b.class.getSimpleName();
     private final HashMap<String, Object> b = new HashMap<>();
 
     public b(String str, Object obj) {
@@ -38,7 +38,7 @@ public class b implements a {
     @Override // com.meizu.cloud.pushsdk.c.a.a
     @Deprecated
     public void a(String str, String str2) {
-        com.meizu.cloud.pushsdk.c.f.c.c(this.f4378a, "Payload: add(String, String) method called - Doing nothing.", new Object[0]);
+        com.meizu.cloud.pushsdk.c.f.c.c(this.f4380a, "Payload: add(String, String) method called - Doing nothing.", new Object[0]);
     }
 
     @Override // com.meizu.cloud.pushsdk.c.a.a

@@ -1,86 +1,100 @@
 package com.baidu.live.gift;
 
-import android.graphics.Bitmap;
-import android.text.TextUtils;
-import com.baidu.live.adp.lib.util.Base64;
-import com.baidu.live.tbadk.log.LogConfig;
-import org.json.JSONObject;
+import android.content.Context;
+import android.util.DisplayMetrics;
+import android.view.WindowManager;
+import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.adp.framework.message.CustomMessage;
+import com.baidu.live.adp.lib.safe.JavaTypesHelper;
+import com.baidu.live.adp.lib.util.BdUtilHelper;
+import com.baidu.live.sdk.a;
+import com.baidu.live.tbadk.TbPageContext;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.tbadk.core.atomdata.BuyTBeanActivityConfig;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.live.tbadk.statics.AlaStaticItem;
+import com.baidu.live.tbadk.statics.AlaStaticsManager;
+import com.baidu.live.tbadk.statics.QMStaticKeys;
+import com.baidu.live.tbadk.statics.SdkStaticKeys;
 /* loaded from: classes4.dex */
-public class m implements Cloneable {
-    private String aUH;
-    private int aUI;
-    private int aUJ;
-    public Bitmap aUK;
-    public g aUL;
-    private int mGiftId;
-
-    public String Gj() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put(LogConfig.LOG_GIFT_ID, this.mGiftId);
-            if (!TextUtils.isEmpty(this.aUH)) {
-                jSONObject.put("gift_img_url", Base64.encodeBytes(this.aUH.getBytes()));
-            }
-            jSONObject.put("gift_index", this.aUI);
-            jSONObject.put("gift_count", this.aUJ);
-            return jSONObject.toString();
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    public boolean gE(String str) {
-        if (TextUtils.isEmpty(str)) {
+public class m {
+    public static boolean a(Context context, g gVar, int i, com.baidu.live.data.w wVar) {
+        if (context == null || gVar == null || i <= 0 || wVar == null) {
             return false;
         }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            this.mGiftId = jSONObject.optInt(LogConfig.LOG_GIFT_ID);
-            String optString = jSONObject.optString("gift_img_url");
-            if (!TextUtils.isEmpty(optString)) {
-                this.aUH = new String(Base64.decode(optString.getBytes()));
-            }
-            this.aUI = jSONObject.optInt("gift_index");
-            this.aUJ = jSONObject.optInt("gift_count");
-            return true;
-        } catch (Exception e) {
+        return true;
+    }
+
+    public static boolean a(TbPageContext tbPageContext, com.baidu.live.data.w wVar, g gVar, String str) {
+        if (tbPageContext == null || tbPageContext.getPageActivity() == null || gVar == null || wVar == null || wVar.mLiveInfo == null || wVar.aJr == null) {
             return false;
         }
+        if (gVar.Gt()) {
+            if (gVar.Gp() == 6 && wVar.aJr.levelId < 3) {
+                return false;
+            }
+            if (gVar.Gp() == 7 && wVar.aJr.levelId < 7) {
+                return false;
+            }
+            if (gVar.Gp() == 8 && wVar.aJr.levelId < 13) {
+                return false;
+            }
+            if (gVar.Gp() == 9 && wVar.aJr.levelId < 22) {
+                return false;
+            }
+            if (gVar.Gp() == 10 && wVar.aJr.levelId < 29) {
+                return false;
+            }
+            if (gVar.Gp() == 11 && wVar.aJr.levelId < 39) {
+                return false;
+            }
+            if (gVar.Gp() == 12 && wVar.aJr.levelId < 47) {
+                return false;
+            }
+        }
+        if (a(tbPageContext.getPageActivity(), gVar, 1, wVar)) {
+            if (gVar.Gd()) {
+                if (TbadkCoreApplication.getInst().currentAccountFlowerNum <= 0 || TbadkCoreApplication.getInst().currentAccountFlowerNum < JavaTypesHelper.toLong(gVar.getPrice(), 0L) * 1) {
+                    BdUtilHelper.showToast(tbPageContext.getPageActivity(), tbPageContext.getPageActivity().getResources().getString(a.h.ala_free_gift_flower_no_enough), 1000);
+                    return false;
+                }
+                aa.b(gVar, 1, wVar.aIV.userId + "", wVar.aIV.userName, wVar.mLiveInfo.live_id + "", wVar.mLiveInfo.room_id + "", wVar.mLiveInfo.appId + "", wVar.mLiveInfo.feed_id + "", str, 0L);
+                a(gVar, wVar.mLiveInfo.feed_id, wVar.mLiveInfo.live_id + "", str);
+            } else if (TbadkCoreApplication.getInst().currentAccountTdouNum <= 0 || TbadkCoreApplication.getInst().currentAccountTdouNum < JavaTypesHelper.toLong(gVar.getPrice(), 0L) * 1) {
+                a(tbPageContext, str);
+                return false;
+            } else {
+                aa.b(gVar, 1, wVar.aIV.userId + "", wVar.aIV.userName, wVar.mLiveInfo.live_id + "", wVar.mLiveInfo.room_id + "", wVar.mLiveInfo.appId + "", wVar.mLiveInfo.feed_id + "", str, 0L);
+                a(gVar, wVar.mLiveInfo.feed_id, wVar.mLiveInfo.live_id + "", str);
+            }
+        }
+        return true;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* renamed from: Gm */
-    public m clone() {
-        try {
-            return (m) super.clone();
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-            return null;
+    public static void a(TbPageContext tbPageContext, String str) {
+        if (tbPageContext != null && tbPageContext.getPageActivity() != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyTBeanActivityConfig(tbPageContext.getPageActivity(), 0L, str, true, "quick_gift", true)));
         }
     }
 
-    public int getGiftId() {
-        return this.mGiftId;
+    public static int getScreenWidth(Context context) {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+        return displayMetrics.widthPixels;
     }
 
-    public void setGiftId(int i) {
-        this.mGiftId = i;
-    }
-
-    public String Gn() {
-        return this.aUH;
-    }
-
-    public void gF(String str) {
-        this.aUH = str;
-    }
-
-    public int Go() {
-        return this.aUJ;
-    }
-
-    public void dW(int i) {
-        this.aUJ = i;
+    private static void a(g gVar, String str, String str2, String str3) {
+        if (gVar != null) {
+            if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
+                AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.QUICK_GIFT_SUCCESS);
+                alaStaticItem.addParams("gifts_value", gVar.getPrice());
+                alaStaticItem.addParams(SdkStaticKeys.KEY_GIFTS_ID, gVar.FT());
+                alaStaticItem.addParams(QMStaticKeys.KEY_QM_GIFTS_NAME, gVar.FU());
+                alaStaticItem.addParams("other_params", str3);
+                alaStaticItem.addParams("feed_id", str);
+                alaStaticItem.addParams("live_id", str2);
+                AlaStaticsManager.getInst().onStatic(alaStaticItem);
+            }
+        }
     }
 }

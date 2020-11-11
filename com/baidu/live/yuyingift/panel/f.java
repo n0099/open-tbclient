@@ -3,46 +3,45 @@ package com.baidu.live.yuyingift.panel;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.data.h;
 import com.baidu.live.data.j;
-import com.baidu.live.gift.ae;
+import com.baidu.live.gift.ad;
 import com.baidu.live.gift.g;
-import com.baidu.live.gift.i;
-import com.baidu.live.gift.z;
+import com.baidu.live.gift.h;
+import com.baidu.live.gift.y;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class f implements ae {
-    private com.baidu.live.yuyingift.c.c bMa;
+public class f implements ad {
+    private com.baidu.live.yuyingift.c.c bRI;
     private Context mContext;
 
     public f(Context context) {
         this.mContext = context;
-        IY();
+        Jz();
     }
 
-    @Override // com.baidu.live.gift.ae
-    public void hd(String str) {
-        this.bMa.hr(str);
+    @Override // com.baidu.live.gift.ad
+    public void hk(String str) {
+        this.bRI.hy(str);
     }
 
-    @Override // com.baidu.live.gift.ae
-    public void GS() {
+    @Override // com.baidu.live.gift.ad
+    public void Ht() {
     }
 
-    @Override // com.baidu.live.gift.ae
+    @Override // com.baidu.live.gift.ad
     public void release() {
-        if (this.bMa != null) {
-            this.bMa.release();
+        if (this.bRI != null) {
+            this.bRI.release();
         }
     }
 
-    private void IY() {
-        this.bMa = new com.baidu.live.yuyingift.c.c();
-        this.bMa.a(new com.baidu.live.yuyingift.c.a() { // from class: com.baidu.live.yuyingift.panel.f.1
+    private void Jz() {
+        this.bRI = new com.baidu.live.yuyingift.c.c();
+        this.bRI.a(new com.baidu.live.yuyingift.c.a() { // from class: com.baidu.live.yuyingift.panel.f.1
             @Override // com.baidu.live.yuyingift.c.a, com.baidu.live.yuyingift.c.b.a
-            public void a(boolean z, int i, String str, ArrayList<i> arrayList, ArrayList<h> arrayList2, ArrayList<j> arrayList3) {
+            public void a(boolean z, int i, String str, ArrayList<h> arrayList, ArrayList<com.baidu.live.data.h> arrayList2, ArrayList<j> arrayList3) {
                 super.a(z, i, str, arrayList, arrayList2, arrayList3);
                 f.this.b(z, arrayList);
             }
@@ -56,9 +55,9 @@ public class f implements ae {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(boolean z, List<i> list) {
+    public void b(boolean z, List<h> list) {
         if (z) {
-            z.GB().G(list);
+            y.Hc().G(list);
         }
     }
 
@@ -72,37 +71,37 @@ public class f implements ae {
             BdUtilHelper.showToast(this.mContext.getApplicationContext(), str);
         }
         if (i == 101) {
-            if (this.bMa == null) {
-                this.bMa = new com.baidu.live.yuyingift.c.c();
+            if (this.bRI == null) {
+                this.bRI = new com.baidu.live.yuyingift.c.c();
             }
-            this.bMa.hr("gift_send_101");
+            this.bRI.hy("gift_send_101");
         }
     }
 
     private void B(String str, int i) {
-        List<i> datas;
-        if (!TextUtils.isEmpty(str) && (datas = z.GB().getDatas()) != null) {
-            ArrayList<i> arrayList = new ArrayList(datas);
-            for (i iVar : arrayList) {
-                List<g> FT = iVar.FT();
-                if (FT != null) {
+        List<h> datas;
+        if (!TextUtils.isEmpty(str) && (datas = y.Hc().getDatas()) != null) {
+            ArrayList<h> arrayList = new ArrayList(datas);
+            for (h hVar : arrayList) {
+                List<g> Gu = hVar.Gu();
+                if (Gu != null) {
                     if (i == 0) {
-                        Iterator<g> it = FT.iterator();
+                        Iterator<g> it = Gu.iterator();
                         while (it.hasNext()) {
-                            if (it.next().Fs().equals(str)) {
+                            if (it.next().FT().equals(str)) {
                                 it.remove();
                             }
                         }
                     } else {
-                        for (g gVar : FT) {
-                            if (gVar.Fs().equals(str)) {
-                                gVar.aTp.aTC = i;
+                        for (g gVar : Gu) {
+                            if (gVar.FT().equals(str)) {
+                                gVar.aUI.aUV = i;
                             }
                         }
                     }
                 }
             }
-            z.GB().G(arrayList);
+            y.Hc().G(arrayList);
         }
     }
 }

@@ -22,7 +22,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
     public static final String TAG = "SapiLivenessRecog";
 
     /* renamed from: a  reason: collision with root package name */
-    private static SapiLivenessRecogManager f1594a;
+    private static SapiLivenessRecogManager f1596a;
     private LivenessRecogCallback b;
     private long c;
     private long d;
@@ -33,10 +33,10 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
     public static synchronized SapiLivenessRecogManager getInstance() {
         SapiLivenessRecogManager sapiLivenessRecogManager;
         synchronized (SapiLivenessRecogManager.class) {
-            if (f1594a == null) {
-                f1594a = new SapiLivenessRecogManager();
+            if (f1596a == null) {
+                f1596a = new SapiLivenessRecogManager();
             }
-            sapiLivenessRecogManager = f1594a;
+            sapiLivenessRecogManager = f1596a;
         }
         return sapiLivenessRecogManager;
     }

@@ -13,22 +13,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes16.dex */
 public class IPCServiceManager {
-    private static volatile IPCServiceManagerAidl cdU;
-    private static final a cdV = new a();
-    private static IPCServiceManagerAidlImpl cdW;
-    static ContentProviderClient cdX;
+    private static volatile IPCServiceManagerAidl cjF;
+    private static final a cjG = new a();
+    private static IPCServiceManagerAidlImpl cjH;
+    static ContentProviderClient cjI;
 
     public static IBinder J(final String str, boolean z) {
         if (z) {
             return new f() { // from class: com.baidu.pyramid.runtime.multiprocess.IPCServiceManager.1
                 @Override // com.baidu.pyramid.runtime.multiprocess.f
-                protected IBinder aaP() throws RemoteException {
-                    return IPCServiceManager.aaM().getService(str);
+                protected IBinder ado() throws RemoteException {
+                    return IPCServiceManager.adl().getService(str);
                 }
             };
         }
         try {
-            return aaM().getService(str);
+            return adl().getService(str);
         } catch (RemoteException e) {
             c("MultiProcess", e);
             g.k(e);
@@ -38,7 +38,7 @@ public class IPCServiceManager {
 
     public static void addService(String str, IBinder iBinder, boolean z) {
         try {
-            aaM().addService(str, iBinder, z);
+            adl().addService(str, iBinder, z);
         } catch (RemoteException e) {
             c("MultiProcess", e);
             g.k(e);
@@ -46,44 +46,44 @@ public class IPCServiceManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static IPCServiceManagerAidl aaM() {
-        IPCServiceManagerAidl iPCServiceManagerAidl = cdU;
+    public static IPCServiceManagerAidl adl() {
+        IPCServiceManagerAidl iPCServiceManagerAidl = cjF;
         if (iPCServiceManagerAidl == null) {
-            IPCServiceManagerAidl asInterface = IPCServiceManagerAidl.Stub.asInterface(cdV);
-            cdU = asInterface;
+            IPCServiceManagerAidl asInterface = IPCServiceManagerAidl.Stub.asInterface(cjG);
+            cjF = asInterface;
             return asInterface;
         }
         return iPCServiceManagerAidl;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static Bundle aaL() {
+    public static Bundle adk() {
         Bundle bundle = new Bundle();
         if (Build.VERSION.SDK_INT >= 18) {
-            bundle.putBinder("service", aaN());
+            bundle.putBinder("service", adm());
         } else {
-            bundle.putParcelable("service", new BindlerHolder(aaN()));
+            bundle.putParcelable("service", new BindlerHolder(adm()));
         }
         return bundle;
     }
 
-    private static IPCServiceManagerAidlImpl aaN() {
-        if (cdW == null) {
-            cdW = new IPCServiceManagerAidlImpl();
+    private static IPCServiceManagerAidlImpl adm() {
+        if (cjH == null) {
+            cjH = new IPCServiceManagerAidlImpl();
         }
-        return cdW;
+        return cjH;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes16.dex */
     public static class a extends f {
-        private static final Uri cdY = Uri.parse("content://" + ServerProvider.aaY() + "/ipc_manager/method/get_service_handler");
+        private static final Uri cjJ = Uri.parse("content://" + ServerProvider.adx() + "/ipc_manager/method/get_service_handler");
 
         private a() {
         }
 
         @Override // com.baidu.pyramid.runtime.multiprocess.f
-        protected IBinder aaP() {
+        protected IBinder ado() {
             ContentResolver contentResolver = e.getAppContext().getContentResolver();
             JSONObject jSONObject = new JSONObject();
             Bundle a2 = a(contentResolver, jSONObject);
@@ -91,7 +91,7 @@ public class IPCServiceManager {
                 a2 = b(contentResolver, jSONObject);
             }
             if (jSONObject.length() != 0) {
-                g.jF(jSONObject.toString());
+                g.jS(jSONObject.toString());
             }
             if (a2 == null) {
                 return null;
@@ -102,7 +102,7 @@ public class IPCServiceManager {
             a2.setClassLoader(BindlerHolder.class.getClassLoader());
             BindlerHolder bindlerHolder = (BindlerHolder) a2.getParcelable("service");
             if (bindlerHolder != null) {
-                return bindlerHolder.aaK();
+                return bindlerHolder.adj();
             }
             return null;
         }
@@ -114,12 +114,12 @@ public class IPCServiceManager {
                 if (i >= 2) {
                     break;
                 }
-                ContentProviderClient acquireUnstableContentProviderClient = contentResolver.acquireUnstableContentProviderClient(ServerProvider.aaY());
+                ContentProviderClient acquireUnstableContentProviderClient = contentResolver.acquireUnstableContentProviderClient(ServerProvider.adx());
                 if (acquireUnstableContentProviderClient != null && (bundle = a(acquireUnstableContentProviderClient, jSONObject)) == null) {
                     bundle = b(acquireUnstableContentProviderClient, jSONObject);
                 }
                 if (bundle != null) {
-                    IPCServiceManager.cdX = acquireUnstableContentProviderClient;
+                    IPCServiceManager.cjI = acquireUnstableContentProviderClient;
                     break;
                 }
                 try {
@@ -134,9 +134,9 @@ public class IPCServiceManager {
         private Bundle b(ContentResolver contentResolver, JSONObject jSONObject) {
             Bundle bundle = null;
             for (int i = 0; i < 2; i++) {
-                bundle = a(contentResolver, cdY, jSONObject);
+                bundle = a(contentResolver, cjJ, jSONObject);
                 if (bundle == null) {
-                    bundle = b(contentResolver, cdY, jSONObject);
+                    bundle = b(contentResolver, cjJ, jSONObject);
                 }
                 if (bundle != null) {
                     break;
@@ -167,7 +167,7 @@ public class IPCServiceManager {
 
         private Bundle b(ContentProviderClient contentProviderClient, JSONObject jSONObject) {
             try {
-                return contentProviderClient.query(cdY, null, null, null, null).getExtras();
+                return contentProviderClient.query(cjJ, null, null, null, null).getExtras();
             } catch (Exception e) {
                 try {
                     jSONObject.put("useProviderClientQuery", g.l(e));

@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 public class OverlayLocationData {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2887a;
+    private String f2889a;
     private Bitmap b;
     private int c;
     private int d;
@@ -20,7 +20,7 @@ public class OverlayLocationData {
     }
 
     public String getImgName() {
-        return this.f2887a;
+        return this.f2889a;
     }
 
     public int getImgWidth() {
@@ -40,7 +40,7 @@ public class OverlayLocationData {
     }
 
     public void setImgName(String str) {
-        this.f2887a = str;
+        this.f2889a = str;
     }
 
     public void setImgWidth(int i) {

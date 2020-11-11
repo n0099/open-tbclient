@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.live.data.AlaLiveInfoData;
-import com.baidu.live.data.bc;
+import com.baidu.live.data.be;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.person.view.e;
@@ -15,18 +15,18 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
     private Context context;
-    private int gqZ;
-    private InterfaceC0679a huh;
-    private c hui;
-    private b huj;
+    private int gwN;
+    private InterfaceC0693a hAe;
+    private c hAf;
+    private b hAg;
     private List mList;
     private int mSkinType;
     private int type;
 
     /* renamed from: com.baidu.tieba.ala.person.adapter.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0679a {
-        void a(bc bcVar, View view);
+    public interface InterfaceC0693a {
+        void a(be beVar, View view);
     }
 
     /* loaded from: classes4.dex */
@@ -36,13 +36,13 @@ public class a extends BaseAdapter {
 
     /* loaded from: classes4.dex */
     public interface c {
-        void b(bc bcVar, View view);
+        void b(be beVar, View view);
     }
 
     public a(Context context, int i) {
-        this.gqZ = 2;
+        this.gwN = 2;
         this.context = context;
-        this.gqZ = i;
+        this.gwN = i;
     }
 
     public void a(boolean z, List list, int i) {
@@ -82,22 +82,22 @@ public class a extends BaseAdapter {
         com.baidu.tieba.ala.person.view.c cVar = null;
         if (view == null) {
             if (this.mList.get(i) != null) {
-                if (this.gqZ == 1) {
+                if (this.gwN == 1) {
                     if (this.type == 1 || this.type == 0) {
-                        view = LayoutInflater.from(this.context).inflate(a.h.ala_person_list_item_layout, (ViewGroup) null);
-                        cVar = new com.baidu.tieba.ala.person.view.b(view, this.gqZ);
+                        view = LayoutInflater.from(this.context).inflate(a.g.ala_person_list_item_layout, (ViewGroup) null);
+                        cVar = new com.baidu.tieba.ala.person.view.b(view, this.gwN);
                     } else if (this.type == 2) {
-                        view = LayoutInflater.from(this.context).inflate(a.h.ala_playbacks_list_item_layout, (ViewGroup) null);
-                        cVar = new e(view, this.gqZ);
+                        view = LayoutInflater.from(this.context).inflate(a.g.ala_playbacks_list_item_layout, (ViewGroup) null);
+                        cVar = new e(view, this.gwN);
                     }
-                } else if (this.gqZ == 2) {
-                    view = LayoutInflater.from(this.context).inflate(a.h.ala_person_card_list_item_layout, (ViewGroup) null);
-                    cVar = new com.baidu.tieba.ala.person.view.b(view, this.gqZ);
+                } else if (this.gwN == 2) {
+                    view = LayoutInflater.from(this.context).inflate(a.g.ala_person_card_list_item_layout, (ViewGroup) null);
+                    cVar = new com.baidu.tieba.ala.person.view.b(view, this.gwN);
                 }
                 if (cVar != null) {
-                    cVar.a(this.huh);
-                    cVar.a(this.huj);
-                    cVar.a(this.hui);
+                    cVar.a(this.hAe);
+                    cVar.a(this.hAg);
+                    cVar.a(this.hAf);
                 }
                 if (view != null) {
                     view.setTag(cVar);
@@ -116,13 +116,13 @@ public class a extends BaseAdapter {
     public void aC(String str, boolean z) {
         if (str != null && !ListUtils.isEmpty(this.mList)) {
             for (Object obj : this.mList) {
-                if (this.type != 2 && (obj instanceof bc)) {
-                    bc bcVar = (bc) obj;
-                    if (str.equals(bcVar.id)) {
+                if (this.type != 2 && (obj instanceof be)) {
+                    be beVar = (be) obj;
+                    if (str.equals(beVar.id)) {
                         if (z) {
-                            bcVar.aNJ = 1;
+                            beVar.aOM = 1;
                         } else {
-                            bcVar.aNJ = 0;
+                            beVar.aOM = 0;
                         }
                         notifyDataSetChanged();
                         return;
@@ -136,15 +136,15 @@ public class a extends BaseAdapter {
         this.mSkinType = i;
     }
 
-    public void a(InterfaceC0679a interfaceC0679a) {
-        this.huh = interfaceC0679a;
+    public void a(InterfaceC0693a interfaceC0693a) {
+        this.hAe = interfaceC0693a;
     }
 
     public void a(c cVar) {
-        this.hui = cVar;
+        this.hAf = cVar;
     }
 
     public void a(b bVar) {
-        this.huj = bVar;
+        this.hAg = bVar;
     }
 }

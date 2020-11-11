@@ -9,13 +9,13 @@ import java.util.List;
 class h extends AsyncTask<Void, Void, PassFaceRecogResult> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PassFaceRecogResult f2735a;
+    final /* synthetic */ PassFaceRecogResult f2737a;
     final /* synthetic */ i b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(i iVar, PassFaceRecogResult passFaceRecogResult) {
         this.b = iVar;
-        this.f2735a = passFaceRecogResult;
+        this.f2737a = passFaceRecogResult;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,38 +33,38 @@ class h extends AsyncTask<Void, Void, PassFaceRecogResult> {
         List list4;
         int i;
         String a2;
-        LivenessRecogActivity livenessRecogActivity = this.b.f2736a;
+        LivenessRecogActivity livenessRecogActivity = this.b.f2738a;
         if (livenessRecogActivity.passFaceRecogDTO != null) {
             list = livenessRecogActivity.X;
             if (list != null) {
-                list2 = this.b.f2736a.X;
+                list2 = this.b.f2738a.X;
                 if (list2.size() > 0) {
-                    PassFaceRecogResult passFaceRecogResult = this.f2735a;
-                    LivenessRecogActivity livenessRecogActivity2 = this.b.f2736a;
+                    PassFaceRecogResult passFaceRecogResult = this.f2737a;
+                    LivenessRecogActivity livenessRecogActivity2 = this.b.f2738a;
                     list3 = livenessRecogActivity2.X;
-                    list4 = this.b.f2736a.X;
+                    list4 = this.b.f2738a.X;
                     int size = list4.size();
-                    i = this.b.f2736a.fa;
+                    i = this.b.f2738a.fa;
                     a2 = livenessRecogActivity2.a((int[]) list3.get(size - i));
                     passFaceRecogResult.originalImage = a2;
                 }
             }
-            bArr = this.b.f2736a.ia;
+            bArr = this.b.f2738a.ia;
             if (bArr != null) {
-                bArr4 = this.b.f2736a.ia;
+                bArr4 = this.b.f2738a.ia;
                 byte[] encode = Base64Utils.encode(bArr4);
                 if (encode != null) {
-                    this.f2735a.faceimage = new String(encode);
+                    this.f2737a.faceimage = new String(encode);
                 }
             }
-            bArr2 = this.b.f2736a.ja;
+            bArr2 = this.b.f2738a.ja;
             if (bArr2 != null) {
-                PassFaceRecogResult passFaceRecogResult2 = this.f2735a;
-                bArr3 = this.b.f2736a.ja;
+                PassFaceRecogResult passFaceRecogResult2 = this.f2737a;
+                bArr3 = this.b.f2738a.ja;
                 passFaceRecogResult2.imgdigests = new String(bArr3);
             }
         }
-        return this.f2735a;
+        return this.f2737a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -75,9 +75,9 @@ class h extends AsyncTask<Void, Void, PassFaceRecogResult> {
         PassFaceRecogCallback passFaceRecogCallback;
         super.onPostExecute(passFaceRecogResult);
         passFaceRecogResult.setResultCode(0);
-        passFaceRecogCallback = this.b.f2736a.t;
+        passFaceRecogCallback = this.b.f2738a.t;
         passFaceRecogCallback.onSuccess(passFaceRecogResult);
-        this.b.f2736a.da.H = com.baidu.pass.biometrics.face.liveness.c.a.o;
-        this.b.f2736a.a(passFaceRecogResult.getResultCode());
+        this.b.f2738a.da.H = com.baidu.pass.biometrics.face.liveness.c.a.o;
+        this.b.f2738a.a(passFaceRecogResult.getResultCode());
     }
 }

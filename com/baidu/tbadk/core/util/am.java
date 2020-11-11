@@ -16,13 +16,18 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 public class am {
+    public static int eNm = 0;
+    public static int eNn = 1;
+    public static int eNo = 2;
+    public static int eNp = 2;
+    public static int eNq = 3;
     private com.baidu.tbadk.core.dialog.a abn;
-    private TbPageContext eCn;
-    private com.baidu.tbadk.coreExtra.model.a eHC;
-    private AttentionHostData eHD;
-    private int eHE;
-    private a eHF;
-    private CustomMessageListener eHG = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tbadk.core.util.am.5
+    private TbPageContext eIc;
+    private com.baidu.tbadk.coreExtra.model.a eNr;
+    private AttentionHostData eNs;
+    private int eNt;
+    private a eNu;
+    private CustomMessageListener eNv = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tbadk.core.util.am.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -30,34 +35,29 @@ public class am {
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 UpdateAttentionMessage.a data = updateAttentionMessage.getData();
-                if (am.this.eHD != null && !StringUtils.isNull(am.this.eHD.uid) && data != null && am.this.eHD.uid.equals(data.toUid)) {
+                if (am.this.eNs != null && !StringUtils.isNull(am.this.eNs.uid) && data != null && am.this.eNs.uid.equals(data.toUid)) {
                     if (updateAttentionMessage.getOrginalMessage() == null || !updateAttentionMessage.getOrginalMessage().getTag().equals(am.this.mId)) {
                         z = false;
                     } else {
                         z = true;
                         if (updateAttentionMessage.getError() == 3250013) {
-                            BdToast.a(am.this.eCn.getPageActivity(), updateAttentionMessage.getErrorString(), R.drawable.icon_pure_toast_mistake40_svg, 3000, false).bmI();
+                            BdToast.a(am.this.eIc.getPageActivity(), updateAttentionMessage.getErrorString(), R.drawable.icon_pure_toast_mistake40_svg, 3000, false).bpi();
                         } else {
-                            AntiHelper.a(am.this.eCn.getPageActivity(), data.eYM);
+                            AntiHelper.a(am.this.eIc.getPageActivity(), data.feD);
                         }
                     }
                     if (data.isSucc) {
-                        am.this.eHD.likeStatus = data.status;
-                        am.this.eHD.isAttention = data.isAttention;
+                        am.this.eNs.likeStatus = data.status;
+                        am.this.eNs.isAttention = data.isAttention;
                     }
-                    if (z && am.this.eHF != null) {
-                        am.this.eHF.r(data.isSucc, am.this.eHE);
+                    if (z && am.this.eNu != null) {
+                        am.this.eNu.r(data.isSucc, am.this.eNt);
                     }
                 }
             }
         }
     };
     private BdUniqueId mId = BdUniqueId.gen();
-    public static int eHx = 0;
-    public static int eHy = 1;
-    public static int eHz = 2;
-    public static int eHA = 2;
-    public static int eHB = 3;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -65,44 +65,44 @@ public class am {
     }
 
     public am(TbPageContext tbPageContext) {
-        this.eCn = tbPageContext;
-        this.eHG.setTag(this.mId);
-        MessageManager.getInstance().registerListener(this.eHG);
+        this.eIc = tbPageContext;
+        this.eNv.setTag(this.mId);
+        MessageManager.getInstance().registerListener(this.eNv);
     }
 
-    public boolean oJ(int i) {
-        if (i == eHB) {
-            com.baidu.adp.lib.util.l.showToast(this.eCn.getPageActivity(), R.string.reason_cannot_reply_thread);
+    public boolean oT(int i) {
+        if (i == eNq) {
+            com.baidu.adp.lib.util.l.showToast(this.eIc.getPageActivity(), R.string.reason_cannot_reply_thread);
             return false;
         }
         return true;
     }
 
     public boolean aN(int i, int i2) {
-        this.eHE = i2;
-        if (i == eHA) {
-            if (this.eHD == null || this.eHD.isAttention) {
+        this.eNt = i2;
+        if (i == eNp) {
+            if (this.eNs == null || this.eNs.isAttention) {
                 return true;
             }
-            boC();
+            brc();
             return false;
-        } else if (i == eHB) {
-            com.baidu.adp.lib.util.l.showToast(this.eCn.getPageActivity(), R.string.reason_cannot_reply_thread);
+        } else if (i == eNq) {
+            com.baidu.adp.lib.util.l.showToast(this.eIc.getPageActivity(), R.string.reason_cannot_reply_thread);
             return false;
         } else {
             return true;
         }
     }
 
-    public boolean oK(int i) {
-        if (i == eHA) {
-            if (this.eHD == null || this.eHD.isAttention) {
+    public boolean oU(int i) {
+        if (i == eNp) {
+            if (this.eNs == null || this.eNs.isAttention) {
                 return true;
             }
-            com.baidu.adp.lib.util.l.showToast(this.eCn.getPageActivity(), R.string.message_privacy_fans_can_reply);
+            com.baidu.adp.lib.util.l.showToast(this.eIc.getPageActivity(), R.string.message_privacy_fans_can_reply);
             return false;
-        } else if (i == eHB) {
-            com.baidu.adp.lib.util.l.showToast(this.eCn.getPageActivity(), R.string.reason_cannot_reply_thread);
+        } else if (i == eNq) {
+            com.baidu.adp.lib.util.l.showToast(this.eIc.getPageActivity(), R.string.reason_cannot_reply_thread);
             return false;
         } else {
             return true;
@@ -110,17 +110,17 @@ public class am {
     }
 
     public void a(AttentionHostData attentionHostData) {
-        this.eHD = attentionHostData;
+        this.eNs = attentionHostData;
     }
 
-    private void boC() {
+    private void brc() {
         if (this.abn == null) {
-            this.abn = new com.baidu.tbadk.core.dialog.a(this.eCn.getPageActivity());
-            this.abn.om(R.string.message_privacy_fans_can_reply);
+            this.abn = new com.baidu.tbadk.core.dialog.a(this.eIc.getPageActivity());
+            this.abn.ow(R.string.message_privacy_fans_can_reply);
             this.abn.a(R.string.attention_and_reply, new a.b() { // from class: com.baidu.tbadk.core.util.am.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                    am.this.boD();
+                    am.this.brd();
                     am.this.abn.dismiss();
                 }
             });
@@ -131,50 +131,50 @@ public class am {
                 }
             });
             this.abn.setAutoNight(true);
-            this.abn.b(this.eCn);
+            this.abn.b(this.eIc);
         }
-        this.abn.bmC();
+        this.abn.bpc();
     }
 
     public void a(bp bpVar) {
-        if (bpVar != null && !StringUtils.isNull(bpVar.title) && !StringUtils.isNull(bpVar.ewY) && !StringUtils.isNull(bpVar.ewZ)) {
-            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.eCn.getPageActivity());
-            aVar.Ba(bpVar.title);
-            aVar.a(bpVar.ewZ, new a.b() { // from class: com.baidu.tbadk.core.util.am.3
+        if (bpVar != null && !StringUtils.isNull(bpVar.title) && !StringUtils.isNull(bpVar.eCQ) && !StringUtils.isNull(bpVar.eCR)) {
+            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.eIc.getPageActivity());
+            aVar.Bo(bpVar.title);
+            aVar.a(bpVar.eCR, new a.b() { // from class: com.baidu.tbadk.core.util.am.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    am.this.boD();
+                    am.this.brd();
                     aVar2.dismiss();
                 }
             });
-            aVar.b(bpVar.ewY, new a.b() { // from class: com.baidu.tbadk.core.util.am.4
+            aVar.b(bpVar.eCQ, new a.b() { // from class: com.baidu.tbadk.core.util.am.4
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar2.dismiss();
                 }
             });
             aVar.setAutoNight(true);
-            aVar.b(this.eCn);
-            aVar.bmC();
+            aVar.b(this.eIc);
+            aVar.bpc();
             return;
         }
-        boC();
+        brc();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void boD() {
+    public void brd() {
         if (!com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
-            this.eCn.showToast(R.string.network_ungeilivable);
-        } else if (this.eHD != null && bg.checkUpIsLogin(this.eCn.getPageActivity())) {
-            if (this.eHC == null) {
-                this.eHC = new com.baidu.tbadk.coreExtra.model.a(this.eCn);
+            this.eIc.showToast(R.string.network_ungeilivable);
+        } else if (this.eNs != null && bg.checkUpIsLogin(this.eIc.getPageActivity())) {
+            if (this.eNr == null) {
+                this.eNr = new com.baidu.tbadk.coreExtra.model.a(this.eIc);
             }
-            this.eHC.a(true, this.eHD.portrait, this.eHD.uid, this.eHD.isGod, "0", this.mId, null, "0");
+            this.eNr.a(true, this.eNs.portrait, this.eNs.uid, this.eNs.isGod, "0", this.mId, null, "0");
         }
     }
 
     public void a(a aVar) {
-        this.eHF = aVar;
+        this.eNu = aVar;
     }
 
     public void onDestroy() {
@@ -182,8 +182,8 @@ public class am {
         if (this.abn != null) {
             this.abn.dismiss();
         }
-        if (this.eHC != null) {
-            this.eHC.cancel();
+        if (this.eNr != null) {
+            this.eNr.cancel();
         }
     }
 }

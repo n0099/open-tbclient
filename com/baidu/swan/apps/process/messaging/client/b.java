@@ -13,21 +13,21 @@ import java.util.Deque;
 /* loaded from: classes10.dex */
 public class b implements a.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final Deque<Message> dgd = new ArrayDeque();
+    private final Deque<Message> dlY = new ArrayDeque();
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
-    public void aCH() {
-        a aCO = a.aCO();
-        while (aCO.aCS() && !this.dgd.isEmpty()) {
-            Message peek = this.dgd.peek();
+    public void aFh() {
+        a aFo = a.aFo();
+        while (aFo.aFs() && !this.dlY.isEmpty()) {
+            Message peek = this.dlY.peek();
             if (peek == null || B(peek)) {
-                this.dgd.poll();
+                this.dlY.poll();
             }
         }
     }
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
-    public void rm(String str) {
+    public void rA(String str) {
     }
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
@@ -36,28 +36,28 @@ public class b implements a.b {
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
     public void a(@NonNull c cVar) {
-        Message aCI = cVar.aCI();
-        aCI.arg1 = SwanAppProcessInfo.current().index;
-        if (d.aEQ().aDd() && (aCI.obj instanceof Bundle)) {
-            Bundle bundle = (Bundle) aCI.obj;
+        Message aFi = cVar.aFi();
+        aFi.arg1 = SwanAppProcessInfo.current().index;
+        if (d.aHq().aFD() && (aFi.obj instanceof Bundle)) {
+            Bundle bundle = (Bundle) aFi.obj;
             if (!bundle.containsKey("ai_apps_id")) {
-                bundle.putString("ai_apps_id", d.aEQ().getAppId());
+                bundle.putString("ai_apps_id", d.aHq().getAppId());
             }
         }
-        if (!B(aCI) && cVar.isSticky()) {
-            this.dgd.offer(aCI);
-            a.aCO().aCQ();
+        if (!B(aFi) && cVar.isSticky()) {
+            this.dlY.offer(aFi);
+            a.aFo().aFq();
         }
     }
 
     private boolean B(Message message) {
-        a aCO = a.aCO();
-        if (message != null && aCO.aCS()) {
+        a aFo = a.aFo();
+        if (message != null && aFo.aFs()) {
             try {
-                aCO.aCP().send(message);
+                aFo.aFp().send(message);
                 return true;
             } catch (RemoteException e) {
-                aCO.aCT();
+                aFo.aFt();
                 if (DEBUG) {
                     e.printStackTrace();
                 }

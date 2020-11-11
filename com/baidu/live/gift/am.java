@@ -5,13 +5,13 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class am extends HttpMessage {
-    public long aUe;
-    public long aUf;
-    public String aUg;
-    public String aUh;
-    public long aUi;
-    public Map<Long, Long> aUk;
-    public String aVt;
+    public long aVA;
+    public Map<Long, Long> aVC;
+    public long aVw;
+    public long aVx;
+    public String aVy;
+    public String aVz;
+    public String aWL;
     public String giftId;
     public String giftName;
     public String liveId;
@@ -20,7 +20,7 @@ public class am extends HttpMessage {
     public String sceneFrom;
 
     public am() {
-        super(1031055);
-        this.aUk = new HashMap();
+        super(1031056);
+        this.aVC = new HashMap();
     }
 }

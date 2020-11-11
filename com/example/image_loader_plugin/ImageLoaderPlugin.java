@@ -92,9 +92,9 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
                             } else if (methodCall.argument("patternColor") instanceof Long) {
                                 i3 = ((Long) methodCall.argument("patternColor")).intValue();
                             }
-                            a2 = SvgManager.boN().b(identifier, i3, SvgManager.SvgResourceStateType.NORMAL);
+                            a2 = SvgManager.brn().b(identifier, i3, SvgManager.SvgResourceStateType.NORMAL);
                         } else {
-                            a2 = SvgManager.boN().a(identifier, null);
+                            a2 = SvgManager.brn().a(identifier, null);
                         }
                         int i4 = 1;
                         if (a2 != null) {
@@ -222,7 +222,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
     }
 
     private boolean shouldMonitorPerformance(int i) {
-        return m.bzV().bzW() && i % 100 == 0;
+        return m.bCu().bCv() && i % 100 == 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

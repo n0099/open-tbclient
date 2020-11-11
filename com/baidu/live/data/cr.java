@@ -1,41 +1,29 @@
 package com.baidu.live.data;
 
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class cr {
-    public String aRt;
-    public String aRu;
-    public int aRv;
-    public String aRw;
-    public int level_id = -1;
-    public List<AlaLiveMarkData> live_mark_info_new;
-    public String uk;
+    public int aSs;
+    public int money;
+    public String new_props_id;
+    public int props_id;
+    public String wars_item;
+    public String wars_name;
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.uk = jSONObject.optString("uk");
-            this.aRt = jSONObject.optString("head_img");
-            this.aRu = jSONObject.optString("nick_name");
-            this.aRv = jSONObject.optInt("noble_role_id");
-            this.aRw = jSONObject.optString("noble_role_name");
-            this.level_id = jSONObject.optInt("level_id");
-            if (jSONObject.has("identity_icon")) {
-                if (this.live_mark_info_new == null) {
-                    this.live_mark_info_new = new ArrayList();
-                }
-                JSONArray optJSONArray = jSONObject.optJSONArray("identity_icon");
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        AlaLiveMarkData alaLiveMarkData = new AlaLiveMarkData();
-                        alaLiveMarkData.parserJson(optJSONObject);
-                        this.live_mark_info_new.add(alaLiveMarkData);
-                    }
-                }
-            }
+    public String toJson() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("props_id", this.props_id);
+            jSONObject.put("money", this.money);
+            jSONObject.put("props_mon", this.aSs);
+            jSONObject.put("wars_name", this.wars_name);
+            jSONObject.put("wars_item", this.wars_item);
+            jSONObject.put("new_props_id", this.new_props_id);
+            return jSONObject.toString();
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }

@@ -19,7 +19,7 @@ import tv.chushou.zues.widget.viewpager.KasVerticalViewPager;
 public class VideoVerticalViewPager extends KasVerticalViewPager {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f4256a;
+    private boolean f4258a;
     private int[] amu;
     private int b;
     private float c;
@@ -28,13 +28,13 @@ public class VideoVerticalViewPager extends KasVerticalViewPager {
 
     public VideoVerticalViewPager(Context context) {
         super(context);
-        this.f4256a = false;
+        this.f4258a = false;
         a(context);
     }
 
     public VideoVerticalViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f4256a = false;
+        this.f4258a = false;
         a(context);
     }
 
@@ -44,7 +44,7 @@ public class VideoVerticalViewPager extends KasVerticalViewPager {
 
     @Override // tv.chushou.zues.widget.viewpager.KasVerticalViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.f4256a) {
+        if (this.f4258a) {
             return super.onInterceptTouchEvent(motionEvent);
         }
         Log.d("VerticalViewPager", "onInterceptTouchEvent: mNoFocus:false");
@@ -106,7 +106,7 @@ public class VideoVerticalViewPager extends KasVerticalViewPager {
                 this.c = motionEvent.getY();
                 this.d = motionEvent.getX();
                 this.e = false;
-                if (this.f4256a) {
+                if (this.f4258a) {
                     return super.onTouchEvent(motionEvent);
                 }
                 return false;
@@ -116,7 +116,7 @@ public class VideoVerticalViewPager extends KasVerticalViewPager {
                     return false;
                 }
                 this.e = false;
-                if (this.f4256a) {
+                if (this.f4258a) {
                 }
                 break;
             case 2:
@@ -135,14 +135,14 @@ public class VideoVerticalViewPager extends KasVerticalViewPager {
                 }
                 break;
             default:
-                if (this.f4256a) {
+                if (this.f4258a) {
                 }
                 break;
         }
     }
 
     public void setNoFocus(boolean z) {
-        this.f4256a = z;
+        this.f4258a = z;
     }
 
     public void setSurfaceLoc(int[] iArr) {

@@ -5,28 +5,28 @@ import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes10.dex */
 public class a {
-    private static final ReentrantLock dTT = new ReentrantLock();
-    private static volatile a dTU;
-    private d dMT;
-    private List<c> dNL = new ArrayList(3);
+    private static final ReentrantLock dZL = new ReentrantLock();
+    private static volatile a dZM;
+    private d dSL;
+    private List<c> dTD = new ArrayList(3);
 
     private a() {
     }
 
-    public static a aUQ() {
-        if (dTU == null) {
+    public static a aXq() {
+        if (dZM == null) {
             synchronized (a.class) {
-                if (dTU == null) {
-                    dTU = new a();
+                if (dZM == null) {
+                    dZM = new a();
                 }
             }
         }
-        return dTU;
+        return dZM;
     }
 
     public void a(d dVar) {
-        this.dMT = dVar;
-        aUR();
+        this.dSL = dVar;
+        aXr();
     }
 
     public void as(String str, boolean z) {
@@ -37,33 +37,33 @@ public class a {
     }
 
     public void release() {
-        this.dMT = null;
-        this.dNL.clear();
+        this.dSL = null;
+        this.dTD.clear();
     }
 
     private void a(c cVar) {
-        dTT.lock();
+        dZL.lock();
         try {
-            if (this.dMT != null) {
-                this.dMT.c(cVar);
+            if (this.dSL != null) {
+                this.dSL.c(cVar);
             } else {
-                this.dNL.add(cVar);
+                this.dTD.add(cVar);
             }
         } finally {
-            dTT.unlock();
+            dZL.unlock();
         }
     }
 
-    private void aUR() {
-        if (!this.dNL.isEmpty() && this.dMT != null) {
-            dTT.lock();
+    private void aXr() {
+        if (!this.dTD.isEmpty() && this.dSL != null) {
+            dZL.lock();
             try {
-                for (c cVar : this.dNL) {
-                    this.dMT.c(cVar);
+                for (c cVar : this.dTD) {
+                    this.dSL.c(cVar);
                 }
-                this.dNL.clear();
+                this.dTD.clear();
             } finally {
-                dTT.unlock();
+                dZL.unlock();
             }
         }
     }

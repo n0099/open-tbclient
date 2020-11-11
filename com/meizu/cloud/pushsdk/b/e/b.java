@@ -9,12 +9,12 @@ import java.io.IOException;
 public class b extends j {
 
     /* renamed from: a  reason: collision with root package name */
-    private final j f4340a;
+    private final j f4342a;
     private com.meizu.cloud.pushsdk.b.g.c b;
     private d c;
 
     public b(j jVar, com.meizu.cloud.pushsdk.b.d.a aVar) {
-        this.f4340a = jVar;
+        this.f4342a = jVar;
         if (aVar != null) {
             this.c = new d(aVar);
         }
@@ -24,7 +24,7 @@ public class b extends j {
         return new f(lVar) { // from class: com.meizu.cloud.pushsdk.b.e.b.1
 
             /* renamed from: a  reason: collision with root package name */
-            long f4341a = 0;
+            long f4343a = 0;
             long b = 0;
 
             @Override // com.meizu.cloud.pushsdk.b.g.f, com.meizu.cloud.pushsdk.b.g.l
@@ -33,9 +33,9 @@ public class b extends j {
                 if (this.b == 0) {
                     this.b = b.this.b();
                 }
-                this.f4341a += j;
+                this.f4343a += j;
                 if (b.this.c != null) {
-                    b.this.c.obtainMessage(1, new com.meizu.cloud.pushsdk.b.f.a(this.f4341a, this.b)).sendToTarget();
+                    b.this.c.obtainMessage(1, new com.meizu.cloud.pushsdk.b.f.a(this.f4343a, this.b)).sendToTarget();
                 }
             }
         };
@@ -43,7 +43,7 @@ public class b extends j {
 
     @Override // com.meizu.cloud.pushsdk.b.c.j
     public g a() {
-        return this.f4340a.a();
+        return this.f4342a.a();
     }
 
     @Override // com.meizu.cloud.pushsdk.b.c.j
@@ -51,12 +51,12 @@ public class b extends j {
         if (this.b == null) {
             this.b = com.meizu.cloud.pushsdk.b.g.g.a(a((l) cVar));
         }
-        this.f4340a.a(this.b);
+        this.f4342a.a(this.b);
         this.b.flush();
     }
 
     @Override // com.meizu.cloud.pushsdk.b.c.j
     public long b() throws IOException {
-        return this.f4340a.b();
+        return this.f4342a.b();
     }
 }

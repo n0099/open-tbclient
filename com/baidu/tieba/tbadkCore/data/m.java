@@ -5,24 +5,24 @@ import java.util.HashMap;
 /* loaded from: classes.dex */
 public class m {
     private String aaA;
-    private HashMap eGd;
+    private HashMap eLS;
     private Context mContext;
 
     public m(Context context, String str, HashMap hashMap) {
         this.mContext = null;
         this.aaA = null;
-        this.eGd = null;
+        this.eLS = null;
         this.mContext = context;
         this.aaA = str;
-        this.eGd = hashMap;
+        this.eLS = hashMap;
     }
 
-    public String dHk() {
+    public String dJM() {
         return this.aaA;
     }
 
     public HashMap getParams() {
-        return this.eGd;
+        return this.eLS;
     }
 
     public Context getContext() {

@@ -15,11 +15,11 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes22.dex */
 public class ShutDownValidateTipView extends FrameLayout {
-    private boolean eQy;
-    private TextView knB;
-    private ImageView knC;
-    private TextView knD;
-    private TextView knE;
+    private boolean eWn;
+    private TextView ktA;
+    private TextView ktx;
+    private ImageView kty;
+    private TextView ktz;
     private ArrayList<a> networkChangeListeners;
 
     /* loaded from: classes22.dex */
@@ -47,21 +47,21 @@ public class ShutDownValidateTipView extends FrameLayout {
 
     public void init(Context context) {
         addView(LayoutInflater.from(context).inflate(R.layout.shut_down_validate_tip, (ViewGroup) null));
-        this.knC = (ImageView) findViewById(R.id.no_network_icon);
-        this.knD = (TextView) findViewById(R.id.no_network_guide1);
-        this.knE = (TextView) findViewById(R.id.no_network_guide2);
-        this.knB = (TextView) findViewById(R.id.no_network_showmore);
+        this.kty = (ImageView) findViewById(R.id.no_network_icon);
+        this.ktz = (TextView) findViewById(R.id.no_network_guide1);
+        this.ktA = (TextView) findViewById(R.id.no_network_guide2);
+        this.ktx = (TextView) findViewById(R.id.no_network_showmore);
     }
 
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
-        if (this.knB != null) {
-            this.knB.setOnClickListener(onClickListener);
+        if (this.ktx != null) {
+            this.ktx.setOnClickListener(onClickListener);
         }
     }
 
     public void setVisible(boolean z) {
-        if (z != this.eQy) {
-            this.eQy = z;
+        if (z != this.eWn) {
+            this.eWn = z;
             if (z) {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
@@ -122,16 +122,16 @@ public class ShutDownValidateTipView extends FrameLayout {
     }
 
     public void onChangeSkinType(int i) {
-        ap.setImageResource(this.knC, R.drawable.icon_error);
+        ap.setImageResource(this.kty, R.drawable.icon_error);
         ap.setBackgroundResource(findViewById(R.id.no_network_parent), R.drawable.bg_no_network);
         if (i == 1 || i == 4) {
-            this.knD.setTextColor(-10523526);
-            this.knE.setTextColor(-8682095);
-            this.knB.setTextColor(-10523526);
+            this.ktz.setTextColor(-10523526);
+            this.ktA.setTextColor(-8682095);
+            this.ktx.setTextColor(-10523526);
             return;
         }
-        this.knD.setTextColor(-14277082);
-        this.knE.setTextColor(-5065030);
-        this.knB.setTextColor(-14277082);
+        this.ktz.setTextColor(-14277082);
+        this.ktA.setTextColor(-5065030);
+        this.ktx.setTextColor(-14277082);
     }
 }

@@ -14,27 +14,27 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class f {
-    private static final HashMap<String, String> dLb = new HashMap<>();
+    private static final HashMap<String, String> dQT = new HashMap<>();
 
     static {
-        dLb.put("494433", ".mp3");
-        dLb.put("524946", ".wav");
+        dQT.put("494433", ".mp3");
+        dQT.put("524946", ".wav");
     }
 
     public static d a(g gVar) {
         d dVar = new d();
-        dVar.cUQ = gVar.cUQ;
-        dVar.cUZ = gVar.autoplay;
+        dVar.daK = gVar.daK;
+        dVar.daT = gVar.autoplay;
         dVar.mLoop = gVar.loop;
         dVar.mUrl = gVar.src;
-        dVar.dKY = gVar.startTime;
-        dVar.cVa = gVar.obeyMuteSwitch;
+        dVar.dQQ = gVar.startTime;
+        dVar.daU = gVar.obeyMuteSwitch;
         dVar.mVolume = gVar.volume;
-        dVar.cUW = aQm().toString();
+        dVar.daQ = aSM().toString();
         return dVar;
     }
 
-    public static JSONObject aQm() {
+    public static JSONObject aSM() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("onCanplay", "canplay");
@@ -56,32 +56,32 @@ public class f {
         return jSONObject;
     }
 
-    public static boolean U(float f) {
+    public static boolean W(float f) {
         return f <= 1.0f && f >= 0.0f;
     }
 
-    public static String vW(String str) throws MalformedURLException {
+    public static String wk(String str) throws MalformedURLException {
         int lastIndexOf = str.lastIndexOf(46);
         String str2 = "";
         if (lastIndexOf != -1) {
             str2 = str.substring(lastIndexOf);
         }
-        return "/" + com.baidu.swan.apps.runtime.e.aEW() + "/" + str.hashCode() + str2;
+        return "/" + com.baidu.swan.apps.runtime.e.aHw() + "/" + str.hashCode() + str2;
     }
 
-    public static String aQn() {
-        String aQp = aQp();
-        if (!isExternalStorageWritable() || TextUtils.isEmpty(aQp)) {
+    public static String aSN() {
+        String aSP = aSP();
+        if (!isExternalStorageWritable() || TextUtils.isEmpty(aSP)) {
             return AppRuntime.getAppContext().getCacheDir().getAbsolutePath();
         }
-        return aQp;
+        return aSP;
     }
 
-    public static String aQo() {
+    public static String aSO() {
         return File.separator + "bdata" + File.separator;
     }
 
-    private static String aQp() {
+    private static String aSP() {
         String str = n.getBasePath() + "/usr";
         File file = new File(str);
         if (!file.exists() && !file.mkdirs()) {
@@ -103,7 +103,7 @@ public class f {
         for (int i = 0; i < 3; i++) {
             bArr2[i] = bArr[i];
         }
-        return dLb.get(bytesToHexString(bArr2));
+        return dQT.get(bytesToHexString(bArr2));
     }
 
     private static String bytesToHexString(byte[] bArr) {

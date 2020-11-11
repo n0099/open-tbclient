@@ -14,7 +14,7 @@ import com.sdk.base.framework.f.h.g;
 public class a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4513a = a.class.getName();
+    private static final String f4515a = a.class.getName();
     private static Boolean b = Boolean.valueOf(f.b);
     private CallBack<T> c;
     private Context d;
@@ -26,7 +26,7 @@ public class a<T> {
     public final class e implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private Handler f4521a = new Handler(Looper.getMainLooper());
+        private Handler f4523a = new Handler(Looper.getMainLooper());
         private long b;
 
         e(long j) {
@@ -34,17 +34,17 @@ public class a<T> {
         }
 
         public final void a() {
-            this.f4521a.postDelayed(this, this.b);
+            this.f4523a.postDelayed(this, this.b);
         }
 
         public final void b() {
-            this.f4521a.removeCallbacks(this);
+            this.f4523a.removeCallbacks(this);
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             if (a.this.f != null) {
-                com.sdk.base.framework.a.a.c.c(a.f4513a, "超时，已取消请求", a.b);
+                com.sdk.base.framework.a.a.c.c(a.f4515a, "超时，已取消请求", a.b);
                 a.this.f.a();
             }
             a.this.a(1, PayHelper.STATUS_TIMEOUT_DESC, 101005, null, com.sdk.base.framework.f.g.a.b().a());

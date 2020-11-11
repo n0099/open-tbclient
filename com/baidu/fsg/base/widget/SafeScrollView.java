@@ -14,7 +14,7 @@ import com.baidu.fsg.base.utils.RimGlobalUtils;
 public class SafeScrollView extends ScrollView {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1544a = SafeScrollView.class.getSimpleName();
+    private static final String f1546a = SafeScrollView.class.getSimpleName();
     private ScrollChangedListener b;
     private boolean c;
     private int d;

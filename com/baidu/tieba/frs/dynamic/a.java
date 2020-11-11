@@ -60,14 +60,14 @@ public class a implements c {
                         bw bwVar = new bw();
                         bwVar.setUserMap(this.userMap);
                         bwVar.a(threadInfo);
-                        bwVar.bkY();
-                        if (bwVar.getType() == bw.exJ || bwVar.getType() == bw.eyf || bwVar.getType() == bw.eyl || bwVar.getType() == bw.eyg || bwVar.getType() == bw.eyq || bwVar.getType() == bw.eyr) {
+                        bwVar.bny();
+                        if (bwVar.getType() == bw.eDA || bwVar.getType() == bw.eDV || bwVar.getType() == bw.eEb || bwVar.getType() == bw.eDW || bwVar.getType() == bw.eEf || bwVar.getType() == bw.eEg) {
                             this.threadList.add(bwVar);
                         }
                     }
                 }
             }
-            com.baidu.tbadk.a.a.a.aX(this.threadList);
+            com.baidu.tbadk.a.a.a.be(this.threadList);
             this.hasMore = dataRes.has_more.intValue() == 1;
         }
     }

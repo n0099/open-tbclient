@@ -8,7 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes19.dex */
 public class SplashStyleRecorder {
-    public static void aq(JSONObject jSONObject) {
+    public static void aw(JSONObject jSONObject) {
         if (jSONObject != null) {
             String string = k.getString("splash_style", "");
             String jSONObject2 = jSONObject.toString();
@@ -80,14 +80,14 @@ public class SplashStyleRecorder {
         }
     }
 
-    public static int ar(JSONObject jSONObject) {
+    public static int ax(JSONObject jSONObject) {
         if (jSONObject == null) {
             return 0;
         }
         return jSONObject.optInt("l_gravity");
     }
 
-    public static int[] as(JSONObject jSONObject) {
+    public static int[] ay(JSONObject jSONObject) {
         if (jSONObject != null) {
             String optString = jSONObject.optString("margin");
             if (!TextUtils.isEmpty(optString)) {

@@ -8,8 +8,8 @@ public class a extends HttpMessage {
     private com.baidu.live.im.data.b barrageCardInfo;
     private String barrageId;
     private int barrageType;
-    private int bkt;
-    private boolean bku;
+    private int blN;
+    private boolean blO;
     private String content;
     private String customRoomId;
     private int groupId;
@@ -22,7 +22,7 @@ public class a extends HttpMessage {
 
     public a(String str, short s, int i, String str2) {
         super(1021013);
-        this.bku = false;
+        this.blO = false;
         this.content = str;
         this.msgType = s;
         this.groupId = i;
@@ -37,7 +37,7 @@ public class a extends HttpMessage {
         return this.content;
     }
 
-    public short Mc() {
+    public short MC() {
         return this.msgType;
     }
 
@@ -49,7 +49,7 @@ public class a extends HttpMessage {
         this.roomId = str;
     }
 
-    public String Md() {
+    public String MD() {
         return this.otherParams;
     }
 
@@ -57,15 +57,15 @@ public class a extends HttpMessage {
         this.otherParams = str;
     }
 
-    public long Me() {
+    public long ME() {
         return this.price;
     }
 
-    public void am(long j) {
+    public void ay(long j) {
         this.price = j;
     }
 
-    public int LS() {
+    public int Ms() {
         return this.barrageType;
     }
 
@@ -73,15 +73,15 @@ public class a extends HttpMessage {
         this.barrageType = i;
     }
 
-    public String LT() {
+    public String Mt() {
         return this.barrageId;
     }
 
-    public void hE(String str) {
+    public void hL(String str) {
         this.barrageId = str;
     }
 
-    public com.baidu.live.im.data.b LU() {
+    public com.baidu.live.im.data.b Mu() {
         return this.barrageCardInfo;
     }
 
@@ -89,7 +89,7 @@ public class a extends HttpMessage {
         this.barrageCardInfo = bVar;
     }
 
-    public String[] LV() {
+    public String[] Mv() {
         return this.imEffect;
     }
 
@@ -97,20 +97,20 @@ public class a extends HttpMessage {
         this.imEffect = strArr;
     }
 
-    public void bZ(boolean z) {
-        this.bku = z;
+    public void ca(boolean z) {
+        this.blO = z;
     }
 
-    public boolean Mf() {
-        return this.bku;
+    public boolean MF() {
+        return this.blO;
     }
 
     public void eM(int i) {
-        this.bkt = i;
+        this.blN = i;
     }
 
-    public boolean Mg() {
-        return this.bkt == 1;
+    public boolean MG() {
+        return this.blN == 1;
     }
 
     public String getCustomRoomId() {

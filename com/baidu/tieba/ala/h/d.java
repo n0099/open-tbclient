@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.h;
 
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
-import com.baidu.live.data.bs;
+import com.baidu.live.data.bt;
 import com.baidu.live.tbadk.download.DownloadData;
 import com.baidu.live.tbadk.download.FileDownloadCallBack;
 import com.baidu.live.tbadk.download.FileSerialDownLoader;
@@ -14,18 +14,18 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
 public class d {
-    private DownloadData aRJ;
+    private DownloadData aTb;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void z(String str, String str2, final String str3, final String str4) {
-        this.aRJ = new DownloadData();
-        this.aRJ.setId("pk_rank_start");
-        this.aRJ.setName("pk_rank_start");
-        this.aRJ.setUrl(str);
-        this.aRJ.setCheck(str2);
-        this.aRJ.setType(21);
-        this.aRJ.setPath(str3);
-        this.aRJ.setCallback(new FileDownloadCallBack() { // from class: com.baidu.tieba.ala.h.d.1
+        this.aTb = new DownloadData();
+        this.aTb.setId("pk_rank_start");
+        this.aTb.setName("pk_rank_start");
+        this.aTb.setUrl(str);
+        this.aTb.setCheck(str2);
+        this.aTb.setType(21);
+        this.aTb.setPath(str3);
+        this.aTb.setCallback(new FileDownloadCallBack() { // from class: com.baidu.tieba.ala.h.d.1
             @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
             public void onFileUpdateProgress(DownloadData downloadData) {
             }
@@ -49,29 +49,29 @@ public class d {
             public void onFileDownloadFailed(DownloadData downloadData, int i, String str5) {
             }
         });
-        FileSerialDownLoader.getInstance().startDownLoadWithoutMax(this.aRJ);
+        FileSerialDownLoader.getInstance().startDownLoadWithoutMax(this.aTb);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void release() {
-        if (this.aRJ != null) {
-            this.aRJ.setCallback(null);
+        if (this.aTb != null) {
+            this.aTb.setCallback(null);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void A(final String str, final String str2, final String str3, final String str4) {
         if (!TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4)) {
-            new BdAsyncTask<Void, Void, List<bs>>() { // from class: com.baidu.tieba.ala.h.d.2
+            new BdAsyncTask<Void, Void, List<bt>>() { // from class: com.baidu.tieba.ala.h.d.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
                 /* renamed from: c */
-                public List<bs> doInBackground(Void... voidArr) {
-                    List<bs> B = d.this.B(str, str2, str3, str4);
+                public List<bt> doInBackground(Void... voidArr) {
+                    List<bt> B = d.this.B(str, str2, str3, str4);
                     if (B == null || B.isEmpty()) {
-                        d.this.gu(str3);
-                        d.this.gu(str4);
+                        d.this.gz(str3);
+                        d.this.gz(str4);
                     }
                     return B;
                 }
@@ -80,10 +80,10 @@ public class d {
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
                 /* renamed from: A */
-                public void onPostExecute(List<bs> list) {
+                public void onPostExecute(List<bt> list) {
                     super.onPostExecute(list);
                     if (list != null && !list.isEmpty()) {
-                        c.ciy().cx(list);
+                        c.cla().cF(list);
                     }
                 }
             }.execute(new Void[0]);
@@ -99,7 +99,7 @@ public class d {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
     /* JADX INFO: Access modifiers changed from: private */
-    public java.util.List<com.baidu.live.data.bs> B(java.lang.String r8, java.lang.String r9, java.lang.String r10, java.lang.String r11) {
+    public java.util.List<com.baidu.live.data.bt> B(java.lang.String r8, java.lang.String r9, java.lang.String r10, java.lang.String r11) {
         /*
             r7 = this;
             r1 = 0
@@ -125,10 +125,10 @@ public class d {
             java.util.ArrayList r0 = new java.util.ArrayList     // Catch: java.lang.Throwable -> L51
             r0.<init>()     // Catch: java.lang.Throwable -> L51
         L38:
-            com.baidu.live.data.bs r5 = new com.baidu.live.data.bs     // Catch: java.lang.Throwable -> L51
+            com.baidu.live.data.bt r5 = new com.baidu.live.data.bt     // Catch: java.lang.Throwable -> L51
             r5.<init>()     // Catch: java.lang.Throwable -> L51
             r5.downloadUrl = r8     // Catch: java.lang.Throwable -> L51
-            r5.aPt = r9     // Catch: java.lang.Throwable -> L51
+            r5.aQq = r9     // Catch: java.lang.Throwable -> L51
             java.lang.String r6 = r4.getAbsolutePath()     // Catch: java.lang.Throwable -> L51
             r5.videoPath = r6     // Catch: java.lang.Throwable -> L51
             java.lang.String r4 = com.baidu.live.f.a.getFileMd5(r4)     // Catch: java.lang.Throwable -> L51
@@ -321,7 +321,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gu(String str) {
+    public void gz(String str) {
         if (!TextUtils.isEmpty(str)) {
             com.baidu.live.f.a.cleanDir(new File(str));
         }

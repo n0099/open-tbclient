@@ -7,9 +7,9 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes15.dex */
 public interface b extends SharedPreferences, SharedPreferences.Editor {
-    boolean aIq();
+    boolean aKQ();
 
-    Set<String> aIr();
+    Set<String> aKR();
 
     @Override // android.content.SharedPreferences
     @Deprecated

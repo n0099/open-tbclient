@@ -9,9 +9,9 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public String cYg;
-    public int cYe = 60000;
-    public String cYf = TranscoderPlugin.AUDIO_CODEC;
+    public String dec;
+    public int dea = 60000;
+    public String deb = TranscoderPlugin.AUDIO_CODEC;
     public int channel = 1;
     public int sampleRate = CoolPraiseGuideLottieView.ANIM_DURATION;
     public int bitRate = 16000;
@@ -20,10 +20,10 @@ public class a {
     public static a a(JSONObject jSONObject, a aVar) {
         if (jSONObject != null && jSONObject.length() > 0) {
             aVar = new a();
-            aVar.cYe = jSONObject.optInt("duration", 60000);
-            aVar.cYf = jSONObject.optString("format");
-            if (TextUtils.isEmpty(aVar.cYf)) {
-                aVar.cYf = TranscoderPlugin.AUDIO_CODEC;
+            aVar.dea = jSONObject.optInt("duration", 60000);
+            aVar.deb = jSONObject.optString("format");
+            if (TextUtils.isEmpty(aVar.deb)) {
+                aVar.deb = TranscoderPlugin.AUDIO_CODEC;
             }
             aVar.channel = jSONObject.optInt("numberOfChannels", 1);
             aVar.sampleRate = jSONObject.optInt("sampleRate", CoolPraiseGuideLottieView.ANIM_DURATION);
@@ -41,26 +41,26 @@ public class a {
                         break;
                 }
             }
-            aVar.audioSource = pU(jSONObject.optString("audioSource", "auto"));
-            aVar.cYg = jSONObject.optString("cb");
+            aVar.audioSource = qi(jSONObject.optString("audioSource", "auto"));
+            aVar.dec = jSONObject.optString("cb");
         }
         return aVar;
     }
 
-    public JSONObject ayL() {
-        if (this.cYe > 600000 || this.cYe < 0) {
+    public JSONObject aBl() {
+        if (this.dea > 600000 || this.dea < 0) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error duration");
         }
         if (this.channel != 1 && this.channel != 2) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error channels");
         }
-        if (!TextUtils.equals(this.cYf, TranscoderPlugin.AUDIO_CODEC) && !TextUtils.equals(this.cYf, "pcm")) {
+        if (!TextUtils.equals(this.deb, TranscoderPlugin.AUDIO_CODEC) && !TextUtils.equals(this.deb, "pcm")) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error format");
         }
         if (this.sampleRate != 8000 && this.sampleRate != 16000 && this.sampleRate != 44100) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error sampleRate");
         }
-        if (!TextUtils.equals(this.cYf, "pcm")) {
+        if (!TextUtils.equals(this.deb, "pcm")) {
             boolean z = false;
             switch (this.sampleRate) {
                 case CoolPraiseGuideLottieView.ANIM_DURATION /* 8000 */:
@@ -93,11 +93,11 @@ public class a {
     }
 
     public String toString() {
-        return "recordTime : " + this.cYe + "; channel : " + this.channel + "; audioFormat : " + this.cYf + "; sampleRate : " + this.sampleRate + "; bitRate : " + this.bitRate + "; callbacks : " + this.cYg;
+        return "recordTime : " + this.dea + "; channel : " + this.channel + "; audioFormat : " + this.deb + "; sampleRate : " + this.sampleRate + "; bitRate : " + this.bitRate + "; callbacks : " + this.dec;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    private static int pU(String str) {
+    private static int qi(String str) {
         char c;
         switch (str.hashCode()) {
             case -401509030:

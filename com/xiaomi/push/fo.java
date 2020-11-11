@@ -10,42 +10,42 @@ import org.xmlpull.v1.XmlPullParserFactory;
 public class fo {
 
     /* renamed from: a  reason: collision with root package name */
-    private XmlPullParser f4906a;
+    private XmlPullParser f4908a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public fo() {
         try {
-            this.f4906a = XmlPullParserFactory.newInstance().newPullParser();
-            this.f4906a.setFeature("http://xmlpull.org/v1/doc/features.html#process-namespaces", true);
+            this.f4908a = XmlPullParserFactory.newInstance().newPullParser();
+            this.f4908a.setFeature("http://xmlpull.org/v1/doc/features.html#process-namespaces", true);
         } catch (XmlPullParserException e) {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public gj a(byte[] bArr, fs fsVar) {
-        this.f4906a.setInput(new InputStreamReader(new ByteArrayInputStream(bArr)));
-        this.f4906a.next();
-        int eventType = this.f4906a.getEventType();
-        String name = this.f4906a.getName();
+        this.f4908a.setInput(new InputStreamReader(new ByteArrayInputStream(bArr)));
+        this.f4908a.next();
+        int eventType = this.f4908a.getEventType();
+        String name = this.f4908a.getName();
         if (eventType == 2) {
             if (name.equals("message")) {
-                return gr.a(this.f4906a);
+                return gr.a(this.f4908a);
             }
             if (name.equals("iq")) {
-                return gr.a(this.f4906a, fsVar);
+                return gr.a(this.f4908a, fsVar);
             }
             if (name.equals("presence")) {
-                return gr.m323a(this.f4906a);
+                return gr.m323a(this.f4908a);
             }
-            if (!this.f4906a.getName().equals("stream")) {
-                if (this.f4906a.getName().equals(BdStatsConstant.StatsType.ERROR)) {
-                    throw new gd(gr.m324a(this.f4906a));
+            if (!this.f4908a.getName().equals("stream")) {
+                if (this.f4908a.getName().equals(BdStatsConstant.StatsType.ERROR)) {
+                    throw new gd(gr.m324a(this.f4908a));
                 }
-                if (this.f4906a.getName().equals("warning")) {
-                    this.f4906a.next();
-                    if (this.f4906a.getName().equals("multi-login")) {
+                if (this.f4908a.getName().equals("warning")) {
+                    this.f4908a.next();
+                    if (this.f4908a.getName().equals("multi-login")) {
                     }
-                } else if (this.f4906a.getName().equals("bind")) {
+                } else if (this.f4908a.getName().equals("bind")) {
                 }
             }
         }

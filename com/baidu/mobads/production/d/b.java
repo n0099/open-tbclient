@@ -8,11 +8,11 @@ import com.baidu.mobads.utils.e;
 class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f2398a;
+    final /* synthetic */ a f2400a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.f2398a = aVar;
+        this.f2400a = aVar;
     }
 
     @Override // java.lang.Runnable
@@ -26,31 +26,31 @@ class b implements Runnable {
         Context context7;
         Context context8;
         e commonUtils = XAdSDKFoundationFacade.getInstance().getCommonUtils();
-        context = this.f2398a.f;
+        context = this.f2400a.f;
         commonUtils.getBaiduMapsInfo(context);
         IXAdSystemUtils systemUtils = XAdSDKFoundationFacade.getInstance().getSystemUtils();
-        context2 = this.f2398a.f;
+        context2 = this.f2400a.f;
         systemUtils.getCUID(context2);
         IXAdSystemUtils systemUtils2 = XAdSDKFoundationFacade.getInstance().getSystemUtils();
-        context3 = this.f2398a.f;
+        context3 = this.f2400a.f;
         systemUtils2.getCell(context3);
         XAdSDKFoundationFacade.getInstance().getSystemUtils().getAppSDC();
         IXAdSystemUtils systemUtils3 = XAdSDKFoundationFacade.getInstance().getSystemUtils();
-        context4 = this.f2398a.f;
+        context4 = this.f2400a.f;
         systemUtils3.getWIFI(context4);
         IXAdSystemUtils systemUtils4 = XAdSDKFoundationFacade.getInstance().getSystemUtils();
-        context5 = this.f2398a.f;
+        context5 = this.f2400a.f;
         systemUtils4.getGPS(context5);
         IXAdSystemUtils systemUtils5 = XAdSDKFoundationFacade.getInstance().getSystemUtils();
-        context6 = this.f2398a.f;
+        context6 = this.f2400a.f;
         systemUtils5.getNetType(context6);
         XAdSDKFoundationFacade.getInstance().getSystemUtils().getAppSDC();
         XAdSDKFoundationFacade.getInstance().getSystemUtils().getMem();
         IXAdSystemUtils systemUtils6 = XAdSDKFoundationFacade.getInstance().getSystemUtils();
-        context7 = this.f2398a.f;
+        context7 = this.f2400a.f;
         systemUtils6.getAndroidId(context7);
         e commonUtils2 = XAdSDKFoundationFacade.getInstance().getCommonUtils();
-        context8 = this.f2398a.f;
+        context8 = this.f2400a.f;
         commonUtils2.createRequestId(context8, "");
     }
 }

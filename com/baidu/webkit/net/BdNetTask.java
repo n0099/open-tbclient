@@ -82,11 +82,11 @@ public class BdNetTask implements INoProGuard {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f3968a = 1;
+        public static final int f3970a = 1;
         public static final int b = 2;
         public static final int c = 3;
         public static final int d = 4;
-        private static final /* synthetic */ int[] e = {f3968a, b, c, d};
+        private static final /* synthetic */ int[] e = {f3970a, b, c, d};
     }
 
     private void clearForRecycle() {
@@ -260,7 +260,7 @@ public class BdNetTask implements INoProGuard {
     }
 
     public boolean isHigherPriority() {
-        return this.mTaskPriority$77d0b2dd == b.f3968a;
+        return this.mTaskPriority$77d0b2dd == b.f3970a;
     }
 
     public boolean isRedirect() {

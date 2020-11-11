@@ -12,14 +12,14 @@ public class b extends com.baidu.adp.widget.ListView.a<c, com.baidu.tieba.card.a
     private TbPageContext<?> mPageContext;
 
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.jFc);
+        super(tbPageContext.getPageActivity(), c.jLa);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aN */
+    /* renamed from: aP */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.topic.topictab.view.b> c(ViewGroup viewGroup) {
         com.baidu.tieba.homepage.topic.topictab.view.b bVar = new com.baidu.tieba.homepage.topic.topictab.view.b(this.mPageContext);
         bVar.setTag(this.mPageId);
@@ -33,11 +33,11 @@ public class b extends com.baidu.adp.widget.ListView.a<c, com.baidu.tieba.card.a
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, c cVar, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.topic.topictab.view.b> aVar) {
-        if (cVar == null || aVar == null || aVar.cmx() == null) {
+        if (cVar == null || aVar == null || aVar.coY() == null) {
             return null;
         }
-        aVar.cmx().a(cVar);
-        aVar.cmx().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        aVar.coY().a(cVar);
+        aVar.coY().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return aVar.getView();
     }
 }

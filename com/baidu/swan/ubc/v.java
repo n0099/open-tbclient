@@ -6,88 +6,88 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 class v {
-    private boolean ehg = false;
-    private JSONArray dhk = new JSONArray();
-    private SparseArray<Integer> ehc = new SparseArray<>();
-    private ArrayList<String> ehd = new ArrayList<>();
-    private long ehe = 0;
-    private long ehf = 0;
-    private String egg = "0";
+    private boolean emX = false;
+    private JSONArray dnf = new JSONArray();
+    private SparseArray<Integer> emT = new SparseArray<>();
+    private ArrayList<String> emU = new ArrayList<>();
+    private long emV = 0;
+    private long emW = 0;
+    private String elY = "0";
 
-    public final void dd(JSONObject jSONObject) {
-        this.dhk.put(jSONObject);
+    public final void dj(JSONObject jSONObject) {
+        this.dnf.put(jSONObject);
     }
 
-    public final SparseArray<Integer> bbC() {
-        return this.ehc;
+    public final SparseArray<Integer> bec() {
+        return this.emT;
     }
 
     public final void aF(int i, int i2) {
-        this.ehc.put(i, Integer.valueOf(i2));
+        this.emT.put(i, Integer.valueOf(i2));
     }
 
-    public final ArrayList bbD() {
-        return this.ehd;
+    public final ArrayList bed() {
+        return this.emU;
     }
 
-    public final void yP(String str) {
-        if (!this.ehd.contains(str)) {
-            this.ehd.add(str);
+    public final void zd(String str) {
+        if (!this.emU.contains(str)) {
+            this.emU.add(str);
         }
     }
 
-    public final void q(long j, long j2) {
-        if ((j < this.ehe || this.ehe == 0) && j != 0) {
-            this.ehe = j;
+    public final void r(long j, long j2) {
+        if ((j < this.emV || this.emV == 0) && j != 0) {
+            this.emV = j;
         }
-        if (j2 > this.ehf) {
-            this.ehf = j2;
+        if (j2 > this.emW) {
+            this.emW = j2;
         }
     }
 
-    public boolean nf(int i) {
-        return this.dhk.toString().getBytes().length >= i;
+    public boolean np(int i) {
+        return this.dnf.toString().getBytes().length >= i;
     }
 
     public boolean isEmpty() {
-        return this.dhk.length() == 0;
+        return this.dnf.length() == 0;
     }
 
-    public JSONArray bbE() {
-        return this.dhk;
+    public JSONArray bee() {
+        return this.dnf;
     }
 
     public void clearData() {
-        this.ehc.clear();
-        this.ehd.clear();
-        this.dhk = null;
+        this.emT.clear();
+        this.emU.clear();
+        this.dnf = null;
     }
 
-    public void yQ(String str) {
-        this.egg = str;
+    public void ze(String str) {
+        this.elY = str;
     }
 
-    public String bbF() {
-        return this.egg;
+    public String bef() {
+        return this.elY;
     }
 
-    public long bbG() {
-        return this.ehe;
+    public long beg() {
+        return this.emV;
     }
 
     public long getMaxTime() {
-        return this.ehf;
+        return this.emW;
     }
 
-    public JSONArray bbH() {
-        return this.dhk;
+    public JSONArray beh() {
+        return this.dnf;
     }
 
-    public boolean bbI() {
-        return this.ehg;
+    public boolean bei() {
+        return this.emX;
     }
 
-    public void hR(boolean z) {
-        this.ehg = z;
+    public void ia(boolean z) {
+        this.emX = z;
     }
 }

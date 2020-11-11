@@ -3,9 +3,9 @@ package com.baidu.media.duplayer;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2258a;
+    private int f2260a;
     private String b;
-    private a bTf;
+    private a bYP;
     private String c;
     private String d;
 
@@ -16,19 +16,19 @@ public class d {
     }
 
     public d(int i, String str, String str2) {
-        this.f2258a = i;
+        this.f2260a = i;
         this.b = str;
         this.c = str2;
-        this.bTf = a.LIB_TYPE_SO;
+        this.bYP = a.LIB_TYPE_SO;
     }
 
     public d(int i, String str, String str2, a aVar) {
         this(i, str, str2);
-        this.bTf = aVar;
+        this.bYP = aVar;
     }
 
-    public a Xu() {
-        return this.bTf;
+    public a ZT() {
+        return this.bYP;
     }
 
     public String a() {

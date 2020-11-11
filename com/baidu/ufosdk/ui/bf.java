@@ -5,21 +5,21 @@ import android.view.View;
 final class bf implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackInputActivity f3771a;
+    final /* synthetic */ FeedbackInputActivity f3773a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bf(FeedbackInputActivity feedbackInputActivity) {
-        this.f3771a = feedbackInputActivity;
+        this.f3773a = feedbackInputActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         try {
-            if (com.baidu.ufosdk.b.d.c(this.f3771a.getApplicationContext())) {
-                this.f3771a.b.setVisibility(8);
-                this.f3771a.k.setVisibility(0);
-                if (this.f3771a.e != null && this.f3771a.e.length() > 0) {
-                    this.f3771a.l.execute(new bg(this));
+            if (com.baidu.ufosdk.b.d.c(this.f3773a.getApplicationContext())) {
+                this.f3773a.b.setVisibility(8);
+                this.f3773a.k.setVisibility(0);
+                if (this.f3773a.e != null && this.f3773a.e.length() > 0) {
+                    this.f3773a.l.execute(new bg(this));
                 }
             } else {
                 com.baidu.ufosdk.f.c.b("Network is not avaiable!");

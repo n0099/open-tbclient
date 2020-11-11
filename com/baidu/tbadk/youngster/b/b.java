@@ -5,35 +5,35 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class b {
-    private final SharedPreferences fHx = TbadkCoreApplication.getInst().getSharedPreferences("youngster_tip_sp", 0);
-    private String fsZ;
+    private final SharedPreferences fNn = TbadkCoreApplication.getInst().getSharedPreferences("youngster_tip_sp", 0);
+    private String fyR;
     private String mUid;
 
     public b(String str, String str2) {
         this.mUid = str;
-        this.fsZ = str2;
+        this.fyR = str2;
     }
 
-    public long bEQ() {
-        if (ec(this.mUid, this.fsZ)) {
-            return this.fHx.getLong(this.mUid + '_' + this.fsZ + "_youngster_tip_time", 0L);
+    public long bHp() {
+        if (ec(this.mUid, this.fyR)) {
+            return this.fNn.getLong(this.mUid + '_' + this.fyR + "_youngster_tip_time", 0L);
         }
         return 0L;
     }
 
-    public int bER() {
-        if (ec(this.mUid, this.fsZ)) {
-            return this.fHx.getInt(this.mUid + '_' + this.fsZ + "_youngster_tip_times", 0);
+    public int bHq() {
+        if (ec(this.mUid, this.fyR)) {
+            return this.fNn.getInt(this.mUid + '_' + this.fyR + "_youngster_tip_times", 0);
         }
         return 0;
     }
 
-    public void dL(long j) {
-        if (ec(this.mUid, this.fsZ)) {
-            String str = this.mUid + '_' + this.fsZ + "_youngster_tip_times";
-            String str2 = this.mUid + '_' + this.fsZ + "_youngster_tip_time";
-            int i = this.fHx.getInt(str, 0);
-            SharedPreferences.Editor edit = this.fHx.edit();
+    public void eh(long j) {
+        if (ec(this.mUid, this.fyR)) {
+            String str = this.mUid + '_' + this.fyR + "_youngster_tip_times";
+            String str2 = this.mUid + '_' + this.fyR + "_youngster_tip_time";
+            int i = this.fNn.getInt(str, 0);
+            SharedPreferences.Editor edit = this.fNn.edit();
             if (i + 1 <= 10) {
                 i++;
             }

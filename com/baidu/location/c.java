@@ -6,11 +6,11 @@ import android.content.Context;
 public class c extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LocationClient f1918a;
+    final /* synthetic */ LocationClient f1920a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(LocationClient locationClient) {
-        this.f1918a = locationClient;
+        this.f1920a = locationClient;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -22,18 +22,18 @@ public class c extends Thread {
         Context context;
         LocationClientOption locationClientOption;
         try {
-            dVar = this.f1918a.C;
+            dVar = this.f1920a.C;
             if (dVar == null) {
-                LocationClient locationClient = this.f1918a;
-                context = this.f1918a.f;
-                locationClientOption = this.f1918a.d;
-                locationClient.C = new com.baidu.location.b.d(context, locationClientOption, this.f1918a);
+                LocationClient locationClient = this.f1920a;
+                context = this.f1920a.f;
+                locationClientOption = this.f1920a.d;
+                locationClient.C = new com.baidu.location.b.d(context, locationClientOption, this.f1920a);
             }
-            dVar2 = this.f1918a.C;
+            dVar2 = this.f1920a.C;
             if (dVar2 != null) {
-                dVar3 = this.f1918a.C;
+                dVar3 = this.f1920a.C;
                 dVar3.a();
-                dVar4 = this.f1918a.C;
+                dVar4 = this.f1920a.C;
                 dVar4.c();
             }
         } catch (Exception e) {

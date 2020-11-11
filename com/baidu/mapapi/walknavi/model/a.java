@@ -6,7 +6,7 @@ public class a {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f2178a;
+        private String f2180a;
         private String b;
         private String c;
         private String d;
@@ -16,11 +16,11 @@ public class a {
         private String h;
 
         public String a() {
-            return this.f2178a;
+            return this.f2180a;
         }
 
         public void a(String str) {
-            this.f2178a = str;
+            this.f2180a = str;
         }
 
         public String b() {
@@ -80,7 +80,7 @@ public class a {
         }
 
         public String toString() {
-            return "TopGuideLayoutID{guideLayoutID='" + this.f2178a + "', guideLayotBgResource='" + this.b + "', guideIconID='" + this.c + "', guideGpsWeakLayoutID='" + this.d + "', guideGpsWeakID='" + this.e + "', guideGpsHintID='" + this.f + "', guideRemainTextID='" + this.g + "', guideTextID='" + this.h + "'}";
+            return "TopGuideLayoutID{guideLayoutID='" + this.f2180a + "', guideLayotBgResource='" + this.b + "', guideIconID='" + this.c + "', guideGpsWeakLayoutID='" + this.d + "', guideGpsWeakID='" + this.e + "', guideGpsHintID='" + this.f + "', guideRemainTextID='" + this.g + "', guideTextID='" + this.h + "'}";
         }
     }
 
@@ -88,7 +88,7 @@ public class a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f2177a;
+        private String f2179a;
         private String b;
         private String c;
         private String d;
@@ -97,11 +97,11 @@ public class a {
         private String g;
 
         public String a() {
-            return this.f2177a;
+            return this.f2179a;
         }
 
         public void a(String str) {
-            this.f2177a = str;
+            this.f2179a = str;
         }
 
         public String b() {
@@ -153,27 +153,27 @@ public class a {
         }
 
         public String toString() {
-            return "CalorieLayoutID{calorieLayoutID='" + this.f2177a + "', calorieConsumeID='" + this.b + "', calorieConsumeIconID='" + this.c + "', calorieConsumeTimesID='" + this.d + "', calorieLayoutBtnID='" + this.e + "', calorieConsumeNumberID='" + this.f + "', calorieUnitID='" + this.g + "'}";
+            return "CalorieLayoutID{calorieLayoutID='" + this.f2179a + "', calorieConsumeID='" + this.b + "', calorieConsumeIconID='" + this.c + "', calorieConsumeTimesID='" + this.d + "', calorieLayoutBtnID='" + this.e + "', calorieConsumeNumberID='" + this.f + "', calorieUnitID='" + this.g + "'}";
         }
     }
 
     /* renamed from: com.baidu.mapapi.walknavi.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0240a {
+    public static class C0252a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f2176a;
+        private String f2178a;
         private String b;
         private String c;
         private String d;
         private String e;
 
         public String a() {
-            return this.f2176a;
+            return this.f2178a;
         }
 
         public void a(String str) {
-            this.f2176a = str;
+            this.f2178a = str;
         }
 
         public String b() {

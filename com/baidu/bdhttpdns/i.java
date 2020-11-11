@@ -61,7 +61,7 @@ public final class i {
         private String c;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f1273a = false;
+        public boolean f1275a = false;
         private boolean f = false;
 
         public b(String str, d dVar, a aVar) {
@@ -176,7 +176,7 @@ public final class i {
                     }
                     Map a3 = i.this.a(a2, this.c, this.aen);
                     if (a3.get("isSignExpired").equals(true)) {
-                        this.f1273a = true;
+                        this.f1275a = true;
                         if (httpsURLConnection != null) {
                             httpsURLConnection.disconnect();
                         }
@@ -248,7 +248,7 @@ public final class i {
         @Override // java.lang.Runnable
         public void run() {
             a();
-            if (this.f1273a) {
+            if (this.f1275a) {
                 l.a("Retry for %s(%s).", this.aen.toString(), this.c);
                 a();
             }

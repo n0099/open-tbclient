@@ -11,8 +11,8 @@ public class q extends a {
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
         if (jSONArray.length() > 1) {
-            this.mX = com.baidu.swan.apps.ap.ah.L((float) jSONArray.optDouble(0));
-            this.mY = com.baidu.swan.apps.ap.ah.L((float) jSONArray.optDouble(1));
+            this.mX = com.baidu.swan.apps.ap.ah.N((float) jSONArray.optDouble(0));
+            this.mY = com.baidu.swan.apps.ap.ah.N((float) jSONArray.optDouble(1));
         }
     }
 

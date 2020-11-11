@@ -4,7 +4,7 @@ import android.support.annotation.ColorInt;
 import com.baidu.searchbox.v8engine.V8Engine;
 /* loaded from: classes10.dex */
 public class h {
-    public static boolean ld(@ColorInt int i) {
+    public static boolean ln(@ColorInt int i) {
         return ((int) (((((double) ((65280 & i) >> 8)) * 0.587d) + (0.299d * ((double) ((16711680 & i) >> 16)))) + (((double) (i & 255)) * 0.114d))) >= 220;
     }
 

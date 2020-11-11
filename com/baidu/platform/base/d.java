@@ -8,18 +8,18 @@ import org.json.JSONObject;
 public abstract class d {
 
     /* renamed from: a  reason: collision with root package name */
-    protected SearchType f2813a;
+    protected SearchType f2815a;
 
     public abstract SearchResult a(String str);
 
     public SearchType a() {
-        return this.f2813a;
+        return this.f2815a;
     }
 
     public abstract void a(SearchResult searchResult, Object obj);
 
     public void a(SearchType searchType) {
-        this.f2813a = searchType;
+        this.f2815a = searchType;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

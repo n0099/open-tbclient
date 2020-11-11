@@ -12,21 +12,21 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes21.dex */
 public class b {
-    private List<com.baidu.adp.widget.ListView.a> bje = new ArrayList();
+    private List<com.baidu.adp.widget.ListView.a> bky = new ArrayList();
 
     public b(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         k kVar = (k) MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_FRS_NO_LIST_ITEM_ADAPTER, k.class, tbPageContext).getData();
         if (kVar != null) {
-            this.bje.add(kVar);
+            this.bky.add(kVar);
         }
-        this.bje.add(new c(tbPageContext, bw.eyr));
-        this.bje.add(new a(tbPageContext, bw.eys));
-        bdTypeRecyclerView.addAdapters(this.bje);
+        this.bky.add(new c(tbPageContext, bw.eEg));
+        this.bky.add(new a(tbPageContext, bw.eEh));
+        bdTypeRecyclerView.addAdapters(this.bky);
     }
 
     public void b(TbPageTag tbPageTag) {
-        if (!y.isEmpty(this.bje)) {
-            for (com.baidu.adp.widget.ListView.a aVar : this.bje) {
+        if (!y.isEmpty(this.bky)) {
+            for (com.baidu.adp.widget.ListView.a aVar : this.bky) {
                 if (aVar instanceof k) {
                     ((k) aVar).a(tbPageTag);
                 }

@@ -7,25 +7,25 @@ import com.baidu.tieba.k.e;
 import java.io.File;
 /* loaded from: classes23.dex */
 public class b implements e {
-    private String kSv;
-    private boolean kSw = false;
-    private boolean kSx = false;
-    private e.a kSy;
+    private String kYr;
+    private boolean kYs = false;
+    private boolean kYt = false;
+    private e.a kYu;
 
     public b(String str) {
-        this.kSv = str;
+        this.kYr = str;
     }
 
     @Override // com.baidu.tieba.k.e
     public void a(e.a aVar) {
-        this.kSy = aVar;
+        this.kYu = aVar;
     }
 
     @Override // com.baidu.tieba.k.e
-    public void dbz() {
-        if (StringUtils.isNull(this.kSv)) {
-            if (this.kSy != null) {
-                this.kSy.ED(2);
+    public void deb() {
+        if (StringUtils.isNull(this.kYr)) {
+            if (this.kYu != null) {
+                this.kYu.EQ(2);
                 return;
             }
             return;
@@ -37,9 +37,9 @@ public class b implements e {
             public Void doInBackground(String... strArr) {
                 if (strArr != null && strArr.length == 1 && !StringUtils.isNull(strArr[0])) {
                     String str = strArr[0];
-                    int OA = a.OA(str);
-                    publishProgress(new c(1, OA));
-                    if (OA == 1) {
+                    int OR = a.OR(str);
+                    publishProgress(new c(1, OR));
+                    if (OR == 1) {
                         boolean fK = a.fK(str, str + "_moov_head_suffix");
                         c[] cVarArr = new c[1];
                         cVarArr[0] = new c(2, fK ? 1 : 0);
@@ -64,19 +64,19 @@ public class b implements e {
                 if (cVarArr != null && cVarArr.length == 1 && cVarArr[0] != null) {
                     c cVar = cVarArr[0];
                     if (cVar.type == 1) {
-                        if (b.this.kSy != null) {
-                            b.this.kSy.ED(cVar.value);
+                        if (b.this.kYu != null) {
+                            b.this.kYu.EQ(cVar.value);
                         }
                     } else if (cVar.type == 2) {
-                        if (b.this.kSy != null) {
-                            b.this.kSy.onChange(cVar.value == 1);
+                        if (b.this.kYu != null) {
+                            b.this.kYu.onChange(cVar.value == 1);
                         }
-                    } else if (cVar.type == 3 && b.this.kSy != null) {
-                        b.this.kSy.tb(cVar.value == 1);
+                    } else if (cVar.type == 3 && b.this.kYu != null) {
+                        b.this.kYu.tk(cVar.value == 1);
                     }
                 }
             }
-        }.execute(this.kSv);
+        }.execute(this.kYr);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

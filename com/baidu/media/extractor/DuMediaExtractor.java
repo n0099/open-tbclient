@@ -15,8 +15,8 @@ import java.lang.ref.WeakReference;
 import java.util.Map;
 /* loaded from: classes16.dex */
 public class DuMediaExtractor implements b {
-    private b.a bTj;
-    private a bTk;
+    private b.a bYT;
+    private a bYU;
     @Keep
     private long mNativeDuMediaExtractor;
 
@@ -25,16 +25,16 @@ public class DuMediaExtractor implements b {
     public static class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        private final WeakReference<DuMediaExtractor> f2262a;
+        private final WeakReference<DuMediaExtractor> f2264a;
 
         public a(DuMediaExtractor duMediaExtractor, Looper looper) {
             super(looper);
-            this.f2262a = new WeakReference<>(duMediaExtractor);
+            this.f2264a = new WeakReference<>(duMediaExtractor);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            DuMediaExtractor duMediaExtractor = this.f2262a.get();
+            DuMediaExtractor duMediaExtractor = this.f2264a.get();
             if (duMediaExtractor == null || duMediaExtractor.mNativeDuMediaExtractor == 0) {
                 CyberLog.w("DuMediaExtractor", "IjkMediaPlayer went away with unhandled events");
             } else {
@@ -51,14 +51,14 @@ public class DuMediaExtractor implements b {
     private void c() {
         Looper myLooper = Looper.myLooper();
         if (myLooper != null) {
-            this.bTk = new a(this, myLooper);
+            this.bYU = new a(this, myLooper);
             return;
         }
         Looper mainLooper = Looper.getMainLooper();
         if (mainLooper != null) {
-            this.bTk = new a(this, mainLooper);
+            this.bYU = new a(this, mainLooper);
         } else {
-            this.bTk = null;
+            this.bYU = null;
         }
     }
 
@@ -87,8 +87,8 @@ public class DuMediaExtractor implements b {
     public void a() {
         synchronized (this) {
             nativeRelease();
-            this.bTj = null;
-            this.bTk = null;
+            this.bYT = null;
+            this.bYU = null;
             this.mNativeDuMediaExtractor = 0L;
         }
     }

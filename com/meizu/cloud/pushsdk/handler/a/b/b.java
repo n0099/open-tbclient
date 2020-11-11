@@ -24,7 +24,7 @@ public class b implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4412a;
+    private String f4414a;
     private a b;
     private f c;
 
@@ -32,13 +32,13 @@ public class b implements Parcelable {
     }
 
     protected b(Parcel parcel) {
-        this.f4412a = parcel.readString();
+        this.f4414a = parcel.readString();
         this.b = (a) parcel.readParcelable(a.class.getClassLoader());
         this.c = (f) parcel.readParcelable(f.class.getClassLoader());
     }
 
     public b(String str, String str2, String str3) {
-        this.f4412a = str;
+        this.f4414a = str;
         if (TextUtils.isEmpty(str)) {
             this.b = new a();
             this.c = new f();
@@ -97,12 +97,12 @@ public class b implements Parcelable {
     }
 
     public String toString() {
-        return "ControlMessage{controlMessage='" + this.f4412a + "', control=" + this.b + ", statics=" + this.c + '}';
+        return "ControlMessage{controlMessage='" + this.f4414a + "', control=" + this.b + ", statics=" + this.c + '}';
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f4412a);
+        parcel.writeString(this.f4414a);
         parcel.writeParcelable(this.b, i);
         parcel.writeParcelable(this.c, i);
     }

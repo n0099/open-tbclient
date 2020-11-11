@@ -25,7 +25,7 @@ public class r {
         }
     }
 
-    public static List<a> io(String str) {
+    public static List<a> iH(String str) {
         ArrayList arrayList = new ArrayList();
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -43,7 +43,7 @@ public class r {
         return arrayList;
     }
 
-    public static String ac(List<AlaWheatInfoData> list) {
+    public static String ah(List<AlaWheatInfoData> list) {
         JSONArray jSONArray = new JSONArray();
         if (list != null && list.size() > 0) {
             for (AlaWheatInfoData alaWheatInfoData : list) {
@@ -64,7 +64,7 @@ public class r {
         return str + str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str3;
     }
 
-    public static final String ip(String str) {
+    public static final String iI(String str) {
         return !TextUtils.isEmpty(str) ? Base64.encodeBytes(str.getBytes()).replace("+", Constants.ACCEPT_TIME_SEPARATOR_SERVER).replace("/", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).replace(ETAG.EQUAL, "") : "";
     }
 }

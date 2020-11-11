@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class ChatUserDBManager extends DBBase {
     private static final String TAG = ChatUserDBManager.class.getSimpleName();
     private static ChatUserDBManager mInstance = null;

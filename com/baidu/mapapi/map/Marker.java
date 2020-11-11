@@ -20,7 +20,7 @@ import java.util.Iterator;
 public final class Marker extends Overlay {
 
     /* renamed from: a  reason: collision with root package name */
-    LatLng f2027a;
+    LatLng f2029a;
     BitmapDescriptor b;
     float c;
     float d;
@@ -58,7 +58,7 @@ public final class Marker extends Overlay {
         while (it.hasNext()) {
             ParcelItem parcelItem = new ParcelItem();
             Bundle bundle2 = new Bundle();
-            Bitmap bitmap = it.next().f1997a;
+            Bitmap bitmap = it.next().f1999a;
             ByteBuffer allocate = ByteBuffer.allocate(bitmap.getWidth() * bitmap.getHeight() * 4);
             bitmap.copyPixelsToBuffer(allocate);
             byte[] array = allocate.array();
@@ -100,7 +100,7 @@ public final class Marker extends Overlay {
         if (this.b != null) {
             bundle.putBundle("image_info", this.b.b());
         }
-        GeoPoint ll2mc = CoordUtil.ll2mc(this.f2027a);
+        GeoPoint ll2mc = CoordUtil.ll2mc(this.f2029a);
         bundle.putInt("animatetype", this.m);
         bundle.putDouble("location_x", ll2mc.getLongitudeE6());
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
@@ -171,7 +171,7 @@ public final class Marker extends Overlay {
     }
 
     public LatLng getPosition() {
-        return this.f2027a;
+        return this.f2029a;
     }
 
     public float getRotate() {
@@ -306,7 +306,7 @@ public final class Marker extends Overlay {
                     this.p = (ArrayList) arrayList.clone();
                     this.b = null;
                     break;
-                } else if (arrayList.get(i2) == null || arrayList.get(i2).f1997a == null) {
+                } else if (arrayList.get(i2) == null || arrayList.get(i2).f1999a == null) {
                     return;
                 } else {
                     i = i2 + 1;
@@ -335,7 +335,7 @@ public final class Marker extends Overlay {
         if (latLng == null) {
             throw new IllegalArgumentException("BDMapSDKException: marker's position can not be null");
         }
-        this.f2027a = latLng;
+        this.f2029a = latLng;
         this.listener.b(this);
     }
 
@@ -343,7 +343,7 @@ public final class Marker extends Overlay {
         if (latLng == null) {
             throw new IllegalArgumentException("BDMapSDKException: marker's position can not be null");
         }
-        this.f2027a = latLng;
+        this.f2029a = latLng;
         this.listener.b(this);
         if (this.w != null) {
             this.w.setPosition(latLng);

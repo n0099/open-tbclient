@@ -10,23 +10,23 @@ import com.facebook.drawee.drawable.t;
 import javax.annotation.Nullable;
 /* loaded from: classes15.dex */
 public class d extends g implements s {
-    private static ColorFilter oGU = null;
+    private static ColorFilter oQn = null;
     private ColorFilter mColorFilter;
     @Nullable
-    Drawable oEv;
-    private boolean oGV;
+    Drawable oNO;
+    private boolean oQo;
     @Nullable
-    private t oGW;
+    private t oQp;
 
     public d(Drawable drawable) {
         super(drawable);
-        this.oEv = null;
+        this.oNO = null;
         this.mColorFilter = null;
-        this.oGV = true;
+        this.oQo = true;
     }
 
-    public void zY(boolean z) {
-        this.oGV = z;
+    public void Aj(boolean z) {
+        this.oQo = z;
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
@@ -41,13 +41,13 @@ public class d extends g implements s {
 
     @Override // com.facebook.drawee.drawable.s
     public void a(@Nullable t tVar) {
-        this.oGW = tVar;
+        this.oQp = tVar;
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public boolean setVisible(boolean z, boolean z2) {
-        if (this.oGW != null) {
-            this.oGW.zX(z);
+        if (this.oQp != null) {
+            this.oQp.Ai(z);
         }
         return super.setVisible(z, z2);
     }
@@ -56,23 +56,23 @@ public class d extends g implements s {
     @SuppressLint({"WrongCall"})
     public void draw(Canvas canvas) {
         if (isVisible()) {
-            if (this.oGV && oGU != this.mColorFilter) {
-                this.mColorFilter = oGU;
+            if (this.oQo && oQn != this.mColorFilter) {
+                this.mColorFilter = oQn;
                 setColorFilter(this.mColorFilter);
             }
-            if (this.oGW != null) {
-                this.oGW.onDraw();
+            if (this.oQp != null) {
+                this.oQp.onDraw();
             }
             super.draw(canvas);
-            if (this.oEv != null) {
-                this.oEv.setBounds(getBounds());
-                this.oEv.draw(canvas);
+            if (this.oNO != null) {
+                this.oNO.setBounds(getBounds());
+                this.oNO.draw(canvas);
             }
         }
     }
 
     public void o(@Nullable Drawable drawable) {
-        this.oEv = drawable;
+        this.oNO = drawable;
         invalidateSelf();
     }
 }

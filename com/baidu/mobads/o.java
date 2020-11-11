@@ -7,13 +7,13 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 class o implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ IOAdEvent f2366a;
+    final /* synthetic */ IOAdEvent f2368a;
     final /* synthetic */ n b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar, IOAdEvent iOAdEvent) {
         this.b = nVar;
-        this.f2366a = iOAdEvent;
+        this.f2368a = iOAdEvent;
     }
 
     @Override // java.lang.Runnable
@@ -23,21 +23,21 @@ class o implements Runnable {
         InterstitialAdListener interstitialAdListener3;
         InterstitialAdListener interstitialAdListener4;
         InterstitialAdListener interstitialAdListener5;
-        if (IXAdEvent.AD_LOADED.equals(this.f2366a.getType())) {
-            interstitialAdListener5 = this.b.f2365a.e;
+        if (IXAdEvent.AD_LOADED.equals(this.f2368a.getType())) {
+            interstitialAdListener5 = this.b.f2367a.e;
             interstitialAdListener5.onAdReady();
-        } else if (IXAdEvent.AD_ERROR.equals(this.f2366a.getType())) {
-            interstitialAdListener4 = this.b.f2365a.e;
-            interstitialAdListener4.onAdFailed(XAdSDKFoundationFacade.getInstance().getErrorCode().getMessage(this.f2366a.getData()));
-        } else if (IXAdEvent.AD_STOPPED.equals(this.f2366a.getType())) {
-            interstitialAdListener3 = this.b.f2365a.e;
+        } else if (IXAdEvent.AD_ERROR.equals(this.f2368a.getType())) {
+            interstitialAdListener4 = this.b.f2367a.e;
+            interstitialAdListener4.onAdFailed(XAdSDKFoundationFacade.getInstance().getErrorCode().getMessage(this.f2368a.getData()));
+        } else if (IXAdEvent.AD_STOPPED.equals(this.f2368a.getType())) {
+            interstitialAdListener3 = this.b.f2367a.e;
             interstitialAdListener3.onAdDismissed();
-        } else if (IXAdEvent.AD_STARTED.equals(this.f2366a.getType())) {
-            interstitialAdListener2 = this.b.f2365a.e;
+        } else if (IXAdEvent.AD_STARTED.equals(this.f2368a.getType())) {
+            interstitialAdListener2 = this.b.f2367a.e;
             interstitialAdListener2.onAdPresent();
-        } else if ("AdUserClick".equals(this.f2366a.getType())) {
-            interstitialAdListener = this.b.f2365a.e;
-            interstitialAdListener.onAdClick(this.b.f2365a);
+        } else if ("AdUserClick".equals(this.f2368a.getType())) {
+            interstitialAdListener = this.b.f2367a.e;
+            interstitialAdListener.onAdClick(this.b.f2367a);
         }
     }
 }

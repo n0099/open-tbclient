@@ -5,17 +5,17 @@ import com.baidu.swan.apps.adaptation.a.i;
 import com.baidu.swan.bdprivate.a.u;
 /* loaded from: classes20.dex */
 public class a {
-    private i cpm;
+    private i cvl;
 
     @NonNull
-    public i adF() {
-        if (this.cpm == null) {
-            this.cpm = adG();
+    public i agf() {
+        if (this.cvl == null) {
+            this.cvl = agg();
         }
-        return this.cpm;
+        return this.cvl;
     }
 
-    public i adG() {
+    public i agg() {
         return new u();
     }
 }

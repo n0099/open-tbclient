@@ -12,7 +12,7 @@ public class f extends com.baidu.platform.comapi.walknavi.a {
     private static int d = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    private List<a> f3117a;
+    private List<a> f3119a;
     private List<b> b;
     private Handler c = new g(this);
     private com.baidu.platform.comapi.wnplatform.k.b e = new h(this);
@@ -38,7 +38,7 @@ public class f extends com.baidu.platform.comapi.walknavi.a {
         MessageCenter.unregistMessage(4110, this.c);
         MessageCenter.unregistMessage(4108, this.c);
         this.c = null;
-        this.f3117a = null;
+        this.f3119a = null;
         this.b = null;
         com.baidu.platform.comapi.walknavi.b.a().S().b(this.f);
         this.f = null;
@@ -57,7 +57,7 @@ public class f extends com.baidu.platform.comapi.walknavi.a {
         MessageCenter.registMessage(4111, this.c);
         MessageCenter.registMessage(4110, this.c);
         MessageCenter.registMessage(4108, this.c);
-        switch (com.baidu.platform.comapi.walknavi.g.b.b.f3017a) {
+        switch (com.baidu.platform.comapi.walknavi.g.b.b.f3019a) {
             case 1:
                 com.baidu.platform.comapi.walknavi.b.a().S().a(this.f);
                 com.baidu.platform.comapi.walknavi.b.a().G().d(1);
@@ -75,16 +75,16 @@ public class f extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public void a(a aVar) {
-        if (this.f3117a == null) {
-            this.f3117a = new LinkedList();
+        if (this.f3119a == null) {
+            this.f3119a = new LinkedList();
         }
-        this.f3117a.add(aVar);
+        this.f3119a.add(aVar);
     }
 
     public void b(a aVar) {
-        if (this.f3117a != null && aVar != null) {
-            this.f3117a.remove(aVar);
-            this.f3117a = null;
+        if (this.f3119a != null && aVar != null) {
+            this.f3119a.remove(aVar);
+            this.f3119a = null;
         }
     }
 

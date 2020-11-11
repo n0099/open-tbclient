@@ -9,7 +9,7 @@ import com.bun.miitmdid.utils.SupplierListener;
 public class a implements com.asus.msa.sdid.a, InnerIdSupplier {
 
     /* renamed from: a  reason: collision with root package name */
-    private SupplierListener f3978a;
+    private SupplierListener f3980a;
     private SupplementaryDIDManager f;
     private String b = "";
     private String c = "";
@@ -19,14 +19,14 @@ public class a implements com.asus.msa.sdid.a, InnerIdSupplier {
     private boolean h = false;
 
     public a(Context context, SupplierListener supplierListener) {
-        this.f3978a = supplierListener;
+        this.f3980a = supplierListener;
         this.f = new SupplementaryDIDManager(context);
     }
 
     @Override // com.asus.msa.sdid.a
     public void a() {
-        if (this.f3978a != null) {
-            this.f3978a.OnSupport(false, this);
+        if (this.f3980a != null) {
+            this.f3980a.OnSupport(false, this);
         }
     }
 
@@ -65,8 +65,8 @@ public class a implements com.asus.msa.sdid.a, InnerIdSupplier {
         } catch (Exception e5) {
         }
         this.g = true;
-        if (this.f3978a != null) {
-            this.f3978a.OnSupport(this.h, this);
+        if (this.f3980a != null) {
+            this.f3980a.OnSupport(this.h, this);
         }
     }
 

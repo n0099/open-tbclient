@@ -1,7 +1,7 @@
 package com.baidu.android.imsdk.account;
 
 import com.baidu.android.imsdk.IMListener;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public interface IGetMsgSettingSwitchListener extends IMListener {
     void onGetMsgSettingSwitch(int i, String str, int i2, int i3);
 }

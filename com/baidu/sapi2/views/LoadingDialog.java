@@ -15,19 +15,19 @@ public class LoadingDialog extends Dialog implements NoProguard {
     public static class Builder implements NoProguard {
 
         /* renamed from: a  reason: collision with root package name */
-        private Context f3562a;
+        private Context f3565a;
         private String b;
         private boolean c = true;
         private boolean d = false;
         private boolean e = false;
 
         public Builder(Context context) {
-            this.f3562a = context;
+            this.f3565a = context;
         }
 
         public LoadingDialog createDialog() {
-            View inflate = LayoutInflater.from(this.f3562a).inflate(a.f.layout_sapi_sdk_loading_dialog, (ViewGroup) null);
-            LoadingDialog loadingDialog = new LoadingDialog(this.f3562a, a.h.sapi_sdk_loading_dialog);
+            View inflate = LayoutInflater.from(this.f3565a).inflate(a.f.layout_sapi_sdk_loading_dialog, (ViewGroup) null);
+            LoadingDialog loadingDialog = new LoadingDialog(this.f3565a, a.h.sapi_sdk_loading_dialog);
             TextView textView = (TextView) inflate.findViewById(a.e.tipTextView);
             if (this.c) {
                 textView.setText(this.b);

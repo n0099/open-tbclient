@@ -27,44 +27,44 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public abstract class a {
-    private BaseActivity bHN;
-    private InterfaceC0646a gJA;
-    protected String gJC;
-    private int gJD;
-    private com.baidu.tieba.ala.live.b.a gJw;
-    private IPayChannel gJx;
-    private IPayCallback gJy;
-    private int gJz;
+    private BaseActivity bNs;
+    private com.baidu.tieba.ala.live.b.a gPi;
+    private IPayChannel gPj;
+    private IPayCallback gPk;
+    private int gPl;
+    private InterfaceC0658a gPm;
+    protected String gPo;
+    private int gPp;
     private PayConfig mCurPayConfig;
     private PayChannelType mPayChannelType;
     private final int SEND_GETINFO_MSG = 1;
     private int mPayStatus = 1;
-    protected int gJB = 0;
+    protected int gPn = 0;
     protected boolean showToast = true;
     private boolean hasResendGetMsg = false;
-    private int gJE = 0;
-    private long gJF = 0;
-    private long gJG = 0;
+    private int gPq = 0;
+    private long gPr = 0;
+    private long gPs = 0;
     private Handler mHandler = new Handler() { // from class: com.baidu.tieba.ala.live.c.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    a.this.bSJ();
+                    a.this.bVi();
                     return;
                 default:
                     return;
             }
         }
     };
-    private a.InterfaceC0644a gJH = new a.InterfaceC0644a() { // from class: com.baidu.tieba.ala.live.c.a.2
-        @Override // com.baidu.tieba.ala.live.b.a.InterfaceC0644a
+    private a.InterfaceC0656a gPt = new a.InterfaceC0656a() { // from class: com.baidu.tieba.ala.live.c.a.2
+        @Override // com.baidu.tieba.ala.live.b.a.InterfaceC0656a
         public void a(PayChannelType payChannelType, int i, String str, HashMap<String, String> hashMap, String str2, boolean z) {
             a.this.a(i, str, hashMap, str2, z);
         }
 
-        @Override // com.baidu.tieba.ala.live.b.a.InterfaceC0644a
+        @Override // com.baidu.tieba.ala.live.b.a.InterfaceC0656a
         public void a(PayChannelType payChannelType, int i, String str, int i2, HttpResponsedMessage httpResponsedMessage) {
             a.this.b(i, str, i2, httpResponsedMessage);
         }
@@ -72,39 +72,39 @@ public abstract class a {
 
     /* renamed from: com.baidu.tieba.ala.live.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0646a {
-        void Hk(String str);
+    public interface InterfaceC0658a {
+        void Hx(String str);
 
         void a(boolean z, Intent intent);
     }
 
-    protected abstract com.baidu.tieba.ala.live.b.a a(PayChannelType payChannelType, a.InterfaceC0644a interfaceC0644a);
+    protected abstract com.baidu.tieba.ala.live.b.a a(PayChannelType payChannelType, a.InterfaceC0656a interfaceC0656a);
 
     public a(BaseActivity baseActivity, PayChannelType payChannelType) {
-        this.bHN = baseActivity;
+        this.bNs = baseActivity;
         this.mPayChannelType = payChannelType;
-        this.gJw = a(payChannelType, this.gJH);
-        this.gJx = buildPayChannel(payChannelType);
+        this.gPi = a(payChannelType, this.gPt);
+        this.gPj = buildPayChannel(payChannelType);
     }
 
     public void d(PayConfig payConfig) {
-        if (this.gJw != null) {
-            this.bHN.showLoadingDialog(this.bHN.getString(a.i.sdk_pay_loading));
+        if (this.gPi != null) {
+            this.bNs.showLoadingDialog(this.bNs.getString(a.h.sdk_pay_loading));
             this.mCurPayConfig = payConfig;
-            this.gJw.a(payConfig);
+            this.gPi.a(payConfig);
         }
     }
 
-    private void bRy() {
-        this.gJy = new IPayCallback() { // from class: com.baidu.tieba.ala.live.c.a.3
+    private void bTX() {
+        this.gPk = new IPayCallback() { // from class: com.baidu.tieba.ala.live.c.a.3
             @Override // com.baidu.live.tbadk.pay.channel.interfaces.IPayCallback
             public void onPayResult(int i, String str) {
-                a.this.gJD = i;
-                a.this.gJF = System.currentTimeMillis();
+                a.this.gPp = i;
+                a.this.gPr = System.currentTimeMillis();
                 switch (i) {
                     case 0:
                         a.this.a(i, UbcStatConstant.ContentType.UBC_TYPE_PAY_SDK_SUCC, null);
-                        a.this.bSJ();
+                        a.this.bVi();
                         break;
                     case 1:
                         a.this.a(i, UbcStatConstant.ContentType.UBC_TYPE_PAY_SDK, null);
@@ -112,19 +112,19 @@ public abstract class a {
                     case 2:
                         a.this.a(i, UbcStatConstant.ContentType.UBC_TYPE_PAY_SDK, null);
                         a.this.mPayStatus = 1;
-                        a.this.ms(false);
+                        a.this.mB(false);
                         break;
                     default:
                         if (a.this.showToast) {
-                            a.this.bHN.showToast(a.i.sdk_pay_fail);
+                            a.this.bNs.showToast(a.h.sdk_pay_fail);
                         }
                         a.this.a(i, UbcStatConstant.ContentType.UBC_TYPE_PAY_SDK, null);
                         a.this.mPayStatus = 5;
-                        a.this.ms(false);
+                        a.this.mB(false);
                         break;
                 }
-                a.this.gJx.release();
-                a.this.gJy = null;
+                a.this.gPj.release();
+                a.this.gPk = null;
             }
         };
     }
@@ -144,8 +144,8 @@ public abstract class a {
                     jSONObject2.put("stimestamp", currentTimeMillis);
                     jSONObject2.put(DownloadDataConstants.Columns.COLUMN_RETRY_COUNT, this.hasResendGetMsg ? 1 : 0);
                 }
-                if (this.gJw != null && !StringUtils.isNull(this.gJw.bSK())) {
-                    jSONObject2.put("order_id", this.gJw.bSK());
+                if (this.gPi != null && !StringUtils.isNull(this.gPi.bVj())) {
+                    jSONObject2.put("order_id", this.gPi.bVj());
                 }
                 jSONObject.put("pay", jSONObject2);
             } catch (JSONException e) {
@@ -154,25 +154,25 @@ public abstract class a {
         }
     }
 
-    public void Hn(String str) {
-        if (this.gJw != null) {
-            this.gJw.Hm(str);
+    public void HA(String str) {
+        if (this.gPi != null) {
+            this.gPi.Hz(str);
         }
-        bSL();
+        bVk();
     }
 
-    public void Ho(String str) {
-        this.gJB = 2;
-        this.gJC = str;
-        Log.d(IChannelPayController.TAG, "setPayWay mPayWay:" + this.gJC);
+    public void HB(String str) {
+        this.gPn = 2;
+        this.gPo = str;
+        Log.d(IChannelPayController.TAG, "setPayWay mPayWay:" + this.gPo);
     }
 
     public void setShowToast(boolean z) {
         this.showToast = z;
     }
 
-    public void a(InterfaceC0646a interfaceC0646a) {
-        this.gJA = interfaceC0646a;
+    public void a(InterfaceC0658a interfaceC0658a) {
+        this.gPm = interfaceC0658a;
     }
 
     protected IPayChannel buildPayChannel(PayChannelType payChannelType) {
@@ -181,121 +181,121 @@ public abstract class a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public TbPageContext getPageContext() {
-        return this.bHN.getPageContext();
+        return this.bNs.getPageContext();
     }
 
     protected void a(int i, String str, HashMap<String, String> hashMap, String str2, boolean z) {
-        this.bHN.closeLoadingDialog();
+        this.bNs.closeLoadingDialog();
         if (i == 0) {
             if (hashMap == null || hashMap.isEmpty()) {
                 if (this.showToast) {
-                    this.bHN.showToast(a.i.sdk_pay_fail);
+                    this.bNs.showToast(a.h.sdk_pay_fail);
                 }
                 this.mPayStatus = 3;
-                ms(false);
+                mB(false);
                 return;
             }
-            Log.d(IChannelPayController.TAG, "responseOrder mPayMode:" + this.gJB + " mPayway:" + this.gJC + ", payChannel:" + str2);
+            Log.d(IChannelPayController.TAG, "responseOrder mPayMode:" + this.gPn + " mPayway:" + this.gPo + ", payChannel:" + str2);
             Log.d(IChannelPayController.TAG, "responseOrder this:" + this);
-            if (this.gJB == 2 && !TextUtils.isEmpty(this.gJC)) {
-                Hn(this.gJC);
+            if (this.gPn == 2 && !TextUtils.isEmpty(this.gPo)) {
+                HA(this.gPo);
                 return;
-            } else if (!TextUtils.isEmpty(str2) && !z && this.gJA != null) {
-                this.gJA.Hk(str2);
+            } else if (!TextUtils.isEmpty(str2) && !z && this.gPm != null) {
+                this.gPm.Hx(str2);
                 return;
             } else {
-                bSL();
+                bVk();
                 return;
             }
         }
         if (this.showToast) {
-            this.bHN.showToast(str);
+            this.bNs.showToast(str);
         }
         this.mPayStatus = 3;
-        ms(false);
+        mB(false);
     }
 
     protected void b(int i, String str, int i2, HttpResponsedMessage httpResponsedMessage) {
-        this.gJz = i2;
-        this.gJE = i;
-        this.gJG = System.currentTimeMillis();
+        this.gPl = i2;
+        this.gPq = i;
+        this.gPs = System.currentTimeMillis();
         if (i != 0) {
             if (this.showToast) {
-                this.bHN.showToast(str);
+                this.bNs.showToast(str);
             }
             a(i2, UbcStatConstant.ContentType.UBC_TYPE_PAY_STATUS, httpResponsedMessage);
-            mt(false);
-        } else if (this.gJz == 2) {
+            mC(false);
+        } else if (this.gPl == 2) {
             if (this.hasResendGetMsg) {
                 a(i2, UbcStatConstant.ContentType.UBC_TYPE_PAY_STATUS, httpResponsedMessage);
-                mt(true);
+                mC(true);
                 return;
             }
             this.hasResendGetMsg = true;
             a(i2, UbcStatConstant.ContentType.UBC_TYPE_PAY_STATUS, httpResponsedMessage);
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 5000L);
-        } else if (this.gJz == 0) {
+        } else if (this.gPl == 0) {
             a(i2, UbcStatConstant.ContentType.UBC_TYPE_PAY_STATUS_SUCC, httpResponsedMessage);
-            mt(true);
-        } else if (this.gJz == 1) {
+            mC(true);
+        } else if (this.gPl == 1) {
             a(i2, UbcStatConstant.ContentType.UBC_TYPE_PAY_STATUS, httpResponsedMessage);
-            mt(false);
-        } else if (this.gJz == 3) {
+            mC(false);
+        } else if (this.gPl == 3) {
             a(i2, UbcStatConstant.ContentType.UBC_TYPE_PAY_STATUS, httpResponsedMessage);
-            mt(false);
+            mC(false);
         } else {
             a(i2, UbcStatConstant.ContentType.UBC_TYPE_PAY_STATUS, httpResponsedMessage);
-            mt(false);
+            mC(false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bSJ() {
-        if (this.gJw != null) {
-            this.bHN.showLoadingDialog(this.bHN.getString(a.i.sdk_pay_loading));
-            this.gJw.bSJ();
+    public void bVi() {
+        if (this.gPi != null) {
+            this.bNs.showLoadingDialog(this.bNs.getString(a.h.sdk_pay_loading));
+            this.gPi.bVi();
             UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_RECHARGE_REQ, UbcStatConstant.ContentType.UBC_TYPE_PAY_STATUS, "liveroom", ""));
         }
     }
 
-    private void bSL() {
-        if (this.gJx != null && this.gJw != null && this.gJw.bSH() != null && !this.gJw.bSH().isEmpty()) {
-            if (this.gJy == null) {
-                bRy();
+    private void bVk() {
+        if (this.gPj != null && this.gPi != null && this.gPi.bVg() != null && !this.gPi.bVg().isEmpty()) {
+            if (this.gPk == null) {
+                bTX();
             }
-            this.gJx.pay(this.gJw.bSH(), this.gJy);
+            this.gPj.pay(this.gPi.bVg(), this.gPk);
             UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_RECHARGE_REQ, UbcStatConstant.ContentType.UBC_TYPE_PAY_SDK, "liveroom", ""));
         }
     }
 
-    public Intent bSM() {
+    public Intent bVl() {
         Intent intent = new Intent();
-        if (this.gJw != null && this.mCurPayConfig != null) {
+        if (this.gPi != null && this.mCurPayConfig != null) {
             intent.putExtra("result_code", this.mPayStatus);
-            intent.putExtra("result_payinfo_status", this.gJz);
+            intent.putExtra("result_payinfo_status", this.gPl);
             intent.putExtra("result_tbean_num", this.mCurPayConfig.getTBeanNum());
-            intent.putExtra("result_order_id", this.gJw.bSK());
+            intent.putExtra("result_order_id", this.gPi.bVj());
             intent.putExtra("pay_channel_type_name", this.mPayChannelType.name());
         }
         return intent;
     }
 
-    public int bSN() {
+    public int bVm() {
         return this.mPayStatus;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ms(boolean z) {
-        Intent bSM = bSM();
-        this.bHN.setResult(-1, bSM);
-        if (this.gJA != null) {
-            this.gJA.a(z, bSM);
+    public void mB(boolean z) {
+        Intent bVl = bVl();
+        this.bNs.setResult(-1, bVl);
+        if (this.gPm != null) {
+            this.gPm.a(z, bVl);
         }
     }
 
-    private void mt(boolean z) {
-        this.bHN.closeLoadingDialog();
+    private void mC(boolean z) {
+        this.bNs.closeLoadingDialog();
         this.mPayStatus = z ? 0 : 4;
-        ms(z);
+        mB(z);
     }
 }

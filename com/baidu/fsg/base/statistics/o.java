@@ -12,11 +12,11 @@ import java.util.List;
 public class o extends BaseBean {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1501a;
+    private String f1503a;
 
     public o(Context context, String str) {
         super(context);
-        this.f1501a = str;
+        this.f1503a = str;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
@@ -37,7 +37,7 @@ public class o extends BaseBean {
     @Override // com.baidu.fsg.base.restnet.beans.business.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        String encodeToString = Base64.encodeToString(this.f1501a.getBytes(), 2);
+        String encodeToString = Base64.encodeToString(this.f1503a.getBytes(), 2);
         arrayList.add(new RestNameValuePair("datetime", System.currentTimeMillis() + ""));
         arrayList.add(new RestNameValuePair(TbConfig.TMP_LOG_DIR_NAME, encodeToString));
         return arrayList;

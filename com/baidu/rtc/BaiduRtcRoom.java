@@ -1,13 +1,14 @@
 package com.baidu.rtc;
 
 import android.content.Context;
+import android.view.Surface;
 import com.baidu.rtc.RtcParameterSettings;
 import com.baidu.rtc.g;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 /* loaded from: classes9.dex */
 public abstract class BaiduRtcRoom {
-    private static ArrayList<com.baidu.rtc.b.a> cer = new ArrayList<>();
+    private static ArrayList<com.baidu.rtc.b.a> ckc = new ArrayList<>();
 
     /* loaded from: classes9.dex */
     public enum RtcLiveTransferMode {
@@ -66,7 +67,7 @@ public abstract class BaiduRtcRoom {
             if (context != null) {
                 try {
                     com.baidu.rtc.b.a aVar = new com.baidu.rtc.b.a(context, str, str2, str3, z);
-                    cer.add(aVar);
+                    ckc.add(aVar);
                     return aVar;
                 } finally {
                 }
@@ -75,8 +76,8 @@ public abstract class BaiduRtcRoom {
         }
     }
 
-    public static void dI(boolean z) {
-        com.baidu.rtc.b.a.dI(z);
+    public static void dP(boolean z) {
+        com.baidu.rtc.b.a.dP(z);
     }
 
     public static BaiduRtcRoom p(Context context, String str, String str2) {
@@ -97,37 +98,45 @@ public abstract class BaiduRtcRoom {
 
     public abstract void a(i iVar);
 
-    public abstract void a(RTCVideoView[] rTCVideoViewArr);
-
     public abstract boolean a(a aVar);
 
     public abstract boolean a(String str, boolean z, boolean z2, String str2, RtcLiveTransferMode rtcLiveTransferMode);
 
-    public abstract void aO(long j);
+    public abstract c[] adB();
 
-    public abstract c[] abc();
+    public abstract d[] adC();
 
-    public abstract d[] abd();
+    public abstract void bk(long j);
+
+    public abstract void c(boolean z, boolean z2, String str);
+
+    public abstract void changeSurfaceSize(long j, int i, int i2);
 
     public abstract void d(long j, boolean z);
 
+    public abstract void dQ(boolean z);
+
     public void destroy() {
         synchronized (this) {
-            if (cer.size() > 0) {
+            if (ckc.size() > 0) {
                 if (this instanceof com.baidu.rtc.b.a) {
                     ((com.baidu.rtc.b.a) this).doDestroy();
                 }
-                cer.remove(this);
+                ckc.remove(this);
                 System.gc();
             }
         }
     }
+
+    public abstract void destroyExternalSurface(long j, Surface surface);
 
     public abstract void disbandRoom();
 
     public abstract void enableExternalVideoCapturer(boolean z);
 
     public abstract void enableStatsToServer(boolean z, String str);
+
+    public abstract boolean jU(String str);
 
     public abstract boolean loginRtcRoomWithRoomName(String str, long j, String str2, boolean z);
 
@@ -138,4 +147,8 @@ public abstract class BaiduRtcRoom {
     public abstract void muteMicphone(boolean z);
 
     public abstract void sendMessageToUser(String str, long j);
+
+    public abstract void setExternalSurface(long j, Surface surface);
+
+    public abstract void setUserAttribute(String str);
 }

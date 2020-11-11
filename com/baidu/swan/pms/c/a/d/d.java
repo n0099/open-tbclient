@@ -1,19 +1,19 @@
 package com.baidu.swan.pms.c.a.d;
 /* loaded from: classes15.dex */
 public class d {
-    private static d ecl;
-    private com.baidu.swan.pms.c.a.c.b ecm = new com.baidu.swan.pms.c.a.c.b();
+    private static d eid;
+    private com.baidu.swan.pms.c.a.c.b eie = new com.baidu.swan.pms.c.a.c.b();
 
-    public static d aZi() {
-        if (ecl != null) {
-            return ecl;
+    public static d bbI() {
+        if (eid != null) {
+            return eid;
         }
         synchronized (d.class) {
-            if (ecl == null) {
-                ecl = new d();
+            if (eid == null) {
+                eid = new d();
             }
         }
-        return ecl;
+        return eid;
     }
 
     private d() {
@@ -27,23 +27,23 @@ public class d {
     }
 
     public synchronized <T> void j(f<T> fVar) {
-        fVar.hL(false);
-        this.ecm.b(fVar);
+        fVar.hU(false);
+        this.eie.b(fVar);
     }
 
-    public synchronized boolean xV(String str) {
-        return this.ecm.xV(str);
+    public synchronized boolean yj(String str) {
+        return this.eie.yj(str);
     }
 
-    public synchronized boolean xW(String str) {
-        return this.ecm.xW(str);
+    public synchronized boolean yk(String str) {
+        return this.eie.yk(str);
     }
 
     public synchronized void c(b bVar) {
-        this.ecm.a(bVar);
+        this.eie.a(bVar);
     }
 
     public synchronized void d(b bVar) {
-        this.ecm.b(bVar);
+        this.eie.b(bVar);
     }
 }

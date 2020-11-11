@@ -11,11 +11,11 @@ public interface g<VIEW extends View> {
 
     void a(SwanAdDownloadState swanAdDownloadState);
 
-    void afv();
+    void ahV();
 
     VIEW getRealView();
 
-    void kf(String str);
+    void ku(String str);
 
     void updateProgress(int i);
 }

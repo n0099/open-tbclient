@@ -7,42 +7,42 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes23.dex */
 public class CreateGroupStepAdapter extends PagerAdapter {
-    private List<o> jUS = new ArrayList();
-    public CreateGroupStepActivity jUg;
+    private List<o> kaP = new ArrayList();
+    public CreateGroupStepActivity kac;
 
     public CreateGroupStepAdapter(CreateGroupStepActivity createGroupStepActivity) {
-        this.jUg = createGroupStepActivity;
+        this.kac = createGroupStepActivity;
     }
 
     public List<o> getList() {
-        return this.jUS;
+        return this.kaP;
     }
 
-    public o Cu(int i) {
+    public o CH(int i) {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        return this.jUS.get(i);
+        return this.kaP.get(i);
     }
 
     public void a(o oVar) {
-        this.jUS.add(oVar);
+        this.kaP.add(oVar);
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return this.jUS.size();
+        return this.kaP.size();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(View view, int i) {
-        ((ViewPager) view).addView(this.jUS.get(i).getView(), 0);
-        return this.jUS.get(i).getView();
+        ((ViewPager) view).addView(this.kaP.get(i).getView(), 0);
+        return this.kaP.get(i).getView();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public void destroyItem(View view, int i, Object obj) {
-        ((ViewPager) view).removeView(this.jUS.get(i).getView());
+        ((ViewPager) view).removeView(this.kaP.get(i).getView());
     }
 
     @Override // android.support.v4.view.PagerAdapter

@@ -14,7 +14,7 @@ public class bz {
         return this.title;
     }
 
-    public String bmo() {
+    public String boO() {
         return this.title_link;
     }
 

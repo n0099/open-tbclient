@@ -33,7 +33,7 @@ public class g {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String[] f1310a = {ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "O", "0"};
+        public static final String[] f1312a = {ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "O", "0"};
         private String i;
         private String j;
         private String k;
@@ -176,7 +176,7 @@ public class g {
     private void a(com.baidu.cesium.e.a aVar) {
         com.baidu.cesium.b.b bVar = new com.baidu.cesium.b.b(new com.baidu.cesium.a());
         a.C0099a c0099a = new a.C0099a();
-        c0099a.f1292a = this.f;
+        c0099a.f1294a = this.f;
         c0099a.ame = aVar;
         a.c cVar = new a.c();
         for (com.baidu.cesium.b.a aVar2 : bVar.a()) {
@@ -219,12 +219,12 @@ public class g {
     public a T(String str, String str2) {
         com.baidu.cesium.b.a dn = this.amR.dn(str2);
         a.f fVar = new a.f();
-        fVar.f1293a = true;
+        fVar.f1295a = true;
         a.g a2 = dn.a(str, fVar);
         if (a2 == null || !a2.a()) {
             return null;
         }
-        return a2.f1294a;
+        return a2.f1296a;
     }
 
     public void a(a aVar) {
@@ -267,7 +267,7 @@ public class g {
             aVar.j = eVar.e.substring(0, 1);
             aVar.i = eVar.d;
             aVar.k = c(eVar.d);
-            String[] strArr = a.f1310a;
+            String[] strArr = a.f1312a;
             int length = strArr.length;
             int i = 0;
             while (true) {
@@ -374,7 +374,7 @@ public class g {
 
     public a d() {
         a.f fVar = new a.f();
-        fVar.f1293a = true;
+        fVar.f1295a = true;
         List<com.baidu.cesium.b.a> a2 = this.amR.a();
         Collections.sort(a2, com.baidu.cesium.b.a.amd);
         List<b> N = this.amK.N(this.f);
@@ -383,8 +383,8 @@ public class g {
                 if (!bVar.d && bVar.c) {
                     for (com.baidu.cesium.b.a aVar : a2) {
                         a.g a3 = aVar.a(bVar.acS.packageName, fVar);
-                        if (a3 != null && a3.a() && a3.f1294a != null) {
-                            return a3.f1294a;
+                        if (a3 != null && a3.a() && a3.f1296a != null) {
+                            return a3.f1296a;
                         }
                     }
                     continue;

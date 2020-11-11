@@ -24,69 +24,69 @@ import com.baidu.tieba.ala.live.guess.a.f;
 import com.baidu.tieba.ala.live.guess.a.g;
 import java.util.LinkedList;
 /* loaded from: classes4.dex */
-public class b implements com.baidu.live.guess.a, c.a, c.InterfaceC0184c, a.InterfaceC0647a {
+public class b implements com.baidu.live.guess.a, c.a, c.InterfaceC0186c, a.InterfaceC0659a {
     private static String TAG = b.class.getSimpleName();
-    private Activity bIs;
-    private CustomMessageListener bcQ;
-    private a gHB;
-    private com.baidu.live.guess.b gHj;
-    private w gHk;
-    private CustomResponsedMessage<Long> gHl;
-    private g gHm;
-    private d gHn;
-    private com.baidu.tieba.ala.live.guess.a.a gHo;
-    private f gHp;
-    private com.baidu.tieba.ala.live.guess.a gHq;
-    private c gHr;
-    private AlaGuessQuesData gHs;
-    private AlaGuessQuesData gHt;
-    private boolean gHu = false;
-    private String gHv = "";
-    private volatile int gHw = 0;
-    private volatile boolean gHx = false;
-    private int gHy = -1;
-    private LinkedList<Long> gHz = new LinkedList<>();
-    private LinkedList<Long> gHA = new LinkedList<>();
+    private Activity bNY;
+    private CustomMessageListener bek;
+    private com.baidu.live.guess.b gMV;
+    private w gMW;
+    private CustomResponsedMessage<Long> gMX;
+    private g gMY;
+    private d gMZ;
+    private com.baidu.tieba.ala.live.guess.a.a gNa;
+    private f gNb;
+    private com.baidu.tieba.ala.live.guess.a gNc;
+    private c gNd;
+    private AlaGuessQuesData gNe;
+    private AlaGuessQuesData gNf;
+    private boolean gNg = false;
+    private String gNh = "";
+    private volatile int gNi = 0;
+    private volatile boolean gNj = false;
+    private int gNk = -1;
+    private LinkedList<Long> gNl = new LinkedList<>();
+    private LinkedList<Long> gNm = new LinkedList<>();
+    private a gNn;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public interface a {
-        void bSu();
+        void bUT();
     }
 
     @Override // com.baidu.live.guess.a
-    public void f(w wVar) {
-        this.gHr.Ks();
+    public void e(w wVar) {
+        this.gNd.KS();
         b(wVar);
     }
 
     @Override // com.baidu.live.guess.a
     public void b(w wVar) {
         if (wVar != null && wVar.mLiveInfo != null) {
-            this.gHk = wVar;
+            this.gMW = wVar;
             if (BdLog.isDebugMode()) {
-                BdLog.e("AlaLiveGuessController Live guess room id " + this.gHk.mLiveInfo.room_id + " " + this.gHk.mLiveInfo.user_id);
+                BdLog.e("AlaLiveGuessController Live guess room id " + this.gMW.mLiveInfo.room_id + " " + this.gMW.mLiveInfo.user_id);
             }
         }
     }
 
     @Override // com.baidu.live.guess.a
-    public void Kn() {
-        this.gHu = false;
-        this.gHr.Kn();
-        this.gHw = 0;
+    public void KN() {
+        this.gNg = false;
+        this.gNd.KN();
+        this.gNi = 0;
     }
 
     @Override // com.baidu.live.guess.a
     public void onDestroy() {
-        this.gHj = null;
-        this.gHA.clear();
-        this.gHz.clear();
-        this.gHr.onDestroy();
+        this.gMV = null;
+        this.gNm.clear();
+        this.gNl.clear();
+        this.gNd.onDestroy();
     }
 
-    public boolean eo(long j) {
-        if (this.gHk == null || this.gHk.mLiveInfo.room_id != j) {
+    public boolean eK(long j) {
+        if (this.gMW == null || this.gMW.mLiveInfo.room_id != j) {
             return false;
         }
         return true;
@@ -94,146 +94,146 @@ public class b implements com.baidu.live.guess.a, c.a, c.InterfaceC0184c, a.Inte
 
     @Override // com.baidu.live.guess.a
     public void r(Activity activity) {
-        this.bIs = activity;
-        this.gHq = new com.baidu.tieba.ala.live.guess.a();
-        this.gHm = new g(this.bIs);
-        this.gHn = new d(this.bIs);
-        this.gHr = new c(this);
+        this.bNY = activity;
+        this.gNc = new com.baidu.tieba.ala.live.guess.a();
+        this.gMY = new g(this.bNY);
+        this.gMZ = new d(this.bNY);
+        this.gNd = new c(this);
         registerListener();
     }
 
     private void registerListener() {
-        this.bcQ = new CustomMessageListener(2913253) { // from class: com.baidu.tieba.ala.live.guess.b.1
+        this.bek = new CustomMessageListener(2913253) { // from class: com.baidu.tieba.ala.live.guess.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String)) {
                     if (TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
-                        b.this.bSj();
-                    } else if (TextUtils.equals((String) customResponsedMessage.getData(), "ala/guess/cancelResult") && b.this.gHo != null && b.this.gHo.isShowing()) {
-                        b.this.gHo.dismiss();
+                        b.this.bUI();
+                    } else if (TextUtils.equals((String) customResponsedMessage.getData(), "ala/guess/cancelResult") && b.this.gNa != null && b.this.gNa.isShowing()) {
+                        b.this.gNa.dismiss();
                     }
                 }
             }
         };
-        if (this.gHn != null) {
-            this.gHn.a(new d.a() { // from class: com.baidu.tieba.ala.live.guess.b.2
+        if (this.gMZ != null) {
+            this.gMZ.a(new d.a() { // from class: com.baidu.tieba.ala.live.guess.b.2
                 @Override // com.baidu.tieba.ala.live.guess.a.d.a
-                public void akM() {
+                public void anm() {
                 }
 
                 @Override // com.baidu.tieba.ala.live.guess.a.d.a
-                public void bSs() {
-                    b.this.bSk();
+                public void bUR() {
+                    b.this.bUJ();
                 }
             });
         }
-        MessageManager.getInstance().registerListener(this.bcQ);
+        MessageManager.getInstance().registerListener(this.bek);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bSj() {
-        if (this.gHo != null && this.gHo.isShowing()) {
-            this.gHo.dismiss();
+    public void bUI() {
+        if (this.gNa != null && this.gNa.isShowing()) {
+            this.gNa.dismiss();
         }
-        if (this.gHp != null && this.gHp.isShowing()) {
-            this.gHp.dismiss();
+        if (this.gNb != null && this.gNb.isShowing()) {
+            this.gNb.dismiss();
         }
-        if (this.gHj != null && this.gHj.isShowing()) {
-            this.gHj.dismiss();
+        if (this.gMV != null && this.gMV.isShowing()) {
+            this.gMV.dismiss();
         }
-        if (this.gHn != null && this.gHn.isShowing()) {
-            this.gHn.dismiss();
+        if (this.gMZ != null && this.gMZ.isShowing()) {
+            this.gMZ.dismiss();
         }
-        if (this.gHm != null && this.gHm.isShowing()) {
-            this.gHm.dismiss();
+        if (this.gMY != null && this.gMY.isShowing()) {
+            this.gMY.dismiss();
         }
     }
 
     public void c(AlaGuessQuesData alaGuessQuesData) {
         if (TextUtils.equals("subject_mi_info", alaGuessQuesData.getContentType())) {
-            if (eo(alaGuessQuesData.getRoomId()) && !er(alaGuessQuesData.getQuesId())) {
-                if (ep(alaGuessQuesData.getQuesId())) {
-                    this.gHt = alaGuessQuesData;
-                    bSr();
-                    long j = this.gHk.aIA.userId;
-                    eq(alaGuessQuesData.getQuesId());
+            if (eK(alaGuessQuesData.getRoomId()) && !eN(alaGuessQuesData.getQuesId())) {
+                if (eL(alaGuessQuesData.getQuesId())) {
+                    this.gNf = alaGuessQuesData;
+                    bUQ();
+                    long j = this.gMW.aJr.userId;
+                    eM(alaGuessQuesData.getQuesId());
                     a(j, (int) alaGuessQuesData.getQuesId(), null);
                     e(alaGuessQuesData);
-                    this.gHw = 0;
-                    this.gHq.bSi();
+                    this.gNi = 0;
+                    this.gNc.bUH();
                 } else if (BdLog.isDebugMode()) {
                     BdLog.d(TAG + " Ala guess verify error:Is a old question");
                 }
             }
-        } else if (TextUtils.equals(AlaGuessQuesData.ANSWER_INFO, alaGuessQuesData.getContentType()) && alaGuessQuesData.getRoomId() == this.gHk.mLiveInfo.room_id && alaGuessQuesData.getQuesId() == this.gHq.getId().longValue()) {
-            bSr();
+        } else if (TextUtils.equals(AlaGuessQuesData.ANSWER_INFO, alaGuessQuesData.getContentType()) && alaGuessQuesData.getRoomId() == this.gMW.mLiveInfo.room_id && alaGuessQuesData.getQuesId() == this.gNc.getId().longValue()) {
+            bUQ();
             d(alaGuessQuesData);
         }
     }
 
     private void d(AlaGuessQuesData alaGuessQuesData) {
-        if (!et(alaGuessQuesData.getQuesId())) {
-            es(alaGuessQuesData.getQuesId());
-            if (this.gHo != null) {
-                this.gHo.uH(this.gHq.en(alaGuessQuesData.getQuesId()));
-                this.gHo.ap((float) alaGuessQuesData.getAmount());
-                this.gHo.uI((int) alaGuessQuesData.getCorrectNum());
-                this.gHo.setAverage(alaGuessQuesData.getAverage());
-                this.gHo.h(alaGuessQuesData.getAnswer(), (float) alaGuessQuesData.getCorrectPercent());
-                this.gHo.eo(alaGuessQuesData.getFirstOpt(), alaGuessQuesData.getSecondOpt());
-                this.gHo.show();
+        if (!eP(alaGuessQuesData.getQuesId())) {
+            eO(alaGuessQuesData.getQuesId());
+            if (this.gNa != null) {
+                this.gNa.uR(this.gNc.eJ(alaGuessQuesData.getQuesId()));
+                this.gNa.ar((float) alaGuessQuesData.getAmount());
+                this.gNa.uS((int) alaGuessQuesData.getCorrectNum());
+                this.gNa.setAverage(alaGuessQuesData.getAverage());
+                this.gNa.h(alaGuessQuesData.getAnswer(), (float) alaGuessQuesData.getCorrectPercent());
+                this.gNa.eo(alaGuessQuesData.getFirstOpt(), alaGuessQuesData.getSecondOpt());
+                this.gNa.show();
             }
         }
     }
 
-    public void Kr() {
-        this.gHm.show();
-        this.gHq.bSa();
+    public void KR() {
+        this.gMY.show();
+        this.gNc.bUz();
     }
 
-    public void bSk() {
-        if (this.gHl == null && this.gHt != null) {
-            this.gHl = new CustomResponsedMessage<>(2913248, Long.valueOf(this.gHt.getAnchorId()));
+    public void bUJ() {
+        if (this.gMX == null && this.gNf != null) {
+            this.gMX = new CustomResponsedMessage<>(2913248, Long.valueOf(this.gNf.getAnchorId()));
         }
-        MessageManager.getInstance().dispatchResponsedMessage(this.gHl);
-        this.gHq.bSd();
+        MessageManager.getInstance().dispatchResponsedMessage(this.gMX);
+        this.gNc.bUC();
     }
 
-    public boolean bSl() {
-        return this.gHt.getVoucherNum() > 0;
+    public boolean bUK() {
+        return this.gNf.getVoucherNum() > 0;
     }
 
-    public void bSm() {
-        this.gHw = 0;
-        if (this.gHj != null) {
-            this.gHj.Kp();
-            this.gHj.dismiss();
+    public void bUL() {
+        this.gNi = 0;
+        if (this.gMV != null) {
+            this.gMV.KP();
+            this.gMV.dismiss();
         }
-        if (this.gHp == null) {
-            this.gHp = new f(this.bIs);
-            this.gHp.a(new f.a() { // from class: com.baidu.tieba.ala.live.guess.b.3
+        if (this.gNb == null) {
+            this.gNb = new f(this.bNY);
+            this.gNb.a(new f.a() { // from class: com.baidu.tieba.ala.live.guess.b.3
                 @Override // com.baidu.tieba.ala.live.guess.a.f.a
-                public void akM() {
-                    b.this.gHp.dismiss();
+                public void anm() {
+                    b.this.gNb.dismiss();
                 }
 
                 @Override // com.baidu.tieba.ala.live.guess.a.f.a
-                public void bSt() {
-                    b.this.gHq.bSf();
-                    b.this.bSn();
-                    b.this.gHp.dismiss();
+                public void bUS() {
+                    b.this.gNc.bUE();
+                    b.this.bUM();
+                    b.this.gNb.dismiss();
                 }
             });
         }
-        this.gHp.show();
+        this.gNb.show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bSn() {
-        if (!TextUtils.isEmpty(this.gHv)) {
-            com.baidu.live.ai.c cVar = new com.baidu.live.ai.c();
-            cVar.url = this.gHv;
+    public void bUM() {
+        if (!TextUtils.isEmpty(this.gNh)) {
+            com.baidu.live.ak.c cVar = new com.baidu.live.ak.c();
+            cVar.url = this.gNh;
             if (!TextUtils.isEmpty(cVar.url) && cVar.url.contains("fullscreen=1")) {
                 cVar.isFullScreen = true;
             }
@@ -242,118 +242,118 @@ public class b implements com.baidu.live.guess.a, c.a, c.InterfaceC0184c, a.Inte
     }
 
     public void a(long j, int i, a aVar) {
-        this.gHB = aVar;
-        o(j, i);
+        this.gNn = aVar;
+        s(j, i);
     }
 
-    public void o(long j, int i) {
+    public void s(long j, int i) {
         if (BdUtilHelper.isNetOk()) {
-            this.gHr.a(j, i, new c.b() { // from class: com.baidu.tieba.ala.live.guess.b.4
+            this.gNd.a(j, i, new c.b() { // from class: com.baidu.tieba.ala.live.guess.b.4
                 @Override // com.baidu.live.guess.c.b
                 public void d(int i2, String str, boolean z) {
-                    if (b.this.gHt != null) {
-                        b.this.gHt.setVoucherNum(i2);
-                        b.this.gHu = z;
-                        b.this.gHv = str;
+                    if (b.this.gNf != null) {
+                        b.this.gNf.setVoucherNum(i2);
+                        b.this.gNg = z;
+                        b.this.gNh = str;
                     }
-                    if (b.this.gHB != null) {
-                        b.this.gHB.bSu();
+                    if (b.this.gNn != null) {
+                        b.this.gNn.bUT();
                     }
                 }
 
                 @Override // com.baidu.live.guess.c.b
                 public void onFailure(int i2) {
-                    if (b.this.gHB != null) {
-                        CustomToast.newInstance().showToast(b.this.bIs.getString(a.i.ala_guess_net_error));
+                    if (b.this.gNn != null) {
+                        CustomToast.newInstance().showToast(b.this.bNY.getString(a.h.ala_guess_net_error));
                     }
                 }
             });
         } else {
-            CustomToast.newInstance().showToast(this.bIs.getString(a.i.ala_guess_net_error));
+            CustomToast.newInstance().showToast(this.bNY.getString(a.h.ala_guess_net_error));
         }
     }
 
     public void b(long j, long j2, int i) {
-        this.gHy = i;
+        this.gNk = i;
         if (BdUtilHelper.isNetOk()) {
-            this.gHr.a(j, j2, i, this);
+            this.gNd.a(j, j2, i, this);
         } else {
-            CustomToast.newInstance().showToast(this.bIs.getString(a.i.ala_guess_net_error));
+            CustomToast.newInstance().showToast(this.bNY.getString(a.h.ala_guess_net_error));
         }
-        this.gHw = 1;
+        this.gNi = 1;
     }
 
     @Override // com.baidu.live.guess.a
     public void eG(int i) {
-        if (this.gHr != null) {
-            this.gHr.eI(i);
+        if (this.gNd != null) {
+            this.gNd.eI(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uG(final int i) {
-        this.gHq.uF(i);
+    public void uQ(final int i) {
+        this.gNc.uP(i);
         if (!TbadkCoreApplication.isLogin()) {
-            ViewHelper.skipToLoginActivity(this.bIs);
-        } else if (bSl()) {
-            b(this.gHk.aIA.userId, this.gHt.getQuesId(), i);
+            ViewHelper.skipToLoginActivity(this.bNY);
+        } else if (bUK()) {
+            b(this.gMW.aJr.userId, this.gNf.getQuesId(), i);
         } else {
-            a(this.gHk.aIA.userId, (int) this.gHt.getQuesId(), new a() { // from class: com.baidu.tieba.ala.live.guess.b.5
+            a(this.gMW.aJr.userId, (int) this.gNf.getQuesId(), new a() { // from class: com.baidu.tieba.ala.live.guess.b.5
                 @Override // com.baidu.tieba.ala.live.guess.b.a
-                public void bSu() {
-                    if (!b.this.bSl()) {
-                        b.this.gHq.bSg();
-                        b.this.bSm();
+                public void bUT() {
+                    if (!b.this.bUK()) {
+                        b.this.gNc.bUF();
+                        b.this.bUL();
                         return;
                     }
-                    b.this.b(b.this.gHk.aIA.userId, b.this.gHt.getQuesId(), i);
+                    b.this.b(b.this.gMW.aJr.userId, b.this.gNf.getQuesId(), i);
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bSo() {
-        if (!this.gHu) {
-            if (this.gHj != null) {
-                this.gHj.Kp();
-                this.gHj.dismiss();
+    public void bUN() {
+        if (!this.gNg) {
+            if (this.gMV != null) {
+                this.gMV.KP();
+                this.gMV.dismiss();
             }
-            if (this.gHn != null) {
-                this.gHq.bSe();
-                this.gHn.show();
+            if (this.gMZ != null) {
+                this.gNc.bUD();
+                this.gMZ.show();
             }
         }
     }
 
-    private boolean ep(long j) {
-        long longValue = this.gHq.getId().longValue();
+    private boolean eL(long j) {
+        long longValue = this.gNc.getId().longValue();
         return longValue == -1 || longValue != j;
     }
 
-    private void p(long j, int i) {
-        this.gHq.n(j, i);
+    private void t(long j, int i) {
+        this.gNc.r(j, i);
     }
 
     private void e(AlaGuessQuesData alaGuessQuesData) {
-        a(this.bIs, alaGuessQuesData);
-        this.gHj.show();
+        a(this.bNY, alaGuessQuesData);
+        this.gMV.show();
     }
 
     private void a(Activity activity, AlaGuessQuesData alaGuessQuesData) {
-        this.gHj = new c.a().mp(true).uJ(0).mq(false).a(new b.a() { // from class: com.baidu.tieba.ala.live.guess.b.6
+        this.gMV = new c.a().my(true).uT(0).mz(false).a(new b.a() { // from class: com.baidu.tieba.ala.live.guess.b.6
             @Override // com.baidu.live.guess.b.a
-            public void Kq() {
+            public void KQ() {
             }
 
             @Override // com.baidu.live.guess.b.a
             public void a(com.baidu.live.guess.b bVar) {
-                b.this.uG(1);
+                b.this.uQ(1);
             }
 
             @Override // com.baidu.live.guess.b.a
             public void b(com.baidu.live.guess.b bVar) {
-                b.this.uG(0);
+                b.this.uQ(0);
             }
 
             @Override // com.baidu.live.guess.b.a
@@ -361,28 +361,28 @@ public class b implements com.baidu.live.guess.a, c.a, c.InterfaceC0184c, a.Inte
             }
 
             @Override // com.baidu.live.guess.b.a
-            public void Kr() {
-                if (b.this.gHw != 0) {
-                    b.this.bSo();
+            public void KR() {
+                if (b.this.gNi != 0) {
+                    b.this.bUN();
                 } else {
-                    b.this.Kr();
+                    b.this.KR();
                 }
-                if (b.this.gHj != null) {
-                    b.this.gHj.dismiss();
+                if (b.this.gMV != null) {
+                    b.this.gMV.dismiss();
                 }
             }
 
             @Override // com.baidu.live.guess.b.a
             public void onExit() {
-                b.this.bSo();
+                b.this.bUN();
             }
         }).an(activity);
-        this.gHj.eH(alaGuessQuesData.getAnswerTime());
-        this.gHj.hu("" + alaGuessQuesData.getAmount());
-        this.gHj.setQuesContent("" + alaGuessQuesData.getQuesContent());
-        this.gHj.hw(alaGuessQuesData.getSecondOpt());
-        this.gHj.hv(alaGuessQuesData.getFirstOpt());
-        this.gHj.a(new c.b(new DialogInterface.OnKeyListener() { // from class: com.baidu.tieba.ala.live.guess.b.7
+        this.gMV.eH(alaGuessQuesData.getAnswerTime());
+        this.gMV.hB("" + alaGuessQuesData.getAmount());
+        this.gMV.setQuesContent("" + alaGuessQuesData.getQuesContent());
+        this.gMV.hD(alaGuessQuesData.getSecondOpt());
+        this.gMV.hC(alaGuessQuesData.getFirstOpt());
+        this.gMV.a(new c.b(new DialogInterface.OnKeyListener() { // from class: com.baidu.tieba.ala.live.guess.b.7
             @Override // android.content.DialogInterface.OnKeyListener
             public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
                 return false;
@@ -390,33 +390,33 @@ public class b implements com.baidu.live.guess.a, c.a, c.InterfaceC0184c, a.Inte
         }));
     }
 
-    @Override // com.baidu.live.guess.c.InterfaceC0184c
+    @Override // com.baidu.live.guess.c.InterfaceC0186c
     public void a(AlaGuessQuesData alaGuessQuesData) {
         if (alaGuessQuesData != null) {
-            if (this.gHj == null) {
-                a(this.bIs, alaGuessQuesData);
+            if (this.gMV == null) {
+                a(this.bNY, alaGuessQuesData);
             }
             c(alaGuessQuesData);
         }
     }
 
-    @Override // com.baidu.live.guess.c.InterfaceC0184c
+    @Override // com.baidu.live.guess.c.InterfaceC0186c
     public void b(AlaGuessQuesData alaGuessQuesData) {
         if (alaGuessQuesData != null) {
-            this.gHs = alaGuessQuesData;
-            if (this.gHo == null) {
-                this.gHo = new com.baidu.tieba.ala.live.guess.a.a(this.bIs);
-                this.gHo.a(this);
+            this.gNe = alaGuessQuesData;
+            if (this.gNa == null) {
+                this.gNa = new com.baidu.tieba.ala.live.guess.a.a(this.bNY);
+                this.gNa.a(this);
             }
-            c(this.gHs);
+            c(this.gNe);
         }
     }
 
     @Override // com.baidu.live.guess.c.a
-    public void Kw() {
-        this.gHq.bSh();
-        p(this.gHt.getQuesId(), this.gHy);
-        this.gHj.Ko();
+    public void KW() {
+        this.gNc.bUG();
+        t(this.gNf.getQuesId(), this.gNk);
+        this.gMV.KO();
     }
 
     @Override // com.baidu.live.guess.c.a
@@ -426,38 +426,38 @@ public class b implements com.baidu.live.guess.a, c.a, c.InterfaceC0184c, a.Inte
                 BdLog.d(TAG + " repeat answer");
             }
         } else {
-            this.gHw = 0;
+            this.gNi = 0;
         }
         CustomToast.newInstance().showToast(str);
     }
 
-    public void eq(long j) {
-        this.gHz.add(Long.valueOf(j));
+    public void eM(long j) {
+        this.gNl.add(Long.valueOf(j));
     }
 
-    public boolean er(long j) {
-        return this.gHz.contains(Long.valueOf(j));
+    public boolean eN(long j) {
+        return this.gNl.contains(Long.valueOf(j));
     }
 
-    public void es(long j) {
-        this.gHA.add(Long.valueOf(j));
+    public void eO(long j) {
+        this.gNm.add(Long.valueOf(j));
     }
 
-    public boolean et(long j) {
-        return this.gHA.contains(Long.valueOf(j));
+    public boolean eP(long j) {
+        return this.gNm.contains(Long.valueOf(j));
     }
 
-    @Override // com.baidu.tieba.ala.live.guess.a.a.InterfaceC0647a
-    public void bSp() {
-        this.gHq.bSc();
+    @Override // com.baidu.tieba.ala.live.guess.a.a.InterfaceC0659a
+    public void bUO() {
+        this.gNc.bUB();
     }
 
-    @Override // com.baidu.tieba.ala.live.guess.a.a.InterfaceC0647a
-    public void bSq() {
-        this.gHq.bSb();
+    @Override // com.baidu.tieba.ala.live.guess.a.a.InterfaceC0659a
+    public void bUP() {
+        this.gNc.bUA();
     }
 
-    private void bSr() {
+    private void bUQ() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913097, "into_end_view"));
     }
 }

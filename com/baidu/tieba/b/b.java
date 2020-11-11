@@ -23,18 +23,18 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class b extends RecyclerView.Adapter<a> {
-    private d fNl;
+    private d fTb;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.b.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             i iVar = (i) view.getTag();
             if (iVar != null) {
-                if (!iVar.fgq) {
-                    b.this.fNl.EC(iVar.fgr);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921507, iVar.fgr));
+                if (!iVar.fmj) {
+                    b.this.fTb.EQ(iVar.fmk);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921507, iVar.fmk));
                     return;
                 }
-                TiebaStatic.log(new aq("c13995").dR("fid", iVar.forumId).aj("obj_source", b.this.mType));
+                TiebaStatic.log(new aq("c13995").dR("fid", iVar.forumId).al("obj_source", b.this.mType));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921505, iVar));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921503));
             }
@@ -44,14 +44,14 @@ public class b extends RecyclerView.Adapter<a> {
     private int mType;
 
     public b(d dVar) {
-        this.fNl = dVar;
+        this.fTb = dVar;
     }
 
     public void setType(int i) {
         this.mType = i;
     }
 
-    public void bb(List<i> list) {
+    public void bi(List<i> list) {
         this.mDataList = list;
     }
 
@@ -69,23 +69,23 @@ public class b extends RecyclerView.Adapter<a> {
     public void onBindViewHolder(@NonNull a aVar, int i) {
         i iVar = (i) y.getItem(this.mDataList, i);
         if (iVar != null) {
-            aVar.fNn.setPlaceHolder(2);
-            aVar.fNn.setShowOval(true);
-            aVar.fNn.setShowOuterBorder(true);
-            aVar.fNn.setShowInnerBorder(false);
-            aVar.fNn.setStrokeColorResId(R.color.cp_border_a);
-            aVar.fNn.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-            aVar.fNn.startLoad(iVar.bfv, 10, false);
-            aVar.fNo.setText(iVar.forumName);
-            ap.setViewTextColor(aVar.fNo, R.color.cp_cont_b);
+            aVar.fTd.setPlaceHolder(2);
+            aVar.fTd.setShowOval(true);
+            aVar.fTd.setShowOuterBorder(true);
+            aVar.fTd.setShowInnerBorder(false);
+            aVar.fTd.setStrokeColorResId(R.color.cp_border_a);
+            aVar.fTd.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            aVar.fTd.startLoad(iVar.bgP, 10, false);
+            aVar.fTe.setText(iVar.forumName);
+            ap.setViewTextColor(aVar.fTe, R.color.cp_cont_b);
             if (iVar.level <= 0) {
-                aVar.fNp.setVisibility(8);
+                aVar.fTf.setVisibility(8);
             } else {
-                aVar.fNp.setVisibility(0);
-                ap.setImageResource(aVar.fNp, BitmapHelper.getGradeResourceIdInEnterForum(iVar.level));
+                aVar.fTf.setVisibility(0);
+                ap.setImageResource(aVar.fTf, BitmapHelper.getGradeResourceIdInEnterForum(iVar.level));
             }
-            aVar.fNq.setVisibility(iVar.fgp ? 0 : 8);
-            ap.setViewTextColor(aVar.fNq, R.color.cp_link_tip_a);
+            aVar.fTg.setVisibility(iVar.fmi ? 0 : 8);
+            ap.setViewTextColor(aVar.fTg, R.color.cp_link_tip_a);
             aVar.itemView.setTag(iVar);
             ap.setBackgroundResource(aVar.itemView, R.drawable.forum_selected_view_bg);
             aVar.itemView.setOnClickListener(this.mClickListener);
@@ -100,17 +100,17 @@ public class b extends RecyclerView.Adapter<a> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes22.dex */
     public class a extends RecyclerView.ViewHolder {
-        BarImageView fNn;
-        TextView fNo;
-        ImageView fNp;
-        TextView fNq;
+        BarImageView fTd;
+        TextView fTe;
+        ImageView fTf;
+        TextView fTg;
 
         public a(View view) {
             super(view);
-            this.fNn = (BarImageView) view.findViewById(R.id.cell_select_forum_img);
-            this.fNo = (TextView) view.findViewById(R.id.cell_select_forum_name);
-            this.fNp = (ImageView) view.findViewById(R.id.cell_select_forum_level);
-            this.fNq = (TextView) view.findViewById(R.id.cell_select_forum_lately);
+            this.fTd = (BarImageView) view.findViewById(R.id.cell_select_forum_img);
+            this.fTe = (TextView) view.findViewById(R.id.cell_select_forum_name);
+            this.fTf = (ImageView) view.findViewById(R.id.cell_select_forum_level);
+            this.fTg = (TextView) view.findViewById(R.id.cell_select_forum_lately);
         }
     }
 }

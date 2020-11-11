@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class ad implements aj<com.tb.airbnb.lottie.model.content.h> {
-    public static final ad pBa = new ad();
+    public static final ad pKu = new ad();
 
     private ad() {
     }

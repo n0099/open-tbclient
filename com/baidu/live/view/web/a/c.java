@@ -12,7 +12,7 @@ public class c extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void iB(String str) {
+    public void iO(String str) {
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -21,7 +21,7 @@ public class c extends com.baidu.live.view.web.a {
                     if (!TextUtils.isEmpty(optString)) {
                         String[] split = optString.contains(Constants.ACCEPT_TIME_SEPARATOR_SP) ? optString.split(Constants.ACCEPT_TIME_SEPARATOR_SP) : new String[]{optString};
                         if (split != null) {
-                            com.baidu.live.view.a.TX().o(split);
+                            com.baidu.live.view.a.Wx().o(split);
                         }
                     }
                 }

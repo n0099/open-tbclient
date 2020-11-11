@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes26.dex */
 public class ForumBroadcastMajorQuestionDialogView extends LinearLayout {
-    private TextView byL;
-    private TextView ibY;
-    private TextView jXq;
+    private TextView bEW;
+    private TextView ihZ;
+    private TextView kdn;
     private Context mContext;
     private LinearLayout mRootView;
 
@@ -23,22 +23,22 @@ public class ForumBroadcastMajorQuestionDialogView extends LinearLayout {
 
     public void setConfirmButtonListener(View.OnClickListener onClickListener) {
         if (onClickListener != null) {
-            this.jXq.setOnClickListener(onClickListener);
+            this.kdn.setOnClickListener(onClickListener);
         }
     }
 
     private void initUI(Context context) {
         LayoutInflater.from(context).inflate(R.layout.forum_broadcast_major_question_dialog, this);
         this.mRootView = (LinearLayout) findViewById(R.id.forum_broadcast_question);
-        this.byL = (TextView) this.mRootView.findViewById(R.id.forum_broadcast_question_title);
-        this.ibY = (TextView) this.mRootView.findViewById(R.id.forum_broadcast_question_content);
-        this.jXq = (TextView) this.mRootView.findViewById(R.id.known_icon);
-        this.byL.setText(R.string.subscribe_bar_title);
-        this.ibY.setText(R.string.forum_broadcast_major_history_hint);
-        this.jXq.setText(R.string.know);
+        this.bEW = (TextView) this.mRootView.findViewById(R.id.forum_broadcast_question_title);
+        this.ihZ = (TextView) this.mRootView.findViewById(R.id.forum_broadcast_question_content);
+        this.kdn = (TextView) this.mRootView.findViewById(R.id.known_icon);
+        this.bEW.setText(R.string.subscribe_bar_title);
+        this.ihZ.setText(R.string.forum_broadcast_major_history_hint);
+        this.kdn.setText(R.string.know);
         ap.setBackgroundResource(this.mRootView, R.drawable.bg_frs_private_dialog);
-        ap.setViewTextColor(this.byL, R.color.cp_cont_b);
-        ap.setViewTextColor(this.ibY, R.color.cp_cont_j);
-        ap.setViewTextColor(this.jXq, R.color.cp_link_tip_a);
+        ap.setViewTextColor(this.bEW, R.color.cp_cont_b);
+        ap.setViewTextColor(this.ihZ, R.color.cp_cont_j);
+        ap.setViewTextColor(this.kdn, R.color.cp_link_tip_a);
     }
 }

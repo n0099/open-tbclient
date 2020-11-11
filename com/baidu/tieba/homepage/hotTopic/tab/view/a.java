@@ -18,13 +18,13 @@ import com.baidu.tieba.frs.FrsTabItemData;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class a implements TabLayout.OnTabSelectedListener {
-    private int iVR;
-    private TabLayout jvX;
-    private TabLayout.OnTabSelectedListener jvq;
+    private TabLayout jBU;
+    private TabLayout.OnTabSelectedListener jBn;
+    private int jbO;
     private Context mContext;
 
-    public TabLayout cIc() {
-        return this.jvX;
+    public TabLayout cKD() {
+        return this.jBU;
     }
 
     public Context getContext() {
@@ -33,25 +33,25 @@ public class a implements TabLayout.OnTabSelectedListener {
 
     public a(Context context) {
         this.mContext = context;
-        cId();
+        cKE();
     }
 
-    private void cId() {
-        this.jvX = (TabLayout) LayoutInflater.from(getContext()).inflate(R.layout.default_tab_layout, (ViewGroup) null);
-        this.jvX.setOnTabSelectedListener(this);
+    private void cKE() {
+        this.jBU = (TabLayout) LayoutInflater.from(getContext()).inflate(R.layout.default_tab_layout, (ViewGroup) null);
+        this.jBU.setOnTabSelectedListener(this);
     }
 
     public void setOnTabSelectedListener(TabLayout.OnTabSelectedListener onTabSelectedListener) {
-        this.jvq = onTabSelectedListener;
+        this.jBn = onTabSelectedListener;
     }
 
     public void onChangeSkinType(int i) {
-        ap.setBackgroundColor(this.jvX, R.color.cp_bg_line_e);
+        ap.setBackgroundColor(this.jBU, R.color.cp_bg_line_e);
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < this.jvX.getTabCount()) {
-                TabLayout.Tab tabAt = this.jvX.getTabAt(i3);
+            if (i3 < this.jBU.getTabCount()) {
+                TabLayout.Tab tabAt = this.jBU.getTabAt(i3);
                 if (tabAt != null) {
                     if (tabAt.isSelected()) {
                         setTabColorSelected(tabAt);
@@ -71,18 +71,18 @@ public class a implements TabLayout.OnTabSelectedListener {
 
     private void setTabColorSelected(TabLayout.Tab tab) {
         if (tab.getCustomView() != null) {
-            ((b) ((TBSpecificationBtn) tab.getCustomView()).getStyleConfig()).pY(R.color.cp_link_tip_a);
+            ((b) ((TBSpecificationBtn) tab.getCustomView()).getStyleConfig()).qi(R.color.cp_link_tip_a);
         }
     }
 
     private void setTabColorUnSelected(TabLayout.Tab tab) {
         if (tab != null && tab.getCustomView() != null) {
-            ((b) ((TBSpecificationBtn) tab.getCustomView()).getStyleConfig()).qa(R.color.cp_cont_c);
+            ((b) ((TBSpecificationBtn) tab.getCustomView()).getStyleConfig()).qk(R.color.cp_cont_c);
         }
     }
 
     public void a(FrsTabInfoData frsTabInfoData) {
-        a(this.iVR, frsTabInfoData.tabList, this.jvX);
+        a(this.jbO, frsTabInfoData.tabList, this.jBU);
     }
 
     private void a(int i, List<FrsTabItemData> list, TabLayout tabLayout) {
@@ -115,9 +115,9 @@ public class a implements TabLayout.OnTabSelectedListener {
                 if (!(tab.getCustomView() instanceof TBSpecificationBtn)) {
                     TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(getContext());
                     b bVar = new b();
-                    bVar.pV(dimens3);
-                    bVar.pW(dimens4);
-                    bVar.qa(R.color.cp_cont_c);
+                    bVar.qf(dimens3);
+                    bVar.qg(dimens4);
+                    bVar.qk(R.color.cp_cont_c);
                     tBSpecificationBtn.setConfig(bVar);
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                     layoutParams.setMargins(dimens, dimens2, dimens, dimens2);
@@ -137,27 +137,27 @@ public class a implements TabLayout.OnTabSelectedListener {
     @Override // android.support.design.widget.TabLayout.OnTabSelectedListener
     public void onTabSelected(TabLayout.Tab tab) {
         if (tab != null && (tab.getTag() instanceof FrsTabItemData)) {
-            this.iVR = ((FrsTabItemData) tab.getTag()).tabId;
+            this.jbO = ((FrsTabItemData) tab.getTag()).tabId;
         }
         setTabColorSelected(tab);
-        if (this.jvq != null) {
-            this.jvq.onTabSelected(tab);
+        if (this.jBn != null) {
+            this.jBn.onTabSelected(tab);
         }
     }
 
     @Override // android.support.design.widget.TabLayout.OnTabSelectedListener
     public void onTabUnselected(TabLayout.Tab tab) {
         setTabColorUnSelected(tab);
-        if (this.jvq != null) {
-            this.jvq.onTabUnselected(tab);
+        if (this.jBn != null) {
+            this.jBn.onTabUnselected(tab);
         }
     }
 
     @Override // android.support.design.widget.TabLayout.OnTabSelectedListener
     public void onTabReselected(TabLayout.Tab tab) {
         setTabColorSelected(tab);
-        if (this.jvq != null) {
-            this.jvq.onTabReselected(tab);
+        if (this.jBn != null) {
+            this.jBn.onTabReselected(tab);
         }
     }
 }

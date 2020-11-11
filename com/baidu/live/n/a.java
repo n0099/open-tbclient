@@ -21,7 +21,6 @@ import com.baidu.live.tbadk.ubc.UbcStatisticItem;
 import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.live.utils.k;
-import com.baidu.platform.comapi.map.MapController;
 import com.baidu.searchbox.ui.animview.praise.guide.ControlShowManager;
 import com.baidu.tbadk.core.atomData.GroupInfoActivityConfig;
 import com.coremedia.iso.boxes.TrackReferenceTypeBox;
@@ -37,28 +36,28 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    private static Map<Long, Boolean> bnu = new HashMap();
-    private static Set<Long> bnv = new HashSet();
-    private static int bnw = 0;
-    private static boolean bnx = true;
+    private static Map<Long, Boolean> boN = new HashMap();
+    private static Set<Long> boO = new HashSet();
+    private static int boP = 0;
+    private static boolean boQ = true;
 
     public static void b(long j, boolean z) {
-        bnu.clear();
-        bnu.put(Long.valueOf(j), Boolean.valueOf(z));
-        if (TbadkCoreApplication.getCurrentAccountId() > 0 && !bnv.contains(Long.valueOf(TbadkCoreApplication.getCurrentAccountId()))) {
+        boN.clear();
+        boN.put(Long.valueOf(j), Boolean.valueOf(z));
+        if (TbadkCoreApplication.getCurrentAccountId() > 0 && !boO.contains(Long.valueOf(TbadkCoreApplication.getCurrentAccountId()))) {
             UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "defaultname"));
-            bnv.add(Long.valueOf(TbadkCoreApplication.getCurrentAccountId()));
+            boO.add(Long.valueOf(TbadkCoreApplication.getCurrentAccountId()));
         }
     }
 
-    public static void ck(boolean z) {
-        bnx = z;
+    public static void cl(boolean z) {
+        boQ = z;
     }
 
     public static void b(long j, int i) {
         if (c(j, i)) {
             if (i == 0) {
-                aq(j);
+                aC(j);
             } else {
                 d(j, i);
             }
@@ -69,37 +68,37 @@ public class a {
     public static boolean c(long j, int i) {
         boolean z;
         boolean z2 = true;
-        if (TbadkCoreApplication.isLogin() && bnx) {
+        if (TbadkCoreApplication.isLogin() && boQ) {
             if (isDebug()) {
                 return true;
             }
-            if (bnu.containsKey(Long.valueOf(j)) && bnu.get(Long.valueOf(j)).booleanValue()) {
-                if ((!TbadkCoreApplication.getInst().isQuanmin() && !TbadkCoreApplication.getInst().isYinbo() && !TbadkCoreApplication.getInst().isMobileBaidu()) || UtilHelper.getRealScreenOrientation(TbadkCoreApplication.getInst().getContext()) == 2 || com.baidu.live.z.a.Pq().bmJ == null || com.baidu.live.z.a.Pq().bmJ.aMx == null || com.baidu.live.z.a.Pq().bmJ.aMx.aOV == 0) {
+            if (boN.containsKey(Long.valueOf(j)) && boN.get(Long.valueOf(j)).booleanValue()) {
+                if ((!TbadkCoreApplication.getInst().isQuanmin() && !TbadkCoreApplication.getInst().isYinbo() && !TbadkCoreApplication.getInst().isMobileBaidu()) || UtilHelper.getRealScreenOrientation(TbadkCoreApplication.getInst().getContext()) == 2 || com.baidu.live.aa.a.PQ().bod == null || com.baidu.live.aa.a.PQ().bod.aNx == null || com.baidu.live.aa.a.PQ().bod.aNx.aPS == 0) {
                     return false;
                 }
                 if (i == 0) {
-                    z = bnu.get(Long.valueOf(j)).booleanValue();
+                    z = boN.get(Long.valueOf(j)).booleanValue();
                 } else if (i == 1) {
-                    z = com.baidu.live.z.a.Pq().bmJ.aMx.aOW == 1;
+                    z = com.baidu.live.aa.a.PQ().bod.aNx.aPT == 1;
                 } else if (i == 2) {
-                    z = com.baidu.live.z.a.Pq().bmJ.aMx.aOX == 1;
+                    z = com.baidu.live.aa.a.PQ().bod.aNx.aPU == 1;
                 } else if (i == 3) {
-                    z = com.baidu.live.z.a.Pq().bmJ.aMx.aOY == 1;
+                    z = com.baidu.live.aa.a.PQ().bod.aNx.aPV == 1;
                 } else if (i == 4) {
-                    z = com.baidu.live.z.a.Pq().bmJ.aMx.aPa == 1;
+                    z = com.baidu.live.aa.a.PQ().bod.aNx.aPX == 1;
                 } else if (i == 5) {
-                    z = com.baidu.live.z.a.Pq().bmJ.aMx.aOZ == 1;
+                    z = com.baidu.live.aa.a.PQ().bod.aNx.aPW == 1;
                 } else if (i == 6) {
-                    z = com.baidu.live.z.a.Pq().bmJ.aMx.aPb == 1;
+                    z = com.baidu.live.aa.a.PQ().bod.aNx.aPY == 1;
                 } else if (i == 7) {
-                    z = com.baidu.live.z.a.Pq().bmJ.aMx.aPc == 1;
+                    z = com.baidu.live.aa.a.PQ().bod.aNx.aPZ == 1;
                 } else if (i == 8) {
-                    z = com.baidu.live.z.a.Pq().bmJ.aMx.aPd == 1;
+                    z = com.baidu.live.aa.a.PQ().bod.aNx.aQa == 1;
                 } else {
                     z = false;
                 }
                 if (z) {
-                    int i2 = com.baidu.live.z.a.Pq().bmJ.aMx.aPf;
+                    int i2 = com.baidu.live.aa.a.PQ().bod.aNx.aQc;
                     if (i2 <= 0) {
                         i2 = 1;
                     }
@@ -125,9 +124,9 @@ public class a {
         return false;
     }
 
-    private static void aq(final long j) {
-        if (com.baidu.live.z.a.Pq().bmJ.aMx != null) {
-            long j2 = com.baidu.live.z.a.Pq().bmJ.aMx.aPe * 1000;
+    private static void aC(final long j) {
+        if (com.baidu.live.aa.a.PQ().bod.aNx != null) {
+            long j2 = com.baidu.live.aa.a.PQ().bod.aNx.aQb * 1000;
             if (isDebug()) {
                 Log.i("ModifyNicknameHelper", "@@ ModifyNickname dealWatch debug duration =" + j2);
                 j2 = 10000;
@@ -160,7 +159,7 @@ public class a {
         }
     }
 
-    private static void NS() {
+    private static void Os() {
         d.AZ().putString("modify_nickame_show_every_days", k.b(new Date()));
     }
 
@@ -187,7 +186,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void eS(int i) {
-        bnw = i;
+        boP = i;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913235));
     }
 
@@ -246,14 +245,14 @@ public class a {
             if (jSONObject.has("op_type")) {
                 int optInt = jSONObject.optInt("op_type");
                 if (optInt == 0) {
-                    NS();
+                    Os();
                     LiveTimerManager.getInstance().removeLiveTimerTask("ModifyNickname", false);
                     UbcStatisticItem ubcStatisticItem = new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", SdkStaticKeys.RENAME_SHOW);
-                    ubcStatisticItem.setContentExt(optString, MapController.POPUP_LAYER_TAG, null);
+                    ubcStatisticItem.setContentExt(optString, "popup", null);
                     UbcStatisticManager.getInstance().logEvent(ubcStatisticItem);
                 } else if (optInt == 1) {
                     Log.i("ModifyNicknameHelper", "@@ ModifyNickname noticeModifyNickname success");
-                    NT();
+                    Ot();
                     UbcStatisticItem ubcStatisticItem2 = new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "renamed");
                     ubcStatisticItem2.setContentExt(optString, null, null);
                     UbcStatisticManager.getInstance().logEvent(ubcStatisticItem2);
@@ -265,7 +264,7 @@ public class a {
     }
 
     private static void H(Context context, String str) {
-        String eT = eT(bnw);
+        String eT = eT(boP);
         try {
             JSONObject jSONObject = new JSONObject(str);
             String optString = jSONObject.optString("action");
@@ -273,16 +272,16 @@ public class a {
             if (TextUtils.equals(optString, "show")) {
                 LiveTimerManager.getInstance().removeLiveTimerTask("ModifyNickname", false);
                 if (optInt == 0) {
-                    NS();
+                    Os();
                     UbcStatisticItem ubcStatisticItem = new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", SdkStaticKeys.RENAME_SHOW);
-                    ubcStatisticItem.setContentExt(eT, MapController.POPUP_LAYER_TAG, null);
+                    ubcStatisticItem.setContentExt(eT, "popup", null);
                     UbcStatisticManager.getInstance().logEvent(ubcStatisticItem);
                     return;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913236));
             } else if (TextUtils.equals(optString, "modify")) {
                 if (optInt == 0) {
-                    NT();
+                    Ot();
                     UbcStatisticItem ubcStatisticItem2 = new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "renamed");
                     ubcStatisticItem2.setContentExt(eT, null, null);
                     UbcStatisticManager.getInstance().logEvent(ubcStatisticItem2);
@@ -294,7 +293,7 @@ public class a {
         }
     }
 
-    private static void NT() {
+    private static void Ot() {
         HttpMessage httpMessage = new HttpMessage(1021125);
         httpMessage.addParam("no_cache", 1);
         MessageManager.getInstance().sendMessage(httpMessage);

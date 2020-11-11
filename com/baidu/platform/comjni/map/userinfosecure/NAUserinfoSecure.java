@@ -5,7 +5,7 @@ import com.baidu.platform.comjni.JNIBaseApi;
 public class NAUserinfoSecure extends JNIBaseApi {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f3187a = 0;
+    private long f3189a = 0;
 
     private native void nativeCancel(long j);
 

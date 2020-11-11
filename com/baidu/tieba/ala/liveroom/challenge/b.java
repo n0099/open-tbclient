@@ -12,7 +12,7 @@ public class b implements f {
     }
 
     @Override // com.baidu.live.challenge.f
-    public j CW() {
+    public j Dp() {
         return new com.baidu.tieba.ala.liveroom.challenge.panel.f(this.mPageContext);
     }
 }

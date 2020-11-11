@@ -13,10 +13,10 @@ import java.util.Map;
 public class fa {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f4893a;
+    private static a f4895a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static Map<String, hw> f308a = null;
+    private static Map<String, hw> f310a = null;
 
     /* loaded from: classes12.dex */
     public interface a {
@@ -107,17 +107,17 @@ public class fa {
     /* renamed from: a  reason: collision with other method in class */
     public static hw m270a(String str) {
         hw[] values;
-        if (f308a == null) {
+        if (f310a == null) {
             synchronized (hw.class) {
-                if (f308a == null) {
-                    f308a = new HashMap();
+                if (f310a == null) {
+                    f310a = new HashMap();
                     for (hw hwVar : hw.values()) {
-                        f308a.put(hwVar.f474a.toLowerCase(), hwVar);
+                        f310a.put(hwVar.f476a.toLowerCase(), hwVar);
                     }
                 }
             }
         }
-        hw hwVar2 = f308a.get(str.toLowerCase());
+        hw hwVar2 = f310a.get(str.toLowerCase());
         return hwVar2 != null ? hwVar2 : hw.Invalid;
     }
 
@@ -138,8 +138,8 @@ public class fa {
     private static void a(Context context, hq hqVar) {
         if (m273a(context.getApplicationContext())) {
             com.xiaomi.push.service.bj.a(context.getApplicationContext(), hqVar);
-        } else if (f4893a != null) {
-            f4893a.uploader(context, hqVar);
+        } else if (f4895a != null) {
+            f4895a.uploader(context, hqVar);
         }
     }
 
@@ -160,7 +160,7 @@ public class fa {
     }
 
     public static void a(a aVar) {
-        f4893a = aVar;
+        f4895a = aVar;
     }
 
     /* renamed from: a  reason: collision with other method in class */

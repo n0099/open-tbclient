@@ -13,7 +13,7 @@ public final class b {
     public com.baidu.sofire.j.c c;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f3655a = null;
+    public a f3658a = null;
     private String e = null;
     private String f = null;
     ServiceConnection d = new d(this);
@@ -66,7 +66,7 @@ public final class b {
                     }
                 }
             }
-            str2 = this.f3655a.a(this.e, this.f, str);
+            str2 = this.f3658a.a(this.e, this.f, str);
         } catch (Throwable th3) {
             str2 = null;
             th = th3;

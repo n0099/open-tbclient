@@ -12,7 +12,7 @@ import org.apache.http.protocol.HTTP;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    String f4013a;
+    String f4015a;
     private String b;
     private Map<String, String> c;
     private String d;
@@ -21,15 +21,15 @@ public class c {
     private long h;
     private String i;
     private int j;
-    private Network ozO;
-    private g ozP;
+    private Network oJh;
+    private g oJi;
 
     private c(String str, Map<String, String> map, g gVar, String str2, String str3) {
         this.e = false;
         this.b = str;
-        this.ozP = gVar;
+        this.oJi = gVar;
         this.c = map == null ? new HashMap<>() : map;
-        this.f4013a = gVar == null ? "" : gVar.b().toString();
+        this.f4015a = gVar == null ? "" : gVar.b().toString();
         this.d = str2;
         this.f = str3;
         this.i = gVar == null ? "" : gVar.a();
@@ -70,7 +70,7 @@ public class c {
     }
 
     public String d() {
-        return this.f4013a;
+        return this.f4015a;
     }
 
     public String e() {
@@ -85,12 +85,12 @@ public class c {
         return !e.a(this.f) || this.b.contains("logReport") || this.b.contains("uniConfig");
     }
 
-    public Network efa() {
-        return this.ozO;
+    public Network eiP() {
+        return this.oJh;
     }
 
     public void f(Network network) {
-        this.ozO = network;
+        this.oJh = network;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -109,7 +109,7 @@ public class c {
         return i < 2;
     }
 
-    public g efb() {
-        return this.ozP;
+    public g eiQ() {
+        return this.oJi;
     }
 }

@@ -19,7 +19,7 @@ public class c extends FingerprintManager.AuthenticationCallback {
     private static final int n = 5;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3456a;
+    private int f3459a;
     private char b = 5;
     private Context c;
     private FingerprintManager d;
@@ -57,8 +57,8 @@ public class c extends FingerprintManager.AuthenticationCallback {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.sapi2.g.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC0324c implements View.OnClickListener {
-        View$OnClickListenerC0324c() {
+    public class View$OnClickListenerC0336c implements View.OnClickListener {
+        View$OnClickListenerC0336c() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -100,7 +100,7 @@ public class c extends FingerprintManager.AuthenticationCallback {
 
     private void c() {
         a((Activity) this.c, (Dialog) this.h);
-        this.h.a("再试一次", "请验证已有手机指纹").a(2).a(PayHelper.STATUS_CANCEL_DESC, new d()).b("换个登录方式", new View$OnClickListenerC0324c()).b();
+        this.h.a("再试一次", "请验证已有手机指纹").a(2).a(PayHelper.STATUS_CANCEL_DESC, new d()).b("换个登录方式", new View$OnClickListenerC0336c()).b();
     }
 
     private void d() {
@@ -135,7 +135,7 @@ public class c extends FingerprintManager.AuthenticationCallback {
         char c = (char) (this.b - 1);
         this.b = c;
         if (c > 0) {
-            if (this.f3456a == 3) {
+            if (this.f3459a == 3) {
                 c();
                 return;
             } else {
@@ -166,7 +166,7 @@ public class c extends FingerprintManager.AuthenticationCallback {
 
     public void a(int i2, com.baidu.sapi2.g.a aVar) {
         Log.i(m, "startAuthenticate");
-        this.f3456a = i2;
+        this.f3459a = i2;
         this.g = aVar;
         if (Build.VERSION.SDK_INT >= 16 && this.f.isCanceled()) {
             this.f = new CancellationSignal();

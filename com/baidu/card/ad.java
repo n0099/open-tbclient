@@ -101,7 +101,7 @@ public class ad extends d implements p<bw>, q {
             this.agT.setVisibility(8);
         } else {
             this.agT.setVisibility(0);
-            SvgManager.boN().a(this.agS, this.agV, this.agW, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.brn().a(this.agS, this.agV, this.agW, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 
@@ -111,7 +111,7 @@ public class ad extends d implements p<bw>, q {
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        SvgManager.boN().a(this.agS, this.agV, this.agW, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.brn().a(this.agS, this.agV, this.agW, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {

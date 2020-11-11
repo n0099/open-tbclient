@@ -10,8 +10,8 @@ import java.util.Map;
 /* loaded from: classes10.dex */
 public final class b implements com.baidu.swan.apps.ap.e.b<i.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final Map<String, com.baidu.swan.apps.ap.e.b<i.a>> dmy = new HashMap();
-    private final List<com.baidu.swan.apps.ap.e.c<i.a, Boolean>> dmz = new ArrayList();
+    private final Map<String, com.baidu.swan.apps.ap.e.b<i.a>> dsv = new HashMap();
+    private final List<com.baidu.swan.apps.ap.e.c<i.a, Boolean>> dsw = new ArrayList();
 
     public b a(final com.baidu.swan.apps.ap.e.b<i.a> bVar, String... strArr) {
         if (bVar != null && strArr != null && strArr.length > 0) {
@@ -21,7 +21,7 @@ public final class b implements com.baidu.swan.apps.ap.e.b<i.a> {
                 /* renamed from: onCallback */
                 public void M(String str) {
                     if (!TextUtils.isEmpty(str)) {
-                        b.this.dmy.put(str, bVar);
+                        b.this.dsv.put(str, bVar);
                     }
                 }
             }, strArr);
@@ -36,7 +36,7 @@ public final class b implements com.baidu.swan.apps.ap.e.b<i.a> {
                 @Override // com.baidu.swan.apps.ap.e.b
                 /* renamed from: onCallback */
                 public void M(String str) {
-                    b.this.dmy.remove(str);
+                    b.this.dsv.remove(str);
                 }
             }, strArr);
         }
@@ -45,7 +45,7 @@ public final class b implements com.baidu.swan.apps.ap.e.b<i.a> {
 
     public b a(com.baidu.swan.apps.ap.e.c<i.a, Boolean> cVar) {
         if (cVar != null) {
-            this.dmz.add(cVar);
+            this.dsw.add(cVar);
         }
         return this;
     }
@@ -58,7 +58,7 @@ public final class b implements com.baidu.swan.apps.ap.e.b<i.a> {
         if (DEBUG) {
             Log.i("EventHandler", "handle: " + aVar);
         }
-        if (h(aVar) && (bVar = this.dmy.get(aVar.id)) != null) {
+        if (h(aVar) && (bVar = this.dsv.get(aVar.id)) != null) {
             bVar.M(aVar);
         }
     }
@@ -67,7 +67,7 @@ public final class b implements com.baidu.swan.apps.ap.e.b<i.a> {
         if (aVar == null) {
             return false;
         }
-        for (com.baidu.swan.apps.ap.e.c<i.a, Boolean> cVar : this.dmz) {
+        for (com.baidu.swan.apps.ap.e.c<i.a, Boolean> cVar : this.dsw) {
             if (cVar != null && !cVar.N(aVar).booleanValue()) {
                 return false;
             }

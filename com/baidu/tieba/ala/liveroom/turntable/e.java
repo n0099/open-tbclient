@@ -16,76 +16,76 @@ import com.baidu.tieba.ala.liveroom.turntable.d;
 import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes4.dex */
 public class e {
-    private Activity bIs;
-    private CustomMessageListener bIu;
-    private d.a hnI;
-    private d hnK;
+    private Activity bNY;
+    private CustomMessageListener bOa;
+    private d.a htG;
+    private d htI;
 
     public e(Activity activity) {
-        this.bIs = activity;
-        Uy();
+        this.bNY = activity;
+        WY();
     }
 
     public void a(String str, long j, long j2, long j3) {
-        this.hnK = new d(this.bIs);
-        this.hnK.a(this.hnI);
-        this.hnK.Uz().setBackgroundColor(hP(str));
+        this.htI = new d(this.bNY);
+        this.htI.a(this.htG);
+        this.htI.WZ().setBackgroundColor(hW(str));
         g gVar = new g();
-        gVar.x(this.bIs).a(this.hnK).a(this.hnK.Uz().getSchemeCallback());
-        com.baidu.live.view.web.a[] Ux = gVar.Ux();
-        for (com.baidu.live.view.web.a aVar : Ux) {
-            this.hnK.Uz().addJavascriptInterface(aVar, aVar.getName());
+        gVar.y(this.bNY).a(this.htI).a(this.htI.WZ().getSchemeCallback());
+        com.baidu.live.view.web.a[] WX = gVar.WX();
+        for (com.baidu.live.view.web.a aVar : WX) {
+            this.htI.WZ().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.hnK.FZ(b(str, j, j2, j3));
+        this.htI.Gn(b(str, j, j2, j3));
     }
 
     public void resume() {
-        if (this.hnK != null && this.hnK.isShowing() && this.hnK.Uz() != null) {
-            this.hnK.Uz().onResume();
+        if (this.htI != null && this.htI.isShowing() && this.htI.WZ() != null) {
+            this.htI.WZ().onResume();
         }
     }
 
     public void pause() {
-        if (this.hnK != null && this.hnK.isShowing() && this.hnK.Uz() != null) {
-            this.hnK.Uz().onPause();
+        if (this.htI != null && this.htI.isShowing() && this.htI.WZ() != null) {
+            this.htI.WZ().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.hnK != null) {
-            this.hnK.UA();
+        if (this.htI != null) {
+            this.htI.Xa();
         }
     }
 
     public void dI(int i) {
-        if (this.hnK != null && this.hnK.isShowing()) {
-            this.hnK.dI(i);
+        if (this.htI != null && this.htI.isShowing()) {
+            this.htI.dI(i);
         }
     }
 
-    public void GS() {
+    public void Ht() {
         dismiss();
     }
 
     public void release() {
-        GS();
-        MessageManager.getInstance().unRegisterListener(this.bIu);
+        Ht();
+        MessageManager.getInstance().unRegisterListener(this.bOa);
     }
 
-    private void Uy() {
-        this.bIu = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.turntable.e.1
+    private void WY() {
+        this.bOa = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.turntable.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (e.this.hnK != null && e.this.hnK.isShowing()) {
-                    e.this.hnK.dismiss();
+                if (e.this.htI != null && e.this.htI.isShowing()) {
+                    e.this.htI.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.bIu);
+        MessageManager.getInstance().registerListener(this.bOa);
     }
 
-    private int hP(String str) {
+    private int hW(String str) {
         int indexOf;
         String queryParameter = Uri.parse(str).getQueryParameter("background");
         if ((TextUtils.isEmpty(queryParameter) || queryParameter.length() != 8) && (indexOf = str.indexOf("background=")) >= 0 && indexOf + 19 <= str.length()) {
@@ -122,15 +122,15 @@ public class e {
         sb.append("&_sdk_version=");
         sb.append(TbConfig.SDK_VERSION);
         sb.append("&scene_from=");
-        sb.append(p.Sc());
+        sb.append(p.UK());
         return sb.toString();
     }
 
     public void a(d.a aVar) {
-        this.hnI = aVar;
+        this.htG = aVar;
     }
 
-    public d.a ceR() {
-        return this.hnI;
+    public d.a chu() {
+        return this.htG;
     }
 }

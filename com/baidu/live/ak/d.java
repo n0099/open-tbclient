@@ -1,0 +1,317 @@
+package com.baidu.live.ak;
+
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.TranslateAnimation;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
+import com.baidu.live.sdk.a;
+import com.baidu.live.tbadk.core.util.UtilHelper;
+import com.baidu.live.tbadk.util.ScreenHelper;
+import com.baidu.live.view.RoundRectRelativeLayout;
+import com.baidu.live.view.e;
+import com.baidu.live.view.web.CommonWebLayout;
+import com.baidu.live.view.web.f;
+/* loaded from: classes4.dex */
+public class d extends e implements f {
+    private b bOd;
+    private int bOe;
+    private c bOf;
+    private RoundRectRelativeLayout bqG;
+    private CommonWebLayout bqH;
+    private View bqI;
+    private float bqJ;
+    private Context mContext;
+
+    public d(Context context) {
+        super(context);
+        this.mContext = context;
+        setClippingEnabled(false);
+        init();
+    }
+
+    public CommonWebLayout WZ() {
+        return this.bqH;
+    }
+
+    public void b(c cVar) {
+        int Xd;
+        int Xe;
+        if ((this.mContext instanceof Activity) && !((Activity) this.mContext).isFinishing() && cVar != null) {
+            this.bOf = cVar;
+            View findViewById = ((Activity) this.mContext).getWindow().getDecorView().findViewById(16908290);
+            if (findViewById != null) {
+                this.bOd = cVar.bOd;
+                if (cVar.bOd != null) {
+                    setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.live.ak.d.1
+                        @Override // android.widget.PopupWindow.OnDismissListener
+                        public void onDismiss() {
+                            if (d.this.bOd != null) {
+                                d.this.bOd.onDismiss();
+                            }
+                        }
+                    });
+                }
+                switch (UtilHelper.getRealScreenOrientation(this.mContext)) {
+                    case 2:
+                        this.bOe = 5;
+                        Xd = Xd();
+                        Xe = Xe();
+                        this.bqG.setCornerRadius(this.bqJ, 0.0f, 0.0f, this.bqJ);
+                        break;
+                    default:
+                        this.bOe = 80;
+                        int Xb = Xb();
+                        if (cVar.isFullScreen) {
+                            Xe = -1;
+                            ah(this.bqG);
+                            setClippingEnabled(false);
+                            Xd = Xb;
+                            break;
+                        } else {
+                            float f = 0.7f;
+                            if (cVar != null) {
+                                f = cVar.bOc;
+                            }
+                            if (f > 1.0f) {
+                                f = 1.0f;
+                            }
+                            if (f <= 0.1f) {
+                                f = 0.1f;
+                            }
+                            Xe = (int) (f * Xc());
+                            this.bqG.setCornerRadius(this.bqJ, this.bqJ, 0.0f, 0.0f);
+                            Xd = Xb;
+                            break;
+                        }
+                }
+                setWidth(Xd);
+                setHeight(Xe);
+                showAtLocation(findViewById, 85, 0, 0);
+                if (UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
+                    ah(this.bqG);
+                }
+                MR();
+                this.bqH.loadUrl(cVar.url);
+                if (this.bOd != null) {
+                    this.bOd.Pc();
+                }
+            }
+        }
+    }
+
+    public void dI(int i) {
+        int Xd;
+        int Xe;
+        if (((Activity) this.mContext).getWindow().getDecorView().findViewById(16908290) != null) {
+            switch (i) {
+                case 2:
+                    this.bOe = 5;
+                    Xd = Xd();
+                    Xe = Xe();
+                    this.bqG.setCornerRadius(this.bqJ, 0.0f, 0.0f, this.bqJ);
+                    break;
+                default:
+                    this.bOe = 80;
+                    int Xb = Xb();
+                    if (this.bOf.isFullScreen) {
+                        Xe = Xc();
+                        ah(this.bqG);
+                        setClippingEnabled(false);
+                        Xd = Xb;
+                        break;
+                    } else {
+                        float f = 0.7f;
+                        if (this.bOf != null) {
+                            f = this.bOf.bOc;
+                        }
+                        if (f > 1.0f) {
+                            f = 1.0f;
+                        }
+                        if (f <= 0.1f) {
+                            f = 0.1f;
+                        }
+                        Xe = (int) (f * Xc());
+                        this.bqG.setCornerRadius(this.bqJ, this.bqJ, 0.0f, 0.0f);
+                        Xd = Xb;
+                        break;
+                    }
+            }
+            update(Xd, Xe);
+            if (i == 2) {
+                ah(this.bqG);
+            }
+        }
+    }
+
+    public void Xa() {
+        super.dismiss();
+    }
+
+    @Override // com.baidu.live.view.e, android.widget.PopupWindow
+    public void dismiss() {
+        if (!Xf()) {
+            Xa();
+        }
+    }
+
+    private void init() {
+        initView();
+        setAnimationStyle(0);
+        setBackgroundDrawable(new ColorDrawable(0));
+        setFocusable(true);
+        setOutsideTouchable(true);
+        setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.live.ak.d.2
+            @Override // android.widget.PopupWindow.OnDismissListener
+            public void onDismiss() {
+                if (d.this.bqH != null) {
+                    d.this.bqH.release();
+                }
+            }
+        });
+    }
+
+    private void initView() {
+        this.bqJ = this.mContext.getResources().getDimensionPixelOffset(a.d.sdk_ds26);
+        this.bqG = new RoundRectRelativeLayout(this.mContext);
+        r(this.bqG);
+        s(this.bqG);
+        setContentView(this.bqG);
+    }
+
+    private void r(ViewGroup viewGroup) {
+        this.bqH = new CommonWebLayout(this.mContext);
+        this.bqH.setBackgroundColor(this.mContext.getResources().getColor(a.c.sdk_black_alpha85));
+        this.bqH.setCallback(new com.baidu.live.view.web.c() { // from class: com.baidu.live.ak.d.3
+            @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
+            public void hU(String str) {
+                super.hU(str);
+                if (d.this.bqI != null) {
+                    d.this.bqI.setVisibility(0);
+                }
+            }
+
+            @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
+            public void fa(int i) {
+                super.fa(i);
+                if (i == 100 && d.this.bqI != null) {
+                    d.this.bqI.setVisibility(8);
+                }
+            }
+
+            @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
+            public void hV(String str) {
+                super.hV(str);
+                if (d.this.bqI != null) {
+                    d.this.bqI.setVisibility(8);
+                }
+            }
+
+            @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
+            public void e(String str, int i, String str2) {
+                super.e(str, i, str2);
+                if (d.this.bqI != null) {
+                    d.this.bqI.setVisibility(8);
+                }
+            }
+        });
+        viewGroup.addView(this.bqH, new ViewGroup.LayoutParams(-1, -1));
+    }
+
+    private void s(ViewGroup viewGroup) {
+        this.bqI = LayoutInflater.from(this.mContext).inflate(a.g.layout_standard_web_pop_progress, (ViewGroup) null);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+        layoutParams.addRule(13);
+        viewGroup.addView(this.bqI, layoutParams);
+        this.bqI.setVisibility(8);
+    }
+
+    private int Xb() {
+        return ScreenHelper.getRealScreenWidth(this.mContext);
+    }
+
+    private int Xc() {
+        return ScreenHelper.getRealScreenHeight(this.mContext);
+    }
+
+    private int Xd() {
+        return Xe();
+    }
+
+    private int Xe() {
+        return ScreenHelper.getRealScreenHeight(this.mContext);
+    }
+
+    private void MR() {
+        if (getContentView() != null) {
+            TranslateAnimation translateAnimation = null;
+            switch (this.bOe) {
+                case 5:
+                    translateAnimation = new TranslateAnimation(1, 1.0f, 1, 0.0f, 1, 0.0f, 1, 0.0f);
+                    break;
+                case 80:
+                    translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 1.0f, 1, 0.0f);
+                    break;
+            }
+            if (translateAnimation != null) {
+                translateAnimation.setDuration(250L);
+                translateAnimation.setInterpolator(new LinearInterpolator());
+                getContentView().startAnimation(translateAnimation);
+            }
+        }
+    }
+
+    private boolean Xf() {
+        if (getContentView() == null) {
+            return false;
+        }
+        TranslateAnimation translateAnimation = null;
+        switch (this.bOe) {
+            case 5:
+                translateAnimation = new TranslateAnimation(1, 0.0f, 1, 1.0f, 1, 0.0f, 1, 0.0f);
+                break;
+            case 80:
+                translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, 1.0f);
+                break;
+        }
+        if (translateAnimation != null) {
+            translateAnimation.setDuration(250L);
+            translateAnimation.setInterpolator(new LinearInterpolator());
+            translateAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.live.ak.d.4
+                @Override // android.view.animation.Animation.AnimationListener
+                public void onAnimationStart(Animation animation) {
+                }
+
+                @Override // android.view.animation.Animation.AnimationListener
+                public void onAnimationEnd(Animation animation) {
+                    d.this.Xa();
+                }
+
+                @Override // android.view.animation.Animation.AnimationListener
+                public void onAnimationRepeat(Animation animation) {
+                }
+            });
+            getContentView().startAnimation(translateAnimation);
+            return true;
+        }
+        return false;
+    }
+
+    @Override // com.baidu.live.view.web.f
+    public void eX(int i) {
+        dismiss();
+    }
+
+    private void ah(View view) {
+        if (Build.VERSION.SDK_INT >= 19) {
+            view.setSystemUiVisibility(5380);
+        }
+    }
+}

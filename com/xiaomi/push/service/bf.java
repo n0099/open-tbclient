@@ -11,14 +11,14 @@ import java.util.List;
 public class bf extends al.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ be f5076a;
+    final /* synthetic */ be f5078a;
 
     /* renamed from: a  reason: collision with other field name */
-    boolean f885a = false;
+    boolean f887a = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bf(be beVar) {
-        this.f5076a = beVar;
+        this.f5078a = beVar;
     }
 
     @Override // com.xiaomi.push.al.b
@@ -26,9 +26,9 @@ public class bf extends al.b {
         try {
             ej.a a2 = ej.a.a(Base64.decode(dd.a(com.xiaomi.push.t.m583a(), "http://resolver.msg.xiaomi.net/psc/?t=a", (List<com.xiaomi.push.ay>) null), 10));
             if (a2 != null) {
-                this.f5076a.f883a = a2;
-                this.f885a = true;
-                this.f5076a.e();
+                this.f5078a.f885a = a2;
+                this.f887a = true;
+                this.f5078a.e();
             }
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.m54a("fetch config failure: " + e.getMessage());
@@ -42,15 +42,15 @@ public class bf extends al.b {
         List list2;
         be.a[] aVarArr;
         ej.a aVar;
-        this.f5076a.f882a = null;
-        if (this.f885a) {
-            synchronized (this.f5076a) {
-                list = this.f5076a.f884a;
-                list2 = this.f5076a.f884a;
+        this.f5078a.f884a = null;
+        if (this.f887a) {
+            synchronized (this.f5078a) {
+                list = this.f5078a.f886a;
+                list2 = this.f5078a.f886a;
                 aVarArr = (be.a[]) list.toArray(new be.a[list2.size()]);
             }
             for (be.a aVar2 : aVarArr) {
-                aVar = this.f5076a.f883a;
+                aVar = this.f5078a.f885a;
                 aVar2.a(aVar);
             }
         }

@@ -120,12 +120,12 @@ public class a extends UnitedSchemeBaseDispatcher {
     */
     private boolean z(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler) {
         JSONObject jSONObject;
-        final e aEU = e.aEU();
-        if (aEU == null) {
+        final e aHu = e.aHu();
+        if (aHu == null) {
             c.e(TAG, "swan app is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (TextUtils.isEmpty(aEU.id)) {
+        } else if (TextUtils.isEmpty(aHu.id)) {
             c.e(TAG, "aiapp id is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
@@ -142,15 +142,15 @@ public class a extends UnitedSchemeBaseDispatcher {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            com.baidu.o.a zc = com.baidu.o.d.a.bcX().zc(optString);
-            if (zc != null) {
+            com.baidu.o.a zq = com.baidu.o.d.a.bfx().zq(optString);
+            if (zq != null) {
                 c.e(TAG, "AudioRTC is already created");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 JSONObject jSONObject2 = new JSONObject();
                 try {
                     jSONObject2.putOpt(TiebaInitialize.LogFields.ERROR_CODE, "2005");
                     jSONObject2.putOpt("errMsg", "err duplicate start");
-                    zc.e("onError", jSONObject2);
+                    zq.g("onError", jSONObject2);
                     return false;
                 } catch (JSONException e) {
                     if (DEBUG) {
@@ -186,7 +186,7 @@ public class a extends UnitedSchemeBaseDispatcher {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                     return false;
                 }
-                aEU.aFg().b((Activity) context, PermissionProxy.SCOPE_ID_RECORD, new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.o.e.a.1
+                aHu.aHG().b((Activity) context, PermissionProxy.SCOPE_ID_RECORD, new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.o.e.a.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.ap.e.b
                     /* renamed from: a */
@@ -199,7 +199,7 @@ public class a extends UnitedSchemeBaseDispatcher {
                                 try {
                                     jSONObject3.putOpt(TiebaInitialize.LogFields.ERROR_CODE, "2004");
                                     jSONObject3.putOpt("errMsg", "err user deny");
-                                    aVar.e("onError", jSONObject3);
+                                    aVar.g("onError", jSONObject3);
                                     return;
                                 } catch (JSONException e3) {
                                     if (a.DEBUG) {
@@ -211,7 +211,7 @@ public class a extends UnitedSchemeBaseDispatcher {
                             }
                             return;
                         }
-                        a.this.a(context, unitedSchemeEntity, callbackHandler, m, aVar, aEU, optString);
+                        a.this.a(context, unitedSchemeEntity, callbackHandler, m, aVar, aHu, optString);
                     }
                 });
                 return true;
@@ -223,12 +223,12 @@ public class a extends UnitedSchemeBaseDispatcher {
     }
 
     private boolean A(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        e aEU = e.aEU();
-        if (aEU == null) {
+        e aHu = e.aHu();
+        if (aHu == null) {
             c.e(TAG, "swan app is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (TextUtils.isEmpty(aEU.id)) {
+        } else if (TextUtils.isEmpty(aHu.id)) {
             c.e(TAG, "aiapp id is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
@@ -245,26 +245,26 @@ public class a extends UnitedSchemeBaseDispatcher {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            com.baidu.o.a zc = com.baidu.o.d.a.bcX().zc(optString);
-            if (zc == null) {
+            com.baidu.o.a zq = com.baidu.o.d.a.bfx().zq(optString);
+            if (zq == null) {
                 c.e(TAG, "AudioRTC is not created");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            zc.stop();
-            com.baidu.o.d.a.bcX().zb(optString);
+            zq.stop();
+            com.baidu.o.d.a.bfx().zp(optString);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
             return true;
         }
     }
 
     private boolean B(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        e aEU = e.aEU();
-        if (aEU == null) {
+        e aHu = e.aHu();
+        if (aHu == null) {
             c.e(TAG, "swan app is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (TextUtils.isEmpty(aEU.id)) {
+        } else if (TextUtils.isEmpty(aHu.id)) {
             c.e(TAG, "aiapp id is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
@@ -281,25 +281,25 @@ public class a extends UnitedSchemeBaseDispatcher {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            com.baidu.o.a zc = com.baidu.o.d.a.bcX().zc(optString);
-            if (zc == null) {
+            com.baidu.o.a zq = com.baidu.o.d.a.bfx().zq(optString);
+            if (zq == null) {
                 c.e(TAG, "AudioRTC is not created");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            zc.mute();
+            zq.mute();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
             return true;
         }
     }
 
     private boolean C(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        e aEU = e.aEU();
-        if (aEU == null) {
+        e aHu = e.aHu();
+        if (aHu == null) {
             c.e(TAG, "swan app is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (TextUtils.isEmpty(aEU.id)) {
+        } else if (TextUtils.isEmpty(aHu.id)) {
             c.e(TAG, "aiapp id is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
@@ -316,13 +316,13 @@ public class a extends UnitedSchemeBaseDispatcher {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            com.baidu.o.a zc = com.baidu.o.d.a.bcX().zc(optString);
-            if (zc == null) {
+            com.baidu.o.a zq = com.baidu.o.d.a.bfx().zq(optString);
+            if (zq == null) {
                 c.e(TAG, "AudioRTC is not created");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            zc.unMute();
+            zq.unMute();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
             return true;
         }
@@ -337,8 +337,8 @@ public class a extends UnitedSchemeBaseDispatcher {
             a(context, unitedSchemeEntity, callbackHandler, rtcConfig, aVar, str);
             return;
         }
-        f.axo();
-        eVar.aEO().a(2, new String[]{PermissionRequest.RESOURCE_AUDIO_CAPTURE}, new c.a() { // from class: com.baidu.o.e.a.2
+        f.azO();
+        eVar.aHo().a(2, new String[]{PermissionRequest.RESOURCE_AUDIO_CAPTURE}, new c.a() { // from class: com.baidu.o.e.a.2
             @Override // com.baidu.swan.apps.ab.c.a
             public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                 if (i != 2 || iArr.length <= 0) {
@@ -352,7 +352,7 @@ public class a extends UnitedSchemeBaseDispatcher {
                         try {
                             jSONObject.putOpt(TiebaInitialize.LogFields.ERROR_CODE, "2002");
                             jSONObject.putOpt("errMsg", "err execute");
-                            aVar.e("onError", jSONObject);
+                            aVar.g("onError", jSONObject);
                             return;
                         } catch (JSONException e) {
                             if (a.DEBUG) {
@@ -388,7 +388,7 @@ public class a extends UnitedSchemeBaseDispatcher {
                         try {
                             jSONObject2.putOpt(TiebaInitialize.LogFields.ERROR_CODE, "2002");
                             jSONObject2.putOpt("errMsg", "err execute");
-                            aVar.e("onError", jSONObject2);
+                            aVar.g("onError", jSONObject2);
                             return;
                         } catch (JSONException e2) {
                             if (a.DEBUG) {
@@ -413,7 +413,7 @@ public class a extends UnitedSchemeBaseDispatcher {
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         com.baidu.o.a aVar2 = new com.baidu.o.a(context, rtcConfig, str);
         aVar2.a(aVar);
-        com.baidu.o.d.a.bcX().a(aVar2, str);
+        com.baidu.o.d.a.bfx().a(aVar2, str);
         aVar2.start();
     }
 }

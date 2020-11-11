@@ -6,11 +6,11 @@ import com.baidu.platform.comapi.map.MapController;
 class l implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MapController.a f2922a;
+    final /* synthetic */ MapController.a f2924a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(MapController.a aVar) {
-        this.f2922a = aVar;
+        this.f2924a = aVar;
     }
 
     @Override // java.lang.Runnable

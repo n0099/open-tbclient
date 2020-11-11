@@ -9,81 +9,81 @@ import com.baidu.tieba.f.a;
 /* loaded from: classes22.dex */
 public class c {
     private static final int TOUCH_SLOP = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds20);
-    private a.InterfaceC0705a ljA = new a.InterfaceC0705a() { // from class: com.baidu.tieba.pb.pb.godreply.c.1
-        @Override // com.baidu.tieba.f.a.InterfaceC0705a
+    private final com.baidu.tieba.f.b lpA;
+    private a.InterfaceC0719a lpB = new a.InterfaceC0719a() { // from class: com.baidu.tieba.pb.pb.godreply.c.1
+        @Override // com.baidu.tieba.f.a.InterfaceC0719a
         public void H(int i, int i2) {
-            if (c.this.ljy.isActive() && !c.this.dgZ() && !c.this.dha()) {
-                c.this.tN(true);
+            if (c.this.lpz.isActive() && !c.this.djB() && !c.this.djC()) {
+                c.this.tW(true);
                 c.this.setFullscreen(true);
-                c.this.ljy.dgV().u(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.1
+                c.this.lpz.djx().u(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        c.this.tN(false);
+                        c.this.tW(false);
                     }
                 });
             }
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0705a
+        @Override // com.baidu.tieba.f.a.InterfaceC0719a
         public void I(int i, int i2) {
-            if (c.this.ljy.isActive() && !c.this.dgZ() && c.this.ljy.dgV().dhf() && Math.abs(i2) > c.TOUCH_SLOP) {
-                c.this.ljy.t(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.2
+            if (c.this.lpz.isActive() && !c.this.djB() && c.this.lpz.djx().djH() && Math.abs(i2) > c.TOUCH_SLOP) {
+                c.this.lpz.t(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        c.this.tN(false);
+                        c.this.tW(false);
                     }
                 });
-                c.this.tN(true);
+                c.this.tW(true);
                 c.this.setFullscreen(false);
             }
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0705a
-        public void ce(int i, int i2) {
+        @Override // com.baidu.tieba.f.a.InterfaceC0719a
+        public void cg(int i, int i2) {
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0705a
+        @Override // com.baidu.tieba.f.a.InterfaceC0719a
         public void J(int i, int i2) {
         }
     };
-    private View.OnTouchListener ljB = new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.godreply.c.2
+    private View.OnTouchListener lpC = new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.godreply.c.2
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            c.this.ljz.onTouchEvent(motionEvent);
+            c.this.lpA.onTouchEvent(motionEvent);
             return false;
         }
     };
-    private boolean ljw;
-    private boolean ljx;
-    private final a ljy;
-    private final com.baidu.tieba.f.b ljz;
+    private boolean lpx;
+    private boolean lpy;
+    private final a lpz;
 
     public c(a aVar) {
-        this.ljy = aVar;
-        this.ljz = new com.baidu.tieba.f.b(aVar.lja.getPageContext().getPageActivity());
-        this.ljz.a(this.ljA);
+        this.lpz = aVar;
+        this.lpA = new com.baidu.tieba.f.b(aVar.lpb.getPageContext().getPageActivity());
+        this.lpA.a(this.lpB);
     }
 
     public void initialize() {
-        d dgV = this.ljy.dgV();
-        if (dgV.dhc()) {
-            dgV.getListView().setOnTouchListener(this.ljB);
+        d djx = this.lpz.djx();
+        if (djx.djE()) {
+            djx.getListView().setOnTouchListener(this.lpC);
         }
     }
 
-    public boolean dgZ() {
-        return this.ljw;
+    public boolean djB() {
+        return this.lpx;
     }
 
-    public void tN(boolean z) {
-        this.ljw = z;
+    public void tW(boolean z) {
+        this.lpx = z;
     }
 
-    public boolean dha() {
-        return this.ljx;
+    public boolean djC() {
+        return this.lpy;
     }
 
     public void setFullscreen(boolean z) {
-        this.ljx = z;
+        this.lpy = z;
     }
 }

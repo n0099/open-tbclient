@@ -7,7 +7,7 @@ import java.lang.reflect.Method;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    Object f3664a;
+    Object f3667a;
     Class<?> b;
     Method c;
     Method d;
@@ -16,9 +16,9 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final String a(Context context, Method method) {
-        if (this.f3664a != null && method != null) {
+        if (this.f3667a != null && method != null) {
             try {
-                Object invoke = method.invoke(this.f3664a, context);
+                Object invoke = method.invoke(this.f3667a, context);
                 if (invoke != null) {
                     return (String) invoke;
                 }

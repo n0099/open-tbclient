@@ -7,7 +7,7 @@ import java.io.PushbackInputStream;
 public final class a extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final char[] f4488a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
+    private static final char[] f4490a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
     private static final byte[] b = new byte[256];
     private byte[] c = new byte[4];
 
@@ -16,7 +16,7 @@ public final class a extends d {
             b[i] = -1;
         }
         for (int i2 = 0; i2 < 64; i2++) {
-            b[f4488a[i2]] = (byte) i2;
+            b[f4490a[i2]] = (byte) i2;
         }
     }
 

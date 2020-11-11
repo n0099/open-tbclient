@@ -30,19 +30,19 @@ public class AlaActiveBannerDot extends LinearLayout {
         setGravity(1);
     }
 
-    public void uT(int i) {
+    public void vg(int i) {
         if (getChildCount() > 0) {
             for (int i2 = 0; i2 < getChildCount(); i2++) {
                 if (i2 == i) {
-                    getChildAt(i2).setBackgroundResource(a.f.active_view_dot_selected);
+                    getChildAt(i2).setBackgroundResource(a.e.active_view_dot_selected);
                 } else {
-                    getChildAt(i2).setBackgroundResource(a.f.active_view_dot_unselected);
+                    getChildAt(i2).setBackgroundResource(a.e.active_view_dot_unselected);
                 }
             }
         }
     }
 
-    public void uU(int i) {
+    public void vh(int i) {
         if (i >= 0) {
             removeAllViews();
             if (i == 1) {
@@ -50,11 +50,11 @@ public class AlaActiveBannerDot extends LinearLayout {
                 return;
             }
             setVisibility(0);
-            int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds12);
-            int dimensionPixelSize2 = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds16);
+            int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds12);
+            int dimensionPixelSize2 = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds16);
             for (int i2 = 0; i2 < i; i2++) {
                 View view = new View(this.mContext);
-                view.setBackgroundResource(a.f.active_view_dot_unselected);
+                view.setBackgroundResource(a.e.active_view_dot_unselected);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
                 if (i2 != 0) {
                     layoutParams.leftMargin = dimensionPixelSize2;
@@ -62,7 +62,7 @@ public class AlaActiveBannerDot extends LinearLayout {
                 addView(view, layoutParams);
             }
             if (getChildAt(0) != null) {
-                getChildAt(0).setBackgroundResource(a.f.active_view_dot_selected);
+                getChildAt(0).setBackgroundResource(a.e.active_view_dot_selected);
             }
         }
     }

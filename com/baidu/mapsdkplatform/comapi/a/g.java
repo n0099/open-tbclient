@@ -7,20 +7,20 @@ import com.baidu.mapapi.animation.Animation;
 public class g implements Animator.AnimatorListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f2193a;
+    final /* synthetic */ f f2195a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.f2193a = fVar;
+        this.f2195a = fVar;
     }
 
     @Override // android.animation.Animator.AnimatorListener
     public void onAnimationCancel(Animator animator) {
         Animation.AnimationListener animationListener;
         Animation.AnimationListener animationListener2;
-        animationListener = this.f2193a.d;
+        animationListener = this.f2195a.d;
         if (animationListener != null) {
-            animationListener2 = this.f2193a.d;
+            animationListener2 = this.f2195a.d;
             animationListener2.onAnimationCancel();
         }
     }
@@ -29,9 +29,9 @@ public class g implements Animator.AnimatorListener {
     public void onAnimationEnd(Animator animator) {
         Animation.AnimationListener animationListener;
         Animation.AnimationListener animationListener2;
-        animationListener = this.f2193a.d;
+        animationListener = this.f2195a.d;
         if (animationListener != null) {
-            animationListener2 = this.f2193a.d;
+            animationListener2 = this.f2195a.d;
             animationListener2.onAnimationEnd();
         }
     }
@@ -40,9 +40,9 @@ public class g implements Animator.AnimatorListener {
     public void onAnimationRepeat(Animator animator) {
         Animation.AnimationListener animationListener;
         Animation.AnimationListener animationListener2;
-        animationListener = this.f2193a.d;
+        animationListener = this.f2195a.d;
         if (animationListener != null) {
-            animationListener2 = this.f2193a.d;
+            animationListener2 = this.f2195a.d;
             animationListener2.onAnimationRepeat();
         }
     }
@@ -51,9 +51,9 @@ public class g implements Animator.AnimatorListener {
     public void onAnimationStart(Animator animator) {
         Animation.AnimationListener animationListener;
         Animation.AnimationListener animationListener2;
-        animationListener = this.f2193a.d;
+        animationListener = this.f2195a.d;
         if (animationListener != null) {
-            animationListener2 = this.f2193a.d;
+            animationListener2 = this.f2195a.d;
             animationListener2.onAnimationStart();
         }
     }

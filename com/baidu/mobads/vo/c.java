@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public class c implements IXAdResponseInfo {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2453a;
+    private int f2455a;
     private Boolean b;
     private String c;
     private int d;
@@ -31,7 +31,7 @@ public class c implements IXAdResponseInfo {
     private long q = System.currentTimeMillis();
 
     public c(String str) {
-        this.f2453a = 0;
+        this.f2455a = 0;
         this.b = false;
         this.i = -1;
         this.j = -1;
@@ -52,7 +52,7 @@ public class c implements IXAdResponseInfo {
         } catch (Exception e2) {
             this.p = new ArrayList<>();
         }
-        this.f2453a = jSONObject.optInt("n", 0);
+        this.f2455a = jSONObject.optInt("n", 0);
         this.d = jSONObject.optInt("x", 0);
         this.e = jSONObject.optInt("y", 0);
         this.b = Boolean.valueOf(jSONObject.optInt("m", 0) == 1);
@@ -81,12 +81,12 @@ public class c implements IXAdResponseInfo {
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public int getAdsNum() {
-        return this.f2453a;
+        return this.f2455a;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public void setAdsNum(int i) {
-        this.f2453a = i;
+        this.f2455a = i;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo

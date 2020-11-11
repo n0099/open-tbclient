@@ -45,7 +45,7 @@ public class a extends FrameLayout implements ICyberVideoView {
     private int W;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1359a;
+    private int f1361a;
     private int aa;
     private boolean ab;
     private float ac;
@@ -137,7 +137,7 @@ public class a extends FrameLayout implements ICyberVideoView {
         this.m = null;
         this.n = null;
         this.p = false;
-        this.f1359a = 0;
+        this.f1361a = 0;
         this.T = "0.0.0.0";
         this.U = true;
         this.V = 0;
@@ -165,7 +165,7 @@ public class a extends FrameLayout implements ICyberVideoView {
         this.m = null;
         this.n = null;
         this.p = false;
-        this.f1359a = 0;
+        this.f1361a = 0;
         this.T = "0.0.0.0";
         this.U = true;
         this.V = 0;
@@ -190,7 +190,7 @@ public class a extends FrameLayout implements ICyberVideoView {
         this.m = null;
         this.n = null;
         this.p = false;
-        this.f1359a = 0;
+        this.f1361a = 0;
         this.T = "0.0.0.0";
         this.U = true;
         this.V = 0;
@@ -833,7 +833,7 @@ public class a extends FrameLayout implements ICyberVideoView {
     }
 
     public void setScaleType(int i2) {
-        this.f1359a = i2;
+        this.f1361a = i2;
     }
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView

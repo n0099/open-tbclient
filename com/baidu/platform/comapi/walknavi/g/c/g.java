@@ -7,11 +7,11 @@ import android.widget.RelativeLayout;
 public class g implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f3031a;
+    final /* synthetic */ c f3033a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(c cVar) {
-        this.f3031a = cVar;
+        this.f3033a = cVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -25,15 +25,15 @@ public class g implements Animation.AnimationListener {
         RelativeLayout relativeLayout3;
         RelativeLayout relativeLayout4;
         RelativeLayout relativeLayout5;
-        relativeLayout = this.f3031a.y;
+        relativeLayout = this.f3033a.y;
         relativeLayout.clearAnimation();
-        relativeLayout2 = this.f3031a.y;
+        relativeLayout2 = this.f3033a.y;
         relativeLayout2.setVisibility(8);
-        relativeLayout3 = this.f3031a.I;
+        relativeLayout3 = this.f3033a.I;
         relativeLayout3.clearAnimation();
-        relativeLayout4 = this.f3031a.I;
+        relativeLayout4 = this.f3033a.I;
         relativeLayout4.setVisibility(8);
-        relativeLayout5 = this.f3031a.J;
+        relativeLayout5 = this.f3033a.J;
         relativeLayout5.setVisibility(0);
     }
 

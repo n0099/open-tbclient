@@ -62,11 +62,11 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
     public void init(Context context, AttributeSet attributeSet) {
         this.mContext = context;
         LayoutInflater.from(context).inflate(getLayout(), this);
-        this.mGuide = (TextView) findViewById(a.g.no_network_guide);
+        this.mGuide = (TextView) findViewById(a.f.no_network_guide);
         setOnClickListener(this);
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.k.sdk_noNetworkView);
-            this.isSupportOffline = obtainStyledAttributes.getBoolean(a.k.sdk_noNetworkView_is_support_offline, false);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.sdk_noNetworkView);
+            this.isSupportOffline = obtainStyledAttributes.getBoolean(a.j.sdk_noNetworkView_is_support_offline, false);
             obtainStyledAttributes.recycle();
         }
         try {
@@ -83,7 +83,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
     }
 
     protected int getLayout() {
-        return a.h.sdk_no_network_view;
+        return a.g.sdk_no_network_view;
     }
 
     public void addNetworkChangeListener(NetworkChangeListener networkChangeListener) {
@@ -117,7 +117,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         if (z) {
             if (1 != this.currentState) {
                 this.currentState = 1;
-                this.mGuide.setText(a.i.sdk_no_network_guide);
+                this.mGuide.setText(a.h.sdk_no_network_guide);
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
                 alphaAnimation.setDuration(500L);
@@ -130,7 +130,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         } else if (this.isSupportOffline && !BdSocketLinkService.isAvailable()) {
             if (2 != this.currentState) {
                 this.currentState = 2;
-                this.mGuide.setText(a.i.sdk_offline_guide);
+                this.mGuide.setText(a.h.sdk_offline_guide);
                 AlphaAnimation alphaAnimation2 = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation2.setFillAfter(true);
                 alphaAnimation2.setDuration(500L);
@@ -195,7 +195,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
             ((TbPageContext) bdPageContext).getLayoutMode().setNightMode(i == 1);
             ((TbPageContext) bdPageContext).getLayoutMode().onModeChanged(this);
         }
-        SkinManager.setBackgroundResource(this, a.f.sdk_nonetworkview_bg_selector, i);
+        SkinManager.setBackgroundResource(this, a.e.sdk_nonetworkview_bg_selector, i);
     }
 
     public static void updateUI() {

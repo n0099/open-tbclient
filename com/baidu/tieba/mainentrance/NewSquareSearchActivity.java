@@ -31,22 +31,22 @@ import java.util.List;
 import tbclient.SearchSug.ForumInfo;
 /* loaded from: classes24.dex */
 public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivity> implements HotForumModel.a {
-    private HotForumModel kGd;
-    private com.baidu.tieba.mainentrance.a.e kGe;
-    private HotSearchInfoData kGh;
+    private HotForumModel kLZ;
+    private com.baidu.tieba.mainentrance.a.e kMa;
+    private HotSearchInfoData kMd;
     private HotSearchInfoData mHotSearchInfo;
-    private boolean kGb = false;
-    private boolean kGc = false;
-    private com.baidu.adp.framework.listener.a kGf = new com.baidu.adp.framework.listener.a(1003196, CmdConfigSocket.CMD_SEARCH_LIST) { // from class: com.baidu.tieba.mainentrance.NewSquareSearchActivity.1
+    private boolean kLX = false;
+    private boolean kLY = false;
+    private com.baidu.adp.framework.listener.a kMb = new com.baidu.adp.framework.listener.a(1003196, CmdConfigSocket.CMD_SEARCH_LIST) { // from class: com.baidu.tieba.mainentrance.NewSquareSearchActivity.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             List<String> list;
             List<ForumInfo> list2 = null;
             if ((responsedMessage instanceof SearchListHttpResMessage) || (responsedMessage instanceof SearchListSocketResMessage)) {
                 if (responsedMessage.getError() != 0) {
-                    if (!NewSquareSearchActivity.this.kGb) {
+                    if (!NewSquareSearchActivity.this.kLX) {
                         NewSquareSearchActivity.this.showToast(NewSquareSearchActivity.this.getActivity().getString(R.string.neterror));
-                        NewSquareSearchActivity.this.kGb = true;
+                        NewSquareSearchActivity.this.kLX = true;
                         return;
                     }
                     return;
@@ -62,17 +62,17 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
                 } else {
                     list = null;
                 }
-                NewSquareSearchActivity.this.kGe.ex(list);
-                NewSquareSearchActivity.this.kGe.ey(list2);
+                NewSquareSearchActivity.this.kMa.eF(list);
+                NewSquareSearchActivity.this.kMa.eG(list2);
             }
         }
     };
-    private CustomMessageListener kGg = new CustomMessageListener(CmdConfigCustom.CMD_SEARCH_CREATE_BAR) { // from class: com.baidu.tieba.mainentrance.NewSquareSearchActivity.2
+    private CustomMessageListener kMc = new CustomMessageListener(CmdConfigCustom.CMD_SEARCH_CREATE_BAR) { // from class: com.baidu.tieba.mainentrance.NewSquareSearchActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                NewSquareSearchActivity.this.NI(customResponsedMessage.getData().toString());
+                NewSquareSearchActivity.this.NZ(customResponsedMessage.getData().toString());
             }
         }
     };
@@ -84,36 +84,36 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         setSwipeBackEnabled(false);
         initData();
         getWindow().setSoftInputMode(0);
-        registerListener(this.kGf);
-        registerListener(this.kGg);
-        this.kGe = new com.baidu.tieba.mainentrance.a.e(this, this.kGc);
-        this.kGd = new HotForumModel(getPageContext(), this);
-        cYG();
+        registerListener(this.kMb);
+        registerListener(this.kMc);
+        this.kMa = new com.baidu.tieba.mainentrance.a.e(this, this.kLY);
+        this.kLZ = new HotForumModel(getPageContext(), this);
+        dbi();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.kGe != null) {
-            this.kGe.onResume();
+        if (this.kMa != null) {
+            this.kMa.onResume();
         }
     }
 
     private void initData() {
         Intent intent = getIntent();
         if (intent != null) {
-            this.kGc = intent.getBooleanExtra(SquareSearchActivityConfig.IS_FROM_ENTER_FROUM, false);
+            this.kLY = intent.getBooleanExtra(SquareSearchActivityConfig.IS_FROM_ENTER_FROUM, false);
             String stringExtra = intent.getStringExtra("search");
             String stringExtra2 = intent.getStringExtra(SquareSearchActivityConfig.SEARCH_VALUE);
             if (!TextUtils.isEmpty(stringExtra)) {
-                this.kGh = new HotSearchInfoData();
+                this.kMd = new HotSearchInfoData();
                 if (StringUtils.isNull(stringExtra2)) {
-                    this.kGh.setName(stringExtra);
+                    this.kMd.setName(stringExtra);
                 } else {
-                    this.kGh.setName(stringExtra2);
+                    this.kMd.setName(stringExtra2);
                 }
-                this.kGh.NH(stringExtra);
+                this.kMd.NY(stringExtra);
             }
         }
     }
@@ -122,37 +122,37 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.kGe != null) {
-            this.kGe.onDestroy();
+        if (this.kMa != null) {
+            this.kMa.onDestroy();
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921504, null));
     }
 
-    private void cYG() {
-        if (this.kGh != null && !TextUtils.isEmpty(this.kGh.coz()) && !TextUtils.isEmpty(this.kGh.getName())) {
-            this.kGe.b(this.kGh);
+    private void dbi() {
+        if (this.kMd != null && !TextUtils.isEmpty(this.kMd.cra()) && !TextUtils.isEmpty(this.kMd.getName())) {
+            this.kMa.b(this.kMd);
             return;
         }
-        this.mHotSearchInfo = (HotSearchInfoData) OrmObject.objectWithJsonStr(com.baidu.tbadk.core.sharedPref.b.bnH().getString(SharedPrefConfig.HOT_SEARCH_INFO, ""), HotSearchInfoData.class);
-        if (this.mHotSearchInfo != null && !TextUtils.isEmpty(this.mHotSearchInfo.coz()) && !TextUtils.isEmpty(this.mHotSearchInfo.getName())) {
-            this.kGe.b(this.mHotSearchInfo);
+        this.mHotSearchInfo = (HotSearchInfoData) OrmObject.objectWithJsonStr(com.baidu.tbadk.core.sharedPref.b.bqh().getString(SharedPrefConfig.HOT_SEARCH_INFO, ""), HotSearchInfoData.class);
+        if (this.mHotSearchInfo != null && !TextUtils.isEmpty(this.mHotSearchInfo.cra()) && !TextUtils.isEmpty(this.mHotSearchInfo.getName())) {
+            this.kMa.b(this.mHotSearchInfo);
         } else {
-            this.kGd.cYE();
+            this.kLZ.dbg();
         }
     }
 
     @Override // com.baidu.tieba.mainentrance.HotForumModel.a
-    public void NG(String str) {
+    public void NX(String str) {
     }
 
     @Override // com.baidu.tieba.mainentrance.HotForumModel.a
     public void a(List<b> list, List<c> list2, HotSearchInfoData hotSearchInfoData, String str) {
         a(hotSearchInfoData);
-        this.kGe.b(this.mHotSearchInfo);
+        this.kMa.b(this.mHotSearchInfo);
     }
 
     private void a(HotSearchInfoData hotSearchInfoData) {
-        if (!this.kGc && hotSearchInfoData != null) {
+        if (!this.kLY && hotSearchInfoData != null) {
             this.mHotSearchInfo = hotSearchInfoData;
         }
     }
@@ -160,15 +160,15 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.kGe.onChangeSkinType(i);
+        this.kMa.onChangeSkinType(i);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            BaseWebView cZC = this.kGe.cZC();
-            if (i == 4 && cZC != null && cZC.canGoBack()) {
-                cZC.goBack();
+            BaseWebView dce = this.kMa.dce();
+            if (i == 4 && dce != null && dce.canGoBack()) {
+                dce.goBack();
                 return true;
             }
             com.baidu.adp.lib.f.e.mY().postDelayed(new Runnable() { // from class: com.baidu.tieba.mainentrance.NewSquareSearchActivity.3
@@ -203,7 +203,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void NI(String str) {
+    public void NZ(String str) {
         if (!j.isNetWorkAvailable()) {
             showToast(R.string.neterror);
         } else if (!StringUtils.isNull(str)) {

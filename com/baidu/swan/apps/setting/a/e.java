@@ -37,8 +37,8 @@ public class e extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
             return false;
         }
-        if (com.baidu.swan.apps.performance.b.c.aBx()) {
-            String string = eVar.aFg().getString(a.C0386a.b(eVar), (String) null);
+        if (com.baidu.swan.apps.performance.b.c.aDX()) {
+            String string = eVar.aHG().getString(a.C0398a.b(eVar), (String) null);
             if (TextUtils.isEmpty(string)) {
                 a(context, unitedSchemeEntity, callbackHandler, eVar, optString);
             } else {
@@ -70,7 +70,7 @@ public class e extends aa {
             com.baidu.swan.apps.console.c.e("getSwanId", "network_error");
             return;
         }
-        com.baidu.swan.apps.runtime.d.aEQ().aES().adF().afw().bm(context).A(new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<JSONObject>>() { // from class: com.baidu.swan.apps.setting.a.e.1
+        com.baidu.swan.apps.runtime.d.aHq().aHs().agf().ahW().bm(context).A(new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<JSONObject>>() { // from class: com.baidu.swan.apps.setting.a.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: a */
@@ -78,7 +78,7 @@ public class e extends aa {
                 if (hVar.isOk() && hVar.mData != null) {
                     UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(hVar.mData, 0).toString(), str);
                     if (eVar != null) {
-                        eVar.aFg().putString(a.C0386a.b(eVar), hVar.mData.toString());
+                        eVar.aHG().putString(a.C0398a.b(eVar), hVar.mData.toString());
                     }
                     com.baidu.swan.apps.console.c.i("getSwanId", "getSwanId success");
                     return;
@@ -86,6 +86,6 @@ public class e extends aa {
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(10001, "internal_error").toString(), str);
                 com.baidu.swan.apps.console.c.e("getSwanId", "getSwanId failed: internal_error");
             }
-        }).aGL();
+        }).aJl();
     }
 }

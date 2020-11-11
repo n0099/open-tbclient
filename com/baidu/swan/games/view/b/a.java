@@ -20,29 +20,29 @@ import com.baidu.swan.games.n.a;
 import com.baidu.swan.games.n.c;
 /* loaded from: classes10.dex */
 public class a {
-    private EditText dUW;
-    private EditText dUX;
-    private RelativeLayout dUY;
-    private Button dUZ;
-    private a.InterfaceC0524a dVb;
-    private c dVc;
+    private EditText eaO;
+    private EditText eaP;
+    private RelativeLayout eaQ;
+    private Button eaR;
+    private a.InterfaceC0536a eaT;
+    private c eaU;
     private RelativeLayout mRootView;
-    private boolean dVa = false;
-    private View.OnClickListener dVd = new View.OnClickListener() { // from class: com.baidu.swan.games.view.b.a.1
+    private boolean eaS = false;
+    private View.OnClickListener eaV = new View.OnClickListener() { // from class: com.baidu.swan.games.view.b.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.dUX != null && a.this.dVa) {
-                if (a.this.dVb != null) {
-                    a.this.dVb.wV(a.this.dUX.getText().toString());
+            if (a.this.eaP != null && a.this.eaS) {
+                if (a.this.eaT != null) {
+                    a.this.eaT.xj(a.this.eaP.getText().toString());
                 }
-                if (a.this.dVc != null && !a.this.dVc.dQW && a.this.dVb != null) {
-                    a.this.dVb.aTK();
-                    a.this.xK("");
+                if (a.this.eaU != null && !a.this.eaU.dWO && a.this.eaT != null) {
+                    a.this.eaT.aWk();
+                    a.this.xY("");
                 }
             }
         }
     };
-    private TextWatcher dVe = new TextWatcher() { // from class: com.baidu.swan.games.view.b.a.2
+    private TextWatcher eaW = new TextWatcher() { // from class: com.baidu.swan.games.view.b.a.2
         @Override // android.text.TextWatcher
         public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         }
@@ -53,33 +53,33 @@ public class a {
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(final Editable editable) {
-            if (a.this.dVb != null) {
-                a.this.dVb.wU(editable.toString());
+            if (a.this.eaT != null) {
+                a.this.eaT.xi(editable.toString());
             }
-            a.this.dUZ.post(new Runnable() { // from class: com.baidu.swan.games.view.b.a.2.1
+            a.this.eaR.post(new Runnable() { // from class: com.baidu.swan.games.view.b.a.2.1
                 @Override // java.lang.Runnable
                 public void run() {
                     if (TextUtils.isEmpty(editable.toString())) {
-                        a.this.dUZ.setEnabled(false);
-                    } else if (!a.this.dUZ.isEnabled()) {
-                        a.this.dUZ.setEnabled(true);
+                        a.this.eaR.setEnabled(false);
+                    } else if (!a.this.eaR.isEnabled()) {
+                        a.this.eaR.setEnabled(true);
                     }
                 }
             });
         }
     };
-    private TextView.OnEditorActionListener dVf = new TextView.OnEditorActionListener() { // from class: com.baidu.swan.games.view.b.a.3
+    private TextView.OnEditorActionListener eaX = new TextView.OnEditorActionListener() { // from class: com.baidu.swan.games.view.b.a.3
         @Override // android.widget.TextView.OnEditorActionListener
         public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-            if (a.this.dVc == null || a.this.dVc.dQX != i || a.this.dUX == null || !a.this.dVa) {
+            if (a.this.eaU == null || a.this.eaU.dWP != i || a.this.eaP == null || !a.this.eaS) {
                 return false;
             }
-            if (a.this.dVb != null) {
-                a.this.dVb.wV(a.this.dUX.getText().toString());
+            if (a.this.eaT != null) {
+                a.this.eaT.xj(a.this.eaP.getText().toString());
             }
-            if (!a.this.dVc.dQW && a.this.dVb != null) {
-                a.this.dVb.aTK();
-                a.this.xK("");
+            if (!a.this.eaU.dWO && a.this.eaT != null) {
+                a.this.eaT.aWk();
+                a.this.xY("");
             }
             return true;
         }
@@ -87,17 +87,17 @@ public class a {
 
     public a(Context context) {
         this.mRootView = (RelativeLayout) LayoutInflater.from(context).inflate(a.g.aiapps_ai_games_input_view, (ViewGroup) null);
-        this.dUW = (EditText) this.mRootView.findViewById(a.f.ai_games_virtual_input_et);
-        this.dUY = (RelativeLayout) this.mRootView.findViewById(a.f.ai_games_real_input_container);
-        this.dUX = (EditText) this.mRootView.findViewById(a.f.ai_games_real_input_et);
-        this.dUZ = (Button) this.mRootView.findViewById(a.f.ai_games_input_send_btn);
-        this.dUZ.setOnClickListener(this.dVd);
-        this.dUX.addTextChangedListener(this.dVe);
-        this.dUX.setOnEditorActionListener(this.dVf);
-        this.dUZ.post(new Runnable() { // from class: com.baidu.swan.games.view.b.a.4
+        this.eaO = (EditText) this.mRootView.findViewById(a.f.ai_games_virtual_input_et);
+        this.eaQ = (RelativeLayout) this.mRootView.findViewById(a.f.ai_games_real_input_container);
+        this.eaP = (EditText) this.mRootView.findViewById(a.f.ai_games_real_input_et);
+        this.eaR = (Button) this.mRootView.findViewById(a.f.ai_games_input_send_btn);
+        this.eaR.setOnClickListener(this.eaV);
+        this.eaP.addTextChangedListener(this.eaW);
+        this.eaP.setOnEditorActionListener(this.eaX);
+        this.eaR.post(new Runnable() { // from class: com.baidu.swan.games.view.b.a.4
             @Override // java.lang.Runnable
             public void run() {
-                a.this.dUZ.setEnabled(false);
+                a.this.eaR.setEnabled(false);
             }
         });
     }
@@ -106,68 +106,68 @@ public class a {
         return this.mRootView;
     }
 
-    public boolean aWb() {
-        if (this.dVa) {
+    public boolean aYB() {
+        if (this.eaS) {
             return false;
         }
-        this.dUW.setVisibility(0);
-        this.dUY.setVisibility(8);
-        this.dUW.setFocusableInTouchMode(true);
-        this.dUW.requestFocus();
-        ((InputMethodManager) AppRuntime.getAppContext().getSystemService("input_method")).showSoftInput(this.dUW, 0);
+        this.eaO.setVisibility(0);
+        this.eaQ.setVisibility(8);
+        this.eaO.setFocusableInTouchMode(true);
+        this.eaO.requestFocus();
+        ((InputMethodManager) AppRuntime.getAppContext().getSystemService("input_method")).showSoftInput(this.eaO, 0);
         return true;
     }
 
-    public void mf(int i) {
-        this.dUY.setVisibility(0);
-        this.dUX.setFocusableInTouchMode(true);
-        this.dUX.requestFocus();
-        this.dUW.setVisibility(8);
-        this.dVa = true;
-        if (this.dVb != null) {
-            this.dVb.lX(i);
+    public void mp(int i) {
+        this.eaQ.setVisibility(0);
+        this.eaP.setFocusableInTouchMode(true);
+        this.eaP.requestFocus();
+        this.eaO.setVisibility(8);
+        this.eaS = true;
+        if (this.eaT != null) {
+            this.eaT.mh(i);
         }
     }
 
     public void hideKeyboard() {
         InputMethodManager inputMethodManager = (InputMethodManager) AppRuntime.getAppContext().getSystemService("input_method");
-        if (inputMethodManager.isActive() && this.dUX != null) {
-            inputMethodManager.hideSoftInputFromWindow(this.dUX.getApplicationWindowToken(), 0);
-            this.dVa = false;
-            this.dUW.setVisibility(8);
-            this.dUY.setVisibility(8);
-            if (this.dVb != null && this.dUX != null) {
-                this.dVb.wW(this.dUX.getText().toString());
+        if (inputMethodManager.isActive() && this.eaP != null) {
+            inputMethodManager.hideSoftInputFromWindow(this.eaP.getApplicationWindowToken(), 0);
+            this.eaS = false;
+            this.eaO.setVisibility(8);
+            this.eaQ.setVisibility(8);
+            if (this.eaT != null && this.eaP != null) {
+                this.eaT.xk(this.eaP.getText().toString());
             }
         }
     }
 
-    public void a(a.InterfaceC0524a interfaceC0524a) {
-        this.dVb = interfaceC0524a;
+    public void a(a.InterfaceC0536a interfaceC0536a) {
+        this.eaT = interfaceC0536a;
     }
 
     public void a(final c cVar) {
-        this.dVc = cVar;
-        if (this.dUX != null && cVar != null) {
-            if (!TextUtils.isEmpty(cVar.dQU)) {
-                this.dUX.setText(cVar.dQU);
+        this.eaU = cVar;
+        if (this.eaP != null && cVar != null) {
+            if (!TextUtils.isEmpty(cVar.dWM)) {
+                this.eaP.setText(cVar.dWM);
                 if (cVar.maxLength > 0) {
-                    if (!TextUtils.isEmpty(cVar.dQU) && cVar.dQU.length() > cVar.maxLength) {
-                        cVar.maxLength = cVar.dQU.length();
+                    if (!TextUtils.isEmpty(cVar.dWM) && cVar.dWM.length() > cVar.maxLength) {
+                        cVar.maxLength = cVar.dWM.length();
                     }
-                    this.dUX.setFilters(new InputFilter[]{new InputFilter.LengthFilter(cVar.maxLength)});
+                    this.eaP.setFilters(new InputFilter[]{new InputFilter.LengthFilter(cVar.maxLength)});
                 }
-                this.dUX.postDelayed(new Runnable() { // from class: com.baidu.swan.games.view.b.a.5
+                this.eaP.postDelayed(new Runnable() { // from class: com.baidu.swan.games.view.b.a.5
                     @Override // java.lang.Runnable
                     public void run() {
                         int length;
                         try {
-                            if (a.this.dUX.getText().length() <= cVar.dQU.length()) {
-                                length = a.this.dUX.getText().length();
+                            if (a.this.eaP.getText().length() <= cVar.dWM.length()) {
+                                length = a.this.eaP.getText().length();
                             } else {
-                                length = cVar.dQU.length();
+                                length = cVar.dWM.length();
                             }
-                            a.this.dUX.setSelection(length);
+                            a.this.eaP.setSelection(length);
                         } catch (Exception e) {
                             if (com.baidu.swan.apps.b.DEBUG) {
                                 e.printStackTrace();
@@ -176,35 +176,35 @@ public class a {
                     }
                 }, 300L);
             } else {
-                this.dUX.setText("");
+                this.eaP.setText("");
             }
-            this.dUZ.setEnabled(TextUtils.isEmpty(cVar.dQU) ? false : true);
-            if (cVar.dQV) {
-                this.dUX.setMinLines(1);
-                this.dUX.setInputType(131073);
-                this.dUZ.setText(cVar.dQY);
+            this.eaR.setEnabled(TextUtils.isEmpty(cVar.dWM) ? false : true);
+            if (cVar.dWN) {
+                this.eaP.setMinLines(1);
+                this.eaP.setInputType(131073);
+                this.eaR.setText(cVar.dWQ);
                 return;
             }
-            this.dUX.setMaxLines(1);
-            this.dUX.setInputType(1);
+            this.eaP.setMaxLines(1);
+            this.eaP.setInputType(1);
         }
     }
 
-    public boolean xK(final String str) {
-        if (!this.dVa || this.dUX == null) {
+    public boolean xY(final String str) {
+        if (!this.eaS || this.eaP == null) {
             return false;
         }
-        this.dUX.setText(str);
-        this.dUX.postDelayed(new Runnable() { // from class: com.baidu.swan.games.view.b.a.6
+        this.eaP.setText(str);
+        this.eaP.postDelayed(new Runnable() { // from class: com.baidu.swan.games.view.b.a.6
             @Override // java.lang.Runnable
             public void run() {
-                a.this.dUX.setSelection(str.length());
+                a.this.eaP.setSelection(str.length());
             }
         }, 300L);
         return true;
     }
 
-    public boolean aWc() {
-        return this.dVa;
+    public boolean aYC() {
+        return this.eaS;
     }
 }

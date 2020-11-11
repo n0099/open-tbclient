@@ -14,17 +14,17 @@ import java.util.Map;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1564a;
+    private Context f1566a;
     private C0127a b;
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [66=4] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(Context context, int i, Bundle bundle) {
-        this.f1564a = context;
+        this.f1566a = context;
         this.b = new C0127a();
         b.a a2 = b.a(i);
-        c a3 = b.a(context).a(context.getApplicationContext(), a2.f1567a);
-        this.b.j = a2.f1567a;
+        c a3 = b.a(context).a(context.getApplicationContext(), a2.f1569a);
+        this.b.j = a2.f1569a;
         try {
             if (!a3.q || !a3.r) {
                 this.b.i = a2.b;
@@ -56,7 +56,7 @@ public class a {
 
     private void a(String[] strArr, b.a aVar) {
         for (String str : strArr) {
-            String str2 = b.b(this.f1564a, aVar) + "/lib" + str + PluginInstallerService.APK_LIB_SUFFIX;
+            String str2 = b.b(this.f1566a, aVar) + "/lib" + str + PluginInstallerService.APK_LIB_SUFFIX;
             if (g.a(str2)) {
                 g.b(str2);
             }
@@ -70,7 +70,7 @@ public class a {
         try {
             int length = strArr.length;
             for (int i = 0; i < length; i++) {
-                System.load(b.b(this.f1564a, aVar) + "/lib" + strArr[i] + PluginInstallerService.APK_LIB_SUFFIX);
+                System.load(b.b(this.f1566a, aVar) + "/lib" + strArr[i] + PluginInstallerService.APK_LIB_SUFFIX);
             }
             this.b.i = cVar.n;
         } catch (Throwable th) {

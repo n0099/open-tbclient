@@ -14,84 +14,84 @@ import java.util.Map;
 /* loaded from: classes10.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final HashMap<String, Long> cQW = new HashMap<>();
-    private final HashMap<String, String> cQX = new HashMap<>();
-    private boolean cQY = false;
-    private boolean cQZ = false;
+    private final HashMap<String, Long> cWP = new HashMap<>();
+    private final HashMap<String, String> cWQ = new HashMap<>();
+    private boolean cWR = false;
+    private boolean cWS = false;
 
-    public synchronized void oA(@NonNull String str) {
-        if (!this.cQZ && !this.cQW.containsKey(str)) {
-            this.cQW.put(str, Long.valueOf(System.currentTimeMillis()));
+    public synchronized void oO(@NonNull String str) {
+        if (!this.cWS && !this.cWP.containsKey(str)) {
+            this.cWP.put(str, Long.valueOf(System.currentTimeMillis()));
         }
     }
 
-    public synchronized boolean oB(@NonNull String str) {
-        return this.cQW.containsKey(str);
+    public synchronized boolean oP(@NonNull String str) {
+        return this.cWP.containsKey(str);
     }
 
-    public synchronized boolean oC(@NonNull String str) {
-        return this.cQX.containsKey(str);
+    public synchronized boolean oQ(@NonNull String str) {
+        return this.cWQ.containsKey(str);
     }
 
     public synchronized void bJ(String str, String str2) {
-        if (!this.cQZ) {
-            this.cQX.put(str, str2);
+        if (!this.cWS) {
+            this.cWQ.put(str, str2);
         }
     }
 
-    public synchronized void aty() {
-        this.cQZ = true;
+    public synchronized void avY() {
+        this.cWS = true;
     }
 
     public synchronized boolean isFinished() {
-        return this.cQZ;
+        return this.cWS;
     }
 
-    public void atz() {
-        final b.a aEY = d.aEQ().aEM().aEY();
+    public void avZ() {
+        final b.a aHy = d.aHq().aHm().aHy();
         p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.inlinewidget.f.b.a.1
             @Override // java.lang.Runnable
             public void run() {
-                a.this.a(aEY);
+                a.this.a(aHy);
             }
         }, "VideoStaticRecorder");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void a(b.a aVar) {
-        if (!this.cQY) {
-            this.cQY = true;
-            boolean equals = TextUtils.equals("1", this.cQX.get("autoPlay"));
-            boolean equals2 = TextUtils.equals("1", this.cQX.get("playMethod"));
+        if (!this.cWR) {
+            this.cWR = true;
+            boolean equals = TextUtils.equals("1", this.cWQ.get("autoPlay"));
+            boolean equals2 = TextUtils.equals("1", this.cWQ.get("playMethod"));
             if (DEBUG) {
                 Log.d("VideoStaticRecorder", "submit: autoPlay:" + equals + ",apiPlay:" + equals2);
             }
             if (!equals && !equals2) {
-                atA();
+                awa();
             } else {
-                i.qD("video");
-                HybridUbcFlow qv = i.qv("video");
-                for (Map.Entry<String, Long> entry : this.cQW.entrySet()) {
-                    qv.f(new UbcFlowEvent(entry.getKey()).bC(entry.getValue().longValue()));
+                i.qR("video");
+                HybridUbcFlow qJ = i.qJ("video");
+                for (Map.Entry<String, Long> entry : this.cWP.entrySet()) {
+                    qJ.f(new UbcFlowEvent(entry.getKey()).bY(entry.getValue().longValue()));
                 }
-                for (Map.Entry<String, String> entry2 : this.cQX.entrySet()) {
-                    qv.ci(entry2.getKey(), entry2.getValue());
+                for (Map.Entry<String, String> entry2 : this.cWQ.entrySet()) {
+                    qJ.ci(entry2.getKey(), entry2.getValue());
                 }
-                String qA = qv.qA("fmpArrived");
-                if (TextUtils.isEmpty(qA)) {
-                    qA = "0";
+                String qO = qJ.qO("fmpArrived");
+                if (TextUtils.isEmpty(qO)) {
+                    qO = "0";
                 }
-                qv.ci("fmpArrived", qA);
-                qv.f(new UbcFlowEvent("na_start").bC(aVar.getLong("launch_time", 0L)));
-                qv.ci("launchID", aVar.aww());
-                qv.aAL();
-                atA();
+                qJ.ci("fmpArrived", qO);
+                qJ.f(new UbcFlowEvent("na_start").bY(aVar.getLong("launch_time", 0L)));
+                qJ.ci("launchID", aVar.ayW());
+                qJ.aDl();
+                awa();
             }
         }
     }
 
-    private void atA() {
-        this.cQW.clear();
-        this.cQX.clear();
+    private void awa() {
+        this.cWP.clear();
+        this.cWQ.clear();
     }
 }

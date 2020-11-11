@@ -21,12 +21,12 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes4.dex */
 public class AlaLiveTagActivity extends BaseActivity<AlaLiveTagActivity> {
-    private String bmv;
-    private CommonEmptyView boq;
-    private BdGridView fXA;
-    private View goI;
-    private b goJ;
-    private e goK;
+    private String bnP;
+    private CommonEmptyView bpJ;
+    private BdGridView gdr;
+    private View guv;
+    private b guw;
+    private e gux;
     private String mLiveId;
     private NavigationBar mNavigationBar;
     private View mRootView;
@@ -40,7 +40,7 @@ public class AlaLiveTagActivity extends BaseActivity<AlaLiveTagActivity> {
         }
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
-        setContentView(a.h.activity_ala_live_tag);
+        setContentView(a.g.activity_ala_live_tag);
         registerListener();
         initData();
         initView();
@@ -51,99 +51,99 @@ public class AlaLiveTagActivity extends BaseActivity<AlaLiveTagActivity> {
     }
 
     private void initData() {
-        this.bmv = getIntent().getStringExtra("anchor_id");
+        this.bnP = getIntent().getStringExtra("anchor_id");
         this.mLiveId = getIntent().getStringExtra("live_id");
-        this.goJ = new b(getPageContext(), this.bmv, this.mLiveId);
-        this.goJ.a(new b.a() { // from class: com.baidu.tieba.ala.category.AlaLiveTagActivity.1
+        this.guw = new b(getPageContext(), this.bnP, this.mLiveId);
+        this.guw.a(new b.a() { // from class: com.baidu.tieba.ala.category.AlaLiveTagActivity.1
             @Override // com.baidu.tieba.ala.category.c.b.a
-            public void bOi() {
-                AlaLiveTagActivity.this.goK.setTagList(AlaLiveTagActivity.this.goJ.getTagList());
-                AlaLiveTagActivity.this.goI.setVisibility(0);
-                AlaLiveTagActivity.this.bOh();
+            public void bQI() {
+                AlaLiveTagActivity.this.gux.setTagList(AlaLiveTagActivity.this.guw.getTagList());
+                AlaLiveTagActivity.this.guv.setVisibility(0);
+                AlaLiveTagActivity.this.bQH();
             }
 
             @Override // com.baidu.tieba.ala.category.c.b.a
-            public void aQ(int i, String str) {
-                AlaLiveTagActivity.this.bME();
+            public void aU(int i, String str) {
+                AlaLiveTagActivity.this.bPe();
             }
 
             @Override // com.baidu.tieba.ala.category.c.b.a
-            public void bOj() {
-                AlaLiveTagActivity.this.showToast(a.i.ala_live_tag_commit_success);
+            public void bQJ() {
+                AlaLiveTagActivity.this.showToast(a.h.ala_live_tag_commit_success);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913203));
                 AlaLiveTagActivity.this.finish();
             }
 
             @Override // com.baidu.tieba.ala.category.c.b.a
-            public void bOk() {
-                AlaLiveTagActivity.this.showToast(a.i.ala_live_tag_commit_fail);
+            public void bQK() {
+                AlaLiveTagActivity.this.showToast(a.h.ala_live_tag_commit_fail);
             }
         });
-        this.goK = new e(getPageContext());
-        this.goK.a(new e.b() { // from class: com.baidu.tieba.ala.category.AlaLiveTagActivity.2
+        this.gux = new e(getPageContext());
+        this.gux.a(new e.b() { // from class: com.baidu.tieba.ala.category.AlaLiveTagActivity.2
             @Override // com.baidu.tieba.ala.category.a.e.b
-            public void bOl() {
-                AlaLiveTagActivity.this.bOh();
+            public void bQL() {
+                AlaLiveTagActivity.this.bQH();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bOh() {
-        if (ListUtils.isEmpty(this.goK.bOm())) {
-            this.goI.setAlpha(0.3f);
-            this.goI.setClickable(false);
+    public void bQH() {
+        if (ListUtils.isEmpty(this.gux.bQM())) {
+            this.guv.setAlpha(0.3f);
+            this.guv.setClickable(false);
             return;
         }
-        this.goI.setAlpha(1.0f);
-        this.goI.setClickable(true);
+        this.guv.setAlpha(1.0f);
+        this.guv.setClickable(true);
     }
 
     private void initView() {
-        this.mNavigationBar = (NavigationBar) findViewById(a.g.ala_live_tag_nav_bar);
-        this.mRootView = findViewById(a.g.root_view);
-        this.fXA = (BdGridView) findViewById(a.g.live_tag_gridview);
-        this.boq = (CommonEmptyView) findViewById(a.g.empty_view);
-        this.goI = findViewById(a.g.tag_commit_tv);
-        this.goI.setOnClickListener(this);
-        TextView centerTextTitle = this.mNavigationBar.setCenterTextTitle(getString(a.i.ala_live_tag_title));
-        SkinManager.setNavbarIconSrc((ImageView) this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).findViewById(a.g.widget_navi_back_button), a.f.sdk_d_icon_return_n, a.f.sdk_d_icon_return_n);
-        SkinManager.setNavbarTitleColor(centerTextTitle, a.d.sdk_cp_cont_i, a.d.sdk_cp_cont_i);
-        this.fXA.setAdapter((ListAdapter) this.goK);
+        this.mNavigationBar = (NavigationBar) findViewById(a.f.ala_live_tag_nav_bar);
+        this.mRootView = findViewById(a.f.root_view);
+        this.gdr = (BdGridView) findViewById(a.f.live_tag_gridview);
+        this.bpJ = (CommonEmptyView) findViewById(a.f.empty_view);
+        this.guv = findViewById(a.f.tag_commit_tv);
+        this.guv.setOnClickListener(this);
+        TextView centerTextTitle = this.mNavigationBar.setCenterTextTitle(getString(a.h.ala_live_tag_title));
+        SkinManager.setNavbarIconSrc((ImageView) this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).findViewById(a.f.widget_navi_back_button), a.e.sdk_d_icon_return_n, a.e.sdk_d_icon_return_n);
+        SkinManager.setNavbarTitleColor(centerTextTitle, a.c.sdk_cp_cont_i, a.c.sdk_cp_cont_i);
+        this.gdr.setAdapter((ListAdapter) this.gux);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void loadData() {
-        this.goJ.bOA();
+        this.guw.bRa();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bME() {
-        this.boq.reset();
-        this.boq.setRefreshButton(a.i.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.category.AlaLiveTagActivity.3
+    public void bPe() {
+        this.bpJ.reset();
+        this.bpJ.setRefreshButton(a.h.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.category.AlaLiveTagActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AlaLiveTagActivity.this.loadData();
-                AlaLiveTagActivity.this.boq.setVisibility(8);
+                AlaLiveTagActivity.this.bpJ.setVisibility(8);
                 AlaLiveTagActivity.this.mRootView.setVisibility(0);
             }
         });
-        this.boq.setTitle(a.i.sdk_net_fail_tip_rank);
-        this.boq.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.DARK);
-        this.boq.setVisibility(0);
+        this.bpJ.setTitle(a.h.sdk_net_fail_tip_rank);
+        this.bpJ.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.DARK);
+        this.bpJ.setVisibility(0);
         this.mRootView.setVisibility(8);
     }
 
     @Override // com.baidu.live.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view.getId() == a.g.tag_commit_tv) {
-            List<String> bOm = this.goK.bOm();
-            Set<String> bOn = this.goK.bOn();
-            if (bOm != null && bOn != null && bOm.size() == bOn.size() && bOn.containsAll(bOm)) {
+        if (view.getId() == a.f.tag_commit_tv) {
+            List<String> bQM = this.gux.bQM();
+            Set<String> bQN = this.gux.bQN();
+            if (bQM != null && bQN != null && bQM.size() == bQN.size() && bQN.containsAll(bQM)) {
                 finish();
             } else {
-                this.goJ.cb(bOm);
+                this.guw.ci(bQM);
             }
         }
     }

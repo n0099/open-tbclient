@@ -1,13 +1,13 @@
 package com.baidu.tbadk.core.util.b;
 /* loaded from: classes.dex */
 public class a {
-    public boolean eJA;
+    public boolean ePp;
     public int height;
     public int width;
 
     public a(int i, int i2, boolean z) {
         this.width = i;
         this.height = i2;
-        this.eJA = z;
+        this.ePp = z;
     }
 }

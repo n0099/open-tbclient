@@ -18,33 +18,33 @@ public class i extends com.baidu.platform.base.e {
             if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
                 location = CoordTrans.gcjToBaidu(location);
             }
-            this.f2814a.a("origin", location.latitude + Constants.ACCEPT_TIME_SEPARATOR_SP + location.longitude);
+            this.f2816a.a("origin", location.latitude + Constants.ACCEPT_TIME_SEPARATOR_SP + location.longitude);
         } else {
-            this.f2814a.a("origin", massTransitRoutePlanOption.mFrom.getName());
+            this.f2816a.a("origin", massTransitRoutePlanOption.mFrom.getName());
         }
         if (massTransitRoutePlanOption.mFrom.getCity() != null) {
-            this.f2814a.a("origin_region", massTransitRoutePlanOption.mFrom.getCity());
+            this.f2816a.a("origin_region", massTransitRoutePlanOption.mFrom.getCity());
         }
         LatLng location2 = massTransitRoutePlanOption.mTo.getLocation();
         if (location2 != null) {
             if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
                 location2 = CoordTrans.gcjToBaidu(location2);
             }
-            this.f2814a.a("destination", location2.latitude + Constants.ACCEPT_TIME_SEPARATOR_SP + location2.longitude);
+            this.f2816a.a("destination", location2.latitude + Constants.ACCEPT_TIME_SEPARATOR_SP + location2.longitude);
         } else {
-            this.f2814a.a("destination", massTransitRoutePlanOption.mTo.getName());
+            this.f2816a.a("destination", massTransitRoutePlanOption.mTo.getName());
         }
         if (massTransitRoutePlanOption.mTo.getCity() != null) {
-            this.f2814a.a("destination_region", massTransitRoutePlanOption.mTo.getCity());
+            this.f2816a.a("destination_region", massTransitRoutePlanOption.mTo.getCity());
         }
-        this.f2814a.a("tactics_incity", massTransitRoutePlanOption.mTacticsIncity.getInt() + "");
-        this.f2814a.a("tactics_intercity", massTransitRoutePlanOption.mTacticsIntercity.getInt() + "");
-        this.f2814a.a("trans_type_intercity", massTransitRoutePlanOption.mTransTypeIntercity.getInt() + "");
-        this.f2814a.a("page_index", massTransitRoutePlanOption.mPageIndex + "");
-        this.f2814a.a("page_size", massTransitRoutePlanOption.mPageSize + "");
-        this.f2814a.a("coord_type", massTransitRoutePlanOption.mCoordType);
-        this.f2814a.a("output", "json");
-        this.f2814a.a("from", "android_map_sdk");
+        this.f2816a.a("tactics_incity", massTransitRoutePlanOption.mTacticsIncity.getInt() + "");
+        this.f2816a.a("tactics_intercity", massTransitRoutePlanOption.mTacticsIntercity.getInt() + "");
+        this.f2816a.a("trans_type_intercity", massTransitRoutePlanOption.mTransTypeIntercity.getInt() + "");
+        this.f2816a.a("page_index", massTransitRoutePlanOption.mPageIndex + "");
+        this.f2816a.a("page_size", massTransitRoutePlanOption.mPageSize + "");
+        this.f2816a.a("coord_type", massTransitRoutePlanOption.mCoordType);
+        this.f2816a.a("output", "json");
+        this.f2816a.a("from", "android_map_sdk");
     }
 
     @Override // com.baidu.platform.base.e

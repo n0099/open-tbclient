@@ -18,7 +18,7 @@ public interface e {
     public static final String O = "/v3/api/device/app";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3540a = "/v2/sapi/login";
+    public static final String f3543a = "/v2/sapi/login";
     public static final String b = "/v2/sapi/center/getuinfo";
     public static final String c = "/cgi-bin/genimage?";
     public static final String d = "/phoenix/account/ssologin";

@@ -41,7 +41,7 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                     c cVar = new c();
                     bw bwVar = new bw();
                     bwVar.parserJson(optJSONObject2);
-                    cVar.erH = bwVar;
+                    cVar.exA = bwVar;
                     this.liveList.add(cVar);
                 }
             }
@@ -55,7 +55,7 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                     c cVar2 = new c();
                     bw bwVar2 = new bw();
                     bwVar2.parserJson(optJSONObject3);
-                    cVar2.erH = bwVar2;
+                    cVar2.exA = bwVar2;
                     this.recommandList.add(cVar2);
                 }
             }

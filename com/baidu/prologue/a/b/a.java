@@ -6,71 +6,71 @@ import android.support.annotation.NonNull;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes19.dex */
 public interface a {
-    public static final AtomicReference<a> cbs = new AtomicReference<>();
-
-    String ZA();
-
-    String ZB();
-
-    @IdRes
-    int ZC();
-
-    @IdRes
-    int ZD();
-
-    @IdRes
-    int ZE();
-
-    String ZF();
-
-    int ZG();
-
-    String ZH();
-
-    @NonNull
-    Context Zk();
-
-    @NonNull
-    String Zl();
-
-    @NonNull
-    String Zm();
-
-    @NonNull
-    String Zn();
-
-    @NonNull
-    String Zo();
-
-    @NonNull
-    String Zp();
-
-    @NonNull
-    String Zq();
-
-    @NonNull
-    String Zr();
-
-    @NonNull
-    String Zs();
-
-    @NonNull
-    String Zt();
-
-    boolean Zu();
-
-    @NonNull
-    String Zv();
-
-    boolean Zw();
-
-    String Zx();
-
-    String Zy();
-
-    String[] Zz();
+    public static final AtomicReference<a> che = new AtomicReference<>();
 
     boolean a(String str, com.baidu.prologue.c.b bVar);
+
+    @NonNull
+    Context abJ();
+
+    @NonNull
+    String abK();
+
+    @NonNull
+    String abL();
+
+    @NonNull
+    String abM();
+
+    @NonNull
+    String abN();
+
+    @NonNull
+    String abO();
+
+    @NonNull
+    String abP();
+
+    @NonNull
+    String abQ();
+
+    @NonNull
+    String abR();
+
+    @NonNull
+    String abS();
+
+    boolean abT();
+
+    @NonNull
+    String abU();
+
+    boolean abV();
+
+    String abW();
+
+    String abX();
+
+    String[] abY();
+
+    String abZ();
+
+    String aca();
+
+    @IdRes
+    int acb();
+
+    @IdRes
+    int acc();
+
+    @IdRes
+    int acd();
+
+    String ace();
+
+    int acf();
+
+    String acg();
 
     @NonNull
     String androidId();

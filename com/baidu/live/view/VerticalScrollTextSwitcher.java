@@ -42,9 +42,9 @@ public class VerticalScrollTextSwitcher extends TextSwitcher implements ViewSwit
     }
 
     private void initAttrs(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, a.k.sdk_VerticalScrollTextSwitcher);
-        this.mTextColor = obtainStyledAttributes.getColor(a.k.sdk_VerticalScrollTextSwitcher_sdk_vsts_text_color, -1);
-        this.mTextSize = obtainStyledAttributes.getDimensionPixelOffset(a.k.sdk_VerticalScrollTextSwitcher_sdk_vsts_text_size, 20);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, a.j.sdk_VerticalScrollTextSwitcher);
+        this.mTextColor = obtainStyledAttributes.getColor(a.j.sdk_VerticalScrollTextSwitcher_sdk_vsts_text_color, -1);
+        this.mTextSize = obtainStyledAttributes.getDimensionPixelOffset(a.j.sdk_VerticalScrollTextSwitcher_sdk_vsts_text_size, 20);
         obtainStyledAttributes.recycle();
     }
 

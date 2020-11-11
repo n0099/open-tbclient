@@ -19,70 +19,70 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes23.dex */
 public class b {
-    private TbPageContext<?> eCn;
-    private BdTypeListView gcr;
-    private PbListView gdy;
-    private g gmB;
-    private h kaX;
+    private TbPageContext<?> eIc;
+    private BdTypeListView gih;
+    private PbListView gjo;
+    private g gso;
+    private h kgU;
     private View mHeaderView;
     private com.baidu.tbadk.core.view.g mPullView;
     private ViewGroup mRootView;
 
     public b(TbPageContext<?> tbPageContext, c cVar) {
-        this.eCn = tbPageContext;
+        this.eIc = tbPageContext;
         this.mRootView = new FrameLayout(tbPageContext.getPageActivity());
         this.mRootView.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        this.gcr = new BdTypeListView(tbPageContext.getPageActivity());
-        this.gcr.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
-        this.gcr.setSelector(17170445);
-        this.gcr.setDividerHeight(0);
-        this.mPullView = new com.baidu.tbadk.core.view.g(this.eCn);
-        this.mPullView.setTag(this.eCn.getUniqueId());
+        this.gih = new BdTypeListView(tbPageContext.getPageActivity());
+        this.gih.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
+        this.gih.setSelector(17170445);
+        this.gih.setDividerHeight(0);
+        this.mPullView = new com.baidu.tbadk.core.view.g(this.eIc);
+        this.mPullView.setTag(this.eIc.getUniqueId());
         this.mPullView.setListPullRefreshListener(cVar);
-        this.gcr.setOnSrollToBottomListener(cVar);
-        this.gcr.setPullRefresh(this.mPullView);
-        this.mHeaderView = BdListViewHelper.a(tbPageContext.getPageActivity(), this.gcr, BdListViewHelper.HeadType.HASTAB);
+        this.gih.setOnSrollToBottomListener(cVar);
+        this.gih.setPullRefresh(this.mPullView);
+        this.mHeaderView = BdListViewHelper.a(tbPageContext.getPageActivity(), this.gih, BdListViewHelper.HeadType.HASTAB);
         BdListViewHelper.a(this.mHeaderView, BdListViewHelper.HeadType.HASTAB, j.isNetWorkAvailable());
-        this.mRootView.addView(this.gcr);
+        this.mRootView.addView(this.gih);
     }
 
-    public void rP(boolean z) {
-        if (this.mHeaderView != null && this.gcr != null) {
+    public void rY(boolean z) {
+        if (this.mHeaderView != null && this.gih != null) {
             BdListViewHelper.a(this.mHeaderView, BdListViewHelper.HeadType.HASTAB, z);
         }
     }
 
-    public void ef(List<com.baidu.adp.widget.ListView.a> list) {
+    public void en(List<com.baidu.adp.widget.ListView.a> list) {
         if (!y.isEmpty(list)) {
-            this.gcr.addAdapters(list);
+            this.gih.addAdapters(list);
         }
     }
 
-    public void dq(List<q> list) {
+    public void dy(List<q> list) {
         if (list != null) {
-            this.gcr.setData(list);
+            this.gih.setData(list);
         }
     }
 
     public void completePullRefresh() {
-        this.gcr.completePullRefreshPostDelayed(0L);
+        this.gih.completePullRefreshPostDelayed(0L);
     }
 
-    public void cFu() {
-        cPZ();
-        this.gdy.startLoadData();
+    public void cHV() {
+        cSA();
+        this.gjo.startLoadData();
     }
 
-    public void cFv() {
-        cPZ();
-        this.gdy.setText(this.eCn.getResources().getString(R.string.network_ungeilivable));
-        this.gdy.endLoadData();
+    public void cHW() {
+        cSA();
+        this.gjo.setText(this.eIc.getResources().getString(R.string.network_ungeilivable));
+        this.gjo.endLoadData();
     }
 
-    public void cFw() {
-        cPZ();
-        this.gdy.setText(this.eCn.getResources().getString(R.string.list_no_more));
-        this.gdy.endLoadData();
+    public void cHX() {
+        cSA();
+        this.gjo.setText(this.eIc.getResources().getString(R.string.list_no_more));
+        this.gjo.endLoadData();
     }
 
     public View getRootView() {
@@ -90,77 +90,77 @@ public class b {
     }
 
     public void onChangeSkinType(int i) {
-        ap.setBackgroundColor(this.gcr, R.color.cp_bg_line_c);
+        ap.setBackgroundColor(this.gih, R.color.cp_bg_line_c);
         if (this.mPullView != null) {
             this.mPullView.changeSkin(i);
         }
-        if (this.gdy != null) {
-            this.gdy.setContainerBackgroundColorResId(R.color.cp_bg_line_c);
-            this.gdy.setTextColor(ap.getColor(R.color.cp_cont_d));
-            this.gdy.changeSkin(i);
+        if (this.gjo != null) {
+            this.gjo.setContainerBackgroundColorResId(R.color.cp_bg_line_c);
+            this.gjo.setTextColor(ap.getColor(R.color.cp_cont_d));
+            this.gjo.changeSkin(i);
         }
-        if (this.kaX != null) {
-            this.kaX.onChangeSkinType();
+        if (this.kgU != null) {
+            this.kgU.onChangeSkinType();
         }
-        if (this.gmB != null) {
-            this.gmB.onChangeSkinType();
-        }
-    }
-
-    public void cPY() {
-        if (this.gcr != null) {
-            this.gcr.setNextPage(null);
-            this.gdy = null;
+        if (this.gso != null) {
+            this.gso.onChangeSkinType();
         }
     }
 
-    private void cPZ() {
-        if (this.gcr != null && this.gdy == null) {
-            this.gdy = new PbListView(this.eCn.getPageActivity());
-            this.gdy.createView();
-            this.gcr.setNextPage(this.gdy);
+    public void cSz() {
+        if (this.gih != null) {
+            this.gih.setNextPage(null);
+            this.gjo = null;
+        }
+    }
+
+    private void cSA() {
+        if (this.gih != null && this.gjo == null) {
+            this.gjo = new PbListView(this.eIc.getPageActivity());
+            this.gjo.createView();
+            this.gih.setNextPage(this.gjo);
         }
     }
 
     public void showLoadingView() {
-        if (this.gmB == null) {
-            this.gmB = new g(this.eCn.getPageActivity(), BdListViewHelper.fsA);
-            this.gmB.onChangeSkinType();
+        if (this.gso == null) {
+            this.gso = new g(this.eIc.getPageActivity(), BdListViewHelper.fys);
+            this.gso.onChangeSkinType();
         }
-        if (!this.gmB.isViewAttached()) {
-            this.gcr.setVisibility(8);
-            this.gmB.attachView(this.mRootView, true);
+        if (!this.gso.isViewAttached()) {
+            this.gih.setVisibility(8);
+            this.gso.attachView(this.mRootView, true);
         }
     }
 
     public void hideLoadingView() {
-        if (this.gmB != null && this.gmB.isViewAttached()) {
-            this.gcr.setVisibility(0);
-            this.gmB.dettachView(this.mRootView);
+        if (this.gso != null && this.gso.isViewAttached()) {
+            this.gih.setVisibility(0);
+            this.gso.dettachView(this.mRootView);
         }
     }
 
     public void d(String str, View.OnClickListener onClickListener) {
-        if (this.kaX == null) {
-            this.kaX = new h(this.eCn.getPageActivity(), onClickListener);
-            this.kaX.setLayoutMargin(BdListViewHelper.fsA);
-            this.kaX.onChangeSkinType();
+        if (this.kgU == null) {
+            this.kgU = new h(this.eIc.getPageActivity(), onClickListener);
+            this.kgU.setLayoutMargin(BdListViewHelper.fys);
+            this.kgU.onChangeSkinType();
         }
-        if (!this.kaX.isViewAttached()) {
-            this.gcr.setVisibility(8);
+        if (!this.kgU.isViewAttached()) {
+            this.gih.setVisibility(8);
             if (StringUtils.isNull(str)) {
-                str = this.eCn.getString(R.string.invite_friend_no_data_now);
+                str = this.eIc.getString(R.string.invite_friend_no_data_now);
             }
-            this.kaX.setTitle(str);
-            this.kaX.attachView(this.mRootView, true);
-            this.kaX.showRefreshButton();
+            this.kgU.setTitle(str);
+            this.kgU.attachView(this.mRootView, true);
+            this.kgU.showRefreshButton();
         }
     }
 
-    public void TK() {
-        if (this.kaX != null && this.kaX.isViewAttached()) {
-            this.gcr.setVisibility(0);
-            this.kaX.dettachView(this.mRootView);
+    public void Wk() {
+        if (this.kgU != null && this.kgU.isViewAttached()) {
+            this.gih.setVisibility(0);
+            this.kgU.dettachView(this.mRootView);
         }
     }
 }

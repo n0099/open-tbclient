@@ -8,10 +8,10 @@ import java.util.Map;
 public class FTOSPushHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    private static long f4732a = 0;
+    private static long f4734a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    private static volatile boolean f23a = false;
+    private static volatile boolean f25a = false;
 
     private static void a(Context context) {
         AbstractPushManager a2 = e.a(context).a(d.ASSEMBLE_PUSH_FTOS);
@@ -24,15 +24,15 @@ public class FTOSPushHelper {
     public static void doInNetworkChange(Context context) {
         long elapsedRealtime = SystemClock.elapsedRealtime();
         if (getNeedRegister()) {
-            if (f4732a <= 0 || f4732a + 300000 <= elapsedRealtime) {
-                f4732a = elapsedRealtime;
+            if (f4734a <= 0 || f4734a + 300000 <= elapsedRealtime) {
+                f4734a = elapsedRealtime;
                 a(context);
             }
         }
     }
 
     public static boolean getNeedRegister() {
-        return f23a;
+        return f25a;
     }
 
     public static boolean hasNetwork(Context context) {
@@ -56,7 +56,7 @@ public class FTOSPushHelper {
     }
 
     public static void setNeedRegister(boolean z) {
-        f23a = z;
+        f25a = z;
     }
 
     public static void uploadToken(Context context, String str) {

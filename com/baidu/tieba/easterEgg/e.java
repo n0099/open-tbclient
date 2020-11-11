@@ -7,21 +7,21 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes24.dex */
 public class e {
-    private HttpMessageListener eZP = new HttpMessageListener(CmdConfigHttp.CMD_GET_RN_SYNC) { // from class: com.baidu.tieba.easterEgg.e.1
+    private HttpMessageListener ffG = new HttpMessageListener(CmdConfigHttp.CMD_GET_RN_SYNC) { // from class: com.baidu.tieba.easterEgg.e.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof RnSyncResponseMessage) {
                 RnSyncResponseMessage rnSyncResponseMessage = (RnSyncResponseMessage) httpResponsedMessage;
-                e.this.iao = rnSyncResponseMessage.getData();
-                if (e.this.iap != null) {
-                    e.this.iap.a(rnSyncResponseMessage.isSuccess(), rnSyncResponseMessage.getData());
+                e.this.igp = rnSyncResponseMessage.getData();
+                if (e.this.igq != null) {
+                    e.this.igq.a(rnSyncResponseMessage.isSuccess(), rnSyncResponseMessage.getData());
                 }
             }
         }
     };
-    private com.baidu.tieba.easterEgg.a.a iao;
-    private a iap;
+    private com.baidu.tieba.easterEgg.a.a igp;
+    private a igq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes24.dex */
@@ -30,7 +30,7 @@ public class e {
     }
 
     public e() {
-        MessageManager.getInstance().registerListener(this.eZP);
+        MessageManager.getInstance().registerListener(this.ffG);
     }
 
     public void startLoad() {
@@ -38,10 +38,10 @@ public class e {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.eZP);
+        MessageManager.getInstance().unRegisterListener(this.ffG);
     }
 
     public void a(a aVar) {
-        this.iap = aVar;
+        this.igq = aVar;
     }
 }

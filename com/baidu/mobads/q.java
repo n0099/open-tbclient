@@ -5,11 +5,11 @@ import java.util.HashMap;
 class q implements SplashAdListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SplashAd f2428a;
+    final /* synthetic */ SplashAd f2430a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(SplashAd splashAd) {
-        this.f2428a = splashAd;
+        this.f2430a = splashAd;
     }
 
     @Override // com.baidu.mobads.SplashAdListener

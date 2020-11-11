@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4484a;
+    public static String f4486a;
     public static boolean b;
     public static boolean c;
     public static boolean d;
@@ -14,7 +14,7 @@ public class f {
 
     static {
         f.class.getSimpleName();
-        f4484a = "aes_key";
+        f4486a = "aes_key";
         new HashMap();
         b = false;
         c = true;

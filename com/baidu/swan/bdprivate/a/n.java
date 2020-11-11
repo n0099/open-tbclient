@@ -15,33 +15,33 @@ public class n extends com.baidu.swan.apps.setting.oauth.a.a {
     public n(Activity activity, boolean z, String str, String str2) {
         super(activity, z, str, str2);
         if (z) {
-            aHl();
+            aJL();
         }
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean aGI() {
+    protected boolean aJi() {
         a(new a());
         return true;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.a.a, com.baidu.swan.apps.setting.oauth.b
-    protected boolean aGJ() {
+    protected boolean aJj() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("ma_id", aHj().id);
+            jSONObject.put("ma_id", aJJ().id);
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("app_key", aHj().getAppKey());
+            jSONObject2.put("app_key", aJJ().getAppKey());
             jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject2.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
             jSONObject2.put("stoken", this.mStoken);
-            String afA = com.baidu.swan.apps.t.a.aum().afA();
-            if (!TextUtils.isEmpty(afA)) {
-                jSONObject2.put("host_api_key", afA);
+            String aia = com.baidu.swan.apps.t.a.awM().aia();
+            if (!TextUtils.isEmpty(aia)) {
+                jSONObject2.put("host_api_key", aia);
             }
             jSONObject.put("open", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
-            jSONObject3.put("permit", Boolean.toString(this.dsE));
+            jSONObject3.put("permit", Boolean.toString(this.dyx));
             JSONObject jSONObject4 = new JSONObject();
             jSONObject4.put(this.mScope, jSONObject3);
             jSONObject.put("accredits", jSONObject4);
@@ -55,17 +55,17 @@ public class n extends com.baidu.swan.apps.setting.oauth.a.a {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.a.a, com.baidu.swan.apps.setting.oauth.b
-    /* renamed from: bT */
-    public a.C0471a bO(JSONObject jSONObject) throws JSONException {
+    /* renamed from: bZ */
+    public a.C0483a bU(JSONObject jSONObject) throws JSONException {
         com.baidu.swan.bdprivate.a.a.b(this.mActivity, jSONObject);
-        return super.bO(jSONObject);
+        return super.bU(jSONObject);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.a.a, com.baidu.swan.apps.setting.oauth.a.h
-    public void aHe() {
-        super.aHe();
-        com.baidu.swan.apps.network.c.b.a.aAt();
+    public void aJE() {
+        super.aJE();
+        com.baidu.swan.apps.network.c.b.a.aCT();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -75,7 +75,7 @@ public class n extends com.baidu.swan.apps.setting.oauth.a.a {
         }
 
         @Override // com.baidu.swan.apps.setting.oauth.d
-        protected boolean aGO() throws Exception {
+        protected boolean aJo() throws Exception {
             com.baidu.swan.bdprivate.a.a.a(n.this.mActivity, new com.baidu.swan.apps.ap.e.b<Bundle>() { // from class: com.baidu.swan.bdprivate.a.n.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ap.e.b
@@ -88,7 +88,7 @@ public class n extends com.baidu.swan.apps.setting.oauth.a.a {
                     String string = bundle.getString("dev", "");
                     if (!TextUtils.isEmpty(string)) {
                         n.this.mStoken = string;
-                        a.this.aGQ();
+                        a.this.aJq();
                         return;
                     }
                     a.this.w(new OAuthException("empty stoken", 10001));

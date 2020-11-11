@@ -7,11 +7,11 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 public class r implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ q f2345a;
+    final /* synthetic */ q f2347a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(q qVar) {
-        this.f2345a = qVar;
+        this.f2347a = qVar;
     }
 
     @Override // java.lang.Runnable
@@ -20,13 +20,13 @@ public class r implements Runnable {
         String a3;
         String a4;
         try {
-            a2 = this.f2345a.a("key_crash_trace");
-            a3 = this.f2345a.a("key_crash_ad");
+            a2 = this.f2347a.a("key_crash_trace");
+            a3 = this.f2347a.a("key_crash_ad");
             if (!TextUtils.isEmpty(a2)) {
                 com.baidu.mobads.c.a a5 = com.baidu.mobads.c.a.a();
-                a4 = this.f2345a.a("key_crash_source");
+                a4 = this.f2347a.a("key_crash_source");
                 a5.a(a4, a2, a3);
-                this.f2345a.e();
+                this.f2347a.e();
             }
         } catch (Exception e) {
             XAdSDKFoundationFacade.getInstance().getAdLogger().e(e);

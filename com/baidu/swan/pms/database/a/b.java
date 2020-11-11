@@ -36,7 +36,7 @@ public abstract class b<T> {
             if (TextUtils.isEmpty(string)) {
                 return false;
             }
-            eVar.ebO = string;
+            eVar.ehG = string;
             eVar.category = cursor.getInt(columnIndex2);
             eVar.versionName = cursor.getString(columnIndex3);
             eVar.versionCode = cursor.getInt(columnIndex4);
@@ -48,7 +48,7 @@ public abstract class b<T> {
             eVar.currentSize = cursor.getLong(columnIndex11);
             eVar.createTime = cursor.getLong(columnIndex12);
             eVar.updateTime = cursor.getLong(columnIndex13);
-            eVar.ebP = cursor.getLong(columnIndex9);
+            eVar.ehH = cursor.getLong(columnIndex9);
             eVar.state = cursor.getInt(columnIndex14);
             return true;
         }
@@ -57,7 +57,7 @@ public abstract class b<T> {
 
     public ContentValues e(com.baidu.swan.pms.model.e eVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("bundle_id", eVar.ebO);
+        contentValues.put("bundle_id", eVar.ehG);
         contentValues.put("category", Integer.valueOf(eVar.category));
         contentValues.put(SharedPrefConfig.VERSION_NAME, eVar.versionName);
         contentValues.put("version_code", Long.valueOf(eVar.versionCode));

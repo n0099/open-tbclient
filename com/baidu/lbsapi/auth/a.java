@@ -6,7 +6,7 @@ import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f1831a = false;
+    public static boolean f1833a = false;
     private static String b = "BaiduApiAuth";
 
     public static String a() {
@@ -15,7 +15,7 @@ class a {
     }
 
     public static void a(String str) {
-        if (!f1831a || Thread.currentThread().getStackTrace().length == 0) {
+        if (!f1833a || Thread.currentThread().getStackTrace().length == 0) {
             return;
         }
         Log.d(b, a() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + str);
@@ -29,7 +29,7 @@ class a {
     }
 
     public static void c(String str) {
-        if (!f1831a || Thread.currentThread().getStackTrace().length == 0) {
+        if (!f1833a || Thread.currentThread().getStackTrace().length == 0) {
             return;
         }
         Log.e(b, a() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + str);

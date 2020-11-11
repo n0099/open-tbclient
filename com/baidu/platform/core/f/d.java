@@ -14,22 +14,22 @@ public class d extends e {
     }
 
     private void a(SuggestionSearchOption suggestionSearchOption) {
-        this.f2814a.a("query", suggestionSearchOption.mKeyword);
-        this.f2814a.a("region", suggestionSearchOption.mCity);
+        this.f2816a.a("query", suggestionSearchOption.mKeyword);
+        this.f2816a.a("region", suggestionSearchOption.mCity);
         if (suggestionSearchOption.mLocation != null) {
             LatLng latLng = new LatLng(suggestionSearchOption.mLocation.latitude, suggestionSearchOption.mLocation.longitude);
             if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
                 latLng = CoordTrans.gcjToBaidu(latLng);
             }
-            this.f2814a.a("location", latLng.latitude + Constants.ACCEPT_TIME_SEPARATOR_SP + latLng.longitude);
+            this.f2816a.a("location", latLng.latitude + Constants.ACCEPT_TIME_SEPARATOR_SP + latLng.longitude);
         }
         if (suggestionSearchOption.mCityLimit.booleanValue()) {
-            this.f2814a.a("city_limit", "true");
+            this.f2816a.a("city_limit", "true");
         } else {
-            this.f2814a.a("city_limit", "false");
+            this.f2816a.a("city_limit", "false");
         }
-        this.f2814a.a("from", "android_map_sdk");
-        this.f2814a.a("output", "json");
+        this.f2816a.a("from", "android_map_sdk");
+        this.f2816a.a("output", "json");
     }
 
     @Override // com.baidu.platform.base.e

@@ -13,42 +13,42 @@ import java.util.Set;
 /* loaded from: classes10.dex */
 public final class a implements c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private ClassLoader dyK;
-    private final Object[] dyR;
-    private final Set<b<?>> dyI = new HashSet();
-    private final Set<Object> dyJ = new HashSet();
-    private int dyL = 0;
-    private int dyM = 0;
-    private int dyN = 0;
-    private int dyO = 0;
-    private int dyP = -1;
-    private int dyQ = 0;
+    private ClassLoader dEC;
+    private final Object[] dEJ;
+    private final Set<b<?>> dEA = new HashSet();
+    private final Set<Object> dEB = new HashSet();
+    private int dED = 0;
+    private int dEE = 0;
+    private int dEF = 0;
+    private int dEG = 0;
+    private int dEH = -1;
+    private int dEI = 0;
 
     private a(ClassLoader classLoader, Object... objArr) {
-        this.dyK = classLoader;
-        this.dyR = objArr == null ? new Object[0] : objArr;
+        this.dEC = classLoader;
+        this.dEJ = objArr == null ? new Object[0] : objArr;
     }
 
     public static a a(ClassLoader classLoader, Object... objArr) {
         return new a(classLoader, objArr);
     }
 
-    public boolean aKT() {
-        return this.dyQ > 0;
+    public boolean aNt() {
+        return this.dEI > 0;
     }
 
     public a a(b<?>... bVarArr) {
         if (bVarArr != null) {
-            this.dyI.addAll(Arrays.asList(bVarArr));
+            this.dEA.addAll(Arrays.asList(bVarArr));
         }
         return this;
     }
 
-    public a lj(int i) {
+    public a lt(int i) {
         Object[] objArr;
-        if (!aKT() && i > 0) {
-            this.dyQ = i;
-            for (Object obj : this.dyR) {
+        if (!aNt() && i > 0) {
+            this.dEI = i;
+            for (Object obj : this.dEJ) {
                 if (obj instanceof Class) {
                     a(i, (Class) obj);
                 } else if (obj instanceof Annotation) {
@@ -64,50 +64,50 @@ public final class a implements c {
                 }
             }
         }
-        this.dyQ = 0;
+        this.dEI = 0;
         return this;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a a(int i, @NonNull Class<?>... clsArr) {
-        return a(dyS, i, clsArr);
+        return a(dEK, i, clsArr);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a a(int i, @NonNull Package... packageArr) {
-        return a(dyT, i, packageArr);
+        return a(dEL, i, packageArr);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a a(int i, @NonNull Annotation... annotationArr) {
-        return a(dyU, i, annotationArr);
+        return a(dEM, i, annotationArr);
     }
 
     public a a(int i, @NonNull Method... methodArr) {
-        return a(dyW, i, methodArr);
+        return a(dEO, i, methodArr);
     }
 
     public a a(int i, @NonNull Field... fieldArr) {
-        return a(dyV, i, fieldArr);
+        return a(dEN, i, fieldArr);
     }
 
     public a a(int i, Constructor<?>... constructorArr) {
-        return a(dyX, i, constructorArr);
+        return a(dEP, i, constructorArr);
     }
 
     @RequiresApi(api = 26)
     public a a(int i, Parameter... parameterArr) {
-        return a(dyY, i, parameterArr);
+        return a(dEQ, i, parameterArr);
     }
 
     @SafeVarargs
     private final <TargeT> a a(@NonNull b<TargeT> bVar, int i, TargeT... targetArr) {
-        if (!this.dyI.contains(bVar)) {
+        if (!this.dEA.contains(bVar)) {
             int i2 = i - 1;
             if (i > 0 && targetArr != null && targetArr.length > 0) {
                 for (TargeT target : targetArr) {
                     if (ab(target)) {
-                        bVar.a(this, this.dyK, i2, target);
+                        bVar.a(this, this.dEC, i2, target);
                     }
                 }
             }
@@ -116,15 +116,15 @@ public final class a implements c {
     }
 
     private <TargeT> boolean ab(TargeT target) {
-        this.dyL++;
+        this.dED++;
         if (target == null) {
-            this.dyN++;
+            this.dEF++;
             return false;
-        } else if (this.dyJ.contains(target)) {
-            this.dyM++;
+        } else if (this.dEB.contains(target)) {
+            this.dEE++;
             return false;
         } else {
-            this.dyJ.add(target);
+            this.dEB.add(target);
             return true;
         }
     }

@@ -4,23 +4,23 @@ import android.view.View;
 import com.baidu.live.data.AlaLiveUserInfoData;
 /* loaded from: classes4.dex */
 public interface b {
-    void A(int i, String str);
+    void C(int i, String str);
 
-    void B(int i, String str);
+    void D(int i, String str);
 
-    void Sm();
+    void E(int i, String str);
 
-    void Sn();
+    void F(int i, String str);
+
+    void Re();
+
+    void UV();
 
     void a(boolean z, long j, View view, View view2);
 
     void a(boolean z, long j, AlaLiveUserInfoData alaLiveUserInfoData, boolean z2);
 
-    boolean a(AlaLiveUserInfoData alaLiveUserInfoData, f fVar);
+    boolean a(AlaLiveUserInfoData alaLiveUserInfoData, g gVar);
 
-    void cS(boolean z);
-
-    void y(int i, String str);
-
-    void z(int i, String str);
+    void cZ(boolean z);
 }

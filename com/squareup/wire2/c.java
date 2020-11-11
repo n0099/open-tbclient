@@ -7,20 +7,20 @@ import okio.BufferedSource;
 import okio.ByteString;
 /* loaded from: classes6.dex */
 public final class c {
-    private FieldEncoding pys;
+    private FieldEncoding pHL;
     private int recursionDepth;
     private final BufferedSource source;
     private long pos = 0;
     private long limit = Long.MAX_VALUE;
     private int state = 2;
     private int tag = -1;
-    private long pyr = -1;
+    private long pHK = -1;
 
     public c(BufferedSource bufferedSource) {
         this.source = bufferedSource;
     }
 
-    public long euv() throws IOException {
+    public long eyk() throws IOException {
         if (this.state != 2) {
             throw new IllegalStateException("Unexpected call to beginMessage()");
         }
@@ -29,19 +29,19 @@ public final class c {
         if (i > 65) {
             throw new IOException("Wire recursion limit exceeded");
         }
-        long j = this.pyr;
-        this.pyr = -1L;
+        long j = this.pHK;
+        this.pHK = -1L;
         this.state = 6;
         return j;
     }
 
-    public void hF(long j) throws IOException {
+    public void ib(long j) throws IOException {
         if (this.state != 6) {
             throw new IllegalStateException("Unexpected call to endMessage()");
         }
         int i = this.recursionDepth - 1;
         this.recursionDepth = i;
-        if (i < 0 || this.pyr != -1) {
+        if (i < 0 || this.pHK != -1) {
             throw new IllegalStateException("No corresponding call to beginMessage()");
         }
         if (this.pos != this.limit && this.recursionDepth != 0) {
@@ -50,7 +50,7 @@ public final class c {
         this.limit = j;
     }
 
-    public int euw() throws IOException {
+    public int eyl() throws IOException {
         if (this.state == 7) {
             this.state = 2;
             return this.tag;
@@ -58,43 +58,43 @@ public final class c {
             throw new IllegalStateException("Unexpected call to nextTag()");
         } else {
             while (this.pos < this.limit && !this.source.exhausted()) {
-                int euz = euz();
-                if (euz == 0) {
+                int eyo = eyo();
+                if (eyo == 0) {
                     throw new ProtocolException("Unexpected tag 0");
                 }
-                this.tag = euz >> 3;
-                int i = euz & 7;
+                this.tag = eyo >> 3;
+                int i = eyo & 7;
                 switch (i) {
                     case 0:
-                        this.pys = FieldEncoding.VARINT;
+                        this.pHL = FieldEncoding.VARINT;
                         this.state = 0;
                         return this.tag;
                     case 1:
-                        this.pys = FieldEncoding.FIXED64;
+                        this.pHL = FieldEncoding.FIXED64;
                         this.state = 1;
                         return this.tag;
                     case 2:
-                        this.pys = FieldEncoding.LENGTH_DELIMITED;
+                        this.pHL = FieldEncoding.LENGTH_DELIMITED;
                         this.state = 2;
-                        int euz2 = euz();
-                        if (euz2 < 0) {
-                            throw new ProtocolException("Negative length: " + euz2);
+                        int eyo2 = eyo();
+                        if (eyo2 < 0) {
+                            throw new ProtocolException("Negative length: " + eyo2);
                         }
-                        if (this.pyr != -1) {
+                        if (this.pHK != -1) {
                             throw new IllegalStateException();
                         }
-                        this.pyr = this.limit;
-                        this.limit = euz2 + this.pos;
-                        if (this.limit > this.pyr) {
+                        this.pHK = this.limit;
+                        this.limit = eyo2 + this.pos;
+                        if (this.limit > this.pHK) {
                             throw new EOFException();
                         }
                         return this.tag;
                     case 3:
-                        QJ(this.tag);
+                        Re(this.tag);
                     case 4:
                         throw new ProtocolException("Unexpected end group");
                     case 5:
-                        this.pys = FieldEncoding.FIXED32;
+                        this.pHL = FieldEncoding.FIXED32;
                         this.state = 5;
                         return this.tag;
                     default:
@@ -105,18 +105,18 @@ public final class c {
         }
     }
 
-    public FieldEncoding eux() {
-        return this.pys;
+    public FieldEncoding eym() {
+        return this.pHL;
     }
 
-    private void QJ(int i) throws IOException {
+    private void Re(int i) throws IOException {
         while (this.pos < this.limit && !this.source.exhausted()) {
-            int euz = euz();
-            if (euz == 0) {
+            int eyo = eyo();
+            if (eyo == 0) {
                 throw new ProtocolException("Unexpected tag 0");
             }
-            int i2 = euz >> 3;
-            int i3 = euz & 7;
+            int i2 = eyo >> 3;
+            int i3 = eyo & 7;
             switch (i3) {
                 case 0:
                     this.state = 0;
@@ -127,12 +127,12 @@ public final class c {
                     readFixed64();
                     break;
                 case 2:
-                    int euz2 = euz();
-                    this.pos += euz2;
-                    this.source.skip(euz2);
+                    int eyo2 = eyo();
+                    this.pos += eyo2;
+                    this.source.skip(eyo2);
                     break;
                 case 3:
-                    QJ(i2);
+                    Re(i2);
                     break;
                 case 4:
                     if (i2 != i) {
@@ -150,24 +150,24 @@ public final class c {
         throw new EOFException();
     }
 
-    public ByteString euy() throws IOException {
-        return this.source.readByteString(euA());
+    public ByteString eyn() throws IOException {
+        return this.source.readByteString(eyp());
     }
 
     public String readString() throws IOException {
-        return this.source.readUtf8(euA());
+        return this.source.readUtf8(eyp());
     }
 
     public int readVarint32() throws IOException {
         if (this.state != 0 && this.state != 2) {
             throw new ProtocolException("Expected VARINT or LENGTH_DELIMITED but was " + this.state);
         }
-        int euz = euz();
-        QK(0);
-        return euz;
+        int eyo = eyo();
+        Rf(0);
+        return eyo;
     }
 
-    private int euz() throws IOException {
+    private int eyo() throws IOException {
         this.pos++;
         byte readByte = this.source.readByte();
         if (readByte < 0) {
@@ -217,7 +217,7 @@ public final class c {
             this.pos++;
             j |= (readByte & Byte.MAX_VALUE) << i;
             if ((this.source.readByte() & 128) == 0) {
-                QK(0);
+                Rf(0);
                 return j;
             }
         }
@@ -231,7 +231,7 @@ public final class c {
         this.source.require(4L);
         this.pos += 4;
         int readIntLe = this.source.readIntLe();
-        QK(5);
+        Rf(5);
         return readIntLe;
     }
 
@@ -242,19 +242,19 @@ public final class c {
         this.source.require(8L);
         this.pos += 8;
         long readLongLe = this.source.readLongLe();
-        QK(1);
+        Rf(1);
         return readLongLe;
     }
 
-    private void QK(int i) throws IOException {
+    private void Rf(int i) throws IOException {
         if (this.state == i) {
             this.state = 6;
         } else if (this.pos > this.limit) {
             throw new IOException("Expected to end at " + this.limit + " but was " + this.pos);
         } else {
             if (this.pos == this.limit) {
-                this.limit = this.pyr;
-                this.pyr = -1L;
+                this.limit = this.pHK;
+                this.pHK = -1L;
                 this.state = 6;
                 return;
             }
@@ -262,7 +262,7 @@ public final class c {
         }
     }
 
-    private long euA() throws IOException {
+    private long eyp() throws IOException {
         if (this.state != 2) {
             throw new ProtocolException("Expected LENGTH_DELIMITED but was " + this.state);
         }
@@ -270,8 +270,8 @@ public final class c {
         this.source.require(j);
         this.state = 6;
         this.pos = this.limit;
-        this.limit = this.pyr;
-        this.pyr = -1L;
+        this.limit = this.pHK;
+        this.pHK = -1L;
         return j;
     }
 }

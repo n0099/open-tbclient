@@ -9,15 +9,15 @@ import com.baidu.live.tbadk.browser.BrowserHelper;
 import com.baidu.tieba.ala.liveroom.j.g;
 /* loaded from: classes4.dex */
 public class b {
-    private ViewGroup bEg;
-    private String fLC;
-    private View.OnClickListener fcr = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.u.b.1
+    private ViewGroup bJN;
+    private String fRs;
+    private View.OnClickListener fii = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.u.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            BrowserHelper.startInternalWebActivity(b.this.mTbPageContext.getPageActivity(), b.this.fLC);
+            BrowserHelper.startInternalWebActivity(b.this.mTbPageContext.getPageActivity(), b.this.fRs);
         }
     };
-    protected c hmv;
+    protected c hst;
     protected TbPageContext mTbPageContext;
 
     public b(TbPageContext tbPageContext) {
@@ -32,16 +32,16 @@ public class b {
         if (viewGroup == null) {
             return false;
         }
-        this.fLC = str;
-        if (this.hmv == null) {
-            this.hmv = new c(getPageContext(), this.fcr);
+        this.fRs = str;
+        if (this.hst == null) {
+            this.hst = new c(getPageContext(), this.fii);
         }
-        if (this.bEg != null && this.bEg.indexOfChild(this.hmv.getView()) > 0) {
-            this.bEg.removeView(this.hmv.getView());
+        if (this.bJN != null && this.bJN.indexOfChild(this.hst.getView()) > 0) {
+            this.bJN.removeView(this.hst.getView());
         }
-        this.bEg = viewGroup;
-        this.hmv.getView().setId(a.g.privilege_manager_id);
-        this.hmv.getView().setVisibility(0);
+        this.bJN = viewGroup;
+        this.hst.getView().setId(a.f.privilege_manager_id);
+        this.hst.getView().setVisibility(0);
         return true;
     }
 
@@ -49,16 +49,16 @@ public class b {
         if (b(viewGroup, str)) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(12);
-            layoutParams.setMargins(getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds18), 0, getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds180), 0);
-            layoutParams.bottomMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_tbds130) + getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds18);
-            viewGroup.addView(this.hmv.getView(), layoutParams);
+            layoutParams.setMargins(getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds18), 0, getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds180), 0);
+            layoutParams.bottomMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_tbds130) + getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds18);
+            viewGroup.addView(this.hst.getView(), layoutParams);
         }
     }
 
-    public void cex() {
-        if (this.bEg != null && this.bEg.indexOfChild(this.hmv.getView()) > 0) {
-            this.bEg.removeView(this.hmv.getView());
-            g.vu(2913128);
+    public void cha() {
+        if (this.bJN != null && this.bJN.indexOfChild(this.hst.getView()) > 0) {
+            this.bJN.removeView(this.hst.getView());
+            g.vH(2913128);
         }
     }
 }

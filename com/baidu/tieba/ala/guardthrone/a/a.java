@@ -9,10 +9,10 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 /* loaded from: classes4.dex */
 public class a implements b {
-    private String aMj;
-    private String bmv;
-    private com.baidu.tieba.ala.guardthrone.view.a gEf;
-    private com.baidu.tieba.ala.guardthrone.view.a gEg;
+    private String aNj;
+    private String bnP;
+    private com.baidu.tieba.ala.guardthrone.view.a gJS;
+    private com.baidu.tieba.ala.guardthrone.view.a gJT;
     private boolean mIsHost;
     private String mLiveId;
     private RelativeLayout mRootView;
@@ -23,8 +23,8 @@ public class a implements b {
     public void a(TbPageContext tbPageContext, String str, String str2, String str3, int i, boolean z) {
         this.mTbPageContext = tbPageContext;
         this.mLiveId = str;
-        this.bmv = str2;
-        this.aMj = str3;
+        this.bnP = str2;
+        this.aNj = str3;
         this.mTabId = i;
         this.mIsHost = z;
         initView();
@@ -32,56 +32,56 @@ public class a implements b {
 
     private void initView() {
         this.mRootView = new RelativeLayout(this.mTbPageContext.getPageActivity());
-        this.gEf = new com.baidu.tieba.ala.guardthrone.view.a(this.mTbPageContext, false, this.mIsHost);
-        this.gEf.d(this.mLiveId, this.bmv, this.aMj, this.mTabId);
-        this.gEg = new com.baidu.tieba.ala.guardthrone.view.a(this.mTbPageContext, true, this.mIsHost);
-        this.gEg.d(this.mLiveId, this.bmv, this.aMj, this.mTabId);
+        this.gJS = new com.baidu.tieba.ala.guardthrone.view.a(this.mTbPageContext, false, this.mIsHost);
+        this.gJS.d(this.mLiveId, this.bnP, this.aNj, this.mTabId);
+        this.gJT = new com.baidu.tieba.ala.guardthrone.view.a(this.mTbPageContext, true, this.mIsHost);
+        this.gJT.d(this.mLiveId, this.bnP, this.aNj, this.mTabId);
         if (UtilHelper.getRealScreenOrientation(this.mTbPageContext.getPageActivity()) == 2) {
-            this.gEg.getRootView().setVisibility(0);
-            this.gEf.getRootView().setVisibility(8);
+            this.gJT.getRootView().setVisibility(0);
+            this.gJS.getRootView().setVisibility(8);
         } else {
-            this.gEg.getRootView().setVisibility(8);
-            this.gEf.getRootView().setVisibility(0);
+            this.gJT.getRootView().setVisibility(8);
+            this.gJS.getRootView().setVisibility(0);
         }
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams.addRule(12);
-        this.mRootView.addView(this.gEf.getRootView(), layoutParams);
-        this.mRootView.addView(this.gEg.getRootView(), layoutParams);
+        this.mRootView.addView(this.gJS.getRootView(), layoutParams);
+        this.mRootView.addView(this.gJT.getRootView(), layoutParams);
     }
 
     @Override // com.baidu.live.h.b
-    public void bP(boolean z) {
+    public void bQ(boolean z) {
     }
 
     @Override // com.baidu.live.h.b
     public String getTitle() {
-        return this.mTbPageContext != null ? this.mTbPageContext.getResources().getString(a.i.guard_throne_title) : "";
+        return this.mTbPageContext != null ? this.mTbPageContext.getResources().getString(a.h.guard_throne_title) : "";
     }
 
     @Override // com.baidu.live.h.b
     public void onConfigurationChanged(Configuration configuration) {
-        if (this.gEf != null && this.gEg != null) {
+        if (this.gJS != null && this.gJT != null) {
             if (configuration.orientation == 2) {
-                this.gEg.getRootView().setVisibility(0);
-                this.gEf.getRootView().setVisibility(8);
+                this.gJT.getRootView().setVisibility(0);
+                this.gJS.getRootView().setVisibility(8);
             } else {
-                this.gEg.getRootView().setVisibility(8);
-                this.gEf.getRootView().setVisibility(0);
+                this.gJT.getRootView().setVisibility(8);
+                this.gJS.getRootView().setVisibility(0);
             }
-            this.gEf.bgm();
-            this.gEg.bgm();
+            this.gJS.biM();
+            this.gJT.biM();
         }
     }
 
     @Override // com.baidu.live.h.b
     public void onDestroy() {
-        if (this.gEf != null) {
-            this.gEf.bRF();
-            this.gEf.onDestroy();
+        if (this.gJS != null) {
+            this.gJS.bUe();
+            this.gJS.onDestroy();
         }
-        if (this.gEg != null) {
-            this.gEg.bRF();
-            this.gEg.onDestroy();
+        if (this.gJT != null) {
+            this.gJT.bUe();
+            this.gJT.onDestroy();
         }
     }
 
@@ -91,10 +91,10 @@ public class a implements b {
     }
 
     @Override // com.baidu.live.h.b
-    public void Km() {
+    public void KM() {
     }
 
     @Override // com.baidu.live.h.b
-    public void bQ(boolean z) {
+    public void bR(boolean z) {
     }
 }

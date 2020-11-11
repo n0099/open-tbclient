@@ -23,7 +23,7 @@ public abstract class a {
     private Handler c = new Handler(Looper.getMainLooper());
 
     /* renamed from: a  reason: collision with root package name */
-    protected final Lock f2810a = new ReentrantLock();
+    protected final Lock f2812a = new ReentrantLock();
     private boolean d = true;
     private DistrictResult e = null;
 

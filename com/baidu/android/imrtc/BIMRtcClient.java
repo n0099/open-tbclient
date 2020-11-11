@@ -8,9 +8,10 @@ import com.baidu.android.imrtc.send.BIMAnswerRtcInfo;
 import com.baidu.android.imrtc.send.BIMCancelRtcInfo;
 import com.baidu.android.imrtc.send.BIMCloseRoomRtcInfo;
 import com.baidu.android.imrtc.send.BIMInviteRtcInfo;
+import com.baidu.android.imrtc.send.BIMKickRequestRtcInfo;
 import com.baidu.android.imrtc.utils.IStatusListener;
 import com.baidu.android.imrtc.utils.RtcConstants;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class BIMRtcClient {
     public static void createRoom(@NonNull Context context, String str, @NonNull BIMRtcTokenListener bIMRtcTokenListener) {
         BIMRtcManager.getInstance(context).createRoom(str, bIMRtcTokenListener);
@@ -46,6 +47,10 @@ public class BIMRtcClient {
 
     public static void closeRoom(@NonNull Context context, @NonNull BIMCloseRoomRtcInfo bIMCloseRoomRtcInfo, IStatusListener iStatusListener) {
         BIMRtcManager.getInstance(context).closeRoom(bIMCloseRoomRtcInfo, iStatusListener);
+    }
+
+    public static void kickoff(Context context, @NonNull BIMKickRequestRtcInfo bIMKickRequestRtcInfo, IStatusListener iStatusListener) {
+        BIMRtcManager.getInstance(context).kickoff(bIMKickRequestRtcInfo, iStatusListener);
     }
 
     public static void registerRtcListener(@NonNull Context context, @NonNull BIMRtcListener bIMRtcListener) {

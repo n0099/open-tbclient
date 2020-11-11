@@ -5,51 +5,51 @@ import com.baidu.swan.bdprivate.b;
 /* loaded from: classes8.dex */
 public class a {
     private String agreeText;
-    private boolean dDr;
-    private String dDs;
-    private String dDt;
+    private boolean dJj;
+    private String dJk;
+    private String dJl;
     private String encryptPhoneNum;
     private boolean hasHistory;
     private int loginMode;
 
-    public int aLX() {
+    public int aOx() {
         return this.loginMode;
     }
 
-    public void lu(int i) {
+    public void lE(int i) {
         this.loginMode = i;
     }
 
-    public boolean aLY() {
-        return this.dDr;
+    public boolean aOy() {
+        return this.dJj;
     }
 
-    public void gW(boolean z) {
-        this.dDr = z;
+    public void hf(boolean z) {
+        this.dJj = z;
     }
 
-    public String aLZ() {
+    public String aOz() {
         return this.encryptPhoneNum;
     }
 
-    public void uJ(String str) {
+    public void uX(String str) {
         this.encryptPhoneNum = str;
     }
 
-    public boolean aMa() {
+    public boolean aOA() {
         return this.hasHistory;
     }
 
-    public void gX(boolean z) {
+    public void hg(boolean z) {
         this.hasHistory = z;
     }
 
-    public void uK(String str) {
-        this.dDs = str;
+    public void uY(String str) {
+        this.dJk = str;
     }
 
-    public String aMb() {
-        String str = this.dDs;
+    public String aOB() {
+        String str = this.dJk;
         char c = 65535;
         switch (str.hashCode()) {
             case 2154:
@@ -73,20 +73,20 @@ public class a {
         }
         switch (c) {
             case 0:
-                this.dDt = "https://e.189.cn/sdk/agreement/detail.do?hidetop=true";
+                this.dJl = "https://e.189.cn/sdk/agreement/detail.do?hidetop=true";
                 break;
             case 1:
-                this.dDt = "https://ms.zzx9.cn/html/oauth/protocol2.html";
+                this.dJl = "https://ms.zzx9.cn/html/oauth/protocol2.html";
                 break;
             case 2:
-                this.dDt = "https://wap.cmpassport.com/resources/html/contract.html";
+                this.dJl = "https://wap.cmpassport.com/resources/html/contract.html";
                 break;
         }
-        return this.dDt;
+        return this.dJl;
     }
 
-    public String aMc() {
-        String str = this.dDs;
+    public String aOC() {
+        String str = this.dJk;
         char c = 65535;
         switch (str.hashCode()) {
             case 2154:

@@ -3,11 +3,11 @@ package com.baidu.platform.comapi.map;
 public class ab {
 
     /* renamed from: a  reason: collision with root package name */
-    private static long f2890a = System.currentTimeMillis();
+    private static long f2892a = System.currentTimeMillis();
 
     public static String a() {
-        long j = f2890a;
-        f2890a = 1 + j;
+        long j = f2892a;
+        f2892a = 1 + j;
         return String.valueOf(j);
     }
 }

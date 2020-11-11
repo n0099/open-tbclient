@@ -4,15 +4,15 @@ import java.util.List;
 import tbclient.ManagerElection;
 /* loaded from: classes22.dex */
 public class k {
-    private boolean hLJ;
-    private int lhX;
-    private int lhY;
-    private List<String> lhZ;
-    private List<String> lia;
-    private List<String> lib;
-    private String lic;
-    private boolean lid;
-    private int lie;
+    private boolean hRG;
+    private int lnU;
+    private int lnV;
+    private List<String> lnW;
+    private List<String> lnX;
+    private List<String> lnY;
+    private String lnZ;
+    private boolean loa;
+    private int lob;
     private int status;
 
     public static k b(ManagerElection managerElection) {
@@ -20,16 +20,16 @@ public class k {
             return null;
         }
         k kVar = new k();
-        kVar.lhY = managerElection.begin_vote_time.intValue();
-        kVar.hLJ = managerElection.can_vote.intValue() == 1;
-        kVar.lhX = managerElection.vote_num.intValue();
-        kVar.lid = managerElection.is_show_distribute.intValue() == 1;
-        kVar.lie = managerElection.remainder_time.intValue();
+        kVar.lnV = managerElection.begin_vote_time.intValue();
+        kVar.hRG = managerElection.can_vote.intValue() == 1;
+        kVar.lnU = managerElection.vote_num.intValue();
+        kVar.loa = managerElection.is_show_distribute.intValue() == 1;
+        kVar.lob = managerElection.remainder_time.intValue();
         kVar.status = managerElection.status.intValue();
-        kVar.lic = managerElection.tail_text;
-        kVar.lhZ = managerElection.vote_condition_pic;
-        kVar.lia = managerElection.vote_condition_title;
-        kVar.lib = managerElection.vote_condition;
+        kVar.lnZ = managerElection.tail_text;
+        kVar.lnW = managerElection.vote_condition_pic;
+        kVar.lnX = managerElection.vote_condition_title;
+        kVar.lnY = managerElection.vote_condition;
         return kVar;
     }
 
@@ -37,43 +37,43 @@ public class k {
         return this.status;
     }
 
-    public boolean dgr() {
-        return this.lid;
+    public boolean diT() {
+        return this.loa;
     }
 
-    public int dgs() {
-        return this.lie;
+    public int diU() {
+        return this.lob;
     }
 
-    public int dgt() {
-        return this.lhX;
+    public int diV() {
+        return this.lnU;
     }
 
-    public List<String> dgu() {
-        return this.lia;
+    public List<String> diW() {
+        return this.lnX;
     }
 
-    public List<String> dgv() {
-        return this.lib;
+    public List<String> diX() {
+        return this.lnY;
     }
 
-    public String dgw() {
-        return this.lic;
+    public String diY() {
+        return this.lnZ;
     }
 
-    public boolean ckH() {
-        return this.hLJ;
+    public boolean cnj() {
+        return this.hRG;
     }
 
-    public void oe(boolean z) {
-        this.hLJ = z;
+    public void on(boolean z) {
+        this.hRG = z;
     }
 
     public void setStatus(int i) {
         this.status = i;
     }
 
-    public void Fq(int i) {
-        this.lhX = i;
+    public void FD(int i) {
+        this.lnU = i;
     }
 }

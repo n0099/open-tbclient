@@ -14,9 +14,9 @@ public class NearbySearchInfo extends BaseCloudSearchInfo {
 
     public NearbySearchInfo() {
         if (HttpClient.isHttpsEnable) {
-            this.f1981a = "https://api.map.baidu.com/geosearch/v2/nearby";
+            this.f1983a = "https://api.map.baidu.com/geosearch/v2/nearby";
         } else {
-            this.f1981a = "http://api.map.baidu.com/geosearch/v2/nearby";
+            this.f1983a = "http://api.map.baidu.com/geosearch/v2/nearby";
         }
         this.radius = 1000;
     }

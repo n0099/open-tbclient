@@ -5,7 +5,7 @@ import java.util.HashMap;
 public abstract class RouterProvider {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f1479a = true;
+    private boolean f1481a = true;
     private HashMap<String, RouterAction> b = new HashMap<>();
 
     protected abstract void registerActions();
@@ -24,6 +24,6 @@ public abstract class RouterProvider {
     }
 
     public boolean isValid() {
-        return this.f1479a;
+        return this.f1481a;
     }
 }

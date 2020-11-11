@@ -30,38 +30,38 @@ import com.baidu.yuyinala.privatemessage.session.view.SwipeListView;
 import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
 public class ChatListActivity extends BaseFragmentActivity {
-    private CommonEmptyView boq;
+    private CommonEmptyView bpJ;
     private String mGroupId;
     private String mLiveId;
-    private SwipeListView owU;
-    private com.baidu.yuyinala.privatemessage.session.a.a owV;
-    private com.baidu.yuyinala.privatemessage.model.a owW;
-    private long owX = 0;
-    private String owY = "privateletter";
-    private b owZ = new b() { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.1
+    private SwipeListView oGm;
+    private com.baidu.yuyinala.privatemessage.session.a.a oGn;
+    private com.baidu.yuyinala.privatemessage.model.a oGo;
+    private long oGp = 0;
+    private String oGq = "privateletter";
+    private b oGr = new b() { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.1
         @Override // com.baidu.yuyinala.privatemessage.session.b
-        public void NF(int i) {
-            if (ChatListActivity.this.owW != null) {
-                if (ListUtils.isEmpty(ChatListActivity.this.owW.getDataList())) {
-                    ChatListActivity.this.bME();
+        public void Oa(int i) {
+            if (ChatListActivity.this.oGo != null) {
+                if (ListUtils.isEmpty(ChatListActivity.this.oGo.getDataList())) {
+                    ChatListActivity.this.bPe();
                     return;
                 }
-                ChatListActivity.this.owU.setVisibility(0);
-                ChatListActivity.this.owV.setData(ChatListActivity.this.owW.getDataList());
-                ChatListActivity.this.owV.notifyDataSetChanged();
-                if (ChatListActivity.this.owU.getFooterViewsCount() == 0) {
-                    ChatListActivity.this.owU.addFooterView(LayoutInflater.from(ChatListActivity.this).inflate(a.h.yuyin_msg_list_footview, (ViewGroup) ChatListActivity.this.owU, false));
+                ChatListActivity.this.oGm.setVisibility(0);
+                ChatListActivity.this.oGn.setData(ChatListActivity.this.oGo.getDataList());
+                ChatListActivity.this.oGn.notifyDataSetChanged();
+                if (ChatListActivity.this.oGm.getFooterViewsCount() == 0) {
+                    ChatListActivity.this.oGm.addFooterView(LayoutInflater.from(ChatListActivity.this).inflate(a.g.yuyin_msg_list_footview, (ViewGroup) ChatListActivity.this.oGm, false));
                 }
-                ChatListActivity.this.boq.setVisibility(8);
+                ChatListActivity.this.bpJ.setVisibility(8);
             }
         }
 
         @Override // com.baidu.yuyinala.privatemessage.session.b
-        public void v(String str, int i, String str2) {
-            ChatListActivity.this.eeD();
+        public void w(String str, int i, String str2) {
+            ChatListActivity.this.eis();
         }
     };
-    private CustomMessageListener oxa = new CustomMessageListener(2501070) { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.2
+    private CustomMessageListener oGs = new CustomMessageListener(2501070) { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -70,16 +70,16 @@ public class ChatListActivity extends BaseFragmentActivity {
             }
         }
     };
-    IChatSessionChangeListener oxb = new IChatSessionChangeListener() { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.5
+    IChatSessionChangeListener oGt = new IChatSessionChangeListener() { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.5
         @Override // com.baidu.android.imsdk.chatmessage.IChatSessionChangeListener
         public void onChatSessionUpdate(ChatSession chatSession, boolean z) {
-            if (ChatListActivity.this.eeF() && chatSession != null) {
+            if (ChatListActivity.this.eiu() && chatSession != null) {
                 if (chatSession.getChatType() == 0 || chatSession.getChatType() == 3 || chatSession.getChatType() == 4) {
-                    ChatListActivity.this.oxc.removeMessages(0);
-                    Message obtainMessage = ChatListActivity.this.oxc.obtainMessage();
+                    ChatListActivity.this.oGu.removeMessages(0);
+                    Message obtainMessage = ChatListActivity.this.oGu.obtainMessage();
                     obtainMessage.what = 0;
                     obtainMessage.obj = chatSession;
-                    ChatListActivity.this.oxc.sendMessageDelayed(obtainMessage, 100L);
+                    ChatListActivity.this.oGu.sendMessageDelayed(obtainMessage, 100L);
                 }
             }
         }
@@ -87,13 +87,13 @@ public class ChatListActivity extends BaseFragmentActivity {
         @Override // com.baidu.android.imsdk.chatmessage.IChatSessionChangeListener
         public void onChatRecordDelete(int i, long j) {
             if (BIMManager.CATEGORY.SINGLEPERSON.getValue() == i || BIMManager.CATEGORY.GROUP.getValue() == i) {
-                ChatListActivity.this.oxc.removeMessages(1);
-                ChatListActivity.this.oxc.sendEmptyMessageDelayed(1, 500L);
+                ChatListActivity.this.oGu.removeMessages(1);
+                ChatListActivity.this.oGu.sendEmptyMessageDelayed(1, 500L);
             }
         }
     };
-    private a oxc = new a(this);
-    public CustomMessageListener bcQ = new CustomMessageListener(2913097) { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.6
+    private a oGu = new a(this);
+    public CustomMessageListener bek = new CustomMessageListener(2913097) { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -106,21 +106,21 @@ public class ChatListActivity extends BaseFragmentActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        MessageManager.getInstance().registerListener(this.oxa);
+        MessageManager.getInstance().registerListener(this.oGs);
         BIMManager.mediaSetRole(getActivity(), true);
         setIsAddSwipeBackLayout(false);
         setUseStyleImmersiveSticky(true);
         super.onCreate(bundle);
-        setContentView(a.h.yuyin_activity_chat_list);
-        eeC();
+        setContentView(a.g.yuyin_activity_chat_list);
+        eir();
         M(getIntent());
-        Vr();
-        ecx();
-        MessageManager.getInstance().registerListener(this.bcQ);
+        XQ();
+        egm();
+        MessageManager.getInstance().registerListener(this.bek);
     }
 
-    private void eeC() {
-        findViewById(a.g.yuyin_chatlist_view_top).setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.3
+    private void eir() {
+        findViewById(a.f.yuyin_chatlist_view_top).setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.3
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 ChatListActivity.this.finish();
@@ -136,20 +136,20 @@ public class ChatListActivity extends BaseFragmentActivity {
         }
     }
 
-    private void Vr() {
-        this.boq = (CommonEmptyView) findViewById(a.g.yuyin_ala_empty_view);
-        this.owW = new com.baidu.yuyinala.privatemessage.session.c.a();
-        this.owU = (SwipeListView) findViewById(a.g.news_inner_listview);
-        if (this.owW != null) {
-            this.owV = new com.baidu.yuyinala.privatemessage.session.a.a(this, this.owW.getDataList());
+    private void XQ() {
+        this.bpJ = (CommonEmptyView) findViewById(a.f.yuyin_ala_empty_view);
+        this.oGo = new com.baidu.yuyinala.privatemessage.session.c.a();
+        this.oGm = (SwipeListView) findViewById(a.f.news_inner_listview);
+        if (this.oGo != null) {
+            this.oGn = new com.baidu.yuyinala.privatemessage.session.a.a(this, this.oGo.getDataList());
         }
-        this.owU.setListener(new com.baidu.yuyinala.privatemessage.session.view.a() { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.4
+        this.oGm.setListener(new com.baidu.yuyinala.privatemessage.session.view.a() { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.4
             @Override // com.baidu.yuyinala.privatemessage.session.view.a
             public void p(View view, int i) {
-                com.baidu.yuyinala.privatemessage.session.b.a item = ChatListActivity.this.owV.getItem(i);
-                if (item != null && (item instanceof j)) {
+                com.baidu.yuyinala.privatemessage.session.b.a item;
+                if (ChatListActivity.this.oGn.getCount() > 0 && (item = ChatListActivity.this.oGn.getItem(i)) != null && (item instanceof j)) {
                     j jVar = (j) item;
-                    com.baidu.yuyinala.privatemessage.session.util.a.a(ChatListActivity.this, jVar.name, jVar.oxw, jVar.isMediaRole, ChatListActivity.this.mLiveId, ChatListActivity.this.mGroupId, jVar.paid > 0 ? "80" : "0", jVar.paid, jVar.iconUrl);
+                    com.baidu.yuyinala.privatemessage.session.util.a.a(ChatListActivity.this, jVar.name, jVar.oGP, jVar.isMediaRole, ChatListActivity.this.mLiveId, ChatListActivity.this.mGroupId, jVar.paid > 0 ? "80" : "0", jVar.paid, jVar.iconUrl);
                     LogUtils.d("miliao", "entity.isMediaRole：" + jVar.isMediaRole);
                 }
             }
@@ -162,14 +162,14 @@ public class ChatListActivity extends BaseFragmentActivity {
             @Override // com.baidu.yuyinala.privatemessage.session.view.a
             public void a(int i, View view, final int i2) {
                 com.baidu.yuyinala.privatemessage.session.b.a item;
-                if (i == a.g.yuyin_tv_chatlist_delete && (item = ChatListActivity.this.owV.getItem(i2)) != null && (item instanceof j)) {
-                    ChatListActivity.this.owW.a(ChatListActivity.this, (j) item, new IMediaDeleteChatSessionListener() { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.4.1
+                if (i == a.f.yuyin_tv_chatlist_delete && (item = ChatListActivity.this.oGn.getItem(i2)) != null && (item instanceof j)) {
+                    ChatListActivity.this.oGo.a(ChatListActivity.this, (j) item, new IMediaDeleteChatSessionListener() { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.4.1
                         @Override // com.baidu.android.imsdk.chatmessage.IMediaDeleteChatSessionListener
                         public void onMediaDeleteChatSessionResult(int i3, String str) {
                             if (i3 == 0) {
-                                ChatListActivity.this.owV.NI(i2);
-                                if (ChatListActivity.this.owV.getCount() == 0) {
-                                    ChatListActivity.this.bME();
+                                ChatListActivity.this.oGn.Od(i2);
+                                if (ChatListActivity.this.oGn.getCount() == 0) {
+                                    ChatListActivity.this.bPe();
                                     return;
                                 }
                                 return;
@@ -179,52 +179,52 @@ public class ChatListActivity extends BaseFragmentActivity {
                     });
                 }
             }
-        }, new int[]{a.g.yuyin_tv_chatlist_delete});
-        this.owU.setAdapter((ListAdapter) this.owV);
-        this.owU.setVisibility(8);
+        }, new int[]{a.f.yuyin_tv_chatlist_delete});
+        this.oGm.setAdapter((ListAdapter) this.oGn);
+        this.oGm.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bME() {
-        if (this.boq != null && this.owV != null) {
-            this.owU.setVisibility(8);
-            this.boq.setVisibility(0);
-            this.boq.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK).setTextColor(Color.parseColor("#525252")).setTitle(a.i.yuyin_sdk_privatemsg_list_empty);
+    public void bPe() {
+        if (this.bpJ != null && this.oGn != null) {
+            this.oGm.setVisibility(8);
+            this.bpJ.setVisibility(0);
+            this.bpJ.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK).setTextColor(Color.parseColor("#525252")).setTitle(a.h.yuyin_sdk_privatemsg_list_empty);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eeD() {
-        if (this.owV != null && this.boq != null) {
-            this.owU.setVisibility(8);
-            this.owV.setData(null);
-            this.owV.notifyDataSetChanged();
-            this.boq.setVisibility(0);
-            this.boq.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK).setTextColor(Color.parseColor("#525252")).setTitle(a.i.yuyin_sdk_privatemsg_network_error);
+    public void eis() {
+        if (this.oGn != null && this.bpJ != null) {
+            this.oGm.setVisibility(8);
+            this.oGn.setData(null);
+            this.oGn.notifyDataSetChanged();
+            this.bpJ.setVisibility(0);
+            this.bpJ.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK).setTextColor(Color.parseColor("#525252")).setTitle(a.h.yuyin_sdk_privatemsg_network_error);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eeE() {
-        this.owW.a(this, this.owZ, 2);
+    public void eit() {
+        this.oGo.a(this, this.oGr, 2);
     }
 
     /* loaded from: classes4.dex */
     private static class a extends Handler {
-        private final WeakReference<ChatListActivity> oxf;
+        private final WeakReference<ChatListActivity> oGx;
 
         a(ChatListActivity chatListActivity) {
-            this.oxf = new WeakReference<>(chatListActivity);
+            this.oGx = new WeakReference<>(chatListActivity);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            ChatListActivity chatListActivity = this.oxf.get();
+            ChatListActivity chatListActivity = this.oGx.get();
             if (chatListActivity != null) {
                 switch (message.what) {
                     case 0:
                         if (((ChatSession) message.obj) != null) {
-                            chatListActivity.eeE();
+                            chatListActivity.eit();
                             return;
                         }
                         return;
@@ -237,21 +237,21 @@ public class ChatListActivity extends BaseFragmentActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean eeF() {
+    public boolean eiu() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.owX <= 0 || currentTimeMillis - this.owX > 500) {
-            this.owX = currentTimeMillis;
+        if (this.oGp <= 0 || currentTimeMillis - this.oGp > 500) {
+            this.oGp = currentTimeMillis;
             return true;
         }
         return false;
     }
 
-    private void ecx() {
-        BIMManager.registerChatSessionChangeListener(this, this.oxb);
+    private void egm() {
+        BIMManager.registerChatSessionChangeListener(this, this.oGt);
     }
 
-    private void ecy() {
-        BIMManager.unregisterChatSessionChangeListener(this, this.oxb);
+    private void egn() {
+        BIMManager.unregisterChatSessionChangeListener(this, this.oGt);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -264,13 +264,13 @@ public class ChatListActivity extends BaseFragmentActivity {
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.oxa);
-        MessageManager.getInstance().unRegisterListener(this.bcQ);
-        c.eev();
-        if ("privateletter".equals(this.owY)) {
-            ecy();
-            if (this.owW != null) {
-                this.owW.destroy();
+        MessageManager.getInstance().unRegisterListener(this.oGs);
+        MessageManager.getInstance().unRegisterListener(this.bek);
+        c.eik();
+        if ("privateletter".equals(this.oGq)) {
+            egn();
+            if (this.oGo != null) {
+                this.oGo.destroy();
             }
         }
     }
@@ -279,7 +279,7 @@ public class ChatListActivity extends BaseFragmentActivity {
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        eeE();
+        eit();
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity

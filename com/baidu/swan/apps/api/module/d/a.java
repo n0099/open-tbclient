@@ -19,7 +19,7 @@ public class a extends d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b kx(String str) {
+    public com.baidu.swan.apps.api.c.b kM(String str) {
         Pair<com.baidu.swan.apps.api.c.b, JSONObject> bj = com.baidu.swan.apps.api.d.b.bj("Api-Image", str);
         com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bj.first;
         if (!bVar.isSuccess()) {
@@ -32,12 +32,12 @@ public class a extends d {
             c.e("Api-Image", "empty cb");
             return new com.baidu.swan.apps.api.c.b(202, "empty cb");
         }
-        return b(optString, jSONObject.optString("src"), jSONObject.optInt("quality", 80));
+        return c(optString, jSONObject.optString("src"), jSONObject.optInt("quality", 80));
     }
 
-    private com.baidu.swan.apps.api.c.b b(final String str, String str2, int i) {
-        final e aEU = e.aEU();
-        if (aEU == null) {
+    private com.baidu.swan.apps.api.c.b c(final String str, String str2, int i) {
+        final e aHu = e.aHu();
+        if (aHu == null) {
             return new com.baidu.swan.apps.api.c.b(1001, "swan app is null");
         }
         final int i2 = (i < 0 || i > 100) ? 80 : i;
@@ -45,12 +45,12 @@ public class a extends d {
             c.e("Api-Image", "src is null");
             return new com.baidu.swan.apps.api.c.b(202, "src is null");
         }
-        PathType tj = com.baidu.swan.apps.storage.b.tj(str2);
+        PathType tx = com.baidu.swan.apps.storage.b.tx(str2);
         String str3 = null;
-        if (tj == PathType.BD_FILE) {
-            str3 = com.baidu.swan.apps.storage.b.cz(str2, aEU.id);
-        } else if (tj == PathType.RELATIVE) {
-            str3 = com.baidu.swan.apps.storage.b.a(str2, aEU, aEU.getVersion());
+        if (tx == PathType.BD_FILE) {
+            str3 = com.baidu.swan.apps.storage.b.cz(str2, aHu.id);
+        } else if (tx == PathType.RELATIVE) {
+            str3 = com.baidu.swan.apps.storage.b.a(str2, aHu, aHu.getVersion());
         }
         if (TextUtils.isEmpty(str3)) {
             c.e("Api-Image", "file path error");
@@ -64,15 +64,15 @@ public class a extends d {
         p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.api.module.d.a.1
             @Override // java.lang.Runnable
             public void run() {
-                File tZ = t.tZ(file.getName());
-                if (!t.a(file, tZ, i2)) {
+                File un = t.un(file.getName());
+                if (!t.a(file, un, i2)) {
                     c.e("Api-Image", "compress image failed");
                     a.this.a(str, new com.baidu.swan.apps.api.c.b(1001, "compress image failed"));
                     return;
                 }
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("tempFilePath", com.baidu.swan.apps.storage.b.cC(tZ.getAbsolutePath(), aEU.id));
+                    jSONObject.put("tempFilePath", com.baidu.swan.apps.storage.b.cC(un.getAbsolutePath(), aHu.id));
                 } catch (JSONException e) {
                     c.e("Api-Image", e.toString());
                 }

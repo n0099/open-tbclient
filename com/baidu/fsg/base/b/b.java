@@ -6,12 +6,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 class b implements ThreadFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f1456a;
+    final /* synthetic */ a f1458a;
     private final AtomicInteger b = new AtomicInteger(1);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.f1456a = aVar;
+        this.f1458a = aVar;
     }
 
     @Override // java.util.concurrent.ThreadFactory

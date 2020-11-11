@@ -42,25 +42,25 @@ public class BuyTbeanItemView extends a<IconInfoWrapperData> {
         this.mPageContext = tbPageContext;
         this.mIsFromAlaLiveRoom = z;
         this.mRoot = getView();
-        this.mTvNum = (TextView) this.mRoot.findViewById(a.g.tbean_num_tv);
-        this.mTvMemberLead = (TextView) this.mRoot.findViewById(a.g.tbean_member_tv_lead);
-        this.mTvMember = (TextView) this.mRoot.findViewById(a.g.tbean_member_tv);
-        this.mTvMemberWrapper = (LinearLayout) getView().findViewById(a.g.tbean_member_wrapper);
-        this.mIvIcon = (TbImageView) this.mRoot.findViewById(a.g.icon_iv);
-        this.mTvIconInfo = (TextView) this.mRoot.findViewById(a.g.icon_info_tv);
-        this.mTvOriginPrice = (TextView) this.mRoot.findViewById(a.g.tbean_origin_price_tv);
+        this.mTvNum = (TextView) this.mRoot.findViewById(a.f.tbean_num_tv);
+        this.mTvMemberLead = (TextView) this.mRoot.findViewById(a.f.tbean_member_tv_lead);
+        this.mTvMember = (TextView) this.mRoot.findViewById(a.f.tbean_member_tv);
+        this.mTvMemberWrapper = (LinearLayout) getView().findViewById(a.f.tbean_member_wrapper);
+        this.mIvIcon = (TbImageView) this.mRoot.findViewById(a.f.icon_iv);
+        this.mTvIconInfo = (TextView) this.mRoot.findViewById(a.f.icon_info_tv);
+        this.mTvOriginPrice = (TextView) this.mRoot.findViewById(a.f.tbean_origin_price_tv);
         this.mTvOriginPrice.getPaint().setFlags(21);
         this.mTvOriginPrice.setVisibility(8);
-        this.mTvPrice = (TextView) this.mRoot.findViewById(a.g.tbean_price_tv);
-        this.mTvLable = (TextView) this.mRoot.findViewById(a.g.tbean_label_tv);
+        this.mTvPrice = (TextView) this.mRoot.findViewById(a.f.tbean_price_tv);
+        this.mTvLable = (TextView) this.mRoot.findViewById(a.f.tbean_label_tv);
         if (this.mIsFromAlaLiveRoom) {
-            this.mRoot.setBackgroundColor(this.mPageContext.getPageActivity().getColor(a.d.sdk_tbn_item_bg_ala));
-            this.mTvNum.setTextColor(this.mPageContext.getPageActivity().getColor(a.d.sdk_tbn_item_tbean_num_ala));
-            this.mTvMemberLead.setTextColor(this.mPageContext.getPageActivity().getColor(a.d.sdk_tbn_item_tbean_member_extra_ala));
-            this.mTvMember.setTextColor(this.mPageContext.getPageActivity().getColor(a.d.sdk_tbn_item_tbean_member_extra_ala));
-            this.mTvIconInfo.setTextColor(this.mPageContext.getPageActivity().getColor(a.d.sdk_tbn_item_tbean_icon_info_text_ala));
-            this.mTvIconInfo.setBackgroundColor(this.mPageContext.getPageActivity().getColor(a.d.sdk_tbn_item_tbean_icon_info_bg_ala));
-            this.mTvPrice.setTextColor(this.mPageContext.getPageActivity().getColor(a.d.sdk_tbn_item_tbean_price_ala));
+            this.mRoot.setBackgroundColor(this.mPageContext.getPageActivity().getColor(a.c.sdk_tbn_item_bg_ala));
+            this.mTvNum.setTextColor(this.mPageContext.getPageActivity().getColor(a.c.sdk_tbn_item_tbean_num_ala));
+            this.mTvMemberLead.setTextColor(this.mPageContext.getPageActivity().getColor(a.c.sdk_tbn_item_tbean_member_extra_ala));
+            this.mTvMember.setTextColor(this.mPageContext.getPageActivity().getColor(a.c.sdk_tbn_item_tbean_member_extra_ala));
+            this.mTvIconInfo.setTextColor(this.mPageContext.getPageActivity().getColor(a.c.sdk_tbn_item_tbean_icon_info_text_ala));
+            this.mTvIconInfo.setBackgroundColor(this.mPageContext.getPageActivity().getColor(a.c.sdk_tbn_item_tbean_icon_info_bg_ala));
+            this.mTvPrice.setTextColor(this.mPageContext.getPageActivity().getColor(a.c.sdk_tbn_item_tbean_price_ala));
         }
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
@@ -74,16 +74,16 @@ public class BuyTbeanItemView extends a<IconInfoWrapperData> {
             return null;
         }
         String formatTBeanNum = TBeanUtil.formatTBeanNum(i2);
-        String str = this.mPageContext.getPageActivity().getString(a.i.sdk_tbn_super_mem_tbean_tip) + "[image]" + formatTBeanNum;
+        String str = this.mPageContext.getPageActivity().getString(a.h.sdk_tbn_super_mem_tbean_tip) + "[image]" + formatTBeanNum;
         SpannableString spannableString = new SpannableString(str);
-        Bitmap bitmap = SkinManager.getBitmap(a.f.sdk_icon_huobi_tdou);
+        Bitmap bitmap = SkinManager.getBitmap(a.e.sdk_icon_huobi_tdou);
         BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
         bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
         VCenterTextSpan vCenterTextSpan = new VCenterTextSpan(bitmapDrawable);
-        vCenterTextSpan.setPaddingLeft(BdUtilHelper.getDimens(this.mPageContext.getPageActivity(), a.e.sdk_ds4));
-        vCenterTextSpan.setPaddingRight(BdUtilHelper.getDimens(this.mPageContext.getPageActivity(), a.e.sdk_ds4));
+        vCenterTextSpan.setPaddingLeft(BdUtilHelper.getDimens(this.mPageContext.getPageActivity(), a.d.sdk_ds4));
+        vCenterTextSpan.setPaddingRight(BdUtilHelper.getDimens(this.mPageContext.getPageActivity(), a.d.sdk_ds4));
         TBeanUtil.setSpan(spannableString, str, "[image]", vCenterTextSpan);
-        TBeanUtil.setSpan(spannableString, str, formatTBeanNum, new ForegroundColorSpan(SkinManager.getColor(a.d.sdk_cp_cont_b)));
+        TBeanUtil.setSpan(spannableString, str, formatTBeanNum, new ForegroundColorSpan(SkinManager.getColor(a.c.sdk_cp_cont_b)));
         return spannableString;
     }
 
@@ -92,9 +92,9 @@ public class BuyTbeanItemView extends a<IconInfoWrapperData> {
             return null;
         }
         String valueOf = String.valueOf(i);
-        String string = this.mPageContext.getPageActivity().getString(a.i.sdk_tbn_pay_money, new Object[]{valueOf});
+        String string = this.mPageContext.getPageActivity().getString(a.h.sdk_tbn_pay_money, new Object[]{valueOf});
         SpannableString spannableString = new SpannableString(string);
-        TBeanUtil.setSpan(spannableString, string, "¥" + valueOf, new ForegroundColorSpan(SkinManager.getColor(a.d.sdk_cp_link_tip_d)));
+        TBeanUtil.setSpan(spannableString, string, "¥" + valueOf, new ForegroundColorSpan(SkinManager.getColor(a.c.sdk_cp_link_tip_d)));
         TBeanUtil.setSpan(spannableString, string, valueOf, new RelativeSizeSpan(1.3f));
         return spannableString;
     }
@@ -103,7 +103,7 @@ public class BuyTbeanItemView extends a<IconInfoWrapperData> {
         if (this.mPageContext == null) {
             return null;
         }
-        return this.mPageContext.getPageActivity().getString(a.i.sdk_tbn_pay_money, new Object[]{String.valueOf(i)});
+        return this.mPageContext.getPageActivity().getString(a.h.sdk_tbn_pay_money, new Object[]{String.valueOf(i)});
     }
 
     private SpannableString buildTBeanText(int i) {
@@ -111,15 +111,15 @@ public class BuyTbeanItemView extends a<IconInfoWrapperData> {
             return null;
         }
         String formatTBeanNum = TBeanUtil.formatTBeanNum(i);
-        String str = this.mPageContext.getPageActivity().getString(a.i.sdk_tbn_give_gift) + "[image]" + formatTBeanNum;
-        Bitmap bitmap = SkinManager.getBitmap(a.f.sdk_icon_huobi_tdou);
+        String str = this.mPageContext.getPageActivity().getString(a.h.sdk_tbn_give_gift) + "[image]" + formatTBeanNum;
+        Bitmap bitmap = SkinManager.getBitmap(a.e.sdk_icon_huobi_tdou);
         BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
         bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
         VCenterTextSpan vCenterTextSpan = new VCenterTextSpan(bitmapDrawable);
-        vCenterTextSpan.setPaddingLeft(BdUtilHelper.getDimens(this.mPageContext.getPageActivity(), a.e.sdk_ds4));
-        vCenterTextSpan.setPaddingRight(BdUtilHelper.getDimens(this.mPageContext.getPageActivity(), a.e.sdk_ds4));
+        vCenterTextSpan.setPaddingLeft(BdUtilHelper.getDimens(this.mPageContext.getPageActivity(), a.d.sdk_ds4));
+        vCenterTextSpan.setPaddingRight(BdUtilHelper.getDimens(this.mPageContext.getPageActivity(), a.d.sdk_ds4));
         SpannableString spannableString = new SpannableString(str);
-        TBeanUtil.setSpan(spannableString, str, formatTBeanNum, new ForegroundColorSpan(SkinManager.getColor(a.d.sdk_cp_link_tip_d)));
+        TBeanUtil.setSpan(spannableString, str, formatTBeanNum, new ForegroundColorSpan(SkinManager.getColor(a.c.sdk_cp_link_tip_d)));
         TBeanUtil.setSpan(spannableString, str, "[image]", vCenterTextSpan);
         return spannableString;
     }
@@ -132,7 +132,7 @@ public class BuyTbeanItemView extends a<IconInfoWrapperData> {
 
     @Override // com.baidu.live.tieba.b.a
     public int getLayout() {
-        return a.h.sdk_tbn_buy_tbean_item;
+        return a.g.sdk_tbn_buy_tbean_item;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -155,7 +155,7 @@ public class BuyTbeanItemView extends a<IconInfoWrapperData> {
                 }
                 this.mTvNum.setText(StringHelper.formatTosepara(iconInfoData.non_member_t));
                 this.mIvIcon.startLoad(iconInfoData.picUrl, 10, false);
-                this.mTvIconInfo.setText(this.mPageContext.getPageActivity().getString(a.i.sdk_tbn_icon_name_valid_day, new Object[]{iconInfoData.name, Integer.valueOf(iconInfoData.duration)}));
+                this.mTvIconInfo.setText(this.mPageContext.getPageActivity().getString(a.h.sdk_tbn_icon_name_valid_day, new Object[]{iconInfoData.name, Integer.valueOf(iconInfoData.duration)}));
                 this.mTvPrice.setText(buildPriceCommonText(getYuanFromFen(iconInfoData.dubi)));
                 if (!StringUtils.isNull(iconInfoData.tag_name)) {
                     this.mTvLable.setVisibility(0);

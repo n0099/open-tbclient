@@ -17,7 +17,7 @@ public class df {
     }
 
     public static int a(ix ixVar, hm hmVar) {
-        switch (dg.f4851a[hmVar.ordinal()]) {
+        switch (dg.f4853a[hmVar.ordinal()]) {
             case 1:
             case 2:
             case 3:
@@ -34,10 +34,10 @@ public class df {
                 if (ixVar != null) {
                     try {
                         if (ixVar instanceof id) {
-                            String str = ((id) ixVar).f561d;
+                            String str = ((id) ixVar).f563d;
                             return (TextUtils.isEmpty(str) || fa.a(fa.m270a(str)) == -1) ? a2 : fa.a(fa.m270a(str));
                         } else if (ixVar instanceof il) {
-                            String str2 = ((il) ixVar).f620d;
+                            String str2 = ((il) ixVar).f622d;
                             if (TextUtils.isEmpty(str2)) {
                                 return a2;
                             }

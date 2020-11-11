@@ -1,5 +1,5 @@
 package com.baidu.tieba.ala.liveroom.exclusive;
 /* loaded from: classes4.dex */
 public interface e {
-    void vj(int i);
+    void vw(int i);
 }

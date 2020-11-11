@@ -5,11 +5,11 @@ import java.nio.ByteBuffer;
 public abstract class ji {
 
     /* renamed from: a  reason: collision with root package name */
-    protected js f5001a;
+    protected js f5003a;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ji(js jsVar) {
-        this.f5001a = jsVar;
+        this.f5003a = jsVar;
     }
 
     public abstract byte a();

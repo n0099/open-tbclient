@@ -3,29 +3,29 @@ package com.xiaomi.push;
 public class ep {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4888a;
+    private int f4890a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f298a;
+    private String f300a;
     private String b;
     private String c;
     private String d;
 
     public int a() {
-        return this.f4888a;
+        return this.f4890a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public String m266a() {
-        return this.f298a;
+        return this.f300a;
     }
 
     public void a(int i) {
-        this.f4888a = i;
+        this.f4890a = i;
     }
 
     public void a(String str) {
-        this.f298a = str;
+        this.f300a = str;
     }
 
     public String b() {

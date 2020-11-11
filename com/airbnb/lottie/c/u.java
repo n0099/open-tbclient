@@ -3,6 +3,7 @@ package com.airbnb.lottie.c;
 import android.util.JsonReader;
 import android.util.Log;
 import com.airbnb.lottie.model.content.Mask;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -35,7 +36,7 @@ public class u {
                     z = true;
                     break;
                 case 3357091:
-                    if (nextName.equals("mode")) {
+                    if (nextName.equals(UbcStatConstant.KEY_CONTENT_EXT_MODE)) {
                         z = false;
                         break;
                     }

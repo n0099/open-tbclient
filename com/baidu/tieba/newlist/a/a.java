@@ -7,29 +7,29 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes21.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> bje;
-    private v igO;
+    private List<com.baidu.adp.widget.ListView.a> bky;
+    private v imM;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, v vVar) {
         this.mPageContext = tbPageContext;
-        this.igO = vVar;
-        Ly();
-        this.igO.addAdapters(this.bje);
+        this.imM = vVar;
+        LY();
+        this.imM.addAdapters(this.bky);
     }
 
-    private void Ly() {
-        this.bje = new ArrayList();
-        this.bje.add(new b(this.mPageContext));
+    private void LY() {
+        this.bky = new ArrayList();
+        this.bky.add(new b(this.mPageContext));
     }
 
     public void notifyDataSetChanged() {
-        if (this.igO != null) {
-            this.igO.getListAdapter().notifyDataSetChanged();
+        if (this.imM != null) {
+            this.imM.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<q> list) {
-        this.igO.setData(list);
+        this.imM.setData(list);
     }
 }

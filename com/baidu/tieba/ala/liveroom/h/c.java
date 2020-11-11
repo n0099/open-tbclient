@@ -10,12 +10,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 /* loaded from: classes4.dex */
 public class c extends BaseAdapter {
-    private ViewGroup gat;
-    private b hap;
-    public final a[] hao = {new a(a.f.img_live_filter_ziran, "delta", "自然"), new a(a.f.img_live_filter_fennen, "slowlived", "粉嫩"), new a(a.f.img_live_filter_rouguang, "pink", "柔光"), new a(a.f.img_live_filter_fsqq, "sakura", "粉红气球"), new a(a.f.img_live_filter_mgzc, "hongkong", "暮光之城")};
-    private int gav = -1;
-    private int gae = 0;
-    private ArrayList<Boolean> gau = new ArrayList<>();
+    private ViewGroup ggj;
+    private b hgr;
+    public final a[] hgq = {new a(a.e.img_live_filter_ziran, "delta", "自然"), new a(a.e.img_live_filter_fennen, "slowlived", "粉嫩"), new a(a.e.img_live_filter_rouguang, "pink", "柔光"), new a(a.e.img_live_filter_fsqq, "sakura", "粉红气球"), new a(a.e.img_live_filter_mgzc, "hongkong", "暮光之城")};
+    private int ggl = -1;
+    private int gfV = 0;
+    private ArrayList<Boolean> ggk = new ArrayList<>();
 
     /* loaded from: classes4.dex */
     public interface b {
@@ -23,33 +23,33 @@ public class c extends BaseAdapter {
     }
 
     public c(ViewGroup viewGroup) {
-        this.gat = viewGroup;
-        bLO();
+        this.ggj = viewGroup;
+        bOo();
     }
 
-    private void bLO() {
-        if (this.gau != null) {
-            this.gau.clear();
-            this.gau.addAll(Arrays.asList(new Boolean[this.hao.length]));
+    private void bOo() {
+        if (this.ggk != null) {
+            this.ggk.clear();
+            this.ggk.addAll(Arrays.asList(new Boolean[this.hgq.length]));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vn(int i) {
+    public void vA(int i) {
         if (i >= 0) {
-            this.gau.set(i, true);
-            this.gav = i;
-            if (this.hap != null) {
-                this.hap.onItemSelected(i);
+            this.ggk.set(i, true);
+            this.ggl = i;
+            if (this.hgr != null) {
+                this.hgr.onItemSelected(i);
             }
         }
     }
 
-    public void HE(String str) {
+    public void HW(String str) {
         if (!TextUtils.isEmpty(str)) {
-            for (int i = 0; i < this.hao.length; i++) {
-                if (str.equals(this.hao[i].mFilterName)) {
-                    vn(i);
+            for (int i = 0; i < this.hgq.length; i++) {
+                if (str.equals(this.hgq[i].mFilterName)) {
+                    vA(i);
                     return;
                 }
             }
@@ -57,12 +57,12 @@ public class c extends BaseAdapter {
     }
 
     public void a(b bVar) {
-        this.hap = bVar;
+        this.hgr = bVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.hao.length;
+        return this.hgq.length;
     }
 
     @Override // android.widget.Adapter
@@ -77,59 +77,59 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(final int i, View view, ViewGroup viewGroup) {
-        C0662c c0662c;
+        C0676c c0676c;
         if (view == null) {
-            C0662c c0662c2 = new C0662c();
-            c0662c2.har = new AlaLiveMultiBeautyFilterItemView(this.gat.getContext());
-            c0662c2.har.setTag(c0662c2);
-            c0662c = c0662c2;
+            C0676c c0676c2 = new C0676c();
+            c0676c2.hgt = new AlaLiveMultiBeautyFilterItemView(this.ggj.getContext());
+            c0676c2.hgt.setTag(c0676c2);
+            c0676c = c0676c2;
         } else {
-            c0662c = (C0662c) view.getTag();
+            c0676c = (C0676c) view.getTag();
         }
-        if (this.gau.get(i) == null || !this.gau.get(i).booleanValue()) {
-            c0662c.har.setUnselectedBackground();
+        if (this.ggk.get(i) == null || !this.ggk.get(i).booleanValue()) {
+            c0676c.hgt.setUnselectedBackground();
         } else {
-            c0662c.har.setSelectedBackground();
+            c0676c.hgt.setSelectedBackground();
         }
-        c0662c.har.setItemIcon(this.hao[i % this.hao.length].mDrawableId);
-        c0662c.har.setItemText(this.hao[i % this.hao.length].mShowName);
-        c0662c.har.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.h.c.1
+        c0676c.hgt.setItemIcon(this.hgq[i % this.hgq.length].mDrawableId);
+        c0676c.hgt.setItemText(this.hgq[i % this.hgq.length].mShowName);
+        c0676c.hgt.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.h.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (c.this.gav != i) {
-                    View childAt = c.this.gat.getChildAt(c.this.gav);
+                if (c.this.ggl != i) {
+                    View childAt = c.this.ggj.getChildAt(c.this.ggl);
                     if (childAt != null && (childAt instanceof AlaLiveMultiBeautyFilterItemView)) {
                         ((AlaLiveMultiBeautyFilterItemView) childAt).setUnselectedBackground();
                     }
-                    if (c.this.gav >= 0) {
-                        c.this.gau.set(c.this.gav, false);
+                    if (c.this.ggl >= 0) {
+                        c.this.ggk.set(c.this.ggl, false);
                     }
                 }
                 if (view2.getTag() != null) {
-                    ((C0662c) view2.getTag()).har.setSelectedBackground();
+                    ((C0676c) view2.getTag()).hgt.setSelectedBackground();
                 }
-                c.this.vn(i);
+                c.this.vA(i);
                 c.this.notifyDataSetChanged();
             }
         });
-        if (i == 0 && this.gae != 0) {
-            c0662c.har.setPadding(this.gae, 0, 0, 0);
+        if (i == 0 && this.gfV != 0) {
+            c0676c.hgt.setPadding(this.gfV, 0, 0, 0);
         } else {
-            c0662c.har.setPadding(0, 0, 0, 0);
+            c0676c.hgt.setPadding(0, 0, 0, 0);
         }
-        return c0662c.har;
+        return c0676c.hgt;
     }
 
-    public void ty(int i) {
-        this.gae = i;
+    public void tI(int i) {
+        this.gfV = i;
     }
 
     /* renamed from: com.baidu.tieba.ala.liveroom.h.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    class C0662c {
-        AlaLiveMultiBeautyFilterItemView har;
+    class C0676c {
+        AlaLiveMultiBeautyFilterItemView hgt;
 
-        C0662c() {
+        C0676c() {
         }
     }
 

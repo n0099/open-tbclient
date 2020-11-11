@@ -8,16 +8,16 @@ public class a {
     public static class C0152a {
 
         /* renamed from: a  reason: collision with root package name */
-        private byte[] f1800a;
+        private byte[] f1802a;
         private int b;
 
         public C0152a(byte[] bArr, int i) {
-            this.f1800a = bArr;
+            this.f1802a = bArr;
             this.b = i;
         }
 
         public byte[] a() {
-            return this.f1800a;
+            return this.f1802a;
         }
     }
 

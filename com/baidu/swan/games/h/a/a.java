@@ -37,9 +37,9 @@ public class a extends aa {
 
                         @Override // com.baidu.swan.apps.r.d.b
                         public void onSuccess() {
-                            File arG = b.arG();
-                            File arE = b.arE();
-                            if (arG.exists() && com.baidu.swan.c.d.unzipFile(arG.getPath(), arE.getPath())) {
+                            File auh = b.auh();
+                            File auf = b.auf();
+                            if (auh.exists() && com.baidu.swan.c.d.unzipFile(auh.getPath(), auf.getPath())) {
                                 Toast.makeText(AppRuntime.getAppContext(), a.h.debug_game_extension_download_success, 1).show();
                             } else {
                                 Toast.makeText(AppRuntime.getAppContext(), a.h.debug_game_extension_download_failed, 1).show();

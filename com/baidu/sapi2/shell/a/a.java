@@ -17,50 +17,50 @@ public class a {
     private static final String[] i = {"_data", "datetaken"};
 
     /* renamed from: a  reason: collision with root package name */
-    private ContentResolver f3520a;
+    private ContentResolver f3523a;
     private IScreenShotListener b;
     private HandlerThread c;
     private Handler d;
-    private C0332a e;
-    private C0332a f;
+    private C0344a e;
+    private C0344a f;
 
     /* renamed from: com.baidu.sapi2.shell.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    private class C0332a extends ContentObserver {
+    private class C0344a extends ContentObserver {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Uri f3521a;
+        private final Uri f3524a;
 
-        public C0332a(Uri uri, Handler handler) {
+        public C0344a(Uri uri, Handler handler) {
             super(handler);
-            this.f3521a = uri;
+            this.f3524a = uri;
         }
 
         @Override // android.database.ContentObserver
         public void onChange(boolean z) {
             super.onChange(z);
-            a.this.a(this.f3521a);
+            a.this.a(this.f3524a);
         }
     }
 
     public void b() {
-        this.f3520a.unregisterContentObserver(this.e);
-        this.f3520a.unregisterContentObserver(this.f);
+        this.f3523a.unregisterContentObserver(this.e);
+        this.f3523a.unregisterContentObserver(this.f);
     }
 
     public void a(ContentResolver contentResolver, IScreenShotListener iScreenShotListener) {
-        this.f3520a = contentResolver;
+        this.f3523a = contentResolver;
         this.b = iScreenShotListener;
         this.c = new HandlerThread(g);
         this.c.start();
         this.d = new Handler(this.c.getLooper());
-        this.e = new C0332a(MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.d);
-        this.f = new C0332a(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.d);
+        this.e = new C0344a(MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.d);
+        this.f = new C0344a(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.d);
     }
 
     public void a() {
-        this.f3520a.registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, false, this.e);
-        this.f3520a.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, false, this.f);
+        this.f3523a.registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, false, this.e);
+        this.f3523a.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, false, this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -71,7 +71,7 @@ public class a {
         Cursor cursor3;
         try {
             try {
-                cursor2 = this.f3520a.query(uri, i, null, null, "date_added desc limit 1");
+                cursor2 = this.f3523a.query(uri, i, null, null, "date_added desc limit 1");
             } catch (Throwable th) {
                 cursor = cursor3;
                 th = th;

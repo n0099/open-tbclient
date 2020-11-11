@@ -5,7 +5,7 @@ import com.baidu.platform.comjni.JNIBaseApi;
 public class NAMsgCenter extends JNIBaseApi {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f3184a = 0;
+    private long f3186a = 0;
 
     private native boolean nativeCancelRequest(long j);
 

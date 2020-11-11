@@ -13,8 +13,8 @@ import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 /* loaded from: classes22.dex */
 public class w extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.topic.topictab.b.a, am<com.baidu.tieba.homepage.topic.topictab.b.a>> implements com.baidu.tieba.a.f {
     private String ahu;
-    private NEGFeedBackView.a fJp;
-    public BdUniqueId fmX;
+    private NEGFeedBackView.a fPf;
+    public BdUniqueId fsQ;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -26,7 +26,7 @@ public class w extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aT */
+    /* renamed from: aV */
     public am<com.baidu.tieba.homepage.topic.topictab.b.a> c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
         com.baidu.tieba.homepage.personalize.view.g gVar = new com.baidu.tieba.homepage.personalize.view.g(this.mContext, this.mPageContext);
@@ -40,7 +40,7 @@ public class w extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         ak tV = aVar.tV();
         tV.setSourceForPb(2);
         am<com.baidu.tieba.homepage.topic.topictab.b.a> amVar = new am<>(tV);
-        amVar.setPageId(this.fmX);
+        amVar.setPageId(this.fsQ);
         return amVar;
     }
 
@@ -53,18 +53,18 @@ public class w extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         }
         TiebaStatic.log(new aq("c13448").w("topic_id", aVar.topicId));
         amVar.tW().setPage(this.ahu);
-        amVar.aL(false).a(this.fJp);
+        amVar.aL(false).a(this.fPf);
         amVar.b((am<com.baidu.tieba.homepage.topic.topictab.b.a>) aVar);
         amVar.tW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return amVar.getView();
     }
 
     @Override // com.baidu.tieba.a.f
-    public void EL(String str) {
+    public void EZ(String str) {
         this.ahu = str;
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.fJp = aVar;
+        this.fPf = aVar;
     }
 }

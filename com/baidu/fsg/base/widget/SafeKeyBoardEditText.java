@@ -11,7 +11,7 @@ import com.baidu.fsg.base.utils.RimGlobalUtils;
 public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private SafeKeyBoardState f1540a;
+    private SafeKeyBoardState f1542a;
     private Context b;
     private ViewGroup c;
     private SafeScrollView d;
@@ -86,7 +86,7 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
     }
 
     public SafeKeyBoardState getKeyBoardState() {
-        return this.f1540a;
+        return this.f1542a;
     }
 
     @Override // com.baidu.fsg.base.widget.PluginEditText, android.view.View.OnTouchListener

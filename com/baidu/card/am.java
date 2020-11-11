@@ -88,7 +88,7 @@ public class am<T extends AbsThreadDataSupport> extends af.a {
             return;
         }
         if (this.ahW == null) {
-            this.ahW = new j(getTbPageContext(), com.baidu.tbadk.a.d.bfu());
+            this.ahW = new j(getTbPageContext(), com.baidu.tbadk.a.d.bhU());
             this.ahW.setOnClickEvent(aVar);
         }
         this.ahW.setPageUniqueId(this.mId);
@@ -141,17 +141,17 @@ public class am<T extends AbsThreadDataSupport> extends af.a {
             this.ahR.getView().setVisibility(8);
             return;
         }
-        if (t.bhz() != null) {
-            t.bhz().getTid();
+        if (t.bjZ() != null) {
+            t.bjZ().getTid();
         }
-        if (t.bhz() != null && t.bhz().bka() != null) {
-            t.bhz().bka().getName_show();
+        if (t.bjZ() != null && t.bjZ().bmA() != null) {
+            t.bjZ().bmA().getName_show();
         }
         this.ahR.getView().setVisibility(0);
         if (this.mNegFeedBackItem != null && this.mNegFeedBackItem.agO != null) {
-            if (!t.isSelf() && t.bhB() != null) {
+            if (!t.isSelf() && t.bkb() != null) {
                 this.mNegFeedBackItem.g(t);
-                this.mNegFeedBackItem.H(t.bhB());
+                this.mNegFeedBackItem.H(t.bkb());
                 this.mNegFeedBackItem.agO.setVisibility(0);
                 z = true;
             } else if (this.mNegFeedBackItem != null && this.mNegFeedBackItem.agO != null) {
@@ -159,31 +159,31 @@ public class am<T extends AbsThreadDataSupport> extends af.a {
             }
         }
         if (this.ahS != null) {
-            if (c(t.bhz())) {
+            if (c(t.bjZ())) {
                 c(this.ahS);
             } else {
                 this.ahS.g(t);
-                this.ahS.H(t.bhz());
+                this.ahS.H(t.bjZ());
             }
         }
         if (this.ahU != null) {
             this.ahU.aK(z);
-            this.ahU.H(t.bhz());
+            this.ahU.H(t.bjZ());
         }
         if (this.ahT != null) {
-            this.ahT.H(t.bhz());
+            this.ahT.H(t.bjZ());
         }
         if (this.ahV != null) {
             this.ahV.g(t);
-            this.ahV.H(t.bhz());
+            this.ahV.H(t.bjZ());
         }
         if (this.ahW != null) {
             this.ahW.a(t, z);
-            this.ahW.H(t.bhz());
+            this.ahW.H(t.bjZ());
         }
         if (this.ahX != null) {
-            if (c(t.bhz())) {
-                this.ahX.H(t.bhz());
+            if (c(t.bjZ())) {
+                this.ahX.H(t.bjZ());
             } else {
                 c(this.ahX);
             }
@@ -201,6 +201,6 @@ public class am<T extends AbsThreadDataSupport> extends af.a {
     }
 
     private boolean c(bw bwVar) {
-        return (bwVar == null || bwVar.bka() == null || !bwVar.eBa || !com.baidu.tbadk.a.d.bfD() || bwVar.bka().hadConcerned() || ay.x(bwVar)) ? false : true;
+        return (bwVar == null || bwVar.bmA() == null || !bwVar.eGP || !com.baidu.tbadk.a.d.bid() || bwVar.bmA().hadConcerned() || ay.x(bwVar)) ? false : true;
     }
 }

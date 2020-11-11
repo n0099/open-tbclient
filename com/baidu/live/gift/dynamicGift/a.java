@@ -11,107 +11,107 @@ import com.baidu.live.gift.d;
 import com.baidu.live.gift.dynamicGift.AlaDynamicGiftAnimationView;
 /* loaded from: classes4.dex */
 public class a {
-    private AlaDynamicGiftAnimationView.a ban;
-    private d baq;
-    private int bau;
-    private int bax;
-    private int bay;
+    private AlaDynamicGiftAnimationView.a bbG;
+    private d bbJ;
+    private int bbM;
+    private int bbP;
+    private int bbQ;
     private int mFrameCount;
     private int mImageHeight;
     private int mImageWidth;
     private int mScreenHeight;
-    private double bas = 100.0d;
+    private double bbK = 100.0d;
     private int mRepeatCount = 1;
-    private int bat = 0;
-    private float bav = 1.0f;
-    private int baw = 0;
-    private boolean baA = false;
-    private b baz = new b();
+    private int bbL = 0;
+    private float bbN = 1.0f;
+    private int bbO = 0;
+    private boolean bbS = false;
+    private b bbR = new b();
 
     public void setScreen(int i, int i2) {
-        this.bau = i;
+        this.bbM = i;
         this.mScreenHeight = i2;
-        if (this.baz != null) {
-            this.baz.setScreen(this.bau, this.mScreenHeight);
+        if (this.bbR != null) {
+            this.bbR.setScreen(this.bbM, this.mScreenHeight);
         }
     }
 
     public void setData(com.baidu.live.gift.c cVar) {
         if (cVar != null) {
-            this.bat = 0;
-            this.baA = false;
-            this.baw = 0;
-            this.baq = cVar.aSL.aSK;
-            this.mFrameCount = this.baq.frame_count;
-            this.mRepeatCount = this.baq.repeatCount;
-            this.mImageWidth = this.baq.width;
-            this.mImageHeight = this.baq.height;
-            this.bas = (1.0d / this.baq.frame_rate) * 1000.0d;
-            this.bav = Ih();
-            this.bay = (int) (this.baq.oppositeX * this.bau);
-            this.bax = (int) (this.baq.oppositeY * this.mScreenHeight);
-            if (this.baz != null) {
-                this.baz.onDestroy();
-                this.baz = null;
+            this.bbL = 0;
+            this.bbS = false;
+            this.bbO = 0;
+            this.bbJ = cVar.aUe.aUd;
+            this.mFrameCount = this.bbJ.frame_count;
+            this.mRepeatCount = this.bbJ.repeatCount;
+            this.mImageWidth = this.bbJ.width;
+            this.mImageHeight = this.bbJ.height;
+            this.bbK = (1.0d / this.bbJ.frame_rate) * 1000.0d;
+            this.bbN = II();
+            this.bbQ = (int) (this.bbJ.oppositeX * this.bbM);
+            this.bbP = (int) (this.bbJ.oppositeY * this.mScreenHeight);
+            if (this.bbR != null) {
+                this.bbR.onDestroy();
+                this.bbR = null;
             }
-            this.baz = new b();
-            this.baz.setScreen(this.bau, this.mScreenHeight);
-            this.baz.c(cVar);
+            this.bbR = new b();
+            this.bbR.setScreen(this.bbM, this.mScreenHeight);
+            this.bbR.c(cVar);
         }
     }
 
     public void g(Canvas canvas) {
         RectF rectF;
-        if (Ii()) {
+        if (IJ()) {
             if (this.mRepeatCount <= 1) {
-                if (this.ban != null) {
-                    this.ban.Ig();
+                if (this.bbG != null) {
+                    this.bbG.IH();
                     return;
                 }
                 return;
             }
-            this.bat = 0;
+            this.bbL = 0;
             this.mRepeatCount--;
         }
-        if (this.ban != null) {
-            if (this.bat == 0 && !this.baA) {
-                this.baA = true;
-                this.ban.If();
+        if (this.bbG != null) {
+            if (this.bbL == 0 && !this.bbS) {
+                this.bbS = true;
+                this.bbG.IG();
             } else {
-                this.ban.et(this.bat);
+                this.bbG.et(this.bbL);
             }
         }
-        c eu = this.baz.eu(this.bat);
+        c eu = this.bbR.eu(this.bbL);
         if (eu == null || eu.bitmap == null || eu.bitmap.isRecycled()) {
-            if (this.baw > 5) {
-                if (this.ban != null) {
-                    this.ban.Ig();
+            if (this.bbO > 5) {
+                if (this.bbG != null) {
+                    this.bbG.IH();
                 }
-            } else if (this.baw > 1) {
-                this.baz.In();
+            } else if (this.bbO > 1) {
+                this.bbR.IO();
             }
             Message obtain = Message.obtain();
             obtain.what = 1;
-            if (this.baz != null && this.baz.getHandler() != null) {
-                this.baz.getHandler().sendMessage(obtain);
+            if (this.bbR != null && this.bbR.getHandler() != null) {
+                this.bbR.getHandler().sendMessage(obtain);
             }
-            this.baw++;
+            this.bbO++;
             return;
         }
-        this.bat++;
-        float width = eu.bbe * eu.bitmap.getWidth() * this.bav;
-        float height = eu.bbe * eu.bitmap.getHeight() * this.bav;
+        this.bbL++;
+        float width = eu.bcw * eu.bitmap.getWidth() * this.bbN;
+        float height = eu.bcw * eu.bitmap.getHeight() * this.bbN;
         canvas.save();
-        if (this.bay + width > this.bau) {
-            this.bay = (int) (this.bau - width);
+        if (this.bbQ + width > this.bbM) {
+            this.bbQ = (int) (this.bbM - width);
         }
-        if (this.bax + height > this.mScreenHeight) {
-            this.bax = (int) (this.mScreenHeight - height);
+        if (this.bbP + height > this.mScreenHeight) {
+            this.bbP = (int) (this.mScreenHeight - height);
         }
-        if (this.baq.isBottomMargin()) {
-            rectF = new RectF(this.bay, (this.mScreenHeight - height) - this.bax, width + this.bay, this.mScreenHeight - this.bax);
+        if (this.bbJ.isBottomMargin()) {
+            rectF = new RectF(this.bbQ, (this.mScreenHeight - height) - this.bbP, width + this.bbQ, this.mScreenHeight - this.bbP);
         } else {
-            rectF = new RectF(this.bay, this.bax, width + this.bay, height + this.bax);
+            rectF = new RectF(this.bbQ, this.bbP, width + this.bbQ, height + this.bbP);
         }
         Paint paint = new Paint();
         paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OVER));
@@ -123,16 +123,16 @@ public class a {
             e.printStackTrace();
         }
         canvas.restore();
-        eu.bbf = true;
-        this.baz.hk(eu.filePath);
+        eu.bcx = true;
+        this.bbR.hr(eu.filePath);
         Message obtain2 = Message.obtain();
         obtain2.what = 1;
-        this.baz.getHandler().sendMessage(obtain2);
+        this.bbR.getHandler().sendMessage(obtain2);
     }
 
-    private float Ih() {
-        float f = this.bau > this.mScreenHeight ? (this.bau * 1.0f) / 1334.0f : (this.bau * 1.0f) / 750.0f;
-        if (this.bau > this.mScreenHeight) {
+    private float II() {
+        float f = this.bbM > this.mScreenHeight ? (this.bbM * 1.0f) / 1334.0f : (this.bbM * 1.0f) / 750.0f;
+        if (this.bbM > this.mScreenHeight) {
             float f2 = (this.mScreenHeight * 1.0f) / 750.0f;
         } else {
             float f3 = (this.mScreenHeight * 1.0f) / 1334.0f;
@@ -140,25 +140,25 @@ public class a {
         return f;
     }
 
-    private boolean Ii() {
-        return this.bat + 1 >= this.mFrameCount;
+    private boolean IJ() {
+        return this.bbL + 1 >= this.mFrameCount;
     }
 
     public void release() {
-        if (this.baz != null) {
-            this.baz.clearCache();
+        if (this.bbR != null) {
+            this.bbR.clearCache();
         }
     }
 
-    public boolean Ij() {
-        return this.baz.Ij();
+    public boolean IK() {
+        return this.bbR.IK();
     }
 
-    public double Ik() {
-        return this.bas;
+    public double IL() {
+        return this.bbK;
     }
 
     public void a(AlaDynamicGiftAnimationView.a aVar) {
-        this.ban = aVar;
+        this.bbG = aVar;
     }
 }

@@ -1,0 +1,31 @@
+package com.baidu.live.talentshow.model;
+
+import com.baidu.live.adp.framework.message.HttpMessage;
+import com.baidu.mobstat.Config;
+/* loaded from: classes4.dex */
+public class f extends HttpMessage {
+    public f() {
+        super(1021224);
+    }
+
+    public void setLiveId(long j) {
+        addParam("live_id", j);
+    }
+
+    public void setRoomId(long j) {
+        addParam("room_id", j);
+    }
+
+    public void h(long j, long j2) {
+        addParam("connect_user_id1", j);
+        addParam("connect_user_id2", j2);
+    }
+
+    public void aQ(long j) {
+        addParam(Config.PACKAGE_NAME, j);
+    }
+
+    public void setSource(String str) {
+        addParam("source", str);
+    }
+}

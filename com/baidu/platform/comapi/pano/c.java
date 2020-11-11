@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.pano;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    String f2936a;
+    String f2938a;
     PanoStateError b;
     int c;
 
@@ -23,11 +23,11 @@ public class c {
     }
 
     public void a(String str) {
-        this.f2936a = str;
+        this.f2938a = str;
     }
 
     public String b() {
-        return this.f2936a;
+        return this.f2938a;
     }
 
     public int c() {

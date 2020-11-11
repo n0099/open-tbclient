@@ -35,7 +35,7 @@ final class h extends Handler {
                 if (VIContext.getContext() != null) {
                     vGps.c = (LocationManager) VIContext.getContext().getSystemService("location");
                     locationManager4 = vGps.c;
-                    listener2 = vGps.f3901a;
+                    listener2 = vGps.f3903a;
                     locationManager4.addGpsStatusListener(listener2);
                     return;
                 }
@@ -44,7 +44,7 @@ final class h extends Handler {
                 locationManager = vGps.c;
                 if (locationManager != null) {
                     locationManager2 = vGps.c;
-                    listener = vGps.f3901a;
+                    listener = vGps.f3903a;
                     locationManager2.removeGpsStatusListener(listener);
                     locationManager3 = vGps.c;
                     locationListener = vGps.b;

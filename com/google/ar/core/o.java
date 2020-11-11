@@ -11,24 +11,24 @@ import com.google.ar.core.ArCoreApk;
 import com.google.ar.core.exceptions.FatalException;
 /* loaded from: classes11.dex */
 public final class o extends ArCoreApk {
-    private static final o oTk = new o();
+    private static final o pcF = new o();
 
     /* renamed from: a */
-    Exception f4041a;
+    Exception f4043a;
     private boolean c;
     private int d;
     private boolean g;
     private boolean i;
     private boolean j;
     private int k;
-    private ArCoreApk.Availability oTl;
-    private w oTm;
+    private ArCoreApk.Availability pcG;
+    private w pcH;
 
     o() {
     }
 
-    public static o eoL() {
-        return oTk;
+    public static o esA() {
+        return pcF;
     }
 
     @Override // com.google.ar.core.ArCoreApk
@@ -42,7 +42,7 @@ public final class o extends ArCoreApk {
                 return n.hf(context);
             }
             synchronized (this) {
-                if ((this.oTl == null || this.oTl.isUnknown()) && !this.g) {
+                if ((this.pcG == null || this.pcG.isUnknown()) && !this.g) {
                     this.g = true;
                     n nVar = new n(this);
                     if (b(context)) {
@@ -55,8 +55,8 @@ public final class o extends ArCoreApk {
                         hh(context).a(context, nVar);
                     }
                 }
-                if (this.oTl != null) {
-                    return this.oTl;
+                if (this.pcG != null) {
+                    return this.pcG;
                 } else if (this.g) {
                     return ArCoreApk.Availability.UNKNOWN_CHECKING;
                 } else {
@@ -71,22 +71,22 @@ public final class o extends ArCoreApk {
     }
 
     public final synchronized w hh(Context context) {
-        if (this.oTm == null) {
+        if (this.pcH == null) {
             w wVar = new w((byte) 0);
             wVar.a(context.getApplicationContext());
-            this.oTm = wVar;
+            this.pcH = wVar;
         }
-        return this.oTm;
+        return this.pcH;
     }
 
     public final synchronized void b() {
-        if (this.f4041a == null) {
+        if (this.f4043a == null) {
             this.d = 0;
         }
         this.c = false;
-        if (this.oTm != null) {
-            this.oTm.a();
-            this.oTm = null;
+        if (this.pcH != null) {
+            this.pcH.a();
+            this.pcH = null;
         }
     }
 

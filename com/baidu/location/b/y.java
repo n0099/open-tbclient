@@ -5,16 +5,16 @@ import android.os.HandlerThread;
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    private static HandlerThread f1915a = null;
+    private static HandlerThread f1917a = null;
 
     public static synchronized HandlerThread a() {
         HandlerThread handlerThread;
         synchronized (y.class) {
-            if (f1915a == null) {
-                f1915a = new HandlerThread("ServiceStartArguments", 10);
-                f1915a.start();
+            if (f1917a == null) {
+                f1917a = new HandlerThread("ServiceStartArguments", 10);
+                f1917a.start();
             }
-            handlerThread = f1915a;
+            handlerThread = f1917a;
         }
         return handlerThread;
     }

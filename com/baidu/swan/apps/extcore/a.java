@@ -11,18 +11,18 @@ import com.baidu.swan.apps.extcore.model.ExtensionCore;
 /* loaded from: classes10.dex */
 public class a extends com.baidu.swan.apps.extcore.b.b<com.baidu.swan.apps.extcore.d.a.a, com.baidu.swan.apps.extcore.e.a.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a cNF;
+    private static volatile a cTy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a ars() {
-        if (cNF == null) {
+    public static a atT() {
+        if (cTy == null) {
             synchronized (a.class) {
-                if (cNF == null) {
-                    cNF = new a();
+                if (cTy == null) {
+                    cTy = new a();
                 }
             }
         }
-        return cNF;
+        return cTy;
     }
 
     private a() {
@@ -31,19 +31,19 @@ public class a extends com.baidu.swan.apps.extcore.b.b<com.baidu.swan.apps.extco
 
     @Override // com.baidu.swan.apps.extcore.b.b
     @Nullable
-    public ExtensionCore apE() {
+    public ExtensionCore ase() {
         ExtensionCore extensionCore;
         if (ProcessUtils.isMainProcess()) {
-            extensionCore = arA();
+            extensionCore = aub();
         } else {
-            Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0428a.class, null).mResult;
+            Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0440a.class, null).mResult;
             bundle.setClassLoader(ExtensionCore.class.getClassLoader());
             extensionCore = (ExtensionCore) bundle.getParcelable("aiapps_extension_core");
             if (DEBUG) {
                 Log.d("ExtCore-AppsManager", "getExtensionCore:" + ProcessUtils.getCurProcessName() + " extension core: " + extensionCore);
             }
         }
-        if (extensionCore != null && com.baidu.swan.apps.ad.a.a.aCa() && extensionCore.extensionCoreVersionCode < 4294967297L) {
+        if (extensionCore != null && com.baidu.swan.apps.ad.a.a.aEA() && extensionCore.extensionCoreVersionCode < 4294967297L) {
             return com.baidu.swan.apps.ad.a.a.d(extensionCore);
         }
         return extensionCore;
@@ -51,28 +51,28 @@ public class a extends com.baidu.swan.apps.extcore.b.b<com.baidu.swan.apps.extco
 
     /* renamed from: com.baidu.swan.apps.extcore.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0428a extends ProviderDelegation {
+    public static class C0440a extends ProviderDelegation {
         @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
         public Bundle execCall(Bundle bundle) {
             Bundle bundle2 = new Bundle();
-            bundle2.putParcelable("aiapps_extension_core", art());
+            bundle2.putParcelable("aiapps_extension_core", atU());
             return bundle2;
         }
 
-        private ExtensionCore art() {
-            ExtensionCore arA = aru().arA();
-            if (!arA.isAvailable()) {
-                aru().arx();
-                return aru().arA();
+        private ExtensionCore atU() {
+            ExtensionCore aub = atV().aub();
+            if (!aub.isAvailable()) {
+                atV().atY();
+                return atV().aub();
             }
-            return arA;
+            return aub;
         }
 
-        private com.baidu.swan.apps.extcore.b.b aru() {
-            return b.in(ade());
+        private com.baidu.swan.apps.extcore.b.b atV() {
+            return b.ix(afE());
         }
 
-        protected int ade() {
+        protected int afE() {
             return 0;
         }
     }

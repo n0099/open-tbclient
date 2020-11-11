@@ -10,11 +10,11 @@ public class b {
         a aVar = new a();
         aVar.mType = str;
         aVar.mValue = str2;
-        if (e.aEU() != null && e.aEU().ado() != null) {
-            b.a ado = e.aEU().ado();
-            aVar.mFrom = h.ko(ado.getAppFrameType());
-            aVar.mAppId = ado.getAppId();
-            aVar.mSource = ado.awd();
+        if (e.aHu() != null && e.aHu().afO() != null) {
+            b.a afO = e.aHu().afO();
+            aVar.mFrom = h.ky(afO.getAppFrameType());
+            aVar.mAppId = afO.getAppId();
+            aVar.mSource = afO.ayD();
         }
         h.a("916", "68", aVar);
     }
@@ -23,11 +23,11 @@ public class b {
         a aVar = new a();
         aVar.mType = str;
         aVar.mValue = str2;
-        if (e.aEU() != null && e.aEU().ado() != null) {
-            b.a ado = e.aEU().ado();
-            aVar.mFrom = h.ko(ado.getAppFrameType());
-            aVar.mAppId = ado.getAppId();
-            aVar.mSource = ado.awd();
+        if (e.aHu() != null && e.aHu().afO() != null) {
+            b.a afO = e.aHu().afO();
+            aVar.mFrom = h.ky(afO.getAppFrameType());
+            aVar.mAppId = afO.getAppId();
+            aVar.mSource = afO.ayD();
         }
         aVar.mErrorCode = str3;
         h.a("916", "68", aVar);
@@ -37,31 +37,31 @@ public class b {
         a aVar = new a();
         aVar.mType = str;
         aVar.mValue = str2;
-        if (e.aEU() != null && e.aEU().ado() != null) {
-            b.a ado = e.aEU().ado();
-            aVar.mFrom = h.ko(ado.getAppFrameType());
-            aVar.mAppId = ado.getAppId();
-            aVar.mSource = ado.awd();
+        if (e.aHu() != null && e.aHu().afO() != null) {
+            b.a afO = e.aHu().afO();
+            aVar.mFrom = h.ky(afO.getAppFrameType());
+            aVar.mAppId = afO.getAppId();
+            aVar.mSource = afO.ayD();
             aVar.u("play_time", Long.valueOf(j));
         }
         h.a("916", "68", aVar);
     }
 
-    public static void xI(String str) {
+    public static void xW(String str) {
         a aVar = new a();
         aVar.mType = str;
         aVar.mValue = "show";
-        if (e.aEU() != null && e.aEU().ado() != null) {
-            b.a ado = e.aEU().ado();
-            aVar.mFrom = h.ko(ado.getAppFrameType());
-            aVar.mAppId = ado.getAppId();
-            aVar.mSource = ado.awd();
+        if (e.aHu() != null && e.aHu().afO() != null) {
+            b.a afO = e.aHu().afO();
+            aVar.mFrom = h.ky(afO.getAppFrameType());
+            aVar.mAppId = afO.getAppId();
+            aVar.mSource = afO.ayD();
         }
-        aVar.u("early", aVH() ? "0" : "1");
+        aVar.u("early", aYh() ? "0" : "1");
         h.a("916", "68", aVar);
     }
 
-    private static boolean aVH() {
-        return d.aUE() > 0 && com.baidu.swan.games.glsurface.a.b.aTp() && System.currentTimeMillis() - d.aUE() > 6000;
+    private static boolean aYh() {
+        return d.aXe() > 0 && com.baidu.swan.games.glsurface.a.b.aVP() && System.currentTimeMillis() - d.aXe() > 6000;
     }
 }

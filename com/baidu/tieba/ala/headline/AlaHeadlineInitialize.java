@@ -11,15 +11,15 @@ import com.baidu.tieba.ala.headline.dialog.AlaHeadlineActivity;
 /* loaded from: classes4.dex */
 public class AlaHeadlineInitialize {
     static {
-        bRH();
-        bRG();
+        bUg();
+        bUf();
     }
 
-    private static void bRG() {
+    private static void bUf() {
         TbadkCoreApplication.getInst().RegisterIntent(j.class, AlaHeadlineActivity.class);
     }
 
-    private static void bRH() {
+    private static void bUg() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913240, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.tieba.ala.headline.AlaHeadlineInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.i.a> run(CustomMessage<TbPageContext> customMessage) {

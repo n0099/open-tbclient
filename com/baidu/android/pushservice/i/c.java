@@ -9,7 +9,7 @@ import com.baidu.android.pushservice.h.a.b;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Object f1145a = new Object();
+    private static final Object f1147a = new Object();
     private long b = System.currentTimeMillis();
     private a c;
     private Context d;
@@ -33,8 +33,8 @@ public class c {
             this.c.a(0, intent);
         }
         this.g = intent;
-        synchronized (f1145a) {
-            f1145a.notifyAll();
+        synchronized (f1147a) {
+            f1147a.notifyAll();
         }
     }
 
@@ -54,8 +54,8 @@ public class c {
             public void a() {
                 try {
                     Thread.sleep(1000L);
-                    synchronized (c.f1145a) {
-                        c.f1145a.notifyAll();
+                    synchronized (c.f1147a) {
+                        c.f1147a.notifyAll();
                     }
                 } catch (InterruptedException e2) {
                     new b.c(c.this.d).a(Log.getStackTraceString(e2)).a();
@@ -63,9 +63,9 @@ public class c {
             }
         });
         if (this.c == null) {
-            synchronized (f1145a) {
+            synchronized (f1147a) {
                 try {
-                    f1145a.wait();
+                    f1147a.wait();
                 } catch (Exception e2) {
                     new b.c(this.d).a(Log.getStackTraceString(e2)).a();
                 }

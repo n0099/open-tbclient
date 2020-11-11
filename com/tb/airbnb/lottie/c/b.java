@@ -5,7 +5,7 @@ import com.baidu.mobstat.Config;
 import java.io.IOException;
 /* loaded from: classes16.dex */
 public class b {
-    public static com.tb.airbnb.lottie.model.a.k c(JsonReader jsonReader, com.tb.airbnb.lottie.d dVar) throws IOException {
+    public static com.tb.airbnb.lottie.model.a.k c(JsonReader jsonReader, com.tb.airbnb.lottie.e eVar) throws IOException {
         jsonReader.beginObject();
         com.tb.airbnb.lottie.model.a.k kVar = null;
         while (jsonReader.hasNext()) {
@@ -21,7 +21,7 @@ public class b {
             }
             switch (c) {
                 case 0:
-                    kVar = d(jsonReader, dVar);
+                    kVar = d(jsonReader, eVar);
                     break;
                 default:
                     jsonReader.skipValue();
@@ -35,7 +35,7 @@ public class b {
         return kVar;
     }
 
-    private static com.tb.airbnb.lottie.model.a.k d(JsonReader jsonReader, com.tb.airbnb.lottie.d dVar) throws IOException {
+    private static com.tb.airbnb.lottie.model.a.k d(JsonReader jsonReader, com.tb.airbnb.lottie.e eVar) throws IOException {
         com.tb.airbnb.lottie.model.a.b bVar = null;
         jsonReader.beginObject();
         com.tb.airbnb.lottie.model.a.b bVar2 = null;
@@ -72,16 +72,16 @@ public class b {
             }
             switch (c) {
                 case 0:
-                    aVar2 = d.l(jsonReader, dVar);
+                    aVar2 = d.l(jsonReader, eVar);
                     break;
                 case 1:
-                    aVar = d.l(jsonReader, dVar);
+                    aVar = d.l(jsonReader, eVar);
                     break;
                 case 2:
-                    bVar2 = d.f(jsonReader, dVar);
+                    bVar2 = d.f(jsonReader, eVar);
                     break;
                 case 3:
-                    bVar = d.f(jsonReader, dVar);
+                    bVar = d.f(jsonReader, eVar);
                     break;
                 default:
                     jsonReader.skipValue();

@@ -12,22 +12,22 @@ import java.util.Set;
 public final class u {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Set<String> f5123a = Collections.synchronizedSet(new HashSet());
+    private static final Set<String> f5125a = Collections.synchronizedSet(new HashSet());
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f936a;
+    private Context f938a;
 
     /* renamed from: a  reason: collision with other field name */
-    private RandomAccessFile f937a;
+    private RandomAccessFile f939a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f938a;
+    private String f940a;
 
     /* renamed from: a  reason: collision with other field name */
-    private FileLock f939a;
+    private FileLock f941a;
 
     private u(Context context) {
-        this.f936a = context;
+        this.f938a = context;
     }
 
     public static u a(Context context, File file) {
@@ -38,20 +38,20 @@ public final class u {
             file2.getParentFile().mkdirs();
             file2.createNewFile();
         }
-        if (f5123a.add(str)) {
+        if (f5125a.add(str)) {
             u uVar = new u(context);
-            uVar.f938a = str;
+            uVar.f940a = str;
             try {
-                uVar.f937a = new RandomAccessFile(file2, "rw");
-                uVar.f939a = uVar.f937a.getChannel().lock();
-                com.xiaomi.channel.commonutils.logger.b.c("Locked: " + str + " :" + uVar.f939a);
+                uVar.f939a = new RandomAccessFile(file2, "rw");
+                uVar.f941a = uVar.f939a.getChannel().lock();
+                com.xiaomi.channel.commonutils.logger.b.c("Locked: " + str + " :" + uVar.f941a);
                 return uVar;
             } finally {
-                if (uVar.f939a == null) {
-                    if (uVar.f937a != null) {
-                        y.a(uVar.f937a);
+                if (uVar.f941a == null) {
+                    if (uVar.f939a != null) {
+                        y.a(uVar.f939a);
                     }
-                    f5123a.remove(uVar.f938a);
+                    f5125a.remove(uVar.f940a);
                 }
             }
         }
@@ -59,17 +59,17 @@ public final class u {
     }
 
     public void a() {
-        com.xiaomi.channel.commonutils.logger.b.c("unLock: " + this.f939a);
-        if (this.f939a != null && this.f939a.isValid()) {
+        com.xiaomi.channel.commonutils.logger.b.c("unLock: " + this.f941a);
+        if (this.f941a != null && this.f941a.isValid()) {
             try {
-                this.f939a.release();
+                this.f941a.release();
             } catch (IOException e) {
             }
-            this.f939a = null;
+            this.f941a = null;
         }
-        if (this.f937a != null) {
-            y.a(this.f937a);
+        if (this.f939a != null) {
+            y.a(this.f939a);
         }
-        f5123a.remove(this.f938a);
+        f5125a.remove(this.f940a);
     }
 }

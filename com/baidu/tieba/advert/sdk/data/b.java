@@ -40,7 +40,7 @@ public class b {
         return bVar;
     }
 
-    public static b Fw(String str) {
+    public static b FK(String str) {
         b bVar = new b();
         try {
             JSONObject jSONObject = new JSONObject(str);
@@ -85,7 +85,7 @@ public class b {
         return (System.currentTimeMillis() / 1000 >= this.startShowTime && System.currentTimeMillis() / 1000 <= this.endShowTime) || (this.startShowTime == 0 && this.endShowTime == 0);
     }
 
-    public boolean bhU() {
+    public boolean bku() {
         return !TextUtils.isEmpty(this.videoLocalPath);
     }
 }

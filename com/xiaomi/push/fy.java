@@ -13,16 +13,16 @@ import org.xmlpull.v1.XmlPullParserFactory;
 public final class fy {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f4912a;
+    private static int f4914a;
     private static int b;
     private static int c = UnitedSchemeMainDispatcher.SCHEME_TIME_LIMIT;
     private static int d = 330000;
 
     /* renamed from: a  reason: collision with other field name */
-    private static Vector<String> f375a = new Vector<>();
+    private static Vector<String> f377a = new Vector<>();
 
     static {
-        f4912a = 5000;
+        f4914a = 5000;
         b = 330000;
         try {
             for (ClassLoader classLoader : m305a()) {
@@ -40,11 +40,11 @@ public final class fy {
                                 if (newPullParser.getName().equals(PushClientConstants.TAG_CLASS_NAME)) {
                                     a(newPullParser);
                                 } else if (newPullParser.getName().equals("packetReplyTimeout")) {
-                                    f4912a = a(newPullParser, f4912a);
+                                    f4914a = a(newPullParser, f4914a);
                                 } else if (newPullParser.getName().equals("keepAliveInterval")) {
                                     b = a(newPullParser, b);
                                 } else if (newPullParser.getName().equals("mechName")) {
-                                    f375a.add(newPullParser.nextText());
+                                    f377a.add(newPullParser.nextText());
                                 }
                             }
                             eventType = newPullParser.next();

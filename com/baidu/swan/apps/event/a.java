@@ -25,24 +25,24 @@ public final class a {
         String I2;
         if (aVar != null && aVar2 != null) {
             h.E("postMessage", "dispatchJSEvent start.");
-            if (c.aBD()) {
+            if (c.aEd()) {
                 if (aVar.isWebView()) {
-                    str = "var " + NotificationCompat.CATEGORY_EVENT + " = new Event('" + aVar2.cuT + "');";
+                    str = "var " + NotificationCompat.CATEGORY_EVENT + " = new Event('" + aVar2.cAM + "');";
                     I2 = "";
                 } else {
                     str = "var " + NotificationCompat.CATEGORY_EVENT + " = new Object();";
-                    I2 = I(NotificationCompat.CATEGORY_EVENT, "type", aVar2.cuT);
+                    I2 = I(NotificationCompat.CATEGORY_EVENT, "type", aVar2.cAM);
                 }
-                format2 = new StringBuffer().append("javascript:(function(){").append(str).append(" ").append(I2).append(aVar2.nV(NotificationCompat.CATEGORY_EVENT)).append(" ").append(d(aVar)).append(".dispatchEvent(").append(NotificationCompat.CATEGORY_EVENT).append(");").append("})();").toString();
+                format2 = new StringBuffer().append("javascript:(function(){").append(str).append(" ").append(I2).append(aVar2.ok(NotificationCompat.CATEGORY_EVENT)).append(" ").append(d(aVar)).append(".dispatchEvent(").append(NotificationCompat.CATEGORY_EVENT).append(");").append("})();").toString();
             } else {
                 if (aVar.isWebView()) {
-                    format = String.format(Locale.getDefault(), "var %s = new Event('%s');", NotificationCompat.CATEGORY_EVENT, aVar2.cuT);
+                    format = String.format(Locale.getDefault(), "var %s = new Event('%s');", NotificationCompat.CATEGORY_EVENT, aVar2.cAM);
                     I = "";
                 } else {
                     format = String.format(Locale.getDefault(), "var %s = new Object();", NotificationCompat.CATEGORY_EVENT);
-                    I = I(NotificationCompat.CATEGORY_EVENT, "type", aVar2.cuT);
+                    I = I(NotificationCompat.CATEGORY_EVENT, "type", aVar2.cAM);
                 }
-                format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, I + aVar2.nV(NotificationCompat.CATEGORY_EVENT), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", d(aVar), NotificationCompat.CATEGORY_EVENT));
+                format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, I + aVar2.ok(NotificationCompat.CATEGORY_EVENT), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", d(aVar), NotificationCompat.CATEGORY_EVENT));
             }
             h.E("postMessage", "dispatchJSEvent buildEvent");
             if (DEBUG) {
@@ -86,7 +86,7 @@ public final class a {
             return "";
         }
         String quote = JSONObject.quote(str3);
-        return c.aBD() ? str + "." + str2 + " = " + quote + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : String.format(Locale.getDefault(), "%s.%s = %s;", str, str2, quote);
+        return c.aEd() ? str + "." + str2 + " = " + quote + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : String.format(Locale.getDefault(), "%s.%s = %s;", str, str2, quote);
     }
 
     public static String c(String str, String str2, JSONObject jSONObject) {
@@ -99,7 +99,7 @@ public final class a {
             return "";
         }
         if ((obj instanceof Integer) || (obj instanceof Float) || (obj instanceof Double) || (obj instanceof Long) || (obj instanceof Boolean)) {
-            return c.aBD() ? str + "." + str2 + " = " + obj + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : String.format(Locale.getDefault(), "%s.%s = %s;", str, str2, obj);
+            return c.aEd() ? str + "." + str2 + " = " + obj + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : String.format(Locale.getDefault(), "%s.%s = %s;", str, str2, obj);
         }
         return I(str, str2, String.valueOf(obj));
     }

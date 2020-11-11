@@ -24,8 +24,8 @@ public class SwanAppNativeSwanJsBridge {
     @JavascriptInterface
     public String getAPIs(int i) {
         if (DEBUG) {
-            return com.baidu.swan.apps.ad.a.a.aCt() ? i.C(i, false) : "";
-        } else if (!i.aJN()) {
+            return com.baidu.swan.apps.ad.a.a.aET() ? i.C(i, false) : "";
+        } else if (!i.aMn()) {
             return "";
         } else {
             return i.C(i, false);

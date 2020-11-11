@@ -6,8 +6,8 @@ public class b {
     public long Mb = -1;
     private int errorCode;
     private String exception;
-    private int fqX;
-    private String fqY;
+    private int fwR;
+    private String fwS;
     private String url;
 
     public void setErrorCode(int i) {
@@ -18,8 +18,8 @@ public class b {
         this.exception = str;
     }
 
-    public void DY(String str) {
-        this.fqY = str;
+    public void Em(String str) {
+        this.fwS = str;
     }
 
     public String getUrl() {
@@ -30,11 +30,11 @@ public class b {
         this.url = str;
     }
 
-    public String bAi() {
-        return "-netErrorCode-" + this.errorCode + "-serverCode-" + this.fqX + "-dnsStatus-" + this.fqY + "-exception-" + this.exception + "-url-" + this.url + "-dataLenth-" + this.LZ + "-fileLength-" + this.Ma + "-contentLen-" + this.Mb;
+    public String bCH() {
+        return "-netErrorCode-" + this.errorCode + "-serverCode-" + this.fwR + "-dnsStatus-" + this.fwS + "-exception-" + this.exception + "-url-" + this.url + "-dataLenth-" + this.LZ + "-fileLength-" + this.Ma + "-contentLen-" + this.Mb;
     }
 
-    public void rD(int i) {
-        this.fqX = i;
+    public void rN(int i) {
+        this.fwR = i;
     }
 }

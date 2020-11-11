@@ -5,18 +5,18 @@ import com.baidu.mobads.VideoAdView;
 public class VideoAdRequest {
 
     /* renamed from: a  reason: collision with root package name */
-    private VideoAdView.VideoDuration f2307a;
+    private VideoAdView.VideoDuration f2309a;
     private boolean b;
     private VideoAdView.VideoSize c;
 
     private VideoAdRequest(Builder builder) {
-        this.f2307a = builder.f2308a;
+        this.f2309a = builder.f2310a;
         this.b = builder.b;
         this.c = builder.c;
     }
 
     protected int getVideoDuration() {
-        return this.f2307a == null ? VideoAdView.VideoDuration.DURATION_15_SECONDS.getValue() : this.f2307a.getValue();
+        return this.f2309a == null ? VideoAdView.VideoDuration.DURATION_15_SECONDS.getValue() : this.f2309a.getValue();
     }
 
     protected boolean isShowCountdown() {
@@ -41,12 +41,12 @@ public class VideoAdRequest {
     public static class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        private VideoAdView.VideoDuration f2308a;
+        private VideoAdView.VideoDuration f2310a;
         private boolean b = false;
         private VideoAdView.VideoSize c;
 
         public Builder setVideoDuration(VideoAdView.VideoDuration videoDuration) {
-            this.f2308a = videoDuration;
+            this.f2310a = videoDuration;
             return this;
         }
 

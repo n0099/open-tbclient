@@ -7,12 +7,12 @@ import com.xiaomi.push.cb;
 public class by extends cb.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4825a;
+    private String f4827a;
 
     public by(String str, ContentValues contentValues, String str2) {
         super(str, contentValues);
-        this.f4825a = "MessageInsertJob";
-        this.f4825a = str2;
+        this.f4827a = "MessageInsertJob";
+        this.f4827a = str2;
     }
 
     public static by a(Context context, String str, hq hqVar) {

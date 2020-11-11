@@ -1,53 +1,41 @@
 package com.baidu.live.data;
 
-import com.baidu.live.tbadk.core.util.ListUtils;
-import java.util.ArrayList;
-import java.util.Iterator;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class am {
-    public int aML;
-    public ArrayList<al> aMM;
+    public int aNG;
+    public String aNH;
+    public int aNI;
+    public int aNJ;
+    public ao aNK;
+    public int aNL;
+    public String aNM;
+    public int status;
 
-    public void parserJson(JSONObject jSONObject) {
-        this.aML = jSONObject.optInt("received");
-        this.aMM = new ArrayList<>();
-        JSONArray optJSONArray = jSONObject.optJSONArray("task_list");
-        if (optJSONArray != null) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    al alVar = new al();
-                    alVar.parseJson(optJSONObject);
-                    this.aMM.add(alVar);
-                }
-            }
+    public void parseJson(JSONObject jSONObject) {
+        this.aNG = jSONObject.optInt("taskid");
+        this.aNH = jSONObject.optString("taskname");
+        this.status = jSONObject.optInt("status");
+        this.aNI = jSONObject.optInt("cur_step");
+        this.aNJ = jSONObject.optInt("total_step");
+        JSONObject optJSONObject = jSONObject.optJSONObject("param");
+        if (optJSONObject != null) {
+            this.aNK = new ao();
+            this.aNK.parseJson(optJSONObject);
         }
+        this.aNL = jSONObject.optInt("award_num");
+        this.aNM = jSONObject.optString("taskdetail");
     }
 
-    public boolean El() {
-        if (!ListUtils.isEmpty(this.aMM)) {
-            Iterator<al> it = this.aMM.iterator();
-            while (it.hasNext()) {
-                if (it.next().Ek()) {
-                    return true;
-                }
-            }
-        }
-        return false;
+    public boolean EE() {
+        return this.aNG == 1;
     }
 
-    public al Em() {
-        if (!ListUtils.isEmpty(this.aMM)) {
-            Iterator<al> it = this.aMM.iterator();
-            while (it.hasNext()) {
-                al next = it.next();
-                if (next.Ei()) {
-                    return next;
-                }
-            }
-        }
-        return null;
+    public boolean EF() {
+        return this.aNG == 6;
+    }
+
+    public boolean EG() {
+        return this.status == 2;
     }
 }

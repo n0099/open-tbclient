@@ -29,7 +29,7 @@ public final class f {
             q.m(string, "Res.getString(id)");
             return string;
         } else if (str == null) {
-            q.eya();
+            q.eBP();
             return str;
         } else {
             return str;

@@ -6,43 +6,43 @@ import com.baidu.tieba.ala.alaar.sticker.model.e;
 import java.io.File;
 /* loaded from: classes4.dex */
 public class c<T extends com.baidu.tieba.ala.alaar.sticker.model.e> {
-    private static c fWR;
-    private static c fWS;
-    private ArrayMap<String, T> fWT = new ArrayMap<>();
+    private static c gcI;
+    private static c gcJ;
+    private ArrayMap<String, T> gcK = new ArrayMap<>();
     private File mFolder;
 
-    public static c<com.baidu.tieba.ala.alaar.sticker.model.b> bLc() {
-        if (fWR == null) {
-            fWR = bLd();
+    public static c<com.baidu.tieba.ala.alaar.sticker.model.b> bNB() {
+        if (gcI == null) {
+            gcI = bNC();
         }
-        return fWR;
+        return gcI;
     }
 
-    private static synchronized c<com.baidu.tieba.ala.alaar.sticker.model.b> bLd() {
+    private static synchronized c<com.baidu.tieba.ala.alaar.sticker.model.b> bNC() {
         c<com.baidu.tieba.ala.alaar.sticker.model.b> cVar;
         synchronized (c.class) {
-            if (fWR == null) {
-                fWR = new c(a.bKX().bKZ());
+            if (gcI == null) {
+                gcI = new c(a.bNw().bNy());
             }
-            cVar = fWR;
+            cVar = gcI;
         }
         return cVar;
     }
 
-    public static c<com.baidu.tieba.ala.alaar.sticker.model.d> bLb() {
-        if (fWS == null) {
-            fWS = bLe();
+    public static c<com.baidu.tieba.ala.alaar.sticker.model.d> bNA() {
+        if (gcJ == null) {
+            gcJ = bND();
         }
-        return fWS;
+        return gcJ;
     }
 
-    private static synchronized c<com.baidu.tieba.ala.alaar.sticker.model.d> bLe() {
+    private static synchronized c<com.baidu.tieba.ala.alaar.sticker.model.d> bND() {
         c<com.baidu.tieba.ala.alaar.sticker.model.d> cVar;
         synchronized (c.class) {
-            if (fWS == null) {
-                fWS = new c(a.bKX().bLa());
+            if (gcJ == null) {
+                gcJ = new c(a.bNw().bNz());
             }
-            cVar = fWS;
+            cVar = gcJ;
         }
         return cVar;
     }
@@ -51,20 +51,20 @@ public class c<T extends com.baidu.tieba.ala.alaar.sticker.model.e> {
         this.mFolder = file;
     }
 
-    public T FK(String str) {
+    public T FY(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.fWT.get(str);
+        return this.gcK.get(str);
     }
 
     public T a(String str, T t) {
-        return this.fWT.put(str, t);
+        return this.gcK.put(str, t);
     }
 
     public void a(String str, com.baidu.tieba.ala.alaar.sticker.download.a.a aVar) {
         T t;
-        if (!TextUtils.isEmpty(str) && (t = this.fWT.get(str)) != null) {
+        if (!TextUtils.isEmpty(str) && (t = this.gcK.get(str)) != null) {
             t.b(aVar);
         }
     }

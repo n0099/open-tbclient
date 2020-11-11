@@ -14,43 +14,43 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.ab;
 /* loaded from: classes22.dex */
 public class f extends a {
-    private bw lAC;
-    private o lAI;
-    private AbsThreadDataSupport lAz;
-    private int lmW;
+    private o lGE;
+    private AbsThreadDataSupport lGv;
+    private bw lGy;
+    private int lsX;
     private View mRootView;
 
     public f(TbPageContext tbPageContext, int i) {
         super(tbPageContext);
-        this.lmW = i;
+        this.lsX = i;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public View getView() {
-        if (this.lAI == null) {
-            this.lAI = new o(this.eCn.getPageActivity());
-            this.lAI.b((Boolean) true);
-            this.lAI.setFrom("pb");
-            this.lAI.setFromForPb(0);
-            this.lAI.e(this.eCn.getResources().getDimensionPixelOffset(R.dimen.tbds44), this.eCn.getResources().getDimensionPixelOffset(R.dimen.tbds39), this.eCn.getResources().getDimensionPixelOffset(R.dimen.tbds44), this.eCn.getResources().getDimensionPixelSize(R.dimen.tbds40));
-            this.lAI.aH(false);
+        if (this.lGE == null) {
+            this.lGE = new o(this.eIc.getPageActivity());
+            this.lGE.b((Boolean) true);
+            this.lGE.setFrom("pb");
+            this.lGE.setFromForPb(0);
+            this.lGE.e(this.eIc.getResources().getDimensionPixelOffset(R.dimen.tbds44), this.eIc.getResources().getDimensionPixelOffset(R.dimen.tbds39), this.eIc.getResources().getDimensionPixelOffset(R.dimen.tbds44), this.eIc.getResources().getDimensionPixelSize(R.dimen.tbds40));
+            this.lGE.aH(false);
         }
-        this.mRootView = this.lAI.getView();
+        this.mRootView = this.lGE.getView();
         return this.mRootView;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void g(OriginalThreadInfo originalThreadInfo) {
-        this.lAy = originalThreadInfo;
-        this.lAC = originalThreadInfo == null ? null : originalThreadInfo.biB();
-        this.lAz = new AbsThreadDataSupport() { // from class: com.baidu.tieba.pb.pb.main.c.f.1
+        this.lGu = originalThreadInfo;
+        this.lGy = originalThreadInfo == null ? null : originalThreadInfo.blb();
+        this.lGv = new AbsThreadDataSupport() { // from class: com.baidu.tieba.pb.pb.main.c.f.1
             @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-            public bw bhz() {
-                return f.this.lAC;
+            public bw bjZ() {
+                return f.this.lGy;
             }
 
             @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-            public ar bhB() {
+            public ar bkb() {
                 return null;
             }
 
@@ -59,31 +59,31 @@ public class f extends a {
                 return null;
             }
         };
-        if (this.lAI != null) {
-            this.lAI.H(this.lAz);
+        if (this.lGE != null) {
+            this.lGE.H(this.lGv);
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void a(ab abVar) {
         super.a(abVar);
-        if (this.lAI != null) {
-            this.lAI.setOnCardSubClickListener(this.lAx);
+        if (this.lGE != null) {
+            this.lGE.setOnCardSubClickListener(this.lGt);
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void a(b.a aVar) {
         super.a(aVar);
-        if (this.lAI != null) {
-            this.lAI.a(aVar);
+        if (this.lGE != null) {
+            this.lGE.a(aVar);
         }
         if (this.mRootView != null) {
             this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.c.f.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (f.this.afG != null) {
-                        f.this.afG.a(f.this.lAz);
+                        f.this.afG.a(f.this.lGv);
                     }
                 }
             });
@@ -95,8 +95,8 @@ public class f extends a {
         if (this.mSkinType != i) {
             this.mSkinType = i;
             ap.setBackgroundColor(this.mRootView, R.color.cp_bg_line_c);
-            if (this.lAI != null) {
-                this.lAI.onChangeSkinType(tbPageContext, i);
+            if (this.lGE != null) {
+                this.lGE.onChangeSkinType(tbPageContext, i);
             }
         }
     }

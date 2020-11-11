@@ -26,10 +26,10 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private RelativeLayout kSB;
-    private TextView kSC;
-    private Runnable kSD;
-    private Runnable kSE;
+    private Runnable kYA;
+    private RelativeLayout kYx;
+    private TextView kYy;
+    private Runnable kYz;
     private Context mContext;
     private Handler mHandler;
     private HandlerThread mHandlerThread;
@@ -44,8 +44,8 @@ public class c {
         this.mContext = context;
     }
 
-    public void dbS() {
-        if (!this.mIsShowing && isMainProcess() && dbT()) {
+    public void deu() {
+        if (!this.mIsShowing && isMainProcess() && dev()) {
             if (this.mHandlerThread == null) {
                 this.mHandlerThread = new HandlerThread("splash-thread");
                 this.mHandlerThread.start();
@@ -53,73 +53,73 @@ public class c {
             if (this.mHandler == null) {
                 this.mHandler = new Handler(this.mHandlerThread.getLooper());
             }
-            if (this.kSD == null) {
-                this.kSD = new Runnable() { // from class: com.baidu.tieba.m.c.1
+            if (this.kYz == null) {
+                this.kYz = new Runnable() { // from class: com.baidu.tieba.m.c.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (c.this.kSB != null) {
-                            ((WindowManager) c.this.mContext.getSystemService("window")).removeViewImmediate(c.this.kSB);
+                        if (c.this.kYx != null) {
+                            ((WindowManager) c.this.mContext.getSystemService("window")).removeViewImmediate(c.this.kYx);
                             c.this.clean();
                         }
                     }
                 };
             }
-            if (this.kSE == null) {
-                this.kSE = new Runnable() { // from class: com.baidu.tieba.m.c.2
+            if (this.kYA == null) {
+                this.kYA = new Runnable() { // from class: com.baidu.tieba.m.c.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        c.this.OB(c.this.mContext.getString(R.string.data_init));
+                        c.this.OS(c.this.mContext.getString(R.string.data_init));
                     }
                 };
             }
-            this.mHandler.removeCallbacks(this.kSE);
-            this.mHandler.postAtFrontOfQueue(this.kSE);
+            this.mHandler.removeCallbacks(this.kYA);
+            this.mHandler.postAtFrontOfQueue(this.kYA);
             this.mIsShowing = true;
-            this.mHandler.postDelayed(this.kSD, 20000L);
+            this.mHandler.postDelayed(this.kYz, 20000L);
         }
     }
 
     public void hide() {
-        if (this.kSB != null && this.kSC != null) {
-            this.mHandler.removeCallbacks(this.kSD);
-            this.mHandler.post(this.kSD);
+        if (this.kYx != null && this.kYy != null) {
+            this.mHandler.removeCallbacks(this.kYz);
+            this.mHandler.post(this.kYz);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void clean() {
         if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.kSD);
-            this.mHandler.removeCallbacks(this.kSE);
-            this.kSE = null;
-            this.kSD = null;
+            this.mHandler.removeCallbacks(this.kYz);
+            this.mHandler.removeCallbacks(this.kYA);
+            this.kYA = null;
+            this.kYz = null;
             this.mHandler = null;
         }
         if (this.mHandlerThread != null) {
             this.mHandlerThread.quit();
         }
-        if (this.kSC != null) {
-            this.kSC = null;
+        if (this.kYy != null) {
+            this.kYy = null;
         }
-        if (this.kSB != null) {
-            this.kSB = null;
+        if (this.kYx != null) {
+            this.kYx = null;
         }
         this.mIsShowing = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void OB(String str) {
-        if (this.kSC == null) {
-            this.kSC = new b(this.mContext);
-            this.kSC.setTextSize(1, 18.0f);
+    public void OS(String str) {
+        if (this.kYy == null) {
+            this.kYy = new b(this.mContext);
+            this.kYy.setTextSize(1, 18.0f);
         }
-        this.kSC.setText(str);
-        this.kSB = new RelativeLayout(this.mContext);
-        this.kSB.setBackgroundResource(R.drawable.pic_splash_logo);
+        this.kYy.setText(str);
+        this.kYx = new RelativeLayout(this.mContext);
+        this.kYx.setBackgroundResource(R.drawable.pic_splash_logo);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(14);
         layoutParams.addRule(15);
-        this.kSB.addView(this.kSC, layoutParams);
+        this.kYx.addView(this.kYy, layoutParams);
         WindowManager.LayoutParams layoutParams2 = new WindowManager.LayoutParams();
         layoutParams2.type = 2005;
         layoutParams2.format = 1;
@@ -129,7 +129,7 @@ public class c {
         layoutParams2.width = -1;
         layoutParams2.height = -1;
         layoutParams2.flags = PlatformPlugin.DEFAULT_SYSTEM_UI;
-        ((WindowManager) this.mContext.getSystemService("window")).addView(this.kSB, layoutParams2);
+        ((WindowManager) this.mContext.getSystemService("window")).addView(this.kYx, layoutParams2);
     }
 
     private boolean isMainProcess() {
@@ -152,15 +152,15 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private boolean dbT() {
-        List<String> fG = fG(this.mContext);
-        if (fG == null || fG.size() == 0) {
+    private boolean dev() {
+        List<String> fF = fF(this.mContext);
+        if (fF == null || fF.size() == 0) {
             return false;
         }
         ActivityManager.RunningTaskInfo runningTaskInfo = ((ActivityManager) this.mContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningTasks(1).get(0);
         String shortString = runningTaskInfo.baseActivity.toShortString();
         String shortString2 = runningTaskInfo.topActivity.toShortString();
-        for (String str : fG) {
+        for (String str : fF) {
             if (shortString.equals(str) || shortString2.equals(str)) {
                 return true;
             }
@@ -170,7 +170,7 @@ public class c {
         return false;
     }
 
-    private List<String> fG(Context context) {
+    private List<String> fF(Context context) {
         PackageManager packageManager = context.getPackageManager();
         Intent intent = new Intent("com.baidu.tieba.SPLASH_PIPELINE_ACTION");
         intent.setPackage(context.getPackageName());
@@ -189,9 +189,9 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b extends TextView {
-        private LinearGradient bxD;
-        private Matrix kSG;
-        private int kSH;
+        private LinearGradient bDO;
+        private Matrix kYC;
+        private int kYD;
         private boolean mAnimating;
         private Paint mPaint;
         private int mViewWidth;
@@ -199,20 +199,20 @@ public class c {
         public b(Context context) {
             super(context);
             this.mViewWidth = 0;
-            this.kSH = 0;
+            this.kYD = 0;
             this.mAnimating = true;
         }
 
         @Override // android.widget.TextView, android.view.View
         protected void onDraw(Canvas canvas) {
             super.onDraw(canvas);
-            if (this.mAnimating && this.kSG != null) {
-                this.kSH += this.mViewWidth / 10;
-                if (this.kSH > this.mViewWidth * 2) {
-                    this.kSH = -this.mViewWidth;
+            if (this.mAnimating && this.kYC != null) {
+                this.kYD += this.mViewWidth / 10;
+                if (this.kYD > this.mViewWidth * 2) {
+                    this.kYD = -this.mViewWidth;
                 }
-                this.kSG.setTranslate(this.kSH, 0.0f);
-                this.bxD.setLocalMatrix(this.kSG);
+                this.kYC.setTranslate(this.kYD, 0.0f);
+                this.bDO.setLocalMatrix(this.kYC);
                 postInvalidateDelayed(50L);
             }
         }
@@ -224,9 +224,9 @@ public class c {
                 this.mViewWidth = getMeasuredWidth();
                 if (this.mViewWidth > 0) {
                     this.mPaint = getPaint();
-                    this.bxD = new LinearGradient(-this.mViewWidth, 0.0f, 0.0f, 0.0f, new int[]{1610612736, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 1610612736}, new float[]{0.0f, 0.5f, 1.0f}, Shader.TileMode.CLAMP);
-                    this.mPaint.setShader(this.bxD);
-                    this.kSG = new Matrix();
+                    this.bDO = new LinearGradient(-this.mViewWidth, 0.0f, 0.0f, 0.0f, new int[]{1610612736, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 1610612736}, new float[]{0.0f, 0.5f, 1.0f}, Shader.TileMode.CLAMP);
+                    this.mPaint.setShader(this.bDO);
+                    this.kYC = new Matrix();
                 }
             }
         }

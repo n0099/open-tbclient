@@ -5,7 +5,7 @@ import android.media.MediaPlayer;
 public class AudioFilePlayer {
 
     /* renamed from: a  reason: collision with root package name */
-    private MediaPlayer f3896a = new MediaPlayer();
+    private MediaPlayer f3898a = new MediaPlayer();
 
     private AudioFilePlayer() {
     }

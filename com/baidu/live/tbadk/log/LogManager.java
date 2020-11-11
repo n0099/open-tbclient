@@ -90,7 +90,7 @@ public class LogManager {
     }
 
     public static IYuyinLiveLogger getYuyinLiveLogger() {
-        return TbadkCoreApplication.getInst().isQuanmin() ? new QuanminYuyinLiveLogger() : new DefalutYuyinLiveLogger();
+        return (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) ? new QuanminYuyinLiveLogger() : new DefalutYuyinLiveLogger();
     }
 
     public static ILiveIMLogger getLiveIMLogger() {

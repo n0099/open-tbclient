@@ -25,12 +25,12 @@ public class a implements View.OnClickListener {
     private ImageView k;
     private RelativeLayout l;
     private boolean m = false;
-    public ListItem oYe;
-    private GiftPopupLayout pkI;
-    private RedpacketNotifier pkJ;
-    private InteractNotifier pkK;
-    private FoodView pkL;
-    private FrescoThumbnailView pkM;
+    public ListItem phz;
+    private GiftPopupLayout pug;
+    private RedpacketNotifier puh;
+    private InteractNotifier pui;
+    private FoodView puj;
+    private FrescoThumbnailView puk;
 
     public a(View view, int i) {
         this.h = 1;
@@ -42,7 +42,7 @@ public class a implements View.OnClickListener {
         d();
         c(list);
         a(aVar);
-        this.pkK.a(bVar, aVar2, aVar3);
+        this.pui.a(bVar, aVar2, aVar3);
     }
 
     public void a(boolean z) {
@@ -50,12 +50,12 @@ public class a implements View.OnClickListener {
             this.c.setVisibility(0);
             if (!z) {
                 this.d.setVisibility(8);
-                this.pkI.setVisibility(8);
+                this.pug.setVisibility(8);
                 this.l.setVisibility(8);
                 return;
             }
             this.d.setVisibility(0);
-            this.pkI.setVisibility(0);
+            this.pug.setVisibility(0);
             this.l.setVisibility(0);
             if (this.h == 2 && (this.c.getContext() instanceof Activity)) {
                 Activity activity = (Activity) this.c.getContext();
@@ -75,19 +75,19 @@ public class a implements View.OnClickListener {
     }
 
     public void b() {
-        if (this.pkI != null) {
-            this.pkI.removeAllViews();
-            this.pkI.setVisibility(8);
+        if (this.pug != null) {
+            this.pug.removeAllViews();
+            this.pug.setVisibility(8);
         }
-        if (this.pkK != null) {
-            this.pkK.b();
-            this.pkK.setVisibility(8);
+        if (this.pui != null) {
+            this.pui.b();
+            this.pui.setVisibility(8);
         }
-        if (this.pkJ != null) {
-            this.pkJ.setVisibility(8);
+        if (this.puh != null) {
+            this.puh.setVisibility(8);
         }
-        if (this.pkL != null) {
-            this.pkL.setVisibility(8);
+        if (this.puj != null) {
+            this.puj.setVisibility(8);
         }
     }
 
@@ -98,7 +98,7 @@ public class a implements View.OnClickListener {
     public void a(com.kascend.chushou.player.ui.h5.redpacket.a aVar) {
         if (aVar != null) {
             d();
-            this.pkJ.a(aVar, true);
+            this.puh.a(aVar, true);
         }
     }
 
@@ -122,60 +122,60 @@ public class a implements View.OnClickListener {
 
     public void a(List<ListItem> list) {
         if (h.isEmpty(list)) {
-            if (this.pkI != null) {
-                this.pkI.removeAllViews();
-                this.pkI.setVisibility(8);
+            if (this.pug != null) {
+                this.pug.removeAllViews();
+                this.pug.setVisibility(8);
                 return;
             }
             return;
         }
         d();
-        this.pkI.a(list, this.h);
+        this.pug.a(list, this.h);
     }
 
     public void a(int i) {
         if (i <= 0) {
-            if (this.pkJ != null) {
-                this.pkJ.setVisibility(8);
+            if (this.puh != null) {
+                this.puh.setVisibility(8);
                 return;
             }
             return;
         }
         d();
-        this.pkJ.a(i, true);
+        this.puh.a(i, true);
     }
 
     public void a(long j) {
         d();
-        if (this.pkK != null) {
-            this.pkK.b(j);
+        if (this.pui != null) {
+            this.pui.b(j);
         }
     }
 
     public void b(int i) {
         d();
-        if (this.pkK != null) {
-            this.pkK.a(i);
+        if (this.pui != null) {
+            this.pui.a(i);
         }
     }
 
     public void b(long j) {
         d();
-        if (this.pkK != null) {
-            this.pkK.a(j);
+        if (this.pui != null) {
+            this.pui.a(j);
         }
     }
 
     public void c() {
         d();
-        if (this.pkK != null) {
-            this.pkK.a();
+        if (this.pui != null) {
+            this.pui.a();
         }
     }
 
     public void a(ListItem listItem, FoodView.a aVar) {
-        if (this.pkL != null && listItem != null) {
-            this.pkL.a(listItem, 0, aVar);
+        if (this.puj != null && listItem != null) {
+            this.puj.a(listItem, 0, aVar);
         }
     }
 
@@ -183,20 +183,20 @@ public class a implements View.OnClickListener {
         if (!this.m) {
             if (this.h == 1) {
                 this.c = ((ViewStub) this.b.findViewById(a.f.viewstub_gift_popup_landscape)).inflate();
-                this.pkI = (GiftPopupLayout) this.c.findViewById(a.f.gift_popup_layout_landscape);
-                this.pkJ = (RedpacketNotifier) this.c.findViewById(a.f.redpacket_notifier_landscape);
-                this.pkK = (InteractNotifier) this.c.findViewById(a.f.interact_notifier_landscape);
+                this.pug = (GiftPopupLayout) this.c.findViewById(a.f.gift_popup_layout_landscape);
+                this.puh = (RedpacketNotifier) this.c.findViewById(a.f.redpacket_notifier_landscape);
+                this.pui = (InteractNotifier) this.c.findViewById(a.f.interact_notifier_landscape);
             } else {
                 this.c = ((ViewStub) this.b.findViewById(a.f.viewstub_gift_popup_portrait)).inflate();
-                this.pkI = (GiftPopupLayout) this.c.findViewById(a.f.gift_popup_layout_portrait);
-                this.pkJ = (RedpacketNotifier) this.c.findViewById(a.f.redpacket_notifier_portrait);
-                this.pkK = (InteractNotifier) this.c.findViewById(a.f.interact_notifier_portrait);
+                this.pug = (GiftPopupLayout) this.c.findViewById(a.f.gift_popup_layout_portrait);
+                this.puh = (RedpacketNotifier) this.c.findViewById(a.f.redpacket_notifier_portrait);
+                this.pui = (InteractNotifier) this.c.findViewById(a.f.interact_notifier_portrait);
             }
-            this.pkL = (FoodView) this.c.findViewById(a.f.ad_pendant);
+            this.puj = (FoodView) this.c.findViewById(a.f.ad_pendant);
             this.d = this.c.findViewById(a.f.rl_vertical_container);
-            this.pkM = (FrescoThumbnailView) this.c.findViewById(a.f.ic_shopwindow);
+            this.puk = (FrescoThumbnailView) this.c.findViewById(a.f.ic_shopwindow);
             this.k = (ImageView) this.c.findViewById(a.f.iv_shopwindow_close);
-            this.pkM.setOnClickListener(this);
+            this.puk.setOnClickListener(this);
             this.k.setOnClickListener(this);
             this.l = (RelativeLayout) this.c.findViewById(a.f.rl_shopwindow);
             this.m = true;
@@ -207,14 +207,14 @@ public class a implements View.OnClickListener {
     public void onClick(View view) {
         int id = view.getId();
         if (id == a.f.ic_shopwindow) {
-            if (this.oYe != null) {
-                if (this.pkM.getContext() instanceof Activity) {
-                    e.a(this.pkM.getContext(), this.oYe, (JSONObject) null);
+            if (this.phz != null) {
+                if (this.puk.getContext() instanceof Activity) {
+                    e.a(this.puk.getContext(), this.phz, (JSONObject) null);
                     return;
                 }
-                Activity eqf = com.kascend.chushou.d.b.eqf();
-                if (eqf != null) {
-                    e.a(eqf, this.oYe, (JSONObject) null);
+                Activity etU = com.kascend.chushou.d.b.etU();
+                if (etU != null) {
+                    e.a(etU, this.phz, (JSONObject) null);
                 }
             }
         } else if (id == a.f.iv_shopwindow_close && this.l != null) {
@@ -223,12 +223,12 @@ public class a implements View.OnClickListener {
     }
 
     public void b(List<ListItem> list) {
-        if (this.pkM != null && !h.isEmpty(list)) {
-            this.oYe = list.get(0);
-            this.pkM.setVisibility(0);
-            this.pkM.a(this.oYe.mCover, 0, 0, 0, 1);
+        if (this.puk != null && !h.isEmpty(list)) {
+            this.phz = list.get(0);
+            this.puk.setVisibility(0);
+            this.puk.a(this.phz.mCover, 0, 0, 0, 1);
             if (this.k != null) {
-                if (this.oYe.mShowClose) {
+                if (this.phz.mShowClose) {
                     this.k.setVisibility(0);
                 } else {
                     this.k.setVisibility(8);

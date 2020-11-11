@@ -7,11 +7,11 @@ import java.util.HashMap;
 public class z implements ArBridge.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BaiduArView f1237a;
+    final /* synthetic */ BaiduArView f1239a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(BaiduArView baiduArView) {
-        this.f1237a = baiduArView;
+        this.f1239a = baiduArView;
     }
 
     @Override // com.baidu.ar.npc.ArBridge.d
@@ -19,51 +19,51 @@ public class z implements ArBridge.d {
         if (hashMap != null) {
             if (hashMap.get("disable_all") != null) {
                 if (1 == ((Integer) hashMap.get("disable_all")).intValue()) {
-                    this.f1237a.x = true;
+                    this.f1239a.x = true;
                 } else {
-                    this.f1237a.x = false;
+                    this.f1239a.x = false;
                 }
             }
             if (hashMap.get("disable_pinch") != null) {
                 if (1 == ((Integer) hashMap.get("disable_pinch")).intValue()) {
-                    this.f1237a.y = true;
+                    this.f1239a.y = true;
                 } else {
-                    this.f1237a.y = false;
+                    this.f1239a.y = false;
                 }
             }
             if (hashMap.get("disable_click") != null) {
                 if (1 == ((Integer) hashMap.get("disable_click")).intValue()) {
-                    this.f1237a.z = true;
+                    this.f1239a.z = true;
                 } else {
-                    this.f1237a.z = false;
+                    this.f1239a.z = false;
                 }
             }
             if (hashMap.get("disable_scroll") != null) {
                 if (1 == ((Integer) hashMap.get("disable_scroll")).intValue()) {
-                    this.f1237a.B = true;
+                    this.f1239a.B = true;
                 } else {
-                    this.f1237a.B = false;
+                    this.f1239a.B = false;
                 }
             }
             if (hashMap.get("disable_long_press") != null) {
                 if (1 == ((Integer) hashMap.get("disable_long_press")).intValue()) {
-                    this.f1237a.D = true;
+                    this.f1239a.D = true;
                 } else {
-                    this.f1237a.D = false;
+                    this.f1239a.D = false;
                 }
             }
             if (hashMap.get("disable_double_click") != null) {
                 if (1 == ((Integer) hashMap.get("disable_double_click")).intValue()) {
-                    this.f1237a.A = true;
+                    this.f1239a.A = true;
                 } else {
-                    this.f1237a.A = false;
+                    this.f1239a.A = false;
                 }
             }
             if (hashMap.get("disable_two_finger_scroll") != null) {
                 if (1 == ((Integer) hashMap.get("disable_two_finger_scroll")).intValue()) {
-                    this.f1237a.C = true;
+                    this.f1239a.C = true;
                 } else {
-                    this.f1237a.C = false;
+                    this.f1239a.C = false;
                 }
             }
         }

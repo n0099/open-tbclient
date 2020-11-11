@@ -9,25 +9,25 @@ import java.util.LinkedList;
 /* loaded from: classes10.dex */
 public class e implements c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private d cGM;
-    private LinkedList<com.baidu.swan.apps.event.a.a> cGL = new LinkedList<>();
-    private b cGK = new b(2);
+    private d cMF;
+    private LinkedList<com.baidu.swan.apps.event.a.a> cME = new LinkedList<>();
+    private b cMD = new b(2);
     private final Object mLock = new Object();
-    private volatile boolean cGN = false;
-    private volatile boolean cGO = false;
-    private volatile boolean cGP = false;
-    private boolean cGG = false;
+    private volatile boolean cMG = false;
+    private volatile boolean cMH = false;
+    private volatile boolean cMI = false;
+    private boolean cMz = false;
 
     public void a(boolean z, c cVar) {
-        if (!this.cGP) {
+        if (!this.cMI) {
             synchronized (this.mLock) {
-                if (!this.cGP) {
-                    this.cGG = z;
+                if (!this.cMI) {
+                    this.cMz = z;
                     d m = d.m(true, z);
                     m.a(this);
                     m.a(cVar);
-                    this.cGK.a(m);
-                    this.cGP = true;
+                    this.cMD.a(m);
+                    this.cMI = true;
                     return;
                 }
             }
@@ -35,18 +35,18 @@ public class e implements c {
         if (DEBUG) {
             Log.w("SwanAppMasterProvider", "call prepareDefault repeat");
         }
-        d mU = this.cGK.mU("_default_id_");
-        if (mU != null) {
-            mU.a(cVar);
+        d nj = this.cMD.nj("_default_id_");
+        if (nj != null) {
+            nj.a(cVar);
         }
     }
 
-    public boolean anA() {
-        return this.cGN;
+    public boolean aqb() {
+        return this.cMG;
     }
 
-    public boolean anB() {
-        return this.cGP;
+    public boolean aqc() {
+        return this.cMI;
     }
 
     public void a(String str, PrefetchEvent.b bVar) {
@@ -57,11 +57,11 @@ public class e implements c {
             if (DEBUG) {
                 Log.w("SwanAppMasterProvider", "prefetch appId is empty");
             }
-        } else if (this.cGO) {
-            com.baidu.swan.apps.runtime.e aEV = com.baidu.swan.apps.runtime.e.aEV();
-            if (aEV != null) {
-                if (TextUtils.equals(str, aEV.getAppId())) {
-                    this.cGM.a(str, bVar);
+        } else if (this.cMH) {
+            com.baidu.swan.apps.runtime.e aHv = com.baidu.swan.apps.runtime.e.aHv();
+            if (aHv != null) {
+                if (TextUtils.equals(str, aHv.getAppId())) {
+                    this.cMF.a(str, bVar);
                     if (DEBUG) {
                         Log.w("SwanAppMasterProvider", "prefetch after app start - " + str);
                     }
@@ -69,126 +69,126 @@ public class e implements c {
                     Log.w("SwanAppMasterProvider", "can not prefetch after swan app start");
                 }
             }
-        } else if (!this.cGN) {
+        } else if (!this.cMG) {
             if (DEBUG) {
                 Log.w("SwanAppMasterProvider", "can not prefetch before default mater ready");
             }
         } else {
             synchronized (this.mLock) {
-                if (!this.cGO) {
-                    d mU = this.cGK.mU(str);
-                    if (mU == null) {
-                        mU = d.m(false, this.cGG);
-                        this.cGK.a(mU);
+                if (!this.cMH) {
+                    d nj = this.cMD.nj(str);
+                    if (nj == null) {
+                        nj = d.m(false, this.cMz);
+                        this.cMD.a(nj);
                     }
-                    mU.a(str, bVar);
+                    nj.a(str, bVar);
                 }
             }
         }
     }
 
-    public d mW(String str) {
-        d mU;
+    public d nl(String str) {
+        d nj;
         long currentTimeMillis = DEBUG ? System.currentTimeMillis() : 0L;
         if (DEBUG) {
             Log.w("SwanAppMasterProvider", "real start a swan app - " + str);
         }
-        if (!this.cGN && DEBUG) {
+        if (!this.cMG && DEBUG) {
             throw new RuntimeException("should call startApp after preload finished");
         }
-        if (this.cGO) {
-            return this.cGM;
+        if (this.cMH) {
+            return this.cMF;
         }
         synchronized (this.mLock) {
-            if (!this.cGO) {
+            if (!this.cMH) {
                 if (TextUtils.isEmpty(str)) {
-                    mU = this.cGK.mU("_default_id_");
+                    nj = this.cMD.nj("_default_id_");
                 } else {
-                    mU = this.cGK.mU(str);
-                    if (mU == null || !mU.isReady()) {
-                        mU = this.cGK.mU("_default_id_");
+                    nj = this.cMD.nj(str);
+                    if (nj == null || !nj.isReady()) {
+                        nj = this.cMD.nj("_default_id_");
                     }
                 }
-                a(mU, str);
+                a(nj, str);
             }
         }
         if (DEBUG) {
             Log.i("SwanAppMasterProvider", "get right master cost - " + (System.currentTimeMillis() - currentTimeMillis) + "ms");
-            Log.i("SwanAppMasterProvider", "final master id - " + this.cGM.anx().agj());
+            Log.i("SwanAppMasterProvider", "final master id - " + this.cMF.apY().aiJ());
         }
-        return this.cGM;
+        return this.cMF;
     }
 
     private void a(d dVar, String str) {
-        this.cGM = dVar;
-        this.cGM.mV(str);
-        this.cGO = true;
-        anE();
+        this.cMF = dVar;
+        this.cMF.nk(str);
+        this.cMH = true;
+        aqf();
         long currentTimeMillis = DEBUG ? System.currentTimeMillis() : 0L;
-        this.cGK.e(Collections.singletonList(dVar));
+        this.cMD.e(Collections.singletonList(dVar));
         if (DEBUG) {
             Log.i("SwanAppMasterProvider", "clear useless master cost - " + (System.currentTimeMillis() - currentTimeMillis) + "ms");
         }
     }
 
-    public boolean anC() {
-        return this.cGO;
+    public boolean aqd() {
+        return this.cMH;
     }
 
-    public d anD() {
-        if (this.cGO) {
-            return this.cGM;
+    public d aqe() {
+        if (this.cMH) {
+            return this.cMF;
         }
         if (DEBUG) {
-            Log.w("SwanAppMasterProvider", "master not final confirmed, has default - " + anB());
+            Log.w("SwanAppMasterProvider", "master not final confirmed, has default - " + aqc());
             Log.w("SwanAppMasterProvider", Log.getStackTraceString(new RuntimeException("throw by debug")));
         }
         return null;
     }
 
     public void reset() {
-        this.cGN = false;
-        this.cGO = false;
-        this.cGP = false;
-        this.cGG = false;
-        this.cGM = null;
-        this.cGK.e(null);
+        this.cMG = false;
+        this.cMH = false;
+        this.cMI = false;
+        this.cMz = false;
+        this.cMF = null;
+        this.cMD.e(null);
         synchronized (this.mLock) {
-            this.cGL.clear();
+            this.cME.clear();
         }
-        a.anu();
+        a.apV();
     }
 
-    private void anE() {
-        if (!this.cGL.isEmpty() && this.cGO) {
+    private void aqf() {
+        if (!this.cME.isEmpty() && this.cMH) {
             synchronized (this.mLock) {
-                Iterator<com.baidu.swan.apps.event.a.a> it = this.cGL.iterator();
+                Iterator<com.baidu.swan.apps.event.a.a> it = this.cME.iterator();
                 while (it.hasNext()) {
                     com.baidu.swan.apps.event.a.a next = it.next();
                     if (DEBUG) {
-                        Log.d("SwanAppMasterProvider", "dispatchPendingEvents event: " + next.cuT);
+                        Log.d("SwanAppMasterProvider", "dispatchPendingEvents event: " + next.cAM);
                     }
-                    com.baidu.swan.apps.core.turbo.d.aph().b(next);
+                    com.baidu.swan.apps.core.turbo.d.arI().b(next);
                 }
-                this.cGL.clear();
+                this.cME.clear();
             }
         }
     }
 
-    public boolean anF() {
-        return this.cGG;
+    public boolean aqg() {
+        return this.cMz;
     }
 
     public void a(com.baidu.swan.apps.event.a.a aVar) {
-        if (aVar != null && !this.cGO) {
+        if (aVar != null && !this.cMH) {
             synchronized (this.mLock) {
-                this.cGL.add(aVar);
+                this.cME.add(aVar);
             }
         }
     }
 
     @Override // com.baidu.swan.apps.core.g.a.c
     public void onReady() {
-        this.cGN = true;
+        this.cMG = true;
     }
 }

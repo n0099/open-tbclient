@@ -11,13 +11,13 @@ import com.baidu.tieba.card.y;
 import com.baidu.tieba.frs.k;
 /* loaded from: classes21.dex */
 public class a extends k<bw, com.baidu.tieba.card.a.a<x>> implements y {
-    private ab<bw> gfC;
+    private ab<bw> glr;
     private String mFrom;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.gfC = new ab<bw>() { // from class: com.baidu.tieba.hottopic.frs.a.1
+        this.glr = new ab<bw>() { // from class: com.baidu.tieba.hottopic.frs.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, bw bwVar, Object obj) {
@@ -36,14 +36,14 @@ public class a extends k<bw, com.baidu.tieba.card.a.a<x>> implements y {
     }
 
     @Override // com.baidu.tieba.card.y
-    public String ZA() {
+    public String abZ() {
         return "FrsHottopicVideoDelegateAdapter";
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aN */
+    /* renamed from: aP */
     public com.baidu.tieba.card.a.a<x> c(ViewGroup viewGroup) {
         return new com.baidu.tieba.card.a.a<>(new x(this.mPageContext, viewGroup));
     }
@@ -52,11 +52,11 @@ public class a extends k<bw, com.baidu.tieba.card.a.a<x>> implements y {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bw bwVar, com.baidu.tieba.card.a.a<x> aVar) {
-        if (aVar == null || aVar.cmx() == null) {
+        if (aVar == null || aVar.coY() == null) {
             return null;
         }
-        aVar.cmx().c(this.gfC);
-        aVar.cmx().a(bwVar);
+        aVar.coY().c(this.glr);
+        aVar.coY().a(bwVar);
         return aVar.getView();
     }
 

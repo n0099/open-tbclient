@@ -5,9 +5,9 @@ import android.os.Build;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f4077a;
+    public static final boolean f4079a;
 
     static {
-        f4077a = Build.VERSION.SDK_INT >= 16;
+        f4079a = Build.VERSION.SDK_INT >= 16;
     }
 }

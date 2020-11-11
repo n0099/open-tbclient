@@ -10,7 +10,7 @@ public class LivenessVideoState {
     public static final int STATE_VIDEO_DONE = 6;
 
     /* renamed from: a  reason: collision with root package name */
-    private long f1726a;
+    private long f1728a;
     private long b;
     public boolean isLrcTipAnimCalling;
     public boolean isWarningTipAnimCalled;
@@ -34,20 +34,20 @@ public class LivenessVideoState {
     }
 
     public String getLrcStartTimeOffset() {
-        return ((this.lrcTextStartTime - this.f1726a) / 1000) + "";
+        return ((this.lrcTextStartTime - this.f1728a) / 1000) + "";
     }
 
     public void setProcessStartTime() {
-        this.f1726a = System.currentTimeMillis();
+        this.f1728a = System.currentTimeMillis();
         setLastFindFaceStartTime();
     }
 
     public boolean isFirstRecogTimeout() {
-        return this.currentState < 5 && System.currentTimeMillis() - this.f1726a > 20000;
+        return this.currentState < 5 && System.currentTimeMillis() - this.f1728a > 20000;
     }
 
     public long getVideoTime() {
-        return (System.currentTimeMillis() - this.f1726a) / 1000;
+        return (System.currentTimeMillis() - this.f1728a) / 1000;
     }
 
     public void setLastFindFaceStartTime() {

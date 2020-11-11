@@ -6,7 +6,7 @@ import java.util.HashMap;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f4543a;
+    public static b f4545a;
     static final /* synthetic */ boolean d;
     private static int e;
     public HashMap<String, a> b = new HashMap<>();
@@ -16,7 +16,7 @@ public class b {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public IUiListener f4544a;
+        public IUiListener f4546a;
         public com.tencent.connect.auth.a b;
         public String c;
     }
@@ -27,10 +27,10 @@ public class b {
     }
 
     public static b a() {
-        if (f4543a == null) {
-            f4543a = new b();
+        if (f4545a == null) {
+            f4545a = new b();
         }
-        return f4543a;
+        return f4545a;
     }
 
     public static int b() {

@@ -6,61 +6,61 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private StringBuilder f3104a = new StringBuilder();
+    private StringBuilder f3106a = new StringBuilder();
     private boolean b = false;
 
     public a a() {
         d();
-        this.f3104a.append("{");
+        this.f3106a.append("{");
         e();
         return this;
     }
 
     public a b() {
-        this.f3104a.append("}");
+        this.f3106a.append("}");
         f();
         return this;
     }
 
     public a a(String str) {
         d();
-        this.f3104a.append(JSONObject.quote(str));
-        this.f3104a.append(":");
+        this.f3106a.append(JSONObject.quote(str));
+        this.f3106a.append(":");
         e();
         return this;
     }
 
     public a a(boolean z) {
         d();
-        this.f3104a.append(z);
+        this.f3106a.append(z);
         f();
         return this;
     }
 
     public a a(int i) {
         d();
-        this.f3104a.append(i);
+        this.f3106a.append(i);
         f();
         return this;
     }
 
     public a a(long j) {
         d();
-        this.f3104a.append(j);
+        this.f3106a.append(j);
         f();
         return this;
     }
 
     public a a(double d) {
         d();
-        this.f3104a.append(String.format("%f", Double.valueOf(d)));
+        this.f3106a.append(String.format("%f", Double.valueOf(d)));
         f();
         return this;
     }
 
     public a b(String str) {
         d();
-        this.f3104a.append(JSONObject.quote(str));
+        this.f3106a.append(JSONObject.quote(str));
         f();
         return this;
     }
@@ -92,7 +92,7 @@ public class a {
 
     private void d() {
         if (this.b) {
-            this.f3104a.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            this.f3106a.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
         }
     }
 
@@ -105,7 +105,7 @@ public class a {
     }
 
     public String c() {
-        return this.f3104a.toString();
+        return this.f3106a.toString();
     }
 
     public String toString() {

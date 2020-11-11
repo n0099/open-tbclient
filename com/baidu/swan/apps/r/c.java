@@ -7,40 +7,40 @@ import java.nio.channels.Pipe;
 /* loaded from: classes10.dex */
 public class c extends f.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final com.baidu.swan.pms.a.d cRo;
+    private final com.baidu.swan.pms.a.d cXh;
     private final String mSign;
 
     public c(String str, com.baidu.swan.pms.a.d dVar) {
         super("check_sign");
         this.mSign = str;
-        this.cRo = dVar;
+        this.cXh = dVar;
     }
 
     @Override // com.baidu.swan.apps.r.f.a
     protected boolean a(Pipe.SourceChannel sourceChannel, Bundle bundle) {
-        com.baidu.swan.apps.am.a tM;
-        com.baidu.swan.apps.u.e.a pr = com.baidu.swan.apps.u.e.a.pr(bundle.getString("launch_id"));
-        pr.awE().pu("SignChecker").iX(1);
+        com.baidu.swan.apps.am.a ua;
+        com.baidu.swan.apps.u.e.a pF = com.baidu.swan.apps.u.e.a.pF(bundle.getString("launch_id"));
+        pF.aze().pI("SignChecker").jh(1);
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            tM = com.baidu.swan.apps.core.pms.f.a.a(sourceChannel, this.mSign, this.cRo);
+            ua = com.baidu.swan.apps.core.pms.f.a.a(sourceChannel, this.mSign, this.cXh);
         } catch (IOException e) {
             if (DEBUG) {
                 e.printStackTrace();
             }
-            tM = new com.baidu.swan.apps.am.a().bZ(11L).ca(2300L).tM("inputStream IOException:" + e.toString());
-            com.baidu.swan.apps.am.e.aJt().j(tM);
-            pr.bW("SignChecker", tM.toString());
+            ua = new com.baidu.swan.apps.am.a().cv(11L).cw(2300L).ua("inputStream IOException:" + e.toString());
+            com.baidu.swan.apps.am.e.aLT().j(ua);
+            pF.bW("SignChecker", ua.toString());
         } finally {
             com.baidu.swan.apps.ap.b.b.a(sourceChannel);
         }
-        pr.bW("SignChecker", "Cost: " + (System.currentTimeMillis() - currentTimeMillis));
-        boolean z = tM == null;
-        if (tM != null) {
-            pr.bW("SignChecker", tM.toString());
-            atX().putLong("result_error_code", tM.aJp());
+        pF.bW("SignChecker", "Cost: " + (System.currentTimeMillis() - currentTimeMillis));
+        boolean z = ua == null;
+        if (ua != null) {
+            pF.bW("SignChecker", ua.toString());
+            awx().putLong("result_error_code", ua.aLP());
         }
-        pr.bW("SignChecker", "done: " + z);
+        pF.bW("SignChecker", "done: " + z);
         return z;
     }
 }

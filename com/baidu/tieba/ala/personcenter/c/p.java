@@ -3,14 +3,14 @@ package com.baidu.tieba.ala.personcenter.c;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class p {
-    public String hyA;
-    public String hyt;
-    public String hyu;
-    public String hyv;
-    public String hyw;
-    public String hyx;
-    public String hyy;
-    public String hyz;
+    public String hEq;
+    public String hEr;
+    public String hEs;
+    public String hEt;
+    public String hEu;
+    public String hEv;
+    public String hEw;
+    public String hEx;
     public String location;
     public String portrait;
     public String sex;
@@ -18,18 +18,18 @@ public class p {
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.hyt = jSONObject.optString("user_id");
+            this.hEq = jSONObject.optString("user_id");
             this.userName = jSONObject.optString("user_name");
             this.sex = jSONObject.optString("sex");
-            this.hyu = jSONObject.optString("description");
+            this.hEr = jSONObject.optString("description");
             this.portrait = jSONObject.optString("portrait");
-            this.hyv = jSONObject.optString("level_id");
+            this.hEs = jSONObject.optString("level_id");
             this.location = jSONObject.optString("location");
-            this.hyw = jSONObject.optString("follow_status");
-            this.hyy = jSONObject.optString("follow_count");
-            this.hyx = jSONObject.optString("fans_count");
-            this.hyz = jSONObject.optString("live_count");
-            this.hyA = jSONObject.optString("record_count");
+            this.hEt = jSONObject.optString("follow_status");
+            this.hEv = jSONObject.optString("follow_count");
+            this.hEu = jSONObject.optString("fans_count");
+            this.hEw = jSONObject.optString("live_count");
+            this.hEx = jSONObject.optString("record_count");
         }
     }
 }

@@ -10,7 +10,7 @@ public class m implements ak {
     public static boolean d = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f2923a;
+    public int f2925a;
     public int b;
     private af g;
     private WeakReference<MapSurfaceView> h;

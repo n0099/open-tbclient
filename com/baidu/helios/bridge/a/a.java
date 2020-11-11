@@ -122,10 +122,10 @@ public class a extends com.baidu.helios.bridge.a {
         public static class C0144a {
 
             /* renamed from: a  reason: collision with root package name */
-            boolean f1785a;
+            boolean f1787a;
 
             C0144a(boolean z) {
-                this.f1785a = z;
+                this.f1787a = z;
             }
         }
 
@@ -210,12 +210,12 @@ public class a extends com.baidu.helios.bridge.a {
     public static class f {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f1786a;
+        public String f1788a;
         public String b;
         public long c;
 
         public f(String str, String str2, long j) {
-            this.f1786a = str;
+            this.f1788a = str;
             this.b = str2;
             this.c = j;
         }
@@ -234,7 +234,7 @@ public class a extends com.baidu.helios.bridge.a {
             try {
                 for (f fVar : this.d) {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put(Config.INPUT_DEF_PKG, fVar.f1786a);
+                    jSONObject.put(Config.INPUT_DEF_PKG, fVar.f1788a);
                     jSONObject.put("aid", fVar.b);
                     jSONObject.put("priority", fVar.c);
                     jSONArray.put(jSONObject);
@@ -298,7 +298,7 @@ public class a extends com.baidu.helios.bridge.a {
                 Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
                     d.C0144a fA = dVar.fA(((com.baidu.helios.ids.a) it.next()).getName());
-                    if (fA != null && !fA.f1785a) {
+                    if (fA != null && !fA.f1787a) {
                         it.remove();
                     }
                 }
@@ -342,7 +342,7 @@ public class a extends com.baidu.helios.bridge.a {
                 aVar4.a(dVar3);
             }
             d.C0144a fA2 = dVar != null ? dVar.fA("sids") : null;
-            if (fA2 == null || fA2.f1785a) {
+            if (fA2 == null || fA2.f1787a) {
                 a(bVar, arrayList2);
             }
         } finally {

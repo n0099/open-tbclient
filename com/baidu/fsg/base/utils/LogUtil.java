@@ -14,7 +14,7 @@ import java.util.Locale;
 public final class LogUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1514a = "apollon_rest";
+    private static final String f1516a = "apollon_rest";
     public static final boolean DEBUG = ApollonConstants.DEBUG;
     private static final boolean b = ApollonConstants.DEBUG;
     private static final boolean c = ApollonConstants.DEBUG;

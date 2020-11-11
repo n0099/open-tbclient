@@ -3,13 +3,13 @@ package com.facebook.imagepipeline.d;
 import java.util.concurrent.Executor;
 /* loaded from: classes12.dex */
 public interface e {
-    Executor ekm();
+    Executor eoc();
 
-    Executor ekn();
+    Executor eod();
 
-    Executor eko();
+    Executor eoe();
 
-    Executor ekp();
+    Executor eog();
 
-    Executor ekq();
+    Executor eoh();
 }

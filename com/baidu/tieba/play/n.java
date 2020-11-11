@@ -8,14 +8,14 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import java.util.LinkedHashMap;
 /* loaded from: classes.dex */
 public class n {
-    private static n mdP = null;
-    private LinkedHashMap<String, Integer> mdQ = new LinkedHashMap<>(150, 0.75f, true);
+    private static n mjO = null;
+    private LinkedHashMap<String, Integer> mjP = new LinkedHashMap<>(150, 0.75f, true);
     private CustomMessageListener mAccountChangedListener = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.play.n.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                n.this.mdQ.clear();
+                n.this.mjP.clear();
             }
         }
     };
@@ -24,31 +24,31 @@ public class n {
         MessageManager.getInstance().registerListener(this.mAccountChangedListener);
     }
 
-    public static n duF() {
-        if (mdP == null) {
+    public static n dxh() {
+        if (mjO == null) {
             synchronized (n.class) {
-                if (mdP == null) {
-                    mdP = new n();
+                if (mjO == null) {
+                    mjO = new n();
                 }
             }
         }
-        return mdP;
+        return mjO;
     }
 
-    public void bA(String str, int i) {
-        if (i != 0 || !this.mdQ.containsKey(str)) {
-            this.mdQ.put(str, Integer.valueOf(i));
+    public void bC(String str, int i) {
+        if (i != 0 || !this.mjP.containsKey(str)) {
+            this.mjP.put(str, Integer.valueOf(i));
         }
     }
 
     public void remove(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.mdQ.remove(str);
+            this.mjP.remove(str);
         }
     }
 
-    public int Qt(String str) {
-        Integer num = this.mdQ.get(str);
+    public int QK(String str) {
+        Integer num = this.mjP.get(str);
         if (num != null) {
             return num.intValue();
         }
@@ -56,6 +56,6 @@ public class n {
     }
 
     public void clear() {
-        this.mdQ.clear();
+        this.mjP.clear();
     }
 }

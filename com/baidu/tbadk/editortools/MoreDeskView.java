@@ -8,37 +8,37 @@ import com.baidu.tieba.R;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class MoreDeskView extends CommonTabHost {
-    private SparseIntArray fhX;
-    private boolean fhY;
-    LinkedList<h> fhw;
+    private SparseIntArray fnR;
+    private boolean fnS;
+    LinkedList<h> fnq;
 
     public MoreDeskView(Context context) {
         super(context);
-        this.fhX = new SparseIntArray();
-        this.fhY = true;
+        this.fnR = new SparseIntArray();
+        this.fnS = true;
         setBackgroundColorId(R.color.cp_bg_line_d);
         setToolId(2);
     }
 
     public MoreDeskView(Context context, boolean z) {
         super(context);
-        this.fhX = new SparseIntArray();
-        this.fhY = true;
+        this.fnR = new SparseIntArray();
+        this.fnS = true;
         setBackgroundColorId(R.color.cp_bg_line_d);
         setToolId(2);
-        this.fhY = z;
+        this.fnS = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void g(LinkedList<h> linkedList) {
-        this.fhw = linkedList;
+        this.fnq = linkedList;
     }
 
     @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tbadk.editortools.n
     public void init() {
         setShowDelete(false);
         i iVar = new i();
-        iVar.g(this.fhw);
+        iVar.g(this.fnq);
         b(iVar);
     }
 
@@ -47,12 +47,12 @@ public class MoreDeskView extends CommonTabHost {
         super.a(aVar);
         if (aVar != null && aVar.code == 2 && aVar.id != 5) {
             c(aVar);
-            bxm();
+            bzL();
         }
     }
 
     private void c(a aVar) {
-        Integer valueOf = Integer.valueOf(this.fhX.get(aVar.id));
+        Integer valueOf = Integer.valueOf(this.fnR.get(aVar.id));
         int intValue = valueOf != null ? valueOf.intValue() : 0;
         if (aVar.data == null) {
             intValue = 0;
@@ -64,13 +64,13 @@ public class MoreDeskView extends CommonTabHost {
                 intValue = TextUtils.isEmpty(str.trim()) ? 1 : com.baidu.adp.lib.f.b.toInt(str, 1);
             }
         }
-        this.fhX.put(aVar.id, intValue >= 0 ? intValue : 0);
+        this.fnR.put(aVar.id, intValue >= 0 ? intValue : 0);
     }
 
-    private void bxm() {
+    private void bzL() {
         int i = 0;
-        for (int i2 = 0; i2 < this.fhX.size(); i2++) {
-            i += this.fhX.valueAt(i2);
+        for (int i2 = 0; i2 < this.fnR.size(); i2++) {
+            i += this.fnR.valueAt(i2);
         }
         if (i > 0) {
             b(new a(2, 2, " "));

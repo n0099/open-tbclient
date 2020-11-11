@@ -8,11 +8,11 @@ import android.os.Message;
 public class e extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f3122a;
+    final /* synthetic */ d f3124a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.f3122a = dVar;
+        this.f3124a = dVar;
     }
 
     @Override // android.os.Handler
@@ -37,47 +37,47 @@ public class e extends Handler {
             int i4 = message.arg2;
             if (i4 == 1 || i4 == 0) {
                 if (i3 != 0) {
-                    cVar = this.f3122a.f3121a;
+                    cVar = this.f3124a.f3123a;
                     if (cVar != null) {
-                        cVar2 = this.f3122a.f3121a;
+                        cVar2 = this.f3124a.f3123a;
                         cVar2.a(i3);
                     }
-                    aVar = this.f3122a.b;
+                    aVar = this.f3124a.b;
                     if (aVar != null) {
-                        aVar2 = this.f3122a.b;
+                        aVar2 = this.f3124a.b;
                         aVar2.a(i3);
                         return;
                     }
                     return;
                 }
                 com.baidu.platform.comapi.wnplatform.model.b U = com.baidu.platform.comapi.walknavi.b.a().U();
-                d dVar = this.f3122a;
-                i = this.f3122a.d;
+                d dVar = this.f3124a;
+                i = this.f3124a.d;
                 a2 = dVar.a(i);
-                i2 = this.f3122a.d;
+                i2 = this.f3124a.d;
                 U.a(a2, i2);
-                cVar3 = this.f3122a.f3121a;
+                cVar3 = this.f3124a.f3123a;
                 if (cVar3 != null) {
-                    cVar4 = this.f3122a.f3121a;
+                    cVar4 = this.f3124a.f3123a;
                     cVar4.b();
                 }
-                aVar3 = this.f3122a.b;
+                aVar3 = this.f3124a.b;
                 if (aVar3 != null) {
-                    aVar4 = this.f3122a.b;
+                    aVar4 = this.f3124a.b;
                     aVar4.a();
                 }
             }
         } else if (message.what == 2008 && com.baidu.platform.comapi.wnplatform.a.a().f()) {
-            bVar = this.f3122a.c;
+            bVar = this.f3124a.c;
             if (bVar != null && !com.baidu.platform.comapi.walknavi.b.a().h()) {
-                if (com.baidu.platform.comapi.walknavi.b.a().U().a(this.f3122a.a())) {
-                    this.f3122a.f = true;
-                    bVar3 = this.f3122a.c;
+                if (com.baidu.platform.comapi.walknavi.b.a().U().a(this.f3124a.a())) {
+                    this.f3124a.f = true;
+                    bVar3 = this.f3124a.c;
                     bVar3.b();
                     return;
                 }
-                this.f3122a.f = false;
-                bVar2 = this.f3122a.c;
+                this.f3124a.f = false;
+                bVar2 = this.f3124a.c;
                 bVar2.a(message.arg1);
             }
         }

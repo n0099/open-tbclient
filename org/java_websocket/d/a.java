@@ -1,11 +1,11 @@
 package org.java_websocket.d;
 /* loaded from: classes11.dex */
 public interface a {
-    boolean ZD(String str);
+    boolean aah(String str);
 
-    String eBo();
+    String eFd();
 
-    a eBp();
+    a eFe();
 
     String toString();
 }

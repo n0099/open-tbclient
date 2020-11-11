@@ -34,7 +34,7 @@ public class n extends i {
         this.agc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.n.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PbActivityConfig createNormalCfg = new PbActivityConfig(n.this.mContext).createNormalCfg(n.this.afI.bhz().getTid(), n.this.afI.bhz().blD().getId() + "", 1, "other");
+                PbActivityConfig createNormalCfg = new PbActivityConfig(n.this.mContext).createNormalCfg(n.this.afI.bjZ().getTid(), n.this.afI.bjZ().bod().getId() + "", 1, "other");
                 createNormalCfg.setStartFrom(n.this.afD.tS());
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
                 n.this.afD.b(new a.C0097a(1));
@@ -55,7 +55,7 @@ public class n extends i {
         a(1, new a.b() { // from class: com.baidu.card.n.3
             @Override // com.baidu.card.a.a.b
             public boolean a(a.C0097a c0097a) {
-                com.baidu.tieba.card.n.a(n.this.agc.getGodReplyContent(), n.this.afI.bhz().getId(), R.color.cp_cont_b, R.color.cp_cont_d);
+                com.baidu.tieba.card.n.a(n.this.agc.getGodReplyContent(), n.this.afI.bjZ().getId(), R.color.cp_cont_b, R.color.cp_cont_d);
                 return false;
             }
         });
@@ -87,11 +87,11 @@ public class n extends i {
     /* renamed from: b */
     public void H(AbsThreadDataSupport absThreadDataSupport) {
         this.afI = absThreadDataSupport;
-        PostData blD = absThreadDataSupport.bhz().blD();
-        if (this.agd != null && blD != null && blD.bka() != null && blD.bka().getUserId() != null) {
-            this.agd.dR("tid", absThreadDataSupport.bhz().tid).dR("post_id", blD.getId()).dR("uid", blD.bka().getUserId());
-            com.baidu.tieba.card.t.clQ().e(this.agd);
+        PostData bod = absThreadDataSupport.bjZ().bod();
+        if (this.agd != null && bod != null && bod.bmA() != null && bod.bmA().getUserId() != null) {
+            this.agd.dR("tid", absThreadDataSupport.bjZ().tid).dR("post_id", bod.getId()).dR("uid", bod.bmA().getUserId());
+            com.baidu.tieba.card.t.cor().e(this.agd);
         }
-        this.agc.setData(absThreadDataSupport.bhz());
+        this.agc.setData(absThreadDataSupport.bjZ());
     }
 }

@@ -6,8 +6,8 @@ import android.util.Log;
 public class f extends d {
     @Override // com.baidu.swan.apps.storage.c.d
     protected Bundle a(c cVar) {
-        b tz = h.tz(cVar.dvc);
-        if (tz == null) {
+        b tN = h.tN(cVar.dAU);
+        if (tN == null) {
             if (DEBUG) {
                 throw new IllegalArgumentException("illegal sp.");
             }
@@ -15,19 +15,19 @@ public class f extends d {
         }
         switch (cVar.mDataType) {
             case 1:
-                tz.putInt(cVar.dvd, Integer.parseInt(cVar.dve));
+                tN.putInt(cVar.dAV, Integer.parseInt(cVar.dAW));
                 break;
             case 2:
-                tz.putLong(cVar.dvd, Long.parseLong(cVar.dve));
+                tN.putLong(cVar.dAV, Long.parseLong(cVar.dAW));
                 break;
             case 3:
-                tz.putBoolean(cVar.dvd, Boolean.parseBoolean(cVar.dve));
+                tN.putBoolean(cVar.dAV, Boolean.parseBoolean(cVar.dAW));
                 break;
             case 4:
-                tz.putString(cVar.dvd, cVar.dve);
+                tN.putString(cVar.dAV, cVar.dAW);
                 break;
             case 5:
-                tz.putFloat(cVar.dvd, Float.parseFloat(cVar.dve));
+                tN.putFloat(cVar.dAV, Float.parseFloat(cVar.dAW));
                 break;
             default:
                 if (DEBUG) {

@@ -8,6 +8,7 @@ public abstract class BdResourceCallback<T> {
     protected void onProgressUpdate(Object... objArr) {
     }
 
-    protected void onCancelled(String str) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void onCancelled(String str) {
     }
 }

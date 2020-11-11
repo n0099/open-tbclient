@@ -13,15 +13,15 @@ import com.baidu.tieba.im.data.GroupInfoData;
 public class f extends af.a {
     public int ajq;
     public View dividerLine;
-    public GroupImageView jZm;
-    public TextView jZn;
-    public TextView jZo;
-    public TextView jZp;
-    public TextView jZq;
-    public ImageView jZr;
-    public ImageView jZs;
-    public ImageView jZt;
-    public ImageView[] jZu;
+    public GroupImageView kfk;
+    public TextView kfl;
+    public TextView kfm;
+    public TextView kfn;
+    public TextView kfo;
+    public ImageView kfp;
+    public ImageView kfq;
+    public ImageView kfr;
+    public ImageView[] kfs;
     public View rootView;
 
     public f(View view, View.OnClickListener onClickListener) {
@@ -29,41 +29,41 @@ public class f extends af.a {
         this.ajq = 3;
         this.rootView = view;
         this.rootView.setOnClickListener(onClickListener);
-        this.jZm = (GroupImageView) view.findViewById(R.id.item_head);
-        this.jZn = (TextView) view.findViewById(R.id.item_group_name);
-        this.jZo = (TextView) view.findViewById(R.id.item_group_meizi);
-        this.jZp = (TextView) view.findViewById(R.id.item_group_num);
-        this.jZq = (TextView) view.findViewById(R.id.item_introduce);
-        this.jZr = (ImageView) view.findViewById(R.id.item_grade1);
-        this.jZs = (ImageView) view.findViewById(R.id.item_grade2);
-        this.jZt = (ImageView) view.findViewById(R.id.item_grade3);
+        this.kfk = (GroupImageView) view.findViewById(R.id.item_head);
+        this.kfl = (TextView) view.findViewById(R.id.item_group_name);
+        this.kfm = (TextView) view.findViewById(R.id.item_group_meizi);
+        this.kfn = (TextView) view.findViewById(R.id.item_group_num);
+        this.kfo = (TextView) view.findViewById(R.id.item_introduce);
+        this.kfp = (ImageView) view.findViewById(R.id.item_grade1);
+        this.kfq = (ImageView) view.findViewById(R.id.item_grade2);
+        this.kfr = (ImageView) view.findViewById(R.id.item_grade3);
         this.dividerLine = view.findViewById(R.id.divider_line);
-        this.jZu = new ImageView[4];
-        this.jZu[1] = this.jZr;
-        this.jZu[2] = this.jZs;
-        this.jZu[3] = this.jZt;
+        this.kfs = new ImageView[4];
+        this.kfs[1] = this.kfp;
+        this.kfs[2] = this.kfq;
+        this.kfs[3] = this.kfr;
     }
 
     public void a(GroupInfoData groupInfoData) {
         if (groupInfoData != null) {
-            this.jZm.setTag(null);
-            this.jZm.setDrawBorder(true);
-            this.jZm.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+            this.kfk.setTag(null);
+            this.kfk.setDrawBorder(true);
+            this.kfk.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
             String portrait = groupInfoData.getPortrait();
             if (!TextUtils.isEmpty(portrait)) {
-                this.jZm.setTag(portrait);
-                this.jZm.startLoad(portrait, 10, false);
+                this.kfk.setTag(portrait);
+                this.kfk.startLoad(portrait, 10, false);
             }
-            this.jZn.setText(groupInfoData.getName());
-            this.jZo.setVisibility(groupInfoData.autorIsMeizhi() ? 0 : 8);
-            this.jZp.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
-            this.jZq.setText(groupInfoData.getIntro().trim());
-            a(this.jZu, groupInfoData.getGrade());
+            this.kfl.setText(groupInfoData.getName());
+            this.kfm.setVisibility(groupInfoData.autorIsMeizhi() ? 0 : 8);
+            this.kfn.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
+            this.kfo.setText(groupInfoData.getIntro().trim());
+            a(this.kfs, groupInfoData.getGrade());
             if (groupInfoData.isMemGroup()) {
-                ap.setViewTextColor(this.jZn, R.color.common_color_10009, 1);
-                ap.setImageResource(this.jZr, R.drawable.icon_vip_grade_big_small_s);
-                ap.setImageResource(this.jZs, R.drawable.icon_vip_grade_big_small_s);
-                ap.setImageResource(this.jZt, R.drawable.icon_vip_grade_big_small_s);
+                ap.setViewTextColor(this.kfl, R.color.common_color_10009, 1);
+                ap.setImageResource(this.kfp, R.drawable.icon_vip_grade_big_small_s);
+                ap.setImageResource(this.kfq, R.drawable.icon_vip_grade_big_small_s);
+                ap.setImageResource(this.kfr, R.drawable.icon_vip_grade_big_small_s);
             }
         }
     }

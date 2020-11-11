@@ -33,8 +33,8 @@ public class d {
             public void a() {
                 Bitmap q;
                 try {
-                    Intent parseUri = Intent.parseUri("baidupush://bdpush/cross?from=" + context.getPackageName() + "&to=" + crossPushMessage.f1161a, 0);
-                    parseUri.setPackage(crossPushMessage.f1161a);
+                    Intent parseUri = Intent.parseUri("baidupush://bdpush/cross?from=" + context.getPackageName() + "&to=" + crossPushMessage.f1163a, 0);
+                    parseUri.setPackage(crossPushMessage.f1163a);
                     parseUri.addFlags(268435456);
                     parseUri.putExtra("msgid", crossPushMessage.mMsgId);
                     parseUri.putExtra("notification_title", crossPushMessage.mTitle);

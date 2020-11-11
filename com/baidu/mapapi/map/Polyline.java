@@ -12,7 +12,7 @@ import java.util.List;
 public final class Polyline extends Overlay {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2035a;
+    int f2037a;
     List<LatLng> b;
     int[] c;
     int[] d;
@@ -97,7 +97,7 @@ public final class Polyline extends Overlay {
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
         bundle.putInt("width", this.e);
         Overlay.a(this.b, bundle);
-        Overlay.a(this.f2035a, bundle);
+        Overlay.a(this.f2037a, bundle);
         a(this.c, bundle);
         b(this.d, bundle);
         if (this.c != null && this.c.length > 0 && this.c.length > this.b.size() - 1) {
@@ -146,7 +146,7 @@ public final class Polyline extends Overlay {
     }
 
     public int getColor() {
-        return this.f2035a;
+        return this.f2037a;
     }
 
     public int[] getColorList() {
@@ -203,7 +203,7 @@ public final class Polyline extends Overlay {
     }
 
     public void setColor(int i) {
-        this.f2035a = i;
+        this.f2037a = i;
         this.listener.b(this);
     }
 

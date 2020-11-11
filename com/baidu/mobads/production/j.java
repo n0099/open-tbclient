@@ -6,22 +6,22 @@ import com.baidu.mobads.interfaces.error.XAdErrorCode;
 public class j implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f2415a;
+    final /* synthetic */ b f2417a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(b bVar) {
-        this.f2415a = bVar;
+        this.f2417a = bVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         try {
-            this.f2415a.b();
-            this.f2415a.l();
-            this.f2415a.k();
-            this.f2415a.a(XAdErrorCode.REQUEST_TIMEOUT, "");
+            this.f2417a.b();
+            this.f2417a.l();
+            this.f2417a.k();
+            this.f2417a.a(XAdErrorCode.REQUEST_TIMEOUT, "");
         } catch (Exception e) {
-            this.f2415a.s.e(e);
+            this.f2417a.s.e(e);
         }
     }
 }

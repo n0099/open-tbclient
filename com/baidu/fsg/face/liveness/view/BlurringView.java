@@ -16,7 +16,7 @@ import android.view.View;
 public class BlurringView extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1734a;
+    private int f1736a;
     private int b;
     private View c;
     private int d;
@@ -61,7 +61,7 @@ public class BlurringView extends View {
                 blur();
                 canvas.save();
                 canvas.translate(this.c.getX() - getX(), this.c.getY() - getY());
-                canvas.scale(this.f1734a, this.f1734a);
+                canvas.scale(this.f1736a, this.f1736a);
                 canvas.drawBitmap(this.h, 0.0f, 0.0f, (Paint) null);
                 canvas.restore();
             }
@@ -77,8 +77,8 @@ public class BlurringView extends View {
         if (i <= 0) {
             throw new IllegalArgumentException("Downsample factor must be greater than 0.");
         }
-        if (this.f1734a != i) {
-            this.f1734a = i;
+        if (this.f1736a != i) {
+            this.f1736a = i;
             this.f = true;
         }
     }
@@ -99,8 +99,8 @@ public class BlurringView extends View {
             this.f = false;
             this.d = width;
             this.e = height;
-            int i = width / this.f1734a;
-            int i2 = height / this.f1734a;
+            int i = width / this.f1736a;
+            int i2 = height / this.f1736a;
             int i3 = (i - (i % 4)) + 4;
             int i4 = (i2 - (i2 % 4)) + 4;
             if (this.h == null || this.h.getWidth() != i3 || this.h.getHeight() != i4) {
@@ -114,7 +114,7 @@ public class BlurringView extends View {
                 }
             }
             this.i = new Canvas(this.g);
-            this.i.scale(1.0f / this.f1734a, 1.0f / this.f1734a);
+            this.i.scale(1.0f / this.f1736a, 1.0f / this.f1736a);
             this.l = Allocation.createFromBitmap(this.j, this.g, Allocation.MipmapControl.MIPMAP_NONE, 1);
             this.m = Allocation.createTyped(this.j, this.l.getType());
         }

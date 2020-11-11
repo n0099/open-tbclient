@@ -4,7 +4,7 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.annotation.WorkerThread;
 import android.support.v4.util.Pair;
-import com.tb.airbnb.lottie.c;
+import com.tb.airbnb.lottie.d;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -39,7 +39,7 @@ class a {
                 } else {
                     fileExtension = FileExtension.Json;
                 }
-                c.debug("Cache hit for " + this.url + " at " + bn.getAbsolutePath());
+                d.debug("Cache hit for " + this.url + " at " + bn.getAbsolutePath());
                 return new Pair<>(fileExtension, fileInputStream);
             } catch (FileNotFoundException e) {
                 return null;
@@ -75,9 +75,9 @@ class a {
         File file = new File(this.appContext.getCacheDir(), a(this.url, fileExtension, true));
         File file2 = new File(file.getAbsolutePath().replace(".temp", ""));
         boolean renameTo = file.renameTo(file2);
-        c.debug("Copying temp file to real file (" + file2 + ")");
+        d.debug("Copying temp file to real file (" + file2 + ")");
         if (!renameTo) {
-            c.warn("Unable to rename cache file " + file.getAbsolutePath() + " to " + file2.getAbsolutePath() + ".");
+            d.warn("Unable to rename cache file " + file.getAbsolutePath() + " to " + file2.getAbsolutePath() + ".");
         }
     }
 

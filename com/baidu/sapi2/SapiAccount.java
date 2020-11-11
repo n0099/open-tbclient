@@ -35,7 +35,7 @@ public class SapiAccount implements Parcelable, Cloneable {
     @Deprecated
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3219a;
+    private String f3222a;
     public String app;
     public String bduss;
     public String displayname;
@@ -299,7 +299,7 @@ public class SapiAccount implements Parcelable, Cloneable {
                     ExtraProperty fromJSONObject = ExtraProperty.fromJSONObject(new JSONObject(sapiAccount.extra));
                     extraProperty.dispersionCertification.tplStokenMap = fromJSONObject.dispersionCertification.tplStokenMap;
                     extraProperty.d = fromJSONObject.d;
-                    extraProperty.f3220a = fromJSONObject.f3220a;
+                    extraProperty.f3223a = fromJSONObject.f3223a;
                     extraProperty.e = fromJSONObject.e;
                     this.extra = extraProperty.toJSONObject().toString();
                 } catch (JSONException e2) {
@@ -320,7 +320,7 @@ public class SapiAccount implements Parcelable, Cloneable {
         parcel.writeString(this.app);
         parcel.writeString(this.ptoken);
         parcel.writeString(this.stoken);
-        parcel.writeString(this.f3219a);
+        parcel.writeString(this.f3222a);
         parcel.writeString(this.extra);
         parcel.writeString(this.portrait);
     }
@@ -335,7 +335,7 @@ public class SapiAccount implements Parcelable, Cloneable {
         this.app = parcel.readString();
         this.ptoken = parcel.readString();
         this.stoken = parcel.readString();
-        this.f3219a = parcel.readString();
+        this.f3222a = parcel.readString();
         this.extra = parcel.readString();
         this.portrait = parcel.readString();
     }
@@ -429,7 +429,7 @@ public class SapiAccount implements Parcelable, Cloneable {
         protected static final String EXTRA_TPL_STOKEN_LIST = "stoken_list";
 
         /* renamed from: a  reason: collision with root package name */
-        String f3220a;
+        String f3223a;
         String b;
         String c;
         String d;
@@ -442,7 +442,7 @@ public class SapiAccount implements Parcelable, Cloneable {
         public JSONObject toJSONObject() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("account_type", this.f3220a);
+                jSONObject.put("account_type", this.f3223a);
                 jSONObject.put(EXTRA_IS_SOCIAL_ACCOUNT, this.b);
                 jSONObject.put("social_type", this.c);
                 jSONObject.put(EXTRA_SOCIAL_PORTRAIT, this.d);
@@ -462,7 +462,7 @@ public class SapiAccount implements Parcelable, Cloneable {
                 return null;
             }
             ExtraProperty extraProperty = new ExtraProperty();
-            extraProperty.f3220a = jSONObject.optString("account_type");
+            extraProperty.f3223a = jSONObject.optString("account_type");
             extraProperty.b = jSONObject.optString(EXTRA_IS_SOCIAL_ACCOUNT);
             extraProperty.c = jSONObject.optString("social_type");
             extraProperty.d = jSONObject.optString(EXTRA_SOCIAL_PORTRAIT);

@@ -22,11 +22,11 @@ import tv.chushou.zues.utils.h;
 /* loaded from: classes6.dex */
 public class b {
     private Activity c;
-    private io.reactivex.disposables.b plB;
-    private a plC;
-    private final tv.chushou.zues.c plD = new tv.chushou.zues.c(Looper.getMainLooper());
+    private io.reactivex.disposables.b puZ;
+    private a pva;
+    private final tv.chushou.zues.c pvb = new tv.chushou.zues.c(Looper.getMainLooper());
     private final List<com.kascend.chushou.player.ui.h5.c.c> e = new ArrayList();
-    private final Map<String, C0983b> f = new HashMap();
+    private final Map<String, C1002b> f = new HashMap();
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -40,38 +40,38 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.kascend.chushou.player.ui.h5.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0983b {
+    public static class C1002b {
         Runnable b;
         long c;
-        com.kascend.chushou.player.ui.h5.c.c plE;
+        com.kascend.chushou.player.ui.h5.c.c pvc;
 
-        private C0983b() {
+        private C1002b() {
         }
     }
 
     public b(Activity activity) {
         this.c = activity;
         try {
-            this.plC = (a) activity;
+            this.pva = (a) activity;
         } catch (Exception e) {
-            this.plC = null;
+            this.pva = null;
         }
     }
 
     public void a() {
         this.e.clear();
         this.f.clear();
-        this.plD.cs(null);
+        this.pvb.cs(null);
         g();
     }
 
     public void b() {
         this.e.clear();
         this.f.clear();
-        this.plD.cs(null);
+        this.pvb.cs(null);
         g();
         this.c = null;
-        this.plC = null;
+        this.pva = null;
     }
 
     public void a(List<com.kascend.chushou.player.ui.h5.c.c> list) {
@@ -80,8 +80,8 @@ public class b {
                 a(cVar);
             }
             f();
-            if (this.plC != null) {
-                this.plC.b(this.e.size());
+            if (this.pva != null) {
+                this.pva.b(this.e.size());
             }
         }
     }
@@ -96,28 +96,28 @@ public class b {
             }
         }
         this.e.add(0, cVar);
-        C0983b c0983b = new C0983b();
-        c0983b.plE = cVar;
-        c0983b.c = SystemClock.uptimeMillis();
-        c0983b.b = new Runnable() { // from class: com.kascend.chushou.player.ui.h5.b.b.1
+        C1002b c1002b = new C1002b();
+        c1002b.pvc = cVar;
+        c1002b.c = SystemClock.uptimeMillis();
+        c1002b.b = new Runnable() { // from class: com.kascend.chushou.player.ui.h5.b.b.1
             @Override // java.lang.Runnable
             public void run() {
                 b.this.b(cVar);
             }
         };
-        this.plD.f(c0983b.b, cVar.e * 1000);
-        this.f.put(cVar.p, c0983b);
+        this.pvb.f(c1002b.b, cVar.e * 1000);
+        this.f.put(cVar.p, c1002b);
     }
 
     public void a(String str) {
-        C0983b c0983b = this.f.get(str);
-        if (c0983b != null) {
-            b(c0983b.plE);
+        C1002b c1002b = this.f.get(str);
+        if (c1002b != null) {
+            b(c1002b.pvc);
         }
     }
 
     @Nullable
-    public com.kascend.chushou.player.ui.h5.c.c ese() {
+    public com.kascend.chushou.player.ui.h5.c.c evT() {
         if (this.e.size() > 0) {
             return this.e.get(0);
         }
@@ -133,36 +133,36 @@ public class b {
     }
 
     @Nullable
-    public H5Positon Qn(int i) {
-        com.kascend.chushou.player.ui.h5.c.c ese = ese();
-        if (ese == null) {
+    public H5Positon QI(int i) {
+        com.kascend.chushou.player.ui.h5.c.c evT = evT();
+        if (evT == null) {
             return null;
         }
         if (i == 1) {
-            return ese.plJ;
+            return evT.pvh;
         }
-        return ese.plK;
+        return evT.pvi;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
         if (!h.isEmpty(this.e)) {
-            C0983b c0983b = this.f.get(this.e.get(0).p);
-            if (c0983b != null) {
+            C1002b c1002b = this.f.get(this.e.get(0).p);
+            if (c1002b != null) {
                 g();
-                final long uptimeMillis = c0983b.plE.e - ((SystemClock.uptimeMillis() - c0983b.c) / 1000);
+                final long uptimeMillis = c1002b.pvc.e - ((SystemClock.uptimeMillis() - c1002b.c) / 1000);
                 if (uptimeMillis <= 0) {
                     uptimeMillis = 0;
                 }
-                this.plB = g.a(1L, uptimeMillis, 1L, 1L, TimeUnit.SECONDS).b(io.reactivex.f.a.exr()).b(io.reactivex.a.b.a.ewM()).a(io.reactivex.a.b.a.ewM()).a(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.h5.b.b.2
+                this.puZ = g.a(1L, uptimeMillis, 1L, 1L, TimeUnit.SECONDS).b(io.reactivex.f.a.eBg()).b(io.reactivex.a.b.a.eAB()).a(io.reactivex.a.b.a.eAB()).a(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.h5.b.b.2
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // io.reactivex.c.g
                     /* renamed from: a */
                     public void accept(Long l) throws Exception {
                         long longValue = uptimeMillis - l.longValue();
                         e.d("LuckydrawController", "抽奖计时：" + longValue);
-                        if (b.this.plC != null) {
-                            b.this.plC.a(longValue);
+                        if (b.this.pva != null) {
+                            b.this.pva.a(longValue);
                         }
                     }
                 }, new io.reactivex.c.g<Throwable>() { // from class: com.kascend.chushou.player.ui.h5.b.b.3
@@ -178,25 +178,25 @@ public class b {
     }
 
     private void g() {
-        if (this.plB != null) {
-            this.plB.dispose();
-            this.plB = null;
+        if (this.puZ != null) {
+            this.puZ.dispose();
+            this.puZ = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.kascend.chushou.player.ui.h5.c.a aVar) {
-        if (this.plC != null) {
+        if (this.pva != null) {
             g();
             if (aVar != null) {
-                this.plC.a(aVar);
+                this.pva.a(aVar);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(final com.kascend.chushou.player.ui.h5.c.c cVar) {
-        com.kascend.chushou.c.c.eqe().d(cVar.f, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.ui.h5.b.b.4
+        com.kascend.chushou.c.c.etT().d(cVar.f, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.ui.h5.b.b.4
             @Override // com.kascend.chushou.c.b
             public void a() {
             }
@@ -204,30 +204,30 @@ public class b {
             @Override // com.kascend.chushou.c.b
             public void a(String str, JSONObject jSONObject) {
                 if (!b.this.h()) {
-                    ParserRet eR = com.kascend.chushou.c.e.eR(jSONObject);
-                    if (eR.mRc == 0 && eR.mData != null) {
-                        com.kascend.chushou.player.ui.h5.c.a aVar = (com.kascend.chushou.player.ui.h5.c.a) eR.mData;
-                        long longValue = ((Long) eR.mData1).longValue();
+                    ParserRet eX = com.kascend.chushou.c.e.eX(jSONObject);
+                    if (eX.mRc == 0 && eX.mData != null) {
+                        com.kascend.chushou.player.ui.h5.c.a aVar = (com.kascend.chushou.player.ui.h5.c.a) eX.mData;
+                        long longValue = ((Long) eX.mData1).longValue();
                         if (longValue <= 0) {
                             b.this.a(aVar);
                             b.this.b(cVar.p);
                             b.this.f();
                             return;
                         }
-                        C0983b c0983b = (C0983b) b.this.f.get(cVar.p);
-                        if (c0983b != null) {
-                            c0983b.c = SystemClock.uptimeMillis();
-                            c0983b.plE.e = longValue;
-                            if (b.this.ese() == cVar) {
+                        C1002b c1002b = (C1002b) b.this.f.get(cVar.p);
+                        if (c1002b != null) {
+                            c1002b.c = SystemClock.uptimeMillis();
+                            c1002b.pvc.e = longValue;
+                            if (b.this.evT() == cVar) {
                                 b.this.f();
                             }
-                            b.this.plD.N(c0983b.b);
-                            b.this.plD.f(c0983b.b, c0983b.plE.e * 1000);
+                            b.this.pvb.N(c1002b.b);
+                            b.this.pvb.f(c1002b.b, c1002b.pvc.e * 1000);
                             return;
                         }
                         return;
                     }
-                    a(eR.mRc, eR.mMessage);
+                    a(eX.mRc, eX.mMessage);
                 }
             }
 
@@ -244,9 +244,9 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(String str) {
-        C0983b remove = this.f.remove(str);
+        C1002b remove = this.f.remove(str);
         if (remove != null && remove.b != null) {
-            this.plD.N(remove.b);
+            this.pvb.N(remove.b);
         }
         Iterator<com.kascend.chushou.player.ui.h5.c.c> it = this.e.iterator();
         while (true) {
@@ -257,8 +257,8 @@ public class b {
                 break;
             }
         }
-        if (this.plC != null) {
-            this.plC.b(this.e.size());
+        if (this.pva != null) {
+            this.pva.b(this.e.size());
         }
     }
 

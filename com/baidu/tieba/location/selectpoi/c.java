@@ -25,9 +25,9 @@ import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 /* loaded from: classes23.dex */
 public class c implements View.OnClickListener, AdapterView.OnItemClickListener, com.baidu.tbadk.suspended.a {
     private BdListView VY;
-    private ImageView fJS;
-    private Intent fJV;
-    private b kFM;
+    private ImageView fPI;
+    private Intent fPL;
+    private b kLI;
     private LinearLayout mContentView;
     private NavigationBar mNavigationBar;
     private TbPageContext<SelectLocationActivity> mPageContext;
@@ -36,37 +36,37 @@ public class c implements View.OnClickListener, AdapterView.OnItemClickListener,
         this.mPageContext = tbPageContext;
         this.mContentView = linearLayout;
         this.mNavigationBar = navigationBar;
-        bAw();
-        Vr();
+        bCV();
+        XQ();
     }
 
-    private void bAw() {
+    private void bCV() {
         this.mNavigationBar.setCenterTextTitle(this.mPageContext.getResources().getString(R.string.select_position_title));
-        this.fJS = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fJS.getLayoutParams();
+        this.fPI = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fPI.getLayoutParams();
         layoutParams.setMargins(0, 0, l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds10), 0);
-        this.fJS.setLayoutParams(layoutParams);
-        this.fJS.setOnClickListener(this);
+        this.fPI.setLayoutParams(layoutParams);
+        this.fPI.setOnClickListener(this);
     }
 
-    private void Vr() {
+    private void XQ() {
         LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.select_location_activity, (ViewGroup) this.mContentView, true);
         this.VY = (BdListView) this.mContentView.findViewById(R.id.select_position_list);
-        this.kFM = new b(this.mPageContext);
-        this.VY.setAdapter((ListAdapter) this.kFM);
+        this.kLI = new b(this.mPageContext);
+        this.VY.setAdapter((ListAdapter) this.kLI);
         this.VY.setOnItemClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.fJS) {
+        if (view == this.fPI) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_SEARCH_LOCATION_PAGE, new SearchLocationActivityConfig(this.mPageContext.getPageActivity(), RequestResponseCode.REQUEST_CLOSE_SELECT_LOCATION_ACTIVITY)));
         }
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (this.kFM != null) {
+        if (this.kLI != null) {
             MessageManager messageManager = MessageManager.getInstance();
             LocationEvent locationEvent = new LocationEvent();
             locationEvent.setType(1);
@@ -78,7 +78,7 @@ public class c implements View.OnClickListener, AdapterView.OnItemClickListener,
                 this.mPageContext.getOrignalPage().finish();
                 return;
             }
-            Object item = this.kFM.getItem(i);
+            Object item = this.kLI.getItem(i);
             if (item instanceof LocationData.NearByAddressData) {
                 LocationData.NearByAddressData nearByAddressData = (LocationData.NearByAddressData) item;
                 messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, nearByAddressData.getName(), nearByAddressData.getAddr(), nearByAddressData.getSn()));
@@ -93,24 +93,24 @@ public class c implements View.OnClickListener, AdapterView.OnItemClickListener,
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public boolean bAs() {
+    public boolean bCR() {
         View childAt;
         return this.VY != null && this.VY.getFirstVisiblePosition() == 0 && (childAt = this.VY.getChildAt(0)) != null && childAt.getTop() == 0;
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public boolean bAt() {
+    public boolean bCS() {
         return true;
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public void rE(int i) {
-        SvgManager.boN().a(this.fJS, R.drawable.icon_pure_topbar_search44_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        this.kFM.notifyDataSetChanged();
+    public void rO(int i) {
+        SvgManager.brn().a(this.fPI, R.drawable.icon_pure_topbar_search44_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.kLI.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public Intent bAu() {
-        return this.fJV;
+    public Intent bCT() {
+        return this.fPL;
     }
 }

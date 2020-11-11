@@ -15,9 +15,9 @@ public class GameWebViewJavascriptInterface {
         if (DEBUG) {
             Log.i(TAG, "closeGameWebView");
         }
-        a aWw = a.aWw();
-        if (aWw != null) {
-            aWw.close();
+        a aYW = a.aYW();
+        if (aYW != null) {
+            aYW.close();
         }
     }
 
@@ -26,9 +26,9 @@ public class GameWebViewJavascriptInterface {
         if (DEBUG) {
             Log.i(TAG, "onGameLoadingFinish");
         }
-        a aWw = a.aWw();
-        if (aWw != null) {
-            aWw.onGameLoadingFinish();
+        a aYW = a.aYW();
+        if (aYW != null) {
+            aYW.onGameLoadingFinish();
         }
     }
 }

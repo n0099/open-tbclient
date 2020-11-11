@@ -25,7 +25,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     private static GeoPoint g = new GeoPoint(0.0d, 0.0d);
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f3099a = 0;
+    public static int f3101a = 0;
     private WLocData b = null;
     private WLocData c = new WLocData();
     private LocationManager d = null;
@@ -85,7 +85,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
 
     public void a(c cVar) {
         this.j = cVar;
-        f3099a = 0;
+        f3101a = 0;
     }
 
     public void a(com.baidu.platform.comapi.wnplatform.c.a aVar) {
@@ -219,14 +219,14 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
                 this.c = wLocData.m31clone();
                 a(this.c, CashierData.SDK);
                 if (wLocData.isIndoorMode) {
-                    f3099a++;
-                    if (f3099a > 3 && this.j != null) {
+                    f3101a++;
+                    if (f3101a > 3 && this.j != null) {
                         this.j.a();
                         return;
                     }
                     return;
                 }
-                f3099a = 0;
+                f3101a = 0;
             } catch (Exception e) {
             }
         }

@@ -17,7 +17,7 @@ import java.util.ArrayList;
 /* loaded from: classes26.dex */
 public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private ArrayList<com.baidu.tbadk.mvc.b.a> aiK = new ArrayList<>();
-    private c jSb;
+    private c jXY;
     private TbPageContext<?> mPageContext;
 
     /* loaded from: classes26.dex */
@@ -28,7 +28,7 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(TbPageContext<?> tbPageContext, c cVar) {
         this.mPageContext = tbPageContext;
-        this.jSb = cVar;
+        this.jXY = cVar;
     }
 
     public void setData(ArrayList<? extends com.baidu.tbadk.mvc.b.a> arrayList) {
@@ -70,47 +70,47 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     /* loaded from: classes26.dex */
     class b extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private BarImageView jSd;
-        private View jSe;
-        private a jSf;
-        private TextView jgl;
+        private BarImageView jYa;
+        private View jYb;
+        private a jYc;
+        private TextView jmj;
 
         b(View view) {
             super(view);
-            this.jSd = (BarImageView) view.findViewById(R.id.official_bar_image);
-            this.jgl = (TextView) view.findViewById(R.id.official_bar_name);
-            this.jSe = view.findViewById(R.id.official_bar_feed_red_dot);
-            this.jSd.setShowOval(true);
-            this.jSd.setPlaceHolder(2);
-            this.jSd.setShowOuterBorder(false);
-            this.jSd.setShowInnerBorder(true);
-            this.jSd.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            this.jYa = (BarImageView) view.findViewById(R.id.official_bar_image);
+            this.jmj = (TextView) view.findViewById(R.id.official_bar_name);
+            this.jYb = view.findViewById(R.id.official_bar_feed_red_dot);
+            this.jYa.setShowOval(true);
+            this.jYa.setPlaceHolder(2);
+            this.jYa.setShowOuterBorder(false);
+            this.jYa.setShowInnerBorder(true);
+            this.jYa.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
         }
 
         void b(com.baidu.tbadk.mvc.b.a aVar) {
-            this.jSf = (a) aVar;
-            ap.setViewTextColor(this.jgl, R.color.cp_cont_b);
-            ap.setBackgroundResource(this.jSe, R.drawable.icon_official_bar_red_dot);
-            this.jSd.setStrokeColorResId(R.color.cp_border_a);
-            this.jSd.startLoad(this.jSf.cMC(), 10, false);
-            if (at.getChineseAndEnglishLength(this.jSf.cGz()) <= 10) {
-                this.jgl.setText(this.jSf.cGz());
+            this.jYc = (a) aVar;
+            ap.setViewTextColor(this.jmj, R.color.cp_cont_b);
+            ap.setBackgroundResource(this.jYb, R.drawable.icon_official_bar_red_dot);
+            this.jYa.setStrokeColorResId(R.color.cp_border_a);
+            this.jYa.startLoad(this.jYc.cPd(), 10, false);
+            if (at.getChineseAndEnglishLength(this.jYc.cJa()) <= 10) {
+                this.jmj.setText(this.jYc.cJa());
             } else {
-                this.jgl.setText(at.cutChineseAndEnglishWithSuffix(this.jSf.cGz(), 8, StringHelper.STRING_MORE));
+                this.jmj.setText(at.cutChineseAndEnglishWithSuffix(this.jYc.cJa(), 8, StringHelper.STRING_MORE));
             }
-            this.jSd.setOnClickListener(this);
-            if (this.jSf.getUnReadCount() > 0 && (this.jSf.cMD() <= 0 || System.currentTimeMillis() - this.jSf.cMD() < 864000000)) {
-                this.jSe.setVisibility(0);
+            this.jYa.setOnClickListener(this);
+            if (this.jYc.getUnReadCount() > 0 && (this.jYc.cPe() <= 0 || System.currentTimeMillis() - this.jYc.cPe() < 864000000)) {
+                this.jYb.setVisibility(0);
             } else {
-                this.jSe.setVisibility(8);
+                this.jYb.setVisibility(8);
             }
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.jSe.setVisibility(8);
-            if (d.this.jSb != null) {
-                d.this.jSb.a(view, this.jSf, getAdapterPosition(), getItemId());
+            this.jYb.setVisibility(8);
+            if (d.this.jXY != null) {
+                d.this.jXY.a(view, this.jYc, getAdapterPosition(), getItemId());
             }
         }
     }
@@ -118,20 +118,20 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes26.dex */
     public static class a implements com.baidu.tbadk.mvc.b.a {
-        private long cLK;
+        private long cRD;
         private long groupId;
-        private String jSc;
-        private String jrg;
+        private String jXZ;
+        private String jxd;
         private int unReadCount;
         private int userType;
 
-        String cMC() {
-            return this.jSc;
+        String cPd() {
+            return this.jXZ;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String cGz() {
-            return this.jrg;
+        public String cJa() {
+            return this.jxd;
         }
 
         int getUnReadCount() {
@@ -139,13 +139,13 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void LN(String str) {
-            this.jSc = str;
+        public void Me(String str) {
+            this.jXZ = str;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void LO(String str) {
-            this.jrg = str;
+        public void Mf(String str) {
+            this.jxd = str;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -165,12 +165,12 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             return this.groupId;
         }
 
-        public long cMD() {
-            return this.cLK;
+        public long cPe() {
+            return this.cRD;
         }
 
-        public void fI(long j) {
-            this.cLK = j;
+        public void ge(long j) {
+            this.cRD = j;
         }
     }
 }

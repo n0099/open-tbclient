@@ -12,45 +12,45 @@ import java.io.InputStreamReader;
 import java.io.RandomAccessFile;
 /* loaded from: classes4.dex */
 public class a {
-    private static volatile a hbo = null;
-    private ActivityManager dxt;
-    private Long hbp;
-    private Long hbq;
-    private RandomAccessFile hbr;
-    private RandomAccessFile hbs;
+    private static volatile a hhj = null;
+    private ActivityManager dDl;
+    private Long hhk;
+    private Long hhl;
+    private RandomAccessFile hhm;
+    private RandomAccessFile hhn;
     private String mPackageName;
 
     private a() {
     }
 
-    public static a bYT() {
-        if (hbo == null) {
+    public static a cbv() {
+        if (hhj == null) {
             synchronized (a.class) {
-                if (hbo == null) {
-                    hbo = new a();
+                if (hhj == null) {
+                    hhj = new a();
                 }
             }
         }
-        return hbo;
+        return hhj;
     }
 
-    public double bYU() {
+    public double cbw() {
         if (Build.VERSION.SDK_INT >= 26) {
-            String HH = HH(this.mPackageName);
-            if (TextUtils.isEmpty(HH)) {
+            String HY = HY(this.mPackageName);
+            if (TextUtils.isEmpty(HY)) {
                 return 0.0d;
             }
             try {
-                return Double.valueOf(HH).doubleValue();
+                return Double.valueOf(HY).doubleValue();
             } catch (Exception e) {
                 e.printStackTrace();
                 return 0.0d;
             }
         }
-        return bYV();
+        return cbx();
     }
 
-    private String HH(String str) {
+    private String HY(String str) {
         Process exec;
         BufferedReader bufferedReader;
         String[] split;
@@ -76,31 +76,31 @@ public class a {
         return split[16];
     }
 
-    private double bYV() {
+    private double cbx() {
         double d = 0.0d;
         try {
-            if (this.hbr == null || this.hbs == null) {
-                this.hbr = new RandomAccessFile("/proc/stat", "r");
-                this.hbs = new RandomAccessFile("/proc/" + Process.myPid() + "/stat", "r");
+            if (this.hhm == null || this.hhn == null) {
+                this.hhm = new RandomAccessFile("/proc/stat", "r");
+                this.hhn = new RandomAccessFile("/proc/" + Process.myPid() + "/stat", "r");
             } else {
-                this.hbr.seek(0L);
-                this.hbs.seek(0L);
+                this.hhm.seek(0L);
+                this.hhn.seek(0L);
             }
-            String readLine = this.hbr.readLine();
-            String readLine2 = this.hbs.readLine();
+            String readLine = this.hhm.readLine();
+            String readLine2 = this.hhn.readLine();
             String[] split = readLine.split(" ");
             String[] split2 = readLine2.split(" ");
             long parseLong = Long.parseLong(split[2]) + Long.parseLong(split[3]) + Long.parseLong(split[4]) + Long.parseLong(split[5]) + Long.parseLong(split[6]) + Long.parseLong(split[7]) + Long.parseLong(split[8]);
             long parseLong2 = Long.parseLong(split2[14]) + Long.parseLong(split2[13]);
-            if (this.hbp == null && this.hbq == null) {
-                this.hbp = Long.valueOf(parseLong);
-                this.hbq = Long.valueOf(parseLong2);
+            if (this.hhk == null && this.hhl == null) {
+                this.hhk = Long.valueOf(parseLong);
+                this.hhl = Long.valueOf(parseLong2);
             } else {
-                if (this.hbp != null && this.hbq != null) {
-                    d = ((parseLong2 - this.hbq.longValue()) / (parseLong - this.hbp.longValue())) * 100.0d;
+                if (this.hhk != null && this.hhl != null) {
+                    d = ((parseLong2 - this.hhl.longValue()) / (parseLong - this.hhk.longValue())) * 100.0d;
                 }
-                this.hbp = Long.valueOf(parseLong);
-                this.hbq = Long.valueOf(parseLong2);
+                this.hhk = Long.valueOf(parseLong);
+                this.hhl = Long.valueOf(parseLong2);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -108,9 +108,9 @@ public class a {
         return d;
     }
 
-    public double bYW() {
+    public double cby() {
         try {
-            Debug.MemoryInfo[] processMemoryInfo = this.dxt.getProcessMemoryInfo(new int[]{Process.myPid()});
+            Debug.MemoryInfo[] processMemoryInfo = this.dDl.getProcessMemoryInfo(new int[]{Process.myPid()});
             if (processMemoryInfo.length <= 0) {
                 return 0.0d;
             }

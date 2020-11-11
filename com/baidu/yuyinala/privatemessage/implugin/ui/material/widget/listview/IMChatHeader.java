@@ -12,20 +12,20 @@ import com.baidu.live.adp.lib.cache.BdKVCache;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class IMChatHeader extends LinearLayout {
-    private long dhR;
-    private TextView djb;
+    private long dnN;
+    private TextView doW;
     private AnimationDrawable mAnimationDrawable;
     private LinearLayout mContainer;
     public Context mContext;
     private int mState;
-    private ImageView osW;
-    private LinearLayout osX;
-    private TextView osY;
+    private ImageView oCp;
+    private LinearLayout oCq;
+    private TextView oCr;
 
     public IMChatHeader(Context context) {
         super(context);
         this.mState = 0;
-        this.dhR = -1L;
+        this.dnN = -1L;
         this.mContext = context;
         dQ(context);
     }
@@ -33,20 +33,20 @@ public class IMChatHeader extends LinearLayout {
     public IMChatHeader(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mState = 0;
-        this.dhR = -1L;
+        this.dnN = -1L;
         this.mContext = context;
         dQ(context);
     }
 
     private void dQ(Context context) {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 0);
-        this.mContainer = (LinearLayout) LayoutInflater.from(context).inflate(a.h.bd_im_listview_header, (ViewGroup) null);
+        this.mContainer = (LinearLayout) LayoutInflater.from(context).inflate(a.g.bd_im_listview_header, (ViewGroup) null);
         addView(this.mContainer, layoutParams);
-        this.djb = (TextView) findViewById(a.g.bd_im_listview_header_hint_textview);
-        this.osW = (ImageView) findViewById(a.g.bd_im_listview_header_progressbar);
-        this.osX = (LinearLayout) findViewById(a.g.bd_im_listview_header_content);
-        this.osY = (TextView) findViewById(a.g.bd_im_listview_header_time);
-        this.mAnimationDrawable = (AnimationDrawable) this.osW.getDrawable();
+        this.doW = (TextView) findViewById(a.f.bd_im_listview_header_hint_textview);
+        this.oCp = (ImageView) findViewById(a.f.bd_im_listview_header_progressbar);
+        this.oCq = (LinearLayout) findViewById(a.f.bd_im_listview_header_content);
+        this.oCr = (TextView) findViewById(a.f.bd_im_listview_header_time);
+        this.mAnimationDrawable = (AnimationDrawable) this.oCp.getDrawable();
         this.mAnimationDrawable.start();
     }
 
@@ -54,13 +54,13 @@ public class IMChatHeader extends LinearLayout {
         if (i != this.mState) {
             switch (i) {
                 case 0:
-                    this.djb.setText(a.i.bd_im_listview_header_hint_loading);
+                    this.doW.setText(a.h.bd_im_listview_header_hint_loading);
                     break;
                 case 1:
-                    this.djb.setText(a.i.bd_im_listview_header_hint_loading);
+                    this.doW.setText(a.h.bd_im_listview_header_hint_loading);
                     break;
                 case 2:
-                    this.djb.setText(a.i.bd_im_listview_header_hint_loading);
+                    this.doW.setText(a.h.bd_im_listview_header_hint_loading);
                     break;
             }
             this.mState = i;
@@ -84,40 +84,40 @@ public class IMChatHeader extends LinearLayout {
     }
 
     public void setVisiableContent(int i) {
-        this.osX.setVisibility(i);
+        this.oCq.setVisibility(i);
         if (i != 0 && this.mAnimationDrawable != null) {
             this.mAnimationDrawable.stop();
         }
     }
 
     public void setRefreshTime() {
-        edq();
+        ehf();
     }
 
     public long getRefreshTime() {
-        return this.dhR;
+        return this.dnN;
     }
 
-    private void edq() {
+    private void ehf() {
         String format;
-        long currentTimeMillis = System.currentTimeMillis() - this.dhR;
-        if (this.dhR == -1) {
-            format = getResources().getString(a.i.bd_im_listview_not_updated_yet);
+        long currentTimeMillis = System.currentTimeMillis() - this.dnN;
+        if (this.dnN == -1) {
+            format = getResources().getString(a.h.bd_im_listview_not_updated_yet);
         } else if (currentTimeMillis < 0) {
-            format = getResources().getString(a.i.bd_im_listview_time_error);
+            format = getResources().getString(a.h.bd_im_listview_time_error);
         } else if (currentTimeMillis < 60000) {
-            format = getResources().getString(a.i.bd_im_listview_updated_just_now);
+            format = getResources().getString(a.h.bd_im_listview_updated_just_now);
         } else if (currentTimeMillis < BdKVCache.MILLS_1Hour) {
-            format = String.format(getResources().getString(a.i.bd_im_listview_updated_at), (currentTimeMillis / 60000) + getResources().getString(a.i.bd_im_listview_minute));
+            format = String.format(getResources().getString(a.h.bd_im_listview_updated_at), (currentTimeMillis / 60000) + getResources().getString(a.h.bd_im_listview_minute));
         } else if (currentTimeMillis < 86400000) {
-            format = String.format(getResources().getString(a.i.bd_im_listview_updated_at), (currentTimeMillis / BdKVCache.MILLS_1Hour) + getResources().getString(a.i.bd_im_listview_hour));
+            format = String.format(getResources().getString(a.h.bd_im_listview_updated_at), (currentTimeMillis / BdKVCache.MILLS_1Hour) + getResources().getString(a.h.bd_im_listview_hour));
         } else if (currentTimeMillis < BdKVCache.MILLS_30Days) {
-            format = String.format(getResources().getString(a.i.bd_im_listview_updated_at), (currentTimeMillis / 86400000) + getResources().getString(a.i.bd_im_listview_day));
+            format = String.format(getResources().getString(a.h.bd_im_listview_updated_at), (currentTimeMillis / 86400000) + getResources().getString(a.h.bd_im_listview_day));
         } else if (currentTimeMillis < 31104000000L) {
-            format = String.format(getResources().getString(a.i.bd_im_listview_updated_at), (currentTimeMillis / BdKVCache.MILLS_30Days) + getResources().getString(a.i.bd_im_listview_month));
+            format = String.format(getResources().getString(a.h.bd_im_listview_updated_at), (currentTimeMillis / BdKVCache.MILLS_30Days) + getResources().getString(a.h.bd_im_listview_month));
         } else {
-            format = String.format(getResources().getString(a.i.bd_im_listview_updated_at), (currentTimeMillis / 31104000000L) + getResources().getString(a.i.bd_im_listview_year));
+            format = String.format(getResources().getString(a.h.bd_im_listview_updated_at), (currentTimeMillis / 31104000000L) + getResources().getString(a.h.bd_im_listview_year));
         }
-        this.osY.setText(format);
+        this.oCr.setText(format);
     }
 }

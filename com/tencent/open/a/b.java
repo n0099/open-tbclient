@@ -10,7 +10,7 @@ import java.util.Calendar;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static SimpleDateFormat f4574a = d.C1029d.a("yy.MM.dd.HH");
+    private static SimpleDateFormat f4576a = d.C1049d.a("yy.MM.dd.HH");
     private File g;
     private String b = "Tracer.File";
     private int c = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;

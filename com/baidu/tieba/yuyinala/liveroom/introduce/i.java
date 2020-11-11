@@ -9,9 +9,9 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes4.dex */
 public class i extends BdBaseModel {
-    private Context bAc;
-    private final HttpMessageListener bsK;
-    private a nPR;
+    private Context bGn;
+    private final HttpMessageListener bug;
+    private a nXa;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -21,31 +21,31 @@ public class i extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.nPR = aVar;
+        this.nXa = aVar;
     }
 
     public i(Context context) {
-        this.bAc = context;
+        this.bGn = context;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031021, TbConfig.SERVER_ADDRESS + "ala/audio/room/gameIntroduct");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(AlaGetRoomPlayIntroduceHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        this.bsK = new HttpMessageListener(1031021) { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.i.1
+        this.bug = new HttpMessageListener(1031021) { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetRoomPlayIntroduceHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == i.this.getUniqueId() && i.this.nPR != null) {
+                if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetRoomPlayIntroduceHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == i.this.getUniqueId() && i.this.nXa != null) {
                     AlaGetRoomPlayIntroduceHttpResponseMessage alaGetRoomPlayIntroduceHttpResponseMessage = (AlaGetRoomPlayIntroduceHttpResponseMessage) httpResponsedMessage;
                     if (alaGetRoomPlayIntroduceHttpResponseMessage.getError() != 0 || !alaGetRoomPlayIntroduceHttpResponseMessage.isSuccess()) {
-                        i.this.nPR.onFail(alaGetRoomPlayIntroduceHttpResponseMessage.getError(), alaGetRoomPlayIntroduceHttpResponseMessage.getErrorString());
+                        i.this.nXa.onFail(alaGetRoomPlayIntroduceHttpResponseMessage.getError(), alaGetRoomPlayIntroduceHttpResponseMessage.getErrorString());
                     } else {
-                        i.this.nPR.a(alaGetRoomPlayIntroduceHttpResponseMessage);
+                        i.this.nXa.a(alaGetRoomPlayIntroduceHttpResponseMessage);
                     }
                 }
             }
         };
-        registerListener(this.bsK);
+        registerListener(this.bug);
     }
 
     public void request(String str) {

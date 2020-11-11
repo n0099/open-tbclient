@@ -33,7 +33,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class MessageParser {
     private static final String TAG = "MessageParser";
 
@@ -490,7 +490,7 @@ public class MessageParser {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes18.dex */
     public static class DuParser {
         private int category;
         private String content;

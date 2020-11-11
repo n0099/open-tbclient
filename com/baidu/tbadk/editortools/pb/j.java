@@ -3,7 +3,7 @@ package com.baidu.tbadk.editortools.pb;
 import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
 /* loaded from: classes.dex */
 public class j {
-    public String fkL;
+    public String fqD;
     public String mContent;
     public SpanGroupManager mSpanGroupManager;
 }

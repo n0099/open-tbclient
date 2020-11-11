@@ -7,7 +7,7 @@ import java.util.Map;
 /* loaded from: classes10.dex */
 public class c extends b {
     @Nullable
-    private ContentValues cNy;
+    private ContentValues cTr;
 
     public c(@Nullable Map<String, String> map) {
         super("lifecycle", map);
@@ -15,17 +15,17 @@ public class c extends b {
 
     public c(@NonNull ContentValues contentValues) {
         super("lifecycle", null);
-        this.cNy = contentValues;
+        this.cTr = contentValues;
     }
 
     @Override // com.baidu.swan.apps.event.a.b, com.baidu.swan.apps.event.a.a
-    public String nV(String str) {
+    public String ok(String str) {
         StringBuilder sb = new StringBuilder();
-        sb.append(com.baidu.swan.apps.event.a.I(str, "cuid", com.baidu.swan.apps.t.a.auf().bq(com.baidu.swan.apps.t.a.aua())));
-        sb.append(com.baidu.swan.apps.event.a.I(str, "mtjCuid", com.baidu.swan.apps.t.a.auf().bq(com.baidu.swan.apps.t.a.aua())));
-        if (this.cNy != null) {
-            for (String str2 : this.cNy.keySet()) {
-                sb.append(com.baidu.swan.apps.event.a.c(str, str2, this.cNy.get(str2)));
+        sb.append(com.baidu.swan.apps.event.a.I(str, "cuid", com.baidu.swan.apps.t.a.awF().bq(com.baidu.swan.apps.t.a.awA())));
+        sb.append(com.baidu.swan.apps.event.a.I(str, "mtjCuid", com.baidu.swan.apps.t.a.awF().bq(com.baidu.swan.apps.t.a.awA())));
+        if (this.cTr != null) {
+            for (String str2 : this.cTr.keySet()) {
+                sb.append(com.baidu.swan.apps.event.a.c(str, str2, this.cTr.get(str2)));
             }
         } else {
             for (Map.Entry<String, String> entry : this.mParams.entrySet()) {

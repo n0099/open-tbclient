@@ -21,7 +21,7 @@ public class d extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
 
     @Override // com.baidu.live.tieba.b.a
     public int getLayout() {
-        return a.h.ala_new_host_tab_replay_no_data;
+        return a.g.ala_new_host_tab_replay_no_data;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,11 +36,11 @@ public class d extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
 
     /* loaded from: classes4.dex */
     public static class a extends TypeAdapter.ViewHolder {
-        public d hvi;
+        public d hBf;
 
         public a(d dVar) {
             super(dVar.getView());
-            this.hvi = dVar;
+            this.hBf = dVar;
         }
     }
 }

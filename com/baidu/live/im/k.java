@@ -6,28 +6,28 @@ public interface k {
 
     /* loaded from: classes4.dex */
     public interface a {
-        boolean Lm();
+        boolean LM();
 
-        void Ln();
+        void LN();
 
-        void Lo();
+        void LO();
 
-        void Lp();
+        void LP();
 
-        boolean Lq();
+        boolean LQ();
 
-        int Lr();
+        int LR();
 
-        void hC(String str);
+        void hJ(String str);
     }
 
-    void Ct();
+    void CM();
 
-    j Lj();
+    j LJ();
 
-    com.baidu.live.view.input.a Lk();
+    com.baidu.live.view.input.a LK();
 
-    int Ll();
+    int LL();
 
     void a(a aVar);
 

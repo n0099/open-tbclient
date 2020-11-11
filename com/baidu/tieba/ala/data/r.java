@@ -5,24 +5,24 @@ import com.baidu.live.tbadk.core.util.StringHelper;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class r {
-    public int aHl;
-    public long aHm;
-    public long aHn;
-    public long aHo;
-    public boolean aHp;
-    public long aHq;
+    public int aIc;
+    public long aId;
+    public long aIe;
+    public long aIf;
+    public boolean aIg;
+    public long aIh;
     public String bdPortrait;
-    public boolean guV;
+    public boolean gAJ;
     public long userId;
     public String userName;
     public String userNickname;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aHl = jSONObject.optInt("current_rank");
-            this.aHm = jSONObject.optInt("current_charm_value");
-            this.aHn = jSONObject.optInt("up_charm_value");
-            this.aHo = jSONObject.optInt("down_charm_value");
+            this.aIc = jSONObject.optInt("current_rank");
+            this.aId = jSONObject.optInt("current_charm_value");
+            this.aIe = jSONObject.optInt("up_charm_value");
+            this.aIf = jSONObject.optInt("down_charm_value");
             this.userId = JavaTypesHelper.toLong(jSONObject.optString("user_id"), 0L);
             this.userName = jSONObject.optString("user_name");
             this.userNickname = jSONObject.optString("user_nickname");
@@ -32,8 +32,8 @@ public class r {
 
     public void a(h hVar) {
         if (hVar != null) {
-            this.aHl = hVar.rank;
-            this.aHm = JavaTypesHelper.toLong(hVar.point, 0L);
+            this.aIc = hVar.rank;
+            this.aId = JavaTypesHelper.toLong(hVar.point, 0L);
             this.userId = hVar.user_id;
             this.userName = hVar.user_name;
             this.userNickname = hVar.user_nickname;
@@ -41,28 +41,28 @@ public class r {
         }
     }
 
-    public void eg(long j) {
-        this.aHn = j;
+    public void eC(long j) {
+        this.aIe = j;
     }
 
-    public void eh(long j) {
-        this.aHo = j;
+    public void eD(long j) {
+        this.aIf = j;
     }
 
-    public void bn(boolean z) {
-        this.aHp = z;
+    public void bo(boolean z) {
+        this.aIg = z;
     }
 
-    public boolean bPE() {
-        return this.aHp;
+    public boolean bSe() {
+        return this.aIg;
     }
 
-    public void lU(boolean z) {
-        this.guV = z;
+    public void md(boolean z) {
+        this.gAJ = z;
     }
 
-    public void ab(long j) {
-        this.aHq = j;
+    public void an(long j) {
+        this.aIh = j;
     }
 
     public String getNameShow() {

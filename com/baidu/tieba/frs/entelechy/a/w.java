@@ -15,11 +15,11 @@ import com.baidu.tbadk.core.util.ay;
 /* loaded from: classes22.dex */
 public class w extends com.baidu.tieba.frs.k<bv, am<bw>> implements com.baidu.adp.widget.ListView.ab, com.baidu.tieba.a.f, com.baidu.tieba.card.aa, com.baidu.tieba.card.z, com.baidu.tieba.frs.d.d {
     private String ahu;
-    private int iLn;
+    private int iRk;
 
     public w(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId);
-        this.iLn = 3;
+        this.iRk = 3;
         this.mPageContext = tbPageContext;
         this.mPageId = bdUniqueId2;
     }
@@ -27,14 +27,14 @@ public class w extends com.baidu.tieba.frs.k<bv, am<bw>> implements com.baidu.ad
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aT */
+    /* renamed from: aV */
     public am<bw> c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
         aVar.a((com.baidu.card.i) new com.baidu.card.ag(this.mPageContext.getPageActivity()));
         com.baidu.card.l lVar = new com.baidu.card.l(this.mPageContext.getPageActivity());
         lVar.tJ();
         aVar.a((com.baidu.card.i) lVar);
-        com.baidu.card.ak a2 = aVar.a(false, viewGroup, this.igO);
+        com.baidu.card.ak a2 = aVar.a(false, viewGroup, this.imM);
         a2.setSourceForPb(3);
         am<bw> amVar = new am<>(a2);
         amVar.setPageId(this.mPageId);
@@ -52,9 +52,9 @@ public class w extends com.baidu.tieba.frs.k<bv, am<bw>> implements com.baidu.ad
         }
         amVar.tW().setPage(this.ahu);
         amVar.tW().setPosition(i);
-        amVar.b((am<bw>) bvVar.erH);
+        amVar.b((am<bw>) bvVar.exA);
         amVar.tW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        bvVar.erH.blm();
+        bvVar.exA.bnM();
         return amVar.getView();
     }
 
@@ -62,18 +62,18 @@ public class w extends com.baidu.tieba.frs.k<bv, am<bw>> implements com.baidu.ad
     public void a(View view, com.baidu.adp.widget.ListView.q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
         if ((qVar instanceof bv) && (view.getTag() instanceof am)) {
             am amVar = (am) view.getTag();
-            bw bwVar = ((bv) qVar).erH;
+            bw bwVar = ((bv) qVar).exA;
             bwVar.objType = 1;
             if (bwVar != null) {
-                ay.a((AbsThreadDataSupport) bwVar, view.getContext(), this.iLn, false);
+                ay.a((AbsThreadDataSupport) bwVar, view.getContext(), this.iRk, false);
                 amVar.tW().b(new a.C0097a(1));
-                com.baidu.tieba.frs.d.a.a(bwVar, 1, this.mPageId, iLo, getTbPageTag());
+                com.baidu.tieba.frs.d.a.a(bwVar, 1, this.mPageId, iRl, getTbPageTag());
             }
         }
     }
 
     @Override // com.baidu.tieba.a.f
-    public void EL(String str) {
+    public void EZ(String str) {
         this.ahu = str;
     }
 
@@ -82,16 +82,16 @@ public class w extends com.baidu.tieba.frs.k<bv, am<bw>> implements com.baidu.ad
     }
 
     @Override // com.baidu.tieba.card.z
-    public void uQ(int i) {
-        this.iLn = i;
+    public void vd(int i) {
+        this.iRk = i;
     }
 
     @Override // com.baidu.tieba.card.aa
-    public void or(boolean z) {
+    public void oA(boolean z) {
     }
 
     @Override // com.baidu.tieba.frs.d.d
     public com.baidu.tieba.frs.d.b getStatisticMetaData() {
-        return iLo;
+        return iRl;
     }
 }

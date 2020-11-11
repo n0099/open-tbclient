@@ -13,7 +13,7 @@ import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.swan.apps.res.widget.dialog.g;
 /* loaded from: classes10.dex */
 public class a implements g.c {
-    private FrameLayout dtt = null;
+    private FrameLayout dzl = null;
 
     @Override // com.baidu.swan.apps.res.widget.dialog.g.c
     public void a(g gVar, g.b bVar) {
@@ -21,10 +21,10 @@ public class a implements g.c {
             a(gVar);
             ViewGroup viewGroup = (ViewGroup) gVar.findViewById(16908290);
             if (viewGroup != null) {
-                if (com.baidu.swan.apps.t.a.auw().getNightModeSwitcherState()) {
-                    d(viewGroup, bVar.mDialogLayout);
+                if (com.baidu.swan.apps.t.a.awW().getNightModeSwitcherState()) {
+                    e(viewGroup, bVar.mDialogLayout);
                 } else {
-                    F(viewGroup);
+                    H(viewGroup);
                 }
             }
         }
@@ -40,28 +40,28 @@ public class a implements g.c {
         }
     }
 
-    private void d(final ViewGroup viewGroup, View view) {
+    private void e(final ViewGroup viewGroup, View view) {
         if (viewGroup != null && view != null && (viewGroup instanceof FrameLayout)) {
             view.post(new Runnable() { // from class: com.baidu.swan.apps.view.c.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.dtt == null) {
-                        a.this.dtt = new FrameLayout(viewGroup.getContext());
-                        a.this.dtt.setBackgroundResource(a.c.aiapps_night_mode_cover_layer);
+                    if (a.this.dzl == null) {
+                        a.this.dzl = new FrameLayout(viewGroup.getContext());
+                        a.this.dzl.setBackgroundResource(a.c.aiapps_night_mode_cover_layer);
                     }
-                    viewGroup.removeView(a.this.dtt);
+                    viewGroup.removeView(a.this.dzl);
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
                     layoutParams.gravity = 17;
-                    viewGroup.addView(a.this.dtt, layoutParams);
+                    viewGroup.addView(a.this.dzl, layoutParams);
                 }
             });
         }
     }
 
-    private void F(ViewGroup viewGroup) {
-        if (viewGroup != null && this.dtt != null) {
-            viewGroup.removeView(this.dtt);
-            this.dtt = null;
+    private void H(ViewGroup viewGroup) {
+        if (viewGroup != null && this.dzl != null) {
+            viewGroup.removeView(this.dzl);
+            this.dzl = null;
         }
     }
 }

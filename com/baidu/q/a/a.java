@@ -7,44 +7,44 @@ import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
 public class a {
-    private static boolean ojm = false;
-    private static long ojn = 10080;
-    private static long ojo = 10;
-    private static final AtomicBoolean ojp = new AtomicBoolean(false);
-    private static HashMap<Integer, Boolean> ojq = new HashMap<>();
-    public static HashMap<Integer, Long> ojr = new HashMap<>();
+    private static boolean oss = false;
+    private static long ost = 10080;
+    private static long osu = 10;
+    private static final AtomicBoolean osv = new AtomicBoolean(false);
+    private static HashMap<Integer, Boolean> osw = new HashMap<>();
+    public static HashMap<Integer, Long> osx = new HashMap<>();
 
     public static synchronized void gr(Context context) {
         synchronized (a.class) {
-            if (!ojp.get()) {
+            if (!osv.get()) {
                 SharedPreferences gs = gs(context);
-                Iterator<Integer> it = b.ojs.iterator();
+                Iterator<Integer> it = b.osy.iterator();
                 while (it.hasNext()) {
                     int intValue = it.next().intValue();
-                    ojr.put(Integer.valueOf(intValue), Long.valueOf(gs.getLong("cache_" + intValue, 10080L)));
-                    ojq.put(Integer.valueOf(intValue), Boolean.valueOf(gs.getBoolean("close_" + intValue, false)));
+                    osx.put(Integer.valueOf(intValue), Long.valueOf(gs.getLong("cache_" + intValue, 10080L)));
+                    osw.put(Integer.valueOf(intValue), Boolean.valueOf(gs.getBoolean("close_" + intValue, false)));
                 }
-                ojr.put(Integer.valueOf((int) com.baidu.sapi2.share.b.h), Long.MAX_VALUE);
-                ojq.put(Integer.valueOf((int) com.baidu.sapi2.share.b.h), true);
-                ojp.set(true);
+                osx.put(Integer.valueOf((int) com.baidu.sapi2.share.b.h), Long.MAX_VALUE);
+                osw.put(Integer.valueOf((int) com.baidu.sapi2.share.b.h), true);
+                osv.set(true);
             }
         }
     }
 
-    public static boolean eay() {
+    public static boolean eeg() {
         return false;
     }
 
-    public static boolean MT(int i) {
-        if (ojq.containsKey(Integer.valueOf(i))) {
-            return ojq.get(Integer.valueOf(i)).booleanValue();
+    public static boolean Nm(int i) {
+        if (osw.containsKey(Integer.valueOf(i))) {
+            return osw.get(Integer.valueOf(i)).booleanValue();
         }
         return true;
     }
 
-    public static long MU(int i) {
-        if (ojr.containsKey(Integer.valueOf(i))) {
-            return ojr.get(Integer.valueOf(i)).longValue();
+    public static long Nn(int i) {
+        if (osx.containsKey(Integer.valueOf(i))) {
+            return osx.get(Integer.valueOf(i)).longValue();
         }
         return Long.MAX_VALUE;
     }

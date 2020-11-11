@@ -7,29 +7,29 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes17.dex */
 public class SchedulerWhen extends v implements io.reactivex.disposables.b {
-    static final io.reactivex.disposables.b pGI = new d();
-    static final io.reactivex.disposables.b pGJ = io.reactivex.disposables.c.ewO();
-    private final v pGF;
-    private final io.reactivex.processors.a<io.reactivex.g<io.reactivex.a>> pGG;
-    private io.reactivex.disposables.b pGH;
+    static final io.reactivex.disposables.b pQc = new d();
+    static final io.reactivex.disposables.b pQd = io.reactivex.disposables.c.eAD();
+    private final v pPZ;
+    private final io.reactivex.processors.a<io.reactivex.g<io.reactivex.a>> pQa;
+    private io.reactivex.disposables.b pQb;
 
     @Override // io.reactivex.disposables.b
     public void dispose() {
-        this.pGH.dispose();
+        this.pQb.dispose();
     }
 
     @Override // io.reactivex.disposables.b
     public boolean isDisposed() {
-        return this.pGH.isDisposed();
+        return this.pQb.isDisposed();
     }
 
     @Override // io.reactivex.v
-    public v.c ewL() {
-        v.c ewL = this.pGF.ewL();
-        io.reactivex.processors.a<T> exo = UnicastProcessor.exp().exo();
-        io.reactivex.g<io.reactivex.a> a2 = exo.a(new a(ewL));
-        c cVar = new c(exo, ewL);
-        this.pGG.onNext(a2);
+    public v.c eAA() {
+        v.c eAA = this.pPZ.eAA();
+        io.reactivex.processors.a<T> eBd = UnicastProcessor.eBe().eBd();
+        io.reactivex.g<io.reactivex.a> a2 = eBd.a(new a(eAA));
+        c cVar = new c(eBd, eAA);
+        this.pQa.onNext(a2);
         return cVar;
     }
 
@@ -39,14 +39,14 @@ public class SchedulerWhen extends v implements io.reactivex.disposables.b {
         protected abstract io.reactivex.disposables.b callActual(v.c cVar, io.reactivex.c cVar2);
 
         ScheduledAction() {
-            super(SchedulerWhen.pGI);
+            super(SchedulerWhen.pQc);
         }
 
         void call(v.c cVar, io.reactivex.c cVar2) {
             io.reactivex.disposables.b bVar = get();
-            if (bVar != SchedulerWhen.pGJ && bVar == SchedulerWhen.pGI) {
+            if (bVar != SchedulerWhen.pQd && bVar == SchedulerWhen.pQc) {
                 io.reactivex.disposables.b callActual = callActual(cVar, cVar2);
-                if (!compareAndSet(SchedulerWhen.pGI, callActual)) {
+                if (!compareAndSet(SchedulerWhen.pQc, callActual)) {
                     callActual.dispose();
                 }
             }
@@ -60,14 +60,14 @@ public class SchedulerWhen extends v implements io.reactivex.disposables.b {
         @Override // io.reactivex.disposables.b
         public void dispose() {
             io.reactivex.disposables.b bVar;
-            io.reactivex.disposables.b bVar2 = SchedulerWhen.pGJ;
+            io.reactivex.disposables.b bVar2 = SchedulerWhen.pQd;
             do {
                 bVar = get();
-                if (bVar == SchedulerWhen.pGJ) {
+                if (bVar == SchedulerWhen.pQd) {
                     return;
                 }
             } while (!compareAndSet(bVar, bVar2));
-            if (bVar != SchedulerWhen.pGI) {
+            if (bVar != SchedulerWhen.pQc) {
                 bVar.dispose();
             }
         }
@@ -108,11 +108,11 @@ public class SchedulerWhen extends v implements io.reactivex.disposables.b {
     /* loaded from: classes17.dex */
     static class b implements Runnable {
         final Runnable action;
-        final io.reactivex.c pGN;
+        final io.reactivex.c pQh;
 
         b(Runnable runnable, io.reactivex.c cVar) {
             this.action = runnable;
-            this.pGN = cVar;
+            this.pQh = cVar;
         }
 
         @Override // java.lang.Runnable
@@ -120,79 +120,79 @@ public class SchedulerWhen extends v implements io.reactivex.disposables.b {
             try {
                 this.action.run();
             } finally {
-                this.pGN.onComplete();
+                this.pQh.onComplete();
             }
         }
     }
 
     /* loaded from: classes17.dex */
     static final class a implements io.reactivex.c.h<ScheduledAction, io.reactivex.a> {
-        final v.c pGK;
+        final v.c pQe;
 
         a(v.c cVar) {
-            this.pGK = cVar;
+            this.pQe = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // io.reactivex.c.h
         /* renamed from: a */
         public io.reactivex.a apply(ScheduledAction scheduledAction) {
-            return new C1053a(scheduledAction);
+            return new C1073a(scheduledAction);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: io.reactivex.internal.schedulers.SchedulerWhen$a$a  reason: collision with other inner class name */
         /* loaded from: classes17.dex */
-        public final class C1053a extends io.reactivex.a {
-            final ScheduledAction pGL;
+        public final class C1073a extends io.reactivex.a {
+            final ScheduledAction pQf;
 
-            C1053a(ScheduledAction scheduledAction) {
-                this.pGL = scheduledAction;
+            C1073a(ScheduledAction scheduledAction) {
+                this.pQf = scheduledAction;
             }
 
             @Override // io.reactivex.a
             protected void b(io.reactivex.c cVar) {
-                cVar.onSubscribe(this.pGL);
-                this.pGL.call(a.this.pGK, cVar);
+                cVar.onSubscribe(this.pQf);
+                this.pQf.call(a.this.pQe, cVar);
             }
         }
     }
 
     /* loaded from: classes17.dex */
     static final class c extends v.c {
-        private final v.c pGK;
-        private final AtomicBoolean pGO = new AtomicBoolean();
-        private final io.reactivex.processors.a<ScheduledAction> pGP;
+        private final v.c pQe;
+        private final AtomicBoolean pQi = new AtomicBoolean();
+        private final io.reactivex.processors.a<ScheduledAction> pQj;
 
         c(io.reactivex.processors.a<ScheduledAction> aVar, v.c cVar) {
-            this.pGP = aVar;
-            this.pGK = cVar;
+            this.pQj = aVar;
+            this.pQe = cVar;
         }
 
         @Override // io.reactivex.disposables.b
         public void dispose() {
-            if (this.pGO.compareAndSet(false, true)) {
-                this.pGP.onComplete();
-                this.pGK.dispose();
+            if (this.pQi.compareAndSet(false, true)) {
+                this.pQj.onComplete();
+                this.pQe.dispose();
             }
         }
 
         @Override // io.reactivex.disposables.b
         public boolean isDisposed() {
-            return this.pGO.get();
+            return this.pQi.get();
         }
 
         @Override // io.reactivex.v.c
         public io.reactivex.disposables.b c(Runnable runnable, long j, TimeUnit timeUnit) {
             DelayedAction delayedAction = new DelayedAction(runnable, j, timeUnit);
-            this.pGP.onNext(delayedAction);
+            this.pQj.onNext(delayedAction);
             return delayedAction;
         }
 
         @Override // io.reactivex.v.c
         public io.reactivex.disposables.b I(Runnable runnable) {
             ImmediateAction immediateAction = new ImmediateAction(runnable);
-            this.pGP.onNext(immediateAction);
+            this.pQj.onNext(immediateAction);
             return immediateAction;
         }
     }

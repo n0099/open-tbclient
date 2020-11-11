@@ -14,166 +14,168 @@ import com.baidu.live.utils.l;
 import com.baidu.tieba.ala.charm.data.ALaCharmData;
 /* loaded from: classes4.dex */
 public class d {
-    private int gqZ;
-    public ViewGroup grp;
-    public TextView grq;
-    public ImageView grr;
-    public HeadImageView grs;
-    public TextView grt;
-    public RelativeLayout gru;
-    public LinearGradientTextView grv;
-    public TextView grw;
-    public ImageView grx;
+    private int gwN;
+    public ViewGroup gxd;
+    public TextView gxe;
+    public ImageView gxf;
+    public HeadImageView gxg;
+    public TextView gxh;
+    public RelativeLayout gxi;
+    public LinearGradientTextView gxj;
+    public TextView gxk;
+    public ImageView gxl;
     public TextView mName;
     public View mRootView;
 
     public d(View view, int i) {
         this.mRootView = view;
-        this.gqZ = i;
-        this.grq = (TextView) view.findViewById(a.g.tvGradeNum);
-        this.grr = (ImageView) view.findViewById(a.g.gradeNum_imageView);
-        this.grp = (ViewGroup) view.findViewById(a.g.item_view);
-        this.grs = (HeadImageView) view.findViewById(a.g.photo);
-        this.grs.setIsRound(true);
-        this.grs.setAutoChangeStyle(false);
-        this.grs.setClickable(false);
-        this.gru = (RelativeLayout) view.findViewById(a.g.info);
-        this.mName = (TextView) view.findViewById(a.g.ala_name);
-        this.grt = (TextView) view.findViewById(a.g.ala_intro);
-        this.grv = (LinearGradientTextView) view.findViewById(a.g.attention_btn);
-        this.grw = (TextView) view.findViewById(a.g.improve_rink_btn);
-        this.grx = (ImageView) view.findViewById(a.g.photo_pendant);
+        this.gwN = i;
+        this.gxe = (TextView) view.findViewById(a.f.tvGradeNum);
+        this.gxf = (ImageView) view.findViewById(a.f.gradeNum_imageView);
+        this.gxd = (ViewGroup) view.findViewById(a.f.item_view);
+        this.gxg = (HeadImageView) view.findViewById(a.f.photo);
+        this.gxg.setIsRound(true);
+        this.gxg.setAutoChangeStyle(false);
+        this.gxg.setClickable(false);
+        this.gxi = (RelativeLayout) view.findViewById(a.f.info);
+        this.mName = (TextView) view.findViewById(a.f.ala_name);
+        this.gxh = (TextView) view.findViewById(a.f.ala_intro);
+        this.gxj = (LinearGradientTextView) view.findViewById(a.f.attention_btn);
+        this.gxk = (TextView) view.findViewById(a.f.improve_rink_btn);
+        this.gxl = (ImageView) view.findViewById(a.f.photo_pendant);
     }
 
     public void a(int i, ALaCharmData aLaCharmData, int i2) {
         if (aLaCharmData != null) {
-            this.grv.setTag(Integer.valueOf(i));
+            this.gxj.setTag(Integer.valueOf(i));
             if (aLaCharmData.user_id.equals(TbadkCoreApplication.getCurrentAccount())) {
-                this.grv.setVisibility(8);
-                this.grp.setBackgroundResource(a.f.sdk_online_item_bg);
+                this.gxj.setVisibility(8);
+                this.gxd.setBackgroundResource(a.e.sdk_online_item_bg);
                 if (i > 0) {
-                    this.grw.setVisibility(0);
+                    this.gxk.setVisibility(0);
                 } else {
-                    this.grw.setVisibility(8);
+                    this.gxk.setVisibility(8);
                 }
             } else {
-                this.grw.setVisibility(8);
-                if (TbadkCoreApplication.getInst().isHaokan()) {
-                    this.grv.setVisibility(8);
+                this.gxk.setVisibility(8);
+                if (aLaCharmData.isPrivacy == 1) {
+                    this.gxj.setVisibility(8);
+                } else if (TbadkCoreApplication.getInst().isHaokan()) {
+                    this.gxj.setVisibility(8);
                 } else {
-                    this.grv.setVisibility(0);
+                    this.gxj.setVisibility(0);
                 }
-                this.grp.setBackgroundResource(a.f.sdk_list_item_selector_black);
-                lP(aLaCharmData.follow_status != 0);
+                this.gxd.setBackgroundResource(a.e.sdk_list_item_selector_black);
+                lY(aLaCharmData.follow_status != 0);
             }
-            this.grp.setTag(Integer.valueOf(i));
-            uk(i);
-            n(aLaCharmData.portrait, i, aLaCharmData.appId);
+            this.gxd.setTag(Integer.valueOf(i));
+            uu(i);
+            o(aLaCharmData.portrait, i, aLaCharmData.appId);
             this.mName.setText(aLaCharmData.user_name);
-            this.grt.setText(this.mRootView.getContext().getResources().getString(a.i.ala_pay_gift_name, aLaCharmData.total_price));
+            this.gxh.setText(this.mRootView.getContext().getResources().getString(a.h.ala_pay_gift_name, aLaCharmData.total_price));
             onSkinTypeChanged(i2);
         }
     }
 
-    private void n(String str, int i, String str2) {
-        if (this.grx != null) {
-            this.grx.setVisibility(8);
+    private void o(String str, int i, String str2) {
+        if (this.gxl != null) {
+            this.gxl.setVisibility(8);
             if (i == 0) {
-                this.grx.setVisibility(0);
-                this.grx.setImageResource(a.f.pic_live_list_top1);
+                this.gxl.setVisibility(0);
+                this.gxl.setImageResource(a.e.pic_live_list_top1);
             } else if (i == 1) {
-                this.grx.setVisibility(0);
-                this.grx.setImageResource(a.f.pic_live_list_top2);
+                this.gxl.setVisibility(0);
+                this.gxl.setImageResource(a.e.pic_live_list_top2);
             } else if (i == 2) {
-                this.grx.setVisibility(0);
-                this.grx.setImageResource(a.f.pic_live_list_top3);
+                this.gxl.setVisibility(0);
+                this.gxl.setImageResource(a.e.pic_live_list_top3);
             } else {
-                this.grx.setVisibility(8);
+                this.gxl.setVisibility(8);
             }
         }
-        l.a(this.grs, str, true, StringUtils.isNull(str2) ? false : true);
+        l.a(this.gxg, str, true, StringUtils.isNull(str2) ? false : true);
     }
 
-    private void lP(boolean z) {
+    private void lY(boolean z) {
         if (z) {
-            this.grv.setText(this.mRootView.getContext().getString(a.i.ala_had_attention));
+            this.gxj.setText(this.mRootView.getContext().getString(a.h.ala_had_attention));
             if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-                this.grv.setBackgroundResource(a.f.charm_attention_s_bg_bd);
-                this.grv.setTextColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_white_alpha20));
+                this.gxj.setBackgroundResource(a.e.charm_attention_s_bg_bd);
+                this.gxj.setTextColor(this.mRootView.getContext().getResources().getColor(a.c.sdk_white_alpha20));
                 return;
             }
-            this.grv.setBackgroundResource(a.f.charm_attention_s_bg);
-            this.grv.setTextColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_white_alpha20));
+            this.gxj.setBackgroundResource(a.e.charm_attention_s_bg);
+            this.gxj.setTextColor(this.mRootView.getContext().getResources().getColor(a.c.sdk_white_alpha20));
             return;
         }
-        this.grv.setText(this.mRootView.getContext().getString(a.i.ala_attention));
+        this.gxj.setText(this.mRootView.getContext().getString(a.h.ala_attention));
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            this.grv.setBackgroundResource(a.f.sdk_person_follow_btn_bg_seletor);
-            this.grv.setGradientColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_color_ff1e66), this.mRootView.getContext().getResources().getColor(a.d.sdk_color_ff6619));
+            this.gxj.setBackgroundResource(a.e.sdk_person_follow_btn_bg_seletor);
+            this.gxj.setGradientColor(this.mRootView.getContext().getResources().getColor(a.c.sdk_color_ff1e66), this.mRootView.getContext().getResources().getColor(a.c.sdk_color_ff6619));
         } else if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-            this.grv.setBackgroundResource(a.f.charm_attention_bg_bd_selector);
-            this.grv.setGradientColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_white_alpha70), this.mRootView.getContext().getResources().getColor(a.d.sdk_white_alpha70));
+            this.gxj.setBackgroundResource(a.e.charm_attention_bg_bd_selector);
+            this.gxj.setGradientColor(this.mRootView.getContext().getResources().getColor(a.c.sdk_white_alpha70), this.mRootView.getContext().getResources().getColor(a.c.sdk_white_alpha70));
         } else {
-            this.grv.setBackgroundResource(a.f.charm_attention_n_bg);
-            this.grv.setGradientColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_color_ff1e66), this.mRootView.getContext().getResources().getColor(a.d.sdk_color_ff6619));
+            this.gxj.setBackgroundResource(a.e.charm_attention_n_bg);
+            this.gxj.setGradientColor(this.mRootView.getContext().getResources().getColor(a.c.sdk_color_ff1e66), this.mRootView.getContext().getResources().getColor(a.c.sdk_color_ff6619));
         }
     }
 
-    public void uk(int i) {
+    public void uu(int i) {
         int i2 = i + 1;
-        if (this.gqZ == 1) {
+        if (this.gwN == 1) {
             if (i2 == 1) {
-                this.grq.setTextColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_common_color_10261));
-                this.grq.setVisibility(4);
-                this.grr.setImageResource(a.f.sdk_icon_live_list_first);
-                this.grr.setVisibility(0);
+                this.gxe.setTextColor(this.mRootView.getContext().getResources().getColor(a.c.sdk_common_color_10261));
+                this.gxe.setVisibility(4);
+                this.gxf.setImageResource(a.e.sdk_icon_live_list_first);
+                this.gxf.setVisibility(0);
             } else if (i2 == 2) {
-                this.grq.setVisibility(4);
-                this.grr.setImageResource(a.f.sdk_icon_live_list_second);
-                this.grr.setVisibility(0);
+                this.gxe.setVisibility(4);
+                this.gxf.setImageResource(a.e.sdk_icon_live_list_second);
+                this.gxf.setVisibility(0);
             } else if (i2 == 3) {
-                this.grq.setVisibility(4);
-                this.grr.setImageResource(a.f.sdk_icon_live_list_third);
-                this.grr.setVisibility(0);
+                this.gxe.setVisibility(4);
+                this.gxf.setImageResource(a.e.sdk_icon_live_list_third);
+                this.gxf.setVisibility(0);
             } else {
-                this.grq.setTextColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_cp_cont_d));
-                this.grq.setVisibility(0);
-                this.grr.setVisibility(8);
+                this.gxe.setTextColor(this.mRootView.getContext().getResources().getColor(a.c.sdk_cp_cont_d));
+                this.gxe.setVisibility(0);
+                this.gxf.setVisibility(8);
             }
         } else if (i2 == 1) {
-            this.grq.setTextColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_common_color_10261));
+            this.gxe.setTextColor(this.mRootView.getContext().getResources().getColor(a.c.sdk_common_color_10261));
         } else if (i2 == 2) {
-            this.grq.setTextColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_common_color_10264));
+            this.gxe.setTextColor(this.mRootView.getContext().getResources().getColor(a.c.sdk_common_color_10264));
         } else if (i2 == 3) {
-            this.grq.setTextColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_common_color_10265));
+            this.gxe.setTextColor(this.mRootView.getContext().getResources().getColor(a.c.sdk_common_color_10265));
         } else {
-            this.grq.setTextColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_cp_cont_d));
+            this.gxe.setTextColor(this.mRootView.getContext().getResources().getColor(a.c.sdk_cp_cont_d));
         }
         if (i2 < 10) {
-            this.grq.setText("0" + i2);
+            this.gxe.setText("0" + i2);
         } else {
-            this.grq.setText(String.valueOf(i2));
+            this.gxe.setText(String.valueOf(i2));
         }
     }
 
     public void onSkinTypeChanged(int i) {
     }
 
-    public void p(View.OnClickListener onClickListener) {
-        if (this.grp != null && onClickListener != null) {
-            this.grp.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void m(View.OnClickListener onClickListener) {
-        if (this.grv != null && onClickListener != null) {
-            this.grv.setOnClickListener(onClickListener);
-        }
-    }
-
     public void q(View.OnClickListener onClickListener) {
-        if (this.grw != null && onClickListener != null) {
-            this.grw.setOnClickListener(onClickListener);
+        if (this.gxd != null && onClickListener != null) {
+            this.gxd.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void n(View.OnClickListener onClickListener) {
+        if (this.gxj != null && onClickListener != null) {
+            this.gxj.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void r(View.OnClickListener onClickListener) {
+        if (this.gxk != null && onClickListener != null) {
+            this.gxk.setOnClickListener(onClickListener);
         }
     }
 }

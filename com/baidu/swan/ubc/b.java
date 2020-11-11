@@ -43,19 +43,19 @@ public class b {
             jSONObject.put("eventType", "0");
             if (!TextUtils.isEmpty(iVar.getContent())) {
                 jSONObject.put("content", iVar.getContent());
-            } else if (iVar.bbg() != null) {
-                jSONObject.put("content", iVar.bbg().toString());
+            } else if (iVar.bdG() != null) {
+                jSONObject.put("content", iVar.bdG().toString());
             }
-            if (!TextUtils.isEmpty(iVar.bbf())) {
-                jSONObject.put("abtest", iVar.bbf());
+            if (!TextUtils.isEmpty(iVar.bdF())) {
+                jSONObject.put("abtest", iVar.bdF());
             }
             if (!TextUtils.isEmpty(iVar.getCategory())) {
                 jSONObject.put("c", iVar.getCategory());
             }
-            if (iVar.bbb()) {
+            if (iVar.bdB()) {
                 jSONObject.put(MapBundleKey.MapObjKey.OBJ_OFFSET, "1");
             }
-            jSONObject.put("idtype", d.baO().yF(iVar.getId()));
+            jSONObject.put("idtype", d.bdo().yT(iVar.getId()));
         } catch (JSONException e) {
         }
         byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);
@@ -113,7 +113,7 @@ public class b {
                         }
                         JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                         if (jSONObject.has("abtest")) {
-                            vVar.yQ("1");
+                            vVar.ze("1");
                         }
                         long j3 = jSONObject.getLong("timestamp");
                         if (j3 > 0) {
@@ -124,7 +124,7 @@ public class b {
                                 j2 = j3;
                             }
                         }
-                        vVar.dd(jSONObject);
+                        vVar.dj(jSONObject);
                         z2 = true;
                     } catch (Exception e) {
                         com.baidu.swan.c.d.closeSafely(bufferedReader);
@@ -135,7 +135,7 @@ public class b {
                         throw th;
                     }
                 }
-                vVar.q(j, j2);
+                vVar.r(j, j2);
                 com.baidu.swan.c.d.closeSafely(bufferedReader);
             } catch (Exception e2) {
                 bufferedReader = null;
@@ -169,7 +169,7 @@ public class b {
                             }
                             JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                             if (jSONObject.has("abtest")) {
-                                vVar.yQ("1");
+                                vVar.ze("1");
                             }
                             long j3 = jSONObject.getLong("timestamp");
                             if (j3 > 0) {
@@ -180,7 +180,7 @@ public class b {
                                     j2 = j3;
                                 }
                             }
-                            vVar.dd(jSONObject);
+                            vVar.dj(jSONObject);
                             i++;
                         } catch (Exception e) {
                             e = e;
@@ -193,7 +193,7 @@ public class b {
                         throw th;
                     }
                 } while (i < 10);
-                vVar.q(j, j2);
+                vVar.r(j, j2);
                 com.baidu.swan.c.d.closeSafely(bufferedReader);
             } catch (Exception e2) {
                 e = e2;
@@ -207,7 +207,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void hN(boolean z) {
+    public void hW(boolean z) {
         File[] listFiles;
         File file = new File(this.mContext.getFilesDir(), "ubcdir");
         if (file.exists()) {

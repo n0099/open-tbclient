@@ -37,7 +37,7 @@ public class u extends d implements p<bw>, q {
         public boolean a(a.C0097a c0097a) {
             if (u.this.agy != null && c0097a != null && (c0097a.ud() instanceof Integer)) {
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) u.this.agy.getLayoutParams();
-                layoutParams.leftMargin = (com.baidu.tbadk.a.d.bfj() ? u.agr : u.agq) + ((Integer) c0097a.ud()).intValue();
+                layoutParams.leftMargin = (com.baidu.tbadk.a.d.bhJ() ? u.agr : u.agq) + ((Integer) c0097a.ud()).intValue();
                 if (!u.this.agz) {
                     layoutParams.addRule(15);
                 }
@@ -60,7 +60,7 @@ public class u extends d implements p<bw>, q {
     public void tM() {
         int i = 4;
         if (this.agx != null) {
-            this.agt.setVisibility((this.agx.blL() || this.agx.blM()) ? 0 : 4);
+            this.agt.setVisibility((this.agx.bol() || this.agx.bom()) ? 0 : 4);
             if (this.agz) {
                 this.agu.setVisibility(0);
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.agy.getLayoutParams();
@@ -69,12 +69,12 @@ public class u extends d implements p<bw>, q {
                 this.agy.setLayoutParams(layoutParams);
                 this.agv.setVisibility(0);
                 this.agw.setVisibility(0);
-                this.agv.setImageDrawable(com.baidu.tbadk.core.util.ap.getDrawable((this.agx.blL() || this.agx.blM()) ? R.drawable.icon_frs_select_h : R.drawable.btn_forum_select));
-                com.baidu.tbadk.core.util.ap.setViewTextColor(this.agw, (this.agx.blL() || this.agx.blM()) ? R.color.cp_link_tip_a : R.drawable.selector_comment_and_prise_item_text_color);
+                this.agv.setImageDrawable(com.baidu.tbadk.core.util.ap.getDrawable((this.agx.bol() || this.agx.bom()) ? R.drawable.icon_frs_select_h : R.drawable.btn_forum_select));
+                com.baidu.tbadk.core.util.ap.setViewTextColor(this.agw, (this.agx.bol() || this.agx.bom()) ? R.color.cp_link_tip_a : R.drawable.selector_comment_and_prise_item_text_color);
                 return;
             }
             View view = this.agu;
-            if (this.agx.blL() || this.agx.blM()) {
+            if (this.agx.bol() || this.agx.bom()) {
                 i = 0;
             }
             view.setVisibility(i);
@@ -97,18 +97,18 @@ public class u extends d implements p<bw>, q {
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.u.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (u.this.agv != null && u.this.agx != null && u.this.agw != null && !u.this.agx.blN()) {
-                    if (u.this.agx.blL() || !com.baidu.tieba.frs.b.cuL().cuF()) {
-                        if (u.this.agx.blM() || !com.baidu.tieba.frs.a.cuE().cuF()) {
-                            com.baidu.tieba.frs.b.cuL().ak(u.this.agx);
-                            u.this.agx.iH(false);
-                            com.baidu.tieba.frs.a.cuE().ak(u.this.agx);
-                            u.this.agx.iI(false);
-                        } else if (com.baidu.tieba.frs.a.cuE().aj(u.this.agx)) {
-                            u.this.agx.iI(true);
+                if (u.this.agv != null && u.this.agx != null && u.this.agw != null && !u.this.agx.bon()) {
+                    if (u.this.agx.bol() || !com.baidu.tieba.frs.b.cxm().cxg()) {
+                        if (u.this.agx.bom() || !com.baidu.tieba.frs.a.cxf().cxg()) {
+                            com.baidu.tieba.frs.b.cxm().ak(u.this.agx);
+                            u.this.agx.iQ(false);
+                            com.baidu.tieba.frs.a.cxf().ak(u.this.agx);
+                            u.this.agx.iR(false);
+                        } else if (com.baidu.tieba.frs.a.cxf().aj(u.this.agx)) {
+                            u.this.agx.iR(true);
                         }
-                    } else if (com.baidu.tieba.frs.b.cuL().aj(u.this.agx)) {
-                        u.this.agx.iH(true);
+                    } else if (com.baidu.tieba.frs.b.cxm().aj(u.this.agx)) {
+                        u.this.agx.iQ(true);
                     }
                     u.this.tM();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921402, u.this.agx));
@@ -127,8 +127,8 @@ public class u extends d implements p<bw>, q {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         com.baidu.tbadk.core.util.ap.setBackgroundColor(this.agt, R.color.cp_bg_line_d);
         com.baidu.tbadk.core.util.ap.setBackgroundColor(this.agu, R.color.cp_bg_line_d);
-        this.agv.setImageDrawable(com.baidu.tbadk.core.util.ap.getDrawable((this.agx.blL() || this.agx.blM()) ? R.drawable.icon_frs_select_h : R.drawable.btn_forum_select));
-        com.baidu.tbadk.core.util.ap.setViewTextColor(this.agw, (this.agx.blL() || this.agx.blM()) ? R.color.cp_link_tip_a : R.drawable.selector_comment_and_prise_item_text_color);
+        this.agv.setImageDrawable(com.baidu.tbadk.core.util.ap.getDrawable((this.agx.bol() || this.agx.bom()) ? R.drawable.icon_frs_select_h : R.drawable.btn_forum_select));
+        com.baidu.tbadk.core.util.ap.setViewTextColor(this.agw, (this.agx.bol() || this.agx.bom()) ? R.color.cp_link_tip_a : R.drawable.selector_comment_and_prise_item_text_color);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -148,7 +148,7 @@ public class u extends d implements p<bw>, q {
     /* renamed from: a */
     public void H(bw bwVar) {
         this.agx = bwVar;
-        if (com.baidu.tieba.frs.b.cuL().cuF() || com.baidu.tieba.frs.a.cuE().cuF()) {
+        if (com.baidu.tieba.frs.b.cxm().cxg() || com.baidu.tieba.frs.a.cxf().cxg()) {
             this.mRootView.setVisibility(0);
             this.afN.b(new a.C0097a(4, false));
             tM();

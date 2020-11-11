@@ -7,10 +7,10 @@ import com.baidu.platform.comapi.map.b.a;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected MapController f2905a;
+    protected MapController f2907a;
 
     public a(MapController mapController) {
-        this.f2905a = mapController;
+        this.f2907a = mapController;
     }
 
     public void a(com.baidu.platform.comapi.map.b.a.b bVar) {

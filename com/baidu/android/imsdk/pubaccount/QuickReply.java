@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class QuickReply implements Parcelable {
     public static final Parcelable.Creator<QuickReply> CREATOR = new Parcelable.Creator<QuickReply>() { // from class: com.baidu.android.imsdk.pubaccount.QuickReply.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -182,7 +182,7 @@ public class QuickReply implements Parcelable {
         parcel.writeTypedList(this.mButtonList);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes18.dex */
     public static class ReplyContent implements Parcelable {
         public static final Parcelable.Creator<ReplyContent> CREATOR = new Parcelable.Creator<ReplyContent>() { // from class: com.baidu.android.imsdk.pubaccount.QuickReply.ReplyContent.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -238,7 +238,7 @@ public class QuickReply implements Parcelable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes18.dex */
     public static class Act implements Parcelable {
         public static final Parcelable.Creator<Act> CREATOR = new Parcelable.Creator<Act>() { // from class: com.baidu.android.imsdk.pubaccount.QuickReply.Act.1
             /* JADX DEBUG: Method merged with bridge method */

@@ -9,113 +9,113 @@ import android.widget.TextView;
 import java.lang.ref.WeakReference;
 /* loaded from: classes26.dex */
 public class CountDownTextView extends TextView {
-    private int cEx;
-    private Runnable fQg;
+    private int cKq;
+    private Runnable fVW;
+    private b mAM;
+    private boolean mAN;
     private Handler mHandler;
-    private b muQ;
-    private boolean muR;
 
     /* loaded from: classes26.dex */
     public interface b {
-        void bM(View view);
+        void bQ(View view);
     }
 
     public CountDownTextView(Context context) {
         super(context);
         this.mHandler = null;
-        this.muQ = null;
-        this.muR = true;
-        dzj();
+        this.mAM = null;
+        this.mAN = true;
+        dBL();
     }
 
-    private void dzj() {
-        this.fQg = new a();
+    private void dBL() {
+        this.fVW = new a();
         this.mHandler = new Handler();
     }
 
     public CountDownTextView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mHandler = null;
-        this.muQ = null;
-        this.muR = true;
-        dzj();
+        this.mAM = null;
+        this.mAN = true;
+        dBL();
     }
 
     public CountDownTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mHandler = null;
-        this.muQ = null;
-        this.muR = true;
-        dzj();
+        this.mAM = null;
+        this.mAN = true;
+        dBL();
     }
 
     public void update(int i) {
-        this.cEx = i;
+        this.cKq = i;
     }
 
     public void startCountDown() {
-        tk(1);
+        tu(1);
     }
 
     public void setTimeoutListener(b bVar) {
-        this.muQ = bVar;
+        this.mAM = bVar;
     }
 
     public void setEnableTimeoutListener(boolean z) {
-        this.muR = z;
+        this.mAN = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes26.dex */
     public static class a implements Runnable {
-        private final WeakReference<CountDownTextView> fPy;
+        private final WeakReference<CountDownTextView> fVo;
 
         private a(CountDownTextView countDownTextView) {
-            this.fPy = new WeakReference<>(countDownTextView);
+            this.fVo = new WeakReference<>(countDownTextView);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            CountDownTextView countDownTextView = this.fPy.get();
+            CountDownTextView countDownTextView = this.fVo.get();
             if (countDownTextView != null) {
-                countDownTextView.tk(1);
+                countDownTextView.tu(1);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void tk(int i) {
+    public void tu(int i) {
         if (i > 0) {
-            if (this.cEx == 0) {
-                if (this.muQ != null && this.muR && getVisibility() == 0) {
-                    this.muQ.bM(this);
+            if (this.cKq == 0) {
+                if (this.mAM != null && this.mAN && getVisibility() == 0) {
+                    this.mAM.bQ(this);
                 }
-                setText(String.valueOf(this.cEx));
+                setText(String.valueOf(this.cKq));
                 this.mHandler.removeCallbacksAndMessages(null);
                 return;
             }
-            if (this.cEx > 0) {
-                setText(String.valueOf(this.cEx));
+            if (this.cKq > 0) {
+                setText(String.valueOf(this.cKq));
             }
-            this.mHandler.removeCallbacks(this.fQg);
-            this.mHandler.postDelayed(this.fQg, 1000L);
-            this.cEx -= i;
+            this.mHandler.removeCallbacks(this.fVW);
+            this.mHandler.postDelayed(this.fVW, 1000L);
+            this.cKq -= i;
         }
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        tk(0);
+        tu(0);
     }
 
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bId();
+        bKC();
     }
 
-    private void bId() {
+    private void bKC() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 

@@ -6,61 +6,61 @@ import kotlin.jvm.internal.q;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public final class a {
-    private static Long bWS = 0L;
-    private static Long bWT = 0L;
+    private static Long ccD = 0L;
+    private static Long ccE = 0L;
 
     public static final void E() {
-        Long l = bWT;
+        Long l = ccE;
         if (l != null) {
             if (l == null) {
-                q.eya();
+                q.eBP();
             }
             if (l.longValue() > 0) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    Long l2 = bWT;
+                    Long l2 = ccE;
                     if (l2 == null) {
-                        q.eya();
+                        q.eBP();
                     }
                     jSONObject.put("3", l2.longValue());
                     jSONObject.put("4", System.currentTimeMillis());
                 } catch (Exception e) {
                 }
-                d.a(new b("1000").an(jSONObject));
-                bWT = 0L;
+                d.a(new b("1000").at(jSONObject));
+                ccE = 0L;
             }
         }
     }
 
     public static final void F() {
-        Long l = bWS;
+        Long l = ccD;
         if (l != null) {
             if (l == null) {
-                q.eya();
+                q.eBP();
             }
             if (l.longValue() > 0) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    Long l2 = bWS;
+                    Long l2 = ccD;
                     if (l2 == null) {
-                        q.eya();
+                        q.eBP();
                     }
                     jSONObject.put("1", l2.longValue());
                     jSONObject.put("2", System.currentTimeMillis());
                 } catch (Exception e) {
                 }
-                d.a(new b("1000").an(jSONObject));
-                bWS = 0L;
+                d.a(new b("1000").at(jSONObject));
+                ccD = 0L;
             }
         }
     }
 
     public static final void a(Long l) {
-        bWS = l;
+        ccD = l;
     }
 
     public static final void d(Long l) {
-        bWT = l;
+        ccE = l;
     }
 
     public static final void i(String str) {
@@ -69,7 +69,7 @@ public final class a {
             jSONObject.put("exceptionCode", 1);
         } catch (Exception e) {
         }
-        d.a(new b(str).an(jSONObject));
+        d.a(new b(str).at(jSONObject));
     }
 
     public static final void j(String str) {
@@ -78,7 +78,7 @@ public final class a {
             jSONObject.put("exceptionCode", 0);
         } catch (Exception e) {
         }
-        d.a(new b(str).an(jSONObject));
+        d.a(new b(str).at(jSONObject));
     }
 
     public static final void a(String str, String str2, String str3) {
@@ -93,6 +93,6 @@ public final class a {
             }
         } catch (Exception e) {
         }
-        d.a(new b(str).an(jSONObject));
+        d.a(new b(str).at(jSONObject));
     }
 }

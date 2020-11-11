@@ -27,7 +27,7 @@ import java.util.Observer;
 public class b implements Observer {
 
     /* renamed from: a  reason: collision with root package name */
-    private static NotificationManager f2373a;
+    private static NotificationManager f2375a;
     private static int b = 10091;
     private static HashMap<String, b> g = new HashMap<>();
     private com.baidu.mobads.command.a c;
@@ -79,8 +79,8 @@ public class b implements Observer {
     public b(Context context, com.baidu.mobads.command.a aVar) {
         this.c = null;
         XAdSDKFoundationFacade.getInstance().getAdLogger().d("OAdApkDownloaderObserver", "observer created");
-        if (f2373a == null) {
-            f2373a = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
+        if (f2375a == null) {
+            f2375a = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
         }
         this.d = context.getApplicationContext();
         this.c = aVar;
@@ -164,8 +164,8 @@ public class b implements Observer {
     public Notification b(IOAdDownloader iOAdDownloader) {
         String str;
         int i = 17301634;
-        String str2 = this.c.f2322a;
-        String str3 = "正在下载 " + this.c.f2322a;
+        String str2 = this.c.f2324a;
+        String str3 = "正在下载 " + this.c.f2324a;
         String str4 = "";
         if (this.c.g == IOAdDownloader.DownloadStatus.COMPLETED) {
             str2 = this.c.g.getMessage() + ": " + str2;

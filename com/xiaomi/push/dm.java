@@ -21,28 +21,28 @@ import java.util.List;
 public class dm implements LoggerInterface {
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f222a;
+    private Context f224a;
     private String b;
     private String c = "";
 
     /* renamed from: a  reason: collision with other field name */
-    private static final SimpleDateFormat f220a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss aaa");
+    private static final SimpleDateFormat f222a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss aaa");
 
     /* renamed from: a  reason: collision with root package name */
-    private static al f4860a = new al(true);
+    private static al f4862a = new al(true);
 
     /* renamed from: a  reason: collision with other field name */
-    public static String f219a = "/MiPushLog";
+    public static String f221a = "/MiPushLog";
 
     /* renamed from: a  reason: collision with other field name */
-    private static List<Pair<String, Throwable>> f221a = Collections.synchronizedList(new ArrayList());
+    private static List<Pair<String, Throwable>> f223a = Collections.synchronizedList(new ArrayList());
 
     public dm(Context context) {
-        this.f222a = context;
+        this.f224a = context;
         if (context.getApplicationContext() != null) {
-            this.f222a = context.getApplicationContext();
+            this.f224a = context.getApplicationContext();
         }
-        this.b = this.f222a.getPackageName();
+        this.b = this.f224a.getPackageName();
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:109:0x021e */
@@ -76,10 +76,10 @@ public class dm implements LoggerInterface {
         FileLock fileLock3 = null;
         BufferedWriter bufferedWriter3 = null;
         try {
-            if (TextUtils.isEmpty(this.c) && (externalFilesDir = this.f222a.getExternalFilesDir(null)) != null) {
+            if (TextUtils.isEmpty(this.c) && (externalFilesDir = this.f224a.getExternalFilesDir(null)) != null) {
                 this.c = externalFilesDir.getAbsolutePath() + "";
             }
-            File file = new File(this.c + f219a);
+            File file = new File(this.c + f221a);
             if ((!file.exists() || !file.isDirectory()) && !file.mkdirs()) {
                 Log.w(this.b, "Create mipushlog directory fail.");
                 if (0 != 0) {
@@ -116,9 +116,9 @@ public class dm implements LoggerInterface {
                 fileLock = randomAccessFile.getChannel().lock();
                 try {
                     BufferedWriter bufferedWriter4 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(file, "log1.txt"), true)));
-                    while (!f221a.isEmpty()) {
+                    while (!f223a.isEmpty()) {
                         try {
-                            Pair<String, Throwable> remove = f221a.remove(0);
+                            Pair<String, Throwable> remove = f223a.remove(0);
                             String str = (String) remove.first;
                             if (remove.second != null) {
                                 str = (str + "\n") + Log.getStackTraceString((Throwable) remove.second);
@@ -272,8 +272,8 @@ public class dm implements LoggerInterface {
 
     @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
     public final void log(String str, Throwable th) {
-        f221a.add(new Pair<>(String.format("%1$s %2$s %3$s ", f220a.format(new Date()), this.b, str), th));
-        f4860a.a(new dn(this));
+        f223a.add(new Pair<>(String.format("%1$s %2$s %3$s ", f222a.format(new Date()), this.b, str), th));
+        f4862a.a(new dn(this));
     }
 
     @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface

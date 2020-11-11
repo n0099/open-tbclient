@@ -13,19 +13,19 @@ import com.baidu.tbadk.util.ai;
 import com.baidu.tieba.ala.alasquare.live.b.c;
 /* loaded from: classes4.dex */
 public class a {
-    private TbPageContext<?> eCn;
-    private b gdh;
-    private c gdi;
-    private final int gdg = 1000;
+    private TbPageContext<?> eIc;
+    private b giX;
+    private c giY;
+    private final int giW = 1000;
     private boolean mIsBackground = false;
     private CustomMessageListener TP = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            a.this.bMo();
+            a.this.bOO();
         }
     };
-    private Runnable gdj = new Runnable() { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.a.2
+    private Runnable giZ = new Runnable() { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.a.2
         @Override // java.lang.Runnable
         public void run() {
             a.this.startPlay();
@@ -33,30 +33,30 @@ public class a {
     };
 
     public a(TbPageContext<?> tbPageContext) {
-        this.eCn = null;
-        this.eCn = tbPageContext;
-        this.gdh = new b(this.eCn);
+        this.eIc = null;
+        this.eIc = tbPageContext;
+        this.giX = new b(this.eIc);
         MessageManager.getInstance().registerListener(this.TP);
     }
 
     public View getView() {
-        return this.gdh.getView();
+        return this.giX.getView();
     }
 
     public void onChangeSkinType() {
-        this.gdh.onChangeSkinType();
+        this.giX.onChangeSkinType();
     }
 
     public void a(c cVar) {
         if (cVar != null && cVar.akq != null) {
-            this.gdi = cVar;
-            if (this.gdh != null) {
-                this.gdh.a(this.gdi);
+            this.giY = cVar;
+            if (this.giX != null) {
+                this.giX.a(this.giY);
                 aq aqVar = new aq("c12644");
-                if (cVar.gcz == 0) {
-                    aqVar.aj("obj_type", 1);
-                } else if (cVar.gcz == 1) {
-                    aqVar.aj("obj_type", 2);
+                if (cVar.gip == 0) {
+                    aqVar.al("obj_type", 1);
+                } else if (cVar.gip == 1) {
+                    aqVar.al("obj_type", 2);
                 }
                 aqVar.dR("tid", cVar.akq.getTid());
                 TiebaStatic.log(aqVar);
@@ -64,44 +64,44 @@ public class a {
         }
     }
 
-    public void bMo() {
+    public void bOO() {
         if (!this.mIsBackground) {
-            if (ai.rL(1)) {
-                e.mY().removeCallbacks(this.gdj);
-                e.mY().postDelayed(this.gdj, 1000L);
-            } else if (this.gdh != null) {
-                this.gdh.bMr();
+            if (ai.rV(1)) {
+                e.mY().removeCallbacks(this.giZ);
+                e.mY().postDelayed(this.giZ, 1000L);
+            } else if (this.giX != null) {
+                this.giX.bOR();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startPlay() {
-        if (this.gdi != null && this.gdi.akq != null && this.gdi.akq.bku() != null && this.gdh != null) {
-            this.gdh.Gj(this.gdi.akq.bku().hls_url);
+        if (this.giY != null && this.giY.akq != null && this.giY.akq.bmU() != null && this.giX != null) {
+            this.giX.Gx(this.giY.akq.bmU().hls_url);
         }
     }
 
     public void stopPlay() {
-        if (this.gdh != null) {
-            this.gdh.bMr();
+        if (this.giX != null) {
+            this.giX.bOR();
         }
-        e.mY().removeCallbacks(this.gdj);
+        e.mY().removeCallbacks(this.giZ);
     }
 
-    public void ls(boolean z) {
+    public void lB(boolean z) {
         this.mIsBackground = z;
     }
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterListener(this.TP);
-        e.mY().removeCallbacks(this.gdj);
-        if (this.gdh != null) {
-            this.gdh.onDestroy();
+        e.mY().removeCallbacks(this.giZ);
+        if (this.giX != null) {
+            this.giX.onDestroy();
         }
     }
 
-    public c bMp() {
-        return this.gdi;
+    public c bOP() {
+        return this.giY;
     }
 }

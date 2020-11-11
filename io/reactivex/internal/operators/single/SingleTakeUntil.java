@@ -11,14 +11,14 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
 /* loaded from: classes17.dex */
 public final class SingleTakeUntil<T, U> extends w<T> {
-    final org.a.b<U> pDP;
+    final org.a.b<U> pNj;
     final aa<T> source;
 
     @Override // io.reactivex.w
     protected void b(y<? super T> yVar) {
         TakeUntilMainObserver takeUntilMainObserver = new TakeUntilMainObserver(yVar);
         yVar.onSubscribe(takeUntilMainObserver);
-        this.pDP.subscribe(takeUntilMainObserver.other);
+        this.pNj.subscribe(takeUntilMainObserver.other);
         this.source.a(takeUntilMainObserver);
     }
 

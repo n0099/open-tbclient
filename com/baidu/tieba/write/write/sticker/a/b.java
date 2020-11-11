@@ -11,27 +11,27 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 public class b {
     private Context mContext;
     private Rect mRect = new Rect();
-    private Bitmap nJO;
+    private Bitmap nPI;
 
     public b(Context context) {
         this.mContext = context;
     }
 
-    public void Lx(int i) {
-        this.nJO = BitmapHelper.getResBitmap(this.mContext, i);
+    public void LK(int i) {
+        this.nPI = BitmapHelper.getResBitmap(this.mContext, i);
     }
 
     public void a(Canvas canvas, float f, float f2) {
-        if (this.nJO != null) {
-            this.mRect.left = (int) (f - (this.nJO.getWidth() / 2));
-            this.mRect.right = (int) ((this.nJO.getWidth() / 2) + f);
-            this.mRect.top = (int) (f2 - (this.nJO.getHeight() / 2));
-            this.mRect.bottom = (int) ((this.nJO.getHeight() / 2) + f2);
-            canvas.drawBitmap(this.nJO, (Rect) null, this.mRect, (Paint) null);
+        if (this.nPI != null) {
+            this.mRect.left = (int) (f - (this.nPI.getWidth() / 2));
+            this.mRect.right = (int) ((this.nPI.getWidth() / 2) + f);
+            this.mRect.top = (int) (f2 - (this.nPI.getHeight() / 2));
+            this.mRect.bottom = (int) ((this.nPI.getHeight() / 2) + f2);
+            canvas.drawBitmap(this.nPI, (Rect) null, this.mRect, (Paint) null);
         }
     }
 
-    public boolean aj(MotionEvent motionEvent) {
+    public boolean ak(MotionEvent motionEvent) {
         if (motionEvent == null) {
             return false;
         }

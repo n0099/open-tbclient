@@ -18,7 +18,7 @@ public final class f {
     private static final Map<String, byte[]> h = Collections.synchronizedMap(new HashMap());
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f1261a;
+    private final int f1263a;
     private SecureRandom adI;
     private MessageDigest adJ;
     private MessageDigest adK;
@@ -27,7 +27,7 @@ public final class f {
     private byte[] g;
 
     private f(int i, int i2, SecureRandom secureRandom, OAEPParameterSpec oAEPParameterSpec) {
-        this.f1261a = i;
+        this.f1263a = i;
         this.b = i2;
         this.adI = secureRandom;
         if (i2 < 64) {
@@ -146,8 +146,8 @@ public final class f {
         int length = (this.b - 3) - bArr.length;
         bArr2[0] = 0;
         int i4 = 2;
-        bArr2[1] = (byte) this.f1261a;
-        if (this.f1261a != 1) {
+        bArr2[1] = (byte) this.f1263a;
+        if (this.f1263a != 1) {
             if (this.adI == null) {
                 this.adI = b.adw;
             }
@@ -195,7 +195,7 @@ public final class f {
             throw new BadPaddingException("Data must start with zero");
         }
         int i = 2;
-        if (bArr[1] != this.f1261a) {
+        if (bArr[1] != this.f1263a) {
             throw new BadPaddingException("Blocktype mismatch: " + ((int) bArr[1]));
         }
         while (true) {
@@ -212,7 +212,7 @@ public final class f {
             } else if (i2 == bArr.length) {
                 throw new BadPaddingException("Padding string not terminated");
             } else {
-                if (this.f1261a == 1 && i3 != 255) {
+                if (this.f1263a == 1 && i3 != 255) {
                     throw new BadPaddingException("Padding byte not 0xff: " + i3);
                 }
                 i = i2;
@@ -279,7 +279,7 @@ public final class f {
         if (bArr.length > this.d) {
             throw new BadPaddingException("Data must be shorter than " + (this.d + 1) + " bytes");
         }
-        switch (this.f1261a) {
+        switch (this.f1263a) {
             case 1:
             case 2:
                 return c(bArr);
@@ -296,7 +296,7 @@ public final class f {
         if (bArr.length != this.b) {
             throw new BadPaddingException("Padded length must be " + this.b);
         }
-        switch (this.f1261a) {
+        switch (this.f1263a) {
             case 1:
             case 2:
                 return t(bArr);

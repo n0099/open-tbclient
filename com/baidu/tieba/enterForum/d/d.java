@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
 /* loaded from: classes22.dex */
 public class d {
-    private RecommendForumLayout imI;
+    private RecommendForumLayout isG;
     private TbPageContext<?> mPageContext;
-    private View.OnClickListener ikr = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.d.d.1
+    private View.OnClickListener iqq = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.d.d.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             com.baidu.tieba.enterForum.b.d(d.this.mPageContext, null);
@@ -22,7 +22,7 @@ public class d {
     };
     private PullLeftRefreshLayout.a alt = new PullLeftRefreshLayout.a() { // from class: com.baidu.tieba.enterForum.d.d.2
         @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.a
-        public void bCG() {
+        public void bFf() {
             com.baidu.tieba.enterForum.b.d(d.this.mPageContext, null);
         }
     };
@@ -48,21 +48,21 @@ public class d {
 
     public d(TbPageContext<?> tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.imI = new RecommendForumLayout(tbPageContext);
-        this.imI.setShowMore(true);
-        this.imI.setSquareEntranceAtStart(true);
-        this.imI.setTabName(null);
-        this.imI.setFrom(0);
-        this.imI.setOnClickRightArrowListener(this.ikr);
-        this.imI.setOnRullOkCallbackr(this.alt);
-        this.imI.setOnItemCoverListener(this.aiM);
+        this.isG = new RecommendForumLayout(tbPageContext);
+        this.isG.setShowMore(true);
+        this.isG.setSquareEntranceAtStart(true);
+        this.isG.setTabName(null);
+        this.isG.setFrom(0);
+        this.isG.setOnClickRightArrowListener(this.iqq);
+        this.isG.setOnRullOkCallbackr(this.alt);
+        this.isG.setOnItemCoverListener(this.aiM);
     }
 
-    public RecommendForumLayout crl() {
-        return this.imI;
+    public RecommendForumLayout ctM() {
+        return this.isG;
     }
 
     public void d(bj bjVar) {
-        this.imI.b(bjVar);
+        this.isG.b(bjVar);
     }
 }

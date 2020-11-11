@@ -21,16 +21,16 @@ public final class a {
     public static a d;
 
     /* renamed from: a  reason: collision with root package name */
-    int f3597a = 5;
+    int f3600a = 5;
     String b = "create table pgn(k INTEGER PRIMARY KEY ON CONFLICT ABORT,p TEXT UNIQUE ON CONFLICT ABORT,v TEXT,n INTEGER,s INTEGER,i INTEGER,u INTEGER,la INTEGER,o INTEGER,r INTEGER,ap INTEGER,apk TEXT,cl TEXT,b TEXT,t TEXT,ac BLOB,st INTEGER,du INTEGER,th INTEGER,m5 TEXT,rs INTEGER,l TEXT,pr INTEGER DEFAULT -1,pdld INTEGER DEFAULT 0,a TEXT)";
     public SQLiteDatabase c;
-    private C0345a e;
+    private C0357a e;
     private Context f;
 
     private a(Context context) {
         b.a();
         this.f = context.getApplicationContext();
-        this.e = new C0345a(context.getApplicationContext());
+        this.e = new C0357a(context.getApplicationContext());
         try {
             this.c = this.e.getWritableDatabase();
         } catch (Throwable th) {
@@ -53,10 +53,10 @@ public final class a {
 
     /* renamed from: com.baidu.sofire.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    private class C0345a extends SQLiteOpenHelper {
-        public C0345a(Context context) {
-            super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, a.this.f3597a);
-            new StringBuilder().append(a.this.f3597a);
+    private class C0357a extends SQLiteOpenHelper {
+        public C0357a(Context context) {
+            super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, a.this.f3600a);
+            new StringBuilder().append(a.this.f3600a);
             b.a();
         }
 
@@ -339,7 +339,7 @@ public final class a {
                         apkInfo2.activities = new ActivityInfo[size];
                         for (int i2 = 0; i2 < size; i2++) {
                             ActivityInfo activityInfo = new ActivityInfo();
-                            activityInfo.theme = a2.get(i2).f3601a;
+                            activityInfo.theme = a2.get(i2).f3604a;
                             activityInfo.name = a2.get(i2).j;
                             activityInfo.configChanges = a2.get(i2).h;
                             activityInfo.flags = a2.get(i2).f;
@@ -1091,7 +1091,7 @@ public final class a {
             r6.<init>()     // Catch: java.lang.Throwable -> L1db
             java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1db
             com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1db
-            int r0 = r0.f3601a     // Catch: java.lang.Throwable -> L1db
+            int r0 = r0.f3604a     // Catch: java.lang.Throwable -> L1db
             r6.theme = r0     // Catch: java.lang.Throwable -> L1db
             java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1db
             com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1db

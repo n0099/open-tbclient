@@ -6,41 +6,41 @@ import com.baidu.swan.pms.model.g;
 import java.util.List;
 /* loaded from: classes15.dex */
 public class a {
-    public List<C0546a> ecF;
+    public List<C0558a> eix;
 
     /* renamed from: com.baidu.swan.pms.c.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    public static class C0546a {
+    public static class C0558a {
         public int category;
-        public String ebO;
-        public f ecG;
-        public List<g> ecH;
-        public PMSAppInfo ecI;
-        public boolean ecJ;
+        public String ehG;
+        public PMSAppInfo eiA;
+        public boolean eiB;
+        public f eiy;
+        public List<g> eiz;
         public int errorCode;
 
         public boolean equals(Object obj) {
             if (super.equals(obj)) {
                 return true;
             }
-            if (obj == null || this.ecG == null || !(obj instanceof C0546a)) {
+            if (obj == null || this.eiy == null || !(obj instanceof C0558a)) {
                 return false;
             }
-            return this.ecG.equals(((C0546a) obj).ecG);
+            return this.eiy.equals(((C0558a) obj).eiy);
         }
 
         public int hashCode() {
-            return this.ecG == null ? super.hashCode() : this.ecG.hashCode();
+            return this.eiy == null ? super.hashCode() : this.eiy.hashCode();
         }
 
         public String toString() {
             StringBuilder sb = new StringBuilder();
-            sb.append("PMS Item: ").append(this.ebO);
-            if (this.ecG != null) {
-                sb.append(",pkgMain=").append(this.ecG);
+            sb.append("PMS Item: ").append(this.ehG);
+            if (this.eiy != null) {
+                sb.append(",pkgMain=").append(this.eiy);
             }
-            if (this.ecI != null) {
-                sb.append(",appInfo=").append(this.ecI);
+            if (this.eiA != null) {
+                sb.append(",appInfo=").append(this.eiA);
             }
             return sb.toString();
         }

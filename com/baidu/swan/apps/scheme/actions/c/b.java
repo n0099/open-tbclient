@@ -62,7 +62,7 @@ public class b extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty appId");
             return false;
         }
-        eVar.aFg().b(context, "mapp_i_delete_history", new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.c.b.1
+        eVar.aHG().b(context, "mapp_i_delete_history", new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.c.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: a */
@@ -81,24 +81,24 @@ public class b extends aa {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final String str, final String str2) {
         c.i("history", "start remove history");
-        final b.C0427b arn = com.baidu.swan.apps.env.c.c.arm().im(4).arn();
+        final b.C0439b atO = com.baidu.swan.apps.env.c.c.atN().iw(4).atO();
         d.cd(str).d(Schedulers.io()).d(new f<String, Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.c.b.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.f
-            /* renamed from: pY */
+            /* renamed from: qm */
             public Boolean call(String str3) {
-                return Boolean.valueOf(com.baidu.swan.apps.database.a.b.a(AppRuntime.getAppContext().getContentResolver(), str3, false, arn));
+                return Boolean.valueOf(com.baidu.swan.apps.database.a.b.a(AppRuntime.getAppContext().getContentResolver(), str3, false, atO));
             }
-        }).c(rx.a.b.a.eBK()).c(new rx.functions.b<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.c.b.2
+        }).c(rx.a.b.a.eFz()).c(new rx.functions.b<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.c.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             /* renamed from: i */
             public void call(Boolean bool) {
-                e aEU;
-                com.baidu.swan.apps.process.messaging.client.a aEL;
+                e aHu;
+                com.baidu.swan.apps.process.messaging.client.a aHl;
                 if (bool.booleanValue()) {
-                    if (!TextUtils.isEmpty(str) && (aEU = e.aEU()) != null && (aEL = aEU.aEL()) != null) {
-                        aEL.a(8, new SwanAppDeleteInfo(str).ij(com.baidu.swan.apps.env.c.c.a(arn).aro()));
+                    if (!TextUtils.isEmpty(str) && (aHu = e.aHu()) != null && (aHl = aHu.aHl()) != null) {
+                        aHl.a(8, new SwanAppDeleteInfo(str).it(com.baidu.swan.apps.env.c.c.a(atO).atP()));
                     }
                     c.i("history", "remove success");
                     if (b.DEBUG) {

@@ -18,7 +18,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class BindStateManager {
     private static final int DefaultValue = -1;
     private static final String KEY_BIND_PUSH = "bindpush";
@@ -34,7 +34,7 @@ public class BindStateManager {
     private static SetUnBindRunable runable = new SetUnBindRunable();
     private static Object mTinerSync = new Object();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes18.dex */
     public enum BindState {
         NOTBIND,
         BINDED,
@@ -115,7 +115,7 @@ public class BindStateManager {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes18.dex */
     public static class SetUnBindRunable implements Runnable {
         Context context = null;
 
@@ -133,7 +133,7 @@ public class BindStateManager {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes18.dex */
     public static class MyTimeTask extends TimerTask {
         Context context = null;
 

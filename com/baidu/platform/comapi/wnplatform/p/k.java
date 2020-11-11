@@ -1,15 +1,16 @@
 package com.baidu.platform.comapi.wnplatform.p;
 
 import android.media.MediaPlayer;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes7.dex */
-class k implements MediaPlayer.OnCompletionListener {
+public class k implements MediaPlayer.OnCompletionListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f3148a;
+    final /* synthetic */ j f3150a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.f3148a = jVar;
+        this.f3150a = jVar;
     }
 
     @Override // android.media.MediaPlayer.OnCompletionListener

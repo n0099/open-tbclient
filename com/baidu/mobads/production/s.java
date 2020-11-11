@@ -9,7 +9,7 @@ import java.util.TimerTask;
 public class s extends TimerTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ IXAdPackageUtils f2425a;
+    final /* synthetic */ IXAdPackageUtils f2427a;
     final /* synthetic */ Context b;
     final /* synthetic */ String c;
     final /* synthetic */ Timer d;
@@ -18,7 +18,7 @@ public class s extends TimerTask {
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(q qVar, IXAdPackageUtils iXAdPackageUtils, Context context, String str, Timer timer) {
         this.e = qVar;
-        this.f2425a = iXAdPackageUtils;
+        this.f2427a = iXAdPackageUtils;
         this.b = context;
         this.c = str;
         this.d = timer;
@@ -37,16 +37,16 @@ public class s extends TimerTask {
             i3 = this.e.j;
             i4 = this.e.l;
             if (i3 < i4) {
-                if (!this.f2425a.isForeground(this.b, this.c) && this.f2425a.isForeground(this.b, this.b.getPackageName())) {
+                if (!this.f2427a.isForeground(this.b, this.c) && this.f2427a.isForeground(this.b, this.b.getPackageName())) {
                     this.d.cancel();
-                    IXAdPackageUtils iXAdPackageUtils = this.f2425a;
+                    IXAdPackageUtils iXAdPackageUtils = this.f2427a;
                     Context context = this.b;
                     i5 = this.e.j;
                     iXAdPackageUtils.sendDialerIsSuccess(context, false, i5, this.c);
                 }
             } else {
                 this.d.cancel();
-                this.f2425a.sendDialerIsSuccess(this.b, true, 0, this.c);
+                this.f2427a.sendDialerIsSuccess(this.b, true, 0, this.c);
             }
         }
         q.h(this.e);

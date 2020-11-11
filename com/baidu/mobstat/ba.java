@@ -8,7 +8,7 @@ import java.net.UnknownHostException;
 public abstract class ba {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f2575a = 2;
+    public static int f2577a = 2;
 
     public abstract String a();
 
@@ -69,7 +69,7 @@ public abstract class ba {
     }
 
     private void a(int i, String str) {
-        if (b() && i >= f2575a) {
+        if (b() && i >= f2577a) {
             Log.println(i, a(), str);
         }
     }

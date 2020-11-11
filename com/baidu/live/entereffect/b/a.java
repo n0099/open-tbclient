@@ -7,7 +7,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    public static com.baidu.live.entereffect.a.a C(JSONObject jSONObject) {
+    public static com.baidu.live.entereffect.a.a F(JSONObject jSONObject) {
         com.baidu.live.entereffect.a.a aVar = null;
         if (jSONObject != null) {
             String optString = jSONObject.optString("id");
@@ -20,9 +20,9 @@ public class a {
                 aVar.priority = jSONObject.optInt("priority_over_gift");
                 aVar.videoUrl = optString2;
                 aVar.videoMd5 = jSONObject.optString("video_md5");
-                aVar.aRU = optString3;
+                aVar.aTm = optString3;
                 aVar.frameCount = jSONObject.optInt("frame_count");
-                aVar.aRV = jSONObject.optLong("last_accessed");
+                aVar.aTn = jSONObject.optLong("last_accessed");
                 if (optJSONObject != null) {
                     try {
                         optJSONObject.put("repeat_count", 1);
@@ -31,16 +31,16 @@ public class a {
                         e.printStackTrace();
                     }
                 }
-                aVar.aRW = new com.baidu.live.gift.c();
+                aVar.aTo = new com.baidu.live.gift.c();
                 com.baidu.live.gift.b bVar = new com.baidu.live.gift.b();
                 bVar.parseJson(jSONObject);
-                aVar.aRW.aSL = bVar;
+                aVar.aTo.aUe = bVar;
             }
         }
         return aVar;
     }
 
-    public static com.baidu.live.entereffect.a.c d(long j, String str) {
+    public static com.baidu.live.entereffect.a.c e(long j, String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -53,21 +53,31 @@ public class a {
             if (!TextUtils.isEmpty(trim) && trim.charAt(0) != '#') {
                 trim = UgcConstant.TOPIC_PATTERN_TAG + trim;
             }
-            cVar.aRY = trim;
+            cVar.aTq = trim;
             String trim2 = jSONObject.optString("bg_color_end").trim();
             if (!TextUtils.isEmpty(trim2) && trim2.charAt(0) != '#') {
                 trim2 = UgcConstant.TOPIC_PATTERN_TAG + trim2;
             }
-            cVar.aRZ = trim2;
-            cVar.aSa = jSONObject.optString("transparency_begin").trim();
-            cVar.aSb = jSONObject.optString("transparency_end").trim();
-            cVar.aOi = jSONObject.optString("text_color").trim();
-            cVar.aSc = jSONObject.optString("nickname_preix");
-            cVar.aSd = jSONObject.optString("nickname_suffix");
+            cVar.aTr = trim2;
+            cVar.aTs = jSONObject.optString("transparency_begin").trim();
+            cVar.aTt = jSONObject.optString("transparency_end").trim();
+            cVar.aTu = jSONObject.optString("text_color").trim();
+            cVar.aTv = jSONObject.optString("nickname_preix");
+            cVar.aTw = jSONObject.optString("nickname_suffix");
             cVar.iconUrl = jSONObject.optString("icon_url");
-            cVar.aSe = jSONObject.optInt("icon_width");
-            cVar.aSf = jSONObject.optInt("icon_height");
-            cVar.aSg = jSONObject.optInt("need_effect_file") == 1;
+            cVar.aTx = jSONObject.optInt("icon_width");
+            cVar.aTy = jSONObject.optInt("icon_height");
+            cVar.aTz = jSONObject.optInt("need_effect_file") == 1;
+            String optString = jSONObject.optString("level_icon_url");
+            if (!TextUtils.isEmpty(optString)) {
+                cVar.iconUrl = optString;
+                int optInt = jSONObject.optInt("level_icon_width");
+                int optInt2 = jSONObject.optInt("level_icon_height");
+                if (optInt > 0 && optInt2 > 0) {
+                    cVar.aTx = optInt;
+                    cVar.aTy = optInt2;
+                }
+            }
             return cVar;
         } catch (JSONException e) {
             e.printStackTrace();

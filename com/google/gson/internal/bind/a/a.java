@@ -7,7 +7,7 @@ import java.util.GregorianCalendar;
 import java.util.TimeZone;
 /* loaded from: classes17.dex */
 public class a {
-    private static final TimeZone oWv = TimeZone.getTimeZone("UTC");
+    private static final TimeZone pfQ = TimeZone.getTimeZone("UTC");
 
     /* JADX WARN: Removed duplicated region for block: B:45:0x00cf  */
     /* JADX WARN: Removed duplicated region for block: B:48:0x00d6  */
@@ -64,8 +64,8 @@ public class a {
                     }
                     if (a(str, i13, '.')) {
                         int i14 = i13 + 1;
-                        int bV = bV(str, i14 + 1);
-                        int min = Math.min(bV, i14 + 3);
+                        int bX = bX(str, i14 + 1);
+                        int min = Math.min(bX, i14 + 3);
                         int A7 = A(str, i14, min);
                         switch (min - i14) {
                             case 1:
@@ -77,7 +77,7 @@ public class a {
                         }
                         i4 = A4;
                         i2 = A6;
-                        i9 = bV;
+                        i9 = bX;
                         i3 = A5;
                         i = A7;
                     } else {
@@ -99,7 +99,7 @@ public class a {
             }
             char charAt2 = str.charAt(i9);
             if (charAt2 == 'Z') {
-                timeZone = oWv;
+                timeZone = pfQ;
                 length = i9 + 1;
             } else if (charAt2 == '+' || charAt2 == '-') {
                 String substring = str.substring(i9);
@@ -108,7 +108,7 @@ public class a {
                 }
                 length = i9 + substring.length();
                 if ("+0000".equals(substring) || "+00:00".equals(substring)) {
-                    timeZone = oWv;
+                    timeZone = pfQ;
                 } else {
                     String str2 = "GMT" + substring;
                     timeZone = TimeZone.getTimeZone(str2);
@@ -198,7 +198,7 @@ public class a {
         return -i4;
     }
 
-    private static int bV(String str, int i) {
+    private static int bX(String str, int i) {
         while (i < str.length()) {
             char charAt = str.charAt(i);
             if (charAt >= '0' && charAt <= '9') {

@@ -6,144 +6,144 @@ import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.util.aq;
 /* loaded from: classes21.dex */
 public class m extends c implements com.baidu.tbadk.core.util.f.a {
-    public static final BdUniqueId eyg = BdUniqueId.gen();
-    public static String hVw = "";
-    public static String hVx = "";
-    public static String hVP = "";
-    public static String hVv = "";
-    public static String hVQ = "";
-    public static String hVR = "";
-    public static String hVS = "";
-    public boolean hVO = false;
-    public boolean hVT = true;
-    public boolean exo = false;
-    public boolean hVU = false;
-    public boolean exv = false;
-    public boolean exw = false;
-    public boolean hVN = false;
-    public boolean exF = false;
-    public boolean exB = false;
-    public boolean exD = false;
-    public boolean exE = false;
+    public static final BdUniqueId eDW = BdUniqueId.gen();
+    public static String ibt = "";
+    public static String ibu = "";
+    public static String ibM = "";
+    public static String ibs = "";
+    public static String ibN = "";
+    public static String ibO = "";
+    public static String ibP = "";
+    public boolean ibL = false;
+    public boolean ibQ = true;
+    public boolean eDg = false;
+    public boolean ibR = false;
+    public boolean eDm = false;
+    public boolean eDn = false;
+    public boolean ibK = false;
+    public boolean eDw = false;
+    public boolean eDs = false;
+    public boolean eDu = false;
+    public boolean eDv = false;
     public int sourceType = 0;
 
     public m(bw bwVar) {
-        this.erH = bwVar;
+        this.exA = bwVar;
     }
 
     public static boolean ab(bw bwVar) {
-        return (bwVar == null || bwVar.bks() == null) ? false : true;
+        return (bwVar == null || bwVar.bmS() == null) ? false : true;
     }
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        if (this.erH == null) {
+        if (this.exA == null) {
             return l.TYPE;
         }
-        if (this.exo) {
-            return l.hVC;
+        if (this.eDg) {
+            return l.ibz;
         }
-        if (this.hVU) {
-            return eyg;
+        if (this.ibR) {
+            return eDW;
         }
-        if (this.exv) {
-            return l.hVH;
+        if (this.eDm) {
+            return l.ibE;
         }
-        if (this.exw) {
-            return l.hVJ;
+        if (this.eDn) {
+            return l.ibG;
         }
-        if (this.hVN) {
-            return l.hVI;
+        if (this.ibK) {
+            return l.ibF;
         }
-        if (this.exF) {
-            return l.exN;
+        if (this.eDw) {
+            return l.eDE;
         }
-        if (this.exB) {
-            return l.exZ;
+        if (this.eDs) {
+            return l.eDQ;
         }
-        if (this.exD) {
-            return l.eyb;
+        if (this.eDu) {
+            return l.eDS;
         }
-        if (this.exE) {
-            return l.eyc;
+        if (this.eDv) {
+            return l.eDT;
         }
-        return eyg;
+        return eDW;
     }
 
     @Override // com.baidu.tieba.card.data.c, com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bw bhz() {
-        if (this.erH == null) {
+    public bw bjZ() {
+        if (this.exA == null) {
             return null;
         }
-        if (this.erH.bjO() != 5) {
-            this.erH.nY(1);
+        if (this.exA.bmo() != 5) {
+            this.exA.oi(1);
         }
-        return this.erH;
+        return this.exA;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public String bhA() {
-        if (this.erH == null) {
+    public String bka() {
+        if (this.exA == null) {
             return null;
         }
-        return this.erH.eAe;
+        return this.exA.eFT;
     }
 
-    public aq IO(String str) {
+    public aq Jf(String str) {
         aq aqVar = new aq(str);
-        if (this.erH != null) {
-            aqVar.w("fid", this.erH.getFid());
-            aqVar.dR("tid", this.erH.getTid());
-            if (this.erH.biJ()) {
-                aqVar.aj("obj_type", 8);
-            } else if (this.erH.blW()) {
-                aqVar.aj("obj_type", 9);
-            } else if (this.erH.biG()) {
-                aqVar.aj("obj_type", 2);
+        if (this.exA != null) {
+            aqVar.w("fid", this.exA.getFid());
+            aqVar.dR("tid", this.exA.getTid());
+            if (this.exA.blj()) {
+                aqVar.al("obj_type", 8);
+            } else if (this.exA.bow()) {
+                aqVar.al("obj_type", 9);
+            } else if (this.exA.blg()) {
+                aqVar.al("obj_type", 2);
             }
-            aqVar.aj("obj_param1", cmh() ? 2 : 1);
-            if (this.erH.bka() != null) {
-                aqVar.dR("obj_id", this.erH.bka().getUserId());
+            aqVar.al("obj_param1", coI() ? 2 : 1);
+            if (this.exA.bmA() != null) {
+                aqVar.dR("obj_id", this.exA.bmA().getUserId());
             }
         }
         return aqVar;
     }
 
-    public aq cmo() {
-        aq aI = aI(hVP, true);
-        if (aI != null && bhz() != null) {
-            bw bhz = bhz();
-            aI.aj("obj_name", bhz.blD() != null && (bhz.blD().dHz() != null || bhz.blD().bDr() != null) ? 1 : 0);
-            if (bhz.bka() != null) {
-                aI.aj(TiebaInitialize.Params.AB_TYPE, bhz.bka().hadConcerned() ? 1 : 0);
+    public aq coP() {
+        aq aI = aI(ibM, true);
+        if (aI != null && bjZ() != null) {
+            bw bjZ = bjZ();
+            aI.al("obj_name", bjZ.bod() != null && (bjZ.bod().dKb() != null || bjZ.bod().bFQ() != null) ? 1 : 0);
+            if (bjZ.bmA() != null) {
+                aI.al(TiebaInitialize.Params.AB_TYPE, bjZ.bmA().hadConcerned() ? 1 : 0);
             }
-            if (bhz.getBaijiahaoData() != null) {
-                aI.dR("obj_param4", bhz.getBaijiahaoData().oriUgcNid);
-                aI.dR("obj_param6", bhz.getBaijiahaoData().oriUgcVid);
+            if (bjZ.getBaijiahaoData() != null) {
+                aI.dR("obj_param4", bjZ.getBaijiahaoData().oriUgcNid);
+                aI.dR("obj_param6", bjZ.getBaijiahaoData().oriUgcVid);
             }
-            aI.aj("obj_param5", af(bhz));
-            if (bhz.bmc()) {
-                aI.aj(TiebaInitialize.Params.OBJ_TO, 2);
+            aI.al("obj_param5", af(bjZ));
+            if (bjZ.boC()) {
+                aI.al(TiebaInitialize.Params.OBJ_TO, 2);
             } else {
-                aI.aj(TiebaInitialize.Params.OBJ_TO, 1);
+                aI.al(TiebaInitialize.Params.OBJ_TO, 1);
             }
         }
         return aI;
     }
 
     public aq b(bw bwVar, int i) {
-        aq aI = aI(hVv, true);
+        aq aI = aI(ibs, true);
         if (aI != null) {
             if (i != -1) {
-                aI.aj("click_locate", i);
+                aI.al("click_locate", i);
             }
-            if (bhz() != null) {
-                bw bhz = bhz();
-                if (bhz.getBaijiahaoData() != null) {
-                    aI.dR("obj_param4", bhz.getBaijiahaoData().oriUgcNid);
-                    aI.dR("obj_param6", bhz.getBaijiahaoData().oriUgcVid);
+            if (bjZ() != null) {
+                bw bjZ = bjZ();
+                if (bjZ.getBaijiahaoData() != null) {
+                    aI.dR("obj_param4", bjZ.getBaijiahaoData().oriUgcNid);
+                    aI.dR("obj_param6", bjZ.getBaijiahaoData().oriUgcVid);
                 }
-                aI.aj("obj_param5", af(bhz));
+                aI.al("obj_param5", af(bjZ));
             }
         }
         return aI;
@@ -153,53 +153,53 @@ public class m extends c implements com.baidu.tbadk.core.util.f.a {
         return b(bwVar, -1);
     }
 
-    public aq cmv() {
-        aq aI = aI(hVS, true);
-        if (aI != null && bhz() != null) {
-            bw bhz = bhz();
-            if (bhz.getBaijiahaoData() != null) {
-                aI.dR("obj_param4", bhz.getBaijiahaoData().oriUgcNid);
-                aI.dR("obj_param6", bhz.getBaijiahaoData().oriUgcVid);
+    public aq coW() {
+        aq aI = aI(ibP, true);
+        if (aI != null && bjZ() != null) {
+            bw bjZ = bjZ();
+            if (bjZ.getBaijiahaoData() != null) {
+                aI.dR("obj_param4", bjZ.getBaijiahaoData().oriUgcNid);
+                aI.dR("obj_param6", bjZ.getBaijiahaoData().oriUgcVid);
             }
-            aI.aj("obj_param5", af(bhz));
-            aI.dR("nid", bhz.getNid());
+            aI.al("obj_param5", af(bjZ));
+            aI.dR("nid", bjZ.getNid());
         }
         return aI;
     }
 
     public aq ah(bw bwVar) {
-        aq aI = aI(hVw, true);
-        if (aI != null && bhz() != null) {
-            bw bhz = bhz();
-            if (bhz.getBaijiahaoData() != null) {
-                aI.dR("obj_param4", bhz.getBaijiahaoData().oriUgcNid);
-                aI.dR("obj_param6", bhz.getBaijiahaoData().oriUgcVid);
-                if (bhz.bmc()) {
-                    aI.aj(TiebaInitialize.Params.OBJ_PARAM2, 2);
+        aq aI = aI(ibt, true);
+        if (aI != null && bjZ() != null) {
+            bw bjZ = bjZ();
+            if (bjZ.getBaijiahaoData() != null) {
+                aI.dR("obj_param4", bjZ.getBaijiahaoData().oriUgcNid);
+                aI.dR("obj_param6", bjZ.getBaijiahaoData().oriUgcVid);
+                if (bjZ.boC()) {
+                    aI.al(TiebaInitialize.Params.OBJ_PARAM2, 2);
                 } else {
-                    aI.aj(TiebaInitialize.Params.OBJ_PARAM2, 1);
+                    aI.al(TiebaInitialize.Params.OBJ_PARAM2, 1);
                 }
             }
-            aI.aj("obj_param5", af(bhz));
+            aI.al("obj_param5", af(bjZ));
         }
         return aI;
     }
 
     @Override // com.baidu.tbadk.core.util.f.a
     public String getVideoUrl() {
-        if (this.erH == null || this.erH.bks() == null || this.erH.bks().video_url == null) {
+        if (this.exA == null || this.exA.bmS() == null || this.exA.bmS().video_url == null) {
             return null;
         }
-        return this.erH.bks().video_url;
+        return this.exA.bmS().video_url;
     }
 
     public int af(bw bwVar) {
         if (bwVar == null) {
             return 1;
         }
-        if (bwVar.blW() || bwVar.blV()) {
+        if (bwVar.bow() || bwVar.bov()) {
             return 2;
         }
-        return (bwVar.biI() || bwVar.biJ()) ? 3 : 1;
+        return (bwVar.bli() || bwVar.blj()) ? 3 : 1;
     }
 }

@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1568a = "SdkConfigOptions";
+    public static final String f1570a = "SdkConfigOptions";
     public static final String b = "global-config";
     public static final String c = "host_version";
     public static final String d = "zip_version";
@@ -104,14 +104,14 @@ public class c {
         private static final String f = "hash";
 
         /* renamed from: a  reason: collision with root package name */
-        public String f1569a = null;
+        public String f1571a = null;
         public String b = null;
         public String c = null;
 
         public static a a(JSONObject jSONObject) {
             a aVar = new a();
             if (jSONObject != null) {
-                aVar.f1569a = jSONObject.optString("name");
+                aVar.f1571a = jSONObject.optString("name");
                 aVar.b = jSONObject.optString("url");
                 aVar.c = jSONObject.optString(f);
             }
@@ -121,7 +121,7 @@ public class c {
         public JSONObject a() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("name", this.f1569a);
+                jSONObject.put("name", this.f1571a);
                 jSONObject.put("url", this.b);
                 jSONObject.put(f, this.c);
                 return jSONObject;

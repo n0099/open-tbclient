@@ -24,8 +24,8 @@ import com.baidu.tieba.play.o;
 public class l extends com.baidu.adp.widget.ListView.a<bv, com.baidu.card.a<bw>> {
     private ab<bw> afF;
     private v alD;
-    private BdUniqueId fmX;
-    private at ijF;
+    private BdUniqueId fsQ;
+    private at ipE;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
@@ -36,12 +36,12 @@ public class l extends com.baidu.adp.widget.ListView.a<bv, com.baidu.card.a<bw>>
             @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
             public void a(View view, bw bwVar) {
-                t.clQ().lE(true);
+                t.cor().lN(true);
                 com.baidu.tieba.enterForum.a.a(view, bwVar, l.this.mTabName);
             }
         };
         this.mPageContext = tbPageContext;
-        this.fmX = bdUniqueId2;
+        this.fsQ = bdUniqueId2;
         this.mTabName = str;
     }
 
@@ -52,7 +52,7 @@ public class l extends com.baidu.adp.widget.ListView.a<bv, com.baidu.card.a<bw>>
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aU */
+    /* renamed from: aW */
     public com.baidu.card.a<bw> c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
         final com.baidu.card.h hVar = new com.baidu.card.h(this.mPageContext.getPageActivity());
@@ -60,24 +60,24 @@ public class l extends com.baidu.adp.widget.ListView.a<bv, com.baidu.card.a<bw>>
             @Override // com.baidu.card.b.a
             public void a(AbsThreadDataSupport absThreadDataSupport) {
                 if (absThreadDataSupport != null) {
-                    Rect bd = ay.bd(hVar.getVideoContainer());
+                    Rect bh = ay.bh(hVar.getVideoContainer());
                     if (!(absThreadDataSupport instanceof bw)) {
-                        ay.a(absThreadDataSupport, l.this.mContext, 2, false, bd);
+                        ay.a(absThreadDataSupport, l.this.mContext, 2, false, bh);
                         return;
                     }
                     absThreadDataSupport.objType = 5;
-                    ay.a(absThreadDataSupport, l.this.mContext, 2, false, bd);
+                    ay.a(absThreadDataSupport, l.this.mContext, 2, false, bh);
                 }
             }
         });
-        this.ijF = hVar;
-        this.ijF.setPageUniqueId(this.fmX);
-        this.ijF.setFrom("14");
-        this.ijF.setStageType("2001");
-        aVar.c(this.ijF);
+        this.ipE = hVar;
+        this.ipE.setPageUniqueId(this.fsQ);
+        this.ipE.setFrom("14");
+        this.ipE.setStageType("2001");
+        aVar.c(this.ipE);
         ak a2 = aVar.a(false, viewGroup, this.alD);
         com.baidu.card.a<bw> aVar2 = new com.baidu.card.a<>(a2);
-        aVar2.setPageId(this.fmX);
+        aVar2.setPageId(this.fsQ);
         a2.a(this.afF);
         a2.setSourceForPb(2);
         a(new com.baidu.adp.widget.ListView.ab() { // from class: com.baidu.tieba.enterForum.tabfeed.a.l.3
@@ -85,7 +85,7 @@ public class l extends com.baidu.adp.widget.ListView.a<bv, com.baidu.card.a<bw>>
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
                 if ((qVar instanceof bv) && (view.getTag() instanceof am)) {
                     com.baidu.card.a aVar3 = (com.baidu.card.a) view.getTag();
-                    bw bwVar = ((bv) qVar).erH;
+                    bw bwVar = ((bv) qVar).exA;
                     bwVar.objType = 1;
                     if (l.this.afF != null) {
                         l.this.afF.a(aVar3.getView(), bwVar);
@@ -108,10 +108,10 @@ public class l extends com.baidu.adp.widget.ListView.a<bv, com.baidu.card.a<bw>>
         if (aVar == null) {
             return null;
         }
-        bvVar.erH.evR = getPositionByType(i) + 1;
+        bvVar.exA.eBK = getPositionByType(i) + 1;
         aVar.tW().setPosition(i);
-        aVar.setVideoStatsData(ai(bvVar.erH));
-        aVar.b((com.baidu.card.a<bw>) bvVar.erH);
+        aVar.setVideoStatsData(ai(bvVar.exA));
+        aVar.b((com.baidu.card.a<bw>) bvVar.exA);
         aVar.tW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         aVar.tW().a(this.afF);
         com.baidu.tieba.enterForum.a.a(bvVar, this.mTabName);
@@ -125,26 +125,26 @@ public class l extends com.baidu.adp.widget.ListView.a<bv, com.baidu.card.a<bw>>
             oVar.mLocate = "20";
             oVar.alT = bwVar.tid;
             oVar.mSource = bwVar.mRecomSource;
-            oVar.mdS = bwVar.mRecomAbTag;
-            oVar.mdT = bwVar.mRecomWeight;
-            oVar.mdU = "14";
+            oVar.mjR = bwVar.mRecomAbTag;
+            oVar.mjS = bwVar.mRecomWeight;
+            oVar.mjT = "14";
             oVar.mGroupId = this.mTabName;
-            oVar.mFloor = String.valueOf(bwVar.evR);
-            if (bwVar.blq() != null) {
-                oVar.eve = String.valueOf(bwVar.blq().eBM);
+            oVar.mFloor = String.valueOf(bwVar.eBK);
+            if (bwVar.bnQ() != null) {
+                oVar.eAX = String.valueOf(bwVar.bnQ().eHB);
             }
-            if (bwVar.bhz() != null) {
-                oVar.fsZ = String.valueOf(bwVar.bhz().getFid());
-                oVar.meb = bwVar.bhz().getNid();
-                if (bwVar.bhz().bks() != null) {
-                    oVar.mdX = bwVar.bhz().bks().video_md5;
-                    oVar.mdZ = String.valueOf(bwVar.bhz().bks().is_vertical);
+            if (bwVar.bjZ() != null) {
+                oVar.fyR = String.valueOf(bwVar.bjZ().getFid());
+                oVar.mka = bwVar.bjZ().getNid();
+                if (bwVar.bjZ().bmS() != null) {
+                    oVar.mjW = bwVar.bjZ().bmS().video_md5;
+                    oVar.mjY = String.valueOf(bwVar.bjZ().bmS().is_vertical);
                 }
             }
             oVar.mUid = TbadkCoreApplication.getCurrentAccount();
-            if (bwVar.bhz() != null && bwVar.bhz().getBaijiahaoData() != null) {
-                oVar.mNid = bwVar.bhz().getBaijiahaoData().oriUgcNid;
-                oVar.mVid = bwVar.bhz().getBaijiahaoData().oriUgcVid;
+            if (bwVar.bjZ() != null && bwVar.bjZ().getBaijiahaoData() != null) {
+                oVar.mNid = bwVar.bjZ().getBaijiahaoData().oriUgcNid;
+                oVar.mVid = bwVar.bjZ().getBaijiahaoData().oriUgcVid;
             }
         }
         return oVar;

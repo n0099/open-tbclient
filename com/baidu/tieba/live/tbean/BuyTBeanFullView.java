@@ -122,7 +122,7 @@ public class BuyTBeanFullView extends AbsBuyTBeanView {
                     }
                 }
                 if (j <= 0) {
-                    BuyTBeanFullView.this.tvCustomBeanNum.setText(a.i.sdk_tbn_user_define_init_value);
+                    BuyTBeanFullView.this.tvCustomBeanNum.setText(a.h.sdk_tbn_user_define_init_value);
                     return;
                 }
                 long j2 = j * 1000;
@@ -150,8 +150,8 @@ public class BuyTBeanFullView extends AbsBuyTBeanView {
     @SuppressLint({"ClickableViewAccessibility"})
     private void initUI() {
         String str;
-        this.activity.setContentView(a.h.sdk_tbn_buy_tbean_full_activity);
-        View findViewById = this.activity.findViewById(a.g.view_status_bar);
+        this.activity.setContentView(a.g.sdk_tbn_buy_tbean_full_activity);
+        View findViewById = this.activity.findViewById(a.f.view_status_bar);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
             ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
             layoutParams.height = UtilHelper.getStatusBarHeight();
@@ -160,29 +160,29 @@ public class BuyTBeanFullView extends AbsBuyTBeanView {
         } else {
             findViewById.setVisibility(8);
         }
-        this.mActivitiyRootRl = (RelativeLayout) this.activity.findViewById(a.g.buy_tbean_activity_root);
-        this.mBuyTBeanRootLayout = (LinearLayout) this.activity.findViewById(a.g.buy_tbean_root_ll);
-        FrameLayout frameLayout = (FrameLayout) this.activity.findViewById(a.g.tbean_dialog_wrapper_container);
-        this.mTvTitle = (TextView) this.activity.findViewById(a.g.tv_title);
+        this.mActivitiyRootRl = (RelativeLayout) this.activity.findViewById(a.f.buy_tbean_activity_root);
+        this.mBuyTBeanRootLayout = (LinearLayout) this.activity.findViewById(a.f.buy_tbean_root_ll);
+        FrameLayout frameLayout = (FrameLayout) this.activity.findViewById(a.f.tbean_dialog_wrapper_container);
+        this.mTvTitle = (TextView) this.activity.findViewById(a.f.tv_title);
         if (this.isTBeanNotEnough) {
-            this.mTvTitle.setText(getPageContext().getPageActivity().getString(a.i.sdk_tbn_get_tdou_not_enough));
+            this.mTvTitle.setText(getPageContext().getPageActivity().getString(a.h.sdk_tbn_get_tdou_not_enough));
         } else {
-            this.mTvTitle.setText(getPageContext().getPageActivity().getString(a.i.sdk_tbn_get_tdou));
+            this.mTvTitle.setText(getPageContext().getPageActivity().getString(a.h.sdk_tbn_get_tdou));
         }
-        this.mBack = (ImageView) this.activity.findViewById(a.g.img_back);
+        this.mBack = (ImageView) this.activity.findViewById(a.f.img_back);
         this.mBack.setOnClickListener(this.buyTBeanController);
-        this.mContainer = (RelativeLayout) this.activity.findViewById(a.g.container);
-        this.mTypeListview = (BdGridView) this.activity.findViewById(a.g.listview);
-        this.mResultView = (WalletPayResultView) this.activity.findViewById(a.g.pay_result_root);
-        final BdRoundedImageView bdRoundedImageView = (BdRoundedImageView) this.activity.findViewById(a.g.tbean_ad);
-        this.editCustomPrice = (TBeanEditText) this.activity.findViewById(a.g.edit_custom_bean_price);
-        this.tvCustomBeanNum = (TextView) this.activity.findViewById(a.g.tv_custome_bean_num);
-        this.mCustomBeanSubmitRoot = (RelativeLayout) this.activity.findViewById(a.g.confirm_btn_root);
-        this.tvCustomSubmit = (TextView) this.activity.findViewById(a.g.tv_user_define_confirm_submit);
-        this.tvCustomSubmitHint = (TextView) this.activity.findViewById(a.g.tv_user_define_hint);
-        this.buyBeanCustomLayout = (LinearLayout) this.mActivitiyRootRl.findViewById(a.g.buy_bean_custom_layout);
-        this.layoutExchange = (LinearLayout) this.mBuyTBeanRootLayout.findViewById(a.g.exchange_bean);
-        this.tvExchangeContent = (TextView) this.mBuyTBeanRootLayout.findViewById(a.g.tv_exchange_bean);
+        this.mContainer = (RelativeLayout) this.activity.findViewById(a.f.container);
+        this.mTypeListview = (BdGridView) this.activity.findViewById(a.f.listview);
+        this.mResultView = (WalletPayResultView) this.activity.findViewById(a.f.pay_result_root);
+        final BdRoundedImageView bdRoundedImageView = (BdRoundedImageView) this.activity.findViewById(a.f.tbean_ad);
+        this.editCustomPrice = (TBeanEditText) this.activity.findViewById(a.f.edit_custom_bean_price);
+        this.tvCustomBeanNum = (TextView) this.activity.findViewById(a.f.tv_custome_bean_num);
+        this.mCustomBeanSubmitRoot = (RelativeLayout) this.activity.findViewById(a.f.confirm_btn_root);
+        this.tvCustomSubmit = (TextView) this.activity.findViewById(a.f.tv_user_define_confirm_submit);
+        this.tvCustomSubmitHint = (TextView) this.activity.findViewById(a.f.tv_user_define_hint);
+        this.buyBeanCustomLayout = (LinearLayout) this.mActivitiyRootRl.findViewById(a.f.buy_bean_custom_layout);
+        this.layoutExchange = (LinearLayout) this.mBuyTBeanRootLayout.findViewById(a.f.exchange_bean);
+        this.tvExchangeContent = (TextView) this.mBuyTBeanRootLayout.findViewById(a.f.tv_exchange_bean);
         this.mActivitiyRootRl.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.live.tbean.BuyTBeanFullView.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -276,10 +276,10 @@ public class BuyTBeanFullView extends AbsBuyTBeanView {
                 }
             }
         });
-        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.activity).inflate(a.h.sdk_tbn_buy_tbean_full_floating_window_top_bar, (ViewGroup) frameLayout, false);
+        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.activity).inflate(a.g.sdk_tbn_buy_tbean_full_floating_window_top_bar, (ViewGroup) frameLayout, false);
         frameLayout.addView(relativeLayout);
-        ((TextView) relativeLayout.findViewById(a.g.tbean_get_introduce)).setOnClickListener(this.buyTBeanController);
-        ((ImageView) relativeLayout.findViewById(a.g.tbean_dialog_close_btn)).setOnClickListener(this.buyTBeanController);
+        ((TextView) relativeLayout.findViewById(a.f.tbean_get_introduce)).setOnClickListener(this.buyTBeanController);
+        ((ImageView) relativeLayout.findViewById(a.f.tbean_dialog_close_btn)).setOnClickListener(this.buyTBeanController);
         this.mBuyTBeanAdapter = new BuyTBeanFullGridAdapter(this.tbPageContext, this.activity);
         this.mTypeListview.setAdapter((ListAdapter) this.mBuyTBeanAdapter);
         initListener();
@@ -324,7 +324,7 @@ public class BuyTBeanFullView extends AbsBuyTBeanView {
     @Override // com.baidu.tieba.live.tbean.AbsBuyTBeanView
     public void setData(BuyTBeanModel buyTBeanModel) {
         if (buyTBeanModel == null || ListUtils.isEmpty(buyTBeanModel.getCommodityList())) {
-            BdUtilHelper.showToast(getPageContext().getPageActivity(), a.i.sdk_tbn_no_data_tip);
+            BdUtilHelper.showToast(getPageContext().getPageActivity(), a.h.sdk_tbn_no_data_tip);
             return;
         }
         this.mData = buyTBeanModel;

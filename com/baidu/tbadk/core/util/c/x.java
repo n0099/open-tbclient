@@ -19,7 +19,7 @@ public class x extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int bpi() {
+    public int brI() {
         return this.procType;
     }
 
@@ -39,12 +39,12 @@ public class x extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean bpg() {
+    public boolean brG() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean bph() {
+    public boolean brH() {
         return false;
     }
 
@@ -56,22 +56,22 @@ public class x extends a {
         com.baidu.adp.lib.stats.a mT = com.baidu.tbadk.core.util.u.mT();
         mT.startTimer();
         byte[] bArr = new byte[0];
-        com.baidu.adp.lib.Disk.ops.c BS = BS(av.getNameMd5FromUrl(str2));
-        if (BS == null) {
+        com.baidu.adp.lib.Disk.ops.c Cg = Cg(av.getNameMd5FromUrl(str2));
+        if (Cg == null) {
             return null;
         }
-        BS.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-        BS.setSubFolder(true);
-        BS.setIsFormatData(false);
-        BS.setLock(bArr);
-        BS.setSdCard(false);
+        Cg.a(DiskFileOperate.OperateType.TRY_SUCCESS);
+        Cg.setSubFolder(true);
+        Cg.setIsFormatData(false);
+        Cg.setLock(bArr);
+        Cg.setSdCard(false);
         if (aVar != null) {
             e eVar = new e();
-            eVar.f(BS);
+            eVar.f(Cg);
             aVar.MS = eVar;
         }
         boolean isWifiNet = com.baidu.adp.lib.util.j.isWifiNet();
-        if (!com.baidu.adp.lib.Disk.d.lL().c(BS)) {
+        if (!com.baidu.adp.lib.Disk.d.lL().c(Cg)) {
             com.baidu.tbadk.core.util.u.a(mT, str2, false, mT.getTimeCost(), isWifiNet);
             return null;
         }
@@ -85,10 +85,10 @@ public class x extends a {
             } catch (InterruptedException e) {
             }
         }
-        if (!BS.isSuccess()) {
+        if (!Cg.isSuccess()) {
             aVar2 = null;
         } else {
-            aVar2 = a(BS, str2, i, i2);
+            aVar2 = a(Cg, str2, i, i2);
         }
         if (aVar2 != null) {
             com.baidu.tbadk.core.util.u.a(mT, str2, true, mT.getTimeCost(), isWifiNet);

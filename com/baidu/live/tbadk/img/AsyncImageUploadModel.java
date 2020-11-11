@@ -100,7 +100,7 @@ public class AsyncImageUploadModel<T> {
             if (AsyncImageUploadModel.this.mUploadPicCallback != null) {
                 ImageUploadResult imageUploadResult = new ImageUploadResult();
                 imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_CALCELLED;
-                imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_send_error);
+                imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_send_error);
                 AsyncImageUploadModel.this.mUploadPicCallback.callBack(AsyncImageUploadModel.this.mPath, imageUploadResult);
             }
         }
@@ -122,7 +122,7 @@ public class AsyncImageUploadModel<T> {
                 if (imageUploadResult == null) {
                     imageUploadResult = new ImageUploadResult();
                     imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_ERROR;
-                    imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_send_error);
+                    imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_send_error);
                     TiebaInitialize.imgError(-1002, imageUploadResult.error_msg, "");
                 }
                 AsyncImageUploadModel.this.mUploadPicCallback.callBack(AsyncImageUploadModel.this.mPath, imageUploadResult);

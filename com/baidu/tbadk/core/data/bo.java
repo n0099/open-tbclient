@@ -6,48 +6,48 @@ import java.util.List;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class bo extends AbsThreadDataSupport {
-    public static final BdUniqueId euv = BdUniqueId.gen();
-    public int ewK;
-    private boolean ewV;
+    public static final BdUniqueId eAo = BdUniqueId.gen();
+    public int eCC;
+    private boolean eCN;
     public String title;
-    public boolean ewX = true;
-    private List<MetaData> ewW = new ArrayList();
+    public boolean eCP = true;
+    private List<MetaData> eCO = new ArrayList();
 
-    public void bd(List<User> list) {
+    public void bk(List<User> list) {
         if (list != null) {
-            int min = Math.min(list.size(), this.ewX ? 10 : list.size());
+            int min = Math.min(list.size(), this.eCP ? 10 : list.size());
             for (int i = 0; i < min; i++) {
                 MetaData metaData = new MetaData();
                 metaData.parserProtobuf(list.get(i));
-                this.ewW.add(metaData);
+                this.eCO.add(metaData);
             }
         }
     }
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return euv;
+        return eAo;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bw bhz() {
+    public bw bjZ() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public ar bhB() {
+    public ar bkb() {
         return new ar();
     }
 
-    public List<MetaData> bjn() {
-        return this.ewW;
+    public List<MetaData> blN() {
+        return this.eCO;
     }
 
-    public boolean bjo() {
-        return this.ewV;
+    public boolean blO() {
+        return this.eCN;
     }
 
-    public void iC(boolean z) {
-        this.ewV = z;
+    public void iL(boolean z) {
+        this.eCN = z;
     }
 }

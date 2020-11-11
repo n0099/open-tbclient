@@ -12,21 +12,21 @@ import com.baidu.live.tbadk.loading.LoadingView;
 import com.baidu.tieba.ala.person.hosttabpanel.c.a;
 /* loaded from: classes4.dex */
 public class a implements com.baidu.live.liveroom.d.d {
-    private BdTypeListView bjg;
-    private LoadingView gqG;
-    private TbListCommonPullView huF;
-    private com.baidu.tieba.ala.person.hosttabpanel.a.a huG;
-    private com.baidu.tieba.ala.person.hosttabpanel.c.a huH;
-    private boolean huI = false;
-    private TbListCommonPullView.ListPullRefreshListener huJ = new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.1
+    private BdTypeListView bkA;
+    private LoadingView gwu;
+    private TbListCommonPullView hAC;
+    private com.baidu.tieba.ala.person.hosttabpanel.a.a hAD;
+    private com.baidu.tieba.ala.person.hosttabpanel.c.a hAE;
+    private boolean hAF = false;
+    private TbListCommonPullView.ListPullRefreshListener hAG = new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.1
         @Override // com.baidu.live.tbadk.core.view.TbListCommonPullView.ListPullRefreshListener
         public void onListPullRefresh(boolean z) {
-            if (a.this.huH != null) {
-                a.this.huH.refreshData();
+            if (a.this.hAE != null) {
+                a.this.hAE.refreshData();
             }
         }
     };
-    private a.InterfaceC0682a huK = new a.InterfaceC0682a() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.2
+    private a.InterfaceC0696a hAH = new a.InterfaceC0696a() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.2
     };
     private TbPageContext mPageContext;
     private View mRootView;
@@ -37,14 +37,14 @@ public class a implements com.baidu.live.liveroom.d.d {
     }
 
     private void initView() {
-        this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_new_host_tab_view, (ViewGroup) null);
-        this.bjg = (BdTypeListView) this.mRootView.findViewById(a.g.list_view);
-        this.huF = new TbListCommonPullView(this.mPageContext.getPageActivity());
-        this.huF.changeSkin(0);
-        this.huF.setSkinType(0);
-        this.huF.setListPullRefreshListener(this.huJ);
-        this.bjg.setPullRefresh(this.huF);
-        this.huG = new com.baidu.tieba.ala.person.hosttabpanel.a.a(this.mPageContext, this.bjg);
+        this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.g.ala_new_host_tab_view, (ViewGroup) null);
+        this.bkA = (BdTypeListView) this.mRootView.findViewById(a.f.list_view);
+        this.hAC = new TbListCommonPullView(this.mPageContext.getPageActivity());
+        this.hAC.changeSkin(0);
+        this.hAC.setSkinType(0);
+        this.hAC.setListPullRefreshListener(this.hAG);
+        this.bkA.setPullRefresh(this.hAC);
+        this.hAD = new com.baidu.tieba.ala.person.hosttabpanel.a.a(this.mPageContext, this.bkA);
     }
 
     @Override // com.baidu.live.liveroom.d.d
@@ -54,16 +54,16 @@ public class a implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public String getTitle() {
-        return this.mPageContext != null ? this.mPageContext.getString(a.i.ala_host_tab_title) : "";
+        return this.mPageContext != null ? this.mPageContext.getString(a.h.ala_host_tab_title) : "";
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String KR() {
+    public String Lr() {
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short KS() {
+    public short Ls() {
         return (short) 2;
     }
 
@@ -78,19 +78,19 @@ public class a implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.huH != null) {
-            this.huH.onDestroy();
+        if (this.hAE != null) {
+            this.hAE.onDestroy();
         }
-        if (this.huG != null) {
-            this.huG.onDestroy();
-            this.huG = null;
+        if (this.hAD != null) {
+            this.hAD.onDestroy();
+            this.hAD = null;
         }
-        if (this.gqG != null) {
-            this.gqG.release();
-            this.gqG = null;
+        if (this.gwu != null) {
+            this.gwu.release();
+            this.gwu = null;
         }
-        if (this.huF != null) {
-            this.huF = null;
+        if (this.hAC != null) {
+            this.hAC = null;
         }
     }
 

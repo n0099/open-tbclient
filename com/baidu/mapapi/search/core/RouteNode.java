@@ -8,7 +8,7 @@ public class RouteNode implements Parcelable {
     public static final Parcelable.Creator<RouteNode> CREATOR = new j();
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2105a;
+    private String f2107a;
     private LatLng b;
     private String c;
 
@@ -17,7 +17,7 @@ public class RouteNode implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public RouteNode(Parcel parcel) {
-        this.f2105a = parcel.readString();
+        this.f2107a = parcel.readString();
         this.b = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
         this.c = parcel.readString();
     }
@@ -45,7 +45,7 @@ public class RouteNode implements Parcelable {
     }
 
     public String getTitle() {
-        return this.f2105a;
+        return this.f2107a;
     }
 
     public String getUid() {
@@ -57,7 +57,7 @@ public class RouteNode implements Parcelable {
     }
 
     public void setTitle(String str) {
-        this.f2105a = str;
+        this.f2107a = str;
     }
 
     public void setUid(String str) {
@@ -66,7 +66,7 @@ public class RouteNode implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f2105a);
+        parcel.writeString(this.f2107a);
         parcel.writeValue(this.b);
         parcel.writeString(this.c);
     }

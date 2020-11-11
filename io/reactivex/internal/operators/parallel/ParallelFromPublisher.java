@@ -13,13 +13,13 @@ import org.a.c;
 import org.a.d;
 /* loaded from: classes17.dex */
 public final class ParallelFromPublisher<T> extends a<T> {
-    final int pFw;
+    final int pOQ;
     final int prefetch;
     final b<? extends T> source;
 
     @Override // io.reactivex.parallel.a
-    public int ewW() {
-        return this.pFw;
+    public int eAL() {
+        return this.pOQ;
     }
 
     @Override // io.reactivex.parallel.a
@@ -116,7 +116,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
                         } else {
                             return;
                         }
-                    } while (!atomicLongArray.compareAndSet(this.j, j2, io.reactivex.internal.util.b.N(j2, j)));
+                    } while (!atomicLongArray.compareAndSet(this.j, j2, io.reactivex.internal.util.b.O(j2, j)));
                     if (ParallelDispatcher.this.subscriberCount.get() == this.m) {
                         ParallelDispatcher.this.drain();
                     }

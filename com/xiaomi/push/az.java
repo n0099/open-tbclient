@@ -34,7 +34,7 @@ import org.apache.http.protocol.HTTP;
 public class az {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f4801a = Pattern.compile("([^\\s;]+)(.*)");
+    public static final Pattern f4803a = Pattern.compile("([^\\s;]+)(.*)");
     public static final Pattern b = Pattern.compile("(.*?charset\\s*=[^a-zA-Z0-9]*)([-a-zA-Z0-9]+)(.*)", 2);
     public static final Pattern c = Pattern.compile("(\\<\\?xml\\s+.*?encoding\\s*=[^a-zA-Z0-9]*)([-a-zA-Z0-9]+)(.*)", 2);
 
@@ -42,7 +42,7 @@ public class az {
     public static final class a extends FilterInputStream {
 
         /* renamed from: a  reason: collision with root package name */
-        private boolean f4802a;
+        private boolean f4804a;
 
         public a(InputStream inputStream) {
             super(inputStream);
@@ -51,8 +51,8 @@ public class az {
         @Override // java.io.FilterInputStream, java.io.InputStream
         public int read(byte[] bArr, int i, int i2) {
             int read;
-            if (this.f4802a || (read = super.read(bArr, i, i2)) == -1) {
-                this.f4802a = true;
+            if (this.f4804a || (read = super.read(bArr, i, i2)) == -1) {
+                this.f4804a = true;
                 return -1;
             }
             return read;
@@ -63,13 +63,13 @@ public class az {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f4803a;
+        public int f4805a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Map<String, String> f115a;
+        public Map<String, String> f117a;
 
         public String toString() {
-            return String.format("resCode = %1$d, headers = %2$s", Integer.valueOf(this.f4803a), this.f115a.toString());
+            return String.format("resCode = %1$d, headers = %2$s", Integer.valueOf(this.f4805a), this.f117a.toString());
         }
     }
 
@@ -154,8 +154,8 @@ public class az {
                             throw new IOException(th.getMessage());
                         }
                     }
-                    axVar.f4800a = m141a.getResponseCode();
-                    Log.d("com.xiaomi.common.Network", "Http POST Response Code: " + axVar.f4800a);
+                    axVar.f4802a = m141a.getResponseCode();
+                    Log.d("com.xiaomi.common.Network", "Http POST Response Code: " + axVar.f4802a);
                     int i = 0;
                     while (true) {
                         String headerFieldKey = m141a.getHeaderFieldKey(i);
@@ -167,7 +167,7 @@ public class az {
                                 bufferedReader = new BufferedReader(new InputStreamReader(new a(m141a.getErrorStream())));
                             }
                         } else {
-                            axVar.f114a.put(headerFieldKey, headerField);
+                            axVar.f116a.put(headerFieldKey, headerField);
                             i = i + 1 + 1;
                         }
                     }
@@ -189,7 +189,7 @@ public class az {
                 stringBuffer.append(readLine);
                 stringBuffer.append(property);
             }
-            axVar.f113a = stringBuffer.toString();
+            axVar.f115a = stringBuffer.toString();
             bufferedReader.close();
             y.a((Closeable) null);
             y.a((Closeable) null);
@@ -241,9 +241,9 @@ public class az {
                 }
             }
             if (bVar != null && (url.getProtocol().equals(HttpHost.DEFAULT_SCHEME_NAME) || url.getProtocol().equals("https"))) {
-                bVar.f4803a = m141a.getResponseCode();
-                if (bVar.f115a == null) {
-                    bVar.f115a = new HashMap();
+                bVar.f4805a = m141a.getResponseCode();
+                if (bVar.f117a == null) {
+                    bVar.f117a = new HashMap();
                 }
                 int i = 0;
                 while (true) {
@@ -253,7 +253,7 @@ public class az {
                         break;
                     }
                     if (!TextUtils.isEmpty(headerFieldKey) && !TextUtils.isEmpty(headerField)) {
-                        bVar.f115a.put(headerFieldKey, headerField);
+                        bVar.f117a.put(headerFieldKey, headerField);
                     }
                     i++;
                 }

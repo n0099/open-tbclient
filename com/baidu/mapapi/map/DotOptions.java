@@ -7,7 +7,7 @@ import com.baidu.mapapi.model.LatLng;
 public final class DotOptions extends OverlayOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2004a;
+    int f2006a;
     Bundle c;
     private LatLng d;
     private int e = ViewCompat.MEASURED_STATE_MASK;
@@ -19,10 +19,10 @@ public final class DotOptions extends OverlayOptions {
     public Overlay a() {
         Dot dot = new Dot();
         dot.B = this.b;
-        dot.A = this.f2004a;
+        dot.A = this.f2006a;
         dot.C = this.c;
         dot.b = this.e;
-        dot.f2003a = this.d;
+        dot.f2005a = this.d;
         dot.c = this.f;
         return dot;
     }
@@ -62,7 +62,7 @@ public final class DotOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f2004a;
+        return this.f2006a;
     }
 
     public boolean isVisible() {
@@ -82,7 +82,7 @@ public final class DotOptions extends OverlayOptions {
     }
 
     public DotOptions zIndex(int i) {
-        this.f2004a = i;
+        this.f2006a = i;
         return this;
     }
 }

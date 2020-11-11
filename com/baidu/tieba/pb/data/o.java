@@ -5,46 +5,46 @@ import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.bw;
 /* loaded from: classes22.dex */
 public class o implements com.baidu.adp.widget.ListView.q {
-    public static final BdUniqueId lit = BdUniqueId.gen();
+    public static final BdUniqueId lot = BdUniqueId.gen();
     private bw akq;
-    private AntiData eOT;
-    private boolean liu = false;
-    public boolean liv = false;
+    private AntiData eUI;
+    private boolean lou = false;
+    public boolean lov = false;
 
     public o(bw bwVar, AntiData antiData) {
         this.akq = bwVar;
-        this.eOT = antiData;
+        this.eUI = antiData;
     }
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return lit;
+        return lot;
     }
 
-    public int blB() {
+    public int bob() {
         if (this.akq != null) {
-            return this.akq.blB();
+            return this.akq.bob();
         }
         return 0;
     }
 
-    public boolean dgA() {
-        return this.akq != null && this.akq.blA() == 1;
+    public boolean djc() {
+        return this.akq != null && this.akq.boa() == 1;
     }
 
     public AntiData getAnti() {
-        return this.eOT;
+        return this.eUI;
     }
 
-    public bw bhz() {
+    public bw bjZ() {
         return this.akq;
     }
 
-    public void tJ(boolean z) {
-        this.liu = z;
+    public void tS(boolean z) {
+        this.lou = z;
     }
 
-    public boolean dgB() {
-        return this.liu;
+    public boolean djd() {
+        return this.lou;
     }
 }

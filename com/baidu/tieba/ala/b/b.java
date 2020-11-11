@@ -5,69 +5,69 @@ import com.baidu.tbadk.download.DownloadData;
 import java.io.File;
 /* loaded from: classes4.dex */
 public class b extends g implements j {
-    private d gob;
-    private String goc;
-    private float dAx = 0.0f;
+    private d gtO;
+    private String gtP;
+    private float dGp = 0.0f;
     private boolean mIsLoading = false;
 
     public b(String str) {
-        this.goc = str;
-        bNL();
+        this.gtP = str;
+        bQl();
     }
 
-    private void bNL() {
-        this.gob = c.Gm(this.goc);
+    private void bQl() {
+        this.gtO = c.GA(this.gtP);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bNM() {
-        if (bOe() != null) {
-            bOe().b(this);
+    public void bQm() {
+        if (bQE() != null) {
+            bQE().b(this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bNN() {
-        if (bOe() != null) {
-            bOe().a(this);
+    public void bQn() {
+        if (bQE() != null) {
+            bQE().a(this);
         }
     }
 
     @Override // com.baidu.tieba.ala.b.j
     public boolean isReady() {
-        if (this.gob == null) {
+        if (this.gtO == null) {
             return false;
         }
-        return this.gob.isLoaded();
+        return this.gtO.isLoaded();
     }
 
     @Override // com.baidu.tieba.ala.b.j
     public void load() {
-        if (bOe() != null) {
-            bOe().a(this, getProgress());
+        if (bQE() != null) {
+            bQE().a(this, getProgress());
         }
-        bNO();
+        bQo();
     }
 
-    public void bNO() {
-        if (this.gob == null) {
-            bNM();
+    public void bQo() {
+        if (this.gtO == null) {
+            bQm();
         } else if (!this.mIsLoading) {
             this.mIsLoading = true;
-            if (!this.gob.isLoaded()) {
-                this.gob.bNV();
-                bNP();
+            if (!this.gtO.isLoaded()) {
+                this.gtO.bQv();
+                bQp();
                 return;
             }
-            bNN();
+            bQn();
         }
     }
 
-    private void bNP() {
+    private void bQp() {
         DownloadData downloadData = new DownloadData();
         downloadData.setType(20);
-        downloadData.setUrl(this.gob.mUrl);
-        downloadData.setPath(this.gob.getLoadingFile());
+        downloadData.setUrl(this.gtO.mUrl);
+        downloadData.setPath(this.gtO.getLoadingFile());
         downloadData.setCallback(new com.baidu.tbadk.download.c() { // from class: com.baidu.tieba.ala.b.b.1
             @Override // com.baidu.tbadk.download.c
             public void onFileUpdateProgress(DownloadData downloadData2) {
@@ -76,12 +76,12 @@ public class b extends g implements j {
                     if (file.exists()) {
                         file.delete();
                     }
-                    b.this.bNM();
+                    b.this.bQm();
                     return;
                 }
-                b.this.dAx = downloadData2.getProcess();
-                if (b.this.bOe() != null) {
-                    b.this.bOe().a(b.this, b.this.getProgress());
+                b.this.dGp = downloadData2.getProcess();
+                if (b.this.bQE() != null) {
+                    b.this.bQE().a(b.this, b.this.getProgress());
                 }
             }
 
@@ -98,10 +98,10 @@ public class b extends g implements j {
             @Override // com.baidu.tbadk.download.c
             public void onFileDownloadSucceed(DownloadData downloadData2) {
                 if (downloadData2 != null && !StringUtils.isNull(downloadData2.getPath())) {
-                    if (!b.this.gob.onResLoaded(downloadData2.getPath())) {
-                        b.this.bNM();
+                    if (!b.this.gtO.onResLoaded(downloadData2.getPath())) {
+                        b.this.bQm();
                     } else {
-                        b.this.bNN();
+                        b.this.bQn();
                     }
                 }
             }
@@ -112,14 +112,14 @@ public class b extends g implements j {
                 if (file.exists()) {
                     file.delete();
                 }
-                b.this.bNM();
+                b.this.bQm();
             }
         });
-        com.baidu.tbadk.download.d.bwU().f(downloadData);
+        com.baidu.tbadk.download.d.bzt().f(downloadData);
     }
 
     @Override // com.baidu.tieba.ala.b.j
-    public g bNQ() {
+    public g bQq() {
         return this;
     }
 
@@ -133,7 +133,7 @@ public class b extends g implements j {
 
     @Override // com.baidu.tieba.ala.b.g
     public float getProgress() {
-        return this.dAx;
+        return this.dGp;
     }
 
     @Override // com.baidu.tieba.ala.b.g

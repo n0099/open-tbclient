@@ -39,14 +39,14 @@ public class BdListDialog {
     private int mTextItemSize = -1;
     private boolean mDialogCreated = false;
     private int mTextViewGravity = -1;
-    private int mItemView = a.h.sdk_dialog_bdlist_item;
+    private int mItemView = a.g.sdk_dialog_bdlist_item;
 
     /* loaded from: classes4.dex */
     public static final class Animation {
-        public static final int BOTTOM_TO_TOP = a.j.sdk_dialog_ani_b2t;
-        public static final int TOP_TO_BOTTOM = a.j.sdk_dialog_ani_t2b;
-        public static final int LEFT_TO_RIGHT = a.j.sdk_dialog_ani_l2r;
-        public static final int RIGHT_TO_LEFT = a.j.sdk_dialog_ani_r2l;
+        public static final int BOTTOM_TO_TOP = a.i.sdk_dialog_ani_b2t;
+        public static final int TOP_TO_BOTTOM = a.i.sdk_dialog_ani_t2b;
+        public static final int LEFT_TO_RIGHT = a.i.sdk_dialog_ani_l2r;
+        public static final int RIGHT_TO_LEFT = a.i.sdk_dialog_ani_r2l;
     }
 
     /* loaded from: classes4.dex */
@@ -61,16 +61,16 @@ public class BdListDialog {
     }
 
     static {
-        sBtnStyleMap.put(0, new Integer[]{Integer.valueOf(a.f.sdk_dialg_alert_btn_bg), Integer.valueOf(a.f.sdk_dialog_bdalert_button_textcolor_pressed)});
-        sBtnStyleMap.put(1, new Integer[]{Integer.valueOf(a.f.sdk_btn_blue_square), Integer.valueOf(a.d.sdk_cp_bg_line_d)});
+        sBtnStyleMap.put(0, new Integer[]{Integer.valueOf(a.e.sdk_dialg_alert_btn_bg), Integer.valueOf(a.e.sdk_dialog_bdalert_button_textcolor_pressed)});
+        sBtnStyleMap.put(1, new Integer[]{Integer.valueOf(a.e.sdk_btn_blue_square), Integer.valueOf(a.c.sdk_cp_bg_line_d)});
     }
 
     public BdListDialog(Activity activity) {
         this.mActivity = activity;
-        this.mRootView = (ViewGroup) LayoutInflater.from(activity).inflate(a.h.sdk_dialog_bdlist, (ViewGroup) null);
-        this.mTitleView = (TextView) this.mRootView.findViewById(a.g.dialog_title_list);
-        this.mContentView = (ViewGroup) this.mRootView.findViewById(a.g.dialog_content);
-        this.mLineView = this.mRootView.findViewById(a.g.line_bg);
+        this.mRootView = (ViewGroup) LayoutInflater.from(activity).inflate(a.g.sdk_dialog_bdlist, (ViewGroup) null);
+        this.mTitleView = (TextView) this.mRootView.findViewById(a.f.dialog_title_list);
+        this.mContentView = (ViewGroup) this.mRootView.findViewById(a.f.dialog_content);
+        this.mLineView = this.mRootView.findViewById(a.f.line_bg);
     }
 
     public TextView getTitleView() {
@@ -158,7 +158,7 @@ public class BdListDialog {
         if (this.mDialog != null) {
             ShowUtil.showDialog(this.mDialog, this.mActivity);
         } else {
-            this.mDialog = new AlertDialog.Builder(this.mActivity, a.j.sdk_NoBackDimEnableDialog).create();
+            this.mDialog = new AlertDialog.Builder(this.mActivity, a.i.sdk_NoBackDimEnableDialog).create();
             this.mDialog.setCanceledOnTouchOutside(true);
             if (ShowUtil.showDialog(this.mDialog, this.mActivity)) {
                 Window window = this.mDialog.getWindow();
@@ -184,7 +184,7 @@ public class BdListDialog {
             ((TbPageContext) bdPageContext).getLayoutMode().setNightMode(skinType == 1);
             ((TbPageContext) bdPageContext).getLayoutMode().onModeChanged(this.mRootView);
         }
-        this.mRootView.setBackgroundResource(a.f.sdk_transparent_bg);
+        this.mRootView.setBackgroundResource(a.e.sdk_transparent_bg);
     }
 
     public void hide() {
@@ -206,7 +206,7 @@ public class BdListDialog {
     private View createItemView(final int i) {
         View inflate = LayoutInflater.from(this.mActivity).inflate(this.mItemView, this.mContentView, false);
         LinearLayout linearLayout = (LinearLayout) inflate;
-        final TextView textView = (TextView) inflate.findViewById(a.g.dialog_item_btn);
+        final TextView textView = (TextView) inflate.findViewById(a.f.dialog_item_btn);
         if (this.mTvParam != null) {
             textView.setLayoutParams(this.mTvParam);
         }
@@ -217,7 +217,7 @@ public class BdListDialog {
             textView.setPadding(0, 0, 0, 0);
             textView.setGravity(this.mTextViewGravity);
         }
-        View findViewById = inflate.findViewById(a.g.line);
+        View findViewById = inflate.findViewById(a.f.line);
         CharSequence charSequence = this.mItems.get(i);
         if (charSequence.length() <= 0) {
             charSequence = "";
@@ -225,14 +225,14 @@ public class BdListDialog {
         textView.setText(charSequence);
         if (i == this.mItems.size() - 1) {
             findViewById.setVisibility(8);
-            SkinManager.setBackgroundResource(inflate, a.f.sdk_dialog_single_button_bg_selector);
+            SkinManager.setBackgroundResource(inflate, a.e.sdk_dialog_single_button_bg_selector);
         } else if (this.mItems.size() == 1) {
             findViewById.setVisibility(8);
-            SkinManager.setBackgroundResource(inflate, a.f.sdk_dialog_single_button_only_one_bg_selector);
+            SkinManager.setBackgroundResource(inflate, a.e.sdk_dialog_single_button_only_one_bg_selector);
         } else if (i == 0 && StringUtils.isNull(this.mTitle)) {
-            SkinManager.setBackgroundResource(inflate, a.f.sdk_dialog_single_button_first_bg_selector);
+            SkinManager.setBackgroundResource(inflate, a.e.sdk_dialog_single_button_first_bg_selector);
         } else {
-            SkinManager.setBackgroundResource(inflate, a.f.sdk_dialg_alert_btn_bg);
+            SkinManager.setBackgroundResource(inflate, a.e.sdk_dialg_alert_btn_bg);
         }
         if (this.mOnItemClickListener != null) {
             linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.tbadk.core.dialog.BdListDialog.1

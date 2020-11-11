@@ -10,26 +10,26 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.special_forum.data.e> {
-    private View dVJ;
-    private View eCZ;
-    private TextView ggb;
-    private ImageView ggc;
+    private View eIO;
+    private View ebB;
+    private TextView glQ;
+    private ImageView glR;
 
     public b(TbPageContext tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.dVJ = getView();
-        this.ggb = (TextView) getView().findViewById(R.id.tv_empty);
-        this.ggc = (ImageView) getView().findViewById(R.id.iv_empty);
-        this.eCZ = getView().findViewById(R.id.id_tab_live_sub_empty_divider);
+        this.ebB = getView();
+        this.glQ = (TextView) getView().findViewById(R.id.tv_empty);
+        this.glR = (ImageView) getView().findViewById(R.id.iv_empty);
+        this.eIO = getView().findViewById(R.id.id_tab_live_sub_empty_divider);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ap.setBackgroundResource(this.dVJ, R.color.cp_bg_line_d);
-        ap.setViewTextColor(this.ggb, R.color.cp_cont_d);
-        ap.setImageResource(this.ggc, R.drawable.new_pic_emotion_08);
-        ap.setBackgroundResource(this.eCZ, R.color.cp_bg_line_c);
+        ap.setBackgroundResource(this.ebB, R.color.cp_bg_line_d);
+        ap.setViewTextColor(this.glQ, (int) R.color.cp_cont_d);
+        ap.setImageResource(this.glR, R.drawable.new_pic_emotion_08);
+        ap.setBackgroundResource(this.eIO, R.color.cp_bg_line_c);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -41,12 +41,12 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.spec
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.e eVar) {
         if (eVar.followStatus == 1) {
-            this.ggb.setText(this.mTbPageContext.getResources().getString(R.string.live_sub_tab_no_attention_txt));
-            ap.setImageResource(this.ggc, R.drawable.new_pic_emotion_07);
+            this.glQ.setText(this.mTbPageContext.getResources().getString(R.string.live_sub_tab_no_attention_txt));
+            ap.setImageResource(this.glR, R.drawable.new_pic_emotion_07);
             return;
         }
-        this.ggb.setText(this.mTbPageContext.getResources().getString(R.string.live_sub_tab_empty_txt));
-        ap.setImageResource(this.ggc, R.drawable.new_pic_emotion_06);
+        this.glQ.setText(this.mTbPageContext.getResources().getString(R.string.live_sub_tab_empty_txt));
+        ap.setImageResource(this.glR, R.drawable.new_pic_emotion_06);
     }
 
     @Override // android.view.View.OnClickListener

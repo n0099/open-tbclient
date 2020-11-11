@@ -3,14 +3,14 @@ package com.baidu.live.message;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes4.dex */
 public class YuyinModifyRoomMessage extends CustomResponsedMessage<ModifyRoomCover> {
-    private ModifyRoomCover bmW;
+    private ModifyRoomCover bop;
 
     public YuyinModifyRoomMessage(ModifyRoomCover modifyRoomCover) {
         super(2501030);
-        this.bmW = modifyRoomCover;
+        this.bop = modifyRoomCover;
     }
 
-    public ModifyRoomCover NO() {
-        return this.bmW;
+    public ModifyRoomCover Oo() {
+        return this.bop;
     }
 }

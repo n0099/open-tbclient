@@ -5,16 +5,16 @@ import android.view.View;
 final class ea implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackReportActivity f3846a;
+    final /* synthetic */ FeedbackReportActivity f3848a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ea(FeedbackReportActivity feedbackReportActivity) {
-        this.f3846a = feedbackReportActivity;
+        this.f3848a = feedbackReportActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        this.f3846a.C = true;
-        this.f3846a.a();
+        this.f3848a.C = true;
+        this.f3848a.a();
     }
 }

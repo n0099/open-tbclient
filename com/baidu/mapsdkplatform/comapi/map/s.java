@@ -6,7 +6,7 @@ import android.os.Message;
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2236a = s.class.getSimpleName();
+    private static final String f2238a = s.class.getSimpleName();
     private r b;
 
     /* JADX INFO: Access modifiers changed from: package-private */

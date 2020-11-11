@@ -10,38 +10,38 @@ import okhttp3.Interceptor;
 import okhttp3.Response;
 /* loaded from: classes10.dex */
 public class d implements Interceptor {
-    private a.InterfaceC0444a dbF;
-    final e dbj = new e() { // from class: com.baidu.swan.games.network.a.d.1
+    private a.InterfaceC0456a dhA;
+    final e dhe = new e() { // from class: com.baidu.swan.games.network.a.d.1
         @Override // com.baidu.swan.apps.network.e
         public void b(long j, long j2, boolean z) {
-            if (d.this.dbF == null) {
+            if (d.this.dhA == null) {
                 if (com.baidu.swan.apps.b.DEBUG) {
                     Log.e("onProgress", "DownloadProgressInterceptor.mIProgressCallback == null");
                 }
             } else if (j2 == -1 && j != 0) {
-                d.this.dbF.b(0, j, j2);
+                d.this.dhA.c(0, j, j2);
             } else if (j2 > Config.RAVEN_LOG_LIMIT) {
-                d.this.dbF.by(j2);
-                d.this.dbF = null;
+                d.this.dhA.bU(j2);
+                d.this.dhA = null;
             } else if (j2 <= 0 || j > j2 || j == 0) {
-                d.this.dbF.h(j, j2);
-                d.this.dbF = null;
+                d.this.dhA.i(j, j2);
+                d.this.dhA = null;
             } else {
                 int floor = (int) Math.floor((100 * j) / j2);
                 if (floor <= 100) {
-                    d.this.dbF.b(floor, j, j2);
+                    d.this.dhA.c(floor, j, j2);
                 }
             }
         }
     };
 
-    public void a(a.InterfaceC0444a interfaceC0444a) {
-        this.dbF = interfaceC0444a;
+    public void a(a.InterfaceC0456a interfaceC0456a) {
+        this.dhA = interfaceC0456a;
     }
 
     @Override // okhttp3.Interceptor
     public Response intercept(Interceptor.Chain chain) throws IOException {
         Response proceed = chain.proceed(chain.request());
-        return proceed.newBuilder().body(new h(proceed.body(), this.dbj)).build();
+        return proceed.newBuilder().body(new h(proceed.body(), this.dhe)).build();
     }
 }

@@ -8,26 +8,26 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes24.dex */
 public class a {
-    private String iar = "";
-    private HashMap<String, String> ias;
+    private String igs = "";
+    private HashMap<String, String> igt;
     private boolean isOpen;
 
-    public void dl(JSONObject jSONObject) {
+    public void dr(JSONObject jSONObject) {
         JSONObject optJSONObject;
         JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
         if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("hotmonitor")) != null) {
-            this.iar = optJSONObject.optString("link");
+            this.igs = optJSONObject.optString("link");
             this.isOpen = optJSONObject.optInt("open", 0) == 1;
             JSONArray optJSONArray = optJSONObject.optJSONArray("config");
             if (optJSONArray != null && optJSONArray.length() != 0) {
-                this.ias = new HashMap<>();
+                this.igt = new HashMap<>();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject3 = optJSONArray.optJSONObject(i);
                     if (optJSONObject3 != null) {
                         String optString = optJSONObject3.optString(NotificationCompat.CATEGORY_EVENT);
                         String optString2 = optJSONObject3.optString(Message.RULE);
                         if (!at.isEmpty(optString) && !at.isEmpty(optString2)) {
-                            this.ias.put(optString, optString2);
+                            this.igt.put(optString, optString2);
                         }
                     }
                 }
@@ -39,11 +39,11 @@ public class a {
         return this.isOpen;
     }
 
-    public HashMap<String, String> cnQ() {
-        return this.ias;
+    public HashMap<String, String> cqr() {
+        return this.igt;
     }
 
-    public String cnR() {
-        return this.iar;
+    public String cqs() {
+        return this.igs;
     }
 }

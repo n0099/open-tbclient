@@ -11,8 +11,8 @@ import android.view.View;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.gift.a.c;
 import com.baidu.live.gift.g;
+import com.baidu.live.gift.k;
 import com.baidu.live.gift.l;
-import com.baidu.live.gift.m;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.UtilHelper;
@@ -22,19 +22,19 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b {
-    private c bcr;
-    private AlaGiftGraffitiShowView bct;
-    private PointF bcw;
-    private a bcx;
+    private c bdK;
+    private AlaGiftGraffitiShowView bdM;
+    private PointF bdP;
+    private a bdQ;
     private Context mContext;
-    private boolean bcs = true;
-    private int bcu = 0;
-    private int bcv = 0;
+    private boolean bdL = true;
+    private int bdN = 0;
+    private int bdO = 0;
     private Handler mHandler = new Handler();
-    private Runnable bcy = new Runnable() { // from class: com.baidu.live.gift.graffitiGift.b.2
+    private Runnable bdR = new Runnable() { // from class: com.baidu.live.gift.graffitiGift.b.2
         @Override // java.lang.Runnable
         public void run() {
-            b.this.IJ();
+            b.this.Jk();
         }
     };
 
@@ -44,75 +44,75 @@ public class b {
     }
 
     public b(AlaGiftGraffitiShowView alaGiftGraffitiShowView, Context context) {
-        this.bct = alaGiftGraffitiShowView;
+        this.bdM = alaGiftGraffitiShowView;
         this.mContext = context;
     }
 
     public boolean isReady() {
-        return this.bcs;
+        return this.bdL;
     }
 
     public void o(c cVar) {
-        if (cVar != null && cVar.aZJ.aTv != null) {
-            this.bcs = false;
-            this.bcr = p(cVar);
-            this.bct.setOffsetY(this.bcv);
-            if (this.bcr.aZJ.aTv.aUB == 0) {
-                this.bct.II();
-                IK();
+        if (cVar != null && cVar.bbc.aUN != null) {
+            this.bdL = false;
+            this.bdK = p(cVar);
+            this.bdM.setOffsetY(this.bdO);
+            if (this.bdK.bbc.aUN.aVT == 0) {
+                this.bdM.Jj();
+                Jl();
             } else {
-                IM();
+                Jn();
             }
-            this.bct.setGiftItem(this.bcr);
+            this.bdM.setGiftItem(this.bdK);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void IK() {
-        if (this.bcr == null || this.bcr.aZJ.aTv == null) {
-            this.bcu = 0;
+    public void Jl() {
+        if (this.bdK == null || this.bdK.bbc.aUN == null) {
+            this.bdN = 0;
             return;
         }
-        if (this.bcu < this.bcr.aZJ.aTv.aUD.size()) {
-            List<PointF> list = this.bcr.aZJ.aTv.aUD;
-            int i = this.bcu;
-            this.bcu = i + 1;
+        if (this.bdN < this.bdK.bbc.aUN.aVV.size()) {
+            List<PointF> list = this.bdK.bbc.aUN.aVV;
+            int i = this.bdN;
+            this.bdN = i + 1;
             PointF pointF = list.get(i);
-            TbImageView tbImageView = new TbImageView(this.bct.getContext());
-            tbImageView.startLoad(ey(this.bcu - 1), 10, false);
-            tbImageView.setDefaultBgResource(a.d.sdk_transparent);
+            TbImageView tbImageView = new TbImageView(this.bdM.getContext());
+            tbImageView.startLoad(ey(this.bdN - 1), 10, false);
+            tbImageView.setDefaultBgResource(a.c.sdk_transparent);
             tbImageView.setIsNight(false);
             tbImageView.setAutoChangeStyle(false);
-            this.bct.b(tbImageView, (int) pointF.x, (int) pointF.y, this.bcr.aZJ.aTv.aUF.left, (int) this.bcw.y);
-            if (ar(this.mContext) && IN()) {
+            this.bdM.b(tbImageView, (int) pointF.x, (int) pointF.y, this.bdK.bbc.aUN.aVX.left, (int) this.bdP.y);
+            if (ar(this.mContext) && Jo()) {
                 this.mHandler.removeCallbacksAndMessages(null);
                 return;
             } else {
                 this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.live.gift.graffitiGift.b.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        b.this.IK();
+                        b.this.Jl();
                     }
                 }, 80L);
                 return;
             }
         }
-        this.mHandler.postDelayed(this.bcy, 2000L);
+        this.mHandler.postDelayed(this.bdR, 2000L);
     }
 
     private String ey(int i) {
-        if (IL()) {
-            if (this.bcr != null && this.bcr.aUG != null) {
+        if (Jm()) {
+            if (this.bdK != null && this.bdK.aVY != null) {
                 int i2 = 0;
                 int i3 = -1;
                 while (true) {
                     int i4 = i2;
-                    if (i4 < this.bcr.aUG.size()) {
-                        m mVar = this.bcr.aUG.get(i4);
-                        if (i3 < i && i <= mVar.Go() + i3) {
-                            return mVar.Gn();
+                    if (i4 < this.bdK.aVY.size()) {
+                        l lVar = this.bdK.aVY.get(i4);
+                        if (i3 < i && i <= lVar.GP() + i3) {
+                            return lVar.GO();
                         }
-                        i3 += mVar.Go();
+                        i3 += lVar.GP();
                         i2 = i4 + 1;
                     } else {
                         return getThumbnailUrl();
@@ -127,14 +127,14 @@ public class b {
     }
 
     private String getThumbnailUrl() {
-        if (this.bcr == null || this.bcr.aZJ == null) {
+        if (this.bdK == null || this.bdK.bbc == null) {
             return null;
         }
-        return this.bcr.aZJ.getThumbnail_url();
+        return this.bdK.bbc.getThumbnail_url();
     }
 
-    private boolean IL() {
-        return (this.bcr == null || this.bcr.aUG == null || this.bcr.aUG.size() <= 0) ? false : true;
+    private boolean Jm() {
+        return (this.bdK == null || this.bdK.aVY == null || this.bdK.aVY.size() <= 0) ? false : true;
     }
 
     private c p(c cVar) {
@@ -144,82 +144,82 @@ public class b {
             return null;
         }
         c clone = cVar.clone();
-        clone.aZJ = new g(cVar.aZJ);
-        l lVar = cVar.aZJ.aTv;
-        if (lVar.aUG != null && lVar.aUG.size() > 0 && clone.aUG != null) {
-            clone.aUG.addAll(lVar.aUG);
+        clone.bbc = new g(cVar.bbc);
+        k kVar = cVar.bbc.aUN;
+        if (kVar.aVY != null && kVar.aVY.size() > 0 && clone.aVY != null) {
+            clone.aVY.addAll(kVar.aVY);
         }
         float dip2px = BdUtilHelper.dip2px(this.mContext, 1.0f);
-        float f = ((int) (32.0f * dip2px)) / lVar.aUC;
-        clone.aZJ.aTv.aUB = lVar.aUB;
-        clone.aZJ.aTv.aUE = lVar.aUE;
+        float f = ((int) (32.0f * dip2px)) / kVar.aVU;
+        clone.bbc.aUN.aVT = kVar.aVT;
+        clone.bbc.aUN.aVW = kVar.aVW;
         int[] screenDimensions = BdUtilHelper.getScreenDimensions(this.mContext);
-        clone.aZJ.aTv.aUv = screenDimensions[0];
-        clone.aZJ.aTv.aUw = screenDimensions[1];
-        float ceil = (lVar.aUF.left * f) + ((float) Math.ceil((clone.aZJ.aTv.aUv - (lVar.aUv * f)) / 2.0d));
-        float ceil2 = ((float) Math.ceil((clone.aZJ.aTv.aUw - (lVar.aUw * f)) / 2.0d)) + (lVar.aUF.top * f);
-        float width = lVar.aUF.width() * f;
-        float height = lVar.aUF.height() * f;
+        clone.bbc.aUN.aVN = screenDimensions[0];
+        clone.bbc.aUN.aVO = screenDimensions[1];
+        float ceil = (kVar.aVX.left * f) + ((float) Math.ceil((clone.bbc.aUN.aVN - (kVar.aVN * f)) / 2.0d));
+        float ceil2 = ((float) Math.ceil((clone.bbc.aUN.aVO - (kVar.aVO * f)) / 2.0d)) + (kVar.aVX.top * f);
+        float width = kVar.aVX.width() * f;
+        float height = kVar.aVX.height() * f;
         float ceil3 = (32.0f * dip2px) + ((float) Math.ceil(i / 2)) + (10.0f * dip2px);
         if (ceil2 >= ceil3) {
             ceil3 = ceil2;
         }
-        clone.aZJ.aTv.aUF = new Rect((int) ceil, (int) ceil3, (int) width, (int) height);
+        clone.bbc.aUN.aVX = new Rect((int) ceil, (int) ceil3, (int) width, (int) height);
         ArrayList arrayList = new ArrayList();
-        PointF pointF = lVar.aUD.get(0);
-        this.bcw = new PointF(pointF.x * f, pointF.y * f);
-        PointF pointF2 = new PointF(this.bcw.x, this.bcw.y);
-        Iterator<PointF> it = lVar.aUD.iterator();
+        PointF pointF = kVar.aVV.get(0);
+        this.bdP = new PointF(pointF.x * f, pointF.y * f);
+        PointF pointF2 = new PointF(this.bdP.x, this.bdP.y);
+        Iterator<PointF> it = kVar.aVV.iterator();
         while (true) {
             PointF pointF3 = pointF2;
             if (it.hasNext()) {
                 PointF next = it.next();
                 PointF pointF4 = new PointF(next.x * f, next.y * f);
-                this.bcw = this.bcw.y > pointF4.y ? pointF4 : this.bcw;
+                this.bdP = this.bdP.y > pointF4.y ? pointF4 : this.bdP;
                 pointF2 = pointF3.y < pointF4.y ? pointF4 : pointF3;
                 arrayList.add(pointF4);
             } else {
-                clone.aZJ.aTv.aUD = arrayList;
-                this.bcv = (int) ((((rect.top + this.bcw.y) - (i / 2)) - this.bct.getInfoView().getHeight()) - (10.0f * dip2px));
+                clone.bbc.aUN.aVV = arrayList;
+                this.bdO = (int) ((((rect.top + this.bdP.y) - (i / 2)) - this.bdM.getInfoView().getHeight()) - (10.0f * dip2px));
                 return clone;
             }
         }
     }
 
-    private void IM() {
-        this.bct.II();
+    private void Jn() {
+        this.bdM.Jj();
         PropertyValuesHolder ofKeyframe = PropertyValuesHolder.ofKeyframe(View.ROTATION, Keyframe.ofFloat(0.0f, 3.0f * 1.3f), Keyframe.ofFloat(0.05f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.1f, 3.0f * 1.3f), Keyframe.ofFloat(0.15f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.2f, 3.0f * 1.3f), Keyframe.ofFloat(0.25f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.3f, 3.0f * 1.3f), Keyframe.ofFloat(0.35f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.4f, 3.0f * 1.3f), Keyframe.ofFloat(0.45f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.5f, 3.0f * 1.3f), Keyframe.ofFloat(0.55f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.6f, 3.0f * 1.3f), Keyframe.ofFloat(0.65f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.7f, 3.0f * 1.3f), Keyframe.ofFloat(0.75f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.8f, 3.0f * 1.3f), Keyframe.ofFloat(0.85f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.9f, 3.0f * 1.3f), Keyframe.ofFloat(0.95f, (-3.0f) * 1.3f), Keyframe.ofFloat(1.0f, 1.3f * 3.0f));
-        int size = this.bcr.aZJ.aTv.aUD.size();
+        int size = this.bdK.bbc.aUN.aVV.size();
         for (int i = 0; i < size; i++) {
-            TbImageView tbImageView = new TbImageView(this.bct.getContext());
+            TbImageView tbImageView = new TbImageView(this.bdM.getContext());
             tbImageView.setIsNight(false);
             tbImageView.setAutoChangeStyle(false);
-            tbImageView.setDefaultBgResource(a.d.sdk_transparent);
+            tbImageView.setDefaultBgResource(a.c.sdk_transparent);
             tbImageView.startLoad(ey(i), 10, false);
             ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(tbImageView, ofKeyframe);
             ofPropertyValuesHolder.setRepeatMode(1);
             ofPropertyValuesHolder.setRepeatCount(-1);
             ofPropertyValuesHolder.setDuration(5000L);
             ofPropertyValuesHolder.start();
-            PointF pointF = this.bcr.aZJ.aTv.aUD.get(i);
-            this.bct.b(tbImageView, (int) pointF.x, (int) pointF.y, this.bcr.aZJ.aTv.aUF.left, (int) this.bcw.y);
+            PointF pointF = this.bdK.bbc.aUN.aVV.get(i);
+            this.bdM.b(tbImageView, (int) pointF.x, (int) pointF.y, this.bdK.bbc.aUN.aVX.left, (int) this.bdP.y);
         }
-        this.mHandler.removeCallbacks(this.bcy);
-        this.mHandler.postDelayed(this.bcy, 5000L);
+        this.mHandler.removeCallbacks(this.bdR);
+        this.mHandler.postDelayed(this.bdR, 5000L);
     }
 
     public void a(a aVar) {
-        this.bcx = aVar;
+        this.bdQ = aVar;
     }
 
-    public void IJ() {
-        this.bcu = 0;
-        this.bcs = true;
-        if (this.bct != null) {
-            this.bct.II();
+    public void Jk() {
+        this.bdN = 0;
+        this.bdL = true;
+        if (this.bdM != null) {
+            this.bdM.Jj();
         }
-        if (this.bcx != null) {
-            this.bcx.onEnd();
+        if (this.bdQ != null) {
+            this.bdQ.onEnd();
         }
     }
 
@@ -228,24 +228,24 @@ public class b {
             this.mHandler.removeCallbacksAndMessages(null);
             this.mHandler = null;
         }
-        if (this.bct != null) {
-            this.bct.II();
-            this.bct = null;
+        if (this.bdM != null) {
+            this.bdM.Jj();
+            this.bdM = null;
         }
-        this.bcx = null;
+        this.bdQ = null;
     }
 
     private boolean ar(Context context) {
         return context != null && UtilHelper.getRealScreenOrientation(context) == 2;
     }
 
-    private boolean IN() {
-        return (this.bcr == null || this.bcr.userId == null || !this.bcr.userId.equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
+    private boolean Jo() {
+        return (this.bdK == null || this.bdK.userId == null || !this.bdK.userId.equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
     }
 
-    public void Gi() {
-        if (IN()) {
-            IJ();
+    public void GJ() {
+        if (Jo()) {
+            Jk();
         }
     }
 }

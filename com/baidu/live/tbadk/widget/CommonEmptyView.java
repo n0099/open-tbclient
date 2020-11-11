@@ -53,12 +53,12 @@ public class CommonEmptyView extends FrameLayout {
     }
 
     private void init() {
-        LayoutInflater.from(getContext()).inflate(a.h.sdk_common_empty_view, this);
-        this.mContentView = (LinearLayout) findViewById(a.g.sdk_cev_content);
-        this.mImgView = (ImageView) findViewById(a.g.sdk_cev_img);
-        this.mTitleView = (TextView) findViewById(a.g.sdk_cev_title);
-        this.mSubTitleView = (TextView) findViewById(a.g.sdk_cev_sub_title);
-        this.mRefreshButton = (TextView) findViewById(a.g.sdk_cev_refresh_btn);
+        LayoutInflater.from(getContext()).inflate(a.g.sdk_common_empty_view, this);
+        this.mContentView = (LinearLayout) findViewById(a.f.sdk_cev_content);
+        this.mImgView = (ImageView) findViewById(a.f.sdk_cev_img);
+        this.mTitleView = (TextView) findViewById(a.f.sdk_cev_title);
+        this.mSubTitleView = (TextView) findViewById(a.f.sdk_cev_sub_title);
+        this.mRefreshButton = (TextView) findViewById(a.f.sdk_cev_refresh_btn);
         reset();
     }
 
@@ -147,16 +147,16 @@ public class CommonEmptyView extends FrameLayout {
 
     private void setCommonStyle(StyleType styleType) {
         if (styleType == StyleType.DARK) {
-            this.mTitleView.setTextColor(getContext().getResources().getColor(a.d.sdk_cev_title_text_dark));
-            this.mSubTitleView.setTextColor(getContext().getResources().getColor(a.d.sdk_cev_sub_title_text_dark));
-            this.mRefreshButton.setTextColor(getContext().getResources().getColor(a.d.sdk_cev_btn_text_dark_selector));
-            this.mRefreshButton.setBackgroundResource(a.f.sdk_cev_btn_bg_dark_selector);
+            this.mTitleView.setTextColor(getContext().getResources().getColor(a.c.sdk_cev_title_text_dark));
+            this.mSubTitleView.setTextColor(getContext().getResources().getColor(a.c.sdk_cev_sub_title_text_dark));
+            this.mRefreshButton.setTextColor(getContext().getResources().getColor(a.c.sdk_cev_btn_text_dark_selector));
+            this.mRefreshButton.setBackgroundResource(a.e.sdk_cev_btn_bg_dark_selector);
             return;
         }
-        this.mTitleView.setTextColor(getContext().getResources().getColor(a.d.sdk_cev_title_text_light));
-        this.mSubTitleView.setTextColor(getContext().getResources().getColor(a.d.sdk_cev_sub_title_text_light));
-        this.mRefreshButton.setTextColor(getContext().getResources().getColor(a.d.sdk_cev_btn_text_light_selector));
-        this.mRefreshButton.setBackgroundResource(a.f.sdk_cev_btn_bg_light_selector);
+        this.mTitleView.setTextColor(getContext().getResources().getColor(a.c.sdk_cev_title_text_light));
+        this.mSubTitleView.setTextColor(getContext().getResources().getColor(a.c.sdk_cev_sub_title_text_light));
+        this.mRefreshButton.setTextColor(getContext().getResources().getColor(a.c.sdk_cev_btn_text_light_selector));
+        this.mRefreshButton.setBackgroundResource(a.e.sdk_cev_btn_bg_light_selector);
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View

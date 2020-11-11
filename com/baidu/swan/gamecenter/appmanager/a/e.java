@@ -27,7 +27,7 @@ public class e extends com.baidu.swan.gamecenter.c.a {
                 bVar.onFail(31011, "app is not installed");
                 com.baidu.swan.gamecenter.appmanager.d.c.a(optString, "openApp", "fail", String.valueOf(31011), null);
             } else if (com.baidu.swan.gamecenter.appmanager.install.a.ao(AppRuntime.getAppContext(), optString)) {
-                bVar.ay(null);
+                bVar.aE(null);
                 com.baidu.swan.gamecenter.appmanager.d.c.a(optString, "openApp", "success", null, null);
             } else {
                 bVar.onFail(31019, "open app fail");

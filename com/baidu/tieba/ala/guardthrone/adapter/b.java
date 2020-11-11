@@ -15,13 +15,13 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class b extends BaseAdapter {
     private Context mContext;
-    private List<a.b.C0642b> mList = new ArrayList();
+    private List<a.b.C0654b> mList = new ArrayList();
 
     public b(Context context) {
         this.mContext = context;
     }
 
-    public void setList(List<a.b.C0642b> list) {
+    public void setList(List<a.b.C0654b> list) {
         if (this.mList != null) {
             this.mList.clear();
             this.mList.addAll(list);
@@ -54,30 +54,30 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null || view.getTag() == null) {
-            view = LayoutInflater.from(this.mContext).inflate(a.h.ala_guard_throne_rank_item_layout, (ViewGroup) null);
+            view = LayoutInflater.from(this.mContext).inflate(a.g.ala_guard_throne_rank_item_layout, (ViewGroup) null);
             aVar = new a();
-            aVar.gDY = (TextView) view.findViewById(a.g.tv_rank_label);
-            aVar.gDZ = (HeadImageView) view.findViewById(a.g.avatar_rank);
-            aVar.gEa = (TextView) view.findViewById(a.g.tv_rank_name);
-            aVar.gEb = (TextView) view.findViewById(a.g.tv_rank_score);
-            a(aVar.gDZ);
+            aVar.gJL = (TextView) view.findViewById(a.f.tv_rank_label);
+            aVar.gJM = (HeadImageView) view.findViewById(a.f.avatar_rank);
+            aVar.gJN = (TextView) view.findViewById(a.f.tv_rank_name);
+            aVar.gJO = (TextView) view.findViewById(a.f.tv_rank_score);
+            a(aVar.gJM);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
-        a.b.C0642b c0642b = (this.mList == null || this.mList.size() <= i) ? null : this.mList.get(i);
-        if (c0642b != null) {
-            aVar.gDY.setText(c0642b.rank);
-            aVar.gDZ.startLoad(c0642b.portrait, 12, false);
-            aVar.gEa.setText(c0642b.nickname);
-            aVar.gEb.setText(this.mContext.getResources().getString(a.i.score_value, com.baidu.tieba.ala.guardthrone.e.a.Hi(c0642b.score)));
+        a.b.C0654b c0654b = (this.mList == null || this.mList.size() <= i) ? null : this.mList.get(i);
+        if (c0654b != null) {
+            aVar.gJL.setText(c0654b.rank);
+            aVar.gJM.startLoad(c0654b.portrait, 12, false);
+            aVar.gJN.setText(c0654b.nickname);
+            aVar.gJO.setText(this.mContext.getResources().getString(a.h.score_value, com.baidu.tieba.ala.guardthrone.e.a.Hv(c0654b.score)));
         }
         return view;
     }
 
     private void a(HeadImageView headImageView) {
-        headImageView.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def);
-        headImageView.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def);
+        headImageView.setDefaultResource(a.e.sdk_pic_mycenter_avatar_def);
+        headImageView.setDefaultErrorResource(a.e.sdk_pic_mycenter_avatar_def);
         headImageView.setIsRound(true);
         headImageView.setAutoChangeStyle(false);
         headImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -85,10 +85,10 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes4.dex */
     private class a {
-        public TextView gDY;
-        public HeadImageView gDZ;
-        public TextView gEa;
-        public TextView gEb;
+        public TextView gJL;
+        public HeadImageView gJM;
+        public TextView gJN;
+        public TextView gJO;
 
         private a() {
         }

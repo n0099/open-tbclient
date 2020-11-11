@@ -23,36 +23,36 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class YuyinAlaRoomGiftItemView extends RelativeLayout {
-    private final int bMQ;
-    private final int bMR;
-    private final int bMS;
-    private final int bMT;
-    private final int bMU;
-    private final float bMV;
-    private final float bMW;
-    private final int bMX;
-    private float bMY;
-    private float bMZ;
-    private ObjectAnimator bNa;
-    private ObjectAnimator bNb;
-    private ObjectAnimator bNc;
-    private ObjectAnimator bNd;
-    private ObjectAnimator bNe;
-    private a bNf;
-    private TbImageView bNg;
-    private TextView bNh;
-    private TextView bNi;
-    private List<ObjectAnimator> bNj;
-    private ObjectAnimator bNk;
-    private AlaWheatInfoData bNl;
-    private final int bNm;
-    private final int bNn;
+    private final int bSA;
+    private final int bSB;
+    private final int bSC;
+    private final int bSD;
+    private final float bSE;
+    private final float bSF;
+    private final int bSG;
+    private float bSH;
+    private float bSI;
+    private ObjectAnimator bSJ;
+    private ObjectAnimator bSK;
+    private ObjectAnimator bSL;
+    private ObjectAnimator bSM;
+    private ObjectAnimator bSN;
+    private a bSO;
+    private TbImageView bSP;
+    private TextView bSQ;
+    private TextView bSR;
+    private List<ObjectAnimator> bSS;
+    private ObjectAnimator bST;
+    private AlaWheatInfoData bSU;
+    private final int bSV;
+    private final int bSW;
+    private final int bSz;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void VA();
+        void XY();
 
-        void Vz();
+        void XZ();
     }
 
     public YuyinAlaRoomGiftItemView(Context context) {
@@ -61,33 +61,33 @@ public class YuyinAlaRoomGiftItemView extends RelativeLayout {
 
     public YuyinAlaRoomGiftItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bMQ = 500;
-        this.bMR = 1500;
-        this.bMS = 500;
-        this.bMT = 800;
-        this.bMU = 500;
-        this.bMV = 1.0f;
-        this.bMW = 0.76f;
-        this.bMX = 4;
-        this.bNj = new ArrayList();
-        this.bNm = Color.parseColor("#FFEAAA");
-        this.bNn = Color.parseColor("#FFFFFF");
+        this.bSz = 500;
+        this.bSA = 1500;
+        this.bSB = 500;
+        this.bSC = 800;
+        this.bSD = 500;
+        this.bSE = 1.0f;
+        this.bSF = 0.76f;
+        this.bSG = 4;
+        this.bSS = new ArrayList();
+        this.bSV = Color.parseColor("#FFEAAA");
+        this.bSW = Color.parseColor("#FFFFFF");
         init();
     }
 
     private void init() {
-        inflate(getContext(), a.h.yuyin_ala_item_room_gift_view, this);
-        this.bNg = (TbImageView) findViewById(a.g.yuyin_ala_iv_gift_animal_icon);
-        this.bNh = (TextView) findViewById(a.g.yuyin_ala_tv_gift_animal_count);
-        this.bNi = (TextView) findViewById(a.g.yuyin_ala_tv_gift_animal_userhint);
-        this.bMY = BdUtilHelper.dip2px(getContext(), 96.0f);
-        this.bMZ = BdUtilHelper.dip2px(getContext(), 64.0f);
+        inflate(getContext(), a.g.yuyin_ala_item_room_gift_view, this);
+        this.bSP = (TbImageView) findViewById(a.f.yuyin_ala_iv_gift_animal_icon);
+        this.bSQ = (TextView) findViewById(a.f.yuyin_ala_tv_gift_animal_count);
+        this.bSR = (TextView) findViewById(a.f.yuyin_ala_tv_gift_animal_userhint);
+        this.bSH = BdUtilHelper.dip2px(getContext(), 96.0f);
+        this.bSI = BdUtilHelper.dip2px(getContext(), 64.0f);
     }
 
     public void a(float f, float f2, AlaWheatInfoData alaWheatInfoData, c cVar) {
         if (f != 0.0f && f2 != 0.0f && alaWheatInfoData != null && cVar != null) {
-            this.bNg.startLoad(cVar.aZJ == null ? "fail" : cVar.aZJ.getThumbnail_url(), 12, false);
-            this.bNh.setText(String.valueOf(cVar.aZP));
+            this.bSP.startLoad(cVar.bbc == null ? "fail" : cVar.bbc.getThumbnail_url(), 12, false);
+            this.bSQ.setText(String.valueOf(cVar.bbi));
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(cVar.userName);
             if (TextUtils.isEmpty(spannableStringBuilder)) {
                 spannableStringBuilder.append((CharSequence) "某人");
@@ -96,11 +96,11 @@ public class YuyinAlaRoomGiftItemView extends RelativeLayout {
                 spannableStringBuilder.replace(4, spannableStringBuilder.length(), (CharSequence) "");
                 spannableStringBuilder.append((CharSequence) StringHelper.STRING_MORE);
             }
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.bNm), 0, spannableStringBuilder.length(), 17);
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.bSV), 0, spannableStringBuilder.length(), 17);
             spannableStringBuilder.append((CharSequence) "送");
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.bNn), spannableStringBuilder.length() - 2, spannableStringBuilder.length(), 33);
-            this.bNi.setText(spannableStringBuilder);
-            setX(f - (this.bMY / 2.0f));
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.bSW), spannableStringBuilder.length() - 1, spannableStringBuilder.length(), 33);
+            this.bSR.setText(spannableStringBuilder);
+            setX(f - (this.bSH / 2.0f));
             setY(f2);
             e(alaWheatInfoData);
         }
@@ -108,36 +108,36 @@ public class YuyinAlaRoomGiftItemView extends RelativeLayout {
 
     private void e(AlaWheatInfoData alaWheatInfoData) {
         if (alaWheatInfoData != null) {
-            this.bNl = alaWheatInfoData;
-            this.bNa = ObjectAnimator.ofPropertyValuesHolder(this, PropertyValuesHolder.ofFloat("scaleX", 0.0f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.0f, 1.0f));
-            this.bNa.setInterpolator(new LinearInterpolator());
-            this.bNa.setDuration(500L);
-            this.bNa.addListener(new b());
-            this.bNb = f(alaWheatInfoData);
-            this.bNj.clear();
-            this.bNj.add(this.bNa);
-            this.bNj.add(this.bNb);
+            this.bSU = alaWheatInfoData;
+            this.bSJ = ObjectAnimator.ofPropertyValuesHolder(this, PropertyValuesHolder.ofFloat("scaleX", 0.0f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.0f, 1.0f));
+            this.bSJ.setInterpolator(new LinearInterpolator());
+            this.bSJ.setDuration(500L);
+            this.bSJ.addListener(new b());
+            this.bSK = f(alaWheatInfoData);
+            this.bSS.clear();
+            this.bSS.add(this.bSJ);
+            this.bSS.add(this.bSK);
             if (alaWheatInfoData.locationCenterX != 0.0f || alaWheatInfoData.locationCenterY != 0.0f) {
-                this.bNc = ObjectAnimator.ofInt(this, "stay2", 0, 1);
-                this.bNc.setDuration(800L);
-                this.bNc.addListener(new b());
-                this.bNe = ObjectAnimator.ofPropertyValuesHolder(this, PropertyValuesHolder.ofFloat("scaleX", 0.76f, 0.0f), PropertyValuesHolder.ofFloat("scaleY", 0.76f, 0.0f));
-                this.bNe.setDuration(500L);
-                this.bNe.setInterpolator(new LinearInterpolator());
-                this.bNe.addListener(new b() { // from class: com.baidu.live.yuyingift.yuyinhousegift.YuyinAlaRoomGiftItemView.1
+                this.bSL = ObjectAnimator.ofInt(this, "stay2", 0, 1);
+                this.bSL.setDuration(800L);
+                this.bSL.addListener(new b());
+                this.bSN = ObjectAnimator.ofPropertyValuesHolder(this, PropertyValuesHolder.ofFloat("scaleX", 0.76f, 0.0f), PropertyValuesHolder.ofFloat("scaleY", 0.76f, 0.0f));
+                this.bSN.setDuration(500L);
+                this.bSN.setInterpolator(new LinearInterpolator());
+                this.bSN.addListener(new b() { // from class: com.baidu.live.yuyingift.yuyinhousegift.YuyinAlaRoomGiftItemView.1
                     @Override // com.baidu.live.yuyingift.yuyinhousegift.YuyinAlaRoomGiftItemView.b, android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
                         super.onAnimationEnd(animator);
-                        if (YuyinAlaRoomGiftItemView.this.bNf != null) {
-                            YuyinAlaRoomGiftItemView.this.bNf.VA();
+                        if (YuyinAlaRoomGiftItemView.this.bSO != null) {
+                            YuyinAlaRoomGiftItemView.this.bSO.XZ();
                         }
-                        if (YuyinAlaRoomGiftItemView.this.bNj != null) {
-                            YuyinAlaRoomGiftItemView.this.bNj.clear();
+                        if (YuyinAlaRoomGiftItemView.this.bSS != null) {
+                            YuyinAlaRoomGiftItemView.this.bSS.clear();
                         }
                     }
                 });
-                this.bNj.add(this.bNc);
-                this.bNj.add(this.bNe);
+                this.bSS.add(this.bSL);
+                this.bSS.add(this.bSN);
             }
         }
     }
@@ -160,15 +160,15 @@ public class YuyinAlaRoomGiftItemView extends RelativeLayout {
                         float x = YuyinAlaRoomGiftItemView.this.getX();
                         float y = YuyinAlaRoomGiftItemView.this.getY();
                         float width = alaWheatInfoData.locationCenterX - (YuyinAlaRoomGiftItemView.this.getWidth() / 2);
-                        float f = alaWheatInfoData.locationCenterY - YuyinAlaRoomGiftItemView.this.bMZ;
-                        YuyinAlaRoomGiftItemView.this.bNd = ObjectAnimator.ofPropertyValuesHolder(YuyinAlaRoomGiftItemView.this, ofFloat, ofFloat2, PropertyValuesHolder.ofFloat("x", x, width), PropertyValuesHolder.ofFloat("y", y, f));
-                        YuyinAlaRoomGiftItemView.this.bNd.setInterpolator(new LinearInterpolator());
-                        YuyinAlaRoomGiftItemView.this.bNd.setDuration(500L);
-                        YuyinAlaRoomGiftItemView.this.bNd.addListener(new b());
-                        YuyinAlaRoomGiftItemView.this.bNk = YuyinAlaRoomGiftItemView.this.bNd;
-                        YuyinAlaRoomGiftItemView.this.bNd.start();
-                        if (YuyinAlaRoomGiftItemView.this.bNf != null) {
-                            YuyinAlaRoomGiftItemView.this.bNf.Vz();
+                        float f = alaWheatInfoData.locationCenterY - YuyinAlaRoomGiftItemView.this.bSI;
+                        YuyinAlaRoomGiftItemView.this.bSM = ObjectAnimator.ofPropertyValuesHolder(YuyinAlaRoomGiftItemView.this, ofFloat, ofFloat2, PropertyValuesHolder.ofFloat("x", x, width), PropertyValuesHolder.ofFloat("y", y, f));
+                        YuyinAlaRoomGiftItemView.this.bSM.setInterpolator(new LinearInterpolator());
+                        YuyinAlaRoomGiftItemView.this.bSM.setDuration(500L);
+                        YuyinAlaRoomGiftItemView.this.bSM.addListener(new b());
+                        YuyinAlaRoomGiftItemView.this.bST = YuyinAlaRoomGiftItemView.this.bSM;
+                        YuyinAlaRoomGiftItemView.this.bSM.start();
+                        if (YuyinAlaRoomGiftItemView.this.bSO != null) {
+                            YuyinAlaRoomGiftItemView.this.bSO.XY();
                             return;
                         }
                         return;
@@ -180,9 +180,9 @@ public class YuyinAlaRoomGiftItemView extends RelativeLayout {
             ofInt.addListener(new b() { // from class: com.baidu.live.yuyingift.yuyinhousegift.YuyinAlaRoomGiftItemView.3
                 @Override // com.baidu.live.yuyingift.yuyinhousegift.YuyinAlaRoomGiftItemView.b, android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    if (!this.Mo && YuyinAlaRoomGiftItemView.this.bNf != null) {
-                        YuyinAlaRoomGiftItemView.this.bNf.Vz();
-                        YuyinAlaRoomGiftItemView.this.bNf.VA();
+                    if (!this.Mo && YuyinAlaRoomGiftItemView.this.bSO != null) {
+                        YuyinAlaRoomGiftItemView.this.bSO.XY();
+                        YuyinAlaRoomGiftItemView.this.bSO.XZ();
                     }
                     super.onAnimationEnd(animator);
                 }
@@ -192,11 +192,11 @@ public class YuyinAlaRoomGiftItemView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Vv() {
-        if (this.bNj != null && this.bNj.size() != 0) {
-            this.bNk = this.bNj.remove(0);
-            if (this.bNk != null) {
-                this.bNk.start();
+    public void XU() {
+        if (this.bSS != null && this.bSS.size() != 0) {
+            this.bST = this.bSS.remove(0);
+            if (this.bST != null) {
+                this.bST.start();
             }
         }
     }
@@ -205,36 +205,36 @@ public class YuyinAlaRoomGiftItemView extends RelativeLayout {
         if (cVar == null) {
             return false;
         }
-        boolean z = this.bNa != null && this.bNa.isRunning();
-        boolean z2 = this.bNk != null && a(this.bNk) && this.bNk.isRunning();
+        boolean z = this.bSJ != null && this.bSJ.isRunning();
+        boolean z2 = this.bST != null && a(this.bST) && this.bST.isRunning();
         if (z || z2) {
-            if (this.bNh != null) {
+            if (this.bSQ != null) {
                 try {
-                    this.bNh.setText(String.valueOf((int) (Integer.parseInt(this.bNh.getText().toString()) + cVar.aZP)));
+                    this.bSQ.setText(String.valueOf((int) (Integer.parseInt(this.bSQ.getText().toString()) + cVar.bbi)));
                 } catch (Exception e) {
-                    this.bNh.setText(String.valueOf(cVar.aZP));
+                    this.bSQ.setText(String.valueOf(cVar.bbi));
                 }
             }
             if (z2) {
-                Vw();
+                XV();
             }
             return true;
         }
         return false;
     }
 
-    private void Vw() {
-        if (this.bNj != null && !Vx()) {
-            this.bNj.add(0, f(this.bNl));
+    private void XV() {
+        if (this.bSS != null && !XW()) {
+            this.bSS.add(0, f(this.bSU));
         }
-        if (a(this.bNk)) {
-            this.bNk.cancel();
+        if (a(this.bST)) {
+            this.bST.cancel();
         }
     }
 
-    private boolean Vx() {
-        if (this.bNj != null) {
-            for (ObjectAnimator objectAnimator : this.bNj) {
+    private boolean XW() {
+        if (this.bSS != null) {
+            for (ObjectAnimator objectAnimator : this.bSS) {
                 if (a(objectAnimator)) {
                     return true;
                 }
@@ -243,8 +243,8 @@ public class YuyinAlaRoomGiftItemView extends RelativeLayout {
         return false;
     }
 
-    public void Vy() {
-        Vv();
+    public void XX() {
+        XU();
     }
 
     public void setStay1(int i) {
@@ -258,18 +258,18 @@ public class YuyinAlaRoomGiftItemView extends RelativeLayout {
     }
 
     public void cancel() {
-        if (this.bNj != null) {
-            for (ObjectAnimator objectAnimator : this.bNj) {
+        if (this.bSS != null) {
+            for (ObjectAnimator objectAnimator : this.bSS) {
                 objectAnimator.cancel();
             }
         }
-        if (this.bNk != null) {
-            this.bNk.cancel();
+        if (this.bST != null) {
+            this.bST.cancel();
         }
     }
 
     public void setAnimalCallBack(a aVar) {
-        this.bNf = aVar;
+        this.bSO = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -287,7 +287,7 @@ public class YuyinAlaRoomGiftItemView extends RelativeLayout {
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            YuyinAlaRoomGiftItemView.this.Vv();
+            YuyinAlaRoomGiftItemView.this.XU();
         }
     }
 }

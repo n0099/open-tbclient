@@ -3,19 +3,19 @@ package com.baidu.mario.gldraw2d.c;
 import com.baidu.mario.gldraw2d.d.d;
 /* loaded from: classes5.dex */
 public abstract class a {
-    protected abstract void VZ();
+    protected abstract void YA();
 
-    protected abstract void Wa();
+    protected abstract void YB();
 
-    protected abstract void Wb();
+    protected abstract void Yy();
 
-    protected abstract void Wc();
+    protected abstract void Yz();
 
     protected abstract void a(com.baidu.mario.gldraw2d.d.a aVar, com.baidu.mario.gldraw2d.params.b bVar);
 
     protected abstract void a(d dVar);
 
-    protected abstract void aW(String str, String str2);
+    protected abstract void aX(String str, String str2);
 
     protected abstract void b(com.baidu.mario.gldraw2d.d.a aVar, com.baidu.mario.gldraw2d.params.b bVar);
 

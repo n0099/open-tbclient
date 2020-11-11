@@ -16,7 +16,7 @@ public abstract class c<T> extends b<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public int aA(String str, int i) {
+    public int aC(String str, int i) {
         return d.AZ().getInt(str, i);
     }
 }

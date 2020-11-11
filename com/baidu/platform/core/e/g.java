@@ -5,15 +5,15 @@ import com.baidu.platform.base.SearchType;
 /* synthetic */ class g {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ int[] f3191a = new int[SearchType.values().length];
+    static final /* synthetic */ int[] f3193a = new int[SearchType.values().length];
 
     static {
         try {
-            f3191a[SearchType.POI_DETAIL_SHARE.ordinal()] = 1;
+            f3193a[SearchType.POI_DETAIL_SHARE.ordinal()] = 1;
         } catch (NoSuchFieldError e) {
         }
         try {
-            f3191a[SearchType.LOCATION_SEARCH_SHARE.ordinal()] = 2;
+            f3193a[SearchType.LOCATION_SEARCH_SHARE.ordinal()] = 2;
         } catch (NoSuchFieldError e2) {
         }
     }

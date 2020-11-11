@@ -24,27 +24,27 @@ import com.baidu.tieba.ala.personcenter.c.m;
 import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes4.dex */
 public class j extends com.baidu.adp.widget.ListView.a<m, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a>> {
-    private com.baidu.tieba.ueg.d ghZ;
-    private TextView gnW;
-    private String hfQ;
-    private boolean hxK;
-    private boolean hxL;
+    private com.baidu.tieba.ueg.d gnN;
+    private TextView gtJ;
+    private boolean hDH;
+    private boolean hDI;
+    private String hlL;
     private String mForumId;
     private String mForumName;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public j(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), m.hyq);
-        this.hxK = false;
-        this.hxL = false;
+        super(tbPageContext.getPageActivity(), m.hEn);
+        this.hDH = false;
+        this.hDI = false;
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aN */
+    /* renamed from: aP */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a> c(ViewGroup viewGroup) {
         return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.ala.personcenter.e.a(this.mPageContext));
     }
@@ -53,38 +53,38 @@ public class j extends com.baidu.adp.widget.ListView.a<m, com.baidu.tieba.card.a
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, final m mVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a> aVar) {
-        if (aVar.cmx() == null) {
+        if (aVar.coY() == null) {
             return null;
         }
-        a(mVar, aVar.cmx());
-        aVar.cmx().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.j.1
+        a(mVar, aVar.coY());
+        aVar.coY().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.j.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 j.this.a(mVar);
             }
         });
-        return aVar.cmx().getView();
+        return aVar.coY().getView();
     }
 
     private void a(m mVar, com.baidu.tieba.ala.personcenter.e.a aVar) {
         if (mVar.getPersonCenterData() != null) {
-            this.gnW = aVar.chz();
-            cgW();
-            aVar.wn(8);
+            this.gtJ = aVar.ckb();
+            cjy();
+            aVar.wA(8);
             aVar.setTitle(this.mContext.getResources().getString(R.string.ala_person_center_publish_live));
             aVar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void cgW() {
-        if (!this.hxL) {
-            this.hxL = true;
-            if (!com.baidu.tbadk.core.sharedPref.b.bnH().getBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("live_publish_live_has_showed"), false)) {
-                com.baidu.tbadk.core.sharedPref.b.bnH().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("live_publish_live_has_showed"), true);
-                a(this.gnW, null, true);
+    private void cjy() {
+        if (!this.hDI) {
+            this.hDI = true;
+            if (!com.baidu.tbadk.core.sharedPref.b.bqh().getBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("live_publish_live_has_showed"), false)) {
+                com.baidu.tbadk.core.sharedPref.b.bqh().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("live_publish_live_has_showed"), true);
+                a(this.gtJ, null, true);
                 return;
             }
-            a(this.gnW, null, false);
+            a(this.gtJ, null, false);
         }
     }
 
@@ -109,20 +109,20 @@ public class j extends com.baidu.adp.widget.ListView.a<m, com.baidu.tieba.card.a
     /* JADX INFO: Access modifiers changed from: private */
     public void a(m mVar) {
         if (mVar != null && mVar.getPersonCenterData() != null) {
-            com.baidu.tbadk.core.sharedPref.b.bnH().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("live_publish_live_has_showed"), true);
-            a(this.gnW, null, false);
-            bNa();
+            com.baidu.tbadk.core.sharedPref.b.bqh().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("live_publish_live_has_showed"), true);
+            a(this.gtJ, null, false);
+            bPA();
             TiebaStatic.log("c13618");
         }
     }
 
-    private void bNa() {
+    private void bPA() {
         Plugin plugin2;
         if (Build.VERSION.SDK_INT < 21) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
             aVar.setAutoNight(false);
-            aVar.ol(R.string.prompt);
-            aVar.Ba(this.mPageContext.getResources().getString(R.string.disallow_open_live_by_android_v5_0));
+            aVar.ov(R.string.prompt);
+            aVar.Bo(this.mPageContext.getResources().getString(R.string.disallow_open_live_by_android_v5_0));
             aVar.setTitleShowCenter(true);
             aVar.setMessageShowCenter(true);
             aVar.a(R.string.know, new a.b() { // from class: com.baidu.tieba.ala.personcenter.a.j.2
@@ -131,20 +131,20 @@ public class j extends com.baidu.adp.widget.ListView.a<m, com.baidu.tieba.card.a
                     aVar2.dismiss();
                 }
             });
-            aVar.b(this.mPageContext).bmC();
+            aVar.b(this.mPageContext).bpc();
         } else if (bg.checkUpIsLogin(this.mPageContext.getPageActivity())) {
-            if (this.ghZ == null) {
-                this.ghZ = new com.baidu.tieba.ueg.d(this.mPageContext);
+            if (this.gnN == null) {
+                this.gnN = new com.baidu.tieba.ueg.d(this.mPageContext);
             }
-            if (this.hxK) {
-                if (this.ghZ.dLo()) {
+            if (this.hDH) {
+                if (this.gnN.dNQ()) {
                     return;
                 }
-            } else if (this.ghZ.dLn()) {
+            } else if (this.gnN.dNP()) {
                 return;
             }
             if (!BdBaseApplication.getInst().isDebugMode() && (plugin2 = PluginCenter.getInstance().getPlugin("com.baidu.tieba.pluginAla")) != null && !plugin2.isLoaded()) {
-                com.baidu.adp.lib.util.l.showToast(this.mPageContext.getPageActivity(), R.string.plugin_config_not_found);
+                com.baidu.adp.lib.util.l.showToast(this.mPageContext.getPageActivity(), (int) R.string.plugin_config_not_found);
             } else {
                 o(this.mPageContext);
             }
@@ -162,13 +162,13 @@ public class j extends com.baidu.adp.widget.ListView.a<m, com.baidu.tieba.card.a
                 @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.b
                 public void onPermissionsGranted() {
                     String str;
-                    if (j.this.hxK) {
+                    if (j.this.hDH) {
                         str = j.this.mForumId;
                     } else {
                         str = "0";
                     }
-                    String str2 = j.this.hxK ? j.this.mForumName : null;
-                    String str3 = j.this.hxK ? j.this.hfQ : null;
+                    String str2 = j.this.hDH ? j.this.mForumName : null;
+                    String str3 = j.this.hDH ? j.this.hlL : null;
                     MessageManager.getInstance().sendMessage(new HttpMessage(1003303));
                     com.baidu.adp.lib.c.a.mk().getAddress(false);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaMasterLiveRoomActivityConfig(tbPageContext.getPageActivity(), str2, str, TbadkCoreApplication.getCurrentAccount(), str3)));
@@ -186,11 +186,11 @@ public class j extends com.baidu.adp.widget.ListView.a<m, com.baidu.tieba.card.a
         this.mForumName = str;
     }
 
-    public void lu(boolean z) {
-        this.hxK = z;
+    public void lD(boolean z) {
+        this.hDH = z;
     }
 
-    public void Ip(String str) {
-        this.hfQ = str;
+    public void IG(String str) {
+        this.hlL = str;
     }
 }

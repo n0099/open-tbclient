@@ -10,7 +10,7 @@ import java.util.List;
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile g f2250a = null;
+    private static volatile g f2252a = null;
     private boolean b = false;
     private boolean c = true;
     private final List<f> d = new ArrayList();
@@ -20,14 +20,14 @@ public final class g {
     }
 
     public static g a() {
-        if (f2250a == null) {
+        if (f2252a == null) {
             synchronized (g.class) {
-                if (f2250a == null) {
-                    f2250a = new g();
+                if (f2252a == null) {
+                    f2252a = new g();
                 }
             }
         }
-        return f2250a;
+        return f2252a;
     }
 
     private boolean a(String str) {

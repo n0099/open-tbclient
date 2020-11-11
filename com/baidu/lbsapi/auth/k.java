@@ -6,18 +6,18 @@ import com.baidu.lbsapi.auth.c;
 public class k implements c.a<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1840a;
+    final /* synthetic */ String f1842a;
     final /* synthetic */ LBSAuthManager b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(LBSAuthManager lBSAuthManager, String str) {
         this.b = lBSAuthManager;
-        this.f1840a = str;
+        this.f1842a = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.lbsapi.auth.c.a
     public void a(String str) {
-        this.b.a(str, this.f1840a);
+        this.b.a(str, this.f1842a);
     }
 }

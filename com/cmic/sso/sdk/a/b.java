@@ -19,8 +19,8 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class b {
     private static long b = 0;
-    private static b ozd;
-    private C0943b oze = null;
+    private static b oIw;
+    private C0962b oIx = null;
 
     /* loaded from: classes8.dex */
     public static class a extends Exception {
@@ -31,10 +31,10 @@ public class b {
 
     /* renamed from: com.cmic.sso.sdk.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0943b {
+    public static class C0962b {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f4002a = "";
+        private String f4004a = "";
         private String b = "";
         private String c = "";
         private String d = "";
@@ -80,7 +80,7 @@ public class b {
 
         public String a(int i) {
             if (this.i == i) {
-                return this.f4002a;
+                return this.f4004a;
             }
             if (this.j == i) {
                 return this.b;
@@ -166,7 +166,7 @@ public class b {
             return 0;
         }
 
-        public String NL(int i) {
+        public String Og(int i) {
             if (this.i == i) {
                 return this.e;
             }
@@ -176,7 +176,7 @@ public class b {
             return "";
         }
 
-        public String NM(int i) {
+        public String Oh(int i) {
             if (this.i == i) {
                 return this.c;
             }
@@ -186,7 +186,7 @@ public class b {
             return "";
         }
 
-        public String NN(int i) {
+        public String Oi(int i) {
             if (this.i == i) {
                 return this.m;
             }
@@ -200,26 +200,26 @@ public class b {
     private b() {
     }
 
-    public static b eeV() {
-        if (ozd == null) {
-            ozd = new b();
+    public static b eiK() {
+        if (oIw == null) {
+            oIw = new b();
         }
-        return ozd;
+        return oIw;
     }
 
-    public C0943b eeW() {
-        return this.oze == null ? new C0943b() : this.oze;
+    public C0962b eiL() {
+        return this.oIx == null ? new C0962b() : this.oIx;
     }
 
     public void a(Context context, boolean z) {
         if (System.currentTimeMillis() - b >= 5000) {
-            this.oze = new C0943b();
+            this.oIx = new C0962b();
             if (n.a(context)) {
                 b(context, z);
                 if (n.e() && n.d()) {
                     c.b("UMCTelephonyManagement", "华为手机兼容性处理");
-                    if (this.oze.p == 0 || this.oze.p == 1) {
-                        this.oze.o = this.oze.p;
+                    if (this.oIx.p == 0 || this.oIx.p == 1) {
+                        this.oIx.o = this.oIx.p;
                     }
                 }
                 if (z) {
@@ -243,7 +243,7 @@ public class b {
 
     private void b(Context context, boolean z) {
         if (Build.VERSION.SDK_INT < 22) {
-            this.oze.o = -1;
+            this.oIx.o = -1;
             return;
         }
         SubscriptionManager from = SubscriptionManager.from(context.getApplicationContext());
@@ -252,10 +252,10 @@ public class b {
                 try {
                     SubscriptionInfo c = c(from, "getDefaultDataSubscriptionInfo", null);
                     if (c != null) {
-                        this.oze.o = c.getSimSlotIndex();
-                        this.oze.p = c.getSubscriptionId();
-                        c.b("UMCTelephonyManagement", "getDefaultDataSubscriptionInfo适配成功: dataSlotId即sim_id = " + this.oze.o);
-                        c.b("UMCTelephonyManagement", "getDefaultDataSubscriptionInfo适配成功: dataSubId = " + this.oze.p);
+                        this.oIx.o = c.getSimSlotIndex();
+                        this.oIx.p = c.getSubscriptionId();
+                        c.b("UMCTelephonyManagement", "getDefaultDataSubscriptionInfo适配成功: dataSlotId即sim_id = " + this.oIx.o);
+                        c.b("UMCTelephonyManagement", "getDefaultDataSubscriptionInfo适配成功: dataSubId = " + this.oIx.p);
                         return;
                     }
                 } catch (Exception e) {
@@ -263,9 +263,9 @@ public class b {
                 }
             }
             try {
-                if (this.oze.o == -1 && Build.VERSION.SDK_INT >= 24) {
-                    this.oze.p = SubscriptionManager.getDefaultDataSubscriptionId();
-                    c.b("UMCTelephonyManagement", "android 7.0及以上手机getDefaultDataSubscriptionId适配成功: dataSubId = " + this.oze.p);
+                if (this.oIx.o == -1 && Build.VERSION.SDK_INT >= 24) {
+                    this.oIx.p = SubscriptionManager.getDefaultDataSubscriptionId();
+                    c.b("UMCTelephonyManagement", "android 7.0及以上手机getDefaultDataSubscriptionId适配成功: dataSubId = " + this.oIx.p);
                     return;
                 }
             } catch (Exception e2) {
@@ -274,8 +274,8 @@ public class b {
             try {
                 Method method = from.getClass().getMethod("getDefaultDataSubId", new Class[0]);
                 if (method != null) {
-                    this.oze.p = ((Integer) method.invoke(from, new Object[0])).intValue();
-                    c.b("UMCTelephonyManagement", "android 7.0以下手机getDefaultDataSubId适配成功: dataSubId = " + this.oze.p);
+                    this.oIx.p = ((Integer) method.invoke(from, new Object[0])).intValue();
+                    c.b("UMCTelephonyManagement", "android 7.0以下手机getDefaultDataSubId适配成功: dataSubId = " + this.oIx.p);
                     return;
                 }
             } catch (Exception e3) {
@@ -284,8 +284,8 @@ public class b {
             try {
                 Method method2 = from.getClass().getMethod("getDefaultDataSubscriptionId", new Class[0]);
                 if (method2 != null) {
-                    this.oze.p = ((Integer) method2.invoke(from, new Object[0])).intValue();
-                    c.b("UMCTelephonyManagement", "反射getDefaultDataSubscriptionId适配成功: dataSubId = " + this.oze.p);
+                    this.oIx.p = ((Integer) method2.invoke(from, new Object[0])).intValue();
+                    c.b("UMCTelephonyManagement", "反射getDefaultDataSubscriptionId适配成功: dataSubId = " + this.oIx.p);
                 }
             } catch (Exception e4) {
                 c.a("UMCTelephonyManagement", "getDefaultDataSubscriptionId-->getDefaultDataSubscriptionId 反射出错");
@@ -314,60 +314,60 @@ public class b {
                             String string2 = cursor.getString(cursor.getColumnIndex("mcc"));
                             String string3 = cursor.getString(cursor.getColumnIndex("mnc"));
                             String string4 = cursor.getString(cursor.getColumnIndex("carrier_name"));
-                            if (this.oze.o == -1 && this.oze.p != -1 && this.oze.p == i2) {
-                                this.oze.o = i;
+                            if (this.oIx.o == -1 && this.oIx.p != -1 && this.oIx.p == i2) {
+                                this.oIx.o = i;
                                 c.b("UMCTelephonyManagement", "通过读取sim db获取数据流量卡的卡槽值：" + i);
                             }
-                            if (this.oze.o == i && !n.e()) {
-                                this.oze.p = i2;
+                            if (this.oIx.o == i && !n.e()) {
+                                this.oIx.p = i2;
                             }
                             if (i == 0) {
-                                this.oze.f4002a = string;
-                                this.oze.k = i2;
-                                if (this.oze.i == -1) {
-                                    this.oze.i = i;
+                                this.oIx.f4004a = string;
+                                this.oIx.k = i2;
+                                if (this.oIx.i == -1) {
+                                    this.oIx.i = i;
                                 }
-                                if (TextUtils.isEmpty(this.oze.m) && !TextUtils.isEmpty(string4)) {
+                                if (TextUtils.isEmpty(this.oIx.m) && !TextUtils.isEmpty(string4)) {
                                     String a2 = a(string4);
                                     if (!TextUtils.isEmpty(a2)) {
-                                        this.oze.m = a2;
+                                        this.oIx.m = a2;
                                     }
                                 }
-                                if (TextUtils.isEmpty(this.oze.m)) {
+                                if (TextUtils.isEmpty(this.oIx.m)) {
                                     String b2 = b(string);
                                     if (!TextUtils.isEmpty(b2)) {
-                                        this.oze.m = b2;
+                                        this.oIx.m = b2;
                                     }
                                 }
-                                if (TextUtils.isEmpty(this.oze.m) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3)) {
+                                if (TextUtils.isEmpty(this.oIx.m) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3)) {
                                     if (string3.length() == 1) {
                                         string3 = "0" + string3;
                                     }
-                                    this.oze.m = string2 + string3;
+                                    this.oIx.m = string2 + string3;
                                 }
                             } else if (i == 1) {
-                                this.oze.b = string;
-                                this.oze.l = i2;
-                                if (this.oze.j == -1) {
-                                    this.oze.j = i;
+                                this.oIx.b = string;
+                                this.oIx.l = i2;
+                                if (this.oIx.j == -1) {
+                                    this.oIx.j = i;
                                 }
-                                if (TextUtils.isEmpty(this.oze.n) && !TextUtils.isEmpty(string4)) {
+                                if (TextUtils.isEmpty(this.oIx.n) && !TextUtils.isEmpty(string4)) {
                                     String a3 = a(string4);
                                     if (!TextUtils.isEmpty(a3)) {
-                                        this.oze.n = a3;
+                                        this.oIx.n = a3;
                                     }
                                 }
-                                if (TextUtils.isEmpty(this.oze.n)) {
+                                if (TextUtils.isEmpty(this.oIx.n)) {
                                     String b3 = b(string);
                                     if (!TextUtils.isEmpty(b3)) {
-                                        this.oze.n = b3;
+                                        this.oIx.n = b3;
                                     }
                                 }
-                                if (TextUtils.isEmpty(this.oze.n) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3)) {
+                                if (TextUtils.isEmpty(this.oIx.n) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3)) {
                                     if (string3.length() == 1) {
                                         string3 = "0" + string3;
                                     }
-                                    this.oze.n = string2 + string3;
+                                    this.oIx.n = string2 + string3;
                                 }
                             }
                             c.b("UMCTelephonyManagement", "icc_id-->" + string);
@@ -533,71 +533,71 @@ public class b {
     @SuppressLint({"MissingPermission"})
     private void d(Context context) {
         TelephonyManager telephonyManager = (TelephonyManager) context.getApplicationContext().getSystemService("phone");
-        this.oze.c(0);
-        this.oze.d(1);
-        this.oze.b(-1);
+        this.oIx.c(0);
+        this.oIx.d(1);
+        this.oIx.b(-1);
         try {
-            this.oze.c(a(telephonyManager, "getSubscriberId", 0));
-            this.oze.d(a(telephonyManager, "getSubscriberId", 1));
+            this.oIx.c(a(telephonyManager, "getSubscriberId", 0));
+            this.oIx.d(a(telephonyManager, "getSubscriberId", 1));
         } catch (a e) {
             try {
-                this.oze.c(a(telephonyManager, "getSubscriberIdGemini", 0));
-                this.oze.d(a(telephonyManager, "getSubscriberIdGemini", 1));
+                this.oIx.c(a(telephonyManager, "getSubscriberIdGemini", 0));
+                this.oIx.d(a(telephonyManager, "getSubscriberIdGemini", 1));
             } catch (a e2) {
                 try {
-                    this.oze.c(telephonyManager.getSubscriberId());
+                    this.oIx.c(telephonyManager.getSubscriberId());
                 } catch (Exception e3) {
                     e3.printStackTrace();
                 }
             }
         }
         try {
-            this.oze.a(b(telephonyManager, "getSimState", 0));
-            this.oze.b(b(telephonyManager, "getSimState", 1));
+            this.oIx.a(b(telephonyManager, "getSimState", 0));
+            this.oIx.b(b(telephonyManager, "getSimState", 1));
         } catch (a e4) {
             try {
-                this.oze.a(b(telephonyManager, "getSimStateGemini", 0));
-                this.oze.b(b(telephonyManager, "getSimStateGemini", 1));
+                this.oIx.a(b(telephonyManager, "getSimStateGemini", 0));
+                this.oIx.b(b(telephonyManager, "getSimStateGemini", 1));
             } catch (a e5) {
-                this.oze.a(telephonyManager.getSimState() == 5);
+                this.oIx.a(telephonyManager.getSimState() == 5);
             }
         }
         try {
-            this.oze.e(a(telephonyManager, "getSimOperator", 0));
-            this.oze.f(a(telephonyManager, "getSimOperator", 1));
+            this.oIx.e(a(telephonyManager, "getSimOperator", 0));
+            this.oIx.f(a(telephonyManager, "getSimOperator", 1));
         } catch (a e6) {
             try {
-                this.oze.e(a(telephonyManager, "getSimOperatorGemini", 0));
-                this.oze.f(a(telephonyManager, "getSimOperatorGemini", 1));
+                this.oIx.e(a(telephonyManager, "getSimOperatorGemini", 0));
+                this.oIx.f(a(telephonyManager, "getSimOperatorGemini", 1));
             } catch (a e7) {
-                this.oze.e(telephonyManager.getSimOperator());
+                this.oIx.e(telephonyManager.getSimOperator());
             }
         }
-        if (TextUtils.isEmpty(this.oze.b()) && !TextUtils.isEmpty(this.oze.c())) {
-            this.oze.a(this.oze.a());
-            this.oze.b("");
-            this.oze.c(this.oze.c());
-            this.oze.d("");
-            this.oze.c(this.oze.h());
-            this.oze.d(-1);
-            this.oze.a(this.oze.e());
-            this.oze.b(false);
-            this.oze.e(this.oze.d());
-            this.oze.f("");
-            this.oze.b(this.oze.g());
-        } else if (!TextUtils.isEmpty(this.oze.b()) && TextUtils.isEmpty(this.oze.c())) {
-            this.oze.b("");
-            this.oze.b(false);
-            this.oze.d(-1);
-            this.oze.b(this.oze.g());
-        } else if (TextUtils.isEmpty(this.oze.b()) && TextUtils.isEmpty(this.oze.c())) {
-            this.oze.a("");
-            this.oze.b("");
-            this.oze.c(-1);
-            this.oze.d(-1);
-            this.oze.a(false);
-            this.oze.b(false);
-            this.oze.b(-1);
+        if (TextUtils.isEmpty(this.oIx.b()) && !TextUtils.isEmpty(this.oIx.c())) {
+            this.oIx.a(this.oIx.a());
+            this.oIx.b("");
+            this.oIx.c(this.oIx.c());
+            this.oIx.d("");
+            this.oIx.c(this.oIx.h());
+            this.oIx.d(-1);
+            this.oIx.a(this.oIx.e());
+            this.oIx.b(false);
+            this.oIx.e(this.oIx.d());
+            this.oIx.f("");
+            this.oIx.b(this.oIx.g());
+        } else if (!TextUtils.isEmpty(this.oIx.b()) && TextUtils.isEmpty(this.oIx.c())) {
+            this.oIx.b("");
+            this.oIx.b(false);
+            this.oIx.d(-1);
+            this.oIx.b(this.oIx.g());
+        } else if (TextUtils.isEmpty(this.oIx.b()) && TextUtils.isEmpty(this.oIx.c())) {
+            this.oIx.a("");
+            this.oIx.b("");
+            this.oIx.c(-1);
+            this.oIx.d(-1);
+            this.oIx.a(false);
+            this.oIx.b(false);
+            this.oIx.b(-1);
         }
     }
 
@@ -612,24 +612,24 @@ public class b {
         } else {
             return;
         }
-        this.oze.f4002a = A.getIccId();
-        this.oze.c(A.getSimSlotIndex());
-        this.oze.e(A.getSubscriptionId());
-        this.oze.m = b(this.oze.f4002a);
-        c.b("UMCTelephonyManagement", "readSim1Info1 iccid1 = " + this.oze.f4002a);
-        if (this.oze.o == -1 && this.oze.p == A.getSubscriptionId()) {
-            this.oze.o = A.getSimSlotIndex();
-            c.b("UMCTelephonyManagement", "readSim1Info1 dataSlotId = " + this.oze.o);
+        this.oIx.f4004a = A.getIccId();
+        this.oIx.c(A.getSimSlotIndex());
+        this.oIx.e(A.getSubscriptionId());
+        this.oIx.m = b(this.oIx.f4004a);
+        c.b("UMCTelephonyManagement", "readSim1Info1 iccid1 = " + this.oIx.f4004a);
+        if (this.oIx.o == -1 && this.oIx.p == A.getSubscriptionId()) {
+            this.oIx.o = A.getSimSlotIndex();
+            c.b("UMCTelephonyManagement", "readSim1Info1 dataSlotId = " + this.oIx.o);
         }
         if (n.d()) {
             try {
-                this.oze.a(a(telephonyManager, "getDeviceId", A.getSimSlotIndex()));
+                this.oIx.a(a(telephonyManager, "getDeviceId", A.getSimSlotIndex()));
             } catch (a e) {
                 try {
-                    this.oze.a(a(telephonyManager, "getDeviceIdGemini", A.getSimSlotIndex()));
+                    this.oIx.a(a(telephonyManager, "getDeviceIdGemini", A.getSimSlotIndex()));
                 } catch (a e2) {
                     try {
-                        this.oze.a(telephonyManager.getDeviceId());
+                        this.oIx.a(telephonyManager.getDeviceId());
                     } catch (Exception e3) {
                         c.a("UMCTelephonyManagement", "readSim1Info imei1 failed");
                     }
@@ -637,25 +637,25 @@ public class b {
             }
             int simSlotIndex = com.cmic.sso.sdk.a.a.a() == 0 ? A.getSimSlotIndex() : A.getSubscriptionId();
             try {
-                this.oze.c(a(telephonyManager, "getSubscriberId", A.getSubscriptionId()));
+                this.oIx.c(a(telephonyManager, "getSubscriberId", A.getSubscriptionId()));
             } catch (a e4) {
                 try {
-                    this.oze.c(a(telephonyManager, "getSubscriberIdGemini", simSlotIndex));
+                    this.oIx.c(a(telephonyManager, "getSubscriberIdGemini", simSlotIndex));
                 } catch (a e5) {
                     try {
-                        this.oze.c(telephonyManager.getSubscriberId());
+                        this.oIx.c(telephonyManager.getSubscriberId());
                     } catch (Exception e6) {
                         e6.printStackTrace();
                     }
                 }
             }
             try {
-                this.oze.e(a(telephonyManager, "getSimOperator", A.getSubscriptionId()));
+                this.oIx.e(a(telephonyManager, "getSimOperator", A.getSubscriptionId()));
             } catch (a e7) {
                 try {
-                    this.oze.e(a(telephonyManager, "getSimOperatorGemini", simSlotIndex));
+                    this.oIx.e(a(telephonyManager, "getSimOperatorGemini", simSlotIndex));
                 } catch (a e8) {
-                    this.oze.e(telephonyManager.getSimOperator());
+                    this.oIx.e(telephonyManager.getSimOperator());
                 }
             }
         }
@@ -665,40 +665,40 @@ public class b {
     private void b(List<SubscriptionInfo> list, TelephonyManager telephonyManager) {
         if ((list != null ? list.size() : 0) > 1) {
             SubscriptionInfo A = A(list, 1);
-            this.oze.d(A.getSimSlotIndex());
-            this.oze.f(A.getSubscriptionId());
-            this.oze.b = A.getIccId();
-            this.oze.n = b(this.oze.b);
-            c.b("UMCTelephonyManagement", "readSim1Info2 iccid2 = " + this.oze.b);
-            if (this.oze.o == -1 && this.oze.p == A.getSubscriptionId()) {
-                this.oze.o = A.getSimSlotIndex();
-                c.b("UMCTelephonyManagement", "readSim1Info2 dataSlotId = " + this.oze.o);
+            this.oIx.d(A.getSimSlotIndex());
+            this.oIx.f(A.getSubscriptionId());
+            this.oIx.b = A.getIccId();
+            this.oIx.n = b(this.oIx.b);
+            c.b("UMCTelephonyManagement", "readSim1Info2 iccid2 = " + this.oIx.b);
+            if (this.oIx.o == -1 && this.oIx.p == A.getSubscriptionId()) {
+                this.oIx.o = A.getSimSlotIndex();
+                c.b("UMCTelephonyManagement", "readSim1Info2 dataSlotId = " + this.oIx.o);
             }
             if (n.d()) {
                 try {
-                    this.oze.b(a(telephonyManager, "getDeviceId", 1));
+                    this.oIx.b(a(telephonyManager, "getDeviceId", 1));
                 } catch (a e) {
                     try {
-                        this.oze.b(a(telephonyManager, "getDeviceIdGemini", 1));
+                        this.oIx.b(a(telephonyManager, "getDeviceIdGemini", 1));
                     } catch (Exception e2) {
                         c.a("UMCTelephonyManagement", "readSim1Info imei2 failed");
                     }
                 }
                 int subscriptionId = com.cmic.sso.sdk.a.a.a() != 0 ? A.getSubscriptionId() : 1;
                 try {
-                    this.oze.d(a(telephonyManager, "getSubscriberId", A.getSubscriptionId()));
+                    this.oIx.d(a(telephonyManager, "getSubscriberId", A.getSubscriptionId()));
                 } catch (a e3) {
                     try {
-                        this.oze.d(a(telephonyManager, "getSubscriberIdGemini", subscriptionId));
+                        this.oIx.d(a(telephonyManager, "getSubscriberIdGemini", subscriptionId));
                     } catch (Exception e4) {
                         e4.printStackTrace();
                     }
                 }
                 try {
-                    this.oze.f(a(telephonyManager, "getSimOperator", A.getSubscriptionId()));
+                    this.oIx.f(a(telephonyManager, "getSimOperator", A.getSubscriptionId()));
                 } catch (a e5) {
                     try {
-                        this.oze.f(a(telephonyManager, "getSimOperatorGemini", subscriptionId));
+                        this.oIx.f(a(telephonyManager, "getSimOperatorGemini", subscriptionId));
                     } catch (Exception e6) {
                         e6.printStackTrace();
                     }
@@ -774,8 +774,8 @@ public class b {
             if (n.d()) {
                 try {
                     Method method = telephonyManager.getClass().getMethod("getDataNetworkType", Integer.TYPE);
-                    c.b("UMCTelephonyManagement", "data dataNetworkType defaultDataSubId = " + this.oze.p);
-                    int intValue = ((Integer) method.invoke(telephonyManager, Integer.valueOf(this.oze.p))).intValue();
+                    c.b("UMCTelephonyManagement", "data dataNetworkType defaultDataSubId = " + this.oIx.p);
+                    int intValue = ((Integer) method.invoke(telephonyManager, Integer.valueOf(this.oIx.p))).intValue();
                     c.b("UMCTelephonyManagement", "data dataNetworkType ---------" + intValue);
                     if (intValue != 0 || Build.VERSION.SDK_INT < 24) {
                         return intValue;

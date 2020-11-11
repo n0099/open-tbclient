@@ -18,17 +18,17 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-    private static c enV;
+    private static c etP;
     private final HashMap<String, e> mSwitchs = new HashMap<>();
-    private final HashMap<BdUniqueId, com.baidu.tbadk.a.a.a> enW = new HashMap<>();
-    private final HashMap<BdUniqueId, e> enX = new HashMap<>();
+    private final HashMap<BdUniqueId, com.baidu.tbadk.a.a.a> etQ = new HashMap<>();
+    private final HashMap<BdUniqueId, e> etR = new HashMap<>();
 
     private c() {
-        bfc();
-        C(bfb());
+        bhC();
+        C(bhB());
     }
 
-    private void bfc() {
+    private void bhC() {
         a(new k());
         a(new h());
         a(new com.baidu.tbadk.a.a.e());
@@ -40,62 +40,62 @@ public class c {
         a(new com.baidu.tbadk.a.a.c());
     }
 
-    public static c bfd() {
-        if (enV == null) {
+    public static c bhD() {
+        if (etP == null) {
             synchronized (c.class) {
-                if (enV == null) {
-                    enV = new c();
+                if (etP == null) {
+                    etP = new c();
                 }
             }
         }
-        return enV;
+        return etP;
     }
 
     protected void a(com.baidu.tbadk.a.a.a aVar) {
-        if (aVar != null && aVar.bfE() != null) {
-            this.enW.put(aVar.bfE(), aVar);
+        if (aVar != null && aVar.bie() != null) {
+            this.etQ.put(aVar.bie(), aVar);
         }
     }
 
-    public Map<BdUniqueId, e> bfe() {
-        return this.enX;
+    public Map<BdUniqueId, e> bhE() {
+        return this.etR;
     }
 
-    private void bff() {
-        this.enX.clear();
-        for (BdUniqueId bdUniqueId : this.enW.keySet()) {
-            this.enX.put(bdUniqueId, j(bdUniqueId));
+    private void bhF() {
+        this.etR.clear();
+        for (BdUniqueId bdUniqueId : this.etQ.keySet()) {
+            this.etR.put(bdUniqueId, j(bdUniqueId));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public e j(BdUniqueId bdUniqueId) {
-        com.baidu.tbadk.a.a.a aVar = this.enW.get(bdUniqueId);
+        com.baidu.tbadk.a.a.a aVar = this.etQ.get(bdUniqueId);
         if (aVar == null) {
             return null;
         }
-        return aVar.bfG();
+        return aVar.big();
     }
 
-    private void bfg() {
-        for (Map.Entry<BdUniqueId, com.baidu.tbadk.a.a.a> entry : this.enW.entrySet()) {
+    private void bhG() {
+        for (Map.Entry<BdUniqueId, com.baidu.tbadk.a.a.a> entry : this.etQ.entrySet()) {
             com.baidu.tbadk.a.a.a value = entry.getValue();
             if (value != null) {
                 b(value);
             }
         }
-        bff();
+        bhF();
     }
 
     private void b(com.baidu.tbadk.a.a.a aVar) {
         e eVar = null;
         if (aVar != null) {
-            ArrayList<String> bfF = aVar.bfF();
-            if (y.isEmpty(bfF)) {
+            ArrayList<String> bif = aVar.bif();
+            if (y.isEmpty(bif)) {
                 aVar.a((e) null);
                 return;
             }
-            Iterator<String> it = bfF.iterator();
+            Iterator<String> it = bif.iterator();
             while (it.hasNext()) {
                 eVar = this.mSwitchs.get(it.next());
                 if (eVar != null) {
@@ -106,11 +106,11 @@ public class c {
         }
     }
 
-    private static String bfh() {
+    private static String bhH() {
         return "ubs_abtest_config";
     }
 
-    public synchronized e zz(String str) {
+    public synchronized e zN(String str) {
         return this.mSwitchs.get(str);
     }
 
@@ -120,16 +120,16 @@ public class c {
             if (hashMap != null) {
                 this.mSwitchs.putAll(hashMap);
             }
-            bfg();
+            bhG();
         }
     }
 
     public void M(JSONArray jSONArray) {
         try {
-            String bfh = bfh();
+            String bhH = bhH();
             if (jSONArray == null) {
                 this.mSwitchs.clear();
-                com.baidu.tbadk.core.sharedPref.b.bnH().remove(bfh);
+                com.baidu.tbadk.core.sharedPref.b.bqh().remove(bhH);
                 return;
             }
             HashMap<String, e> hashMap = new HashMap<>();
@@ -141,22 +141,22 @@ public class c {
                 }
             }
             C(hashMap);
-            com.baidu.tbadk.core.sharedPref.b.bnH().putString(bfh, jSONArray.toString());
-            bfi();
+            com.baidu.tbadk.core.sharedPref.b.bqh().putString(bhH, jSONArray.toString());
+            bhI();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void bfi() {
+    private void bhI() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921506, 1));
     }
 
-    private HashMap<String, e> bfb() {
+    private HashMap<String, e> bhB() {
         HashMap<String, e> hashMap = new HashMap<>();
         try {
-            bfh();
-            JSONArray jSONArray = new JSONArray(com.baidu.tbadk.core.sharedPref.b.bnH().getString(bfh(), "[]"));
+            bhH();
+            JSONArray jSONArray = new JSONArray(com.baidu.tbadk.core.sharedPref.b.bqh().getString(bhH(), "[]"));
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject jSONObject = jSONArray.getJSONObject(i);
                 if (jSONObject != null) {

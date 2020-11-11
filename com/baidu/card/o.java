@@ -100,10 +100,10 @@ public class o extends i {
         a(1, new a.b() { // from class: com.baidu.card.o.2
             @Override // com.baidu.card.a.a.b
             public boolean a(a.C0097a c0097a) {
-                if (o.this.afI != null && o.this.afI.bhz() != null && !o.this.tC().booleanValue()) {
-                    com.baidu.tieba.card.n.II(o.this.afI.bhz().getId());
-                    com.baidu.tieba.card.n.a(o.this.agh.mTitle, o.this.afI.bhz().getId(), R.color.cp_cont_b, R.color.cp_cont_d);
-                    com.baidu.tieba.card.n.a(o.this.agh.agm, o.this.afI.bhz().getId(), R.color.cp_cont_b, R.color.cp_cont_d);
+                if (o.this.afI != null && o.this.afI.bjZ() != null && !o.this.tC().booleanValue()) {
+                    com.baidu.tieba.card.n.IZ(o.this.afI.bjZ().getId());
+                    com.baidu.tieba.card.n.a(o.this.agh.mTitle, o.this.afI.bjZ().getId(), R.color.cp_cont_b, R.color.cp_cont_d);
+                    com.baidu.tieba.card.n.a(o.this.agh.agm, o.this.afI.bjZ().getId(), R.color.cp_cont_b, R.color.cp_cont_d);
                 }
                 return false;
             }

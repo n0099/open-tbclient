@@ -1,35 +1,47 @@
 package com.baidu.live.data;
 
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ac {
-    public String aHs;
-    public n aJm;
-    public ab aJn;
-    private int aJo;
-    public String msg;
+    private boolean aKj;
+    private String aKk;
+    private String aKl;
+    private int height;
+    private int position;
+    private int width;
 
-    public boolean DW() {
-        return this.aJo == 1;
+    public void parseJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.position = jSONObject.optInt("position");
+            this.height = jSONObject.optInt("high");
+            this.width = jSONObject.optInt("wide");
+            this.aKj = jSONObject.optInt("is_show") == 1;
+            this.aKk = jSONObject.optString("pk_url");
+            this.aKl = jSONObject.optString("pk_data");
+        }
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.msg = jSONObject.optString("msg");
-            this.aHs = jSONObject.optString(BigdayActivityConfig.JUMP_URL);
-            JSONObject optJSONObject = jSONObject.optJSONObject("super_king");
-            if (optJSONObject != null) {
-                this.aJm = new n();
-                this.aJm.iconUrl = optJSONObject.optString("icon_url");
-                this.aJm.msg = optJSONObject.optString("msg");
-            }
-            this.aJo = jSONObject.optInt("is_season_over", 0);
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("division");
-            if (optJSONObject2 != null) {
-                this.aJn = new ab();
-                this.aJn.parserJson(optJSONObject2);
-            }
-        }
+    public int getHeight() {
+        return this.height;
+    }
+
+    public String Ep() {
+        return this.aKk;
+    }
+
+    public String Eq() {
+        return this.aKl;
+    }
+
+    public int getWidth() {
+        return this.width;
+    }
+
+    public boolean Er() {
+        return this.aKj;
+    }
+
+    public String toString() {
+        return "AlaPkPanelInfo{position=" + this.position + ", height=" + this.height + ", width=" + this.width + ", isOpenAction=" + this.aKj + ", pkUrl='" + this.aKk + "', urlDataParams='" + this.aKl + "'}";
     }
 }

@@ -1,43 +1,43 @@
 package master.flame.danmaku.danmaku.model;
 /* loaded from: classes6.dex */
 public class j {
-    public int pMW = 0;
-    public int pMX = 0;
-    public int pMY = 0;
-    public int pMZ = 0;
-    public int pNa = 0;
-    public int pNb = 0;
+    public int pWq = 0;
+    public int pWr = 0;
+    public int pWs = 0;
+    public int pWt = 0;
+    public int pWu = 0;
+    public int pWv = 0;
 
     public void resetAll() {
-        this.pMX = 0;
-        this.pMW = 0;
-        this.pMY = 0;
-        this.pMZ = 0;
-        this.pNa = 0;
-        this.pNb = 0;
+        this.pWr = 0;
+        this.pWq = 0;
+        this.pWs = 0;
+        this.pWt = 0;
+        this.pWu = 0;
+        this.pWv = 0;
     }
 
-    public void ezB() {
-        this.pMX++;
+    public void eDq() {
+        this.pWr++;
     }
 
-    public void ezC() {
-        this.pMW++;
+    public void eDr() {
+        this.pWq++;
     }
 
-    public void ezD() {
-        this.pMY++;
+    public void eDs() {
+        this.pWs++;
     }
 
-    public void ezE() {
-        this.pMZ++;
+    public void eDt() {
+        this.pWt++;
     }
 
-    public void ezF() {
-        this.pNa++;
+    public void eDu() {
+        this.pWu++;
     }
 
-    public void ezG() {
-        this.pNb++;
+    public void eDv() {
+        this.pWv++;
     }
 }

@@ -20,7 +20,7 @@ public class BdActionBar extends RelativeLayout {
     public static final int TEXT_ALIGN_RIGHT = 2;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1538a;
+    private String f1540a;
     private View b;
     private View c;
     private ImageView d;
@@ -40,19 +40,19 @@ public class BdActionBar extends RelativeLayout {
 
     public BdActionBar(Context context) {
         super(context);
-        this.f1538a = "";
+        this.f1540a = "";
         a();
     }
 
     public BdActionBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1538a = "";
+        this.f1540a = "";
         a();
     }
 
     public BdActionBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1538a = "";
+        this.f1540a = "";
         a();
     }
 
@@ -75,8 +75,8 @@ public class BdActionBar extends RelativeLayout {
         this.j = findViewById(ResUtils.id(getContext(), "title_right_imgzone2"));
         this.k = (ImageView) findViewById(ResUtils.id(getContext(), "title_right_imgzone2_img"));
         this.l = (TextView) findViewById(ResUtils.id(getContext(), "title_right_imgzone2_notify"));
-        if (!TextUtils.isEmpty(this.f1538a)) {
-            setTitle(this.f1538a);
+        if (!TextUtils.isEmpty(this.f1540a)) {
+            setTitle(this.f1540a);
         }
         this.p = (ImageView) findViewById(ResUtils.id(getContext(), "title_bottom_seperator"));
     }
@@ -131,7 +131,7 @@ public class BdActionBar extends RelativeLayout {
     }
 
     public void setTitle(String str) {
-        this.f1538a = str;
+        this.f1540a = str;
         this.mTitleCenterText.setText(str);
     }
 
@@ -302,7 +302,7 @@ public class BdActionBar extends RelativeLayout {
     }
 
     public String getTitle() {
-        return this.f1538a;
+        return this.f1540a;
     }
 
     public void setCloseOnClickListener(View.OnClickListener onClickListener) {

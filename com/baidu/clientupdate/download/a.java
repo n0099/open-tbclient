@@ -16,7 +16,7 @@ import com.baidu.util.LogUtil;
 public class a extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f1332a = null;
+    private static a f1334a = null;
     private Context b;
 
     public a(Context context) {
@@ -27,10 +27,10 @@ public class a extends SQLiteOpenHelper {
     public static synchronized a a(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (f1332a == null) {
-                f1332a = new a(context);
+            if (f1334a == null) {
+                f1334a = new a(context);
             }
-            aVar = f1332a;
+            aVar = f1334a;
         }
         return aVar;
     }
@@ -70,7 +70,7 @@ public class a extends SQLiteOpenHelper {
     private ContentValues c(com.baidu.clientupdate.a.a aVar) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("ug", aVar.b);
-        contentValues.put("sessioninfo", aVar.f1313a + "\"tm\":\"" + (System.currentTimeMillis() / 1000) + "\"}");
+        contentValues.put("sessioninfo", aVar.f1315a + "\"tm\":\"" + (System.currentTimeMillis() / 1000) + "\"}");
         contentValues.put("nm", aVar.c);
         contentValues.put("stm", aVar.e.toString());
         contentValues.put(Config.STAT_SDK_CHANNEL, aVar.f.toString());

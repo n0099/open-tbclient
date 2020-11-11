@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b extends BaseAdapter {
-    private int bzI = -1;
+    private int bFT = -1;
     private List<com.baidu.tieba.ala.data.b> mDataList;
     private TbPageContext mTbPageContext;
 
@@ -27,7 +27,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: tp */
+    /* renamed from: tz */
     public com.baidu.tieba.ala.data.b getItem(int i) {
         return (com.baidu.tieba.ala.data.b) ListUtils.getItem(this.mDataList, i);
     }
@@ -42,8 +42,8 @@ public class b extends BaseAdapter {
         a aVar;
         if (view == null) {
             a aVar2 = new a();
-            view = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(a.h.ala_choose_feedback_reason_item_layout, viewGroup, false);
-            aVar2.bzJ = (TextView) view.findViewById(a.g.id_feedback_content);
+            view = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(a.g.ala_choose_feedback_reason_item_layout, viewGroup, false);
+            aVar2.bFU = (TextView) view.findViewById(a.f.id_feedback_content);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
@@ -51,12 +51,12 @@ public class b extends BaseAdapter {
         }
         com.baidu.tieba.ala.data.b item = getItem(i);
         if (item != null) {
-            aVar.bzJ.setText(item.RL());
+            aVar.bFU.setText(item.Ut());
         }
-        if (i == this.bzI) {
-            aVar.bzJ.setSelected(true);
+        if (i == this.bFT) {
+            aVar.bFU.setSelected(true);
         } else {
-            aVar.bzJ.setSelected(false);
+            aVar.bFU.setSelected(false);
         }
         return view;
     }
@@ -73,17 +73,17 @@ public class b extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public int RK() {
-        return this.bzI;
+    public int Us() {
+        return this.bFT;
     }
 
-    public void fR(int i) {
-        this.bzI = i;
+    public void ge(int i) {
+        this.bFT = i;
     }
 
     /* loaded from: classes4.dex */
     private class a {
-        public TextView bzJ;
+        public TextView bFU;
 
         private a() {
         }

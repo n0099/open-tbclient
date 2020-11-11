@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes6.dex */
 public class b extends FilterInputStream {
-    private final byte[] oCt;
-    private int oCu;
-    private int oCv;
+    private final byte[] oLM;
+    private int oLN;
+    private int oLO;
 
     public b(InputStream inputStream, byte[] bArr) {
         super(inputStream);
@@ -17,13 +17,13 @@ public class b extends FilterInputStream {
         if (bArr == null) {
             throw new NullPointerException();
         }
-        this.oCt = bArr;
+        this.oLM = bArr;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int read() throws IOException {
         int read = this.in.read();
-        return read != -1 ? read : egI();
+        return read != -1 ? read : ekx();
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -40,11 +40,11 @@ public class b extends FilterInputStream {
             }
             int i3 = 0;
             while (i3 < i2) {
-                int egI = egI();
-                if (egI == -1) {
+                int ekx = ekx();
+                if (ekx == -1) {
                     break;
                 }
-                bArr[i + i3] = (byte) egI;
+                bArr[i + i3] = (byte) ekx;
                 i3++;
             }
             if (i3 <= 0) {
@@ -59,7 +59,7 @@ public class b extends FilterInputStream {
     public void reset() throws IOException {
         if (this.in.markSupported()) {
             this.in.reset();
-            this.oCu = this.oCv;
+            this.oLN = this.oLO;
             return;
         }
         throw new IOException("mark is not supported");
@@ -69,17 +69,17 @@ public class b extends FilterInputStream {
     public void mark(int i) {
         if (this.in.markSupported()) {
             super.mark(i);
-            this.oCv = this.oCu;
+            this.oLO = this.oLN;
         }
     }
 
-    private int egI() {
-        if (this.oCu >= this.oCt.length) {
+    private int ekx() {
+        if (this.oLN >= this.oLM.length) {
             return -1;
         }
-        byte[] bArr = this.oCt;
-        int i = this.oCu;
-        this.oCu = i + 1;
+        byte[] bArr = this.oLM;
+        int i = this.oLN;
+        this.oLN = i + 1;
         return bArr[i] & 255;
     }
 }

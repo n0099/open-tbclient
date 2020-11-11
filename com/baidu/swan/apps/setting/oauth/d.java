@@ -5,9 +5,9 @@ import android.support.annotation.Nullable;
 /* loaded from: classes10.dex */
 public abstract class d {
     private Exception QL;
-    private b drR;
+    private b dxL;
 
-    protected abstract boolean aGO() throws Exception;
+    protected abstract boolean aJo() throws Exception;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Exception getException() {
@@ -16,7 +16,7 @@ public abstract class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d a(b bVar) {
-        this.drR = bVar;
+        this.dxL = bVar;
         return this;
     }
 
@@ -26,13 +26,13 @@ public abstract class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d aGP() {
+    public d aJp() {
         AsyncTask.execute(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.d.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    if (d.this.aGO()) {
-                        d.this.aGQ();
+                    if (d.this.aJo()) {
+                        d.this.aJq();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -43,7 +43,7 @@ public abstract class d {
         return this;
     }
 
-    public void aGQ() {
+    public void aJq() {
         w(null);
     }
 
@@ -52,7 +52,7 @@ public abstract class d {
         c.h(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.d.2
             @Override // java.lang.Runnable
             public void run() {
-                d.this.drR.b(d.this);
+                d.this.dxL.b(d.this);
             }
         });
     }

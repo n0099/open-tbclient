@@ -17,55 +17,55 @@ import org.json.JSONObject;
 import tbclient.AppPosInfo;
 /* loaded from: classes.dex */
 public class a {
-    private static a msl;
+    private static a myh;
     private String latitude;
     private String longitude;
-    private String msj;
-    private String msk = b.bnH().getString(SharedPrefConfig.ASP_SHOWN_INFO, "");
+    private String myf;
+    private String myg = b.bqh().getString(SharedPrefConfig.ASP_SHOWN_INFO, "");
     private long saveTime;
 
     private a() {
     }
 
-    public static a dyA() {
-        if (msl == null) {
+    public static a dBc() {
+        if (myh == null) {
             synchronized (com.baidu.tieba.tbadkCore.location.b.class) {
-                if (msl == null) {
-                    msl = new a();
+                if (myh == null) {
+                    myh = new a();
                 }
             }
         }
-        return msl;
+        return myh;
     }
 
-    public void LW(String str) {
+    public void Mn(String str) {
         this.longitude = str;
     }
 
-    public void LX(String str) {
+    public void Mo(String str) {
         this.latitude = str;
     }
 
-    public void gx(long j) {
+    public void gT(long j) {
         this.saveTime = j;
     }
 
-    private String dyB() {
-        if (TextUtils.isEmpty(this.msj)) {
-            dyC();
+    private String dBd() {
+        if (TextUtils.isEmpty(this.myf)) {
+            dBe();
         }
-        return this.msj;
+        return this.myf;
     }
 
-    public void dyC() {
+    public void dBe() {
         Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
-        if (ae.bov() && ae.ed(applicationContext)) {
+        if (ae.bqV() && ae.ed(applicationContext)) {
             try {
                 WifiInfo connectionInfo = ((WifiManager) applicationContext.getSystemService("wifi")).getConnectionInfo();
                 if (connectionInfo != null) {
-                    this.msj = connectionInfo.getBSSID();
+                    this.myf = connectionInfo.getBSSID();
                 } else {
-                    this.msj = "";
+                    this.myf = "";
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -73,42 +73,42 @@ public class a {
         }
     }
 
-    public void Rm(String str) {
-        this.msk = str;
+    public void RD(String str) {
+        this.myg = str;
     }
 
-    public void dyD() {
-        b.bnH().putString(SharedPrefConfig.ASP_SHOWN_INFO, this.msk);
+    public void dBf() {
+        b.bqh().putString(SharedPrefConfig.ASP_SHOWN_INFO, this.myg);
     }
 
-    public AppPosInfo dyE() {
+    public AppPosInfo dBg() {
         AppPosInfo.Builder builder = new AppPosInfo.Builder();
-        builder.ap_mac = dyB();
+        builder.ap_mac = dBd();
         builder.ap_connected = Boolean.valueOf(j.isWifiNet());
         builder.latitude = this.latitude;
         builder.longitude = this.longitude;
         builder.addr_timestamp = Long.valueOf(this.saveTime);
         builder.coordinate_type = "bd09ll";
-        builder.asp_shown_info = this.msk;
-        MercatorModel.MercatorData mercatorData = MercatorModel.dIs().getMercatorData();
+        builder.asp_shown_info = this.myg;
+        MercatorModel.MercatorData mercatorData = MercatorModel.dKU().getMercatorData();
         if (mercatorData != null) {
-            builder.mercator_lat = mercatorData.dIu();
-            builder.mercator_lon = mercatorData.dIt();
-            builder.mercator_city = Integer.valueOf(mercatorData.dIw());
-            builder.mercator_radius = mercatorData.dIv();
-            builder.mercator_time = Long.valueOf(mercatorData.dIx());
+            builder.mercator_lat = mercatorData.dKW();
+            builder.mercator_lon = mercatorData.dKV();
+            builder.mercator_city = Integer.valueOf(mercatorData.dKY());
+            builder.mercator_radius = mercatorData.dKX();
+            builder.mercator_time = Long.valueOf(mercatorData.dKZ());
         }
         return builder.build(false);
     }
 
-    public AppPosInfo dyF() {
+    public AppPosInfo dBh() {
         AppPosInfo.Builder builder = new AppPosInfo.Builder();
-        builder.ap_mac = dyB();
+        builder.ap_mac = dBd();
         builder.ap_connected = Boolean.valueOf(j.isWifiNet());
         builder.latitude = this.latitude;
         builder.longitude = this.longitude;
         if (at.isEmpty(this.latitude) || at.isEmpty(this.longitude)) {
-            String string = b.bnH().getString("key_last_receive_location_latitude_and_longitude", "");
+            String string = b.bqh().getString("key_last_receive_location_latitude_and_longitude", "");
             if (!at.isEmpty(string)) {
                 String[] split = string.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 if (split.length >= 2) {
@@ -119,35 +119,35 @@ public class a {
         }
         builder.addr_timestamp = Long.valueOf(this.saveTime);
         builder.coordinate_type = "BD09LL";
-        builder.asp_shown_info = this.msk;
-        MercatorModel.MercatorData mercatorData = MercatorModel.dIs().getMercatorData();
+        builder.asp_shown_info = this.myg;
+        MercatorModel.MercatorData mercatorData = MercatorModel.dKU().getMercatorData();
         if (mercatorData != null) {
-            builder.mercator_lat = mercatorData.dIu();
-            builder.mercator_lon = mercatorData.dIt();
-            builder.mercator_city = Integer.valueOf(mercatorData.dIw());
-            builder.mercator_radius = mercatorData.dIv();
-            builder.mercator_time = Long.valueOf(mercatorData.dIx());
+            builder.mercator_lat = mercatorData.dKW();
+            builder.mercator_lon = mercatorData.dKV();
+            builder.mercator_city = Integer.valueOf(mercatorData.dKY());
+            builder.mercator_radius = mercatorData.dKX();
+            builder.mercator_time = Long.valueOf(mercatorData.dKZ());
         }
         return builder.build(false);
     }
 
-    public String dyG() {
-        AppPosInfo dyF = dyF();
+    public String dBi() {
+        AppPosInfo dBh = dBh();
         JSONObject jSONObject = new JSONObject();
-        if (dyF != null) {
+        if (dBh != null) {
             try {
-                jSONObject.put("ap_mac", dyF.ap_mac);
-                jSONObject.put("ap_connected", dyF.ap_connected);
-                jSONObject.put("latitude", dyF.latitude);
-                jSONObject.put("longitude", dyF.longitude);
-                jSONObject.put("addr_timestamp", dyF.addr_timestamp);
-                jSONObject.put("coordinate_type", dyF.coordinate_type);
-                jSONObject.put(SharedPrefConfig.ASP_SHOWN_INFO, dyF.asp_shown_info);
-                jSONObject.put("mercator_lat", dyF.mercator_lat);
-                jSONObject.put("mercator_lon", dyF.mercator_lon);
-                jSONObject.put("mercator_city", dyF.mercator_city);
-                jSONObject.put("mercator_radius", dyF.mercator_radius);
-                jSONObject.put("mercator_time", dyF.mercator_time);
+                jSONObject.put("ap_mac", dBh.ap_mac);
+                jSONObject.put("ap_connected", dBh.ap_connected);
+                jSONObject.put("latitude", dBh.latitude);
+                jSONObject.put("longitude", dBh.longitude);
+                jSONObject.put("addr_timestamp", dBh.addr_timestamp);
+                jSONObject.put("coordinate_type", dBh.coordinate_type);
+                jSONObject.put(SharedPrefConfig.ASP_SHOWN_INFO, dBh.asp_shown_info);
+                jSONObject.put("mercator_lat", dBh.mercator_lat);
+                jSONObject.put("mercator_lon", dBh.mercator_lon);
+                jSONObject.put("mercator_city", dBh.mercator_city);
+                jSONObject.put("mercator_radius", dBh.mercator_radius);
+                jSONObject.put("mercator_time", dBh.mercator_time);
             } catch (JSONException e) {
             }
         }

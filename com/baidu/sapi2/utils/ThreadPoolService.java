@@ -18,21 +18,21 @@ public class ThreadPoolService implements NoProguard {
     private static final int d = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    private Handler f3529a;
+    private Handler f3532a;
     public ThreadPoolExecutor poolService;
 
     /* loaded from: classes5.dex */
     static class a implements ThreadFactory {
 
         /* renamed from: a  reason: collision with root package name */
-        private final AtomicInteger f3530a = new AtomicInteger(1);
+        private final AtomicInteger f3533a = new AtomicInteger(1);
 
         a() {
         }
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            return new Thread(runnable, "pass_pool_thread # " + this.f3530a.getAndIncrement());
+            return new Thread(runnable, "pass_pool_thread # " + this.f3533a.getAndIncrement());
         }
     }
 
@@ -57,7 +57,7 @@ public class ThreadPoolService implements NoProguard {
     private static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        static ThreadPoolService f3532a = new ThreadPoolService(null);
+        static ThreadPoolService f3535a = new ThreadPoolService(null);
 
         private c() {
         }
@@ -68,7 +68,7 @@ public class ThreadPoolService implements NoProguard {
     }
 
     public static ThreadPoolService getInstance() {
-        return c.f3532a;
+        return c.f3535a;
     }
 
     public void run(TPRunnable tPRunnable) {
@@ -76,11 +76,11 @@ public class ThreadPoolService implements NoProguard {
     }
 
     public void runInUiThread(TPRunnable tPRunnable) {
-        this.f3529a.sendMessage(this.f3529a.obtainMessage(0, tPRunnable));
+        this.f3532a.sendMessage(this.f3532a.obtainMessage(0, tPRunnable));
     }
 
     private ThreadPoolService() {
-        this.f3529a = new b(Looper.getMainLooper());
+        this.f3532a = new b(Looper.getMainLooper());
         this.poolService = new ThreadPoolExecutor(6, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), b);
         if (Build.VERSION.SDK_INT >= 9) {
             this.poolService.allowCoreThreadTimeOut(true);

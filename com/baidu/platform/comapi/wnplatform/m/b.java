@@ -8,11 +8,11 @@ import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
 public class b extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f3127a;
+    final /* synthetic */ a f3129a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.f3127a = aVar;
+        this.f3129a = aVar;
     }
 
     @Override // android.os.Handler
@@ -22,9 +22,9 @@ public class b extends Handler {
         switch (message.what) {
             case 1:
                 WLocData wLocData = (WLocData) message.obj;
-                bVar = this.f3127a.h;
+                bVar = this.f3129a.h;
                 if (bVar != null) {
-                    bVar2 = this.f3127a.h;
+                    bVar2 = this.f3129a.h;
                     bVar2.a(wLocData);
                     return;
                 }

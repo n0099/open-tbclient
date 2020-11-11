@@ -4,21 +4,21 @@ import com.baidu.rtc.camera.engine.model.AspectRatio;
 import io.flutter.plugin.platform.PlatformPlugin;
 /* loaded from: classes11.dex */
 public final class b {
-    private static final b chI = new b();
+    private static final b cnE = new b();
     public int cameraId;
-    public int chA;
-    public int chB;
-    public int chC;
-    public int chD;
-    public boolean chE;
-    public boolean chF;
-    public com.baidu.rtc.camera.engine.b.a chG;
-    public com.baidu.rtc.camera.engine.b.b chH;
-    public boolean chv;
-    public AspectRatio chw;
-    public float chx;
-    public int chy;
-    public int chz;
+    public boolean cnA;
+    public boolean cnB;
+    public com.baidu.rtc.camera.engine.b.a cnC;
+    public com.baidu.rtc.camera.engine.b.b cnD;
+    public boolean cnq;
+    public AspectRatio cnr;
+    public float cns;
+    public int cnu;
+    public int cnv;
+    public int cnw;
+    public int cnx;
+    public int cny;
+    public int cnz;
     public int orientation;
 
     private b() {
@@ -26,29 +26,29 @@ public final class b {
     }
 
     private void reset() {
-        this.chv = false;
-        this.chw = AspectRatio.Ratio_16_9;
-        this.chx = 0.5625f;
-        this.chy = 30;
-        this.chz = 0;
-        this.chA = PlatformPlugin.DEFAULT_SYSTEM_UI;
-        this.chB = 720;
-        this.chC = 0;
-        this.chD = 0;
+        this.cnq = false;
+        this.cnr = AspectRatio.Ratio_16_9;
+        this.cns = 0.5625f;
+        this.cnu = 30;
+        this.cnv = 0;
+        this.cnw = PlatformPlugin.DEFAULT_SYSTEM_UI;
+        this.cnx = 720;
+        this.cny = 0;
+        this.cnz = 0;
         this.orientation = 0;
-        this.chE = false;
+        this.cnA = false;
         this.cameraId = 1;
-        this.chF = false;
-        this.chG = null;
-        this.chH = null;
+        this.cnB = false;
+        this.cnC = null;
+        this.cnD = null;
     }
 
-    public static b abC() {
-        return chI;
+    public static b aec() {
+        return cnE;
     }
 
-    public void dW(boolean z) {
-        this.chE = z;
+    public void ef(boolean z) {
+        this.cnA = z;
         if (z) {
             this.cameraId = 0;
         } else {

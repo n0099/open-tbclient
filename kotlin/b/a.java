@@ -4,9 +4,9 @@ import com.baidu.android.common.others.IStringUtil;
 @kotlin.h
 /* loaded from: classes10.dex */
 public class a implements Iterable<Character> {
-    public static final C1056a pJx = new C1056a(null);
-    private final char pJv;
-    private final char pJw;
+    public static final C1076a pSR = new C1076a(null);
+    private final char pSP;
+    private final char pSQ;
     private final int step;
 
     public a(char c, char c2, int i) {
@@ -16,53 +16,53 @@ public class a implements Iterable<Character> {
         if (i == Integer.MIN_VALUE) {
             throw new IllegalArgumentException("Step must be greater than Int.MIN_VALUE to avoid overflow on negation.");
         }
-        this.pJv = c;
-        this.pJw = (char) kotlin.internal.d.ao(c, c2, i);
+        this.pSP = c;
+        this.pSQ = (char) kotlin.internal.d.ao(c, c2, i);
         this.step = i;
     }
 
-    public final char eyh() {
-        return this.pJv;
+    public final char eBW() {
+        return this.pSP;
     }
 
-    public final char eyi() {
-        return this.pJw;
+    public final char eBX() {
+        return this.pSQ;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Iterable
-    /* renamed from: eyj */
+    /* renamed from: eBY */
     public kotlin.collections.n iterator() {
-        return new b(this.pJv, this.pJw, this.step);
+        return new b(this.pSP, this.pSQ, this.step);
     }
 
     public boolean isEmpty() {
-        return this.step > 0 ? this.pJv > this.pJw : this.pJv < this.pJw;
+        return this.step > 0 ? this.pSP > this.pSQ : this.pSP < this.pSQ;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof a) && ((isEmpty() && ((a) obj).isEmpty()) || (this.pJv == ((a) obj).pJv && this.pJw == ((a) obj).pJw && this.step == ((a) obj).step));
+        return (obj instanceof a) && ((isEmpty() && ((a) obj).isEmpty()) || (this.pSP == ((a) obj).pSP && this.pSQ == ((a) obj).pSQ && this.step == ((a) obj).step));
     }
 
     public int hashCode() {
         if (isEmpty()) {
             return -1;
         }
-        return (((this.pJv * 31) + this.pJw) * 31) + this.step;
+        return (((this.pSP * 31) + this.pSQ) * 31) + this.step;
     }
 
     public String toString() {
-        return this.step > 0 ? this.pJv + IStringUtil.TOP_PATH + this.pJw + " step " + this.step : this.pJv + " downTo " + this.pJw + " step " + (-this.step);
+        return this.step > 0 ? this.pSP + IStringUtil.TOP_PATH + this.pSQ + " step " + this.step : this.pSP + " downTo " + this.pSQ + " step " + (-this.step);
     }
 
     @kotlin.h
     /* renamed from: kotlin.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static final class C1056a {
-        private C1056a() {
+    public static final class C1076a {
+        private C1076a() {
         }
 
-        public /* synthetic */ C1056a(kotlin.jvm.internal.o oVar) {
+        public /* synthetic */ C1076a(kotlin.jvm.internal.o oVar) {
             this();
         }
     }

@@ -4,28 +4,28 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaZMCreateHttpResponseMessage extends JsonHttpResponsedMessage {
-    private String bmM;
-    private String bmN;
-    private long bmO;
+    private String bog;
+    private String boh;
+    private long boi;
 
     public AlaZMCreateHttpResponseMessage() {
         super(1021062);
-        this.bmM = null;
-        this.bmN = null;
-        this.bmO = 0L;
+        this.bog = null;
+        this.boh = null;
+        this.boi = 0L;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            this.bmM = jSONObject.optString("biz_url");
-            this.bmN = jSONObject.optString("biz_no");
-            this.bmO = jSONObject.optLong("cert_id");
+            this.bog = jSONObject.optString("biz_url");
+            this.boh = jSONObject.optString("biz_no");
+            this.boi = jSONObject.optLong("cert_id");
         }
     }
 
-    public long NI() {
-        return this.bmO;
+    public long Oi() {
+        return this.boi;
     }
 }

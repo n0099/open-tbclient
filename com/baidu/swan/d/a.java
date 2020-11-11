@@ -7,24 +7,24 @@ import com.baidu.webkit.internal.GlobalConstants;
 import java.io.File;
 /* loaded from: classes19.dex */
 public class a {
-    private static final String eju = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "zeus" + File.separator + "libs";
-    public static final String cJc = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
+    private static final String epo = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "zeus" + File.separator + "libs";
+    public static final String cOV = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
 
     @SuppressLint({"ApplySharedPref"})
-    public static void bcJ() {
+    public static void bfj() {
         PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).edit().putBoolean("swan_t7_success", false).commit();
     }
 
-    public static boolean bcK() {
-        return new File(new StringBuilder().append(eju).append(File.separator).append(GlobalConstants.LIB_ZEUS_CHROMIUM).toString()).exists() && aoK();
+    public static boolean bfk() {
+        return new File(new StringBuilder().append(epo).append(File.separator).append(GlobalConstants.LIB_ZEUS_CHROMIUM).toString()).exists() && arl();
     }
 
-    public static boolean aoK() {
+    public static boolean arl() {
         return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("swan_full_install", true);
     }
 
     @SuppressLint({"ApplySharedPref"})
-    public static void hY(boolean z) {
+    public static void ih(boolean z) {
         PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).edit().putBoolean("swan_full_install", z).commit();
     }
 }

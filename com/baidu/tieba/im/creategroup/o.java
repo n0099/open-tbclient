@@ -3,17 +3,17 @@ package com.baidu.tieba.im.creategroup;
 import android.view.View;
 /* loaded from: classes23.dex */
 public interface o {
-    int cMV();
+    void cPC();
 
-    void cNb();
+    void cPD();
 
-    void cNc();
+    String cPF();
 
-    String cNe();
+    boolean cPG();
 
-    boolean cNf();
+    boolean cPH();
 
-    boolean cNg();
+    int cPw();
 
     String getErrMsg();
 

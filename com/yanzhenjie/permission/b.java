@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 /* loaded from: classes6.dex */
 public class b {
-    private static final c pBq;
+    private static final c pKK;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
@@ -16,15 +16,15 @@ public class b {
 
     static {
         if (Build.VERSION.SDK_INT >= 23) {
-            pBq = new C1037b();
+            pKK = new C1057b();
         } else {
-            pBq = new a();
+            pKK = new a();
         }
     }
 
     @NonNull
     public static h hs(@NonNull Context context) {
-        return pBq.a(new com.yanzhenjie.permission.b.a(context));
+        return pKK.a(new com.yanzhenjie.permission.b.a(context));
     }
 
     /* loaded from: classes6.dex */
@@ -41,8 +41,8 @@ public class b {
     @RequiresApi(api = 23)
     /* renamed from: com.yanzhenjie.permission.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private static class C1037b implements c {
-        private C1037b() {
+    private static class C1057b implements c {
+        private C1057b() {
         }
 
         @Override // com.yanzhenjie.permission.b.c

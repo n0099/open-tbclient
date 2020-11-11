@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes22.dex */
 public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.f, am<com.baidu.tieba.homepage.personalize.data.f>> {
     private com.baidu.adp.widget.ListView.v alD;
-    public BdUniqueId fmX;
+    public BdUniqueId fsQ;
     private TbPageContext<?> mPageContext;
 
     public e(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -21,16 +21,16 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aT */
+    /* renamed from: aV */
     public am<com.baidu.tieba.homepage.personalize.data.f> c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
-        aVar.c(new com.baidu.tieba.homepage.personalize.view.b(this.mPageContext, this.fmX));
+        aVar.c(new com.baidu.tieba.homepage.personalize.view.b(this.mPageContext, this.fsQ));
         aVar.tU().bz(0);
         aVar.tU().bB(0);
         aVar.tU().bA(0);
         aVar.tU().bv(0);
         am<com.baidu.tieba.homepage.personalize.data.f> amVar = new am<>(aVar.a(true, viewGroup, this.alD));
-        amVar.setPageId(this.fmX);
+        amVar.setPageId(this.fsQ);
         return amVar;
     }
 
@@ -43,12 +43,12 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         }
         amVar.b((am<com.baidu.tieba.homepage.personalize.data.f>) fVar);
         amVar.tW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        com.baidu.tieba.card.t.clQ().e(fVar.cIT());
-        com.baidu.tieba.a.d.bGs().e(fVar.cIT());
+        com.baidu.tieba.card.t.cor().e(fVar.cLu());
+        com.baidu.tieba.a.d.bIR().e(fVar.cLu());
         return amVar.getView();
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.fmX = bdUniqueId;
+        this.fsQ = bdUniqueId;
     }
 }

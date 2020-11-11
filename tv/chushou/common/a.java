@@ -1,118 +1,118 @@
 package tv.chushou.common;
 /* loaded from: classes6.dex */
 public final class a {
-    private static final a qcC;
-    private static final a qcD;
-    private static volatile a qcE;
+    private static final a qlX;
+    private static final a qlY;
+    private static volatile a qlZ;
     private String ad;
     private String city;
-    private String jnG;
-    private int qcA;
-    private String qcB;
-    private String qcm;
-    private String qcn;
-    private String qco;
-    private String qcp;
-    private String qcq;
-    private String qcr;
-    private String qcs;
-    private String qct;
-    private String qcu;
-    private String qcv;
-    private String qcw;
-    private String qcx;
-    private String qcy;
-    private String qcz;
+    private String jtD;
+    private String qlH;
+    private String qlI;
+    private String qlJ;
+    private String qlK;
+    private String qlL;
+    private String qlM;
+    private String qlN;
+    private String qlO;
+    private String qlP;
+    private String qlQ;
+    private String qlR;
+    private String qlS;
+    private String qlT;
+    private String qlU;
+    private int qlV;
+    private String qlW;
     private String sdk;
 
     static {
         a aVar = new a();
-        aVar.qcm = "https://api.chushou.tv/";
-        aVar.qcn = "https://bee.kascend.com/";
-        aVar.jnG = "https://chushou.tv/";
-        aVar.qco = "https://chat.chushou.tv/";
-        aVar.qcp = "https://qos-stat.chushou.tv/";
-        aVar.qcq = "im.chushou.tv";
-        aVar.qcr = "https://imapi.chushou.tv/";
-        aVar.qcs = "https://pay.chushou.tv/kaspay/";
-        aVar.qct = "https://gemini.chushou.tv/";
-        aVar.qcu = "https://mic.chushou.tv/";
+        aVar.qlH = "https://api.chushou.tv/";
+        aVar.qlI = "https://bee.kascend.com/";
+        aVar.jtD = "https://chushou.tv/";
+        aVar.qlJ = "https://chat.chushou.tv/";
+        aVar.qlK = "https://qos-stat.chushou.tv/";
+        aVar.qlL = "im.chushou.tv";
+        aVar.qlM = "https://imapi.chushou.tv/";
+        aVar.qlN = "https://pay.chushou.tv/kaspay/";
+        aVar.qlO = "https://gemini.chushou.tv/";
+        aVar.qlP = "https://mic.chushou.tv/";
         aVar.ad = "https://ja.chushou.tv/";
         aVar.city = "https://geo.chushou.tv/";
-        aVar.qcv = "https://playground.chushou.tv/";
-        aVar.qcw = "https://appstat.chushou.tv/";
-        aVar.qcx = "https://luck.chushou.tv/";
-        aVar.qcy = "https://gmapi.chushou.tv/";
-        aVar.qcz = "https://gm.chushou.tv/";
+        aVar.qlQ = "https://playground.chushou.tv/";
+        aVar.qlR = "https://appstat.chushou.tv/";
+        aVar.qlS = "https://luck.chushou.tv/";
+        aVar.qlT = "https://gmapi.chushou.tv/";
+        aVar.qlU = "https://gm.chushou.tv/";
         aVar.sdk = "https://open.chushou.tv/";
-        aVar.qcA = 8178;
-        aVar.qcB = "rc";
-        qcC = aVar;
+        aVar.qlV = 8178;
+        aVar.qlW = "rc";
+        qlX = aVar;
         a aVar2 = new a();
-        aVar2.qcm = "https://api.vchushou.com/";
-        aVar2.qcn = "https://bee.vchushou.com/";
-        aVar2.jnG = "https://vchushou.com/";
-        aVar2.qco = "https://chat.vchushou.com/";
-        aVar2.qcp = "https://qos-stat.vchushou.com/";
-        aVar2.qcq = "im.vchushou.com";
-        aVar2.qcr = "https://imapi.vchushou.com/";
-        aVar2.qcs = "https://pay.vchushou.com/";
-        aVar2.qct = "https://gemini.vchushou.com/";
-        aVar2.qcu = "https://mic.vchushou.com/";
+        aVar2.qlH = "https://api.vchushou.com/";
+        aVar2.qlI = "https://bee.vchushou.com/";
+        aVar2.jtD = "https://vchushou.com/";
+        aVar2.qlJ = "https://chat.vchushou.com/";
+        aVar2.qlK = "https://qos-stat.vchushou.com/";
+        aVar2.qlL = "im.vchushou.com";
+        aVar2.qlM = "https://imapi.vchushou.com/";
+        aVar2.qlN = "https://pay.vchushou.com/";
+        aVar2.qlO = "https://gemini.vchushou.com/";
+        aVar2.qlP = "https://mic.vchushou.com/";
         aVar2.ad = "https://ja.vchushou.com/";
         aVar2.city = "https://geo.vchushou.com/";
-        aVar2.qcv = "https://open-game.vchushou.com/";
-        aVar2.qcw = "https://vchushou.com/";
-        aVar2.qcx = "https://luck.vchushou.com/";
-        aVar2.qcy = "https://gamemate.vchushou.com/";
-        aVar2.qcz = "https://gamemate.vchushou.com/";
+        aVar2.qlQ = "https://open-game.vchushou.com/";
+        aVar2.qlR = "https://vchushou.com/";
+        aVar2.qlS = "https://luck.vchushou.com/";
+        aVar2.qlT = "https://gamemate.vchushou.com/";
+        aVar2.qlU = "https://gamemate.vchushou.com/";
         aVar2.sdk = "https://open.vchushou.com/";
-        aVar2.qcA = 8178;
-        aVar2.qcB = "https";
-        qcD = aVar2;
-        qcE = qcC;
+        aVar2.qlV = 8178;
+        aVar2.qlW = "https";
+        qlY = aVar2;
+        qlZ = qlX;
     }
 
     private a() {
     }
 
-    public static void ZP(String str) {
+    public static void aat(String str) {
         if ("beta".equals(str)) {
-            qcE = qcD;
+            qlZ = qlY;
         } else {
-            qcE = qcC;
+            qlZ = qlX;
         }
     }
 
-    public static String eDC() {
-        return qcE.qcm;
+    public static String eHr() {
+        return qlZ.qlH;
     }
 
-    public static String eDD() {
-        return qcE.qcn;
+    public static String eHs() {
+        return qlZ.qlI;
     }
 
-    public static String cFC() {
-        return qcE.jnG;
+    public static String cId() {
+        return qlZ.jtD;
     }
 
-    public static String eDE() {
-        return qcE.qco;
+    public static String eHt() {
+        return qlZ.qlJ;
     }
 
-    public static String eDF() {
-        return qcE.qcu;
+    public static String eHu() {
+        return qlZ.qlP;
     }
 
-    public static String eDG() {
-        return qcE.ad;
+    public static String eHv() {
+        return qlZ.ad;
     }
 
-    public static String eDH() {
-        return qcE.qcx;
+    public static String eHw() {
+        return qlZ.qlS;
     }
 
-    public static String eDI() {
-        return qcE.sdk;
+    public static String eHx() {
+        return qlZ.sdk;
     }
 }

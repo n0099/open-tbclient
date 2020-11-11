@@ -4,8 +4,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class b extends a {
     private boolean akk;
-    private boolean eJB;
-    private boolean eJC;
+    private boolean ePq;
+    private boolean ePr;
     private int procType;
     private float scale = 0.43f;
     private int width;
@@ -13,12 +13,12 @@ public class b extends a {
     public b(boolean z, boolean z2, boolean z3, int i) {
         this.width = 0;
         this.akk = true;
-        this.eJB = false;
-        this.eJC = false;
+        this.ePq = false;
+        this.ePr = false;
         this.procType = 0;
         this.akk = z;
-        this.eJB = z2;
-        this.eJC = z3;
+        this.ePq = z2;
+        this.ePr = z3;
         this.procType = i;
         this.width = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp());
         if (this.width <= 0 || this.width > 644) {
@@ -45,17 +45,17 @@ public class b extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean bpg() {
-        return this.eJC;
+    public boolean brG() {
+        return this.ePr;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean bph() {
-        return this.eJB;
+    public boolean brH() {
+        return this.ePq;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int bpi() {
+    public int brI() {
         return this.procType;
     }
 }

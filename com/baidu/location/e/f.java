@@ -15,7 +15,7 @@ public abstract class f {
     public static int g = a.g;
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f1949a = "10.0.0.172";
+    private static String f1951a = "10.0.0.172";
     private static int b = 80;
     protected static int p = 0;
 

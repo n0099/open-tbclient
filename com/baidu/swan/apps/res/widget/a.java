@@ -37,19 +37,19 @@ public class a {
         }
     }
 
-    public static LinearLayout aEp() {
-        com.baidu.swan.apps.tabbar.b.a ahj = g.ahj();
-        if (ahj == null) {
+    public static LinearLayout aGP() {
+        com.baidu.swan.apps.tabbar.b.a ajJ = g.ajJ();
+        if (ajJ == null) {
             return null;
         }
-        return ahj.aJf();
+        return ajJ.aLF();
     }
 
     public static View getActionBar() {
-        f adm = com.baidu.swan.apps.v.f.axo().adm();
-        c amB = adm != null ? adm.amB() : null;
-        if (amB != null) {
-            return amB.amc();
+        f afM = com.baidu.swan.apps.v.f.azO().afM();
+        c apb = afM != null ? afM.apb() : null;
+        if (apb != null) {
+            return apb.aoC();
         }
         return null;
     }
@@ -80,34 +80,34 @@ public class a {
         return (!SUPPORT_IMMERSION || view == null || view.findViewById(a.f.immersion_custom_statusbar_view) == null) ? false : true;
     }
 
-    public static void aEq() {
-        f adm = com.baidu.swan.apps.v.f.axo().adm();
-        if (adm != null) {
-            final com.baidu.swan.apps.view.a.b alR = adm.amB().alR();
+    public static void aGQ() {
+        f afM = com.baidu.swan.apps.v.f.azO().afM();
+        if (afM != null) {
+            final com.baidu.swan.apps.view.a.b aor = afM.apb().aor();
             ak.m(new Runnable() { // from class: com.baidu.swan.apps.res.widget.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    View aLb;
-                    if (com.baidu.swan.apps.view.a.b.this != null && (aLb = com.baidu.swan.apps.view.a.b.this.aLb()) != null) {
-                        aLb.setVisibility(0);
+                    View aNB;
+                    if (com.baidu.swan.apps.view.a.b.this != null && (aNB = com.baidu.swan.apps.view.a.b.this.aNB()) != null) {
+                        aNB.setVisibility(0);
                     }
                 }
             });
         }
     }
 
-    public static void aEr() {
-        final c amB;
+    public static void aGR() {
+        final c apb;
         final View view;
-        f adm = com.baidu.swan.apps.v.f.axo().adm();
-        if (adm != null && (view = (amB = adm.amB()).getView()) != null) {
+        f afM = com.baidu.swan.apps.v.f.azO().afM();
+        if (afM != null && (view = (apb = afM.apb()).getView()) != null) {
             ak.m(new Runnable() { // from class: com.baidu.swan.apps.res.widget.a.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    View aLb;
-                    com.baidu.swan.apps.view.a.b alR = c.this.alR();
-                    if (alR != null && (aLb = alR.aLb()) != null) {
-                        aLb.setVisibility(8);
+                    View aNB;
+                    com.baidu.swan.apps.view.a.b aor = c.this.aor();
+                    if (aor != null && (aNB = aor.aNB()) != null) {
+                        aNB.setVisibility(8);
                     }
                     LinearLayout linearLayout = (LinearLayout) view.findViewById(a.f.ai_apps_fragment_base_view);
                     FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) linearLayout.getLayoutParams();
@@ -123,7 +123,7 @@ public class a {
     }
 
     public static void setImmersive(boolean z) {
-        a(com.baidu.swan.apps.v.f.axo().awY(), 100L, z);
+        a(com.baidu.swan.apps.v.f.azO().azy(), 100L, z);
     }
 
     private static void a(final Activity activity, long j, final boolean z) {
@@ -140,7 +140,7 @@ public class a {
     public static void setSystemUiVisibility(View view, boolean z) {
         if (view != null) {
             if (z) {
-                view.setSystemUiVisibility(e.aJM());
+                view.setSystemUiVisibility(e.aMm());
             } else {
                 view.setSystemUiVisibility(0);
             }

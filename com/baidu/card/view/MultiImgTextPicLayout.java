@@ -95,10 +95,10 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<AbsThreadDa
                 float f6;
                 float f7 = 0.0f;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a DN = c.byE().DN(com.baidu.adp.lib.e.c.mS().genCacheKey(tbImageView.getUrl(), MultiImgTextPicLayout.this.akk ? 13 : 14));
-                    if (DN != null) {
-                        int width = DN.getWidth();
-                        i = DN.getHeight();
+                    com.baidu.adp.widget.ImageView.a Eb = c.bBd().Eb(com.baidu.adp.lib.e.c.mS().genCacheKey(tbImageView.getUrl(), MultiImgTextPicLayout.this.akk ? 13 : 14));
+                    if (Eb != null) {
+                        int width = Eb.getWidth();
+                        i = Eb.getHeight();
                         i2 = width;
                     } else {
                         i = 0;
@@ -240,35 +240,35 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<AbsThreadDa
                     subClickListener.aiJ = Boolean.valueOf(z);
                     subClickListener.a(view, MultiImgTextPicLayout.this.afI);
                 }
-                if (TbadkCoreApplication.getInst().getAdAdSense() == null || !TbadkCoreApplication.getInst().getAdAdSense().eWG) {
-                    ay.a(view, MultiImgTextPicLayout.this.akk, MultiImgTextPicLayout.this.akA, i, MultiImgTextPicLayout.this.afI.bhz(), MultiImgTextPicLayout.this.mFrom);
+                if (TbadkCoreApplication.getInst().getAdAdSense() == null || !TbadkCoreApplication.getInst().getAdAdSense().fcw) {
+                    ay.a(view, MultiImgTextPicLayout.this.akk, MultiImgTextPicLayout.this.akA, i, MultiImgTextPicLayout.this.afI.bjZ(), MultiImgTextPicLayout.this.mFrom);
                 } else if ("index".equals(MultiImgTextPicLayout.this.mFrom)) {
                     ay.a(MultiImgTextPicLayout.this.afI, view.getContext(), 2, false);
                 } else if ("frs".equals(MultiImgTextPicLayout.this.mFrom)) {
                     ay.a(MultiImgTextPicLayout.this.afI, view.getContext(), 3, false);
                 } else {
-                    ay.a(view, MultiImgTextPicLayout.this.akk, MultiImgTextPicLayout.this.akA, i, MultiImgTextPicLayout.this.afI.bhz(), MultiImgTextPicLayout.this.mFrom);
+                    ay.a(view, MultiImgTextPicLayout.this.akk, MultiImgTextPicLayout.this.akA, i, MultiImgTextPicLayout.this.afI.bjZ(), MultiImgTextPicLayout.this.mFrom);
                 }
             }
         };
     }
 
     private void setVoiceData(bw bwVar) {
-        ArrayList<VoiceData.VoiceModel> bkn = bwVar.bkn();
-        if (y.isEmpty(bkn)) {
+        ArrayList<VoiceData.VoiceModel> bmN = bwVar.bmN();
+        if (y.isEmpty(bmN)) {
             this.akw.setVisibility(8);
             this.akz = false;
             return;
         }
         this.akw.setVisibility(0);
-        VoiceData.VoiceModel voiceModel = bkn.get(0);
+        VoiceData.VoiceModel voiceModel = bmN.get(0);
         this.akw.setVoiceModel(voiceModel);
         this.akw.setTag(voiceModel);
         this.akw.changeSkin();
         if (voiceModel != null) {
-            this.akw.Dm(voiceModel.voice_status.intValue());
+            this.akw.Dz(voiceModel.voice_status.intValue());
         }
-        this.akw.bWJ();
+        this.akw.bZl();
         this.akz = true;
     }
 
@@ -276,17 +276,17 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<AbsThreadDa
         MediaData mediaData;
         this.akH.setVisibility(8);
         this.akD.setVisibility(8);
-        ArrayList<MediaData> bkj = bwVar.bkj();
-        if (k.bhh().isShowImages() && y.getCount(bkj) != 0) {
+        ArrayList<MediaData> bmJ = bwVar.bmJ();
+        if (k.bjH().isShowImages() && y.getCount(bmJ) != 0) {
             LinkedList<MediaData> linkedList = new LinkedList<>();
             MediaData mediaData2 = null;
             int i = 0;
             while (true) {
-                if (i >= bkj.size()) {
+                if (i >= bmJ.size()) {
                     mediaData = mediaData2;
                     break;
                 }
-                mediaData2 = (MediaData) y.getItem(bkj, i);
+                mediaData2 = (MediaData) y.getItem(bmJ, i);
                 if (mediaData2 == null || mediaData2.getType() != 3) {
                     i++;
                 } else {
@@ -313,11 +313,11 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<AbsThreadDa
 
     private void setImageData(bw bwVar) {
         boolean z;
-        ArrayList<MediaData> bkj = bwVar.bkj();
-        if (k.bhh().isShowImages() && y.getCount(bkj) != 0) {
+        ArrayList<MediaData> bmJ = bwVar.bmJ();
+        if (k.bjH().isShowImages() && y.getCount(bmJ) != 0) {
             LinkedList<MediaData> linkedList = new LinkedList<>();
-            for (int i = 0; i < bkj.size(); i++) {
-                MediaData mediaData = (MediaData) y.getItem(bkj, i);
+            for (int i = 0; i < bmJ.size(); i++) {
+                MediaData mediaData = (MediaData) y.getItem(bmJ, i);
                 if (mediaData != null && mediaData.getType() == 3) {
                     linkedList.add(mediaData);
                 }
@@ -328,7 +328,7 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<AbsThreadDa
                 this.akH.setVisibility(8);
                 this.akD.setVisibility(8);
                 this.akI.setVisibility(0);
-                a((MediaData) y.getItem(bkj, 0), this.akI, false, false, 0);
+                a((MediaData) y.getItem(bmJ, 0), this.akI, false, false, 0);
                 return;
             }
             this.akI.setVisibility(8);
@@ -344,16 +344,16 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<AbsThreadDa
             this.akD.setVisibility(8);
             if (y.getCount(linkedList) == 2) {
                 this.akD.setVisibility(0);
-                a((MediaData) y.getItem(bkj, 0), this.akE, z, false, 0);
+                a((MediaData) y.getItem(bmJ, 0), this.akE, z, false, 0);
                 this.akF.setVisibility(8);
-                a((MediaData) y.getItem(bkj, 1), this.akG, z, false, 1);
+                a((MediaData) y.getItem(bmJ, 1), this.akG, z, false, 1);
                 return;
             } else if (y.getCount(linkedList) >= 3) {
                 this.akD.setVisibility(0);
                 this.akF.setVisibility(0);
-                a((MediaData) y.getItem(bkj, 0), this.akE, z, false, 0);
-                a((MediaData) y.getItem(bkj, 1), this.akF, z, false, 1);
-                a((MediaData) y.getItem(bkj, 2), this.akG, z, true, 2);
+                a((MediaData) y.getItem(bmJ, 0), this.akE, z, false, 0);
+                a((MediaData) y.getItem(bmJ, 1), this.akF, z, false, 1);
+                a((MediaData) y.getItem(bmJ, 2), this.akG, z, true, 2);
                 return;
             } else {
                 this.akD.setVisibility(8);
@@ -380,11 +380,11 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<AbsThreadDa
     /* renamed from: b */
     public void H(AbsThreadDataSupport absThreadDataSupport) {
         this.afI = absThreadDataSupport;
-        bw bhz = absThreadDataSupport.bhz();
-        ay.a(this.mTitle, bhz, this.aik);
-        ay.a(this.agm, this.mTitle, bhz, agk, this.aik);
-        setImageData(bhz);
-        setVoiceData(bhz);
+        bw bjZ = absThreadDataSupport.bjZ();
+        ay.a(this.mTitle, bjZ, this.aik);
+        ay.a(this.agm, this.mTitle, bjZ, agk, this.aik);
+        setImageData(bjZ);
+        setVoiceData(bjZ);
         ua();
     }
 

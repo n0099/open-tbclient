@@ -24,21 +24,21 @@ final class c extends Handler {
         switch (message.what) {
             case 1:
                 Context context = VIContext.getContext();
-                sensorManager2 = vCompass.f3899a;
+                sensorManager2 = vCompass.f3901a;
                 if (sensorManager2 == null) {
-                    vCompass.f3899a = (SensorManager) context.getSystemService("sensor");
+                    vCompass.f3901a = (SensorManager) context.getSystemService("sensor");
                 }
-                sensorManager3 = vCompass.f3899a;
+                sensorManager3 = vCompass.f3901a;
                 List<Sensor> sensorList = sensorManager3.getSensorList(3);
                 if (sensorList.size() > 0) {
-                    sensorManager4 = vCompass.f3899a;
+                    sensorManager4 = vCompass.f3901a;
                     sensorEventListener2 = vCompass.f;
                     sensorManager4.registerListener(sensorEventListener2, sensorList.get(0), 1);
                     return;
                 }
                 return;
             case 2:
-                sensorManager = vCompass.f3899a;
+                sensorManager = vCompass.f3901a;
                 sensorEventListener = vCompass.f;
                 sensorManager.unregisterListener(sensorEventListener);
                 return;

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class HorizontalMarqueeView extends HorizontalScrollView {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f4187a;
+    protected Context f4189a;
     protected int b;
     protected LinearLayout c;
     protected int d;
@@ -28,9 +28,9 @@ public class HorizontalMarqueeView extends HorizontalScrollView {
     protected boolean m;
     protected boolean n;
     protected int o;
-    protected ArrayList<Integer> oZH;
     protected int p;
-    protected ArrayList<Integer> pmj;
+    protected ArrayList<Integer> pjf;
+    protected ArrayList<Integer> pvH;
     protected ArrayList<View> q;
     protected ArrayList<Integer> r;
 
@@ -53,9 +53,9 @@ public class HorizontalMarqueeView extends HorizontalScrollView {
         this.n = false;
         this.q = new ArrayList<>();
         this.r = new ArrayList<>();
-        this.oZH = new ArrayList<>();
-        this.pmj = new ArrayList<>();
-        this.f4187a = context;
+        this.pjf = new ArrayList<>();
+        this.pvH = new ArrayList<>();
+        this.f4189a = context;
         h();
     }
 
@@ -67,7 +67,7 @@ public class HorizontalMarqueeView extends HorizontalScrollView {
     }
 
     protected LinearLayout getContentLayout() {
-        LinearLayout linearLayout = new LinearLayout(this.f4187a);
+        LinearLayout linearLayout = new LinearLayout(this.f4189a);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
         linearLayout.setOrientation(0);
         return linearLayout;
@@ -81,16 +81,16 @@ public class HorizontalMarqueeView extends HorizontalScrollView {
         this.q.add(view);
         view.measure(0, 0);
         this.r.add(Integer.valueOf(view.getMeasuredWidth()));
-        this.oZH.add(Integer.valueOf(i));
-        this.pmj.add(Integer.valueOf(i2));
+        this.pjf.add(Integer.valueOf(i));
+        this.pvH.add(Integer.valueOf(i2));
     }
 
     public void a() {
         this.c.removeAllViews();
         this.q.clear();
         this.r.clear();
-        this.oZH.clear();
-        this.pmj.clear();
+        this.pjf.clear();
+        this.pvH.clear();
     }
 
     public void setScrollDirection(int i) {

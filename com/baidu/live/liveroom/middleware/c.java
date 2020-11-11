@@ -6,5 +6,5 @@ import com.baidu.live.data.w;
 public interface c {
     void b(q qVar);
 
-    void k(w wVar);
+    void j(w wVar);
 }

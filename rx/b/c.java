@@ -68,7 +68,7 @@ public class c<T> extends j<T> {
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     protected void X(Throwable th) {
-        rx.c.f.eCF().eCG().F(th);
+        rx.c.f.eGu().eGv().F(th);
         try {
             this.actual.onError(th);
             try {

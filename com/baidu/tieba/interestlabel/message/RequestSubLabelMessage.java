@@ -13,7 +13,7 @@ import tbclient.SubTagList.SubTagListReqIdl;
 public class RequestSubLabelMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f3691common;
+    private CommonReq f3693common;
     private List<Integer> labelList;
 
     public RequestSubLabelMessage() {
@@ -21,7 +21,7 @@ public class RequestSubLabelMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f3691common = commonReq;
+        this.f3693common = commonReq;
     }
 
     public void setLabelList(List<Integer> list) {
@@ -34,7 +34,7 @@ public class RequestSubLabelMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f5361common = this.f3691common;
+        builder.f5363common = this.f3693common;
         builder.arr_tag_id = this.labelList;
         if (z) {
             u.a(builder, true);

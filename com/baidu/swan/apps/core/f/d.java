@@ -5,9 +5,9 @@ public interface d {
 
     void goBack();
 
-    void hO(String str);
+    void hV(String str);
 
-    void iC(String str);
+    void iP(String str);
 
-    boolean iD(String str);
+    boolean iQ(String str);
 }

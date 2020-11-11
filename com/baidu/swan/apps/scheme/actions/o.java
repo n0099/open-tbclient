@@ -37,7 +37,7 @@ public class o extends aa {
         }
         final String optString2 = b.optString("open", "");
         c(eVar, optString2);
-        eVar.aFg().e("scope_open_app", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.apps.scheme.actions.o.1
+        eVar.aHG().e("scope_open_app", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.apps.scheme.actions.o.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: c */
@@ -61,7 +61,7 @@ public class o extends aa {
 
     private void c(@NonNull com.baidu.swan.apps.runtime.e eVar, @NonNull String str) {
         com.baidu.swan.apps.statistic.a.e eVar2 = new com.baidu.swan.apps.statistic.a.e();
-        eVar2.mSource = eVar.ado().awd();
+        eVar2.mSource = eVar.afO().ayD();
         eVar2.u("appkey", eVar.getAppId());
         eVar2.u(Config.ROM, "Android");
         try {
@@ -78,16 +78,16 @@ public class o extends aa {
         if (eVar == null || TextUtils.isEmpty(str)) {
             return false;
         }
-        String awd = com.baidu.swan.apps.runtime.d.aEQ().aEM().aEY().awd();
-        if (TextUtils.isEmpty(awd)) {
-            awd = "NA";
+        String ayD = com.baidu.swan.apps.runtime.d.aHq().aHm().aHy().ayD();
+        if (TextUtils.isEmpty(ayD)) {
+            ayD = "NA";
         }
-        JSONObject jSONObject = eVar.dsc;
+        JSONObject jSONObject = eVar.dxW;
         if (jSONObject == null || jSONObject.keys() == null) {
             return false;
         }
         if (DEBUG) {
-            Log.i("OpenAppAction", "source: " + awd + " openUrl:" + str + " 配置数据:" + jSONObject);
+            Log.i("OpenAppAction", "source: " + ayD + " openUrl:" + str + " 配置数据:" + jSONObject);
         }
         JSONArray optJSONArray = jSONObject.optJSONArray("scene");
         JSONArray optJSONArray2 = jSONObject.optJSONArray("package_name");
@@ -95,7 +95,7 @@ public class o extends aa {
         if (length > 0) {
             boolean z2 = false;
             for (int i = 0; i < length; i++) {
-                if (awd.equals(optJSONArray.optString(i))) {
+                if (ayD.equals(optJSONArray.optString(i))) {
                     z2 = true;
                 }
             }

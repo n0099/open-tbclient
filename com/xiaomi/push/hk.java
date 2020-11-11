@@ -8,16 +8,16 @@ import java.util.Map;
 public class hk {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile hk f4952a;
+    private static volatile hk f4954a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final Context f434a;
+    private final Context f436a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Map<String, hl> f435a = new HashMap();
+    private Map<String, hl> f437a = new HashMap();
 
     private hk(Context context) {
-        this.f434a = context;
+        this.f436a = context;
     }
 
     public static hk a(Context context) {
@@ -25,14 +25,14 @@ public class hk {
             com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]:mContext is null, TinyDataManager.getInstance(Context) failed.");
             return null;
         }
-        if (f4952a == null) {
+        if (f4954a == null) {
             synchronized (hk.class) {
-                if (f4952a == null) {
-                    f4952a = new hk(context);
+                if (f4954a == null) {
+                    f4954a = new hk(context);
                 }
             }
         }
-        return f4952a;
+        return f4954a;
     }
 
     private boolean a(String str, String str2, String str3, String str4, long j, String str5) {
@@ -49,11 +49,11 @@ public class hk {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public hl a() {
-        hl hlVar = this.f435a.get("UPLOADER_PUSH_CHANNEL");
+        hl hlVar = this.f437a.get("UPLOADER_PUSH_CHANNEL");
         if (hlVar != null) {
             return hlVar;
         }
-        hl hlVar2 = this.f435a.get("UPLOADER_HTTP");
+        hl hlVar2 = this.f437a.get("UPLOADER_HTTP");
         if (hlVar2 == null) {
             return null;
         }
@@ -62,7 +62,7 @@ public class hk {
 
     /* renamed from: a  reason: collision with other method in class */
     Map<String, hl> m342a() {
-        return this.f435a;
+        return this.f437a;
     }
 
     public void a(hl hlVar, String str) {
@@ -86,12 +86,12 @@ public class hk {
                 hqVar.f(com.xiaomi.push.service.bi.a());
             }
             hqVar.g(str);
-            com.xiaomi.push.service.bj.a(this.f434a, hqVar);
+            com.xiaomi.push.service.bj.a(this.f436a, hqVar);
             return true;
         }
     }
 
     public boolean a(String str, String str2, long j, String str3) {
-        return a(this.f434a.getPackageName(), this.f434a.getPackageName(), str, str2, j, str3);
+        return a(this.f436a.getPackageName(), this.f436a.getPackageName(), str, str2, j, str3);
     }
 }

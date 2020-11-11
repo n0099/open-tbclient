@@ -7,36 +7,36 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes14.dex */
 public class c {
-    private static boolean eht = false;
-    private static boolean ehu = false;
-    private static String ehv = "";
-    private static String ehw = "";
-    private static HashMap<String, List<VeloceIpcResult.a>> ehx = new HashMap<>();
+    private static boolean enl = false;
+    private static boolean enm = false;
+    private static String enn = "";
+    private static String eno = "";
+    private static HashMap<String, List<VeloceIpcResult.a>> enp = new HashMap<>();
 
-    private static Bundle ng(int i) {
+    private static Bundle nq(int i) {
         Bundle bundle = new Bundle();
         bundle.putInt("result_code", i);
         return bundle;
     }
 
     public static synchronized Bundle i(String str, Bundle bundle) {
-        Bundle ng;
+        Bundle nq;
         synchronized (c.class) {
             if (TextUtils.isEmpty(str)) {
-                ng = null;
+                nq = null;
             } else {
-                List<VeloceIpcResult.a> list = ehx.get(str);
+                List<VeloceIpcResult.a> list = enp.get(str);
                 if (list == null) {
-                    ng = null;
+                    nq = null;
                 } else {
                     for (VeloceIpcResult.a aVar : list) {
                         aVar.a(VeloceIpcResult.f(0, bundle));
                     }
-                    ehx.remove(list);
-                    ng = ng(0);
+                    enp.remove(list);
+                    nq = nq(0);
                 }
             }
         }
-        return ng;
+        return nq;
     }
 }

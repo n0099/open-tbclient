@@ -11,10 +11,10 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes4.dex */
 public class e extends BdBaseModel {
-    private Context bAc;
-    private BdUniqueId bnb = BdUniqueId.gen();
-    private final HttpMessageListener bsK;
-    private a nZK;
+    private Context bGn;
+    private BdUniqueId bou = BdUniqueId.gen();
+    private final HttpMessageListener bug;
+    private a oiG;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -24,37 +24,37 @@ public class e extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.nZK = aVar;
+        this.oiG = aVar;
     }
 
     public e(Context context) {
-        this.bAc = context;
-        setUniqueId(this.bnb);
+        this.bGn = context;
+        setUniqueId(this.bou);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031018, TbConfig.SERVER_ADDRESS + "ala/audio/room/follow");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        this.bsK = new HttpMessageListener(1031018) { // from class: com.baidu.tieba.yuyinala.c.e.1
+        this.bug = new HttpMessageListener(1031018) { // from class: com.baidu.tieba.yuyinala.c.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof JsonHttpResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == e.this.getUniqueId() && e.this.nZK != null) {
+                if (httpResponsedMessage != null && (httpResponsedMessage instanceof JsonHttpResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == e.this.getUniqueId() && e.this.oiG != null) {
                     JsonHttpResponsedMessage jsonHttpResponsedMessage = (JsonHttpResponsedMessage) httpResponsedMessage;
                     if (jsonHttpResponsedMessage.getError() != 0 || !jsonHttpResponsedMessage.isSuccess()) {
-                        e.this.nZK.onFail(jsonHttpResponsedMessage.getError(), jsonHttpResponsedMessage.getErrorString());
+                        e.this.oiG.onFail(jsonHttpResponsedMessage.getError(), jsonHttpResponsedMessage.getErrorString());
                     } else {
-                        e.this.nZK.a(jsonHttpResponsedMessage);
+                        e.this.oiG.a(jsonHttpResponsedMessage);
                     }
                 }
             }
         };
-        registerListener(this.bsK);
+        registerListener(this.bug);
     }
 
-    public void v(String str, String str2, int i) {
+    public void w(String str, String str2, int i) {
         com.baidu.tieba.yuyinala.data.e eVar = new com.baidu.tieba.yuyinala.data.e(str, str2, i);
-        eVar.setTag(this.bnb);
+        eVar.setTag(this.bou);
         sendMessage(eVar);
     }
 

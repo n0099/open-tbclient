@@ -3,12 +3,12 @@ package com.baidu.mapsdkplatform.comapi.commonutils.a;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2206a;
+    private int f2208a;
     private int b;
     private int c;
 
     public a(int i, int i2, int i3) {
-        this.f2206a = i;
+        this.f2208a = i;
         this.b = i2;
         this.c = i3;
     }
@@ -26,6 +26,6 @@ public class a {
     }
 
     public String toString() {
-        return "DownloadThreadInfo{id=" + this.f2206a + ", start=" + this.b + ", end=" + this.c + '}';
+        return "DownloadThreadInfo{id=" + this.f2208a + ", start=" + this.b + ", end=" + this.c + '}';
     }
 }

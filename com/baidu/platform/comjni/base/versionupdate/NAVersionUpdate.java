@@ -5,7 +5,7 @@ import com.baidu.platform.comjni.JNIBaseApi;
 public class NAVersionUpdate extends JNIBaseApi {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f3160a = 0;
+    private long f3162a = 0;
 
     private native long nativeCreate();
 

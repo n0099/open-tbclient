@@ -3,39 +3,30 @@ package com.baidu.live.data;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class al {
-    public int aME;
-    public String aMF;
-    public int aMG;
-    public int aMH;
-    public an aMI;
-    public int aMJ;
-    public String aMK;
-    public int status;
+    private int aND;
+    private int aNE;
+    private int aNF;
 
     public void parseJson(JSONObject jSONObject) {
-        this.aME = jSONObject.optInt("taskid");
-        this.aMF = jSONObject.optString("taskname");
-        this.status = jSONObject.optInt("status");
-        this.aMG = jSONObject.optInt("cur_step");
-        this.aMH = jSONObject.optInt("total_step");
-        JSONObject optJSONObject = jSONObject.optJSONObject("param");
-        if (optJSONObject != null) {
-            this.aMI = new an();
-            this.aMI.parseJson(optJSONObject);
+        if (jSONObject != null) {
+            this.aND = jSONObject.optInt("category_select_switch", 0);
+            this.aNE = jSONObject.optInt("im_audience_watch_switch", 0);
+            this.aNF = jSONObject.optInt("im_audience_watch_time", 60);
         }
-        this.aMJ = jSONObject.optInt("award_num");
-        this.aMK = jSONObject.optString("taskdetail");
     }
 
-    public boolean Ei() {
-        return this.aME == 1;
+    public static boolean EB() {
+        return (com.baidu.live.aa.a.PQ().bod == null || com.baidu.live.aa.a.PQ().bod.aNu == null || com.baidu.live.aa.a.PQ().bod.aNu.aND != 1) ? false : true;
     }
 
-    public boolean Ej() {
-        return this.aME == 6;
+    public static boolean EC() {
+        return (com.baidu.live.aa.a.PQ().bod == null || com.baidu.live.aa.a.PQ().bod.aNu == null || com.baidu.live.aa.a.PQ().bod.aNu.aNE != 1) ? false : true;
     }
 
-    public boolean Ek() {
-        return this.status == 2;
+    public static int ED() {
+        if (com.baidu.live.aa.a.PQ().bod == null || com.baidu.live.aa.a.PQ().bod.aNu == null) {
+            return 0;
+        }
+        return com.baidu.live.aa.a.PQ().bod.aNu.aNF;
     }
 }

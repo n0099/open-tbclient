@@ -8,7 +8,7 @@ import com.sdk.base.framework.c.f;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f4510a;
+    private static a f4512a;
     private Context b;
 
     static {
@@ -21,12 +21,12 @@ public class a {
     }
 
     public static a a(Context context) {
-        if (f4510a == null) {
+        if (f4512a == null) {
             synchronized (a.class) {
-                f4510a = new a(context);
+                f4512a = new a(context);
             }
         }
-        return f4510a;
+        return f4512a;
     }
 
     public final void a(String str, String str2) {

@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class RedNotifyMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static final Parcelable.Creator<RedNotifyMsg> CREATOR = new Parcelable.Creator<RedNotifyMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.RedNotifyMsg.1
         /* JADX DEBUG: Method merged with bridge method */

@@ -22,6 +22,6 @@ final class MatcherMatchResult$groups$1$iterator$1 extends Lambda implements kot
     }
 
     public final f invoke(int i) {
-        return this.this$0.Rb(i);
+        return this.this$0.Rw(i);
     }
 }

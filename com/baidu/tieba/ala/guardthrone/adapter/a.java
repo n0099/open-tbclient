@@ -14,13 +14,13 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
     private Context mContext;
-    private List<a.C0639a.C0640a> mList = new ArrayList();
+    private List<a.C0651a.C0652a> mList = new ArrayList();
 
     public a(Context context) {
         this.mContext = context;
     }
 
-    public void setList(List<a.C0639a.C0640a> list) {
+    public void setList(List<a.C0651a.C0652a> list) {
         if (this.mList != null) {
             this.mList.clear();
             this.mList.addAll(list);
@@ -51,32 +51,32 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0638a c0638a;
+        C0650a c0650a;
         if (view == null || view.getTag() == null) {
-            view = LayoutInflater.from(this.mContext).inflate(a.h.ala_guard_throne_privilege_item_layout, (ViewGroup) null);
-            c0638a = new C0638a();
-            c0638a.ePF = (TextView) view.findViewById(a.g.tv_text);
-            c0638a.gDW = (TbImageView) view.findViewById(a.g.iv_pic);
-            c0638a.gDW.setDefaultBgResource(a.f.ala_guard_throne_privilege_corner_bg);
-            view.setTag(c0638a);
+            view = LayoutInflater.from(this.mContext).inflate(a.g.ala_guard_throne_privilege_item_layout, (ViewGroup) null);
+            c0650a = new C0650a();
+            c0650a.eVu = (TextView) view.findViewById(a.f.tv_text);
+            c0650a.gJJ = (TbImageView) view.findViewById(a.f.iv_pic);
+            c0650a.gJJ.setDefaultBgResource(a.e.ala_guard_throne_privilege_corner_bg);
+            view.setTag(c0650a);
         } else {
-            c0638a = (C0638a) view.getTag();
+            c0650a = (C0650a) view.getTag();
         }
-        a.C0639a.C0640a c0640a = (this.mList == null || this.mList.size() <= i) ? null : this.mList.get(i);
-        if (c0640a != null) {
-            c0638a.ePF.setText(c0640a.text);
-            c0638a.gDW.startLoad(c0640a.pic, 10, false);
+        a.C0651a.C0652a c0652a = (this.mList == null || this.mList.size() <= i) ? null : this.mList.get(i);
+        if (c0652a != null) {
+            c0650a.eVu.setText(c0652a.text);
+            c0650a.gJJ.startLoad(c0652a.pic, 10, false);
         }
         return view;
     }
 
     /* renamed from: com.baidu.tieba.ala.guardthrone.adapter.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private class C0638a {
-        public TextView ePF;
-        public TbImageView gDW;
+    private class C0650a {
+        public TextView eVu;
+        public TbImageView gJJ;
 
-        private C0638a() {
+        private C0650a() {
         }
     }
 }

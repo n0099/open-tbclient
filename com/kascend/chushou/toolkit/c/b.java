@@ -12,7 +12,7 @@ public class b implements tv.chushou.basis.d.a.b.c {
     private long c;
 
     /* renamed from: a  reason: collision with root package name */
-    private long f4215a = -1;
+    private long f4217a = -1;
     private long b = -1;
     private final Pattern d = Pattern.compile("^\\d+");
 
@@ -22,27 +22,27 @@ public class b implements tv.chushou.basis.d.a.b.c {
     }
 
     @Override // tv.chushou.basis.d.a.b.c
-    public String esp() {
+    public String ewe() {
         boolean z = false;
         synchronized (this) {
-            if (this.f4215a != -1 && this.b != -1 && SystemClock.uptimeMillis() - this.b <= this.c) {
+            if (this.f4217a != -1 && this.b != -1 && SystemClock.uptimeMillis() - this.b <= this.c) {
                 z = true;
             }
             if (!z) {
-                this.f4215a = -1L;
+                this.f4217a = -1L;
                 this.b = -1L;
             }
             if (z) {
-                return String.valueOf((this.f4215a + SystemClock.uptimeMillis()) - this.b);
+                return String.valueOf((this.f4217a + SystemClock.uptimeMillis()) - this.b);
             }
             return a();
         }
     }
 
     @Override // tv.chushou.basis.d.a.b.c
-    public void esq() {
+    public void ewf() {
         synchronized (this) {
-            this.f4215a = -1L;
+            this.f4217a = -1L;
             this.b = -1L;
         }
     }
@@ -50,11 +50,11 @@ public class b implements tv.chushou.basis.d.a.b.c {
     private String a() {
         String valueOf;
         String valueOf2;
-        Http http = (Http) tv.chushou.basis.d.b.eDB().S(Http.class);
+        Http http = (Http) tv.chushou.basis.d.b.eHq().S(Http.class);
         String valueOf3 = String.valueOf(System.currentTimeMillis());
         if (http != null) {
             try {
-                valueOf = http.getSync(tv.chushou.common.a.eDC(), "api/timestamp/get.htm?", null, RequestTag.thirdParty()).respString;
+                valueOf = http.getSync(tv.chushou.common.a.eHr(), "api/timestamp/get.htm?", null, RequestTag.thirdParty()).respString;
             } catch (Exception e) {
                 valueOf = String.valueOf(System.currentTimeMillis());
             }
@@ -65,9 +65,9 @@ public class b implements tv.chushou.basis.d.a.b.c {
             valueOf = String.valueOf(System.currentTimeMillis());
         }
         synchronized (this) {
-            this.f4215a = Long.valueOf(valueOf).longValue();
+            this.f4217a = Long.valueOf(valueOf).longValue();
             this.b = SystemClock.uptimeMillis();
-            valueOf2 = String.valueOf(this.f4215a);
+            valueOf2 = String.valueOf(this.f4217a);
         }
         return valueOf2;
     }

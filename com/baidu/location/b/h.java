@@ -6,17 +6,17 @@ import android.location.Location;
 public class h implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Location f1884a;
+    final /* synthetic */ Location f1886a;
     final /* synthetic */ g b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar, Location location) {
         this.b = gVar;
-        this.f1884a = location;
+        this.f1886a = location;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.b.b(this.f1884a);
+        this.b.b(this.f1886a);
     }
 }

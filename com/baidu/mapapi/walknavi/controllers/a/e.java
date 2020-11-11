@@ -16,9 +16,9 @@ final class e implements com.baidu.platform.comapi.wnplatform.n.c {
     public int a(String str, boolean z) {
         IWTTSPlayer iWTTSPlayer;
         IWTTSPlayer iWTTSPlayer2;
-        iWTTSPlayer = a.f2169a;
+        iWTTSPlayer = a.f2171a;
         if (iWTTSPlayer != null) {
-            iWTTSPlayer2 = a.f2169a;
+            iWTTSPlayer2 = a.f2171a;
             return iWTTSPlayer2.playTTSText(str, z);
         }
         return 0;

@@ -11,7 +11,7 @@ public class PoiResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<PoiResult> CREATOR = new f();
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2126a;
+    private int f2128a;
     private int b;
     private int c;
     private int d;
@@ -21,7 +21,7 @@ public class PoiResult extends SearchResult implements Parcelable {
     private List<CityInfo> h;
 
     public PoiResult() {
-        this.f2126a = 0;
+        this.f2128a = 0;
         this.b = 0;
         this.c = 0;
         this.d = 0;
@@ -31,12 +31,12 @@ public class PoiResult extends SearchResult implements Parcelable {
     /* JADX INFO: Access modifiers changed from: protected */
     public PoiResult(Parcel parcel) {
         super(parcel);
-        this.f2126a = 0;
+        this.f2128a = 0;
         this.b = 0;
         this.c = 0;
         this.d = 0;
         this.f = false;
-        this.f2126a = parcel.readInt();
+        this.f2128a = parcel.readInt();
         this.b = parcel.readInt();
         this.c = parcel.readInt();
         this.d = parcel.readInt();
@@ -47,7 +47,7 @@ public class PoiResult extends SearchResult implements Parcelable {
 
     public PoiResult(SearchResult.ERRORNO errorno) {
         super(errorno);
-        this.f2126a = 0;
+        this.f2128a = 0;
         this.b = 0;
         this.c = 0;
         this.d = 0;
@@ -72,7 +72,7 @@ public class PoiResult extends SearchResult implements Parcelable {
     }
 
     public int getCurrentPageNum() {
-        return this.f2126a;
+        return this.f2128a;
     }
 
     public List<CityInfo> getSuggestCityList() {
@@ -100,7 +100,7 @@ public class PoiResult extends SearchResult implements Parcelable {
     }
 
     public void setCurrentPageNum(int i) {
-        this.f2126a = i;
+        this.f2128a = i;
     }
 
     public void setHasAddrInfo(boolean z) {
@@ -126,7 +126,7 @@ public class PoiResult extends SearchResult implements Parcelable {
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         super.writeToParcel(parcel, i);
-        parcel.writeInt(this.f2126a);
+        parcel.writeInt(this.f2128a);
         parcel.writeInt(this.b);
         parcel.writeInt(this.c);
         parcel.writeInt(this.d);

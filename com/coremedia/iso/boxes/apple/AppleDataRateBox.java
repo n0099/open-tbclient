@@ -10,7 +10,7 @@ import org.aspectj.lang.a;
 /* loaded from: classes11.dex */
 public class AppleDataRateBox extends AbstractFullBox {
     public static final String TYPE = "rmdr";
-    private static final /* synthetic */ a.InterfaceC1069a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_0 = null;
     private long dataRate;
 
     static {

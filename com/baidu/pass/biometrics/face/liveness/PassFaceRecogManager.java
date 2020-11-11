@@ -25,7 +25,7 @@ import com.baidu.pass.biometrics.face.liveness.utils.enums.PassFaceRecogType;
 public class PassFaceRecogManager implements PassBiometric {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final long f2721a = 300;
+    private static final long f2723a = 300;
     private static PassFaceRecogManager b;
     private PassBiometricConfiguration c;
     private PassFaceRecogCallback d;

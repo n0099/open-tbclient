@@ -11,16 +11,16 @@ public class d implements ah {
     private String errorMsg;
     private int forumId;
     private String forumName;
-    private int gkh;
+    private int gpU;
     private boolean isSigned;
-    private int mHE;
-    private int mHF;
-    private int mHG;
-    private int mHH;
-    private boolean mHI;
-    private boolean mHJ;
-    private boolean mHK;
-    private int mHL;
+    private int mNE;
+    private int mNF;
+    private int mNG;
+    private boolean mNH;
+    private boolean mNI;
+    private boolean mNJ;
+    private int mNK;
+    private int userLevel;
 
     public int getForumId() {
         return this.forumId;
@@ -34,82 +34,82 @@ public class d implements ah {
         return this.avatar;
     }
 
-    public int dEK() {
-        return this.mHE;
+    public int dHm() {
+        return this.mNE;
     }
 
-    public int dEL() {
-        return this.gkh;
+    public int dHn() {
+        return this.gpU;
     }
 
-    public int dEM() {
-        return this.mHF;
+    public int dHo() {
+        return this.userLevel;
     }
 
-    public int dEN() {
-        return this.mHG;
+    public int dHp() {
+        return this.mNF;
     }
 
-    public int dEO() {
-        return this.mHH;
+    public int dHq() {
+        return this.mNG;
     }
 
-    public void IV(int i) {
-        this.mHE = i;
+    public void Ji(int i) {
+        this.mNE = i;
     }
 
-    public void IW(int i) {
-        this.gkh = i;
+    public void Jj(int i) {
+        this.gpU = i;
     }
 
-    public void IX(int i) {
-        this.mHF = i;
+    public void Jk(int i) {
+        this.userLevel = i;
     }
 
-    public boolean bNl() {
+    public boolean bPL() {
         return this.isSigned;
     }
 
-    public void wU(boolean z) {
+    public void xd(boolean z) {
         this.isSigned = z;
-        this.mHE = 1;
+        this.mNE = 1;
     }
 
-    public boolean dEP() {
-        return this.mHJ;
+    public boolean dHr() {
+        return this.mNI;
     }
 
-    public void wV(boolean z) {
-        this.mHJ = z;
-        this.mHE = 0;
+    public void xe(boolean z) {
+        this.mNI = z;
+        this.mNE = 0;
     }
 
-    public boolean dEQ() {
-        return this.mHK;
+    public boolean dHs() {
+        return this.mNJ;
     }
 
-    public void wW(boolean z) {
-        this.mHK = z;
+    public void xf(boolean z) {
+        this.mNJ = z;
     }
 
-    public int dER() {
-        return this.mHL;
+    public int dHt() {
+        return this.mNK;
     }
 
-    public void IY(int i) {
-        this.mHL = i;
+    public void Jl(int i) {
+        this.mNK = i;
     }
 
     public void setErrorMsg(String str) {
         this.errorMsg = str;
     }
 
-    public boolean dES() {
-        return this.mHI;
+    public boolean dHu() {
+        return this.mNH;
     }
 
-    public void wX(boolean z) {
-        this.mHI = z;
+    public void xg(boolean z) {
+        this.mNH = z;
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
@@ -117,14 +117,14 @@ public class d implements ah {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
-            this.mHE = jSONObject.optInt("is_sign_in");
-            this.gkh = jSONObject.optInt("cont_sign_num");
-            this.mHF = jSONObject.optInt("user_level");
-            this.mHG = jSONObject.optInt("user_exp");
-            this.mHH = jSONObject.optInt("need_exp");
-            if (this.mHE != 0) {
+            this.mNE = jSONObject.optInt("is_sign_in");
+            this.gpU = jSONObject.optInt("cont_sign_num");
+            this.userLevel = jSONObject.optInt("user_level");
+            this.mNF = jSONObject.optInt("user_exp");
+            this.mNG = jSONObject.optInt("need_exp");
+            if (this.mNE != 0) {
                 this.isSigned = true;
-                this.mHJ = false;
+                this.mNI = false;
             }
         }
     }

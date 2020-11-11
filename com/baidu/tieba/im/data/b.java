@@ -8,8 +8,8 @@ public class b {
     private long create_time;
     private String forum_id;
     private String id;
-    private int jVW;
-    private int jVX;
+    private int kbT;
+    private int kbU;
     private int level;
     private String name;
     private List<b> sub_menu = new ArrayList();
@@ -31,8 +31,8 @@ public class b {
         this.level = i;
     }
 
-    public void Cw(int i) {
-        this.jVW = i;
+    public void CJ(int i) {
+        this.kbT = i;
     }
 
     public String getName() {
@@ -43,12 +43,12 @@ public class b {
         this.name = str;
     }
 
-    public int cOl() {
-        return this.jVX;
+    public int cQM() {
+        return this.kbU;
     }
 
-    public void Cx(int i) {
-        this.jVX = i;
+    public void CK(int i) {
+        this.kbU = i;
     }
 
     public void setCreate_time(long j) {
@@ -67,11 +67,11 @@ public class b {
         this.content = str;
     }
 
-    public List<b> cOm() {
+    public List<b> cQN() {
         return this.sub_menu;
     }
 
-    public void dT(List<b> list) {
+    public void eb(List<b> list) {
         this.sub_menu = list;
     }
 }

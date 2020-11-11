@@ -8,19 +8,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class WrapLineLayout extends ViewGroup {
-    private List<List<View>> eSV;
-    private List<Integer> eSW;
+    private List<List<View>> eYK;
+    private List<Integer> eYL;
 
     public WrapLineLayout(Context context) {
         super(context);
-        this.eSV = new ArrayList();
-        this.eSW = new ArrayList();
+        this.eYK = new ArrayList();
+        this.eYL = new ArrayList();
     }
 
     public WrapLineLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eSV = new ArrayList();
-        this.eSW = new ArrayList();
+        this.eYK = new ArrayList();
+        this.eYL = new ArrayList();
     }
 
     @Override // android.view.ViewGroup
@@ -91,8 +91,8 @@ public class WrapLineLayout extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        this.eSV.clear();
-        this.eSW.clear();
+        this.eYK.clear();
+        this.eYL.clear();
         int width = (getWidth() - getPaddingLeft()) - getPaddingRight();
         ArrayList arrayList = new ArrayList();
         int childCount = getChildCount();
@@ -105,8 +105,8 @@ public class WrapLineLayout extends ViewGroup {
             int measuredWidth = childAt.getMeasuredWidth();
             int measuredHeight = childAt.getMeasuredHeight();
             if (marginLayoutParams.leftMargin + measuredWidth + marginLayoutParams.rightMargin + i6 > width) {
-                this.eSW.add(Integer.valueOf(i5));
-                this.eSV.add(arrayList);
+                this.eYL.add(Integer.valueOf(i5));
+                this.eYK.add(arrayList);
                 i6 = 0;
                 arrayList = new ArrayList();
             }
@@ -117,17 +117,17 @@ public class WrapLineLayout extends ViewGroup {
             i5 = max;
             i6 = i8;
         }
-        this.eSW.add(Integer.valueOf(i5));
-        this.eSV.add(arrayList);
+        this.eYL.add(Integer.valueOf(i5));
+        this.eYK.add(arrayList);
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
-        int size = this.eSV.size();
+        int size = this.eYK.size();
         int i9 = 0;
         int i10 = paddingTop;
         int i11 = paddingLeft;
         while (i9 < size) {
-            List<View> list = this.eSV.get(i9);
-            int intValue = this.eSW.get(i9).intValue();
+            List<View> list = this.eYK.get(i9);
+            int intValue = this.eYL.get(i9).intValue();
             int i12 = 0;
             while (true) {
                 int i13 = i12;

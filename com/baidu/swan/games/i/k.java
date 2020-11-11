@@ -11,24 +11,24 @@ import java.util.Comparator;
 import java.util.Iterator;
 /* loaded from: classes10.dex */
 public class k {
-    public static void aSL() {
-        if (com.baidu.swan.apps.storage.c.h.aIs().getBoolean("swan_game_data_migration", true)) {
-            com.baidu.swan.apps.storage.c.h.aIs().putBoolean("swan_game_data_migration", false);
+    public static void aVl() {
+        if (com.baidu.swan.apps.storage.c.h.aKS().getBoolean("swan_game_data_migration", true)) {
+            com.baidu.swan.apps.storage.c.h.aKS().putBoolean("swan_game_data_migration", false);
             if (com.baidu.swan.apps.s.a.DEBUG) {
                 Log.d("DataMigrationUtils", "before migrate " + System.currentTimeMillis());
             }
-            aSM();
+            aVm();
             if (com.baidu.swan.apps.s.a.DEBUG) {
                 Log.d("DataMigrationUtils", "in migrate " + System.currentTimeMillis());
             }
-            aSN();
+            aVn();
             if (com.baidu.swan.apps.s.a.DEBUG) {
                 Log.d("DataMigrationUtils", "end migrate " + System.currentTimeMillis());
             }
         }
     }
 
-    private static void aSM() {
+    private static void aVm() {
         File[] listFiles;
         String dB = n.dB(AppRuntime.getAppContext());
         if (!TextUtils.isEmpty(dB)) {
@@ -42,7 +42,7 @@ public class k {
                             String str2 = dB + File.separator + "swangame/anonymous/sandbox";
                             if (!file3.renameTo(new File(str2))) {
                                 n.da(str, str2);
-                                n.wL(str);
+                                n.wZ(str);
                             }
                         }
                     }
@@ -51,9 +51,9 @@ public class k {
         }
     }
 
-    private static void aSN() {
+    private static void aVn() {
         String absolutePath;
-        File[] listFiles = com.baidu.swan.games.w.b.aUJ().listFiles();
+        File[] listFiles = com.baidu.swan.games.w.b.aXj().listFiles();
         if (listFiles != null) {
             ArrayList arrayList = new ArrayList();
             for (File file : listFiles) {

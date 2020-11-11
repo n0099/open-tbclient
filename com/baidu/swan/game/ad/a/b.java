@@ -11,7 +11,7 @@ public interface b {
 
     void b(String str, ResponseCallback<com.baidu.swan.game.ad.c.a> responseCallback);
 
-    void vp(String str);
+    void vD(String str);
 
-    void vq(String str);
+    void vE(String str);
 }

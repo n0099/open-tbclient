@@ -17,28 +17,28 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes26.dex */
 public class h extends BaseAdapter {
-    private d.c jRv;
-    private boolean jRw;
-    private BdTypeListView jTq;
+    private d.c jXs;
+    private boolean jXt;
+    private BdTypeListView jZm;
     private TbPageContext<OfficialBarFeedActivity> pageContext;
     private List<com.baidu.tieba.im.message.chat.b> mList = null;
-    private LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> jTp = null;
+    private LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> jZl = null;
 
     public h(TbPageContext<OfficialBarFeedActivity> tbPageContext, BdTypeListView bdTypeListView, d.c cVar) {
         this.pageContext = tbPageContext;
-        this.jRv = cVar;
-        this.jTq = bdTypeListView;
+        this.jXs = cVar;
+        this.jZm = bdTypeListView;
     }
 
     private View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.im.message.chat.b bVar, e.a<b> aVar) {
-        b cMq = aVar.cMq();
-        a.C0750a cRH = bVar.cRH();
-        cRH.createTime = bVar.getCreateTime();
-        cMq.a(this.pageContext.getPageActivity().getBaseContext(), cRH, bVar.cRI(), this.jTp == null ? null : this.jTp.get(cRH.kgt), bVar.cRJ(), bVar.cRG(), i);
-        aq aqVar = new aq(this.jRw ? "c13865" : "c13863");
+        b cOR = aVar.cOR();
+        a.C0764a cUi = bVar.cUi();
+        cUi.createTime = bVar.getCreateTime();
+        cOR.a(this.pageContext.getPageActivity().getBaseContext(), cUi, bVar.cUj(), this.jZl == null ? null : this.jZl.get(cUi.kmq), bVar.cUk(), bVar.cUh(), i);
+        aq aqVar = new aq(this.jXt ? "c13865" : "c13863");
         aqVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
-        aqVar.dR("tid", cRH.tid == null ? "" : cRH.tid);
-        aqVar.dR("fid", cRH.fid);
+        aqVar.dR("tid", cUi.tid == null ? "" : cUi.tid);
+        aqVar.dR("fid", cUi.fid);
         TiebaStatic.log(aqVar);
         return view;
     }
@@ -53,7 +53,7 @@ public class h extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Co */
+    /* renamed from: CB */
     public com.baidu.tieba.im.message.chat.b getItem(int i) {
         if (this.mList == null || this.mList.size() == 0 || i < 0 || i >= getCount()) {
             return null;
@@ -74,8 +74,8 @@ public class h extends BaseAdapter {
             aVar = (a) view.getTag();
         }
         if (aVar == null) {
-            b bVar = new b(this.pageContext, this.jRw);
-            bVar.a(this.jRv);
+            b bVar = new b(this.pageContext, this.jXt);
+            bVar.a(this.jXs);
             view2 = bVar.getConvertView();
             aVar = new a(bVar.getConvertView(), bVar);
             view2.setTag(aVar);
@@ -96,12 +96,12 @@ public class h extends BaseAdapter {
 
     @RequiresApi(api = 16)
     public void b(LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> longSparseArray) {
-        if (this.jTp == null) {
-            this.jTp = new LongSparseArray<>();
+        if (this.jZl == null) {
+            this.jZl = new LongSparseArray<>();
         }
-        this.jTp.clear();
+        this.jZl.clear();
         for (int i = 0; i < longSparseArray.size(); i++) {
-            this.jTp.put(longSparseArray.keyAt(i), longSparseArray.valueAt(i));
+            this.jZl.put(longSparseArray.keyAt(i), longSparseArray.valueAt(i));
         }
         notifyDataSetChanged();
     }
@@ -113,7 +113,7 @@ public class h extends BaseAdapter {
         }
     }
 
-    public void rv(boolean z) {
-        this.jRw = z;
+    public void rE(boolean z) {
+        this.jXt = z;
     }
 }

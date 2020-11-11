@@ -7,10 +7,10 @@ public class a {
     public static void c(String str, Object obj, int i) {
         if (obj instanceof com.baidu.tieba.newlist.b.b) {
             aq aqVar = new aq(str);
-            aqVar.aj("obj_locate", i);
+            aqVar.al("obj_locate", i);
             aqVar.w("topic_id", ((com.baidu.tieba.newlist.b.b) obj).topicId);
             aqVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
-            aqVar.boK();
+            aqVar.brk();
         }
     }
 }

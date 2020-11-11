@@ -3,6 +3,6 @@ package com.baidu.tieba.ala.person.a;
 import com.baidu.live.data.AlaLiveInfoData;
 /* loaded from: classes4.dex */
 public class a {
-    public AlaLiveInfoData hul;
-    public AlaLiveInfoData hum;
+    public AlaLiveInfoData hAi;
+    public AlaLiveInfoData hAj;
 }

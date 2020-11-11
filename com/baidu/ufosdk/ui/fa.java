@@ -13,18 +13,18 @@ import org.json.JSONArray;
 public final class fa extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f3870a;
+    private Context f3872a;
     private View b;
 
     public fa(Context context, int i) {
         super(context, i);
-        this.f3870a = context;
+        this.f3872a = context;
         setCanceledOnTouchOutside(true);
         setCancelable(true);
         Window window = getWindow();
         window.setGravity(80);
         window.setWindowAnimations(R.style.dialog_animation);
-        this.b = View.inflate(this.f3870a, R.layout.ufo_show_evaluate_dialog, null);
+        this.b = View.inflate(this.f3872a, R.layout.ufo_show_evaluate_dialog, null);
         this.b.findViewById(R.id.btn_dialog_close).setOnClickListener(new fb(this));
         this.b.findViewById(R.id.header_transparent).setOnClickListener(new fc(this));
         window.setContentView(this.b);

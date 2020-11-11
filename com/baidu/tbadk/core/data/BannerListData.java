@@ -33,8 +33,8 @@ public class BannerListData implements Serializable {
         StringBuilder sb = new StringBuilder();
         int size = this.advertAppList.size();
         for (int i = 0; i < size; i++) {
-            if (!TextUtils.isEmpty(this.advertAppList.get(i).esU)) {
-                sb.append(this.advertAppList.get(i).esU);
+            if (!TextUtils.isEmpty(this.advertAppList.get(i).eyO)) {
+                sb.append(this.advertAppList.get(i).eyO);
                 if (i != size - 1) {
                     sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
@@ -66,9 +66,9 @@ public class BannerListData implements Serializable {
     }
 
     public void parserProtobuf(BannerList bannerList) {
-        List<AppData> dxK = com.baidu.tieba.recapp.r.dxM().dxK();
-        if (dxK != null) {
-            dxK.clear();
+        List<AppData> dAm = com.baidu.tieba.recapp.r.dAo().dAm();
+        if (dAm != null) {
+            dAm.clear();
         }
         if (bannerList != null) {
             List<App> list = bannerList.app;
@@ -78,13 +78,13 @@ public class BannerListData implements Serializable {
                         AdvertAppInfo advertAppInfo = new AdvertAppInfo();
                         advertAppInfo.a(list.get(i));
                         this.advertAppList.add(advertAppInfo);
-                        if (dxK != null) {
-                            dxK.add(advertAppInfo.etl);
+                        if (dAm != null) {
+                            dAm.add(advertAppInfo.eze);
                         }
                     }
                 }
             }
-            com.baidu.tieba.recapp.r.dxM().dxL();
+            com.baidu.tieba.recapp.r.dAo().dAn();
             Collections.sort(this.advertAppList, new Comparator<AdvertAppInfo>() { // from class: com.baidu.tbadk.core.data.BannerListData.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
@@ -106,7 +106,7 @@ public class BannerListData implements Serializable {
             if (bannerList.hot_topic != null) {
                 bm bmVar = new bm();
                 bmVar.a(bannerList.hot_topic);
-                this.recomTopicData = bmVar.bjj();
+                this.recomTopicData = bmVar.blJ();
             }
         }
     }

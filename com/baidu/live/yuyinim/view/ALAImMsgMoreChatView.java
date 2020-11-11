@@ -23,9 +23,9 @@ public class ALAImMsgMoreChatView extends LinearLayout {
     }
 
     private void init(Context context) {
-        inflate(context, a.h.yuyinala_im_msg_more_chat_view, this);
+        inflate(context, a.g.yuyinala_im_msg_more_chat_view, this);
         setVisibility(4);
         setGravity(17);
-        setBackgroundResource(a.f.ala_live_im_msg_more_msg_view_bg_shape);
+        setBackgroundResource(a.e.ala_live_im_msg_more_msg_view_bg_shape);
     }
 }

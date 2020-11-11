@@ -12,7 +12,7 @@ public class SuggestionResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<SuggestionResult> CREATOR = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<SuggestionInfo> f2152a;
+    private ArrayList<SuggestionInfo> f2154a;
 
     /* loaded from: classes7.dex */
     public static class SuggestionInfo implements Parcelable {
@@ -165,7 +165,7 @@ public class SuggestionResult extends SearchResult implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public SuggestionResult(Parcel parcel) {
-        this.f2152a = parcel.readArrayList(SuggestionInfo.class.getClassLoader());
+        this.f2154a = parcel.readArrayList(SuggestionInfo.class.getClassLoader());
     }
 
     public SuggestionResult(SearchResult.ERRORNO errorno) {
@@ -178,15 +178,15 @@ public class SuggestionResult extends SearchResult implements Parcelable {
     }
 
     public List<SuggestionInfo> getAllSuggestions() {
-        return this.f2152a;
+        return this.f2154a;
     }
 
     public void setSuggestionInfo(ArrayList<SuggestionInfo> arrayList) {
-        this.f2152a = arrayList;
+        this.f2154a = arrayList;
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeList(this.f2152a);
+        parcel.writeList(this.f2154a);
     }
 }

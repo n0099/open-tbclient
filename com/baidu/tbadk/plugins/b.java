@@ -20,15 +20,15 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class b {
-    public static String frt = "#";
-    public static String fru = "＃";
-    private static final Pattern elo = Pattern.compile("#([^#(]+)#", 2);
+    public static String fxl = "#";
+    public static String fxm = "＃";
+    private static final Pattern eri = Pattern.compile("#([^#(]+)#", 2);
 
-    public static boolean DZ(String str) {
-        return frt.equals(str);
+    public static boolean En(String str) {
+        return fxl.equals(str);
     }
 
-    public static boolean ks(boolean z) {
+    public static boolean kB(boolean z) {
         boolean appResponseToIntentClass;
         if (PluginPackageManager.pT().cx("com.baidu.tieba.pluginHotTopic")) {
             if (z) {
@@ -41,7 +41,7 @@ public class b {
         return false;
     }
 
-    public static boolean bAn() {
+    public static boolean bCM() {
         return PluginPackageManager.pT().cD("com.baidu.tieba.pluginHotTopic");
     }
 
@@ -53,16 +53,16 @@ public class b {
         return a(tbPageContext, true, true);
     }
 
-    public static SpannableString Ea(String str) {
+    public static SpannableString Eo(String str) {
         if (StringUtils.isNull(str)) {
             return new SpannableString("");
         }
-        Matcher matcher = elo.matcher(str);
+        Matcher matcher = eri.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             int start = matcher.start();
             int end = matcher.end();
-            if (!Ec(str.substring(start, end))) {
+            if (!Eq(str.substring(start, end))) {
                 spannableString.setSpan(new ForegroundColorSpan(ap.getColor(R.color.cp_link_tip_c)), start, end, 18);
             }
         }
@@ -74,11 +74,11 @@ public class b {
         if (spannable != null) {
             String obj = spannable.toString();
             if (!StringUtils.isNull(obj)) {
-                Matcher matcher = elo.matcher(obj);
+                Matcher matcher = eri.matcher(obj);
                 while (matcher.find()) {
                     int start = matcher.start();
                     int end = matcher.end();
-                    if (!Ec(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) spannable.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
+                    if (!Eq(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) spannable.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
                         spannable.setSpan(new ForegroundColorSpan(ap.getColor(R.color.cp_link_tip_c)), start, end, 18);
                     }
                 }
@@ -86,20 +86,20 @@ public class b {
         }
     }
 
-    public static String Eb(String str) {
+    public static String Ep(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
         if (str.charAt(0) != '#' || str.charAt(str.length() - 1) != '#') {
             StringBuilder sb = new StringBuilder(str.length() + 2);
-            sb.append(frt).append(str).append(frt);
+            sb.append(fxl).append(str).append(fxl);
             return sb.toString();
         }
         return str;
     }
 
-    public static boolean Ec(String str) {
-        return str != null && str.startsWith(frt) && str.endsWith(frt) && "".equals(str.substring(1, str.length() + (-1)).trim());
+    public static boolean Eq(String str) {
+        return str != null && str.startsWith(fxl) && str.endsWith(fxl) && "".equals(str.substring(1, str.length() + (-1)).trim());
     }
 
     public static void a(l lVar) {
@@ -124,7 +124,7 @@ public class b {
         TiebaStatic.log(new aq(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).dR("obj_locate", str));
     }
 
-    public static String Ed(String str) {
+    public static String Er(String str) {
         StringBuffer stringBuffer = new StringBuffer("http://tieba.baidu.com/n/video/opersquare?tab=hot&topic_name=");
         int length = str.length();
         String str2 = null;

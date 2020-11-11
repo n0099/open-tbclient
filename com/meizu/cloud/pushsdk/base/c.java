@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f4370a = "";
+    private static String f4372a = "";
     private static String b = "";
 
     public static String a(Context context) {
@@ -61,7 +61,7 @@ public class c {
         WifiInfo connectionInfo;
         String str;
         String str2 = null;
-        if (TextUtils.isEmpty(f4370a)) {
+        if (TextUtils.isEmpty(f4372a)) {
             try {
                 if (Build.VERSION.SDK_INT >= 23) {
                     ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
@@ -87,13 +87,13 @@ public class c {
                         str2 = connectionInfo.getMacAddress();
                     }
                 }
-                f4370a = str2;
+                f4372a = str2;
             } catch (Exception e) {
                 com.meizu.cloud.a.a.e("DeviceUtils", "get address exception ");
             }
-            return f4370a;
+            return f4372a;
         }
-        return f4370a;
+        return f4372a;
     }
 
     private static String c(Context context) {
@@ -115,6 +115,6 @@ public class c {
 
     private static String d(Context context) {
         com.meizu.cloud.pushsdk.base.a.d a2 = com.meizu.cloud.pushsdk.base.a.a.a("android.telephony.MzTelephonyManager").a("getDeviceId", new Class[0]).a(new Object[0]);
-        return a2.f4365a ? (String) a2.b : ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+        return a2.f4367a ? (String) a2.b : ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
     }
 }

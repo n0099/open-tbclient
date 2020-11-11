@@ -11,7 +11,7 @@ import java.io.Writer;
 public class a extends i implements Handler.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    private b f4572a;
+    private b f4574a;
     private FileWriter b;
     private File c;
     private char[] d;
@@ -24,7 +24,7 @@ public class a extends i implements Handler.Callback {
     private Handler k;
 
     public a(b bVar) {
-        this(c.b, true, h.f4580a, bVar);
+        this(c.b, true, h.f4582a, bVar);
     }
 
     public a(int i, boolean z, h hVar, b bVar) {
@@ -133,10 +133,10 @@ public class a extends i implements Handler.Callback {
     }
 
     public b c() {
-        return this.f4572a;
+        return this.f4574a;
     }
 
     public void a(b bVar) {
-        this.f4572a = bVar;
+        this.f4574a = bVar;
     }
 }

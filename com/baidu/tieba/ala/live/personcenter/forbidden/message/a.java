@@ -26,7 +26,7 @@ public class a extends HttpMessage {
         return this.pn;
     }
 
-    public boolean bFr() {
+    public boolean bHQ() {
         return this.pn == 1;
     }
 }

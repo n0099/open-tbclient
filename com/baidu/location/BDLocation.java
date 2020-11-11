@@ -101,7 +101,7 @@ public final class BDLocation implements Parcelable {
     private double Z;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1852a;
+    private int f1854a;
     private int aa;
     private int ab;
     private BDLocation ac;
@@ -132,7 +132,7 @@ public final class BDLocation implements Parcelable {
     private int z;
 
     public BDLocation() {
-        this.f1852a = 0;
+        this.f1854a = 0;
         this.b = null;
         this.c = Double.MIN_VALUE;
         this.d = Double.MIN_VALUE;
@@ -188,7 +188,7 @@ public final class BDLocation implements Parcelable {
     }
 
     private BDLocation(Parcel parcel) {
-        this.f1852a = 0;
+        this.f1854a = 0;
         this.b = null;
         this.c = Double.MIN_VALUE;
         this.d = Double.MIN_VALUE;
@@ -241,7 +241,7 @@ public final class BDLocation implements Parcelable {
         this.Z = -1.0d;
         this.aa = 0;
         this.ab = -1;
-        this.f1852a = parcel.readInt();
+        this.f1854a = parcel.readInt();
         this.b = parcel.readString();
         this.c = parcel.readDouble();
         this.d = parcel.readDouble();
@@ -344,7 +344,7 @@ public final class BDLocation implements Parcelable {
 
     public BDLocation(BDLocation bDLocation) {
         int i = 0;
-        this.f1852a = 0;
+        this.f1854a = 0;
         this.b = null;
         this.c = Double.MIN_VALUE;
         this.d = Double.MIN_VALUE;
@@ -397,7 +397,7 @@ public final class BDLocation implements Parcelable {
         this.Z = -1.0d;
         this.aa = 0;
         this.ab = -1;
-        this.f1852a = bDLocation.f1852a;
+        this.f1854a = bDLocation.f1854a;
         this.b = bDLocation.b;
         this.c = bDLocation.c;
         this.d = bDLocation.d;
@@ -483,7 +483,7 @@ public final class BDLocation implements Parcelable {
         String str10;
         String str11;
         boolean z2;
-        this.f1852a = 0;
+        this.f1854a = 0;
         this.b = null;
         this.c = Double.MIN_VALUE;
         this.d = Double.MIN_VALUE;
@@ -844,12 +844,12 @@ public final class BDLocation implements Parcelable {
                 }
             } catch (Exception e8) {
                 e8.printStackTrace();
-                this.f1852a = 0;
+                this.f1854a = 0;
                 this.o = false;
             }
         } catch (Error e9) {
             e9.printStackTrace();
-            this.f1852a = 0;
+            this.f1854a = 0;
             this.o = false;
         }
     }
@@ -987,7 +987,7 @@ public final class BDLocation implements Parcelable {
     }
 
     public int getLocType() {
-        return this.f1852a;
+        return this.f1854a;
     }
 
     public String getLocTypeDescription() {
@@ -1256,7 +1256,7 @@ public final class BDLocation implements Parcelable {
     }
 
     public void setLocType(int i) {
-        this.f1852a = i;
+        this.f1854a = i;
         switch (i) {
             case 61:
                 setLocTypeDescription("GPS location successful!");
@@ -1399,7 +1399,7 @@ public final class BDLocation implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f1852a);
+        parcel.writeInt(this.f1854a);
         parcel.writeString(this.b);
         parcel.writeDouble(this.c);
         parcel.writeDouble(this.d);

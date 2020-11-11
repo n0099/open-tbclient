@@ -40,7 +40,7 @@ public final class Regex implements Serializable {
         this(r0);
         kotlin.jvm.internal.q.n(str, "pattern");
         kotlin.jvm.internal.q.n(regexOption, "option");
-        Pattern compile = Pattern.compile(str, Companion.Rc(regexOption.getValue()));
+        Pattern compile = Pattern.compile(str, Companion.Rx(regexOption.getValue()));
         kotlin.jvm.internal.q.m(compile, "Pattern.compile(pattern,…nicodeCase(option.value))");
     }
 
@@ -55,7 +55,7 @@ public final class Regex implements Serializable {
         kotlin.jvm.internal.q.n(set, "options");
         a aVar = Companion;
         j = k.j(set);
-        Pattern compile = Pattern.compile(str, aVar.Rc(j));
+        Pattern compile = Pattern.compile(str, aVar.Rx(j));
         kotlin.jvm.internal.q.m(compile, "Pattern.compile(pattern,…odeCase(options.toInt()))");
     }
 
@@ -147,12 +147,12 @@ public final class Regex implements Serializable {
         StringBuilder sb = new StringBuilder(length);
         do {
             if (find$default == null) {
-                kotlin.jvm.internal.q.eya();
+                kotlin.jvm.internal.q.eBP();
             }
-            sb.append(charSequence, i, find$default.eyv().eym().intValue());
+            sb.append(charSequence, i, find$default.eCk().eCb().intValue());
             sb.append(bVar.invoke(find$default));
-            i = find$default.eyv().eyn().intValue() + 1;
-            find$default = find$default.eyw();
+            i = find$default.eCk().eCc().intValue() + 1;
+            find$default = find$default.eCl();
             if (i >= length) {
                 break;
             }
@@ -187,7 +187,7 @@ public final class Regex implements Serializable {
             if (!matcher.find() || i == 1) {
                 return kotlin.collections.o.bU(charSequence.toString());
             }
-            ArrayList arrayList = new ArrayList(i > 0 ? kotlin.b.l.ev(i, 10) : 10);
+            ArrayList arrayList = new ArrayList(i > 0 ? kotlin.b.l.ey(i, 10) : 10);
             int i2 = i - 1;
             int i3 = 0;
             do {
@@ -270,7 +270,7 @@ public final class Regex implements Serializable {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public final int Rc(int i) {
+        public final int Rx(int i) {
             return (i & 2) != 0 ? i | 64 : i;
         }
     }

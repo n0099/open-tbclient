@@ -23,30 +23,30 @@ public class g {
     public static class a implements View.OnClickListener {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ WebView f3553a;
+        final /* synthetic */ WebView f3556a;
         final /* synthetic */ View b;
 
         /* renamed from: com.baidu.sapi2.utils.g$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        class RunnableC0334a implements Runnable {
-            RunnableC0334a() {
+        class RunnableC0346a implements Runnable {
+            RunnableC0346a() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 a.this.b.setVisibility(4);
-                a.this.f3553a.reload();
+                a.this.f3556a.reload();
             }
         }
 
         a(WebView webView, View view) {
-            this.f3553a = webView;
+            this.f3556a = webView;
             this.b = view;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.f3553a.post(new RunnableC0334a());
+            this.f3556a.post(new RunnableC0346a());
         }
     }
 

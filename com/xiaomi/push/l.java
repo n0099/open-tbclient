@@ -8,24 +8,24 @@ import java.util.Map;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f5010a = 0;
+    private static int f5012a = 0;
     private static int b = -1;
 
     /* renamed from: a  reason: collision with other field name */
-    private static Map<String, o> f783a = null;
+    private static Map<String, o> f785a = null;
 
     public static synchronized int a() {
         int i;
         boolean z = false;
         synchronized (l.class) {
-            if (f5010a == 0) {
+            if (f5012a == 0) {
                 if (!TextUtils.isEmpty(m498a("ro.miui.ui.version.code")) || !TextUtils.isEmpty(m498a("ro.miui.ui.version.name"))) {
                     z = true;
                 }
-                f5010a = z ? 1 : 2;
-                com.xiaomi.channel.commonutils.logger.b.b("isMIUI's value is: " + f5010a);
+                f5012a = z ? 1 : 2;
+                com.xiaomi.channel.commonutils.logger.b.b("isMIUI's value is: " + f5012a);
             }
-            i = f5010a;
+            i = f5012a;
         }
         return i;
     }
@@ -63,53 +63,53 @@ public class l {
 
     /* renamed from: a  reason: collision with other method in class */
     private static void m499a() {
-        if (f783a != null) {
+        if (f785a != null) {
             return;
         }
-        f783a = new HashMap();
-        f783a.put("CN", o.China);
-        f783a.put("FI", o.Europe);
-        f783a.put("SE", o.Europe);
-        f783a.put("NO", o.Europe);
-        f783a.put("FO", o.Europe);
-        f783a.put("EE", o.Europe);
-        f783a.put("LV", o.Europe);
-        f783a.put("LT", o.Europe);
-        f783a.put("BY", o.Europe);
-        f783a.put("MD", o.Europe);
-        f783a.put("UA", o.Europe);
-        f783a.put("PL", o.Europe);
-        f783a.put("CZ", o.Europe);
-        f783a.put("SK", o.Europe);
-        f783a.put("HU", o.Europe);
-        f783a.put("DE", o.Europe);
-        f783a.put("AT", o.Europe);
-        f783a.put("CH", o.Europe);
-        f783a.put("LI", o.Europe);
-        f783a.put("GB", o.Europe);
-        f783a.put("IE", o.Europe);
-        f783a.put("NL", o.Europe);
-        f783a.put("BE", o.Europe);
-        f783a.put("LU", o.Europe);
-        f783a.put("FR", o.Europe);
-        f783a.put("RO", o.Europe);
-        f783a.put("BG", o.Europe);
-        f783a.put("RS", o.Europe);
-        f783a.put("MK", o.Europe);
-        f783a.put("AL", o.Europe);
-        f783a.put("GR", o.Europe);
-        f783a.put("SI", o.Europe);
-        f783a.put("HR", o.Europe);
-        f783a.put("IT", o.Europe);
-        f783a.put("SM", o.Europe);
-        f783a.put("MT", o.Europe);
-        f783a.put("ES", o.Europe);
-        f783a.put("PT", o.Europe);
-        f783a.put("AD", o.Europe);
-        f783a.put("CY", o.Europe);
-        f783a.put("DK", o.Europe);
-        f783a.put("RU", o.Russia);
-        f783a.put("IN", o.India);
+        f785a = new HashMap();
+        f785a.put("CN", o.China);
+        f785a.put("FI", o.Europe);
+        f785a.put("SE", o.Europe);
+        f785a.put("NO", o.Europe);
+        f785a.put("FO", o.Europe);
+        f785a.put("EE", o.Europe);
+        f785a.put("LV", o.Europe);
+        f785a.put("LT", o.Europe);
+        f785a.put("BY", o.Europe);
+        f785a.put("MD", o.Europe);
+        f785a.put("UA", o.Europe);
+        f785a.put("PL", o.Europe);
+        f785a.put("CZ", o.Europe);
+        f785a.put("SK", o.Europe);
+        f785a.put("HU", o.Europe);
+        f785a.put("DE", o.Europe);
+        f785a.put("AT", o.Europe);
+        f785a.put("CH", o.Europe);
+        f785a.put("LI", o.Europe);
+        f785a.put("GB", o.Europe);
+        f785a.put("IE", o.Europe);
+        f785a.put("NL", o.Europe);
+        f785a.put("BE", o.Europe);
+        f785a.put("LU", o.Europe);
+        f785a.put("FR", o.Europe);
+        f785a.put("RO", o.Europe);
+        f785a.put("BG", o.Europe);
+        f785a.put("RS", o.Europe);
+        f785a.put("MK", o.Europe);
+        f785a.put("AL", o.Europe);
+        f785a.put("GR", o.Europe);
+        f785a.put("SI", o.Europe);
+        f785a.put("HR", o.Europe);
+        f785a.put("IT", o.Europe);
+        f785a.put("SM", o.Europe);
+        f785a.put("MT", o.Europe);
+        f785a.put("ES", o.Europe);
+        f785a.put("PT", o.Europe);
+        f785a.put("AD", o.Europe);
+        f785a.put("CY", o.Europe);
+        f785a.put("DK", o.Europe);
+        f785a.put("RU", o.Russia);
+        f785a.put("IN", o.India);
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -123,7 +123,7 @@ public class l {
 
     private static o b(String str) {
         m499a();
-        return f783a.get(str.toUpperCase());
+        return f785a.get(str.toUpperCase());
     }
 
     public static String b() {

@@ -52,7 +52,7 @@ public class PayManager {
 
     public void doPayByWallet(IntentConfig intentConfig) {
         if (intentConfig == null) {
-            showToast(a.i.sdk_plugin_pay_error);
+            showToast(a.h.sdk_plugin_pay_error);
             return;
         }
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, intentConfig));

@@ -10,7 +10,7 @@ public class MsgAdapterScanMessage extends CustomResponsedMessage<a> {
     /* loaded from: classes.dex */
     public static class a {
         public TbPageContext<MsglistActivity<?>> context;
-        public List<e> jPO;
+        public List<e> jVL;
     }
 
     public MsgAdapterScanMessage(a aVar) {

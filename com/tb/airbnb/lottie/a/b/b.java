@@ -17,6 +17,6 @@ public class b extends f<Integer> {
         }
         int intValue = aVar.Hn.intValue();
         int intValue2 = aVar.Ho.intValue();
-        return (this.pzt == null || (num = (Integer) this.pzt.b(aVar.Bo, aVar.Hq.floatValue(), Integer.valueOf(intValue), Integer.valueOf(intValue2), f, jj(), getProgress())) == null) ? Integer.valueOf(com.tb.airbnb.lottie.d.b.b(f, intValue, intValue2)) : num;
+        return (this.pIN == null || (num = (Integer) this.pIN.b(aVar.Bo, aVar.Hq.floatValue(), Integer.valueOf(intValue), Integer.valueOf(intValue2), f, jj(), getProgress())) == null) ? Integer.valueOf(com.tb.airbnb.lottie.d.b.b(f, intValue, intValue2)) : num;
     }
 }

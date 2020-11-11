@@ -12,8 +12,8 @@ import com.baidu.live.tbadk.share.single.ShareSingleManager;
 import com.baidu.live.tbadk.share.single.interfaces.IShareChannel;
 /* loaded from: classes4.dex */
 public class AlaLandscapeShareView extends LinearLayout implements View.OnClickListener {
-    private ShareEntity hmE;
-    private a hmF;
+    private ShareEntity hsC;
+    private a hsD;
     private TbPageContext mContext;
     private IShareChannel mShareChannel;
 
@@ -25,19 +25,19 @@ public class AlaLandscapeShareView extends LinearLayout implements View.OnClickL
     public AlaLandscapeShareView(TbPageContext tbPageContext, ShareEntity shareEntity, a aVar) {
         super(tbPageContext.getPageActivity());
         this.mContext = tbPageContext;
-        this.hmE = shareEntity;
-        this.hmF = aVar;
+        this.hsC = shareEntity;
+        this.hsD = aVar;
         this.mShareChannel = ShareSingleManager.getInstance().buildShareChannel();
         initView();
     }
 
     private void initView() {
-        LayoutInflater.from(this.mContext.getPageActivity()).inflate(a.h.ala_live_share_view_landscape, this);
-        ((ViewGroup) findViewById(a.g.ala_sdk_weixin_container)).setOnClickListener(this);
-        ((ViewGroup) findViewById(a.g.ala_sdk_timeline_container)).setOnClickListener(this);
-        ((ViewGroup) findViewById(a.g.ala_sdk_qq_container)).setOnClickListener(this);
-        ((ViewGroup) findViewById(a.g.ala_sdk_sina_container)).setOnClickListener(this);
-        ((TextView) findViewById(a.g.ala_sdk_cancel)).setOnClickListener(this);
+        LayoutInflater.from(this.mContext.getPageActivity()).inflate(a.g.ala_live_share_view_landscape, this);
+        ((ViewGroup) findViewById(a.f.ala_sdk_weixin_container)).setOnClickListener(this);
+        ((ViewGroup) findViewById(a.f.ala_sdk_timeline_container)).setOnClickListener(this);
+        ((ViewGroup) findViewById(a.f.ala_sdk_qq_container)).setOnClickListener(this);
+        ((ViewGroup) findViewById(a.f.ala_sdk_sina_container)).setOnClickListener(this);
+        ((TextView) findViewById(a.f.ala_sdk_cancel)).setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
@@ -46,25 +46,25 @@ public class AlaLandscapeShareView extends LinearLayout implements View.OnClickL
             this.mShareChannel = ShareSingleManager.getInstance().buildShareChannel();
         }
         if (this.mShareChannel == null) {
-            this.mContext.showToast(a.i.ala_live_share_no_channel);
+            this.mContext.showToast(a.h.ala_live_share_no_channel);
             return;
         }
         int id = view.getId();
-        if (id == a.g.ala_sdk_weixin_container) {
-            this.hmE.shareType = 2;
-            this.mShareChannel.shareToWeixin(this.hmE, null);
-        } else if (id == a.g.ala_sdk_timeline_container) {
-            this.hmE.shareType = 3;
-            this.mShareChannel.shareToWeixinCircle(this.hmE, null);
-        } else if (id == a.g.ala_sdk_qq_container) {
-            this.hmE.shareType = 4;
-            this.mShareChannel.shareToQQ(this.hmE, null);
-        } else if (id == a.g.ala_sdk_sina_container) {
-            this.hmE.shareType = 1;
-            this.mShareChannel.shareToSinaWeibo(this.hmE, null);
+        if (id == a.f.ala_sdk_weixin_container) {
+            this.hsC.shareType = 2;
+            this.mShareChannel.shareToWeixin(this.hsC, null);
+        } else if (id == a.f.ala_sdk_timeline_container) {
+            this.hsC.shareType = 3;
+            this.mShareChannel.shareToWeixinCircle(this.hsC, null);
+        } else if (id == a.f.ala_sdk_qq_container) {
+            this.hsC.shareType = 4;
+            this.mShareChannel.shareToQQ(this.hsC, null);
+        } else if (id == a.f.ala_sdk_sina_container) {
+            this.hsC.shareType = 1;
+            this.mShareChannel.shareToSinaWeibo(this.hsC, null);
         }
-        if (this.hmF != null) {
-            this.hmF.onClick(view);
+        if (this.hsD != null) {
+            this.hsD.onClick(view);
         }
     }
 }

@@ -18,7 +18,7 @@ import org.xmlpull.v1.XmlPullParserFactory;
 public class gr {
 
     /* renamed from: a  reason: collision with root package name */
-    private static XmlPullParser f4931a = null;
+    private static XmlPullParser f4933a = null;
 
     public static gg a(String str, String str2, XmlPullParser xmlPullParser) {
         Object m321a = gq.a().m321a("all", "xm:chat");
@@ -61,7 +61,7 @@ public class gr {
             z = z;
         }
         if (ghVar == null) {
-            if (gh.a.f4921a == a2 || gh.a.b == a2) {
+            if (gh.a.f4923a == a2 || gh.a.b == a2) {
                 gs gsVar = new gs();
                 gsVar.k(attributeValue);
                 gsVar.m(attributeValue3);
@@ -124,8 +124,8 @@ public class gr {
                         return giVar;
                     }
                     a(com.xiaomi.push.service.ay.a(com.xiaomi.push.service.ay.a(a3.h, attributeValue2), text));
-                    f4931a.next();
-                    gjVar = a(f4931a);
+                    f4933a.next();
+                    gjVar = a(f4933a);
                 } else if (next == 3 && xmlPullParser.getName().equals("message")) {
                     z = true;
                 }
@@ -352,15 +352,15 @@ public class gr {
     }
 
     private static void a(byte[] bArr) {
-        if (f4931a == null) {
+        if (f4933a == null) {
             try {
-                f4931a = XmlPullParserFactory.newInstance().newPullParser();
-                f4931a.setFeature("http://xmlpull.org/v1/doc/features.html#process-namespaces", true);
+                f4933a = XmlPullParserFactory.newInstance().newPullParser();
+                f4933a.setFeature("http://xmlpull.org/v1/doc/features.html#process-namespaces", true);
             } catch (XmlPullParserException e) {
                 e.printStackTrace();
             }
         }
-        f4931a.setInput(new InputStreamReader(new ByteArrayInputStream(bArr)));
+        f4933a.setInput(new InputStreamReader(new ByteArrayInputStream(bArr)));
     }
 
     private static String b(XmlPullParser xmlPullParser) {

@@ -7,31 +7,31 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class a extends g {
     private int ajq;
-    private s fHX;
-    private Object fHY;
-    private boolean fHZ;
-    private int fuM;
+    private int fAC;
+    private s fNN;
+    private Object fNO;
+    private boolean fNP;
     private Map<String, String> params;
 
     public a(TbPageContext tbPageContext, int i) {
         super(tbPageContext, i);
-        this.fHZ = false;
+        this.fNP = false;
     }
 
-    public s bFm() {
-        return this.fHX;
+    public s bHL() {
+        return this.fNN;
     }
 
     public void a(s sVar) {
-        this.fHX = sVar;
+        this.fNN = sVar;
     }
 
-    public Object bFn() {
-        return this.fHY;
+    public Object bHM() {
+        return this.fNO;
     }
 
     public void aB(Object obj) {
-        this.fHY = obj;
+        this.fNO = obj;
     }
 
     public Map<String, String> getParams() {
@@ -43,7 +43,7 @@ public class a extends g {
     }
 
     public int getMaskColor() {
-        return this.fuM;
+        return this.fAC;
     }
 
     public int getSkinType() {

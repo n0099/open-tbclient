@@ -9,7 +9,7 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 public class HomeWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    static final String f1536a = "HomeWatcher";
+    static final String f1538a = "HomeWatcher";
     private final Context b;
     private final IntentFilter c = new IntentFilter("android.intent.action.CLOSE_SYSTEM_DIALOGS");
     private OnHomePressedListener d;
@@ -47,7 +47,7 @@ public class HomeWatcher {
     class InnerRecevier extends BroadcastReceiver {
 
         /* renamed from: a  reason: collision with root package name */
-        final String f1537a = TiebaInitialize.LogFields.REASON;
+        final String f1539a = TiebaInitialize.LogFields.REASON;
         final String b = "globalactions";
         final String c = "recentapps";
         final String d = "homekey";

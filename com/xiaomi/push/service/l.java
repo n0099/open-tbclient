@@ -18,10 +18,10 @@ import org.json.JSONObject;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static k f5107a;
+    private static k f5109a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static a f914a;
+    private static a f916a;
 
     /* loaded from: classes12.dex */
     public interface a {
@@ -31,8 +31,8 @@ public class l {
     public static synchronized k a(Context context) {
         k kVar = null;
         synchronized (l.class) {
-            if (f5107a != null) {
-                kVar = f5107a;
+            if (f5109a != null) {
+                kVar = f5109a;
             } else {
                 SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_account", 0);
                 String string = sharedPreferences.getString("uuid", null);
@@ -52,8 +52,8 @@ public class l {
                     if (!"com.xiaomi.xmsf".equals(context.getPackageName()) && !TextUtils.isEmpty(k) && !TextUtils.isEmpty(string7) && !string7.equals(k)) {
                         com.xiaomi.channel.commonutils.logger.b.m54a("read_phone_state permission changes.");
                     }
-                    f5107a = new k(string, string2, string3, string4, string5, string6, i);
-                    kVar = f5107a;
+                    f5109a = new k(string, string2, string3, string4, string5, string6, i);
+                    kVar = f5109a;
                 }
             }
         }
@@ -101,11 +101,11 @@ public class l {
             com.xiaomi.channel.commonutils.logger.b.m54a("account register:" + a4);
             treeMap.put("devid", a4);
             treeMap.put("devid1", com.xiaomi.push.i.a(context));
-            if (f5107a != null && !TextUtils.isEmpty(f5107a.f913a)) {
-                treeMap.put("uuid", f5107a.f913a);
-                int lastIndexOf = f5107a.f913a.lastIndexOf("/");
+            if (f5109a != null && !TextUtils.isEmpty(f5109a.f915a)) {
+                treeMap.put("uuid", f5109a.f915a);
+                int lastIndexOf = f5109a.f915a.lastIndexOf("/");
                 if (lastIndexOf != -1) {
-                    str4 = f5107a.f913a.substring(lastIndexOf + 1);
+                    str4 = f5109a.f915a.substring(lastIndexOf + 1);
                     com.xiaomi.push.au.a(context).a(treeMap);
                     c = com.xiaomi.push.i.c(context);
                     if (c != null) {
@@ -158,7 +158,7 @@ public class l {
                             kVar = new k(jSONObject2.getString(TbEnum.SystemMessage.KEY_USER_ID) + "@xiaomi.com/" + (TextUtils.isEmpty(str4) ? "an" + com.xiaomi.push.bf.a(6) : str4), jSONObject2.getString("token"), jSONObject2.getString("ssecurity"), str5, str6, str7, com.xiaomi.push.ab.a());
                             a(context, kVar);
                             com.xiaomi.push.i.a(context, jSONObject2.optString("vdevid"));
-                            f5107a = kVar;
+                            f5109a = kVar;
                         } else {
                             o.a(context, jSONObject.getInt("code"), jSONObject.optString("description"));
                             com.xiaomi.channel.commonutils.logger.b.m54a(a3);
@@ -235,34 +235,34 @@ public class l {
     }
 
     public static void a() {
-        if (f914a != null) {
-            f914a.a();
+        if (f916a != null) {
+            f916a.a();
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public static void m578a(Context context) {
         context.getSharedPreferences("mipush_account", 0).edit().clear().commit();
-        f5107a = null;
+        f5109a = null;
         a();
     }
 
     public static void a(Context context, k kVar) {
         SharedPreferences.Editor edit = context.getSharedPreferences("mipush_account", 0).edit();
-        edit.putString("uuid", kVar.f913a);
+        edit.putString("uuid", kVar.f915a);
         edit.putString("security", kVar.c);
         edit.putString("token", kVar.b);
         edit.putString("app_id", kVar.d);
         edit.putString("package_name", kVar.f);
         edit.putString("app_token", kVar.e);
         edit.putString("device_id", com.xiaomi.push.i.k(context));
-        edit.putInt("env_type", kVar.f5106a);
+        edit.putInt("env_type", kVar.f5108a);
         edit.commit();
         a();
     }
 
     public static void a(a aVar) {
-        f914a = aVar;
+        f916a = aVar;
     }
 
     /* renamed from: a  reason: collision with other method in class */

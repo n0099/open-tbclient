@@ -1,39 +1,165 @@
 package com.baidu.live.view;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.os.Build;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
+import android.text.TextUtils;
 import android.view.View;
-import com.baidu.live.sdk.a;
-import com.baidu.live.tbadk.core.util.UtilHelper;
+import android.view.WindowManager;
+import android.widget.PopupWindow;
+import com.baidu.live.adp.lib.safe.ShowUtil;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 /* loaded from: classes4.dex */
-public class e extends Dialog {
-    public e(@NonNull Context context) {
-        super(context, a.j.sdk_Transparent);
+public class e extends PopupWindow {
+    public e(Context context) {
+        super(context);
     }
 
-    @Override // android.app.Dialog
-    protected void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
+    @Override // android.widget.PopupWindow
+    public void showAtLocation(View view, int i, int i2, int i3) {
+        super.showAtLocation(view, i, i2, i3);
+        ShowUtil.windowCount++;
     }
 
-    @Override // android.app.Dialog
-    public void show() {
-        if (UtilHelper.getRealScreenOrientation(getContext()) == 2) {
-            getWindow().setFlags(8, 8);
-            super.show();
-            ad(getWindow().getDecorView());
-            getWindow().clearFlags(8);
+    @Override // android.widget.PopupWindow
+    public void dismiss() {
+        super.dismiss();
+        if (ShowUtil.windowCount > 0) {
+            ShowUtil.windowCount--;
+        }
+    }
+
+    @Override // android.widget.PopupWindow
+    public void update(int i, int i2, int i3, int i4, boolean z) {
+        boolean z2 = true;
+        if (Build.VERSION.SDK_INT != 24) {
+            super.update(i, i2, i3, i4, z);
             return;
         }
-        super.show();
+        if (i3 >= 0) {
+            i("mLastWidth", Integer.valueOf(i3));
+            setWidth(i3);
+        }
+        if (i4 >= 0) {
+            i("mLastHeight", Integer.valueOf(i4));
+            setHeight(i4);
+        }
+        Object iN = iN("mContentView");
+        View view = iN instanceof View ? (View) iN : null;
+        if (isShowing() && view != null) {
+            Object iN2 = iN("mDecorView");
+            View view2 = iN2 instanceof View ? (View) iN2 : null;
+            if (view2 != null) {
+                WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) view2.getLayoutParams();
+                Object iN3 = iN("mWidthMode");
+                int intValue = iN3 != null ? ((Integer) iN3).intValue() : 0;
+                Object iN4 = iN("mLastWidth");
+                int intValue2 = iN4 != null ? ((Integer) iN4).intValue() : 0;
+                if (intValue >= 0) {
+                    intValue = intValue2;
+                }
+                if (i3 != -1 && layoutParams.width != intValue) {
+                    layoutParams.width = intValue;
+                    i("mLastWidth", Integer.valueOf(intValue));
+                    z = true;
+                }
+                Object iN5 = iN("mHeightMode");
+                int intValue3 = iN5 != null ? ((Integer) iN5).intValue() : 0;
+                Object iN6 = iN("mLastHeight");
+                int intValue4 = iN6 != null ? ((Integer) iN6).intValue() : 0;
+                if (intValue3 >= 0) {
+                    intValue3 = intValue4;
+                }
+                if (i4 != -1 && layoutParams.height != intValue3) {
+                    layoutParams.height = intValue3;
+                    i("mLastHeight", Integer.valueOf(intValue3));
+                    z = true;
+                }
+                if (layoutParams.x != i) {
+                    layoutParams.x = i;
+                    z = true;
+                }
+                if (layoutParams.y != i2) {
+                    layoutParams.y = i2;
+                    z = true;
+                }
+                Object c = c("computeAnimationResource", new Class[]{Integer.TYPE}, null);
+                int intValue5 = c == null ? 0 : ((Integer) c).intValue();
+                if (intValue5 != layoutParams.windowAnimations) {
+                    layoutParams.windowAnimations = intValue5;
+                    z = true;
+                }
+                Object c2 = c("computeFlags", new Class[]{Integer.TYPE}, new Object[]{Integer.valueOf(layoutParams.flags)});
+                int intValue6 = c2 != null ? ((Integer) c2).intValue() : 0;
+                if (intValue6 != layoutParams.flags) {
+                    layoutParams.flags = intValue6;
+                } else {
+                    z2 = z;
+                }
+                if (z2) {
+                    c("setLayoutDirectionFromAnchor", null, null);
+                    Object iN7 = iN("mWindowManager");
+                    WindowManager windowManager = iN7 instanceof WindowManager ? (WindowManager) iN7 : null;
+                    if (windowManager != null) {
+                        windowManager.updateViewLayout(view2, layoutParams);
+                    }
+                }
+            }
+        }
     }
 
-    private void ad(View view) {
-        if (Build.VERSION.SDK_INT >= 19) {
-            view.setSystemUiVisibility(5894);
+    private Object iN(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        try {
+            Field declaredField = PopupWindow.class.getDeclaredField(str);
+            declaredField.setAccessible(true);
+            return declaredField.get(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private void i(String str, Object obj) {
+        if (!TextUtils.isEmpty(str)) {
+            try {
+                Field declaredField = PopupWindow.class.getDeclaredField(str);
+                declaredField.setAccessible(true);
+                declaredField.set(this, obj);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private Object c(String str, Class[] clsArr, Object[] objArr) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        try {
+            Method method = getMethod(PopupWindow.class, str, clsArr);
+            method.setAccessible(true);
+            return method.invoke(this, objArr);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private Method getMethod(Class cls, String str, Class[] clsArr) {
+        try {
+            return cls.getDeclaredMethod(str, clsArr);
+        } catch (NoSuchMethodException e) {
+            try {
+                return cls.getMethod(str, clsArr);
+            } catch (NoSuchMethodException e2) {
+                if (cls.getSuperclass() == null) {
+                    return null;
+                }
+                return getMethod(cls.getSuperclass(), str, clsArr);
+            }
         }
     }
 }

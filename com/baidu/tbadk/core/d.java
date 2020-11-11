@@ -4,47 +4,47 @@ import com.baidu.tbadk.core.data.NewErrorData;
 import com.baidu.tbadk.core.util.aa;
 /* loaded from: classes.dex */
 public class d {
-    protected aa bVi;
-    protected NewErrorData ero = null;
+    protected aa caS;
+    protected NewErrorData exh = null;
 
     public d() {
-        this.bVi = null;
-        this.bVi = new aa();
+        this.caS = null;
+        this.caS = new aa();
     }
 
     public void cancel() {
-        if (this.bVi != null) {
-            this.bVi.cancelNetConnect();
+        if (this.caS != null) {
+            this.caS.cancelNetConnect();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setUrl(String str) {
-        this.bVi.setUrl(str);
+        this.caS.setUrl(str);
     }
 
     public void addPostData(String str, String str2) {
-        this.bVi.addPostData(str, str2);
+        this.caS.addPostData(str, str2);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public String getResult() {
-        String postNetData = this.bVi.postNetData();
-        this.ero = new NewErrorData();
-        this.ero.parserJson(postNetData);
+        String postNetData = this.caS.postNetData();
+        this.exh = new NewErrorData();
+        this.exh.parserJson(postNetData);
         return postNetData;
     }
 
     public boolean isRequestSuccess() {
-        if (this.bVi != null) {
-            return this.bVi.bon().boU().isRequestSuccess();
+        if (this.caS != null) {
+            return this.caS.bqN().bru().isRequestSuccess();
         }
         return false;
     }
 
-    public String bhf() {
-        if (this.bVi != null) {
-            return this.bVi.getErrorString();
+    public String bjF() {
+        if (this.caS != null) {
+            return this.caS.getErrorString();
         }
         return null;
     }

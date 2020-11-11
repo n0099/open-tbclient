@@ -16,8 +16,8 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes4.dex */
 public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
-    private LinkedList<AbsFragment> hyI = new LinkedList<>();
-    private AlaPrivilegeFragmentAdapter hyJ;
+    private LinkedList<AbsFragment> hEF = new LinkedList<>();
+    private AlaPrivilegeFragmentAdapter hEG;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
@@ -29,12 +29,12 @@ public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity
     public void onPreInit() {
         super.onPreInit();
-        if (!y.isEmpty(this.hyI)) {
-            this.hyI.clear();
+        if (!y.isEmpty(this.hEF)) {
+            this.hEF.clear();
         }
-        this.hyI.add(new AlaAchievementMarkFragment());
-        this.hyI.add(new AlaEnterEffectFragment());
-        this.hyJ = new AlaPrivilegeFragmentAdapter(getSupportFragmentManager(), this.hyI);
+        this.hEF.add(new AlaAchievementMarkFragment());
+        this.hEF.add(new AlaEnterEffectFragment());
+        this.hEG = new AlaPrivilegeFragmentAdapter(getSupportFragmentManager(), this.hEF);
     }
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity
@@ -50,15 +50,15 @@ public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity
     protected AbsTabPagerAdapter getAdapter() {
-        return this.hyJ;
+        return this.hEG;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (!y.isEmpty(this.hyI)) {
-            Iterator<AbsFragment> it = this.hyI.iterator();
+        if (!y.isEmpty(this.hEF)) {
+            Iterator<AbsFragment> it = this.hEF.iterator();
             while (it.hasNext()) {
                 AbsFragment next = it.next();
                 if (next != null) {

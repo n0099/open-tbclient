@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /* loaded from: classes16.dex */
 public class j {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static com.tb.airbnb.lottie.model.d n(JsonReader jsonReader, com.tb.airbnb.lottie.d dVar) throws IOException {
+    public static com.tb.airbnb.lottie.model.d n(JsonReader jsonReader, com.tb.airbnb.lottie.e eVar) throws IOException {
         String str = null;
         double d = 0.0d;
         ArrayList arrayList = new ArrayList();
@@ -78,7 +78,7 @@ public class j {
                         if ("shapes".equals(jsonReader.nextName())) {
                             jsonReader.beginArray();
                             while (jsonReader.hasNext()) {
-                                arrayList.add((com.tb.airbnb.lottie.model.content.j) g.m(jsonReader, dVar));
+                                arrayList.add((com.tb.airbnb.lottie.model.content.j) g.m(jsonReader, eVar));
                             }
                             jsonReader.endArray();
                         } else {

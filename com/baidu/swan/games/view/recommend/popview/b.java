@@ -11,13 +11,13 @@ public class b {
     }
 
     public static void a(Callback callback, String str) {
-        if (com.baidu.swan.apps.runtime.e.aEU() != null) {
-            com.baidu.swan.games.network.b aFj = com.baidu.swan.apps.runtime.e.aEU().aFj();
+        if (com.baidu.swan.apps.runtime.e.aHu() != null) {
+            com.baidu.swan.games.network.b aHJ = com.baidu.swan.apps.runtime.e.aHu().aHJ();
             HttpUrl.Builder newBuilder = HttpUrl.parse("https://gamecenter.baidu.com/api/exchange/list").newBuilder();
             newBuilder.addQueryParameter(Constants.EXTRA_CONFIG_LIMIT, str);
-            newBuilder.addQueryParameter("app_key", com.baidu.swan.apps.runtime.e.aEU().getAppKey());
+            newBuilder.addQueryParameter("app_key", com.baidu.swan.apps.runtime.e.aHu().getAppKey());
             newBuilder.addQueryParameter("source", "4");
-            aFj.a(new Request.Builder().url(newBuilder.build()).build(), callback);
+            aHJ.a(new Request.Builder().url(newBuilder.build()).build(), callback);
         }
     }
 }

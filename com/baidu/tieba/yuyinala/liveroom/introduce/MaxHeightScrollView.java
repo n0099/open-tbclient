@@ -25,8 +25,8 @@ public class MaxHeightScrollView extends ScrollView {
     }
 
     private void g(Context context, AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.k.MaxHeightScrollView);
-        this.mMaxHeight = obtainStyledAttributes.getLayoutDimension(a.k.MaxHeightScrollView_scrollviewMaxHeight, this.mMaxHeight);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.MaxHeightScrollView);
+        this.mMaxHeight = obtainStyledAttributes.getLayoutDimension(a.j.MaxHeightScrollView_scrollviewMaxHeight, this.mMaxHeight);
         obtainStyledAttributes.recycle();
     }
 

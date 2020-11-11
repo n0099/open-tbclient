@@ -7,7 +7,7 @@ import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4303a = "ui";
+    public static String f4305a = "ui";
     public static String b = "ie";
     public static String c = "is1";
     public static String d = "is2";

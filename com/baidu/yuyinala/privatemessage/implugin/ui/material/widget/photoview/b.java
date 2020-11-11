@@ -6,33 +6,33 @@ import android.view.MotionEvent;
 import android.widget.ImageView;
 /* loaded from: classes4.dex */
 public class b implements GestureDetector.OnDoubleTapListener {
-    private d otp;
+    private d oCI;
 
     public b(d dVar) {
         a(dVar);
     }
 
     public void a(d dVar) {
-        this.otp = dVar;
+        this.oCI = dVar;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
         RectF displayRect;
-        if (this.otp == null) {
+        if (this.oCI == null) {
             return false;
         }
-        ImageView edv = this.otp.edv();
-        if (this.otp.getOnPhotoTapListener() != null && (displayRect = this.otp.getDisplayRect()) != null) {
+        ImageView ehk = this.oCI.ehk();
+        if (this.oCI.getOnPhotoTapListener() != null && (displayRect = this.oCI.getDisplayRect()) != null) {
             float x = motionEvent.getX();
             float y = motionEvent.getY();
             if (displayRect.width() > 0.0f && displayRect.height() > 0.0f && displayRect.contains(x, y)) {
-                this.otp.getOnPhotoTapListener().d(edv, (x - displayRect.left) / displayRect.width(), (y - displayRect.top) / displayRect.height());
+                this.oCI.getOnPhotoTapListener().d(ehk, (x - displayRect.left) / displayRect.width(), (y - displayRect.top) / displayRect.height());
                 return true;
             }
         }
-        if (this.otp.getOnViewTapListener() != null) {
-            this.otp.getOnViewTapListener().e(edv, motionEvent.getX(), motionEvent.getY());
+        if (this.oCI.getOnViewTapListener() != null) {
+            this.oCI.getOnViewTapListener().e(ehk, motionEvent.getX(), motionEvent.getY());
             return false;
         }
         return false;
@@ -40,19 +40,19 @@ public class b implements GestureDetector.OnDoubleTapListener {
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTap(MotionEvent motionEvent) {
-        if (this.otp == null) {
+        if (this.oCI == null) {
             return false;
         }
         try {
-            float scale = this.otp.getScale();
+            float scale = this.oCI.getScale();
             float x = motionEvent.getX();
             float y = motionEvent.getY();
-            if (scale < this.otp.getMediumScale()) {
-                this.otp.setScale(this.otp.getMediumScale(), x, y, true);
-            } else if (scale >= this.otp.getMediumScale() && scale < this.otp.getMaximumScale()) {
-                this.otp.setScale(this.otp.getMaximumScale(), x, y, true);
+            if (scale < this.oCI.getMediumScale()) {
+                this.oCI.setScale(this.oCI.getMediumScale(), x, y, true);
+            } else if (scale >= this.oCI.getMediumScale() && scale < this.oCI.getMaximumScale()) {
+                this.oCI.setScale(this.oCI.getMaximumScale(), x, y, true);
             } else {
-                this.otp.setScale(this.otp.getMinimumScale(), x, y, true);
+                this.oCI.setScale(this.oCI.getMinimumScale(), x, y, true);
             }
             return true;
         } catch (ArrayIndexOutOfBoundsException e) {

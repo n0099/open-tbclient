@@ -48,7 +48,7 @@ public class h extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "the callback is null");
             return false;
         }
-        eVar.aFg().b(activity, "mapp_i_read_contacts", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.extensions.a.h.1
+        eVar.aHG().b(activity, "mapp_i_read_contacts", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.extensions.a.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: a */
@@ -69,13 +69,13 @@ public class h extends aa {
     public void a(final Activity activity, final CallbackHandler callbackHandler, final String str) {
         com.baidu.swan.apps.ab.a.a("android.permission.READ_CONTACTS", new String[]{"android.permission.READ_CONTACTS"}, 666, activity, new com.baidu.swan.apps.ab.b() { // from class: com.baidu.swan.bdprivate.extensions.a.h.2
             @Override // com.baidu.swan.apps.ab.b
-            public void ke(String str2) {
+            public void kt(String str2) {
                 h.this.b(activity, callbackHandler, str);
                 com.baidu.swan.apps.console.c.e("ReadContacts", str2 + "");
             }
 
             @Override // com.baidu.swan.apps.ab.b
-            public void ab(int i, String str2) {
+            public void af(int i, String str2) {
                 com.baidu.swan.apps.setting.oauth.c.a(10005, callbackHandler, str);
                 com.baidu.swan.apps.console.c.e("ReadContacts", str2 + "");
             }

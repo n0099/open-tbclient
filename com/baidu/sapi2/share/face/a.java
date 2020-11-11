@@ -3,11 +3,11 @@ package com.baidu.sapi2.share.face;
 public class a implements Comparable<a> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3519a;
+    public String f3522a;
     public long b;
 
     public a(String str, long j) {
-        this.f3519a = str;
+        this.f3522a = str;
         this.b = j;
     }
 

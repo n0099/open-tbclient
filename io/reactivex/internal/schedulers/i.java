@@ -13,10 +13,10 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes17.dex */
 public final class i {
-    public static final boolean pGB;
-    public static final int pGC;
-    static final AtomicReference<ScheduledExecutorService> pGD = new AtomicReference<>();
-    static final Map<ScheduledThreadPoolExecutor, Object> pGE = new ConcurrentHashMap();
+    public static final boolean pPV;
+    public static final int pPW;
+    static final AtomicReference<ScheduledExecutorService> pPX = new AtomicReference<>();
+    static final Map<ScheduledThreadPoolExecutor, Object> pPY = new ConcurrentHashMap();
 
     static {
         int i = 1;
@@ -25,21 +25,21 @@ public final class i {
         if (z && properties.containsKey("rx2.purge-period-seconds")) {
             i = Integer.getInteger("rx2.purge-period-seconds", 1).intValue();
         }
-        pGB = z;
-        pGC = i;
+        pPV = z;
+        pPW = i;
         start();
     }
 
     public static void start() {
-        if (!pGB) {
+        if (!pPV) {
             return;
         }
         while (true) {
-            ScheduledExecutorService scheduledExecutorService = pGD.get();
+            ScheduledExecutorService scheduledExecutorService = pPX.get();
             if (scheduledExecutorService == null || scheduledExecutorService.isShutdown()) {
                 ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, new RxThreadFactory("RxSchedulerPurge"));
-                if (pGD.compareAndSet(scheduledExecutorService, newScheduledThreadPool)) {
-                    newScheduledThreadPool.scheduleAtFixedRate(new a(), pGC, pGC, TimeUnit.SECONDS);
+                if (pPX.compareAndSet(scheduledExecutorService, newScheduledThreadPool)) {
+                    newScheduledThreadPool.scheduleAtFixedRate(new a(), pPW, pPW, TimeUnit.SECONDS);
                     return;
                 }
                 newScheduledThreadPool.shutdownNow();
@@ -51,8 +51,8 @@ public final class i {
 
     public static ScheduledExecutorService a(ThreadFactory threadFactory) {
         ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, threadFactory);
-        if (pGB && (newScheduledThreadPool instanceof ScheduledThreadPoolExecutor)) {
-            pGE.put((ScheduledThreadPoolExecutor) newScheduledThreadPool, newScheduledThreadPool);
+        if (pPV && (newScheduledThreadPool instanceof ScheduledThreadPoolExecutor)) {
+            pPY.put((ScheduledThreadPoolExecutor) newScheduledThreadPool, newScheduledThreadPool);
         }
         return newScheduledThreadPool;
     }
@@ -66,11 +66,11 @@ public final class i {
         @Override // java.lang.Runnable
         public void run() {
             try {
-                Iterator it = new ArrayList(i.pGE.keySet()).iterator();
+                Iterator it = new ArrayList(i.pPY.keySet()).iterator();
                 while (it.hasNext()) {
                     ScheduledThreadPoolExecutor scheduledThreadPoolExecutor = (ScheduledThreadPoolExecutor) it.next();
                     if (scheduledThreadPoolExecutor.isShutdown()) {
-                        i.pGE.remove(scheduledThreadPoolExecutor);
+                        i.pPY.remove(scheduledThreadPoolExecutor);
                     } else {
                         scheduledThreadPoolExecutor.purge();
                     }

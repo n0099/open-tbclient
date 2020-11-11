@@ -4,46 +4,46 @@ import android.graphics.Bitmap;
 import javax.annotation.Nullable;
 /* loaded from: classes12.dex */
 public class c {
-    private boolean oLm;
-    private boolean oLn;
-    private boolean oLo;
-    private boolean oLp;
+    private boolean oUF;
+    private boolean oUG;
+    private boolean oUH;
+    private boolean oUI;
     @Nullable
-    private com.facebook.imagepipeline.decoder.b oLq;
-    private int oLl = 100;
+    private com.facebook.imagepipeline.decoder.b oUJ;
+    private int oUE = 100;
     private Bitmap.Config mBitmapConfig = Bitmap.Config.ARGB_8888;
 
-    public int ejX() {
-        return this.oLl;
+    public int enN() {
+        return this.oUE;
     }
 
-    public boolean ejY() {
-        return this.oLm;
+    public boolean enO() {
+        return this.oUF;
     }
 
-    public boolean ejZ() {
-        return this.oLn;
+    public boolean enP() {
+        return this.oUG;
     }
 
-    public boolean eka() {
-        return this.oLo;
+    public boolean enQ() {
+        return this.oUH;
     }
 
-    public c Aa(boolean z) {
-        this.oLp = z;
+    public c Al(boolean z) {
+        this.oUI = z;
         return this;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.decoder.b ekb() {
-        return this.oLq;
+    public com.facebook.imagepipeline.decoder.b enR() {
+        return this.oUJ;
     }
 
-    public boolean ekc() {
-        return this.oLp;
+    public boolean enS() {
+        return this.oUI;
     }
 
-    public Bitmap.Config ekd() {
+    public Bitmap.Config enT() {
         return this.mBitmapConfig;
     }
 
@@ -52,7 +52,7 @@ public class c {
         return this;
     }
 
-    public b eke() {
+    public b enU() {
         return new b(this);
     }
 }

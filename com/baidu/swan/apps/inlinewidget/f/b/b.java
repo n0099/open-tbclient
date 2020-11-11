@@ -6,32 +6,32 @@ import com.baidu.swan.apps.inlinewidget.f.b.a.c;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
 /* loaded from: classes10.dex */
 public class b {
-    private static final com.baidu.swan.apps.inlinewidget.f.b.a.a cRc = new com.baidu.swan.apps.inlinewidget.f.b.a.b();
-    private static volatile com.baidu.swan.apps.inlinewidget.f.b.a.a cRd = cRc;
+    private static final com.baidu.swan.apps.inlinewidget.f.b.a.a cWV = new com.baidu.swan.apps.inlinewidget.f.b.a.b();
+    private static volatile com.baidu.swan.apps.inlinewidget.f.b.a.a cWW = cWV;
 
     @NonNull
-    public static com.baidu.swan.apps.inlinewidget.f.b.a.a atB() {
-        return cRd;
+    public static com.baidu.swan.apps.inlinewidget.f.b.a.a awb() {
+        return cWW;
     }
 
     private static void a(@NonNull com.baidu.swan.apps.inlinewidget.f.b.a.a aVar) {
-        cRd = aVar;
+        cWW = aVar;
     }
 
-    public static void oD(String str) {
+    public static void oR(String str) {
         a(new c(str));
     }
 
-    public static void atC() {
-        a(cRc);
+    public static void awc() {
+        a(cWV);
     }
 
-    public static void atD() {
-        atB().atF();
+    public static void awd() {
+        awb().awf();
     }
 
-    public static void atE() {
-        atB().atF();
+    public static void awe() {
+        awb().awf();
     }
 
     /* loaded from: classes10.dex */
@@ -40,7 +40,7 @@ public class b {
         @Override // com.baidu.swan.apps.ap.e.b
         /* renamed from: a */
         public void M(HybridUbcFlow hybridUbcFlow) {
-            b.atB().fe(TextUtils.equals(hybridUbcFlow.aAK().optString("type"), "3") || hybridUbcFlow.oB("na_first_meaningful_paint"));
+            b.awb().fn(TextUtils.equals(hybridUbcFlow.aDk().optString("type"), "3") || hybridUbcFlow.oP("na_first_meaningful_paint"));
         }
     }
 }

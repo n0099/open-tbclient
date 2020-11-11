@@ -8,7 +8,7 @@ public class PoiChildrenInfo implements Parcelable {
     public static final Parcelable.Creator<PoiChildrenInfo> CREATOR = new e();
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2099a;
+    private String f2101a;
     private String b;
     private String c;
     private String d;
@@ -20,7 +20,7 @@ public class PoiChildrenInfo implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public PoiChildrenInfo(Parcel parcel) {
-        this.f2099a = parcel.readString();
+        this.f2101a = parcel.readString();
         this.b = parcel.readString();
         this.c = parcel.readString();
         this.d = parcel.readString();
@@ -54,7 +54,7 @@ public class PoiChildrenInfo implements Parcelable {
     }
 
     public String getUid() {
-        return this.f2099a;
+        return this.f2101a;
     }
 
     public void setAddress(String str) {
@@ -78,12 +78,12 @@ public class PoiChildrenInfo implements Parcelable {
     }
 
     public void setUid(String str) {
-        this.f2099a = str;
+        this.f2101a = str;
     }
 
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer("PoiChildrenInfo: ");
-        stringBuffer.append("uid = ").append(this.f2099a);
+        stringBuffer.append("uid = ").append(this.f2101a);
         stringBuffer.append("; name = ").append(this.b);
         stringBuffer.append("; showName = ").append(this.c);
         stringBuffer.append("; tag = ").append(this.d);
@@ -99,7 +99,7 @@ public class PoiChildrenInfo implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f2099a);
+        parcel.writeString(this.f2101a);
         parcel.writeString(this.b);
         parcel.writeString(this.c);
         parcel.writeString(this.d);

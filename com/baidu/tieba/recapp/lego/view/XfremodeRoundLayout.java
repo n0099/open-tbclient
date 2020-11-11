@@ -13,7 +13,7 @@ import android.widget.RelativeLayout;
 import java.util.Arrays;
 /* loaded from: classes26.dex */
 public class XfremodeRoundLayout extends RelativeLayout {
-    private Shape eDb;
+    private Shape eIQ;
     private Paint mPaint;
     private float[] mRadius;
 
@@ -45,21 +45,21 @@ public class XfremodeRoundLayout extends RelativeLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            if (this.eDb == null) {
+            if (this.eIQ == null) {
                 RectF rectF = new RectF(getPaddingLeft(), getPaddingTop() > 0 ? getPaddingTop() : 1.0f, getPaddingRight() <= 0 ? 1.0f : getPaddingRight(), getPaddingBottom());
                 float[] fArr = new float[8];
                 Arrays.fill(fArr, 0.0f);
-                this.eDb = new RoundRectShape(fArr, rectF, this.mRadius);
+                this.eIQ = new RoundRectShape(fArr, rectF, this.mRadius);
             }
-            this.eDb.resize(getWidth(), getHeight());
+            this.eIQ.resize(getWidth(), getHeight());
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.eDb != null) {
-            this.eDb.draw(canvas, this.mPaint);
+        if (this.eIQ != null) {
+            this.eIQ.draw(canvas, this.mPaint);
         }
     }
 }

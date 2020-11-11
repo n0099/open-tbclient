@@ -46,8 +46,8 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     }
 
     private void init() {
-        this.mTipTopMargin = getResources().getDimensionPixelSize(a.e.sdk_ds2);
-        this.mTipRightMargin = getResources().getDimensionPixelSize(a.e.sdk_ds12);
+        this.mTipTopMargin = getResources().getDimensionPixelSize(a.d.sdk_ds2);
+        this.mTipRightMargin = getResources().getDimensionPixelSize(a.d.sdk_ds12);
         this.mContentTv = new TabTextView(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
@@ -168,7 +168,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public void setCheckDescriptionText(boolean z) {
         String charSequence = this.mContentTv.getText().toString();
         if (z) {
-            charSequence = getContext().getString(a.i.sdk_talk_checked_tip) + charSequence;
+            charSequence = getContext().getString(a.h.sdk_talk_checked_tip) + charSequence;
         }
         this.mContentTv.setContentDescription(charSequence);
     }

@@ -15,7 +15,7 @@ public final class RequestParameters implements IXAdFeedsRequestParameters {
     public static final String TAG = "RequestParameters";
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f2270a;
+    private final String f2272a;
     private int b;
     private boolean c;
     private Map<String, String> d;
@@ -28,7 +28,7 @@ public final class RequestParameters implements IXAdFeedsRequestParameters {
     public static class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f2271a;
+        private String f2273a;
         private Map<String, String> b = new HashMap();
         private int c = 3;
         private boolean d = false;
@@ -74,7 +74,7 @@ public final class RequestParameters implements IXAdFeedsRequestParameters {
     private RequestParameters(Builder builder) {
         this.e = 0;
         this.f = 0;
-        this.f2270a = builder.f2271a;
+        this.f2272a = builder.f2273a;
         this.b = builder.c;
         this.e = builder.e;
         this.f = builder.f;
@@ -85,7 +85,7 @@ public final class RequestParameters implements IXAdFeedsRequestParameters {
 
     @Override // com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters
     public final String getKeywords() {
-        return this.f2270a;
+        return this.f2272a;
     }
 
     public int getWidth() {
@@ -122,7 +122,7 @@ public final class RequestParameters implements IXAdFeedsRequestParameters {
     @Override // com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters
     public HashMap<String, Object> toHashMap() {
         HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("mKeywords", this.f2270a);
+        hashMap.put("mKeywords", this.f2272a);
         hashMap.put("adsType", Integer.valueOf(this.b));
         hashMap.put("confirmDownloading", Boolean.valueOf(this.c));
         HashMap hashMap2 = new HashMap();

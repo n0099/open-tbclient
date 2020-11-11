@@ -16,14 +16,14 @@ import com.kascend.chushou.widget.cswebview.d;
 public class a extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f4184a;
+    private Context f4186a;
     private boolean c;
     private int d;
     private boolean g;
     private String h;
-    private MyWebView pme;
-    private ListItem pmf;
-    private d pmg;
+    private MyWebView pvC;
+    private ListItem pvD;
+    private d pvE;
 
     public a(Context context, ListItem listItem, d dVar) {
         super(context);
@@ -34,20 +34,20 @@ public class a extends RelativeLayout {
     }
 
     private void a(Context context, ListItem listItem, d dVar) {
-        this.f4184a = context;
-        this.pmf = listItem;
-        this.pmg = dVar;
+        this.f4186a = context;
+        this.pvD = listItem;
+        this.pvE = dVar;
         inflate(getContext(), a.h.popupwebview, this);
-        setLayoutParams(new RelativeLayout.LayoutParams(tv.chushou.zues.utils.a.hD(this.f4184a).x, tv.chushou.zues.utils.a.dip2px(this.f4184a, 80.0f)));
-        this.pme = (MyWebView) findViewById(a.f.wv);
-        this.pme.setBackgroundColor(0);
+        setLayoutParams(new RelativeLayout.LayoutParams(tv.chushou.zues.utils.a.hD(this.f4186a).x, tv.chushou.zues.utils.a.dip2px(this.f4186a, 80.0f)));
+        this.pvC = (MyWebView) findViewById(a.f.wv);
+        this.pvC.setBackgroundColor(0);
         com.kascend.chushou.widget.cswebview.a aVar = new com.kascend.chushou.widget.cswebview.a();
-        aVar.a(new JSInterface(this.f4184a));
-        if (this.pmg != null) {
-            aVar.a(this.pmg);
+        aVar.a(new JSInterface(this.f4186a));
+        if (this.pvE != null) {
+            aVar.a(this.pvE);
         }
         aVar.bI(this);
-        CSWebView.a(this.pme, this.f4184a, new c() { // from class: com.kascend.chushou.player.ui.miniview.a.1
+        CSWebView.a(this.pvC, this.f4186a, new c() { // from class: com.kascend.chushou.player.ui.miniview.a.1
             @Override // android.webkit.WebViewClient
             public void onPageFinished(WebView webView, String str) {
                 super.onPageFinished(webView, str);
@@ -66,10 +66,10 @@ public class a extends RelativeLayout {
                 }
             }
         }, aVar);
-        this.pme.onResume();
-        this.pme.resumeTimers();
+        this.pvC.onResume();
+        this.pvC.resumeTimers();
         this.g = false;
-        this.pme.loadUrl(this.pmf.mUrl);
+        this.pvC.loadUrl(this.pvD.mUrl);
         setVisibility(8);
     }
 
@@ -83,13 +83,13 @@ public class a extends RelativeLayout {
         this.d = i2;
         this.c = true;
         setVisibility(0);
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.f4184a, i);
+        Animation loadAnimation = AnimationUtils.loadAnimation(this.f4186a, i);
         loadAnimation.setAnimationListener(new tv.chushou.zues.toolkit.c.a() { // from class: com.kascend.chushou.player.ui.miniview.a.2
             @Override // tv.chushou.zues.toolkit.c.a, android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
                 super.onAnimationStart(animation);
                 com.kascend.chushou.player.ui.button.a aVar = new com.kascend.chushou.player.ui.button.a(3, 0);
-                aVar.Yd(str);
+                aVar.YH(str);
                 tv.chushou.zues.a.a.post(aVar);
             }
 
@@ -106,24 +106,24 @@ public class a extends RelativeLayout {
 
     public boolean a() {
         if (!this.c) {
-            return this.pmf.mPackStyle != 1;
+            return this.pvD.mPackStyle != 1;
         }
         this.c = false;
-        if (this.pmf.mPackStyle != 1) {
+        if (this.pvD.mPackStyle != 1) {
             setVisibility(8);
             b();
             com.kascend.chushou.player.ui.button.a aVar = new com.kascend.chushou.player.ui.button.a(3, 8);
-            aVar.Yd(this.h);
+            aVar.YH(this.h);
             tv.chushou.zues.a.a.post(aVar);
             return true;
         }
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.f4184a, this.d);
+        Animation loadAnimation = AnimationUtils.loadAnimation(this.f4186a, this.d);
         loadAnimation.setAnimationListener(new tv.chushou.zues.toolkit.c.a() { // from class: com.kascend.chushou.player.ui.miniview.a.3
             @Override // tv.chushou.zues.toolkit.c.a, android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
                 super.onAnimationStart(animation);
                 com.kascend.chushou.player.ui.button.a aVar2 = new com.kascend.chushou.player.ui.button.a(3, 8);
-                aVar2.Yd(a.this.h);
+                aVar2.YH(a.this.h);
                 tv.chushou.zues.a.a.post(aVar2);
             }
 
@@ -140,18 +140,18 @@ public class a extends RelativeLayout {
     }
 
     public void a(String str) {
-        if (this.pme != null) {
-            this.pme.loadUrl("javascript:getRefreshData('" + str + "')");
+        if (this.pvC != null) {
+            this.pvC.loadUrl("javascript:getRefreshData('" + str + "')");
         }
     }
 
     public void b() {
-        this.f4184a = null;
-        if (this.pme != null) {
-            this.pme.loadUrl("");
-            this.pme.removeAllViews();
-            this.pme.destroy();
-            this.pme = null;
+        this.f4186a = null;
+        if (this.pvC != null) {
+            this.pvC.loadUrl("");
+            this.pvC.removeAllViews();
+            this.pvC.destroy();
+            this.pvC = null;
         }
     }
 }

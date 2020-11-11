@@ -3,12 +3,12 @@ package com.baidu.mapapi.search.poi;
 public class PoiDetailSearchOption {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2117a = "";
+    private String f2119a = "";
     private String b = "";
     private boolean c = false;
 
     public String getUid() {
-        return this.f2117a;
+        return this.f2119a;
     }
 
     public String getUids() {
@@ -21,7 +21,7 @@ public class PoiDetailSearchOption {
 
     public PoiDetailSearchOption poiUid(String str) {
         this.c = false;
-        this.f2117a = str;
+        this.f2119a = str;
         return this;
     }
 

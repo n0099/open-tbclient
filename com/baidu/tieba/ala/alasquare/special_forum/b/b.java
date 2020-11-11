@@ -10,31 +10,31 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class b extends a {
-    private TbImageView eLx;
-    private ViewGroup glH;
+    private TbImageView eRm;
+    private ViewGroup gru;
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
-        bNx();
+        bPX();
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public void init() {
-        this.glH = new FrameLayout(this.mTbPageContext.getPageActivity());
-        this.eLx = new TbImageView(this.mTbPageContext.getPageActivity());
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.mScreenWidth, this.gdr);
-        this.eLx.setDefaultBgResource(R.drawable.pic_live_ufan);
-        this.eLx.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.eLx.setLayoutParams(layoutParams);
-        this.glH.addView(this.eLx);
+        this.gru = new FrameLayout(this.mTbPageContext.getPageActivity());
+        this.eRm = new TbImageView(this.mTbPageContext.getPageActivity());
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.mScreenWidth, this.gjh);
+        this.eRm.setDefaultBgResource(R.drawable.pic_live_ufan);
+        this.eRm.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.eRm.setLayoutParams(layoutParams);
+        this.gru.addView(this.eRm);
         this.mMaskView.setVisibility(8);
-        this.glH.addView(this.mMaskView);
-        this.eLx.setClickable(false);
+        this.gru.addView(this.mMaskView);
+        this.eRm.setClickable(false);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
-    public void ls(boolean z) {
+    public void lB(boolean z) {
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
@@ -43,19 +43,19 @@ public class b extends a {
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
-    public void bNy() {
-        super.bNy();
-        if (this.eLx != null) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.eLx.getLayoutParams();
+    public void bPY() {
+        super.bPY();
+        if (this.eRm != null) {
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.eRm.getLayoutParams();
             layoutParams.width = this.mScreenWidth;
-            layoutParams.height = this.gdr;
-            this.eLx.setLayoutParams(layoutParams);
+            layoutParams.height = this.gjh;
+            this.eRm.setLayoutParams(layoutParams);
         }
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public View getContentView() {
-        return this.glH;
+        return this.gru;
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
@@ -82,6 +82,6 @@ public class b extends a {
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public void onDestroy() {
-        this.eLx = null;
+        this.eRm = null;
     }
 }

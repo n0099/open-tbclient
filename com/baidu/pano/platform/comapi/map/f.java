@@ -7,23 +7,23 @@ import android.os.Message;
 public class f extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f2681a;
+    final /* synthetic */ e f2683a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.f2681a = eVar;
+        this.f2683a = eVar;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         if (message.what == 1001) {
-            this.f2681a.a(-message.arg1, -message.arg2);
+            this.f2683a.a(-message.arg1, -message.arg2);
         } else if (message.what == 1002) {
             float f = message.arg1;
             if (f > 60.0f || f < 20.0f) {
-                this.f2681a.k();
+                this.f2683a.k();
             } else {
-                this.f2681a.a(message.arg1);
+                this.f2683a.a(message.arg1);
             }
         }
     }

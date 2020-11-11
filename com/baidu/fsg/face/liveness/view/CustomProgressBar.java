@@ -12,7 +12,7 @@ import com.baidu.sapi2.biometrics.liveness.R;
 public class CustomProgressBar extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1742a;
+    private int f1744a;
     private int b;
     private Paint c;
     private Paint d;
@@ -44,11 +44,11 @@ public class CustomProgressBar extends View {
             try {
                 typedArray = context.obtainStyledAttributes(attributeSet, R.styleable.CustomProgressBar);
                 this.e = typedArray.getFloat(R.styleable.CustomProgressBar_mpb_percent, 0.0f);
-                this.f1742a = typedArray.getColor(R.styleable.CustomProgressBar_mpb_fill_color, 0);
+                this.f1744a = typedArray.getColor(R.styleable.CustomProgressBar_mpb_fill_color, 0);
                 this.b = typedArray.getColor(R.styleable.CustomProgressBar_mpb_background_color, 0);
                 this.f = typedArray.getBoolean(R.styleable.CustomProgressBar_mpb_flat, false);
                 this.c = new Paint();
-                this.c.setColor(this.f1742a);
+                this.c.setColor(this.f1744a);
                 this.c.setAntiAlias(true);
                 this.d = new Paint();
                 this.d.setColor(this.b);
@@ -62,8 +62,8 @@ public class CustomProgressBar extends View {
     }
 
     public void setFillColor(int i) {
-        if (this.f1742a != i) {
-            this.f1742a = i;
+        if (this.f1744a != i) {
+            this.f1744a = i;
             this.c.setColor(i);
             invalidate();
         }
@@ -79,7 +79,7 @@ public class CustomProgressBar extends View {
     }
 
     public int getFillColor() {
-        return this.f1742a;
+        return this.f1744a;
     }
 
     public int getBackgroundColor() {
@@ -123,7 +123,7 @@ public class CustomProgressBar extends View {
             canvas.drawRoundRect(this.g, f3, f3, this.d);
         }
         try {
-            if (this.f1742a != 0 && f2 > 0.0f) {
+            if (this.f1744a != 0 && f2 > 0.0f) {
                 if (f2 == measuredWidth) {
                     this.g.right = f2;
                     canvas.drawRoundRect(this.g, f3, f3, this.c);

@@ -4,24 +4,24 @@ import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.data.AlaLocationData;
 import com.baidu.live.data.AlaRelationData;
 import com.baidu.live.data.PersonUserData;
-import com.baidu.live.data.ap;
-import com.baidu.live.data.bc;
+import com.baidu.live.data.aq;
+import com.baidu.live.data.be;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    public static PersonUserData a(bc bcVar) {
+    public static PersonUserData a(be beVar) {
         PersonUserData personUserData = new PersonUserData();
-        personUserData.user_info = new ap();
+        personUserData.user_info = new aq();
         personUserData.relation_info = new AlaRelationData();
         personUserData.location_info = new AlaLocationData();
-        personUserData.user_info.aMZ = bcVar.metaKey;
-        personUserData.user_info.user_id = bcVar.id;
-        personUserData.user_info.user_name = bcVar.name;
-        personUserData.user_info.user_nickname = bcVar.name_show;
-        personUserData.user_info.description = bcVar.intro;
-        personUserData.user_info.portrait = bcVar.portrait;
-        personUserData.relation_info.follow_status = bcVar.aNJ;
+        personUserData.user_info.aOb = beVar.metaKey;
+        personUserData.user_info.user_id = beVar.id;
+        personUserData.user_info.user_name = beVar.name;
+        personUserData.user_info.user_nickname = beVar.name_show;
+        personUserData.user_info.description = beVar.intro;
+        personUserData.user_info.portrait = beVar.portrait;
+        personUserData.relation_info.follow_status = beVar.aOM;
         return personUserData;
     }
 
@@ -58,7 +58,7 @@ public class a {
         return null;
     }
 
-    public static String as(long j) {
+    public static String aE(long j) {
         return j / 10000 > 0 ? p(Math.floor(j / 1000.0d) / 10.0d) + "w" : String.valueOf(j);
     }
 

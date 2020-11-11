@@ -13,13 +13,13 @@ import com.baidu.live.utils.j;
 /* loaded from: classes4.dex */
 public class b {
     private long count;
-    private com.baidu.tieba.ala.liveroom.operation.b gQm;
-    private TextView gSG;
-    private ImageView gSH;
+    private com.baidu.tieba.ala.liveroom.operation.b gWq;
+    private TextView gYL;
+    private ImageView gYM;
     private boolean isHost;
     private Context mContext;
     private View mView = null;
-    private boolean gnY = true;
+    private boolean gtL = true;
 
     public b(Context context, boolean z) {
         this.isHost = false;
@@ -29,21 +29,21 @@ public class b {
     }
 
     private void initView() {
-        this.mView = View.inflate(this.mContext, a.h.ala_liveroom_audience_count_layout, null);
-        this.mView.setMinimumWidth(this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds90));
-        this.mView.setId(a.g.ala_liveroom_audience_count_layout);
-        this.gSG = (TextView) this.mView.findViewById(a.g.ala_live_room_audience_count);
-        this.gSH = (ImageView) this.mView.findViewById(a.g.close_imageView);
+        this.mView = View.inflate(this.mContext, a.g.ala_liveroom_audience_count_layout, null);
+        this.mView.setMinimumWidth(this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds90));
+        this.mView.setId(a.f.ala_liveroom_audience_count_layout);
+        this.gYL = (TextView) this.mView.findViewById(a.f.ala_live_room_audience_count);
+        this.gYM = (ImageView) this.mView.findViewById(a.f.close_imageView);
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo() || TbadkCoreApplication.getInst().isTieba() || TbadkCoreApplication.getInst().isMobileBaidu()) {
-            this.gSH.setVisibility(4);
+            this.gYM.setVisibility(4);
         } else {
-            this.gSH.setVisibility(8);
+            this.gYM.setVisibility(8);
         }
-        this.gSG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.b.1
+        this.gYL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.gQm != null) {
-                    b.this.gQm.p(view, 14);
+                if (b.this.gWq != null) {
+                    b.this.gWq.p(view, 14);
                 }
             }
         });
@@ -53,36 +53,36 @@ public class b {
         if (this.mView.getParent() != null) {
             ((ViewGroup) this.mView.getParent()).removeView(this.mView);
         }
-        ea(j);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds72));
+        ew(j);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds72));
         layoutParams.addRule(11);
         layoutParams.addRule(8, i);
-        layoutParams.rightMargin = BdUtilHelper.getDimens(this.mContext, a.e.sdk_ds8);
+        layoutParams.rightMargin = BdUtilHelper.getDimens(this.mContext, a.d.sdk_ds8);
         viewGroup.addView(this.mView, layoutParams);
     }
 
     public void setVisible(int i) {
-        if (this.gnY) {
+        if (this.gtL) {
             this.mView.setVisibility(i);
         } else {
             this.mView.setVisibility(8);
         }
     }
 
-    public void mM(boolean z) {
+    public void mV(boolean z) {
         if (z) {
-            this.gSH.setVisibility(4);
+            this.gYM.setVisibility(4);
         } else {
-            this.gSH.setVisibility(8);
+            this.gYM.setVisibility(8);
         }
     }
 
-    public void ea(long j) {
+    public void ew(long j) {
         if (j < 0) {
             j = 0;
         }
         this.count = j;
-        this.gSG.setText(j.numFormatOverWanNaForAudienceNum(j));
+        this.gYL.setText(j.numFormatOverWanNaForAudienceNum(j));
     }
 
     public long getCount() {
@@ -90,12 +90,12 @@ public class b {
     }
 
     public void a(com.baidu.tieba.ala.liveroom.operation.b bVar) {
-        this.gQm = bVar;
+        this.gWq = bVar;
     }
 
-    public void mN(boolean z) {
-        if (this.gSG != null) {
-            this.gSG.setEnabled(z);
+    public void mW(boolean z) {
+        if (this.gYL != null) {
+            this.gYL.setEnabled(z);
         }
     }
 }

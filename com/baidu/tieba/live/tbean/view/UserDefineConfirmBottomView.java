@@ -41,12 +41,12 @@ public class UserDefineConfirmBottomView extends LinearLayout {
 
     private void init(Context context) {
         this.mContext = context;
-        LayoutInflater.from(context).inflate(a.h.sdk_tbn_user_define_confirm_bottom_view, (ViewGroup) this, true);
+        LayoutInflater.from(context).inflate(a.g.sdk_tbn_user_define_confirm_bottom_view, (ViewGroup) this, true);
         setOrientation(1);
-        this.mRlConfirmBtnRoot = (RelativeLayout) findViewById(a.g.confirm_btn_root);
-        this.mRlBigTBeanRoot = (LinearLayout) findViewById(a.g.big_tbean_root);
-        this.mTvBigTbeanToast = (TextView) findViewById(a.g.big_tbean_toast_tv);
-        this.mTvBuyTbeanConfirm = (TextView) findViewById(a.g.user_define_confirm_tv);
+        this.mRlConfirmBtnRoot = (RelativeLayout) findViewById(a.f.confirm_btn_root);
+        this.mRlBigTBeanRoot = (LinearLayout) findViewById(a.f.big_tbean_root);
+        this.mTvBigTbeanToast = (TextView) findViewById(a.f.big_tbean_toast_tv);
+        this.mTvBuyTbeanConfirm = (TextView) findViewById(a.f.user_define_confirm_tv);
     }
 
     public void setClickListener(View.OnClickListener onClickListener) {
@@ -60,7 +60,7 @@ public class UserDefineConfirmBottomView extends LinearLayout {
             this.mRlBigTBeanRoot.setVisibility(4);
             return;
         }
-        this.mTvBigTbeanToast.setText(a.i.sdk_tbn_user_define_max_money);
+        this.mTvBigTbeanToast.setText(a.h.sdk_tbn_user_define_max_money);
         this.mTvBuyTbeanConfirm.setEnabled(false);
         this.mRlBigTBeanRoot.setVisibility(0);
     }

@@ -40,7 +40,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class LivenessVideoGuidActivity extends LivenessBaseActivity {
 
     /* renamed from: a  reason: collision with root package name */
-    private Button f1693a;
+    private Button f1695a;
     private ImageView b;
     private ImageView c;
     private View d;

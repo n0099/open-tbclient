@@ -9,16 +9,16 @@ public class c extends com.baidu.platform.base.a implements IBusLineSearch {
 
     @Override // com.baidu.platform.core.busline.IBusLineSearch
     public void a() {
-        this.f2810a.lock();
+        this.f2812a.lock();
         this.b = null;
-        this.f2810a.unlock();
+        this.f2812a.unlock();
     }
 
     @Override // com.baidu.platform.core.busline.IBusLineSearch
     public void a(OnGetBusLineSearchResultListener onGetBusLineSearchResultListener) {
-        this.f2810a.lock();
+        this.f2812a.lock();
         this.b = onGetBusLineSearchResultListener;
-        this.f2810a.unlock();
+        this.f2812a.unlock();
     }
 
     @Override // com.baidu.platform.core.busline.IBusLineSearch

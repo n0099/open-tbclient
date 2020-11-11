@@ -19,9 +19,9 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class a {
-    private NEGFeedBackView gMD;
-    private ViewGroup gME;
-    private NEGFeedBackView.a gMF = new NEGFeedBackView.a() { // from class: com.baidu.tieba.ala.livecard.vc.a.1
+    private NEGFeedBackView gTc;
+    private ViewGroup gTd;
+    private NEGFeedBackView.a gTe = new NEGFeedBackView.a() { // from class: com.baidu.tieba.ala.livecard.vc.a.1
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
         public void onNEGFeedbackWindowShow(ar arVar) {
             if (arVar != null) {
@@ -60,7 +60,7 @@ public class a {
 
     public a(TbPageContext tbPageContext, ViewGroup viewGroup) {
         this.mPageContext = tbPageContext;
-        this.gME = viewGroup;
+        this.gTd = viewGroup;
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
@@ -69,57 +69,57 @@ public class a {
 
     public void l(bw bwVar, String str) {
         int i = 0;
-        if (bwVar != null && bwVar.bku() != null && this.mPageContext != null && this.gME != null) {
-            boolean z = (bwVar.bka() == null || bwVar.bka().getUserId() == null || !bwVar.bka().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
-            if (TbadkCoreApplication.isLogin() && bwVar.bku().dislikeInfo != null && !z && bwVar.bku().dislikeInfo.size() > 0) {
-                if (this.gMD == null) {
-                    this.gMD = new NEGFeedBackView(this.mPageContext);
-                    this.gMD.setUniqueId(this.mBdUniqueId);
-                    this.gMD.setId(R.id.negative_feedback_view);
-                    this.gMD.setDefaultReasonArray(new String[]{this.mPageContext.getString(R.string.bad_quality), "", ""});
-                    this.gMD.setEventCallback(this.gMF);
-                    this.gMD.b(this.gME, l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds120), l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds20));
-                    this.gMD.onChangeSkinType();
+        if (bwVar != null && bwVar.bmU() != null && this.mPageContext != null && this.gTd != null) {
+            boolean z = (bwVar.bmA() == null || bwVar.bmA().getUserId() == null || !bwVar.bmA().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
+            if (TbadkCoreApplication.isLogin() && bwVar.bmU().dislikeInfo != null && !z && bwVar.bmU().dislikeInfo.size() > 0) {
+                if (this.gTc == null) {
+                    this.gTc = new NEGFeedBackView(this.mPageContext);
+                    this.gTc.setUniqueId(this.mBdUniqueId);
+                    this.gTc.setId(R.id.negative_feedback_view);
+                    this.gTc.setDefaultReasonArray(new String[]{this.mPageContext.getString(R.string.bad_quality), "", ""});
+                    this.gTc.setEventCallback(this.gTe);
+                    this.gTc.b(this.gTd, l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds120), l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds20));
+                    this.gTc.onChangeSkinType();
                 }
-                if (this.gMD.getVisibility() != 0) {
-                    this.gMD.setVisibility(0);
+                if (this.gTc.getVisibility() != 0) {
+                    this.gTc.setVisibility(0);
                 }
                 ar arVar = new ar();
                 arVar.setTid(bwVar.getTid());
                 arVar.setFid(bwVar.getFid());
                 arVar.setNid(bwVar.getNid());
                 arVar.setType(str);
-                arVar.setFeedBackReasonMap(bwVar.bku().dislikeInfo);
-                this.gMD.setData(arVar);
+                arVar.setFeedBackReasonMap(bwVar.bmU().dislikeInfo);
+                this.gTc.setData(arVar);
             } else {
-                if (this.gMD != null && this.gMD.getVisibility() != 8) {
-                    this.gMD.setVisibility(8);
+                if (this.gTc != null && this.gTc.getVisibility() != 8) {
+                    this.gTc.setVisibility(8);
                 }
                 i = l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds32);
             }
-            if (this.gME.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gME.getLayoutParams();
+            if (this.gTd.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gTd.getLayoutParams();
                 layoutParams.rightMargin = i;
-                this.gME.setLayoutParams(layoutParams);
+                this.gTd.setLayoutParams(layoutParams);
             }
-            if (this.gME.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.gME.getLayoutParams();
+            if (this.gTd.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.gTd.getLayoutParams();
                 layoutParams2.rightMargin = i;
-                this.gME.setLayoutParams(layoutParams2);
+                this.gTd.setLayoutParams(layoutParams2);
             }
-            if (this.gMD != null) {
-                this.gMD.bFX();
+            if (this.gTc != null) {
+                this.gTc.bIw();
             }
         }
     }
 
-    public View bTo() {
-        return this.gMD;
+    public View bVW() {
+        return this.gTc;
     }
 
     public void onChangeSkinType() {
-        if (this.gMD != null) {
-            this.gMD.onChangeSkinType();
+        if (this.gTc != null) {
+            this.gTc.onChangeSkinType();
         }
     }
 }

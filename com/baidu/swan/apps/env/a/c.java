@@ -10,14 +10,14 @@ import java.util.List;
 public class c implements a {
     @Override // com.baidu.swan.apps.env.a.a
     @Nullable
-    public List<String> ax(@Nullable List<String> list) {
+    public List<String> aE(@Nullable List<String> list) {
         if (list == null) {
             return null;
         }
-        List<SwanFavorItemData> arR = SwanFavorDataManager.arQ().arR();
-        if (arR.size() != 0) {
+        List<SwanFavorItemData> aus = SwanFavorDataManager.aur().aus();
+        if (aus.size() != 0) {
             HashSet hashSet = new HashSet();
-            for (SwanFavorItemData swanFavorItemData : arR) {
+            for (SwanFavorItemData swanFavorItemData : aus) {
                 hashSet.add(swanFavorItemData.getAppKey());
             }
             list.removeAll(hashSet);

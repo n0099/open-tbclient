@@ -11,12 +11,12 @@ import java.util.ArrayList;
 public class ah {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static ShapeStroke z(JsonReader jsonReader, com.tb.airbnb.lottie.d dVar) throws IOException {
+    public static ShapeStroke z(JsonReader jsonReader, com.tb.airbnb.lottie.e eVar) throws IOException {
         char c;
         String str = null;
         com.tb.airbnb.lottie.model.a.a aVar = null;
         com.tb.airbnb.lottie.model.a.b bVar = null;
-        com.tb.airbnb.lottie.model.a.d dVar2 = null;
+        com.tb.airbnb.lottie.model.a.d dVar = null;
         ShapeStroke.LineCapType lineCapType = null;
         ShapeStroke.LineJoinType lineJoinType = null;
         com.tb.airbnb.lottie.model.a.b bVar2 = null;
@@ -80,13 +80,13 @@ public class ah {
                     str = jsonReader.nextString();
                     break;
                 case 1:
-                    aVar = d.l(jsonReader, dVar);
+                    aVar = d.l(jsonReader, eVar);
                     break;
                 case 2:
-                    bVar = d.f(jsonReader, dVar);
+                    bVar = d.f(jsonReader, eVar);
                     break;
                 case 3:
-                    dVar2 = d.g(jsonReader, dVar);
+                    dVar = d.g(jsonReader, eVar);
                     break;
                 case 4:
                     lineCapType = ShapeStroke.LineCapType.values()[jsonReader.nextInt() - 1];
@@ -125,7 +125,7 @@ public class ah {
                                     str2 = jsonReader.nextString();
                                     break;
                                 case 1:
-                                    bVar3 = d.f(jsonReader, dVar);
+                                    bVar3 = d.f(jsonReader, eVar);
                                     break;
                                 default:
                                     jsonReader.skipValue();
@@ -182,6 +182,6 @@ public class ah {
                     break;
             }
         }
-        return new ShapeStroke(str, bVar2, arrayList, aVar, dVar2, bVar, lineCapType, lineJoinType, f);
+        return new ShapeStroke(str, bVar2, arrayList, aVar, dVar, bVar, lineCapType, lineJoinType, f);
     }
 }

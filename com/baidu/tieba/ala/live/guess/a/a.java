@@ -23,33 +23,33 @@ import java.text.DecimalFormat;
 import java.util.regex.Pattern;
 /* loaded from: classes4.dex */
 public class a implements View.OnClickListener {
-    private ImageView gHE;
-    private TextView gHF;
-    private ForegroundColorSpan gHG;
-    private RelativeSizeSpan gHH;
-    private HorizontalProgressBar gHI;
-    private TextView gHJ;
-    private TextView gHK;
-    private ImageView gHL;
-    private float gHM = 0.0f;
-    private int gHN = 0;
-    private float gHO = 0.0f;
-    private int gHP = 0;
-    private float gHQ = 0.0f;
-    private boolean gHR = false;
-    private int gHS = -1;
-    private DecimalFormat gHT;
-    private InterfaceC0647a gHU;
+    private DecimalFormat gNF;
+    private InterfaceC0659a gNG;
+    private ImageView gNq;
+    private TextView gNr;
+    private ForegroundColorSpan gNs;
+    private RelativeSizeSpan gNt;
+    private HorizontalProgressBar gNu;
+    private TextView gNv;
+    private TextView gNw;
+    private ImageView gNx;
     private Context mContext;
     private Dialog mDialog;
     private View mRootView;
+    private float gNy = 0.0f;
+    private int gNz = 0;
+    private float gNA = 0.0f;
+    private int gNB = 0;
+    private float gNC = 0.0f;
+    private boolean gND = false;
+    private int gNE = -1;
 
     /* renamed from: com.baidu.tieba.ala.live.guess.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0647a {
-        void bSp();
+    public interface InterfaceC0659a {
+        void bUO();
 
-        void bSq();
+        void bUP();
     }
 
     public a(Context context) {
@@ -57,12 +57,12 @@ public class a implements View.OnClickListener {
         initDialog();
     }
 
-    private void OE() {
+    private void Pe() {
         this.mDialog.setCancelable(true);
         this.mDialog.setCanceledOnTouchOutside(true);
         Window window = this.mDialog.getWindow();
         if (window != null) {
-            window.setBackgroundDrawableResource(a.f.sdk_transparent_bg);
+            window.setBackgroundDrawableResource(a.e.sdk_transparent_bg);
             window.getDecorView().setPadding(0, 0, 0, 0);
             if (((WindowManager) this.mDialog.getContext().getSystemService("window")) != null) {
                 WindowManager.LayoutParams attributes = window.getAttributes();
@@ -79,31 +79,31 @@ public class a implements View.OnClickListener {
         }
     }
 
-    public void a(InterfaceC0647a interfaceC0647a) {
-        if (interfaceC0647a != null) {
-            this.gHU = interfaceC0647a;
+    public void a(InterfaceC0659a interfaceC0659a) {
+        if (interfaceC0659a != null) {
+            this.gNG = interfaceC0659a;
         }
     }
 
     private void initDialog() {
         this.mDialog = new e(this.mContext);
-        OE();
+        Pe();
         initView();
-        Ga();
+        GB();
     }
 
-    private void Ga() {
-        this.gHE.setOnClickListener(this);
+    private void GB() {
+        this.gNq.setOnClickListener(this);
     }
 
     private void initView() {
-        this.mRootView = LayoutInflater.from(this.mDialog.getContext()).inflate(a.h.ala_guess_con_dialog, (ViewGroup) null);
-        this.gHF = (TextView) this.mRootView.findViewById(a.g.tv_average);
-        this.gHJ = (TextView) this.mRootView.findViewById(a.g.tv_notify);
-        this.gHK = (TextView) this.mRootView.findViewById(a.g.tv_guess_cong);
-        this.gHE = (ImageView) this.mRootView.findViewById(a.g.img_exit);
-        this.gHL = (ImageView) this.mRootView.findViewById(a.g.img_crown);
-        this.gHI = (HorizontalProgressBar) this.mRootView.findViewById(a.g.progress_horizontal);
+        this.mRootView = LayoutInflater.from(this.mDialog.getContext()).inflate(a.g.ala_guess_con_dialog, (ViewGroup) null);
+        this.gNr = (TextView) this.mRootView.findViewById(a.f.tv_average);
+        this.gNv = (TextView) this.mRootView.findViewById(a.f.tv_notify);
+        this.gNw = (TextView) this.mRootView.findViewById(a.f.tv_guess_cong);
+        this.gNq = (ImageView) this.mRootView.findViewById(a.f.img_exit);
+        this.gNx = (ImageView) this.mRootView.findViewById(a.f.img_crown);
+        this.gNu = (HorizontalProgressBar) this.mRootView.findViewById(a.f.progress_horizontal);
         this.mDialog.setContentView(this.mRootView);
         this.mDialog.setOnKeyListener(new DialogInterface.OnKeyListener() { // from class: com.baidu.tieba.ala.live.guess.a.a.1
             @Override // android.content.DialogInterface.OnKeyListener
@@ -115,7 +115,7 @@ public class a implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.gHE) {
+        if (view == this.gNq) {
             dismiss();
         }
     }
@@ -123,43 +123,43 @@ public class a implements View.OnClickListener {
     public void show() {
         if ((this.mContext instanceof Activity) && !((Activity) this.mContext).isFinishing() && this.mDialog != null) {
             this.mDialog.show();
-            this.gHF.setText(bSx());
-            bSw();
+            this.gNr.setText(bUW());
+            bUV();
         }
     }
 
-    private void bSw() {
-        if (this.gHS == this.gHP) {
-            this.gHL.setImageResource(a.f.ala_guess_success);
-            this.gHK.setText(a.i.ala_guess_congratulate);
-            if (this.gHU != null) {
-                this.gHU.bSp();
+    private void bUV() {
+        if (this.gNE == this.gNB) {
+            this.gNx.setImageResource(a.e.ala_guess_success);
+            this.gNw.setText(a.h.ala_guess_congratulate);
+            if (this.gNG != null) {
+                this.gNG.bUO();
             }
         } else {
-            this.gHL.setImageResource(a.f.ala_guess_failure);
-            this.gHK.setText(a.i.ala_guess_regret);
-            if (this.gHU != null) {
-                this.gHU.bSq();
+            this.gNx.setImageResource(a.e.ala_guess_failure);
+            this.gNw.setText(a.h.ala_guess_regret);
+            if (this.gNG != null) {
+                this.gNG.bUP();
             }
         }
-        if (this.gHP == 0) {
-            this.gHR = false;
+        if (this.gNB == 0) {
+            this.gND = false;
         } else {
-            this.gHR = true;
+            this.gND = true;
         }
-        if (Math.abs(this.gHO) <= 1.0E-6d) {
-            this.gHO = 0.0f;
+        if (Math.abs(this.gNA) <= 1.0E-6d) {
+            this.gNA = 0.0f;
         }
         StringBuilder sb = new StringBuilder();
-        sb.append(this.gHN).append("人瓜分").append((int) this.gHO).append("元");
-        this.gHJ.setText(sb);
-        this.gHI.mr(this.gHR);
-        int i = (int) (this.gHQ * 100.0f);
+        sb.append(this.gNz).append("人瓜分").append((int) this.gNA).append("元");
+        this.gNv.setText(sb);
+        this.gNu.mA(this.gND);
+        int i = (int) (this.gNC * 100.0f);
         int i2 = 100 - i;
-        if (this.gHR) {
-            this.gHI.bI(i, i2);
+        if (this.gND) {
+            this.gNu.bI(i, i2);
         } else {
-            this.gHI.bI(i2, i);
+            this.gNu.bI(i2, i);
         }
     }
 
@@ -169,64 +169,64 @@ public class a implements View.OnClickListener {
         }
     }
 
-    public void uH(int i) {
-        this.gHS = i;
+    public void uR(int i) {
+        this.gNE = i;
     }
 
     public void setAverage(float f) {
-        this.gHM = f;
+        this.gNy = f;
     }
 
-    public void uI(int i) {
-        this.gHN = i;
+    public void uS(int i) {
+        this.gNz = i;
     }
 
-    public void ap(float f) {
-        this.gHO = f;
+    public void ar(float f) {
+        this.gNA = f;
     }
 
     public void h(int i, float f) {
-        this.gHQ = f;
-        this.gHP = i;
+        this.gNC = f;
+        this.gNB = i;
     }
 
     public void eo(String str, String str2) {
-        this.gHI.setLeftFirstString(str);
-        this.gHI.setRightFirstString(str2);
+        this.gNu.setLeftFirstString(str);
+        this.gNu.setRightFirstString(str2);
     }
 
-    private SpannableStringBuilder bSx() {
-        if (this.gHT == null) {
-            this.gHT = new DecimalFormat("0.00");
+    private SpannableStringBuilder bUW() {
+        if (this.gNF == null) {
+            this.gNF = new DecimalFormat("0.00");
         }
-        String bSy = bSy();
+        String bUX = bUX();
         int length = "人均".length();
-        String str = "人均" + bSy + "元";
+        String str = "人均" + bUX + "元";
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-        this.gHG = new ForegroundColorSpan(this.mContext.getResources().getColor(a.d.ala_guess_bonus));
+        this.gNs = new ForegroundColorSpan(this.mContext.getResources().getColor(a.c.ala_guess_bonus));
         int length2 = (str.length() - length) + 1;
-        spannableStringBuilder.setSpan(this.gHG, length, length2, 34);
-        this.gHH = new RelativeSizeSpan(1.8f);
-        spannableStringBuilder.setSpan(this.gHH, length, length2, 34);
+        spannableStringBuilder.setSpan(this.gNs, length, length2, 34);
+        this.gNt = new RelativeSizeSpan(1.8f);
+        spannableStringBuilder.setSpan(this.gNt, length, length2, 34);
         return spannableStringBuilder;
     }
 
-    private String bSy() {
-        String str = this.gHM + "";
-        if (Math.abs(this.gHM) <= 1.0E-6d) {
+    private String bUX() {
+        String str = this.gNy + "";
+        if (Math.abs(this.gNy) <= 1.0E-6d) {
             return "0";
         }
-        if (!Hl(str) && isDecimal(str)) {
-            return this.gHT.format(this.gHM);
+        if (!Hy(str) && isDecimal(str)) {
+            return this.gNF.format(this.gNy);
         }
-        return ((int) this.gHM) + "";
+        return ((int) this.gNy) + "";
     }
 
     public boolean isShowing() {
         return this.mDialog.isShowing();
     }
 
-    private boolean Hl(String str) {
+    private boolean Hy(String str) {
         return Pattern.compile("^[-\\+]?[\\d]*$").matcher(str).matches();
     }
 

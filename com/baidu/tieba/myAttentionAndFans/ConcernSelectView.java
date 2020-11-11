@@ -20,25 +20,25 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 /* loaded from: classes23.dex */
 public class ConcernSelectView extends FrameLayout {
-    private View fKv;
-    private LinearLayout kSI;
-    private ImageView kSJ;
-    private TextView kSK;
-    private TextView kSL;
-    private TextView kSM;
-    public LinearLayout kSN;
-    private Animation kSO;
-    private Animation kSP;
-    private boolean kSQ;
-    private a kSR;
+    private View fQl;
+    private LinearLayout kYE;
+    private ImageView kYF;
+    private TextView kYG;
+    private TextView kYH;
+    private TextView kYI;
+    public LinearLayout kYJ;
+    private Animation kYK;
+    private Animation kYL;
+    private boolean kYM;
+    private a kYN;
     private Context mContext;
     private int mSkinType;
 
     /* loaded from: classes23.dex */
     public interface a {
-        void td(boolean z);
+        void Aj(int i);
 
-        void zW(int i);
+        void tm(boolean z);
     }
 
     public ConcernSelectView(Context context) {
@@ -64,77 +64,77 @@ public class ConcernSelectView extends FrameLayout {
 
     private void initUI() {
         LayoutInflater.from(this.mContext).inflate(R.layout.concern_select_layout, this);
-        this.kSI = (LinearLayout) findViewById(R.id.expandable_area);
-        this.kSJ = (ImageView) findViewById(R.id.expandable_btn);
-        this.kSN = (LinearLayout) findViewById(R.id.menu_list);
-        this.kSK = (TextView) findViewById(R.id.menu_title);
-        this.kSL = (TextView) findViewById(R.id.all_concerned_item);
-        this.kSM = (TextView) findViewById(R.id.each_concerned_item);
-        this.fKv = findViewById(R.id.item_divider_line);
-        this.kSI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.1
+        this.kYE = (LinearLayout) findViewById(R.id.expandable_area);
+        this.kYF = (ImageView) findViewById(R.id.expandable_btn);
+        this.kYJ = (LinearLayout) findViewById(R.id.menu_list);
+        this.kYG = (TextView) findViewById(R.id.menu_title);
+        this.kYH = (TextView) findViewById(R.id.all_concerned_item);
+        this.kYI = (TextView) findViewById(R.id.each_concerned_item);
+        this.fQl = findViewById(R.id.item_divider_line);
+        this.kYE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TiebaStatic.log(new aq("c12774").dR("obj_locate", "1"));
-                ConcernSelectView.this.w(ConcernSelectView.this.kSN, ConcernSelectView.this.kSN.getVisibility() == 0 ? 1 : 0);
+                ConcernSelectView.this.w(ConcernSelectView.this.kYJ, ConcernSelectView.this.kYJ.getVisibility() == 0 ? 1 : 0);
             }
         });
-        this.kSL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.2
+        this.kYH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TiebaStatic.log(new aq("c12774").dR("obj_locate", "2"));
-                ap.setViewTextColor(ConcernSelectView.this.kSL, R.color.cp_cont_b);
-                ap.setViewTextColor(ConcernSelectView.this.kSM, R.color.cp_cont_j);
-                ConcernSelectView.this.kSK.setText(R.string.all_concerned);
-                if (ConcernSelectView.this.kSR != null) {
-                    ConcernSelectView.this.kSR.zW(0);
+                ap.setViewTextColor(ConcernSelectView.this.kYH, R.color.cp_cont_b);
+                ap.setViewTextColor(ConcernSelectView.this.kYI, R.color.cp_cont_j);
+                ConcernSelectView.this.kYG.setText(R.string.all_concerned);
+                if (ConcernSelectView.this.kYN != null) {
+                    ConcernSelectView.this.kYN.Aj(0);
                 }
-                ConcernSelectView.this.w(ConcernSelectView.this.kSN, 1);
+                ConcernSelectView.this.w(ConcernSelectView.this.kYJ, 1);
             }
         });
-        this.kSM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.3
+        this.kYI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TiebaStatic.log(new aq("c12774").dR("obj_locate", "3"));
-                ap.setViewTextColor(ConcernSelectView.this.kSL, R.color.cp_cont_j);
-                ap.setViewTextColor(ConcernSelectView.this.kSM, R.color.cp_cont_b);
-                ConcernSelectView.this.kSK.setText(R.string.each_concerned);
-                if (ConcernSelectView.this.kSR != null) {
-                    ConcernSelectView.this.kSR.zW(1);
+                ap.setViewTextColor(ConcernSelectView.this.kYH, R.color.cp_cont_j);
+                ap.setViewTextColor(ConcernSelectView.this.kYI, R.color.cp_cont_b);
+                ConcernSelectView.this.kYG.setText(R.string.each_concerned);
+                if (ConcernSelectView.this.kYN != null) {
+                    ConcernSelectView.this.kYN.Aj(1);
                 }
-                ConcernSelectView.this.w(ConcernSelectView.this.kSN, 1);
+                ConcernSelectView.this.w(ConcernSelectView.this.kYJ, 1);
             }
         });
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void closeView() {
-        if (this.kSN.getVisibility() == 0) {
-            w(this.kSN, 1);
+        if (this.kYJ.getVisibility() == 0) {
+            w(this.kYJ, 1);
         }
     }
 
-    public boolean dbU() {
-        return this.kSN.getVisibility() == 0;
+    public boolean dew() {
+        return this.kYJ.getVisibility() == 0;
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            SvgManager.boN().a(this.kSJ, R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
-            ap.setViewTextColor(this.kSK, R.color.cp_cont_d);
-            ap.setViewTextColor(this.kSL, R.color.cp_cont_b);
-            ap.setViewTextColor(this.kSM, R.color.cp_cont_j);
-            ap.setBackgroundResource(this.kSN, R.drawable.concern_item_bg);
-            ap.setBackgroundResource(this.kSK, R.color.cp_bg_line_d);
-            ap.setBackgroundResource(this.kSL, R.drawable.concern_item_menu_select_bg);
-            ap.setBackgroundResource(this.kSM, R.drawable.concern_item_menu_select_bg);
-            ap.setBackgroundResource(this.fKv, R.color.cp_bg_line_c);
+            SvgManager.brn().a(this.kYF, R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
+            ap.setViewTextColor(this.kYG, R.color.cp_cont_d);
+            ap.setViewTextColor(this.kYH, R.color.cp_cont_b);
+            ap.setViewTextColor(this.kYI, R.color.cp_cont_j);
+            ap.setBackgroundResource(this.kYJ, R.drawable.concern_item_bg);
+            ap.setBackgroundResource(this.kYG, R.color.cp_bg_line_d);
+            ap.setBackgroundResource(this.kYH, R.drawable.concern_item_menu_select_bg);
+            ap.setBackgroundResource(this.kYI, R.drawable.concern_item_menu_select_bg);
+            ap.setBackgroundResource(this.fQl, R.color.cp_bg_line_c);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void w(final View view, final int i) {
-        if (view != null && view.getAnimation() == null && this.kSN != null) {
-            int childCount = this.kSN.getChildCount();
+        if (view != null && view.getAnimation() == null && this.kYJ != null) {
+            int childCount = this.kYJ.getChildCount();
             if (childCount < 0) {
                 childCount = 0;
             }
@@ -168,39 +168,39 @@ public class ConcernSelectView extends FrameLayout {
                             listView.smoothScrollBy(bottom, 260);
                         }
                     }
-                    if (ConcernSelectView.this.kSR != null) {
-                        ConcernSelectView.this.kSR.td(z);
+                    if (ConcernSelectView.this.kYN != null) {
+                        ConcernSelectView.this.kYN.tm(z);
                     }
                 }
             });
             view.startAnimation(aVar);
-            if (this.kSJ != null) {
-                if (this.kSJ.getAnimation() == null || this.kSJ.getAnimation().hasEnded()) {
+            if (this.kYF != null) {
+                if (this.kYF.getAnimation() == null || this.kYF.getAnimation().hasEnded()) {
                     if (i == 0) {
-                        if (this.kSO == null) {
-                            dbW();
+                        if (this.kYK == null) {
+                            dey();
                         }
-                        if (this.kSP != null) {
-                            this.kSP.cancel();
+                        if (this.kYL != null) {
+                            this.kYL.cancel();
                         }
-                        this.kSJ.startAnimation(this.kSO);
+                        this.kYF.startAnimation(this.kYK);
                         return;
                     }
-                    if (this.kSP == null) {
-                        dbV();
+                    if (this.kYL == null) {
+                        dex();
                     }
-                    if (this.kSO != null) {
-                        this.kSO.cancel();
+                    if (this.kYK != null) {
+                        this.kYK.cancel();
                     }
-                    this.kSJ.startAnimation(this.kSP);
+                    this.kYF.startAnimation(this.kYL);
                 }
             }
         }
     }
 
-    private void dbV() {
-        this.kSP = AnimationUtils.loadAnimation(this.mContext, R.anim.rotate_collapse);
-        this.kSP.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.5
+    private void dex() {
+        this.kYL = AnimationUtils.loadAnimation(this.mContext, R.anim.rotate_collapse);
+        this.kYL.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.5
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -211,21 +211,21 @@ public class ConcernSelectView extends FrameLayout {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationRepeat(Animation animation) {
-                ConcernSelectView.this.kSQ = false;
+                ConcernSelectView.this.kYM = false;
             }
         });
     }
 
-    private void dbW() {
-        this.kSO = AnimationUtils.loadAnimation(this.mContext, R.anim.rotate_expand);
-        this.kSO.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.6
+    private void dey() {
+        this.kYK = AnimationUtils.loadAnimation(this.mContext, R.anim.rotate_expand);
+        this.kYK.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.6
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                ConcernSelectView.this.kSQ = true;
+                ConcernSelectView.this.kYM = true;
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -235,6 +235,6 @@ public class ConcernSelectView extends FrameLayout {
     }
 
     public void setOnExpandListener(a aVar) {
-        this.kSR = aVar;
+        this.kYN = aVar;
     }
 }

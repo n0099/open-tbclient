@@ -8,13 +8,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.tieba.ala.alaar.makeup.b.a {
-    public String aDp;
-    public BdUniqueId aDx;
-    private boolean eud;
-    protected boolean fVQ;
-    private boolean fWa;
-    private boolean fWb;
-    protected b fWc;
+    public String aDW;
+    public BdUniqueId aEe;
+    private boolean ezW;
+    protected boolean gbH;
+    private boolean gbR;
+    private boolean gbS;
+    protected b gbT;
     private File mFolder;
 
     public c() {
@@ -25,71 +25,71 @@ public class c extends com.baidu.tieba.ala.alaar.makeup.b.a {
     }
 
     public String getSign() {
-        return this.fWc.getSign();
+        return this.gbT.getSign();
     }
 
     public int getPosition() {
-        return this.fWc.getPosition();
+        return this.gbT.getPosition();
     }
 
     public void setPosition(int i) {
-        this.fWc.setPosition(i);
+        this.gbT.setPosition(i);
     }
 
     public void setData(List<d> list) {
-        this.fWc.setData(list);
+        this.gbT.setData(list);
     }
 
-    public b bKD() {
-        return this.fWc;
+    public b bNc() {
+        return this.gbT;
     }
 
-    public boolean bKE() {
-        return this.fWa;
+    public boolean bNd() {
+        return this.gbR;
     }
 
-    public boolean Ca() {
-        return this.eud;
+    public boolean Cs() {
+        return this.ezW;
     }
 
     public int size() {
-        if (this.fWc == null) {
+        if (this.gbT == null) {
             return 0;
         }
-        return this.fWc.size();
+        return this.gbT.size();
     }
 
-    public boolean bKF() {
-        return this.fWb;
+    public boolean bNe() {
+        return this.gbS;
     }
 
-    public void lj(boolean z) {
-        this.fWb = z;
+    public void ls(boolean z) {
+        this.gbS = z;
     }
 
     @Override // com.baidu.tieba.ala.alaar.makeup.b.b
-    public boolean dt(JSONObject jSONObject) {
+    public boolean dz(JSONObject jSONObject) {
         if (jSONObject == null || jSONObject.length() == 0) {
             return false;
         }
-        this.eud = jSONObject.optInt("switch", 0) == 1;
-        this.fWa = jSONObject.optInt("red_dot_switch", 0) == 1;
-        this.fWb = jSONObject.optInt("is_user_clicked", 0) == 1;
-        this.fVQ = jSONObject.optInt("is_male", 0) == 1;
+        this.ezW = jSONObject.optInt("switch", 0) == 1;
+        this.gbR = jSONObject.optInt("red_dot_switch", 0) == 1;
+        this.gbS = jSONObject.optInt("is_user_clicked", 0) == 1;
+        this.gbH = jSONObject.optInt("is_male", 0) == 1;
         JSONObject optJSONObject = jSONObject.optJSONObject("beauty_conf");
-        this.fWc = new b();
-        this.fWc.X(this.mFolder);
-        return optJSONObject != null && this.fWc.dt(optJSONObject);
+        this.gbT = new b();
+        this.gbT.X(this.mFolder);
+        return optJSONObject != null && this.gbT.dz(optJSONObject);
     }
 
     public JSONObject toJson() {
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("switch", this.eud ? 1 : 0);
-            jSONObject.put("red_dot_switch", this.fWa ? 1 : 0);
-            jSONObject.put("is_user_clicked", this.fWb ? 1 : 0);
-            jSONObject.put("is_male", this.fVQ ? 1 : 0);
-            jSONObject.put("beauty_conf", this.fWc != null ? this.fWc.toJson() : null);
+            jSONObject.put("switch", this.ezW ? 1 : 0);
+            jSONObject.put("red_dot_switch", this.gbR ? 1 : 0);
+            jSONObject.put("is_user_clicked", this.gbS ? 1 : 0);
+            jSONObject.put("is_male", this.gbH ? 1 : 0);
+            jSONObject.put("beauty_conf", this.gbT != null ? this.gbT.toJson() : null);
             return jSONObject;
         } catch (JSONException e) {
             e.printStackTrace();

@@ -8,14 +8,14 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes17.dex */
 public final class FlowableSkipUntil<T, U> extends a<T, T> {
-    final org.a.b<U> pDP;
+    final org.a.b<U> pNj;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
         SkipUntilMainSubscriber skipUntilMainSubscriber = new SkipUntilMainSubscriber(cVar);
         cVar.onSubscribe(skipUntilMainSubscriber);
-        this.pDP.subscribe(skipUntilMainSubscriber.other);
-        this.pDq.a((j) skipUntilMainSubscriber);
+        this.pNj.subscribe(skipUntilMainSubscriber.other);
+        this.pMK.a((j) skipUntilMainSubscriber);
     }
 
     /* loaded from: classes17.dex */

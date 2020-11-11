@@ -24,13 +24,13 @@ public class a implements f {
             sb.append("&page_from=live");
             Activity currentActivity = com.baidu.adp.base.a.lg().currentActivity();
             if (currentActivity != null) {
-                be.boR().a((TbPageContext) i.I(currentActivity), new String[]{sb.toString()}, true);
+                be.brr().a((TbPageContext) i.I(currentActivity), new String[]{sb.toString()}, true);
             }
         }
     }
 
     @Override // com.baidu.tieba.sdk.b.f
-    public void ND(String str) {
+    public void NU(String str) {
         openScheme(str);
     }
 }

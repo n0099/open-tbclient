@@ -6,24 +6,24 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes18.dex */
 public class e {
-    private final com.facebook.common.memory.a oCc;
-    private boolean oNu;
-    private int oNq = 0;
-    private int oNp = 0;
-    private int oNr = 0;
-    private int oNt = 0;
-    private int oNs = 0;
-    private int oNo = 0;
+    private final com.facebook.common.memory.a oLv;
+    private boolean oWN;
+    private int oWJ = 0;
+    private int oWI = 0;
+    private int oWK = 0;
+    private int oWM = 0;
+    private int oWL = 0;
+    private int oWH = 0;
 
     public e(com.facebook.common.memory.a aVar) {
-        this.oCc = (com.facebook.common.memory.a) g.checkNotNull(aVar);
+        this.oLv = (com.facebook.common.memory.a) g.checkNotNull(aVar);
     }
 
     public boolean a(com.facebook.imagepipeline.g.e eVar) {
-        if (this.oNo != 6 && eVar.getSize() > this.oNq) {
-            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(eVar.getInputStream(), this.oCc.get(16384), this.oCc);
+        if (this.oWH != 6 && eVar.getSize() > this.oWJ) {
+            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(eVar.getInputStream(), this.oLv.get(16384), this.oLv);
             try {
-                com.facebook.common.util.c.a(fVar, this.oNq);
+                com.facebook.common.util.c.a(fVar, this.oWJ);
                 return v(fVar);
             } catch (IOException e) {
                 l.v(e);
@@ -38,88 +38,88 @@ public class e {
     private boolean v(InputStream inputStream) {
         int read;
         boolean z = true;
-        int i = this.oNs;
-        while (this.oNo != 6 && (read = inputStream.read()) != -1) {
+        int i = this.oWL;
+        while (this.oWH != 6 && (read = inputStream.read()) != -1) {
             try {
-                this.oNq++;
-                if (this.oNu) {
-                    this.oNo = 6;
-                    this.oNu = false;
+                this.oWJ++;
+                if (this.oWN) {
+                    this.oWH = 6;
+                    this.oWN = false;
                     return false;
                 }
-                switch (this.oNo) {
+                switch (this.oWH) {
                     case 0:
                         if (read == 255) {
-                            this.oNo = 1;
+                            this.oWH = 1;
                             break;
                         } else {
-                            this.oNo = 6;
+                            this.oWH = 6;
                             break;
                         }
                     case 1:
                         if (read == 216) {
-                            this.oNo = 2;
+                            this.oWH = 2;
                             break;
                         } else {
-                            this.oNo = 6;
+                            this.oWH = 6;
                             break;
                         }
                     case 2:
                         if (read != 255) {
                             break;
                         } else {
-                            this.oNo = 3;
+                            this.oWH = 3;
                             break;
                         }
                     case 3:
                         if (read == 255) {
-                            this.oNo = 3;
+                            this.oWH = 3;
                             break;
                         } else if (read == 0) {
-                            this.oNo = 2;
+                            this.oWH = 2;
                             break;
                         } else if (read == 217) {
-                            this.oNu = true;
-                            OO(this.oNq - 2);
-                            this.oNo = 2;
+                            this.oWN = true;
+                            Pj(this.oWJ - 2);
+                            this.oWH = 2;
                             break;
                         } else {
                             if (read == 218) {
-                                OO(this.oNq - 2);
+                                Pj(this.oWJ - 2);
                             }
-                            if (ON(read)) {
-                                this.oNo = 4;
+                            if (Pi(read)) {
+                                this.oWH = 4;
                                 break;
                             } else {
-                                this.oNo = 2;
+                                this.oWH = 2;
                                 break;
                             }
                         }
                     case 4:
-                        this.oNo = 5;
+                        this.oWH = 5;
                         break;
                     case 5:
-                        int i2 = ((this.oNp << 8) + read) - 2;
+                        int i2 = ((this.oWI << 8) + read) - 2;
                         com.facebook.common.util.c.a(inputStream, i2);
-                        this.oNq = i2 + this.oNq;
-                        this.oNo = 2;
+                        this.oWJ = i2 + this.oWJ;
+                        this.oWH = 2;
                         break;
                     default:
                         g.checkState(false);
                         break;
                 }
-                this.oNp = read;
+                this.oWI = read;
             } catch (IOException e) {
                 l.v(e);
             }
         }
-        if (this.oNo == 6 || this.oNs == i) {
+        if (this.oWH == 6 || this.oWL == i) {
             z = false;
         }
         return z;
     }
 
-    private static boolean ON(int i) {
+    private static boolean Pi(int i) {
         boolean z = true;
         if (i == 1) {
             return false;
@@ -133,24 +133,24 @@ public class e {
         return false;
     }
 
-    private void OO(int i) {
-        if (this.oNr > 0) {
-            this.oNt = i;
+    private void Pj(int i) {
+        if (this.oWK > 0) {
+            this.oWM = i;
         }
-        int i2 = this.oNr;
-        this.oNr = i2 + 1;
-        this.oNs = i2;
+        int i2 = this.oWK;
+        this.oWK = i2 + 1;
+        this.oWL = i2;
     }
 
-    public int elT() {
-        return this.oNt;
+    public int epK() {
+        return this.oWM;
     }
 
-    public int elU() {
-        return this.oNs;
+    public int epL() {
+        return this.oWL;
     }
 
-    public boolean elV() {
-        return this.oNu;
+    public boolean epM() {
+        return this.oWN;
     }
 }

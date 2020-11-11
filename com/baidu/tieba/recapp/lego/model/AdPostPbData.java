@@ -54,33 +54,33 @@ public class AdPostPbData extends PostAdBaseData implements AdvertAppInfo.ILegoA
             this.extraData = new PostAdBaseData.a.c();
             JSONObject optJSONObject3 = optJSONObject2.optJSONObject("ad_download");
             if (optJSONObject3 != null) {
-                this.extraData.moM = new PostAdBaseData.a.C0823a();
-                this.extraData.moM.packageName = optJSONObject3.optString("pkgname");
-                this.extraData.moM.downloadUrl = optJSONObject3.optString("download_url");
+                this.extraData.muJ = new PostAdBaseData.a.C0838a();
+                this.extraData.muJ.packageName = optJSONObject3.optString("pkgname");
+                this.extraData.muJ.downloadUrl = optJSONObject3.optString("download_url");
             }
         }
     }
 
     public boolean isDownload() {
-        return (!"apk_download".equals(this.style) || this.extraData == null || this.extraData.moM == null) ? false : true;
+        return (!"apk_download".equals(this.style) || this.extraData == null || this.extraData.muJ == null) ? false : true;
     }
 
     public String apkDownloadUrl() {
-        if (this.extraData == null || this.extraData.moM == null) {
+        if (this.extraData == null || this.extraData.muJ == null) {
             return null;
         }
-        return this.extraData.moM.downloadUrl;
+        return this.extraData.muJ.downloadUrl;
     }
 
     public String apkDownloadPackage() {
-        if (this.extraData == null || this.extraData.moM == null) {
+        if (this.extraData == null || this.extraData.muJ == null) {
             return null;
         }
-        return this.extraData.moM.packageName;
+        return this.extraData.muJ.packageName;
     }
 
     public AdvertAppInfo toAppData() {
-        if (this.extraData == null || this.extraData.moM == null) {
+        if (this.extraData == null || this.extraData.muJ == null) {
             return null;
         }
         AdvertAppInfo advertAppInfo = new AdvertAppInfo();
@@ -93,21 +93,21 @@ public class AdPostPbData extends PostAdBaseData implements AdvertAppInfo.ILegoA
             if ("apk_download".equals(this.style)) {
                 advertAppInfo.ZU = 3;
             }
-            if (TextUtils.isEmpty(advertAppInfo.esU)) {
-                advertAppInfo.esU = this.id;
+            if (TextUtils.isEmpty(advertAppInfo.eyO)) {
+                advertAppInfo.eyO = this.id;
             }
             if (advertAppInfo.getFid() == 0) {
                 advertAppInfo.setFid(this.fid);
             }
             advertAppInfo.apkUrl = apkDownloadUrl();
             advertAppInfo.extensionInfo = this.extInfo;
-            advertAppInfo.esX = apkDownloadPackage();
-            advertAppInfo.esV = !TextUtils.isEmpty(this.name) ? this.name : apkDownloadPackage();
-            if (advertAppInfo.ete == null) {
-                advertAppInfo.ete = new AdvertAppInfo.a();
+            advertAppInfo.eyR = apkDownloadPackage();
+            advertAppInfo.eyP = !TextUtils.isEmpty(this.name) ? this.name : apkDownloadPackage();
+            if (advertAppInfo.eyX == null) {
+                advertAppInfo.eyX = new AdvertAppInfo.a();
             }
-            advertAppInfo.ete.userPortrait = this.portrait;
-            advertAppInfo.ete.userName = this.title;
+            advertAppInfo.eyX.userPortrait = this.portrait;
+            advertAppInfo.eyX.userName = this.title;
         }
     }
 

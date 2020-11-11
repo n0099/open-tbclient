@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes14.dex */
 public class d extends RecyclerView.Adapter<a> {
-    private List<i> eai = new ArrayList();
-    private List<i> eaj = new ArrayList();
+    private List<i> efZ = new ArrayList();
+    private List<i> ega = new ArrayList();
     private Context mContext;
     private int mItemWidth;
 
@@ -24,14 +24,14 @@ public class d extends RecyclerView.Adapter<a> {
         int max;
         List<i> list2;
         List<i> list3;
-        this.eai.clear();
-        this.eaj.clear();
+        this.efZ.clear();
+        this.ega.clear();
         if (list != null) {
             if (list.size() > 0 && (list3 = list.get(0)) != null) {
-                this.eai.addAll(list3);
+                this.efZ.addAll(list3);
             }
             if (list.size() > 1 && (list2 = list.get(1)) != null) {
-                this.eaj.addAll(list2);
+                this.ega.addAll(list2);
             }
             DisplayMetrics displayMetrics = this.mContext.getResources().getDisplayMetrics();
             if (i == 0) {
@@ -39,13 +39,13 @@ public class d extends RecyclerView.Adapter<a> {
             } else {
                 max = Math.max(displayMetrics.widthPixels, displayMetrics.heightPixels);
             }
-            this.mItemWidth = (int) (max / (hG(z) ? 5.5f : 5.0f));
+            this.mItemWidth = (int) (max / (hP(z) ? 5.5f : 5.0f));
             notifyDataSetChanged();
         }
     }
 
-    private boolean hG(boolean z) {
-        return z || this.eai.size() > 5 || this.eaj.size() > 5;
+    private boolean hP(boolean z) {
+        return z || this.efZ.size() > 5 || this.ega.size() > 5;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -72,39 +72,39 @@ public class d extends RecyclerView.Adapter<a> {
             layoutParams.width = this.mItemWidth;
             aVar.itemView.setLayoutParams(layoutParams);
         }
-        if (i < this.eai.size()) {
-            aVar.eak.setVisibility(0);
-            aVar.eak.f(this.eai.get(i));
-            aVar.eak.setOnClickListener(null);
+        if (i < this.efZ.size()) {
+            aVar.egb.setVisibility(0);
+            aVar.egb.f(this.efZ.get(i));
+            aVar.egb.setOnClickListener(null);
         } else {
-            aVar.eak.setVisibility(this.eai.size() == 0 ? 8 : 4);
-            aVar.eak.setOnClickListener(null);
+            aVar.egb.setVisibility(this.efZ.size() == 0 ? 8 : 4);
+            aVar.egb.setOnClickListener(null);
         }
-        if (i < this.eaj.size()) {
-            aVar.eal.setVisibility(0);
-            aVar.eal.f(this.eaj.get(i));
-            aVar.eal.setOnClickListener(null);
+        if (i < this.ega.size()) {
+            aVar.egc.setVisibility(0);
+            aVar.egc.f(this.ega.get(i));
+            aVar.egc.setOnClickListener(null);
             return;
         }
-        aVar.eal.setVisibility(this.eaj.size() != 0 ? 4 : 8);
-        aVar.eal.setOnClickListener(null);
+        aVar.egc.setVisibility(this.ega.size() != 0 ? 4 : 8);
+        aVar.egc.setOnClickListener(null);
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return Math.max(this.eai.size(), this.eaj.size());
+        return Math.max(this.efZ.size(), this.ega.size());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes14.dex */
     public static class a extends RecyclerView.ViewHolder {
-        SwanAppMenuItemView eak;
-        SwanAppMenuItemView eal;
+        SwanAppMenuItemView egb;
+        SwanAppMenuItemView egc;
 
         public a(View view) {
             super(view);
-            this.eak = (SwanAppMenuItemView) view.findViewById(g.d.first_line_menu_item_view);
-            this.eal = (SwanAppMenuItemView) view.findViewById(g.d.second_line_menu_item_view);
+            this.egb = (SwanAppMenuItemView) view.findViewById(g.d.first_line_menu_item_view);
+            this.egc = (SwanAppMenuItemView) view.findViewById(g.d.second_line_menu_item_view);
         }
     }
 }

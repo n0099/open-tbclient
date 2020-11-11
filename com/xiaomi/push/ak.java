@@ -7,23 +7,23 @@ import com.xiaomi.push.ai;
 public class ak extends ai.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ai f4790a;
+    final /* synthetic */ ai f4792a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ak(ai aiVar, ai.a aVar) {
         super(aVar);
-        this.f4790a = aiVar;
+        this.f4792a = aiVar;
     }
 
     @Override // com.xiaomi.push.ai.b
     void b() {
         Object obj;
         SparseArray sparseArray;
-        obj = this.f4790a.f94a;
+        obj = this.f4792a.f96a;
         synchronized (obj) {
-            sparseArray = this.f4790a.f93a;
-            sparseArray.remove(this.f4788a.mo166a());
+            sparseArray = this.f4792a.f95a;
+            sparseArray.remove(this.f4790a.mo166a());
         }
     }
 }

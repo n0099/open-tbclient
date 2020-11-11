@@ -26,7 +26,7 @@ public class e {
     private Context p;
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.pano.platform.c.a f2680a = new com.baidu.pano.platform.c.a();
+    private com.baidu.pano.platform.c.a f2682a = new com.baidu.pano.platform.c.a();
     private int b = 0;
     private final long d = 16;
     private final int e = 1001;
@@ -78,19 +78,19 @@ public class e {
             c = 60.0f;
         }
         if (c == 60.0f) {
-            this.f2680a.a(60.0f, 40.0f);
+            this.f2682a.a(60.0f, 40.0f);
             c(1);
         } else if (c == 40.0f) {
-            this.f2680a.a(40.0f, 20.0f);
+            this.f2682a.a(40.0f, 20.0f);
             c(2);
         } else if (c == 20.0f) {
-            this.f2680a.a(20.0f, 60.0f);
+            this.f2682a.a(20.0f, 60.0f);
             c(3);
         } else if (c > 20.0f && c < 40.0f) {
-            this.f2680a.a(c, 20.0f);
+            this.f2682a.a(c, 20.0f);
             c(4);
         } else if (c > 40.0f && c < 60.0f) {
-            this.f2680a.a(c, 40.0f);
+            this.f2682a.a(c, 40.0f);
             c(5);
         }
         return true;

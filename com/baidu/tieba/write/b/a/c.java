@@ -8,15 +8,15 @@ import com.baidu.searchbox.http.cookie.CookieManager;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c implements CookieManager {
-    private static String nBB;
-    private boolean nBC;
-    private boolean nwn;
+    private static String nHv;
+    private boolean nCh;
+    private boolean nHw;
 
     public c(boolean z, boolean z2) {
-        this.nwn = true;
-        this.nBC = false;
-        this.nwn = z;
-        this.nBC = z2;
+        this.nCh = true;
+        this.nHw = false;
+        this.nCh = z;
+        this.nHw = z2;
     }
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
@@ -24,7 +24,7 @@ public class c implements CookieManager {
         if (TextUtils.isEmpty(str2)) {
             return false;
         }
-        return this.nBC || !Ut(str2);
+        return this.nHw || !UK(str2);
     }
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
@@ -41,7 +41,7 @@ public class c implements CookieManager {
                 for (String str2 : list) {
                     cookieManager.setCookie(str, str2);
                 }
-                if (this.nwn && (cookieSyncManager = CookieSyncManager.getInstance()) != null) {
+                if (this.nCh && (cookieSyncManager = CookieSyncManager.getInstance()) != null) {
                     cookieSyncManager.sync();
                 }
             } catch (Exception e) {
@@ -52,18 +52,18 @@ public class c implements CookieManager {
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
     public String getCookie(String str) {
-        return nBB;
+        return nHv;
     }
 
     public static void bP(String str) {
-        nBB = "BAIDUCUID=" + AppCuidRuntime.getAppCuidManager().getCuid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + "BDUSS=" + str;
+        nHv = "BAIDUCUID=" + AppCuidRuntime.getAppCuidManager().getCuid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + "BDUSS=" + str;
     }
 
-    public static void dRp() {
-        nBB = "";
+    public static void dTP() {
+        nHv = "";
     }
 
-    public static boolean Ut(String str) {
+    public static boolean UK(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

@@ -22,18 +22,18 @@ public class b implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private IBinder f1788a;
+    private IBinder f1790a;
 
     public b(IBinder iBinder) {
-        this.f1788a = iBinder;
+        this.f1790a = iBinder;
     }
 
     protected b(Parcel parcel) {
-        this.f1788a = parcel.readStrongBinder();
+        this.f1790a = parcel.readStrongBinder();
     }
 
     public IBinder a() {
-        return this.f1788a;
+        return this.f1790a;
     }
 
     @Override // android.os.Parcelable
@@ -43,6 +43,6 @@ public class b implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeStrongBinder(this.f1788a);
+        parcel.writeStrongBinder(this.f1790a);
     }
 }

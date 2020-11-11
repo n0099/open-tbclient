@@ -4,11 +4,11 @@ import com.baidu.tbadk.core.data.MetaData;
 /* loaded from: classes22.dex */
 public class b {
     public String headUrl;
-    public String igj;
-    public String igk;
-    public MetaData igl;
+    public String imh;
+    public String imi;
+    public MetaData imj;
     public String rankNum;
     public String userName;
-    public boolean igm = false;
-    public boolean igb = false;
+    public boolean imk = false;
+    public boolean ilY = false;
 }

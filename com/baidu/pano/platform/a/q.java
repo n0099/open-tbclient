@@ -5,7 +5,7 @@ import com.baidu.pano.platform.a.b;
 public class q<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final T f2660a;
+    public final T f2662a;
     public final b.a b;
     public final v c;
     public boolean d;
@@ -34,14 +34,14 @@ public class q<T> {
 
     private q(T t, b.a aVar) {
         this.d = false;
-        this.f2660a = t;
+        this.f2662a = t;
         this.b = aVar;
         this.c = null;
     }
 
     private q(v vVar) {
         this.d = false;
-        this.f2660a = null;
+        this.f2662a = null;
         this.b = null;
         this.c = vVar;
     }

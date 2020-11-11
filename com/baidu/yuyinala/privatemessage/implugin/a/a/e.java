@@ -11,12 +11,12 @@ import com.baidu.yuyinala.privatemessage.model.message.SingleGraphicTextMsgExt;
 /* loaded from: classes4.dex */
 public abstract class e {
     private Context mContext;
-    public TextView olU;
-    public ImageView olX;
-    public ImageView olZ;
-    public ImageView oma;
-    public View omb;
-    public ProgressBar omc;
+    public TextView ovq;
+    public ImageView ovt;
+    public ImageView ovv;
+    public ImageView ovw;
+    public View ovx;
+    public ProgressBar ovy;
 
     public abstract View getContentView();
 
@@ -24,29 +24,29 @@ public abstract class e {
 
     public void d(ChatMsg chatMsg) {
         if (chatMsg.isMsgSendSuccess()) {
-            this.omb.setVisibility(4);
+            this.ovx.setVisibility(4);
             return;
         }
-        this.omb.setVisibility(0);
+        this.ovx.setVisibility(0);
         if (chatMsg.getStatus() == 2) {
-            this.oma.setVisibility(0);
-            this.omc.setVisibility(8);
+            this.ovw.setVisibility(0);
+            this.ovy.setVisibility(8);
         } else if (chatMsg.getStatus() == 1) {
-            this.oma.setVisibility(8);
+            this.ovw.setVisibility(8);
             SingleGraphicTextMsgExt singleGraphicTextMsgExt = null;
             if (chatMsg instanceof SignleGraphicTextMsg) {
                 singleGraphicTextMsgExt = new SingleGraphicTextMsgExt((SignleGraphicTextMsg) chatMsg);
             }
-            if (chatMsg.getMsgType() == 1 || (singleGraphicTextMsgExt != null && singleGraphicTextMsgExt.eex() == SingleGraphicTextMsgExt.SingleGraphicTextType.VIDEOSHARE)) {
+            if (chatMsg.getMsgType() == 1 || (singleGraphicTextMsgExt != null && singleGraphicTextMsgExt.eim() == SingleGraphicTextMsgExt.SingleGraphicTextType.VIDEOSHARE)) {
                 if (chatMsg.isReSend()) {
-                    this.omc.setVisibility(0);
+                    this.ovy.setVisibility(0);
                     return;
                 } else {
-                    this.omc.setVisibility(8);
+                    this.ovy.setVisibility(8);
                     return;
                 }
             }
-            this.omc.setVisibility(0);
+            this.ovy.setVisibility(0);
         }
     }
 

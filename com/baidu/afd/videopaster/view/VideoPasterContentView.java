@@ -236,7 +236,7 @@ public class VideoPasterContentView extends FrameLayout {
                     this.aac.resume();
                 }
                 if (this.aab) {
-                    this.mStartPosition = n.duF().Qt(this.pasterData.videoUrl);
+                    this.mStartPosition = n.dxh().QK(this.pasterData.videoUrl);
                     if (this.mStartPosition > 100 && this.aaj > this.mStartPosition) {
                         i = this.mStartPosition;
                     }
@@ -314,7 +314,7 @@ public class VideoPasterContentView extends FrameLayout {
 
     private void sa() {
         if (this.pasterData != null && this.pasterData.rT() == 1) {
-            n.duF().remove(this.pasterData.videoUrl);
+            n.dxh().remove(this.pasterData.videoUrl);
             if (this.ZY != null) {
                 this.ZY.seekTo(0);
             }
@@ -351,7 +351,7 @@ public class VideoPasterContentView extends FrameLayout {
         if (this.pasterData == null || this.aac == null) {
             return 0;
         }
-        return ((int) this.aac.bBb()) / 1000;
+        return ((int) this.aac.bDA()) / 1000;
     }
 
     public int getTotalDuration() {
@@ -374,7 +374,7 @@ public class VideoPasterContentView extends FrameLayout {
         }
         if (this.pasterData != null && this.pasterData.isValid() && !this.pasterData.isEmpty() && this.aab && this.pasterData.rT() == 1) {
             this.ZX.setVisibility(0);
-            this.mStartPosition = n.duF().Qt(this.pasterData.videoUrl);
+            this.mStartPosition = n.dxh().QK(this.pasterData.videoUrl);
             if (this.mStartPosition > 100 && this.aaj > this.mStartPosition) {
                 i = this.mStartPosition;
             }

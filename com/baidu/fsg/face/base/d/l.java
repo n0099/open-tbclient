@@ -9,7 +9,7 @@ import java.util.concurrent.Executors;
 public class l implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1591a = "ThreadPoolService";
+    private static final String f1593a = "ThreadPoolService";
     private static final int d = 0;
     private ExecutorService b;
     private ExecutorService c;
@@ -19,14 +19,14 @@ public class l implements c {
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static l f1593a = new l();
+        public static l f1595a = new l();
 
         private a() {
         }
     }
 
     public static l a() {
-        return a.f1593a;
+        return a.f1595a;
     }
 
     private l() {
@@ -57,30 +57,30 @@ public class l implements c {
 
     @Override // com.baidu.fsg.face.base.d.c
     public void a(k kVar, long j) {
-        d.a(f1591a, "runDelay()", kVar.f1590a, Long.valueOf(j));
+        d.a(f1593a, "runDelay()", kVar.f1592a, Long.valueOf(j));
         this.c.submit(kVar, Long.valueOf(j));
     }
 
     @Override // com.baidu.fsg.face.base.d.c
     public void b(k kVar) {
-        d.a(f1591a, "runInUiThread()", kVar.f1590a);
+        d.a(f1593a, "runInUiThread()", kVar.f1592a);
         this.e.sendMessage(this.e.obtainMessage(0, kVar));
     }
 
     @Override // com.baidu.fsg.face.base.d.c
     public void b(k kVar, long j) {
-        d.a(f1591a, "runInUiThreadDelay()", kVar.f1590a, Long.valueOf(j));
+        d.a(f1593a, "runInUiThreadDelay()", kVar.f1592a, Long.valueOf(j));
         this.e.sendMessageDelayed(this.e.obtainMessage(0, kVar), j);
     }
 
     @Override // com.baidu.fsg.face.base.d.c
     public void c(k kVar) {
-        d.a(f1591a, "runImport()", kVar.f1590a);
+        d.a(f1593a, "runImport()", kVar.f1592a);
         this.b.submit(kVar);
     }
 
     public void c(k kVar, long j) {
-        d.a(f1591a, "runDelayImport()", kVar.f1590a, Long.valueOf(j));
+        d.a(f1593a, "runDelayImport()", kVar.f1592a, Long.valueOf(j));
         this.b.submit(kVar, Long.valueOf(j));
     }
 }

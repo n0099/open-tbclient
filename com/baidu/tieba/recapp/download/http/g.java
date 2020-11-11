@@ -5,17 +5,17 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes26.dex */
 public class g {
-    protected h mot = new h();
-    protected i mou = new i();
+    protected h muq = new h();
+    protected i mur = new i();
     private LinkedList<e> Me = new LinkedList<>();
-    private e mov = null;
+    private e mus = null;
 
-    public h dyb() {
-        return this.mot;
+    public h dAD() {
+        return this.muq;
     }
 
-    public i dyc() {
-        return this.mou;
+    public i dAE() {
+        return this.mur;
     }
 
     public List<e> mz() {
@@ -29,6 +29,6 @@ public class g {
     }
 
     public void b(e eVar) {
-        this.mov = eVar;
+        this.mus = eVar;
     }
 }

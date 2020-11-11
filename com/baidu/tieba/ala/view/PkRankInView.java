@@ -28,36 +28,36 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class PkRankInView extends RelativeLayout {
     Context context;
-    PkRankView gtC;
-    com.baidu.tieba.ala.d hHD;
-    RelativeLayout hHK;
-    ImageView hHL;
-    ImageView hHM;
-    RelativeLayout hHN;
-    HeadImageView hHO;
-    TextView hHP;
-    TextView hHQ;
-    FixedTextView hHR;
-    ImageView hHS;
-    ImageView hHT;
-    RelativeLayout hHU;
-    HeadImageView hHV;
-    TextView hHW;
-    TextView hHX;
-    FixedTextView hHY;
-    ImageView hHZ;
-    ImageView hIa;
-    ImageView hIb;
-    TextView hIc;
-    TextView hId;
-    long hIe;
-    long hIf;
-    long hIg;
-    Queue<com.baidu.tieba.ala.view.anim.a> hIh;
-    Queue<com.baidu.tieba.ala.view.anim.a> hIi;
-    public AnimatorListenerAdapter hIj;
-    public AnimatorListenerAdapter hIk;
-    k hIl;
+    PkRankView gzq;
+    com.baidu.tieba.ala.d hNA;
+    RelativeLayout hNH;
+    ImageView hNI;
+    ImageView hNJ;
+    RelativeLayout hNK;
+    HeadImageView hNL;
+    TextView hNM;
+    TextView hNN;
+    FixedTextView hNO;
+    ImageView hNP;
+    ImageView hNQ;
+    RelativeLayout hNR;
+    HeadImageView hNS;
+    TextView hNT;
+    TextView hNU;
+    FixedTextView hNV;
+    ImageView hNW;
+    ImageView hNX;
+    ImageView hNY;
+    TextView hNZ;
+    TextView hOa;
+    long hOb;
+    long hOc;
+    long hOd;
+    Queue<com.baidu.tieba.ala.view.anim.a> hOe;
+    Queue<com.baidu.tieba.ala.view.anim.a> hOf;
+    public AnimatorListenerAdapter hOg;
+    public AnimatorListenerAdapter hOh;
+    k hOi;
     private View mView;
     int status;
 
@@ -67,105 +67,105 @@ public class PkRankInView extends RelativeLayout {
 
     public PkRankInView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hIh = new LinkedBlockingQueue();
-        this.hIi = new LinkedBlockingQueue();
+        this.hOe = new LinkedBlockingQueue();
+        this.hOf = new LinkedBlockingQueue();
         this.context = context;
         initView();
     }
 
     private void initView() {
-        this.mView = LayoutInflater.from(getContext()).inflate(a.h.sdk_rank_in_layout, (ViewGroup) this, true);
-        this.hHN = (RelativeLayout) this.mView.findViewById(a.g.in_top_layout);
-        this.hHK = (RelativeLayout) this.mView.findViewById(a.g.background_view);
-        this.hHL = (ImageView) this.mView.findViewById(a.g.top_bg);
-        this.hHM = (ImageView) this.mView.findViewById(a.g.bottom_bg);
-        this.hIb = (ImageView) this.mView.findViewById(a.g.pk_img);
-        this.hHO = (HeadImageView) this.mView.findViewById(a.g.top_head);
-        this.hHP = (TextView) this.mView.findViewById(a.g.top_wins);
-        this.hHQ = (TextView) this.mView.findViewById(a.g.top_name);
-        this.hHR = (FixedTextView) this.mView.findViewById(a.g.top_scores);
-        this.hHS = (ImageView) this.mView.findViewById(a.g.top_plus);
-        this.hHT = (ImageView) this.mView.findViewById(a.g.top_scores_shade);
-        this.hHO.setDefaultBgResource(a.f.sdk_default_avatar);
-        this.hHO.setIsRound(true);
-        this.hHO.setAutoChangeStyle(false);
-        this.hHO.setBorderWidth(BdUtilHelper.getDimens(getContext(), a.e.sdk_ds4));
-        this.hHO.setBorderColor(872415231);
-        this.hHN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.PkRankInView.1
+        this.mView = LayoutInflater.from(getContext()).inflate(a.g.sdk_rank_in_layout, (ViewGroup) this, true);
+        this.hNK = (RelativeLayout) this.mView.findViewById(a.f.in_top_layout);
+        this.hNH = (RelativeLayout) this.mView.findViewById(a.f.background_view);
+        this.hNI = (ImageView) this.mView.findViewById(a.f.top_bg);
+        this.hNJ = (ImageView) this.mView.findViewById(a.f.bottom_bg);
+        this.hNY = (ImageView) this.mView.findViewById(a.f.pk_img);
+        this.hNL = (HeadImageView) this.mView.findViewById(a.f.top_head);
+        this.hNM = (TextView) this.mView.findViewById(a.f.top_wins);
+        this.hNN = (TextView) this.mView.findViewById(a.f.top_name);
+        this.hNO = (FixedTextView) this.mView.findViewById(a.f.top_scores);
+        this.hNP = (ImageView) this.mView.findViewById(a.f.top_plus);
+        this.hNQ = (ImageView) this.mView.findViewById(a.f.top_scores_shade);
+        this.hNL.setDefaultBgResource(a.e.sdk_default_avatar);
+        this.hNL.setIsRound(true);
+        this.hNL.setAutoChangeStyle(false);
+        this.hNL.setBorderWidth(BdUtilHelper.getDimens(getContext(), a.d.sdk_ds4));
+        this.hNL.setBorderColor(872415231);
+        this.hNK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.PkRankInView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PkRankInView.this.gtC.B(PkRankInView.this.gtC.hJr.H5URL, PkRankInView.this.gtC.hJr.myPkData.userID);
+                PkRankInView.this.gzq.B(PkRankInView.this.gzq.hPo.H5URL, PkRankInView.this.gzq.hPo.myPkData.userID);
             }
         });
-        this.hHU = (RelativeLayout) this.mView.findViewById(a.g.in_bottom_layout);
-        this.hHV = (HeadImageView) this.mView.findViewById(a.g.bottom_head);
-        this.hHW = (TextView) this.mView.findViewById(a.g.bottom_wins);
-        this.hHX = (TextView) this.mView.findViewById(a.g.bottom_name);
-        this.hHY = (FixedTextView) this.mView.findViewById(a.g.bottom_scores);
-        this.hHZ = (ImageView) this.mView.findViewById(a.g.bottom_plus);
-        this.hIa = (ImageView) this.mView.findViewById(a.g.bottom_scores_shade);
-        this.hHV.setDefaultBgResource(a.f.sdk_default_avatar);
-        this.hHV.setIsRound(true);
-        this.hHV.setAutoChangeStyle(false);
-        this.hHV.setBorderWidth(BdUtilHelper.getDimens(getContext(), a.e.sdk_ds4));
-        this.hHV.setBorderColor(872415231);
-        this.hHU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.PkRankInView.2
+        this.hNR = (RelativeLayout) this.mView.findViewById(a.f.in_bottom_layout);
+        this.hNS = (HeadImageView) this.mView.findViewById(a.f.bottom_head);
+        this.hNT = (TextView) this.mView.findViewById(a.f.bottom_wins);
+        this.hNU = (TextView) this.mView.findViewById(a.f.bottom_name);
+        this.hNV = (FixedTextView) this.mView.findViewById(a.f.bottom_scores);
+        this.hNW = (ImageView) this.mView.findViewById(a.f.bottom_plus);
+        this.hNX = (ImageView) this.mView.findViewById(a.f.bottom_scores_shade);
+        this.hNS.setDefaultBgResource(a.e.sdk_default_avatar);
+        this.hNS.setIsRound(true);
+        this.hNS.setAutoChangeStyle(false);
+        this.hNS.setBorderWidth(BdUtilHelper.getDimens(getContext(), a.d.sdk_ds4));
+        this.hNS.setBorderColor(872415231);
+        this.hNR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.PkRankInView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PkRankInView.this.gtC.B(PkRankInView.this.gtC.hJr.H5URL, PkRankInView.this.gtC.hJr.otherPkData.userID);
+                PkRankInView.this.gzq.B(PkRankInView.this.gzq.hPo.H5URL, PkRankInView.this.gzq.hPo.otherPkData.userID);
             }
         });
-        this.hIc = (TextView) this.mView.findViewById(a.g.end_view);
-        this.hId = (TextView) this.mView.findViewById(a.g.timer);
-        cjy();
+        this.hNZ = (TextView) this.mView.findViewById(a.f.end_view);
+        this.hOa = (TextView) this.mView.findViewById(a.f.timer);
+        cma();
     }
 
-    private void cjy() {
-        this.hIj = new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.PkRankInView.3
+    private void cma() {
+        this.hOg = new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.PkRankInView.3
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
-                PkRankInView.this.hIb.bringToFront();
+                PkRankInView.this.hNY.bringToFront();
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                PkRankInView.this.hIh.poll();
-                if (PkRankInView.this.hIh.peek() != null) {
-                    PkRankInView.this.hIh.peek().startAnim();
+                PkRankInView.this.hOe.poll();
+                if (PkRankInView.this.hOe.peek() != null) {
+                    PkRankInView.this.hOe.peek().startAnim();
                 }
             }
         };
-        this.hIk = new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.PkRankInView.4
+        this.hOh = new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.PkRankInView.4
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
-                PkRankInView.this.hIb.bringToFront();
+                PkRankInView.this.hNY.bringToFront();
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                PkRankInView.this.hIi.poll();
-                if (PkRankInView.this.hIi.peek() != null) {
-                    PkRankInView.this.hIi.peek().startAnim();
+                PkRankInView.this.hOf.poll();
+                if (PkRankInView.this.hOf.peek() != null) {
+                    PkRankInView.this.hOf.peek().startAnim();
                 }
             }
         };
     }
 
     public void a(PkInfoData pkInfoData, int i) {
-        this.gtC.ckb();
-        this.hIc.setVisibility(8);
+        this.gzq.cmD();
+        this.hNZ.setVisibility(8);
         if (pkInfoData.pkStatusInfoData.pkStatus == 1) {
-            eP(pkInfoData.pkStatusInfoData.stageEndTime - pkInfoData.pkStatusInfoData.nowTime);
+            fl(pkInfoData.pkStatusInfoData.stageEndTime - pkInfoData.pkStatusInfoData.nowTime);
         }
         this.status = i;
-        if (this.gtC.wA(i)) {
+        if (this.gzq.wN(i)) {
             switch (i) {
                 case 10:
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913231, pkInfoData));
                     d(pkInfoData);
                     return;
                 case 30:
-                    bPV();
+                    bSv();
                     return;
                 default:
                     return;
@@ -174,148 +174,148 @@ public class PkRankInView extends RelativeLayout {
     }
 
     private void d(PkInfoData pkInfoData) {
-        this.hHV.startLoad(pkInfoData.otherPkData.bdPortrait, 12, false, false);
+        this.hNS.startLoad(pkInfoData.otherPkData.bdPortrait, 12, false, false);
         if (pkInfoData.otherPkData.winningStreak > 1) {
-            this.hHW.setVisibility(0);
-            this.hHW.setText(this.context.getString(a.i.sdk_pk_rank_wins, String.valueOf(pkInfoData.otherPkData.winningStreak)));
+            this.hNT.setVisibility(0);
+            this.hNT.setText(this.context.getString(a.h.sdk_pk_rank_wins, String.valueOf(pkInfoData.otherPkData.winningStreak)));
         } else {
-            this.hHW.setVisibility(8);
+            this.hNT.setVisibility(8);
         }
-        this.hHX.setText(pkInfoData.otherPkData.userNickName);
-        this.hHO.startLoad(pkInfoData.myPkData.bdPortrait, 12, false, false);
+        this.hNU.setText(pkInfoData.otherPkData.userNickName);
+        this.hNL.startLoad(pkInfoData.myPkData.bdPortrait, 12, false, false);
         if (pkInfoData.myPkData.winningStreak > 1) {
-            this.hHP.setVisibility(0);
-            this.hHP.setText(this.context.getString(a.i.sdk_pk_rank_wins, String.valueOf(pkInfoData.myPkData.winningStreak)));
+            this.hNM.setVisibility(0);
+            this.hNM.setText(this.context.getString(a.h.sdk_pk_rank_wins, String.valueOf(pkInfoData.myPkData.winningStreak)));
         } else {
-            this.hHP.setVisibility(8);
+            this.hNM.setVisibility(8);
         }
-        this.hHQ.setText(pkInfoData.myPkData.userNickName);
-        if (pkInfoData.pkStatusInfoData.anchorScore >= this.hIe && pkInfoData.pkStatusInfoData.rivalScore >= this.hIf) {
-            this.hHR.setText(eQ(pkInfoData.pkStatusInfoData.anchorScore) + "");
-            this.hHY.setText(eQ(pkInfoData.pkStatusInfoData.rivalScore) + "");
-            w(pkInfoData.pkStatusInfoData.anchorScore, pkInfoData.pkStatusInfoData.rivalScore);
+        this.hNN.setText(pkInfoData.myPkData.userNickName);
+        if (pkInfoData.pkStatusInfoData.anchorScore >= this.hOb && pkInfoData.pkStatusInfoData.rivalScore >= this.hOc) {
+            this.hNO.setText(fm(pkInfoData.pkStatusInfoData.anchorScore) + "");
+            this.hNV.setText(fm(pkInfoData.pkStatusInfoData.rivalScore) + "");
+            x(pkInfoData.pkStatusInfoData.anchorScore, pkInfoData.pkStatusInfoData.rivalScore);
         }
     }
 
-    private void eP(long j) {
+    private void fl(long j) {
         if (j <= 0) {
-            this.hId.setVisibility(8);
-        } else if (this.hHD == null || !this.hHD.isRunning()) {
-            this.hId.setVisibility(0);
-            this.hHD = new com.baidu.tieba.ala.d(j * 1000, 1000L);
-            this.hHD.a(new d.a() { // from class: com.baidu.tieba.ala.view.PkRankInView.5
+            this.hOa.setVisibility(8);
+        } else if (this.hNA == null || !this.hNA.isRunning()) {
+            this.hOa.setVisibility(0);
+            this.hNA = new com.baidu.tieba.ala.d(j * 1000, 1000L);
+            this.hNA.a(new d.a() { // from class: com.baidu.tieba.ala.view.PkRankInView.5
                 @Override // com.baidu.tieba.ala.d.a
                 public void onTick(long j2) {
-                    PkRankInView.this.hIg = Math.round(j2 / 1000.0d);
-                    PkRankInView.this.hId.setText(StringHelper.formatSecondsTime(PkRankInView.this.hIg));
+                    PkRankInView.this.hOd = Math.round(j2 / 1000.0d);
+                    PkRankInView.this.hOa.setText(StringHelper.formatSecondsTime(PkRankInView.this.hOd));
                 }
 
                 @Override // com.baidu.tieba.ala.d.a
                 public void onFinish() {
-                    PkRankInView.this.hHD.cancelTimer();
-                    if (!PkRankInView.this.gtC.isHost) {
-                        PkRankInView.this.bPV();
+                    PkRankInView.this.hNA.cancelTimer();
+                    if (!PkRankInView.this.gzq.isHost) {
+                        PkRankInView.this.bSv();
                     }
-                    PkRankInView.this.cjz();
+                    PkRankInView.this.cmb();
                 }
             });
-            this.hHD.startTimer();
-        } else if (this.hIg - j >= 1) {
-            this.hHD.cancelTimer();
-            this.hHD = null;
-            eP(j);
+            this.hNA.startTimer();
+        } else if (this.hOd - j >= 1) {
+            this.hNA.cancelTimer();
+            this.hNA = null;
+            fl(j);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cjz() {
-        if (!this.gtC.getGetPkInfoModel().isLoop()) {
-            this.gtC.getGetPkInfoModel().a(this.gtC.aJv.aIe.userId, this.gtC.hJr.pkStatusInfoData.pkID, this.gtC.aJv.mLiveInfo.room_id, this.gtC.aJv.mLiveInfo.live_id, this.gtC.isHost ? 1 : 0);
+    public void cmb() {
+        if (!this.gzq.getGetPkInfoModel().isLoop()) {
+            this.gzq.getGetPkInfoModel().a(this.gzq.aKv.aIV.userId, this.gzq.hPo.pkStatusInfoData.pkID, this.gzq.aKv.mLiveInfo.room_id, this.gzq.aKv.mLiveInfo.live_id, this.gzq.isHost ? 1 : 0);
         }
         postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.view.PkRankInView.6
             @Override // java.lang.Runnable
             public void run() {
-                if (!PkRankInView.this.gtC.getGetPkInfoModel().isLoop()) {
-                    PkRankInView.this.gtC.getGetPkInfoModel().a(PkRankInView.this.gtC.aJv.aIe.userId, PkRankInView.this.gtC.hJr.pkStatusInfoData.pkID, PkRankInView.this.gtC.aJv.mLiveInfo.room_id, PkRankInView.this.gtC.aJv.mLiveInfo.live_id, PkRankInView.this.gtC.isHost ? 1 : 0);
+                if (!PkRankInView.this.gzq.getGetPkInfoModel().isLoop()) {
+                    PkRankInView.this.gzq.getGetPkInfoModel().a(PkRankInView.this.gzq.aKv.aIV.userId, PkRankInView.this.gzq.hPo.pkStatusInfoData.pkID, PkRankInView.this.gzq.aKv.mLiveInfo.room_id, PkRankInView.this.gzq.aKv.mLiveInfo.live_id, PkRankInView.this.gzq.isHost ? 1 : 0);
                 }
             }
-        }, this.gtC.hJr.resultInterval);
+        }, this.gzq.hPo.resultInterval);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bPV() {
-        this.hIc.bringToFront();
-        this.hIc.setVisibility(0);
-        this.hId.setVisibility(8);
+    public void bSv() {
+        this.hNZ.bringToFront();
+        this.hNZ.setVisibility(0);
+        this.hOa.setVisibility(8);
     }
 
-    private void cjA() {
+    private void cmc() {
         PkRankPropAnim pkRankPropAnim = new PkRankPropAnim(this.context, true, 1);
-        pkRankPropAnim.setAnimatorListenerAdapter(this.hIj);
-        pkRankPropAnim.setParentView(this.hHK);
+        pkRankPropAnim.setAnimatorListenerAdapter(this.hOg);
+        pkRankPropAnim.setParentView(this.hNH);
         a(pkRankPropAnim);
     }
 
-    private void cjB() {
+    private void cmd() {
         PkRankPropAnim pkRankPropAnim = new PkRankPropAnim(this.context, false, 1);
-        pkRankPropAnim.setAnimatorListenerAdapter(this.hIk);
-        pkRankPropAnim.setParentView(this.hHK);
+        pkRankPropAnim.setAnimatorListenerAdapter(this.hOh);
+        pkRankPropAnim.setParentView(this.hNH);
         b(pkRankPropAnim);
     }
 
-    private void cjC() {
+    private void cme() {
         PkRankPropAnim pkRankPropAnim = new PkRankPropAnim(this.context, true, 2);
-        pkRankPropAnim.setAnimatorListenerAdapter(this.hIj);
-        pkRankPropAnim.setParentView(this.hHK);
+        pkRankPropAnim.setAnimatorListenerAdapter(this.hOg);
+        pkRankPropAnim.setParentView(this.hNH);
         a(pkRankPropAnim);
     }
 
-    private void cjD() {
+    private void cmf() {
         PkRankPropAnim pkRankPropAnim = new PkRankPropAnim(this.context, false, 2);
-        pkRankPropAnim.setAnimatorListenerAdapter(this.hIk);
-        pkRankPropAnim.setParentView(this.hHK);
+        pkRankPropAnim.setAnimatorListenerAdapter(this.hOh);
+        pkRankPropAnim.setParentView(this.hNH);
         b(pkRankPropAnim);
     }
 
-    private void cjE() {
+    private void cmg() {
         AlaFirstBloodAnim alaFirstBloodAnim = new AlaFirstBloodAnim(this.context, true);
-        alaFirstBloodAnim.setAnimatorListenerAdapter(this.hIj);
-        alaFirstBloodAnim.setParentView(this.hHK);
+        alaFirstBloodAnim.setAnimatorListenerAdapter(this.hOg);
+        alaFirstBloodAnim.setParentView(this.hNH);
         a(alaFirstBloodAnim);
     }
 
-    private void cjF() {
+    private void cmh() {
         AlaFirstBloodAnim alaFirstBloodAnim = new AlaFirstBloodAnim(this.context, false);
-        alaFirstBloodAnim.setAnimatorListenerAdapter(this.hIk);
-        alaFirstBloodAnim.setParentView(this.hHK);
+        alaFirstBloodAnim.setAnimatorListenerAdapter(this.hOh);
+        alaFirstBloodAnim.setParentView(this.hNH);
         b(alaFirstBloodAnim);
     }
 
-    private void cj(View view) {
+    private void co(View view) {
         ObjectAnimator.ofFloat(view, "alpha", 1.0f, 0.0f).setDuration(300L).start();
     }
 
     private void a(com.baidu.tieba.ala.view.anim.a aVar) {
-        if (this.hIh.peek() == null) {
-            this.hIh.add(aVar);
-            this.hIh.peek().startAnim();
+        if (this.hOe.peek() == null) {
+            this.hOe.add(aVar);
+            this.hOe.peek().startAnim();
             return;
         }
-        this.hIh.add(aVar);
+        this.hOe.add(aVar);
     }
 
     private void b(com.baidu.tieba.ala.view.anim.a aVar) {
-        if (this.hIi.peek() == null) {
-            this.hIi.add(aVar);
-            this.hIi.peek().startAnim();
+        if (this.hOf.peek() == null) {
+            this.hOf.add(aVar);
+            this.hOf.peek().startAnim();
             return;
         }
-        this.hIi.add(aVar);
+        this.hOf.add(aVar);
     }
 
     public void e(JSONObject jSONObject, int i) {
         boolean z;
-        if (this.gtC.wA(i)) {
+        if (this.gzq.wN(i)) {
             switch (i) {
                 case 10:
                     PkInfoData pkInfoData = new PkInfoData();
@@ -335,11 +335,11 @@ public class PkRankInView extends RelativeLayout {
                     z = true;
                     break;
                 case 11:
-                    cjE();
+                    cmg();
                     z = false;
                     break;
                 case 12:
-                    cjC();
+                    cme();
                     z = true;
                     break;
                 case 13:
@@ -358,135 +358,135 @@ public class PkRankInView extends RelativeLayout {
                     z = true;
                     break;
                 case 14:
-                    cjA();
+                    cmc();
                     z = true;
                     break;
                 case 16:
                     long optLong = jSONObject.optLong("honor");
                     long optLong2 = jSONObject.optLong("rival_honor");
-                    if (optLong >= this.hIe && optLong2 >= this.hIf) {
-                        this.hHY.setText(eQ(optLong2) + "");
-                        this.hHR.setText(eQ(optLong) + "");
-                        w(optLong, optLong2);
+                    if (optLong >= this.hOb && optLong2 >= this.hOc) {
+                        this.hNV.setText(fm(optLong2) + "");
+                        this.hNO.setText(fm(optLong) + "");
+                        x(optLong, optLong2);
                         z = false;
                         break;
                     } else {
                         return;
                     }
                 case 21:
-                    cjF();
+                    cmh();
                     z = false;
                     break;
                 case 22:
-                    cjD();
+                    cmf();
                     z = true;
                     break;
                 case 24:
-                    cjB();
+                    cmd();
                     z = true;
                     break;
                 case 30:
-                    bPV();
+                    bSv();
                     z = true;
                     break;
             }
-            if (z && !this.gtC.getGetPkInfoModel().isLoop()) {
-                this.gtC.getGetPkInfoModel().a(this.gtC.aJv.aIe.userId, jSONObject.optLong("pk_id"), this.gtC.aJv.mLiveInfo.room_id, this.gtC.aJv.mLiveInfo.live_id, this.gtC.isHost ? 1 : 0);
+            if (z && !this.gzq.getGetPkInfoModel().isLoop()) {
+                this.gzq.getGetPkInfoModel().a(this.gzq.aKv.aIV.userId, jSONObject.optLong("pk_id"), this.gzq.aKv.mLiveInfo.room_id, this.gzq.aKv.mLiveInfo.live_id, this.gzq.isHost ? 1 : 0);
             }
         }
     }
 
     public void setPkRankView(PkRankView pkRankView) {
-        this.gtC = pkRankView;
+        this.gzq = pkRankView;
     }
 
     public void onDestroy() {
-        if (this.gtC.getGetPkInfoModel() != null) {
-            this.gtC.getGetPkInfoModel().cgr();
+        if (this.gzq.getGetPkInfoModel() != null) {
+            this.gzq.getGetPkInfoModel().ciT();
         }
-        cjw();
-        if (this.hIl != null) {
-            this.hIl.onDestroy();
+        clY();
+        if (this.hOi != null) {
+            this.hOi.onDestroy();
         }
     }
 
-    public void cjw() {
-        if (this.hHD != null) {
-            this.hHD.cancelTimer();
-            this.hHD = null;
+    public void clY() {
+        if (this.hNA != null) {
+            this.hNA.cancelTimer();
+            this.hNA = null;
         }
     }
 
     public k getPkRankPropController() {
-        if (this.hIl == null) {
-            this.hIl = new k(this);
+        if (this.hOi == null) {
+            this.hOi = new k(this);
         }
-        return this.hIl;
+        return this.hOi;
     }
 
-    public void cjG() {
-        this.hHS.setAlpha(1.0f);
-        this.hHS.setVisibility(0);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void cjH() {
-        cj(this.hHS);
-        this.hHS.setVisibility(8);
-    }
-
-    public void cjI() {
-        this.hHT.setAlpha(0.8f);
-        this.hHT.setVisibility(0);
-        this.hHR.setVisibility(0);
-    }
-
-    public void cjJ() {
-        this.hHT.setAlpha(1.0f);
-        this.hHT.setVisibility(0);
-        this.hHR.setVisibility(8);
+    public void cmi() {
+        this.hNP.setAlpha(1.0f);
+        this.hNP.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void oa(boolean z) {
+    public void cmj() {
+        co(this.hNP);
+        this.hNP.setVisibility(8);
+    }
+
+    public void cmk() {
+        this.hNQ.setAlpha(0.8f);
+        this.hNQ.setVisibility(0);
+        this.hNO.setVisibility(0);
+    }
+
+    public void cml() {
+        this.hNQ.setAlpha(1.0f);
+        this.hNQ.setVisibility(0);
+        this.hNO.setVisibility(8);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void oj(boolean z) {
         if (z) {
-            this.hHR.setVisibility(8);
+            this.hNO.setVisibility(8);
             return;
         }
-        cj(this.hHT);
-        this.hHT.setVisibility(8);
-        this.hHR.setVisibility(0);
+        co(this.hNQ);
+        this.hNQ.setVisibility(8);
+        this.hNO.setVisibility(0);
     }
 
-    public void cjK() {
-        this.hHZ.setAlpha(1.0f);
-        this.hHZ.setVisibility(0);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void cjL() {
-        cj(this.hHZ);
-        this.hHZ.setVisibility(8);
-    }
-
-    public void cjM() {
-        this.hIa.setAlpha(1.0f);
-        this.hIa.setVisibility(0);
-        this.hHY.setVisibility(8);
+    public void cmm() {
+        this.hNW.setAlpha(1.0f);
+        this.hNW.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void ob(boolean z) {
+    public void cmn() {
+        co(this.hNW);
+        this.hNW.setVisibility(8);
+    }
+
+    public void cmo() {
+        this.hNX.setAlpha(1.0f);
+        this.hNX.setVisibility(0);
+        this.hNV.setVisibility(8);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void ok(boolean z) {
         if (z) {
-            this.hHY.setVisibility(8);
+            this.hNV.setVisibility(8);
             return;
         }
-        cj(this.hIa);
-        this.hIa.setVisibility(8);
-        this.hHY.setVisibility(0);
+        co(this.hNX);
+        this.hNX.setVisibility(8);
+        this.hNV.setVisibility(0);
     }
 
-    String eQ(long j) {
+    String fm(long j) {
         if (j <= 0) {
             return "0";
         }
@@ -494,42 +494,42 @@ public class PkRankInView extends RelativeLayout {
         DecimalFormat decimalFormat = new DecimalFormat(".00");
         if (j > 9999999) {
             if (j > 100000000) {
-                return this.context.getString(a.i.sdk_pk_rank_yi, decimalFormat.format(((float) j) / 1.0E8f));
+                return this.context.getString(a.h.sdk_pk_rank_yi, decimalFormat.format(((float) j) / 1.0E8f));
             }
-            return this.context.getString(a.i.sdk_pk_rank_wan, decimalFormat.format(((float) j) / 10000.0f));
+            return this.context.getString(a.h.sdk_pk_rank_wan, decimalFormat.format(((float) j) / 10000.0f));
         }
         return str;
     }
 
-    void w(long j, long j2) {
-        if (j - this.hIe >= 100) {
-            ObjectAnimator.ofFloat(this.hHR, "scaleX", 1.0f, 1.5f, 1.0f).setDuration(400L).start();
-            ObjectAnimator.ofFloat(this.hHR, "scaleY", 1.0f, 1.5f, 1.0f).setDuration(400L).start();
+    void x(long j, long j2) {
+        if (j - this.hOb >= 100) {
+            ObjectAnimator.ofFloat(this.hNO, "scaleX", 1.0f, 1.5f, 1.0f).setDuration(400L).start();
+            ObjectAnimator.ofFloat(this.hNO, "scaleY", 1.0f, 1.5f, 1.0f).setDuration(400L).start();
         }
-        if (j2 - this.hIf >= 100) {
-            ObjectAnimator.ofFloat(this.hHY, "scaleX", 1.0f, 1.5f, 1.0f).setDuration(400L).start();
-            ObjectAnimator.ofFloat(this.hHY, "scaleY", 1.0f, 1.5f, 1.0f).setDuration(400L).start();
+        if (j2 - this.hOc >= 100) {
+            ObjectAnimator.ofFloat(this.hNV, "scaleX", 1.0f, 1.5f, 1.0f).setDuration(400L).start();
+            ObjectAnimator.ofFloat(this.hNV, "scaleY", 1.0f, 1.5f, 1.0f).setDuration(400L).start();
         }
-        this.hIe = j;
-        this.hIf = j2;
+        this.hOb = j;
+        this.hOc = j2;
     }
 
     public void resetView() {
-        this.hIe = 0L;
-        this.hIf = 0L;
-        this.hIl.handler.removeCallbacksAndMessages(null);
-        this.hIa.setVisibility(8);
-        this.hHT.setVisibility(8);
-        this.hHS.setVisibility(8);
-        this.hHZ.setVisibility(8);
-        cjw();
-        this.hHV.setVisibility(0);
-        this.hHX.setVisibility(0);
-        this.hHY.setVisibility(0);
-        this.hHY.setText("0");
-        this.hHO.setVisibility(0);
-        this.hHQ.setVisibility(0);
-        this.hHR.setVisibility(0);
-        this.hHR.setText("0");
+        this.hOb = 0L;
+        this.hOc = 0L;
+        this.hOi.handler.removeCallbacksAndMessages(null);
+        this.hNX.setVisibility(8);
+        this.hNQ.setVisibility(8);
+        this.hNP.setVisibility(8);
+        this.hNW.setVisibility(8);
+        clY();
+        this.hNS.setVisibility(0);
+        this.hNU.setVisibility(0);
+        this.hNV.setVisibility(0);
+        this.hNV.setText("0");
+        this.hNL.setVisibility(0);
+        this.hNN.setVisibility(0);
+        this.hNO.setVisibility(0);
+        this.hNO.setText("0");
     }
 }

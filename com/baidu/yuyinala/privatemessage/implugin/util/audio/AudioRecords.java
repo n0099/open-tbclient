@@ -4,7 +4,7 @@ import com.baidu.searchbox.ugc.transcoder.TranscoderPlugin;
 /* loaded from: classes4.dex */
 public class AudioRecords {
     private static final String TAG = AudioRecords.class.getSimpleName();
-    public static final FormatFactory ovu = FormatFactory.AMR_NB;
+    public static final FormatFactory oEM = FormatFactory.AMR_NB;
 
     /* loaded from: classes4.dex */
     public enum FormatFactory {

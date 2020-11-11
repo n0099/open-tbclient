@@ -10,7 +10,7 @@ import com.baidu.android.util.devices.RomUtils;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static TelephonyManager f3700a;
+    private static TelephonyManager f3702a;
     private static ConnectivityManager b;
 
     public static String a(Context context) {
@@ -32,10 +32,10 @@ public final class d {
             sb.append("type: ").append(activeNetworkInfo.getTypeName()).append("\n");
             if (activeNetworkInfo.getType() == 0) {
                 sb.append(" subType: ").append(activeNetworkInfo.getSubtypeName()).append("\n");
-                if (f3700a == null) {
-                    f3700a = (TelephonyManager) context.getSystemService("phone");
+                if (f3702a == null) {
+                    f3702a = (TelephonyManager) context.getSystemService("phone");
                 }
-                sb.append(" isRoaming: ").append(f3700a.isNetworkRoaming() ? "yes" : "no").append("\n");
+                sb.append(" isRoaming: ").append(f3702a.isNetworkRoaming() ? "yes" : "no").append("\n");
             }
         } else {
             sb.append("type: none\n");

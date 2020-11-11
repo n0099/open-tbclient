@@ -12,9 +12,9 @@ public class d extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.d> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.c.d
-    /* renamed from: cI */
-    public com.baidu.swan.pms.c.c.d cE(JSONObject jSONObject) {
-        return com.baidu.swan.pms.utils.e.cQ(jSONObject);
+    /* renamed from: cO */
+    public com.baidu.swan.pms.c.c.d cK(JSONObject jSONObject) {
+        return com.baidu.swan.pms.utils.e.cW(jSONObject);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,15 +22,15 @@ public class d extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.d> {
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: a */
     public com.baidu.swan.pms.model.a ak(com.baidu.swan.pms.c.c.d dVar) {
-        this.ebZ.anL();
+        this.ehR.aqm();
         f fVar = new f();
-        a(dVar.ecH, fVar);
-        if (fVar.aZY() == 0) {
-            this.ebZ.akQ();
+        a(dVar.eiz, fVar);
+        if (fVar.bcy() == 0) {
+            this.ehR.anq();
             return null;
         }
-        this.ebZ.a(fVar);
-        com.baidu.swan.pms.c.a.a.a(dVar, this.ebZ);
+        this.ehR.a(fVar);
+        com.baidu.swan.pms.c.a.a.a(dVar, this.ehR);
         return null;
     }
 
@@ -39,11 +39,11 @@ public class d extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.d> {
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: b */
     public boolean al(com.baidu.swan.pms.c.c.d dVar) {
-        if (dVar == null || dVar.ecH == null) {
+        if (dVar == null || dVar.eiz == null) {
             return false;
         }
-        for (com.baidu.swan.pms.model.g gVar : dVar.ecH) {
-            if (!gVar.aoD()) {
+        for (com.baidu.swan.pms.model.g gVar : dVar.eiz) {
+            if (!gVar.are()) {
                 return false;
             }
         }
@@ -51,7 +51,7 @@ public class d extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.d> {
     }
 
     @Override // com.baidu.swan.pms.c.d
-    protected String aYW() {
+    protected String bbw() {
         return "getpkg";
     }
 }

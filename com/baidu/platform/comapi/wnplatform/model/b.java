@@ -5,12 +5,12 @@ import android.os.Bundle;
 public class b extends com.baidu.platform.comapi.walknavi.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private e f3128a;
+    private e f3130a;
     private d b;
 
     @Override // com.baidu.platform.comapi.walknavi.a
     public void release() {
-        this.f3128a = null;
+        this.f3130a = null;
         this.b = null;
     }
 
@@ -20,10 +20,10 @@ public class b extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public e a() {
-        if (this.f3128a == null) {
-            this.f3128a = new e();
+        if (this.f3130a == null) {
+            this.f3130a = new e();
         }
-        return this.f3128a;
+        return this.f3130a;
     }
 
     public void a(Bundle bundle, int i) {

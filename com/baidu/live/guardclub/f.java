@@ -7,12 +7,12 @@ import com.baidu.live.tbadk.encryption.EncryptionHelper;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class f {
-    public String aPA;
-    public int beW;
-    public long beX;
-    public String bfu;
-    public String bfv;
-    public int bfw;
+    public String aQx;
+    public String bgO;
+    public String bgP;
+    public int bgQ;
+    public int bgr;
+    public long bgt;
     public boolean isFollowed;
     public String portrait;
     public String rank;
@@ -50,7 +50,7 @@ public class f {
                         this.score = jSONObject.optString(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);
                         this.rank = jSONObject.optString("rank");
                         this.isFollowed = jSONObject.optInt("follow_status") != 1;
-                        this.bfu = jSONObject.optString("guard_club_id");
+                        this.bgO = jSONObject.optString("guard_club_id");
                         String str6 = "0";
                         str2 = jSONObject.optString("anchor_id");
                         try {
@@ -61,19 +61,19 @@ public class f {
                             e = e2;
                             e.printStackTrace();
                             str2 = str6;
-                            this.aPA = str2;
-                            this.beW = jSONObject.optInt("member_level");
-                            this.beX = jSONObject.optLong("next_level_need_score");
+                            this.aQx = str2;
+                            this.bgr = jSONObject.optInt("member_level");
+                            this.bgt = jSONObject.optLong("next_level_need_score");
                             this.portrait = jSONObject.optString("portrait");
-                            this.bfv = jSONObject.optString("bd_portrait");
-                            this.bfw = jSONObject.optInt("attenuat_date");
+                            this.bgP = jSONObject.optString("bd_portrait");
+                            this.bgQ = jSONObject.optInt("attenuat_date");
                         }
-                        this.aPA = str2;
-                        this.beW = jSONObject.optInt("member_level");
-                        this.beX = jSONObject.optLong("next_level_need_score");
+                        this.aQx = str2;
+                        this.bgr = jSONObject.optInt("member_level");
+                        this.bgt = jSONObject.optLong("next_level_need_score");
                         this.portrait = jSONObject.optString("portrait");
-                        this.bfv = jSONObject.optString("bd_portrait");
-                        this.bfw = jSONObject.optInt("attenuat_date");
+                        this.bgP = jSONObject.optString("bd_portrait");
+                        this.bgQ = jSONObject.optInt("attenuat_date");
                     }
                 } catch (Exception e3) {
                     BdLog.e(e3.getMessage());
@@ -87,7 +87,7 @@ public class f {
             this.score = jSONObject.optString(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);
             this.rank = jSONObject.optString("rank");
             this.isFollowed = jSONObject.optInt("follow_status") != 1;
-            this.bfu = jSONObject.optString("guard_club_id");
+            this.bgO = jSONObject.optString("guard_club_id");
             String str62 = "0";
             try {
                 str2 = jSONObject.optString("anchor_id");
@@ -97,12 +97,12 @@ public class f {
             } catch (NumberFormatException e5) {
                 e = e5;
             }
-            this.aPA = str2;
-            this.beW = jSONObject.optInt("member_level");
-            this.beX = jSONObject.optLong("next_level_need_score");
+            this.aQx = str2;
+            this.bgr = jSONObject.optInt("member_level");
+            this.bgt = jSONObject.optLong("next_level_need_score");
             this.portrait = jSONObject.optString("portrait");
-            this.bfv = jSONObject.optString("bd_portrait");
-            this.bfw = jSONObject.optInt("attenuat_date");
+            this.bgP = jSONObject.optString("bd_portrait");
+            this.bgQ = jSONObject.optInt("attenuat_date");
         }
     }
 }

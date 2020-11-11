@@ -51,7 +51,7 @@ public class j extends d implements p<bw>, q {
     @Override // com.baidu.card.p
     /* renamed from: a */
     public void H(bw bwVar) {
-        if (bwVar == null || bwVar.bka() == null) {
+        if (bwVar == null || bwVar.bmA() == null) {
             this.afU.setVisibility(8);
             return;
         }

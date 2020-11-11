@@ -6,7 +6,7 @@ public class b {
 
     /* renamed from: com.baidu.swan.games.screenrecord.b$b  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0532b {
+    public static class C0544b {
     }
 
     /* loaded from: classes10.dex */

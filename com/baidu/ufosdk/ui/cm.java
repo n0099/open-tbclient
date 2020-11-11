@@ -5,16 +5,16 @@ import android.view.View;
 final class cm implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cg f3805a;
+    final /* synthetic */ cg f3807a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cm(cg cgVar) {
-        this.f3805a = cgVar;
+        this.f3807a = cgVar;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        if (this.f3805a.f3799a.H) {
+        if (this.f3807a.f3801a.H) {
             return;
         }
         new Thread(new cn(this)).start();

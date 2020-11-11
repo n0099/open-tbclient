@@ -7,45 +7,45 @@ import com.baidu.turbonet.base.annotations.CalledByNative;
 /* loaded from: classes17.dex */
 public class ThreadUtils {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static boolean obS;
-    private static Handler obT;
+    private static boolean okX;
+    private static Handler okY;
     private static final Object sLock;
 
     static {
         $assertionsDisabled = !ThreadUtils.class.desiredAssertionStatus();
         sLock = new Object();
-        obS = false;
-        obT = null;
+        okX = false;
+        okY = null;
     }
 
-    private static Handler dXI() {
+    private static Handler ebq() {
         Handler handler;
         synchronized (sLock) {
-            if (obT == null) {
-                if (obS) {
+            if (okY == null) {
+                if (okX) {
                     throw new RuntimeException("Did not yet override the UI thread");
                 }
-                obT = new Handler(Looper.getMainLooper());
+                okY = new Handler(Looper.getMainLooper());
             }
-            handler = obT;
+            handler = okY;
         }
         return handler;
     }
 
     public static void runOnUiThread(Runnable runnable) {
-        if (dXJ()) {
+        if (ebr()) {
             runnable.run();
         } else {
-            dXI().post(runnable);
+            ebq().post(runnable);
         }
     }
 
     public static void y(Runnable runnable) {
-        dXI().post(runnable);
+        ebq().post(runnable);
     }
 
-    public static boolean dXJ() {
-        return dXI().getLooper() == Looper.myLooper();
+    public static boolean ebr() {
+        return ebq().getLooper() == Looper.myLooper();
     }
 
     @CalledByNative

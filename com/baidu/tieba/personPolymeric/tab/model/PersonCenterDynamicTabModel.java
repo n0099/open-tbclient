@@ -17,16 +17,16 @@ import java.util.List;
 import tbclient.User;
 /* loaded from: classes24.dex */
 public class PersonCenterDynamicTabModel extends BdBaseModel {
-    private TbPageContext eCn;
-    private MetaData eyV;
-    private User lZi;
-    private a lZu;
+    private MetaData eEK;
+    private TbPageContext eIc;
     private long mUid;
+    private User mfi;
+    private a mfu;
     private long mCursor = 0;
     private boolean mHasMore = false;
     private final List<bw> mThreadDataList = new ArrayList();
     private BdUniqueId mTag = BdUniqueId.gen();
-    private final com.baidu.adp.framework.listener.a lZv = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_PERSON_CENTER_DYNAMIC_TAB, 309647) { // from class: com.baidu.tieba.personPolymeric.tab.model.PersonCenterDynamicTabModel.1
+    private final com.baidu.adp.framework.listener.a mfv = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_PERSON_CENTER_DYNAMIC_TAB, 309647) { // from class: com.baidu.tieba.personPolymeric.tab.model.PersonCenterDynamicTabModel.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             boolean z;
@@ -48,19 +48,19 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
                     j = 0;
                 }
                 if (responsedMessage.getError() != 0) {
-                    if (PersonCenterDynamicTabModel.this.lZu != null) {
-                        PersonCenterDynamicTabModel.this.lZu.vU(PersonCenterDynamicTabModel.this.mCursor == 0);
+                    if (PersonCenterDynamicTabModel.this.mfu != null) {
+                        PersonCenterDynamicTabModel.this.mfu.wd(PersonCenterDynamicTabModel.this.mCursor == 0);
                         return;
                     }
                     return;
                 }
                 if (!y.isEmpty(list)) {
-                    PersonCenterDynamicTabModel.this.fh(list);
+                    PersonCenterDynamicTabModel.this.fp(list);
                     PersonCenterDynamicTabModel.this.mThreadDataList.addAll(list);
                 }
                 PersonCenterDynamicTabModel.this.mHasMore = z;
-                if (PersonCenterDynamicTabModel.this.lZu != null) {
-                    PersonCenterDynamicTabModel.this.lZu.b(PersonCenterDynamicTabModel.this.mThreadDataList, PersonCenterDynamicTabModel.this.mHasMore, PersonCenterDynamicTabModel.this.mCursor == 0);
+                if (PersonCenterDynamicTabModel.this.mfu != null) {
+                    PersonCenterDynamicTabModel.this.mfu.b(PersonCenterDynamicTabModel.this.mThreadDataList, PersonCenterDynamicTabModel.this.mHasMore, PersonCenterDynamicTabModel.this.mCursor == 0);
                 }
                 PersonCenterDynamicTabModel.this.mCursor = j;
             }
@@ -71,44 +71,44 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     public interface a {
         void b(List<bw> list, boolean z, boolean z2);
 
-        void vU(boolean z);
+        void wd(boolean z);
     }
 
     public PersonCenterDynamicTabModel(TbPageContext tbPageContext, long j) {
-        this.eCn = tbPageContext;
+        this.eIc = tbPageContext;
         this.mUid = j;
-        this.lZv.setTag(this.mTag);
-        MessageManager.getInstance().registerListener(this.lZv);
+        this.mfv.setTag(this.mTag);
+        MessageManager.getInstance().registerListener(this.mfv);
     }
 
-    public void Rd() {
+    public void TL() {
         this.mCursor = 0L;
         this.mThreadDataList.clear();
-        gv(this.mCursor);
+        gR(this.mCursor);
     }
 
-    public void bMK() {
-        gv(this.mCursor);
+    public void bPk() {
+        gR(this.mCursor);
     }
 
-    private void gv(long j) {
+    private void gR(long j) {
         PersonCenterDynamicTabRequestMessage personCenterDynamicTabRequestMessage = new PersonCenterDynamicTabRequestMessage(this.mUid, j, 10);
         personCenterDynamicTabRequestMessage.setTag(this.mTag);
         MessageManager.getInstance().sendMessage(personCenterDynamicTabRequestMessage);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fh(List<bw> list) {
-        if (this.lZi != null && !y.isEmpty(list)) {
+    public void fp(List<bw> list) {
+        if (this.mfi != null && !y.isEmpty(list)) {
             for (bw bwVar : list) {
-                if (bwVar.bka() != null) {
-                    bwVar.bka().getNewGodData().parserProtobuf(this.lZi.new_god_data);
-                    bwVar.bka().getBazhuGradeData().parserProtobuf(this.lZi.bazhu_grade);
-                    bwVar.bka().setBaijiahaoInfo(this.lZi.baijiahao_info);
-                    if (this.eyV != null) {
-                        bwVar.bka().setPrivSetsData(this.eyV.getPrivSetsData());
+                if (bwVar.bmA() != null) {
+                    bwVar.bmA().getNewGodData().parserProtobuf(this.mfi.new_god_data);
+                    bwVar.bmA().getBazhuGradeData().parserProtobuf(this.mfi.bazhu_grade);
+                    bwVar.bmA().setBaijiahaoInfo(this.mfi.baijiahao_info);
+                    if (this.eEK != null) {
+                        bwVar.bmA().setPrivSetsData(this.eEK.getPrivSetsData());
                     }
-                    bwVar.bkz();
+                    bwVar.bmZ();
                 }
             }
         }
@@ -118,13 +118,13 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
         this.mCursor = 0L;
         this.mHasMore = false;
         this.mThreadDataList.clear();
-        if (this.lZv != null) {
-            MessageManager.getInstance().unRegisterListener(this.lZv);
+        if (this.mfv != null) {
+            MessageManager.getInstance().unRegisterListener(this.mfv);
         }
     }
 
     public void a(a aVar) {
-        this.lZu = aVar;
+        this.mfu = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -138,12 +138,12 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     }
 
     public void d(User user) {
-        this.lZi = user;
-        Rd();
+        this.mfi = user;
+        TL();
     }
 
     public void a(MetaData metaData) {
-        this.eyV = metaData;
+        this.eEK = metaData;
     }
 
     public boolean isHasMore() {

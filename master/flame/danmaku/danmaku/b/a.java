@@ -10,15 +10,15 @@ public interface a {
 
     /* renamed from: master.flame.danmaku.danmaku.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC1064a {
+    public interface InterfaceC1084a {
         void i(d dVar);
     }
 
-    void AU(boolean z);
+    void Bf(boolean z);
 
-    void AV(boolean z);
+    void Bg(boolean z);
 
-    void a(InterfaceC1064a interfaceC1064a);
+    void a(InterfaceC1084a interfaceC1084a);
 
     void a(k kVar);
 
@@ -26,7 +26,7 @@ public interface a {
 
     void clear();
 
-    void eAt();
+    void eEi();
 
     void release();
 
@@ -34,106 +34,106 @@ public interface a {
     public static class b {
         public long beginTime;
         public long endTime;
-        public long guz;
-        public long pPA;
-        public long pPB;
-        private boolean pPD;
-        public boolean pPn;
-        public int pPo;
-        public int pPp;
-        public d pPq;
-        public int pPr;
-        public int pPs;
-        public int pPt;
-        public int pPu;
-        public int pPv;
-        public int pPw;
-        public int pPx;
-        public long pPy;
-        public boolean pPz;
-        public f pLu = new f();
-        private l pPC = new master.flame.danmaku.danmaku.model.android.d(4);
+        public long gAn;
+        public boolean pYH;
+        public int pYI;
+        public int pYJ;
+        public d pYK;
+        public int pYL;
+        public int pYM;
+        public int pYN;
+        public int pYO;
+        public int pYP;
+        public int pYQ;
+        public int pYR;
+        public long pYS;
+        public boolean pYT;
+        public long pYU;
+        public long pYV;
+        private boolean pYX;
+        public f pUO = new f();
+        private l pYW = new master.flame.danmaku.danmaku.model.android.d(4);
 
-        public int Rg(int i) {
-            this.pPw += i;
-            return this.pPw;
+        public int RB(int i) {
+            this.pYQ += i;
+            return this.pYQ;
         }
 
-        public int ex(int i, int i2) {
+        public int eA(int i, int i2) {
             switch (i) {
                 case 1:
-                    this.pPr += i2;
-                    return this.pPr;
+                    this.pYL += i2;
+                    return this.pYL;
                 case 2:
                 case 3:
                 default:
                     return 0;
                 case 4:
-                    this.pPu += i2;
-                    return this.pPu;
+                    this.pYO += i2;
+                    return this.pYO;
                 case 5:
-                    this.pPt += i2;
-                    return this.pPt;
+                    this.pYN += i2;
+                    return this.pYN;
                 case 6:
-                    this.pPs += i2;
-                    return this.pPs;
+                    this.pYM += i2;
+                    return this.pYM;
                 case 7:
-                    this.pPv += i2;
-                    return this.pPv;
+                    this.pYP += i2;
+                    return this.pYP;
             }
         }
 
         public void reset() {
-            this.pPx = this.pPw;
-            this.pPw = 0;
-            this.pPv = 0;
-            this.pPu = 0;
-            this.pPt = 0;
-            this.pPs = 0;
-            this.pPr = 0;
-            this.pPy = 0L;
+            this.pYR = this.pYQ;
+            this.pYQ = 0;
+            this.pYP = 0;
+            this.pYO = 0;
+            this.pYN = 0;
+            this.pYM = 0;
+            this.pYL = 0;
+            this.pYS = 0L;
             this.endTime = 0L;
             this.beginTime = 0L;
-            this.guz = 0L;
-            this.pPz = false;
+            this.gAn = 0L;
+            this.pYT = false;
             synchronized (this) {
-                this.pPC.clear();
+                this.pYW.clear();
             }
         }
 
         public void b(b bVar) {
             if (bVar != null) {
-                this.pPx = bVar.pPx;
-                this.pPr = bVar.pPr;
-                this.pPs = bVar.pPs;
-                this.pPt = bVar.pPt;
-                this.pPu = bVar.pPu;
-                this.pPv = bVar.pPv;
-                this.pPw = bVar.pPw;
-                this.pPy = bVar.pPy;
+                this.pYR = bVar.pYR;
+                this.pYL = bVar.pYL;
+                this.pYM = bVar.pYM;
+                this.pYN = bVar.pYN;
+                this.pYO = bVar.pYO;
+                this.pYP = bVar.pYP;
+                this.pYQ = bVar.pYQ;
+                this.pYS = bVar.pYS;
                 this.beginTime = bVar.beginTime;
                 this.endTime = bVar.endTime;
-                this.pPz = bVar.pPz;
-                this.guz = bVar.guz;
-                this.pPA = bVar.pPA;
-                this.pPB = bVar.pPB;
+                this.pYT = bVar.pYT;
+                this.gAn = bVar.gAn;
+                this.pYU = bVar.pYU;
+                this.pYV = bVar.pYV;
             }
         }
 
         public void v(d dVar) {
-            if (!this.pPD) {
-                this.pPC.k(dVar);
+            if (!this.pYX) {
+                this.pYW.k(dVar);
             }
         }
 
-        public l eAu() {
+        public l eEj() {
             l lVar;
-            this.pPD = true;
+            this.pYX = true;
             synchronized (this) {
-                lVar = this.pPC;
-                this.pPC = new master.flame.danmaku.danmaku.model.android.d(4);
+                lVar = this.pYW;
+                this.pYW = new master.flame.danmaku.danmaku.model.android.d(4);
             }
-            this.pPD = false;
+            this.pYX = false;
             return lVar;
         }
     }

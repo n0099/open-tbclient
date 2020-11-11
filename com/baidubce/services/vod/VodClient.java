@@ -50,7 +50,7 @@ public class VodClient extends AbstractBceClient {
     public GenerateMediaIdResponse applyMediaForSpecificMode(String str) {
         InternalRequest createRequest = createRequest(HttpMethodName.POST, new GenerateMediaIdRequest(), PATH_MEDIA);
         createRequest.addParameter("apply", null);
-        createRequest.addParameter(PARA_MODE, str);
+        createRequest.addParameter("mode", str);
         return (GenerateMediaIdResponse) invokeHttpClient(createRequest, GenerateMediaIdResponse.class);
     }
 

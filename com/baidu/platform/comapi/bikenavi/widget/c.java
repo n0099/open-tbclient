@@ -6,11 +6,11 @@ import android.app.Activity;
 public class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f2846a;
+    final /* synthetic */ a f2848a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.f2846a = aVar;
+        this.f2848a = aVar;
     }
 
     @Override // java.lang.Runnable
@@ -20,16 +20,16 @@ public class c implements Runnable {
         int i2;
         int i3;
         CustomScrollView customScrollView2;
-        this.f2846a.E = com.baidu.platform.comapi.wnplatform.p.h.e(this.f2846a.f2842a) - com.baidu.platform.comapi.wnplatform.p.h.a(this.f2846a.f2842a, a.F);
-        customScrollView = this.f2846a.l;
-        i = this.f2846a.E;
+        this.f2848a.E = com.baidu.platform.comapi.wnplatform.p.h.e(this.f2848a.f2844a) - com.baidu.platform.comapi.wnplatform.p.h.a(this.f2848a.f2844a, a.F);
+        customScrollView = this.f2848a.l;
+        i = this.f2848a.E;
         customScrollView.setBlankHeight(i);
-        i2 = this.f2846a.E;
-        Activity activity = this.f2846a.f2842a;
+        i2 = this.f2848a.E;
+        Activity activity = this.f2848a.f2844a;
         int i4 = a.F;
         i3 = a.G;
         int a2 = i2 + com.baidu.platform.comapi.wnplatform.p.h.a(activity, i4 - i3);
-        customScrollView2 = this.f2846a.l;
+        customScrollView2 = this.f2848a.l;
         customScrollView2.setStatusHeight(a2, 0);
     }
 }

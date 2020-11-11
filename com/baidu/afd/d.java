@@ -85,7 +85,7 @@ public class d extends com.baidu.tieba.card.data.b implements com.baidu.tieba.le
 
     public void rs() {
         if (!this.YO) {
-            com.baidu.tieba.recapp.report.d.dyN().a(com.baidu.tieba.recapp.report.g.a(this, ParseError.ERROR_SMOOTH_SCROLL));
+            com.baidu.tieba.recapp.report.d.dBp().a(com.baidu.tieba.recapp.report.g.a(this, ParseError.ERROR_SMOOTH_SCROLL));
             return;
         }
         com.baidu.tbadk.core.data.b.a(this);

@@ -99,7 +99,7 @@ public class ForeDrawableImageView extends TbImageView {
     }
 
     private void drawNoImageBottomText(Canvas canvas, int i, int i2) {
-        if (!StringUtils.isNull(this.bottomText) && !k.bhh().isShowImages()) {
+        if (!StringUtils.isNull(this.bottomText) && !k.bjH().isShowImages()) {
             canvas.drawText(this.bottomText, (int) (i - (this.textPaint.measureText(this.bottomText) / 2.0f)), this.bottomTextPadding + i2, this.textPaint);
         }
     }

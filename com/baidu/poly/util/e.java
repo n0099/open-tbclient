@@ -10,22 +10,22 @@ import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class e {
-    public static <K, V> Map<K, V> YR() {
+    public static <K, V> Map<K, V> abq() {
         return Build.VERSION.SDK_INT >= 19 ? new ArrayMap() : new HashMap();
     }
 
-    public static Map<String, String> al(JSONObject jSONObject) {
-        Map<String, String> YR = YR();
+    public static Map<String, String> ar(JSONObject jSONObject) {
+        Map<String, String> abq = abq();
         if (jSONObject != null) {
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 if (!TextUtils.isEmpty(next)) {
-                    YR.put(next, jSONObject.optString(next));
+                    abq.put(next, jSONObject.optString(next));
                 }
             }
         }
-        return YR;
+        return abq;
     }
 
     public static Bundle l(Map<String, String> map) {

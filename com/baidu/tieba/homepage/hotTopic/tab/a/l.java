@@ -24,13 +24,13 @@ public class l extends a<bv, am<bw>> {
     private ab<bv> afF;
 
     public l(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, bw.exU);
+        super(tbPageContext, bw.eDL);
         this.afF = new ab<bv>() { // from class: com.baidu.tieba.homepage.hotTopic.tab.a.l.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, bv bvVar) {
                 if (bvVar != null) {
-                    l.this.f(view, bvVar.erH);
+                    l.this.f(view, bvVar.exA);
                 }
             }
         };
@@ -39,13 +39,13 @@ public class l extends a<bv, am<bw>> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aT */
+    /* renamed from: aV */
     public am c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
         an anVar = new an(this.mPageContext.getPageActivity());
         com.baidu.tbadk.core.data.c cVar = new com.baidu.tbadk.core.data.c();
-        cVar.etA = 1;
-        cVar.etG = 1;
+        cVar.ezt = 1;
+        cVar.ezz = 1;
         anVar.setAgreeStatisticData(cVar);
         anVar.setFrom(1);
         anVar.setStType("personalize_page");
@@ -62,7 +62,7 @@ public class l extends a<bv, am<bw>> {
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
                 if ((qVar instanceof bv) && (view.getTag() instanceof am)) {
                     am amVar2 = (am) view.getTag();
-                    bw bwVar = ((bv) qVar).erH;
+                    bw bwVar = ((bv) qVar).exA;
                     bwVar.objType = 1;
                     if (l.this.afF != null) {
                         l.this.afF.a(amVar2.getView(), (bv) qVar);
@@ -79,10 +79,10 @@ public class l extends a<bv, am<bw>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.homepage.hotTopic.tab.a.a, com.baidu.adp.widget.ListView.a
     public View a(final int i, final View view, final ViewGroup viewGroup, bv bvVar, am amVar) {
-        if (bvVar == null || amVar == null || amVar.getView() == null || bvVar.erH == null) {
+        if (bvVar == null || amVar == null || amVar.getView() == null || bvVar.exA == null) {
             return null;
         }
-        bvVar.erH.evR = getPositionByType(i) + 1;
+        bvVar.exA.eBK = getPositionByType(i) + 1;
         amVar.tW().setPosition(i);
         if (amVar.tW().tQ() instanceof an) {
             ((an) amVar.tW().tQ()).setOnCommentClickCallback(new ThreadCommentAndPraiseInfoLayout.a() { // from class: com.baidu.tieba.homepage.hotTopic.tab.a.l.3

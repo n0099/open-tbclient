@@ -10,8 +10,8 @@ import com.huawei.android.hms.pps.AdvertisingIdClient;
 public class a implements InnerIdSupplier {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f3979a;
-    private SupplierListener oyK;
+    private Context f3981a;
+    private SupplierListener oId;
     private boolean f = false;
     private String b = "";
     private String c = "";
@@ -19,7 +19,7 @@ public class a implements InnerIdSupplier {
     private String e = "";
 
     public a(Context context) {
-        this.f3979a = context;
+        this.f3981a = context;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -27,11 +27,11 @@ public class a implements InnerIdSupplier {
         try {
             this.f = !TextUtils.isEmpty(this.c);
             if (this.f) {
-                if (this.oyK != null) {
-                    this.oyK.OnSupport(this.f, this);
+                if (this.oId != null) {
+                    this.oId.OnSupport(this.f, this);
                 }
-            } else if (this.oyK != null) {
-                this.oyK.OnSupport(this.f, new com.bun.miitmdid.supplier.a());
+            } else if (this.oId != null) {
+                this.oId.OnSupport(this.f, new com.bun.miitmdid.supplier.a());
             }
         } catch (Exception e) {
             com.bun.miitmdid.utils.a.a(getClass().getSimpleName(), "CallBack", e);
@@ -40,12 +40,12 @@ public class a implements InnerIdSupplier {
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public void a(SupplierListener supplierListener) {
-        this.oyK = supplierListener;
+        this.oId = supplierListener;
         new Thread(new Runnable() { // from class: com.bun.miitmdid.supplier.b.a.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    AdvertisingIdClient.Info advertisingIdInfo = AdvertisingIdClient.getAdvertisingIdInfo(a.this.f3979a);
+                    AdvertisingIdClient.Info advertisingIdInfo = AdvertisingIdClient.getAdvertisingIdInfo(a.this.f3981a);
                     a.this.c = advertisingIdInfo.getId();
                     advertisingIdInfo.isLimitAdTrackingEnabled();
                 } catch (Exception e) {

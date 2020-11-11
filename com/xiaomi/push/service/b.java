@@ -9,19 +9,19 @@ import java.lang.ref.WeakReference;
 public class b extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private il f5070a;
+    private il f5072a;
 
     /* renamed from: a  reason: collision with other field name */
-    private WeakReference<XMPushService> f872a;
+    private WeakReference<XMPushService> f874a;
 
     /* renamed from: a  reason: collision with other field name */
-    private boolean f873a;
+    private boolean f875a;
 
     public b(il ilVar, WeakReference<XMPushService> weakReference, boolean z) {
-        this.f873a = false;
-        this.f5070a = ilVar;
-        this.f872a = weakReference;
-        this.f873a = z;
+        this.f875a = false;
+        this.f5072a = ilVar;
+        this.f874a = weakReference;
+        this.f875a = z;
     }
 
     @Override // com.xiaomi.push.ai.a
@@ -33,15 +33,15 @@ public class b extends ai.a {
     @Override // java.lang.Runnable
     public void run() {
         XMPushService xMPushService;
-        if (this.f872a == null || this.f5070a == null || (xMPushService = this.f872a.get()) == null) {
+        if (this.f874a == null || this.f5072a == null || (xMPushService = this.f874a.get()) == null) {
             return;
         }
-        this.f5070a.a(an.a());
-        this.f5070a.a(false);
-        com.xiaomi.channel.commonutils.logger.b.c("MoleInfo aw_ping : send aw_Ping msg " + this.f5070a.a());
+        this.f5072a.a(an.a());
+        this.f5072a.a(false);
+        com.xiaomi.channel.commonutils.logger.b.c("MoleInfo aw_ping : send aw_Ping msg " + this.f5072a.a());
         try {
-            String c = this.f5070a.c();
-            xMPushService.a(c, iw.a(w.a(c, this.f5070a.b(), this.f5070a, hm.Notification)), this.f873a);
+            String c = this.f5072a.c();
+            xMPushService.a(c, iw.a(w.a(c, this.f5072a.b(), this.f5072a, hm.Notification)), this.f875a);
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.d("MoleInfo aw_ping : send help app ping error" + e.toString());
         }

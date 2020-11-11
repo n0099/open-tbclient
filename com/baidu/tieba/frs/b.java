@@ -7,30 +7,30 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private AntiData eWX;
+    private AntiData fcN;
     private String forumId;
-    private ay iAa;
-    private final ArrayList<bw> iAc;
-    private boolean iAd;
-    private boolean iAe;
+    private ay iFX;
+    private final ArrayList<bw> iFZ;
+    private boolean iGa;
+    private boolean iGb;
 
     private b() {
-        this.iAd = false;
-        this.iAc = new ArrayList<>();
+        this.iGa = false;
+        this.iFZ = new ArrayList<>();
     }
 
-    public static b cuL() {
-        return a.iAf;
+    public static b cxm() {
+        return a.iGc;
     }
 
-    public boolean cuF() {
-        return this.iAd;
+    public boolean cxg() {
+        return this.iGa;
     }
 
     public void V(boolean z, boolean z2) {
-        this.iAd = z;
-        if (this.iAa != null) {
-            this.iAa.d(this.iAd, z2, 1);
+        this.iGa = z;
+        if (this.iFX != null) {
+            this.iFX.d(this.iGa, z2, 1);
         }
     }
 
@@ -38,42 +38,42 @@ public class b {
         if (bwVar == null) {
             return false;
         }
-        if (this.iAc.size() > 29) {
-            if (this.iAa != null) {
-                this.iAa.yu(1);
+        if (this.iFZ.size() > 29) {
+            if (this.iFX != null) {
+                this.iFX.yH(1);
                 return false;
             }
             return false;
         }
-        this.iAc.add(bwVar);
-        if (this.iAa != null) {
-            this.iAa.ck(this.iAc.size(), 1);
+        this.iFZ.add(bwVar);
+        if (this.iFX != null) {
+            this.iFX.cm(this.iFZ.size(), 1);
         }
         return true;
     }
 
-    public List<bw> cuI() {
-        return this.iAc;
+    public List<bw> cxj() {
+        return this.iFZ;
     }
 
     public void ak(bw bwVar) {
-        this.iAc.remove(bwVar);
-        if (this.iAa != null) {
-            this.iAa.ck(this.iAc.size(), 1);
+        this.iFZ.remove(bwVar);
+        if (this.iFX != null) {
+            this.iFX.cm(this.iFZ.size(), 1);
         }
     }
 
     public void clearData() {
-        Iterator<bw> it = this.iAc.iterator();
+        Iterator<bw> it = this.iFZ.iterator();
         while (it.hasNext()) {
             bw next = it.next();
             if (next != null) {
-                next.iH(false);
+                next.iQ(false);
             }
         }
-        this.iAc.clear();
-        if (this.iAa != null) {
-            this.iAa.ck(0, 1);
+        this.iFZ.clear();
+        if (this.iFX != null) {
+            this.iFX.cm(0, 1);
         }
     }
 
@@ -83,21 +83,21 @@ public class b {
     }
 
     public void a(ay ayVar) {
-        this.iAa = ayVar;
+        this.iFX = ayVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static b iAf = new b();
+        private static b iGc = new b();
     }
 
-    public AntiData cuM() {
-        return this.eWX;
+    public AntiData cxn() {
+        return this.fcN;
     }
 
     public void b(AntiData antiData) {
-        this.eWX = antiData;
+        this.fcN = antiData;
     }
 
     public String getForumId() {
@@ -108,13 +108,13 @@ public class b {
         this.forumId = str;
     }
 
-    public void pf(boolean z) {
-        this.iAe = z;
+    public void po(boolean z) {
+        this.iGb = z;
     }
 
-    public void cU(List<String> list) {
-        if (!com.baidu.tbadk.core.util.y.isEmpty(list) && !com.baidu.tbadk.core.util.y.isEmpty(this.iAc)) {
-            Iterator<bw> it = this.iAc.iterator();
+    public void dc(List<String> list) {
+        if (!com.baidu.tbadk.core.util.y.isEmpty(list) && !com.baidu.tbadk.core.util.y.isEmpty(this.iFZ)) {
+            Iterator<bw> it = this.iFZ.iterator();
             while (it.hasNext()) {
                 bw next = it.next();
                 int i = 0;
@@ -130,13 +130,13 @@ public class b {
                     }
                 }
             }
-            if (this.iAa != null) {
-                this.iAa.ck(this.iAc.size(), 1);
+            if (this.iFX != null) {
+                this.iFX.cm(this.iFZ.size(), 1);
             }
         }
     }
 
-    public boolean cuN() {
-        return this.iAe;
+    public boolean cxo() {
+        return this.iGb;
     }
 }

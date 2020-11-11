@@ -8,17 +8,17 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes17.dex */
 public final class FlowableSamplePublisher<T> extends io.reactivex.g<T> {
-    final org.a.b<?> pDP;
-    final boolean pEf;
+    final org.a.b<?> pNj;
+    final boolean pNz;
     final org.a.b<T> source;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
-        if (this.pEf) {
-            this.source.subscribe(new SampleMainEmitLast(bVar, this.pDP));
+        if (this.pNz) {
+            this.source.subscribe(new SampleMainEmitLast(bVar, this.pNj));
         } else {
-            this.source.subscribe(new SampleMainNoLast(bVar, this.pDP));
+            this.source.subscribe(new SampleMainNoLast(bVar, this.pNj));
         }
     }
 
@@ -114,32 +114,32 @@ public final class FlowableSamplePublisher<T> extends io.reactivex.g<T> {
 
     /* loaded from: classes17.dex */
     static final class a<T> implements j<Object> {
-        final SamplePublisherSubscriber<T> pEg;
+        final SamplePublisherSubscriber<T> pNA;
 
         a(SamplePublisherSubscriber<T> samplePublisherSubscriber) {
-            this.pEg = samplePublisherSubscriber;
+            this.pNA = samplePublisherSubscriber;
         }
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(org.a.d dVar) {
-            if (this.pEg.setOther(dVar)) {
+            if (this.pNA.setOther(dVar)) {
                 dVar.request(Long.MAX_VALUE);
             }
         }
 
         @Override // org.a.c
         public void onNext(Object obj) {
-            this.pEg.run();
+            this.pNA.run();
         }
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            this.pEg.error(th);
+            this.pNA.error(th);
         }
 
         @Override // org.a.c
         public void onComplete() {
-            this.pEg.complete();
+            this.pNA.complete();
         }
     }
 

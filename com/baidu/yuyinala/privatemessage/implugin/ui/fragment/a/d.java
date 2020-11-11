@@ -4,67 +4,67 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes4.dex */
 public class d {
-    private static d oru;
-    private b orv;
-    private b orw;
-    private a orx;
-    private String ory = "";
-    private ConcurrentHashMap<String, c> orz = new ConcurrentHashMap<>(4);
+    private static d oAN;
+    private b oAO;
+    private b oAP;
+    private a oAQ;
+    private String oAR = "";
+    private ConcurrentHashMap<String, c> oAS = new ConcurrentHashMap<>(4);
     private AtomicInteger mOpenCounter = new AtomicInteger();
 
-    public static d ecY() {
-        if (oru == null) {
+    public static d egN() {
+        if (oAN == null) {
             synchronized (d.class) {
-                if (oru == null) {
-                    oru = new d();
+                if (oAN == null) {
+                    oAN = new d();
                 }
             }
         }
-        return oru;
+        return oAN;
     }
 
-    public c Xa(String str) {
-        return this.orz.get(str);
+    public c XE(String str) {
+        return this.oAS.get(str);
     }
 
-    public String ecZ() {
-        return this.ory;
+    public String egO() {
+        return this.oAR;
     }
 
     public void a(String str, c cVar) {
-        this.ory = str;
+        this.oAR = str;
         if (cVar != null) {
-            this.orz.put(str, cVar);
+            this.oAS.put(str, cVar);
         }
     }
 
-    public void Xb(String str) {
-        if (this.orz.containsKey(str)) {
-            this.orz.remove(str);
+    public void XF(String str) {
+        if (this.oAS.containsKey(str)) {
+            this.oAS.remove(str);
         }
     }
 
-    public b eda() {
-        return this.orv;
+    public b egP() {
+        return this.oAO;
     }
 
     public void a(b bVar) {
-        this.orv = bVar;
+        this.oAO = bVar;
     }
 
-    public b edb() {
-        return this.orw;
+    public b egQ() {
+        return this.oAP;
     }
 
     public void b(b bVar) {
-        this.orw = bVar;
+        this.oAP = bVar;
     }
 
-    public static void edc() {
-        oru = null;
+    public static void egR() {
+        oAN = null;
     }
 
-    public a edd() {
-        return this.orx;
+    public a egS() {
+        return this.oAQ;
     }
 }

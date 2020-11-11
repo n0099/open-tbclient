@@ -75,8 +75,8 @@ public class AlaActiveRootView extends PendantChildView implements com.baidu.liv
 
     private void init() {
         setBackgroundColor(0);
-        setId(a.g.ala_liveroom_active_view);
-        setMinimumWidth(getResources().getDimensionPixelOffset(a.e.sdk_ds104));
+        setId(a.f.ala_liveroom_active_view);
+        setMinimumWidth(getResources().getDimensionPixelOffset(a.d.sdk_ds104));
     }
 
     @Override // com.baidu.live.g.b

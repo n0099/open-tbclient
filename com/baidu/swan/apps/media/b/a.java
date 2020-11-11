@@ -10,24 +10,24 @@ import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 /* loaded from: classes10.dex */
 public class a implements com.baidu.swan.apps.media.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private j cYJ;
-    private String cYK;
-    private c cYL;
-    private boolean cYM;
-    private b cYN;
+    private j deG;
+    private String deH;
+    private c deI;
+    private boolean deJ;
+    private b deK;
     private Context mContext;
     private boolean mIsForeground = true;
 
     public a(Context context, @NonNull c cVar) {
         this.mContext = context;
-        this.cYL = cVar;
-        this.cYK = cVar.cUQ;
-        ayY();
-        ayX();
+        this.deI = cVar;
+        this.deH = cVar.daK;
+        aBy();
+        aBx();
     }
 
-    private void ayX() {
-        if (!TextUtils.isEmpty(this.cYK)) {
+    private void aBx() {
+        if (!TextUtils.isEmpty(this.deH)) {
             com.baidu.swan.apps.media.b.a(this);
         }
     }
@@ -36,218 +36,218 @@ public class a implements com.baidu.swan.apps.media.a {
         if (DEBUG) {
             Log.e("SwanAppVideoPlayer", "update 接口");
         }
-        if (this.cYJ != null) {
-            this.cYJ.a(cVar, true);
+        if (this.deG != null) {
+            this.deG.a(cVar, true);
         }
-        this.cYL = cVar;
+        this.deI = cVar;
     }
 
     public void a(b bVar) {
-        this.cYN = bVar;
+        this.deK = bVar;
     }
 
-    public c agF() {
-        return this.cYL;
+    public c ajf() {
+        return this.deI;
     }
 
     public void d(c cVar) {
-        com.baidu.swan.apps.console.c.i("video", "Open Player " + cVar.cUQ);
-        if (this.cYJ != null) {
-            this.cYJ.a(cVar);
+        com.baidu.swan.apps.console.c.i("video", "Open Player " + cVar.daK);
+        if (this.deG != null) {
+            this.deG.a(cVar);
         }
-        this.cYL = cVar;
+        this.deI = cVar;
     }
 
-    public void fj(boolean z) {
-        if (this.cYJ != null) {
-            this.cYJ.fj(z);
+    public void fs(boolean z) {
+        if (this.deG != null) {
+            this.deG.fs(z);
         }
     }
 
     public void pause() {
-        if (ayZ()) {
-            ayY().pause();
+        if (aBz()) {
+            aBy().pause();
         }
     }
 
     public void resume() {
-        if (ayZ() && !isPlaying() && this.mIsForeground && this.cYJ != null) {
-            this.cYJ.resume();
+        if (aBz() && !isPlaying() && this.mIsForeground && this.deG != null) {
+            this.deG.resume();
         }
     }
 
     public void seekTo(int i) {
-        if (ayZ() && this.cYJ != null) {
-            this.cYJ.seekTo(i);
+        if (aBz() && this.deG != null) {
+            this.deG.seekTo(i);
         }
     }
 
     public int getDuration() {
-        return ayY().getDuration();
+        return aBy().getDuration();
     }
 
     public int getCurrentPosition() {
-        return ayY().getCurrentPosition();
+        return aBy().getCurrentPosition();
     }
 
     public boolean isPlaying() {
-        return this.cYJ != null && this.cYJ.isPlaying();
+        return this.deG != null && this.deG.isPlaying();
     }
 
     public boolean isEnd() {
-        return this.cYJ != null && this.cYJ.isEnd();
+        return this.deG != null && this.deG.isEnd();
     }
 
-    public void c(FrameLayout frameLayout) {
-        if (this.cYJ != null) {
-            this.cYJ.c(frameLayout);
+    public void f(FrameLayout frameLayout) {
+        if (this.deG != null) {
+            this.deG.f(frameLayout);
         }
     }
 
     public void j(boolean z, int i) {
-        if (this.cYJ != null) {
-            this.cYJ.j(z, i);
+        if (this.deG != null) {
+            this.deG.j(z, i);
         }
     }
 
     public void b(b bVar) {
-        this.cYN = bVar;
+        this.deK = bVar;
     }
 
-    public j ayY() {
-        if (this.cYJ == null) {
+    public j aBy() {
+        if (this.deG == null) {
             com.baidu.swan.apps.console.c.i("video", "create player");
-            this.cYJ = com.baidu.swan.apps.t.a.aun().a(this.mContext, this.cYL);
-            this.cYJ.a(new j.a() { // from class: com.baidu.swan.apps.media.b.a.1
+            this.deG = com.baidu.swan.apps.t.a.awN().a(this.mContext, this.deI);
+            this.deG.a(new j.a() { // from class: com.baidu.swan.apps.media.b.a.1
                 @Override // com.baidu.swan.apps.t.b.j.a
                 public void b(j jVar) {
-                    if (a.this.cYN != null) {
-                        a.this.cYN.b(jVar);
+                    if (a.this.deK != null) {
+                        a.this.deK.b(jVar);
                     }
                 }
             });
-            this.cYJ.a(new j.b() { // from class: com.baidu.swan.apps.media.b.a.2
+            this.deG.a(new j.b() { // from class: com.baidu.swan.apps.media.b.a.2
                 @Override // com.baidu.swan.apps.t.b.j.b
                 public boolean a(j jVar, int i, int i2) {
-                    return a.this.cYN != null && a.this.cYN.a(jVar, i, i2);
+                    return a.this.deK != null && a.this.deK.a(jVar, i, i2);
                 }
             });
-            this.cYJ.a(new j.d() { // from class: com.baidu.swan.apps.media.b.a.3
+            this.deG.a(new j.d() { // from class: com.baidu.swan.apps.media.b.a.3
                 @Override // com.baidu.swan.apps.t.b.j.d
                 public void a(j jVar) {
-                    if (a.this.cYN != null) {
-                        a.this.cYN.a(jVar);
+                    if (a.this.deK != null) {
+                        a.this.deK.a(jVar);
                     }
                 }
             });
-            this.cYJ.a(new j.e() { // from class: com.baidu.swan.apps.media.b.a.4
+            this.deG.a(new j.e() { // from class: com.baidu.swan.apps.media.b.a.4
                 @Override // com.baidu.swan.apps.t.b.j.e
                 public void c(j jVar) {
-                    if (a.this.cYN != null) {
-                        a.this.cYN.c(jVar);
+                    if (a.this.deK != null) {
+                        a.this.deK.c(jVar);
                     }
                 }
             });
-            this.cYJ.a(new j.f() { // from class: com.baidu.swan.apps.media.b.a.5
+            this.deG.a(new j.f() { // from class: com.baidu.swan.apps.media.b.a.5
                 @Override // com.baidu.swan.apps.t.b.j.f
                 public void d(j jVar) {
-                    if (a.this.cYN != null) {
-                        a.this.cYN.d(jVar);
+                    if (a.this.deK != null) {
+                        a.this.deK.d(jVar);
                     }
                 }
             });
-            this.cYJ.a(new j.c() { // from class: com.baidu.swan.apps.media.b.a.6
+            this.deG.a(new j.c() { // from class: com.baidu.swan.apps.media.b.a.6
                 @Override // com.baidu.swan.apps.t.b.j.c
                 public void e(j jVar) {
-                    if (a.this.cYN != null) {
-                        a.this.cYN.e(jVar);
+                    if (a.this.deK != null) {
+                        a.this.deK.e(jVar);
                     }
                 }
             });
         }
-        return this.cYJ;
+        return this.deG;
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public String atG() {
-        return this.cYK;
+    public String awg() {
+        return this.deH;
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public String axH() {
-        return this.cYL != null ? this.cYL.cYY : "";
+    public String aAh() {
+        return this.deI != null ? this.deI.deV : "";
     }
 
     @Override // com.baidu.swan.apps.media.a
     public String getSlaveId() {
-        return this.cYL.cxS;
+        return this.deI.cDL;
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public Object axI() {
+    public Object aAi() {
         return this;
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public void fp(boolean z) {
+    public void fy(boolean z) {
         this.mIsForeground = z;
         if (z) {
-            if (this.cYM) {
-                ayY().resume();
+            if (this.deJ) {
+                aBy().resume();
             }
-            ayY().onForeground();
-        } else if (this.cYJ != null) {
-            this.cYM = ayY().isPlaying();
-            ayY().pause();
-            ayY().onBackground();
+            aBy().onForeground();
+        } else if (this.deG != null) {
+            this.deJ = aBy().isPlaying();
+            aBy().pause();
+            aBy().onBackground();
         }
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public void fq(boolean z) {
+    public void fz(boolean z) {
     }
 
     @Override // com.baidu.swan.apps.media.a
     public boolean onBackPressed() {
         com.baidu.swan.apps.console.c.i("video", "onBackPressed");
-        return this.cYJ != null && this.cYJ.onBackPressed();
+        return this.deG != null && this.deG.onBackPressed();
     }
 
     @Override // com.baidu.swan.apps.media.a
     public void onDestroy() {
         com.baidu.swan.apps.console.c.i("video", MissionEvent.MESSAGE_DESTROY);
-        if (this.cYJ != null) {
-            this.cYJ.stop();
-            this.cYJ = null;
+        if (this.deG != null) {
+            this.deG.stop();
+            this.deG = null;
         }
         com.baidu.swan.apps.media.b.b(this);
     }
 
-    public void oJ(String str) {
-        if (this.cYJ != null) {
-            this.cYJ.oJ(str);
+    public void oX(String str) {
+        if (this.deG != null) {
+            this.deG.oX(str);
         }
     }
 
     public void b(c cVar) {
-        if (this.cYJ != null) {
-            this.cYJ.b(cVar);
+        if (this.deG != null) {
+            this.deG.b(cVar);
         }
     }
 
-    public void avG() {
-        if (this.cYJ != null) {
-            this.cYJ.avG();
+    public void ayg() {
+        if (this.deG != null) {
+            this.deG.ayg();
         }
     }
 
-    private boolean ayZ() {
-        return (this.cYL == null || TextUtils.isEmpty(this.cYL.mSrc) || TextUtils.isEmpty(this.cYK) || TextUtils.isEmpty(this.cYL.cxR)) ? false : true;
+    private boolean aBz() {
+        return (this.deI == null || TextUtils.isEmpty(this.deI.mSrc) || TextUtils.isEmpty(this.deH) || TextUtils.isEmpty(this.deI.cDK)) ? false : true;
     }
 
     public void mute(boolean z) {
-        if (this.cYJ != null) {
-            this.cYJ.mute(z);
+        if (this.deG != null) {
+            this.deG.mute(z);
         }
     }
 }

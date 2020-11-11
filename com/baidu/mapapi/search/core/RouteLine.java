@@ -12,7 +12,7 @@ import java.util.List;
 public class RouteLine<T extends RouteStep> implements Parcelable {
 
     /* renamed from: a  reason: collision with root package name */
-    TYPE f2103a;
+    TYPE f2105a;
     private RouteNode b;
     private RouteNode c;
     private String d;
@@ -30,15 +30,15 @@ public class RouteLine<T extends RouteStep> implements Parcelable {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private int f2104a;
+        private int f2106a;
 
         TYPE(int i) {
-            this.f2104a = i;
+            this.f2106a = i;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public int a() {
-            return this.f2104a;
+            return this.f2106a;
         }
     }
 
@@ -100,7 +100,7 @@ public class RouteLine<T extends RouteStep> implements Parcelable {
     }
 
     protected TYPE getType() {
-        return this.f2103a;
+        return this.f2105a;
     }
 
     public void setDistance(int i) {
@@ -129,20 +129,20 @@ public class RouteLine<T extends RouteStep> implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setType(TYPE type) {
-        this.f2103a = type;
+        this.f2105a = type;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        if (this.f2103a != null) {
-            parcel.writeInt(this.f2103a.a());
+        if (this.f2105a != null) {
+            parcel.writeInt(this.f2105a.a());
         } else {
             parcel.writeInt(10);
         }
         parcel.writeValue(this.b);
         parcel.writeValue(this.c);
         parcel.writeString(this.d);
-        if (this.f2103a != null) {
+        if (this.f2105a != null) {
             parcel.writeTypedList(this.e);
         }
         parcel.writeInt(this.f);

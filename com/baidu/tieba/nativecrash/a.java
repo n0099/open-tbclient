@@ -14,31 +14,31 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class a {
-    private static String kVj = "native_crash_log.log";
-    private static List<String> kVk = new ArrayList();
+    private static String lbg = "native_crash_log.log";
+    private static List<String> lbh = new ArrayList();
     private static BroadcastReceiver Sp = new BroadcastReceiver() { // from class: com.baidu.tieba.nativecrash.a.1
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if (intent != null) {
                 String stringExtra = intent.getStringExtra("package_name");
                 if (!TextUtils.isEmpty(stringExtra) && "com.baidu.adp.plugin.installed".equals(intent.getAction())) {
-                    b.bnH().putInt("native_crash_count_" + stringExtra, 0);
+                    b.bqh().putInt("native_crash_count_" + stringExtra, 0);
                 }
             }
         }
     };
-    private static BdNativeCrash.a kVl = new BdNativeCrash.a() { // from class: com.baidu.tieba.nativecrash.a.2
+    private static BdNativeCrash.a lbi = new BdNativeCrash.a() { // from class: com.baidu.tieba.nativecrash.a.2
     };
 
-    public static void dcJ() {
-        if (BdNativeCrash.kVi) {
-            BdNativeCrash.dcI().fN(TbConfig.getTempDirName(), TbConfig.FATAL_ERROR_NATIVE_DIR);
-            BdNativeCrash.dcI().a(kVl);
-            dcK();
+    public static void dfl() {
+        if (BdNativeCrash.lbf) {
+            BdNativeCrash.dfk().fN(TbConfig.getTempDirName(), TbConfig.FATAL_ERROR_NATIVE_DIR);
+            BdNativeCrash.dfk().a(lbi);
+            dfm();
         }
     }
 
-    private static void dcK() {
+    private static void dfm() {
         try {
             Context applicationContext = BdBaseApplication.getInst().getApplicationContext();
             IntentFilter intentFilter = new IntentFilter();

@@ -7,7 +7,7 @@ import com.baidu.sofire.ac.FH;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3535a = "SafeService";
+    private static final String f3538a = "SafeService";
     public static final int b = 120;
     public static final int c = 122;
     public static final int d = 1;
@@ -16,14 +16,14 @@ public class c {
     private static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static c f3536a = new c();
+        public static c f3539a = new c();
 
         private b() {
         }
     }
 
     public static c a() {
-        return b.f3536a;
+        return b.f3539a;
     }
 
     private c() {
@@ -34,7 +34,7 @@ public class c {
             FH.init(context, str, str2, iArr);
             return true;
         } catch (Throwable th) {
-            Log.e(f3535a, "init()", th.toString());
+            Log.e(f3538a, "init()", th.toString());
             return false;
         }
     }

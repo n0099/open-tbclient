@@ -1,23 +1,41 @@
 package com.baidu.live.alablmsdk.config.a;
-
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 /* loaded from: classes4.dex */
 public class b {
-    public int height;
-    public int width;
-    public int x;
-    public int y;
+    private int mHeight;
+    private int mWidth;
 
-    public b(int i, int i2, int i3, int i4) {
-        this.x = i;
-        this.y = i2;
-        this.width = i3;
-        this.height = i4;
+    public b(int i, int i2) {
+        this.mWidth = i;
+        this.mHeight = i2;
     }
 
-    public String Bp() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(this.x).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(this.y).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(this.width).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(this.height);
-        return sb.toString();
+    public int getWidth() {
+        return this.mWidth;
+    }
+
+    public int getHeight() {
+        return this.mHeight;
+    }
+
+    public boolean equals(Object obj) {
+        boolean z = true;
+        if (obj == null) {
+            return false;
+        }
+        if (this == obj) {
+            return true;
+        }
+        if (obj instanceof b) {
+            b bVar = (b) obj;
+            if (this.mWidth != bVar.mWidth || this.mHeight != bVar.mHeight) {
+                z = false;
+            }
+            return z;
+        }
+        return false;
+    }
+
+    public boolean Bt() {
+        return this.mWidth == 0 || this.mHeight == 0;
     }
 }

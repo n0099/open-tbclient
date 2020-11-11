@@ -20,7 +20,7 @@ import tv.chushou.zues.widget.fresco.b;
 public class a extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f4218a;
+    private View f4220a;
     private TextView c;
     private TextView d;
     private TextView h;
@@ -30,12 +30,12 @@ public class a extends RecyclerView.ViewHolder implements View.OnClickListener {
     private int n;
     private int o;
     private int p;
-    private FrescoThumbnailView pgD;
-    private FoodView pkb;
-    private FrescoThumbnailView pkq;
-    private FrescoThumbnailView pkv;
-    private ListItem poa;
-    private com.kascend.chushou.view.a.a<ListItem> pob;
+    private FrescoThumbnailView pqe;
+    private FoodView ptA;
+    private FrescoThumbnailView ptO;
+    private FrescoThumbnailView ptT;
+    private com.kascend.chushou.view.a.a<ListItem> pxA;
+    private ListItem pxz;
     private int q;
 
     public a(View view, com.kascend.chushou.view.a.a<ListItem> aVar, boolean z, String str) {
@@ -46,12 +46,12 @@ public class a extends RecyclerView.ViewHolder implements View.OnClickListener {
         this.q = AdCard.INVALID_NUM;
         this.m = str;
         this.i = view.getContext();
-        this.f4218a = view;
-        this.pob = aVar;
-        this.pkb = (FoodView) view.findViewById(a.f.iv_cover);
-        this.pkv = (FrescoThumbnailView) view.findViewById(a.f.iv_right_bottom_icon1);
-        this.pgD = (FrescoThumbnailView) view.findViewById(a.f.iv_right_bottom_icon2);
-        this.pkq = (FrescoThumbnailView) view.findViewById(a.f.iv_pkLiveIcon);
+        this.f4220a = view;
+        this.pxA = aVar;
+        this.ptA = (FoodView) view.findViewById(a.f.iv_cover);
+        this.ptT = (FrescoThumbnailView) view.findViewById(a.f.iv_right_bottom_icon1);
+        this.pqe = (FrescoThumbnailView) view.findViewById(a.f.iv_right_bottom_icon2);
+        this.ptO = (FrescoThumbnailView) view.findViewById(a.f.iv_pkLiveIcon);
         this.c = (TextView) view.findViewById(a.f.tv_creator);
         this.d = (TextView) view.findViewById(a.f.tv_count);
         this.h = (TextView) view.findViewById(a.f.tv_name);
@@ -79,7 +79,7 @@ public class a extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.poa != null && PayHelper.STATUS_SUCC.equals(this.poa.mType)) {
+        if (this.pxz != null && PayHelper.STATUS_SUCC.equals(this.pxz.mType)) {
             JSONObject O = com.kascend.chushou.d.e.O("_fromView", this.m);
             try {
                 O.put("__DOWN_X__", String.valueOf(this.n));
@@ -89,9 +89,9 @@ public class a extends RecyclerView.ViewHolder implements View.OnClickListener {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            com.kascend.chushou.d.e.a(this.i, this.poa, O);
-        } else if (this.pob != null && this.poa != null) {
-            this.pob.b(view, this.poa);
+            com.kascend.chushou.d.e.a(this.i, this.pxz, O);
+        } else if (this.pxA != null && this.pxz != null) {
+            this.pxA.b(view, this.pxz);
         }
     }
 
@@ -100,28 +100,28 @@ public class a extends RecyclerView.ViewHolder implements View.OnClickListener {
     }
 
     public void a(ListItem listItem, int[] iArr, boolean z) {
-        this.poa = listItem;
-        this.pkb.a(listItem, (FoodView.a) null, false, (String) null, false);
+        this.pxz = listItem;
+        this.ptA.a(listItem, (FoodView.a) null, false, (String) null, false);
         int size = listItem.mRightBottomIcons == null ? 0 : listItem.mRightBottomIcons.size();
         if (size == 0) {
-            this.pkv.setVisibility(8);
-            this.pgD.setVisibility(8);
+            this.ptT.setVisibility(8);
+            this.pqe.setVisibility(8);
         } else if (size == 1) {
-            this.pkv.setVisibility(8);
-            this.pgD.setVisibility(0);
-            this.pgD.j(listItem.mRightBottomIcons.get(0), 0, b.C1104b.qfa, b.C1104b.qfa);
+            this.ptT.setVisibility(8);
+            this.pqe.setVisibility(0);
+            this.pqe.i(listItem.mRightBottomIcons.get(0), 0, b.C1124b.qov, b.C1124b.qov);
         } else {
             listItem.mRightBottomIcons.subList(0, 2);
-            this.pkv.setVisibility(0);
-            this.pkv.j(listItem.mRightBottomIcons.get(0), 0, b.C1104b.qfa, b.C1104b.qfa);
-            this.pgD.setVisibility(0);
-            this.pgD.j(listItem.mRightBottomIcons.get(1), 0, b.C1104b.qfa, b.C1104b.qfa);
+            this.ptT.setVisibility(0);
+            this.ptT.i(listItem.mRightBottomIcons.get(0), 0, b.C1124b.qov, b.C1124b.qov);
+            this.pqe.setVisibility(0);
+            this.pqe.i(listItem.mRightBottomIcons.get(1), 0, b.C1124b.qov, b.C1124b.qov);
         }
         tv.chushou.zues.widget.a.c cVar = new tv.chushou.zues.widget.a.c();
         if (PayHelper.STATUS_SUCC.equals(listItem.mType)) {
             cVar.append(listItem.mDesc);
         } else {
-            cVar.append(listItem.mCreater).append(" ").a(this.i, tv.chushou.widget.a.c.ZT(listItem.mGender), a.d.double_icon_size, a.d.double_icon_size);
+            cVar.append(listItem.mCreater).append(" ").a(this.i, tv.chushou.widget.a.c.aax(listItem.mGender), a.d.double_icon_size, a.d.double_icon_size);
         }
         this.c.setText(cVar);
         if (this.l) {
@@ -137,11 +137,11 @@ public class a extends RecyclerView.ViewHolder implements View.OnClickListener {
             this.d.setVisibility(8);
         }
         this.h.setText(listItem.mName);
-        if (iArr != null && z && this.f4218a != null) {
-            Context context = this.f4218a.getContext();
-            GridLayoutManager.LayoutParams layoutParams = (GridLayoutManager.LayoutParams) this.f4218a.getLayoutParams();
+        if (iArr != null && z && this.f4220a != null) {
+            Context context = this.f4220a.getContext();
+            GridLayoutManager.LayoutParams layoutParams = (GridLayoutManager.LayoutParams) this.f4220a.getLayoutParams();
             layoutParams.bottomMargin = tv.chushou.zues.utils.a.dip2px(context, iArr[1]);
-            this.f4218a.setLayoutParams(layoutParams);
+            this.f4220a.setLayoutParams(layoutParams);
         }
     }
 }

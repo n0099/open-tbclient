@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class a extends g {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4005a;
+    private String f4007a;
     private String b;
     private String c;
     private String d;
@@ -21,10 +21,10 @@ public class a extends g {
     private String k;
     private long l;
     private String m;
-    private JSONObject ozH;
+    private JSONObject oJa;
 
     public void a(JSONObject jSONObject) {
-        this.ozH = jSONObject;
+        this.oJa = jSONObject;
     }
 
     public void a(long j) {
@@ -52,7 +52,7 @@ public class a extends g {
     }
 
     public void f(String str) {
-        this.f4005a = str;
+        this.f4007a = str;
     }
 
     public void g(String str) {
@@ -92,7 +92,7 @@ public class a extends g {
     public JSONObject b() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("version", this.f4005a);
+            jSONObject.put("version", this.f4007a);
             jSONObject.put("msgid", this.b);
             jSONObject.put("appid", this.c);
             jSONObject.put("scrip", this.d);
@@ -103,23 +103,23 @@ public class a extends g {
             jSONObject.put(UgcConstant.SOURCE_ID, this.i);
             jSONObject.put("authenticated_appid", this.j);
             jSONObject.put("genTokenByAppid", this.k);
-            jSONObject.put("rcData", this.ozH);
+            jSONObject.put("rcData", this.oJa);
         } catch (JSONException e) {
             e.printStackTrace();
         }
         return jSONObject;
     }
 
-    public String Xh(String str) {
-        return dN(this.f4005a + this.c + str + this.d);
+    public String XL(String str) {
+        return dN(this.f4007a + this.c + str + this.d);
     }
 
     /* renamed from: com.cmic.sso.sdk.c.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0946a {
+    public static class C0965a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f4006a;
+        private String f4008a;
         private String b;
         private String c;
         private String d;
@@ -132,7 +132,7 @@ public class a extends g {
         private String k;
 
         public void a(String str) {
-            this.f4006a = str;
+            this.f4008a = str;
         }
 
         public void b(String str) {
@@ -178,7 +178,7 @@ public class a extends g {
         public JSONObject a() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("phone_id", this.f4006a);
+                jSONObject.put("phone_id", this.f4008a);
                 jSONObject.put("os", this.b);
                 jSONObject.put("dev_model", this.c);
                 jSONObject.put("dev_brand", this.d);

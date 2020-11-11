@@ -3,7 +3,7 @@ package com.baidu.pass.biometrics.face;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f2719a = false;
+    public static final boolean f2721a = false;
     public static final String b = "com.baidu.pass.biometrics.face";
     public static final String c = "release";
     public static final String d = "";

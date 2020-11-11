@@ -11,8 +11,8 @@ import org.a.d;
 /* loaded from: classes17.dex */
 public final class ParallelCollect<T, C> extends a<C> {
     final b<? super C, ? super T> collector;
-    final a<? extends T> pFu;
-    final Callable<? extends C> pFv;
+    final a<? extends T> pOO;
+    final Callable<? extends C> pOP;
 
     @Override // io.reactivex.parallel.a
     public void a(c<? super C>[] cVarArr) {
@@ -21,14 +21,14 @@ public final class ParallelCollect<T, C> extends a<C> {
             c<? super Object>[] cVarArr2 = new c[length];
             for (int i = 0; i < length; i++) {
                 try {
-                    cVarArr2[i] = new ParallelCollectSubscriber(cVarArr[i], io.reactivex.internal.functions.a.l(this.pFv.call(), "The initialSupplier returned a null value"), this.collector);
+                    cVarArr2[i] = new ParallelCollectSubscriber(cVarArr[i], io.reactivex.internal.functions.a.l(this.pOP.call(), "The initialSupplier returned a null value"), this.collector);
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.J(th);
                     a(cVarArr, th);
                     return;
                 }
             }
-            this.pFu.a(cVarArr2);
+            this.pOO.a(cVarArr2);
         }
     }
 
@@ -39,8 +39,8 @@ public final class ParallelCollect<T, C> extends a<C> {
     }
 
     @Override // io.reactivex.parallel.a
-    public int ewW() {
-        return this.pFu.ewW();
+    public int eAL() {
+        return this.pOO.eAL();
     }
 
     /* loaded from: classes17.dex */

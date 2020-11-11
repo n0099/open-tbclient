@@ -6,11 +6,11 @@ import java.util.Comparator;
 class k implements Comparator<File> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f2442a;
+    final /* synthetic */ j f2444a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.f2442a = jVar;
+        this.f2444a = jVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

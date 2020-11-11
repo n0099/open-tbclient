@@ -5,7 +5,7 @@ import com.baidu.mapapi.model.LatLng;
 public class NaviParaOption {
 
     /* renamed from: a  reason: collision with root package name */
-    LatLng f2093a;
+    LatLng f2095a;
     String b;
     LatLng c;
     String d;
@@ -33,7 +33,7 @@ public class NaviParaOption {
     }
 
     public LatLng getStartPoint() {
-        return this.f2093a;
+        return this.f2095a;
     }
 
     public NaviParaOption startName(String str) {
@@ -42,7 +42,7 @@ public class NaviParaOption {
     }
 
     public NaviParaOption startPoint(LatLng latLng) {
-        this.f2093a = latLng;
+        this.f2095a = latLng;
         return this;
     }
 }

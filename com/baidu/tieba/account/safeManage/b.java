@@ -10,9 +10,9 @@ import com.baidu.tieba.R;
 import tbclient.SimpleUser;
 /* loaded from: classes22.dex */
 public class b {
-    private LinearLayout fLI;
-    private TbSettingTextTipView fLJ;
-    private TbSettingTextTipView fLK;
+    private TbSettingTextTipView fRA;
+    private LinearLayout fRy;
+    private TbSettingTextTipView fRz;
     private BaseActivity mActivity;
     private final View.OnClickListener mOnClickListener;
     private LinearLayout mRootLayout;
@@ -20,28 +20,28 @@ public class b {
     public b(BaseActivity baseActivity, View.OnClickListener onClickListener) {
         this.mActivity = baseActivity;
         this.mOnClickListener = onClickListener;
-        bvw();
+        bxV();
     }
 
-    private void bvw() {
+    private void bxV() {
         this.mRootLayout = (LinearLayout) LayoutInflater.from(this.mActivity).inflate(R.layout.account_safe_activity, (ViewGroup) null);
-        this.fLI = (LinearLayout) this.mRootLayout.findViewById(R.id.content_container);
-        this.fLJ = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.bar_record);
-        this.fLK = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.account_status);
-        this.fLJ.bvy();
-        this.fLK.bvy();
-        this.fLJ.setOnClickListener(this.mOnClickListener);
-        this.fLK.setOnClickListener(this.mOnClickListener);
+        this.fRy = (LinearLayout) this.mRootLayout.findViewById(R.id.content_container);
+        this.fRz = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.bar_record);
+        this.fRA = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.account_status);
+        this.fRz.bxX();
+        this.fRA.bxX();
+        this.fRz.setOnClickListener(this.mOnClickListener);
+        this.fRA.setOnClickListener(this.mOnClickListener);
     }
 
-    public void qP(int i) {
+    public void qZ(int i) {
         this.mActivity.getLayoutMode().setNightMode(i == 1);
         this.mActivity.getLayoutMode().onModeChanged(this.mRootLayout);
     }
 
     public void a(SimpleUser simpleUser) {
         if (simpleUser != null) {
-            this.fLK.setTip(simpleUser.block_msg);
+            this.fRA.setTip(simpleUser.block_msg);
         }
     }
 

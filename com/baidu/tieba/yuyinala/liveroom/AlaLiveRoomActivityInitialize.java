@@ -16,16 +16,16 @@ import java.util.Map;
 /* loaded from: classes4.dex */
 public class AlaLiveRoomActivityInitialize {
     static {
-        bTv();
-        bTw();
-        bTz();
-        bTA();
+        bWd();
+        bWe();
+        bWh();
+        bWi();
     }
 
-    private static void bTv() {
+    private static void bWd() {
     }
 
-    public static void bTw() {
+    public static void bWe() {
         UrlManager.getInstance().addListener(new UrlManager.UrlDealListener() { // from class: com.baidu.tieba.yuyinala.liveroom.AlaLiveRoomActivityInitialize.1
             /* JADX WARN: Code restructure failed: missing block: B:20:0x0053, code lost:
                 if (com.baidu.live.adp.lib.util.StringUtils.isNull(r0) == false) goto L21;
@@ -57,11 +57,11 @@ public class AlaLiveRoomActivityInitialize {
         });
     }
 
-    private static void bTz() {
+    private static void bWh() {
         TbadkCoreApplication.getInst().RegisterIntent(ad.class, AlaLiveFloatWindowActivity.class);
     }
 
-    private static void bTA() {
+    private static void bWi() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_PERSON_ALA_ENTRANCE_LIVE_ID) { // from class: com.baidu.tieba.yuyinala.liveroom.AlaLiveRoomActivityInitialize.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener

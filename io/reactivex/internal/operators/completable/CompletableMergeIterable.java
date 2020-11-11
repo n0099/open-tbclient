@@ -9,14 +9,14 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes17.dex */
 public final class CompletableMergeIterable extends a {
-    final Iterable<? extends e> pDm;
+    final Iterable<? extends e> pMG;
 
     @Override // io.reactivex.a
     public void b(c cVar) {
         io.reactivex.disposables.a aVar = new io.reactivex.disposables.a();
         cVar.onSubscribe(aVar);
         try {
-            Iterator it = (Iterator) io.reactivex.internal.functions.a.l(this.pDm.iterator(), "The source iterator returned is null");
+            Iterator it = (Iterator) io.reactivex.internal.functions.a.l(this.pMG.iterator(), "The source iterator returned is null");
             AtomicInteger atomicInteger = new AtomicInteger(1);
             MergeCompletableObserver mergeCompletableObserver = new MergeCompletableObserver(cVar, aVar, atomicInteger);
             while (!aVar.isDisposed()) {

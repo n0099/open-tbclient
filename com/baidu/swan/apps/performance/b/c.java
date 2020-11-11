@@ -4,57 +4,57 @@ import android.util.Log;
 /* loaded from: classes10.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static boolean ddU = nk("swan_get_swan_id_cache");
-    private static boolean ddV = nk("swan_update_async");
-    private static boolean ddW = com.baidu.swan.apps.t.a.aud().getSwitch("swan_update_async_merge_node", false);
-    private static boolean ddX = nk("swan_pre_app_launch");
-    private static boolean ddY = nk("swan_prevent_series_launch");
-    private static int ddZ = com.baidu.swan.apps.t.a.aud().getSwitch("swan_prevent_series_launch_interval", 200);
-    private static boolean dea = nk("swan_pre_class_loader");
-    private static boolean deb = com.baidu.swan.apps.t.a.aud().aex();
-    private static boolean dec = nk("swan_release_runtime_wait_master_finish");
+    private static boolean djQ = nz("swan_get_swan_id_cache");
+    private static boolean djR = nz("swan_update_async");
+    private static boolean djS = com.baidu.swan.apps.t.a.awD().getSwitch("swan_update_async_merge_node", false);
+    private static boolean djT = nz("swan_pre_app_launch");
+    private static boolean djU = nz("swan_prevent_series_launch");
+    private static int djV = com.baidu.swan.apps.t.a.awD().getSwitch("swan_prevent_series_launch_interval", 200);
+    private static boolean djW = nz("swan_pre_class_loader");
+    private static boolean djX = com.baidu.swan.apps.t.a.awD().agX();
+    private static boolean djY = nz("swan_release_runtime_wait_master_finish");
 
-    private static boolean nk(String str) {
-        int i = com.baidu.swan.apps.t.a.aud().getSwitch(str, 0);
+    private static boolean nz(String str) {
+        int i = com.baidu.swan.apps.t.a.awD().getSwitch(str, 0);
         if (DEBUG) {
             Log.d("SwanApiCostOpt", str + " value : " + i);
         }
         return i == 1;
     }
 
-    public static boolean aBx() {
-        return ddU;
+    public static boolean aDX() {
+        return djQ;
     }
 
-    public static boolean aBy() {
-        return ddV;
+    public static boolean aDY() {
+        return djR;
     }
 
-    public static boolean aBz() {
-        return ddW;
+    public static boolean aDZ() {
+        return djS;
     }
 
-    public static boolean aBA() {
-        return ddX;
+    public static boolean aEa() {
+        return djT;
     }
 
-    public static boolean aBB() {
-        return ddY;
+    public static boolean aEb() {
+        return djU;
     }
 
-    public static int aBC() {
-        return ddZ;
+    public static int aEc() {
+        return djV;
     }
 
-    public static boolean aBD() {
-        return dea;
+    public static boolean aEd() {
+        return djW;
     }
 
-    public static boolean aex() {
-        return deb;
+    public static boolean agX() {
+        return djX;
     }
 
-    public static boolean aBE() {
-        return dec;
+    public static boolean aEe() {
+        return djY;
     }
 }

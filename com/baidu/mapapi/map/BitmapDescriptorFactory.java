@@ -16,11 +16,11 @@ import java.io.IOException;
 public class BitmapDescriptorFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ boolean f1998a;
+    static final /* synthetic */ boolean f2000a;
     private static final String b;
 
     static {
-        f1998a = !BitmapDescriptorFactory.class.desiredAssertionStatus();
+        f2000a = !BitmapDescriptorFactory.class.desiredAssertionStatus();
         b = "BaiduMapSDK-" + BitmapDescriptorFactory.class.getSimpleName();
     }
 
@@ -32,7 +32,7 @@ public class BitmapDescriptorFactory {
         try {
             Bitmap a2 = com.baidu.mapsdkplatform.comapi.commonutils.a.a(str, context);
             BitmapDescriptor fromBitmap = fromBitmap(a2);
-            if (f1998a || a2 != null) {
+            if (f2000a || a2 != null) {
                 a2.recycle();
                 return fromBitmap;
             }

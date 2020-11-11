@@ -12,9 +12,9 @@ import com.baidu.mobstat.Config;
 import com.baidu.tieba.ala.charm.ALaCharmCardActivity;
 /* loaded from: classes4.dex */
 public class b extends BdBaseModel<ALaCharmCardActivity> {
-    private q gqS;
-    private a gqT;
-    private NetMessageListener gqU;
+    private q gwG;
+    private a gwH;
+    private NetMessageListener gwI;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -25,7 +25,7 @@ public class b extends BdBaseModel<ALaCharmCardActivity> {
 
     public b(TbPageContext<ALaCharmCardActivity> tbPageContext, a aVar) {
         super(tbPageContext);
-        this.gqU = new NetMessageListener(1021008, 602004) { // from class: com.baidu.tieba.ala.charm.model.b.1
+        this.gwI = new NetMessageListener(1021008, 602004) { // from class: com.baidu.tieba.ala.charm.model.b.1
             @Override // com.baidu.live.adp.framework.listener.NetMessageListener
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 q qVar;
@@ -36,28 +36,28 @@ public class b extends BdBaseModel<ALaCharmCardActivity> {
                     int error = responsedMessage.getError();
                     if (responsedMessage instanceof OnlineListHttpResponseMessage) {
                         OnlineListHttpResponseMessage onlineListHttpResponseMessage = (OnlineListHttpResponseMessage) responsedMessage;
-                        j = onlineListHttpResponseMessage.bOP();
-                        q bOQ = onlineListHttpResponseMessage.bOQ();
-                        alaLiveUserInfoData = onlineListHttpResponseMessage.bOR();
-                        j2 = onlineListHttpResponseMessage.bOS();
-                        qVar = bOQ;
+                        j = onlineListHttpResponseMessage.bRp();
+                        q bRq = onlineListHttpResponseMessage.bRq();
+                        alaLiveUserInfoData = onlineListHttpResponseMessage.bRr();
+                        j2 = onlineListHttpResponseMessage.bRs();
+                        qVar = bRq;
                     } else {
                         qVar = null;
                         j = 0;
                     }
                     if (error == 0) {
-                        b.this.gqS = qVar;
-                        if (b.this.gqT != null) {
-                            b.this.gqT.a(j, b.this.gqS, alaLiveUserInfoData, j2);
+                        b.this.gwG = qVar;
+                        if (b.this.gwH != null) {
+                            b.this.gwH.a(j, b.this.gwG, alaLiveUserInfoData, j2);
                         }
-                    } else if (b.this.gqT != null) {
-                        b.this.gqT.t(responsedMessage.getError(), responsedMessage.getErrorString());
+                    } else if (b.this.gwH != null) {
+                        b.this.gwH.t(responsedMessage.getError(), responsedMessage.getErrorString());
                     }
                 }
             }
         };
-        this.gqT = aVar;
-        MessageManager.getInstance().registerListener(this.gqU);
+        this.gwH = aVar;
+        MessageManager.getInstance().registerListener(this.gwI);
         com.baidu.live.tieba.f.a.a.a(1021008, "ala/live/getAudienceInfo", OnlineListHttpResponseMessage.class, false, true, true, true);
     }
 
@@ -78,7 +78,7 @@ public class b extends BdBaseModel<ALaCharmCardActivity> {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.gqU);
+        MessageManager.getInstance().unRegisterListener(this.gwI);
         MessageManager.getInstance().unRegisterTask(1021008);
         cancelMessage();
     }

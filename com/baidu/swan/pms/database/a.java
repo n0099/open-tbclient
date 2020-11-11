@@ -14,25 +14,25 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes15.dex */
 public abstract class a {
-    private static volatile a eby;
+    private static volatile a ehq;
 
     public abstract boolean a(f fVar, PMSAppInfo pMSAppInfo);
 
     public abstract boolean a(f fVar, List<g> list, d dVar, com.baidu.swan.pms.model.b bVar, PMSAppInfo pMSAppInfo);
 
-    public abstract Map<String, f> aYI();
-
-    public abstract Map<String, PMSAppInfo> aYJ();
-
-    public abstract boolean ac(String str, int i);
-
-    @WorkerThread
-    @NonNull
-    public abstract List<g> ad(@NonNull String str, int i);
+    public abstract boolean ae(String str, int i);
 
     public abstract boolean ae(String str, String str2, String str3);
 
+    @WorkerThread
+    @NonNull
+    public abstract List<g> af(@NonNull String str, int i);
+
     public abstract <T extends e> boolean b(Class<T> cls, String str);
+
+    public abstract Map<String, f> bbi();
+
+    public abstract Map<String, PMSAppInfo> bbj();
 
     public abstract <T extends e> T c(Class<T> cls, String str);
 
@@ -51,25 +51,25 @@ public abstract class a {
     public abstract boolean s(PMSAppInfo pMSAppInfo);
 
     @Nullable
-    public abstract i xX(String str);
+    public abstract i yl(String str);
 
-    public abstract PMSAppInfo xY(String str);
+    public abstract PMSAppInfo ym(String str);
 
-    public abstract boolean xZ(String str);
+    public abstract boolean yn(String str);
 
     @WorkerThread
-    public abstract int ya(@NonNull String str);
+    public abstract int yo(@NonNull String str);
 
-    public abstract void yb(String str);
+    public abstract void yp(String str);
 
-    public static a aYH() {
-        if (eby == null) {
+    public static a bbh() {
+        if (ehq == null) {
             synchronized (a.class) {
-                if (eby == null) {
-                    eby = new b();
+                if (ehq == null) {
+                    ehq = new b();
                 }
             }
         }
-        return eby;
+        return ehq;
     }
 }

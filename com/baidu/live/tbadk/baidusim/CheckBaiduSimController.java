@@ -41,7 +41,7 @@ public class CheckBaiduSimController {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003392 && (httpResponsedMessage instanceof CheckBaiduSimResponseMessage)) {
                 CheckBaiduSimController.this.isSendingCheckBaiduSim = false;
                 if (((CheckBaiduSimResponseMessage) httpResponsedMessage).isSuc) {
-                    SharedPrefHelper.getInstance().putString(SharedPrefConfig.KEY_BAIDU_SIM_CARD_WRITTING_TIP, ((CheckBaiduSimResponseMessage) httpResponsedMessage).isBaiduSim ? TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_baidu_sim_traffic_free) : "");
+                    SharedPrefHelper.getInstance().putString(SharedPrefConfig.KEY_BAIDU_SIM_CARD_WRITTING_TIP, ((CheckBaiduSimResponseMessage) httpResponsedMessage).isBaiduSim ? TbadkCoreApplication.getInst().getResources().getString(a.h.sdk_baidu_sim_traffic_free) : "");
                     MessageManager.getInstance().unRegisterTask(1003392);
                 }
             }

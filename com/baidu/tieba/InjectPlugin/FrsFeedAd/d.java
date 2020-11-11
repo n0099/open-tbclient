@@ -14,9 +14,9 @@ public interface d extends com.baidu.tieba.InjectPlugin.a.a<com.baidu.tieba.Inje
 
     void a(List<c> list, List<c> list2, boolean z, int i);
 
-    void bC(List<Object> list);
+    List<Integer> bHF();
 
-    List<Integer> bFg();
+    void bJ(List<Object> list);
 
     void changeSkinType(int i);
 

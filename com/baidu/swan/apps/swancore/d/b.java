@@ -4,47 +4,47 @@ import android.support.annotation.Nullable;
 import com.baidu.swan.apps.u.c.c;
 /* loaded from: classes10.dex */
 public class b {
-    public boolean dvs;
-    public boolean dvt;
+    public boolean dBk;
+    public boolean dBl;
     @Nullable
-    public c dvu;
-    public String dvv;
+    public c dBm;
+    public String dBn;
 
     private b() {
-        this.dvs = false;
-        this.dvt = false;
-        this.dvu = null;
-        this.dvv = "";
+        this.dBk = false;
+        this.dBl = false;
+        this.dBm = null;
+        this.dBn = "";
     }
 
     /* loaded from: classes10.dex */
     public static class a {
-        private boolean dvs = false;
-        private boolean dvt = false;
+        private boolean dBk = false;
+        private boolean dBl = false;
         @Nullable
-        private c dvu = null;
-        private String dvv = "";
+        private c dBm = null;
+        private String dBn = "";
 
-        public static a aIH() {
+        public static a aLh() {
             return new a();
         }
 
-        public a gD(boolean z) {
-            this.dvs = z;
+        public a gM(boolean z) {
+            this.dBk = z;
             return this;
         }
 
-        public a tD(String str) {
-            this.dvv = str;
+        public a tR(String str) {
+            this.dBn = str;
             return this;
         }
 
-        public b aII() {
+        public b aLi() {
             b bVar = new b();
-            bVar.dvs = this.dvs;
-            bVar.dvt = this.dvt;
-            bVar.dvu = this.dvu;
-            bVar.dvv = this.dvv;
+            bVar.dBk = this.dBk;
+            bVar.dBl = this.dBl;
+            bVar.dBm = this.dBm;
+            bVar.dBn = this.dBn;
             return bVar;
         }
     }

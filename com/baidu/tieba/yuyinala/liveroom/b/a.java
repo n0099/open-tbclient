@@ -9,7 +9,7 @@ import com.baidu.live.tbadk.TbPageContext;
 public class a {
     private final boolean mIsHost;
     private TbPageContext mTbPageContext;
-    private b nOq;
+    private b nUn;
 
     public a(TbPageContext tbPageContext, boolean z) {
         this.mTbPageContext = tbPageContext;
@@ -20,21 +20,22 @@ public class a {
         if (viewGroup != null) {
             try {
                 if (this.mTbPageContext != null && wVar != null) {
-                    if (this.nOq != null && this.nOq.getView().getParent() != null) {
-                        ((ViewGroup) this.nOq.getView().getParent()).removeView(this.nOq.getView());
+                    if (this.nUn != null && this.nUn.getView().getParent() != null) {
+                        ((ViewGroup) this.nUn.getView().getParent()).removeView(this.nUn.getView());
                     }
-                    if (this.nOq == null) {
-                        this.nOq = new b(this.mTbPageContext);
+                    if (this.nUn == null) {
+                        this.nUn = new b(this.mTbPageContext);
                     }
-                    bUz();
+                    this.nUn.getView().setId(a.f.ala_liveroom_live_id);
+                    bWZ();
                     RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
                     layoutParams.addRule(11);
-                    layoutParams.rightMargin = this.mTbPageContext.getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds24);
-                    layoutParams.addRule(3, a.g.ala_liveroom_hostheader);
-                    layoutParams.topMargin = this.mTbPageContext.getPageActivity().getResources().getDimensionPixelOffset(a.e.sdk_ds58);
-                    viewGroup.addView(this.nOq.getView(), layoutParams);
-                    if (wVar.aIS != null) {
-                        this.nOq.ew(Long.valueOf(wVar.aIS.croom_id).longValue());
+                    layoutParams.rightMargin = this.mTbPageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds24);
+                    layoutParams.addRule(3, a.f.ala_liveroom_hostheader);
+                    layoutParams.topMargin = this.mTbPageContext.getPageActivity().getResources().getDimensionPixelOffset(a.d.sdk_ds58);
+                    viewGroup.addView(this.nUn.getView(), layoutParams);
+                    if (wVar.aJK != null) {
+                        this.nUn.eS(Long.valueOf(wVar.aJK.croom_id).longValue());
                     }
                 }
             } catch (Exception e) {
@@ -42,12 +43,12 @@ public class a {
         }
     }
 
-    public void bUz() {
-        if (this.nOq != null && this.nOq.getView() != null && this.nOq.getView().getParent() != null) {
-            ((ViewGroup) this.nOq.getView().getParent()).removeView(this.nOq.getView());
+    public void bWZ() {
+        if (this.nUn != null && this.nUn.getView() != null && this.nUn.getView().getParent() != null) {
+            ((ViewGroup) this.nUn.getView().getParent()).removeView(this.nUn.getView());
         }
     }
 
-    public void GS() {
+    public void Ht() {
     }
 }

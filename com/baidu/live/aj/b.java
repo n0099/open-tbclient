@@ -1,171 +1,35 @@
 package com.baidu.live.aj;
 
-import com.baidu.live.data.AlaWheatInfoData;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.FrameLayout;
 import com.baidu.live.data.w;
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class b implements c {
-    private static volatile b bIB;
-    private c bIC;
+public interface b {
+    void L(Object obj);
 
-    public static b UH() {
-        if (bIB == null) {
-            bIB = new b();
-        }
-        return bIB;
-    }
+    void QD();
 
-    private b() {
-    }
+    boolean QE();
 
-    @Override // com.baidu.live.aj.c
-    public boolean UI() {
-        if (this.bIC != null) {
-            return this.bIC.UI();
-        }
-        return false;
-    }
+    boolean QF();
 
-    @Override // com.baidu.live.aj.c
-    public boolean iI(String str) {
-        if (this.bIC != null) {
-            return this.bIC.iI(str);
-        }
-        return false;
-    }
+    void U(JSONObject jSONObject);
 
-    @Override // com.baidu.live.aj.c
-    public boolean iJ(String str) {
-        if (this.bIC != null) {
-            return this.bIC.iJ(str);
-        }
-        return false;
-    }
+    void Y(View view);
 
-    @Override // com.baidu.live.aj.c
-    public boolean iK(String str) {
-        if (this.bIC != null) {
-            return this.bIC.iK(str);
-        }
-        return false;
-    }
+    void a(FrameLayout frameLayout);
 
-    @Override // com.baidu.live.aj.c
-    public AlaWheatInfoData iL(String str) {
-        if (this.bIC != null) {
-            return this.bIC.iL(str);
-        }
-        return null;
-    }
+    void a(a aVar);
 
-    @Override // com.baidu.live.aj.c
-    public AlaWheatInfoData UJ() {
-        if (this.bIC != null) {
-            return this.bIC.UJ();
-        }
-        return null;
-    }
+    View getEnterView();
 
-    @Override // com.baidu.live.aj.c
-    public void F(String str, boolean z) {
-        if (this.bIC != null) {
-            this.bIC.F(str, z);
-        }
-    }
+    void onDestroy();
 
-    @Override // com.baidu.live.aj.c
-    public boolean iM(String str) {
-        if (this.bIC != null) {
-            return this.bIC.iM(str);
-        }
-        return false;
-    }
+    boolean onKeyDown(int i, KeyEvent keyEvent);
 
-    public void a(c cVar) {
-        this.bIC = cVar;
-    }
+    void setLiveShowData(w wVar);
 
-    @Override // com.baidu.live.aj.c
-    public void a(a aVar) {
-        if (this.bIC != null) {
-            this.bIC.a(aVar);
-        }
-    }
-
-    @Override // com.baidu.live.aj.c
-    public List<AlaWheatInfoData> UK() {
-        if (this.bIC != null) {
-            return this.bIC.UK();
-        }
-        return null;
-    }
-
-    @Override // com.baidu.live.aj.c
-    public List<AlaWheatInfoData> UL() {
-        if (this.bIC != null) {
-            return this.bIC.UL();
-        }
-        return null;
-    }
-
-    @Override // com.baidu.live.aj.c
-    public String UM() {
-        if (this.bIC != null) {
-            return this.bIC.UM();
-        }
-        return null;
-    }
-
-    @Override // com.baidu.live.aj.c
-    public String UN() {
-        if (this.bIC != null) {
-            return this.bIC.UN();
-        }
-        return null;
-    }
-
-    @Override // com.baidu.live.aj.c
-    public String getCustomRoomId() {
-        if (this.bIC != null) {
-            return this.bIC.getCustomRoomId();
-        }
-        return null;
-    }
-
-    @Override // com.baidu.live.aj.c
-    public w UO() {
-        if (this.bIC != null) {
-            return this.bIC.UO();
-        }
-        return null;
-    }
-
-    @Override // com.baidu.live.aj.c
-    public String UP() {
-        if (this.bIC != null) {
-            return this.bIC.UP();
-        }
-        return null;
-    }
-
-    @Override // com.baidu.live.aj.c
-    public void muteOrUnmuteAudio(boolean z) {
-        if (this.bIC != null) {
-            this.bIC.muteOrUnmuteAudio(z);
-        }
-    }
-
-    @Override // com.baidu.live.aj.c
-    public void UQ() {
-        if (this.bIC != null) {
-            this.bIC.UQ();
-        }
-    }
-
-    @Override // com.baidu.live.aj.c
-    public void UR() {
-        if (this.bIC != null) {
-            this.bIC.UR();
-        }
-    }
+    void setMute(boolean z);
 }

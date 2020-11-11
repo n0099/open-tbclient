@@ -851,6 +851,7 @@ public class MediaCodecVideoDecoder {
         arrayList.add("OMX.IMG.");
         arrayList.add("OMX.amlogic.");
         arrayList.add("OMX.google.");
+        arrayList.add("OMX.sprd.");
         return (String[]) arrayList.toArray(new String[arrayList.size()]);
     }
 

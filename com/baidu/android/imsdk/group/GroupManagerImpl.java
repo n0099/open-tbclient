@@ -29,7 +29,7 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class GroupManagerImpl {
     private static final String TAG = GroupManagerImpl.class.getSimpleName();
     private static Context mContext;

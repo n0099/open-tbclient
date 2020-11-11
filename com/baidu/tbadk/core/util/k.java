@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class k extends Thread {
-    private String eFY = "1";
+    private String eLN = "1";
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
@@ -16,12 +16,12 @@ public class k extends Thread {
             aaVar.addPostData("st_type", TbConfig.ST_TYPE_ENTER_FORE);
             aaVar.addPostData("os_version", Build.VERSION.RELEASE);
             aaVar.addPostData(MapController.ANDROID_SDK_LAYER_TAG, String.valueOf(Build.VERSION.SDK_INT));
-            aaVar.addPostData("op_type", this.eFY);
+            aaVar.addPostData("op_type", this.eLN);
             aaVar.postNetData();
         }
     }
 
     public void setOpType(String str) {
-        this.eFY = str;
+        this.eLN = str;
     }
 }

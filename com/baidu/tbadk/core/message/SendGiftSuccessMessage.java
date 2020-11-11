@@ -25,13 +25,13 @@ public class SendGiftSuccessMessage extends CustomResponsedMessage {
     /* loaded from: classes.dex */
     public static class a {
         private int count;
-        private int eEN;
-        private String eEO;
+        private int eKC;
+        private String eKD;
         private String name;
         private String url;
 
         public void setId(int i) {
-            this.eEN = i;
+            this.eKC = i;
         }
 
         public void setName(String str) {
@@ -46,8 +46,8 @@ public class SendGiftSuccessMessage extends CustomResponsedMessage {
             this.url = str;
         }
 
-        public void Bj(String str) {
-            this.eEO = str;
+        public void Bx(String str) {
+            this.eKD = str;
         }
     }
 }

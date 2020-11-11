@@ -411,7 +411,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
             for (int i6 = 0; i6 < childCount; i6++) {
                 getChildAt(i6).forceLayout();
             }
-            this.mRecycler.Qn();
+            this.mRecycler.SX();
         }
         com.huewu.pla.lib.a.i("onLayout");
         layoutChildren();
@@ -447,12 +447,12 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
     public View obtainView(int i2, boolean[] zArr) {
         View view;
         zArr[0] = false;
-        View fp = this.mRecycler.fp(i2);
-        if (fp != null) {
-            view = this.mAdapter.getView(i2, fp, this);
-            if (view != fp) {
+        View fC = this.mRecycler.fC(i2);
+        if (fC != null) {
+            view = this.mAdapter.getView(i2, fC, this);
+            if (view != fC) {
                 com.huewu.pla.lib.a.i("obtainView");
-                this.mRecycler.dW(fp);
+                this.mRecycler.ee(fC);
                 if (this.mCacheColorHint != 0) {
                     view.setDrawingCacheBackgroundColor(this.mCacheColorHint);
                 }
@@ -502,7 +502,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
     @Override // android.view.View
     protected void onSizeChanged(int i2, int i3, int i4, int i5) {
         if (getChildCount() > 0) {
-            com.huewu.pla.lib.a.Yb("data changed by onSizeChanged()");
+            com.huewu.pla.lib.a.YF("data changed by onSizeChanged()");
             this.mDataChanged = true;
             rememberSyncState();
         }
@@ -626,7 +626,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
             setChildrenDrawingCacheEnabled(false);
             if (this.mFlingRunnable != null) {
                 removeCallbacks(this.mFlingRunnable);
-                this.mFlingRunnable.Ql();
+                this.mFlingRunnable.SV();
                 if (getScrollY() != 0) {
                     scrollTo(getScrollX(), 0);
                     invalidate();
@@ -646,23 +646,23 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
 
     /* loaded from: classes7.dex */
     private class i {
-        private int buE;
+        private int bAP;
 
         private i() {
         }
 
-        public void Qs() {
-            this.buE = PLA_AbsListView.this.getWindowAttachCount();
+        public void Tc() {
+            this.bAP = PLA_AbsListView.this.getWindowAttachCount();
         }
 
-        public boolean Qt() {
-            return PLA_AbsListView.this.hasWindowFocus() && PLA_AbsListView.this.getWindowAttachCount() == this.buE;
+        public boolean Td() {
+            return PLA_AbsListView.this.hasWindowFocus() && PLA_AbsListView.this.getWindowAttachCount() == this.bAP;
         }
     }
 
     /* loaded from: classes7.dex */
     private class d extends i implements Runnable {
-        int bug;
+        int bAr;
         View mChild;
 
         private d() {
@@ -673,8 +673,8 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
         public void run() {
             if (!PLA_AbsListView.this.mDataChanged) {
                 ListAdapter listAdapter = PLA_AbsListView.this.mAdapter;
-                int i = this.bug;
-                if (listAdapter != null && PLA_AbsListView.this.mItemCount > 0 && i != -1 && i < listAdapter.getCount() && Qt()) {
+                int i = this.bAr;
+                if (listAdapter != null && PLA_AbsListView.this.mItemCount > 0 && i != -1 && i < listAdapter.getCount() && Td()) {
                     PLA_AbsListView.this.performItemClick(this.mChild, i, listAdapter.getItemId(i));
                 }
             }
@@ -873,8 +873,8 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
                             }
                             final d dVar = this.mPerformClick;
                             dVar.mChild = childAt;
-                            dVar.bug = i3;
-                            dVar.Qs();
+                            dVar.bAr = i3;
+                            dVar.Tc();
                             this.mResurrectToPosition = i3;
                             if (this.mTouchMode == 0 || this.mTouchMode == 1) {
                                 this.mLayoutMode = 0;
@@ -1107,7 +1107,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
             PLA_AbsListView.this.post(this);
         }
 
-        void dO(int i, int i2) {
+        void dR(int i, int i2) {
             int i3 = i < 0 ? ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED : 0;
             this.mLastFlingY = i3;
             this.mScroller.startScroll(0, i3, 0, i, i2);
@@ -1116,7 +1116,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void Ql() {
+        public void SV() {
             this.mLastFlingY = 0;
             PLA_AbsListView.this.mTouchMode = -1;
             PLA_AbsListView.this.reportScrollStateChange(0);
@@ -1134,7 +1134,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
             switch (PLA_AbsListView.this.mTouchMode) {
                 case 4:
                     if (PLA_AbsListView.this.mItemCount == 0 || PLA_AbsListView.this.getChildCount() == 0) {
-                        Ql();
+                        SV();
                         return;
                     }
                     Scroller scroller = this.mScroller;
@@ -1157,7 +1157,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
                         PLA_AbsListView.this.post(this);
                         return;
                     }
-                    Ql();
+                    SV();
                     return;
                 default:
                     return;
@@ -1168,15 +1168,15 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
     public class e implements Runnable {
-        private int buh;
-        private int bui;
-        private int buj;
-        private int buk;
-        private final int bul;
+        private int bAs;
+        private int bAt;
+        private int bAu;
+        private int bAv;
+        private final int bAw;
         private int mMode;
 
         e() {
-            this.bul = ViewConfiguration.get(PLA_AbsListView.this.getContext()).getScaledFadingEdgeLength();
+            this.bAw = ViewConfiguration.get(PLA_AbsListView.this.getContext()).getScaledFadingEdgeLength();
         }
 
         void start(int i) {
@@ -1193,13 +1193,13 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
                 return;
             }
             if (i2 > 0) {
-                this.buk = 400 / i2;
+                this.bAv = 400 / i2;
             } else {
-                this.buk = 400;
+                this.bAv = 400;
             }
-            this.buh = i;
-            this.bui = -1;
-            this.buj = -1;
+            this.bAs = i;
+            this.bAt = -1;
+            this.bAu = -1;
             PLA_AbsListView.this.post(this);
         }
 
@@ -1240,13 +1240,13 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
                 return;
             }
             if (i5 > 0) {
-                this.buk = 400 / i5;
+                this.bAv = 400 / i5;
             } else {
-                this.buk = 400;
+                this.bAv = 400;
             }
-            this.buh = i;
-            this.bui = i2;
-            this.buj = -1;
+            this.bAs = i;
+            this.bAt = i2;
+            this.bAu = -1;
             PLA_AbsListView.this.post(this);
         }
 
@@ -1264,14 +1264,14 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
                     int childCount = PLA_AbsListView.this.getChildCount() - 1;
                     int i2 = i + childCount;
                     if (childCount >= 0) {
-                        if (i2 == this.buj) {
+                        if (i2 == this.bAu) {
                             PLA_AbsListView.this.post(this);
                             return;
                         }
                         View childAt = PLA_AbsListView.this.getChildAt(childCount);
-                        PLA_AbsListView.this.smoothScrollBy((i2 < PLA_AbsListView.this.mItemCount + (-1) ? this.bul : PLA_AbsListView.this.mListPadding.bottom) + (childAt.getHeight() - (height - childAt.getTop())), this.buk);
-                        this.buj = i2;
-                        if (i2 < this.buh) {
+                        PLA_AbsListView.this.smoothScrollBy((i2 < PLA_AbsListView.this.mItemCount + (-1) ? this.bAw : PLA_AbsListView.this.mListPadding.bottom) + (childAt.getHeight() - (height - childAt.getTop())), this.bAv);
+                        this.bAu = i2;
+                        if (i2 < this.bAs) {
                             PLA_AbsListView.this.post(this);
                             return;
                         }
@@ -1279,15 +1279,15 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
                     }
                     return;
                 case 2:
-                    if (i == this.buj) {
+                    if (i == this.bAu) {
                         PLA_AbsListView.this.post(this);
                         return;
                     }
                     View childAt2 = PLA_AbsListView.this.getChildAt(0);
                     if (childAt2 != null) {
-                        PLA_AbsListView.this.smoothScrollBy(childAt2.getTop() - (i > 0 ? this.bul : PLA_AbsListView.this.mListPadding.top), this.buk);
-                        this.buj = i;
-                        if (i > this.buh) {
+                        PLA_AbsListView.this.smoothScrollBy(childAt2.getTop() - (i > 0 ? this.bAw : PLA_AbsListView.this.mListPadding.top), this.bAv);
+                        this.bAu = i;
+                        if (i > this.bAs) {
                             PLA_AbsListView.this.post(this);
                             return;
                         }
@@ -1296,23 +1296,23 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
                     return;
                 case 3:
                     int childCount2 = PLA_AbsListView.this.getChildCount();
-                    if (i != this.bui && childCount2 > 1 && childCount2 + i < PLA_AbsListView.this.mItemCount) {
+                    if (i != this.bAt && childCount2 > 1 && childCount2 + i < PLA_AbsListView.this.mItemCount) {
                         int i3 = i + 1;
-                        if (i3 == this.buj) {
+                        if (i3 == this.bAu) {
                             PLA_AbsListView.this.post(this);
                             return;
                         }
                         View childAt3 = PLA_AbsListView.this.getChildAt(1);
                         int height2 = childAt3.getHeight();
                         int top = childAt3.getTop();
-                        int i4 = this.bul;
-                        if (i3 < this.bui) {
-                            PLA_AbsListView.this.smoothScrollBy(Math.max(0, (top + height2) - i4), this.buk);
-                            this.buj = i3;
+                        int i4 = this.bAw;
+                        if (i3 < this.bAt) {
+                            PLA_AbsListView.this.smoothScrollBy(Math.max(0, (top + height2) - i4), this.bAv);
+                            this.bAu = i3;
                             PLA_AbsListView.this.post(this);
                             return;
                         } else if (top > i4) {
-                            PLA_AbsListView.this.smoothScrollBy(top - i4, this.buk);
+                            PLA_AbsListView.this.smoothScrollBy(top - i4, this.bAv);
                             return;
                         } else {
                             return;
@@ -1323,7 +1323,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
                     int childCount3 = PLA_AbsListView.this.getChildCount() - 2;
                     if (childCount3 >= 0) {
                         int i5 = i + childCount3;
-                        if (i5 == this.buj) {
+                        if (i5 == this.bAu) {
                             PLA_AbsListView.this.post(this);
                             return;
                         }
@@ -1331,16 +1331,16 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
                         int height3 = childAt4.getHeight();
                         int top2 = childAt4.getTop();
                         int i6 = height - top2;
-                        this.buj = i5;
-                        if (i5 > this.bui) {
-                            PLA_AbsListView.this.smoothScrollBy(-(i6 - this.bul), this.buk);
+                        this.bAu = i5;
+                        if (i5 > this.bAt) {
+                            PLA_AbsListView.this.smoothScrollBy(-(i6 - this.bAw), this.bAv);
                             PLA_AbsListView.this.post(this);
                             return;
                         }
-                        int i7 = height - this.bul;
+                        int i7 = height - this.bAw;
                         int i8 = top2 + height3;
                         if (i7 > i8) {
-                            PLA_AbsListView.this.smoothScrollBy(-(i7 - i8), this.buk);
+                            PLA_AbsListView.this.smoothScrollBy(-(i7 - i8), this.bAv);
                             return;
                         }
                         return;
@@ -1368,11 +1368,11 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
 
     public void smoothScrollBy(int i2, int i3) {
         if (this.mFlingRunnable != null) {
-            this.mFlingRunnable.Ql();
+            this.mFlingRunnable.SV();
         } else {
             this.mFlingRunnable = new b();
         }
-        this.mFlingRunnable.dO(i2, i3);
+        this.mFlingRunnable.dR(i2, i3);
     }
 
     private void createScrollingCache() {
@@ -1453,7 +1453,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
                 int i9 = i4 + 1;
                 int i10 = i5 + i8;
                 if (i10 >= headerViewsCount && i10 < footerViewsCount) {
-                    this.mRecycler.dW(childAt);
+                    this.mRecycler.ee(childAt);
                 }
                 i8++;
                 i4 = i9;
@@ -1469,7 +1469,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
                 int i12 = i4 + 1;
                 int i13 = i5 + i11;
                 if (i13 >= headerViewsCount && i13 < footerViewsCount) {
-                    this.mRecycler.dW(childAt2);
+                    this.mRecycler.ee(childAt2);
                 }
                 i4 = i12;
                 i6 = i11;
@@ -1530,7 +1530,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
     }
 
     public void invalidateViews() {
-        com.huewu.pla.lib.a.Yb("data changed by invalidateViews()");
+        com.huewu.pla.lib.a.YF("data changed by invalidateViews()");
         this.mDataChanged = true;
         rememberSyncState();
         requestLayout();
@@ -1694,34 +1694,34 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
 
     public void reclaimViews(List<View> list) {
         int childCount = getChildCount();
-        g gVar = this.mRecycler.oXN;
+        g gVar = this.mRecycler.phi;
         for (int i2 = 0; i2 < childCount; i2++) {
             View childAt = getChildAt(i2);
             LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
-            if (layoutParams != null && this.mRecycler.fm(layoutParams.bua)) {
+            if (layoutParams != null && this.mRecycler.fz(layoutParams.bAm)) {
                 list.add(childAt);
                 if (gVar != null) {
                     gVar.onMovedToScrapHeap(childAt);
                 }
             }
         }
-        this.mRecycler.dJ(list);
+        this.mRecycler.dR(list);
         removeAllViewsInLayout();
     }
 
     public void setRecyclerListener(g gVar) {
-        this.mRecycler.oXN = gVar;
+        this.mRecycler.phi = gVar;
     }
 
     /* loaded from: classes7.dex */
     public static class LayoutParams extends ViewGroup.LayoutParams {
         @ViewDebug.ExportedProperty(mapping = {@ViewDebug.IntToString(from = -1, to = "ITEM_VIEW_TYPE_IGNORE"), @ViewDebug.IntToString(from = -2, to = "ITEM_VIEW_TYPE_HEADER_OR_FOOTER")})
-        public int bua;
+        public int bAm;
         @ViewDebug.ExportedProperty
-        public boolean bub;
+        public boolean bAn;
         @ViewDebug.ExportedProperty
-        public boolean buc;
-        public int bud;
+        public boolean bAo;
+        public int bAp;
 
         public LayoutParams(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
@@ -1729,7 +1729,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
 
         public LayoutParams(int i, int i2, int i3) {
             super(i, i2);
-            this.bua = i3;
+            this.bAm = i3;
         }
 
         public LayoutParams(ViewGroup.LayoutParams layoutParams) {
@@ -1740,17 +1740,17 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
     public class f {
-        private int bur;
-        private View[] bus = new View[0];
-        private int buu;
-        private g oXN;
-        private Stack<View>[] oXO;
-        private Stack<View> oXP;
+        private int bAC;
+        private View[] bAD = new View[0];
+        private int bAF;
+        private g phi;
+        private Stack<View>[] phj;
+        private Stack<View> phk;
 
         f() {
         }
 
-        public void fl(int i) {
+        public void fy(int i) {
             if (i < 1) {
                 throw new IllegalArgumentException("Can't have a viewTypeCount < 1");
             }
@@ -1758,23 +1758,23 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
             for (int i2 = 0; i2 < i; i2++) {
                 stackArr[i2] = new Stack<>();
             }
-            this.buu = i;
-            this.oXP = stackArr[0];
-            this.oXO = stackArr;
+            this.bAF = i;
+            this.phk = stackArr[0];
+            this.phj = stackArr;
         }
 
-        public void Qn() {
-            if (this.buu == 1) {
-                Stack<View> stack = this.oXP;
+        public void SX() {
+            if (this.bAF == 1) {
+                Stack<View> stack = this.phk;
                 int size = stack.size();
                 for (int i = 0; i < size; i++) {
                     stack.get(i).forceLayout();
                 }
                 return;
             }
-            int i2 = this.buu;
+            int i2 = this.bAF;
             for (int i3 = 0; i3 < i2; i3++) {
-                Stack<View> stack2 = this.oXO[i3];
+                Stack<View> stack2 = this.phj[i3];
                 int size2 = stack2.size();
                 for (int i4 = 0; i4 < size2; i4++) {
                     stack2.get(i4).forceLayout();
@@ -1782,23 +1782,23 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
             }
         }
 
-        public boolean fm(int i) {
+        public boolean fz(int i) {
             return i >= 0;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public void clear() {
-            if (this.buu == 1) {
-                Stack<View> stack = this.oXP;
+            if (this.bAF == 1) {
+                Stack<View> stack = this.phk;
                 int size = stack.size();
                 for (int i = 0; i < size; i++) {
                     PLA_AbsListView.this.removeDetachedView(stack.remove((size - 1) - i), false);
                 }
                 return;
             }
-            int i2 = this.buu;
+            int i2 = this.bAF;
             for (int i3 = 0; i3 < i2; i3++) {
-                Stack<View> stack2 = this.oXO[i3];
+                Stack<View> stack2 = this.phj[i3];
                 int size2 = stack2.size();
                 for (int i4 = 0; i4 < size2; i4++) {
                     PLA_AbsListView.this.removeDetachedView(stack2.remove((size2 - 1) - i4), false);
@@ -1808,24 +1808,24 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public void L(int i, int i2) {
-            if (this.bus.length < i) {
-                this.bus = new View[i];
+            if (this.bAD.length < i) {
+                this.bAD = new View[i];
             }
-            this.bur = i2;
-            View[] viewArr = this.bus;
+            this.bAC = i2;
+            View[] viewArr = this.bAD;
             for (int i3 = 0; i3 < i; i3++) {
                 View childAt = PLA_AbsListView.this.getChildAt(i3);
                 LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
-                if (layoutParams != null && layoutParams.bua != -2) {
+                if (layoutParams != null && layoutParams.bAm != -2) {
                     viewArr[i3] = childAt;
                 }
             }
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public View fn(int i) {
-            int i2 = i - this.bur;
-            View[] viewArr = this.bus;
+        public View fA(int i) {
+            int i2 = i - this.bAC;
+            View[] viewArr = this.bAD;
             if (i2 < 0 || i2 >= viewArr.length) {
                 return null;
             }
@@ -1834,24 +1834,24 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
             return view;
         }
 
-        View fp(int i) {
+        View fC(int i) {
             Stack<View> stack;
             com.huewu.pla.lib.a.i("getFromScrap: " + i);
             if (PLA_AbsListView.this.getHeaderViewsCount() > i) {
                 return null;
             }
-            if (this.buu == 1) {
-                stack = this.oXP;
+            if (this.bAF == 1) {
+                stack = this.phk;
             } else {
                 int itemViewType = PLA_AbsListView.this.mAdapter.getItemViewType(i);
-                if (itemViewType < 0 || itemViewType >= this.oXO.length) {
+                if (itemViewType < 0 || itemViewType >= this.phj.length) {
                     return null;
                 }
-                stack = this.oXO[itemViewType];
+                stack = this.phj[itemViewType];
             }
             int size = stack.size();
             for (int i2 = size - 1; i2 >= 0; i2--) {
-                if (((LayoutParams) stack.get(i2).getLayoutParams()).bud == i) {
+                if (((LayoutParams) stack.get(i2).getLayoutParams()).bAp == i) {
                     return stack.remove(i2);
                 }
             }
@@ -1862,65 +1862,65 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void dW(View view) {
+        public void ee(View view) {
             com.huewu.pla.lib.a.i("addToScrap");
             LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
             if (layoutParams != null) {
-                int i = layoutParams.bua;
-                if (!fm(i)) {
+                int i = layoutParams.bAm;
+                if (!fz(i)) {
                     if (i != -2) {
                         PLA_AbsListView.this.removeDetachedView(view, false);
                         return;
                     }
                     return;
                 }
-                if (this.buu == 1) {
+                if (this.bAF == 1) {
                     PLA_AbsListView.this.dispatchFinishTemporaryDetach(view);
-                    this.oXP.add(view);
+                    this.phk.add(view);
                 } else {
                     PLA_AbsListView.this.dispatchFinishTemporaryDetach(view);
-                    this.oXO[i].push(view);
+                    this.phj[i].push(view);
                 }
-                if (this.oXN != null) {
-                    this.oXN.onMovedToScrapHeap(view);
+                if (this.phi != null) {
+                    this.phi.onMovedToScrapHeap(view);
                 }
             }
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void Qq() {
-            View[] viewArr = this.bus;
-            boolean z = this.oXN != null;
-            boolean z2 = this.buu > 1;
-            Stack<View> stack = this.oXP;
+        public void Ta() {
+            View[] viewArr = this.bAD;
+            boolean z = this.phi != null;
+            boolean z2 = this.bAF > 1;
+            Stack<View> stack = this.phk;
             for (int length = viewArr.length - 1; length >= 0; length--) {
                 View view = viewArr[length];
                 if (view != null) {
-                    int i = ((LayoutParams) view.getLayoutParams()).bua;
+                    int i = ((LayoutParams) view.getLayoutParams()).bAm;
                     viewArr[length] = null;
-                    if (!fm(i)) {
+                    if (!fz(i)) {
                         if (i != -2) {
                             PLA_AbsListView.this.removeDetachedView(view, false);
                         }
                     } else {
-                        Stack<View> stack2 = z2 ? this.oXO[i] : stack;
+                        Stack<View> stack2 = z2 ? this.phj[i] : stack;
                         PLA_AbsListView.this.dispatchFinishTemporaryDetach(view);
                         com.huewu.pla.lib.a.i("addToScrap from scrapActiveViews");
                         stack2.add(view);
                         if (z) {
-                            this.oXN.onMovedToScrapHeap(view);
+                            this.phi.onMovedToScrapHeap(view);
                         }
                         stack = stack2;
                     }
                 }
             }
-            Qr();
+            Tb();
         }
 
-        private void Qr() {
-            int length = this.bus.length;
-            int i = this.buu;
-            Stack<View>[] stackArr = this.oXO;
+        private void Tb() {
+            int length = this.bAD.length;
+            int i = this.bAF;
+            Stack<View>[] stackArr = this.phj;
             for (int i2 = 0; i2 < i; i2++) {
                 Stack<View> stack = stackArr[i2];
                 int size = stack.size();
@@ -1936,13 +1936,13 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
             }
         }
 
-        void dJ(List<View> list) {
-            if (this.buu == 1) {
-                list.addAll(this.oXP);
+        void dR(List<View> list) {
+            if (this.bAF == 1) {
+                list.addAll(this.phk);
                 return;
             }
-            int i = this.buu;
-            Stack<View>[] stackArr = this.oXO;
+            int i = this.bAF;
+            Stack<View>[] stackArr = this.phj;
             for (int i2 = 0; i2 < i; i2++) {
                 Stack<View> stack = stackArr[i2];
                 com.huewu.pla.lib.a.i("add scarp views from reclaimScrapViews");
@@ -1952,23 +1952,23 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
 
         void setCacheColorHint(int i) {
             View[] viewArr;
-            if (this.buu == 1) {
-                Stack<View> stack = this.oXP;
+            if (this.bAF == 1) {
+                Stack<View> stack = this.phk;
                 int size = stack.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     stack.get(i2).setDrawingCacheBackgroundColor(i);
                 }
             } else {
-                int i3 = this.buu;
+                int i3 = this.bAF;
                 for (int i4 = 0; i4 < i3; i4++) {
-                    Stack<View> stack2 = this.oXO[i4];
+                    Stack<View> stack2 = this.phj[i4];
                     int size2 = stack2.size();
                     for (int i5 = 0; i5 < size2; i5++) {
                         stack2.get(i4).setDrawingCacheBackgroundColor(i);
                     }
                 }
             }
-            for (View view : this.bus) {
+            for (View view : this.bAD) {
                 if (view != null) {
                     view.setDrawingCacheBackgroundColor(i);
                 }
@@ -2037,11 +2037,11 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
 
     /* loaded from: classes7.dex */
     static class h {
-        long buy;
+        long bAJ;
         int height;
-        int oXQ;
-        int oXR;
-        int[] oXS;
+        int phl;
+        int phm;
+        int[] phn;
         int position;
 
         h() {
@@ -2053,12 +2053,12 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
         Bundle bundle = new Bundle();
         bundle.putParcelable("instanceState", super.onSaveInstanceState());
         if (this.mPendingSync != null) {
-            bundle.putLong("firstId", this.mPendingSync.buy);
-            bundle.putInt("viewTop", this.mPendingSync.oXQ);
-            bundle.putIntArray("viewTops", this.mPendingSync.oXS);
+            bundle.putLong("firstId", this.mPendingSync.bAJ);
+            bundle.putInt("viewTop", this.mPendingSync.phl);
+            bundle.putIntArray("viewTops", this.mPendingSync.phn);
             bundle.putInt("position", this.mPendingSync.position);
             bundle.putInt("height", this.mPendingSync.height);
-            bundle.putInt("childCount", this.mPendingSync.oXR);
+            bundle.putInt("childCount", this.mPendingSync.phm);
             return bundle;
         }
         bundle.putInt("height", getHeight());
@@ -2096,17 +2096,17 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
             if (j >= 0) {
                 this.mNeedSync = true;
                 h hVar = new h();
-                hVar.buy = j;
+                hVar.bAJ = j;
                 hVar.height = (int) this.mSyncHeight;
                 hVar.position = bundle.getInt("position");
-                hVar.oXQ = bundle.getInt("viewTop");
-                hVar.oXR = bundle.getInt("childCount");
-                hVar.oXS = bundle.getIntArray("viewTops");
+                hVar.phl = bundle.getInt("viewTop");
+                hVar.phm = bundle.getInt("childCount");
+                hVar.phn = bundle.getIntArray("viewTops");
                 this.mPendingSync = hVar;
-                this.mSyncRowId = hVar.buy;
+                this.mSyncRowId = hVar.bAJ;
                 this.mSyncPosition = hVar.position;
-                this.mSpecificTop = hVar.oXQ;
-                this.mSpecificTops = hVar.oXS;
+                this.mSpecificTop = hVar.phl;
+                this.mSpecificTops = hVar.phn;
             }
             parcelable = bundle.getParcelable("instanceState");
         }

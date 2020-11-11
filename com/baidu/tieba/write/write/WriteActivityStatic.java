@@ -57,8 +57,8 @@ import com.baidu.tieba.write.write.vote.WriteVoteActivity;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class WriteActivityStatic {
-    private static int nIr = 11;
-    private static int nIs = 18;
+    private static int nOl = 11;
+    private static int nOm = 18;
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(WriteActivityConfig.class, WriteActivity.class);
@@ -78,9 +78,9 @@ public class WriteActivityStatic {
         TbadkCoreApplication.getInst().RegisterIntent(AccountAccessActivityConfig.class, AccountAccessActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(WriteVoteActivityConfig.class, WriteVoteActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AddLinkActivityConfig.class, AddLinkActivity.class);
-        LocationModel.dIg();
-        cFN();
-        be.boR().a(UrlSchemaHelper.SCHEMA_TYPE_FEED_BACK, new be.b() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.1
+        LocationModel.dKI();
+        cIo();
+        be.brr().a(UrlSchemaHelper.SCHEMA_TYPE_FEED_BACK, new be.b() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.1
             @Override // com.baidu.tbadk.core.util.be.b
             public void a(TbPageContext<?> tbPageContext, Map<String, String> map) {
                 if (tbPageContext != null) {
@@ -96,7 +96,7 @@ public class WriteActivityStatic {
     /* JADX INFO: Access modifiers changed from: private */
     public static void K(TbPageContext<?> tbPageContext) {
         BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
-        if (Build.VERSION.SDK_INT <= nIs && Build.VERSION.SDK_INT >= nIr) {
+        if (Build.VERSION.SDK_INT <= nOm && Build.VERSION.SDK_INT >= nOl) {
             O(tbPageContext);
         } else {
             P(tbPageContext);
@@ -135,7 +135,7 @@ public class WriteActivityStatic {
         });
     }
 
-    public static void cFN() {
+    public static void cIo() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_SELECT_FORUM_CONTROLLER, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.3
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.tieba.c.c> run(CustomMessage<Object> customMessage) {
@@ -145,7 +145,7 @@ public class WriteActivityStatic {
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
         com.baidu.tieba.tbadkCore.a.a.c(309686, UrlParserSocketResponseMessage.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_URL_PARSER_MESSAGE, com.baidu.tieba.tbadkCore.a.a.bJ(TbConfig.URL_URL_PARSER, 309686));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_URL_PARSER_MESSAGE, com.baidu.tieba.tbadkCore.a.a.bL(TbConfig.URL_URL_PARSER, 309686));
         tbHttpMessageTask.setResponsedClass(UrlParserHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }

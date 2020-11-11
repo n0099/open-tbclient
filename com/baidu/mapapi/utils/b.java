@@ -40,7 +40,7 @@ public class b {
     private static final String c = b.class.getName();
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f2156a = -1;
+    public static int f2158a = -1;
     private static String g = null;
     private static String h = null;
     private static String i = null;
@@ -146,34 +146,34 @@ public class b {
         t = false;
         switch (i2) {
             case 0:
-                f2156a = 0;
+                f2158a = 0;
                 break;
             case 1:
-                f2156a = 1;
+                f2158a = 1;
                 break;
             case 2:
-                f2156a = 2;
+                f2158a = 2;
                 break;
             case 3:
-                f2156a = 3;
+                f2158a = 3;
                 break;
             case 4:
-                f2156a = 4;
+                f2158a = 4;
                 break;
             case 5:
-                f2156a = 5;
+                f2158a = 5;
                 break;
             case 6:
-                f2156a = 6;
+                f2158a = 6;
                 break;
             case 7:
-                f2156a = 7;
+                f2158a = 7;
                 break;
             case 8:
-                f2156a = 8;
+                f2158a = 8;
                 break;
             case 9:
-                f2156a = 9;
+                f2158a = 9;
                 break;
         }
         if (i2 == 9) {

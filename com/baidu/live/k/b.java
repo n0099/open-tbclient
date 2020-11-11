@@ -6,9 +6,9 @@ import com.baidu.live.pendantview.PendantParentView;
 import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public interface b {
-    void Kn();
+    void KN();
 
-    com.baidu.live.core.a.a MT();
+    com.baidu.live.core.a.a Nt();
 
     void U(View view);
 
@@ -20,9 +20,9 @@ public interface b {
 
     void dI(int i);
 
-    void hG(String str);
+    void h(w wVar);
 
-    void i(w wVar);
+    void hN(String str);
 
     void onPause();
 
@@ -30,5 +30,5 @@ public interface b {
 
     void release();
 
-    void y(com.baidu.live.im.data.a aVar);
+    void z(com.baidu.live.im.data.a aVar);
 }

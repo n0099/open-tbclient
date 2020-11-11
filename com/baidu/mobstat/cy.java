@@ -7,7 +7,7 @@ import java.util.TreeMap;
 public class cy implements cu {
 
     /* renamed from: a  reason: collision with root package name */
-    private byte[] f2610a;
+    private byte[] f2612a;
     private TreeMap<String, String> b = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
 
     @Override // com.baidu.mobstat.cx
@@ -26,7 +26,7 @@ public class cy implements cu {
 
     @Override // com.baidu.mobstat.cx
     public byte[] c() {
-        return this.f2610a;
+        return this.f2612a;
     }
 
     @Override // com.baidu.mobstat.cu

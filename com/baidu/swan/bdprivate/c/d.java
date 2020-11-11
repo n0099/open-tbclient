@@ -5,7 +5,7 @@ import com.baidu.swan.apps.setting.oauth.g;
 /* loaded from: classes8.dex */
 public class d implements s {
     @Override // com.baidu.swan.apps.adaptation.a.s
-    public g afJ() {
+    public g aij() {
         return new a();
     }
 }

@@ -7,18 +7,18 @@ import com.baidu.vi.VIContext;
 public class JNIInitializer {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f1957a;
+    private static Context f1959a;
 
     public static Context getCachedContext() {
-        return f1957a;
+        return f1959a;
     }
 
     public static void setContext(Application application) {
         if (application == null) {
             throw new RuntimeException();
         }
-        if (f1957a == null) {
-            f1957a = application;
+        if (f1959a == null) {
+            f1959a = application;
         }
         VIContext.init(application);
     }

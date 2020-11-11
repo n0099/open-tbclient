@@ -6,21 +6,21 @@ import com.baidu.mapsdkplatform.comapi.map.f;
 class p implements f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ CustomMapStyleCallBack f2078a;
+    final /* synthetic */ CustomMapStyleCallBack f2080a;
     final /* synthetic */ MapCustomStyleOptions b;
     final /* synthetic */ MapView c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(MapView mapView, CustomMapStyleCallBack customMapStyleCallBack, MapCustomStyleOptions mapCustomStyleOptions) {
         this.c = mapView;
-        this.f2078a = customMapStyleCallBack;
+        this.f2080a = customMapStyleCallBack;
         this.b = mapCustomStyleOptions;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.f.a
     public void a(int i, String str, String str2) {
         boolean z;
-        if (this.f2078a == null || !this.f2078a.onCustomMapStyleLoadFailed(i, str, str2)) {
+        if (this.f2080a == null || !this.f2080a.onCustomMapStyleLoadFailed(i, str, str2)) {
             z = this.c.B;
             if (z) {
                 return;
@@ -31,7 +31,7 @@ class p implements f.a {
 
     @Override // com.baidu.mapsdkplatform.comapi.map.f.a
     public void a(String str) {
-        if (this.f2078a == null || !this.f2078a.onPreLoadLastCustomMapStyle(str)) {
+        if (this.f2080a == null || !this.f2080a.onPreLoadLastCustomMapStyle(str)) {
             this.c.a(str, this.b);
             this.c.B = true;
         }
@@ -39,7 +39,7 @@ class p implements f.a {
 
     @Override // com.baidu.mapsdkplatform.comapi.map.f.a
     public void a(boolean z, String str) {
-        if ((this.f2078a == null || !this.f2078a.onCustomMapStyleLoadSuccess(z, str)) && z && !TextUtils.isEmpty(str)) {
+        if ((this.f2080a == null || !this.f2080a.onCustomMapStyleLoadSuccess(z, str)) && z && !TextUtils.isEmpty(str)) {
             this.c.a(str, 1);
             this.c.setMapCustomStyleEnable(true);
         }

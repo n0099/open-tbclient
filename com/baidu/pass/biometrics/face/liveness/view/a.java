@@ -12,7 +12,7 @@ import com.baidu.pass.utils.CommonViewUtility;
 public class a extends AppCompatDialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private ViewSwitcher f2755a;
+    private ViewSwitcher f2757a;
     private TextView b;
     private TextView c;
     private TextView d;
@@ -30,7 +30,7 @@ public class a extends AppCompatDialog {
     private void a() {
         setContentView(R.layout.layout_pass_liveness_alert_dialog);
         setCanceledOnTouchOutside(false);
-        this.f2755a = (ViewSwitcher) findViewById(R.id.view_switcher);
+        this.f2757a = (ViewSwitcher) findViewById(R.id.view_switcher);
         this.b = (TextView) findViewById(R.id.dialog_title);
         this.c = (TextView) findViewById(R.id.dialog_msg);
         this.d = (TextView) findViewById(R.id.msg_text);
@@ -85,9 +85,9 @@ public class a extends AppCompatDialog {
 
     public void a(int i) {
         if ((i < 1 ? 1 : Math.min(i, 2)) == 2) {
-            this.f2755a.setDisplayedChild(0);
+            this.f2757a.setDisplayedChild(0);
         } else {
-            this.f2755a.setDisplayedChild(1);
+            this.f2757a.setDisplayedChild(1);
         }
     }
 

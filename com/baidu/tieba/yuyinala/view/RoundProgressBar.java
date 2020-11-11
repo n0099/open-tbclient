@@ -11,8 +11,8 @@ import android.view.View;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class RoundProgressBar extends View {
-    private float aZm;
-    private int aZn;
+    private float baF;
+    private int baG;
     private int max;
     private Paint paint;
     private int progress;
@@ -32,14 +32,14 @@ public class RoundProgressBar extends View {
     public RoundProgressBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.paint = new Paint();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.k.RoundProgressBar);
-        this.roundColor = obtainStyledAttributes.getColor(a.k.RoundProgressBar_srp_roundColor, SupportMenu.CATEGORY_MASK);
-        this.roundWidth = obtainStyledAttributes.getDimension(a.k.RoundProgressBar_srp_roundWidth, 5.0f);
-        this.progressColor = obtainStyledAttributes.getColor(a.k.RoundProgressBar_srp_progressColor, -16711936);
-        this.aZm = obtainStyledAttributes.getDimension(a.k.RoundProgressBar_srp_progressWidth, this.roundWidth);
-        this.max = obtainStyledAttributes.getInteger(a.k.RoundProgressBar_srp_max, 100);
-        this.style = obtainStyledAttributes.getInt(a.k.RoundProgressBar_srp_style, 0);
-        this.aZn = obtainStyledAttributes.getInt(a.k.RoundProgressBar_srp_startAngle, 90);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.RoundProgressBar);
+        this.roundColor = obtainStyledAttributes.getColor(a.j.RoundProgressBar_srp_roundColor, SupportMenu.CATEGORY_MASK);
+        this.roundWidth = obtainStyledAttributes.getDimension(a.j.RoundProgressBar_srp_roundWidth, 5.0f);
+        this.progressColor = obtainStyledAttributes.getColor(a.j.RoundProgressBar_srp_progressColor, -16711936);
+        this.baF = obtainStyledAttributes.getDimension(a.j.RoundProgressBar_srp_progressWidth, this.roundWidth);
+        this.max = obtainStyledAttributes.getInteger(a.j.RoundProgressBar_srp_max, 100);
+        this.style = obtainStyledAttributes.getInt(a.j.RoundProgressBar_srp_style, 0);
+        this.baG = obtainStyledAttributes.getInt(a.j.RoundProgressBar_srp_startAngle, 90);
         obtainStyledAttributes.recycle();
     }
 
@@ -61,7 +61,7 @@ public class RoundProgressBar extends View {
                 break;
         }
         canvas.drawCircle(width, width, i, this.paint);
-        this.paint.setStrokeWidth(this.aZm);
+        this.paint.setStrokeWidth(this.baF);
         this.paint.setColor(this.progressColor);
         RectF rectF = new RectF(width - i, width - i, width + i, width + i);
         float f2 = (float) ((360.0d * this.progress) / this.max);
@@ -71,10 +71,10 @@ public class RoundProgressBar extends View {
         switch (this.style) {
             case 0:
                 this.paint.setStrokeCap(Paint.Cap.ROUND);
-                canvas.drawArc(rectF, this.aZn, f, false, this.paint);
+                canvas.drawArc(rectF, this.baG, f, false, this.paint);
                 return;
             case 1:
-                canvas.drawArc(rectF, this.aZn, f, true, this.paint);
+                canvas.drawArc(rectF, this.baG, f, true, this.paint);
                 return;
             default:
                 return;

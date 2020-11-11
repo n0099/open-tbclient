@@ -19,7 +19,7 @@ public class AcceptPkResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public long cgd() {
+    public long ciF() {
         return this.pkID;
     }
 }

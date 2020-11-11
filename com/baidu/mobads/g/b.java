@@ -25,7 +25,7 @@ public class b extends File {
     private static DexClassLoader f = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private e f2331a;
+    private e f2333a;
     private Class<?> b;
     private Context c;
     private PublicKey d;
@@ -41,7 +41,7 @@ public class b extends File {
         this.c = null;
         this.e = XAdSDKFoundationFacade.getInstance().getAdLogger();
         this.c = context;
-        this.f2331a = eVar;
+        this.f2333a = eVar;
         if (eVar != null) {
             try {
                 this.d = c("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBcp8gg3O7bjdnz+pSxg+JH/mbcKfm7dEjcRqVNAFwG7bTpLwDQh40bZJzrcBKQWbD6kArR6TPuQUCMQ09/y55Vk1P2Kq7vJGGisFpjlqv2qlg8drLdhXkLQUt/SeZVJgT+CNxVbuzxAF61EEf8M0MHi1I2dm6n6lOA6fomiCD9wIDAQAB");
@@ -53,9 +53,9 @@ public class b extends File {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a() {
-        if (this.f2331a != null) {
+        if (this.f2333a != null) {
             String a2 = a(new File(getAbsolutePath()));
-            String b = b(this.f2331a.d());
+            String b = b(this.f2333a.d());
             if (!b.equalsIgnoreCase(a2)) {
                 throw new g.a("doCheckApkIntegrity failed, md5sum: " + a2 + ", checksum in json info: " + b);
             }
@@ -84,10 +84,10 @@ public class b extends File {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public double c() {
-        if (this.f2331a == null) {
+        if (this.f2333a == null) {
             return 0.0d;
         }
-        return this.f2331a.b();
+        return this.f2333a.b();
     }
 
     private String b(String str) {

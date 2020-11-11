@@ -4,8 +4,8 @@ import android.graphics.Canvas;
 import org.json.JSONArray;
 /* loaded from: classes10.dex */
 public class r extends a {
-    private float cwD;
-    private float cwE;
+    private float cCw;
+    private float cCx;
     private boolean mIsValid = false;
     private float mX;
     private float mY;
@@ -13,10 +13,10 @@ public class r extends a {
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
         if (jSONArray.length() > 3) {
-            this.cwD = com.baidu.swan.apps.ap.ah.L((float) jSONArray.optDouble(0));
-            this.cwE = com.baidu.swan.apps.ap.ah.L((float) jSONArray.optDouble(1));
-            this.mX = com.baidu.swan.apps.ap.ah.L((float) jSONArray.optDouble(2));
-            this.mY = com.baidu.swan.apps.ap.ah.L((float) jSONArray.optDouble(3));
+            this.cCw = com.baidu.swan.apps.ap.ah.N((float) jSONArray.optDouble(0));
+            this.cCx = com.baidu.swan.apps.ap.ah.N((float) jSONArray.optDouble(1));
+            this.mX = com.baidu.swan.apps.ap.ah.N((float) jSONArray.optDouble(2));
+            this.mY = com.baidu.swan.apps.ap.ah.N((float) jSONArray.optDouble(3));
             this.mIsValid = true;
         }
     }
@@ -24,7 +24,7 @@ public class r extends a {
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
         if (this.mIsValid) {
-            bVar.mPath.quadTo(this.cwD, this.cwE, this.mX, this.mY);
+            bVar.mPath.quadTo(this.cCw, this.cCx, this.mX, this.mY);
         }
     }
 }

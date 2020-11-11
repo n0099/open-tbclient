@@ -3,13 +3,13 @@ package com.baidu.tieba.ala.alaar.makeup.c;
 import android.text.TextUtils;
 /* loaded from: classes4.dex */
 public abstract class b<T> {
-    private T cTc;
-    private String fWd;
-    private Long fWe;
+    private T cYV;
+    private String gbU;
+    private Long gbV;
     private String mKey;
     private T mValue;
 
-    protected abstract T bKH();
+    protected abstract T bNg();
 
     protected abstract long x(String str, long j);
 
@@ -17,7 +17,7 @@ public abstract class b<T> {
     }
 
     public b(String str, T t, String str2) {
-        this.fWd = str2;
+        this.gbU = str2;
         aC(t);
         setKey(str);
     }
@@ -32,19 +32,19 @@ public abstract class b<T> {
 
     public T getValue() {
         if (this.mValue == null && !TextUtils.isEmpty(this.mKey)) {
-            this.mValue = bKH();
-            if (!TextUtils.isEmpty(this.fWd)) {
-                this.fWe = Long.valueOf(x(this.fWd, 0L));
+            this.mValue = bNg();
+            if (!TextUtils.isEmpty(this.gbU)) {
+                this.gbV = Long.valueOf(x(this.gbU, 0L));
             }
         }
         return this.mValue;
     }
 
     public void aC(T t) {
-        this.cTc = t;
+        this.cYV = t;
     }
 
-    public T bKI() {
-        return this.cTc;
+    public T bNh() {
+        return this.cYV;
     }
 }

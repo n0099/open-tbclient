@@ -116,7 +116,7 @@ public class BuyTBeanModel extends BdBaseModel {
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage == null || !(httpResponsedMessage instanceof GetYinJiHttpResponseMessage)) {
-                    BuyTBeanModel.this.mCallBack.onFailed(BuyTBeanModel.this.activity.getString(a.i.sdk_neterror));
+                    BuyTBeanModel.this.mCallBack.onFailed(BuyTBeanModel.this.activity.getString(a.h.sdk_neterror));
                     return;
                 }
                 GetYinJiHttpResponseMessage getYinJiHttpResponseMessage = (GetYinJiHttpResponseMessage) httpResponsedMessage;
@@ -125,7 +125,7 @@ public class BuyTBeanModel extends BdBaseModel {
                     if (!TextUtils.isEmpty(getYinJiHttpResponseMessage.getErrorString())) {
                         BuyTBeanModel.this.mCallBack.onFailed(getYinJiHttpResponseMessage.getErrorString());
                     } else {
-                        BuyTBeanModel.this.mCallBack.onFailed(BuyTBeanModel.this.activity.getString(a.i.sdk_neterror));
+                        BuyTBeanModel.this.mCallBack.onFailed(BuyTBeanModel.this.activity.getString(a.h.sdk_neterror));
                     }
                     if (BuyTBeanModel.this.buyTBeanController != null && getYinJiHttpResponseMessage.getError() == 1990055) {
                         BuyTBeanModel.this.buyTBeanController.finish();
@@ -136,7 +136,7 @@ public class BuyTBeanModel extends BdBaseModel {
                 BuyTBeanModel.this.userInfo = getYinJiHttpResponseMessage.getUserInfo();
                 BuyTBeanModel.this.dealResonseData(getYinJiHttpResponseMessage);
                 if (getYinJiHttpResponseMessage.getUserInfo() == null || ListUtils.isEmpty(getYinJiHttpResponseMessage.getIconInfoList())) {
-                    BuyTBeanModel.this.mCallBack.onFailed(BuyTBeanModel.this.activity.getString(a.i.sdk_tbn_no_data_tip));
+                    BuyTBeanModel.this.mCallBack.onFailed(BuyTBeanModel.this.activity.getString(a.h.sdk_tbn_no_data_tip));
                 } else {
                     BuyTBeanModel.this.mCallBack.onSuccess();
                 }

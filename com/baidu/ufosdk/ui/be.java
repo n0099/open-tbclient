@@ -6,17 +6,17 @@ import android.widget.TextView;
 final class be implements TextView.OnEditorActionListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackInputActivity f3770a;
+    final /* synthetic */ FeedbackInputActivity f3772a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public be(FeedbackInputActivity feedbackInputActivity) {
-        this.f3770a = feedbackInputActivity;
+        this.f3772a = feedbackInputActivity;
     }
 
     @Override // android.widget.TextView.OnEditorActionListener
     public final boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
         if (i == 4) {
-            FeedbackInputActivity.a(this.f3770a);
+            FeedbackInputActivity.a(this.f3772a);
             return false;
         }
         return false;

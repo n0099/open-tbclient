@@ -11,7 +11,7 @@ public class ax {
         public static int LOCATE_SIGN = 5;
         public static int LOCATE_CHAT = 6;
         public static int LOCATE_LIKE_BAR = 7;
-        public static int eIi = 8;
-        public static int eIj = 9;
+        public static int eNX = 8;
+        public static int eNY = 9;
     }
 }

@@ -18,7 +18,7 @@ import java.util.List;
 public final class l extends AsyncTask<String, Void, List<Bitmap>> {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f4702a;
+    private Context f4704a;
     private InsideNotificationItem b;
     private long c;
     private boolean d;
@@ -34,11 +34,11 @@ public final class l extends AsyncTask<String, Void, List<Bitmap>> {
             return;
         }
         w.b().a("com.vivo.push.notify_key", this.c);
-        NotifyAdapterUtil.pushNotification(this.f4702a, list2, this.b, this.c, this.e);
+        NotifyAdapterUtil.pushNotification(this.f4704a, list2, this.b, this.c, this.e);
     }
 
     public l(Context context, InsideNotificationItem insideNotificationItem, long j, boolean z) {
-        this.f4702a = context;
+        this.f4704a = context;
         this.b = insideNotificationItem;
         this.c = j;
         this.d = z;
@@ -55,7 +55,7 @@ public final class l extends AsyncTask<String, Void, List<Bitmap>> {
         InputStream inputStream2;
         int i = 0;
         InputStream inputStream3 = null;
-        this.e = ClientConfigManagerImpl.getInstance(this.f4702a).getNotifyStyle();
+        this.e = ClientConfigManagerImpl.getInstance(this.f4704a).getNotifyStyle();
         if (!this.d) {
             p.d("ImageDownTask", "bitmap is not display by forbid net");
             return null;

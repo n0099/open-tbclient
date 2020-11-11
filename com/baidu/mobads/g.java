@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static g f2329a;
+    private static g f2331a;
     private static HashMap<String, String> b = new HashMap<>();
 
     private g() {
@@ -14,10 +14,10 @@ public class g {
     public static synchronized g a() {
         g gVar;
         synchronized (g.class) {
-            if (f2329a == null) {
-                f2329a = new g();
+            if (f2331a == null) {
+                f2331a = new g();
             }
-            gVar = f2329a;
+            gVar = f2331a;
         }
         return gVar;
     }

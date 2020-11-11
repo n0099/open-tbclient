@@ -23,7 +23,7 @@ final class TouchHelper$mScreenHeight$2 extends Lambda implements a<Integer> {
     }
 
     /* JADX DEBUG: Return type fixed from 'int' to match base method */
-    /* JADX WARN: Type inference failed for: r0v2, types: [java.lang.Integer, int] */
+    /* JADX WARN: Type inference failed for: r0v2, types: [int, java.lang.Integer] */
     @Override // kotlin.jvm.a.a
     public final Integer invoke() {
         return UtilsKt.getScreenHeight(this.this$0.getContext());

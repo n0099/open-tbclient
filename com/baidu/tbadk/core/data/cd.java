@@ -5,24 +5,24 @@ import org.json.JSONObject;
 import tbclient.VideoChannelInfo;
 /* loaded from: classes.dex */
 public class cd {
-    public long eBM;
-    public String eBN;
-    public String eBO;
+    public long eHB;
+    public String eHC;
+    public String eHD;
 
     public void a(VideoChannelInfo videoChannelInfo) {
         if (videoChannelInfo != null && videoChannelInfo.channel_id.longValue() > 0) {
-            this.eBM = videoChannelInfo.channel_id.longValue();
-            this.eBN = videoChannelInfo.channel_name;
-            this.eBO = videoChannelInfo.channel_avatar;
+            this.eHB = videoChannelInfo.channel_id.longValue();
+            this.eHC = videoChannelInfo.channel_name;
+            this.eHD = videoChannelInfo.channel_avatar;
         }
     }
 
-    public void df(JSONObject jSONObject) {
+    public void dl(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.eBM = jSONObject.optLong(SharedPrefConfig.CHANNEL_ID, 0L);
-                this.eBN = jSONObject.optString("channel_name");
-                this.eBO = jSONObject.optString("channel_avatar");
+                this.eHB = jSONObject.optLong(SharedPrefConfig.CHANNEL_ID, 0L);
+                this.eHC = jSONObject.optString("channel_name");
+                this.eHD = jSONObject.optString("channel_avatar");
             } catch (Exception e) {
             }
         }

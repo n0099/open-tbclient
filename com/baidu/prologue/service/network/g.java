@@ -15,27 +15,27 @@ public class g {
         this.subType = (activeNetworkInfo == null || this.netType != 0) ? 0 : activeNetworkInfo.getSubtype();
     }
 
-    public int aaz() {
+    public int acY() {
         switch (this.netType) {
             case -1:
             default:
                 return 0;
             case 0:
-                return aaA();
+                return acZ();
             case 1:
                 return 1;
         }
     }
 
     public boolean isWifi() {
-        return aaz() == 1;
+        return acY() == 1;
     }
 
     public boolean isMobileNet() {
         return this.netType == 0;
     }
 
-    private int aaA() {
+    private int acZ() {
         switch (this.subType) {
             case 1:
             case 2:

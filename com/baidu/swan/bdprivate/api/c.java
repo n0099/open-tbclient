@@ -18,7 +18,7 @@ public class c extends d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b uy(String str) {
+    public com.baidu.swan.apps.api.c.b uM(String str) {
         if (DEBUG) {
             Log.d("Api-QuickLogin", "exec quickLogin");
         }
@@ -32,32 +32,32 @@ public class c extends d {
         if (TextUtils.isEmpty(optString)) {
             return new com.baidu.swan.apps.api.c.b(1001, "cb is empty");
         }
-        e aEV = e.aEV();
-        if (aEV == null) {
+        e aHv = e.aHv();
+        if (aHv == null) {
             return new com.baidu.swan.apps.api.c.b(1001);
         }
-        aEV.aFg().b(getContext(), "scope_quick_login", new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.bdprivate.api.c.1
+        aHv.aHG().b(getContext(), "scope_quick_login", new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.bdprivate.api.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: a */
             public void M(h<b.d> hVar) {
                 if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
-                    c.this.uz(optString);
+                    c.this.uN(optString);
                     return;
                 }
                 int errorCode = hVar.getErrorCode();
-                String ht = com.baidu.swan.apps.setting.oauth.c.ht(errorCode);
+                String hD = com.baidu.swan.apps.setting.oauth.c.hD(errorCode);
                 if (d.DEBUG) {
-                    Log.e("Api-QuickLogin", "quick login failed: auth fail(" + errorCode + ", " + ht + ")");
+                    Log.e("Api-QuickLogin", "quick login failed: auth fail(" + errorCode + ", " + hD + ")");
                 }
-                c.this.a(optString, new com.baidu.swan.apps.api.c.b(errorCode, com.baidu.swan.apps.setting.oauth.c.ht(errorCode)));
+                c.this.a(optString, new com.baidu.swan.apps.api.c.b(errorCode, com.baidu.swan.apps.setting.oauth.c.hD(errorCode)));
             }
         });
         return new com.baidu.swan.apps.api.c.b(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uz(final String str) {
+    public void uN(final String str) {
         f.a(new com.baidu.swan.bdprivate.extensions.quicklogin.c() { // from class: com.baidu.swan.bdprivate.api.c.2
             @Override // com.baidu.swan.bdprivate.extensions.quicklogin.c
             public void a(QuickLoginInfo quickLoginInfo) {
@@ -68,7 +68,7 @@ public class c extends d {
                 boolean z = quickLoginInfo.supportQuickLogin;
                 int i = quickLoginInfo.loginMode;
                 if (z) {
-                    f.a(com.baidu.swan.apps.runtime.d.aEQ().aEO(), i, new com.baidu.swan.bdprivate.extensions.quicklogin.e() { // from class: com.baidu.swan.bdprivate.api.c.2.1
+                    f.a(com.baidu.swan.apps.runtime.d.aHq().aHo(), i, new com.baidu.swan.bdprivate.extensions.quicklogin.e() { // from class: com.baidu.swan.bdprivate.api.c.2.1
                         @Override // com.baidu.swan.bdprivate.extensions.quicklogin.e
                         public void onResult(int i2) {
                             if (i2 == 0) {
@@ -85,7 +85,7 @@ public class c extends d {
         });
     }
 
-    public com.baidu.swan.apps.api.c.b uA(String str) {
+    public com.baidu.swan.apps.api.c.b uO(String str) {
         if (DEBUG) {
             Log.d("Api-QuickLogin", "query quick login info");
         }
@@ -99,37 +99,37 @@ public class c extends d {
         if (TextUtils.isEmpty(optString)) {
             return new com.baidu.swan.apps.api.c.b(1001, "cb is empty");
         }
-        e aEV = e.aEV();
-        if (aEV == null) {
+        e aHv = e.aHv();
+        if (aHv == null) {
             return new com.baidu.swan.apps.api.c.b(1001);
         }
-        aEV.aFg().b(getContext(), "scope_quick_login", new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.bdprivate.api.c.3
+        aHv.aHG().b(getContext(), "scope_quick_login", new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.bdprivate.api.c.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: a */
             public void M(h<b.d> hVar) {
                 if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
-                    c.this.uB(optString);
+                    c.this.uP(optString);
                     return;
                 }
                 int errorCode = hVar.getErrorCode();
-                String ht = com.baidu.swan.apps.setting.oauth.c.ht(errorCode);
+                String hD = com.baidu.swan.apps.setting.oauth.c.hD(errorCode);
                 if (d.DEBUG) {
-                    Log.e("Api-QuickLogin", "query quick login info failed: auth fail(" + errorCode + ", " + ht + ")");
+                    Log.e("Api-QuickLogin", "query quick login info failed: auth fail(" + errorCode + ", " + hD + ")");
                 }
-                c.this.a(optString, new com.baidu.swan.apps.api.c.b(errorCode, com.baidu.swan.apps.setting.oauth.c.ht(errorCode)));
+                c.this.a(optString, new com.baidu.swan.apps.api.c.b(errorCode, com.baidu.swan.apps.setting.oauth.c.hD(errorCode)));
             }
         });
         return new com.baidu.swan.apps.api.c.b(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uB(final String str) {
+    public void uP(final String str) {
         f.a(new com.baidu.swan.bdprivate.extensions.quicklogin.c() { // from class: com.baidu.swan.bdprivate.api.c.4
             @Override // com.baidu.swan.bdprivate.extensions.quicklogin.c
             public void a(QuickLoginInfo quickLoginInfo) {
                 if (quickLoginInfo == null) {
-                    c.this.uC(str);
+                    c.this.uQ(str);
                 } else {
                     c.this.a(str, quickLoginInfo);
                 }
@@ -162,7 +162,7 @@ public class c extends d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uC(String str) {
+    public void uQ(String str) {
         a(str, new com.baidu.swan.apps.api.c.b(10001, "internal error"));
     }
 }

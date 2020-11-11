@@ -10,42 +10,42 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public class a {
-    private w aEc;
-    private ViewGroup bEg;
+    private w aES;
+    private ViewGroup bJN;
     private ViewGroup mParentView;
     private TbPageContext mTbPageContext;
-    protected c nPb;
-    private boolean gqi = true;
-    private ViewGroup.LayoutParams gSS = new ViewGroup.LayoutParams(-2, -1);
+    protected c nUZ;
+    private boolean gvW = true;
+    private ViewGroup.LayoutParams gYX = new ViewGroup.LayoutParams(-2, -1);
 
     public a(TbPageContext tbPageContext, ViewGroup viewGroup) {
         this.mTbPageContext = tbPageContext;
-        this.bEg = viewGroup;
-        bOG();
+        this.bJN = viewGroup;
+        bRg();
     }
 
-    private void bOG() {
-        this.mParentView = new FrameLayout(this.bEg.getContext());
-        this.mParentView.setId(a.g.ala_live_room_back_to_target);
+    private void bRg() {
+        this.mParentView = new FrameLayout(this.bJN.getContext());
+        this.mParentView.setId(a.f.ala_live_room_back_to_target);
         this.mParentView.setBackgroundColor(0);
-        this.bEg.addView(this.mParentView, this.gSS);
+        this.bJN.addView(this.mParentView, this.gYX);
     }
 
     public void a(w wVar, b bVar) {
         if (wVar != null && wVar.mLiveInfo != null && !TextUtils.isEmpty(TbConfig.getLiveEnterFrom()) && bVar != null) {
-            this.aEc = wVar;
-            if (this.mParentView == null || this.bEg.indexOfChild(this.mParentView) < 0) {
-                bOG();
-                this.mParentView.setVisibility(this.gqi ? 0 : 8);
+            this.aES = wVar;
+            if (this.mParentView == null || this.bJN.indexOfChild(this.mParentView) < 0) {
+                bRg();
+                this.mParentView.setVisibility(this.gvW ? 0 : 8);
             }
-            if (this.nPb == null || (this.mParentView != null && this.mParentView.indexOfChild(this.nPb.getView()) < 0)) {
-                this.nPb = new c(this.mTbPageContext);
-                this.mParentView.addView(this.nPb.getView(), new FrameLayout.LayoutParams(-2, -1));
-                this.nPb.bWI().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.d.a.1
+            if (this.nUZ == null || (this.mParentView != null && this.mParentView.indexOfChild(this.nUZ.getView()) < 0)) {
+                this.nUZ = new c(this.mTbPageContext);
+                this.mParentView.addView(this.nUZ.getView(), new FrameLayout.LayoutParams(-2, -1));
+                this.nUZ.bZk().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.d.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        a.this.nPb.bWH();
-                        a.this.nPb.hide();
+                        a.this.nUZ.bZj();
+                        a.this.nUZ.hide();
                     }
                 });
             }
@@ -53,10 +53,10 @@ public class a {
             bVar2.setTitle(bVar.getTitle());
             bVar2.setImageUrl(bVar.getImageUrl());
             bVar2.setScheme(bVar.getScheme());
-            bVar2.setImageId(a.f.back_to_come_logo);
-            bVar2.vl(a.i.ala_back_to_come_title);
-            this.nPb.a(bVar2);
-            this.nPb.show();
+            bVar2.setImageId(a.e.back_to_come_logo);
+            bVar2.vy(a.h.ala_back_to_come_title);
+            this.nUZ.a(bVar2);
+            this.nUZ.show();
         }
     }
 
@@ -65,13 +65,13 @@ public class a {
     }
 
     private void reset(boolean z) {
-        this.gqi = true;
-        lt(z);
+        this.gvW = true;
+        lC(z);
     }
 
-    private void lt(boolean z) {
-        if (this.nPb != null && this.nPb.getView() != null && (this.nPb.getView().getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.nPb.getView().getParent()).removeView(this.nPb.getView());
+    private void lC(boolean z) {
+        if (this.nUZ != null && this.nUZ.getView() != null && (this.nUZ.getView().getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.nUZ.getView().getParent()).removeView(this.nUZ.getView());
         }
         if (z && this.mParentView != null && (this.mParentView.getParent() instanceof ViewGroup)) {
             ((ViewGroup) this.mParentView.getParent()).removeView(this.mParentView);

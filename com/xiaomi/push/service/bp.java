@@ -10,11 +10,11 @@ import android.os.IBinder;
 public class bp implements ServiceConnection {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ XMPushService f5087a;
+    final /* synthetic */ XMPushService f5089a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bp(XMPushService xMPushService) {
-        this.f5087a = xMPushService;
+        this.f5089a = xMPushService;
     }
 
     @Override // android.content.ServiceConnection
@@ -27,13 +27,13 @@ public class bp implements ServiceConnection {
             com.xiaomi.channel.commonutils.logger.b.m54a("XMService connected but innerService is null " + iBinder);
             return;
         }
-        XMPushService xMPushService = this.f5087a;
+        XMPushService xMPushService = this.f5089a;
         i = XMPushService.d;
-        xMPushService.startForeground(i, XMPushService.a((Context) this.f5087a));
+        xMPushService.startForeground(i, XMPushService.a((Context) this.f5089a));
         i2 = XMPushService.d;
-        a2.startForeground(i2, XMPushService.a((Context) this.f5087a));
+        a2.startForeground(i2, XMPushService.a((Context) this.f5089a));
         a2.stopForeground(true);
-        this.f5087a.unbindService(this);
+        this.f5089a.unbindService(this);
     }
 
     @Override // android.content.ServiceConnection

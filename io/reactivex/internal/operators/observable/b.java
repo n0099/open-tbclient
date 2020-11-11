@@ -5,16 +5,16 @@ import io.reactivex.t;
 import io.reactivex.u;
 /* loaded from: classes17.dex */
 public final class b<T, U> extends io.reactivex.internal.operators.observable.a<T, U> {
-    final h<? super T, ? extends U> pEU;
+    final h<? super T, ? extends U> pOo;
 
     public b(t<T> tVar, h<? super T, ? extends U> hVar) {
         super(tVar);
-        this.pEU = hVar;
+        this.pOo = hVar;
     }
 
     @Override // io.reactivex.q
     public void a(u<? super U> uVar) {
-        this.source.subscribe(new a(uVar, this.pEU));
+        this.source.subscribe(new a(uVar, this.pOo));
     }
 
     /* loaded from: classes17.dex */
@@ -43,12 +43,12 @@ public final class b<T, U> extends io.reactivex.internal.operators.observable.a<
 
         @Override // io.reactivex.internal.a.c
         public int requestFusion(int i) {
-            return QO(i);
+            return Rj(i);
         }
 
         @Override // io.reactivex.internal.a.g
         public U poll() throws Exception {
-            T poll = this.pDh.poll();
+            T poll = this.pMB.poll();
             if (poll != null) {
                 return (U) io.reactivex.internal.functions.a.l(this.mapper.apply(poll), "The mapper function returned a null value.");
             }

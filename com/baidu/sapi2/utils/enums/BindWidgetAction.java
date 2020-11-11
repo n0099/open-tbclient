@@ -10,11 +10,11 @@ public enum BindWidgetAction {
     
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3543a;
+    private String f3546a;
     private String b;
 
     BindWidgetAction(String str, String str2) {
-        this.f3543a = str;
+        this.f3546a = str;
         this.b = str2;
     }
 
@@ -23,6 +23,6 @@ public enum BindWidgetAction {
     }
 
     public String getUri() {
-        return this.f3543a;
+        return this.f3546a;
     }
 }

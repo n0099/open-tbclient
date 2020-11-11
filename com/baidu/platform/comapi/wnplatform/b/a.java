@@ -13,7 +13,7 @@ import java.util.List;
 public class a extends com.baidu.platform.comapi.walknavi.a {
 
     /* renamed from: a  reason: collision with root package name */
-    int f3098a;
+    int f3100a;
     private JNIGuidanceControl b;
     private long c;
     private boolean d;
@@ -42,9 +42,9 @@ public class a extends com.baidu.platform.comapi.walknavi.a {
 
     public boolean a(int[] iArr, int[] iArr2, int[] iArr3, int[] iArr4) {
         if (this.b != null) {
-            this.f3098a = iArr.length;
-            String[] strArr = new String[this.f3098a];
-            String[] strArr2 = new String[this.f3098a];
+            this.f3100a = iArr.length;
+            String[] strArr = new String[this.f3100a];
+            String[] strArr2 = new String[this.f3100a];
             for (int i = 0; i < strArr.length; i++) {
                 strArr[i] = "";
             }
@@ -58,14 +58,14 @@ public class a extends com.baidu.platform.comapi.walknavi.a {
 
     public boolean a(int[] iArr, int[] iArr2, int[] iArr3, int[] iArr4, String[] strArr, String[] strArr2) {
         if (this.b != null) {
-            this.f3098a = iArr.length;
+            this.f3100a = iArr.length;
             return this.b.setNaviNodes(this.c, iArr, iArr2, iArr3, iArr4, strArr, strArr2, null, null);
         }
         return false;
     }
 
     public int a() {
-        return this.f3098a;
+        return this.f3100a;
     }
 
     public int b() {

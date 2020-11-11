@@ -19,12 +19,12 @@ public final class StatService {
     public static final String TAG = "StatService";
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Map<String, String> f2715a = new HashMap();
+    private static final Map<String, String> f2717a = new HashMap();
 
     static {
-        f2715a.put("pid", "111");
-        f2715a.put("type", "1023");
-        f2715a.put(Config.DEVICE_PART, "android");
+        f2717a.put("pid", "111");
+        f2717a.put("type", "1023");
+        f2717a.put(Config.DEVICE_PART, "android");
     }
 
     private StatService() {
@@ -35,7 +35,7 @@ public final class StatService {
             try {
                 if (NetworkUtils.isNetworkAvailable(context)) {
                     HashMap hashMap = new HashMap();
-                    hashMap.putAll(f2715a);
+                    hashMap.putAll(f2717a);
                     map.put("v", String.valueOf(System.currentTimeMillis()));
                     hashMap.put("name", str);
                     hashMap.put("model", Build.MODEL);

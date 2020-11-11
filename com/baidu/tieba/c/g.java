@@ -13,21 +13,21 @@ import java.util.ArrayList;
 /* loaded from: classes21.dex */
 public class g {
     private bw akq;
-    private com.baidu.tbadk.coreExtra.model.a eHC;
-    private i hYq;
+    private com.baidu.tbadk.coreExtra.model.a eNr;
+    private i ier;
     private TbPageContext mPageContext;
 
     public g(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.eHC = new com.baidu.tbadk.coreExtra.model.a(tbPageContext);
+        this.eNr = new com.baidu.tbadk.coreExtra.model.a(tbPageContext);
     }
 
     public void r(bw bwVar) {
         this.akq = bwVar;
     }
 
-    public void PJ() {
-        if (this.hYq == null) {
+    public void Qj() {
+        if (this.ier == null) {
             k kVar = new k(this.mPageContext.getPageActivity());
             kVar.setTitleText(this.mPageContext.getString(R.string.confirm_unlike));
             ArrayList arrayList = new ArrayList();
@@ -40,32 +40,32 @@ public class g {
                     }
                     if (bg.checkUpIsLogin(g.this.mPageContext.getPageActivity())) {
                         if (g.this.akq != null) {
-                            g.this.eHC.a(false, g.this.akq.bka().getPortrait(), g.this.akq.bka().getUserId(), g.this.akq.bka().isGod(), "0", g.this.mPageContext.getUniqueId(), null, "0");
+                            g.this.eNr.a(false, g.this.akq.bmA().getPortrait(), g.this.akq.bmA().getUserId(), g.this.akq.bmA().isGod(), "0", g.this.mPageContext.getUniqueId(), null, "0");
                             TiebaStatic.log(new aq("c13571"));
                         } else {
                             return;
                         }
                     }
-                    com.baidu.adp.lib.f.g.b(g.this.hYq, g.this.mPageContext);
+                    com.baidu.adp.lib.f.g.b(g.this.ier, g.this.mPageContext);
                 }
             });
             arrayList.add(gVar);
             kVar.a(new k.a() { // from class: com.baidu.tieba.c.g.2
                 @Override // com.baidu.tbadk.core.dialog.k.a
                 public void onClick() {
-                    if (g.this.hYq != null) {
-                        com.baidu.adp.lib.f.g.b(g.this.hYq, g.this.mPageContext);
+                    if (g.this.ier != null) {
+                        com.baidu.adp.lib.f.g.b(g.this.ier, g.this.mPageContext);
                     }
                 }
             });
-            kVar.bk(arrayList);
-            this.hYq = new i(this.mPageContext, kVar);
-            this.hYq.Y(0.7f);
+            kVar.br(arrayList);
+            this.ier = new i(this.mPageContext, kVar);
+            this.ier.aa(0.7f);
         }
-        com.baidu.adp.lib.f.g.a(this.hYq, this.mPageContext);
+        com.baidu.adp.lib.f.g.a(this.ier, this.mPageContext);
     }
 
-    public void GU() {
-        com.baidu.adp.lib.f.g.b(this.hYq, this.mPageContext);
+    public void Hv() {
+        com.baidu.adp.lib.f.g.b(this.ier, this.mPageContext);
     }
 }

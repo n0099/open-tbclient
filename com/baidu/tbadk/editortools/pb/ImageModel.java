@@ -10,33 +10,33 @@ import com.baidu.tbadk.core.util.n;
 /* loaded from: classes.dex */
 public class ImageModel extends BdBaseModel {
     private String filename;
-    private a fjJ;
+    private a fpB;
 
     public ImageModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.fjJ = null;
+        this.fpB = null;
         this.filename = null;
     }
 
-    public boolean Dx(String str) {
+    public boolean DL(String str) {
         this.filename = str;
         return LoadData();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     protected boolean LoadData() {
-        if (this.fjJ != null) {
-            this.fjJ.cancel();
+        if (this.fpB != null) {
+            this.fpB.cancel();
         }
-        this.fjJ = new a(this.filename);
-        this.fjJ.execute(new Object[0]);
+        this.fpB = new a(this.filename);
+        this.fpB.execute(new Object[0]);
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.fjJ != null) {
-            this.fjJ.cancel();
+        if (this.fpB != null) {
+            this.fpB.cancel();
             return true;
         }
         return true;
@@ -65,7 +65,7 @@ public class ImageModel extends BdBaseModel {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            ImageModel.this.fjJ = null;
+            ImageModel.this.fpB = null;
             if (ImageModel.this.mLoadDataCallBack != null) {
                 ImageModel.this.mLoadDataCallBack.callback(null);
             }
@@ -83,7 +83,7 @@ public class ImageModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((a) bitmap);
-            ImageModel.this.fjJ = null;
+            ImageModel.this.fpB = null;
             if (ImageModel.this.mLoadDataCallBack != null) {
                 ImageModel.this.mLoadDataCallBack.callback(bitmap);
             }

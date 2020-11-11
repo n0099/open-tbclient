@@ -27,42 +27,42 @@ public final class a extends aa {
         boolean z;
         q.n(unitedSchemeEntity, "entity");
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-        f.cqM.ei(true);
+        f.cwK.er(true);
         if (optParamsAsJo == null) {
-            com.baidu.swan.apps.a.a agL = f.cqM.agL();
-            if (agL != null) {
-                agL.onResult(-1);
+            com.baidu.swan.apps.a.a ajl = f.cwK.ajl();
+            if (ajl != null) {
+                ajl.onResult(-1);
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
             return false;
         }
         int optInt = optParamsAsJo.optInt(BaseJsonData.TAG_ERRNO);
         JSONObject optJSONObject = optParamsAsJo.optJSONObject("data");
-        ak.m(RunnableC0423a.cqQ);
+        ak.m(RunnableC0435a.cwO);
         if (optInt != 0) {
-            com.baidu.swan.apps.a.a agL2 = f.cqM.agL();
-            if (agL2 != null) {
-                agL2.onResult(-1);
+            com.baidu.swan.apps.a.a ajl2 = f.cwK.ajl();
+            if (ajl2 != null) {
+                ajl2.onResult(-1);
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "error number is " + optInt);
             return false;
         } else if (optJSONObject != null) {
-            String str = com.baidu.swan.c.h.xH(CookieManager.getInstance().getCookie(".baidu.com")).get("OPENBDUSS");
+            String str = com.baidu.swan.c.h.xV(CookieManager.getInstance().getCookie(".baidu.com")).get("OPENBDUSS");
             String str2 = str;
             if (!(str2 == null || l.isBlank(str2))) {
-                com.baidu.swan.apps.d.a.h.cqP.d(optInt, optJSONObject);
+                com.baidu.swan.apps.d.a.h.cwN.d(optInt, optJSONObject);
                 com.baidu.swan.apps.d.a.a.X(context, str);
-                f.cqM.dZ(true);
-                com.baidu.swan.apps.a.a agL3 = f.cqM.agL();
-                if (agL3 != null) {
-                    agL3.onResult(0);
+                f.cwK.ei(true);
+                com.baidu.swan.apps.a.a ajl3 = f.cwK.ajl();
+                if (ajl3 != null) {
+                    ajl3.onResult(0);
                 }
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 z = true;
             } else {
-                com.baidu.swan.apps.a.a agL4 = f.cqM.agL();
-                if (agL4 != null) {
-                    agL4.onResult(-1);
+                com.baidu.swan.apps.a.a ajl4 = f.cwK.ajl();
+                if (ajl4 != null) {
+                    ajl4.onResult(-1);
                 }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "bduss is null");
                 z = false;
@@ -77,15 +77,15 @@ public final class a extends aa {
     @h
     /* renamed from: com.baidu.swan.apps.d.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    static final class RunnableC0423a implements Runnable {
-        public static final RunnableC0423a cqQ = new RunnableC0423a();
+    static final class RunnableC0435a implements Runnable {
+        public static final RunnableC0435a cwO = new RunnableC0435a();
 
-        RunnableC0423a() {
+        RunnableC0435a() {
         }
 
         @Override // java.lang.Runnable
         public final void run() {
-            com.baidu.swan.apps.d.a.e.amP();
+            com.baidu.swan.apps.d.a.e.apq();
         }
     }
 }

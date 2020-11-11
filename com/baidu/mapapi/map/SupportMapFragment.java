@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 public class SupportMapFragment extends Fragment {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2041a = SupportMapFragment.class.getSimpleName();
+    private static final String f2043a = SupportMapFragment.class.getSimpleName();
     private TextureMapView b;
     private BaiduMapOptions c;
 

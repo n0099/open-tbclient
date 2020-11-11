@@ -4,56 +4,56 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private static d mlU;
-    private HashMap<String, com.baidu.tieba.quickWebView.data.a> mlR = new HashMap<>();
-    private com.baidu.tieba.quickWebView.data.b mlS = null;
-    private boolean mlT = false;
+    private static d mrR;
+    private HashMap<String, com.baidu.tieba.quickWebView.data.a> mrO = new HashMap<>();
+    private com.baidu.tieba.quickWebView.data.b mrP = null;
+    private boolean mrQ = false;
 
-    public static d dxo() {
-        if (mlU == null) {
+    public static d dzQ() {
+        if (mrR == null) {
             synchronized (d.class) {
-                if (mlU == null) {
-                    mlU = new d();
+                if (mrR == null) {
+                    mrR = new d();
                 }
             }
         }
-        return mlU;
+        return mrR;
     }
 
     private d() {
     }
 
-    public com.baidu.tieba.quickWebView.data.a QT(String str) {
-        if (this.mlR == null || !this.mlT) {
+    public com.baidu.tieba.quickWebView.data.a Rk(String str) {
+        if (this.mrO == null || !this.mrQ) {
             return null;
         }
-        return this.mlR.get(str);
+        return this.mrO.get(str);
     }
 
-    public List<String> QU(String str) {
-        if (this.mlS == null || this.mlS.mlY == null || !this.mlT) {
+    public List<String> Rl(String str) {
+        if (this.mrP == null || this.mrP.mrV == null || !this.mrQ) {
             return null;
         }
-        return this.mlS.mlY.get(str);
+        return this.mrP.mrV.get(str);
     }
 
     public void H(HashMap<String, com.baidu.tieba.quickWebView.data.a> hashMap) {
-        this.mlR = hashMap;
+        this.mrO = hashMap;
     }
 
-    public HashMap<String, com.baidu.tieba.quickWebView.data.a> dxp() {
-        return this.mlR;
+    public HashMap<String, com.baidu.tieba.quickWebView.data.a> dzR() {
+        return this.mrO;
     }
 
     public void a(com.baidu.tieba.quickWebView.data.b bVar) {
-        this.mlS = bVar;
+        this.mrP = bVar;
     }
 
-    public boolean dxq() {
-        return this.mlT;
+    public boolean dzS() {
+        return this.mrQ;
     }
 
-    public void wt(boolean z) {
-        this.mlT = z;
+    public void wC(boolean z) {
+        this.mrQ = z;
     }
 }

@@ -14,7 +14,7 @@ public class OfflineMapUtil {
             return null;
         }
         MKOLSearchRecord mKOLSearchRecord = new MKOLSearchRecord();
-        mKOLSearchRecord.cityID = mVar.f2231a;
+        mKOLSearchRecord.cityID = mVar.f2233a;
         mKOLSearchRecord.cityName = mVar.b;
         mKOLSearchRecord.cityType = mVar.d;
         long j2 = 0;
@@ -46,7 +46,7 @@ public class OfflineMapUtil {
             return null;
         }
         MKOLUpdateElement mKOLUpdateElement = new MKOLUpdateElement();
-        mKOLUpdateElement.cityID = pVar.f2234a;
+        mKOLUpdateElement.cityID = pVar.f2236a;
         mKOLUpdateElement.cityName = pVar.b;
         if (pVar.g != null) {
             mKOLUpdateElement.geoPt = CoordUtil.mc2ll(pVar.g);

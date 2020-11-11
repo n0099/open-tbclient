@@ -17,7 +17,7 @@ import java.net.URLEncoder;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class IMUpdateGroupNameRequest extends GroupBaseHttpRequest {
     private static final String TAG = IMUpdateGroupNameRequest.class.getSimpleName();
     private long mAppid;
@@ -25,7 +25,7 @@ public class IMUpdateGroupNameRequest extends GroupBaseHttpRequest {
     private String mGroupName;
     private String mKey;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes18.dex */
     class Mytask extends TaskManager.Task {
         public Mytask(String str, String str2) {
             super(str, str2);

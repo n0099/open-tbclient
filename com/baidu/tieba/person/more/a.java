@@ -9,19 +9,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes24.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> bje = new ArrayList();
-    private BdTypeListView gcr;
-    private d lOT;
+    private List<com.baidu.adp.widget.ListView.a> bky = new ArrayList();
+    private BdTypeListView gih;
+    private d lUP;
 
     public a(TbPageContext tbPageContext, BdTypeListView bdTypeListView, ab<h> abVar) {
-        this.gcr = bdTypeListView;
-        this.lOT = new d(tbPageContext, h.lQa);
-        this.lOT.c(abVar);
-        this.bje.add(this.lOT);
-        this.gcr.addAdapters(this.bje);
+        this.gih = bdTypeListView;
+        this.lUP = new d(tbPageContext, h.lVW);
+        this.lUP.c(abVar);
+        this.bky.add(this.lUP);
+        this.gih.addAdapters(this.bky);
     }
 
     public void notifyDataSetChanged() {
-        this.lOT.notifyDataSetChanged();
+        this.lUP.notifyDataSetChanged();
     }
 }

@@ -16,7 +16,7 @@ import java.util.List;
 public class AlignPartTextView extends AppCompatTextView {
 
     /* renamed from: a  reason: collision with root package name */
-    private float f2802a;
+    private float f2804a;
     private float b;
     private int c;
     private List<String> d;
@@ -70,7 +70,7 @@ public class AlignPartTextView extends AppCompatTextView {
         this.c = getMeasuredWidth();
         Paint.FontMetrics fontMetrics = paint.getFontMetrics();
         float textSize = getTextSize() - (((fontMetrics.bottom - fontMetrics.descent) + fontMetrics.ascent) - fontMetrics.top);
-        float f = (getGravity() & 4096) == 0 ? textSize + ((this.f2802a - textSize) / 2.0f) : textSize;
+        float f = (getGravity() & 4096) == 0 ? textSize + ((this.f2804a - textSize) / 2.0f) : textSize;
         int paddingTop = getPaddingTop();
         int paddingLeft = getPaddingLeft();
         this.c = (this.c - paddingLeft) - getPaddingRight();
@@ -82,7 +82,7 @@ public class AlignPartTextView extends AppCompatTextView {
                 return;
             }
             float f2 = i3;
-            float f3 = (this.f2802a * f2) + f;
+            float f3 = (this.f2804a * f2) + f;
             String str = this.d.get(i3);
             float f4 = paddingLeft;
             float measureText = this.c - paint.measureText(str);
@@ -145,8 +145,8 @@ public class AlignPartTextView extends AppCompatTextView {
                 a(paint, str);
             }
             a(charSequence, paint.getTextSize(), (getMeasuredWidth() - getPaddingLeft()) - getPaddingRight());
-            this.f2802a = (this.j * 1.0f) / this.k;
-            float f = this.f2802a;
+            this.f2804a = (this.j * 1.0f) / this.k;
+            float f = this.f2804a;
             this.b = ((this.h - 1.0f) * f) + this.i;
             this.m = true;
             setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), ((int) ((f + this.b) * (this.d.size() - this.k))) + this.l);

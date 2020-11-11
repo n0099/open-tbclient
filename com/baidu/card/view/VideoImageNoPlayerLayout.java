@@ -65,10 +65,10 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<AbsThr
                 float f6;
                 float f7 = 0.0f;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a DN = c.byE().DN(com.baidu.adp.lib.e.c.mS().genCacheKey(tbImageView.getUrl(), 10));
-                    if (DN != null) {
-                        int width = DN.getWidth();
-                        i = DN.getHeight();
+                    com.baidu.adp.widget.ImageView.a Eb = c.bBd().Eb(com.baidu.adp.lib.e.c.mS().genCacheKey(tbImageView.getUrl(), 10));
+                    if (Eb != null) {
+                        int width = Eb.getWidth();
+                        i = Eb.getHeight();
                         i2 = width;
                     } else {
                         i = 0;
@@ -185,8 +185,8 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<AbsThr
     @Override // com.baidu.card.p
     /* renamed from: b */
     public void H(AbsThreadDataSupport absThreadDataSupport) {
-        if (absThreadDataSupport != null && absThreadDataSupport.bhz() != null && absThreadDataSupport.bhz().eAy != null) {
-            OriginalThreadInfo originalThreadInfo = absThreadDataSupport.bhz().eAy;
+        if (absThreadDataSupport != null && absThreadDataSupport.bjZ() != null && absThreadDataSupport.bjZ().eGn != null) {
+            OriginalThreadInfo originalThreadInfo = absThreadDataSupport.bjZ().eGn;
             this.alS = originalThreadInfo.videoInfo.is_vertical.intValue() == 1;
             this.alT = originalThreadInfo.threadId;
             this.alU = originalThreadInfo.videoInfo.video_length.intValue();

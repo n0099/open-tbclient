@@ -10,7 +10,7 @@ import java.util.Random;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile c f1018a;
+    private static volatile c f1020a;
     private Context b;
     private Handler c;
     private Runnable d;
@@ -27,14 +27,14 @@ public class c {
     }
 
     public static c a(Context context) {
-        if (f1018a == null) {
+        if (f1020a == null) {
             synchronized (c.class) {
-                if (f1018a == null) {
-                    f1018a = new c(context);
+                if (f1020a == null) {
+                    f1020a = new c(context);
                 }
             }
         }
-        return f1018a;
+        return f1020a;
     }
 
     private com.baidu.android.pushservice.g.c a(final a aVar, String str) {

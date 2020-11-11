@@ -13,9 +13,9 @@ public class GiftBagItemView extends a<GiftBagWrapperData> {
 
     public GiftBagItemView(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.mGiftBagPic = (TbImageView) getView().findViewById(a.g.gift_bag_iv);
+        this.mGiftBagPic = (TbImageView) getView().findViewById(a.f.gift_bag_iv);
         this.mGiftBagPic.setDrawerType(1);
-        this.mGiftBagPic.setRadius(tbPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds5));
+        this.mGiftBagPic.setRadius(tbPageContext.getResources().getDimensionPixelSize(a.d.sdk_ds5));
     }
 
     @Override // com.baidu.live.tieba.b.a
@@ -24,7 +24,7 @@ public class GiftBagItemView extends a<GiftBagWrapperData> {
 
     @Override // com.baidu.live.tieba.b.a
     public int getLayout() {
-        return a.h.sdk_tbn_buy_gift_bag_item;
+        return a.g.sdk_tbn_buy_gift_bag_item;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

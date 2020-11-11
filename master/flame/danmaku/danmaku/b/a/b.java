@@ -4,10 +4,10 @@ import master.flame.danmaku.danmaku.model.l;
 import master.flame.danmaku.danmaku.model.m;
 /* loaded from: classes6.dex */
 public class b {
-    private d pPQ = null;
-    private d pPR = null;
-    private d pPS = null;
-    private d pPT = null;
+    private d pZk = null;
+    private d pZl = null;
+    private d pZm = null;
+    private d pZn = null;
 
     /* loaded from: classes6.dex */
     public interface d {
@@ -22,37 +22,37 @@ public class b {
     }
 
     public b(boolean z) {
-        AV(z);
+        Bg(z);
     }
 
-    public void AV(boolean z) {
-        this.pPQ = z ? new a() : new C1067b();
-        this.pPR = z ? new a() : new C1067b();
-        if (this.pPS == null) {
-            this.pPS = new c();
+    public void Bg(boolean z) {
+        this.pZk = z ? new a() : new C1087b();
+        this.pZl = z ? new a() : new C1087b();
+        if (this.pZm == null) {
+            this.pZm = new c();
         }
-        if (this.pPT == null) {
-            this.pPT = new a();
+        if (this.pZn == null) {
+            this.pZn = new a();
         }
     }
 
     public void a(master.flame.danmaku.danmaku.model.d dVar, m mVar, f fVar) {
         switch (dVar.getType()) {
             case 1:
-                this.pPQ.a(dVar, mVar, fVar);
+                this.pZk.a(dVar, mVar, fVar);
                 return;
             case 2:
             case 3:
             default:
                 return;
             case 4:
-                this.pPT.a(dVar, mVar, fVar);
+                this.pZn.a(dVar, mVar, fVar);
                 return;
             case 5:
-                this.pPS.a(dVar, mVar, fVar);
+                this.pZm.a(dVar, mVar, fVar);
                 return;
             case 6:
-                this.pPR.a(dVar, mVar, fVar);
+                this.pZl.a(dVar, mVar, fVar);
                 return;
             case 7:
                 dVar.a(mVar, 0.0f, 0.0f);
@@ -61,17 +61,17 @@ public class b {
     }
 
     public void clear() {
-        if (this.pPQ != null) {
-            this.pPQ.clear();
+        if (this.pZk != null) {
+            this.pZk.clear();
         }
-        if (this.pPR != null) {
-            this.pPR.clear();
+        if (this.pZl != null) {
+            this.pZl.clear();
         }
-        if (this.pPS != null) {
-            this.pPS.clear();
+        if (this.pZm != null) {
+            this.pZm.clear();
         }
-        if (this.pPT != null) {
-            this.pPT.clear();
+        if (this.pZn != null) {
+            this.pZn.clear();
         }
     }
 
@@ -82,123 +82,123 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class e {
-        public int kzw;
-        public master.flame.danmaku.danmaku.model.d pPM;
-        public master.flame.danmaku.danmaku.model.d pPW;
-        public master.flame.danmaku.danmaku.model.d pPX;
-        public boolean pPZ;
-        public master.flame.danmaku.danmaku.model.d pQe;
-        public master.flame.danmaku.danmaku.model.d pQf;
-        public boolean pQg;
-        public boolean pQh;
+        public int kFq;
+        public boolean pZA;
+        public boolean pZB;
+        public master.flame.danmaku.danmaku.model.d pZg;
+        public master.flame.danmaku.danmaku.model.d pZq;
+        public master.flame.danmaku.danmaku.model.d pZr;
+        public boolean pZt;
+        public master.flame.danmaku.danmaku.model.d pZy;
+        public master.flame.danmaku.danmaku.model.d pZz;
 
         private e() {
-            this.kzw = 0;
-            this.pQe = null;
-            this.pPX = null;
-            this.pPM = null;
-            this.pQf = null;
-            this.pPW = null;
-            this.pQg = false;
-            this.pQh = false;
-            this.pPZ = false;
+            this.kFq = 0;
+            this.pZy = null;
+            this.pZr = null;
+            this.pZg = null;
+            this.pZz = null;
+            this.pZq = null;
+            this.pZA = false;
+            this.pZB = false;
+            this.pZt = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: master.flame.danmaku.danmaku.b.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C1067b implements d {
-        protected master.flame.danmaku.danmaku.model.android.d pPV;
-        protected boolean pQc;
-        protected a pQd;
+    public static class C1087b implements d {
+        protected master.flame.danmaku.danmaku.model.android.d pZp;
+        protected boolean pZw;
+        protected a pZx;
 
         /* renamed from: master.flame.danmaku.danmaku.b.a.b$b$a */
         /* loaded from: classes6.dex */
         protected class a extends l.b<master.flame.danmaku.danmaku.model.d, e> {
-            public m pPN;
-            int kzw = 0;
-            public master.flame.danmaku.danmaku.model.d pQe = null;
-            public master.flame.danmaku.danmaku.model.d pPX = null;
-            public master.flame.danmaku.danmaku.model.d pPM = null;
-            public master.flame.danmaku.danmaku.model.d pQf = null;
-            public master.flame.danmaku.danmaku.model.d pPY = null;
-            boolean pQg = false;
-            boolean pQh = false;
-            boolean pPZ = false;
+            public m pZh;
+            int kFq = 0;
+            public master.flame.danmaku.danmaku.model.d pZy = null;
+            public master.flame.danmaku.danmaku.model.d pZr = null;
+            public master.flame.danmaku.danmaku.model.d pZg = null;
+            public master.flame.danmaku.danmaku.model.d pZz = null;
+            public master.flame.danmaku.danmaku.model.d pZs = null;
+            boolean pZA = false;
+            boolean pZB = false;
+            boolean pZt = false;
 
             protected a() {
             }
 
             @Override // master.flame.danmaku.danmaku.model.l.b
-            public void ezJ() {
-                this.kzw = 0;
-                this.pQf = null;
-                this.pPM = null;
-                this.pPX = null;
-                this.pQe = null;
-                this.pPZ = false;
-                this.pQh = false;
-                this.pQg = false;
+            public void eDy() {
+                this.kFq = 0;
+                this.pZz = null;
+                this.pZg = null;
+                this.pZr = null;
+                this.pZy = null;
+                this.pZt = false;
+                this.pZB = false;
+                this.pZA = false;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // master.flame.danmaku.danmaku.model.l.b
             /* renamed from: e */
             public int bX(master.flame.danmaku.danmaku.model.d dVar) {
-                if (C1067b.this.pQc) {
+                if (C1087b.this.pZw) {
                     return 1;
                 }
-                this.kzw++;
-                if (dVar == this.pPY) {
-                    this.pQe = dVar;
-                    this.pPM = null;
-                    this.pQh = true;
-                    this.pPZ = false;
+                this.kFq++;
+                if (dVar == this.pZs) {
+                    this.pZy = dVar;
+                    this.pZg = null;
+                    this.pZB = true;
+                    this.pZt = false;
                     return 1;
                 }
-                if (this.pPX == null) {
-                    this.pPX = dVar;
+                if (this.pZr == null) {
+                    this.pZr = dVar;
                 }
-                if (this.pPY.pMy + dVar.ezv() > this.pPN.getHeight()) {
-                    this.pQg = true;
+                if (this.pZs.pVS + dVar.eDk() > this.pZh.getHeight()) {
+                    this.pZA = true;
                     return 1;
                 }
-                if (this.pQf == null) {
-                    this.pQf = dVar;
-                } else if (this.pQf.ezw() >= dVar.ezw()) {
-                    this.pQf = dVar;
+                if (this.pZz == null) {
+                    this.pZz = dVar;
+                } else if (this.pZz.eDl() >= dVar.eDl()) {
+                    this.pZz = dVar;
                 }
-                this.pPZ = master.flame.danmaku.danmaku.c.b.a(this.pPN, dVar, this.pPY, this.pPY.getDuration(), this.pPY.ezy().pMO);
-                if (!this.pPZ) {
-                    this.pQe = dVar;
+                this.pZt = master.flame.danmaku.danmaku.c.b.a(this.pZh, dVar, this.pZs, this.pZs.getDuration(), this.pZs.eDn().pWi);
+                if (!this.pZt) {
+                    this.pZy = dVar;
                     return 1;
                 }
-                this.pPM = dVar;
+                this.pZg = dVar;
                 return 0;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // master.flame.danmaku.danmaku.model.l.b
-            /* renamed from: eAv */
-            public e eyI() {
+            /* renamed from: eEk */
+            public e eCx() {
                 e eVar = new e();
-                eVar.kzw = this.kzw;
-                eVar.pPX = this.pPX;
-                eVar.pQe = this.pQe;
-                eVar.pPM = this.pPM;
-                eVar.pQf = this.pQf;
-                eVar.pQg = this.pQg;
-                eVar.pQh = this.pQh;
-                eVar.pPZ = this.pPZ;
+                eVar.kFq = this.kFq;
+                eVar.pZr = this.pZr;
+                eVar.pZy = this.pZy;
+                eVar.pZg = this.pZg;
+                eVar.pZz = this.pZz;
+                eVar.pZA = this.pZA;
+                eVar.pZB = this.pZB;
+                eVar.pZt = this.pZt;
                 return eVar;
             }
         }
 
-        private C1067b() {
-            this.pPV = new master.flame.danmaku.danmaku.model.android.d(1);
-            this.pQc = false;
-            this.pQd = new a();
+        private C1087b() {
+            this.pZp = new master.flame.danmaku.danmaku.model.android.d(1);
+            this.pZw = false;
+            this.pZx = new a();
         }
 
         @Override // master.flame.danmaku.danmaku.b.a.b.d
@@ -214,15 +214,15 @@ public class b {
             master.flame.danmaku.danmaku.model.d dVar4;
             master.flame.danmaku.danmaku.model.d dVar5;
             boolean z6;
-            float ezP;
+            float eDE;
             boolean z7;
             boolean z8;
             int i2;
-            if (!dVar.ezq()) {
-                float ezP2 = mVar.ezP();
+            if (!dVar.eDf()) {
+                float eDE2 = mVar.eDE();
                 int i3 = 0;
                 boolean isShown = dVar.isShown();
-                boolean z9 = (isShown || this.pPV.isEmpty()) ? false : true;
+                boolean z9 = (isShown || this.pZp.isEmpty()) ? false : true;
                 int margin = mVar.getMargin();
                 if (isShown) {
                     z = z9;
@@ -230,13 +230,13 @@ public class b {
                     z2 = isShown;
                     z3 = false;
                 } else {
-                    this.pQc = false;
+                    this.pZw = false;
                     master.flame.danmaku.danmaku.model.d dVar6 = null;
-                    this.pQd.pPN = mVar;
-                    this.pQd.pPY = dVar;
-                    this.pPV.a(this.pQd);
-                    e eyI = this.pQd.eyI();
-                    if (eyI == null) {
+                    this.pZx.pZh = mVar;
+                    this.pZx.pZs = dVar;
+                    this.pZp.a(this.pZx);
+                    e eCx = this.pZx.eCx();
+                    if (eCx == null) {
                         z4 = isShown;
                         z5 = false;
                         dVar3 = null;
@@ -245,22 +245,22 @@ public class b {
                         dVar5 = null;
                         z6 = z9;
                     } else {
-                        i = eyI.kzw;
-                        dVar6 = eyI.pQe;
-                        dVar3 = eyI.pPX;
-                        dVar5 = eyI.pPM;
-                        master.flame.danmaku.danmaku.model.d dVar7 = eyI.pQf;
-                        z5 = eyI.pQg;
-                        z4 = eyI.pQh;
-                        z6 = eyI.pPZ;
+                        i = eCx.kFq;
+                        dVar6 = eCx.pZy;
+                        dVar3 = eCx.pZr;
+                        dVar5 = eCx.pZg;
+                        master.flame.danmaku.danmaku.model.d dVar7 = eCx.pZz;
+                        z5 = eCx.pZA;
+                        z4 = eCx.pZB;
+                        z6 = eCx.pZt;
                         dVar4 = dVar7;
                     }
                     boolean z10 = true;
                     if (dVar6 != null) {
                         if (dVar5 != null) {
-                            ezP = dVar5.ezx() + margin;
+                            eDE = dVar5.eDm() + margin;
                         } else {
-                            ezP = dVar6.ezv();
+                            eDE = dVar6.eDk();
                         }
                         if (dVar6 == dVar) {
                             dVar6 = null;
@@ -268,29 +268,29 @@ public class b {
                             z4 = false;
                         }
                     } else if (z5 && dVar4 != null) {
-                        ezP = dVar4.ezv();
+                        eDE = dVar4.eDk();
                         z10 = false;
                         z4 = false;
                         dVar6 = null;
                     } else if (dVar5 != null) {
-                        ezP = dVar5.ezx() + margin;
+                        eDE = dVar5.eDm() + margin;
                         z6 = false;
                         dVar6 = null;
                     } else if (dVar3 != null) {
-                        ezP = dVar3.ezv();
+                        eDE = dVar3.eDk();
                         z4 = false;
                         dVar6 = dVar3;
                     } else {
-                        ezP = mVar.ezP();
+                        eDE = mVar.eDE();
                         dVar6 = null;
                     }
                     if (!z10) {
                         z7 = false;
                     } else {
-                        z7 = a(z5, dVar, mVar, ezP, dVar3, dVar5);
+                        z7 = a(z5, dVar, mVar, eDE, dVar3, dVar5);
                     }
                     if (z7) {
-                        ezP = mVar.ezP();
+                        eDE = mVar.eDE();
                         z8 = true;
                         i2 = 1;
                     } else if (dVar6 != null) {
@@ -300,139 +300,139 @@ public class b {
                         z8 = z6;
                         i2 = i;
                     }
-                    if (ezP == mVar.ezP()) {
+                    if (eDE == mVar.eDE()) {
                         z2 = false;
-                        ezP2 = ezP;
+                        eDE2 = eDE;
                         i3 = i2;
                         z3 = z7;
                         z = z8;
                         dVar2 = dVar6;
                     } else {
                         z2 = z4;
-                        ezP2 = ezP;
+                        eDE2 = eDE;
                         i3 = i2;
                         z3 = z7;
                         z = z8;
                         dVar2 = dVar6;
                     }
                 }
-                if (fVar == null || !fVar.a(dVar, ezP2, i3, z)) {
+                if (fVar == null || !fVar.a(dVar, eDE2, i3, z)) {
                     if (z3) {
                         clear();
                     }
-                    dVar.a(mVar, dVar.ezu(), ezP2);
+                    dVar.a(mVar, dVar.eDj(), eDE2);
                     if (!z2) {
-                        this.pPV.l(dVar2);
-                        this.pPV.k(dVar);
+                        this.pZp.l(dVar2);
+                        this.pZp.k(dVar);
                     }
                 }
             }
         }
 
         protected boolean a(boolean z, master.flame.danmaku.danmaku.model.d dVar, m mVar, float f, master.flame.danmaku.danmaku.model.d dVar2, master.flame.danmaku.danmaku.model.d dVar3) {
-            return f < ((float) mVar.ezP()) || (dVar2 != null && dVar2.ezv() > 0.0f) || dVar.pMy + f > ((float) mVar.getHeight());
+            return f < ((float) mVar.eDE()) || (dVar2 != null && dVar2.eDk() > 0.0f) || dVar.pVS + f > ((float) mVar.getHeight());
         }
 
         @Override // master.flame.danmaku.danmaku.b.a.b.d
         public void clear() {
-            this.pQc = true;
-            this.pPV.clear();
+            this.pZw = true;
+            this.pZp.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
-    public static class c extends C1067b {
+    public static class c extends C1087b {
         private c() {
             super();
         }
 
-        @Override // master.flame.danmaku.danmaku.b.a.b.C1067b
+        @Override // master.flame.danmaku.danmaku.b.a.b.C1087b
         protected boolean a(boolean z, master.flame.danmaku.danmaku.model.d dVar, m mVar, float f, master.flame.danmaku.danmaku.model.d dVar2, master.flame.danmaku.danmaku.model.d dVar3) {
-            return dVar.pMy + f > ((float) mVar.getHeight());
+            return dVar.pVS + f > ((float) mVar.getHeight());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class a extends c {
-        protected C1066a pPU;
-        protected master.flame.danmaku.danmaku.model.android.d pPV;
+        protected C1086a pZo;
+        protected master.flame.danmaku.danmaku.model.android.d pZp;
 
         /* renamed from: master.flame.danmaku.danmaku.b.a.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        protected class C1066a extends l.b<master.flame.danmaku.danmaku.model.d, e> {
-            public m pPN;
-            float pQa;
-            int kzw = 0;
-            public master.flame.danmaku.danmaku.model.d pPW = null;
-            public master.flame.danmaku.danmaku.model.d pPX = null;
-            public master.flame.danmaku.danmaku.model.d pPY = null;
-            boolean pPZ = false;
+        protected class C1086a extends l.b<master.flame.danmaku.danmaku.model.d, e> {
+            public m pZh;
+            float pZu;
+            int kFq = 0;
+            public master.flame.danmaku.danmaku.model.d pZq = null;
+            public master.flame.danmaku.danmaku.model.d pZr = null;
+            public master.flame.danmaku.danmaku.model.d pZs = null;
+            boolean pZt = false;
 
-            protected C1066a() {
+            protected C1086a() {
             }
 
             @Override // master.flame.danmaku.danmaku.model.l.b
-            public void ezJ() {
-                this.kzw = 0;
-                this.pPX = null;
-                this.pPW = null;
-                this.pPZ = false;
+            public void eDy() {
+                this.kFq = 0;
+                this.pZr = null;
+                this.pZq = null;
+                this.pZt = false;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // master.flame.danmaku.danmaku.model.l.b
             /* renamed from: e */
             public int bX(master.flame.danmaku.danmaku.model.d dVar) {
-                if (a.this.pQc) {
+                if (a.this.pZw) {
                     return 1;
                 }
-                this.kzw++;
-                if (dVar == this.pPY) {
-                    this.pPW = null;
-                    this.pPZ = false;
+                this.kFq++;
+                if (dVar == this.pZs) {
+                    this.pZq = null;
+                    this.pZt = false;
                     return 1;
                 }
-                if (this.pPX == null) {
-                    this.pPX = dVar;
-                    if (this.pPX.ezx() != this.pPN.getHeight()) {
+                if (this.pZr == null) {
+                    this.pZr = dVar;
+                    if (this.pZr.eDm() != this.pZh.getHeight()) {
                         return 1;
                     }
                 }
-                if (this.pQa < this.pPN.ezP()) {
-                    this.pPW = null;
+                if (this.pZu < this.pZh.eDE()) {
+                    this.pZq = null;
                     return 1;
                 }
-                this.pPZ = master.flame.danmaku.danmaku.c.b.a(this.pPN, dVar, this.pPY, this.pPY.getDuration(), this.pPY.ezy().pMO);
-                if (!this.pPZ) {
-                    this.pPW = dVar;
+                this.pZt = master.flame.danmaku.danmaku.c.b.a(this.pZh, dVar, this.pZs, this.pZs.getDuration(), this.pZs.eDn().pWi);
+                if (!this.pZt) {
+                    this.pZq = dVar;
                     return 1;
                 }
-                this.pQa = (dVar.ezv() - this.pPN.getMargin()) - this.pPY.pMy;
+                this.pZu = (dVar.eDk() - this.pZh.getMargin()) - this.pZs.pVS;
                 return 0;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // master.flame.danmaku.danmaku.model.l.b
-            /* renamed from: eAv */
-            public e eyI() {
+            /* renamed from: eEk */
+            public e eCx() {
                 e eVar = new e();
-                eVar.kzw = this.kzw;
-                eVar.pPX = this.pPX;
-                eVar.pPW = this.pPW;
-                eVar.pPZ = this.pPZ;
+                eVar.kFq = this.kFq;
+                eVar.pZr = this.pZr;
+                eVar.pZq = this.pZq;
+                eVar.pZt = this.pZt;
                 return eVar;
             }
         }
 
         private a() {
             super();
-            this.pPU = new C1066a();
-            this.pPV = new master.flame.danmaku.danmaku.model.android.d(2);
+            this.pZo = new C1086a();
+            this.pZp = new master.flame.danmaku.danmaku.model.android.d(2);
         }
 
-        @Override // master.flame.danmaku.danmaku.b.a.b.C1067b, master.flame.danmaku.danmaku.b.a.b.d
+        @Override // master.flame.danmaku.danmaku.b.a.b.C1087b, master.flame.danmaku.danmaku.b.a.b.d
         public void a(master.flame.danmaku.danmaku.model.d dVar, m mVar, f fVar) {
             master.flame.danmaku.danmaku.model.d dVar2;
             int i;
@@ -441,12 +441,12 @@ public class b {
             boolean z2;
             boolean z3 = true;
             boolean z4 = false;
-            if (!dVar.ezq()) {
+            if (!dVar.eDf()) {
                 boolean isShown = dVar.isShown();
-                float ezv = isShown ? dVar.ezv() : -1.0f;
-                boolean z5 = (isShown || this.pPV.isEmpty()) ? false : true;
-                if (ezv < mVar.ezP()) {
-                    ezv = mVar.getHeight() - dVar.pMy;
+                float eDk = isShown ? dVar.eDk() : -1.0f;
+                boolean z5 = (isShown || this.pZp.isEmpty()) ? false : true;
+                if (eDk < mVar.eDE()) {
+                    eDk = mVar.getHeight() - dVar.pVS;
                 }
                 if (isShown) {
                     dVar2 = null;
@@ -454,19 +454,19 @@ public class b {
                     i = 0;
                     z = isShown;
                 } else {
-                    this.pQc = false;
-                    this.pPU.pQa = ezv;
-                    this.pPU.pPN = mVar;
-                    this.pPU.pPY = dVar;
-                    this.pPV.a(this.pPU);
-                    e eyI = this.pPU.eyI();
-                    ezv = this.pPU.pQa;
-                    if (eyI != null) {
-                        int i2 = eyI.kzw;
-                        dVar3 = eyI.pPX;
-                        master.flame.danmaku.danmaku.model.d dVar4 = eyI.pPW;
-                        boolean z6 = eyI.pQh;
-                        z2 = eyI.pPZ;
+                    this.pZw = false;
+                    this.pZo.pZu = eDk;
+                    this.pZo.pZh = mVar;
+                    this.pZo.pZs = dVar;
+                    this.pZp.a(this.pZo);
+                    e eCx = this.pZo.eCx();
+                    eDk = this.pZo.pZu;
+                    if (eCx != null) {
+                        int i2 = eCx.kFq;
+                        dVar3 = eCx.pZr;
+                        master.flame.danmaku.danmaku.model.d dVar4 = eCx.pZq;
+                        boolean z6 = eCx.pZB;
+                        z2 = eCx.pZt;
                         i = i2;
                         z = z6;
                         dVar2 = dVar4;
@@ -477,13 +477,13 @@ public class b {
                         i = 0;
                         z = isShown;
                     }
-                    boolean a2 = a(false, dVar, mVar, ezv, dVar3, null);
+                    boolean a2 = a(false, dVar, mVar, eDk, dVar3, null);
                     if (a2) {
-                        ezv = mVar.getHeight() - dVar.pMy;
+                        eDk = mVar.getHeight() - dVar.pVS;
                         z4 = a2;
                         i = 1;
                     } else {
-                        z3 = ezv >= ((float) mVar.ezP()) ? false : z2;
+                        z3 = eDk >= ((float) mVar.eDE()) ? false : z2;
                         if (dVar2 != null) {
                             i--;
                             z4 = a2;
@@ -492,28 +492,28 @@ public class b {
                         }
                     }
                 }
-                if (fVar == null || !fVar.a(dVar, ezv, i, z3)) {
+                if (fVar == null || !fVar.a(dVar, eDk, i, z3)) {
                     if (z4) {
                         clear();
                     }
-                    dVar.a(mVar, dVar.ezu(), ezv);
+                    dVar.a(mVar, dVar.eDj(), eDk);
                     if (!z) {
-                        this.pPV.l(dVar2);
-                        this.pPV.k(dVar);
+                        this.pZp.l(dVar2);
+                        this.pZp.k(dVar);
                     }
                 }
             }
         }
 
-        @Override // master.flame.danmaku.danmaku.b.a.b.c, master.flame.danmaku.danmaku.b.a.b.C1067b
+        @Override // master.flame.danmaku.danmaku.b.a.b.c, master.flame.danmaku.danmaku.b.a.b.C1087b
         protected boolean a(boolean z, master.flame.danmaku.danmaku.model.d dVar, m mVar, float f, master.flame.danmaku.danmaku.model.d dVar2, master.flame.danmaku.danmaku.model.d dVar3) {
-            return f < ((float) mVar.ezP()) || !(dVar2 == null || dVar2.ezx() == ((float) mVar.getHeight()));
+            return f < ((float) mVar.eDE()) || !(dVar2 == null || dVar2.eDm() == ((float) mVar.getHeight()));
         }
 
-        @Override // master.flame.danmaku.danmaku.b.a.b.C1067b, master.flame.danmaku.danmaku.b.a.b.d
+        @Override // master.flame.danmaku.danmaku.b.a.b.C1087b, master.flame.danmaku.danmaku.b.a.b.d
         public void clear() {
-            this.pQc = true;
-            this.pPV.clear();
+            this.pZw = true;
+            this.pZp.clear();
         }
     }
 }

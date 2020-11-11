@@ -12,7 +12,7 @@ import java.util.List;
 public class LocalBannerLayout extends RelativeLayout {
     private com.baidu.tbadk.core.flow.a.d<h> aiY;
     private com.baidu.tbadk.core.flow.a.d<h> aiZ;
-    private CoverFlowLocalView<h> iGf;
+    private CoverFlowLocalView<h> iMc;
     private List<h> mData;
 
     public LocalBannerLayout(Context context) {
@@ -45,7 +45,7 @@ public class LocalBannerLayout extends RelativeLayout {
     }
 
     private void init() {
-        this.iGf = new CoverFlowLocalView<>(getContext());
+        this.iMc = new CoverFlowLocalView<>(getContext());
         com.baidu.tbadk.core.flow.a.b bVar = new com.baidu.tbadk.core.flow.a.b() { // from class: com.baidu.tieba.frs.LocalBannerLayout.1
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
             public com.baidu.tbadk.core.flow.a.e uf() {
@@ -67,27 +67,27 @@ public class LocalBannerLayout extends RelativeLayout {
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
             public com.baidu.tbadk.core.flow.a.c ug() {
                 com.baidu.tbadk.core.flow.a.c cVar = new com.baidu.tbadk.core.flow.a.c();
-                cVar.oB(R.drawable.icon_mask_goods_select8);
-                cVar.oC(R.drawable.icon_mask_goods_unselect8);
+                cVar.oL(R.drawable.icon_mask_goods_select8);
+                cVar.oM(R.drawable.icon_mask_goods_unselect8);
                 cVar.setGravity(81);
-                cVar.oD(R.dimen.tbds36);
+                cVar.oN(R.dimen.tbds36);
                 cVar.setSpacing(R.dimen.tbds20);
                 return cVar;
             }
         };
-        this.iGf.setIndicatorNoOffet(false);
-        this.iGf.setDisableParentEvent(false);
-        this.iGf.setCoverFlowFactory(bVar);
-        this.iGf.setIndicatorVisible(0);
-        this.iGf.setIsAutoPlayDragging(false);
-        this.iGf.setAutoPlay(false);
-        this.iGf.setCallback(this.aiZ);
-        addView(this.iGf);
+        this.iMc.setIndicatorNoOffet(false);
+        this.iMc.setDisableParentEvent(false);
+        this.iMc.setCoverFlowFactory(bVar);
+        this.iMc.setIndicatorVisible(0);
+        this.iMc.setIsAutoPlayDragging(false);
+        this.iMc.setAutoPlay(false);
+        this.iMc.setCallback(this.aiZ);
+        addView(this.iMc);
     }
 
     public void setData(List<h> list) {
         this.mData = list;
-        this.iGf.setData(list);
+        this.iMc.setData(list);
     }
 
     public void setOnCoverViewCallback(com.baidu.tbadk.core.flow.a.d<h> dVar) {

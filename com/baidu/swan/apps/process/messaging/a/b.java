@@ -20,31 +20,31 @@ public class b {
             Log.d("SwanAppMessageChannel", "sendMessageToClient: delegation: " + cls.getName());
         }
         Message obtain = Message.obtain((Handler) null, (int) Constants.METHOD_IM_FRIEND_GROUP_ASSIGN);
-        obtain.replyTo = e.aDs().mMessenger;
+        obtain.replyTo = e.aFS().mMessenger;
         Bundle bundle2 = new Bundle();
         bundle2.putString("ai_apps_delegation_name", cls.getName());
         if (cVar != null) {
-            bundle2.putString("ai_apps_observer_id", cVar.aCw());
-            com.baidu.swan.apps.process.a.b.b.a.aCx().a(cVar);
+            bundle2.putString("ai_apps_observer_id", cVar.aEW());
+            com.baidu.swan.apps.process.a.b.b.a.aEX().a(cVar);
         }
         if (bundle != null) {
             bundle2.putBundle("ai_apps_data", bundle);
         }
         obtain.obj = bundle2;
-        com.baidu.swan.apps.process.messaging.a.aCE().a(new com.baidu.swan.apps.process.messaging.c(obtain).a(swanAppProcessInfo));
+        com.baidu.swan.apps.process.messaging.a.aFe().a(new com.baidu.swan.apps.process.messaging.c(obtain).a(swanAppProcessInfo));
     }
 
     public static void a(@Nullable Bundle bundle, @NonNull Class<? extends com.baidu.swan.apps.process.a.a.a> cls) {
-        Iterator<com.baidu.swan.apps.process.messaging.service.c> it = e.aDs().aDu().iterator();
+        Iterator<com.baidu.swan.apps.process.messaging.service.c> it = e.aFS().aFU().iterator();
         while (it.hasNext()) {
             com.baidu.swan.apps.process.messaging.service.c next = it.next();
-            if (next != null && next.aDf()) {
-                a(next.dgh, bundle, cls, null);
+            if (next != null && next.aFF()) {
+                a(next.dmc, bundle, cls, null);
             }
         }
     }
 
     public static void a(@Nullable Bundle bundle, @NonNull Class<? extends com.baidu.swan.apps.process.a.a.a> cls, @Nullable c cVar) {
-        com.baidu.swan.apps.process.messaging.client.a.aCO().b(bundle, cls, cVar);
+        com.baidu.swan.apps.process.messaging.client.a.aFo().b(bundle, cls, cVar);
     }
 }

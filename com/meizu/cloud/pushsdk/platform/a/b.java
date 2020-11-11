@@ -12,7 +12,7 @@ import java.util.concurrent.ScheduledExecutorService;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static b f4436a;
+    private static b f4438a;
     private ScheduledExecutorService b;
     private Context c;
     private a d;
@@ -45,14 +45,14 @@ public class b {
     }
 
     public static b a(Context context) {
-        if (f4436a == null) {
+        if (f4438a == null) {
             synchronized (b.class) {
-                if (f4436a == null) {
-                    f4436a = new b(context, true);
+                if (f4438a == null) {
+                    f4438a = new b(context, true);
                 }
             }
         }
-        return f4436a;
+        return f4438a;
     }
 
     public c<String> a(String str, String str2, String str3, File file) {

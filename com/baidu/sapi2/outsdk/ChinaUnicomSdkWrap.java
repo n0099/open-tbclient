@@ -23,24 +23,24 @@ import org.json.JSONObject;
 public class ChinaUnicomSdkWrap {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f3476a = 15;
+    private static final int f3479a = 15;
     private static final String b = "baidu_passport_cu_onekey_login";
     private static String c = "";
 
     private void b(final SapiConfiguration sapiConfiguration, final OneKeyLoginSdkCall.TokenListener tokenListener) {
-        Log.i(OneKeyLoginSdkCall.f3480a, "in getAsynToken");
+        Log.i(OneKeyLoginSdkCall.f3483a, "in getAsynToken");
         ToolUtils.clearCache(sapiConfiguration.context);
         UiOauthManager.getInstance(sapiConfiguration.context).login(15, new CallBack<Object>() { // from class: com.baidu.sapi2.outsdk.ChinaUnicomSdkWrap.1
             @Override // com.sdk.base.api.CallBack
             public void onFailed(int i, int i2, String str, String str2) {
                 tokenListener.onGetTokenComplete(new JSONObject());
-                Log.e(OneKeyLoginSdkCall.f3480a, "onFailure  code:   " + i + "   status: " + i2 + "  msg：" + str);
+                Log.e(OneKeyLoginSdkCall.f3483a, "onFailure  code:   " + i + "   status: " + i2 + "  msg：" + str);
                 SapiStatUtil.statPreGetPhoneInfo(0, i2 + "", "CU", OneKeyLoginSdkCall.k, ChinaUnicomSdkWrap.c);
             }
 
             @Override // com.sdk.base.api.CallBack
             public void onSuccess(int i, String str, int i2, Object obj, String str2) {
-                Log.i(OneKeyLoginSdkCall.f3480a, "onSuccess: code:" + i + "   status:" + i2 + "   msg:" + str + "    response: " + obj + "    seq: " + str2);
+                Log.i(OneKeyLoginSdkCall.f3483a, "onSuccess: code:" + i + "   status:" + i2 + "   msg:" + str + "    response: " + obj + "    seq: " + str2);
                 String str3 = i2 + "";
                 JSONObject jSONObject = new JSONObject();
                 try {
@@ -70,7 +70,7 @@ public class ChinaUnicomSdkWrap {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(SapiConfiguration sapiConfiguration, String str, String str2, int i, OneKeyLoginCallback oneKeyLoginCallback) {
-        Log.i(OneKeyLoginSdkCall.f3480a, "in china unicom login pre get phone info");
+        Log.i(OneKeyLoginSdkCall.f3483a, "in china unicom login pre get phone info");
         a(sapiConfiguration, str2);
         a(sapiConfiguration.context, str, str2, i, oneKeyLoginCallback);
     }
@@ -87,7 +87,7 @@ public class ChinaUnicomSdkWrap {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(SapiConfiguration sapiConfiguration, OneKeyLoginSdkCall.TokenListener tokenListener) {
-        Log.i(OneKeyLoginSdkCall.f3480a, "in getToken");
+        Log.i(OneKeyLoginSdkCall.f3483a, "in getToken");
         if ((System.currentTimeMillis() / 1000) - SapiContext.getInstance().getLong("china_telecom_expired_time", 0L) < 3300) {
             JSONObject jSONObject = new JSONObject();
             try {
@@ -111,7 +111,7 @@ public class ChinaUnicomSdkWrap {
         UiOauthManager.getInstance(context).login(i == 0 ? 15 : i / 1000, new CallBack<Object>() { // from class: com.baidu.sapi2.outsdk.ChinaUnicomSdkWrap.2
             @Override // com.sdk.base.api.CallBack
             public void onFailed(int i2, int i3, String str3, String str4) {
-                Log.e(OneKeyLoginSdkCall.f3480a, "onFailure  code:   " + i2 + "   status: " + i3 + "  msg：" + str3);
+                Log.e(OneKeyLoginSdkCall.f3483a, "onFailure  code:   " + i2 + "   status: " + i3 + "  msg：" + str3);
                 SapiStatUtil.statPreGetPhoneInfo(0, i3 + "", "CU", str, str2);
                 new OneKeyLoginSdkCall().b(oneKeyLoginCallback, -101, null);
             }
@@ -133,7 +133,7 @@ public class ChinaUnicomSdkWrap {
                 i6 = 1;
                 i6 = 1;
                 int i7 = 0;
-                Log.i(OneKeyLoginSdkCall.f3480a, "onSuccess: code:" + i2 + "   status:" + i3 + "   msg:" + str3 + "    response: " + obj + "    seq: " + str4);
+                Log.i(OneKeyLoginSdkCall.f3483a, "onSuccess: code:" + i2 + "   status:" + i3 + "   msg:" + str3 + "    response: " + obj + "    seq: " + str4);
                 String str5 = "";
                 String str6 = i3 + "";
                 try {
@@ -220,7 +220,7 @@ public class ChinaUnicomSdkWrap {
         OauthManager.getInstance(sapiConfiguration.context).getAuthoriseCode(15, new CallBack<Object>() { // from class: com.baidu.sapi2.outsdk.ChinaUnicomSdkWrap.3
             @Override // com.sdk.base.api.CallBack
             public void onFailed(int i, int i2, String str2, String str3) {
-                Log.e(OneKeyLoginSdkCall.f3480a, "onFailure  code:   " + i + "   status: " + i2 + "  msg：" + str2);
+                Log.e(OneKeyLoginSdkCall.f3483a, "onFailure  code:   " + i + "   status: " + i2 + "  msg：" + str2);
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
@@ -232,7 +232,7 @@ public class ChinaUnicomSdkWrap {
 
             @Override // com.sdk.base.api.CallBack
             public void onSuccess(int i, String str2, int i2, Object obj, String str3) {
-                Log.i(OneKeyLoginSdkCall.f3480a, "onSuccess: code:" + i + "   status:" + i2 + "   msg:" + str2 + "    response: " + obj + "    seq: " + str3);
+                Log.i(OneKeyLoginSdkCall.f3483a, "onSuccess: code:" + i + "   status:" + i2 + "   msg:" + str2 + "    response: " + obj + "    seq: " + str3);
                 try {
                     JSONObject jSONObject = obj == null ? new JSONObject() : new JSONObject(obj.toString());
                     jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
@@ -241,7 +241,7 @@ public class ChinaUnicomSdkWrap {
                     jSONObject.put("token", jSONObject.optString("accessCode"));
                     tokenListener.onGetTokenComplete(jSONObject);
                 } catch (Exception e) {
-                    Log.e(OneKeyLoginSdkCall.f3480a, e);
+                    Log.e(OneKeyLoginSdkCall.f3483a, e);
                     tokenListener.onGetTokenComplete(new JSONObject());
                 }
             }

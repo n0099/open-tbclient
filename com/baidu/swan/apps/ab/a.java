@@ -13,9 +13,9 @@ public class a {
 
     public static void a(@NonNull String str, @NonNull String[] strArr, @NonNull int i, @NonNull Context context, @NonNull b bVar) {
         if (context == null || !(context instanceof Activity)) {
-            bVar.ab(2, "context should be activity ref");
+            bVar.af(2, "context should be activity ref");
         } else if (com.baidu.swan.uuid.b.c.hasPermission(context, str)) {
-            bVar.ke("permission has already granted");
+            bVar.kt("permission has already granted");
         } else {
             a(context, strArr, i, bVar);
         }
@@ -31,13 +31,13 @@ public class a {
         if (arrayList.size() > 0) {
             a(context, (String[]) arrayList.toArray(new String[0]), i, bVar);
         } else {
-            bVar.ke("permission has already granted");
+            bVar.kt("permission has already granted");
         }
     }
 
     public static void a(Context context, String[] strArr, final int i, @NonNull final b bVar) {
         if (context == null || !(context instanceof SwanAppBaseActivity)) {
-            bVar.ab(2, "method should be called after setActivityRef");
+            bVar.af(2, "method should be called after setActivityRef");
             if (DEBUG) {
                 throw new IllegalStateException("this method should be called after setActivityRef");
             }
@@ -49,18 +49,18 @@ public class a {
                 if (i2 != i) {
                     b bVar2 = bVar;
                     b bVar3 = bVar;
-                    bVar2.ab(2, "request permission fail");
+                    bVar2.af(2, "request permission fail");
                     return;
                 }
                 for (int i3 : iArr) {
                     if (i3 == -1) {
                         b bVar4 = bVar;
                         b bVar5 = bVar;
-                        bVar4.ab(1, "user denied");
+                        bVar4.af(1, "user denied");
                         return;
                     }
                 }
-                bVar.ke("permission granted successful");
+                bVar.kt("permission granted successful");
             }
         });
     }

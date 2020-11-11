@@ -16,21 +16,21 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class i {
-    private static i jWq;
-    private static long jWt = -1;
-    private static int jWu = 0;
-    private a jWr = new a();
-    private b jWs = null;
+    private static i kcn;
+    private static long kcq = -1;
+    private static int kcr = 0;
+    private a kco = new a();
+    private b kcp = null;
 
-    public static i cOD() {
-        if (jWq == null) {
+    public static i cRe() {
+        if (kcn == null) {
             synchronized (i.class) {
-                if (jWq == null) {
-                    jWq = new i();
+                if (kcn == null) {
+                    kcn = new i();
                 }
             }
         }
-        return jWq;
+        return kcn;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -44,8 +44,8 @@ public class i {
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    i.cOD().jWr.removeMessages(1);
-                    i.cOD().execute();
+                    i.cRe().kco.removeMessages(1);
+                    i.cRe().execute();
                     return;
                 default:
                     return;
@@ -60,10 +60,10 @@ public class i {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage)) {
                     if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                        i.this.jWr.sendMessageDelayed(i.this.jWr.obtainMessage(1), 30000L);
+                        i.this.kco.sendMessageDelayed(i.this.kco.obtainMessage(1), 30000L);
                         return;
                     }
-                    i.this.jWr.removeMessages(1);
+                    i.this.kco.removeMessages(1);
                     i.this.stop();
                 }
             }
@@ -72,21 +72,21 @@ public class i {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void execute() {
-        if (this.jWs != null) {
-            this.jWs.cancel();
-            this.jWs = null;
+        if (this.kcp != null) {
+            this.kcp.cancel();
+            this.kcp = null;
         }
-        this.jWs = new b();
-        this.jWs.setParallel(TiebaIMConfig.getParallel());
-        this.jWs.setPriority(4);
-        this.jWs.execute(new String[0]);
+        this.kcp = new b();
+        this.kcp.setParallel(TiebaIMConfig.getParallel());
+        this.kcp.setPriority(4);
+        this.kcp.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void stop() {
-        if (this.jWs != null) {
-            this.jWs.cancel();
-            this.jWs = null;
+        if (this.kcp != null) {
+            this.kcp.cancel();
+            this.kcp = null;
         }
     }
 
@@ -101,48 +101,48 @@ public class i {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            LinkedList<ImMessageCenterPojo> cOH = j.cOE().cOH();
-            if (cOH == null || cOH.size() == 0) {
+            LinkedList<ImMessageCenterPojo> cRi = j.cRf().cRi();
+            if (cRi == null || cRi.size() == 0) {
                 return false;
             }
-            if (i.jWt < 0) {
+            if (i.kcq < 0) {
                 try {
                     StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                    long unused = i.jWt = statFs.getAvailableBlocks() * statFs.getBlockSize();
-                    if (i.jWt > 2147483648L) {
-                        int unused2 = i.jWu = 5000;
-                    } else if (i.jWt > 1073741824) {
-                        int unused3 = i.jWu = 3000;
+                    long unused = i.kcq = statFs.getAvailableBlocks() * statFs.getBlockSize();
+                    if (i.kcq > 2147483648L) {
+                        int unused2 = i.kcr = 5000;
+                    } else if (i.kcq > 1073741824) {
+                        int unused3 = i.kcr = 3000;
                     } else {
-                        int unused4 = i.jWu = 1000;
+                        int unused4 = i.kcr = 1000;
                     }
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
             }
-            if (i.jWu < 1000) {
-                int unused5 = i.jWu = 1000;
+            if (i.kcr < 1000) {
+                int unused5 = i.kcr = 1000;
             }
             try {
-                h.cOA().cOB();
-                for (ImMessageCenterPojo imMessageCenterPojo : cOH) {
+                h.cRb().cRc();
+                for (ImMessageCenterPojo imMessageCenterPojo : cRi) {
                     if (isCancelled()) {
-                        h.cOA().cOC();
+                        h.cRb().cRd();
                         return false;
                     } else if (imMessageCenterPojo.getCustomGroupType() == 1) {
-                        c.cOt().aY(imMessageCenterPojo.getGid(), i.jWu);
+                        c.cQU().ba(imMessageCenterPojo.getGid(), i.kcr);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
-                        m.cON().aY(imMessageCenterPojo.getGid(), i.jWu);
+                        m.cRo().ba(imMessageCenterPojo.getGid(), i.kcr);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
-                        l.cOK().aY(imMessageCenterPojo.getGid(), i.jWu);
+                        l.cRl().ba(imMessageCenterPojo.getGid(), i.kcr);
                     } else if (imMessageCenterPojo.getCustomGroupType() == -2) {
-                        d.cOu().aY(imMessageCenterPojo.getGid(), i.jWu);
+                        d.cQV().ba(imMessageCenterPojo.getGid(), i.kcr);
                     }
                 }
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             } finally {
-                h.cOA().cOC();
+                h.cRb().cRd();
             }
             return true;
         }

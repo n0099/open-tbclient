@@ -25,7 +25,7 @@ public class VideoInfo implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1727a;
+    private String f1729a;
     private int b;
     private int c;
     private int d;
@@ -33,11 +33,11 @@ public class VideoInfo implements Parcelable {
     private int f;
 
     public String a() {
-        return this.f1727a;
+        return this.f1729a;
     }
 
     public void a(String str) {
-        this.f1727a = str;
+        this.f1729a = str;
     }
 
     public int b() {
@@ -66,7 +66,7 @@ public class VideoInfo implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f1727a);
+        parcel.writeString(this.f1729a);
         parcel.writeInt(this.b);
         parcel.writeInt(this.c);
         parcel.writeLong(this.e);
@@ -75,7 +75,7 @@ public class VideoInfo implements Parcelable {
     }
 
     protected VideoInfo(Parcel parcel) {
-        this.f1727a = parcel.readString();
+        this.f1729a = parcel.readString();
         this.b = parcel.readInt();
         this.c = parcel.readInt();
         this.e = parcel.readLong();
@@ -116,7 +116,7 @@ public class VideoInfo implements Parcelable {
         videoInfo.e = this.e;
         videoInfo.c = this.c;
         videoInfo.b = this.b;
-        videoInfo.f1727a = this.f1727a;
+        videoInfo.f1729a = this.f1729a;
         return videoInfo;
     }
 
@@ -156,6 +156,6 @@ public class VideoInfo implements Parcelable {
     }
 
     public String toString() {
-        return "VideoInfo{videoPath='" + this.f1727a + "', videoWidth=" + this.b + ", videoHeight=" + this.c + ", frameRate=" + this.d + ", duration=" + this.e + ", videoRotation=" + this.f + '}';
+        return "VideoInfo{videoPath='" + this.f1729a + "', videoWidth=" + this.b + ", videoHeight=" + this.c + ", frameRate=" + this.d + ", duration=" + this.e + ", videoRotation=" + this.f + '}';
     }
 }

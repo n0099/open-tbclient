@@ -10,27 +10,27 @@ import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.pb.pb.main.PbModel;
 /* loaded from: classes22.dex */
 public class e extends w {
-    private d lGZ = new d();
-    private int lHa = 0;
-    private PbModel ljR;
+    private d lMV = new d();
+    private int lMW = 0;
+    private PbModel lpS;
 
     public void init(Intent intent) {
-        this.lGZ.i((Rect) intent.getParcelableExtra(PbActivityConfig.VIDEO_ORIGIN_AREA));
-        this.lGZ.vn(intent.getBooleanExtra("key_jump_to_comment_area", false));
+        this.lMV.i((Rect) intent.getParcelableExtra(PbActivityConfig.VIDEO_ORIGIN_AREA));
+        this.lMV.vw(intent.getBooleanExtra("key_jump_to_comment_area", false));
     }
 
     public void i(PbModel pbModel) {
-        this.ljR = pbModel;
+        this.lpS = pbModel;
     }
 
     public void b(com.baidu.tieba.pb.data.f fVar, int i) {
         boolean z = true;
-        if (i >= this.lHa) {
-            this.lHa = i;
-            this.lGZ.L(fVar);
+        if (i >= this.lMW) {
+            this.lMW = i;
+            this.lMV.L(fVar);
             if (fVar != null) {
-                d dVar = this.lGZ;
-                if (fVar.getIsNewUrl() != 1 && !fVar.dgl()) {
+                d dVar = this.lMV;
+                if (fVar.getIsNewUrl() != 1 && !fVar.diN()) {
                     z = false;
                 }
                 dVar.setFromCDN(z);
@@ -38,111 +38,111 @@ public class e extends w {
         }
     }
 
-    public com.baidu.tieba.pb.data.f doL() {
-        return this.lGZ.doL();
+    public com.baidu.tieba.pb.data.f drn() {
+        return this.lMV.drn();
     }
 
     public boolean isFromCDN() {
-        return this.lGZ.isFromCDN();
+        return this.lMV.isFromCDN();
     }
 
-    public com.baidu.tieba.pb.data.f doM() {
-        return this.lGZ.doM();
+    public com.baidu.tieba.pb.data.f dro() {
+        return this.lMV.dro();
     }
 
     public void c(com.baidu.tieba.pb.data.f fVar, int i) {
         if (i == 3) {
-            this.lGZ.setData(fVar);
+            this.lMV.setData(fVar);
         }
     }
 
-    public p<bw> doN() {
-        return this.lGZ.doN();
+    public p<bw> drp() {
+        return this.lMV.drp();
     }
 
-    public Rect doO() {
-        if (this.lGZ.doO() == null || this.lGZ.doO().isEmpty()) {
+    public Rect drq() {
+        if (this.lMV.drq() == null || this.lMV.drq().isEmpty()) {
             return null;
         }
-        return this.lGZ.doO();
+        return this.lMV.drq();
     }
 
-    public void vq(boolean z) {
-        if (this.lGZ.doS().getValue() != null) {
-            com.baidu.tieba.pb.data.f aI = this.ljR.aI(this.lGZ.doS().getValue());
+    public void vz(boolean z) {
+        if (this.lMV.dru().getValue() != null) {
+            com.baidu.tieba.pb.data.f aI = this.lpS.aI(this.lMV.dru().getValue());
             if (aI != null) {
-                this.lGZ.doQ().addLast(this.lGZ.doM());
-                this.lGZ.setData(aI);
-                this.lGZ.aQ(!y.isEmpty(aI.dgk()) ? aI.dgk().get(0) : null);
-                this.lGZ.aP(this.lGZ.doQ().getLast() != null ? this.lGZ.doQ().getLast().dfI() : null);
-                this.ljR.FP(z ? 21 : 22);
-                this.ljR.j(aI);
-                this.lGZ.setIsLoading(true);
+                this.lMV.drs().addLast(this.lMV.dro());
+                this.lMV.setData(aI);
+                this.lMV.aQ(!y.isEmpty(aI.diM()) ? aI.diM().get(0) : null);
+                this.lMV.aP(this.lMV.drs().getLast() != null ? this.lMV.drs().getLast().dik() : null);
+                this.lpS.Gc(z ? 21 : 22);
+                this.lpS.j(aI);
+                this.lMV.setIsLoading(true);
             }
         }
     }
 
     public void aR(bw bwVar) {
         com.baidu.tieba.pb.data.f aI;
-        if (bwVar != null && (aI = this.ljR.aI(bwVar)) != null) {
-            this.lGZ.doQ().addLast(this.lGZ.doM());
-            this.lGZ.setData(aI);
-            this.lGZ.aQ(!y.isEmpty(aI.dgk()) ? aI.dgk().get(0) : null);
-            this.lGZ.aP(this.lGZ.doQ().getLast() != null ? this.lGZ.doQ().getLast().dfI() : null);
-            this.ljR.FP(20);
-            this.ljR.j(aI);
-            this.lGZ.setIsLoading(true);
+        if (bwVar != null && (aI = this.lpS.aI(bwVar)) != null) {
+            this.lMV.drs().addLast(this.lMV.dro());
+            this.lMV.setData(aI);
+            this.lMV.aQ(!y.isEmpty(aI.diM()) ? aI.diM().get(0) : null);
+            this.lMV.aP(this.lMV.drs().getLast() != null ? this.lMV.drs().getLast().dik() : null);
+            this.lpS.Gc(20);
+            this.lpS.j(aI);
+            this.lMV.setIsLoading(true);
         }
     }
 
-    public void doX() {
-        com.baidu.tieba.pb.data.f pollLast = this.lGZ.doQ().pollLast();
+    public void drz() {
+        com.baidu.tieba.pb.data.f pollLast = this.lMV.drs().pollLast();
         if (pollLast != null) {
-            this.lGZ.setData(pollLast);
-            this.lGZ.aQ(!y.isEmpty(pollLast.dgk()) ? pollLast.dgk().get(0) : null);
-            this.lGZ.aP(this.lGZ.doQ().peekLast() != null ? this.lGZ.doQ().peekLast().dfI() : null);
-            this.ljR.j(pollLast);
-            this.lGZ.setIsLoading(true);
+            this.lMV.setData(pollLast);
+            this.lMV.aQ(!y.isEmpty(pollLast.diM()) ? pollLast.diM().get(0) : null);
+            this.lMV.aP(this.lMV.drs().peekLast() != null ? this.lMV.drs().peekLast().dik() : null);
+            this.lpS.j(pollLast);
+            this.lMV.setIsLoading(true);
         }
     }
 
-    public p<bw> doR() {
-        return this.lGZ.doR();
+    public p<bw> drt() {
+        return this.lMV.drt();
     }
 
-    public p<bw> doS() {
-        return this.lGZ.doS();
+    public p<bw> dru() {
+        return this.lMV.dru();
     }
 
-    public p<Boolean> doT() {
-        return this.lGZ.doT();
+    public p<Boolean> drv() {
+        return this.lMV.drv();
     }
 
-    public void vo(boolean z) {
-        this.lGZ.vo(z);
+    public void vx(boolean z) {
+        this.lMV.vx(z);
     }
 
-    public p<Boolean> doU() {
-        return this.lGZ.doU();
+    public p<Boolean> drw() {
+        return this.lMV.drw();
     }
 
-    public void vp(boolean z) {
-        this.lGZ.vp(z);
+    public void vy(boolean z) {
+        this.lMV.vy(z);
     }
 
     public void setIsLoading(boolean z) {
-        this.lGZ.setIsLoading(z);
+        this.lMV.setIsLoading(z);
     }
 
-    public p<Boolean> doV() {
-        return this.lGZ.doV();
+    public p<Boolean> drx() {
+        return this.lMV.drx();
     }
 
-    public boolean doP() {
-        return this.lGZ.doP();
+    public boolean drr() {
+        return this.lMV.drr();
     }
 
-    public p<Integer> doW() {
-        return this.lGZ.doW();
+    public p<Integer> dry() {
+        return this.lMV.dry();
     }
 }

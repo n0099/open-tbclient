@@ -33,13 +33,13 @@ public class StringHelper extends BdStringHelper {
     private static long MS_TO_DAY = MS_TO_HOUR * 24;
     private static float SIZE_FLOAT_M = 1048576.0f;
     private static float SIZE_FLOAT_K = 1024.0f;
-    private static String HOUR_BEFORE = TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_time_hour_before);
-    private static String MIN_BEFORE = TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_time_min_before);
-    private static String SEC_BEFORE = TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_time_sec_before);
-    private static String TIME_DAY = TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_day);
-    private static String TIME_HOUR = TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_time_hour);
-    private static String TIME_MINUTE = TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_time_minute);
-    private static String TIME_SECOND = TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_time_second);
+    private static String HOUR_BEFORE = TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_time_hour_before);
+    private static String MIN_BEFORE = TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_time_min_before);
+    private static String SEC_BEFORE = TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_time_sec_before);
+    private static String TIME_DAY = TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_day);
+    private static String TIME_HOUR = TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_time_hour);
+    private static String TIME_MINUTE = TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_time_minute);
+    private static String TIME_SECOND = TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_time_second);
     private static final SimpleDateFormat FORMATE_DATE_SECOND = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private static final SimpleDateFormat FORMATE_DATE_SECOND_CHINESE = new SimpleDateFormat("yyyy年MM月dd HH时mm分ss秒");
     private static Date date = new Date();
@@ -487,7 +487,7 @@ public class StringHelper extends BdStringHelper {
         } else {
             valueOf = String.valueOf(date2.getMinutes());
         }
-        return date2.getHours() > 12 ? TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_time_show_afternoon, new Object[]{String.valueOf(date2.getHours() - 12), valueOf}) : date2.getHours() == 12 ? TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_time_show_afternoon, new Object[]{String.valueOf(date2.getHours()), valueOf}) : date2.getHours() == 0 ? TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_time_show_morning, new Object[]{String.valueOf(12), valueOf}) : TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_time_show_morning, new Object[]{String.valueOf(date2.getHours()), valueOf});
+        return date2.getHours() > 12 ? TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_time_show_afternoon, new Object[]{String.valueOf(date2.getHours() - 12), valueOf}) : date2.getHours() == 12 ? TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_time_show_afternoon, new Object[]{String.valueOf(date2.getHours()), valueOf}) : date2.getHours() == 0 ? TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_time_show_morning, new Object[]{String.valueOf(12), valueOf}) : TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_time_show_morning, new Object[]{String.valueOf(date2.getHours()), valueOf});
     }
 
     @Deprecated
@@ -942,15 +942,15 @@ public class StringHelper extends BdStringHelper {
         String valueOf = String.valueOf(j);
         if (j >= 100000000) {
             if (j % 100000000 != 0) {
-                return String.format("%.1f", Double.valueOf(((float) j) / 1.0E8f)) + TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_unit_yi);
+                return String.format("%.1f", Double.valueOf(((float) j) / 1.0E8f)) + TbadkCoreApplication.getInst().getResources().getString(a.h.sdk_unit_yi);
             }
-            return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_unit_yi);
+            return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(a.h.sdk_unit_yi);
         } else if (j >= TimeUtils.NANOS_PER_MS) {
             long j2 = j / 10000;
             if (((float) j) / 10000.0f > ((float) j2)) {
-                return String.format("%.1f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_unit_wan);
+                return String.format("%.1f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(a.h.sdk_unit_wan);
             }
-            return j2 + TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_unit_wan);
+            return j2 + TbadkCoreApplication.getInst().getResources().getString(a.h.sdk_unit_wan);
         } else {
             return valueOf;
         }
@@ -1175,7 +1175,7 @@ public class StringHelper extends BdStringHelper {
     }
 
     public static String getFormatSize(long j) {
-        return ((float) j) >= SIZE_FLOAT_M ? String.format(Locale.getDefault(), "%.1fM", Float.valueOf(((float) j) / SIZE_FLOAT_M)) : ((float) j) >= SIZE_FLOAT_K / 10.0f ? String.format(Locale.getDefault(), "%.1fK", Float.valueOf(((float) j) / SIZE_FLOAT_K)) : TbadkCoreApplication.getInst().getString(a.i.sdk_less_than_zero_dot_one_k);
+        return ((float) j) >= SIZE_FLOAT_M ? String.format(Locale.getDefault(), "%.1fM", Float.valueOf(((float) j) / SIZE_FLOAT_M)) : ((float) j) >= SIZE_FLOAT_K / 10.0f ? String.format(Locale.getDefault(), "%.1fK", Float.valueOf(((float) j) / SIZE_FLOAT_K)) : TbadkCoreApplication.getInst().getString(a.h.sdk_less_than_zero_dot_one_k);
     }
 
     public static int getRealSize(String str) {
@@ -1278,18 +1278,18 @@ public class StringHelper extends BdStringHelper {
                 double d = ((float) j) / 1.0E8f;
                 double d2 = j / 100000000;
                 if (j % 100000000 > 999999.0d) {
-                    return String.format("%.2f", Double.valueOf(d)) + TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_unit_yi);
+                    return String.format("%.2f", Double.valueOf(d)) + TbadkCoreApplication.getInst().getResources().getString(a.h.sdk_unit_yi);
                 }
-                return d2 + TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_unit_yi);
+                return d2 + TbadkCoreApplication.getInst().getResources().getString(a.h.sdk_unit_yi);
             }
-            return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_unit_yi);
+            return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(a.h.sdk_unit_yi);
         } else if (j >= TimeUtils.NANOS_PER_MS) {
             float f = ((float) j) / 10000.0f;
             long j2 = j / 10000;
             if (j % TimeUtils.NANOS_PER_MS > 999) {
-                return String.format("%.2f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_unit_wan);
+                return String.format("%.2f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(a.h.sdk_unit_wan);
             }
-            return j2 + TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_unit_wan);
+            return j2 + TbadkCoreApplication.getInst().getResources().getString(a.h.sdk_unit_wan);
         } else {
             return valueOf;
         }
@@ -1305,18 +1305,18 @@ public class StringHelper extends BdStringHelper {
                 double d = ((float) j) / 1.0E8f;
                 double d2 = j / 100000000;
                 if (j % 100000000 > 999999.0d) {
-                    return String.format("%.2f", Double.valueOf(d)) + TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_unit_yi);
+                    return String.format("%.2f", Double.valueOf(d)) + TbadkCoreApplication.getInst().getResources().getString(a.h.sdk_unit_yi);
                 }
-                return d2 + TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_unit_yi);
+                return d2 + TbadkCoreApplication.getInst().getResources().getString(a.h.sdk_unit_yi);
             }
-            return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_unit_yi);
+            return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(a.h.sdk_unit_yi);
         } else if (j >= 10000000) {
             float f = ((float) j) / 10000.0f;
             long j2 = j / 10000;
             if (j % 10000000 > 999) {
-                return String.format("%.2f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_unit_wan);
+                return String.format("%.2f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(a.h.sdk_unit_wan);
             }
-            return j2 + TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_unit_wan);
+            return j2 + TbadkCoreApplication.getInst().getResources().getString(a.h.sdk_unit_wan);
         } else {
             return valueOf;
         }
@@ -1424,11 +1424,11 @@ public class StringHelper extends BdStringHelper {
     public static String getUserDescByGender(int i) {
         switch (i) {
             case 1:
-                return TbadkCoreApplication.getInst().getContext().getString(a.i.sdk_he);
+                return TbadkCoreApplication.getInst().getContext().getString(a.h.sdk_he);
             case 2:
-                return TbadkCoreApplication.getInst().getContext().getString(a.i.sdk_she);
+                return TbadkCoreApplication.getInst().getContext().getString(a.h.sdk_she);
             default:
-                return TbadkCoreApplication.getInst().getContext().getString(a.i.sdk_he);
+                return TbadkCoreApplication.getInst().getContext().getString(a.h.sdk_he);
         }
     }
 

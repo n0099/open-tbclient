@@ -14,10 +14,10 @@ import com.baidu.tieba.enterForum.hotuserrank.a.c;
 /* loaded from: classes22.dex */
 public class a {
     private BdUniqueId aiz;
-    private InterfaceC0701a ift;
-    private c igr;
+    private InterfaceC0715a ilq;
+    private c imp;
     private int mPageNum = 1;
-    private com.baidu.adp.framework.listener.a elx = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_HOT_USER_RANK, 309652) { // from class: com.baidu.tieba.enterForum.hotuserrank.model.a.1
+    private com.baidu.adp.framework.listener.a ers = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_HOT_USER_RANK, 309652) { // from class: com.baidu.tieba.enterForum.hotuserrank.model.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
@@ -29,29 +29,29 @@ public class a {
                         cVar = ((HotUserRankSocketResMsg) responsedMessage).getPageData();
                     }
                     if (responsedMessage.getError() == 0) {
-                        if (a.this.mPageNum == 1 && (cVar == null || y.isEmpty(cVar.igo))) {
-                            if (a.this.ift != null) {
-                                a.this.ift.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
+                        if (a.this.mPageNum == 1 && (cVar == null || y.isEmpty(cVar.imm))) {
+                            if (a.this.ilq != null) {
+                                a.this.ilq.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
                             }
                         } else if (cVar != null) {
-                            a.this.igr.ign = cVar.ign;
-                            a.this.igr.igo.addAll(cVar.igo);
-                            a.this.igr.igp = cVar.igp;
-                            a.this.igr.gEm = cVar.gEm;
-                            a.this.igr.igq = cVar.igq;
-                            a.this.igr.igg = cVar.igg;
-                            if (y.isEmpty(cVar.igo)) {
-                                a.this.igr.hasMore = false;
+                            a.this.imp.iml = cVar.iml;
+                            a.this.imp.imm.addAll(cVar.imm);
+                            a.this.imp.imn = cVar.imn;
+                            a.this.imp.gJZ = cVar.gJZ;
+                            a.this.imp.imo = cVar.imo;
+                            a.this.imp.imd = cVar.imd;
+                            if (y.isEmpty(cVar.imm)) {
+                                a.this.imp.hasMore = false;
                             } else {
-                                a.this.igr.hasMore = cVar.hasMore;
+                                a.this.imp.hasMore = cVar.hasMore;
                                 a.e(a.this);
                             }
-                            if (a.this.ift != null) {
-                                a.this.ift.a(cVar);
+                            if (a.this.ilq != null) {
+                                a.this.ilq.a(cVar);
                             }
                         }
-                    } else if (a.this.ift != null) {
-                        a.this.ift.onError(responsedMessage.getError(), responsedMessage.getErrorString());
+                    } else if (a.this.ilq != null) {
+                        a.this.ilq.onError(responsedMessage.getError(), responsedMessage.getErrorString());
                     }
                 }
             }
@@ -60,7 +60,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.enterForum.hotuserrank.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes22.dex */
-    public interface InterfaceC0701a {
+    public interface InterfaceC0715a {
         void a(c cVar);
 
         void onError(int i, String str);
@@ -74,14 +74,14 @@ public class a {
 
     public a(BdUniqueId bdUniqueId) {
         this.aiz = bdUniqueId;
-        this.elx.setTag(this.aiz);
-        MessageManager.getInstance().registerListener(this.elx);
-        bmW();
-        bmX();
-        this.igr = new c();
+        this.ers.setTag(this.aiz);
+        MessageManager.getInstance().registerListener(this.ers);
+        bpw();
+        bpx();
+        this.imp = new c();
     }
 
-    public void Jh(String str) {
+    public void Jy(String str) {
         HotUserRankReqMsg hotUserRankReqMsg = new HotUserRankReqMsg();
         hotUserRankReqMsg.category = str;
         hotUserRankReqMsg.pageSize = 20;
@@ -90,7 +90,7 @@ public class a {
         MessageManager.getInstance().sendMessage(hotUserRankReqMsg);
     }
 
-    public void fb(long j) {
+    public void fx(long j) {
         HotUserRankReqMsg hotUserRankReqMsg = new HotUserRankReqMsg();
         hotUserRankReqMsg.forumId = j;
         hotUserRankReqMsg.pageSize = 20;
@@ -100,18 +100,18 @@ public class a {
     }
 
     public c getPageData() {
-        return this.igr;
+        return this.imp;
     }
 
-    public int cpP() {
+    public int csq() {
         return this.mPageNum;
     }
 
     public boolean hasMore() {
-        return this.igr.hasMore;
+        return this.imp.hasMore;
     }
 
-    private void bmW() {
+    private void bpw() {
         b bVar = new b(309652);
         bVar.setResponsedClass(HotUserRankSocketResMsg.class);
         bVar.setNeedAck(true);
@@ -119,8 +119,8 @@ public class a {
         MessageManager.getInstance().registerTask(bVar);
     }
 
-    private void bmX() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_USER_RANK, com.baidu.tieba.tbadkCore.a.a.bJ(TbConfig.HOT_USER_RANK_URL, 309652));
+    private void bpx() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_USER_RANK, com.baidu.tieba.tbadkCore.a.a.bL(TbConfig.HOT_USER_RANK_URL, 309652));
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
         tbHttpMessageTask.setResponsedClass(HotUserRankHttpResMsg.class);
         tbHttpMessageTask.setPriority(4);
@@ -132,7 +132,7 @@ public class a {
         MessageManager.getInstance().unRegisterListener(this.aiz);
     }
 
-    public void a(InterfaceC0701a interfaceC0701a) {
-        this.ift = interfaceC0701a;
+    public void a(InterfaceC0715a interfaceC0715a) {
+        this.ilq = interfaceC0715a;
     }
 }

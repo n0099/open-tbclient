@@ -3,18 +3,18 @@ package com.sdk.base.framework.a;
 public final class k<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4476a;
+    private int f4478a;
     private T b;
     private final boolean c;
 
     public k(int i, T t, boolean z) {
-        this.f4476a = i;
+        this.f4478a = i;
         this.b = t;
         this.c = z;
     }
 
     public final int a() {
-        return this.f4476a;
+        return this.f4478a;
     }
 
     public final T b() {
@@ -22,6 +22,6 @@ public final class k<T> {
     }
 
     public final String toString() {
-        return "{code:" + this.f4476a + ", response:" + this.b + ", resultFormCache:" + this.c + "}";
+        return "{code:" + this.f4478a + ", response:" + this.b + ", resultFormCache:" + this.c + "}";
     }
 }

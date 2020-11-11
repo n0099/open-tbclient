@@ -24,19 +24,19 @@ import com.baidu.tieba.personCenter.c.h;
 import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes24.dex */
 public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActivity> {
-    private ab gMe = new ab<h>() { // from class: com.baidu.tieba.person.more.PersonCenterMoreActivity.1
+    private ab gSD = new ab<h>() { // from class: com.baidu.tieba.person.more.PersonCenterMoreActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.card.ab
         public void a(View view, h hVar) {
-            PersonCenterMoreActivity.this.lOR = hVar;
-            if (PersonCenterMoreActivity.this.lOR != null && !PersonCenterMoreActivity.this.cbd()) {
-                PersonCenterMoreActivity.this.PY(PersonCenterMoreActivity.this.lOR.aHs);
+            PersonCenterMoreActivity.this.lUN = hVar;
+            if (PersonCenterMoreActivity.this.lUN != null && !PersonCenterMoreActivity.this.cdE()) {
+                PersonCenterMoreActivity.this.Qp(PersonCenterMoreActivity.this.lUN.aIk);
             }
         }
     };
-    private b lOP;
-    private Bundle lOQ;
-    private h lOR;
+    private b lUL;
+    private Bundle lUM;
+    private h lUN;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -44,15 +44,15 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         super.onCreate(bundle);
         Intent intent = getIntent();
         if (intent != null) {
-            this.lOQ = intent.getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
+            this.lUM = intent.getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
         }
         setContentView(R.layout.person_center_more_layout);
-        this.lOP = new b(getPageContext(), this.lOQ, this.gMe);
-        this.lOP.initView();
+        this.lUL = new b(getPageContext(), this.lUM, this.gSD);
+        this.lUL.initView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cbd() {
+    public boolean cdE() {
         Activity pageActivity = getPageContext().getPageActivity();
         PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
         permissionJudgePolicy.clearRequestPermissionList();
@@ -63,18 +63,18 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         if (25040 == i && iArr[0] == 0) {
-            PY(this.lOR.aHs);
+            Qp(this.lUN.aIk);
         }
     }
 
-    private void PX(String str) {
+    private void Qo(String str) {
         if (!StringUtils.isNull(str)) {
             if (str.startsWith("tieba&")) {
                 if (!TbadkCoreApplication.getInst().appResponseToIntentClass(ConsumptionRecordsActivityConfig.class)) {
-                    l.showToast(getPageContext().getPageActivity(), R.string.cosume_record_plugin_not_install_tip);
+                    l.showToast(getPageContext().getPageActivity(), (int) R.string.cosume_record_plugin_not_install_tip);
                     return;
                 }
-                be.boR().b(getPageContext(), new String[]{str.substring("tieba&".length())});
+                be.brr().b(getPageContext(), new String[]{str.substring("tieba&".length())});
             } else if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) || str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
                 com.baidu.tbadk.browser.a.startWebActivity((Context) getPageContext().getPageActivity(), true, str);
             } else {
@@ -84,14 +84,14 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void PY(String str) {
+    public void Qp(String str) {
         if (!StringUtils.isNull(str)) {
             if (str.startsWith("tieba&")) {
-                PX(str);
+                Qo(str);
             } else if (str.startsWith("nohead:url")) {
-                be.boR().b(getPageContext(), new String[]{str.replaceFirst(UrlSchemaHelper.PREFIX_BOOK_TOWN, "") + (str.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "jump=open_full_screen_web_page&nonavigationbar=1"});
+                be.brr().b(getPageContext(), new String[]{str.replaceFirst(UrlSchemaHelper.PREFIX_BOOK_TOWN, "") + (str.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "jump=open_full_screen_web_page&nonavigationbar=1"});
             } else {
-                be.boR().b(getPageContext(), new String[]{str});
+                be.brr().b(getPageContext(), new String[]{str});
             }
         }
     }
@@ -100,8 +100,8 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.lOP != null) {
-            this.lOP.onChangeSkinType();
+        if (this.lUL != null) {
+            this.lUL.onChangeSkinType();
         }
     }
 }

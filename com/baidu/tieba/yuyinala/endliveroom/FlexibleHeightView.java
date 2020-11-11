@@ -28,8 +28,8 @@ public class FlexibleHeightView extends View {
 
     private void init(Context context) {
         this.mContext = context;
-        this.ds48 = getContext().getResources().getDimensionPixelOffset(a.e.sdk_ds48);
-        this.ds160 = getContext().getResources().getDimensionPixelOffset(a.e.sdk_ds160);
+        this.ds48 = getContext().getResources().getDimensionPixelOffset(a.d.sdk_ds48);
+        this.ds160 = getContext().getResources().getDimensionPixelOffset(a.d.sdk_ds160);
     }
 
     @Override // android.view.View

@@ -7,19 +7,19 @@ import java.util.concurrent.ConcurrentHashMap;
 public class BaseMapCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final ConcurrentHashMap<Long, a> f3164a = new ConcurrentHashMap<>(2);
+    private static final ConcurrentHashMap<Long, a> f3166a = new ConcurrentHashMap<>(2);
     private static final ConcurrentHashMap<Long, com.baidu.mapsdkplatform.comjni.a.a.a> b = new ConcurrentHashMap<>(2);
 
     public static void release(long j) {
-        f3164a.remove(Long.valueOf(j));
+        f3166a.remove(Long.valueOf(j));
         b.remove(Long.valueOf(j));
     }
 
     public static int reqLayerData(Bundle bundle, long j, int i) {
-        if (f3164a.isEmpty()) {
+        if (f3166a.isEmpty()) {
             return 0;
         }
-        for (Map.Entry<Long, a> entry : f3164a.entrySet()) {
+        for (Map.Entry<Long, a> entry : f3166a.entrySet()) {
             a value = entry.getValue();
             if (value != null && value.a(j)) {
                 return value.a(bundle, j, i);
@@ -38,7 +38,7 @@ public class BaseMapCallback {
         if (aVar == null || j == 0) {
             return false;
         }
-        f3164a.put(Long.valueOf(j), aVar);
+        f3166a.put(Long.valueOf(j), aVar);
         return true;
     }
 

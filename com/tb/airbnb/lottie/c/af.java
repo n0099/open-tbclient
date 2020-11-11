@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /* loaded from: classes16.dex */
 public class af {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static com.tb.airbnb.lottie.model.content.j x(JsonReader jsonReader, com.tb.airbnb.lottie.d dVar) throws IOException {
+    public static com.tb.airbnb.lottie.model.content.j x(JsonReader jsonReader, com.tb.airbnb.lottie.e eVar) throws IOException {
         String str = null;
         ArrayList arrayList = new ArrayList();
         while (jsonReader.hasNext()) {
@@ -35,7 +35,7 @@ public class af {
                 case 1:
                     jsonReader.beginArray();
                     while (jsonReader.hasNext()) {
-                        com.tb.airbnb.lottie.model.content.b m = g.m(jsonReader, dVar);
+                        com.tb.airbnb.lottie.model.content.b m = g.m(jsonReader, eVar);
                         if (m != null) {
                             arrayList.add(m);
                         }

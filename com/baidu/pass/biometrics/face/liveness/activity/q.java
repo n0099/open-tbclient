@@ -6,18 +6,18 @@ import android.view.View;
 public class q implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ com.baidu.pass.biometrics.face.liveness.view.a f2744a;
+    final /* synthetic */ com.baidu.pass.biometrics.face.liveness.view.a f2746a;
     final /* synthetic */ LivenessRecogActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(LivenessRecogActivity livenessRecogActivity, com.baidu.pass.biometrics.face.liveness.view.a aVar) {
         this.b = livenessRecogActivity;
-        this.f2744a = aVar;
+        this.f2746a = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f2744a.dismiss();
+        this.f2746a.dismiss();
         this.b.y();
         this.b.U.a();
         this.b.da.Q = 1;

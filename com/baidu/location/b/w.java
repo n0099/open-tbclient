@@ -4,19 +4,19 @@ package com.baidu.location.b;
 public class w extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ s f1913a;
+    final /* synthetic */ s f1915a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(s sVar) {
-        this.f1913a = sVar;
+        this.f1915a = sVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         boolean g;
-        g = this.f1913a.g();
+        g = this.f1915a.g();
         if (g) {
-            this.f1913a.h();
+            this.f1915a.h();
         }
     }
 }

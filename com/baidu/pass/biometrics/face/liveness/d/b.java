@@ -10,7 +10,7 @@ import com.baidu.pass.biometrics.base.debug.Log;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f2751a = "b";
+    public static final String f2753a = "b";
     private static long b = 1000;
     private Context c;
     private SensorManager d;
@@ -30,7 +30,7 @@ public class b {
 
     @TargetApi(3)
     public void b() {
-        Log.w(f2751a, "unRegisterSensorListener()");
+        Log.w(f2753a, "unRegisterSensorListener()");
         SensorManager sensorManager = this.d;
         if (sensorManager == null || this.e == null) {
             return;
@@ -43,7 +43,7 @@ public class b {
         this.d = (SensorManager) this.c.getSystemService("sensor");
         SensorManager sensorManager = this.d;
         if (sensorManager == null) {
-            Log.w(f2751a, "sensorManager|senserManager == null");
+            Log.w(f2753a, "sensorManager|senserManager == null");
             return;
         }
         this.e = sensorManager.getDefaultSensor(5);

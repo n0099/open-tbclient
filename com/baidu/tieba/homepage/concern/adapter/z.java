@@ -11,29 +11,29 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 public class z extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.a.d, am<com.baidu.tieba.homepage.concern.a.d>> implements com.baidu.tieba.a.f {
     private String ahu;
     private com.baidu.adp.widget.ListView.v alD;
-    public BdUniqueId fmX;
-    private byte jqR;
+    public BdUniqueId fsQ;
+    private byte jwO;
     private TbPageContext<?> mPageContext;
 
     public z(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, byte b) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.mPageContext = tbPageContext;
-        this.jqR = b;
+        this.jwO = b;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aT */
+    /* renamed from: aV */
     public am<com.baidu.tieba.homepage.concern.a.d> c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
-        aVar.c(new com.baidu.tieba.homepage.concern.view.c(this.mPageContext, this.fmX, this.jqR));
+        aVar.c(new com.baidu.tieba.homepage.concern.view.c(this.mPageContext, this.fsQ, this.jwO));
         aVar.tU().bz(0);
         aVar.tU().bB(0);
         aVar.tU().bA(0);
         aVar.tU().bv(0);
         am<com.baidu.tieba.homepage.concern.a.d> amVar = new am<>(aVar.a(true, viewGroup, this.alD));
-        amVar.setPageId(this.fmX);
+        amVar.setPageId(this.fsQ);
         return amVar;
     }
 
@@ -51,7 +51,7 @@ public class z extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     }
 
     @Override // com.baidu.tieba.a.f
-    public void EL(String str) {
+    public void EZ(String str) {
         this.ahu = str;
     }
 

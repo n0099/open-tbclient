@@ -28,8 +28,8 @@ public class b extends com.baidu.adp.widget.ListView.a<bo, am<bo>> implements co
     private String ahu;
     private com.baidu.tbadk.h.f aiM;
     private v alD;
-    public BdUniqueId fmX;
-    private NEGFeedBackView.a gMF;
+    public BdUniqueId fsQ;
+    private NEGFeedBackView.a gTe;
     private TbPageContext<?> mPageContext;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -51,7 +51,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bo, am<bo>> implements co
                 }
             }
         };
-        this.gMF = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.tabfeed.a.b.2
+        this.gTe = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.tabfeed.a.b.2
             @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
             public void onNEGFeedbackWindowShow(ar arVar) {
             }
@@ -82,10 +82,10 @@ public class b extends com.baidu.adp.widget.ListView.a<bo, am<bo>> implements co
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aT */
+    /* renamed from: aV */
     public am c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
-        com.baidu.tieba.homepage.concern.view.b bVar = new com.baidu.tieba.homepage.concern.view.b(this.mPageContext, this.fmX);
+        com.baidu.tieba.homepage.concern.view.b bVar = new com.baidu.tieba.homepage.concern.view.b(this.mPageContext, this.fsQ);
         bVar.setOnItemCoverListener(this.aiM);
         aVar.c(bVar);
         aVar.tU().bz(0);
@@ -93,7 +93,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bo, am<bo>> implements co
         aVar.tU().bA(0);
         aVar.tU().bv(0);
         am amVar = new am(aVar.a(true, viewGroup, this.alD));
-        amVar.setPageId(this.fmX);
+        amVar.setPageId(this.fsQ);
         return amVar;
     }
 
@@ -130,7 +130,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bo, am<bo>> implements co
                 this.mNetwork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.CONCERN_RECOMMEND_FEEDBACK);
                 this.mNetwork.addPostData("dislike_from", "concernpage");
                 this.mNetwork.addPostData("dislike_type", "1");
-                this.mNetwork.bon().boT().mIsNeedTbs = true;
+                this.mNetwork.bqN().brt().mIsNeedTbs = true;
                 return this.mNetwork.postNetData();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -156,7 +156,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bo, am<bo>> implements co
     }
 
     @Override // com.baidu.tieba.a.f
-    public void EL(String str) {
+    public void EZ(String str) {
         this.ahu = str;
     }
 }

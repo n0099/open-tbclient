@@ -16,7 +16,7 @@ import com.baidu.sapi2.biometrics.liveness.R;
 public class UploadingFileView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private UploadCircleView f1777a;
+    private UploadCircleView f1779a;
     private ImageView b;
     private ImageView c;
     public DynamicWaveView dynamicWaveView;
@@ -33,26 +33,26 @@ public class UploadingFileView extends FrameLayout {
         super(context, attributeSet, i);
         View inflate = LayoutInflater.from(context).inflate(R.layout.layout_sapi_liveness_uploading_file_view, (ViewGroup) this, true);
         this.dynamicWaveView = (DynamicWaveView) findViewById(R.id.dynamic_wave);
-        this.f1777a = (UploadCircleView) inflate.findViewById(R.id.my_circle);
+        this.f1779a = (UploadCircleView) inflate.findViewById(R.id.my_circle);
         this.b = (ImageView) inflate.findViewById(R.id.circle);
         this.c = (ImageView) inflate.findViewById(R.id.tick);
     }
 
     public void setProgress(int i) {
         if (i < 100) {
-            this.f1777a.setProgress(i);
+            this.f1779a.setProgress(i);
             if (i == 0) {
                 this.dynamicWaveView.setVisibility(0);
                 return;
             }
             return;
         }
-        this.f1777a.setProgress(100);
+        this.f1779a.setProgress(100);
         this.dynamicWaveView.stopAnim();
     }
 
     public void showUpSucView() {
-        this.f1777a.setVisibility(8);
+        this.f1779a.setVisibility(8);
         this.dynamicWaveView.setVisibility(8);
         this.b.setVisibility(0);
         a();

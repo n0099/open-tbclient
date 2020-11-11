@@ -1,19 +1,41 @@
 package com.baidu.live.ar;
 
-import android.text.TextUtils;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class h {
-    private static File aDY = getPrivateCaptureRootChildDir("duFilter");
-    public static String aDZ;
+    private String aEL;
+    private int aEl;
+    private String mFile;
+    private String mId;
+    private String mName;
 
-    public static File getPrivateCaptureRootChildDir(String str) {
-        String str2 = TbadkCoreApplication.getInst().getContext().getFilesDir().getAbsoluteFile() + File.separator + "live_ar" + File.separator;
-        return TextUtils.isEmpty(str) ? new File(str2) : new File(str2, str);
+    public void parseJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.mId = jSONObject.optString("id");
+            this.mName = jSONObject.optString("name");
+            this.mFile = jSONObject.optString("file");
+            this.aEL = jSONObject.optString("bgurl");
+            this.aEl = jSONObject.optInt("effect");
+        }
     }
 
-    public static void fV(String str) {
-        aDZ = str;
+    public String getId() {
+        return this.mId;
+    }
+
+    public String getName() {
+        return this.mName;
+    }
+
+    public String Cu() {
+        return this.mFile;
+    }
+
+    public String Ct() {
+        return this.aEL;
+    }
+
+    public int Cx() {
+        return this.aEl;
     }
 }

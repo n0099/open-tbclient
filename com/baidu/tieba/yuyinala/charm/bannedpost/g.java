@@ -15,12 +15,12 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.util.ScreenHelper;
 /* loaded from: classes4.dex */
 public class g extends Dialog implements DialogInterface.OnDismissListener, View.OnClickListener {
-    private View bKe;
-    private TextView bKf;
-    private TextView bKg;
+    private View bPK;
+    private TextView bPL;
+    private TextView bPM;
     private Context mContext;
     private TextView mTitle;
-    private a nMC;
+    private a nSw;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -37,16 +37,16 @@ public class g extends Dialog implements DialogInterface.OnDismissListener, View
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(a.h.yuyin_layout_dialog_connnection_wheat_remind);
-        UZ();
+        setContentView(a.g.yuyin_layout_dialog_connnection_wheat_remind);
+        Xy();
         initView();
         initListener();
     }
 
-    private void UZ() {
+    private void Xy() {
         Window window = getWindow();
         if (window != null) {
-            window.setBackgroundDrawable(new ColorDrawable(getContext().getResources().getColor(a.d.sdk_black_alpha30)));
+            window.setBackgroundDrawable(new ColorDrawable(getContext().getResources().getColor(a.c.sdk_black_alpha30)));
             window.getDecorView().setPadding(0, 0, 0, 0);
             if (((WindowManager) getContext().getSystemService("window")) != null) {
                 WindowManager.LayoutParams attributes = window.getAttributes();
@@ -63,16 +63,16 @@ public class g extends Dialog implements DialogInterface.OnDismissListener, View
     }
 
     private void initView() {
-        this.bKe = findViewById(a.g.view);
-        this.mTitle = (TextView) findViewById(a.g.tv_title);
-        this.bKf = (TextView) findViewById(a.g.tv_cancel);
-        this.bKg = (TextView) findViewById(a.g.tv_confirm);
+        this.bPK = findViewById(a.f.view);
+        this.mTitle = (TextView) findViewById(a.f.tv_title);
+        this.bPL = (TextView) findViewById(a.f.tv_cancel);
+        this.bPM = (TextView) findViewById(a.f.tv_confirm);
     }
 
     private void initListener() {
-        this.bKe.setOnClickListener(this);
-        this.bKf.setOnClickListener(this);
-        this.bKg.setOnClickListener(this);
+        this.bPK.setOnClickListener(this);
+        this.bPL.setOnClickListener(this);
+        this.bPM.setOnClickListener(this);
         setOnDismissListener(this);
     }
 
@@ -82,9 +82,9 @@ public class g extends Dialog implements DialogInterface.OnDismissListener, View
         }
     }
 
-    public void UW(String str) {
-        if (this.bKf != null && !TextUtils.isEmpty(str)) {
-            this.bKf.setText(str);
+    public void Vn(String str) {
+        if (this.bPL != null && !TextUtils.isEmpty(str)) {
+            this.bPL.setText(str);
         }
     }
 
@@ -108,15 +108,15 @@ public class g extends Dialog implements DialogInterface.OnDismissListener, View
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bKe || view == this.bKf) {
+        if (view == this.bPK || view == this.bPL) {
             dismiss();
-            if (this.nMC != null) {
-                this.nMC.onCancel();
+            if (this.nSw != null) {
+                this.nSw.onCancel();
             }
-        } else if (view == this.bKg) {
+        } else if (view == this.bPM) {
             dismiss();
-            if (this.nMC != null) {
-                this.nMC.onConfirm();
+            if (this.nSw != null) {
+                this.nSw.onConfirm();
             }
         }
     }
@@ -126,6 +126,6 @@ public class g extends Dialog implements DialogInterface.OnDismissListener, View
     }
 
     public void a(a aVar) {
-        this.nMC = aVar;
+        this.nSw = aVar;
     }
 }

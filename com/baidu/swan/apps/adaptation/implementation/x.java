@@ -14,7 +14,7 @@ public class x implements aq {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.aq
-    public void h(String str, int i, String str2) {
+    public void i(String str, int i, String str2) {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.aq
@@ -22,11 +22,11 @@ public class x implements aq {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.aq
-    public void I(String str, int i) {
+    public void K(String str, int i) {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.aq
-    public ExecutorService afr() {
+    public ExecutorService ahR() {
         return null;
     }
 }

@@ -18,21 +18,21 @@ import tv.chushou.zues.utils.systemBar.b;
 public class a extends com.kascend.chushou.view.base.a implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f4224a = 0;
+    public int f4226a = 0;
     private RelativeLayout d;
     private ImageView e;
     private View f;
     private TextView g;
     private TextView h;
-    private InterfaceC0993a poq;
+    private InterfaceC1012a pxN;
 
     /* renamed from: com.kascend.chushou.view.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0993a {
+    public interface InterfaceC1012a {
         void a(int i);
     }
 
-    public static a ess() {
+    public static a ewh() {
         return new a();
     }
 
@@ -40,7 +40,7 @@ public class a extends com.kascend.chushou.view.base.a implements View.OnClickLi
     public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
         setStyle(0, 16973841);
-        this.f4224a++;
+        this.f4226a++;
     }
 
     @Override // com.kascend.chushou.view.base.a, android.support.v4.app.DialogFragment
@@ -85,18 +85,18 @@ public class a extends com.kascend.chushou.view.base.a implements View.OnClickLi
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.poq != null) {
-            this.poq.a(view.getId());
+        if (this.pxN != null) {
+            this.pxN.a(view.getId());
         }
     }
 
     @Override // android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.f4224a--;
+        this.f4226a--;
     }
 
-    public void a(InterfaceC0993a interfaceC0993a) {
-        this.poq = interfaceC0993a;
+    public void a(InterfaceC1012a interfaceC1012a) {
+        this.pxN = interfaceC1012a;
     }
 }

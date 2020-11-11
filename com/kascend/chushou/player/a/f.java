@@ -28,7 +28,7 @@ public class f extends b {
     private List<c> j;
     private boolean k;
     private TextView l;
-    private ScrollView oZx;
+    private ScrollView piV;
 
     public f(Context context) {
         super(context);
@@ -57,7 +57,7 @@ public class f extends b {
 
     private void b() {
         this.h = (LinearLayout) findViewById(a.f.ll_dialog_operate);
-        this.oZx = (ScrollView) findViewById(a.f.scroll_content);
+        this.piV = (ScrollView) findViewById(a.f.scroll_content);
         this.d = (TextView) findViewById(a.f.tvDlgUserTitle);
         this.e = (TextView) findViewById(a.f.tv_header);
         this.f = (LinearLayout) findViewById(a.f.ll_operate_content);
@@ -88,10 +88,10 @@ public class f extends b {
                 break;
             }
             c cVar = this.j.get(i2);
-            if ((cVar.f4109a != 1 || cVar.h) && (cVar.f4109a != 2 || cVar.h || this.k)) {
-                if (this.j.get(i2).f4109a == 1) {
+            if ((cVar.f4111a != 1 || cVar.h) && (cVar.f4111a != 2 || cVar.h || this.k)) {
+                if (this.j.get(i2).f4111a == 1) {
                     dip2px += tv.chushou.zues.utils.a.dip2px(this.i, 58.0f);
-                } else if (this.j.get(i2).f4109a == 2) {
+                } else if (this.j.get(i2).f4111a == 2) {
                     dip2px += tv.chushou.zues.utils.a.dip2px(this.i, 58.0f);
                 }
             }
@@ -104,7 +104,7 @@ public class f extends b {
             dip2px += tv.chushou.zues.utils.a.dip2px(this.i, 58.0f);
         }
         if (dip2px > (tv.chushou.zues.utils.a.hD(this.i).y - tv.chushou.zues.utils.a.dip2px(this.i, 80.0f)) - tv.chushou.zues.utils.systemBar.b.getStatusBarHeight(this.i)) {
-            ViewGroup.LayoutParams layoutParams = this.oZx.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.piV.getLayoutParams();
             layoutParams.height = ((tv.chushou.zues.utils.a.hD(this.i).y - tv.chushou.zues.utils.systemBar.b.getStatusBarHeight(this.i)) - tv.chushou.zues.utils.a.dip2px(this.i, 80.0f)) - tv.chushou.zues.utils.a.dip2px(this.i, 58.0f);
             if (this.e.isShown()) {
                 layoutParams.height -= tv.chushou.zues.utils.a.dip2px(this.i, 58.0f);
@@ -112,12 +112,12 @@ public class f extends b {
             if (this.d.isShown()) {
                 layoutParams.height -= tv.chushou.zues.utils.a.dip2px(this.i, 58.0f);
             }
-            this.oZx.setLayoutParams(layoutParams);
+            this.piV.setLayoutParams(layoutParams);
             return;
         }
-        ViewGroup.LayoutParams layoutParams2 = this.oZx.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams2 = this.piV.getLayoutParams();
         layoutParams2.height = -2;
-        this.oZx.setLayoutParams(layoutParams2);
+        this.piV.setLayoutParams(layoutParams2);
     }
 
     private void d() {
@@ -127,7 +127,7 @@ public class f extends b {
         while (i < this.j.size()) {
             c cVar = this.j.get(i);
             boolean z = i == this.j.size() + (-1);
-            if (cVar.f4109a == 1) {
+            if (cVar.f4111a == 1) {
                 a(cVar);
             } else {
                 a(cVar, z);
@@ -150,8 +150,8 @@ public class f extends b {
         this.f.addView(inflate);
         inflate.setOnClickListener(new tv.chushou.zues.a() { // from class: com.kascend.chushou.player.a.f.2
             @Override // tv.chushou.zues.a
-            public void dX(View view) {
-                cVar.oZo.a(cVar.c);
+            public void ef(View view) {
+                cVar.piM.a(cVar.c);
                 if (cVar.c == a.i.dialog_report) {
                     f.this.k = !f.this.k;
                     f.this.c();
@@ -187,9 +187,9 @@ public class f extends b {
         this.g.addView(inflate);
         inflate.setOnClickListener(new tv.chushou.zues.a() { // from class: com.kascend.chushou.player.a.f.3
             @Override // tv.chushou.zues.a
-            public void dX(View view) {
+            public void ef(View view) {
                 f.this.dismiss();
-                cVar.oZo.a(cVar.c);
+                cVar.piM.a(cVar.c);
             }
         });
     }

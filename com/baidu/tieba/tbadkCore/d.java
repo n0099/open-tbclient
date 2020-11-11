@@ -4,5 +4,5 @@ public class d {
     public int cur_score;
     public int level;
     public int levelup_score;
-    public String mOy;
+    public String mUC;
 }

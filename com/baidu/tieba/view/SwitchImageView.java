@@ -6,77 +6,77 @@ import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 /* loaded from: classes.dex */
 public class SwitchImageView extends AppCompatImageView {
-    private int cdn;
-    private int nws;
-    private int nwt;
-    private boolean nwu;
-    private com.baidu.tbadk.core.util.d.a nwv;
-    private com.baidu.tbadk.core.util.d.a nww;
+    private int ciY;
+    private int nCm;
+    private int nCn;
+    private boolean nCo;
+    private com.baidu.tbadk.core.util.d.a nCp;
+    private com.baidu.tbadk.core.util.d.a nCq;
 
     public SwitchImageView(Context context) {
         super(context);
-        this.nwu = false;
+        this.nCo = false;
         init();
     }
 
     public SwitchImageView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.nwu = false;
+        this.nCo = false;
         init();
     }
 
     public SwitchImageView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.nwu = false;
+        this.nCo = false;
         init();
     }
 
     private void init() {
-        this.cdn = 0;
-        this.nws = 0;
-        this.nwt = 0;
+        this.ciY = 0;
+        this.nCm = 0;
+        this.nCn = 0;
     }
 
     public void setStateImage(int i, int i2) {
-        this.nws = i;
-        this.nwt = i2;
+        this.nCm = i;
+        this.nCn = i2;
     }
 
     public void setSvgStateImage(com.baidu.tbadk.core.util.d.a aVar, com.baidu.tbadk.core.util.d.a aVar2) {
-        this.nwv = aVar;
-        this.nww = aVar2;
-        this.nwu = true;
+        this.nCp = aVar;
+        this.nCq = aVar2;
+        this.nCo = true;
     }
 
     public void setState(int i) {
         if (i == 0) {
-            this.cdn = 0;
-            if (this.nwu) {
-                setImageDrawable(this.nwv.getDrawable());
+            this.ciY = 0;
+            if (this.nCo) {
+                setImageDrawable(this.nCp.getDrawable());
             } else {
-                setImageResource(this.nws);
+                setImageResource(this.nCm);
             }
         } else if (i == 1) {
-            this.cdn = 1;
-            if (this.nwu) {
-                setImageDrawable(this.nww.getDrawable());
+            this.ciY = 1;
+            if (this.nCo) {
+                setImageDrawable(this.nCq.getDrawable());
             } else {
-                setImageResource(this.nwt);
+                setImageResource(this.nCn);
             }
         }
     }
 
-    public void dQl() {
-        if (this.cdn == 0) {
-            this.cdn = 1;
+    public void dSN() {
+        if (this.ciY == 0) {
+            this.ciY = 1;
             setState(1);
             return;
         }
-        this.cdn = 0;
+        this.ciY = 0;
         setState(0);
     }
 
     public int getCurrentState() {
-        return this.cdn;
+        return this.ciY;
     }
 }

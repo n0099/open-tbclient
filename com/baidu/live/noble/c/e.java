@@ -13,17 +13,17 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.live.utils.p;
 /* loaded from: classes4.dex */
 public class e extends BdBaseModel {
-    private a bof;
-    private HttpMessageListener bog = new HttpMessageListener(1021190) { // from class: com.baidu.live.noble.c.e.1
+    private a bpy;
+    private HttpMessageListener bpz = new HttpMessageListener(1021190) { // from class: com.baidu.live.noble.c.e.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaNobleUserListResponseMessage) && e.this.bof != null) {
-                com.baidu.live.noble.data.b NZ = ((AlaNobleUserListResponseMessage) httpResponsedMessage).NZ();
-                if (NZ != null) {
-                    e.this.bof.a(NZ);
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaNobleUserListResponseMessage) && e.this.bpy != null) {
+                com.baidu.live.noble.data.b Oz = ((AlaNobleUserListResponseMessage) httpResponsedMessage).Oz();
+                if (Oz != null) {
+                    e.this.bpy.a(Oz);
                 } else {
-                    e.this.bof.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    e.this.bpy.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
@@ -39,12 +39,12 @@ public class e extends BdBaseModel {
 
     public e(TbPageContext tbPageContext, a aVar) {
         this.mPageContext = tbPageContext;
-        this.bof = aVar;
-        Of();
-        MessageManager.getInstance().registerListener(this.bog);
+        this.bpy = aVar;
+        OF();
+        MessageManager.getInstance().registerListener(this.bpz);
     }
 
-    private void Of() {
+    private void OF() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021190, TbConfig.SERVER_HOST + "liveserver/noble/ulist");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -53,10 +53,10 @@ public class e extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void aB(String str, String str2) {
+    public void aC(String str, String str2) {
         if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
             HttpMessage httpMessage = new HttpMessage(1021190);
-            httpMessage.addParam("scene_from", p.GQ());
+            httpMessage.addParam("scene_from", p.Hr());
             httpMessage.addParam("anchor_id", str);
             httpMessage.addParam("live_id", str2);
             MessageManager.getInstance().sendMessage(httpMessage);
@@ -75,6 +75,6 @@ public class e extends BdBaseModel {
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterTask(1021190);
-        MessageManager.getInstance().unRegisterListener(this.bog);
+        MessageManager.getInstance().unRegisterListener(this.bpz);
     }
 }

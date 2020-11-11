@@ -18,14 +18,14 @@ import java.util.Iterator;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f2989a = null;
+    private static String f2991a = null;
 
     public static void a(String str) {
-        f2989a = str;
+        f2991a = str;
     }
 
     public static String a() {
-        return f2989a;
+        return f2991a;
     }
 
     public static String b() {

@@ -19,30 +19,30 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private BearLayout dzp;
-    private SwanAppBearInfo dzq;
+    private BearLayout dFh;
+    private SwanAppBearInfo dFi;
     private Activity mActivity;
 
     public a(Activity activity, View view, @NonNull SwanAppBearInfo swanAppBearInfo, @IdRes int i) {
         this.mActivity = activity;
-        this.dzq = swanAppBearInfo;
-        this.dzp = (BearLayout) view.findViewById(i);
-        this.dzp.setVisibility(0);
-        this.dzp.a(activity, swanAppBearInfo, this);
+        this.dFi = swanAppBearInfo;
+        this.dFh = (BearLayout) view.findViewById(i);
+        this.dFh.setVisibility(0);
+        this.dFh.a(activity, swanAppBearInfo, this);
     }
 
-    public void aKW() {
+    public void aNw() {
         if (SwanAppNetworkUtils.isNetworkConnected(this.mActivity)) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             linkedHashMap.put("type", "media");
             linkedHashMap.put("sfrom", "searchpaws");
             linkedHashMap.put("store", "uid_cuid");
             linkedHashMap.put("source", "dusite_na_subbar");
-            linkedHashMap.put("third_id", this.dzq.bearId);
+            linkedHashMap.put("third_id", this.dFi.bearId);
             linkedHashMap.put("op_type", "add");
-            String aeS = com.baidu.swan.apps.t.a.aum().aeS();
-            if (!TextUtils.isEmpty(aeS)) {
-                com.baidu.swan.a.c.a.aYk().getRequest().url(aeS).addUrlParams(linkedHashMap).cookieManager(com.baidu.swan.apps.t.a.auz().afJ()).build().executeAsyncOnUIBack(new C0481a(this.dzp.getCallback(), false));
+            String ahs = com.baidu.swan.apps.t.a.awM().ahs();
+            if (!TextUtils.isEmpty(ahs)) {
+                com.baidu.swan.a.c.a.baK().getRequest().url(ahs).addUrlParams(linkedHashMap).cookieManager(com.baidu.swan.apps.t.a.awZ().aij()).build().executeAsyncOnUIBack(new C0493a(this.dFh.getCallback(), false));
                 return;
             }
             return;
@@ -50,17 +50,17 @@ public class a {
         com.baidu.swan.apps.res.widget.b.d.k(this.mActivity, a.h.aiapps_net_error).showToast();
     }
 
-    public void aKX() {
+    public void aNx() {
         if (SwanAppNetworkUtils.isNetworkConnected(this.mActivity)) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             linkedHashMap.put("type", "media");
             linkedHashMap.put("sfrom", "searchpaws");
             linkedHashMap.put("store", "uid_cuid");
             linkedHashMap.put("source", "dusite_na_subbar");
-            linkedHashMap.put("third_id", this.dzq.bearId);
-            String aeR = com.baidu.swan.apps.t.a.aum().aeR();
-            if (!TextUtils.isEmpty(aeR)) {
-                com.baidu.swan.a.c.a.aYk().getRequest().url(aeR).connectionTimeout(3000).addUrlParams(linkedHashMap).cookieManager(com.baidu.swan.apps.t.a.auz().afJ()).build().executeAsyncOnUIBack(new C0481a(this.dzp.getCallback(), true));
+            linkedHashMap.put("third_id", this.dFi.bearId);
+            String ahr = com.baidu.swan.apps.t.a.awM().ahr();
+            if (!TextUtils.isEmpty(ahr)) {
+                com.baidu.swan.a.c.a.baK().getRequest().url(ahr).connectionTimeout(3000).addUrlParams(linkedHashMap).cookieManager(com.baidu.swan.apps.t.a.awZ().aij()).build().executeAsyncOnUIBack(new C0493a(this.dFh.getCallback(), true));
             }
         }
     }
@@ -68,13 +68,13 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public class C0481a extends ResponseCallback<String> {
-        private BearLayout.a dzr;
-        private boolean dzs;
+    public class C0493a extends ResponseCallback<String> {
+        private BearLayout.a dFj;
+        private boolean dFk;
 
-        C0481a(BearLayout.a aVar, boolean z) {
-            this.dzr = aVar;
-            this.dzs = z;
+        C0493a(BearLayout.a aVar, boolean z) {
+            this.dFj = aVar;
+            this.dFk = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -86,33 +86,33 @@ public class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onSuccess(String str, int i) {
-            if (this.dzr != null) {
+            if (this.dFj != null) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
                     int optInt = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
                     if (optInt == 0) {
-                        if (this.dzs) {
+                        if (this.dFk) {
                             JSONObject optJSONObject = jSONObject.optJSONObject("data");
                             if (optJSONObject != null) {
                                 JSONArray optJSONArray = optJSONObject.optJSONArray("items");
                                 if (optJSONArray == null || optJSONArray.length() <= 0) {
-                                    this.dzr.gJ(false);
+                                    this.dFj.gS(false);
                                 } else {
-                                    this.dzr.gJ(true);
+                                    this.dFj.gS(true);
                                 }
                             }
                         } else {
-                            this.dzr.gJ(true);
+                            this.dFj.gS(true);
                         }
                     } else if (800200 == optInt) {
-                        this.dzr.us("errNo:" + optInt + ",errMsg:" + jSONObject.optString(BaseJsonData.TAG_ERRMSG));
+                        this.dFj.uG("errNo:" + optInt + ",errMsg:" + jSONObject.optString(BaseJsonData.TAG_ERRMSG));
                     } else {
-                        this.dzr.us("errNo:" + optInt);
+                        this.dFj.uG("errNo:" + optInt);
                     }
                 } catch (JSONException e) {
                     if (a.DEBUG) {
                         e.printStackTrace();
-                        this.dzr.us(e.getMessage());
+                        this.dFj.uG(e.getMessage());
                     }
                 }
             }
@@ -122,7 +122,7 @@ public class a {
         public void onFail(Exception exc) {
             if (a.DEBUG) {
                 exc.printStackTrace();
-                this.dzr.us(exc.getMessage());
+                this.dFj.uG(exc.getMessage());
             }
         }
     }

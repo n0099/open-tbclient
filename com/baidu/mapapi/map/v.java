@@ -10,14 +10,14 @@ import com.baidu.mapapi.map.SwipeDismissTouchListener;
 public class v extends AnimatorListenerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ViewGroup.LayoutParams f2084a;
+    final /* synthetic */ ViewGroup.LayoutParams f2086a;
     final /* synthetic */ int b;
     final /* synthetic */ SwipeDismissTouchListener c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(SwipeDismissTouchListener swipeDismissTouchListener, ViewGroup.LayoutParams layoutParams, int i) {
         this.c = swipeDismissTouchListener;
-        this.f2084a = layoutParams;
+        this.f2086a = layoutParams;
         this.b = i;
     }
 
@@ -34,8 +34,8 @@ public class v extends AnimatorListenerAdapter {
         dismissCallbacks.onDismiss(view, obj);
         view2 = this.c.e;
         view2.setTranslationX(0.0f);
-        this.f2084a.height = this.b;
+        this.f2086a.height = this.b;
         view3 = this.c.e;
-        view3.setLayoutParams(this.f2084a);
+        view3.setLayoutParams(this.f2086a);
     }
 }

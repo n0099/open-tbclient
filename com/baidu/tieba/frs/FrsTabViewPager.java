@@ -20,10 +20,10 @@ public class FrsTabViewPager extends BdBaseViewPager {
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                pB(true);
+                pK(true);
                 break;
             case 1:
-                pB(false);
+                pK(false);
                 break;
         }
         return super.dispatchTouchEvent(motionEvent);
@@ -33,46 +33,46 @@ public class FrsTabViewPager extends BdBaseViewPager {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 1:
-                pB(false);
+                pK(false);
                 break;
         }
         return super.onTouchEvent(motionEvent);
     }
 
-    public void pB(boolean z) {
+    public void pK(boolean z) {
         a aVar = new a();
-        aVar.pC(cxQ());
-        aVar.pD(z);
+        aVar.pL(cAr());
+        aVar.pM(z);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921369, aVar));
     }
 
-    public void cxP() {
-        pB(false);
+    public void cAq() {
+        pK(false);
     }
 
-    private boolean cxQ() {
+    private boolean cAr() {
         return getCurrentItem() == getAdapter().getCount() + (-1);
     }
 
     /* loaded from: classes22.dex */
     public static class a {
-        private boolean iFX;
-        private boolean iFY;
+        private boolean iLU;
+        private boolean iLV;
 
-        public boolean cxR() {
-            return this.iFX;
+        public boolean cAs() {
+            return this.iLU;
         }
 
-        public void pC(boolean z) {
-            this.iFX = z;
+        public void pL(boolean z) {
+            this.iLU = z;
         }
 
-        public boolean cxS() {
-            return this.iFY;
+        public boolean cAt() {
+            return this.iLV;
         }
 
-        public void pD(boolean z) {
-            this.iFY = z;
+        public void pM(boolean z) {
+            this.iLV = z;
         }
     }
 }

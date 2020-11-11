@@ -18,7 +18,7 @@ public final class ResUtils {
     public static final String ANIM = "anim";
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1523a = "id";
+    private static final String f1525a = "id";
     private static final String b = "string";
     private static final String c = "layout";
     private static final String d = "style";

@@ -7,7 +7,7 @@ import com.baidu.mobstat.Config;
 public class CircleHoleOptions extends HoleOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    private LatLng f2001a;
+    private LatLng f2003a;
     private int b;
 
     public CircleHoleOptions() {
@@ -18,13 +18,13 @@ public class CircleHoleOptions extends HoleOptions {
         if (latLng == null) {
             Log.e("baidumapsdk", "CircleHole center can not be null");
         } else {
-            this.f2001a = latLng;
+            this.f2003a = latLng;
         }
         return this;
     }
 
     public LatLng getHoleCenter() {
-        return this.f2001a;
+        return this.f2003a;
     }
 
     public int getHoleRadius() {

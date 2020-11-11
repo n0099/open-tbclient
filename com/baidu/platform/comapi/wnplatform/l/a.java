@@ -6,7 +6,7 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static JSONObject f3124a = null;
+    private static JSONObject f3126a = null;
     private static a b = null;
 
     private a() {
@@ -16,22 +16,22 @@ public class a {
         if (b == null) {
             b = new a();
         }
-        if (f3124a == null) {
-            f3124a = new JSONObject();
+        if (f3126a == null) {
+            f3126a = new JSONObject();
         }
         return b;
     }
 
     public void a(String str, String str2) {
         try {
-            f3124a.put(str, str2);
+            f3126a.put(str, str2);
         } catch (JSONException e) {
         }
     }
 
     public void a(String str, int i) {
         try {
-            f3124a.put(str, Integer.toString(i));
+            f3126a.put(str, Integer.toString(i));
         } catch (JSONException e) {
         }
     }

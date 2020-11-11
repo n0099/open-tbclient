@@ -8,7 +8,7 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaGetInviteConnectionWheatListHttpResponseMessage extends BaseJsonHttpResponsedMessage {
     private int count;
-    private List<m> nYG;
+    private List<m> ogz;
 
     public AlaGetInviteConnectionWheatListHttpResponseMessage() {
         super(1031014);
@@ -18,10 +18,10 @@ public class AlaGetInviteConnectionWheatListHttpResponseMessage extends BaseJson
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1031014) {
-            if (this.nYG == null) {
-                this.nYG = new ArrayList();
+            if (this.ogz == null) {
+                this.ogz = new ArrayList();
             }
-            this.nYG.clear();
+            this.ogz.clear();
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
                 JSONArray optJSONArray = optJSONObject.optJSONArray("list");
@@ -34,7 +34,7 @@ public class AlaGetInviteConnectionWheatListHttpResponseMessage extends BaseJson
                         }
                         m mVar = new m();
                         mVar.parseJson((JSONObject) optJSONArray.get(i3));
-                        this.nYG.add(mVar);
+                        this.ogz.add(mVar);
                         i2 = i3 + 1;
                     }
                 }
@@ -43,8 +43,8 @@ public class AlaGetInviteConnectionWheatListHttpResponseMessage extends BaseJson
         }
     }
 
-    public List<m> dXd() {
-        return this.nYG;
+    public List<m> ean() {
+        return this.ogz;
     }
 
     public int getCount() {

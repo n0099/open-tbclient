@@ -86,7 +86,7 @@ public class HttpRetryStrategyDataParse {
                             if (jSONObject.optInt(HttpRetryStrategyDataParse.DOWNFLOW_ERROR_NO) == 0) {
                                 JSONObject optJSONObject = jSONObject.optJSONObject(HttpRetryStrategyDataParse.DOWNFLOW_FRES);
                                 if (jSONObject.optInt(HttpRetryStrategyDataParse.DOWNFLOW_FSTAT, 1) == 0 && optJSONObject != null) {
-                                    httpDNSCacheInfo.mMode = Integer.parseInt(optJSONObject.optString(HttpRetryStrategyDataParse.DOWNFLOW_MODE, "-1"));
+                                    httpDNSCacheInfo.mMode = Integer.parseInt(optJSONObject.optString("mode", "-1"));
                                     httpDNSCacheInfo.mDownloadUri = optJSONObject.optString(HttpRetryStrategyDataParse.DOWNFLOW_DOWNLOAD_INNER, "");
                                     httpDNSCacheInfo.mDownFlowLiveTime = optJSONObject.optInt(HttpRetryStrategyDataParse.DOWNFLOW_LIVE_TIME, 600);
                                     httpDNSCacheInfo.mRetryRequestUrl = new ArrayList();

@@ -7,12 +7,12 @@ import com.kascend.chushou.a;
 public class b extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    protected boolean f4108a;
+    protected boolean f4110a;
     protected boolean b;
 
     public b(Context context) {
         super(context, a.j.base_dialog);
-        this.f4108a = true;
+        this.f4110a = true;
         this.b = false;
     }
 }

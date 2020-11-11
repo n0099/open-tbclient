@@ -1,25 +1,25 @@
 package com.baidu.tieba.k;
 /* loaded from: classes.dex */
 public interface h {
-    void Ou(String str);
+    void OL(String str);
 
-    void Ov(String str);
+    void OM(String str);
 
-    void bB(int i, String str);
+    void bF(int i, String str);
 
-    void bC(int i, String str);
+    void bG(int i, String str);
 
-    void bD(int i, String str);
+    void bH(int i, String str);
 
-    void bE(int i, String str);
+    void bI(int i, String str);
 
-    void dbA();
+    void dec();
 
-    void dbB();
+    void ded();
 
-    void dbC();
+    void dee();
 
-    void dbD();
+    void def();
 
     void o(int i, int i2, String str);
 }

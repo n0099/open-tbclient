@@ -23,7 +23,7 @@ public class h {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String[] f1268a = {ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "O", "0"};
+        public static final String[] f1270a = {ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "O", "0"};
         private String b;
         private String c;
         private String d;
@@ -139,7 +139,7 @@ public class h {
     private void a(com.baidu.b.e.a aVar) {
         com.baidu.b.b.c cVar = new com.baidu.b.b.c(new com.baidu.b.a());
         a.C0090a c0090a = new a.C0090a();
-        c0090a.f1244a = this.c;
+        c0090a.f1246a = this.c;
         c0090a.acW = aVar;
         a.c cVar2 = new a.c();
         for (com.baidu.b.b.a aVar2 : cVar.a()) {
@@ -181,7 +181,7 @@ public class h {
 
     public a a() {
         a.d dVar = new a.d();
-        dVar.f1245a = true;
+        dVar.f1247a = true;
         List<com.baidu.b.b.a> a2 = this.adO.a();
         Collections.sort(a2, com.baidu.b.b.a.acV);
         List<b> N = this.adL.N(this.c);
@@ -211,9 +211,9 @@ public class h {
         aVar.g = 1;
         try {
             aVar.c = fVar.b.substring(0, 1);
-            aVar.b = fVar.f1264a;
-            aVar.d = c(fVar.f1264a);
-            String[] strArr = a.f1268a;
+            aVar.b = fVar.f1266a;
+            aVar.d = c(fVar.f1266a);
+            String[] strArr = a.f1270a;
             int length = strArr.length;
             int i = 0;
             while (true) {

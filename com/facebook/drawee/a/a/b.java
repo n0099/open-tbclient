@@ -6,22 +6,22 @@ import javax.annotation.Nullable;
 /* loaded from: classes18.dex */
 public class b {
     @Nullable
-    private final ImmutableList<com.facebook.imagepipeline.f.a> oDi;
+    private final ImmutableList<com.facebook.imagepipeline.f.a> oMB;
     @Nullable
-    private final g oDj;
-    private final j<Boolean> oDk;
+    private final g oMC;
+    private final j<Boolean> oMD;
 
     @Nullable
-    public ImmutableList<com.facebook.imagepipeline.f.a> eha() {
-        return this.oDi;
+    public ImmutableList<com.facebook.imagepipeline.f.a> ekP() {
+        return this.oMB;
     }
 
     @Nullable
-    public g ehb() {
-        return this.oDj;
+    public g ekQ() {
+        return this.oMC;
     }
 
-    public j<Boolean> ehc() {
-        return this.oDk;
+    public j<Boolean> ekR() {
+        return this.oMD;
     }
 }

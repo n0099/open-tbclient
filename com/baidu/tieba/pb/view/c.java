@@ -10,76 +10,76 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.coreExtra.share.f;
 /* loaded from: classes22.dex */
 public class c {
-    private ImageView lKS;
-    private boolean ePk = false;
-    private Runnable lKT = new Runnable() { // from class: com.baidu.tieba.pb.view.c.1
+    private ImageView lQO;
+    private boolean eUZ = false;
+    private Runnable lQP = new Runnable() { // from class: com.baidu.tieba.pb.view.c.1
         @Override // java.lang.Runnable
         public void run() {
-            c.this.ePk = true;
-            int bva = f.bva();
-            if (bva > 0) {
-                SvgManager.boN().a(c.this.lKS, bva, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-                if (c.this.fyI != null) {
-                    c.this.fyI.start();
+            c.this.eUZ = true;
+            int bxz = f.bxz();
+            if (bxz > 0) {
+                SvgManager.brn().a(c.this.lQO, bxz, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                if (c.this.fEy != null) {
+                    c.this.fEy.start();
                 }
             }
         }
     };
-    private ValueAnimator fyI = new ValueAnimator();
+    private ValueAnimator fEy = new ValueAnimator();
 
     public c(ImageView imageView) {
-        this.lKS = imageView;
-        this.fyI.setDuration(4000L);
-        this.fyI.setFloatValues(0.0f, 1.0f);
-        this.fyI.setInterpolator(new Interpolator() { // from class: com.baidu.tieba.pb.view.c.2
+        this.lQO = imageView;
+        this.fEy.setDuration(4000L);
+        this.fEy.setFloatValues(0.0f, 1.0f);
+        this.fEy.setInterpolator(new Interpolator() { // from class: com.baidu.tieba.pb.view.c.2
             @Override // android.animation.TimeInterpolator
             public float getInterpolation(float f) {
                 return (float) (1.075d + (0.075d * Math.sin((18.84955592153876d * f) - 1.5707963267948966d)));
             }
         });
-        this.fyI.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.view.c.3
+        this.fEy.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.view.c.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (c.this.lKS != null) {
-                    c.this.lKS.setScaleX(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                    c.this.lKS.setScaleY(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                if (c.this.lQO != null) {
+                    c.this.lQO.setScaleX(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                    c.this.lQO.setScaleY(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             }
         });
     }
 
-    public void dpV() {
-        if (TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().bsq()) {
-            e.mY().removeCallbacks(this.lKT);
-            long bsr = TbSingleton.getInstance().getSharePanelConfData().bsr() * 1000;
-            if (bsr <= 0) {
-                bsr = IMConnection.RETRY_DELAY_TIMES;
+    public void dsx() {
+        if (TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().buQ()) {
+            e.mY().removeCallbacks(this.lQP);
+            long buR = TbSingleton.getInstance().getSharePanelConfData().buR() * 1000;
+            if (buR <= 0) {
+                buR = IMConnection.RETRY_DELAY_TIMES;
             }
-            e.mY().postDelayed(this.lKT, bsr);
+            e.mY().postDelayed(this.lQP, buR);
         }
     }
 
     public void setEnable(boolean z) {
-        this.ePk = z;
+        this.eUZ = z;
     }
 
     public boolean isEnable() {
-        return this.ePk;
+        return this.eUZ;
     }
 
     public void onDestroy() {
-        e.mY().removeCallbacks(this.lKT);
-        if (this.fyI != null) {
-            this.fyI.removeAllListeners();
-            this.fyI.removeAllUpdateListeners();
-            this.fyI.cancel();
+        e.mY().removeCallbacks(this.lQP);
+        if (this.fEy != null) {
+            this.fEy.removeAllListeners();
+            this.fEy.removeAllUpdateListeners();
+            this.fEy.cancel();
         }
     }
 
     public void onChangeSkinType() {
-        int bva;
-        if (this.ePk && TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().bsq() && (bva = f.bva()) > 0) {
-            SvgManager.boN().a(this.lKS, bva, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        int bxz;
+        if (this.eUZ && TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().buQ() && (bxz = f.bxz()) > 0) {
+            SvgManager.brn().a(this.lQO, bxz, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 }

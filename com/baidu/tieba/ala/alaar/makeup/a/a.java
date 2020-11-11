@@ -1,10 +1,10 @@
 package com.baidu.tieba.ala.alaar.makeup.a;
 
-import com.baidu.live.ar.k;
+import com.baidu.live.ar.l;
 import com.baidu.minivideo.arface.bean.BeautyType;
 import com.baidu.minivideo.arface.bean.Makeup;
 /* loaded from: classes4.dex */
-public class a implements k.a {
+public class a implements l.a {
     private String mResPath;
     private String mType;
     private float mValue;
@@ -21,12 +21,12 @@ public class a implements k.a {
         return this.mValue;
     }
 
-    @Override // com.baidu.live.ar.k.a
+    @Override // com.baidu.live.ar.l.a
     public void setValue(float f) {
         this.mValue = f;
     }
 
-    @Override // com.baidu.live.ar.k.a
+    @Override // com.baidu.live.ar.l.a
     public String getType() {
         return this.mType;
     }
@@ -35,8 +35,8 @@ public class a implements k.a {
         this.mType = str;
     }
 
-    @Override // com.baidu.live.ar.k.a
-    public Object Cm() {
+    @Override // com.baidu.live.ar.l.a
+    public Object CE() {
         Makeup makeup = new Makeup();
         makeup.setResPath(getResPath());
         makeup.setType(BeautyType.valueOf(getType()));

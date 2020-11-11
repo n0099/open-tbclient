@@ -21,7 +21,7 @@ import org.json.JSONObject;
 public final class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Object f4686a = new Object();
+    private static final Object f4688a = new Object();
     private static volatile p b;
     private Context i;
     private com.vivo.push.util.a k;
@@ -47,7 +47,7 @@ public final class p {
 
     public static p a() {
         if (b == null) {
-            synchronized (f4686a) {
+            synchronized (f4688a) {
                 if (b == null) {
                     b = new p();
                 }
@@ -780,7 +780,7 @@ public final class p {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private IPushActionListener f4687a;
+        private IPushActionListener f4689a;
         private com.vivo.push.b.c b;
         private IPushActionListener c;
         private Runnable d;
@@ -788,7 +788,7 @@ public final class p {
 
         public a(com.vivo.push.b.c cVar, IPushActionListener iPushActionListener) {
             this.b = cVar;
-            this.f4687a = iPushActionListener;
+            this.f4689a = iPushActionListener;
         }
 
         public final void a(int i, Object... objArr) {
@@ -796,8 +796,8 @@ public final class p {
             if (this.c != null) {
                 this.c.onStateChanged(i);
             }
-            if (this.f4687a != null) {
-                this.f4687a.onStateChanged(i);
+            if (this.f4689a != null) {
+                this.f4689a.onStateChanged(i);
             }
         }
 

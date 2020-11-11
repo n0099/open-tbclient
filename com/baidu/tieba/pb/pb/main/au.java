@@ -22,55 +22,55 @@ import tbclient.PbPage.PbSortType;
 /* loaded from: classes22.dex */
 public class au extends af.a {
     public boolean Yj;
-    private CustomMessageListener erp;
-    private SortSwitchButton.a lkF;
-    private SortSwitchButton.a loS;
-    public View luA;
-    public View luB;
-    public TextLineView luC;
-    private View luD;
-    private View luE;
-    private TextView luF;
-    private List<TextLineView> luG;
-    private int luH;
-    private View.OnClickListener luI;
-    private com.baidu.tieba.pb.data.n luJ;
-    private BdUniqueId luK;
-    private BdUniqueId luL;
-    private View.OnClickListener luM;
-    private View.OnClickListener luN;
-    private CustomMessageListener luO;
-    public TextLineView luv;
-    public TextLineView luw;
-    public SortSwitchButton lux;
-    public TextView luy;
-    public View luz;
+    private CustomMessageListener exi;
+    private View lAA;
+    private View lAB;
+    private TextView lAC;
+    private List<TextLineView> lAD;
+    private int lAE;
+    private View.OnClickListener lAF;
+    private com.baidu.tieba.pb.data.n lAG;
+    private BdUniqueId lAH;
+    private BdUniqueId lAI;
+    private View.OnClickListener lAJ;
+    private View.OnClickListener lAK;
+    private CustomMessageListener lAL;
+    public TextLineView lAs;
+    public TextLineView lAt;
+    public SortSwitchButton lAu;
+    public TextView lAv;
+    public View lAw;
+    public View lAx;
+    public View lAy;
+    public TextLineView lAz;
+    private SortSwitchButton.a lqG;
+    private SortSwitchButton.a luP;
     private View mRootView;
     public int mSkinType;
 
     public au(TbPageContext tbPageContext, View view) {
         super(view);
         this.mSkinType = 3;
-        this.luH = 0;
+        this.lAE = 0;
         this.Yj = true;
-        this.loS = new SortSwitchButton.a() { // from class: com.baidu.tieba.pb.pb.main.au.1
+        this.luP = new SortSwitchButton.a() { // from class: com.baidu.tieba.pb.pb.main.au.1
             @Override // com.baidu.tieba.view.SortSwitchButton.a
-            public boolean zj(int i) {
-                if (au.this.lkF != null) {
-                    return au.this.lkF.zj(i);
+            public boolean zw(int i) {
+                if (au.this.lqG != null) {
+                    return au.this.lqG.zw(i);
                 }
                 return true;
             }
         };
-        this.luM = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.au.4
+        this.lAJ = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.au.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (au.this.luI != null) {
-                    au.this.luI.onClick(view2);
+                if (au.this.lAF != null) {
+                    au.this.lAF.onClick(view2);
                 }
                 if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                     if (view2 == null || !(view2.getTag() instanceof Boolean) || ((Boolean) view2.getTag()).booleanValue()) {
-                        for (TextLineView textLineView : au.this.luG) {
+                        for (TextLineView textLineView : au.this.lAD) {
                             if (textLineView != null) {
                                 if (textLineView != view2) {
                                     textLineView.setSelected(false);
@@ -83,28 +83,28 @@ public class au extends af.a {
                 }
             }
         };
-        this.luN = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.au.5
+        this.lAK = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.au.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (au.this.luI != null) {
-                    au.this.luI.onClick(view2);
+                if (au.this.lAF != null) {
+                    au.this.lAF.onClick(view2);
                 }
             }
         };
-        this.erp = new CustomMessageListener(CmdConfigCustom.PB_ON_SCROLL) { // from class: com.baidu.tieba.pb.pb.main.au.6
+        this.exi = new CustomMessageListener(CmdConfigCustom.PB_ON_SCROLL) { // from class: com.baidu.tieba.pb.pb.main.au.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (au.this.luJ != null && au.this.luJ.Vw == com.baidu.tieba.pb.data.n.lim && customResponsedMessage != null && getTag() == au.this.luK && (customResponsedMessage.getData() instanceof az.a)) {
-                    ((az.a) customResponsedMessage.getData()).lxp = au.this;
+                if (au.this.lAG != null && au.this.lAG.Vw == com.baidu.tieba.pb.data.n.lol && customResponsedMessage != null && getTag() == au.this.lAH && (customResponsedMessage.getData() instanceof az.a)) {
+                    ((az.a) customResponsedMessage.getData()).lDm = au.this;
                 }
             }
         };
-        this.luO = new CustomMessageListener(CmdConfigCustom.PB_ON_SCROLL) { // from class: com.baidu.tieba.pb.pb.main.au.7
+        this.lAL = new CustomMessageListener(CmdConfigCustom.PB_ON_SCROLL) { // from class: com.baidu.tieba.pb.pb.main.au.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (au.this.luJ == null || au.this.luJ.Vw != com.baidu.tieba.pb.data.n.lin || customResponsedMessage == null || getTag() != au.this.luL || !(customResponsedMessage.getData() instanceof az.a)) {
+                if (au.this.lAG == null || au.this.lAG.Vw != com.baidu.tieba.pb.data.n.lom || customResponsedMessage == null || getTag() != au.this.lAI || !(customResponsedMessage.getData() instanceof az.a)) {
                 }
             }
         };
@@ -115,123 +115,123 @@ public class au extends af.a {
                 public void onClick(View view2) {
                 }
             });
-            this.luv = (TextLineView) view.findViewById(R.id.reply_title);
-            this.luv.setOnClickListener(this.luM);
-            this.luB = view.findViewById(R.id.reply_god_title_group);
-            this.luC = (TextLineView) view.findViewById(R.id.reply_god_title);
-            this.luC.setSelected(false);
-            this.luE = view.findViewById(R.id.reply_all_title_frame);
-            this.luD = view.findViewById(R.id.reply_all_title);
-            this.luF = (TextView) view.findViewById(R.id.reply_title_dynamic);
-            this.luw = (TextLineView) view.findViewById(R.id.floor_owner_reply);
-            this.luw.setOnClickListener(this.luM);
-            this.lux = (SortSwitchButton) view.findViewById(R.id.pb_sort_switch_btn);
-            this.lux.setOnSwitchChangeListener(this.loS);
-            this.lux.setVisibility(0);
-            this.luy = (TextView) view.findViewById(R.id.pb_god_reply_entrance_text);
-            this.luv.setSelected(true);
-            this.luw.setSelected(false);
-            this.luG = new ArrayList();
-            this.luG.add(this.luv);
-            this.luG.add(this.luw);
-            this.luz = view.findViewById(R.id.divider_with_reply_title);
-            this.luA = view.findViewById(R.id.divider_bottom);
-            this.lux.jF(2);
+            this.lAs = (TextLineView) view.findViewById(R.id.reply_title);
+            this.lAs.setOnClickListener(this.lAJ);
+            this.lAy = view.findViewById(R.id.reply_god_title_group);
+            this.lAz = (TextLineView) view.findViewById(R.id.reply_god_title);
+            this.lAz.setSelected(false);
+            this.lAB = view.findViewById(R.id.reply_all_title_frame);
+            this.lAA = view.findViewById(R.id.reply_all_title);
+            this.lAC = (TextView) view.findViewById(R.id.reply_title_dynamic);
+            this.lAt = (TextLineView) view.findViewById(R.id.floor_owner_reply);
+            this.lAt.setOnClickListener(this.lAJ);
+            this.lAu = (SortSwitchButton) view.findViewById(R.id.pb_sort_switch_btn);
+            this.lAu.setOnSwitchChangeListener(this.luP);
+            this.lAu.setVisibility(0);
+            this.lAv = (TextView) view.findViewById(R.id.pb_god_reply_entrance_text);
+            this.lAs.setSelected(true);
+            this.lAt.setSelected(false);
+            this.lAD = new ArrayList();
+            this.lAD.add(this.lAs);
+            this.lAD.add(this.lAt);
+            this.lAw = view.findViewById(R.id.divider_with_reply_title);
+            this.lAx = view.findViewById(R.id.divider_bottom);
+            this.lAu.jP(2);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void uw(boolean z) {
+    public void uF(boolean z) {
         if (z) {
-            this.luw.setSelected(true);
-            this.luv.setSelected(false);
+            this.lAt.setSelected(true);
+            this.lAs.setSelected(false);
             return;
         }
-        this.luw.setSelected(false);
-        this.luv.setSelected(true);
+        this.lAt.setSelected(false);
+        this.lAs.setSelected(true);
     }
 
     public void p(List<PbSortType> list, int i) {
         if (com.baidu.tbadk.core.util.y.isEmpty(list)) {
-            this.lux.setVisibility(8);
+            this.lAu.setVisibility(8);
             return;
         }
         ArrayList arrayList = new ArrayList();
         for (PbSortType pbSortType : list) {
             com.baidu.tieba.tbadkCore.data.p pVar = new com.baidu.tieba.tbadkCore.data.p();
-            pVar.Jr(pbSortType.sort_type.intValue());
-            pVar.SB(pbSortType.sort_name);
+            pVar.JE(pbSortType.sort_type.intValue());
+            pVar.SS(pbSortType.sort_name);
             arrayList.add(pVar);
         }
-        this.lux.setVisibility(0);
-        this.lux.setData(arrayList, i);
+        this.lAu.setVisibility(0);
+        this.lAu.setData(arrayList, i);
     }
 
     public void a(com.baidu.tieba.pb.data.n nVar) {
-        this.luJ = nVar;
+        this.lAG = nVar;
         if (nVar != null) {
-            if (nVar.Vw == com.baidu.tieba.pb.data.n.lin) {
-                this.luB.getContext();
-                if (TextUtils.isEmpty(nVar.lip)) {
-                    this.luE.setVisibility(0);
-                    this.luB.setVisibility(8);
-                    this.luv.setVisibility(0);
-                    this.luv.setSelected(false);
-                    this.luv.setClickable(false);
-                    this.luv.setText(TbadkCoreApplication.getInst().getString(R.string.god_reply));
+            if (nVar.Vw == com.baidu.tieba.pb.data.n.lom) {
+                this.lAy.getContext();
+                if (TextUtils.isEmpty(nVar.lop)) {
+                    this.lAB.setVisibility(0);
+                    this.lAy.setVisibility(8);
+                    this.lAs.setVisibility(0);
+                    this.lAs.setSelected(false);
+                    this.lAs.setClickable(false);
+                    this.lAs.setText(TbadkCoreApplication.getInst().getString(R.string.god_reply));
                 } else {
-                    this.luE.setVisibility(8);
-                    this.luv.setVisibility(8);
-                    this.luB.setVisibility(0);
-                    this.luB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.au.3
+                    this.lAB.setVisibility(8);
+                    this.lAs.setVisibility(8);
+                    this.lAy.setVisibility(0);
+                    this.lAy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.au.3
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            if (au.this.luI != null) {
-                                au.this.luI.onClick(au.this.luB);
+                            if (au.this.lAF != null) {
+                                au.this.lAF.onClick(au.this.lAy);
                             }
                         }
                     });
                 }
-                this.lux.setVisibility(8);
-                this.luw.setVisibility(8);
-                this.luA.setVisibility(8);
-            } else if (nVar.Vw == com.baidu.tieba.pb.data.n.lim) {
-                this.luB.setVisibility(8);
-                this.luE.setVisibility(0);
-                this.luv.setClickable(true);
-                this.luv.setText(TbadkCoreApplication.getInst().getString(R.string.all_reply));
-                this.luw.setVisibility(0);
-                uw(nVar.lir);
-                if (nVar.lis != null) {
-                    this.lux.setVisibility(0);
+                this.lAu.setVisibility(8);
+                this.lAt.setVisibility(8);
+                this.lAx.setVisibility(8);
+            } else if (nVar.Vw == com.baidu.tieba.pb.data.n.lol) {
+                this.lAy.setVisibility(8);
+                this.lAB.setVisibility(0);
+                this.lAs.setClickable(true);
+                this.lAs.setText(TbadkCoreApplication.getInst().getString(R.string.all_reply));
+                this.lAt.setVisibility(0);
+                uF(nVar.lor);
+                if (nVar.los != null) {
+                    this.lAu.setVisibility(0);
                     int i = 0;
                     while (true) {
-                        if (i >= nVar.lis.size()) {
+                        if (i >= nVar.los.size()) {
                             i = 0;
                             break;
-                        } else if (nVar.lis.get(i) != null && nVar.sortType == nVar.lis.get(i).sort_type.intValue()) {
+                        } else if (nVar.los.get(i) != null && nVar.sortType == nVar.los.get(i).sort_type.intValue()) {
                             break;
                         } else {
                             i++;
                         }
                     }
-                    p(nVar.lis, i);
+                    p(nVar.los, i);
                 }
-                this.luA.setVisibility(0);
+                this.lAx.setVisibility(0);
             }
             if (this.Yj) {
-                this.luA.getLayoutParams().height = (int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds16);
-                com.baidu.tbadk.core.util.ap.setBackgroundColor(this.luE, R.color.cp_bg_line_h);
+                this.lAx.getLayoutParams().height = (int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds16);
+                com.baidu.tbadk.core.util.ap.setBackgroundColor(this.lAB, R.color.cp_bg_line_h);
             } else {
-                this.luA.getLayoutParams().height = 0;
-                com.baidu.tbadk.core.util.ap.setBackgroundColor(this.luE, R.color.cp_bg_line_e);
+                this.lAx.getLayoutParams().height = 0;
+                com.baidu.tbadk.core.util.ap.setBackgroundColor(this.lAB, R.color.cp_bg_line_e);
             }
             if (nVar.isDynamic) {
-                this.luF.setVisibility(0);
-                this.luD.setVisibility(8);
+                this.lAC.setVisibility(0);
+                this.lAA.setVisibility(8);
             } else {
-                this.luF.setVisibility(8);
-                this.luD.setVisibility(0);
+                this.lAC.setVisibility(8);
+                this.lAA.setVisibility(0);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -239,55 +239,55 @@ public class au extends af.a {
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            com.baidu.tbadk.core.util.ap.setBackgroundColor(this.luE, R.color.cp_bg_line_d);
-            com.baidu.tbadk.core.util.ap.setBackgroundColor(this.luB, R.color.cp_bg_line_d);
-            this.luv.onChangeSkinType(i);
-            this.luw.onChangeSkinType(i);
-            com.baidu.tbadk.core.util.ap.setViewTextColor(this.luC, R.color.cp_cont_b);
-            if (this.luJ != null && this.luJ.Vw == com.baidu.tieba.pb.data.n.lin) {
-                com.baidu.tbadk.core.util.ap.setViewTextColor(this.luv, R.color.cp_cont_j, 1);
+            com.baidu.tbadk.core.util.ap.setBackgroundColor(this.lAB, R.color.cp_bg_line_d);
+            com.baidu.tbadk.core.util.ap.setBackgroundColor(this.lAy, R.color.cp_bg_line_d);
+            this.lAs.onChangeSkinType(i);
+            this.lAt.onChangeSkinType(i);
+            com.baidu.tbadk.core.util.ap.setViewTextColor(this.lAz, R.color.cp_cont_b);
+            if (this.lAG != null && this.lAG.Vw == com.baidu.tieba.pb.data.n.lom) {
+                com.baidu.tbadk.core.util.ap.setViewTextColor(this.lAs, R.color.cp_cont_j, 1);
             }
-            com.baidu.tbadk.core.util.ap.setViewTextColor(this.luy, R.color.cp_cont_j);
-            this.luy.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, com.baidu.tbadk.core.util.ap.getDrawable(R.drawable.icon_gob_reply_jump), (Drawable) null);
-            this.lux.onChangeSkinType();
-            com.baidu.tbadk.core.util.ap.setBackgroundColor(this.luz, R.color.cp_bg_line_c);
+            com.baidu.tbadk.core.util.ap.setViewTextColor(this.lAv, R.color.cp_cont_j);
+            this.lAv.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, com.baidu.tbadk.core.util.ap.getDrawable(R.drawable.icon_gob_reply_jump), (Drawable) null);
+            this.lAu.onChangeSkinType();
+            com.baidu.tbadk.core.util.ap.setBackgroundColor(this.lAw, R.color.cp_bg_line_c);
             if (this.Yj) {
-                com.baidu.tbadk.core.util.ap.setBackgroundResource(this.luA, R.drawable.personalize_tab_shadow);
-                com.baidu.tbadk.core.util.ap.setBackgroundColor(this.luE, R.color.cp_bg_line_h);
+                com.baidu.tbadk.core.util.ap.setBackgroundResource(this.lAx, R.drawable.personalize_tab_shadow);
+                com.baidu.tbadk.core.util.ap.setBackgroundColor(this.lAB, R.color.cp_bg_line_h);
             } else {
-                com.baidu.tbadk.core.util.ap.setBackgroundColor(this.luE, R.color.cp_bg_line_e);
+                com.baidu.tbadk.core.util.ap.setBackgroundColor(this.lAB, R.color.cp_bg_line_e);
             }
-            com.baidu.tbadk.core.util.ap.setViewTextColor(this.luF, R.color.cp_cont_b, 1);
+            com.baidu.tbadk.core.util.ap.setViewTextColor(this.lAC, R.color.cp_cont_b, 1);
         }
         this.mSkinType = i;
     }
 
     public void l(BdUniqueId bdUniqueId) {
-        this.luK = bdUniqueId;
+        this.lAH = bdUniqueId;
         MessageManager.getInstance().unRegisterListener(bdUniqueId);
-        this.erp.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.erp);
+        this.exi.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.exi);
     }
 
     public void u(BdUniqueId bdUniqueId) {
-        this.luL = bdUniqueId;
+        this.lAI = bdUniqueId;
         MessageManager.getInstance().unRegisterListener(bdUniqueId);
-        this.luO.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.luO);
+        this.lAL.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.lAL);
     }
 
-    public void U(View.OnClickListener onClickListener) {
-        this.luI = onClickListener;
+    public void V(View.OnClickListener onClickListener) {
+        this.lAF = onClickListener;
     }
 
     public void setOnSwitchChangeListener(SortSwitchButton.a aVar) {
-        this.lkF = aVar;
+        this.lqG = aVar;
     }
 
     public void v(BdUniqueId bdUniqueId) {
-        if (this.lux != null) {
-            this.lux.setListenerTag(bdUniqueId);
-            this.lux.setCommenId(bdUniqueId);
+        if (this.lAu != null) {
+            this.lAu.setListenerTag(bdUniqueId);
+            this.lAu.setCommenId(bdUniqueId);
         }
     }
 
@@ -295,7 +295,7 @@ public class au extends af.a {
         return this.mRootView;
     }
 
-    public void Fx(int i) {
+    public void FK(int i) {
         if (this.mRootView != null) {
             this.mRootView.setVisibility(i);
         }

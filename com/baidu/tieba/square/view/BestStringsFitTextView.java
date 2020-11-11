@@ -6,72 +6,72 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 /* loaded from: classes23.dex */
 public class BestStringsFitTextView extends TextView {
-    private float brX;
-    private String mNx;
-    private String mNy;
-    private boolean mNz;
+    private float bts;
+    private String mTA;
+    private String mTB;
+    private boolean mTC;
     private String[] textArray;
 
     public BestStringsFitTextView(Context context) {
         super(context);
-        this.mNx = " ";
-        this.brX = 0.0f;
-        this.mNy = "";
-        this.mNz = false;
+        this.mTA = " ";
+        this.bts = 0.0f;
+        this.mTB = "";
+        this.mTC = false;
     }
 
     public BestStringsFitTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mNx = " ";
-        this.brX = 0.0f;
-        this.mNy = "";
-        this.mNz = false;
+        this.mTA = " ";
+        this.bts = 0.0f;
+        this.mTB = "";
+        this.mTC = false;
     }
 
     public BestStringsFitTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mNx = " ";
-        this.brX = 0.0f;
-        this.mNy = "";
-        this.mNz = false;
+        this.mTA = " ";
+        this.bts = 0.0f;
+        this.mTB = "";
+        this.mTC = false;
     }
 
-    protected void dGs() {
-        this.brX = (getWidth() - getPaddingLeft()) - getPaddingRight();
+    protected void dIU() {
+        this.bts = (getWidth() - getPaddingLeft()) - getPaddingRight();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < this.textArray.length; i++) {
             if (i > 0) {
-                sb.append(this.mNx);
+                sb.append(this.mTA);
             }
             sb.append(this.textArray[i]);
             String sb2 = sb.toString();
-            if (this.brX < getPaint().measureText(sb2)) {
+            if (this.bts < getPaint().measureText(sb2)) {
                 break;
             }
-            this.mNz = true;
-            this.mNy = sb2;
+            this.mTC = true;
+            this.mTB = sb2;
         }
-        setText(this.mNy);
+        setText(this.mTB);
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.textArray != null && !this.mNz) {
-            dGs();
+        if (this.textArray != null && !this.mTC) {
+            dIU();
         }
     }
 
     public void setTextArray(String[] strArr) {
         this.textArray = strArr;
-        dGs();
+        dIU();
     }
 
     public String getSeperator() {
-        return this.mNx;
+        return this.mTA;
     }
 
     public void setSeperator(String str) {
-        this.mNx = str;
+        this.mTA = str;
     }
 }

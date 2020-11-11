@@ -26,7 +26,7 @@ public class LivenessXfordView extends FrameLayout {
     public static final String PROGRESS_PROPERTY = "progress";
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f1762a = 12;
+    private static final int f1764a = 12;
     private AnimatorSet A;
     private float B;
     private float C;

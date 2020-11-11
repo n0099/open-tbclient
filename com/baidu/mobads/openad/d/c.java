@@ -6,7 +6,7 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f2385a;
+    public String f2387a;
     public String b;
     public long c = 0;
     public String d = "text/plain";
@@ -14,12 +14,12 @@ public class c {
     private Uri.Builder f;
 
     public c(String str, String str2) {
-        this.f2385a = str;
+        this.f2387a = str;
         this.b = str2;
     }
 
     public String a() {
-        return XAdSDKFoundationFacade.getInstance().getURIUitls().getFixedString(this.f2385a);
+        return XAdSDKFoundationFacade.getInstance().getURIUitls().getFixedString(this.f2387a);
     }
 
     public Uri.Builder b() {

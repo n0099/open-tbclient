@@ -5,20 +5,20 @@ import com.baidu.swan.apps.ap.j;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class c extends com.baidu.swan.apps.event.a.b {
-    private String dNk;
+    private String dTc;
     private String data;
     private String logType;
 
     public c(@NonNull String str, String str2, String str3, String str4) {
         super(str);
-        this.dNk = str2;
+        this.dTc = str2;
         this.logType = str3;
         this.data = str4;
     }
 
     @Override // com.baidu.swan.apps.event.a.b, com.baidu.swan.apps.event.a.a
-    public String nV(String str) {
-        String str2 = this.dNk;
+    public String ok(String str) {
+        String str2 = this.dTc;
         char c = 65535;
         switch (str2.hashCode()) {
             case -2011830027:
@@ -42,7 +42,7 @@ public class c extends com.baidu.swan.apps.event.a.b {
         }
         switch (c) {
             case 0:
-                return String.format("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, this.logType, JSONObject.quote(j.a(j.aJV(), "yyyy-MM-dd HH:mm:ss")), JSONObject.quote(this.data));
+                return String.format("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, this.logType, JSONObject.quote(j.a(j.aMv(), "yyyy-MM-dd HH:mm:ss")), JSONObject.quote(this.data));
             case 1:
                 return String.format("%s.message = { type:'log',logType:'%s',logs:[%s] };", str, this.logType, JSONObject.quote(this.data));
             case 2:
@@ -52,7 +52,7 @@ public class c extends com.baidu.swan.apps.event.a.b {
         }
     }
 
-    public static com.baidu.swan.apps.event.a.b hk(boolean z) {
+    public static com.baidu.swan.apps.event.a.b ht(boolean z) {
         return new c("sconsole_entirety", "%s.message = { type:'act',act:'%s' };", null, z ? "show" : "hide");
     }
 

@@ -20,7 +20,7 @@ public class DuplayerHandlerThreadPool {
     private static final Object b = new Object();
 
     /* renamed from: a  reason: collision with root package name */
-    a f1437a;
+    a f1439a;
     private ArrayList<DuplayerHandlerThread> c;
     private ArrayList<DuplayerHandlerThread> d;
     private c e;
@@ -30,7 +30,7 @@ public class DuplayerHandlerThreadPool {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final AtomicInteger f1438a = new AtomicInteger(1);
+        private final AtomicInteger f1440a = new AtomicInteger(1);
         private final String b;
         private int c;
 
@@ -41,7 +41,7 @@ public class DuplayerHandlerThreadPool {
         }
 
         public DuplayerHandlerThread a() {
-            DuplayerHandlerThread duplayerHandlerThread = new DuplayerHandlerThread(this.b + this.f1438a.getAndIncrement());
+            DuplayerHandlerThread duplayerHandlerThread = new DuplayerHandlerThread(this.b + this.f1440a.getAndIncrement());
             duplayerHandlerThread.setPriority(this.c);
             return duplayerHandlerThread;
         }
@@ -52,7 +52,7 @@ public class DuplayerHandlerThreadPool {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private static DuplayerHandlerThreadPool f1439a = new DuplayerHandlerThreadPool();
+        private static DuplayerHandlerThreadPool f1441a = new DuplayerHandlerThreadPool();
     }
 
     /* loaded from: classes12.dex */
@@ -79,12 +79,12 @@ public class DuplayerHandlerThreadPool {
     private DuplayerHandlerThreadPool() {
         this.c = new ArrayList<>();
         this.d = new ArrayList<>();
-        this.f1437a = new a("duplayer-t");
+        this.f1439a = new a("duplayer-t");
         this.e = new c(Looper.getMainLooper());
     }
 
     private DuplayerHandlerThread a() {
-        DuplayerHandlerThread a2 = this.f1437a.a();
+        DuplayerHandlerThread a2 = this.f1439a.a();
         a2.start();
         return a2;
     }
@@ -135,7 +135,7 @@ public class DuplayerHandlerThreadPool {
     }
 
     public static DuplayerHandlerThreadPool getInstance() {
-        return b.f1439a;
+        return b.f1441a;
     }
 
     public void checkIdlePoolLongTimeNoUse() {

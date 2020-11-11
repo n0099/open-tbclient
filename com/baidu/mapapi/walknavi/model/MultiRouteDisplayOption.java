@@ -5,7 +5,7 @@ import com.baidu.mapapi.map.BitmapDescriptor;
 public class MultiRouteDisplayOption {
 
     /* renamed from: a  reason: collision with root package name */
-    private BitmapDescriptor f2174a;
+    private BitmapDescriptor f2176a;
     private BitmapDescriptor b;
     private int c = 0;
     private int d = 0;
@@ -13,11 +13,11 @@ public class MultiRouteDisplayOption {
     private int f = 0;
 
     public BitmapDescriptor getFocusRouteBitmapDescriptor() {
-        return this.f2174a;
+        return this.f2176a;
     }
 
     public void setFocusRouteBitmapDescriptor(BitmapDescriptor bitmapDescriptor) {
-        this.f2174a = bitmapDescriptor;
+        this.f2176a = bitmapDescriptor;
     }
 
     public BitmapDescriptor getNoFocusRouteBitmapDescriptor() {

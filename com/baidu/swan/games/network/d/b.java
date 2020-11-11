@@ -22,25 +22,25 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class b extends com.baidu.swan.games.network.a {
-    private long dRM;
+    private long dXE;
 
     public b(com.baidu.swan.games.f.b bVar, com.baidu.swan.games.binding.model.c cVar) {
         super(bVar, cVar);
-        this.dRM = 0L;
+        this.dXE = 0L;
         this.requestType = 3;
     }
 
     @Override // com.baidu.swan.games.network.a
     public void start() {
-        Request aTV;
-        if (this.dRr != null && (aTV = aTV()) != null) {
-            if (e.aEU() == null) {
-                k("", -1, "request:swanApp is null");
+        Request aWv;
+        if (this.dXj != null && (aWv = aWv()) != null) {
+            if (e.aHu() == null) {
+                l("", -1, "request:swanApp is null");
                 return;
             }
-            final String httpUrl = aTV.url().toString();
-            final com.baidu.swan.games.network.b aFj = e.aEU().aFj();
-            aFj.a(aTV, new Callback() { // from class: com.baidu.swan.games.network.d.b.1
+            final String httpUrl = aWv.url().toString();
+            final com.baidu.swan.games.network.b aHJ = e.aHu().aHJ();
+            aHJ.a(aWv, new Callback() { // from class: com.baidu.swan.games.network.d.b.1
                 /* JADX WARN: Removed duplicated region for block: B:16:0x007b  */
                 @Override // okhttp3.Callback
                 /*
@@ -56,7 +56,7 @@ public class b extends com.baidu.swan.games.network.a {
                             e = e;
                             if (b.DEBUG) {
                             }
-                            b.this.k(httpUrl, -1, e.getMessage());
+                            b.this.l(httpUrl, -1, e.getMessage());
                             return;
                         }
                     } catch (JSONException e2) {
@@ -69,7 +69,7 @@ public class b extends com.baidu.swan.games.network.a {
                             if (b.DEBUG) {
                                 Log.d("UploadFileTask", Log.getStackTraceString(e));
                             }
-                            b.this.k(httpUrl, -1, e.getMessage());
+                            b.this.l(httpUrl, -1, e.getMessage());
                             return;
                         }
                     }
@@ -85,8 +85,8 @@ public class b extends com.baidu.swan.games.network.a {
 
                 @Override // okhttp3.Callback
                 public void onFailure(Call call, IOException iOException) {
-                    aFj.cancelTag(b.this.mTaskId);
-                    b.this.l(httpUrl, 0, iOException.getMessage());
+                    aHJ.cancelTag(b.this.mTaskId);
+                    b.this.m(httpUrl, 0, iOException.getMessage());
                 }
             });
         }
@@ -108,64 +108,64 @@ public class b extends com.baidu.swan.games.network.a {
         }
     }
 
-    private Request aTV() {
-        final String aTO = aTO();
-        if (TextUtils.isEmpty(aTO)) {
+    private Request aWv() {
+        final String aWo = aWo();
+        if (TextUtils.isEmpty(aWo)) {
             return null;
         }
-        String optString = this.dRr.optString("filePath");
+        String optString = this.dXj.optString("filePath");
         if (TextUtils.isEmpty(optString)) {
-            k(aTO, -1, "uploadFile:filePath is empty or invalid");
+            l(aWo, -1, "uploadFile:filePath is empty or invalid");
             return null;
-        } else if (d.yU(optString)) {
-            k(aTO, -1, "uploadFile:filePath is empty or invalid");
+        } else if (d.zi(optString)) {
+            l(aWo, -1, "uploadFile:filePath is empty or invalid");
             return null;
-        } else if (this.dRr.wk(WebSocketRequest.PARAM_KEY_HEADER) && this.dRr.wj(WebSocketRequest.PARAM_KEY_HEADER) != 9) {
-            k(aTO, -1, "uploadFile:header is invalid");
+        } else if (this.dXj.wy(WebSocketRequest.PARAM_KEY_HEADER) && this.dXj.wx(WebSocketRequest.PARAM_KEY_HEADER) != 9) {
+            l(aWo, -1, "uploadFile:header is invalid");
             return null;
         } else {
-            File file = getFile(aTO, optString);
+            File file = getFile(aWo, optString);
             if (file != null) {
-                com.baidu.swan.games.binding.model.c wr = this.dRr.wr("formData");
+                com.baidu.swan.games.binding.model.c wF = this.dXj.wF("formData");
                 Request.Builder builder = new Request.Builder();
                 final long length = file.length();
                 com.baidu.swan.apps.network.c cVar = new com.baidu.swan.apps.network.c(file, "multipart/form-data", new com.baidu.swan.apps.network.b.a() { // from class: com.baidu.swan.games.network.d.b.2
                     @Override // com.baidu.swan.apps.network.b.a
-                    public void bz(long j) {
-                        b.this.b(length, j, aTO);
+                    public void bV(long j) {
+                        b.this.b(length, j, aWo);
                     }
                 });
                 MultipartBody.Builder type = new MultipartBody.Builder().setType(MultipartBody.FORM);
-                a(type, wr);
-                type.addFormDataPart(this.dRr.optString("name"), file.getName(), cVar);
+                a(type, wF);
+                type.addFormDataPart(this.dXj.optString("name"), file.getName(), cVar);
                 MultipartBody build = type.build();
-                a(builder, this.dRr.wr(WebSocketRequest.PARAM_KEY_HEADER), (Map<String, String>) new HashMap(), false);
-                return builder.url(aTO).tag(this.mTaskId).post(build).build();
+                a(builder, this.dXj.wF(WebSocketRequest.PARAM_KEY_HEADER), (Map<String, String>) new HashMap(), false);
+                return builder.url(aWo).tag(this.mTaskId).post(build).build();
             }
             return null;
         }
     }
 
     private File getFile(String str, String str2) {
-        String tr = f.axo().awU().tr(str2);
-        if (TextUtils.isEmpty(tr) || TextUtils.equals(str2, tr)) {
-            k(str, -1, "uploadFile:filePath is empty or invalid");
+        String tF = f.azO().azu().tF(str2);
+        if (TextUtils.isEmpty(tF) || TextUtils.equals(str2, tF)) {
+            l(str, -1, "uploadFile:filePath is empty or invalid");
             return null;
         }
-        File file = new File(tr);
+        File file = new File(tF);
         if (!file.exists() || !file.isFile()) {
-            k(str, -1, "request:file not exists or not file");
+            l(str, -1, "request:file not exists or not file");
             return null;
         } else if (file.length() > 26214400) {
-            k(str, -1, "request:file size > 25 MB");
+            l(str, -1, "request:file size > 25 MB");
             return null;
-        } else if (TextUtils.isEmpty(this.dRr.optString("name"))) {
-            k(str, -1, "uploadFile:name is invalid");
+        } else if (TextUtils.isEmpty(this.dXj.optString("name"))) {
+            l(str, -1, "uploadFile:name is invalid");
             return null;
-        } else if (!this.dRr.wk("formData") || this.dRr.wj("formData") == 9) {
+        } else if (!this.dXj.wy("formData") || this.dXj.wx("formData") == 9) {
             return file;
         } else {
-            k(str, -1, "uploadFile:formData is invalid");
+            l(str, -1, "uploadFile:formData is invalid");
             return null;
         }
     }
@@ -184,28 +184,28 @@ public class b extends com.baidu.swan.games.network.a {
     }
 
     @Override // com.baidu.swan.games.network.a
-    public void k(String str, int i, String str2) {
-        super.k(str, i, str2);
+    public void l(String str, int i, String str2) {
+        super.l(str, i, str2);
         com.baidu.swan.games.v.c.c(str, i, str2, SwanAppNetworkUtils.isNetworkConnected(null));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void l(String str, int i, String str2) {
+    public void m(String str, int i, String str2) {
         if (DEBUG) {
             Log.d("UploadFileTask", "onFailure: " + str2);
         }
-        k(str, i, ("Socket is closed".equalsIgnoreCase(str2) || "Canceled".equalsIgnoreCase(str2)) ? "uploadFile:fail abort" : "uploadFile:fail abort");
+        l(str, i, ("Socket is closed".equalsIgnoreCase(str2) || "Canceled".equalsIgnoreCase(str2)) ? "uploadFile:fail abort" : "uploadFile:fail abort");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(long j, long j2, String str) {
         if (j > 0 && j2 <= j && j2 != 0) {
             int floor = (int) Math.floor((100 * j2) / j);
-            if (System.currentTimeMillis() - this.dRM > 500 || floor == 100) {
+            if (System.currentTimeMillis() - this.dXE > 500 || floor == 100) {
                 if (floor <= 100) {
                     dispatchEvent(new JSEvent("progressUpdate", new c(floor, j, j2)));
                 }
-                this.dRM = System.currentTimeMillis();
+                this.dXE = System.currentTimeMillis();
             }
         }
     }

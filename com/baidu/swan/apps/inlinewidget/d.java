@@ -7,13 +7,13 @@ public interface d {
 
     /* loaded from: classes10.dex */
     public interface a {
-        void eY(boolean z);
+        void fh(boolean z);
     }
 
     void a(@NonNull a aVar);
 
     @Nullable
-    String atc();
+    String avC();
 
     @Nullable
     String getSlaveId();

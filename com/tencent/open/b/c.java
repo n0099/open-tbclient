@@ -17,7 +17,7 @@ public class c {
     private static String d;
 
     /* renamed from: a  reason: collision with root package name */
-    static String f4586a = null;
+    static String f4588a = null;
     static String b = null;
     static String c = null;
     private static String e = null;
@@ -58,15 +58,15 @@ public class c {
     }
 
     public static String b(Context context) {
-        if (f4586a != null && f4586a.length() > 0) {
-            return f4586a;
+        if (f4588a != null && f4588a.length() > 0) {
+            return f4588a;
         }
         if (context == null) {
             return "";
         }
         try {
-            f4586a = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
-            return f4586a;
+            f4588a = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+            return f4588a;
         } catch (Exception e2) {
             return "";
         }

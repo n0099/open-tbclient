@@ -11,39 +11,39 @@ import com.baidu.live.view.ALALevelView;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private ArrayList<b> gKu = new ArrayList<>();
-    private AlaPersonCenterExpActivity gKv;
+    private ArrayList<b> gQg = new ArrayList<>();
+    private AlaPersonCenterExpActivity gQh;
     private Context mContext;
     private int mSkinType;
 
     public a(AlaPersonCenterExpActivity alaPersonCenterExpActivity) {
-        this.gKv = alaPersonCenterExpActivity;
+        this.gQh = alaPersonCenterExpActivity;
         this.mContext = alaPersonCenterExpActivity.getPageContext().getPageActivity();
     }
 
-    public void uN(int i) {
+    public void uX(int i) {
         this.mSkinType = i;
     }
 
     public void ae(ArrayList<b> arrayList) {
-        this.gKu.clear();
-        this.gKu.addAll(arrayList);
+        this.gQg.clear();
+        this.gQg.addAll(arrayList);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.gKu == null) {
+        if (this.gQg == null) {
             return 1;
         }
-        return this.gKu.size() + 1;
+        return this.gQg.size() + 1;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (1 != getItemViewType(i) || (i - 1 < 0 && i - 1 >= this.gKu.size())) {
+        if (1 != getItemViewType(i) || (i - 1 < 0 && i - 1 >= this.gQg.size())) {
             return null;
         }
-        return this.gKu.get(i - 1);
+        return this.gQg.get(i - 1);
     }
 
     @Override // android.widget.Adapter
@@ -75,47 +75,47 @@ public class a extends BaseAdapter {
 
     private View a(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
-            view = LayoutInflater.from(this.mContext).inflate(a.h.sdk_prc_person_center_exp_header, viewGroup, false);
+            view = LayoutInflater.from(this.mContext).inflate(a.g.sdk_prc_person_center_exp_header, viewGroup, false);
         }
-        this.gKv.getLayoutMode().onModeChanged(view);
+        this.gQh.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     private View b(int i, View view, ViewGroup viewGroup) {
-        C0649a c0649a;
+        C0661a c0661a;
         if (view == null) {
-            view = LayoutInflater.from(this.mContext).inflate(a.h.sdk_prc_person_center_exp_item, viewGroup, false);
-            C0649a c0649a2 = new C0649a(view);
-            view.setTag(c0649a2);
-            c0649a = c0649a2;
+            view = LayoutInflater.from(this.mContext).inflate(a.g.sdk_prc_person_center_exp_item, viewGroup, false);
+            C0661a c0661a2 = new C0661a(view);
+            view.setTag(c0661a2);
+            c0661a = c0661a2;
         } else {
-            c0649a = (C0649a) view.getTag();
+            c0661a = (C0661a) view.getTag();
         }
         b bVar = (b) getItem(i);
         if (bVar != null) {
-            c0649a.aT(bVar.level, bVar.gKy);
+            c0661a.aX(bVar.level, bVar.gQk);
         }
-        this.gKv.getLayoutMode().onModeChanged(view);
+        this.gQh.getLayoutMode().onModeChanged(view);
         if (this.mSkinType == 1) {
-            c0649a.grC.b(a.d.sdk_cp_cont_g, 0.7f);
+            c0661a.gxq.b(a.c.sdk_cp_cont_g, 0.7f);
         }
         return view;
     }
 
     /* renamed from: com.baidu.tieba.ala.live.personcenter.exp.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0649a {
-        private TextView gKw;
-        private ALALevelView grC;
+    public class C0661a {
+        private TextView gQi;
+        private ALALevelView gxq;
 
-        public C0649a(View view) {
-            this.grC = (ALALevelView) view.findViewById(a.g.ala_person_center_exp_level);
-            this.gKw = (TextView) view.findViewById(a.g.ala_person_center_exp_level_range);
+        public C0661a(View view) {
+            this.gxq = (ALALevelView) view.findViewById(a.f.ala_person_center_exp_level);
+            this.gQi = (TextView) view.findViewById(a.f.ala_person_center_exp_level_range);
         }
 
-        public void aT(int i, String str) {
-            this.grC.setupLevelIcon(i);
-            this.gKw.setText(str);
+        public void aX(int i, String str) {
+            this.gxq.setupLevelIcon(i);
+            this.gQi.setText(str);
         }
     }
 

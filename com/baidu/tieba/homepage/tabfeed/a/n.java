@@ -23,7 +23,7 @@ public class n extends com.baidu.adp.widget.ListView.a<SpecialColumnListData, co
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bF */
+    /* renamed from: bH */
     public com.baidu.adp.widget.ListView.b<SpecialTopicLayout> c(ViewGroup viewGroup) {
         SpecialTopicLayout specialTopicLayout = new SpecialTopicLayout(this.mPageContext);
         specialTopicLayout.setShowMore(true);

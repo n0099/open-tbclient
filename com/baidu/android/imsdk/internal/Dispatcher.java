@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class Dispatcher {
     public static final int ALL = 0;
     public static final int NORMAL = -1;
@@ -20,7 +20,7 @@ public class Dispatcher {
     private static List<MsgListener> allMsgListeners = Collections.synchronizedList(new ArrayList());
     private static List<MsgListener> normalALL = Collections.synchronizedList(new ArrayList());
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes18.dex */
     public static abstract class MsgListener {
         int type = 0;
 
@@ -37,7 +37,7 @@ public class Dispatcher {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes18.dex */
     public static class Event {
         private int category;
         private long contacter;

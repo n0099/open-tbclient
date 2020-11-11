@@ -9,22 +9,22 @@ public class n extends com.baidu.platform.base.e {
     }
 
     private void a(TransitRoutePlanOption transitRoutePlanOption) {
-        this.f2814a.a("qt", "bus");
-        this.f2814a.a("sy", transitRoutePlanOption.mPolicy.getInt() + "");
-        this.f2814a.a("ie", "utf-8");
-        this.f2814a.a("lrn", "20");
-        this.f2814a.a("version", "3");
-        this.f2814a.a("rp_format", "json");
-        this.f2814a.a("rp_filter", "mobile");
-        this.f2814a.a("ic_info", "2");
-        this.f2814a.a("exptype", "depall");
-        this.f2814a.a(IXAdRequestInfo.SN, a(transitRoutePlanOption.mFrom));
-        this.f2814a.a(com.baidu.fsg.base.statistics.h.f1493a, a(transitRoutePlanOption.mTo));
+        this.f2816a.a("qt", "bus");
+        this.f2816a.a("sy", transitRoutePlanOption.mPolicy.getInt() + "");
+        this.f2816a.a("ie", "utf-8");
+        this.f2816a.a("lrn", "20");
+        this.f2816a.a("version", "3");
+        this.f2816a.a("rp_format", "json");
+        this.f2816a.a("rp_filter", "mobile");
+        this.f2816a.a("ic_info", "2");
+        this.f2816a.a("exptype", "depall");
+        this.f2816a.a(IXAdRequestInfo.SN, a(transitRoutePlanOption.mFrom));
+        this.f2816a.a(com.baidu.fsg.base.statistics.h.f1495a, a(transitRoutePlanOption.mTo));
         if (transitRoutePlanOption.mCityName != null) {
-            this.f2814a.a("c", transitRoutePlanOption.mCityName);
+            this.f2816a.a("c", transitRoutePlanOption.mCityName);
         }
         if (TransitRoutePlanOption.TransitPolicy.EBUS_NO_SUBWAY == transitRoutePlanOption.mPolicy) {
-            this.f2814a.a("f", "[0,2,4,7,5,8,9,10,11]");
+            this.f2816a.a("f", "[0,2,4,7,5,8,9,10,11]");
         }
     }
 

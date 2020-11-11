@@ -1,9 +1,9 @@
 package com.facebook.imagepipeline.g;
 /* loaded from: classes12.dex */
 public interface h {
-    int emm();
+    int eqd();
 
-    boolean emn();
+    boolean eqe();
 
-    boolean emo();
+    boolean eqf();
 }

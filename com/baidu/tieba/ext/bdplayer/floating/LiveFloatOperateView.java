@@ -12,8 +12,8 @@ import android.widget.ImageView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class LiveFloatOperateView extends FrameLayout implements View.OnClickListener {
-    private a inm;
-    private ImageView inn;
+    private a itk;
+    private ImageView itl;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -38,33 +38,33 @@ public class LiveFloatOperateView extends FrameLayout implements View.OnClickLis
     }
 
     private void init(Context context) {
-        LayoutInflater.from(context).inflate(a.h.ala_live_floating_operate_layout, (ViewGroup) this, true);
-        this.inn = (ImageView) findViewById(a.g.scale_btn);
-        findViewById(a.g.close_btn).setOnClickListener(this);
-        this.inn.setOnClickListener(this);
+        LayoutInflater.from(context).inflate(a.g.ala_live_floating_operate_layout, (ViewGroup) this, true);
+        this.itl = (ImageView) findViewById(a.f.scale_btn);
+        findViewById(a.f.close_btn).setOnClickListener(this);
+        this.itl.setOnClickListener(this);
     }
 
     public void setScaleMode(boolean z) {
         if (z) {
-            this.inn.setImageResource(a.f.ala_float_scale_small);
+            this.itl.setImageResource(a.e.ala_float_scale_small);
         } else {
-            this.inn.setImageResource(a.f.ala_float_scale_large);
+            this.itl.setImageResource(a.e.ala_float_scale_large);
         }
     }
 
     public void setOnViewOperatorListener(a aVar) {
-        this.inm = aVar;
+        this.itk = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int id = view.getId();
-        if (id == a.g.close_btn) {
-            if (this.inm != null) {
-                this.inm.onCloseClicked();
+        if (id == a.f.close_btn) {
+            if (this.itk != null) {
+                this.itk.onCloseClicked();
             }
-        } else if (id == a.g.scale_btn && this.inm != null) {
-            this.inm.a(this);
+        } else if (id == a.f.scale_btn && this.itk != null) {
+            this.itk.a(this);
         }
     }
 }

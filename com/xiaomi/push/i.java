@@ -21,18 +21,18 @@ import java.io.IOException;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f4967a = null;
+    private static String f4969a = null;
     private static String b = "";
     private static String c = null;
     private static String d = null;
     private static final String e = String.valueOf((char) 2);
 
     /* renamed from: a  reason: collision with other field name */
-    private static final String[] f520a = {"--", "a-", "u-", "v-", "o-", "g-"};
+    private static final String[] f522a = {"--", "a-", "u-", "v-", "o-", "g-"};
     private static String f = null;
 
     /* renamed from: a  reason: collision with other field name */
-    private static volatile boolean f519a = false;
+    private static volatile boolean f521a = false;
 
     private static double a(double d2) {
         int i = 1;
@@ -96,7 +96,7 @@ public class i {
 
     /* renamed from: a  reason: collision with other method in class */
     private static String m389a(int i) {
-        return (i <= 0 || i >= f520a.length) ? f520a[0] : f520a[i];
+        return (i <= 0 || i >= f522a.length) ? f522a[0] : f522a[i];
     }
 
     public static String a(Context context) {
@@ -211,8 +211,8 @@ public class i {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        for (int i = 0; i < f520a.length; i++) {
-            if (str.startsWith(f520a[i])) {
+        for (int i = 0; i < f522a.length; i++) {
+            if (str.startsWith(f522a[i])) {
                 return true;
             }
         }
@@ -436,10 +436,10 @@ public class i {
     public static String d(Context context) {
         u uVar;
         String str;
-        if (!m395c(context) || f519a) {
+        if (!m395c(context) || f521a) {
             return null;
         }
-        f519a = true;
+        f521a = true;
         u filesDir = context.getFilesDir();
         String a2 = y.a(new File((File) filesDir, ".vdevid"));
         try {
@@ -546,8 +546,8 @@ public class i {
         if (l.d()) {
             return "";
         }
-        if (f4967a != null) {
-            return f4967a;
+        if (f4969a != null) {
+            return f4969a;
         }
         try {
             String str2 = (!l.m500a() || (a2 = ba.a("miui.telephony.TelephonyManager", "getDefault", new Object[0])) == null || (a3 = ba.a(a2, "getMiuiDeviceId", new Object[0])) == null || !(a3 instanceof String)) ? null : (String) String.class.cast(a3);
@@ -563,7 +563,7 @@ public class i {
                 if (b(str)) {
                     return "";
                 }
-                f4967a = str;
+                f4969a = str;
                 return str;
             }
             str = str2;
@@ -598,7 +598,7 @@ public class i {
             if (TextUtils.isEmpty(b)) {
                 if (m396d(context)) {
                     g(context);
-                    if (TextUtils.isEmpty(f4967a)) {
+                    if (TextUtils.isEmpty(f4969a)) {
                         return "";
                     }
                     try {
@@ -611,7 +611,7 @@ public class i {
                         int i = 0;
                         while (i < num.intValue()) {
                             String str2 = Build.VERSION.SDK_INT < 26 ? (String) ba.a(telephonyManager, "getDeviceId", Integer.valueOf(i)) : 1 == telephonyManager.getPhoneType() ? (String) ba.a(telephonyManager, "getImei", Integer.valueOf(i)) : 2 == telephonyManager.getPhoneType() ? (String) ba.a(telephonyManager, "getMeid", Integer.valueOf(i)) : str;
-                            if (!TextUtils.isEmpty(str2) && !TextUtils.equals(f4967a, str2) && b(str2)) {
+                            if (!TextUtils.isEmpty(str2) && !TextUtils.equals(f4969a, str2) && b(str2)) {
                                 b += str2 + Constants.ACCEPT_TIME_SEPARATOR_SP;
                             }
                             i++;

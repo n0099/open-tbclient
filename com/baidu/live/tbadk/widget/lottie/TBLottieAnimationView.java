@@ -11,9 +11,9 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.widget.lottie.TBLottieAnimationLoader;
 import com.baidu.m.a.a;
 import com.tb.airbnb.lottie.LottieAnimationView;
-import com.tb.airbnb.lottie.d;
 import com.tb.airbnb.lottie.e;
-import com.tb.airbnb.lottie.h;
+import com.tb.airbnb.lottie.f;
+import com.tb.airbnb.lottie.i;
 import java.io.File;
 import java.io.InputStream;
 /* loaded from: classes4.dex */
@@ -131,12 +131,12 @@ public class TBLottieAnimationView extends LottieAnimationView {
             cancelAnimation();
             InputStream animationInputStream = getAnimationInputStream(str, JSON_FILE);
             if (animationInputStream != null) {
-                e.j(animationInputStream, str).a(new h<d>() { // from class: com.baidu.live.tbadk.widget.lottie.TBLottieAnimationView.2
+                f.j(animationInputStream, str).a(new i<e>() { // from class: com.baidu.live.tbadk.widget.lottie.TBLottieAnimationView.2
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.tb.airbnb.lottie.h
-                    public void onResult(d dVar) {
-                        if (dVar != null) {
-                            TBLottieAnimationView.this.setComposition(dVar);
+                    @Override // com.tb.airbnb.lottie.i
+                    public void onResult(e eVar) {
+                        if (eVar != null) {
+                            TBLottieAnimationView.this.setComposition(eVar);
                             if (z) {
                                 TBLottieAnimationView.this.playAnimation();
                             }

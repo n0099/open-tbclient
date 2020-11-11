@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static HashMap<String, Class<?>> f4362a = new HashMap<>();
+    private static HashMap<String, Class<?>> f4364a = new HashMap<>();
     private Class<?> b;
     private String c;
     private Object d;
@@ -42,10 +42,10 @@ public class a {
         if (this.d != null) {
             return this.d.getClass();
         }
-        Class<?> cls = f4362a.get(this.c);
+        Class<?> cls = f4364a.get(this.c);
         if (cls == null) {
             Class<?> cls2 = Class.forName(this.c);
-            f4362a.put(this.c, cls2);
+            f4364a.put(this.c, cls2);
             return cls2;
         }
         return cls;

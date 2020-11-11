@@ -6,58 +6,58 @@ import android.support.annotation.Nullable;
 public class d implements b {
     private final Path.FillType Ff;
     private final String name;
-    private final GradientType pAb;
-    private final com.tb.airbnb.lottie.model.a.c pAc;
-    private final com.tb.airbnb.lottie.model.a.f pAd;
-    private final com.tb.airbnb.lottie.model.a.f pAe;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.b pAf;
+    private final com.tb.airbnb.lottie.model.a.b pJA;
+    private final com.tb.airbnb.lottie.model.a.d pJr;
+    private final GradientType pJv;
+    private final com.tb.airbnb.lottie.model.a.c pJw;
+    private final com.tb.airbnb.lottie.model.a.f pJx;
+    private final com.tb.airbnb.lottie.model.a.f pJy;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.b pAg;
-    private final com.tb.airbnb.lottie.model.a.d pzX;
+    private final com.tb.airbnb.lottie.model.a.b pJz;
 
     public d(String str, GradientType gradientType, Path.FillType fillType, com.tb.airbnb.lottie.model.a.c cVar, com.tb.airbnb.lottie.model.a.d dVar, com.tb.airbnb.lottie.model.a.f fVar, com.tb.airbnb.lottie.model.a.f fVar2, com.tb.airbnb.lottie.model.a.b bVar, com.tb.airbnb.lottie.model.a.b bVar2) {
-        this.pAb = gradientType;
+        this.pJv = gradientType;
         this.Ff = fillType;
-        this.pAc = cVar;
-        this.pzX = dVar;
-        this.pAd = fVar;
-        this.pAe = fVar2;
+        this.pJw = cVar;
+        this.pJr = dVar;
+        this.pJx = fVar;
+        this.pJy = fVar2;
         this.name = str;
-        this.pAf = bVar;
-        this.pAg = bVar2;
+        this.pJz = bVar;
+        this.pJA = bVar2;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public GradientType evh() {
-        return this.pAb;
+    public GradientType eyW() {
+        return this.pJv;
     }
 
     public Path.FillType jQ() {
         return this.Ff;
     }
 
-    public com.tb.airbnb.lottie.model.a.c evi() {
-        return this.pAc;
+    public com.tb.airbnb.lottie.model.a.c eyX() {
+        return this.pJw;
     }
 
-    public com.tb.airbnb.lottie.model.a.d evc() {
-        return this.pzX;
+    public com.tb.airbnb.lottie.model.a.d eyR() {
+        return this.pJr;
     }
 
-    public com.tb.airbnb.lottie.model.a.f evj() {
-        return this.pAd;
+    public com.tb.airbnb.lottie.model.a.f eyY() {
+        return this.pJx;
     }
 
-    public com.tb.airbnb.lottie.model.a.f evk() {
-        return this.pAe;
+    public com.tb.airbnb.lottie.model.a.f eyZ() {
+        return this.pJy;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b
-    public com.tb.airbnb.lottie.a.a.b a(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar) {
-        return new com.tb.airbnb.lottie.a.a.g(fVar, aVar, this);
+    public com.tb.airbnb.lottie.a.a.b a(com.tb.airbnb.lottie.g gVar, com.tb.airbnb.lottie.model.layer.a aVar) {
+        return new com.tb.airbnb.lottie.a.a.g(gVar, aVar, this);
     }
 }

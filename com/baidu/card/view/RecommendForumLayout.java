@@ -139,10 +139,10 @@ public class RecommendForumLayout extends LinearLayout implements q {
     public void b(bj bjVar) {
         this.alk.setOnClickListener(this.als);
         this.alj.setOnClickListener(this.als);
-        if (!TextUtils.isEmpty(bjVar.title) && bjVar.ewK != 0) {
+        if (!TextUtils.isEmpty(bjVar.title) && bjVar.eCC != 0) {
             this.mTitle.setTextSize(0, l.getDimens(getContext(), R.dimen.tbds37));
             this.mTitle.setText(bjVar.title);
-            this.mTitleColorId = bjVar.ewK;
+            this.mTitleColorId = bjVar.eCC;
             this.alj.setVisibility(0);
             this.alk.setVisibility(8);
             if (this.ali.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
@@ -164,19 +164,19 @@ public class RecommendForumLayout extends LinearLayout implements q {
             this.alj.setVisibility(8);
             this.alk.setVisibility(8);
         }
-        if (bjVar != null && bjVar.bjg() != null && bjVar.bjg().size() > 0) {
+        if (bjVar != null && bjVar.blG() != null && bjVar.blG().size() > 0) {
             ArrayList<? extends com.baidu.tbadk.mvc.b.a> arrayList = new ArrayList<>();
-            ArrayList<bi> bjg = bjVar.bjg();
+            ArrayList<bi> blG = bjVar.blG();
             if (this.aln) {
                 if (this.alo) {
                     arrayList.add(new com.baidu.tbadk.core.data.l());
                 }
-                if (bjg != null) {
-                    arrayList.addAll(bjg);
+                if (blG != null) {
+                    arrayList.addAll(blG);
                 }
             } else {
-                if (bjg != null) {
-                    arrayList.addAll(bjg);
+                if (blG != null) {
+                    arrayList.addAll(blG);
                 }
                 if (this.alo) {
                     arrayList.add(new com.baidu.tbadk.core.data.l());
@@ -189,8 +189,8 @@ public class RecommendForumLayout extends LinearLayout implements q {
 
     public void onChangeSkinType() {
         ap.setViewTextColor(this.mTitle, this.mTitleColorId);
-        SvgManager.boN().a(this.alk, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL);
-        SvgManager.boN().a(this.alm, R.drawable.icon_pure_list_arrow12_right_n_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.brn().a(this.alk, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.brn().a(this.alm, R.drawable.icon_pure_list_arrow12_right_n_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL);
         this.alr.onChangeSkinType();
         this.alh.notifyDataSetChanged();
     }

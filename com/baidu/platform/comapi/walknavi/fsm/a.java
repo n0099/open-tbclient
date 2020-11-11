@@ -11,22 +11,22 @@ import com.baidu.platform.comapi.wnplatform.walkmap.f;
 class a implements f {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ RGStateEntry f3011a;
+    final /* synthetic */ RGStateEntry f3013a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(RGStateEntry rGStateEntry) {
-        this.f3011a = rGStateEntry;
+        this.f3013a = rGStateEntry;
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.walkmap.f
     public void a() {
         int i;
         int i2;
-        i = this.f3011a.b;
+        i = this.f3013a.b;
         if (i != 1) {
-            i2 = this.f3011a.b;
+            i2 = this.f3013a.b;
             if (i2 != 2) {
-                this.f3011a.b = 0;
+                this.f3013a.b = 0;
                 b.a().J().a((f) null);
                 b.a().I().run("[3D车头向上]按钮点击");
                 return;
@@ -41,7 +41,7 @@ class a implements f {
                     b.a().J().a(builder.build());
                 }
             }
-            this.f3011a.b = 0;
+            this.f3013a.b = 0;
             b.a().G().a(false);
             b.a().J().a((f) null);
             b.a().a(1000, "Car3D");
@@ -61,6 +61,6 @@ class a implements f {
             builder2.target(new LatLng(d, d2));
             b.a().J().a(builder2.build(), 500);
         }
-        this.f3011a.b = 2;
+        this.f3013a.b = 2;
     }
 }

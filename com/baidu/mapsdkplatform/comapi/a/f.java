@@ -11,7 +11,7 @@ import com.baidu.mapapi.map.Marker;
 public class f extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Animator f2192a = null;
+    private Animator f2194a = null;
     private long b = 0;
     private Interpolator c = null;
     private Animation.AnimationListener d = null;
@@ -41,10 +41,10 @@ public class f extends c {
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void a() {
-        if (this.f2192a == null) {
+        if (this.f2194a == null) {
             return;
         }
-        this.f2192a.start();
+        this.f2194a.start();
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
@@ -82,16 +82,16 @@ public class f extends c {
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void a(Marker marker, Animation animation) {
-        this.f2192a = a(marker);
-        a(this.f2192a);
+        this.f2194a = a(marker);
+        a(this.f2194a);
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void b() {
-        if (this.f2192a != null) {
-            this.f2192a.cancel();
-            this.f2192a = null;
+        if (this.f2194a != null) {
+            this.f2194a.cancel();
+            this.f2194a = null;
         }
     }
 

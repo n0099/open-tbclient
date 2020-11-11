@@ -6,7 +6,7 @@ import java.util.List;
 @kotlin.h
 /* loaded from: classes10.dex */
 public class x extends w {
-    public static final <T> void gG(List<T> list) {
+    public static final <T> void gP(List<T> list) {
         kotlin.jvm.internal.q.n(list, "receiver$0");
         Collections.reverse(list);
     }

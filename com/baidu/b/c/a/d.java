@@ -5,7 +5,7 @@ import java.security.InvalidKeyException;
 class d extends f {
 
     /* renamed from: a  reason: collision with root package name */
-    protected byte[] f1253a;
+    protected byte[] f1255a;
     private byte[] e;
     private byte[] f;
 
@@ -14,13 +14,13 @@ class d extends f {
         super(bVar);
         this.f = null;
         this.e = new byte[this.c];
-        this.f1253a = new byte[this.c];
+        this.f1255a = new byte[this.c];
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.b.c.a.f
     public void a() {
-        System.arraycopy(this.d, 0, this.f1253a, 0, this.c);
+        System.arraycopy(this.d, 0, this.f1255a, 0, this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -39,10 +39,10 @@ class d extends f {
         int i4 = i + i2;
         while (i < i4) {
             for (int i5 = 0; i5 < this.c; i5++) {
-                this.e[i5] = (byte) (bArr[i5 + i] ^ this.f1253a[i5]);
+                this.e[i5] = (byte) (bArr[i5 + i] ^ this.f1255a[i5]);
             }
             this.adA.a(this.e, 0, bArr2, i3);
-            System.arraycopy(bArr2, i3, this.f1253a, 0, this.c);
+            System.arraycopy(bArr2, i3, this.f1255a, 0, this.c);
             i += this.c;
             i3 += this.c;
         }
@@ -54,7 +54,7 @@ class d extends f {
         if (this.f == null) {
             this.f = new byte[this.c];
         }
-        System.arraycopy(this.f1253a, 0, this.f, 0, this.c);
+        System.arraycopy(this.f1255a, 0, this.f, 0, this.c);
     }
 
     @Override // com.baidu.b.c.a.f
@@ -64,12 +64,12 @@ class d extends f {
         while (i < i4) {
             this.adA.b(bArr, i, this.e, 0);
             for (int i5 = 0; i5 < this.c; i5++) {
-                bArr2[i5 + i3] = (byte) (this.e[i5] ^ this.f1253a[i5]);
+                bArr2[i5 + i3] = (byte) (this.e[i5] ^ this.f1255a[i5]);
             }
             if (bArr3 == null) {
-                System.arraycopy(bArr, i, this.f1253a, 0, this.c);
+                System.arraycopy(bArr, i, this.f1255a, 0, this.c);
             } else {
-                System.arraycopy(bArr3, i, this.f1253a, 0, this.c);
+                System.arraycopy(bArr3, i, this.f1255a, 0, this.c);
             }
             i += this.c;
             i3 += this.c;
@@ -79,6 +79,6 @@ class d extends f {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.b.c.a.f
     public void c() {
-        System.arraycopy(this.f, 0, this.f1253a, 0, this.c);
+        System.arraycopy(this.f, 0, this.f1255a, 0, this.c);
     }
 }

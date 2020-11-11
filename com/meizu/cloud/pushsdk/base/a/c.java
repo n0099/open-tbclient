@@ -9,7 +9,7 @@ public class c {
     private static HashMap<String, Method> b = new HashMap<>();
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4364a = "ReflectMethod";
+    private String f4366a = "ReflectMethod";
     private com.meizu.cloud.pushsdk.base.a.a c;
     private String d;
     private Class<?>[] e;
@@ -110,9 +110,9 @@ public class c {
             }
             method.setAccessible(true);
             dVar.b = (T) method.invoke(obj, objArr);
-            dVar.f4365a = true;
+            dVar.f4367a = true;
         } catch (Exception e) {
-            h.b().a(this.f4364a, "invoke", e);
+            h.b().a(this.f4366a, "invoke", e);
         }
         return dVar;
     }

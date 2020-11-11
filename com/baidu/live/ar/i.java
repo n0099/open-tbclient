@@ -1,15 +1,19 @@
 package com.baidu.live.ar;
 
-import com.baidu.live.adp.BdUniqueId;
+import android.text.TextUtils;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import java.io.File;
 /* loaded from: classes4.dex */
-public interface i {
-    AlaFilterAndBeautyData Cg();
+public class i {
+    private static File aEO = getPrivateCaptureRootChildDir("duFilter");
+    public static String aEP;
 
-    void a(BdUniqueId bdUniqueId);
+    public static File getPrivateCaptureRootChildDir(String str) {
+        String str2 = TbadkCoreApplication.getInst().getContext().getFilesDir().getAbsoluteFile() + File.separator + "live_ar" + File.separator;
+        return TextUtils.isEmpty(str) ? new File(str2) : new File(str2, str);
+    }
 
-    void b(BdUniqueId bdUniqueId);
-
-    void c(BdUniqueId bdUniqueId);
-
-    void destory();
+    public static void ga(String str) {
+        aEP = str;
+    }
 }

@@ -5,11 +5,11 @@ import android.content.Context;
 public abstract class d implements c {
     protected Context mCtx;
     protected int mStatusCode = -200;
-    protected boolean ojF;
-    protected boolean ojc;
-    protected String oje;
-    protected String ojf;
-    protected String ojg;
+    protected boolean osL;
+    protected boolean osi;
+    protected String osk;
+    protected String osl;
+    protected String osm;
 
     public d(Context context) {
         if (context != null) {
@@ -18,28 +18,28 @@ public abstract class d implements c {
     }
 
     @Override // com.baidu.q.a.a.c
-    public boolean eav() {
-        return this.ojc;
+    public boolean eed() {
+        return this.osi;
     }
 
     @Override // com.baidu.q.a.a.c
     public boolean isSupport() {
-        return this.ojF;
+        return this.osL;
     }
 
     @Override // com.baidu.q.a.a.c
     public String getOAID() {
-        return this.oje;
+        return this.osk;
     }
 
     @Override // com.baidu.q.a.a.c
     public String getAAID() {
-        return this.ojf;
+        return this.osl;
     }
 
     @Override // com.baidu.q.a.a.c
     public String getVAID() {
-        return this.ojg;
+        return this.osm;
     }
 
     @Override // com.baidu.q.a.a.c
@@ -48,32 +48,32 @@ public abstract class d implements c {
     }
 
     @Override // com.baidu.q.a.a.c
-    public void zs(boolean z) {
-        this.ojc = z;
+    public void zD(boolean z) {
+        this.osi = z;
     }
 
     @Override // com.baidu.q.a.a.c
-    public void zt(boolean z) {
-        this.ojF = z;
+    public void zE(boolean z) {
+        this.osL = z;
     }
 
     @Override // com.baidu.q.a.a.c
-    public void WE(String str) {
-        this.oje = str;
+    public void Xh(String str) {
+        this.osk = str;
     }
 
     @Override // com.baidu.q.a.a.c
-    public void WF(String str) {
-        this.ojf = str;
+    public void Xi(String str) {
+        this.osl = str;
     }
 
     @Override // com.baidu.q.a.a.c
-    public void WG(String str) {
-        this.ojg = str;
+    public void Xj(String str) {
+        this.osm = str;
     }
 
     @Override // com.baidu.q.a.a.c
-    public void MV(int i) {
+    public void No(int i) {
         this.mStatusCode = i;
     }
 }

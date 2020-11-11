@@ -128,13 +128,13 @@ public class KuangFloatingFrsCopyLinkViewController {
     public void changeSkin() {
         ap.setViewTextColor(this.floatingViewTitle, R.color.cp_cont_a);
         ap.setImageResource(this.floatingViewIcon, R.drawable.pic_float_return_broadcast32);
-        SvgManager.boN().a(this.floatingViewArrow, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL);
-        com.baidu.tbadk.core.util.e.a.bpo().pa(R.color.cp_link_tip_d).oZ(0).ph(211).ab(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).ad(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).bg(this.floatingViewMain);
+        SvgManager.brn().a(this.floatingViewArrow, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL);
+        com.baidu.tbadk.core.util.e.a.brO().pk(R.color.cp_link_tip_d).pj(0).ps(211).ad(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).af(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).bk(this.floatingViewMain);
     }
 
     public void showFloatingView(boolean z) {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-        layoutParams.type = c.Ki(2002);
+        layoutParams.type = c.Kv(2002);
         layoutParams.flags = 65800;
         layoutParams.format = -3;
         layoutParams.x = 0;

@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import com.baidu.android.imrtc.BIMRtcInfo;
 import com.baidu.android.imrtc.utils.LogUtils;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class BIMAckRtcInfo extends BIMRtcInfo {
     private static final String TAG = "BIMAckRtcInfo";
     private long mAckSeqId;

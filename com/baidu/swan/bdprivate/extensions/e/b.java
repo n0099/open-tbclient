@@ -14,7 +14,7 @@ import java.util.Arrays;
 /* loaded from: classes8.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final String[] dDo = {"BLA-AL00", "R7Plus"};
+    private static final String[] dJg = {"BLA-AL00", "R7Plus"};
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -37,10 +37,10 @@ public class b {
             DialogInterface.OnClickListener a2 = a(aVar);
             g.a aVar2 = new g.a(context);
             aVar2.a(new com.baidu.swan.apps.view.c.a());
-            g ano = aVar2.ano();
-            aVar2.hV(b.g.swan_app_guide_notify_title).rD(context.getString(b.g.swan_app_guide_notify_msg)).aEy().gj(com.baidu.swan.apps.t.a.auw().getNightModeSwitcherState()).c(b.g.swan_app_guide_positive_btn, a2).d(b.g.swan_app_guide_negative_btn, a2).aEx();
-            ano.setCancelable(false);
-            ano.show();
+            g apP = aVar2.apP();
+            aVar2.mo33if(b.g.swan_app_guide_notify_title).rR(context.getString(b.g.swan_app_guide_notify_msg)).aGY().gs(com.baidu.swan.apps.t.a.awW().getNightModeSwitcherState()).c(b.g.swan_app_guide_positive_btn, a2).d(b.g.swan_app_guide_negative_btn, a2).aGX();
+            apP.setCancelable(false);
+            apP.show();
         }
     }
 
@@ -56,7 +56,7 @@ public class b {
     }
 
     public static void dp(Context context) {
-        if (!Arrays.asList(dDo).contains(Build.MODEL)) {
+        if (!Arrays.asList(dJg).contains(Build.MODEL)) {
             Intent intent = new Intent();
             intent.setAction("android.settings.APP_NOTIFICATION_SETTINGS");
             if (Build.VERSION.SDK_INT >= 26) {

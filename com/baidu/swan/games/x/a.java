@@ -5,23 +5,23 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class a extends e {
-    public int dTF;
-    public int dTG;
-    public long dTH;
-    public int dTy;
+    public int dZq;
+    public int dZx;
+    public int dZy;
+    public long dZz;
     public String errMsg;
 
     @Override // com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        if (this.dup == null) {
-            this.dup = new JSONObject();
+        if (this.dAh == null) {
+            this.dAh = new JSONObject();
         }
         try {
-            this.dup.put("stage", this.dTy);
-            this.dup.put("errMsg", this.errMsg);
-            this.dup.put("netStatus", this.dTF);
-            this.dup.put("touch", this.dTG);
-            this.dup.put("stuck_interval", this.dTH);
+            this.dAh.put("stage", this.dZq);
+            this.dAh.put("errMsg", this.errMsg);
+            this.dAh.put("netStatus", this.dZx);
+            this.dAh.put("touch", this.dZy);
+            this.dAh.put("stuck_interval", this.dZz);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();

@@ -9,12 +9,12 @@ public class d {
     public String groupId;
     public String groupName;
     public boolean isAcceptNotify;
-    public boolean lWN;
     public long lastTime;
+    public String mDD = "";
+    public long mDE;
+    public boolean mcM;
     public long msgId;
     public int msgType;
-    public String mxC = "";
-    public long mxD;
     public String nameShow;
     public String pic;
     public long serviceId;

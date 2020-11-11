@@ -4,7 +4,7 @@ import com.baidu.adp.widget.ListView.q;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class c {
-    public List<q> fIa;
-    public int jAu = 0;
-    public int jAv = 0;
+    public List<q> fNQ;
+    public int jGr = 0;
+    public int jGs = 0;
 }

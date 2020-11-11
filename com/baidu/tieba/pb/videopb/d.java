@@ -8,47 +8,47 @@ import java.util.LinkedList;
 /* loaded from: classes22.dex */
 public class d {
     private boolean akk;
-    private com.baidu.tieba.pb.data.f lGN;
-    private Rect lGP;
-    private boolean lGQ;
-    private com.baidu.tieba.pb.data.f lku;
-    private p<bw> lGO = new p<>();
-    private LinkedList<com.baidu.tieba.pb.data.f> lGR = new LinkedList<>();
-    private p<bw> lGS = new p<>();
-    private p<bw> lGT = new p<>();
-    private p<Boolean> lGU = new p<>();
-    private p<Boolean> lGV = new p<>();
-    private p<Boolean> lGW = new p<>();
-    private p<Boolean> lGX = new p<>();
-    private p<Integer> lGY = new p<>();
+    private com.baidu.tieba.pb.data.f lMJ;
+    private Rect lML;
+    private boolean lMM;
+    private com.baidu.tieba.pb.data.f lqv;
+    private p<bw> lMK = new p<>();
+    private LinkedList<com.baidu.tieba.pb.data.f> lMN = new LinkedList<>();
+    private p<bw> lMO = new p<>();
+    private p<bw> lMP = new p<>();
+    private p<Boolean> lMQ = new p<>();
+    private p<Boolean> lMR = new p<>();
+    private p<Boolean> lMS = new p<>();
+    private p<Boolean> lMT = new p<>();
+    private p<Integer> lMU = new p<>();
 
     public void L(com.baidu.tieba.pb.data.f fVar) {
-        this.lGN = fVar;
+        this.lMJ = fVar;
         setData(fVar);
-        this.lGS.setValue(null);
-        this.lGO.setValue(fVar.dfI());
+        this.lMO.setValue(null);
+        this.lMK.setValue(fVar.dik());
     }
 
-    public com.baidu.tieba.pb.data.f doL() {
-        return this.lGN;
+    public com.baidu.tieba.pb.data.f drn() {
+        return this.lMJ;
     }
 
-    public com.baidu.tieba.pb.data.f doM() {
-        return this.lku;
+    public com.baidu.tieba.pb.data.f dro() {
+        return this.lqv;
     }
 
     public void setData(com.baidu.tieba.pb.data.f fVar) {
-        this.lku = fVar;
+        this.lqv = fVar;
         if (fVar != null) {
-            this.lGO.setValue(fVar.dfI());
-            if (!y.isEmpty(fVar.dgk())) {
-                aQ(fVar.dgk().get(0));
+            this.lMK.setValue(fVar.dik());
+            if (!y.isEmpty(fVar.diM())) {
+                aQ(fVar.diM().get(0));
             }
         }
     }
 
-    public p<bw> doN() {
-        return this.lGO;
+    public p<bw> drp() {
+        return this.lMK;
     }
 
     public boolean isFromCDN() {
@@ -60,66 +60,66 @@ public class d {
     }
 
     public void i(Rect rect) {
-        this.lGP = rect;
+        this.lML = rect;
     }
 
-    public Rect doO() {
-        return this.lGP;
+    public Rect drq() {
+        return this.lML;
     }
 
-    public void vn(boolean z) {
-        this.lGQ = z;
+    public void vw(boolean z) {
+        this.lMM = z;
     }
 
-    public boolean doP() {
-        return this.lGQ;
+    public boolean drr() {
+        return this.lMM;
     }
 
-    public LinkedList<com.baidu.tieba.pb.data.f> doQ() {
-        return this.lGR;
+    public LinkedList<com.baidu.tieba.pb.data.f> drs() {
+        return this.lMN;
     }
 
     public void aP(bw bwVar) {
-        this.lGS.setValue(bwVar);
+        this.lMO.setValue(bwVar);
     }
 
     public void aQ(bw bwVar) {
-        this.lGT.setValue(bwVar);
+        this.lMP.setValue(bwVar);
     }
 
-    public p<bw> doR() {
-        return this.lGS;
+    public p<bw> drt() {
+        return this.lMO;
     }
 
-    public p<bw> doS() {
-        return this.lGT;
+    public p<bw> dru() {
+        return this.lMP;
     }
 
-    public p<Boolean> doT() {
-        return this.lGU;
+    public p<Boolean> drv() {
+        return this.lMQ;
     }
 
-    public void vo(boolean z) {
-        this.lGU.setValue(Boolean.valueOf(z));
+    public void vx(boolean z) {
+        this.lMQ.setValue(Boolean.valueOf(z));
     }
 
-    public p<Boolean> doU() {
-        return this.lGV;
+    public p<Boolean> drw() {
+        return this.lMR;
     }
 
-    public void vp(boolean z) {
-        this.lGV.postValue(Boolean.valueOf(z));
+    public void vy(boolean z) {
+        this.lMR.postValue(Boolean.valueOf(z));
     }
 
     public void setIsLoading(boolean z) {
-        this.lGX.setValue(Boolean.valueOf(z));
+        this.lMT.setValue(Boolean.valueOf(z));
     }
 
-    public p<Boolean> doV() {
-        return this.lGX;
+    public p<Boolean> drx() {
+        return this.lMT;
     }
 
-    public p<Integer> doW() {
-        return this.lGY;
+    public p<Integer> dry() {
+        return this.lMU;
     }
 }

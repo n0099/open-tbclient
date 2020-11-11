@@ -13,20 +13,20 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class a {
-    protected HashMap<String, ChatSetting> kiZ = new HashMap<>();
+    protected HashMap<String, ChatSetting> koV = new HashMap<>();
 
     public abstract void a(ChatSetting chatSetting);
 
     public abstract void a(ChatSetting chatSetting, m<Void> mVar);
 
-    protected abstract l<String> cSC();
+    protected abstract l<String> cVd();
 
     public abstract ChatSetting fs(String str, String str2);
 
     public void y(Class<? extends ChatSetting> cls) {
         String str;
-        synchronized (this.kiZ) {
-            this.kiZ.clear();
+        synchronized (this.koV) {
+            this.koV.clear();
         }
         String str2 = "";
         if (TbadkCoreApplication.getCurrentAccountObj() != null) {
@@ -34,14 +34,14 @@ public abstract class a {
         }
         if (str2 != null && str2.length() != 0) {
             String str3 = str2 + UgcConstant.AT_RULE_TAG;
-            synchronized (this.kiZ) {
-                l<String> cSC = cSC();
-                List<l.b<String>> b = r.b(cSC);
+            synchronized (this.koV) {
+                l<String> cVd = cVd();
+                List<l.b<String>> b = r.b(cVd);
                 if (b != null) {
                     for (l.b<String> bVar : b) {
                         String str4 = bVar.key;
-                        if (str4 != null && str4.startsWith(str3) && (str = cSC.get(str4)) != null) {
-                            this.kiZ.put(str4, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
+                        if (str4 != null && str4.startsWith(str3) && (str = cVd.get(str4)) != null) {
+                            this.koV.put(str4, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
                         }
                     }
                 }
@@ -49,7 +49,7 @@ public abstract class a {
         }
     }
 
-    public void z(String str, String str2, boolean z) {
+    public void A(String str, String str2, boolean z) {
         ChatSetting fs = fs(str, str2);
         if (fs != null) {
             fs.setAcceptNotify(z);

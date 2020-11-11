@@ -4,24 +4,24 @@ import rx.g;
 import rx.internal.operators.CompletableOnSubscribeConcatIterable;
 /* loaded from: classes16.dex */
 public class b {
-    static final b pTP = new b(new a() { // from class: rx.b.1
+    static final b qdj = new b(new a() { // from class: rx.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: a */
         public void call(c cVar) {
-            cVar.onSubscribe(rx.subscriptions.e.eDj());
+            cVar.onSubscribe(rx.subscriptions.e.eGY());
             cVar.onCompleted();
         }
     }, false);
-    static final b pTQ = new b(new a() { // from class: rx.b.2
+    static final b qdk = new b(new a() { // from class: rx.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: a */
         public void call(c cVar) {
-            cVar.onSubscribe(rx.subscriptions.e.eDj());
+            cVar.onSubscribe(rx.subscriptions.e.eGY());
         }
     }, false);
-    private final a pTO;
+    private final a qdi;
 
     /* loaded from: classes16.dex */
     public interface a extends rx.functions.b<c> {
@@ -29,7 +29,7 @@ public class b {
 
     /* renamed from: rx.b$b  reason: collision with other inner class name */
     /* loaded from: classes16.dex */
-    public interface InterfaceC1075b extends rx.functions.f<c, c> {
+    public interface InterfaceC1095b extends rx.functions.f<c, c> {
     }
 
     public static b l(Iterable<? extends b> iterable) {
@@ -63,11 +63,11 @@ public class b {
     }
 
     protected b(a aVar) {
-        this.pTO = rx.c.c.b(aVar);
+        this.qdi = rx.c.c.b(aVar);
     }
 
     protected b(a aVar, boolean z) {
-        this.pTO = z ? rx.c.c.b(aVar) : aVar;
+        this.qdi = z ? rx.c.c.b(aVar) : aVar;
     }
 
     public final b a(final g gVar) {
@@ -119,7 +119,7 @@ public class b {
         });
     }
 
-    public final k eBs() {
+    public final k eFh() {
         final rx.subscriptions.c cVar = new rx.subscriptions.c();
         b(new c() { // from class: rx.b.4
             @Override // rx.c
@@ -150,7 +150,7 @@ public class b {
     public final void b(c cVar) {
         cb(cVar);
         try {
-            rx.c.c.b(this, this.pTO).call(cVar);
+            rx.c.c.b(this, this.qdi).call(cVar);
         } catch (NullPointerException e) {
             throw e;
         } catch (Throwable th) {

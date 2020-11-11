@@ -7,15 +7,15 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes10.dex */
 public class h implements Runnable {
-    private final i dOi;
-    private AtomicBoolean dPe = new AtomicBoolean(false);
-    private List<h> dPf = Collections.synchronizedList(new ArrayList());
+    private AtomicBoolean dUW = new AtomicBoolean(false);
+    private List<h> dUX = Collections.synchronizedList(new ArrayList());
+    private final i dUa;
     private String[] mPaths;
     private final Runnable mRunnable;
     private String mTag;
 
     public h(i iVar, Runnable runnable, String str, String[] strArr) {
-        this.dOi = iVar;
+        this.dUa = iVar;
         this.mRunnable = runnable;
         this.mTag = str;
         this.mPaths = strArr;
@@ -24,17 +24,17 @@ public class h implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         try {
-            aSE();
+            aVe();
         } finally {
-            this.dOi.c(this);
+            this.dUa.c(this);
         }
     }
 
-    public void aSE() {
+    public void aVe() {
         this.mRunnable.run();
     }
 
-    public void aSF() {
+    public void aVf() {
         p.postOnIO(this, this.mTag);
     }
 
@@ -42,29 +42,29 @@ public class h implements Runnable {
         return this.mTag;
     }
 
-    public String[] aSG() {
+    public String[] aVg() {
         return this.mPaths;
     }
 
-    public boolean aSH() {
-        return this.dPe.get();
+    public boolean aVh() {
+        return this.dUW.get();
     }
 
-    public void aSI() {
-        this.dPe.set(true);
+    public void aVi() {
+        this.dUW.set(true);
     }
 
     public void a(h hVar) {
-        if (!this.dPf.contains(hVar)) {
-            this.dPf.add(hVar);
+        if (!this.dUX.contains(hVar)) {
+            this.dUX.add(hVar);
         }
     }
 
     public void b(h hVar) {
-        this.dPf.remove(hVar);
+        this.dUX.remove(hVar);
     }
 
-    public boolean aSJ() {
-        return this.dPf.isEmpty();
+    public boolean aVj() {
+        return this.dUX.isEmpty();
     }
 }

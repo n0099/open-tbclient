@@ -1,15 +1,15 @@
 package com.baidu.swan.apps.t.a;
 /* loaded from: classes20.dex */
 public class f {
-    private static volatile e cRY;
+    private static volatile e cXR;
 
-    public static synchronized e avy() {
+    public static synchronized e axY() {
         e eVar;
         synchronized (f.class) {
-            if (cRY == null) {
-                cRY = new e();
+            if (cXR == null) {
+                cXR = new e();
             }
-            eVar = cRY;
+            eVar = cXR;
         }
         return eVar;
     }

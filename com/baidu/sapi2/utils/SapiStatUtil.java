@@ -174,7 +174,7 @@ public class SapiStatUtil {
     public static void statShareV2Click(b.c cVar, List<PassNameValuePair> list) {
         HashMap hashMap = new HashMap();
         buildStatExtraMap(hashMap, list);
-        hashMap.put("index", cVar.f3513a + "");
+        hashMap.put("index", cVar.f3516a + "");
         hashMap.put(b.c.f, cVar.b);
         hashMap.put(b.c.g, cVar.c);
         k.a("share_account_click", hashMap);

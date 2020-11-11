@@ -9,19 +9,19 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class g implements Iterable<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    private ConcurrentLinkedQueue<String> f4579a;
+    private ConcurrentLinkedQueue<String> f4581a;
     private AtomicInteger b;
 
     public g() {
-        this.f4579a = null;
+        this.f4581a = null;
         this.b = null;
-        this.f4579a = new ConcurrentLinkedQueue<>();
+        this.f4581a = new ConcurrentLinkedQueue<>();
         this.b = new AtomicInteger(0);
     }
 
     public int a(String str) {
         int length = str.length();
-        this.f4579a.add(str);
+        this.f4581a.add(str);
         return this.b.addAndGet(length);
     }
 
@@ -64,12 +64,12 @@ public class g implements Iterable<String> {
     }
 
     public void b() {
-        this.f4579a.clear();
+        this.f4581a.clear();
         this.b.set(0);
     }
 
     @Override // java.lang.Iterable
     public Iterator<String> iterator() {
-        return this.f4579a.iterator();
+        return this.f4581a.iterator();
     }
 }

@@ -35,7 +35,7 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class f {
     @SuppressLint({"UseSparseArrays"})
-    private static Map<Long, Long> ovt = new HashMap();
+    private static Map<Long, Long> oEL = new HashMap();
 
     public static String e(Context context, long j) {
         SimpleDateFormat simpleDateFormat;
@@ -63,7 +63,7 @@ public class f {
         }
         if (c(Long.valueOf(currentTimeMillis), j)) {
             Calendar.getInstance().setTimeInMillis(j);
-            return NB(calendar.get(7)) + " " + str + simpleDateFormat.format(new Date(j));
+            return NW(calendar.get(7)) + " " + str + simpleDateFormat.format(new Date(j));
         } else if (d(Long.valueOf(currentTimeMillis), j) || e(Long.valueOf(currentTimeMillis), j)) {
             new SimpleDateFormat("MM-dd ", Locale.CHINA).setTimeZone(timeZone);
             return simpleDateFormat2.format(new Date(j)) + str + simpleDateFormat.format(new Date(j));
@@ -73,7 +73,7 @@ public class f {
         }
     }
 
-    private static String NB(int i) {
+    private static String NW(int i) {
         switch (i) {
             case 1:
                 return "星期日";
@@ -202,7 +202,7 @@ public class f {
         return 55;
     }
 
-    public static long eeq() {
+    public static long eif() {
         long j = 0;
         if (Environment.getExternalStorageState().equals("mounted")) {
             try {
@@ -260,7 +260,7 @@ public class f {
                                 context.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
                                 return;
                             }
-                            com.baidu.yuyinala.privatemessage.implugin.d.b.ebG().g(context, str, false);
+                            com.baidu.yuyinala.privatemessage.implugin.d.b.efv().g(context, str, false);
                         } catch (Exception e) {
                             c.e("Utils", "ex " + e.getMessage());
                         }
@@ -281,16 +281,16 @@ public class f {
             jSONObject.put("oauth", "");
             jSONObject.put("needUserSetting", false);
             jSONObject.put("thirdLogin", false);
-            com.baidu.yuyinala.privatemessage.implugin.d.b.ebG().a(jSONObject.toString(), dVar);
+            com.baidu.yuyinala.privatemessage.implugin.d.b.efv().a(jSONObject.toString(), dVar);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    public static void ecX() {
-        com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.a edd = com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.ecY().edd();
-        if (edd != null) {
-            edd.ecX();
+    public static void egM() {
+        com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.a egS = com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.egN().egS();
+        if (egS != null) {
+            egS.egM();
         }
     }
 

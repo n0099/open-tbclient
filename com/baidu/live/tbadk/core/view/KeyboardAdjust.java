@@ -22,7 +22,7 @@ public class KeyboardAdjust {
     private int mScreenHeight;
     private int usableHeightPrevious;
     private int mSkinType = 3;
-    private int backColor = a.d.sdk_cp_bg_line_d;
+    private int backColor = a.c.sdk_cp_bg_line_d;
     private boolean isAutoChangeNightMode = false;
     private ViewTreeObserver.OnGlobalLayoutListener mGlobalLayoutListener = null;
     private int mExcludeHeight = 0;
@@ -40,11 +40,11 @@ public class KeyboardAdjust {
     }
 
     private KeyboardAdjust(Activity activity) {
-        init(activity, a.d.sdk_cp_bg_line_d, true);
+        init(activity, a.c.sdk_cp_bg_line_d, true);
     }
 
     private KeyboardAdjust(Activity activity, boolean z) {
-        init(activity, a.d.sdk_cp_bg_line_d, z);
+        init(activity, a.c.sdk_cp_bg_line_d, z);
     }
 
     private KeyboardAdjust(Activity activity, int i, boolean z) {

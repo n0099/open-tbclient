@@ -8,11 +8,11 @@ import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 public class b implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LivenessRecogActivity f2729a;
+    final /* synthetic */ LivenessRecogActivity f2731a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(LivenessRecogActivity livenessRecogActivity) {
-        this.f2729a = livenessRecogActivity;
+        this.f2731a = livenessRecogActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,16 +20,16 @@ public class b implements View.OnClickListener {
         com.baidu.pass.biometrics.face.liveness.view.a aVar;
         PassFaceRecogCallback passFaceRecogCallback;
         PassFaceRecogCallback passFaceRecogCallback2;
-        aVar = this.f2729a.D;
+        aVar = this.f2731a.D;
         aVar.dismiss();
-        this.f2729a.P.y = false;
-        passFaceRecogCallback = this.f2729a.t;
+        this.f2731a.P.y = false;
+        passFaceRecogCallback = this.f2731a.t;
         if (passFaceRecogCallback != null) {
             PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
             passFaceRecogResult.setResultCode(-307);
-            passFaceRecogCallback2 = this.f2729a.t;
+            passFaceRecogCallback2 = this.f2731a.t;
             passFaceRecogCallback2.onFailure(passFaceRecogResult);
         }
-        this.f2729a.a(-307);
+        this.f2731a.a(-307);
     }
 }

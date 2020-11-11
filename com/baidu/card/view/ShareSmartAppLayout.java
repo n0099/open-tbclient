@@ -45,15 +45,15 @@ public class ShareSmartAppLayout extends LinearLayout implements p<AbsThreadData
     @Override // com.baidu.card.p
     /* renamed from: b */
     public void H(AbsThreadDataSupport absThreadDataSupport) {
-        if (absThreadDataSupport == null || absThreadDataSupport.bhz() == null || absThreadDataSupport.bhz().bkP() == null) {
+        if (absThreadDataSupport == null || absThreadDataSupport.bjZ() == null || absThreadDataSupport.bjZ().bnp() == null) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
         this.afI = absThreadDataSupport;
-        bw bhz = absThreadDataSupport.bhz();
-        this.alA.setData(bhz.bkP());
-        this.alA.setForumId(String.valueOf(bhz.getFid()));
+        bw bjZ = absThreadDataSupport.bjZ();
+        this.alA.setData(bjZ.bnp());
+        this.alA.setForumId(String.valueOf(bjZ.getFid()));
         AppletsCellView appletsCellView = this.alA;
         AppletsCellView appletsCellView2 = this.alA;
         appletsCellView.setFrom("frs_card");

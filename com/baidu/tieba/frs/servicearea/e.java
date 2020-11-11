@@ -21,17 +21,17 @@ public class e {
                 tbPageContext = ((BaseFragmentActivity) context).getPageContext();
             }
             if (tbPageContext != null) {
-                if (aaVar.mPU != null) {
-                    com.baidu.tieba.aiapps.a.b(aaVar.mPU.id, aaVar.mPU.link, "1191003700000000", aaVar.mPU.emo);
+                if (aaVar.mVX != null) {
+                    com.baidu.tieba.aiapps.a.b(aaVar.mVX.id, aaVar.mVX.link, "1191003700000000", aaVar.mVX.esj);
                 } else {
-                    be.boR().b(tbPageContext, new String[]{aaVar.link});
+                    be.brr().b(tbPageContext, new String[]{aaVar.link});
                 }
-                if (aaVar.beq) {
+                if (aaVar.bfM) {
                     if (view != null) {
                         view.setVisibility(8);
                     }
-                    aaVar.beq = false;
-                    com.baidu.tbadk.core.sharedPref.b.bnH().putString("frs_service_version_" + aaVar.forumName + aaVar.name, aaVar.version);
+                    aaVar.bfM = false;
+                    com.baidu.tbadk.core.sharedPref.b.bqh().putString("frs_service_version_" + aaVar.forumName + aaVar.name, aaVar.version);
                 }
             }
         }
@@ -41,8 +41,8 @@ public class e {
         if (aaVar != null) {
             aq aqVar = new aq("c13627");
             aqVar.dR("fid", aaVar.forumId);
-            aqVar.aj("obj_type", aaVar.mPU == null ? 1 : 2);
-            aqVar.aj("obj_locate", aaVar.index);
+            aqVar.al("obj_type", aaVar.mVX == null ? 1 : 2);
+            aqVar.al("obj_locate", aaVar.index);
             aqVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
             aqVar.dR("obj_name", aaVar.name);
             TiebaStatic.log(aqVar);
@@ -53,8 +53,8 @@ public class e {
         if (aaVar != null) {
             aq aqVar = new aq("c13626");
             aqVar.dR("fid", aaVar.forumId);
-            aqVar.aj("obj_type", aaVar.mPU == null ? 1 : 2);
-            aqVar.aj("obj_locate", aaVar.index);
+            aqVar.al("obj_type", aaVar.mVX == null ? 1 : 2);
+            aqVar.al("obj_locate", aaVar.index);
             aqVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
             aqVar.dR("obj_name", aaVar.name);
             TiebaStatic.log(aqVar);

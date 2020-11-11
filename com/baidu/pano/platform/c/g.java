@@ -5,11 +5,11 @@ import android.util.Log;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f2672a = false;
+    public static boolean f2674a = false;
     public static String b = "PanoSDK2";
 
     public static void a(String str) {
-        if (f2672a) {
+        if (f2674a) {
             Log.d(b, str);
         }
     }

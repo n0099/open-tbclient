@@ -1,13 +1,13 @@
 package com.baidu.swan.game.ad.downloader.a;
 /* loaded from: classes14.dex */
 public class a {
-    private com.baidu.swan.game.ad.downloader.c.a dGw;
+    private com.baidu.swan.game.ad.downloader.c.a dMo;
 
-    public int aNM() {
+    public int aQm() {
         return 3;
     }
 
-    public com.baidu.swan.game.ad.downloader.c.a aNN() {
-        return this.dGw;
+    public com.baidu.swan.game.ad.downloader.c.a aQn() {
+        return this.dMo;
     }
 }

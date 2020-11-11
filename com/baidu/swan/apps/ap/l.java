@@ -8,16 +8,16 @@ import com.xiaomi.mipush.sdk.Constants;
 public class l {
     private static String anw;
 
-    public static String aJX() {
+    public static String aMx() {
         if (TextUtils.isEmpty(anw)) {
             synchronized (l.class) {
-                anw = aJY();
+                anw = aMy();
             }
         }
         return anw;
     }
 
-    private static String aJY() {
+    private static String aMy() {
         String replace;
         String replace2;
         String replace3;

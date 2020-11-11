@@ -3,5 +3,5 @@ package com.baidu.tieba.card;
 public interface z {
     void setForumName(String str);
 
-    void uQ(int i);
+    void vd(int i);
 }

@@ -12,18 +12,18 @@ import java.util.List;
 /* loaded from: classes21.dex */
 public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> implements b {
     private String callFrom = "";
-    private HotTopicListModel lcW;
-    private HotTopicListView lcX;
-    private List<q> lcY;
+    private HotTopicListModel liT;
+    private HotTopicListView liU;
+    private List<q> liV;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         as(bundle);
-        this.lcW = new HotTopicListModel(getPageContext(), this);
-        this.lcX = new HotTopicListView(getPageContext(), this, bundle);
-        setContentView(this.lcX);
+        this.liT = new HotTopicListModel(getPageContext(), this);
+        this.liU = new HotTopicListView(getPageContext(), this, bundle);
+        setContentView(this.liU);
         setIsAddSwipeBackLayout(false);
         addGlobalLayoutListener();
         adjustResizeForSoftInput();
@@ -48,42 +48,42 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
 
     @Override // com.baidu.tieba.newlist.b
     public void loadData() {
-        boolean LoadData = this.lcW.LoadData();
-        if (y.isEmpty(this.lcY)) {
+        boolean LoadData = this.liT.LoadData();
+        if (y.isEmpty(this.liV)) {
             if (LoadData) {
-                this.lcX.showLoadingView();
-                this.lcX.TK();
+                this.liU.showLoadingView();
+                this.liU.Wk();
                 return;
             }
-            this.lcX.hideLoadingView();
-            this.lcX.oP(false);
+            this.liU.hideLoadingView();
+            this.liU.oY(false);
         } else if (!LoadData) {
-            this.lcX.hideLoadingView();
-            this.lcX.bMH();
+            this.liU.hideLoadingView();
+            this.liU.bPh();
         }
     }
 
     @Override // com.baidu.tieba.newlist.b
     public void o(int i, List<q> list) {
-        this.lcX.hideLoadingView();
-        this.lcX.bMH();
+        this.liU.hideLoadingView();
+        this.liU.bPh();
         if (i != 0 || y.isEmpty(list)) {
-            if (y.isEmpty(this.lcY)) {
-                this.lcX.oP(false);
+            if (y.isEmpty(this.liV)) {
+                this.liU.oY(false);
                 return;
             }
             return;
         }
-        this.lcX.setData(list);
-        this.lcX.TJ();
-        this.lcY = list;
+        this.liU.setData(list);
+        this.liU.Wj();
+        this.liV = list;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.lcX.onChangeSkinType();
+        this.liU.onChangeSkinType();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.m.a

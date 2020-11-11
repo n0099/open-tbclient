@@ -37,14 +37,14 @@ public class y {
             } else if (TextUtils.equals(lowerCase, RomUtils.MANUFACTURER_MEIZU)) {
                 cF(context);
             } else {
-                Map<String, ComponentName> aKe = aKe();
-                if (aKe.containsKey(lowerCase)) {
-                    a(context, aKe.get(lowerCase));
+                Map<String, ComponentName> aME = aME();
+                if (aME.containsKey(lowerCase)) {
+                    a(context, aME.get(lowerCase));
                     return;
                 }
-                Map<String, String> aKf = aKf();
-                if (aKf.containsKey(lowerCase)) {
-                    ai(context, aKf.get(lowerCase));
+                Map<String, String> aMF = aMF();
+                if (aMF.containsKey(lowerCase)) {
+                    ai(context, aMF.get(lowerCase));
                 } else {
                     cG(context);
                 }
@@ -52,7 +52,7 @@ public class y {
         }
     }
 
-    private static Map<String, ComponentName> aKe() {
+    private static Map<String, ComponentName> aME() {
         HashMap hashMap = new HashMap();
         hashMap.put(RomUtils.MANUFACTURER_HUAWEI, new ComponentName("com.huawei.systemmanager", "com.huawei.permissionmanager.ui.MainActivity"));
         hashMap.put("letv", new ComponentName("com.letv.android.letvsafe", "com.letv.android.letvsafe.PermissionAndApps"));
@@ -61,7 +61,7 @@ public class y {
         return hashMap;
     }
 
-    private static Map<String, String> aKf() {
+    private static Map<String, String> aMF() {
         HashMap hashMap = new HashMap();
         hashMap.put(RomUtils.MANUFACTURER_OPPO, "com.coloros.safecenter");
         hashMap.put(RomUtils.MANUFACTURER_VIVO, "com.bairenkeji.icaller");
@@ -70,17 +70,17 @@ public class y {
     }
 
     private static void cE(Context context) {
-        String aKg = aKg();
+        String aMG = aMG();
         if (DEBUG) {
-            Log.d("SwanAppPermissionHelper", "goPermissionPageForXiaomi rom version : " + aKg);
+            Log.d("SwanAppPermissionHelper", "goPermissionPageForXiaomi rom version : " + aMG);
         }
         Intent intent = new Intent();
-        if ("V10".equals(aKg) || "V9".equals(aKg) || "V8".equals(aKg)) {
+        if ("V10".equals(aMG) || "V9".equals(aMG) || "V8".equals(aMG)) {
             intent.setAction("miui.intent.action.APP_PERM_EDITOR");
             intent.setClassName("com.miui.securitycenter", "com.miui.permcenter.permissions.PermissionsEditorActivity");
             intent.putExtra("extra_pkgname", context.getPackageName());
             f(context, intent);
-        } else if ("V7".equals(aKg) || "V6".equals(aKg)) {
+        } else if ("V7".equals(aMG) || "V6".equals(aMG)) {
             intent.setAction("miui.intent.action.APP_PERM_EDITOR");
             intent.setClassName("com.miui.securitycenter", "com.miui.permcenter.permissions.AppPermissionsEditorActivity");
             intent.putExtra("extra_pkgname", context.getPackageName());
@@ -90,7 +90,7 @@ public class y {
         }
     }
 
-    private static String aKg() {
+    private static String aMG() {
         Throwable th;
         BufferedReader bufferedReader;
         String str = null;

@@ -11,65 +11,65 @@ import com.baidu.live.tieba.horizonallist.widget.HListView;
 import com.baidu.tieba.ala.alaar.view.c;
 /* loaded from: classes4.dex */
 public class m extends l {
-    c gbl;
-    int gbm = -1;
-    int gbn = -1;
-    TextView gbo;
-    TextView gbp;
-    View gbq;
+    c gha;
+    int ghb = -1;
+    int ghc = -1;
+    TextView ghd;
+    TextView ghe;
+    View ghf;
 
-    public void bQ(View view) {
+    public void bU(View view) {
         this.view = view;
-        this.gaZ = new HListView(this.view.getContext());
-        this.gaZ.setVisibility(4);
-        this.gaX = (FrameLayout) this.view.findViewById(a.g.rl_beauty_progress);
-        this.gbo = (TextView) this.view.findViewById(a.g.progress_tv);
-        this.gbp = (TextView) this.view.findViewById(a.g.def_thumb_tv);
-        this.gaY = (TopTipSeekBar) this.view.findViewById(a.g.value_seekbar);
-        this.gbq = this.view.findViewById(a.g.effect_diff_btn);
-        this.gaY.setMax(100);
-        this.gaY.setTipView(this.gbo);
-        this.gaY.setDefThumb(this.gbp);
-        if (this.gaZ != null) {
-            this.gbl = new c(this.gaZ);
-            this.gbl.ty(this.view.getResources().getDimensionPixelSize(a.e.sdk_ds28));
-            this.gaZ.setDividerWidth(this.view.getResources().getDimensionPixelSize(a.e.sdk_ds20));
-            this.gaZ.setAdapter((ListAdapter) this.gbl);
-            this.gaZ.setSelector(this.view.getResources().getDrawable(a.f.sdk_transparent_bg));
+        this.ggP = new HListView(this.view.getContext());
+        this.ggP.setVisibility(4);
+        this.ggN = (FrameLayout) this.view.findViewById(a.f.rl_beauty_progress);
+        this.ghd = (TextView) this.view.findViewById(a.f.progress_tv);
+        this.ghe = (TextView) this.view.findViewById(a.f.def_thumb_tv);
+        this.ggO = (TopTipSeekBar) this.view.findViewById(a.f.value_seekbar);
+        this.ghf = this.view.findViewById(a.f.effect_diff_btn);
+        this.ggO.setMax(100);
+        this.ggO.setTipView(this.ghd);
+        this.ggO.setDefThumb(this.ghe);
+        if (this.ggP != null) {
+            this.gha = new c(this.ggP);
+            this.gha.tI(this.view.getResources().getDimensionPixelSize(a.d.sdk_ds28));
+            this.ggP.setDividerWidth(this.view.getResources().getDimensionPixelSize(a.d.sdk_ds20));
+            this.ggP.setAdapter((ListAdapter) this.gha);
+            this.ggP.setSelector(this.view.getResources().getDrawable(a.e.sdk_transparent_bg));
         }
-        this.gaZ.setOnScrollListener(new AbsHListView.g() { // from class: com.baidu.tieba.ala.alaar.view.m.1
+        this.ggP.setOnScrollListener(new AbsHListView.g() { // from class: com.baidu.tieba.ala.alaar.view.m.1
             @Override // com.baidu.live.tieba.horizonallist.widget.AbsHListView.g
             public void a(AbsHListView absHListView, int i) {
             }
 
             @Override // com.baidu.live.tieba.horizonallist.widget.AbsHListView.g
             public void a(AbsHListView absHListView, int i, int i2, int i3) {
-                m.this.gbm = i;
-                m.this.gbn = i2;
+                m.this.ghb = i;
+                m.this.ghc = i2;
             }
         });
-        this.gbl.a(new c.b() { // from class: com.baidu.tieba.ala.alaar.view.m.2
+        this.gha.a(new c.b() { // from class: com.baidu.tieba.ala.alaar.view.m.2
             @Override // com.baidu.tieba.ala.alaar.view.c.b
             public void a(int i, int[] iArr, boolean z) {
-                m.this.gaZ.smoothScrollBy(AlaLiveMultiBeautyArView.a(i, m.this.gbm, m.this.gbn, iArr, m.this.gbl.getCount(), true), 300);
-                c.a aVar = m.this.gbl.gas[i];
-                if (m.this.gba != null) {
-                    m.this.gba.b(i, aVar, z);
+                m.this.ggP.smoothScrollBy(AlaLiveMultiBeautyArView.a(i, m.this.ghb, m.this.ghc, iArr, m.this.gha.getCount(), true), 300);
+                c.a aVar = m.this.gha.ggi[i];
+                if (m.this.ggQ != null) {
+                    m.this.ggQ.b(i, aVar, z);
                 }
             }
         });
-        this.gaY.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.ala.alaar.view.m.3
+        this.ggO.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.ala.alaar.view.m.3
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
-                if (m.this.gba != null) {
-                    m.this.gba.a(null, seekBar, i, z);
+                if (m.this.ggQ != null) {
+                    m.this.ggQ.a(null, seekBar, i, z);
                 }
             }
 
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onStartTrackingTouch(SeekBar seekBar) {
-                if (m.this.gba != null) {
-                    m.this.gba.onStartTrackingTouch(seekBar);
+                if (m.this.ggQ != null) {
+                    m.this.ggQ.onStartTrackingTouch(seekBar);
                 }
             }
 
@@ -82,9 +82,9 @@ public class m extends l {
     @Override // com.baidu.tieba.ala.alaar.view.l
     public void setSelected(boolean z) {
         super.setSelected(z);
-        if (this.gaZ != null) {
-            this.gaZ.setVisibility(z ? 0 : 4);
-            lo(z);
+        if (this.ggP != null) {
+            this.ggP.setVisibility(z ? 0 : 4);
+            lx(z);
         }
     }
 }

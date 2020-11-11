@@ -51,15 +51,15 @@ public class WebPImage implements c, b {
         nativeFinalize();
     }
 
-    public static WebPImage I(long j, int i) {
-        com.facebook.imagepipeline.nativecode.b.eft();
+    public static WebPImage L(long j, int i) {
+        com.facebook.imagepipeline.nativecode.b.eji();
         g.checkArgument(j != 0);
         return nativeCreateFromNativeMemory(j, i);
     }
 
     @Override // com.facebook.imagepipeline.animated.a.c
-    public b H(long j, int i) {
-        return I(j, i);
+    public b K(long j, int i) {
+        return L(j, i);
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
@@ -78,7 +78,7 @@ public class WebPImage implements c, b {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public int[] efu() {
+    public int[] ejj() {
         return nativeGetFrameDurations();
     }
 
@@ -89,8 +89,8 @@ public class WebPImage implements c, b {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.animated.base.b
-    /* renamed from: NT */
-    public WebPFrame NS(int i) {
+    /* renamed from: Oo */
+    public WebPFrame On(int i) {
         return nativeGetFrame(i);
     }
 
@@ -100,17 +100,17 @@ public class WebPImage implements c, b {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public boolean efv() {
+    public boolean ejk() {
         return true;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public AnimatedDrawableFrameInfo NQ(int i) {
-        WebPFrame NS = NS(i);
+    public AnimatedDrawableFrameInfo Ol(int i) {
+        WebPFrame On = On(i);
         try {
-            return new AnimatedDrawableFrameInfo(i, NS.getXOffset(), NS.getYOffset(), NS.getWidth(), NS.getHeight(), NS.efx() ? AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS : AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND, NS.efw() ? AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND : AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT);
+            return new AnimatedDrawableFrameInfo(i, On.getXOffset(), On.getYOffset(), On.getWidth(), On.getHeight(), On.ejm() ? AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS : AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND, On.ejl() ? AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND : AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT);
         } finally {
-            NS.dispose();
+            On.dispose();
         }
     }
 }

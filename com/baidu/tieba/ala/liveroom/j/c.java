@@ -18,8 +18,8 @@ public class c {
     }
 
     private void a(TbPageContext tbPageContext, View.OnClickListener onClickListener) {
-        this.mView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(a.h.view_host_letter_entry, (ViewGroup) null);
-        this.textView = (TextView) this.mView.findViewById(a.g.textView);
+        this.mView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(a.g.view_host_letter_entry, (ViewGroup) null);
+        this.textView = (TextView) this.mView.findViewById(a.f.textView);
         this.textView.setIncludeFontPadding(false);
         this.mView.setOnClickListener(onClickListener);
     }

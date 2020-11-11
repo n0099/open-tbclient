@@ -6,13 +6,13 @@ import com.baidu.mapapi.walknavi.adapter.IWNPCEngineInitListener;
 public class c implements com.baidu.platform.comapi.walknavi.d.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ IWNPCEngineInitListener f2956a;
+    final /* synthetic */ IWNPCEngineInitListener f2958a;
     final /* synthetic */ b b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar, IWNPCEngineInitListener iWNPCEngineInitListener) {
         this.b = bVar;
-        this.f2956a = iWNPCEngineInitListener;
+        this.f2958a = iWNPCEngineInitListener;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.d.c
@@ -28,19 +28,19 @@ public class c implements com.baidu.platform.comapi.walknavi.d.c {
         com.baidu.platform.comapi.wnplatform.d.a.b("downloadnpc:responseCode = " + i + ", responseMessage = " + str);
         if (i == 0) {
             this.b.P = true;
-            this.f2956a.onSuccess();
+            this.f2958a.onSuccess();
         } else if (i == 2 || i == 4 || i == 3) {
             this.b.P = false;
-            this.f2956a.onFail("您的手机暂不支持3D模型导航");
+            this.f2958a.onFail("您的手机暂不支持3D模型导航");
         } else if (i == 1) {
             this.b.P = false;
-            this.f2956a.onFail("当前网络异常，请稍候再试");
+            this.f2958a.onFail("当前网络异常，请稍候再试");
         } else if (i == 6 || i == 5 || i == -1) {
             this.b.P = false;
-            this.f2956a.onFail("初始化失败，请稍候再试");
+            this.f2958a.onFail("初始化失败，请稍候再试");
         } else {
             this.b.P = false;
-            this.f2956a.onFail("未知错误导致初始化失败");
+            this.f2958a.onFail("未知错误导致初始化失败");
         }
     }
 }

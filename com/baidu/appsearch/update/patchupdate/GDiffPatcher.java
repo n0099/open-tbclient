@@ -38,8 +38,8 @@ public class GDiffPatcher {
     public static final int QUARTER_MB = 262144;
 
     /* renamed from: a  reason: collision with root package name */
-    private ByteBuffer f1182a = ByteBuffer.allocate(5120);
-    private byte[] b = this.f1182a.array();
+    private ByteBuffer f1184a = ByteBuffer.allocate(5120);
+    private byte[] b = this.f1184a.array();
     private boolean c = false;
     private long d = 0;
     private int e = 246;
@@ -113,12 +113,12 @@ public class GDiffPatcher {
     void a(long j, int i, d dVar, OutputStream outputStream) {
         dVar.a(j);
         while (i > 0) {
-            this.f1182a.clear().limit(Math.min(this.f1182a.capacity(), i));
-            int a2 = dVar.a(this.f1182a);
+            this.f1184a.clear().limit(Math.min(this.f1184a.capacity(), i));
+            int a2 = dVar.a(this.f1184a);
             if (a2 == -1) {
                 throw new EOFException("in copy " + j + " " + i);
             }
-            a(this.f1182a.array(), 0, a2, outputStream);
+            a(this.f1184a.array(), 0, a2, outputStream);
             i -= a2;
         }
     }

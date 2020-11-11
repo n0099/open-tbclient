@@ -11,31 +11,31 @@ import com.baidu.live.videochat.f.b;
 /* loaded from: classes4.dex */
 public class a {
     private Activity activity;
-    private b.a bAR;
-    private b.InterfaceC0216b bEF;
-    private b bEG;
+    private b.a bHa;
+    private b.InterfaceC0228b bKm;
+    private b bKn;
 
-    public void ac(View view) {
-        if (this.bEG != null) {
-            this.bEG.ac(view);
+    public void ag(View view) {
+        if (this.bKn != null) {
+            this.bKn.ag(view);
         }
     }
 
     public void a(w wVar, c cVar) {
-        if (this.bEG != null) {
-            this.bEG.a(wVar, cVar);
+        if (this.bKn != null) {
+            this.bKn.a(wVar, cVar);
         }
     }
 
-    public void TP() {
-        if (this.bEG != null) {
-            this.bEG.release();
+    public void Wp() {
+        if (this.bKn != null) {
+            this.bKn.release();
         }
     }
 
-    public a(b.a aVar, b.InterfaceC0216b interfaceC0216b) {
-        this.bAR = aVar;
-        this.bEF = interfaceC0216b;
+    public a(b.a aVar, b.InterfaceC0228b interfaceC0228b) {
+        this.bHa = aVar;
+        this.bKm = interfaceC0228b;
     }
 
     public void a(TbPageContext tbPageContext, ViewGroup viewGroup) {
@@ -43,22 +43,22 @@ public class a {
             this.activity = tbPageContext.getPageActivity();
         }
         if (this.activity != null && viewGroup != null) {
-            if (this.bEG == null) {
-                this.bEG = new b(this.activity, this.bAR, this.bEF);
+            if (this.bKn == null) {
+                this.bKn = new b(this.activity, this.bHa, this.bKm);
             }
-            if (this.bEG.getView() != null && this.bEG.getView().getParent() == null) {
-                this.bEG.getView().setVisibility(8);
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.activity.getResources().getDimensionPixelSize(a.e.sdk_ds220), this.activity.getResources().getDimensionPixelSize(a.e.sdk_ds392));
-                layoutParams.topMargin = this.activity.getResources().getDimensionPixelSize(a.e.sdk_ds274);
-                layoutParams.leftMargin = this.activity.getResources().getDimensionPixelSize(a.e.sdk_ds20);
-                viewGroup.addView(this.bEG.getView(), layoutParams);
+            if (this.bKn.getView() != null && this.bKn.getView().getParent() == null) {
+                this.bKn.getView().setVisibility(8);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.activity.getResources().getDimensionPixelSize(a.d.sdk_ds220), this.activity.getResources().getDimensionPixelSize(a.d.sdk_ds392));
+                layoutParams.topMargin = this.activity.getResources().getDimensionPixelSize(a.d.sdk_ds274);
+                layoutParams.leftMargin = this.activity.getResources().getDimensionPixelSize(a.d.sdk_ds20);
+                viewGroup.addView(this.bKn.getView(), layoutParams);
             }
         }
     }
 
     public void onDestroy() {
-        if (this.bEG != null) {
-            this.bEG.release();
+        if (this.bKn != null) {
+            this.bKn.release();
         }
     }
 }

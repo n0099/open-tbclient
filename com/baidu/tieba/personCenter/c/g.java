@@ -6,23 +6,23 @@ import com.baidu.tbadk.core.data.UserData;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class g extends com.baidu.tieba.card.data.b implements q {
-    public static BdUniqueId lPT = BdUniqueId.gen();
-    public List<a> egJ;
+    public static BdUniqueId lVP = BdUniqueId.gen();
+    public List<a> emA;
     public UserData mUserData;
 
     /* loaded from: classes22.dex */
     public static class a {
-        public int lPU;
+        public int lVQ;
         public String text;
         public int type;
     }
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return lPT;
+        return lVP;
     }
 
-    public void fd(List<a> list) {
-        this.egJ = list;
+    public void fl(List<a> list) {
+        this.emA = list;
     }
 }

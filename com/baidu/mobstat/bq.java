@@ -7,7 +7,7 @@ import android.text.TextUtils;
 public class bq extends bn {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2591a = "__Baidu_Stat_SDK_SendRem";
+    private static final String f2593a = "__Baidu_Stat_SDK_SendRem";
     private static bq b = new bq();
 
     private bq() {
@@ -19,7 +19,7 @@ public class bq extends bn {
 
     @Override // com.baidu.mobstat.bn
     public SharedPreferences a(Context context) {
-        return context.getSharedPreferences(f2591a, 0);
+        return context.getSharedPreferences(f2593a, 0);
     }
 
     public void a(Context context, int i) {

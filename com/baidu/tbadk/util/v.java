@@ -13,17 +13,17 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 public class v {
     private CustomMessageListener OQ;
     private static final byte[] mlock = new byte[1];
-    private static v fsX = null;
+    private static v fyP = null;
 
-    public static v bBm() {
-        if (fsX == null) {
+    public static v bDL() {
+        if (fyP == null) {
             synchronized (mlock) {
-                if (fsX == null) {
-                    fsX = new v();
+                if (fyP == null) {
+                    fyP = new v();
                 }
             }
         }
-        return fsX;
+        return fyP;
     }
 
     private v() {
@@ -33,7 +33,7 @@ public class v {
     public void registerNetworkChangedListener() {
         try {
             if (this.OQ == null) {
-                this.OQ = bBn();
+                this.OQ = bDM();
                 MessageManager.getInstance().registerListener(this.OQ);
             }
         } catch (Exception e) {
@@ -42,7 +42,7 @@ public class v {
         }
     }
 
-    private CustomMessageListener bBn() {
+    private CustomMessageListener bDM() {
         return new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tbadk.util.v.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -60,10 +60,10 @@ public class v {
             boolean isNetWorkAvailable = com.baidu.adp.lib.util.j.isNetWorkAvailable();
             if (isNetWorkAvailable) {
                 if (com.baidu.adp.lib.util.j.isWifiNet()) {
-                    au.boO().setNetworkIsWifi(true);
-                    com.baidu.tieba.recapp.d.a.dyA().dyC();
+                    au.bro().setNetworkIsWifi(true);
+                    com.baidu.tieba.recapp.d.a.dBc().dBe();
                 } else if (com.baidu.adp.lib.util.j.isMobileNet()) {
-                    au.boO().setNetworkIsWifi(false);
+                    au.bro().setNetworkIsWifi(false);
                 }
             }
             NoNetworkView.setIsHasNetwork(isNetWorkAvailable);

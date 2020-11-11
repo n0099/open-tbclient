@@ -10,16 +10,16 @@ import java.io.File;
 import java.util.HashMap;
 /* loaded from: classes23.dex */
 public class a {
-    private static volatile a nin;
-    private HashMap<String, String> nio;
-    private DownloadData nip;
+    private static volatile a noi;
+    private HashMap<String, String> noj;
+    private DownloadData nok;
 
     /* renamed from: com.baidu.tieba.video.editvideo.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes23.dex */
-    public interface InterfaceC0845a {
-        void Tp(String str);
+    public interface InterfaceC0860a {
+        void TG(String str);
 
-        void dMb();
+        void dOD();
 
         void gw(String str, String str2);
     }
@@ -27,61 +27,61 @@ public class a {
     private a() {
     }
 
-    public static a dMH() {
-        if (nin == null) {
+    public static a dPj() {
+        if (noi == null) {
             synchronized (a.class) {
-                if (nin == null) {
-                    nin = new a();
+                if (noi == null) {
+                    noi = new a();
                 }
             }
         }
-        return nin;
+        return noi;
     }
 
-    public String Tv(String str) {
+    public String TM(String str) {
         String nameMd5FromUrl = av.getNameMd5FromUrl(str);
         if (nameMd5FromUrl == null) {
             return null;
         }
-        if (this.nio == null) {
-            this.nio = new HashMap<>();
-            dMI();
-            if (this.nio.size() > 0) {
-                return this.nio.get(nameMd5FromUrl);
+        if (this.noj == null) {
+            this.noj = new HashMap<>();
+            dPk();
+            if (this.noj.size() > 0) {
+                return this.noj.get(nameMd5FromUrl);
             }
             return null;
         }
-        return this.nio.get(nameMd5FromUrl);
+        return this.noj.get(nameMd5FromUrl);
     }
 
-    public void dMI() {
-        if (this.nio == null) {
-            this.nio = new HashMap<>();
+    public void dPk() {
+        if (this.noj == null) {
+            this.noj = new HashMap<>();
         } else {
-            this.nio.clear();
+            this.noj.clear();
         }
-        File file = new File(c.nfP);
+        File file = new File(c.nlL);
         if (file.exists()) {
             File[] listFiles = file.listFiles();
             for (File file2 : listFiles) {
                 if (file2.isFile()) {
-                    this.nio.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
+                    this.noj.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
                 }
             }
         }
     }
 
-    public void a(String str, final String str2, final InterfaceC0845a interfaceC0845a) {
+    public void a(String str, final String str2, final InterfaceC0860a interfaceC0860a) {
         String nameMd5FromUrl;
         if (!TextUtils.isEmpty(str2) && (nameMd5FromUrl = av.getNameMd5FromUrl(str2)) != null) {
-            if (this.nip != null) {
-                if (!str2.equals(this.nip.getUrl())) {
-                    d.bwU().cancelDownLoadByUrl(this.nip.getUrl(), true);
+            if (this.nok != null) {
+                if (!str2.equals(this.nok.getUrl())) {
+                    d.bzt().cancelDownLoadByUrl(this.nok.getUrl(), true);
                 } else {
                     return;
                 }
             }
-            File file = new File(c.nfP);
+            File file = new File(c.nlL);
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -89,7 +89,7 @@ public class a {
             downloadData.setType(17);
             downloadData.setId(str);
             downloadData.setUrl(str2);
-            downloadData.setPath(c.nfP + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
+            downloadData.setPath(c.nlL + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
             downloadData.setCallback(new com.baidu.tbadk.download.c() { // from class: com.baidu.tieba.video.editvideo.model.a.1
                 @Override // com.baidu.tbadk.download.c
                 public void onFileUpdateProgress(DownloadData downloadData2) {
@@ -98,11 +98,11 @@ public class a {
                         if (file2.exists()) {
                             file2.delete();
                         }
-                        if (a.this.nip != null && downloadData2.getUrl().equals(a.this.nip.getUrl())) {
-                            a.this.nip = null;
+                        if (a.this.nok != null && downloadData2.getUrl().equals(a.this.nok.getUrl())) {
+                            a.this.nok = null;
                         }
-                        if (interfaceC0845a != null) {
-                            interfaceC0845a.dMb();
+                        if (interfaceC0860a != null) {
+                            interfaceC0860a.dOD();
                         }
                     }
                 }
@@ -120,12 +120,12 @@ public class a {
                 @Override // com.baidu.tbadk.download.c
                 public void onFileDownloadSucceed(DownloadData downloadData2) {
                     if (downloadData2 != null && !StringUtils.isNull(downloadData2.getPath())) {
-                        if (a.this.nip != null && downloadData2.getUrl().equals(a.this.nip.getUrl())) {
-                            a.this.nip = null;
+                        if (a.this.nok != null && downloadData2.getUrl().equals(a.this.nok.getUrl())) {
+                            a.this.nok = null;
                         }
-                        if (interfaceC0845a != null) {
-                            a.this.nio.put(downloadData2.getPath().substring(c.nfP.length(), downloadData2.getPath().lastIndexOf(".")), downloadData2.getPath());
-                            interfaceC0845a.gw(str2, downloadData2.getPath());
+                        if (interfaceC0860a != null) {
+                            a.this.noj.put(downloadData2.getPath().substring(c.nlL.length(), downloadData2.getPath().lastIndexOf(".")), downloadData2.getPath());
+                            interfaceC0860a.gw(str2, downloadData2.getPath());
                         }
                     }
                 }
@@ -136,22 +136,22 @@ public class a {
                     if (file2.exists()) {
                         file2.delete();
                     }
-                    if (a.this.nip != null && downloadData2.getUrl().equals(a.this.nip.getUrl())) {
-                        a.this.nip = null;
+                    if (a.this.nok != null && downloadData2.getUrl().equals(a.this.nok.getUrl())) {
+                        a.this.nok = null;
                     }
-                    if (interfaceC0845a != null) {
-                        interfaceC0845a.Tp(str3);
+                    if (interfaceC0860a != null) {
+                        interfaceC0860a.TG(str3);
                     }
                 }
             });
-            this.nip = downloadData;
-            d.bwU().f(downloadData);
+            this.nok = downloadData;
+            d.bzt().f(downloadData);
         }
     }
 
-    public void dMJ() {
-        if (this.nip != null) {
-            d.bwU().cancelDownLoadByUrl(this.nip.getUrl(), true);
+    public void dPl() {
+        if (this.nok != null) {
+            d.bzt().cancelDownLoadByUrl(this.nok.getUrl(), true);
         }
     }
 }

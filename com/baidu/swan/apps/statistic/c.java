@@ -30,14 +30,14 @@ public class c {
                     jSONObject.put("page", aVar.page);
                 }
                 boolean isEmpty = TextUtils.isEmpty(aVar.appId);
-                boolean isEmpty2 = TextUtils.isEmpty(aVar.dtI);
+                boolean isEmpty2 = TextUtils.isEmpty(aVar.dzA);
                 if (!isEmpty || !isEmpty2) {
                     JSONObject jSONObject2 = new JSONObject();
                     if (!isEmpty) {
                         jSONObject2.put("appid", aVar.appId);
                     }
                     if (!isEmpty2) {
-                        jSONObject2.put("info", aVar.dtI);
+                        jSONObject2.put("info", aVar.dzA);
                     }
                     jSONObject.put("ext", jSONObject2);
                 }
@@ -59,40 +59,40 @@ public class c {
     /* loaded from: classes10.dex */
     public static class a {
         private String appId;
-        private String dtI;
+        private String dzA;
+        private c dzz = new c();
+        private String from = "swan";
         private String page;
         private String source;
         private String type;
         private String value;
-        private c dtH = new c();
-        private String from = "swan";
 
         public a(int i) {
             this.type = String.valueOf(i);
         }
 
-        public a sG(String str) {
+        public a sU(String str) {
             this.source = str;
             return this;
         }
 
-        public a sH(String str) {
+        public a sV(String str) {
             this.page = str;
             return this;
         }
 
-        public a sI(String str) {
+        public a sW(String str) {
             this.appId = str;
             return this;
         }
 
-        public a sJ(String str) {
-            this.dtI = str;
+        public a sX(String str) {
+            this.dzA = str;
             return this;
         }
 
-        public void arq() {
-            this.dtH.a(this);
+        public void atR() {
+            this.dzz.a(this);
         }
     }
 }

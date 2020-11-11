@@ -8,7 +8,7 @@ public class EnvConfig {
     public static final String ENVIRONMENT_RD = "RD";
 
     /* renamed from: a  reason: collision with root package name */
-    protected static final String f1441a = "https://jrws.baidu.com";
+    protected static final String f1443a = "https://jrws.baidu.com";
     private static final String c = "https://jrws.baidu.com";
     public static final String ENVIRONMENT_ONLINE = "ONLINE";
     public static String DEFAULT_ENVIRONMENT = ENVIRONMENT_ONLINE;

@@ -10,17 +10,17 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes16.dex */
 public class a implements b.a {
-    private b bUX;
-    private String bUY;
-    private HashMap<String, Object> bUZ;
-    private Runnable bVb;
+    private b caH;
+    private String caI;
+    private HashMap<String, Object> caJ;
+    private Runnable caL;
     private String identifier;
-    private boolean bVa = true;
+    private boolean caK = true;
     private int timeout = -1;
     private boolean isLoading = false;
-    private C0256a bVc = null;
-    private boolean bVd = false;
-    private long bVe = 0;
+    private C0268a caM = null;
+    private boolean caN = false;
+    private long caO = 0;
 
     /* loaded from: classes16.dex */
     public interface b {
@@ -32,25 +32,25 @@ public class a implements b.a {
     }
 
     public boolean loadData() {
-        this.bVe = System.currentTimeMillis();
-        if (this.bUX == null && TbadkCoreApplication.getInst().isDebugMode()) {
+        this.caO = System.currentTimeMillis();
+        if (this.caH == null && TbadkCoreApplication.getInst().isDebugMode()) {
             throw new RuntimeException("NetModel must have callback");
         }
-        this.bVa = l.isNetOk();
+        this.caK = l.isNetOk();
         if (this.timeout >= 10) {
-            e.mY().postDelayed(XX(), this.timeout * 1000);
+            e.mY().postDelayed(aaw(), this.timeout * 1000);
         }
-        if (!this.bVa) {
+        if (!this.caK) {
             e.mY().post(new Runnable() { // from class: com.baidu.network_service_plugin.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.V(-1, "网络不可用");
+                    a.this.Z(-1, "网络不可用");
                 }
             });
             return false;
-        } else if (this.bVc == null) {
-            this.bVc = new C0256a(this);
-            this.bVc.execute(new Object[0]);
+        } else if (this.caM == null) {
+            this.caM = new C0268a(this);
+            this.caM.execute(new Object[0]);
             return true;
         } else {
             return false;
@@ -59,57 +59,57 @@ public class a implements b.a {
 
     @Override // com.baidu.network_service_plugin.b.a
     public boolean cancelLoadData() {
-        if (this.isLoading && this.bVc != null) {
-            this.bVc.cancel();
+        if (this.isLoading && this.caM != null) {
+            this.caM.cancel();
         }
         this.isLoading = false;
         return true;
     }
 
-    public String XS() {
-        return this.bUY;
+    public String aar() {
+        return this.caI;
     }
 
-    public void je(String str) {
-        this.bUY = str;
+    public void jr(String str) {
+        this.caI = str;
     }
 
-    public HashMap<String, Object> XT() {
-        return this.bUZ;
+    public HashMap<String, Object> aas() {
+        return this.caJ;
     }
 
     public void setParams(HashMap<String, Object> hashMap) {
-        this.bUZ = hashMap;
+        this.caJ = hashMap;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void XU() {
-        this.bVc = null;
+    public void aat() {
+        this.caM = null;
     }
 
-    public void dy(boolean z) {
-        this.bVd = z;
+    public void dF(boolean z) {
+        this.caN = z;
     }
 
-    public boolean XV() {
-        return this.bVd;
+    public boolean aau() {
+        return this.caN;
     }
 
-    public long XW() {
-        return this.bVe;
+    public long aav() {
+        return this.caO;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.network_service_plugin.a$a  reason: collision with other inner class name */
     /* loaded from: classes16.dex */
-    public static class C0256a extends BdAsyncTask<Object, String, String> {
-        private a bVg;
-        private com.baidu.tbadk.core.util.a.a bVh;
-        private aa bVi = null;
+    public static class C0268a extends BdAsyncTask<Object, String, String> {
+        private a caQ;
+        private com.baidu.tbadk.core.util.a.a caR;
+        private aa caS = null;
         private boolean isCancle = false;
 
-        public C0256a(a aVar) {
-            this.bVg = aVar;
+        public C0268a(a aVar) {
+            this.caQ = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -118,21 +118,21 @@ public class a implements b.a {
         /* renamed from: k */
         public String doInBackground(Object... objArr) {
             String postNetData;
-            this.bVg.isLoading = true;
-            this.bVi = new aa(this.bVg.XS());
-            HashMap<String, Object> XT = this.bVg.XT();
-            if (XT != null && !XT.isEmpty()) {
-                for (Map.Entry<String, Object> entry : XT.entrySet()) {
-                    this.bVi.addPostData(entry.getKey(), String.valueOf(entry.getValue()));
+            this.caQ.isLoading = true;
+            this.caS = new aa(this.caQ.aar());
+            HashMap<String, Object> aas = this.caQ.aas();
+            if (aas != null && !aas.isEmpty()) {
+                for (Map.Entry<String, Object> entry : aas.entrySet()) {
+                    this.caS.addPostData(entry.getKey(), String.valueOf(entry.getValue()));
                 }
             }
-            if (this.bVg.XV() && XT != null) {
-                this.bVi.addPostData("debugfile", (byte[]) XT.get("debugfile"));
-                postNetData = this.bVi.postMultiNetData();
+            if (this.caQ.aau() && aas != null) {
+                this.caS.addPostData("debugfile", (byte[]) aas.get("debugfile"));
+                postNetData = this.caS.postMultiNetData();
             } else {
-                postNetData = this.bVi.postNetData();
+                postNetData = this.caS.postNetData();
             }
-            this.bVh = this.bVi.bon();
+            this.caR = this.caS.bqN();
             publishProgress(postNetData);
             return postNetData;
         }
@@ -141,11 +141,11 @@ public class a implements b.a {
         public void cancel() {
             this.isCancle = true;
             super.cancel(true);
-            if (this.bVi != null) {
-                this.bVi.cancelNetConnect();
+            if (this.caS != null) {
+                this.caS.cancelNetConnect();
             }
-            if (this.bVg.bUX != null) {
-                this.bVg.bUX.a(null, null, -1, "cancle", "", this.bVg.identifier);
+            if (this.caQ.caH != null) {
+                this.caQ.caH.a(null, null, -1, "cancle", "", this.caQ.identifier);
             }
         }
 
@@ -155,48 +155,48 @@ public class a implements b.a {
         public void onProgressUpdate(String... strArr) {
             super.onProgressUpdate((Object[]) strArr);
             if (strArr != null && strArr.length > 0) {
-                this.bVg.isLoading = false;
-                if (this.bVg.bVb != null) {
-                    e.mY().removeCallbacks(this.bVg.bVb);
+                this.caQ.isLoading = false;
+                if (this.caQ.caL != null) {
+                    e.mY().removeCallbacks(this.caQ.caL);
                 }
-                if (this.bVh != null && this.bVh.boU() != null && !this.isCancle && this.bVg.bUX != null) {
+                if (this.caR != null && this.caR.bru() != null && !this.isCancle && this.caQ.caH != null) {
                     HashMap<String, String> hashMap = new HashMap<>();
-                    hashMap.put("server", this.bVg.XS());
-                    hashMap.put("api", this.bVg.XS());
-                    hashMap.put("state", this.bVh.boV().eIB.exception);
-                    if (this.bVh.boW() != null && this.bVg.XW() > 0 && this.bVh.boW().containsKey("startTime")) {
-                        long j = com.baidu.adp.lib.f.b.toLong(this.bVh.boW().get("startTime"), 0L) - this.bVg.XW();
+                    hashMap.put("server", this.caQ.aar());
+                    hashMap.put("api", this.caQ.aar());
+                    hashMap.put("state", this.caR.brv().eOq.exception);
+                    if (this.caR.brw() != null && this.caQ.aav() > 0 && this.caR.brw().containsKey("startTime")) {
+                        long j = com.baidu.adp.lib.f.b.toLong(this.caR.brw().get("startTime"), 0L) - this.caQ.aav();
                         if (j > 0) {
-                            this.bVh.boW().put("queneTime", String.valueOf(j));
+                            this.caR.brw().put("queneTime", String.valueOf(j));
                         }
                     }
-                    this.bVg.bUX.a(hashMap, this.bVh.boW(), this.bVh.boU().mServerErrorCode, this.bVh.boU().mErrorString, strArr[0], this.bVg.identifier);
+                    this.caQ.caH.a(hashMap, this.caR.brw(), this.caR.bru().mServerErrorCode, this.caR.bru().mErrorString, strArr[0], this.caQ.identifier);
                 }
-                this.bVg.XU();
+                this.caQ.aat();
             }
         }
     }
 
-    public Runnable XX() {
-        if (this.bVb == null) {
-            this.bVb = new Runnable() { // from class: com.baidu.network_service_plugin.a.2
+    public Runnable aaw() {
+        if (this.caL == null) {
+            this.caL = new Runnable() { // from class: com.baidu.network_service_plugin.a.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.V(-1, "请求超时");
+                    a.this.Z(-1, "请求超时");
                 }
             };
         }
-        return this.bVb;
+        return this.caL;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void V(int i, String str) {
-        if (this.bUX != null) {
-            this.bUX.a(null, null, i, str, null, this.identifier);
+    public void Z(int i, String str) {
+        if (this.caH != null) {
+            this.caH.a(null, null, i, str, null, this.identifier);
         }
     }
 
     public void a(b bVar) {
-        this.bUX = bVar;
+        this.caH = bVar;
     }
 }

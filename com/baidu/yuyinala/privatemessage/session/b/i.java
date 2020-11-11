@@ -11,9 +11,9 @@ public class i extends d {
         }
         ChatSession chatSession = (ChatSession) obj;
         j jVar = new j();
-        jVar.Xe("usermessage");
+        jVar.XI("usermessage");
         jVar.isGroup = false;
-        jVar.oxu = chatSession.getCategory();
+        jVar.oGN = chatSession.getCategory();
         jVar.iconUrl = chatSession.getIconUrl();
         jVar.name = chatSession.getNickName();
         if (TextUtils.isEmpty(jVar.name)) {
@@ -21,19 +21,19 @@ public class i extends d {
         }
         jVar.description = com.baidu.yuyinala.privatemessage.session.util.a.b(chatSession);
         jVar.time = chatSession.getLastMsgTime() * 1000;
-        jVar.oxv = chatSession.getLastMsgTime();
-        jVar.oxo = com.baidu.yuyinala.privatemessage.session.util.a.h(BdBaseApplication.getInst(), jVar.time);
+        jVar.oGO = chatSession.getLastMsgTime();
+        jVar.oGH = com.baidu.yuyinala.privatemessage.session.util.a.h(BdBaseApplication.getInst(), jVar.time);
         jVar.hasRead = chatSession.getNewMsgSum() <= 0;
         jVar.isMediaRole = chatSession.getSessionFrom() != 0;
-        jVar.oxz = chatSession.getShield() != 0;
-        jVar.oxw = chatSession.getContacterId();
+        jVar.oGS = chatSession.getShield() != 0;
+        jVar.oGP = chatSession.getContacterId();
         jVar.contacter = chatSession.getContacter();
         jVar.paid = chatSession.getPaid();
         try {
-            jVar.oxy = com.baidu.yuyinala.privatemessage.session.util.a.hc(chatSession.getNewMsgSum());
+            jVar.oGR = com.baidu.yuyinala.privatemessage.session.util.a.hy(chatSession.getNewMsgSum());
         } catch (Exception e) {
         }
-        jVar.oxp = 6;
+        jVar.oGI = 6;
         return jVar;
     }
 }

@@ -5,49 +5,49 @@ import master.flame.danmaku.danmaku.model.a.c;
 class a<T extends c<T>> implements b<T> {
     private final boolean mInfinite;
     private final int mLimit;
-    private final d<T> pPc;
-    private T pPd;
-    private int pPe;
+    private final d<T> pYw;
+    private T pYx;
+    private int pYy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(d<T> dVar, int i) {
         if (i <= 0) {
             throw new IllegalArgumentException("The pool limit must be > 0");
         }
-        this.pPc = dVar;
+        this.pYw = dVar;
         this.mLimit = i;
         this.mInfinite = false;
     }
 
     @Override // master.flame.danmaku.danmaku.model.a.b
-    public T eAo() {
-        T eAn;
-        if (this.pPd != null) {
-            T t = this.pPd;
-            this.pPd = (T) t.eAk();
-            this.pPe--;
-            eAn = t;
+    public T eEd() {
+        T eEc;
+        if (this.pYx != null) {
+            T t = this.pYx;
+            this.pYx = (T) t.eDZ();
+            this.pYy--;
+            eEc = t;
         } else {
-            eAn = this.pPc.eAn();
+            eEc = this.pYw.eEc();
         }
-        if (eAn != null) {
-            eAn.bZ(null);
-            eAn.AT(false);
-            this.pPc.b(eAn);
+        if (eEc != null) {
+            eEc.bZ(null);
+            eEc.Be(false);
+            this.pYw.b(eEc);
         }
-        return eAn;
+        return eEc;
     }
 
     @Override // master.flame.danmaku.danmaku.model.a.b
     public void c(T t) {
-        if (!t.eAi()) {
-            if (this.mInfinite || this.pPe < this.mLimit) {
-                this.pPe++;
-                t.bZ(this.pPd);
-                t.AT(true);
-                this.pPd = t;
+        if (!t.eDX()) {
+            if (this.mInfinite || this.pYy < this.mLimit) {
+                this.pYy++;
+                t.bZ(this.pYx);
+                t.Be(true);
+                this.pYx = t;
             }
-            this.pPc.a(t);
+            this.pYw.a(t);
         }
     }
 }

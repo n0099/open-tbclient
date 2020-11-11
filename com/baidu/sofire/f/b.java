@@ -5,12 +5,12 @@ import org.json.JSONObject;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONObject f3622a;
+    public JSONObject f3625a;
     public String b;
     public int c;
 
     public b(JSONObject jSONObject, String str, int i) {
-        this.f3622a = jSONObject;
+        this.f3625a = jSONObject;
         this.b = str;
         this.c = i;
     }

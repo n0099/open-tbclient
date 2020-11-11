@@ -51,7 +51,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
     private long Z;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2449a;
+    private String f2451a;
     private IXAdInstanceInfo.CreativeType aa;
     private String ab;
     private int ac;
@@ -218,12 +218,12 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
     public String getFwt() {
-        return this.f2449a;
+        return this.f2451a;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
     public void setFwt(String str) {
-        this.f2449a = str;
+        this.f2451a = str;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
@@ -989,7 +989,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
         parcel.writeString(this.e);
         parcel.writeString(this.d);
         parcel.writeString(this.k);
-        parcel.writeString(this.f2449a);
+        parcel.writeString(this.f2451a);
         parcel.writeString(this.z);
         parcel.writeString(this.j);
         parcel.writeString(this.i);
@@ -1051,7 +1051,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
         this.e = parcel.readString();
         this.d = parcel.readString();
         this.k = parcel.readString();
-        this.f2449a = parcel.readString();
+        this.f2451a = parcel.readString();
         this.z = parcel.readString();
         this.j = parcel.readString();
         this.i = parcel.readString();

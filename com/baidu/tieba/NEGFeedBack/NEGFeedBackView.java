@@ -17,11 +17,11 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes21.dex */
 public class NEGFeedBackView extends AppCompatImageView {
-    private long aWC;
+    private long aXU;
     private int agV;
     private int agW;
-    c fJg;
-    private View.OnClickListener fJh;
+    c fOW;
+    private View.OnClickListener fOX;
     private Context mContext;
     private int mPaddingLeft;
     private int mPaddingRight;
@@ -38,18 +38,18 @@ public class NEGFeedBackView extends AppCompatImageView {
 
     public NEGFeedBackView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
-        this.aWC = 0L;
+        this.aXU = 0L;
         this.agV = R.drawable.ic_icon_pure_card_delete_svg;
         this.agW = R.color.cp_cont_g;
-        this.fJh = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
+        this.fOX = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                NEGFeedBackView.this.bFX();
+                NEGFeedBackView.this.bIw();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - NEGFeedBackView.this.aWC > 500) {
+                if (currentTimeMillis - NEGFeedBackView.this.aXU > 500) {
                     NEGFeedBackView.this.O(view);
                 }
-                NEGFeedBackView.this.aWC = currentTimeMillis;
+                NEGFeedBackView.this.aXU = currentTimeMillis;
             }
         };
         this.mContext = tbPageContext.getPageActivity();
@@ -57,14 +57,14 @@ public class NEGFeedBackView extends AppCompatImageView {
     }
 
     private void l(TbPageContext tbPageContext) {
-        this.fJg = new c(tbPageContext, this);
-        setOnClickListener(this.fJh);
+        this.fOW = new c(tbPageContext, this);
+        setOnClickListener(this.fOX);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         onChangeSkinType();
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.fJg.setUniqueId(bdUniqueId);
+        this.fOW.setUniqueId(bdUniqueId);
     }
 
     public void setDefaultLayout() {
@@ -88,11 +88,11 @@ public class NEGFeedBackView extends AppCompatImageView {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void O(View view) {
-        this.fJg.O(view);
+        this.fOW.O(view);
     }
 
-    public void bFX() {
-        this.fJg.bFX();
+    public void bIw() {
+        this.fOW.bIw();
     }
 
     public void setCWRotateAnimation() {
@@ -104,39 +104,39 @@ public class NEGFeedBackView extends AppCompatImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.fJg.onDetachedFromWindow();
+        this.fOW.onDetachedFromWindow();
     }
 
     public void setData(ar arVar) {
-        this.fJg.setData(arVar);
+        this.fOW.setData(arVar);
     }
 
     public void setFirstRowSingleColumn(boolean z) {
-        this.fJg.setFirstRowSingleColumn(z);
+        this.fOW.setFirstRowSingleColumn(z);
     }
 
     public void onChangeSkinType() {
-        SvgManager.boN().a(this, this.agV, this.agW, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.brn().a(this, this.agV, this.agW, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     public void setEventCallback(a aVar) {
-        this.fJg.setEventCallback(aVar);
+        this.fOW.setEventCallback(aVar);
     }
 
     public void setAutoProcess(boolean z) {
-        this.fJg.setAutoProcess(z);
+        this.fOW.setAutoProcess(z);
     }
 
     public void setHeadText(String str) {
-        this.fJg.setHeadText(str);
+        this.fOW.setHeadText(str);
     }
 
     public void aJ(boolean z) {
-        this.fJg.aJ(z);
+        this.fOW.aJ(z);
     }
 
     public void setDefaultReasonArray(String[] strArr) {
-        this.fJg.setDefaultReasonArray(strArr);
+        this.fOW.setDefaultReasonArray(strArr);
     }
 
     public void a(ViewGroup viewGroup, int i, int i2) {
@@ -172,6 +172,6 @@ public class NEGFeedBackView extends AppCompatImageView {
     public void setSvgResId(int i, int i2) {
         this.agV = i;
         this.agW = i2;
-        SvgManager.boN().a(this, this.agV, this.agW, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.brn().a(this, this.agV, this.agW, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 }

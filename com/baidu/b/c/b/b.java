@@ -11,7 +11,7 @@ import java.util.Random;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int[] f1257a = s(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, 45, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
+    private static final int[] f1259a = s(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, 45, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
     private final int b;
 
     public b(int i) {
@@ -60,8 +60,8 @@ public class b {
     }
 
     static void d(int[] iArr, int[] iArr2) {
-        System.arraycopy(f1257a, 0, iArr, 0, f1257a.length);
-        System.arraycopy(iArr2, 0, iArr, f1257a.length, 8);
+        System.arraycopy(f1259a, 0, iArr, 0, f1259a.length);
+        System.arraycopy(iArr2, 0, iArr, f1259a.length, 8);
     }
 
     static int[] s(byte[] bArr) {

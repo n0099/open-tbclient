@@ -8,7 +8,7 @@ import java.util.IllegalFormatException;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private float f2908a;
+    private float f2910a;
     private StringBuffer b = new StringBuffer();
     private StringBuffer c = new StringBuffer();
     private MapController d;
@@ -73,15 +73,15 @@ public class d {
     }
 
     private void d(float f) {
-        this.f2908a = f;
+        this.f2910a = f;
     }
 
     private boolean e(float f) {
-        return f > this.f2908a;
+        return f > this.f2910a;
     }
 
     private boolean f(float f) {
-        return f < this.f2908a;
+        return f < this.f2910a;
     }
 
     public void a() {

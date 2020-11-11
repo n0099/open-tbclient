@@ -10,34 +10,34 @@ import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes10.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String dxi;
+    private static String dDa;
 
-    public static String aJv() {
-        return tO("swan");
+    public static String aLV() {
+        return uc("swan");
     }
 
-    public static String aqz() {
-        return tO("swangame");
+    public static String ata() {
+        return uc("swangame");
     }
 
-    private static String tO(String str) {
-        String hostName = com.baidu.swan.apps.t.a.auM().getHostName();
+    private static String uc(String str) {
+        String hostName = com.baidu.swan.apps.t.a.axm().getHostName();
         a aVar = new a();
-        aVar.tP(str).tQ(c.getVersion()).tR(hostName).tS(getVersionName()).tT(getOSVersion());
-        return aVar.aJw();
+        aVar.ud(str).ue(c.getVersion()).uf(hostName).ug(getVersionName()).uh(getOSVersion());
+        return aVar.aLW();
     }
 
     private static Context getContext() {
-        return com.baidu.swan.apps.t.a.aua();
+        return com.baidu.swan.apps.t.a.awA();
     }
 
     public static String getVersionName() {
-        if (!TextUtils.isEmpty(dxi)) {
-            return dxi;
+        if (!TextUtils.isEmpty(dDa)) {
+            return dDa;
         }
         try {
-            dxi = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
-            return dxi;
+            dDa = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
+            return dDa;
         } catch (PackageManager.NameNotFoundException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -56,54 +56,54 @@ public class b {
 
     /* loaded from: classes10.dex */
     public static class a {
-        private static String dxn = "%s/%s";
-        private static String dxo = "%s-%s/%s";
-        private static String dxp = "(Baidu; P1 %s)";
-        private static String dxq = "%s/%s";
+        private static String dDf = "%s/%s";
+        private static String dDg = "%s-%s/%s";
+        private static String dDh = "(Baidu; P1 %s)";
+        private static String dDi = "%s/%s";
         private String anv;
-        private String dxj;
-        private String dxk;
-        private String dxl;
-        private String dxm;
+        private String dDb;
+        private String dDc;
+        private String dDd;
+        private String dDe;
 
-        public a tP(String str) {
-            this.dxj = str;
+        public a ud(String str) {
+            this.dDb = str;
             return this;
         }
 
-        public a tQ(String str) {
-            this.dxk = str;
+        public a ue(String str) {
+            this.dDc = str;
             return this;
         }
 
-        public a tR(String str) {
-            this.dxl = str;
+        public a uf(String str) {
+            this.dDd = str;
             return this;
         }
 
-        public a tS(String str) {
-            this.dxm = str;
+        public a ug(String str) {
+            this.dDe = str;
             return this;
         }
 
-        public a tT(String str) {
+        public a uh(String str) {
             this.anv = str;
             return this;
         }
 
-        public String aJw() {
-            String format = String.format(dxn, this.dxj, this.dxk);
-            String format2 = String.format(dxo, this.dxj, this.dxl, this.dxm);
-            String format3 = String.format(dxq, this.dxl, this.dxm);
-            String format4 = String.format(dxp, this.anv);
-            if (aJx()) {
+        public String aLW() {
+            String format = String.format(dDf, this.dDb, this.dDc);
+            String format2 = String.format(dDg, this.dDb, this.dDd, this.dDe);
+            String format3 = String.format(dDi, this.dDd, this.dDe);
+            String format4 = String.format(dDh, this.anv);
+            if (aLX()) {
                 return String.format("%s %s %s %s", format, format2, format3, format4);
             }
             return String.format("%s %s %s", format, format2, format4);
         }
 
-        private boolean aJx() {
-            return TextUtils.equals("baiduboxapp", this.dxl);
+        private boolean aLX() {
+            return TextUtils.equals("baiduboxapp", this.dDd);
         }
     }
 }

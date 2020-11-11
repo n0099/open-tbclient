@@ -25,19 +25,19 @@ public class b {
     private static String hB(Context context) {
         String hC = hC(context);
         if (TextUtils.isEmpty(hC)) {
-            String eDv = eDv();
-            if (TextUtils.isEmpty(eDv)) {
-                String eDw = eDw();
-                if (TextUtils.isEmpty(eDw)) {
-                    String eDx = eDx();
-                    if (TextUtils.isEmpty(eDx)) {
+            String eHk = eHk();
+            if (TextUtils.isEmpty(eHk)) {
+                String eHl = eHl();
+                if (TextUtils.isEmpty(eHl)) {
+                    String eHm = eHm();
+                    if (TextUtils.isEmpty(eHm)) {
                         return null;
                     }
-                    return eDx;
+                    return eHm;
                 }
-                return eDw;
+                return eHl;
             }
-            return eDv;
+            return eHk;
         }
         return hC;
     }
@@ -54,18 +54,18 @@ public class b {
         try {
             connectionInfo = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getConnectionInfo();
         } catch (Exception e) {
-            tv.chushou.basis.d.b.eDA().e("MacAddressCompact", "get getMacAddress0 failed", e);
+            tv.chushou.basis.d.b.eHp().e("MacAddressCompact", "get getMacAddress0 failed", e);
         }
         if (connectionInfo != null) {
             str = connectionInfo.getMacAddress();
-            tv.chushou.basis.d.b.eDA().d("MacAddressCompact", "getMacAddress0:" + str);
+            tv.chushou.basis.d.b.eHp().d("MacAddressCompact", "getMacAddress0:" + str);
             if (Config.DEF_MAC_ID.equals(str)) {
                 return str;
             }
             return null;
         }
         str = null;
-        tv.chushou.basis.d.b.eDA().d("MacAddressCompact", "getMacAddress0:" + str);
+        tv.chushou.basis.d.b.eHp().d("MacAddressCompact", "getMacAddress0:" + str);
         if (Config.DEF_MAC_ID.equals(str)) {
         }
     }
@@ -76,7 +76,7 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String eDv() {
+    private static String eHk() {
         String str = null;
         try {
             LineNumberReader lineNumberReader = new LineNumberReader(new InputStreamReader(Runtime.getRuntime().exec("cat /sys/class/net/wlan0/address ").getInputStream()));
@@ -92,24 +92,24 @@ public class b {
                 }
             }
         } catch (Exception e) {
-            tv.chushou.basis.d.b.eDA().e("MacAddressCompact", "get getMacAddress1 failed", e);
+            tv.chushou.basis.d.b.eHp().e("MacAddressCompact", "get getMacAddress1 failed", e);
         }
-        tv.chushou.basis.d.b.eDA().d("MacAddressCompact", "getMacAddress1:" + str);
+        tv.chushou.basis.d.b.eHp().d("MacAddressCompact", "getMacAddress1:" + str);
         return str;
     }
 
-    private static String eDw() {
+    private static String eHl() {
         String str = null;
         try {
             str = tv.chushou.a.a.d.a.k(new File("/sys/class/net/eth0/address"), null);
         } catch (Exception e) {
-            tv.chushou.basis.d.b.eDA().e("MacAddressCompact", "get getMacAddress2 failed", e);
+            tv.chushou.basis.d.b.eHp().e("MacAddressCompact", "get getMacAddress2 failed", e);
         }
-        tv.chushou.basis.d.b.eDA().d("MacAddressCompact", "getMacAddress2:" + str);
+        tv.chushou.basis.d.b.eHp().d("MacAddressCompact", "getMacAddress2:" + str);
         return str;
     }
 
-    private static String eDx() {
+    private static String eHm() {
         StringBuilder sb = new StringBuilder();
         try {
             for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
@@ -128,10 +128,10 @@ public class b {
                 }
             }
         } catch (Exception e) {
-            tv.chushou.basis.d.b.eDA().e("MacAddressCompact", "get getMacAddress3 failed", e);
+            tv.chushou.basis.d.b.eHp().e("MacAddressCompact", "get getMacAddress3 failed", e);
         }
         String sb2 = sb.toString();
-        tv.chushou.basis.d.b.eDA().d("MacAddressCompact", "getMacAddress3:" + sb2);
+        tv.chushou.basis.d.b.eHp().d("MacAddressCompact", "getMacAddress3:" + sb2);
         return sb2;
     }
 }

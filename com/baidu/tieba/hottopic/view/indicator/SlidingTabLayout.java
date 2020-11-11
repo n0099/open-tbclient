@@ -16,11 +16,11 @@ import java.util.List;
 /* loaded from: classes21.dex */
 public class SlidingTabLayout extends HorizontalScrollView {
     private int currentIndex;
-    private int jNH;
-    private ViewPager.OnPageChangeListener jNI;
-    private final SlidingTabStrip jNJ;
-    private b jNK;
-    private List<TabItemView> jNL;
+    private int jTE;
+    private ViewPager.OnPageChangeListener jTF;
+    private final SlidingTabStrip jTG;
+    private b jTH;
+    private List<TabItemView> jTI;
     private ViewPager mViewPager;
 
     public SlidingTabLayout(Context context) {
@@ -34,24 +34,24 @@ public class SlidingTabLayout extends HorizontalScrollView {
     public SlidingTabLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.currentIndex = 0;
-        this.jNL = new ArrayList();
+        this.jTI = new ArrayList();
         setHorizontalScrollBarEnabled(false);
         setFillViewport(true);
-        this.jNH = (int) (24.0f * getResources().getDisplayMetrics().density);
-        this.jNJ = new SlidingTabStrip(context);
-        addView(this.jNJ, -1, -2);
+        this.jTE = (int) (24.0f * getResources().getDisplayMetrics().density);
+        this.jTG = new SlidingTabStrip(context);
+        addView(this.jTG, -1, -2);
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        this.jNI = onPageChangeListener;
+        this.jTF = onPageChangeListener;
     }
 
     public void setViewPager(ViewPager viewPager) {
-        this.jNJ.removeAllViews();
+        this.jTG.removeAllViews();
         this.mViewPager = viewPager;
         if (viewPager != null) {
             viewPager.setOnPageChangeListener(new a());
-            cLi();
+            cNJ();
         }
     }
 
@@ -70,22 +70,22 @@ public class SlidingTabLayout extends HorizontalScrollView {
         return tabItemView;
     }
 
-    private void cLi() {
+    private void cNJ() {
         PagerAdapter adapter = this.mViewPager.getAdapter();
         c cVar = new c();
-        this.jNL.clear();
+        this.jTI.clear();
         for (int i = 0; i < adapter.getCount(); i++) {
             TabItemView C = C(getContext(), i);
-            this.jNL.add(C);
+            this.jTI.add(C);
             C.getTextView().setText(at.cutChineseAndEnglishWithSuffix(((Object) adapter.getPageTitle(i)) + "", 8, null));
             C.setOnClickListener(cVar);
-            this.jNJ.addView(C);
+            this.jTG.addView(C);
         }
     }
 
     public void setDrawBottomLine(boolean z) {
-        if (this.jNJ != null) {
-            this.jNJ.setDrawBottomLine(z);
+        if (this.jTG != null) {
+            this.jTG.setDrawBottomLine(z);
         }
     }
 
@@ -93,27 +93,27 @@ public class SlidingTabLayout extends HorizontalScrollView {
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         if (this.mViewPager != null) {
-            cI(this.mViewPager.getCurrentItem(), 0);
+            cK(this.mViewPager.getCurrentItem(), 0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cI(int i, int i2) {
-        int cJ = cJ(i, i2);
-        if (cJ >= 0) {
-            scrollTo(cJ, 0);
+    public void cK(int i, int i2) {
+        int cL = cL(i, i2);
+        if (cL >= 0) {
+            scrollTo(cL, 0);
         }
     }
 
-    private int cJ(int i, int i2) {
+    private int cL(int i, int i2) {
         View childAt;
-        int childCount = this.jNJ.getChildCount();
-        if (childCount == 0 || i < 0 || i >= childCount || (childAt = this.jNJ.getChildAt(i)) == null) {
+        int childCount = this.jTG.getChildCount();
+        if (childCount == 0 || i < 0 || i >= childCount || (childAt = this.jTG.getChildAt(i)) == null) {
             return 0;
         }
         int left = childAt.getLeft() + i2;
         if (i > 0 || i2 > 0) {
-            return left - this.jNH;
+            return left - this.jTE;
         }
         return left;
     }
@@ -128,12 +128,12 @@ public class SlidingTabLayout extends HorizontalScrollView {
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
             int childCount;
-            if (f >= 0.0f && (childCount = SlidingTabLayout.this.jNJ.getChildCount()) != 0 && i >= 0 && i < childCount) {
-                SlidingTabLayout.this.jNJ.j(i, f);
-                View childAt = SlidingTabLayout.this.jNJ.getChildAt(i);
-                SlidingTabLayout.this.cI(i, childAt != null ? (int) (childAt.getWidth() * f) : 0);
-                if (SlidingTabLayout.this.jNI != null) {
-                    SlidingTabLayout.this.jNI.onPageScrolled(i, f, i2);
+            if (f >= 0.0f && (childCount = SlidingTabLayout.this.jTG.getChildCount()) != 0 && i >= 0 && i < childCount) {
+                SlidingTabLayout.this.jTG.j(i, f);
+                View childAt = SlidingTabLayout.this.jTG.getChildAt(i);
+                SlidingTabLayout.this.cK(i, childAt != null ? (int) (childAt.getWidth() * f) : 0);
+                if (SlidingTabLayout.this.jTF != null) {
+                    SlidingTabLayout.this.jTF.onPageScrolled(i, f, i2);
                 }
             }
         }
@@ -141,41 +141,41 @@ public class SlidingTabLayout extends HorizontalScrollView {
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i) {
             this.mScrollState = i;
-            if (SlidingTabLayout.this.jNI != null) {
-                SlidingTabLayout.this.jNI.onPageScrollStateChanged(i);
+            if (SlidingTabLayout.this.jTF != null) {
+                SlidingTabLayout.this.jTF.onPageScrollStateChanged(i);
             }
         }
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
             int i2 = SlidingTabLayout.this.currentIndex;
-            SlidingTabLayout.this.jNJ.cL(i, SlidingTabLayout.this.currentIndex);
+            SlidingTabLayout.this.jTG.cN(i, SlidingTabLayout.this.currentIndex);
             SlidingTabLayout.this.currentIndex = i;
             if (this.mScrollState == 0) {
-                SlidingTabLayout.this.cK(i2, i);
+                SlidingTabLayout.this.cM(i2, i);
             }
-            if (SlidingTabLayout.this.jNI != null) {
-                SlidingTabLayout.this.jNI.onPageSelected(i);
+            if (SlidingTabLayout.this.jTF != null) {
+                SlidingTabLayout.this.jTF.onPageSelected(i);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cK(int i, int i2) {
+    public void cM(int i, int i2) {
         clearAnimation();
-        if (this.jNK == null) {
-            this.jNK = new b();
-            this.jNK.setDuration(300L);
+        if (this.jTH == null) {
+            this.jTH = new b();
+            this.jTH.setDuration(300L);
         }
-        int cJ = cJ(i2, 0);
-        this.jNK.Cf(i);
-        this.jNK.bo(getScrollX(), cJ);
-        startAnimation(this.jNK);
+        int cL = cL(i2, 0);
+        this.jTH.Cs(i);
+        this.jTH.bo(getScrollX(), cL);
+        startAnimation(this.jTH);
     }
 
     public void onChangeSkinType(int i) {
-        if (this.jNJ != null) {
-            this.jNJ.onChangeSkinType(i);
+        if (this.jTG != null) {
+            this.jTG.onChangeSkinType(i);
         }
     }
 
@@ -187,9 +187,9 @@ public class SlidingTabLayout extends HorizontalScrollView {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (SlidingTabLayout.this.jNJ != null) {
-                for (int i = 0; i < SlidingTabLayout.this.jNJ.getChildCount(); i++) {
-                    if (view == SlidingTabLayout.this.jNJ.getChildAt(i)) {
+            if (SlidingTabLayout.this.jTG != null) {
+                for (int i = 0; i < SlidingTabLayout.this.jTG.getChildCount(); i++) {
+                    if (view == SlidingTabLayout.this.jTG.getChildAt(i)) {
                         SlidingTabLayout.this.mViewPager.setCurrentItem(i, false);
                         return;
                     }
@@ -201,29 +201,29 @@ public class SlidingTabLayout extends HorizontalScrollView {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes21.dex */
     public class b extends Animation {
-        private int jNN;
-        private int jNO;
+        private int jTK;
+        private int jTL;
         private int startPosition;
 
         private b() {
         }
 
-        public void Cf(int i) {
-            this.jNO = i;
+        public void Cs(int i) {
+            this.jTL = i;
         }
 
         public void bo(int i, int i2) {
             this.startPosition = i;
-            this.jNN = i2;
+            this.jTK = i2;
         }
 
         @Override // android.view.animation.Animation
         protected void applyTransformation(float f, Transformation transformation) {
             super.applyTransformation(f, transformation);
             SlidingTabLayout slidingTabLayout = SlidingTabLayout.this;
-            slidingTabLayout.scrollTo((int) (((this.jNN - this.startPosition) * f) + this.startPosition), 0);
-            if (SlidingTabLayout.this.jNJ != null) {
-                SlidingTabLayout.this.jNJ.l(this.jNO, f);
+            slidingTabLayout.scrollTo((int) (((this.jTK - this.startPosition) * f) + this.startPosition), 0);
+            if (SlidingTabLayout.this.jTG != null) {
+                SlidingTabLayout.this.jTG.l(this.jTL, f);
             }
         }
     }

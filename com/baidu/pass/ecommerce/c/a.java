@@ -7,7 +7,7 @@ public class a extends SapiResult {
     public static final String d = "无权限";
 
     /* renamed from: a  reason: collision with root package name */
-    public String f2762a;
+    public String f2764a;
     public String b;
 
     public a() {

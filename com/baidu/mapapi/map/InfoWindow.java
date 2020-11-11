@@ -7,7 +7,7 @@ import com.baidu.mapapi.model.LatLng;
 public class InfoWindow {
 
     /* renamed from: a  reason: collision with root package name */
-    BitmapDescriptor f2011a;
+    BitmapDescriptor f2013a;
     View b;
     LatLng c;
     OnInfoWindowClickListener d;
@@ -77,7 +77,7 @@ public class InfoWindow {
         if (bitmapDescriptor == null || latLng == null) {
             throw new IllegalArgumentException("BDMapSDKException: bitmapDescriptor and position can not be null");
         }
-        this.f2011a = bitmapDescriptor;
+        this.f2013a = bitmapDescriptor;
         this.c = latLng;
         this.d = onInfoWindowClickListener;
         this.f = i;
@@ -85,7 +85,7 @@ public class InfoWindow {
     }
 
     public BitmapDescriptor getBitmapDescriptor() {
-        return this.f2011a;
+        return this.f2013a;
     }
 
     public LatLng getPosition() {
@@ -108,7 +108,7 @@ public class InfoWindow {
         if (bitmapDescriptor == null) {
             return;
         }
-        this.f2011a = bitmapDescriptor;
+        this.f2013a = bitmapDescriptor;
         this.e.b(this);
     }
 

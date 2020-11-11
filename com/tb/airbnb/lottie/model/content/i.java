@@ -8,16 +8,16 @@ public class i implements b {
     private final Path.FillType Ff;
     private final String name;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.a pzP;
+    private final com.tb.airbnb.lottie.model.a.a pJj;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.d pzX;
+    private final com.tb.airbnb.lottie.model.a.d pJr;
 
     public i(String str, boolean z, Path.FillType fillType, @Nullable com.tb.airbnb.lottie.model.a.a aVar, @Nullable com.tb.airbnb.lottie.model.a.d dVar) {
         this.name = str;
         this.FF = z;
         this.Ff = fillType;
-        this.pzP = aVar;
-        this.pzX = dVar;
+        this.pJj = aVar;
+        this.pJr = dVar;
     }
 
     public String getName() {
@@ -25,13 +25,13 @@ public class i implements b {
     }
 
     @Nullable
-    public com.tb.airbnb.lottie.model.a.a evC() {
-        return this.pzP;
+    public com.tb.airbnb.lottie.model.a.a ezr() {
+        return this.pJj;
     }
 
     @Nullable
-    public com.tb.airbnb.lottie.model.a.d evc() {
-        return this.pzX;
+    public com.tb.airbnb.lottie.model.a.d eyR() {
+        return this.pJr;
     }
 
     public Path.FillType jQ() {
@@ -39,8 +39,8 @@ public class i implements b {
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b
-    public com.tb.airbnb.lottie.a.a.b a(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar) {
-        return new com.tb.airbnb.lottie.a.a.f(fVar, aVar, this);
+    public com.tb.airbnb.lottie.a.a.b a(com.tb.airbnb.lottie.g gVar, com.tb.airbnb.lottie.model.layer.a aVar) {
+        return new com.tb.airbnb.lottie.a.a.f(gVar, aVar, this);
     }
 
     public String toString() {

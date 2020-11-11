@@ -7,16 +7,16 @@ import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.widget.CountDownTextView;
 /* loaded from: classes26.dex */
 public class e {
-    public TbPageContext eCn;
+    public TbPageContext eIc;
     protected final View mRootView;
-    protected final String mtf;
-    protected com.baidu.tieba.recapp.report.c mtg;
-    protected AdvertAppInfo mth;
-    protected com.baidu.tieba.lego.card.b.b mti;
+    protected final String mzb;
+    protected com.baidu.tieba.recapp.report.c mzc;
+    protected AdvertAppInfo mzd;
+    protected com.baidu.tieba.lego.card.b.b mze;
 
     public e(View view, String str) {
         this.mRootView = view;
-        this.mtf = str;
+        this.mzb = str;
     }
 
     public void a(AdCard.f fVar) {
@@ -26,32 +26,32 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final <T> T HS(int i) {
+    public final <T> T If(int i) {
         return (T) this.mRootView.findViewById(i);
     }
 
-    public void dyU() {
+    public void dBw() {
         this.mRootView.setVisibility(0);
-        if (this.mtg != null) {
-            this.mtg.HL(303);
-            com.baidu.tieba.recapp.report.d.dyN().a(this.mtg);
+        if (this.mzc != null) {
+            this.mzc.HY(303);
+            com.baidu.tieba.recapp.report.d.dBp().a(this.mzc);
         }
     }
 
-    public void dyV() {
+    public void dBx() {
         this.mRootView.setVisibility(8);
     }
 
     public void e(com.baidu.tieba.recapp.report.c cVar) {
-        this.mtg = cVar;
+        this.mzc = cVar;
     }
 
     public void c(com.baidu.tieba.lego.card.b.b bVar) {
-        this.mti = bVar;
+        this.mze = bVar;
     }
 
     public void setPageContext(TbPageContext<?> tbPageContext) {
-        this.eCn = tbPageContext;
+        this.eIc = tbPageContext;
     }
 
     public void setDownloadAppCallback(com.baidu.tieba.lego.card.c cVar) {
@@ -60,10 +60,10 @@ public class e {
     public void setTimeoutListener(CountDownTextView.b bVar) {
     }
 
-    public void wx(boolean z) {
+    public void wG(boolean z) {
     }
 
     public void setAdvertAppInfo(AdvertAppInfo advertAppInfo) {
-        this.mth = advertAppInfo;
+        this.mzd = advertAppInfo;
     }
 }

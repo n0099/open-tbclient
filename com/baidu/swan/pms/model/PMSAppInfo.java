@@ -15,7 +15,7 @@ public class PMSAppInfo implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: mI */
+        /* renamed from: mS */
         public PMSAppInfo[] newArray(int i) {
             return new PMSAppInfo[i];
         }
@@ -168,19 +168,19 @@ public class PMSAppInfo implements Parcelable {
         parcel.writeInt(this.csProtocolVersion);
     }
 
-    public void cq(long j) {
+    public void cM(long j) {
         if (0 >= j) {
             j = System.currentTimeMillis();
         }
-        cr(j);
+        cN(j);
         this.launchCount++;
     }
 
-    public void cr(long j) {
+    public void cN(long j) {
         this.lastLaunchTime = Math.max(j, this.lastLaunchTime);
     }
 
-    public void mG(int i) {
+    public void mQ(int i) {
         this.launchCount = Math.max(i, this.launchCount);
     }
 
@@ -188,17 +188,17 @@ public class PMSAppInfo implements Parcelable {
         return this.lastLaunchTime;
     }
 
-    public int aKq() {
+    public int aMQ() {
         return this.launchCount;
     }
 
-    public void mH(int i) {
+    public void mR(int i) {
         if (this.installSrc == 0 && i > 0) {
             this.installSrc = i;
         }
     }
 
-    public int aoc() {
+    public int aqD() {
         return this.installSrc;
     }
 
@@ -212,20 +212,20 @@ public class PMSAppInfo implements Parcelable {
         return this.orientation;
     }
 
-    public boolean aYQ() {
+    public boolean bbq() {
         return this.pendingErrCode != 0;
     }
 
-    public boolean aYR() {
+    public boolean bbr() {
         return (System.currentTimeMillis() - this.createTime) / 1000 > this.maxAge;
     }
 
     public void h(f fVar) {
         if (fVar != null) {
-            this.appId = fVar.ebO;
+            this.appId = fVar.ehG;
             this.versionCode = fVar.versionCode;
             this.versionName = fVar.versionName;
-            this.type = fVar.ebS;
+            this.type = fVar.ehK;
             this.pkgSize = fVar.size;
         }
     }
@@ -235,7 +235,7 @@ public class PMSAppInfo implements Parcelable {
             this.appId = gVar.appId;
             this.versionCode = gVar.versionCode;
             this.versionName = gVar.versionName;
-            this.type = gVar.ebS;
+            this.type = gVar.ehK;
             this.pkgSize = gVar.size;
         }
     }
@@ -247,21 +247,21 @@ public class PMSAppInfo implements Parcelable {
             this.type = pMSAppInfo.type;
             this.pkgSize = pMSAppInfo.pkgSize;
             this.createTime = pMSAppInfo.createTime;
-            cr(this.lastLaunchTime);
-            mG(this.launchCount);
+            cN(this.lastLaunchTime);
+            mQ(this.launchCount);
             setOrientation(pMSAppInfo.getOrientation());
-            mH(pMSAppInfo.aoc());
+            mR(pMSAppInfo.aqD());
         }
     }
 
-    public void aYS() {
+    public void bbs() {
         if (this.maxAge <= 0) {
             this.maxAge = DEFAULT_SWAN_APP_PKG_MAX_AGE;
         }
         this.createTime = System.currentTimeMillis();
     }
 
-    public boolean aoD() {
+    public boolean are() {
         return !TextUtils.isEmpty(this.appKey) && this.appSign > 0;
     }
 

@@ -19,12 +19,12 @@ public class a {
             com.baidu.swan.apps.ac.d.a.print(Log.getStackTraceString(e));
         }
         gVar.mData = jSONObject;
-        f.axo().a(str, gVar);
+        f.azO().a(str, gVar);
     }
 
     public static void e(Integer num) {
         HashMap hashMap = new HashMap();
         hashMap.put("level", String.valueOf(num));
-        f.axo().b(new com.baidu.swan.apps.event.a.b("text-size-adjust", hashMap));
+        f.azO().b(new com.baidu.swan.apps.event.a.b("text-size-adjust", hashMap));
     }
 }

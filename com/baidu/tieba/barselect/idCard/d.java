@@ -19,15 +19,15 @@ public interface d {
 
     void a(e eVar);
 
-    void ckO();
+    Rect cnA();
 
-    int ckP();
+    void cnB();
 
-    View ckR();
+    void cnq();
 
-    Rect ckZ();
+    int cnr();
 
-    void cla();
+    View cns();
 
     void pause();
 
@@ -37,7 +37,7 @@ public interface d {
 
     void stop();
 
-    void wI(int i);
+    void wV(int i);
 
-    void wJ(int i);
+    void wW(int i);
 }

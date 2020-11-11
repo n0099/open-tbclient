@@ -15,9 +15,9 @@ public class d {
             str2 = "";
         }
         eVar.mValue = str2;
-        eVar.u("appid", com.baidu.swan.apps.runtime.d.aEQ().getAppId());
+        eVar.u("appid", com.baidu.swan.apps.runtime.d.aHq().getAppId());
         eVar.u(DpStatConstants.KEY_NETWORK_STATUS, str3);
-        eVar.u("isShow", c.aks() ? "1" : "0");
+        eVar.u("isShow", c.amS() ? "1" : "0");
         h.a("1619", eVar);
     }
 
@@ -25,7 +25,7 @@ public class d {
         F(str, null, str2);
     }
 
-    public static void jF(final String str) {
+    public static void jS(final String str) {
         SwanAppNetworkUtils.a(new SwanAppNetworkUtils.a() { // from class: com.baidu.swan.apps.core.d.1
             @Override // com.baidu.swan.apps.network.SwanAppNetworkUtils.a
             public void onResult(int i) {

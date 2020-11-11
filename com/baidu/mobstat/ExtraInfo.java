@@ -9,7 +9,7 @@ import org.json.JSONObject;
 public class ExtraInfo {
 
     /* renamed from: a  reason: collision with root package name */
-    String f2493a = "";
+    String f2495a = "";
     String b = "";
     String c = "";
     String d = "";
@@ -44,11 +44,11 @@ public class ExtraInfo {
     }
 
     public String getV1() {
-        return this.f2493a;
+        return this.f2495a;
     }
 
     public void setV1(String str) {
-        this.f2493a = a(str);
+        this.f2495a = a(str);
     }
 
     public String getV2() {
@@ -126,8 +126,8 @@ public class ExtraInfo {
     public JSONObject dumpToJson() {
         JSONObject jSONObject = new JSONObject();
         try {
-            if (!TextUtils.isEmpty(this.f2493a)) {
-                jSONObject.put(AbstractBceClient.URL_PREFIX, this.f2493a);
+            if (!TextUtils.isEmpty(this.f2495a)) {
+                jSONObject.put(AbstractBceClient.URL_PREFIX, this.f2495a);
             }
             if (!TextUtils.isEmpty(this.b)) {
                 jSONObject.put("v2", this.b);

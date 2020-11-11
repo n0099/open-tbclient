@@ -37,7 +37,7 @@ import java.util.List;
 public class VDeviceAPI {
 
     /* renamed from: a  reason: collision with root package name */
-    private static PowerManager.WakeLock f3900a = null;
+    private static PowerManager.WakeLock f3902a = null;
     private static BroadcastReceiver b = null;
 
     public static String getAppVersion() {
@@ -316,14 +316,14 @@ public class VDeviceAPI {
 
     public static void setScreenAlwaysOn(boolean z) {
         if (z) {
-            if (f3900a == null) {
-                f3900a = ((PowerManager) VIContext.getContext().getSystemService("power")).newWakeLock(10, "VDeviceAPI");
+            if (f3902a == null) {
+                f3902a = ((PowerManager) VIContext.getContext().getSystemService("power")).newWakeLock(10, "VDeviceAPI");
             }
-            f3900a.acquire();
-        } else if (f3900a == null || !f3900a.isHeld()) {
+            f3902a.acquire();
+        } else if (f3902a == null || !f3902a.isHeld()) {
         } else {
-            f3900a.release();
-            f3900a = null;
+            f3902a.release();
+            f3902a = null;
         }
     }
 

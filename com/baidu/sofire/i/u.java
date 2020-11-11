@@ -20,7 +20,7 @@ import org.json.JSONObject;
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f3645a;
+    public static String f3648a;
     private static u c;
     private Context b;
     private com.baidu.sofire.g d;
@@ -28,7 +28,7 @@ public class u {
     private u(Context context) {
         this.b = context;
         this.d = new com.baidu.sofire.g(context);
-        f3645a = a();
+        f3648a = a();
     }
 
     public static u a(Context context) {
@@ -101,7 +101,7 @@ public class u {
                 byte[] bArr = new byte[16];
                 System.arraycopy(p.a(allocate3.array()).getBytes(), 0, bArr, 0, 16);
                 allocate.put(bArr);
-                byte[] b = a.b(f3645a.getBytes(), allocate.array());
+                byte[] b = a.b(f3648a.getBytes(), allocate.array());
                 byte[] bArr2 = new byte[b.length - 4];
                 int b2 = this.d.b();
                 byte[] a5 = v.a(b2);
@@ -401,7 +401,7 @@ public class u {
         String str3 = "";
         try {
             t d = d();
-            if (d == null || TextUtils.isEmpty(d.f3644a)) {
+            if (d == null || TextUtils.isEmpty(d.f3647a)) {
                 Iterator<ResolveInfo> it = this.b.getPackageManager().queryIntentServices(new Intent("com.baidu.action.SOFIRE.VIEW"), 0).iterator();
                 String str4 = str3;
                 while (true) {
@@ -414,7 +414,7 @@ public class u {
                     if (next.serviceInfo != null && next.serviceInfo.applicationInfo != null) {
                         File file = new File(new File(next.serviceInfo.applicationInfo.dataDir + File.separator + com.baidu.fsg.face.base.b.c.g), "libtdidv2.so");
                         if (file.exists() && (a2 = a(file)) != null) {
-                            str = a2.f3644a;
+                            str = a2.f3647a;
                             try {
                                 boolean isEmpty = TextUtils.isEmpty(str);
                                 if (isEmpty == 0) {
@@ -431,7 +431,7 @@ public class u {
                     str4 = str;
                 }
             } else {
-                str = d.f3644a;
+                str = d.f3647a;
                 str2 = str3;
             }
         } catch (Throwable th2) {
@@ -447,10 +447,10 @@ public class u {
             t g = g();
             t e = e();
             t a2 = a(new File(this.b.getFilesDir() + File.separator + "libtdidv2.so"));
-            if (f == null || TextUtils.isEmpty(f.f3644a)) {
-                if (g == null || TextUtils.isEmpty(g.f3644a)) {
-                    if (e == null || TextUtils.isEmpty(e.f3644a)) {
-                        if (a2 == null || TextUtils.isEmpty(a2.f3644a)) {
+            if (f == null || TextUtils.isEmpty(f.f3647a)) {
+                if (g == null || TextUtils.isEmpty(g.f3647a)) {
+                    if (e == null || TextUtils.isEmpty(e.f3647a)) {
+                        if (a2 == null || TextUtils.isEmpty(a2.f3647a)) {
                             return null;
                         }
                         return a2;
@@ -465,10 +465,10 @@ public class u {
 
     private t e() {
         try {
-            String string = this.d.f3623a.getString("t_d_i_dv2", "");
-            long j = this.d.f3623a.getLong("t_d_i_d_tv2", 0L);
+            String string = this.d.f3626a.getString("t_d_i_dv2", "");
+            long j = this.d.f3626a.getLong("t_d_i_d_tv2", 0L);
             t tVar = new t();
-            tVar.f3644a = string;
+            tVar.f3647a = string;
             tVar.b = j;
             return tVar;
         } catch (Throwable th) {
@@ -588,7 +588,7 @@ public class u {
             String optString = jSONObject.optString("tdid");
             long optLong = jSONObject.optLong("time");
             t tVar = new t();
-            tVar.f3644a = optString;
+            tVar.f3647a = optString;
             tVar.b = optLong;
             return tVar;
         } catch (Throwable th) {
@@ -670,7 +670,7 @@ public class u {
             if (i > 0) {
                 System.arraycopy(new byte[]{(byte) i}, 0, a2, 48, 1);
             }
-            byte[] b = a.b(f3645a.getBytes(), a2);
+            byte[] b = a.b(f3648a.getBytes(), a2);
             byte[] bArr = new byte[b.length - 4];
             int b2 = this.d.b();
             byte[] a4 = v.a(b2);
@@ -727,7 +727,7 @@ public class u {
                 bArr4[i4] = (byte) (bArr2[i4] ^ array[i4]);
             }
             if (z) {
-                return a.a(f3645a.getBytes(), bArr4, false);
+                return a.a(f3648a.getBytes(), bArr4, false);
             }
             return bArr4;
         } catch (Throwable th) {

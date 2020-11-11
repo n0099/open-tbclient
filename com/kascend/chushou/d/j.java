@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class j {
-    private static j oYu = null;
-    private final LruCache<String, VideoPlayInfo> oYt = new LruCache<String, VideoPlayInfo>(50) { // from class: com.kascend.chushou.d.j.1
+    private static j phP = null;
+    private final LruCache<String, VideoPlayInfo> phO = new LruCache<String, VideoPlayInfo>(50) { // from class: com.kascend.chushou.d.j.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.util.LruCache
@@ -29,39 +29,39 @@ public class j {
         }
     };
 
-    public static j eqp() {
-        if (oYu == null) {
+    public static j eue() {
+        if (phP == null) {
             synchronized (j.class) {
-                if (oYu == null) {
-                    oYu = new j();
+                if (phP == null) {
+                    phP = new j();
                 }
             }
         }
-        return oYu;
+        return phP;
     }
 
     private j() {
     }
 
     public VideoPlayInfo Q(String str, long j) {
-        return a(this.oYt, str, j);
+        return a(this.phO, str, j);
     }
 
     public void a(String str) {
-        this.oYt.remove(str);
+        this.phO.remove(str);
     }
 
     public void a(String str, List<PlayUrl> list) {
-        a(this.oYt, str, list);
+        a(this.phO, str, list);
     }
 
     public void a(final String str, final String str2) {
         if (R(str, 600000L) == null) {
-            com.kascend.chushou.player.c.a.erb().a(str, str2, new a.InterfaceC0974a() { // from class: com.kascend.chushou.d.j.3
-                @Override // com.kascend.chushou.player.c.a.InterfaceC0974a
+            com.kascend.chushou.player.c.a.euQ().a(str, str2, new a.InterfaceC0993a() { // from class: com.kascend.chushou.d.j.3
+                @Override // com.kascend.chushou.player.c.a.InterfaceC0993a
                 public void a(ParserRet parserRet) {
                     if (parserRet.mRc == 0 && parserRet.mData != null) {
-                        j.eqp().a(str + str2, (ArrayList) parserRet.mData);
+                        j.eue().a(str + str2, (ArrayList) parserRet.mData);
                     }
                 }
             });

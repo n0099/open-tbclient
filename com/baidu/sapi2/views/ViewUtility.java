@@ -20,10 +20,10 @@ public class ViewUtility implements NoProguard {
     static class a implements View.OnTouchListener {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ float f3573a;
+        final /* synthetic */ float f3576a;
 
         a(float f) {
-            this.f3573a = f;
+            this.f3576a = f;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -31,7 +31,7 @@ public class ViewUtility implements NoProguard {
             int action = motionEvent.getAction();
             if (action == 0) {
                 if (Build.VERSION.SDK_INT >= 11) {
-                    view.setAlpha(this.f3573a);
+                    view.setAlpha(this.f3576a);
                     return false;
                 }
                 return false;

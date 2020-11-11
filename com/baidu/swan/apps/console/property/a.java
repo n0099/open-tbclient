@@ -16,55 +16,55 @@ import org.json.JSONObject;
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private final String afk = "performance_" + System.currentTimeMillis();
-    private int czU = 3000;
-    private HandlerC0399a czV;
-    private BufferedWriter czW;
+    private int cFN = 3000;
+    private HandlerC0411a cFO;
+    private BufferedWriter cFP;
     private Map<String, Object> mData;
 
     public void startMonitor() {
         if (this.mData == null) {
-            this.mData = b.ajF().ajG();
+            this.mData = b.amf().amg();
             com.baidu.swan.apps.console.c.i("PropertyLogcat", "Start monitor logcat");
         }
-        if (this.czV == null) {
-            this.czV = new HandlerC0399a();
+        if (this.cFO == null) {
+            this.cFO = new HandlerC0411a();
         }
-        if (this.czW == null) {
+        if (this.cFP == null) {
             File file = new File(getFilePath());
             try {
                 if (!file.exists()) {
                     file.createNewFile();
                 }
-                this.czW = new BufferedWriter(new FileWriter(file, true));
+                this.cFP = new BufferedWriter(new FileWriter(file, true));
             } catch (IOException e) {
                 com.baidu.swan.apps.console.c.e("PropertyLogcat", "Create log file fail", e);
             }
         }
-        this.czV.removeMessages(100);
-        this.czV.sendEmptyMessage(100);
+        this.cFO.removeMessages(100);
+        this.cFO.sendEmptyMessage(100);
     }
 
-    public void hF(int i) {
+    public void hP(int i) {
         if (i >= 1000) {
-            this.czU = i;
+            this.cFN = i;
         }
     }
 
-    public String ajE() {
+    public String ame() {
         if (this.mData != null) {
-            b.ajF().recycle();
+            b.amf().recycle();
             this.mData = null;
             com.baidu.swan.apps.console.c.i("PropertyLogcat", "Stop monitor logcat");
         }
-        d.closeSafely(this.czW);
-        this.czW = null;
-        return com.baidu.swan.apps.storage.b.cB(getFilePath(), e.aEW());
+        d.closeSafely(this.cFP);
+        this.cFP = null;
+        return com.baidu.swan.apps.storage.b.cB(getFilePath(), e.aHw());
     }
 
     /* renamed from: com.baidu.swan.apps.console.property.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    private class HandlerC0399a extends Handler {
-        private HandlerC0399a() {
+    private class HandlerC0411a extends Handler {
+        private HandlerC0411a() {
         }
 
         @Override // android.os.Handler
@@ -79,21 +79,21 @@ public class a {
                         e.printStackTrace();
                     }
                 }
-                a.this.mj(jSONObject.toString());
+                a.this.my(jSONObject.toString());
                 com.baidu.swan.apps.console.c.i("PropertyLogcat", jSONObject.toString());
-                if (a.this.czV != null) {
-                    a.this.czV.sendEmptyMessageDelayed(100, a.this.czU);
+                if (a.this.cFO != null) {
+                    a.this.cFO.sendEmptyMessageDelayed(100, a.this.cFN);
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void mj(String str) {
-        if (this.czW != null) {
+    public void my(String str) {
+        if (this.cFP != null) {
             try {
-                this.czW.write(str);
-                this.czW.write(10);
+                this.cFP.write(str);
+                this.cFP.write(10);
                 com.baidu.swan.apps.console.c.i("PropertyLogcat", "Export logcat success");
             } catch (IOException e) {
                 com.baidu.swan.apps.console.c.e("PropertyLogcat", "Logcat write fail", e);
@@ -102,6 +102,6 @@ public class a {
     }
 
     private String getFilePath() {
-        return com.baidu.swan.apps.storage.b.W(e.aEW(), this.afk, TbConfig.TMP_LOG_DIR_NAME);
+        return com.baidu.swan.apps.storage.b.W(e.aHw(), this.afk, TbConfig.TMP_LOG_DIR_NAME);
     }
 }

@@ -1,20 +1,20 @@
 package com.facebook.imagepipeline.nativecode;
 /* loaded from: classes12.dex */
 public class d {
-    private static c oOA;
-    public static boolean oOB;
+    private static c oXT;
+    public static boolean oXU;
 
     static {
-        oOB = false;
+        oXU = false;
         try {
-            oOA = (c) Class.forName("com.facebook.imagepipeline.nativecode.WebpTranscoderImpl").newInstance();
-            oOB = true;
+            oXT = (c) Class.forName("com.facebook.imagepipeline.nativecode.WebpTranscoderImpl").newInstance();
+            oXU = true;
         } catch (Throwable th) {
-            oOB = false;
+            oXU = false;
         }
     }
 
-    public static c enb() {
-        return oOA;
+    public static c eqS() {
+        return oXT;
     }
 }

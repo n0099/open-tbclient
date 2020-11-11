@@ -45,7 +45,7 @@ public class TbConfig {
     public static final int POST_IMAGE_QUALITY = 85;
     public static final int POST_IMAGE_SMALL = 1500;
     public static final boolean PROMOTED_DEFAULT = true;
-    public static final String SDK_VERSION = "4.0.5";
+    public static final String SDK_VERSION = "4.0.8";
     public static final String ST_TYPE_USE = "use";
     private static String SUBAPP_NAME = null;
     private static int SUBAPP_VERSION = 0;
@@ -92,6 +92,7 @@ public class TbConfig {
     public static String PHOTO_SMALL_ADDRESS = "https://himg.baidu.com/sys/portraitn/item/";
     public static String PHOTO_BIG_ADDRESS = "https://himg.baidu.com/sys/portrait/item/";
     public static final String IMAGE_ADDRESS = SERVER_ADDRESS + "c/p/img?";
+    public static int liveScene = 0;
     public static int FLOWER_GUIDE_STATUS = 0;
     private static int MAX_PHOTO_MEMORY_CACHE = 30;
     public static String UPLOAD_IMG_URL = SERVER_ADDRESS + "c/s/uploadPicture";

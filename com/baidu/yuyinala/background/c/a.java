@@ -14,23 +14,23 @@ import com.baidu.yuyinala.background.AlaAudioBackgroundDialogData;
 import com.baidu.yuyinala.background.message.AlaAudioBackgroundListResponseMessage;
 /* loaded from: classes4.dex */
 public class a extends BdBaseModel {
-    private final w aEc;
-    private AlaAudioBackgroundDialogData ojR = new AlaAudioBackgroundDialogData();
-    private com.baidu.yuyinala.background.b.a oke;
-    private com.baidu.yuyinala.background.b.a okf;
-    private InterfaceC0919a okg;
+    private final w aES;
+    private AlaAudioBackgroundDialogData osW = new AlaAudioBackgroundDialogData();
+    private com.baidu.yuyinala.background.b.a otj;
+    private com.baidu.yuyinala.background.b.a otk;
+    private InterfaceC0935a otl;
 
     /* renamed from: com.baidu.yuyinala.background.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0919a {
+    public interface InterfaceC0935a {
         void a(AlaAudioBackgroundDialogData alaAudioBackgroundDialogData, com.baidu.yuyinala.background.b.a aVar);
 
-        void eaK();
+        void ees();
     }
 
-    public a(w wVar, InterfaceC0919a interfaceC0919a) {
-        this.aEc = wVar;
-        this.okg = interfaceC0919a;
+    public a(w wVar, InterfaceC0935a interfaceC0935a) {
+        this.aES = wVar;
+        this.otl = interfaceC0935a;
         registerListener();
     }
 
@@ -41,10 +41,10 @@ public class a extends BdBaseModel {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof AlaAudioBackgroundListResponseMessage) {
                     AlaAudioBackgroundListResponseMessage alaAudioBackgroundListResponseMessage = (AlaAudioBackgroundListResponseMessage) httpResponsedMessage;
-                    a.this.okf = a.this.oke = alaAudioBackgroundListResponseMessage.eaT();
-                    a.this.ojR.setBgList(alaAudioBackgroundListResponseMessage.getBgList());
-                    if (a.this.okg != null) {
-                        a.this.okg.a(a.this.ojR, a.this.okf);
+                    a.this.otk = a.this.otj = alaAudioBackgroundListResponseMessage.eeB();
+                    a.this.osW.setBgList(alaAudioBackgroundListResponseMessage.getBgList());
+                    if (a.this.otl != null) {
+                        a.this.otl.a(a.this.osW, a.this.otk);
                     }
                 }
             }
@@ -55,8 +55,8 @@ public class a extends BdBaseModel {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage.getCmd() == 1031016 && httpResponsedMessage.getError() != 0) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501019));
-                    if (a.this.okg != null) {
-                        a.this.okg.eaK();
+                    if (a.this.otl != null) {
+                        a.this.otl.ees();
                     }
                 }
             }
@@ -64,35 +64,35 @@ public class a extends BdBaseModel {
     }
 
     public void a(com.baidu.yuyinala.background.b.a aVar, Bitmap bitmap) {
-        if (aVar != this.oke) {
-            if (this.oke != null) {
-                this.oke.zu(false);
+        if (aVar != this.otj) {
+            if (this.otj != null) {
+                this.otj.zF(false);
             }
-            this.oke = aVar;
-            this.oke.zu(true);
+            this.otj = aVar;
+            this.otj.zF(true);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501019, bitmap));
         }
     }
 
-    public void eaJ() {
-        if (this.okf != this.oke) {
-            if (this.oke != null) {
-                this.oke.zu(false);
+    public void eer() {
+        if (this.otk != this.otj) {
+            if (this.otj != null) {
+                this.otj.zF(false);
             }
-            if (this.okf != null) {
-                this.okf.zu(true);
+            if (this.otk != null) {
+                this.otk.zF(true);
             }
-            this.oke = null;
-            this.okf = null;
+            this.otj = null;
+            this.otk = null;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501019));
         }
     }
 
-    public void eaI() {
-        if (this.okf != this.oke && this.oke != null && !StringUtils.isNull(this.oke.getOriginalUrl())) {
-            WH(this.oke.getOriginalUrl());
-            this.oke = null;
-            this.okf = null;
+    public void eeq() {
+        if (this.otk != this.otj && this.otj != null && !StringUtils.isNull(this.otj.getOriginalUrl())) {
+            Xk(this.otj.getOriginalUrl());
+            this.otj = null;
+            this.otk = null;
         }
     }
 
@@ -106,17 +106,17 @@ public class a extends BdBaseModel {
         return false;
     }
 
-    public void eaU() {
+    public void eeC() {
         String str;
         String str2;
         String str3 = null;
-        if (this.aEc == null || this.aEc.aIS == null) {
+        if (this.aES == null || this.aES.aJK == null) {
             str = null;
             str2 = null;
         } else {
-            str2 = this.aEc.aIS.live_id;
-            str = this.aEc.aIS.croom_id;
-            str3 = this.aEc.aIS.aRy;
+            str2 = this.aES.aJK.live_id;
+            str = this.aES.aJK.croom_id;
+            str3 = this.aES.aJK.aSP;
         }
         HttpMessage httpMessage = new HttpMessage(1031015);
         httpMessage.addParam("live_id", str2);
@@ -125,17 +125,17 @@ public class a extends BdBaseModel {
         sendMessage(httpMessage);
     }
 
-    private void WH(String str) {
+    private void Xk(String str) {
         String str2;
         String str3;
         String str4 = null;
-        if (this.aEc == null || this.aEc.aIS == null) {
+        if (this.aES == null || this.aES.aJK == null) {
             str2 = null;
             str3 = null;
         } else {
-            str3 = this.aEc.aIS.live_id;
-            str2 = this.aEc.aIS.croom_id;
-            str4 = this.aEc.aIS.aRy;
+            str3 = this.aES.aJK.live_id;
+            str2 = this.aES.aJK.croom_id;
+            str4 = this.aES.aJK.aSP;
         }
         HttpMessage httpMessage = new HttpMessage(1031016);
         httpMessage.addParam("live_id", str3);
@@ -146,9 +146,9 @@ public class a extends BdBaseModel {
     }
 
     public String getCustomRoomId() {
-        if (this.aEc == null || this.aEc.aIS == null) {
+        if (this.aES == null || this.aES.aJK == null) {
             return null;
         }
-        return this.aEc.aIS.croom_id;
+        return this.aES.aJK.croom_id;
     }
 }

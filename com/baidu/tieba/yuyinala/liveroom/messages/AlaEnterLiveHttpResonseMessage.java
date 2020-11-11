@@ -8,14 +8,14 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaEnterLiveHttpResonseMessage extends JsonHttpResponsedMessage {
-    private w aEc;
+    private w aES;
 
     public AlaEnterLiveHttpResonseMessage() {
         super(1031023);
     }
 
-    public w GH() {
-        return this.aEc;
+    public w Hi() {
+        return this.aES;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -28,16 +28,16 @@ public class AlaEnterLiveHttpResonseMessage extends JsonHttpResponsedMessage {
                 setErrorString(optJSONObject2.optString("usermsg"));
             }
             if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-                this.aEc = new w();
-                this.aEc.bo(true);
-                this.aEc.parserJson(optJSONObject);
-                com.baidu.live.z.b.Pz().cv(this.aEc.aJb);
-                this.aEc.logId = jSONObject.optLong("logid");
-                if (this.aEc.mLiveInfo != null && this.aEc.mLiveInfo.live_id > 0) {
-                    com.baidu.live.d.AZ().putLong("ala_live_room_last_live_id", this.aEc.mLiveInfo.live_id);
+                this.aES = new w();
+                this.aES.bp(true);
+                this.aES.parserJson(optJSONObject);
+                com.baidu.live.aa.b.Qa().cw(this.aES.aJU);
+                this.aES.logId = jSONObject.optLong("logid");
+                if (this.aES.mLiveInfo != null && this.aES.mLiveInfo.live_id > 0) {
+                    com.baidu.live.d.AZ().putLong("ala_live_room_last_live_id", this.aES.mLiveInfo.live_id);
                 }
-                if (this.aEc.mLiveInfo != null && this.aEc.mLiveInfo.broadGiftMsgId > 0) {
-                    com.baidu.live.gift.a.broadGiftMsgId = this.aEc.mLiveInfo.broadGiftMsgId;
+                if (this.aES.mLiveInfo != null && this.aES.mLiveInfo.broadGiftMsgId > 0) {
+                    com.baidu.live.gift.a.broadGiftMsgId = this.aES.mLiveInfo.broadGiftMsgId;
                 }
                 JSONObject optJSONObject3 = optJSONObject.optJSONObject("live_info");
                 if (optJSONObject3 != null) {

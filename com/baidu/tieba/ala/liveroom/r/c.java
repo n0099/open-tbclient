@@ -13,83 +13,83 @@ import com.baidu.live.view.web.g;
 import com.baidu.searchbox.ugc.model.UgcConstant;
 /* loaded from: classes4.dex */
 public class c implements a {
-    private Activity bIs;
-    private CustomMessageListener bIu;
-    private PopupWindow.OnDismissListener gnx;
-    private d hkp;
+    private Activity bNY;
+    private CustomMessageListener bOa;
+    private PopupWindow.OnDismissListener gtk;
+    private d hqg;
 
     public c(Activity activity) {
-        this.bIs = activity;
-        Uy();
+        this.bNY = activity;
+        WY();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.r.a
-    public void hM(String str) {
-        this.hkp = new d(this.bIs);
-        this.hkp.setOnDismissListener(this.gnx);
-        this.hkp.Uz().setBackgroundColor(hP(str));
+    public void hT(String str) {
+        this.hqg = new d(this.bNY);
+        this.hqg.setOnDismissListener(this.gtk);
+        this.hqg.WZ().setBackgroundColor(hW(str));
         g gVar = new g();
-        gVar.x(this.bIs).a(this.hkp).a(this.hkp.Uz().getSchemeCallback());
-        com.baidu.live.view.web.a[] Ux = gVar.Ux();
-        for (com.baidu.live.view.web.a aVar : Ux) {
-            this.hkp.Uz().addJavascriptInterface(aVar, aVar.getName());
+        gVar.y(this.bNY).a(this.hqg).a(this.hqg.WZ().getSchemeCallback());
+        com.baidu.live.view.web.a[] WX = gVar.WX();
+        for (com.baidu.live.view.web.a aVar : WX) {
+            this.hqg.WZ().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.hkp.FZ(str);
+        this.hqg.Gn(str);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.r.a
     public void resume() {
-        if (this.hkp != null && this.hkp.isShowing() && this.hkp.Uz() != null) {
-            this.hkp.Uz().onResume();
+        if (this.hqg != null && this.hqg.isShowing() && this.hqg.WZ() != null) {
+            this.hqg.WZ().onResume();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.r.a
     public void pause() {
-        if (this.hkp != null && this.hkp.isShowing() && this.hkp.Uz() != null) {
-            this.hkp.Uz().onPause();
+        if (this.hqg != null && this.hqg.isShowing() && this.hqg.WZ() != null) {
+            this.hqg.WZ().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.hkp != null) {
-            this.hkp.UA();
+        if (this.hqg != null) {
+            this.hqg.Xa();
         }
     }
 
     public void dI(int i) {
-        if (this.hkp != null && this.hkp.isShowing()) {
-            this.hkp.dI(i);
+        if (this.hqg != null && this.hqg.isShowing()) {
+            this.hqg.dI(i);
         }
     }
 
-    public void GS() {
+    public void Ht() {
         dismiss();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.r.a
     public void release() {
-        GS();
-        MessageManager.getInstance().unRegisterListener(this.bIu);
-        this.bIu = null;
+        Ht();
+        MessageManager.getInstance().unRegisterListener(this.bOa);
+        this.bOa = null;
     }
 
-    private void Uy() {
-        if (this.bIu == null) {
-            this.bIu = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.r.c.1
+    private void WY() {
+        if (this.bOa == null) {
+            this.bOa = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.r.c.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (c.this.hkp != null && c.this.hkp.isShowing()) {
-                        c.this.hkp.dismiss();
+                    if (c.this.hqg != null && c.this.hqg.isShowing()) {
+                        c.this.hqg.dismiss();
                     }
                 }
             };
         }
-        MessageManager.getInstance().registerListener(this.bIu);
+        MessageManager.getInstance().registerListener(this.bOa);
     }
 
-    private int hP(String str) {
+    private int hW(String str) {
         int indexOf;
         String queryParameter = Uri.parse(str).getQueryParameter("background");
         if ((TextUtils.isEmpty(queryParameter) || queryParameter.length() != 8) && (indexOf = str.indexOf("background=")) >= 0 && indexOf + 19 <= str.length()) {

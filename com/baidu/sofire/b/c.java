@@ -8,14 +8,14 @@ import android.util.Base64;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences.Editor f3595a;
+    public SharedPreferences.Editor f3598a;
     private SharedPreferences b;
     private long c = 86400000;
 
     public c(Context context) {
         try {
             this.b = context.getSharedPreferences("leroadcfg", 4);
-            this.f3595a = this.b.edit();
+            this.f3598a = this.b.edit();
         } catch (Throwable th) {
         }
     }

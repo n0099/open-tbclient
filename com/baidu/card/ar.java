@@ -71,9 +71,9 @@ public class ar extends d implements p<bw>, q {
     }
 
     public void g(AbsThreadDataSupport absThreadDataSupport) {
-        if (absThreadDataSupport.bhD()) {
+        if (absThreadDataSupport.bkd()) {
             a(Align.ALIGN_RIGHT_TOP);
-        } else if (absThreadDataSupport.bhE()) {
+        } else if (absThreadDataSupport.bke()) {
             if (this.afN != null) {
                 this.afN.a(this);
             }

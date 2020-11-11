@@ -18,10 +18,10 @@ import java.util.List;
 /* loaded from: classes24.dex */
 public class d extends af.a {
     public int ajq;
-    public TextView epn;
-    public View jvk;
-    public HTypeListView lOF;
-    public e lOG;
+    public TextView evg;
+    public View jBh;
+    public HTypeListView lUB;
+    public e lUC;
     public TbPageContext mPageContext;
     public View rootView;
 
@@ -30,19 +30,19 @@ public class d extends af.a {
         this.ajq = 3;
         this.rootView = view;
         this.mPageContext = tbPageContext;
-        this.jvk = view.findViewById(R.id.divider_view_under_photo_album);
-        this.epn = (TextView) view.findViewById(R.id.text_view_photo_album);
-        this.lOF = (HTypeListView) view.findViewById(R.id.listview_photo_album);
-        this.lOG = new e(this.mPageContext, this.lOF);
+        this.jBh = view.findViewById(R.id.divider_view_under_photo_album);
+        this.evg = (TextView) view.findViewById(R.id.text_view_photo_album);
+        this.lUB = (HTypeListView) view.findViewById(R.id.listview_photo_album);
+        this.lUC = new e(this.mPageContext, this.lUB);
     }
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.lOG.setDatas(fa(fVar.getPhotoAlbum()));
+            this.lUC.setDatas(fi(fVar.getPhotoAlbum()));
         }
     }
 
-    private List<q> fa(List<q> list) {
+    private List<q> fi(List<q> list) {
         if (y.getCount(list) > 0) {
             ArrayList arrayList = new ArrayList(list);
             com.baidu.tieba.person.d dVar = new com.baidu.tieba.person.d(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds32), l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds120));
@@ -53,13 +53,13 @@ public class d extends af.a {
         return list;
     }
 
-    public void dqO() {
+    public void dtq() {
         if (this.ajq != TbadkCoreApplication.getInst().getSkinType()) {
             this.ajq = TbadkCoreApplication.getInst().getSkinType();
             ap.setBackgroundColor(this.rootView, R.color.cp_bg_line_d);
-            ap.setBackgroundColor(this.jvk, R.color.cp_bg_line_c);
-            ap.setViewTextColor(this.epn, R.color.cp_cont_d, 1);
-            this.lOG.notifyDataSetChanged();
+            ap.setBackgroundColor(this.jBh, R.color.cp_bg_line_c);
+            ap.setViewTextColor(this.evg, R.color.cp_cont_d, 1);
+            this.lUC.notifyDataSetChanged();
         }
     }
 }

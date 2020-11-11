@@ -10,32 +10,32 @@ import android.widget.LinearLayout;
 import com.baidu.spswitch.b.e;
 /* loaded from: classes19.dex */
 public class c {
-    private int cnS = -1;
-    private final View cnT;
-    private com.baidu.spswitch.a cnU;
+    private int ctQ = -1;
+    private final View ctR;
+    private com.baidu.spswitch.a ctS;
     private Context mContext;
     private static final String TAG = c.class.getSimpleName();
     private static final boolean DEBUG = com.baidu.spswitch.b.b.isDebug();
 
     public c(View view) {
-        this.cnT = view;
+        this.ctR = view;
         this.mContext = view.getContext();
     }
 
     public void ac(int i, int i2) {
         if (this.mContext instanceof Activity) {
             Activity activity = (Activity) this.mContext;
-            if (e.C(activity) && this.cnT.getFitsSystemWindows()) {
+            if (e.C(activity) && this.ctR.getFitsSystemWindows()) {
                 Rect rect = new Rect();
-                this.cnT.getWindowVisibleDisplayFrame(rect);
+                this.ctR.getWindowVisibleDisplayFrame(rect);
                 i2 = rect.bottom - rect.top;
                 if (DEBUG) {
                     Log.d(TAG, "TranslucentStatus && FitsSystemWindows = true, height: " + i2);
                 }
             }
-            if (e.D(activity) && this.cnT.getFitsSystemWindows()) {
+            if (e.D(activity) && this.ctR.getFitsSystemWindows()) {
                 Rect rect2 = new Rect();
-                this.cnT.getWindowVisibleDisplayFrame(rect2);
+                this.ctR.getWindowVisibleDisplayFrame(rect2);
                 i2 = rect2.bottom - rect2.top;
                 if (DEBUG) {
                     Log.d(TAG, "systemUILayoutFullScreen && FitsSystemWindows = true, height: " + i2);
@@ -46,14 +46,14 @@ public class c {
             Log.d(TAG, "onMeasure, width: " + i + " height: " + i2);
         }
         if (i2 >= 0) {
-            if (this.cnS < 0) {
+            if (this.ctQ < 0) {
                 if (DEBUG) {
-                    Log.d(TAG, "onMeasure, oldHeight < 0, oldHeight: " + this.cnS);
+                    Log.d(TAG, "onMeasure, oldHeight < 0, oldHeight: " + this.ctQ);
                 }
-                this.cnS = i2;
+                this.ctQ = i2;
                 return;
             }
-            int i3 = this.cnS - i2;
+            int i3 = this.ctQ - i2;
             if (i3 == 0) {
                 if (DEBUG) {
                     Log.d(TAG, "offset == 0, break;");
@@ -61,24 +61,24 @@ public class c {
                 }
                 return;
             }
-            this.cnS = i2;
-            com.baidu.spswitch.a aj = aj(this.cnT);
-            if (aj == null) {
+            this.ctQ = i2;
+            com.baidu.spswitch.a an = an(this.ctR);
+            if (an == null) {
                 if (DEBUG) {
                     Log.d(TAG, "cannot find the valid panel layout, give up!");
                     return;
                 }
                 return;
             }
-            int visibility = ((LinearLayout) aj).getVisibility();
+            int visibility = ((LinearLayout) an).getVisibility();
             if (DEBUG) {
                 Log.d(TAG, "panel visibility: " + visibility);
             }
-            if (Math.abs(i3) < com.baidu.spswitch.b.c.bh(this.cnT.getContext())) {
+            if (Math.abs(i3) < com.baidu.spswitch.b.c.bh(this.ctR.getContext())) {
                 if (DEBUG) {
                     Log.d(TAG, "layout change min, not caused by softinput/panel switch!");
                 }
-            } else if (Math.abs(i3) > com.baidu.spswitch.b.c.bi(this.cnT.getContext())) {
+            } else if (Math.abs(i3) > com.baidu.spswitch.b.c.bi(this.ctR.getContext())) {
                 if (DEBUG) {
                     Log.d(TAG, "layout change max , but not caused by softinput/panel switch!");
                 }
@@ -86,31 +86,31 @@ public class c {
                 if (DEBUG) {
                     Log.d(TAG, "offset > 0, offset : " + i3 + ", panel->handleHide...");
                 }
-                aj.acR();
+                an.afr();
             } else {
                 if (DEBUG) {
                     Log.d(TAG, "offset < 0, offset : " + i3 + ", panel->handleShow...");
                 }
-                aj.acQ();
+                an.afq();
             }
         }
     }
 
-    private com.baidu.spswitch.a aj(View view) {
-        if (this.cnU != null) {
-            return this.cnU;
+    private com.baidu.spswitch.a an(View view) {
+        if (this.ctS != null) {
+            return this.ctS;
         }
         if (view instanceof com.baidu.spswitch.a) {
-            this.cnU = (com.baidu.spswitch.a) view;
-            return this.cnU;
+            this.ctS = (com.baidu.spswitch.a) view;
+            return this.ctS;
         }
         if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
             for (int i = 0; i < viewGroup.getChildCount(); i++) {
-                com.baidu.spswitch.a aj = aj(viewGroup.getChildAt(i));
-                if (aj != null) {
-                    this.cnU = aj;
-                    return this.cnU;
+                com.baidu.spswitch.a an = an(viewGroup.getChildAt(i));
+                if (an != null) {
+                    this.ctS = an;
+                    return this.ctS;
                 }
             }
         }

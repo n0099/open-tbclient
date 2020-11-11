@@ -24,7 +24,7 @@ import java.util.zip.ZipOutputStream;
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f5127a = {"jpg", "png", "bmp", "gif", WebpUtils.TYPE_IMG_WEBP};
+    public static final String[] f5129a = {"jpg", "png", "bmp", "gif", WebpUtils.TYPE_IMG_WEBP};
 
     public static String a(File file) {
         InputStreamReader inputStreamReader;

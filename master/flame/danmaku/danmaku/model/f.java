@@ -1,16 +1,16 @@
 package master.flame.danmaku.danmaku.model;
 /* loaded from: classes6.dex */
 public class f {
-    public long pMO;
-    private long pMP;
+    public long pWi;
+    private long pWj;
 
-    public long hT(long j) {
-        this.pMP = j - this.pMO;
-        this.pMO = j;
-        return this.pMP;
+    public long ip(long j) {
+        this.pWj = j - this.pWi;
+        this.pWi = j;
+        return this.pWj;
     }
 
-    public long hU(long j) {
-        return hT(this.pMO + j);
+    public long iq(long j) {
+        return ip(this.pWi + j);
     }
 }

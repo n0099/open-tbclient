@@ -16,7 +16,7 @@ public class d extends com.kascend.chushou.view.base.c<f> {
     }
 
     public void c() {
-        com.kascend.chushou.c.c.eqe().a(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.gifts.d.1
+        com.kascend.chushou.c.c.etT().a(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.gifts.d.1
             @Override // com.kascend.chushou.c.b
             public void a() {
             }
@@ -24,9 +24,9 @@ public class d extends com.kascend.chushou.view.base.c<f> {
             @Override // com.kascend.chushou.c.b
             public void a(String str, JSONObject jSONObject) {
                 if (d.this.b()) {
-                    ParserRet eF = com.kascend.chushou.c.f.eF(jSONObject);
-                    ((f) d.this.b).g((List) eF.mData, true, false);
-                    d.this.c = eF.mBreakpoint;
+                    ParserRet eL = com.kascend.chushou.c.f.eL(jSONObject);
+                    ((f) d.this.b).g((List) eL.mData, true, false);
+                    d.this.c = eL.mBreakpoint;
                 }
             }
 

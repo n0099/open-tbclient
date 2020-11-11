@@ -92,12 +92,12 @@ public abstract class a {
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        private int f1795a;
+        private int f1797a;
         private int b;
         public Exception exception;
 
         public e(int i, int i2, Exception exc) {
-            this.f1795a = i;
+            this.f1797a = i;
             this.b = i2;
             this.exception = exc;
         }

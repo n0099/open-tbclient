@@ -7,13 +7,13 @@ import android.widget.TextView;
 public class e extends CountDownTimer {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f2402a;
+    final /* synthetic */ b f2404a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(b bVar, long j, long j2) {
         super(j, j2);
-        this.f2402a = bVar;
+        this.f2404a = bVar;
     }
 
     @Override // android.os.CountDownTimer
@@ -21,14 +21,14 @@ public class e extends CountDownTimer {
         TextView textView;
         int i = (int) (j / 1000);
         int i2 = i <= 5 ? i : 5;
-        textView = this.f2402a.z;
+        textView = this.f2404a.z;
         textView.setText(String.valueOf(i2));
     }
 
     @Override // android.os.CountDownTimer
     public void onFinish() {
-        this.f2402a.x.d("CountDownTimer finished");
-        this.f2402a.u();
-        this.f2402a.h.stop();
+        this.f2404a.x.d("CountDownTimer finished");
+        this.f2404a.u();
+        this.f2404a.h.stop();
     }
 }

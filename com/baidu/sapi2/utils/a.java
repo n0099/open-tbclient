@@ -12,7 +12,7 @@ import java.io.OutputStream;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f3533a = 2048;
+    private static final int f3536a = 2048;
 
     public static boolean a(File file) {
         try {

@@ -17,7 +17,7 @@ public class e {
     private BufferedWriter d;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4372a = "EncryptionWriter";
+    private String f4374a = "EncryptionWriter";
     private SimpleDateFormat b = new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT);
     private int e = 7;
     private String f = ".log.txt";
@@ -75,7 +75,7 @@ public class e {
             if (file2.createNewFile()) {
                 a(file);
             } else {
-                Log.e(this.f4372a, "create new file " + format + " failed !!!");
+                Log.e(this.f4374a, "create new file " + format + " failed !!!");
             }
         }
         this.d = new BufferedWriter(new FileWriter(file2, true));

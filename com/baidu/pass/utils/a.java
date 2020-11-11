@@ -7,11 +7,11 @@ import android.view.View;
 class a implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ float f2801a;
+    final /* synthetic */ float f2803a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(float f) {
-        this.f2801a = f;
+        this.f2803a = f;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -24,7 +24,7 @@ class a implements View.OnTouchListener {
             }
             return false;
         } else if (Build.VERSION.SDK_INT >= 11) {
-            view.setAlpha(this.f2801a);
+            view.setAlpha(this.f2803a);
             return false;
         } else {
             return false;

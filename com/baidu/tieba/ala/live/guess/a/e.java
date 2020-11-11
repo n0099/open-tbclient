@@ -11,7 +11,7 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 /* loaded from: classes4.dex */
 public class e extends Dialog {
     public e(@NonNull Context context) {
-        super(context, a.j.guess_theme_dialog);
+        super(context, a.i.guess_theme_dialog);
     }
 
     @Override // android.app.Dialog
@@ -24,14 +24,14 @@ public class e extends Dialog {
         if (UtilHelper.getRealScreenOrientation(getContext()) == 2) {
             getWindow().setFlags(8, 8);
             super.show();
-            ad(getWindow().getDecorView());
+            ah(getWindow().getDecorView());
             getWindow().clearFlags(8);
             return;
         }
         super.show();
     }
 
-    private void ad(View view) {
+    private void ah(View view) {
         if (Build.VERSION.SDK_INT >= 19) {
             view.setSystemUiVisibility(5894);
         }

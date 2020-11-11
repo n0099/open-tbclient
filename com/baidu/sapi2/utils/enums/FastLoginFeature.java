@@ -14,10 +14,10 @@ public enum FastLoginFeature {
     
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3545a;
+    private String f3548a;
 
     FastLoginFeature(String str) {
-        this.f3545a = str;
+        this.f3548a = str;
     }
 
     public static FastLoginFeature getDefault() {
@@ -38,6 +38,6 @@ public enum FastLoginFeature {
     }
 
     public String getStrValue() {
-        return this.f3545a;
+        return this.f3548a;
     }
 }

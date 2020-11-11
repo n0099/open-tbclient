@@ -24,10 +24,10 @@ import java.util.Iterator;
 public class au extends be.a implements cz.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f5065a;
+    private long f5067a;
 
     /* renamed from: a  reason: collision with other field name */
-    private XMPushService f866a;
+    private XMPushService f868a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes12.dex */
@@ -73,14 +73,14 @@ public class au extends be.a implements cz.a {
                 }
                 return super.a(arrayList, str, str2, z);
             } catch (IOException e) {
-                hg.a(0, fh.GSLB_ERR.a(), 1, null, com.xiaomi.push.az.b(f4846a) ? 1 : 0);
+                hg.a(0, fh.GSLB_ERR.a(), 1, null, com.xiaomi.push.az.b(f4848a) ? 1 : 0);
                 throw e;
             }
         }
     }
 
     au(XMPushService xMPushService) {
-        this.f866a = xMPushService;
+        this.f868a = xMPushService;
     }
 
     public static void a(XMPushService xMPushService) {
@@ -105,13 +105,13 @@ public class au extends be.a implements cz.a {
     public void a(ek.b bVar) {
         cv b2;
         boolean z;
-        if (bVar.b() && bVar.a() && System.currentTimeMillis() - this.f5065a > BdKVCache.MILLS_1Hour) {
+        if (bVar.b() && bVar.a() && System.currentTimeMillis() - this.f5067a > BdKVCache.MILLS_1Hour) {
             com.xiaomi.channel.commonutils.logger.b.m54a("fetch bucket :" + bVar.a());
-            this.f5065a = System.currentTimeMillis();
+            this.f5067a = System.currentTimeMillis();
             cz a2 = cz.a();
             a2.m218a();
             a2.m221b();
-            fs m519a = this.f866a.m519a();
+            fs m519a = this.f868a.m519a();
             if (m519a == null || (b2 = a2.b(m519a.m293a().c())) == null) {
                 return;
             }
@@ -130,8 +130,8 @@ public class au extends be.a implements cz.a {
                 return;
             }
             com.xiaomi.channel.commonutils.logger.b.m54a("bucket changed, force reconnect");
-            this.f866a.a(0, (Exception) null);
-            this.f866a.a(false);
+            this.f868a.a(0, (Exception) null);
+            this.f868a.a(false);
         }
     }
 }

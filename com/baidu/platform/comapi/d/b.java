@@ -14,7 +14,7 @@ import java.util.Arrays;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final b f2857a = new b();
+    public static final b f2859a = new b();
     private c b = new c(com.baidu.platform.comapi.b.e(), "res.json");
 
     private b() {

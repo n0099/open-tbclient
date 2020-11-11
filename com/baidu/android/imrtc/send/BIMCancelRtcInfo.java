@@ -8,12 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class BIMCancelRtcInfo extends BIMRtcInfo {
     private static final String TAG = "BIMCancelRtcInfo";
     private List<BIMCancelUser> mCancelUsers = new ArrayList();
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes5.dex */
     public static class BIMCancelUser {
         public long appId;
         public String cuid;
@@ -71,7 +71,7 @@ public class BIMCancelRtcInfo extends BIMRtcInfo {
         try {
             optJSONArray = new JSONObject(str2).optJSONArray("user_list");
         } catch (Exception e) {
-            LogUtils.e(TAG, "BIMAnswerRtcInfo toRtcInfo Exception ", e);
+            LogUtils.e(TAG, "BBIMCancelRtcInfo toRtcInfo Exception ", e);
         }
         if (optJSONArray == null || optJSONArray.length() <= 0) {
             return bIMCancelRtcInfo;

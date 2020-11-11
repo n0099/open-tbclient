@@ -30,15 +30,15 @@ public class a {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(a.this.mPageContext.getPageActivity());
-                aVar.AZ(a.this.mPageContext.getString(R.string.vote_delete_dialog_title));
+                aVar.Bn(a.this.mPageContext.getString(R.string.vote_delete_dialog_title));
                 aVar.setTitleShowCenter(true);
-                aVar.Ba(a.this.mPageContext.getString(R.string.vote_delete_dialog_message));
+                aVar.Bo(a.this.mPageContext.getString(R.string.vote_delete_dialog_message));
                 aVar.setMessageShowCenter(true);
                 aVar.a(R.string.delete, new a.b() { // from class: com.baidu.tieba.write.write.vote.a.1.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                         a.this.mWriteVoteData = null;
-                        a.this.yE(false);
+                        a.this.yN(false);
                         aVar2.dismiss();
                     }
                 });
@@ -48,15 +48,15 @@ public class a {
                         aVar2.dismiss();
                     }
                 });
-                aVar.b(a.this.mPageContext).bmC();
+                aVar.b(a.this.mPageContext).bpc();
             }
         });
         this.aiE.setVoteViewDeleteVisibility(0);
         this.mRootView.addView(this.aiE);
-        yE(false);
+        yN(false);
     }
 
-    public void ao(View.OnClickListener onClickListener) {
+    public void ap(View.OnClickListener onClickListener) {
         if (this.aiE != null && onClickListener != null) {
             this.aiE.setOnClickListener(onClickListener);
         }
@@ -68,7 +68,7 @@ public class a {
         }
     }
 
-    public void yE(boolean z) {
+    public void yN(boolean z) {
         this.mRootView.setVisibility(z ? 0 : 8);
     }
 

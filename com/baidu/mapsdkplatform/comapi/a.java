@@ -21,7 +21,7 @@ public class a implements PermissionCheck.c {
     private int e;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2187a = a.class.getSimpleName();
+    private static final String f2189a = a.class.getSimpleName();
     private static int g = -100;
 
     static {
@@ -88,22 +88,22 @@ public class a implements PermissionCheck.c {
         if (bVar == null) {
             return;
         }
-        if (bVar.f2243a == 0) {
+        if (bVar.f2245a == 0) {
             h.d = bVar.e;
             h.a(bVar.b, bVar.c);
         } else {
             Log.e("baidumapsdk", "Authentication Error\n" + bVar.toString());
         }
-        if (bVar.f2243a != PermissionCheck.b && bVar.f2243a != PermissionCheck.f2242a && bVar.f2243a != PermissionCheck.c) {
+        if (bVar.f2245a != PermissionCheck.b && bVar.f2245a != PermissionCheck.f2244a && bVar.f2245a != PermissionCheck.c) {
             com.baidu.mapsdkplatform.comapi.util.c.a().a(bVar.f);
         }
-        if (this.c == null || bVar.f2243a == g) {
+        if (this.c == null || bVar.f2245a == g) {
             return;
         }
-        g = bVar.f2243a;
+        g = bVar.f2245a;
         Message obtainMessage = this.c.obtainMessage();
         obtainMessage.what = 2012;
-        obtainMessage.arg1 = bVar.f2243a;
+        obtainMessage.arg1 = bVar.f2245a;
         obtainMessage.obj = bVar.d;
         this.c.sendMessage(obtainMessage);
     }

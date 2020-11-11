@@ -11,13 +11,13 @@ import java.security.NoSuchAlgorithmException;
 public final class BitmapDescriptor {
 
     /* renamed from: a  reason: collision with root package name */
-    Bitmap f1997a;
+    Bitmap f1999a;
     private Bundle b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public BitmapDescriptor(Bitmap bitmap) {
         if (bitmap != null) {
-            this.f1997a = a(bitmap, bitmap.getWidth(), bitmap.getHeight());
+            this.f1999a = a(bitmap, bitmap.getWidth(), bitmap.getHeight());
         }
     }
 
@@ -32,21 +32,21 @@ public final class BitmapDescriptor {
     }
 
     byte[] a() {
-        ByteBuffer allocate = ByteBuffer.allocate(this.f1997a.getWidth() * this.f1997a.getHeight() * 4);
-        this.f1997a.copyPixelsToBuffer(allocate);
+        ByteBuffer allocate = ByteBuffer.allocate(this.f1999a.getWidth() * this.f1999a.getHeight() * 4);
+        this.f1999a.copyPixelsToBuffer(allocate);
         return allocate.array();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Bundle b() {
         MessageDigest messageDigest;
-        if (this.f1997a == null) {
+        if (this.f1999a == null) {
             throw new IllegalStateException("BDMapSDKException: the bitmap has been recycled! you can not use it again");
         }
         if (this.b == null) {
             Bundle bundle = new Bundle();
-            bundle.putInt("image_width", this.f1997a.getWidth());
-            bundle.putInt("image_height", this.f1997a.getHeight());
+            bundle.putInt("image_width", this.f1999a.getWidth());
+            bundle.putInt("image_height", this.f1999a.getHeight());
             byte[] a2 = a();
             bundle.putByteArray("image_data", a2);
             try {
@@ -77,14 +77,14 @@ public final class BitmapDescriptor {
     }
 
     public Bitmap getBitmap() {
-        return this.f1997a;
+        return this.f1999a;
     }
 
     public void recycle() {
-        if (this.f1997a == null || this.f1997a.isRecycled()) {
+        if (this.f1999a == null || this.f1999a.isRecycled()) {
             return;
         }
-        this.f1997a.recycle();
-        this.f1997a = null;
+        this.f1999a.recycle();
+        this.f1999a = null;
     }
 }

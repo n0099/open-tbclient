@@ -7,23 +7,23 @@ public class ak extends com.baidu.tieba.card.data.b {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
     private ICardInfo YY;
     private String card;
-    private boolean evA;
+    private boolean eBt;
 
-    public void AC(String str) {
+    public void AQ(String str) {
         this.card = str;
     }
 
-    public void biq() {
-        this.YY = com.baidu.tieba.lego.card.b.Ns(this.card);
-        this.evA = this.YY != null;
+    public void bkQ() {
+        this.YY = com.baidu.tieba.lego.card.b.NJ(this.card);
+        this.eBt = this.YY != null;
     }
 
-    public ICardInfo bir() {
+    public ICardInfo bkR() {
         return this.YY;
     }
 
     public boolean isValid() {
-        return this.evA;
+        return this.eBt;
     }
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q

@@ -17,10 +17,10 @@ public class b extends a<com.baidu.prologue.business.c.c> {
     @Override // com.baidu.prologue.business.b.a
     public void a(com.baidu.prologue.business.c.c cVar) {
         super.a((b) cVar);
-        File ba = d.ba(this.cct.url, this.cct.md5);
+        File ba = d.ba(this.cif.url, this.cif.md5);
         if (ba != null) {
             cVar.g(BitmapFactory.decodeFile(ba.getAbsolutePath()));
         }
-        cVar.setImageUrl(this.cct.url);
+        cVar.setImageUrl(this.cif.url);
     }
 }

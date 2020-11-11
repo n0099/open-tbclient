@@ -33,7 +33,7 @@ public class a extends aa {
         if (DEBUG) {
             Log.d("ConsoleAction", "handleSubAction subAction: " + str);
         }
-        if (!com.baidu.swan.apps.console.a.aiV() && !com.baidu.swan.apps.console.c.aiY() && !TextUtils.equals(str, "/swanAPI/sConsole/debugSwitch")) {
+        if (!com.baidu.swan.apps.console.a.alv() && !com.baidu.swan.apps.console.c.aly() && !TextUtils.equals(str, "/swanAPI/sConsole/debugSwitch")) {
             return super.d(context, unitedSchemeEntity, callbackHandler, str, eVar);
         }
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
@@ -84,27 +84,27 @@ public class a extends aa {
         }
         switch (c) {
             case 0:
-                if (optParamsAsJo == null || (optBoolean = optParamsAsJo.optBoolean("enableDebug")) == com.baidu.swan.apps.console.a.aiV()) {
+                if (optParamsAsJo == null || (optBoolean = optParamsAsJo.optBoolean("enableDebug")) == com.baidu.swan.apps.console.a.alv()) {
                     return true;
                 }
-                com.baidu.swan.apps.console.a.m(context, optBoolean);
+                com.baidu.swan.apps.console.a.n(context, optBoolean);
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 com.baidu.swan.apps.console.c.i("ConsoleAction", " sConsole switch：" + optParamsAsJo.optBoolean("enableDebug"));
                 return true;
             case 1:
-                f.axo().awR().ee(true);
+                f.azO().azr().en(true);
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 com.baidu.swan.apps.console.c.i("ConsoleAction", "sConsole show");
                 return true;
             case 2:
-                f.axo().awR().ee(false);
+                f.azO().azr().en(false);
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 com.baidu.swan.apps.console.c.i("ConsoleAction", "sConsole hide");
                 return true;
             case 3:
                 if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
                     com.baidu.swan.apps.console.c.i("ConsoleAction", "send san inc data");
-                    b.mA(optParamsAsJo.toString());
+                    b.mP(optParamsAsJo.toString());
                     return true;
                 }
                 com.baidu.swan.apps.console.c.e("ConsoleAction", "san inc data is null");
@@ -112,17 +112,17 @@ public class a extends aa {
             case 4:
                 if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
                     com.baidu.swan.apps.console.c.i("ConsoleAction", "send san full data");
-                    b.mz(optParamsAsJo.toString());
+                    b.mO(optParamsAsJo.toString());
                     return true;
                 }
                 com.baidu.swan.apps.console.c.e("ConsoleAction", "san full data is null");
                 return true;
             case 5:
                 com.baidu.swan.apps.console.c.i("ConsoleAction", "request san full data");
-                b.ale();
+                b.anE();
                 return true;
             case 6:
-                g.cp(optParamsAsJo);
+                g.cv(optParamsAsJo);
                 return true;
             default:
                 return super.d(context, unitedSchemeEntity, callbackHandler, str, eVar);

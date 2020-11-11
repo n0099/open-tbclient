@@ -37,7 +37,7 @@ public class b implements Closeable {
         this(inputStream, 8192, charset);
     }
 
-    private void YG() {
+    private void abf() {
         InputStream inputStream = this.in;
         byte[] bArr = this.buf;
         int read = inputStream.read(bArr, 0, bArr.length);
@@ -49,7 +49,7 @@ public class b implements Closeable {
         throw new EOFException();
     }
 
-    public boolean YH() {
+    public boolean abg() {
         return this.end == -1;
     }
 
@@ -70,7 +70,7 @@ public class b implements Closeable {
         synchronized (this.in) {
             if (this.buf != null) {
                 if (this.pos >= this.end) {
-                    YG();
+                    abf();
                 }
                 int i3 = this.pos;
                 while (true) {
@@ -95,7 +95,7 @@ public class b implements Closeable {
                         loop1: while (true) {
                             aVar2.write(this.buf, this.pos, this.end - this.pos);
                             this.end = -1;
-                            YG();
+                            abf();
                             i = this.pos;
                             while (i != this.end) {
                                 if (this.buf[i] == 10) {

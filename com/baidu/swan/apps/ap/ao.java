@@ -5,18 +5,18 @@ import com.baidu.webkit.sdk.CookieManager;
 import com.baidu.webkit.sdk.CookieSyncManager;
 /* loaded from: classes10.dex */
 public class ao {
-    public static void aKG() {
+    public static void aNg() {
         p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.ap.ao.1
             @Override // java.lang.Runnable
             public void run() {
-                CookieManager.getInstance().setCookie(".baidu.com", ai.getCookieStr(".baidu.com", "SP_FW_VER", com.baidu.swan.apps.swancore.b.kv(0), 2937600L));
-                CookieManager.getInstance().setCookie(".baidu.com", ai.getCookieStr(".baidu.com", "SG_FW_VER", com.baidu.swan.apps.swancore.b.kv(1), 2937600L));
-                ao.aKH();
+                CookieManager.getInstance().setCookie(".baidu.com", ai.getCookieStr(".baidu.com", "SP_FW_VER", com.baidu.swan.apps.swancore.b.kF(0), 2937600L));
+                CookieManager.getInstance().setCookie(".baidu.com", ai.getCookieStr(".baidu.com", "SG_FW_VER", com.baidu.swan.apps.swancore.b.kF(1), 2937600L));
+                ao.aNh();
             }
         }, "SwanJsVersionCookieManager");
     }
 
-    public static void aKH() {
+    public static void aNh() {
         if (c.hasLollipop()) {
             CookieManager.getInstance().flush();
             return;

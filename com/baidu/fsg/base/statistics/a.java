@@ -20,7 +20,7 @@ import java.security.NoSuchAlgorithmException;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1484a = "utf-8";
+    private static final String f1486a = "utf-8";
     private static final String b = "c82c403505338808201aad86f8194734";
 
     a() {
@@ -39,7 +39,7 @@ public class a {
                 FileOutputStream openFileOutput = context.openFileOutput(str, z ? 32768 : 0);
                 if (openFileOutput != null) {
                     try {
-                        openFileOutput.write(str2.getBytes(f1484a));
+                        openFileOutput.write(str2.getBytes(f1486a));
                     } catch (Throwable th2) {
                         fileOutputStream = openFileOutput;
                         th = th2;
@@ -81,7 +81,7 @@ public class a {
             if (b2 == null) {
                 return "";
             }
-            return new String(b2, f1484a);
+            return new String(b2, f1486a);
         } catch (Exception e) {
             return "";
         }

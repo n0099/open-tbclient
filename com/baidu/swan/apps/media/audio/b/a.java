@@ -10,15 +10,15 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private CallbackHandler cOu;
-    public JSONObject cVI;
+    private CallbackHandler cUn;
+    public JSONObject dbC;
 
     public a(CallbackHandler callbackHandler, JSONObject jSONObject) {
-        this.cOu = callbackHandler;
-        this.cVI = jSONObject;
+        this.cUn = callbackHandler;
+        this.dbC = jSONObject;
     }
 
-    public void pH(String str) {
+    public void pV(String str) {
         if (TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.d("AudioStatusCallBack", "Audio Callback is Null");
@@ -27,7 +27,7 @@ public class a {
             return;
         }
         try {
-            this.cVI = new JSONObject(str);
+            this.dbC = new JSONObject(str);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.d("AudioStatusCallBack", "Audio Callback is not jsonObject");
@@ -35,21 +35,21 @@ public class a {
         }
     }
 
-    public void pI(String str) {
-        e(str, null);
+    public void pW(String str) {
+        g(str, null);
     }
 
-    public void e(String str, JSONObject jSONObject) {
-        if (this.cVI != null) {
+    public void g(String str, JSONObject jSONObject) {
+        if (this.dbC != null) {
             JSONObject wrapCallbackParamsWithEncode = UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0);
-            this.cOu.handleSchemeDispatchCallback(this.cVI.optString(str), wrapCallbackParamsWithEncode.toString());
+            this.cUn.handleSchemeDispatchCallback(this.dbC.optString(str), wrapCallbackParamsWithEncode.toString());
             if (DEBUG) {
                 Log.d("AudioStatusCallBack", "Audio callback type is : " + str + " , data is : " + wrapCallbackParamsWithEncode.toString());
             }
         }
     }
 
-    public boolean axW() {
-        return UnitedSchemeUtility.isInvokedFromSwanGame(this.cOu);
+    public boolean aAw() {
+        return UnitedSchemeUtility.isInvokedFromSwanGame(this.cUn);
     }
 }

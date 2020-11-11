@@ -5,12 +5,12 @@ import java.util.Set;
 @kotlin.h
 /* loaded from: classes10.dex */
 public class an extends am {
-    public static final <T> Set<T> exP() {
+    public static final <T> Set<T> eBE() {
         return EmptySet.INSTANCE;
     }
 
     public static final <T> Set<T> R(T... tArr) {
         kotlin.jvm.internal.q.n(tArr, "elements");
-        return tArr.length > 0 ? f.Q(tArr) : al.exP();
+        return tArr.length > 0 ? f.Q(tArr) : al.eBE();
     }
 }

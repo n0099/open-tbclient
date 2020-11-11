@@ -367,14 +367,14 @@ public class NetWork {
                 errorData.parserJson(str);
                 this.mServerErrorCode = errorData.getError_code();
                 if (this.mServerErrorCode == -1) {
-                    this.mServerErrorString = TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_error_unkown_try_again);
+                    this.mServerErrorString = TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_error_unkown_try_again);
                 } else {
                     this.mServerErrorString = errorData.getError_msg();
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 this.mServerErrorCode = -1;
-                this.mServerErrorString = TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_error_unkown_try_again);
+                this.mServerErrorString = TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_error_unkown_try_again);
             }
         }
     }

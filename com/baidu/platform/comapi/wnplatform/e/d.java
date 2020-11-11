@@ -22,7 +22,7 @@ import java.util.Map;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    static final String f3107a = d.class.getSimpleName();
+    static final String f3109a = d.class.getSimpleName();
     private static Map<String, Method> b = new HashMap();
 
     private static Method a(ClassLoader classLoader, String str) throws ClassNotFoundException, NoSuchMethodException {
@@ -59,7 +59,7 @@ public class d {
                 int offset = bZ.getOffset() + i2;
                 if (name.equals("M")) {
                     b bVar = new b();
-                    bVar.f3105a = a(new ByteArrayInputStream(bArr, offset, wp));
+                    bVar.f3107a = a(new ByteArrayInputStream(bArr, offset, wp));
                     arrayList.add(bVar);
                 } else {
                     MessageMicro a2 = a(str, name, bArr, offset, wp);

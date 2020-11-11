@@ -5,11 +5,11 @@ import com.baidu.location.c.b;
 class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b.C0235b f1924a;
+    final /* synthetic */ b.C0247b f1926a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(b.C0235b c0235b) {
-        this.f1924a = c0235b;
+    public d(b.C0247b c0247b) {
+        this.f1926a = c0247b;
     }
 
     @Override // java.lang.Runnable

@@ -14,7 +14,7 @@ import java.util.Arrays;
 public class bj {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f5081a = new Object();
+    public static final Object f5083a = new Object();
 
     public static void a(Context context, hq hqVar) {
         if (bi.a(hqVar.e())) {

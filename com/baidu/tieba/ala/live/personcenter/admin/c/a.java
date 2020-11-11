@@ -13,74 +13,74 @@ import com.baidu.live.tbadk.core.view.TbListCommonPullView;
 import com.baidu.tieba.ala.live.personcenter.admin.c.b;
 /* loaded from: classes4.dex */
 public class a {
-    private b gJR;
-    private c gJS;
-    private e gJT;
-    private CustomMessageListener gJU = new CustomMessageListener(2913050, true) { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.1
+    private b gPD;
+    private c gPE;
+    private e gPF;
+    private CustomMessageListener gPG = new CustomMessageListener(2913050, true) { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getData() instanceof com.baidu.tieba.ala.live.personcenter.admin.b.b) {
                 final com.baidu.tieba.ala.live.personcenter.admin.b.b bVar = (com.baidu.tieba.ala.live.personcenter.admin.b.b) customResponsedMessage.getData();
                 BdAlertDialog bdAlertDialog = new BdAlertDialog(a.this.getPageContext().getPageActivity());
-                bdAlertDialog.setTitle(a.i.sdk_prc_person_adminlist_manage_title);
-                bdAlertDialog.setMessageId(a.i.sdk_prc_person_adminlist_manage_content);
-                bdAlertDialog.setNegativeButton(a.i.sdk_cancel, new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.1.1
+                bdAlertDialog.setTitle(a.h.sdk_prc_person_adminlist_manage_title);
+                bdAlertDialog.setMessageId(a.h.sdk_prc_person_adminlist_manage_content);
+                bdAlertDialog.setNegativeButton(a.h.sdk_cancel, new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.1.1
                     @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                     public void onClick(BdAlertDialog bdAlertDialog2) {
                         bdAlertDialog2.dismiss();
                     }
                 });
-                bdAlertDialog.setPositiveButton(a.i.sdk_confirm, new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.1.2
+                bdAlertDialog.setPositiveButton(a.h.sdk_confirm, new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.1.2
                     @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                     public void onClick(BdAlertDialog bdAlertDialog2) {
                         bdAlertDialog2.dismiss();
-                        a.this.gJT.aG(bVar.getUserId(), a.this.mLiveId);
-                        a.this.gJR.a(bVar);
+                        a.this.gPF.aH(bVar.getUserId(), a.this.mLiveId);
+                        a.this.gPD.a(bVar);
                     }
                 });
                 if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-                    bdAlertDialog.setPositiveButtonTextColor(a.this.getPageContext().getResources().getColorStateList(a.f.sdk_dialog_gray_button_txt_selector));
-                    bdAlertDialog.setNagetiveButtonTextColor(a.this.getPageContext().getResources().getColorStateList(a.f.sdk_dialog_gray_button_txt_selector));
+                    bdAlertDialog.setPositiveButtonTextColor(a.this.getPageContext().getResources().getColorStateList(a.e.sdk_dialog_gray_button_txt_selector));
+                    bdAlertDialog.setNagetiveButtonTextColor(a.this.getPageContext().getResources().getColorStateList(a.e.sdk_dialog_gray_button_txt_selector));
                 }
                 bdAlertDialog.create(a.this.getPageContext());
                 bdAlertDialog.show();
             }
         }
     };
-    private b.a gJV = new b.a() { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.2
+    private b.a gPH = new b.a() { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.2
         @Override // com.baidu.tieba.ala.live.personcenter.admin.c.b.a
-        public void lI(boolean z) {
-            a.this.gJS.completePullRefresh();
-            a.this.gJS.hideNoDataView();
-            if (a.this.gJR.getUserList().size() == 0) {
-                a.this.gJS.bQH();
-                a.this.gJS.bSS();
-                a.this.gJS.showNoDataView();
+        public void lR(boolean z) {
+            a.this.gPE.completePullRefresh();
+            a.this.gPE.hideNoDataView();
+            if (a.this.gPD.getUserList().size() == 0) {
+                a.this.gPE.bTh();
+                a.this.gPE.bVr();
+                a.this.gPE.showNoDataView();
                 return;
             }
-            a.this.gJS.TK();
-            a.this.gJS.bSR();
-            a.this.gJS.f(a.this.gJR.getUserList(), a.this.gJR.bSO());
+            a.this.gPE.Wk();
+            a.this.gPE.bVq();
+            a.this.gPE.f(a.this.gPD.getUserList(), a.this.gPD.bVn());
             if (z) {
-                a.this.gJS.bQm();
+                a.this.gPE.bSM();
             } else {
-                a.this.gJS.bQH();
+                a.this.gPE.bTh();
             }
         }
 
         @Override // com.baidu.tieba.ala.live.personcenter.admin.c.b.a
-        public void aA(int i, String str) {
-            a.this.gJS.completePullRefresh();
-            a.this.gJS.hideNoDataView();
-            if (a.this.gJR.getUserList().size() <= 0) {
-                a.this.gJS.bQH();
-                a.this.gJS.bSS();
-                a.this.gJS.a(a.i.sdk_network_not_available, new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.2.1
+        public void aE(int i, String str) {
+            a.this.gPE.completePullRefresh();
+            a.this.gPE.hideNoDataView();
+            if (a.this.gPD.getUserList().size() <= 0) {
+                a.this.gPE.bTh();
+                a.this.gPE.bVr();
+                a.this.gPE.a(a.h.sdk_network_not_available, new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.2.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        a.this.gJS.TK();
-                        a.this.gJR.bSQ();
+                        a.this.gPE.Wk();
+                        a.this.gPD.bVp();
                     }
                 });
                 return;
@@ -98,31 +98,31 @@ public class a {
     public a(TbPageContext tbPageContext, View view, String str) {
         this.pageContext = tbPageContext;
         this.mLiveId = str;
-        bU(view);
+        bY(view);
     }
 
-    private void bU(View view) {
-        this.gJR = new b(getPageContext());
-        this.gJR.a(this.gJV);
-        this.gJT = new e(getPageContext());
-        this.gJS = new c(getPageContext(), view);
-        this.gJS.setListPullRefreshListener(new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.3
+    private void bY(View view) {
+        this.gPD = new b(getPageContext());
+        this.gPD.a(this.gPH);
+        this.gPF = new e(getPageContext());
+        this.gPE = new c(getPageContext(), view);
+        this.gPE.setListPullRefreshListener(new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.3
             @Override // com.baidu.live.tbadk.core.view.TbListCommonPullView.ListPullRefreshListener
             public void onListPullRefresh(boolean z) {
-                a.this.gJR.bSQ();
+                a.this.gPD.bVp();
             }
         });
-        this.gJS.bQH();
+        this.gPE.bTh();
     }
 
     public void onCreate(Bundle bundle) {
-        getPageContext().registerListener(this.gJU);
-        this.gJR.bSQ();
+        getPageContext().registerListener(this.gPG);
+        this.gPD.bVp();
     }
 
     public void onChangeSkinType(int i) {
-        if (this.gJS != null) {
-            this.gJS.onChangeSkinType(i);
+        if (this.gPE != null) {
+            this.gPE.onChangeSkinType(i);
         }
     }
 }

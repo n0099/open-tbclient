@@ -8,17 +8,17 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 public class a implements IOAdEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AdView f2312a;
+    final /* synthetic */ AdView f2314a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(AdView adView) {
-        this.f2312a = adView;
+        this.f2314a = adView;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventListener
     public void run(IOAdEvent iOAdEvent) {
         AdViewListener adViewListener;
-        adViewListener = this.f2312a.d;
+        adViewListener = this.f2314a.d;
         if (adViewListener != null) {
             XAdSDKFoundationFacade.getInstance().getCommonUtils().a((Runnable) new b(this, iOAdEvent));
         }

@@ -3,17 +3,17 @@ package com.qiniu.android.collect;
 import com.qiniu.android.utils.ContextGetter;
 /* loaded from: classes6.dex */
 public final class Config {
-    public static String pvG;
-    public static boolean pvF = true;
+    public static String pFa;
+    public static boolean pEZ = true;
     public static boolean isUpload = true;
-    public static int pvH = 2097152;
-    public static int pvI = 4096;
-    public static int aJy = 10;
+    public static int pFb = 2097152;
+    public static int pFc = 4096;
+    public static int aKy = 10;
 
     static {
-        pvG = null;
+        pFa = null;
         try {
-            pvG = ContextGetter.euo().getCacheDir().getAbsolutePath();
+            pFa = ContextGetter.eyd().getCacheDir().getAbsolutePath();
         } catch (Throwable th) {
             th.fillInStackTrace();
         }

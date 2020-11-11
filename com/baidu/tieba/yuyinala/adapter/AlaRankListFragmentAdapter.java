@@ -7,29 +7,29 @@ import com.baidu.tieba.yuyinala.AlaRankListActivity;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class AlaRankListFragmentAdapter extends PagerAdapter {
-    private ArrayList<d> fVi;
-    private AlaRankListActivity nLE;
+    private ArrayList<d> gaZ;
+    private AlaRankListActivity nRy;
 
     public AlaRankListFragmentAdapter(AlaRankListActivity alaRankListActivity, String str) {
-        this.nLE = alaRankListActivity;
-        UP(str);
+        this.nRy = alaRankListActivity;
+        Vg(str);
     }
 
-    private void UP(String str) {
-        this.fVi = new ArrayList<>();
-        this.fVi.add(new com.baidu.tieba.yuyinala.b.a(this.nLE, str));
+    private void Vg(String str) {
+        this.gaZ = new ArrayList<>();
+        this.gaZ.add(new com.baidu.tieba.yuyinala.b.a(this.nRy, str));
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        if (this.fVi != null) {
-            return this.fVi.size();
+        if (this.gaZ != null) {
+            return this.gaZ.size();
         }
         return 0;
     }
 
     public ArrayList<d> getDataList() {
-        return this.fVi;
+        return this.gaZ;
     }
 
     @Override // android.support.v4.view.PagerAdapter

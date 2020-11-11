@@ -5,19 +5,19 @@ import android.os.SystemClock;
 public class ConsumeTimeUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    TimeResult f1506a;
+    TimeResult f1508a;
     String b = "ConsumeTime";
     private String c;
 
     public ConsumeTimeUtils start() {
-        this.f1506a = new TimeResult();
-        this.f1506a.f1507a = SystemClock.uptimeMillis();
+        this.f1508a = new TimeResult();
+        this.f1508a.f1509a = SystemClock.uptimeMillis();
         return this;
     }
 
     public TimeResult finish() {
-        this.f1506a.b = SystemClock.uptimeMillis();
-        return this.f1506a;
+        this.f1508a.b = SystemClock.uptimeMillis();
+        return this.f1508a;
     }
 
     public void setTAGString(String str) {
@@ -32,7 +32,7 @@ public class ConsumeTimeUtils {
     public final class TimeResult {
 
         /* renamed from: a  reason: collision with root package name */
-        long f1507a = 0;
+        long f1509a = 0;
         long b = 0;
         long c = 0;
         int d = 0;
@@ -41,7 +41,7 @@ public class ConsumeTimeUtils {
         }
 
         public long getStartTime() {
-            return this.f1507a;
+            return this.f1509a;
         }
 
         public long getEndTime() {
@@ -49,7 +49,7 @@ public class ConsumeTimeUtils {
         }
 
         public long getDurationMesc() {
-            return this.b - this.f1507a;
+            return this.b - this.f1509a;
         }
 
         public int getDurationSecond() {

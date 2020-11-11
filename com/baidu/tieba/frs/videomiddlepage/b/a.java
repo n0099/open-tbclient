@@ -26,7 +26,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.view.expandable.SpannableClickTextView;
 /* loaded from: classes22.dex */
 public class a {
-    private static final int jfV = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds33);
+    private static final int jlT = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds33);
 
     public static void a(Context context, TextView textView, String str, final String str2, final String str3) {
         int dimens;
@@ -47,7 +47,7 @@ public class a {
             }
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str4);
             SpannableString spannableString = new SpannableString(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
-            spannableString.setSpan(new C0723a(context, R.drawable.icon_video_middle_ad_link), 0, 1, 17);
+            spannableString.setSpan(new C0737a(context, R.drawable.icon_video_middle_ad_link), 0, 1, 17);
             spannableString.setSpan(new ClickableSpan() { // from class: com.baidu.tieba.frs.videomiddlepage.b.a.1
                 @Override // android.text.style.ClickableSpan
                 public void onClick(View view) {
@@ -61,7 +61,7 @@ public class a {
             }, 0, 1, 17);
             spannableString.setSpan(new BackgroundColorSpan(0), 0, 1, 17);
             SpannableString spannableString2 = new SpannableString(" 广告");
-            spannableString2.setSpan(new b(jfV, color), 0, " 广告".length(), 17);
+            spannableString2.setSpan(new b(jlT, color), 0, " 广告".length(), 17);
             spannableStringBuilder.append((CharSequence) spannableString).append((CharSequence) spannableString2);
             textView.setHighlightColor(0);
             textView.setText(spannableStringBuilder);
@@ -87,12 +87,12 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes22.dex */
     public static class b extends ReplacementSpan {
-        private int jfX;
-        private int jfY;
+        private int jlV;
+        private int jlW;
 
         public b(int i, int i2) {
-            this.jfX = i;
-            this.jfY = i2;
+            this.jlV = i;
+            this.jlW = i2;
         }
 
         @Override // android.text.style.ReplacementSpan
@@ -110,8 +110,8 @@ public class a {
 
         private TextPaint b(Paint paint) {
             TextPaint textPaint = new TextPaint(paint);
-            textPaint.setTextSize(this.jfX);
-            textPaint.setColor(this.jfY);
+            textPaint.setTextSize(this.jlV);
+            textPaint.setColor(this.jlW);
             return textPaint;
         }
     }
@@ -119,8 +119,8 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.frs.videomiddlepage.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes22.dex */
-    public static class C0723a extends ImageSpan {
-        public C0723a(Context context, int i) {
+    public static class C0737a extends ImageSpan {
+        public C0737a(Context context, int i) {
             super(context, i);
         }
 

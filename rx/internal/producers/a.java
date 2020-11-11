@@ -3,16 +3,16 @@ package rx.internal.producers;
 import rx.f;
 /* loaded from: classes16.dex */
 public final class a implements f {
-    static final f pYd = new f() { // from class: rx.internal.producers.a.1
+    static final f qhx = new f() { // from class: rx.internal.producers.a.1
         @Override // rx.f
         public void request(long j) {
         }
     };
     boolean emitting;
-    f pXZ;
-    long pYa;
-    long pYb;
-    f pYc;
+    f qht;
+    long qhu;
+    long qhv;
+    f qhw;
     long requested;
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -24,7 +24,7 @@ public final class a implements f {
         if (j != 0) {
             synchronized (this) {
                 if (this.emitting) {
-                    this.pYa += j;
+                    this.qhu += j;
                 } else {
                     this.emitting = true;
                     try {
@@ -33,7 +33,7 @@ public final class a implements f {
                             j2 = Long.MAX_VALUE;
                         }
                         this.requested = j2;
-                        f fVar = this.pXZ;
+                        f fVar = this.qht;
                         if (fVar != null) {
                             fVar.request(j);
                         }
@@ -56,7 +56,7 @@ public final class a implements f {
         }
         synchronized (this) {
             if (this.emitting) {
-                this.pYb += j;
+                this.qhv += j;
                 return;
             }
             this.emitting = true;
@@ -84,14 +84,14 @@ public final class a implements f {
         synchronized (this) {
             if (this.emitting) {
                 if (fVar == null) {
-                    fVar = pYd;
+                    fVar = qhx;
                 }
-                this.pYc = fVar;
+                this.qhw = fVar;
                 return;
             }
             this.emitting = true;
             try {
-                this.pXZ = fVar;
+                this.qht = fVar;
                 if (fVar != null) {
                     fVar.request(this.requested);
                 }
@@ -108,16 +108,16 @@ public final class a implements f {
     public void emitLoop() {
         while (true) {
             synchronized (this) {
-                long j = this.pYa;
-                long j2 = this.pYb;
-                f fVar = this.pYc;
+                long j = this.qhu;
+                long j2 = this.qhv;
+                f fVar = this.qhw;
                 if (j == 0 && j2 == 0 && fVar == null) {
                     this.emitting = false;
                     return;
                 }
-                this.pYa = 0L;
-                this.pYb = 0L;
-                this.pYc = null;
+                this.qhu = 0L;
+                this.qhv = 0L;
+                this.qhw = null;
                 long j3 = this.requested;
                 if (j3 != Long.MAX_VALUE) {
                     long j4 = j3 + j;
@@ -133,14 +133,14 @@ public final class a implements f {
                     }
                 }
                 if (fVar != null) {
-                    if (fVar == pYd) {
-                        this.pXZ = null;
+                    if (fVar == qhx) {
+                        this.qht = null;
                     } else {
-                        this.pXZ = fVar;
+                        this.qht = fVar;
                         fVar.request(j3);
                     }
                 } else {
-                    f fVar2 = this.pXZ;
+                    f fVar2 = this.qht;
                     if (fVar2 != null && j != 0) {
                         fVar2.request(j);
                     }

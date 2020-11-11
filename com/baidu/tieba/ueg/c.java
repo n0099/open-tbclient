@@ -7,23 +7,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, String, Integer> {
-    private String nfl;
-    private a nfm;
+    private String nlh;
+    private a nli;
 
     /* loaded from: classes.dex */
     public interface a {
-        void cVs();
+        void cXT();
 
-        void cVt();
+        void cXU();
 
-        void cVu();
+        void cXV();
 
         void onError(String str);
     }
 
     public c(String str, a aVar) {
-        this.nfl = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
-        this.nfm = aVar;
+        this.nlh = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
+        this.nli = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,9 +33,9 @@ public class c extends BdAsyncTask<String, String, Integer> {
     public Integer doInBackground(String... strArr) {
         int i = -1;
         try {
-            aa aaVar = new aa(this.nfl);
-            aaVar.bon().boT().mIsNeedAddCommenParam = false;
-            aaVar.bon().boT().mIsUseCurrentBDUSS = false;
+            aa aaVar = new aa(this.nlh);
+            aaVar.bqN().brt().mIsNeedAddCommenParam = false;
+            aaVar.bqN().brt().mIsUseCurrentBDUSS = false;
             JSONArray optJSONArray = new JSONObject(new String(aaVar.getNetData())).optJSONArray("result");
             if (optJSONArray == null || optJSONArray.length() <= 0) {
                 return i;
@@ -57,15 +57,15 @@ public class c extends BdAsyncTask<String, String, Integer> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Integer num) {
-        if (this.nfm != null && num != null) {
+        if (this.nli != null && num != null) {
             if (num.intValue() == -1) {
-                this.nfm.onError(null);
+                this.nli.onError(null);
             } else if (num.intValue() == 1) {
-                this.nfm.cVs();
+                this.nli.cXT();
             } else if (num.intValue() == 2 || num.intValue() == 0) {
-                this.nfm.cVt();
+                this.nli.cXU();
             } else {
-                this.nfm.cVu();
+                this.nli.cXV();
             }
         }
     }

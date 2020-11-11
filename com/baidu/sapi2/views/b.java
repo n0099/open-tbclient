@@ -15,16 +15,16 @@ import com.baidu.sapi2.SapiAccountManager;
 public class b extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f3578a;
+    private View f3581a;
     private ObjectAnimator b;
     private View c;
     private LinearLayout d;
 
     public b(Context context) {
         super(context);
-        this.f3578a = LayoutInflater.from(context).inflate(a.f.layout_sapi_sdk_sweep_light_loading_view, (ViewGroup) this, true);
-        this.c = this.f3578a.findViewById(a.e.sweep_iv);
-        this.d = (LinearLayout) this.f3578a.findViewById(a.e.sapi_sdk_sweep_light_loading_bg_layout);
+        this.f3581a = LayoutInflater.from(context).inflate(a.f.layout_sapi_sdk_sweep_light_loading_view, (ViewGroup) this, true);
+        this.c = this.f3581a.findViewById(a.e.sweep_iv);
+        this.d = (LinearLayout) this.f3581a.findViewById(a.e.sapi_sdk_sweep_light_loading_bg_layout);
         if (SapiAccountManager.getInstance().getConfignation().isDarkMode) {
             this.d.setBackgroundColor(getResources().getColor(a.b.sapi_sdk_dark_mode_color));
         }

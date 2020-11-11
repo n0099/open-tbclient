@@ -38,20 +38,20 @@ public class ImageToastView {
         this.tipText = null;
         this.tipImage = null;
         this.mContext = TbadkCoreApplication.getInst().getContext();
-        this.tipView = LayoutInflater.from(this.mContext).inflate(a.h.sdk_image_toast_view, (ViewGroup) null);
-        this.tipText = (TextView) this.tipView.findViewById(a.g.tip_text);
-        this.tipImage = (ImageView) this.tipView.findViewById(a.g.tip_iamge);
+        this.tipView = LayoutInflater.from(this.mContext).inflate(a.g.sdk_image_toast_view, (ViewGroup) null);
+        this.tipText = (TextView) this.tipView.findViewById(a.f.tip_text);
+        this.tipImage = (ImageView) this.tipView.findViewById(a.f.tip_iamge);
     }
 
     public void showSuccessToast() {
-        this.tipText.setText(a.i.sdk_success);
-        this.tipImage.setImageResource(a.f.sdk_icon_toast_game_ok);
+        this.tipText.setText(a.h.sdk_success);
+        this.tipImage.setImageResource(a.e.sdk_icon_toast_game_ok);
         showViewToast(this.tipView);
     }
 
     public void showFailToast() {
-        this.tipText.setText(a.i.sdk_fail);
-        this.tipImage.setImageResource(a.f.sdk_icon_toast_game_error);
+        this.tipText.setText(a.h.sdk_fail);
+        this.tipImage.setImageResource(a.e.sdk_icon_toast_game_error);
         showViewToast(this.tipView);
     }
 
@@ -75,13 +75,13 @@ public class ImageToastView {
 
     public void showSuccessToast(CharSequence charSequence) {
         this.tipText.setText(charSequence);
-        this.tipImage.setImageResource(a.f.sdk_icon_toast_game_ok);
+        this.tipImage.setImageResource(a.e.sdk_icon_toast_game_ok);
         showViewToast(this.tipView);
     }
 
     public void showFailToast(CharSequence charSequence) {
         this.tipText.setText(charSequence);
-        this.tipImage.setImageResource(a.f.sdk_icon_toast_game_error);
+        this.tipImage.setImageResource(a.e.sdk_icon_toast_game_error);
         showViewToast(this.tipView);
     }
 

@@ -133,7 +133,7 @@ public class OpenFlutter {
 
     public static boolean checkSwitch(String str) {
         if (str.contains(ACTIVITY_SIGN_TOGETHER)) {
-            return !b.zy("flutter_page_test") && FlutterSignAllEnableSwitch.isOn();
+            return !b.zM("flutter_page_test") && FlutterSignAllEnableSwitch.isOn();
         } else if (str.contains(ACTIVITY_FANS)) {
             return FlutterPersonAttentionEnableSwitch.isOn();
         } else {
@@ -144,7 +144,7 @@ public class OpenFlutter {
                 return FlutterConcernForumEnableSwitch.isOn();
             }
             if (str.contains(ACTIVITY_PERSON_CENTER)) {
-                return FlutterPersonCenterEnableSwitch.isOn() && d.bfo();
+                return FlutterPersonCenterEnableSwitch.isOn() && d.bhO();
             }
             return true;
         }

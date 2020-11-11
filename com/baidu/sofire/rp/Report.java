@@ -9,7 +9,7 @@ import com.baidu.sofire.i.g;
 public class Report {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Report f3667a;
+    private static Report f3670a;
     private Context b;
 
     private Report(Context context) {
@@ -19,10 +19,10 @@ public class Report {
     public static synchronized Report getInstance(Context context) {
         Report report;
         synchronized (Report.class) {
-            if (f3667a == null) {
-                f3667a = new Report(context);
+            if (f3670a == null) {
+                f3670a = new Report(context);
             }
-            report = f3667a;
+            report = f3670a;
         }
         return report;
     }
@@ -53,7 +53,7 @@ public class Report {
             Message message = new Message();
             message.what = 11;
             message.obj = str;
-            a2.f3629a.a(message);
+            a2.f3632a.a(message);
         } catch (Throwable th) {
             e.a();
         }
@@ -80,7 +80,7 @@ public class Report {
             g a2 = g.a(this.b);
             Message message = new Message();
             message.what = 6;
-            a2.f3629a.a(message);
+            a2.f3632a.a(message);
         } catch (Throwable th) {
             e.a();
         }
@@ -91,7 +91,7 @@ public class Report {
             g a2 = g.a(this.b);
             Message message = new Message();
             message.what = 9;
-            a2.f3629a.a(message);
+            a2.f3632a.a(message);
         } catch (Throwable th) {
             e.a();
         }

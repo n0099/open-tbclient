@@ -9,14 +9,14 @@ import com.baidu.swan.apps.ap.j;
 import com.baidu.swan.apps.v.f;
 /* loaded from: classes10.dex */
 public class c {
-    private static boolean czm = false;
+    private static boolean cFf = false;
 
-    public static void eq(boolean z) {
-        czm = z;
+    public static void ez(boolean z) {
+        cFf = z;
     }
 
-    public static boolean aiY() {
-        return czm;
+    public static boolean aly() {
+        return cFf;
     }
 
     public static void d(String str, Object... objArr) {
@@ -33,7 +33,7 @@ public class c {
 
     public static void i(String str, String str2) {
         E("info", str, str2);
-        com.baidu.swan.apps.t.a.avb().i(str, str2);
+        com.baidu.swan.apps.t.a.axB().i(str, str2);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.i(str, str2);
         }
@@ -41,7 +41,7 @@ public class c {
 
     public static void w(String str, String str2) {
         E("warn", str, str2);
-        com.baidu.swan.apps.t.a.avb().w(str, str2);
+        com.baidu.swan.apps.t.a.axB().w(str, str2);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.w(str, str2);
         }
@@ -49,7 +49,7 @@ public class c {
 
     public static void e(String str, String str2) {
         E(BdStatsConstant.StatsType.ERROR, str, str2);
-        com.baidu.swan.apps.t.a.avb().e(str, str2);
+        com.baidu.swan.apps.t.a.axB().e(str, str2);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.e(str, str2);
         }
@@ -57,33 +57,33 @@ public class c {
 
     public static void e(String str, String str2, Throwable th) {
         E(BdStatsConstant.StatsType.ERROR, str, th != null ? "Exception:" + th.getMessage() + "\n" + str2 : str2);
-        com.baidu.swan.apps.t.a.avb().e(str, str2, th);
+        com.baidu.swan.apps.t.a.axB().e(str, str2, th);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.e(str, str2, th);
         }
     }
 
     public static void bn(String str, String str2) {
-        com.baidu.swan.apps.t.a.avb().i(str, str2);
+        com.baidu.swan.apps.t.a.axB().i(str, str2);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.i(str, str2);
         }
     }
 
     public static void f(String str, String str2, Throwable th) {
-        com.baidu.swan.apps.t.a.avb().e(str, str2, th);
+        com.baidu.swan.apps.t.a.axB().e(str, str2, th);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.e(str, str2, th);
         }
     }
 
     private static void E(String str, String str2, String str3) {
-        if (!TextUtils.isEmpty(str3) && czm) {
+        if (!TextUtils.isEmpty(str3) && cFf) {
             StringBuilder sb = new StringBuilder();
-            String a2 = j.a(j.aJV(), "yyyy-MM-dd HH:mm:ss");
+            String a2 = j.a(j.aMv(), "yyyy-MM-dd HH:mm:ss");
             String fileName = getFileName();
             sb.append(a2).append("  ").append(fileName).append("  ").append("line:").append(getLineNumber()).append("\n").append("module:").append(str2).append("\n").append(str3);
-            f.axo().awR().bg(str, sb.toString());
+            f.azO().azr().bg(str, sb.toString());
         }
     }
 

@@ -51,7 +51,7 @@ public class GridIconLayout extends FrameLayout implements p<ai>, q {
             @Override // com.baidu.tbadk.h.e
             public void a(View view, j jVar, int i, long j) {
                 if (jVar != null) {
-                    GridIconLayout.this.dl(jVar.bhX());
+                    GridIconLayout.this.dl(jVar.bkx());
                 }
                 if (GridIconLayout.this.aiM != null) {
                     GridIconLayout.this.aiM.a(view, jVar, i, j);
@@ -62,12 +62,12 @@ public class GridIconLayout extends FrameLayout implements p<ai>, q {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.widget.extend.a.a
             public void a(com.baidu.tbadk.widget.extend.a.c cVar, j jVar, int i) {
-                RoundTbImageView roundTbImageView = (RoundTbImageView) cVar.rW(R.id.iv_icon);
+                RoundTbImageView roundTbImageView = (RoundTbImageView) cVar.sg(R.id.iv_icon);
                 roundTbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
                 roundTbImageView.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
                 roundTbImageView.setPlaceHolder(1);
-                roundTbImageView.startLoad(jVar.bhW(), 10, false);
-                TextView textView = (TextView) cVar.rW(R.id.tv_title);
+                roundTbImageView.startLoad(jVar.bkw(), 10, false);
+                TextView textView = (TextView) cVar.sg(R.id.tv_title);
                 ap.setViewTextColor(textView, R.color.cp_cont_b);
                 textView.setText(jVar.getTitle());
                 if (GridIconLayout.this.aiM != null) {
@@ -141,7 +141,7 @@ public class GridIconLayout extends FrameLayout implements p<ai>, q {
     public void dl(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
-                be.boR().b((TbPageContext) i.I(getContext()), new String[]{str});
+                be.brr().b((TbPageContext) i.I(getContext()), new String[]{str});
             }
         } catch (Exception e) {
             e.printStackTrace();

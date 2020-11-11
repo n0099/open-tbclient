@@ -22,7 +22,7 @@ public class a implements f {
     private String liveId = "";
     private String userName = "";
     private String description = "";
-    private boolean kUV = true;
+    private boolean laS = true;
 
     public boolean equals(Object obj) {
         if (obj == null || !(obj instanceof a)) {
@@ -80,7 +80,7 @@ public class a implements f {
         return (((this.isHostOnly ? 1 : 0) + (hashCode6 * 7)) * 7) + (this.isSquence ? 1 : 0);
     }
 
-    public boolean eo(JSONObject jSONObject) {
+    public boolean eu(JSONObject jSONObject) {
         String optString = jSONObject.optString("forum_name");
         String optString2 = jSONObject.optString("thread_id");
         String optString3 = jSONObject.optString("thread_name");
@@ -178,7 +178,7 @@ public class a implements f {
         return this.threadId;
     }
 
-    public String dcC() {
+    public String dfe() {
         return this.threadName;
     }
 
@@ -202,27 +202,27 @@ public class a implements f {
         this.forumName = str;
     }
 
-    public String bxA() {
+    public String bzZ() {
         return this.postID;
     }
 
-    public void OF(String str) {
+    public void OW(String str) {
         this.postID = str;
     }
 
-    public boolean dcD() {
+    public boolean dff() {
         return this.isHostOnly;
     }
 
-    public void tn(boolean z) {
+    public void tw(boolean z) {
         this.isHostOnly = z;
     }
 
-    public boolean dcE() {
+    public boolean dfg() {
         return this.isSquence;
     }
 
-    public void to(boolean z) {
+    public void tx(boolean z) {
         this.isSquence = z;
     }
 
@@ -250,12 +250,12 @@ public class a implements f {
         this.description = str;
     }
 
-    public boolean dcF() {
-        return this.kUV;
+    public boolean dfh() {
+        return this.laS;
     }
 
-    public void tp(boolean z) {
-        this.kUV = z;
+    public void ty(boolean z) {
+        this.laS = z;
     }
 
     @Override // com.baidu.tbadk.mvc.b.d
@@ -264,15 +264,15 @@ public class a implements f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String byY() {
+    public String bBx() {
         return toJsonObject().toString();
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean DR(String str) {
+    public boolean Ef(String str) {
         if (str != null) {
             try {
-                return eo(new JSONObject(str));
+                return eu(new JSONObject(str));
             } catch (JSONException e) {
                 e.printStackTrace();
             }

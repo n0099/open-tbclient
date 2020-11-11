@@ -5,18 +5,18 @@ import android.widget.Button;
 final class ed implements ey {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackReportActivity f3849a;
+    final /* synthetic */ FeedbackReportActivity f3851a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ed(FeedbackReportActivity feedbackReportActivity) {
-        this.f3849a = feedbackReportActivity;
+        this.f3851a = feedbackReportActivity;
     }
 
     @Override // com.baidu.ufosdk.ui.ey
     public final void a(String str) {
         Button button;
-        this.f3849a.F = str;
-        button = this.f3849a.m;
+        this.f3851a.F = str;
+        button = this.f3851a.m;
         button.setTextColor(com.baidu.ufosdk.f.i.a(com.baidu.ufosdk.b.v, com.baidu.ufosdk.b.y, com.baidu.ufosdk.b.v, com.baidu.ufosdk.b.v));
     }
 }

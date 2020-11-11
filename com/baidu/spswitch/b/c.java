@@ -5,23 +5,23 @@ import com.baidu.spswitch.b;
 /* loaded from: classes19.dex */
 public class c {
     private static final boolean DEBUG = b.isDebug();
-    private static int cnW = 0;
-    private static int cnX = 0;
-    private static int cnY = 0;
-    private static int cnZ = 0;
-    private static int coa = 0;
+    private static int ctU = 0;
+    private static int ctV = 0;
+    private static int ctW = 0;
+    private static int ctX = 0;
+    private static int ctY = 0;
 
     public static int bh(Context context) {
-        if (cnW == 0) {
-            cnW = context.getResources().getDimensionPixelSize(b.a.min_softinput_height);
+        if (ctU == 0) {
+            ctU = context.getResources().getDimensionPixelSize(b.a.min_softinput_height);
         }
-        return cnW;
+        return ctU;
     }
 
     public static int bi(Context context) {
-        if (cnX == 0) {
-            cnX = context.getResources().getDimensionPixelSize(b.a.max_softinput_height);
+        if (ctV == 0) {
+            ctV = context.getResources().getDimensionPixelSize(b.a.max_softinput_height);
         }
-        return cnX;
+        return ctV;
     }
 }

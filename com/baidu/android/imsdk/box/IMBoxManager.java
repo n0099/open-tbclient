@@ -74,7 +74,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public final class IMBoxManager {
     private static final String TAG = IMBoxManager.class.getSimpleName();
 

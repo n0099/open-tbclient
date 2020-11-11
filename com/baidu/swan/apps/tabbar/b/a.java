@@ -30,51 +30,51 @@ import java.util.UUID;
 /* loaded from: classes10.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private SwanAppConfigData.j dnH;
-    private View dwi;
-    private LinearLayout dwj;
-    private int dwk = 0;
-    private e dwl;
-    private ArrayList<SwanAppBottomTabIconView> dwm;
-    private ArrayList<SwanAppConfigData.k> dwn;
-    private String dwo;
-    private String dwp;
+    private View dCa;
+    private LinearLayout dCb;
+    private int dCc = 0;
+    private e dCd;
+    private ArrayList<SwanAppBottomTabIconView> dCe;
+    private ArrayList<SwanAppConfigData.k> dCf;
+    private String dCg;
+    private String dCh;
+    private SwanAppConfigData.j dtE;
 
     public a(e eVar) {
-        this.dwl = eVar;
+        this.dCd = eVar;
     }
 
     public void a(View view, Context context, String str) {
         boolean z;
-        if (this.dwl.alq()) {
-            SwanAppConfigData awT = f.axo().awT();
-            if (awT == null) {
+        if (this.dCd.anQ()) {
+            SwanAppConfigData azt = f.azO().azt();
+            if (azt == null) {
                 if (DEBUG) {
                     Log.e("bottomBarViewController", "configData is null." + Log.getStackTraceString(new Exception()));
                     return;
                 }
                 return;
             }
-            this.dnH = awT.dnH;
-            this.dwn = this.dnH.dom;
-            int size = this.dwn.size();
-            this.dwm = new ArrayList<>(size);
-            this.dwi = view.findViewById(a.f.bottom_bar_shadow);
-            as(this.dnH.dol, this.dnH.mBackgroundColor);
-            this.dwj = (LinearLayout) view.findViewById(a.f.ai_apps_bottom_tab);
-            this.dwj.setVisibility(0);
-            this.dwj.setBackgroundColor(this.dnH.mBackgroundColor);
+            this.dtE = azt.dtE;
+            this.dCf = this.dtE.dui;
+            int size = this.dCf.size();
+            this.dCe = new ArrayList<>(size);
+            this.dCa = view.findViewById(a.f.bottom_bar_shadow);
+            as(this.dtE.duh, this.dtE.mBackgroundColor);
+            this.dCb = (LinearLayout) view.findViewById(a.f.ai_apps_bottom_tab);
+            this.dCb.setVisibility(0);
+            this.dCb.setBackgroundColor(this.dtE.mBackgroundColor);
             int displayWidth = ah.getDisplayWidth(AppRuntime.getAppContext());
             final int i = 0;
             boolean z2 = false;
             while (i < size) {
                 SwanAppBottomTabIconView swanAppBottomTabIconView = new SwanAppBottomTabIconView(context);
-                SwanAppConfigData.k kVar = this.dwn.get(i);
+                SwanAppConfigData.k kVar = this.dCf.get(i);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(displayWidth / size, -1);
                 layoutParams.gravity = 1;
-                if (TextUtils.equals(kVar.don, !TextUtils.isEmpty(str) ? str : f.axo().awX()) && !z2) {
+                if (TextUtils.equals(kVar.duj, !TextUtils.isEmpty(str) ? str : f.azO().azx()) && !z2) {
                     b(swanAppBottomTabIconView, kVar);
-                    this.dwk = i;
+                    this.dCc = i;
                     z = true;
                 } else {
                     a(swanAppBottomTabIconView, kVar);
@@ -84,50 +84,50 @@ public class a {
                 swanAppBottomTabIconView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.tabbar.b.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        a.this.kV(i);
+                        a.this.lf(i);
                     }
                 });
-                this.dwm.add(swanAppBottomTabIconView);
-                this.dwj.addView(swanAppBottomTabIconView, layoutParams);
+                this.dCe.add(swanAppBottomTabIconView);
+                this.dCb.addView(swanAppBottomTabIconView, layoutParams);
                 i++;
                 z2 = z;
             }
         }
     }
 
-    public boolean ami() {
-        return this.dwj != null && this.dwj.getVisibility() == 0;
+    public boolean aoI() {
+        return this.dCb != null && this.dCb.getVisibility() == 0;
     }
 
     private void as(int i, int i2) {
         if (AppRuntime.getAppContext() != null) {
             if (-1 == i) {
-                this.dwi.setVisibility(0);
-                this.dwi.setBackgroundColor(AppRuntime.getAppContext().getResources().getColor(a.c.aiapps_white));
+                this.dCa.setVisibility(0);
+                this.dCa.setBackgroundColor(AppRuntime.getAppContext().getResources().getColor(a.c.aiapps_white));
             } else if (-16777216 == i) {
-                this.dwi.setVisibility(0);
-                this.dwi.setBackgroundColor(i2);
+                this.dCa.setVisibility(0);
+                this.dCa.setBackgroundColor(i2);
             } else {
-                this.dwi.setVisibility(0);
-                this.dwi.setBackgroundColor(AppRuntime.getAppContext().getResources().getColor(a.c.aiapps_white));
+                this.dCa.setVisibility(0);
+                this.dCa.setBackgroundColor(AppRuntime.getAppContext().getResources().getColor(a.c.aiapps_white));
             }
         }
     }
 
-    private void tF(String str) {
-        this.dwj.setBackgroundColor(SwanAppConfigData.fv(str));
+    private void tT(String str) {
+        this.dCb.setBackgroundColor(SwanAppConfigData.fv(str));
     }
 
     private boolean a(final SwanAppBottomTabIconView swanAppBottomTabIconView, SwanAppConfigData.k kVar) {
-        com.baidu.swan.apps.u.c.b adA = adA();
-        if (adA == null) {
+        com.baidu.swan.apps.u.c.b aga = aga();
+        if (aga == null) {
             return false;
         }
-        String k = com.baidu.swan.apps.ad.a.a.k(adA);
+        String k = com.baidu.swan.apps.ad.a.a.k(aga);
         if (TextUtils.isEmpty(k)) {
-            k = d.C0452d.bN(adA.getAppId(), adA.getVersion()).getPath();
+            k = d.C0464d.bN(aga.getAppId(), aga.getVersion()).getPath();
         }
-        String str = k + File.separator + kVar.doo;
+        String str = k + File.separator + kVar.duk;
         if (com.baidu.swan.c.d.isExistFile(str)) {
             swanAppBottomTabIconView.setmIsSelect(false);
             final Bitmap decodeFile = BitmapFactory.decodeFile(str);
@@ -135,10 +135,10 @@ public class a {
                 @Override // java.lang.Runnable
                 public void run() {
                     swanAppBottomTabIconView.setIconView(decodeFile);
-                    if (a.this.dwo == null) {
-                        swanAppBottomTabIconView.setTextColor(a.this.dnH.mColor);
+                    if (a.this.dCg == null) {
+                        swanAppBottomTabIconView.setTextColor(a.this.dtE.mColor);
                     } else {
-                        swanAppBottomTabIconView.setTextColor(SwanAppConfigData.fv(a.this.dwo));
+                        swanAppBottomTabIconView.setTextColor(SwanAppConfigData.fv(a.this.dCg));
                     }
                 }
             });
@@ -148,15 +148,15 @@ public class a {
     }
 
     private boolean b(final SwanAppBottomTabIconView swanAppBottomTabIconView, SwanAppConfigData.k kVar) {
-        com.baidu.swan.apps.u.c.b adA = adA();
-        if (adA == null) {
+        com.baidu.swan.apps.u.c.b aga = aga();
+        if (aga == null) {
             return false;
         }
-        String k = com.baidu.swan.apps.ad.a.a.k(adA);
+        String k = com.baidu.swan.apps.ad.a.a.k(aga);
         if (TextUtils.isEmpty(k)) {
-            k = d.C0452d.bN(adA.getAppId(), adA.getVersion()).getPath();
+            k = d.C0464d.bN(aga.getAppId(), aga.getVersion()).getPath();
         }
-        String str = k + File.separator + kVar.dop;
+        String str = k + File.separator + kVar.dul;
         if (com.baidu.swan.c.d.isExistFile(str)) {
             swanAppBottomTabIconView.setmIsSelect(true);
             final Bitmap decodeFile = BitmapFactory.decodeFile(str);
@@ -164,10 +164,10 @@ public class a {
                 @Override // java.lang.Runnable
                 public void run() {
                     swanAppBottomTabIconView.setIconView(decodeFile);
-                    if (a.this.dwp == null) {
-                        swanAppBottomTabIconView.setTextColor(a.this.dnH.dok);
+                    if (a.this.dCh == null) {
+                        swanAppBottomTabIconView.setTextColor(a.this.dtE.dug);
                     } else {
-                        swanAppBottomTabIconView.setTextColor(SwanAppConfigData.fv(a.this.dwp));
+                        swanAppBottomTabIconView.setTextColor(SwanAppConfigData.fv(a.this.dCh));
                     }
                 }
             });
@@ -176,39 +176,39 @@ public class a {
         return false;
     }
 
-    private com.baidu.swan.apps.u.c.b adA() {
-        com.baidu.swan.apps.runtime.e aEU = com.baidu.swan.apps.runtime.e.aEU();
-        if (aEU != null) {
-            return aEU.ado();
+    private com.baidu.swan.apps.u.c.b aga() {
+        com.baidu.swan.apps.runtime.e aHu = com.baidu.swan.apps.runtime.e.aHu();
+        if (aHu != null) {
+            return aHu.afO();
         }
         return null;
     }
 
-    public boolean gE(boolean z) {
-        if (this.dwi == null || this.dwj == null) {
+    public boolean gN(boolean z) {
+        if (this.dCa == null || this.dCb == null) {
             return false;
         }
-        this.dwi.setVisibility(8);
+        this.dCa.setVisibility(8);
         if (z) {
-            aJe();
+            aLE();
         } else {
-            this.dwj.setVisibility(8);
+            this.dCb.setVisibility(8);
         }
         return true;
     }
 
-    public boolean gF(boolean z) {
-        if (this.dwi == null || this.dwj == null) {
+    public boolean gO(boolean z) {
+        if (this.dCa == null || this.dCb == null) {
             return false;
         }
-        this.dwi.setVisibility(0);
-        this.dwj.setVisibility(0);
-        gG(z);
+        this.dCa.setVisibility(0);
+        this.dCb.setVisibility(0);
+        gP(z);
         return true;
     }
 
-    private void aJe() {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.dwj, "translationY", 0.0f, com.baidu.swan.apps.t.a.aua().getResources().getDimensionPixelSize(a.d.aiapps_bottom_tab_height));
+    private void aLE() {
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.dCb, "translationY", 0.0f, com.baidu.swan.apps.t.a.awA().getResources().getDimensionPixelSize(a.d.aiapps_bottom_tab_height));
         ofFloat.setDuration(240L);
         ofFloat.setInterpolator(new DecelerateInterpolator());
         ofFloat.addListener(new Animator.AnimatorListener() { // from class: com.baidu.swan.apps.tabbar.b.a.4
@@ -218,7 +218,7 @@ public class a {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                a.this.dwj.setVisibility(8);
+                a.this.dCb.setVisibility(8);
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -232,53 +232,53 @@ public class a {
         ofFloat.start();
     }
 
-    private void gG(boolean z) {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.dwj, "translationY", com.baidu.swan.apps.t.a.aua().getResources().getDimensionPixelSize(a.d.aiapps_bottom_tab_height), 0.0f);
+    private void gP(boolean z) {
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.dCb, "translationY", com.baidu.swan.apps.t.a.awA().getResources().getDimensionPixelSize(a.d.aiapps_bottom_tab_height), 0.0f);
         ofFloat.setDuration(z ? 240L : 0L);
         ofFloat.start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void kV(int i) {
+    public void lf(int i) {
         String uuid = UUID.randomUUID().toString();
-        j.qJ(uuid);
-        kX(i);
-        kW(i);
-        if (this.dwk != i) {
-            this.dwk = i;
-            this.dwl.pause();
-            this.dwl.b(com.baidu.swan.apps.model.b.cb(this.dwn.get(i).don, f.axo().awV()), uuid);
-            e.mG("switchTab");
-            this.dwl.resume();
+        j.qX(uuid);
+        lh(i);
+        lg(i);
+        if (this.dCc != i) {
+            this.dCc = i;
+            this.dCd.pause();
+            this.dCd.b(com.baidu.swan.apps.model.b.cb(this.dCf.get(i).duj, f.azO().azv()), uuid);
+            e.mV("switchTab");
+            this.dCd.resume();
         }
     }
 
-    private void kW(int i) {
+    private void lg(int i) {
         HashMap hashMap = new HashMap();
-        SwanAppConfigData.k kVar = this.dwn.get(i);
-        String mI = this.dwl.mI(com.baidu.swan.apps.model.b.cb(kVar.don, f.axo().awV()).mPage);
+        SwanAppConfigData.k kVar = this.dCf.get(i);
+        String mX = this.dCd.mX(com.baidu.swan.apps.model.b.cb(kVar.duj, f.azO().azv()).mPage);
         hashMap.put("index", String.valueOf(i));
-        hashMap.put("pagePath", kVar.don);
+        hashMap.put("pagePath", kVar.duj);
         hashMap.put("text", kVar.mText);
-        hashMap.put("wvID", mI);
-        f.axo().b(new com.baidu.swan.apps.event.a.b("onTabItemTap", hashMap));
+        hashMap.put("wvID", mX);
+        f.azO().b(new com.baidu.swan.apps.event.a.b("onTabItemTap", hashMap));
     }
 
-    private void kX(int i) {
-        a(this.dwm.get(this.dwk), this.dwn.get(this.dwk));
-        b(this.dwm.get(i), this.dwn.get(i));
+    private void lh(int i) {
+        a(this.dCe.get(this.dCc), this.dCf.get(this.dCc));
+        b(this.dCe.get(i), this.dCf.get(i));
     }
 
-    public void tG(String str) {
+    public void tU(String str) {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.dwn.size()) {
-                if (!this.dwn.get(i2).don.equals(str)) {
+            if (i2 < this.dCf.size()) {
+                if (!this.dCf.get(i2).duj.equals(str)) {
                     i = i2 + 1;
                 } else {
-                    kX(i2);
-                    this.dwk = i2;
+                    lh(i2);
+                    this.dCc = i2;
                     return;
                 }
             } else {
@@ -288,17 +288,17 @@ public class a {
     }
 
     public boolean s(String str, String str2, String str3, String str4) {
-        if (this.dwi == null || this.dwj == null) {
+        if (this.dCa == null || this.dCb == null) {
             return false;
         }
         as(SwanAppConfigData.fv(str4), SwanAppConfigData.fv(str3));
-        tF(str3);
-        tH(str);
-        tI(str2);
-        Iterator<SwanAppBottomTabIconView> it = this.dwm.iterator();
+        tT(str3);
+        tV(str);
+        tW(str2);
+        Iterator<SwanAppBottomTabIconView> it = this.dCe.iterator();
         while (it.hasNext()) {
             SwanAppBottomTabIconView next = it.next();
-            if (next.aJg()) {
+            if (next.aLG()) {
                 next.setTextColor(SwanAppConfigData.fv(str2));
             } else {
                 next.setTextColor(SwanAppConfigData.fv(str));
@@ -307,19 +307,19 @@ public class a {
         return true;
     }
 
-    private void tH(String str) {
-        this.dwo = str;
+    private void tV(String str) {
+        this.dCg = str;
     }
 
-    private void tI(String str) {
-        this.dwp = str;
+    private void tW(String str) {
+        this.dCh = str;
     }
 
     public boolean b(int i, final String str, String str2, String str3) {
-        if (!lb(i)) {
+        if (!ll(i)) {
             return false;
         }
-        final SwanAppBottomTabIconView swanAppBottomTabIconView = this.dwm.get(i);
+        final SwanAppBottomTabIconView swanAppBottomTabIconView = this.dCe.get(i);
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.tabbar.b.a.5
             @Override // java.lang.Runnable
             public void run() {
@@ -327,29 +327,29 @@ public class a {
             }
         });
         if (!TextUtils.isEmpty(str2)) {
-            this.dwn.get(i).doo = str2;
+            this.dCf.get(i).duk = str2;
         }
         if (!TextUtils.isEmpty(str3)) {
-            this.dwn.get(i).dop = str3;
+            this.dCf.get(i).dul = str3;
         }
-        if (swanAppBottomTabIconView.aJg()) {
-            return b(swanAppBottomTabIconView, this.dwn.get(i));
+        if (swanAppBottomTabIconView.aLG()) {
+            return b(swanAppBottomTabIconView, this.dCf.get(i));
         }
-        return a(swanAppBottomTabIconView, this.dwn.get(i));
+        return a(swanAppBottomTabIconView, this.dCf.get(i));
     }
 
-    public boolean kY(int i) {
-        if (!lb(i)) {
+    public boolean li(int i) {
+        if (!ll(i)) {
             return false;
         }
-        this.dwm.get(i).setRedDotVisibleState(true);
+        this.dCe.get(i).setRedDotVisibleState(true);
         return true;
     }
 
     @AnyThread
-    public boolean kZ(int i) {
+    public boolean lj(int i) {
         final SwanAppBottomTabIconView swanAppBottomTabIconView;
-        if (lb(i) && (swanAppBottomTabIconView = this.dwm.get(i)) != null) {
+        if (ll(i) && (swanAppBottomTabIconView = this.dCe.get(i)) != null) {
             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.tabbar.b.a.6
                 @Override // java.lang.Runnable
                 public void run() {
@@ -361,40 +361,40 @@ public class a {
         return false;
     }
 
-    public boolean ak(int i, String str) {
-        if (!lb(i)) {
+    public boolean ao(int i, String str) {
+        if (!ll(i)) {
             return false;
         }
-        SwanAppBottomTabIconView swanAppBottomTabIconView = this.dwm.get(i);
+        SwanAppBottomTabIconView swanAppBottomTabIconView = this.dCe.get(i);
         swanAppBottomTabIconView.setBadgeVisibleState(true);
         swanAppBottomTabIconView.setBadgeText(str);
         return true;
     }
 
-    public boolean la(int i) {
-        if (lb(i)) {
-            this.dwm.get(i).setBadgeVisibleState(false);
+    public boolean lk(int i) {
+        if (ll(i)) {
+            this.dCe.get(i).setBadgeVisibleState(false);
             return true;
         }
         return false;
     }
 
-    private boolean lb(int i) {
-        return this.dwm != null && i < this.dwm.size() && i >= 0;
+    private boolean ll(int i) {
+        return this.dCe != null && i < this.dCe.size() && i >= 0;
     }
 
-    public int tJ(String str) {
-        if (TextUtils.isEmpty(str) || this.dwn == null || this.dwn.size() == 0) {
+    public int tX(String str) {
+        if (TextUtils.isEmpty(str) || this.dCf == null || this.dCf.size() == 0) {
             return -1;
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.dwn.size()) {
+            if (i2 >= this.dCf.size()) {
                 return -1;
             }
-            SwanAppConfigData.k kVar = this.dwn.get(i2);
-            if (kVar == null || !TextUtils.equals(kVar.don, str)) {
+            SwanAppConfigData.k kVar = this.dCf.get(i2);
+            if (kVar == null || !TextUtils.equals(kVar.duj, str)) {
                 i = i2 + 1;
             } else {
                 return i2;
@@ -402,7 +402,7 @@ public class a {
         }
     }
 
-    public LinearLayout aJf() {
-        return this.dwj;
+    public LinearLayout aLF() {
+        return this.dCb;
     }
 }

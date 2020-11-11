@@ -15,14 +15,14 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class a extends BaseAdapter {
-    private View.OnClickListener eOs;
-    private BaseActivity fLk;
+    private View.OnClickListener eUh;
+    private BaseActivity fRa;
     private List<AccountData> mData = null;
-    private boolean fLl = false;
+    private boolean fRb = false;
 
     public a(BaseActivity baseActivity, View.OnClickListener onClickListener) {
-        this.fLk = baseActivity;
-        this.eOs = onClickListener;
+        this.fRa = baseActivity;
+        this.eUh = onClickListener;
     }
 
     public void setData(List<AccountData> list) {
@@ -65,87 +65,87 @@ public class a extends BaseAdapter {
         View view2;
         Exception exc;
         View view3;
-        C0595a c0595a;
+        C0607a c0607a;
         try {
             try {
                 if (view != null) {
-                    c0595a = (C0595a) view.getTag();
+                    c0607a = (C0607a) view.getTag();
                     view3 = view;
                 } else if (getItemViewType(i) == 0) {
-                    view3 = LayoutInflater.from(this.fLk.getPageContext().getContext()).inflate(R.layout.account_item, viewGroup, false);
-                    c0595a = new C0595a();
-                    c0595a.fLm = (TextView) view3.findViewById(R.id.account);
-                    c0595a.fLn = (ImageView) view3.findViewById(R.id.active);
-                    c0595a.fLo = (TextView) view3.findViewById(R.id.delete);
-                    c0595a.fLo.setOnClickListener(this.eOs);
-                    view3.setTag(c0595a);
+                    view3 = LayoutInflater.from(this.fRa.getPageContext().getContext()).inflate(R.layout.account_item, viewGroup, false);
+                    c0607a = new C0607a();
+                    c0607a.fRc = (TextView) view3.findViewById(R.id.account);
+                    c0607a.fRd = (ImageView) view3.findViewById(R.id.active);
+                    c0607a.fRe = (TextView) view3.findViewById(R.id.delete);
+                    c0607a.fRe.setOnClickListener(this.eUh);
+                    view3.setTag(c0607a);
                 } else {
-                    view3 = LayoutInflater.from(this.fLk.getPageContext().getContext()).inflate(R.layout.account_add_item, viewGroup, false);
-                    c0595a = new C0595a();
-                    c0595a.ePF = (TextView) view3.findViewById(R.id.add_text);
-                    view3.setTag(c0595a);
+                    view3 = LayoutInflater.from(this.fRa.getPageContext().getContext()).inflate(R.layout.account_add_item, viewGroup, false);
+                    c0607a = new C0607a();
+                    c0607a.eVu = (TextView) view3.findViewById(R.id.add_text);
+                    view3.setTag(c0607a);
                 }
                 if (getItemViewType(i) == 0) {
                     AccountData accountData = (AccountData) getItem(i);
-                    c0595a.fLn.setVisibility(8);
-                    c0595a.fLo.setVisibility(8);
-                    c0595a.fLo.setTag(accountData);
+                    c0607a.fRd.setVisibility(8);
+                    c0607a.fRe.setVisibility(8);
+                    c0607a.fRe.setTag(accountData);
                     if (accountData != null) {
-                        c0595a.fLm.setText(accountData.getAccountNameShow());
+                        c0607a.fRc.setText(accountData.getAccountNameShow());
                         if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
-                            c0595a.fLn.setVisibility(0);
+                            c0607a.fRd.setVisibility(0);
                         }
-                        if (this.fLl) {
-                            c0595a.fLo.setVisibility(0);
+                        if (this.fRb) {
+                            c0607a.fRe.setVisibility(0);
                         }
                     }
                 }
-                this.fLk.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-                this.fLk.getLayoutMode().onModeChanged(view3);
+                this.fRa.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+                this.fRa.getLayoutMode().onModeChanged(view3);
                 return view3;
             } catch (Exception e) {
                 exc = e;
                 view2 = view;
                 try {
                     BdLog.detailException(exc);
-                    this.fLk.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-                    this.fLk.getLayoutMode().onModeChanged(view2);
+                    this.fRa.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+                    this.fRa.getLayoutMode().onModeChanged(view2);
                     return view2;
                 } catch (Throwable th) {
                     view3 = view2;
                     th = th;
-                    this.fLk.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-                    this.fLk.getLayoutMode().onModeChanged(view3);
+                    this.fRa.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+                    this.fRa.getLayoutMode().onModeChanged(view3);
                     throw th;
                 }
             } catch (Throwable th2) {
                 th = th2;
                 view3 = view;
-                this.fLk.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-                this.fLk.getLayoutMode().onModeChanged(view3);
+                this.fRa.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+                this.fRa.getLayoutMode().onModeChanged(view3);
                 throw th;
             }
         } catch (Exception e2) {
             view2 = view3;
             exc = e2;
             BdLog.detailException(exc);
-            this.fLk.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-            this.fLk.getLayoutMode().onModeChanged(view2);
+            this.fRa.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+            this.fRa.getLayoutMode().onModeChanged(view2);
             return view2;
         } catch (Throwable th3) {
             th = th3;
-            this.fLk.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-            this.fLk.getLayoutMode().onModeChanged(view3);
+            this.fRa.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+            this.fRa.getLayoutMode().onModeChanged(view3);
             throw th;
         }
     }
 
-    public void la(boolean z) {
-        this.fLl = z;
+    public void lj(boolean z) {
+        this.fRb = z;
     }
 
-    public boolean bGA() {
-        return this.fLl;
+    public boolean bIZ() {
+        return this.fRb;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -163,13 +163,13 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.account.a$a  reason: collision with other inner class name */
     /* loaded from: classes22.dex */
-    private class C0595a {
-        TextView ePF;
-        TextView fLm;
-        ImageView fLn;
-        TextView fLo;
+    private class C0607a {
+        TextView eVu;
+        TextView fRc;
+        ImageView fRd;
+        TextView fRe;
 
-        private C0595a() {
+        private C0607a() {
         }
     }
 }

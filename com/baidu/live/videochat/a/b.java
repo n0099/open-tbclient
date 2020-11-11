@@ -6,49 +6,49 @@ import com.baidu.live.data.AlaLiveInfoData;
 import com.baidu.live.videochat.player.LivePlayer;
 /* loaded from: classes4.dex */
 public class b {
-    private LivePlayer bBE;
-    private com.baidu.live.r.b bBF;
+    private LivePlayer bHK;
+    private com.baidu.live.s.b bHL;
     private Activity mActivity;
 
     public b(Activity activity) {
         this.mActivity = activity;
     }
 
-    public void a(com.baidu.live.r.b bVar) {
-        this.bBF = bVar;
+    public void a(com.baidu.live.s.b bVar) {
+        this.bHL = bVar;
     }
 
     public void e(AlaLiveInfoData alaLiveInfoData) {
-        if (this.bBE == null) {
-            this.bBE = new LivePlayer(this.mActivity);
-            this.bBE.setIPlayerCallBack(new com.baidu.live.r.b() { // from class: com.baidu.live.videochat.a.b.1
-                @Override // com.baidu.live.r.b
+        if (this.bHK == null) {
+            this.bHK = new LivePlayer(this.mActivity);
+            this.bHK.setIPlayerCallBack(new com.baidu.live.s.b() { // from class: com.baidu.live.videochat.a.b.1
+                @Override // com.baidu.live.s.b
                 public void dM(int i) {
-                    if (b.this.bBF != null) {
-                        b.this.bBF.dM(i);
+                    if (b.this.bHL != null) {
+                        b.this.bHL.dM(i);
                     }
                 }
             });
         }
-        this.bBE.c(alaLiveInfoData);
+        this.bHK.c(alaLiveInfoData);
     }
 
-    public void SW() {
-        if (this.bBE != null) {
-            this.bBE.setIPlayerCallBack(null);
-            this.bBE.cn(true);
-            this.bBE.destroy();
-            this.bBE = null;
+    public void VC() {
+        if (this.bHK != null) {
+            this.bHK.setIPlayerCallBack(null);
+            this.bHK.co(true);
+            this.bHK.destroy();
+            this.bHK = null;
         }
     }
 
     public boolean isStarted() {
-        return this.bBE != null;
+        return this.bHK != null;
     }
 
-    public View SR() {
-        if (this.bBE != null) {
-            return this.bBE.getLivePlayer();
+    public View Vy() {
+        if (this.bHK != null) {
+            return this.bHK.getLivePlayer();
         }
         return null;
     }

@@ -14,7 +14,7 @@ import com.baidu.ar.recorder.MovieRecorder;
 import com.baidu.imsdk.a;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class LoginManager {
     private static Context mContext;
     private static LoginManager mInstance = null;
@@ -29,7 +29,7 @@ public class LoginManager {
         }
     };
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes18.dex */
     public enum LoginState {
         NOT_LOGIN,
         LOGINING,

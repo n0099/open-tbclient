@@ -3,26 +3,26 @@ package com.baidu.prologue.service.network;
 import android.content.Context;
 /* loaded from: classes19.dex */
 public final class c extends b {
-    private static e cdx;
-    private final e cdy;
+    private static e cji;
+    private final e cjj;
 
     private c(Context context) {
-        this.cdy = new h(context);
+        this.cjj = new h(context);
     }
 
     public static e aW(Context context) {
-        if (cdx == null) {
+        if (cji == null) {
             synchronized (e.class) {
-                if (cdx == null) {
-                    cdx = new c(context);
+                if (cji == null) {
+                    cji = new c(context);
                 }
             }
         }
-        return cdx;
+        return cji;
     }
 
     @Override // com.baidu.prologue.service.network.e
     public void a(Request request, l lVar) {
-        this.cdy.a(request, lVar);
+        this.cjj.a(request, lVar);
     }
 }

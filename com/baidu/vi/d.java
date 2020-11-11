@@ -7,11 +7,11 @@ import android.hardware.SensorEventListener;
 class d implements SensorEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ VCompass f3904a;
+    final /* synthetic */ VCompass f3906a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(VCompass vCompass) {
-        this.f3904a = vCompass;
+        this.f3906a = vCompass;
     }
 
     @Override // android.hardware.SensorEventListener
@@ -23,8 +23,8 @@ class d implements SensorEventListener {
         float a2;
         switch (sensorEvent.sensor.getType()) {
             case 3:
-                a2 = this.f3904a.a(sensorEvent.values[0]);
-                this.f3904a.updateCompass((int) a2);
+                a2 = this.f3906a.a(sensorEvent.values[0]);
+                this.f3906a.updateCompass((int) a2);
                 return;
             default:
                 return;

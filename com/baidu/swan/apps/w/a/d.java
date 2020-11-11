@@ -6,7 +6,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.ap.ah;
 /* loaded from: classes10.dex */
 public class d {
-    public static int Q(String str, int i) {
+    public static int S(String str, int i) {
         int i2;
         if (TextUtils.isEmpty(str)) {
             com.baidu.swan.apps.console.c.w("map", "color string is empty, use default " + Integer.toHexString(i));

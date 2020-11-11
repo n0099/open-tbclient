@@ -23,12 +23,12 @@ public class c extends com.baidu.swan.apps.api.a.d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b le(String str) {
+    public com.baidu.swan.apps.api.c.b lt(String str) {
         if (DEBUG) {
             Log.d("Api-RedirectTo", "handle: " + str);
         }
         final String uuid = UUID.randomUUID().toString();
-        j.qJ(uuid);
+        j.qX(uuid);
         Pair<com.baidu.swan.apps.api.c.b, JSONObject> bj = com.baidu.swan.apps.api.d.b.bj("Api-RedirectTo", str);
         com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bj.first;
         if (!bVar.isSuccess()) {
@@ -39,37 +39,37 @@ public class c extends com.baidu.swan.apps.api.a.d {
             return bVar;
         }
         JSONObject jSONObject = (JSONObject) bj.second;
-        String bN = com.baidu.swan.apps.scheme.actions.k.a.bN(jSONObject);
-        if (TextUtils.isEmpty(bN)) {
+        String bT = com.baidu.swan.apps.scheme.actions.k.a.bT(jSONObject);
+        if (TextUtils.isEmpty(bT)) {
             com.baidu.swan.apps.console.c.e("Api-RedirectTo", "url is null");
             return new com.baidu.swan.apps.api.c.b(202, "url is null");
         }
-        final f axo = f.axo();
-        final com.baidu.swan.apps.core.d.f adm = axo.adm();
-        if (adm == null) {
+        final f azO = f.azO();
+        final com.baidu.swan.apps.core.d.f afM = azO.afM();
+        if (afM == null) {
             com.baidu.swan.apps.console.c.e("Api-RedirectTo", "manager is null");
             return new com.baidu.swan.apps.api.c.b(1001, "manager is null");
         }
-        final com.baidu.swan.apps.model.b cb = com.baidu.swan.apps.model.b.cb(bN, axo.awV());
-        if (!ak.a(axo.awT(), cb, false)) {
-            String str2 = "page params error : path=" + cb.mPage + " ; routePath=" + cb.dag;
+        final com.baidu.swan.apps.model.b cb = com.baidu.swan.apps.model.b.cb(bT, azO.azv());
+        if (!ak.a(azO.azt(), cb, false)) {
+            String str2 = "page params error : path=" + cb.mPage + " ; routePath=" + cb.dgd;
             com.baidu.swan.apps.console.c.e("Api-RedirectTo", str2);
             return new com.baidu.swan.apps.api.c.b(202, str2);
         }
         String optString = jSONObject.optString("initData");
-        if (!TextUtils.isEmpty(optString) && cb != null && !TextUtils.isEmpty(cb.dag) && e.aEU() != null) {
-            e.aEU().cq(optString, cb.dag);
+        if (!TextUtils.isEmpty(optString) && cb != null && !TextUtils.isEmpty(cb.dgd) && e.aHu() != null) {
+            e.aHu().cq(optString, cb.dgd);
         }
         String optString2 = jSONObject.optString("startTime");
         if (!TextUtils.isEmpty(optString2)) {
-            i.cf("route", uuid).f(new UbcFlowEvent("fe_route_start").bC(Long.valueOf(optString2).longValue()));
+            i.cf("route", uuid).f(new UbcFlowEvent("fe_route_start").bY(Long.valueOf(optString2).longValue()));
         }
         final String optString3 = jSONObject.optString("cb");
         if (TextUtils.isEmpty(optString3)) {
             com.baidu.swan.apps.console.c.e("Api-RedirectTo", "cb is null");
             return new com.baidu.swan.apps.api.c.b(202, "cb is null");
-        } else if (com.baidu.swan.apps.scheme.actions.forbidden.a.aGe().f(cb)) {
-            com.baidu.swan.apps.scheme.actions.forbidden.a.aGe().c("redirectTo", cb);
+        } else if (com.baidu.swan.apps.scheme.actions.forbidden.a.aIE().f(cb)) {
+            com.baidu.swan.apps.scheme.actions.forbidden.a.aIE().c("redirectTo", cb);
             com.baidu.swan.apps.console.c.e("Api-RedirectTo", "access to this page is prohibited");
             return new com.baidu.swan.apps.api.c.b(1003, "access to this page is prohibited");
         } else {
@@ -79,42 +79,42 @@ public class c extends com.baidu.swan.apps.api.a.d {
                     if (com.baidu.swan.apps.api.a.d.DEBUG) {
                         Log.d("Api-RedirectTo", "PreloadSlaveManager start.");
                     }
-                    SwanAppActivity awY = axo.awY();
-                    if (awY == null || awY.isFinishing()) {
+                    SwanAppActivity azy = azO.azy();
+                    if (azy == null || azy.isFinishing()) {
                         if (!com.baidu.swan.apps.api.a.d.DEBUG) {
                             c.this.a(optString3, new com.baidu.swan.apps.api.c.b(1001, "swan activity is null"));
                             return;
                         }
                         throw new RuntimeException("swan activity is null");
                     }
-                    final b.a H = com.baidu.swan.apps.core.slave.b.H(awY);
-                    final String agj = H.cJC.agj();
+                    final b.a H = com.baidu.swan.apps.core.slave.b.H(azy);
+                    final String aiJ = H.cPv.aiJ();
                     if (com.baidu.swan.apps.api.a.d.DEBUG) {
-                        Log.d("Api-RedirectTo", "webview id: " + agj);
+                        Log.d("Api-RedirectTo", "webview id: " + aiJ);
                     }
-                    final e aEU = e.aEU();
-                    if (aEU == null) {
+                    final e aHu = e.aHu();
+                    if (aHu == null) {
                         if (!com.baidu.swan.apps.api.a.d.DEBUG) {
                             c.this.a(optString3, new com.baidu.swan.apps.api.c.b(1001, "swan app is null"));
                             return;
                         }
                         throw new RuntimeException("swan app is null");
                     }
-                    axo.showLoadingView();
-                    g.a(aEU, cb, agj, new g.a() { // from class: com.baidu.swan.apps.api.module.g.c.1.1
+                    azO.showLoadingView();
+                    g.a(aHu, cb, aiJ, new g.a() { // from class: com.baidu.swan.apps.api.module.g.c.1.1
                         @Override // com.baidu.swan.apps.scheme.actions.k.g.a
-                        public void ks(String str3) {
-                            j.qI(uuid);
+                        public void kH(String str3) {
+                            j.qW(uuid);
                             com.baidu.swan.apps.console.c.i("Api-RedirectTo", "check pages success");
-                            axo.adp();
-                            com.baidu.swan.apps.scheme.actions.k.a.a(c.this, aEU, agj, cb.mPage, null, optString3);
-                            c.this.b(H, cb, adm, uuid);
+                            azO.afP();
+                            com.baidu.swan.apps.scheme.actions.k.a.a(c.this, aHu, aiJ, cb.mPage, null, optString3);
+                            c.this.b(H, cb, afM, uuid);
                         }
 
                         @Override // com.baidu.swan.apps.scheme.actions.k.g.a
-                        public void hm(int i) {
+                        public void hw(int i) {
                             com.baidu.swan.apps.console.c.e("Api-RedirectTo", "check pages failed");
-                            axo.adp();
+                            azO.afP();
                             if (com.baidu.swan.apps.api.a.d.DEBUG) {
                                 Context context = c.this.getContext();
                                 com.baidu.swan.apps.res.widget.b.d.a(context, context.getString(a.h.aiapps_open_pages_failed) + i).showToast();
@@ -135,14 +135,14 @@ public class c extends com.baidu.swan.apps.api.a.d {
         if (DEBUG) {
             Log.d("Api-RedirectTo", "tryToExecutePageRoute start. isReady : " + z);
         }
-        com.baidu.swan.apps.core.slave.b.a(aVar, new b.InterfaceC0421b() { // from class: com.baidu.swan.apps.api.module.g.c.2
-            @Override // com.baidu.swan.apps.core.slave.b.InterfaceC0421b
+        com.baidu.swan.apps.core.slave.b.a(aVar, new b.InterfaceC0433b() { // from class: com.baidu.swan.apps.api.module.g.c.2
+            @Override // com.baidu.swan.apps.core.slave.b.InterfaceC0433b
             public void onReady() {
                 if (com.baidu.swan.apps.api.a.d.DEBUG) {
                     Log.d("Api-RedirectTo", "tryToExecutePageRoute onReady start.");
                 }
                 j.a(aVar, str);
-                com.baidu.swan.apps.scheme.actions.k.a.a(aVar.cJC, bVar, str);
+                com.baidu.swan.apps.scheme.actions.k.a.a(aVar.cPv, bVar, str);
                 c.a(fVar, bVar, str, false);
                 if (com.baidu.swan.apps.api.a.d.DEBUG) {
                     Log.d("Api-RedirectTo", "tryToExecutePageRoute onReady end.");
@@ -155,13 +155,13 @@ public class c extends com.baidu.swan.apps.api.a.d {
     }
 
     public static void a(com.baidu.swan.apps.core.d.f fVar, com.baidu.swan.apps.model.b bVar, String str, boolean z) {
-        fVar.mM("redirectTo").al(0, 0).a("normal", bVar).hQ(z ? 0 : fVar.amE() - 2).amM();
+        fVar.nb("redirectTo").al(0, 0).a("normal", bVar).ia(z ? 0 : fVar.ape() - 2).apn();
         int i = 2;
         if (z) {
             i = 8;
         }
         i.cf("route", str).f(new UbcFlowEvent("na_push_page_end"));
-        j.ah(i, str);
-        j.qK(str);
+        j.al(i, str);
+        j.qY(str);
     }
 }

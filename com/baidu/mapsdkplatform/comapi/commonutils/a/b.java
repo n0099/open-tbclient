@@ -16,14 +16,14 @@ import org.apache.http.protocol.HTTP;
 public class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2207a;
+    private String f2209a;
     private File b;
     private a c;
     private d.b d;
     private volatile boolean e = false;
 
     public b(String str, File file, a aVar, d.b bVar) {
-        this.f2207a = str;
+        this.f2209a = str;
         this.b = file;
         this.c = aVar;
         this.d = bVar;
@@ -48,7 +48,7 @@ public class b implements Runnable {
         r4 = null;
         InputStream inputStream2 = null;
         try {
-            URL url = new URL(this.f2207a);
+            URL url = new URL(this.f2209a);
             if (HttpClient.isHttpsEnable) {
                 HttpsURLConnection httpsURLConnection2 = (HttpsURLConnection) url.openConnection();
                 httpsURLConnection2.setHostnameVerifier(new c(this));

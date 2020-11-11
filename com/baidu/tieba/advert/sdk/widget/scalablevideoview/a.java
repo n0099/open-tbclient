@@ -3,26 +3,26 @@ package com.baidu.tieba.advert.sdk.widget.scalablevideoview;
 import android.graphics.Matrix;
 /* loaded from: classes23.dex */
 public class a {
-    private b fQj;
-    private b fQk;
+    private b fVZ;
+    private b fWa;
 
     public a(b bVar, b bVar2) {
-        this.fQj = bVar;
-        this.fQk = bVar2;
+        this.fVZ = bVar;
+        this.fWa = bVar2;
     }
 
     public Matrix a(ScalableType scalableType) {
         switch (scalableType) {
             case NONE:
-                return bIm();
+                return bKL();
             case FIT_XY:
-                return bIf();
+                return bKE();
             case FIT_CENTER:
-                return bIh();
+                return bKG();
             case FIT_START:
-                return bIg();
+                return bKF();
             case FIT_END:
-                return bIi();
+                return bKH();
             case LEFT_TOP:
                 return b(PivotPoint.LEFT_TOP);
             case LEFT_CENTER:
@@ -60,64 +60,64 @@ public class a {
             case RIGHT_BOTTOM_CROP:
                 return c(PivotPoint.RIGHT_BOTTOM);
             case START_INSIDE:
-                return bIj();
+                return bKI();
             case CENTER_INSIDE:
-                return bIk();
+                return bKJ();
             case END_INSIDE:
-                return bIl();
+                return bKK();
             default:
                 return null;
         }
     }
 
-    private Matrix bIf() {
+    private Matrix bKE() {
         return a(1.0f, 1.0f, PivotPoint.LEFT_TOP);
     }
 
-    private Matrix bIg() {
+    private Matrix bKF() {
         return a(PivotPoint.LEFT_TOP);
     }
 
-    private Matrix bIh() {
+    private Matrix bKG() {
         return a(PivotPoint.CENTER);
     }
 
-    private Matrix bIi() {
+    private Matrix bKH() {
         return a(PivotPoint.RIGHT_BOTTOM);
     }
 
     private Matrix a(PivotPoint pivotPoint) {
-        float width = this.fQj.getWidth() / this.fQk.getWidth();
-        float height = this.fQj.getHeight() / this.fQk.getHeight();
+        float width = this.fVZ.getWidth() / this.fWa.getWidth();
+        float height = this.fVZ.getHeight() / this.fWa.getHeight();
         float min = Math.min(width, height);
         return a(min / width, min / height, pivotPoint);
     }
 
     private Matrix b(PivotPoint pivotPoint) {
-        return a(this.fQk.getWidth() / this.fQj.getWidth(), this.fQk.getHeight() / this.fQj.getHeight(), pivotPoint);
+        return a(this.fWa.getWidth() / this.fVZ.getWidth(), this.fWa.getHeight() / this.fVZ.getHeight(), pivotPoint);
     }
 
     private Matrix c(PivotPoint pivotPoint) {
-        float width = this.fQj.getWidth() / this.fQk.getWidth();
-        float height = this.fQj.getHeight() / this.fQk.getHeight();
+        float width = this.fVZ.getWidth() / this.fWa.getWidth();
+        float height = this.fVZ.getHeight() / this.fWa.getHeight();
         float max = Math.max(width, height);
         return a(max / width, max / height, pivotPoint);
     }
 
-    private Matrix bIj() {
-        return (this.fQk.getHeight() > this.fQj.getWidth() || this.fQk.getHeight() > this.fQj.getHeight()) ? bIg() : b(PivotPoint.LEFT_TOP);
+    private Matrix bKI() {
+        return (this.fWa.getHeight() > this.fVZ.getWidth() || this.fWa.getHeight() > this.fVZ.getHeight()) ? bKF() : b(PivotPoint.LEFT_TOP);
     }
 
-    private Matrix bIk() {
-        return (this.fQk.getHeight() > this.fQj.getWidth() || this.fQk.getHeight() > this.fQj.getHeight()) ? bIh() : b(PivotPoint.CENTER);
+    private Matrix bKJ() {
+        return (this.fWa.getHeight() > this.fVZ.getWidth() || this.fWa.getHeight() > this.fVZ.getHeight()) ? bKG() : b(PivotPoint.CENTER);
     }
 
-    private Matrix bIl() {
-        return (this.fQk.getHeight() > this.fQj.getWidth() || this.fQk.getHeight() > this.fQj.getHeight()) ? bIi() : b(PivotPoint.RIGHT_BOTTOM);
+    private Matrix bKK() {
+        return (this.fWa.getHeight() > this.fVZ.getWidth() || this.fWa.getHeight() > this.fVZ.getHeight()) ? bKH() : b(PivotPoint.RIGHT_BOTTOM);
     }
 
-    private Matrix bIm() {
-        return a(this.fQk.getWidth() / this.fQj.getWidth(), this.fQk.getHeight() / this.fQj.getHeight(), PivotPoint.LEFT_TOP);
+    private Matrix bKL() {
+        return a(this.fWa.getWidth() / this.fVZ.getWidth(), this.fWa.getHeight() / this.fVZ.getHeight(), PivotPoint.LEFT_TOP);
     }
 
     private Matrix a(float f, float f2, PivotPoint pivotPoint) {
@@ -125,21 +125,21 @@ public class a {
             case LEFT_TOP:
                 return e(f, f2, 0.0f, 0.0f);
             case LEFT_CENTER:
-                return e(f, f2, 0.0f, this.fQj.getHeight() / 2.0f);
+                return e(f, f2, 0.0f, this.fVZ.getHeight() / 2.0f);
             case LEFT_BOTTOM:
-                return e(f, f2, 0.0f, this.fQj.getHeight());
+                return e(f, f2, 0.0f, this.fVZ.getHeight());
             case CENTER_TOP:
-                return e(f, f2, this.fQj.getWidth() / 2.0f, 0.0f);
+                return e(f, f2, this.fVZ.getWidth() / 2.0f, 0.0f);
             case CENTER:
-                return e(f, f2, this.fQj.getWidth() / 2.0f, this.fQj.getHeight() / 2.0f);
+                return e(f, f2, this.fVZ.getWidth() / 2.0f, this.fVZ.getHeight() / 2.0f);
             case CENTER_BOTTOM:
-                return e(f, f2, this.fQj.getWidth() / 2.0f, this.fQj.getHeight());
+                return e(f, f2, this.fVZ.getWidth() / 2.0f, this.fVZ.getHeight());
             case RIGHT_TOP:
-                return e(f, f2, this.fQj.getWidth(), 0.0f);
+                return e(f, f2, this.fVZ.getWidth(), 0.0f);
             case RIGHT_CENTER:
-                return e(f, f2, this.fQj.getWidth(), this.fQj.getHeight() / 2.0f);
+                return e(f, f2, this.fVZ.getWidth(), this.fVZ.getHeight() / 2.0f);
             case RIGHT_BOTTOM:
-                return e(f, f2, this.fQj.getWidth(), this.fQj.getHeight());
+                return e(f, f2, this.fVZ.getWidth(), this.fVZ.getHeight());
             default:
                 throw new IllegalArgumentException("Illegal PivotPoint");
         }

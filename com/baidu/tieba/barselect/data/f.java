@@ -8,22 +8,22 @@ import tbclient.ManagerElection;
 public class f {
     private BdUniqueId aiz;
     private long fid;
-    private e hLL;
-    private d hLM;
-    private List<d> hLN;
-    private ManagerElection hLO;
+    private e hRI;
+    private d hRJ;
+    private List<d> hRK;
+    private ManagerElection hRL;
     private boolean hasMore;
 
-    public List<d> ckJ() {
-        return this.hLN;
+    public List<d> cnl() {
+        return this.hRK;
     }
 
-    public d ckK() {
-        return this.hLM;
+    public d cnm() {
+        return this.hRJ;
     }
 
-    public e ckL() {
-        return this.hLL;
+    public e cnn() {
+        return this.hRI;
     }
 
     public boolean getHasMore() {
@@ -38,20 +38,20 @@ public class f {
         return this.aiz;
     }
 
-    public ManagerElection ckM() {
-        return this.hLO;
+    public ManagerElection cno() {
+        return this.hRL;
     }
 
     public void an(ArrayList<d> arrayList) {
-        this.hLN = arrayList;
+        this.hRK = arrayList;
     }
 
     public void a(e eVar) {
-        this.hLL = eVar;
+        this.hRI = eVar;
     }
 
     public void a(d dVar) {
-        this.hLM = dVar;
+        this.hRJ = dVar;
     }
 
     public void setHasMore(boolean z) {
@@ -67,6 +67,6 @@ public class f {
     }
 
     public void a(ManagerElection managerElection) {
-        this.hLO = managerElection;
+        this.hRL = managerElection;
     }
 }

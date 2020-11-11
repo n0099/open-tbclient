@@ -5,21 +5,21 @@ import com.baidu.tbadk.data.VisitedForumData;
 import com.baidu.tieba.enterForum.c.a;
 /* loaded from: classes22.dex */
 public class RecentlyVisitedForumModel extends BdBaseModel {
-    public void a(a.InterfaceC0699a interfaceC0699a) {
-        com.baidu.tieba.enterForum.c.a.coV().a(interfaceC0699a);
+    public void a(a.InterfaceC0713a interfaceC0713a) {
+        com.baidu.tieba.enterForum.c.a.crw().a(interfaceC0713a);
     }
 
     public void onPrimary() {
-        com.baidu.tieba.enterForum.c.a.coV().onNotify();
+        com.baidu.tieba.enterForum.c.a.crw().onNotify();
         LoadData();
     }
 
     public void onPause() {
-        com.baidu.tieba.enterForum.c.a.coV().coY();
+        com.baidu.tieba.enterForum.c.a.crw().crz();
     }
 
     public void onDestroy() {
-        com.baidu.tieba.enterForum.c.a.coV().a((a.InterfaceC0699a) null);
+        com.baidu.tieba.enterForum.c.a.crw().a((a.InterfaceC0713a) null);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -30,15 +30,15 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        com.baidu.tieba.enterForum.c.a.coV().coW();
+        com.baidu.tieba.enterForum.c.a.crw().crx();
         return true;
     }
 
     public void e(VisitedForumData visitedForumData) {
-        com.baidu.tieba.enterForum.c.a.coV().c(visitedForumData);
+        com.baidu.tieba.enterForum.c.a.crw().c(visitedForumData);
     }
 
     public void refresh() {
-        com.baidu.tieba.enterForum.c.a.coV().coZ();
+        com.baidu.tieba.enterForum.c.a.crw().crA();
     }
 }

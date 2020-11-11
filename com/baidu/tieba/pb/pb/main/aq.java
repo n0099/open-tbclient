@@ -8,17 +8,17 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.ar;
 /* loaded from: classes22.dex */
 public class aq extends o<com.baidu.tbadk.core.data.az, ar> {
-    private com.baidu.tieba.pb.data.f lku;
-    private ar.a ltV;
+    private com.baidu.tieba.pb.data.f lqv;
+    private ar.a lzS;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public aq(PbFragment pbFragment, BdUniqueId bdUniqueId) {
         super(pbFragment, bdUniqueId);
-        this.ltV = new ar.a() { // from class: com.baidu.tieba.pb.pb.main.aq.1
+        this.lzS = new ar.a() { // from class: com.baidu.tieba.pb.pb.main.aq.1
             @Override // com.baidu.tieba.pb.pb.main.ar.a
             public void a(com.baidu.tbadk.core.data.az azVar) {
                 if (azVar != null) {
-                    com.baidu.tieba.pb.c.a.a(aq.this.lku, azVar, azVar.locate, 6);
+                    com.baidu.tieba.pb.c.a.a(aq.this.lqv, azVar, azVar.locate, 6);
                 }
             }
         };
@@ -27,9 +27,9 @@ public class aq extends o<com.baidu.tbadk.core.data.az, ar> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cn */
+    /* renamed from: cp */
     public ar c(ViewGroup viewGroup) {
-        return new ar(this.ljH.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_recommend_novel, viewGroup, false), this.ltV);
+        return new ar(this.lpI.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_recommend_novel, viewGroup, false), this.lzS);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,13 +39,13 @@ public class aq extends o<com.baidu.tbadk.core.data.az, ar> {
         super.a(i, view, viewGroup, (ViewGroup) azVar, (com.baidu.tbadk.core.data.az) arVar);
         if (azVar != null) {
             azVar.locate = i + 1;
-            com.baidu.tieba.pb.c.a.a(this.ljH.getUniqueId(), this.lku, azVar, azVar.locate, 6);
+            com.baidu.tieba.pb.c.a.a(this.lpI.getUniqueId(), this.lqv, azVar, azVar.locate, 6);
             arVar.b(azVar);
         }
         return view;
     }
 
     public void setData(com.baidu.tieba.pb.data.f fVar) {
-        this.lku = fVar;
+        this.lqv = fVar;
     }
 }

@@ -28,7 +28,7 @@ public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
         public static class IndoorStepNode {
 
             /* renamed from: a  reason: collision with root package name */
-            private String f2135a;
+            private String f2137a;
             private int b;
             private LatLng c;
             private String d;
@@ -42,7 +42,7 @@ public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
             }
 
             public String getName() {
-                return this.f2135a;
+                return this.f2137a;
             }
 
             public int getType() {
@@ -58,7 +58,7 @@ public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
             }
 
             public void setName(String str) {
-                this.f2135a = str;
+                this.f2137a = str;
             }
 
             public void setType(int i) {

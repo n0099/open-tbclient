@@ -7,7 +7,7 @@ import android.widget.TextView;
 final class dd {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f3822a;
+    public TextView f3824a;
     public ImageView b;
     public TextView c;
     public RelativeLayout d;

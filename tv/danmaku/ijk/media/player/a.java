@@ -6,8 +6,8 @@ import tv.danmaku.ijk.media.player.misc.IMediaDataSource;
 public abstract class a implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private b.f f5401a;
-    private b.InterfaceC1107b b;
+    private b.f f5403a;
+    private b.InterfaceC1127b b;
     private b.a c;
     private b.g d;
     private b.i e;
@@ -17,7 +17,7 @@ public abstract class a implements b {
     private b.e i;
 
     public void a() {
-        this.f5401a = null;
+        this.f5403a = null;
         this.c = null;
         this.b = null;
         this.d = null;
@@ -49,8 +49,8 @@ public abstract class a implements b {
         this.c = aVar;
     }
 
-    public final void a(b.InterfaceC1107b interfaceC1107b) {
-        this.b = interfaceC1107b;
+    public final void a(b.InterfaceC1127b interfaceC1127b) {
+        this.b = interfaceC1127b;
     }
 
     public final void a(b.c cVar) {
@@ -66,7 +66,7 @@ public abstract class a implements b {
     }
 
     public final void a(b.f fVar) {
-        this.f5401a = fVar;
+        this.f5403a = fVar;
     }
 
     public final void a(b.g gVar) {
@@ -91,8 +91,8 @@ public abstract class a implements b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void b() {
-        if (this.f5401a != null) {
-            this.f5401a.a(this);
+        if (this.f5403a != null) {
+            this.f5403a.a(this);
         }
     }
 

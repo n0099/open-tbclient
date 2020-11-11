@@ -17,7 +17,7 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aN */
+    /* renamed from: aP */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.n> c(ViewGroup viewGroup) {
         return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.personPolymeric.view.n(this.mPageContext));
     }
@@ -26,14 +26,14 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.o oVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.n> aVar) {
-        if (oVar == null || aVar == null || aVar.cmx() == null) {
+        if (oVar == null || aVar == null || aVar.coY() == null) {
             return null;
         }
-        aVar.cmx().a(oVar);
-        if (aVar.cmx().getView() != null) {
-            aVar.cmx().getView().setOnClickListener(this.mOnClickListener);
+        aVar.coY().a(oVar);
+        if (aVar.coY().getView() != null) {
+            aVar.coY().getView().setOnClickListener(this.mOnClickListener);
         }
-        return aVar.cmx().getView();
+        return aVar.coY().getView();
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {

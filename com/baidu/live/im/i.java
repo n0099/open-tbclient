@@ -1,13 +1,13 @@
 package com.baidu.live.im;
 /* loaded from: classes4.dex */
 public class i {
-    public String aZK;
-    public long biH;
-    public long biI;
-    public long biJ;
-    public long biK;
-    public long biL;
-    public long biM;
-    public long biN;
-    public long biO;
+    public String bbd;
+    public long bka;
+    public long bkb;
+    public long bkc;
+    public long bkd;
+    public long bke;
+    public long bkf;
+    public long bkg;
+    public long bkh;
 }

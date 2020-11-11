@@ -7,8 +7,8 @@ import com.baidu.swan.pms.model.PMSAppInfo;
 import java.util.HashMap;
 /* loaded from: classes16.dex */
 public class a {
-    public static HashMap<String, PMSAppInfo> aMD() {
-        Cursor query = com.baidu.swan.pms.database.provider.a.aYO().getReadableDatabase().query("swan_app", null, null, null, null, null, null);
+    public static HashMap<String, PMSAppInfo> aPd() {
+        Cursor query = com.baidu.swan.pms.database.provider.a.bbo().getReadableDatabase().query("swan_app", null, null, null, null, null, null);
         HashMap<String, PMSAppInfo> hashMap = new HashMap<>();
         if (query != null && query.moveToFirst()) {
             int columnIndex = query.getColumnIndex("app_id");

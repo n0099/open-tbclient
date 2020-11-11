@@ -25,18 +25,18 @@ public class FollowUserSpinnerBtn extends LinearLayout implements com.baidu.tbad
     private String content;
     private Drawable drawable;
     private boolean isOpen;
-    private ImageView jgo;
-    private a lYz;
-    private FrameLayout ntA;
-    private Paint ntB;
-    private int ntC;
-    private boolean ntD;
-    private boolean ntE;
-    private FrameLayout ntz;
+    private ImageView jmm;
+    private a mez;
+    private FrameLayout nzu;
+    private FrameLayout nzv;
+    private Paint nzw;
+    private int nzx;
+    private boolean nzy;
+    private boolean nzz;
     private Path path;
     private TextView title;
-    private static final int ntx = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds224);
-    private static final int nty = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds58);
+    private static final int nzs = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds224);
+    private static final int nzt = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds58);
     private static final int aku = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
 
     /* loaded from: classes21.dex */
@@ -54,26 +54,26 @@ public class FollowUserSpinnerBtn extends LinearLayout implements com.baidu.tbad
 
     public FollowUserSpinnerBtn(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ntD = true;
+        this.nzy = true;
         init(context);
     }
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.follow_user_spinner_btn_layout, this);
         setOrientation(0);
-        this.ntz = (FrameLayout) findViewById(R.id.leftBox);
-        this.ntA = (FrameLayout) findViewById(R.id.rightBox);
+        this.nzu = (FrameLayout) findViewById(R.id.leftBox);
+        this.nzv = (FrameLayout) findViewById(R.id.rightBox);
         this.title = (TextView) findViewById(R.id.title);
-        this.jgo = (ImageView) findViewById(R.id.arrow);
-        this.ntB = new Paint(1);
-        this.ntB.setStyle(Paint.Style.STROKE);
-        this.ntB.setStrokeCap(Paint.Cap.ROUND);
-        this.ntB.setStrokeWidth(l.getDimens(context, R.dimen.tbds3));
+        this.jmm = (ImageView) findViewById(R.id.arrow);
+        this.nzw = new Paint(1);
+        this.nzw.setStyle(Paint.Style.STROKE);
+        this.nzw.setStrokeCap(Paint.Cap.ROUND);
+        this.nzw.setStrokeWidth(l.getDimens(context, R.dimen.tbds3));
         this.GD = new RectF();
         this.path = new Path();
-        this.ntC = R.color.cp_cont_b;
-        this.drawable = SvgManager.boN().a(R.drawable.icon_pure_unfold12_svg, this.ntC, (SvgManager.SvgResourceStateType) null);
-        this.jgo.setImageDrawable(this.drawable);
+        this.nzx = R.color.cp_cont_b;
+        this.drawable = SvgManager.brn().a(R.drawable.icon_pure_unfold12_svg, this.nzx, (SvgManager.SvgResourceStateType) null);
+        this.jmm.setImageDrawable(this.drawable);
     }
 
     @Override // android.view.View
@@ -83,30 +83,30 @@ public class FollowUserSpinnerBtn extends LinearLayout implements com.baidu.tbad
         this.path.addRoundRect(this.GD, getHeight() / 2, getHeight() / 2, Path.Direction.CW);
         canvas.clipPath(this.path);
         super.draw(canvas);
-        if (this.ntE) {
-            this.ntB.setColor(ap.getColor(this.ntC));
-            float right = this.ntz.getRight();
-            canvas.drawLine(right, this.jgo.getTop(), right, this.jgo.getBottom(), this.ntB);
+        if (this.nzz) {
+            this.nzw.setColor(ap.getColor(this.nzx));
+            float right = this.nzu.getRight();
+            canvas.drawLine(right, this.jmm.getTop(), right, this.jmm.getBottom(), this.nzw);
         }
     }
 
     public void aN(boolean z) {
         if (z) {
             this.content = getResources().getString(R.string.followed);
-            this.ntC = R.color.cp_cont_a;
+            this.nzx = R.color.cp_cont_a;
             this.backgroundColor = R.color.cp_btn_j;
         } else {
             this.content = getResources().getString(R.string.attention);
-            this.ntC = R.color.cp_cont_b;
+            this.nzx = R.color.cp_cont_b;
             this.backgroundColor = R.color.cp_btn_a;
         }
         this.title.setText(this.content);
         requestLayout();
         onChangeSkinType(0);
-        if (this.ntE && !this.ntD && z && !this.isOpen && this.lYz != null) {
-            this.lYz.aw(true, true);
+        if (this.nzz && !this.nzy && z && !this.isOpen && this.mez != null) {
+            this.mez.aw(true, true);
         }
-        this.ntD = false;
+        this.nzy = false;
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
@@ -120,21 +120,21 @@ public class FollowUserSpinnerBtn extends LinearLayout implements com.baidu.tbad
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void qh(int i) {
+    public void qr(int i) {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void br(View view) {
+    public void bv(View view) {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void g(View.OnClickListener onClickListener) {
+    public void h(View.OnClickListener onClickListener) {
         setOnClickListener(onClickListener);
     }
 
     public void setOpenListener(final a aVar) {
-        this.lYz = aVar;
-        this.ntA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.FollowUserSpinnerBtn.1
+        this.mez = aVar;
+        this.nzv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.FollowUserSpinnerBtn.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (aVar != null) {
@@ -146,14 +146,14 @@ public class FollowUserSpinnerBtn extends LinearLayout implements com.baidu.tbad
 
     public void onChangeSkinType(int i) {
         setBackgroundColor(ap.getColor(this.backgroundColor));
-        ap.setViewTextColor(this.title, this.ntC);
-        this.drawable = SvgManager.boN().a(R.drawable.icon_pure_unfold12_svg, this.ntC, (SvgManager.SvgResourceStateType) null);
-        this.jgo.setImageDrawable(this.drawable);
+        ap.setViewTextColor(this.title, this.nzx);
+        this.drawable = SvgManager.brn().a(R.drawable.icon_pure_unfold12_svg, this.nzx, (SvgManager.SvgResourceStateType) null);
+        this.jmm.setImageDrawable(this.drawable);
         invalidate();
     }
 
     public void setFirstUpdate(boolean z) {
-        this.ntD = z;
+        this.nzy = z;
     }
 
     public void setOpen(boolean z) {
@@ -161,26 +161,26 @@ public class FollowUserSpinnerBtn extends LinearLayout implements com.baidu.tbad
     }
 
     public void setShowPullBtn(boolean z) {
-        this.ntE = z;
+        this.nzz = z;
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.title.getLayoutParams();
         if (z) {
-            this.ntA.setVisibility(0);
-            layoutParams.leftMargin = nty;
+            this.nzv.setVisibility(0);
+            layoutParams.leftMargin = nzt;
             layoutParams.rightMargin = aku;
             layoutParams.gravity = 16;
             layoutParams.width = -2;
         } else {
-            this.ntA.setVisibility(8);
+            this.nzv.setVisibility(8);
             layoutParams.leftMargin = 0;
             layoutParams.rightMargin = 0;
             layoutParams.gravity = 17;
-            layoutParams.width = ntx;
+            layoutParams.width = nzs;
         }
         this.title.setLayoutParams(layoutParams);
         requestLayout();
     }
 
     public ImageView getArrow() {
-        return this.jgo;
+        return this.jmm;
     }
 }

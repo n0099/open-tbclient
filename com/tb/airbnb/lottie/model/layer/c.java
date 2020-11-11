@@ -10,18 +10,18 @@ import android.graphics.RectF;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.b.p;
-import com.tb.airbnb.lottie.j;
+import com.tb.airbnb.lottie.k;
 /* loaded from: classes16.dex */
 public class c extends a {
     private final Rect dst;
-    private final Paint paint;
     @Nullable
-    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> pyR;
+    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> pIl;
+    private final Paint paint;
     private final Rect src;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(com.tb.airbnb.lottie.f fVar, Layer layer) {
-        super(fVar, layer);
+    public c(com.tb.airbnb.lottie.g gVar, Layer layer) {
+        super(gVar, layer);
         this.paint = new Paint(3);
         this.src = new Rect();
         this.dst = new Rect();
@@ -33,8 +33,8 @@ public class c extends a {
         if (bitmap != null && !bitmap.isRecycled()) {
             float lb = com.tb.airbnb.lottie.d.f.lb();
             this.paint.setAlpha(i);
-            if (this.pyR != null) {
-                this.paint.setColorFilter(this.pyR.getValue());
+            if (this.pIl != null) {
+                this.paint.setColorFilter(this.pIl.getValue());
             }
             canvas.save();
             canvas.concat(matrix);
@@ -57,17 +57,17 @@ public class c extends a {
 
     @Nullable
     private Bitmap getBitmap() {
-        return this.lottieDrawable.bf(this.pAA.getRefId());
+        return this.lottieDrawable.bf(this.pJU.getRefId());
     }
 
     @Override // com.tb.airbnb.lottie.model.layer.a, com.tb.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.tb.airbnb.lottie.e.c<T> cVar) {
         super.a((c) t, (com.tb.airbnb.lottie.e.c<c>) cVar);
-        if (t == j.Cs) {
+        if (t == k.Cs) {
             if (cVar == null) {
-                this.pyR = null;
+                this.pIl = null;
             } else {
-                this.pyR = new p(cVar);
+                this.pIl = new p(cVar);
             }
         }
     }

@@ -13,7 +13,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class SendVideoSuccessShareModel extends BdBaseModel {
-    private HttpMessageListener eZR = new HttpMessageListener(1003384) { // from class: com.baidu.tieba.video.SendVideoSuccessShareModel.1
+    private HttpMessageListener ffI = new HttpMessageListener(1003384) { // from class: com.baidu.tieba.video.SendVideoSuccessShareModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -26,9 +26,9 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
     public SendVideoSuccessShareModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.eZR.setTag(getUniqueId());
-        this.eZR.setSelfListener(true);
-        registerListener(this.eZR);
+        this.ffI.setTag(getUniqueId());
+        this.ffI.setSelfListener(true);
+        registerListener(this.ffI);
     }
 
     private void registerTask() {
@@ -44,11 +44,11 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.eZR);
+        MessageManager.getInstance().unRegisterListener(this.ffI);
         return false;
     }
 
-    public void Tm(String str) {
+    public void TD(String str) {
         HttpMessage httpMessage = new HttpMessage(1003384);
         httpMessage.addParam("video_id", str);
         sendMessage(httpMessage);

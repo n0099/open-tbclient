@@ -5,25 +5,25 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes10.dex */
 public final class d {
-    private static volatile d dNP;
+    private static volatile d dTH;
     private final Lock mLock = new ReentrantLock();
     private ArrayList<j> mListeners = new ArrayList<>();
 
     private d() {
     }
 
-    public static d aSv() {
-        if (dNP == null) {
+    public static d aUV() {
+        if (dTH == null) {
             synchronized (d.class) {
-                if (dNP == null) {
-                    dNP = new d();
+                if (dTH == null) {
+                    dTH = new d();
                 }
             }
         }
-        return dNP;
+        return dTH;
     }
 
-    private Object[] aSw() {
+    private Object[] aUW() {
         Object[] objArr = null;
         try {
             this.mLock.lock();
@@ -38,9 +38,9 @@ public final class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void h(a aVar) {
-        Object[] aSw = aSw();
-        if (aSw != null) {
-            for (Object obj : aSw) {
+        Object[] aUW = aUW();
+        if (aUW != null) {
+            for (Object obj : aUW) {
                 ((j) obj).o(aVar);
             }
         }
@@ -48,9 +48,9 @@ public final class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void i(a aVar) {
-        Object[] aSw = aSw();
-        if (aSw != null) {
-            for (Object obj : aSw) {
+        Object[] aUW = aUW();
+        if (aUW != null) {
+            for (Object obj : aUW) {
                 ((j) obj).c(aVar);
             }
         }
@@ -58,9 +58,9 @@ public final class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void j(a aVar) {
-        Object[] aSw = aSw();
-        if (aSw != null) {
-            for (Object obj : aSw) {
+        Object[] aUW = aUW();
+        if (aUW != null) {
+            for (Object obj : aUW) {
                 ((j) obj).p(aVar);
             }
         }
@@ -68,9 +68,9 @@ public final class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void k(a aVar) {
-        Object[] aSw = aSw();
-        if (aSw != null) {
-            for (Object obj : aSw) {
+        Object[] aUW = aUW();
+        if (aUW != null) {
+            for (Object obj : aUW) {
                 ((j) obj).q(aVar);
             }
         }
@@ -78,9 +78,9 @@ public final class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void l(a aVar) {
-        Object[] aSw = aSw();
-        if (aSw != null) {
-            for (Object obj : aSw) {
+        Object[] aUW = aUW();
+        if (aUW != null) {
+            for (Object obj : aUW) {
                 ((j) obj).r(aVar);
             }
         }
@@ -88,9 +88,9 @@ public final class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void m(a aVar) {
-        Object[] aSw = aSw();
-        if (aSw != null) {
-            for (Object obj : aSw) {
+        Object[] aUW = aUW();
+        if (aUW != null) {
+            for (Object obj : aUW) {
                 ((j) obj).s(aVar);
             }
         }
@@ -98,9 +98,9 @@ public final class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void n(a aVar) {
-        Object[] aSw = aSw();
-        if (aSw != null) {
-            for (Object obj : aSw) {
+        Object[] aUW = aUW();
+        if (aUW != null) {
+            for (Object obj : aUW) {
                 ((j) obj).t(aVar);
             }
         }

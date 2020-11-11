@@ -6,13 +6,13 @@ public enum RouteNodeType {
     
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2179a;
+    private int f2181a;
 
     RouteNodeType(int i) {
-        this.f2179a = i;
+        this.f2181a = i;
     }
 
     public int getNativeType() {
-        return this.f2179a;
+        return this.f2181a;
     }
 }

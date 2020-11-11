@@ -12,36 +12,36 @@ import com.baidu.cyberplayer.sdk.i;
 public class b extends GLSurfaceView implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    private e f1357a;
+    private e f1359a;
 
     public b(Context context) {
         super(context);
         setEGLContextClientVersion(2);
-        this.f1357a = new e();
-        this.f1357a.a(new e.a() { // from class: com.baidu.cyberplayer.sdk.b.1
+        this.f1359a = new e();
+        this.f1359a.a(new e.a() { // from class: com.baidu.cyberplayer.sdk.b.1
             @Override // com.baidu.cyberplayer.sdk.e.a
             public void a() {
                 b.this.requestRender();
             }
         });
-        setRenderer(this.f1357a);
+        setRenderer(this.f1359a);
         setRenderMode(0);
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
     public Bitmap a(float f, int i, int i2) {
-        this.f1357a.a(f, i, i2);
+        this.f1359a.a(f, i, i2);
         return null;
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
     public void a() {
-        this.f1357a.a();
+        this.f1359a.a();
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
     public void a(int i, int i2, int i3, int i4) {
-        this.f1357a.a(i, i2, i3, i4);
+        this.f1359a.a(i, i2, i3, i4);
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
@@ -51,12 +51,12 @@ public class b extends GLSurfaceView implements i {
 
     @Override // com.baidu.cyberplayer.sdk.i
     public void c() {
-        this.f1357a.b();
+        this.f1359a.b();
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
     public Surface d() {
-        return this.f1357a.c();
+        return this.f1359a.c();
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
@@ -65,7 +65,7 @@ public class b extends GLSurfaceView implements i {
     }
 
     public SurfaceTexture getSurfaceTexture() {
-        return this.f1357a.d();
+        return this.f1359a.d();
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
@@ -75,22 +75,22 @@ public class b extends GLSurfaceView implements i {
 
     @Override // com.baidu.cyberplayer.sdk.i
     public void setClientRotation(int i) {
-        this.f1357a.b(i);
+        this.f1359a.b(i);
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
     public void setCyberSurfaceListener(i.a aVar) {
-        this.f1357a.a(aVar);
+        this.f1359a.a(aVar);
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
     public void setDisplayMode(int i) {
-        this.f1357a.a(i);
+        this.f1359a.a(i);
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
     public void setRawFrameRotation(int i) {
-        this.f1357a.c(i);
+        this.f1359a.c(i);
     }
 
     @Override // android.view.SurfaceView, com.baidu.cyberplayer.sdk.i

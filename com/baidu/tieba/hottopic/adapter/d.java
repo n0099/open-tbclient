@@ -39,7 +39,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bL */
+    /* renamed from: bN */
     public com.baidu.tieba.hottopic.a.b c(ViewGroup viewGroup) {
         return new com.baidu.tieba.hottopic.a.b(LayoutInflater.from(this.mContext).inflate(R.layout.hot_topic_ranklist_normal_item, viewGroup, false));
     }
@@ -57,63 +57,63 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
 
     private void a(int i, com.baidu.tieba.hottopic.a.b bVar, final com.baidu.tieba.hottopic.data.c cVar) {
         if (bVar != null && cVar != null) {
-            bVar.jKD.setVisibility(8);
-            if (cVar.cKv() == 1) {
-                bVar.jKA.setText("");
-                ap.setBackgroundResource(bVar.jKA, R.drawable.icon_grade_shaitu1);
-                bVar.jKD.setVisibility(0);
-                bVar.jKE.setText(fk(StringUtils.isNull(cVar.cKs()) ? this.mContext.getResources().getString(R.string.hot_topic_hot_list) : cVar.cKs(), StringUtils.isNull(cVar.getTips()) ? this.mContext.getResources().getString(R.string.hot_topic_update_time) : cVar.getTips()));
-                bVar.jKw.setVisibility(0);
-                ap.setBackgroundResource(bVar.jKH, R.drawable.hot_topic_ranklist_bg);
-                bVar.jKH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.d.1
+            bVar.jQB.setVisibility(8);
+            if (cVar.cMW() == 1) {
+                bVar.jQy.setText("");
+                ap.setBackgroundResource(bVar.jQy, R.drawable.icon_grade_shaitu1);
+                bVar.jQB.setVisibility(0);
+                bVar.jQC.setText(fk(StringUtils.isNull(cVar.cMT()) ? this.mContext.getResources().getString(R.string.hot_topic_hot_list) : cVar.cMT(), StringUtils.isNull(cVar.getTips()) ? this.mContext.getResources().getString(R.string.hot_topic_update_time) : cVar.getTips()));
+                bVar.jQu.setVisibility(0);
+                ap.setBackgroundResource(bVar.jQF, R.drawable.hot_topic_ranklist_bg);
+                bVar.jQF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.d.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (d.this.mPageContext != null) {
-                            String cKt = cVar.cKt();
-                            if (!StringUtils.isNull(cKt)) {
-                                be.boR().b(d.this.mPageContext, new String[]{cKt});
+                            String cMU = cVar.cMU();
+                            if (!StringUtils.isNull(cMU)) {
+                                be.brr().b(d.this.mPageContext, new String[]{cMU});
                             }
                         }
                         TiebaStatic.log("c10820");
                     }
                 });
-            } else if (cVar.cKv() == 2) {
-                bVar.jKA.setText("");
-                bVar.jKw.setVisibility(8);
-                ap.setBackgroundResource(bVar.jKA, R.drawable.icon_grade_shaitu2);
-            } else if (cVar.cKv() == 3) {
-                bVar.jKA.setText("");
-                bVar.jKw.setVisibility(8);
-                ap.setBackgroundResource(bVar.jKA, R.drawable.icon_grade_shaitu3);
+            } else if (cVar.cMW() == 2) {
+                bVar.jQy.setText("");
+                bVar.jQu.setVisibility(8);
+                ap.setBackgroundResource(bVar.jQy, R.drawable.icon_grade_shaitu2);
+            } else if (cVar.cMW() == 3) {
+                bVar.jQy.setText("");
+                bVar.jQu.setVisibility(8);
+                ap.setBackgroundResource(bVar.jQy, R.drawable.icon_grade_shaitu3);
             } else {
-                String str = "" + cVar.cKv();
-                if (cVar.cKv() < 10) {
+                String str = "" + cVar.cMW();
+                if (cVar.cMW() < 10) {
                     str = "0" + str;
                 }
-                bVar.jKA.setText(str);
-                bVar.jKw.setVisibility(8);
-                bVar.jKA.setBackgroundDrawable(null);
+                bVar.jQy.setText(str);
+                bVar.jQu.setVisibility(8);
+                bVar.jQy.setBackgroundDrawable(null);
             }
             if (cVar.getTag() == 1) {
-                bVar.jKC.setVisibility(0);
-                ap.setBackgroundResource(bVar.jKC, R.drawable.icon_topic_ranklist_new);
+                bVar.jQA.setVisibility(0);
+                ap.setBackgroundResource(bVar.jQA, R.drawable.icon_topic_ranklist_new);
             } else if (cVar.getTag() == 2) {
-                bVar.jKC.setVisibility(0);
-                ap.setBackgroundResource(bVar.jKC, R.drawable.icon_topic_ranklist_hot);
+                bVar.jQA.setVisibility(0);
+                ap.setBackgroundResource(bVar.jQA, R.drawable.icon_topic_ranklist_hot);
             } else if (cVar.getTag() == 3) {
-                bVar.jKC.setVisibility(0);
-                ap.setBackgroundResource(bVar.jKC, R.drawable.icon_topic_ranklist_tuijian);
+                bVar.jQA.setVisibility(0);
+                ap.setBackgroundResource(bVar.jQA, R.drawable.icon_topic_ranklist_tuijian);
             } else {
-                bVar.jKC.setVisibility(8);
+                bVar.jQA.setVisibility(8);
             }
-            String numFormat9999W = at.numFormat9999W(cVar.cKu());
+            String numFormat9999W = at.numFormat9999W(cVar.cMV());
             String str2 = "";
             if (!TextUtils.isEmpty(cVar.getName())) {
                 str2 = UtilHelper.getFixedText(cVar.getName(), 10);
             }
-            bVar.jKt.setText(str2);
-            bVar.jKB.setText(numFormat9999W);
-            bVar.jKG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.d.2
+            bVar.jQr.setText(str2);
+            bVar.jQz.setText(numFormat9999W);
+            bVar.jQE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.d.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotTopicActivityConfig(view.getContext()).createNormalConfig(String.valueOf(cVar.getId()), cVar.getName(), "5")));
@@ -129,19 +129,19 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
             if (bVar.ajq != this.mSkinType) {
                 bVar.ajq = this.mSkinType;
                 ap.setBackgroundColor(bVar.getView(), R.color.cp_bg_line_d);
-                ap.setViewTextColor(bVar.jKA, R.color.cp_cont_e, 1);
-                ap.setViewTextColor(bVar.jKt, R.color.cp_cont_b, 1);
-                ap.setViewTextColor(bVar.jKB, R.color.cp_cont_e, 1);
-                ap.setBackgroundColor(bVar.jKw, R.color.cp_bg_line_c);
-                ap.setBackgroundColor(bVar.jKx, R.color.cp_bg_line_c);
-                ap.setBackgroundResource(bVar.jKG, R.drawable.hot_topic_ranklist_bg);
-                ap.setViewTextColor(bVar.jKF, R.color.cp_link_tip_a, 1);
-                ap.setViewTextColor(bVar.jKE, R.color.cp_cont_d, 1);
+                ap.setViewTextColor(bVar.jQy, R.color.cp_cont_e, 1);
+                ap.setViewTextColor(bVar.jQr, R.color.cp_cont_b, 1);
+                ap.setViewTextColor(bVar.jQz, R.color.cp_cont_e, 1);
+                ap.setBackgroundColor(bVar.jQu, R.color.cp_bg_line_c);
+                ap.setBackgroundColor(bVar.jQv, R.color.cp_bg_line_c);
+                ap.setBackgroundResource(bVar.jQE, R.drawable.hot_topic_ranklist_bg);
+                ap.setViewTextColor(bVar.jQD, R.color.cp_link_tip_a, 1);
+                ap.setViewTextColor(bVar.jQC, R.color.cp_cont_d, 1);
             }
         }
     }
 
-    public void LD(String str) {
+    public void LU(String str) {
         this.type = str;
     }
 

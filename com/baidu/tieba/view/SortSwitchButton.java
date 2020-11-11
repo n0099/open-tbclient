@@ -29,29 +29,29 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class SortSwitchButton extends View implements View.OnTouchListener {
-    private Paint bGS;
-    private float hnY;
-    private float iNa;
-    private int iNb;
-    private int iNc;
-    private int iNd;
-    private float iNe;
-    private float iNf;
-    private int iNg;
-    private RectF iNj;
-    private Path iNk;
-    private RectF iNl;
-    private Path iNm;
-    private float iNo;
-    private boolean iNp;
-    private boolean iNq;
-    private boolean iNr;
-    private List<Float> iNs;
-    private GestureDetector.SimpleOnGestureListener iNt;
-    private float iNu;
-    private boolean iNv;
+    private Paint bMx;
+    private float htW;
+    private float iSX;
+    private int iSY;
+    private int iSZ;
+    private int iTa;
+    private float iTb;
+    private float iTc;
+    private int iTd;
+    private RectF iTg;
+    private Path iTh;
+    private RectF iTi;
+    private Path iTj;
+    private float iTl;
+    private boolean iTm;
+    private boolean iTn;
+    private boolean iTo;
+    private List<Float> iTp;
+    private GestureDetector.SimpleOnGestureListener iTq;
+    private float iTr;
+    private boolean iTs;
     private CustomMessageListener listener;
-    private a lkF;
+    private a lqG;
     private int mBackgroundColorId;
     private Paint mBackgroundPaint;
     private List<p> mData;
@@ -62,24 +62,24 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
     private float mTextSize;
     private ValueAnimator mValueAnimator;
     private float mWidth;
-    private int nwd;
-    private float nwe;
-    private float nwf;
-    private Paint nwg;
-    private RectF nwh;
-    private Path nwi;
-    private RectF nwj;
-    private Path nwk;
-    private com.baidu.tieba.e nwl;
-    private boolean nwm;
-    private boolean nwn;
-    private BdUniqueId nwo;
-    private BdUniqueId nwp;
-    private e.a nwq;
+    private int nBX;
+    private float nBY;
+    private float nBZ;
+    private Paint nCa;
+    private RectF nCb;
+    private Path nCc;
+    private RectF nCd;
+    private Path nCe;
+    private com.baidu.tieba.e nCf;
+    private boolean nCg;
+    private boolean nCh;
+    private BdUniqueId nCi;
+    private BdUniqueId nCj;
+    private e.a nCk;
 
     /* loaded from: classes.dex */
     public interface a {
-        boolean zj(int i);
+        boolean zw(int i);
     }
 
     public SortSwitchButton(Context context) {
@@ -92,13 +92,13 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
 
     public SortSwitchButton(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.nwl = new com.baidu.tieba.e();
-        this.iNp = false;
-        this.iNq = false;
-        this.iNr = true;
-        this.nwm = true;
-        this.nwn = false;
-        this.nwp = BdUniqueId.gen();
+        this.nCf = new com.baidu.tieba.e();
+        this.iTm = false;
+        this.iTn = false;
+        this.iTo = true;
+        this.nCg = true;
+        this.nCh = false;
+        this.nCj = BdUniqueId.gen();
         this.listener = new CustomMessageListener(2921458) { // from class: com.baidu.tieba.view.SortSwitchButton.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -106,32 +106,32 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer) && (customResponsedMessage.getOrginalMessage() instanceof CustomMessage) && (((CustomMessage) customResponsedMessage.getOrginalMessage()).getData() instanceof BdUniqueId)) {
                     BdUniqueId bdUniqueId = (BdUniqueId) ((CustomMessage) customResponsedMessage.getOrginalMessage()).getData();
                     BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
-                    if (tag != null && bdUniqueId != null && SortSwitchButton.this.nwo != null) {
+                    if (tag != null && bdUniqueId != null && SortSwitchButton.this.nCi != null) {
                         Integer num = (Integer) customResponsedMessage.getData();
-                        if (tag.getId() == SortSwitchButton.this.nwo.getId() && bdUniqueId.getId() != SortSwitchButton.this.nwp.getId() && SortSwitchButton.this.nwl.bFx() != num.intValue() && !y.isEmpty(SortSwitchButton.this.mData) && !y.isEmpty(SortSwitchButton.this.iNs) && SortSwitchButton.this.iNs.size() > num.intValue()) {
-                            SortSwitchButton.this.nwl.sT(num.intValue());
-                            SortSwitchButton.this.iNo = ((Float) SortSwitchButton.this.iNs.get(num.intValue())).floatValue();
+                        if (tag.getId() == SortSwitchButton.this.nCi.getId() && bdUniqueId.getId() != SortSwitchButton.this.nCj.getId() && SortSwitchButton.this.nCf.bHW() != num.intValue() && !y.isEmpty(SortSwitchButton.this.mData) && !y.isEmpty(SortSwitchButton.this.iTp) && SortSwitchButton.this.iTp.size() > num.intValue()) {
+                            SortSwitchButton.this.nCf.td(num.intValue());
+                            SortSwitchButton.this.iTl = ((Float) SortSwitchButton.this.iTp.get(num.intValue())).floatValue();
                             SortSwitchButton.this.invalidate();
                         }
                     }
                 }
             }
         };
-        this.nwq = new e.a() { // from class: com.baidu.tieba.view.SortSwitchButton.2
+        this.nCk = new e.a() { // from class: com.baidu.tieba.view.SortSwitchButton.2
             @Override // com.baidu.tieba.e.a
             public void bx(int i2, int i3) {
                 ResponsedMessage<?> customResponsedMessage = new CustomResponsedMessage<>(2921458, Integer.valueOf(i3));
                 CustomMessage customMessage = new CustomMessage(2921458);
-                customMessage.setTag(SortSwitchButton.this.nwo);
-                customMessage.setData(SortSwitchButton.this.nwp);
+                customMessage.setTag(SortSwitchButton.this.nCi);
+                customMessage.setData(SortSwitchButton.this.nCj);
                 customResponsedMessage.setOrginalMessage(customMessage);
                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
             }
         };
-        this.iNt = new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.tieba.view.SortSwitchButton.3
+        this.iTq = new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.tieba.view.SortSwitchButton.3
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
             public boolean onDown(MotionEvent motionEvent) {
-                if (!SortSwitchButton.this.iNq && motionEvent.getX() <= SortSwitchButton.this.mWidth && motionEvent.getY() <= SortSwitchButton.this.mHeight) {
+                if (!SortSwitchButton.this.iTn && motionEvent.getX() <= SortSwitchButton.this.mWidth && motionEvent.getY() <= SortSwitchButton.this.mHeight) {
                     if (SortSwitchButton.this.getParent() != null) {
                         SortSwitchButton.this.getParent().requestDisallowInterceptTouchEvent(true);
                     }
@@ -142,32 +142,32 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
 
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
             public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-                int bFx = SortSwitchButton.this.nwl.bFx();
-                SortSwitchButton.this.iNo = motionEvent.getX();
-                SortSwitchButton.this.nwl.sS(SortSwitchButton.this.czM());
-                SortSwitchButton.this.iNq = true;
-                if (SortSwitchButton.this.nwl.bFx() != bFx) {
-                    SortSwitchButton.this.zk(bFx);
+                int bHW = SortSwitchButton.this.nCf.bHW();
+                SortSwitchButton.this.iTl = motionEvent.getX();
+                SortSwitchButton.this.nCf.tc(SortSwitchButton.this.cCn());
+                SortSwitchButton.this.iTn = true;
+                if (SortSwitchButton.this.nCf.bHW() != bHW) {
+                    SortSwitchButton.this.zx(bHW);
                     if (SortSwitchButton.this.mValueAnimator != null) {
                         SortSwitchButton.this.mValueAnimator.start();
                     }
-                    SortSwitchButton.this.zl(bFx);
+                    SortSwitchButton.this.zy(bHW);
                 }
-                SortSwitchButton.this.iNq = false;
+                SortSwitchButton.this.iTn = false;
                 return true;
             }
 
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
             public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-                if (SortSwitchButton.this.iNp) {
-                    SortSwitchButton.this.iNo -= f;
-                    if (SortSwitchButton.this.iNo < 0.0f) {
-                        SortSwitchButton.this.iNo = 0.0f;
+                if (SortSwitchButton.this.iTm) {
+                    SortSwitchButton.this.iTl -= f;
+                    if (SortSwitchButton.this.iTl < 0.0f) {
+                        SortSwitchButton.this.iTl = 0.0f;
                     }
-                    Float f3 = (Float) y.getItem(SortSwitchButton.this.iNs, SortSwitchButton.this.iNs.size() - 1);
+                    Float f3 = (Float) y.getItem(SortSwitchButton.this.iTp, SortSwitchButton.this.iTp.size() - 1);
                     float floatValue = f3 == null ? 0.0f : f3.floatValue();
-                    if (SortSwitchButton.this.iNo > floatValue) {
-                        SortSwitchButton.this.iNo = floatValue;
+                    if (SortSwitchButton.this.iTl > floatValue) {
+                        SortSwitchButton.this.iTl = floatValue;
                     }
                     SortSwitchButton.this.invalidate();
                     return true;
@@ -178,8 +178,8 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         initAttrs(context, attributeSet);
         init(context);
         setOnTouchListener(this);
-        if (this.nwn) {
-            this.nwl.a(this.nwq);
+        if (this.nCh) {
+            this.nCf.a(this.nCk);
             MessageManager.getInstance().registerListener(this.listener);
         }
     }
@@ -187,45 +187,45 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
     private void initAttrs(Context context, AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.SortSwitchButton);
         this.mBackgroundColorId = obtainStyledAttributes.getResourceId(R.styleable.SortSwitchButton_background_color, R.color.cp_cont_j);
-        this.nwd = obtainStyledAttributes.getResourceId(R.styleable.SortSwitchButton_background_border_color, this.mBackgroundColorId);
-        this.nwe = obtainStyledAttributes.getDimension(R.styleable.SortSwitchButton_background_border_width, 0.0f);
-        this.nwf = obtainStyledAttributes.getFloat(R.styleable.SortSwitchButton_background_border_alpha, 1.0f);
-        this.iNb = obtainStyledAttributes.getResourceId(R.styleable.SortSwitchButton_slide_color, R.color.cp_cont_a);
-        this.iNc = obtainStyledAttributes.getResourceId(R.styleable.SortSwitchButton_un_selected_text_color, R.color.cp_cont_b);
-        this.iNd = obtainStyledAttributes.getResourceId(R.styleable.SortSwitchButton_selected_text_color, R.color.cp_cont_b);
+        this.nBX = obtainStyledAttributes.getResourceId(R.styleable.SortSwitchButton_background_border_color, this.mBackgroundColorId);
+        this.nBY = obtainStyledAttributes.getDimension(R.styleable.SortSwitchButton_background_border_width, 0.0f);
+        this.nBZ = obtainStyledAttributes.getFloat(R.styleable.SortSwitchButton_background_border_alpha, 1.0f);
+        this.iSY = obtainStyledAttributes.getResourceId(R.styleable.SortSwitchButton_slide_color, R.color.cp_cont_a);
+        this.iSZ = obtainStyledAttributes.getResourceId(R.styleable.SortSwitchButton_un_selected_text_color, R.color.cp_cont_b);
+        this.iTa = obtainStyledAttributes.getResourceId(R.styleable.SortSwitchButton_selected_text_color, R.color.cp_cont_b);
         this.mTextSize = obtainStyledAttributes.getDimension(R.styleable.SortSwitchButton_text_size, 5.0f);
-        this.iNe = obtainStyledAttributes.getDimension(R.styleable.SortSwitchButton_text_horizontal_padding, 0.0f);
-        this.iNa = obtainStyledAttributes.getDimension(R.styleable.SortSwitchButton_slide_height, 0.0f);
-        this.iNf = obtainStyledAttributes.getDimension(R.styleable.SortSwitchButton_slide_border_width, 0.0f);
-        this.iNg = obtainStyledAttributes.getResourceId(R.styleable.SortSwitchButton_slide_border_color, R.color.cp_cont_b);
-        this.nwn = obtainStyledAttributes.getBoolean(R.styleable.SortSwitchButton_slide_need_sync, false);
+        this.iTb = obtainStyledAttributes.getDimension(R.styleable.SortSwitchButton_text_horizontal_padding, 0.0f);
+        this.iSX = obtainStyledAttributes.getDimension(R.styleable.SortSwitchButton_slide_height, 0.0f);
+        this.iTc = obtainStyledAttributes.getDimension(R.styleable.SortSwitchButton_slide_border_width, 0.0f);
+        this.iTd = obtainStyledAttributes.getResourceId(R.styleable.SortSwitchButton_slide_border_color, R.color.cp_cont_b);
+        this.nCh = obtainStyledAttributes.getBoolean(R.styleable.SortSwitchButton_slide_need_sync, false);
         obtainStyledAttributes.recycle();
     }
 
     private void init(Context context) {
-        this.iNj = new RectF();
-        this.iNk = new Path();
-        this.iNl = new RectF();
-        this.iNm = new Path();
+        this.iTg = new RectF();
+        this.iTh = new Path();
+        this.iTi = new RectF();
+        this.iTj = new Path();
         this.mBackgroundPaint = new Paint(1);
         this.mBackgroundPaint.setColor(ap.getColor(this.mBackgroundColorId));
-        if (this.nwd > 0 && this.nwe > 0.0f) {
-            this.nwh = new RectF();
-            this.nwi = new Path();
-            this.nwj = new RectF();
-            this.nwk = new Path();
-            this.nwg = new Paint(1);
-            this.nwg.setStyle(Paint.Style.STROKE);
-            this.nwg.setStrokeWidth(this.nwe);
-            this.nwg.setColor(com.baidu.tieba.tbadkCore.c.m(ap.getColor(this.mBackgroundColorId), this.nwf));
+        if (this.nBX > 0 && this.nBY > 0.0f) {
+            this.nCb = new RectF();
+            this.nCc = new Path();
+            this.nCd = new RectF();
+            this.nCe = new Path();
+            this.nCa = new Paint(1);
+            this.nCa.setStyle(Paint.Style.STROKE);
+            this.nCa.setStrokeWidth(this.nBY);
+            this.nCa.setColor(com.baidu.tieba.tbadkCore.c.m(ap.getColor(this.mBackgroundColorId), this.nBZ));
         }
-        this.bGS = new Paint(1);
+        this.bMx = new Paint(1);
         this.mTextPaint = new Paint(1);
         this.mTextPaint.setTextSize(this.mTextSize);
         this.mData = new ArrayList();
-        this.iNs = new ArrayList();
-        this.nwl.sT(0);
-        this.mGestureDetector = new GestureDetector(context, this.iNt);
+        this.iTp = new ArrayList();
+        this.nCf.td(0);
+        this.mGestureDetector = new GestureDetector(context, this.iTq);
         initAnimation();
     }
 
@@ -235,10 +235,10 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue() * SortSwitchButton.this.mMoveDistance;
-                if (SortSwitchButton.this.iNv) {
-                    SortSwitchButton.this.iNo = SortSwitchButton.this.iNu - floatValue;
+                if (SortSwitchButton.this.iTs) {
+                    SortSwitchButton.this.iTl = SortSwitchButton.this.iTr - floatValue;
                 } else {
-                    SortSwitchButton.this.iNo = floatValue + SortSwitchButton.this.iNu;
+                    SortSwitchButton.this.iTl = floatValue + SortSwitchButton.this.iTr;
                 }
                 SortSwitchButton.this.invalidate();
             }
@@ -247,8 +247,8 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
-                if (SortSwitchButton.this.iNs.size() > SortSwitchButton.this.nwl.bFx()) {
-                    SortSwitchButton.this.iNo = ((Float) SortSwitchButton.this.iNs.get(SortSwitchButton.this.nwl.bFx())).floatValue();
+                if (SortSwitchButton.this.iTp.size() > SortSwitchButton.this.nCf.bHW()) {
+                    SortSwitchButton.this.iTl = ((Float) SortSwitchButton.this.iTp.get(SortSwitchButton.this.nCf.bHW())).floatValue();
                 }
             }
         });
@@ -267,9 +267,9 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
             for (int i3 = 0; i3 < count; i3++) {
                 p pVar = (p) y.getItem(this.mData, i3);
                 if (pVar != null) {
-                    float measureText = this.mTextPaint.measureText(pVar.dHL() == null ? "" : pVar.dHL()) + (this.iNe * 2.0f);
-                    if (this.iNr) {
-                        this.iNs.add(Float.valueOf(this.mWidth));
+                    float measureText = this.mTextPaint.measureText(pVar.dKn() == null ? "" : pVar.dKn()) + (this.iTb * 2.0f);
+                    if (this.iTo) {
+                        this.iTp.add(Float.valueOf(this.mWidth));
                     }
                     this.mWidth = measureText + this.mWidth;
                 }
@@ -282,98 +282,98 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
             }
             float f2 = 0.0f;
             for (int i4 = 0; i4 < count; i4++) {
-                if (this.iNr) {
-                    this.iNs.add(Float.valueOf(f2));
+                if (this.iTo) {
+                    this.iTp.add(Float.valueOf(f2));
                 }
                 f2 += f;
             }
         }
         if (mode2 == Integer.MIN_VALUE) {
-            this.mHeight = this.iNa;
+            this.mHeight = this.iSX;
         } else {
             this.mHeight = size2;
-            this.iNa = this.mHeight;
+            this.iSX = this.mHeight;
         }
-        this.iNr = false;
+        this.iTo = false;
         zQ();
         setMeasuredDimension((int) this.mWidth, (int) this.mHeight);
     }
 
     private void zQ() {
-        this.iNj.set(this.nwe, this.nwe, this.mWidth - this.nwe, this.mHeight - this.nwe);
-        this.iNk.reset();
-        this.iNk.addRoundRect(this.iNj, this.mHeight / 2.0f, this.mHeight / 2.0f, Path.Direction.CW);
-        if (this.nwh != null && this.nwg != null) {
-            this.nwh.set(0.0f, 0.0f, this.mWidth, this.mHeight);
-            float f = this.nwe * 0.5f;
-            this.nwj.set(-f, -f, this.mWidth + f, this.mHeight + f);
-            this.nwi.reset();
-            this.nwk.reset();
-            this.nwi.addRoundRect(this.nwh, this.mHeight / 2.0f, this.mHeight / 2.0f, Path.Direction.CW);
-            this.nwk.addRoundRect(this.nwj, (this.mHeight + f) * 0.5f, (f + this.mHeight) * 0.5f, Path.Direction.CW);
+        this.iTg.set(this.nBY, this.nBY, this.mWidth - this.nBY, this.mHeight - this.nBY);
+        this.iTh.reset();
+        this.iTh.addRoundRect(this.iTg, this.mHeight / 2.0f, this.mHeight / 2.0f, Path.Direction.CW);
+        if (this.nCb != null && this.nCa != null) {
+            this.nCb.set(0.0f, 0.0f, this.mWidth, this.mHeight);
+            float f = this.nBY * 0.5f;
+            this.nCd.set(-f, -f, this.mWidth + f, this.mHeight + f);
+            this.nCc.reset();
+            this.nCe.reset();
+            this.nCc.addRoundRect(this.nCb, this.mHeight / 2.0f, this.mHeight / 2.0f, Path.Direction.CW);
+            this.nCe.addRoundRect(this.nCd, (this.mHeight + f) * 0.5f, (f + this.mHeight) * 0.5f, Path.Direction.CW);
         }
-        Float f2 = (Float) y.getItem(this.iNs, this.nwl.bFx());
-        this.iNo = f2 != null ? f2.floatValue() : 0.0f;
+        Float f2 = (Float) y.getItem(this.iTp, this.nCf.bHW());
+        this.iTl = f2 != null ? f2.floatValue() : 0.0f;
         Paint.FontMetrics fontMetrics = this.mTextPaint.getFontMetrics();
-        this.hnY = ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f) + (this.mHeight / 2.0f);
+        this.htW = ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f) + (this.mHeight / 2.0f);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        if (this.nwk != null) {
-            canvas.clipPath(this.nwk);
+        if (this.nCe != null) {
+            canvas.clipPath(this.nCe);
         } else {
-            canvas.clipPath(this.iNk);
+            canvas.clipPath(this.iTh);
         }
         super.onDraw(canvas);
         ap(canvas);
         R(canvas);
         int i = 0;
-        while (i < this.mData.size() && i < this.iNs.size()) {
-            a(canvas, this.mData.get(i).dHL(), this.iNs.get(i).floatValue() + this.iNe, this.hnY, this.nwl.bFx() == i);
+        while (i < this.mData.size() && i < this.iTp.size()) {
+            a(canvas, this.mData.get(i).dKn(), this.iTp.get(i).floatValue() + this.iTb, this.htW, this.nCf.bHW() == i);
             i++;
         }
     }
 
     private void ap(Canvas canvas) {
-        canvas.drawPath(this.iNk, this.mBackgroundPaint);
-        if (this.nwd > 0 && this.nwe > 0.0f && this.nwg != null) {
-            canvas.drawPath(this.nwi, this.nwg);
+        canvas.drawPath(this.iTh, this.mBackgroundPaint);
+        if (this.nBX > 0 && this.nBY > 0.0f && this.nCa != null) {
+            canvas.drawPath(this.nCc, this.nCa);
         }
     }
 
     private void R(Canvas canvas) {
         float f;
-        this.iNm.reset();
-        if (this.iNo < 0.0f) {
-            this.iNo = 0.0f;
+        this.iTj.reset();
+        if (this.iTl < 0.0f) {
+            this.iTl = 0.0f;
         }
-        float floatValue = !y.isEmpty(this.iNs) ? ((Float) y.getItem(this.iNs, this.nwl.bFx())).floatValue() : 0.0f;
-        if (this.nwl.bFx() + 1 < this.iNs.size()) {
-            f = this.iNs.get(this.nwl.bFx() + 1).floatValue();
+        float floatValue = !y.isEmpty(this.iTp) ? ((Float) y.getItem(this.iTp, this.nCf.bHW())).floatValue() : 0.0f;
+        if (this.nCf.bHW() + 1 < this.iTp.size()) {
+            f = this.iTp.get(this.nCf.bHW() + 1).floatValue();
         } else {
-            f = this.nwl.bFx() + 1 == this.iNs.size() ? this.mWidth : 0.0f;
+            f = this.nCf.bHW() + 1 == this.iTp.size() ? this.mWidth : 0.0f;
         }
-        float f2 = (f - floatValue) + this.iNo;
+        float f2 = (f - floatValue) + this.iTl;
         if (f2 > this.mWidth) {
             f2 = this.mWidth;
         }
-        this.iNl.set(this.iNo, 0.0f, f2, this.mHeight);
-        this.iNm.addRoundRect(this.iNl, this.iNa / 2.0f, this.iNa / 2.0f, Path.Direction.CW);
-        this.bGS.setColor(this.nwm ? ap.getColor(this.iNg) : ap.getColor(0, this.iNg));
-        canvas.drawPath(this.iNm, this.bGS);
-        this.iNm.reset();
-        this.iNl.set(this.iNo + this.iNf, this.iNf, f2 - this.iNf, this.mHeight - this.iNf);
-        this.iNm.addRoundRect(this.iNl, (this.iNa - (this.iNf * 2.0f)) / 2.0f, (this.iNa - (this.iNf * 2.0f)) / 2.0f, Path.Direction.CW);
-        this.bGS.setColor(this.nwm ? ap.getColor(this.iNb) : ap.getColor(0, this.iNb));
-        canvas.drawPath(this.iNm, this.bGS);
+        this.iTi.set(this.iTl, 0.0f, f2, this.mHeight);
+        this.iTj.addRoundRect(this.iTi, this.iSX / 2.0f, this.iSX / 2.0f, Path.Direction.CW);
+        this.bMx.setColor(this.nCg ? ap.getColor(this.iTd) : ap.getColor(0, this.iTd));
+        canvas.drawPath(this.iTj, this.bMx);
+        this.iTj.reset();
+        this.iTi.set(this.iTl + this.iTc, this.iTc, f2 - this.iTc, this.mHeight - this.iTc);
+        this.iTj.addRoundRect(this.iTi, (this.iSX - (this.iTc * 2.0f)) / 2.0f, (this.iSX - (this.iTc * 2.0f)) / 2.0f, Path.Direction.CW);
+        this.bMx.setColor(this.nCg ? ap.getColor(this.iSY) : ap.getColor(0, this.iSY));
+        canvas.drawPath(this.iTj, this.bMx);
     }
 
     private void a(Canvas canvas, String str, float f, float f2, boolean z) {
         if (z) {
-            this.mTextPaint.setColor(this.nwm ? ap.getColor(this.iNd) : ap.getColor(0, this.iNd));
+            this.mTextPaint.setColor(this.nCg ? ap.getColor(this.iTa) : ap.getColor(0, this.iTa));
         } else {
-            this.mTextPaint.setColor(this.nwm ? ap.getColor(this.iNc) : ap.getColor(0, this.iNc));
+            this.mTextPaint.setColor(this.nCg ? ap.getColor(this.iSZ) : ap.getColor(0, this.iSZ));
         }
         canvas.drawText(str, f, f2, this.mTextPaint);
     }
@@ -383,69 +383,69 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         if (this.mGestureDetector.onTouchEvent(motionEvent)) {
             return true;
         }
-        if (this.iNp && (motionEvent.getAction() == 1 || motionEvent.getAction() == 3)) {
-            int bFx = this.nwl.bFx();
-            int czM = czM();
-            if (Math.abs(czM - bFx) >= 2 || czM > bFx) {
-                this.nwl.sT(czM);
-            } else if (czM < bFx) {
-                float floatValue = this.iNs.size() > czM ? this.iNs.get(czM).floatValue() : 0.0f;
-                float floatValue2 = czM + 1 < this.iNs.size() ? this.iNs.get(czM + 1).floatValue() : floatValue;
-                if (this.iNo >= floatValue && this.iNo <= ((floatValue2 - floatValue) / 2.0f) + floatValue) {
-                    this.nwl.sT(czM);
+        if (this.iTm && (motionEvent.getAction() == 1 || motionEvent.getAction() == 3)) {
+            int bHW = this.nCf.bHW();
+            int cCn = cCn();
+            if (Math.abs(cCn - bHW) >= 2 || cCn > bHW) {
+                this.nCf.td(cCn);
+            } else if (cCn < bHW) {
+                float floatValue = this.iTp.size() > cCn ? this.iTp.get(cCn).floatValue() : 0.0f;
+                float floatValue2 = cCn + 1 < this.iTp.size() ? this.iTp.get(cCn + 1).floatValue() : floatValue;
+                if (this.iTl >= floatValue && this.iTl <= ((floatValue2 - floatValue) / 2.0f) + floatValue) {
+                    this.nCf.td(cCn);
                 }
             } else {
-                float floatValue3 = this.iNs.size() > czM ? this.iNs.get(czM).floatValue() : 0.0f;
-                if (this.iNo >= (((czM + 1 < this.iNs.size() ? this.iNs.get(czM + 1).floatValue() : floatValue3) - floatValue3) / 2.0f) + floatValue3 && czM + 1 < this.iNs.size()) {
-                    this.nwl.sT(czM + 1);
+                float floatValue3 = this.iTp.size() > cCn ? this.iTp.get(cCn).floatValue() : 0.0f;
+                if (this.iTl >= (((cCn + 1 < this.iTp.size() ? this.iTp.get(cCn + 1).floatValue() : floatValue3) - floatValue3) / 2.0f) + floatValue3 && cCn + 1 < this.iTp.size()) {
+                    this.nCf.td(cCn + 1);
                 }
             }
-            this.iNq = true;
-            this.iNu = this.iNo;
-            float floatValue4 = this.iNs.size() > this.nwl.bFx() ? this.iNs.get(this.nwl.bFx()).floatValue() : 0.0f;
-            this.mMoveDistance = Math.abs(this.iNu - floatValue4);
-            if (this.nwl.bFx() < bFx) {
-                this.iNv = true;
-            } else if (this.nwl.bFx() > bFx) {
-                this.iNv = false;
+            this.iTn = true;
+            this.iTr = this.iTl;
+            float floatValue4 = this.iTp.size() > this.nCf.bHW() ? this.iTp.get(this.nCf.bHW()).floatValue() : 0.0f;
+            this.mMoveDistance = Math.abs(this.iTr - floatValue4);
+            if (this.nCf.bHW() < bHW) {
+                this.iTs = true;
+            } else if (this.nCf.bHW() > bHW) {
+                this.iTs = false;
             } else {
-                this.iNv = this.iNu > floatValue4;
+                this.iTs = this.iTr > floatValue4;
             }
             if (this.mValueAnimator != null) {
                 this.mValueAnimator.start();
             }
-            if (this.nwl.bFx() != bFx) {
-                zl(bFx);
+            if (this.nCf.bHW() != bHW) {
+                zy(bHW);
             }
-            this.iNq = false;
+            this.iTn = false;
             return true;
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int czM() {
+    public int cCn() {
         float floatValue;
-        int bFx = this.nwl.bFx();
+        int bHW = this.nCf.bHW();
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.iNs.size()) {
-                return bFx;
+            if (i2 >= this.iTp.size()) {
+                return bHW;
             }
-            float floatValue2 = ((Float) y.getItem(this.iNs, i2)).floatValue();
-            if (i2 + 1 == this.iNs.size()) {
+            float floatValue2 = ((Float) y.getItem(this.iTp, i2)).floatValue();
+            if (i2 + 1 == this.iTp.size()) {
                 floatValue = this.mWidth;
             } else {
-                floatValue = ((Float) y.getItem(this.iNs, i2 + 1)).floatValue();
+                floatValue = ((Float) y.getItem(this.iTp, i2 + 1)).floatValue();
             }
-            if (this.iNo <= floatValue2 || this.iNo >= floatValue) {
-                if (this.iNo == floatValue2) {
-                    if (bFx - 1 >= 0) {
-                        return bFx - 1;
+            if (this.iTl <= floatValue2 || this.iTl >= floatValue) {
+                if (this.iTl == floatValue2) {
+                    if (bHW - 1 >= 0) {
+                        return bHW - 1;
                     }
-                } else if (this.iNo == floatValue && bFx + 1 < y.getCount(this.iNs)) {
-                    return bFx + 1;
+                } else if (this.iTl == floatValue && bHW + 1 < y.getCount(this.iTp)) {
+                    return bHW + 1;
                 }
                 i = i2 + 1;
             } else {
@@ -455,44 +455,44 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void zk(int i) {
-        if (this.iNs.size() > i) {
-            this.iNu = this.iNs.get(i).floatValue();
+    public void zx(int i) {
+        if (this.iTp.size() > i) {
+            this.iTr = this.iTp.get(i).floatValue();
         }
         float f = 0.0f;
-        if (this.iNs.size() > this.nwl.bFx()) {
-            f = this.iNs.get(this.nwl.bFx()).floatValue();
+        if (this.iTp.size() > this.nCf.bHW()) {
+            f = this.iTp.get(this.nCf.bHW()).floatValue();
         }
-        this.mMoveDistance = Math.abs(f - this.iNu);
-        this.iNv = this.nwl.bFx() < i;
+        this.mMoveDistance = Math.abs(f - this.iTr);
+        this.iTs = this.nCf.bHW() < i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void zl(int i) {
-        if (this.lkF != null && !this.lkF.zj(this.nwl.bFx())) {
+    public void zy(int i) {
+        if (this.lqG != null && !this.lqG.zw(this.nCf.bHW())) {
             if (this.mValueAnimator != null) {
                 this.mValueAnimator.cancel();
             }
-            this.nwl.sS(i);
-            if (this.iNs.size() > this.nwl.bFx()) {
-                this.iNo = this.iNs.get(this.nwl.bFx()).floatValue();
+            this.nCf.tc(i);
+            if (this.iTp.size() > this.nCf.bHW()) {
+                this.iTl = this.iTp.get(this.nCf.bHW()).floatValue();
             }
             invalidate();
         }
     }
 
     public void setNeedDayNight(boolean z) {
-        this.nwm = z;
-        if (!this.nwm) {
+        this.nCg = z;
+        if (!this.nCg) {
             this.mBackgroundPaint.setColor(ap.getColor(0, this.mBackgroundColorId));
-            if (this.nwg != null) {
-                this.nwg.setColor(com.baidu.tieba.tbadkCore.c.m(ap.getColor(0, this.nwd), this.nwf));
+            if (this.nCa != null) {
+                this.nCa.setColor(com.baidu.tieba.tbadkCore.c.m(ap.getColor(0, this.nBX), this.nBZ));
             }
         }
     }
 
     public void setData(List<p> list) {
-        if (cY(list)) {
+        if (dg(list)) {
             if (y.isEmpty(list)) {
                 setVisibility(8);
                 return;
@@ -504,20 +504,20 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
     }
 
     public void setData(List<p> list, int i) {
-        if (cY(list) || this.nwl == null || this.nwl.bFx() != i) {
+        if (dg(list) || this.nCf == null || this.nCf.bHW() != i) {
             if (y.isEmpty(list)) {
                 setVisibility(8);
                 return;
             }
             reset();
             setVisibility(0);
-            this.nwl.sS(i);
+            this.nCf.tc(i);
             this.mData = list;
             requestLayout();
         }
     }
 
-    private boolean cY(List<p> list) {
+    private boolean dg(List<p> list) {
         if (!y.isEmpty(list) && list.size() == this.mData.size()) {
             for (int i = 0; i < list.size(); i++) {
                 if (!a(list.get(i), this.mData.get(i))) {
@@ -536,55 +536,55 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         if (pVar == null || pVar2 == null) {
             return false;
         }
-        if (pVar.dHK() == pVar2.dHK() && pVar.dHL() != null && pVar.dHL().equals(pVar2.dHL())) {
+        if (pVar.dKm() == pVar2.dKm() && pVar.dKn() != null && pVar.dKn().equals(pVar2.dKn())) {
             return true;
         }
-        return pVar.dHK() == pVar2.dHK() && pVar.dHL() == null && pVar2.dHL() == null;
+        return pVar.dKm() == pVar2.dKm() && pVar.dKn() == null && pVar2.dKn() == null;
     }
 
     public void reset() {
-        this.nwl.sS(0);
-        this.iNo = 0.0f;
-        this.iNq = false;
+        this.nCf.tc(0);
+        this.iTl = 0.0f;
+        this.iTn = false;
         this.mData.clear();
-        this.iNs.clear();
-        this.iNr = true;
+        this.iTp.clear();
+        this.iTo = true;
     }
 
     public void setOnSwitchChangeListener(a aVar) {
-        this.lkF = aVar;
+        this.lqG = aVar;
     }
 
     public void onChangeSkinType() {
-        if (this.nwm) {
+        if (this.nCg) {
             this.mBackgroundPaint.setColor(ap.getColor(this.mBackgroundColorId));
-            if (this.nwg != null) {
-                this.nwg.setColor(com.baidu.tieba.tbadkCore.c.m(ap.getColor(this.mBackgroundColorId), this.nwf));
+            if (this.nCa != null) {
+                this.nCa.setColor(com.baidu.tieba.tbadkCore.c.m(ap.getColor(this.mBackgroundColorId), this.nBZ));
             }
             invalidate();
         }
     }
 
     public void setCanScroll(boolean z) {
-        this.iNp = z;
+        this.iTm = z;
     }
 
     public int getState() {
-        return this.nwl.bFx();
+        return this.nCf.bHW();
     }
 
-    public void jF(int i) {
-        if (!y.isEmpty(this.mData) && !y.isEmpty(this.iNs)) {
+    public void jP(int i) {
+        if (!y.isEmpty(this.mData) && !y.isEmpty(this.iTp)) {
             int i2 = 0;
             while (true) {
                 int i3 = i2;
                 if (i3 < this.mData.size()) {
-                    if (this.mData.get(i3).dHK() != i) {
+                    if (this.mData.get(i3).dKm() != i) {
                         i2 = i3 + 1;
                     } else {
-                        this.nwl.sS(i3);
-                        if (this.iNs.size() > i3) {
-                            this.iNo = this.iNs.get(i3).floatValue();
+                        this.nCf.tc(i3);
+                        if (this.iTp.size() > i3) {
+                            this.iTl = this.iTp.get(i3).floatValue();
                         }
                         invalidate();
                         return;
@@ -597,11 +597,11 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
     }
 
     public void setCommenId(BdUniqueId bdUniqueId) {
-        this.nwo = bdUniqueId;
+        this.nCi = bdUniqueId;
     }
 
     public void setListenerTag(BdUniqueId bdUniqueId) {
-        if (this.nwn) {
+        if (this.nCh) {
             this.listener.setTag(bdUniqueId);
         }
     }

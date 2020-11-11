@@ -13,11 +13,11 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class HttpExecutor {
     private static final String TAG = "HttpExecutor";
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes5.dex */
     public interface HttpRequest {
         Map<String, String> getHeaders();
 
@@ -32,7 +32,7 @@ public class HttpExecutor {
         boolean shouldAbort();
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes5.dex */
     public interface ResponseHandler {
         void onFailure(int i, String str);
 

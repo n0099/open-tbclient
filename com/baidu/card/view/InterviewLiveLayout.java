@@ -82,7 +82,7 @@ public class InterviewLiveLayout extends FrameLayout implements p<AbsThreadDataS
                         imageUrlData.postId = 0L;
                         concurrentHashMap.put(str, imageUrlData);
                         ImageViewerConfig.a aVar = new ImageViewerConfig.a();
-                        aVar.x(InterviewLiveLayout.this.akp).io(InterviewLiveLayout.this.akk).At(str).ip(false).a(concurrentHashMap).iq(false).s(InterviewLiveLayout.this.akq).iu(false);
+                        aVar.x(InterviewLiveLayout.this.akp).ix(InterviewLiveLayout.this.akk).AH(str).iy(false).a(concurrentHashMap).iz(false).s(InterviewLiveLayout.this.akq).iD(false);
                         ImageViewerConfig dU = aVar.dU(InterviewLiveLayout.this.getContext());
                         dU.getIntent().putExtra("from", "frs");
                         Rect rect = new Rect();
@@ -113,10 +113,10 @@ public class InterviewLiveLayout extends FrameLayout implements p<AbsThreadDataS
                 float f3;
                 float f4;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a DN = c.byE().DN(com.baidu.adp.lib.e.c.mS().genCacheKey(tbImageView.getUrl(), InterviewLiveLayout.this.akk ? 13 : 14));
-                    if (DN != null) {
-                        int width = DN.getWidth();
-                        i = DN.getHeight();
+                    com.baidu.adp.widget.ImageView.a Eb = c.bBd().Eb(com.baidu.adp.lib.e.c.mS().genCacheKey(tbImageView.getUrl(), InterviewLiveLayout.this.akk ? 13 : 14));
+                    if (Eb != null) {
+                        int width = Eb.getWidth();
+                        i = Eb.getHeight();
                         i2 = width;
                     } else {
                         i = 0;
@@ -168,7 +168,7 @@ public class InterviewLiveLayout extends FrameLayout implements p<AbsThreadDataS
         LayoutInflater.from(getContext()).inflate(R.layout.interview_live_layout, (ViewGroup) this, true);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         this.akl = (TbImageView) findViewById(R.id.img_interview_live);
-        this.akl.rN(15);
+        this.akl.rX(15);
         this.akl.setPlaceHolder(3);
         this.akm = (LinearLayout) findViewById(R.id.interview_live_tip_bg);
         this.akn = (ImageView) findViewById(R.id.interview_live_tip_img);
@@ -189,23 +189,23 @@ public class InterviewLiveLayout extends FrameLayout implements p<AbsThreadDataS
             setVisibility(8);
             return;
         }
-        bw bhz = absThreadDataSupport.bhz();
-        bu bjG = bhz.bjG();
-        if (bjG == null) {
+        bw bjZ = absThreadDataSupport.bjZ();
+        bu bmg = bjZ.bmg();
+        if (bmg == null) {
             setVisibility(8);
             return;
         }
-        this.akq = bhz;
-        this.forumId = bhz.getFid();
-        this.taskId = bjG.getTaskId();
-        if (k.bhh().isShowImages() && bjG != null && !StringUtils.isNull(bjG.getThreadImgUrl())) {
+        this.akq = bjZ;
+        this.forumId = bjZ.getFid();
+        this.taskId = bmg.getTaskId();
+        if (k.bjH().isShowImages() && bmg != null && !StringUtils.isNull(bmg.getThreadImgUrl())) {
             this.akp.clear();
-            this.akp.add(bjG.getThreadImgUrl());
+            this.akp.add(bmg.getThreadImgUrl());
             setVisibility(0);
             this.akl.setSupportNoImage(true);
             this.akl.setScaleType(ImageView.ScaleType.MATRIX);
             this.akl.setOnDrawListener(this.aks);
-            this.akl.startLoad(bjG.getThreadImgUrl(), this.akk ? 13 : 14, false);
+            this.akl.startLoad(bmg.getThreadImgUrl(), this.akk ? 13 : 14, false);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) getLayoutParams();
             layoutParams.width = l.getEquipmentWidth(getContext()) - l.getDimens(getContext(), R.dimen.tbds88);
             layoutParams.height = (int) ((layoutParams.width * 428.0f) / 760.0f);

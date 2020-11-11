@@ -6,7 +6,7 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 public class v extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.rtcroom.c.b> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String ata() {
+    public String avA() {
         return "setCheekThin";
     }
 
@@ -15,7 +15,7 @@ public class v extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
     public void a(@NonNull ZeusPlugin.Command command, @NonNull com.baidu.swan.apps.inlinewidget.rtcroom.c.b bVar) {
         a(bVar, command.what, "" + command.obj, true);
         if (command.obj instanceof Integer) {
-            bVar.iE(((Integer) command.obj).intValue());
+            bVar.iO(((Integer) command.obj).intValue());
         }
     }
 }

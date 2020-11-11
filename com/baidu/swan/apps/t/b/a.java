@@ -6,32 +6,32 @@ import com.baidu.swan.apps.adaptation.a.r;
 /* loaded from: classes10.dex */
 public abstract class a implements r {
     @Override // com.baidu.swan.apps.adaptation.a.r
-    public String afB() {
+    public String aib() {
         return String.format("%s/pms", "https://ossapi.baidu.com");
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
-    public String aeU() {
-        return com.baidu.swan.apps.t.a.auM().getHostName();
+    public String ahu() {
+        return com.baidu.swan.apps.t.a.axm().getHostName();
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
-    public int afD() {
+    public int aid() {
         return 2;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
-    public String afE() {
+    public String aie() {
         return String.format("%s/ma/landingpage?t=service_agreement_m", "https://ossapi.baidu.com");
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
-    public String afF() {
+    public String aif() {
         return com.baidu.swan.apps.i.c.processCommonParams(String.format("%s/ma/navigate", "https://mbd.baidu.com"));
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
-    public boolean aeD() {
+    public boolean ahd() {
         return isDebug();
     }
 
@@ -41,11 +41,11 @@ public abstract class a implements r {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
-    public void afy() {
+    public void ahY() {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
-    public void afz() {
+    public void ahZ() {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
@@ -54,58 +54,58 @@ public abstract class a implements r {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
-    public String afA() {
+    public String aia() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
-    public String aeG() {
+    public String ahg() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
-    public String aeR() {
+    public String ahr() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
-    public String aeS() {
+    public String ahs() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
-    public String aeT() {
+    public String aht() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
-    public boolean afC() {
+    public boolean aic() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
     @Nullable
-    public String aeV() {
+    public String ahv() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
-    public String afG() {
+    public String aig() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
-    public String afH() {
+    public String aih() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
-    public String afI() {
+    public String aii() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
-    public String kg(String str) {
+    public String kv(String str) {
         return com.baidu.swan.apps.i.c.processCommonParams(str);
     }
 }

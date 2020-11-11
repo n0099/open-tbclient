@@ -32,7 +32,7 @@ import org.json.JSONObject;
 public class q implements IXAdContainerEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2423a;
+    private Context f2425a;
     private final b b;
     private int g = 0;
     private int h = 2;
@@ -60,7 +60,7 @@ public class q implements IXAdContainerEventListener {
     }
 
     public q(Context context, b bVar) {
-        this.f2423a = context;
+        this.f2425a = context;
         this.b = bVar;
     }
 
@@ -244,7 +244,7 @@ public class q implements IXAdContainerEventListener {
         if (Looper.myLooper() == Looper.getMainLooper()) {
             this.b.a(iXAdContainer, hashMap);
         } else {
-            new Handler(this.f2423a.getMainLooper()).post(new t(this, iXAdContainer, hashMap));
+            new Handler(this.f2425a.getMainLooper()).post(new t(this, iXAdContainer, hashMap));
         }
     }
 
@@ -253,7 +253,7 @@ public class q implements IXAdContainerEventListener {
         if (Looper.myLooper() == Looper.getMainLooper()) {
             this.b.b(iXAdContainer, hashMap);
         } else {
-            new Handler(this.f2423a.getMainLooper()).post(new u(this, iXAdContainer, hashMap));
+            new Handler(this.f2425a.getMainLooper()).post(new u(this, iXAdContainer, hashMap));
         }
     }
 

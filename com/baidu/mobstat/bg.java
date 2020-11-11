@@ -15,14 +15,14 @@ import java.util.ArrayList;
 public class bg {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile boolean f2580a;
+    private static volatile boolean f2582a;
     private static volatile boolean b;
     private static volatile boolean c;
 
     private static boolean a(int i) {
         switch (i) {
             case 0:
-                return f2580a;
+                return f2582a;
             case 1:
                 return b;
             case 2:
@@ -35,7 +35,7 @@ public class bg {
     private static void a(int i, boolean z) {
         switch (i) {
             case 0:
-                f2580a = z;
+                f2582a = z;
                 return;
             case 1:
                 b = z;

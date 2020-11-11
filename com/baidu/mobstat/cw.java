@@ -3,7 +3,7 @@ package com.baidu.mobstat;
 public class cw extends cy implements da {
 
     /* renamed from: a  reason: collision with root package name */
-    private short f2609a;
+    private short f2611a;
     private String b;
 
     @Override // com.baidu.mobstat.cz
@@ -18,6 +18,6 @@ public class cw extends cy implements da {
 
     @Override // com.baidu.mobstat.da
     public void a(short s) {
-        this.f2609a = s;
+        this.f2611a = s;
     }
 }

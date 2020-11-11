@@ -9,7 +9,7 @@ public class i extends ProviderDelegation {
         Bundle bundle2 = new Bundle();
         aa dk = a.dk(getAgent().getContext());
         bundle2.putString("NICK_NAME", dk.displayName);
-        bundle2.putString("AVATAR_URL", dk.bfv);
+        bundle2.putString("AVATAR_URL", dk.bgP);
         return bundle2;
     }
 }

@@ -11,35 +11,35 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class k {
-    PkRankInView hIv;
-    public ArrayList<PropsInfoData> hIw;
-    public ArrayList<PropsInfoData> hIx;
+    PkRankInView hOs;
+    public ArrayList<PropsInfoData> hOt;
+    public ArrayList<PropsInfoData> hOu;
     Handler handler;
 
     public k(final PkRankInView pkRankInView) {
-        this.hIv = pkRankInView;
+        this.hOs = pkRankInView;
         this.handler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.ala.view.k.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
                         k.this.m(false);
-                        pkRankInView.cjH();
+                        pkRankInView.cmj();
                         return;
                     case 2:
-                        pkRankInView.oa(true);
+                        pkRankInView.oj(true);
                         return;
                     case 3:
-                        pkRankInView.oa(false);
+                        pkRankInView.oj(false);
                         return;
                     case 10:
-                        pkRankInView.cjL();
+                        pkRankInView.cmn();
                         return;
                     case 20:
-                        pkRankInView.ob(true);
+                        pkRankInView.ok(true);
                         return;
                     case 30:
-                        pkRankInView.ob(false);
+                        pkRankInView.ok(false);
                         return;
                     default:
                         return;
@@ -49,52 +49,52 @@ public class k {
     }
 
     public void f(PkInfoData pkInfoData) {
-        this.hIw = pkInfoData.myPkData.propsInfos;
-        this.hIx = pkInfoData.otherPkData.propsInfos;
-        if (this.hIw != null && this.hIw.size() > 0) {
-            Iterator<PropsInfoData> it = this.hIw.iterator();
+        this.hOt = pkInfoData.myPkData.propsInfos;
+        this.hOu = pkInfoData.otherPkData.propsInfos;
+        if (this.hOt != null && this.hOt.size() > 0) {
+            Iterator<PropsInfoData> it = this.hOt.iterator();
             while (it.hasNext()) {
                 PropsInfoData next = it.next();
                 if (next.propsType.equals(String.valueOf(1))) {
                     m(true);
-                    this.hIv.cjG();
-                    x(1, next.endTime - next.nowTime);
+                    this.hOs.cmi();
+                    w(1, next.endTime - next.nowTime);
                 } else if (next.propsType.equals(String.valueOf(2))) {
                     PropsInfoData.a aVar = null;
                     Iterator<PropsInfoData.a> it2 = next.propsUserDataList.iterator();
                     while (it2.hasNext()) {
                         PropsInfoData.a next2 = it2.next();
-                        if (!this.hIv.gtC.isHost && next2.guT != this.hIv.gtC.aJv.aIA.userId) {
+                        if (!this.hOs.gzq.isHost && next2.gAH != this.hOs.gzq.aKv.aJr.userId) {
                             next2 = aVar;
                         }
                         aVar = next2;
                     }
                     if (aVar != null) {
-                        this.hIv.cjI();
-                        x(2, aVar.endTime - next.nowTime);
+                        this.hOs.cmk();
+                        w(2, aVar.endTime - next.nowTime);
                     } else {
-                        this.hIv.cjJ();
+                        this.hOs.cml();
                     }
-                    x(3, next.endTime - next.nowTime);
+                    w(3, next.endTime - next.nowTime);
                 }
             }
         }
-        if (this.hIx != null && this.hIx.size() > 0) {
-            Iterator<PropsInfoData> it3 = this.hIx.iterator();
+        if (this.hOu != null && this.hOu.size() > 0) {
+            Iterator<PropsInfoData> it3 = this.hOu.iterator();
             while (it3.hasNext()) {
                 PropsInfoData next3 = it3.next();
                 if (next3.propsType.equals(String.valueOf(1))) {
-                    this.hIv.cjK();
-                    x(10, next3.endTime - next3.nowTime);
+                    this.hOs.cmm();
+                    w(10, next3.endTime - next3.nowTime);
                 } else if (next3.propsType.equals(String.valueOf(2))) {
-                    this.hIv.cjM();
-                    x(30, next3.endTime - next3.nowTime);
+                    this.hOs.cmo();
+                    w(30, next3.endTime - next3.nowTime);
                 }
             }
         }
     }
 
-    private void x(int i, long j) {
+    private void w(int i, long j) {
         Message obtain = Message.obtain();
         obtain.what = i;
         if (j == 1 || j == 0) {

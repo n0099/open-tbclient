@@ -23,7 +23,7 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
     private static ZoomImageView p;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f3574a;
+    public float f3577a;
     private final float[] b;
     private boolean c;
     private ScaleGestureDetector d;
@@ -176,7 +176,7 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
             } else {
                 max = Math.max(((getWidth() * 1.0f) - (this.m * 2)) / intrinsicWidth, ((getHeight() * 1.0f) - (this.n * 2)) / intrinsicHeight);
             }
-            this.f3574a = max;
+            this.f3577a = max;
             this.e.postTranslate((width - intrinsicWidth) / 2, (height - intrinsicHeight) / 2);
             this.e.postScale(max, max, width / 2, height / 2);
             setImageMatrix(this.e);
@@ -276,7 +276,7 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
 
     public ZoomImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f3574a = 1.0f;
+        this.f3577a = 1.0f;
         this.b = new float[9];
         this.c = true;
         this.e = new Matrix();

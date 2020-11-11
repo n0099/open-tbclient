@@ -11,60 +11,60 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.model.VideoHolyCardModel;
 /* loaded from: classes.dex */
 public class g {
-    private static g ngr;
-    private VideoHolyCardModel.a kRs = new VideoHolyCardModel.a() { // from class: com.baidu.tieba.video.g.2
+    private static g nmn;
+    private VideoHolyCardModel.a kXo = new VideoHolyCardModel.a() { // from class: com.baidu.tieba.video.g.2
         @Override // com.baidu.tieba.model.VideoHolyCardModel.a
         public void onResult(boolean z) {
-            g.this.ngt = z;
+            g.this.nmp = z;
         }
     };
-    private VideoHolyCardModel ngs;
-    private boolean ngt;
-    private boolean ngu;
+    private VideoHolyCardModel nmo;
+    private boolean nmp;
+    private boolean nmq;
 
-    public static g dLS() {
-        if (ngr == null) {
+    public static g dOu() {
+        if (nmn == null) {
             synchronized (g.class) {
-                if (ngr == null) {
-                    ngr = new g();
+                if (nmn == null) {
+                    nmn = new g();
                 }
             }
         }
-        return ngr;
+        return nmn;
     }
 
-    public boolean dLT() {
-        return this.ngt;
+    public boolean dOv() {
+        return this.nmp;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dLU() {
-        if (this.ngs == null) {
-            this.ngs = new VideoHolyCardModel();
-            this.ngs.a(this.kRs);
+    public void dOw() {
+        if (this.nmo == null) {
+            this.nmo = new VideoHolyCardModel();
+            this.nmo.a(this.kXo);
         }
-        this.ngs.dby();
+        this.nmo.dea();
     }
 
     public void fW(Context context) {
-        if (this.ngt && !this.ngu) {
+        if (this.nmp && !this.nmq) {
             l.showToast(context, R.string.free_data_tips);
-            this.ngu = true;
+            this.nmq = true;
         }
     }
 
     private g() {
-        dLV();
-        dLU();
+        dOx();
+        dOw();
     }
 
-    private void dLV() {
+    private void dOx() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.video.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (j.isMobileNet()) {
-                    g.this.dLU();
+                    g.this.dOw();
                 }
             }
         });

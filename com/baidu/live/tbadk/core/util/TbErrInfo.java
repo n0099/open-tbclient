@@ -81,68 +81,68 @@ public class TbErrInfo {
         Resources resources = TbadkCoreApplication.getInst().getContext().getResources();
         switch (i) {
             case -1129:
-                return resources.getString(a.i.sdk_tb_err_play_no_stream);
+                return resources.getString(a.h.sdk_tb_err_play_no_stream);
             case -1128:
-                return resources.getString(a.i.sdk_tb_err_play_invalid_codec);
+                return resources.getString(a.h.sdk_tb_err_play_invalid_codec);
             case -1127:
-                return resources.getString(a.i.sdk_tb_err_play_network);
+                return resources.getString(a.h.sdk_tb_err_play_network);
             case -1126:
-                return resources.getString(a.i.sdk_tb_err_play_file);
+                return resources.getString(a.h.sdk_tb_err_play_file);
             case -1125:
-                return resources.getString(a.i.sdk_tb_err_remote_exception);
+                return resources.getString(a.h.sdk_tb_err_remote_exception);
             case -1124:
-                return resources.getString(a.i.sdk_tb_err_token_expired);
+                return resources.getString(a.h.sdk_tb_err_token_expired);
             case -1123:
-                return resources.getString(a.i.sdk_tb_err_connection_kicked);
+                return resources.getString(a.h.sdk_tb_err_connection_kicked);
             case -1122:
-                return resources.getString(a.i.sdk_tb_err_mm_module_failed);
+                return resources.getString(a.h.sdk_tb_err_mm_module_failed);
             case -1121:
-                return resources.getString(a.i.sdk_tb_err_sdk_pub_failed);
+                return resources.getString(a.h.sdk_tb_err_sdk_pub_failed);
             case -1120:
-                return resources.getString(a.i.sdk_tb_err_sdk_init_failed);
+                return resources.getString(a.h.sdk_tb_err_sdk_init_failed);
             case -1119:
-                return resources.getString(a.i.sdk_tb_err_load_lib_failed);
+                return resources.getString(a.h.sdk_tb_err_load_lib_failed);
             case -1118:
-                return resources.getString(a.i.sdk_tb_err_not_support);
+                return resources.getString(a.h.sdk_tb_err_not_support);
             case -85:
-                return resources.getString(a.i.sdk_tb_err_location_failed);
+                return resources.getString(a.h.sdk_tb_err_location_failed);
             case -84:
-                return resources.getString(a.i.sdk_voice_err_other);
+                return resources.getString(a.h.sdk_voice_err_other);
             case -52:
             case -7:
             case -2:
             case -1:
-                return resources.getString(a.i.sdk_neterror);
+                return resources.getString(a.h.sdk_neterror);
             case -51:
-                return resources.getString(a.i.sdk_tb_err_unknown);
+                return resources.getString(a.h.sdk_tb_err_unknown);
             case -48:
-                return resources.getString(a.i.sdk_tb_err_create_group_failed);
+                return resources.getString(a.h.sdk_tb_err_create_group_failed);
             case -47:
-                return resources.getString(a.i.sdk_tb_err_send_invalid);
+                return resources.getString(a.h.sdk_tb_err_send_invalid);
             case -46:
-                return resources.getString(a.i.sdk_tb_err_send_too_short);
+                return resources.getString(a.h.sdk_tb_err_send_too_short);
             case -45:
-                return resources.getString(a.i.sdk_tb_err_send_too_long);
+                return resources.getString(a.h.sdk_tb_err_send_too_long);
             case -42:
-                return resources.getString(a.i.sdk_tb_err_send_too_more);
+                return resources.getString(a.h.sdk_tb_err_send_too_more);
             case -41:
-                return resources.getString(a.i.sdk_tb_err_voice_short);
+                return resources.getString(a.h.sdk_tb_err_voice_short);
             case -40:
-                return resources.getString(a.i.sdk_tb_err_user_operation);
+                return resources.getString(a.h.sdk_tb_err_user_operation);
             case -26:
-                return resources.getString(a.i.sdk_error_sd_full);
+                return resources.getString(a.h.sdk_error_sd_full);
             case -25:
-                return resources.getString(a.i.sdk_error_sd_error);
+                return resources.getString(a.h.sdk_error_sd_error);
             case -24:
-                return resources.getString(a.i.sdk_error_sd_shared);
+                return resources.getString(a.h.sdk_error_sd_shared);
             case -23:
-                return resources.getString(a.i.sdk_error_no_sdcard);
+                return resources.getString(a.h.sdk_error_no_sdcard);
             case -3:
-                return resources.getString(a.i.sdk_tb_err_data_format);
+                return resources.getString(a.h.sdk_tb_err_data_format);
             case 0:
                 return null;
             default:
-                return resources.getString(a.i.sdk_tb_err_undefine);
+                return resources.getString(a.h.sdk_tb_err_undefine);
         }
     }
 

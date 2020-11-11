@@ -3,7 +3,7 @@ package com.baidu.mapapi.map;
 public class MapCustomStyleOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2016a;
+    private String f2018a;
     private String b;
 
     public MapCustomStyleOptions customStyleId(String str) {
@@ -16,11 +16,11 @@ public class MapCustomStyleOptions {
     }
 
     public String getLocalCustomStyleFilePath() {
-        return this.f2016a;
+        return this.f2018a;
     }
 
     public MapCustomStyleOptions localCustomStylePath(String str) {
-        this.f2016a = str;
+        this.f2018a = str;
         return this;
     }
 }

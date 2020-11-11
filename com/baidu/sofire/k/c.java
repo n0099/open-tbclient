@@ -12,13 +12,13 @@ public interface c extends IInterface {
 
         /* renamed from: com.baidu.sofire.k.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes15.dex */
-        static class C0348a implements c {
+        static class C0360a implements c {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f3653a;
+            private IBinder f3656a;
 
-            C0348a(IBinder iBinder) {
-                this.f3653a = iBinder;
+            C0360a(IBinder iBinder) {
+                this.f3656a = iBinder;
             }
 
             @Override // com.baidu.sofire.k.c
@@ -27,7 +27,7 @@ public interface c extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
-                    this.f3653a.transact(1, obtain, obtain2, 0);
+                    this.f3656a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -38,7 +38,7 @@ public interface c extends IInterface {
 
             @Override // android.os.IInterface
             public final IBinder asBinder() {
-                return this.f3653a;
+                return this.f3656a;
             }
 
             @Override // com.baidu.sofire.k.c
@@ -47,7 +47,7 @@ public interface c extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
-                    this.f3653a.transact(2, obtain, obtain2, 0);
+                    this.f3656a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -62,7 +62,7 @@ public interface c extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof c)) ? new C0348a(iBinder) : (c) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof c)) ? new C0360a(iBinder) : (c) queryLocalInterface;
         }
 
         @Override // android.os.Binder

@@ -61,13 +61,13 @@ public class o extends l {
     private class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ o f1901a;
+        final /* synthetic */ o f1903a;
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f1901a.G) {
-                this.f1901a.G = false;
-                if (!this.f1901a.H) {
+            if (this.f1903a.G) {
+                this.f1903a.G = false;
+                if (!this.f1903a.H) {
                 }
             }
         }
@@ -109,11 +109,11 @@ public class o extends l {
     }
 
     private boolean a(com.baidu.location.c.h hVar) {
-        this.f1889a = com.baidu.location.c.i.a().o();
-        if (hVar == this.f1889a) {
+        this.f1891a = com.baidu.location.c.i.a().o();
+        if (hVar == this.f1891a) {
             return false;
         }
-        return this.f1889a == null || hVar == null || !hVar.c(this.f1889a);
+        return this.f1891a == null || hVar == null || !hVar.c(this.f1891a);
     }
 
     public static synchronized o c() {
@@ -135,7 +135,7 @@ public class o extends l {
             return;
         }
         if (com.baidu.location.e.l.b()) {
-            Log.d(com.baidu.location.e.a.f1942a, "isInforbiddenTime on request location ...");
+            Log.d(com.baidu.location.e.a.f1944a, "isInforbiddenTime on request location ...");
         }
         boolean z = message.getData().getBoolean("isWaitingLocTag", false);
         if (z) {
@@ -307,9 +307,9 @@ public class o extends l {
                 a2 = a2 + this.k;
                 this.k = null;
             }
-            this.e.a(a2, this.f1889a != null ? this.f1889a.f() : 0L);
+            this.e.a(a2, this.f1891a != null ? this.f1891a.f() : 0L);
             this.o = this.b;
-            this.n = this.f1889a;
+            this.n = this.f1891a;
             if (this.r) {
                 this.r = false;
                 if (!com.baidu.location.c.i.a().i() || message == null || com.baidu.location.b.b.a().e(message) < 1000) {

@@ -14,7 +14,7 @@ public final class AnimatorProxy extends Animation {
     public static final boolean NEEDS_PROXY;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final WeakHashMap<View, AnimatorProxy> f1531a;
+    private static final WeakHashMap<View, AnimatorProxy> f1533a;
     private final WeakReference<View> b;
     private boolean g;
     private float i;
@@ -34,7 +34,7 @@ public final class AnimatorProxy extends Animation {
 
     static {
         NEEDS_PROXY = Integer.valueOf(Build.VERSION.SDK).intValue() < 11;
-        f1531a = new WeakHashMap<>();
+        f1533a = new WeakHashMap<>();
     }
 
     private AnimatorProxy(View view) {
@@ -45,10 +45,10 @@ public final class AnimatorProxy extends Animation {
     }
 
     public static AnimatorProxy wrap(View view) {
-        AnimatorProxy animatorProxy = f1531a.get(view);
+        AnimatorProxy animatorProxy = f1533a.get(view);
         if (animatorProxy == null || animatorProxy != view.getAnimation()) {
             AnimatorProxy animatorProxy2 = new AnimatorProxy(view);
-            f1531a.put(view, animatorProxy2);
+            f1533a.put(view, animatorProxy2);
             return animatorProxy2;
         }
         return animatorProxy;

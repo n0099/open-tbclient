@@ -7,88 +7,88 @@ import java.util.ArrayList;
 /* loaded from: classes24.dex */
 public class g {
     private View mRootView;
-    private a miT;
-    private c miU;
-    private f miV;
-    private PostSearchActivity mic;
+    private a moQ;
+    private c moR;
+    private f moS;
+    private PostSearchActivity moa;
 
     public g(PostSearchActivity postSearchActivity) {
-        this.mic = postSearchActivity;
+        this.moa = postSearchActivity;
     }
 
     public void initView() {
-        this.mic.setContentView(R.layout.post_search_activity);
-        this.mRootView = this.mic.findViewById(R.id.search_rootview);
-        this.miT = new a(this.mic, this.mRootView);
-        this.miU = new c(this.mic, this.mRootView);
-        this.miV = new f(this.mic, this.mRootView);
+        this.moa.setContentView(R.layout.post_search_activity);
+        this.mRootView = this.moa.findViewById(R.id.search_rootview);
+        this.moQ = new a(this.moa, this.mRootView);
+        this.moR = new c(this.moa, this.mRootView);
+        this.moS = new f(this.moa, this.mRootView);
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        if (this.miV != null) {
-            this.miV.setOnPageChangeListener(onPageChangeListener);
+        if (this.moS != null) {
+            this.moS.setOnPageChangeListener(onPageChangeListener);
         }
     }
 
     public void be(ArrayList<String> arrayList) {
-        this.miV.setVisibility(false);
-        this.miU.be(arrayList);
+        this.moS.setVisibility(false);
+        this.moR.be(arrayList);
     }
 
-    public void Hs(int i) {
-        this.miT.cEL();
+    public void HF(int i) {
+        this.moQ.cHm();
         hideSoftKeyPad();
-        this.miT.dvT();
-        this.miV.setVisibility(true);
-        this.miV.Hs(i);
+        this.moQ.dyv();
+        this.moS.setVisibility(true);
+        this.moS.HF(i);
     }
 
-    public void QB(String str) {
-        this.miT.QB(str);
+    public void QS(String str) {
+        this.moQ.QS(str);
     }
 
     public void a(int i, b bVar, boolean z) {
-        this.miV.a(i, bVar, z);
+        this.moS.a(i, bVar, z);
     }
 
-    public boolean dvX() {
-        return this.miU.dwf();
+    public boolean dyz() {
+        return this.moR.dyH();
     }
 
     public void showLoadingView() {
-        this.miU.showLoadingView();
+        this.moR.showLoadingView();
     }
 
     public void hideLoadingView() {
-        this.miU.hideLoadingView();
+        this.moR.hideLoadingView();
     }
 
-    public void dwe() {
-        this.miU.dwe();
+    public void dyG() {
+        this.moR.dyG();
     }
 
     public void hideSoftKeyPad() {
-        this.miT.hideSoftKeyPad();
+        this.moQ.hideSoftKeyPad();
     }
 
-    public void dwq() {
-        this.miU.dwd();
+    public void dyS() {
+        this.moR.dyF();
     }
 
     public int getCurrentTabType() {
-        return this.miV.getCurrentTabType();
+        return this.moS.getCurrentTabType();
     }
 
     public void onChangeSkinType(int i) {
-        this.miT.onChangeSkinType(i);
-        this.miU.onChangeSkinType(i);
-        this.miV.onChangeSkinType(i);
-        com.baidu.tbadk.r.a.a(this.mic.getPageContext(), this.mRootView);
+        this.moQ.onChangeSkinType(i);
+        this.moR.onChangeSkinType(i);
+        this.moS.onChangeSkinType(i);
+        com.baidu.tbadk.r.a.a(this.moa.getPageContext(), this.mRootView);
     }
 
     public void onDestroy() {
-        if (this.miT != null) {
-            this.miT.onDestroy();
+        if (this.moQ != null) {
+            this.moQ.onDestroy();
         }
     }
 }

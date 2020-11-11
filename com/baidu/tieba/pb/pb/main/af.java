@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class af extends af.a {
-    private CustomMessageListener kIi;
-    private String lrd;
+    private CustomMessageListener kOe;
+    private String lxa;
     private LinearLayout mContainer;
     private ProgressBar mProgressBar;
     private View mRoot;
@@ -22,7 +22,7 @@ public class af extends af.a {
 
     public af(View view, BdUniqueId bdUniqueId) {
         super(view);
-        this.kIi = new CustomMessageListener(2921471) { // from class: com.baidu.tieba.pb.pb.main.af.1
+        this.kOe = new CustomMessageListener(2921471) { // from class: com.baidu.tieba.pb.pb.main.af.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -40,13 +40,13 @@ public class af extends af.a {
         this.mTextView = (TextView) view.findViewById(R.id.pb_more_text);
         this.mProgressBar = (ProgressBar) view.findViewById(R.id.progress);
         this.mContainer.setVisibility(0);
-        this.kIi.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.kIi);
+        this.kOe.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.kOe);
         onChangeSkinType();
     }
 
-    public void ap(String str, int i) {
-        this.lrd = str;
+    public void ar(String str, int i) {
+        this.lxa = str;
         this.mTextView.setText(str);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mContainer.getLayoutParams();
         layoutParams.height = i;
@@ -70,8 +70,8 @@ public class af extends af.a {
 
     public void endLoadData() {
         this.mProgressBar.setVisibility(8);
-        if (this.lrd != null) {
-            this.mTextView.setText(this.lrd);
+        if (this.lxa != null) {
+            this.mTextView.setText(this.lxa);
         } else {
             this.mTextView.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.pb_load_more));
         }

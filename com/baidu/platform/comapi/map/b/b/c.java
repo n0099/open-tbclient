@@ -32,24 +32,24 @@ public class c extends a {
 
     @Override // com.baidu.platform.comapi.map.b.b.a
     public void a(com.baidu.platform.comapi.map.b.a.b bVar, Pair<a.d, a.d> pair) {
-        MapStatus mapStatus = this.f2905a.getMapStatus();
+        MapStatus mapStatus = this.f2907a.getMapStatus();
         if (mapStatus.bOverlookSpringback) {
             if (mapStatus.overlooking > 0) {
                 mapStatus.overlooking = 0;
             } else {
                 mapStatus.overlooking = mapStatus.minOverlooking;
             }
-            this.f2905a.setMapStatusWithAnimation(mapStatus, 200);
+            this.f2907a.setMapStatusWithAnimation(mapStatus, 200);
         }
     }
 
     @Override // com.baidu.platform.comapi.map.b.b.a
     public void b(com.baidu.platform.comapi.map.b.a.b bVar) {
-        a.C0269a c0269a = bVar.b;
-        a.C0269a c0269a2 = bVar.c;
-        MapStatus mapStatus = this.f2905a.getMapStatus();
-        double d = c0269a2.f2899a.b - c0269a.f2899a.b;
-        double d2 = c0269a2.b.b - c0269a.b.b;
+        a.C0281a c0281a = bVar.b;
+        a.C0281a c0281a2 = bVar.c;
+        MapStatus mapStatus = this.f2907a.getMapStatus();
+        double d = c0281a2.f2901a.b - c0281a.f2901a.b;
+        double d2 = c0281a2.b.b - c0281a.b.b;
         if (d * d2 > 0.0d) {
             a(d, mapStatus);
         } else if (d * d2 == 0.0d) {
@@ -63,10 +63,10 @@ public class c extends a {
         } else {
             a(d2, mapStatus);
         }
-        this.f2905a.setMapStatus(mapStatus);
+        this.f2907a.setMapStatus(mapStatus);
         if (this.b) {
             this.b = false;
-            this.f2905a.getGestureMonitor().d();
+            this.f2907a.getGestureMonitor().d();
         }
     }
 }

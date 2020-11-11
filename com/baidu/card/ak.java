@@ -292,7 +292,7 @@ public class ak<T extends AbsThreadDataSupport> implements q, com.baidu.tieba.a.
         if (i != this.mSkinType) {
             this.mSkinType = i;
             com.baidu.tbadk.core.util.ap.setBackgroundResource(this.mBottomLine, R.color.cp_bg_line_b);
-            com.baidu.tbadk.a.b.a.ba(this.mBottomLine);
+            com.baidu.tbadk.a.b.a.be(this.mBottomLine);
             if (this.ahn != null) {
                 this.ahn.onChangeSkinType(tbPageContext, i);
             }

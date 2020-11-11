@@ -18,11 +18,11 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.GroupInfoData;
 /* loaded from: classes23.dex */
 public class e extends com.baidu.tieba.frs.k<GroupInfoData, f> {
-    private View.OnClickListener eOs;
+    private View.OnClickListener eUh;
 
     public e(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.eOs = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.e.1
+        this.eUh = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view != null) {
@@ -48,9 +48,9 @@ public class e extends com.baidu.tieba.frs.k<GroupInfoData, f> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bU */
+    /* renamed from: bW */
     public f c(ViewGroup viewGroup) {
-        return new f(LayoutInflater.from(this.mContext).inflate(R.layout.frs_group_item_view, (ViewGroup) null), this.eOs);
+        return new f(LayoutInflater.from(this.mContext).inflate(R.layout.frs_group_item_view, (ViewGroup) null), this.eUh);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -68,15 +68,15 @@ public class e extends com.baidu.tieba.frs.k<GroupInfoData, f> {
             fVar.rootView.setTag(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, Integer.valueOf(i));
             fVar.a(groupInfoData);
             ap.setBackgroundResource(fVar.rootView, R.drawable.frs_group_item_bg);
-            ap.setViewTextColor(fVar.jZn, R.color.cp_cont_b, 1);
-            ap.setViewTextColor(fVar.jZo, R.color.cp_cont_b, 1);
-            ap.setBackgroundResource(fVar.jZo, R.drawable.bg_jinqun_meizi);
-            fVar.jZo.setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(R.drawable.icon_jinqun_meizi), (Drawable) null, (Drawable) null, (Drawable) null);
-            ap.setViewTextColor(fVar.jZp, R.color.cp_cont_b, 1);
-            ap.setBackgroundResource(fVar.jZr, R.drawable.icon_grade_small_star);
-            ap.setBackgroundResource(fVar.jZs, R.drawable.icon_grade_small_star);
-            ap.setBackgroundResource(fVar.jZt, R.drawable.icon_grade_small_star);
-            ap.setViewTextColor(fVar.jZq, R.color.cp_cont_c, 1);
+            ap.setViewTextColor(fVar.kfl, R.color.cp_cont_b, 1);
+            ap.setViewTextColor(fVar.kfm, R.color.cp_cont_b, 1);
+            ap.setBackgroundResource(fVar.kfm, R.drawable.bg_jinqun_meizi);
+            fVar.kfm.setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(R.drawable.icon_jinqun_meizi), (Drawable) null, (Drawable) null, (Drawable) null);
+            ap.setViewTextColor(fVar.kfn, R.color.cp_cont_b, 1);
+            ap.setBackgroundResource(fVar.kfp, R.drawable.icon_grade_small_star);
+            ap.setBackgroundResource(fVar.kfq, R.drawable.icon_grade_small_star);
+            ap.setBackgroundResource(fVar.kfr, R.drawable.icon_grade_small_star);
+            ap.setViewTextColor(fVar.kfo, R.color.cp_cont_c, 1);
             ap.setBackgroundColor(fVar.dividerLine, R.color.cp_bg_line_c);
         }
         return view;

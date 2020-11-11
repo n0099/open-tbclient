@@ -9,7 +9,8 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
-import com.tb.airbnb.lottie.g;
+import com.tb.airbnb.lottie.c;
+import com.tb.airbnb.lottie.h;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,12 +18,12 @@ import java.util.Map;
 public class b {
     private static final Object Er = new Object();
     private String Es;
-    private final Map<String, g> Eu;
+    private final Map<String, h> Eu;
     private final Context context;
     @Nullable
-    private com.tb.airbnb.lottie.b pzK;
+    private c pJe;
 
-    public b(Drawable.Callback callback, String str, com.tb.airbnb.lottie.b bVar, Map<String, g> map) {
+    public b(Drawable.Callback callback, String str, c cVar, Map<String, h> map) {
         this.Es = str;
         if (!TextUtils.isEmpty(str) && this.Es.charAt(this.Es.length() - 1) != '/') {
             this.Es += '/';
@@ -35,19 +36,19 @@ public class b {
         }
         this.context = ((View) callback).getContext();
         this.Eu = map;
-        a(bVar);
+        a(cVar);
     }
 
-    public void a(@Nullable com.tb.airbnb.lottie.b bVar) {
-        this.pzK = bVar;
+    public void a(@Nullable c cVar) {
+        this.pJe = cVar;
     }
 
     @Nullable
     public Bitmap updateBitmap(String str, @Nullable Bitmap bitmap) {
         if (bitmap == null) {
-            g gVar = this.Eu.get(str);
-            Bitmap bitmap2 = gVar.getBitmap();
-            gVar.setBitmap(null);
+            h hVar = this.Eu.get(str);
+            Bitmap bitmap2 = hVar.getBitmap();
+            hVar.setBitmap(null);
             return bitmap2;
         }
         return b(str, bitmap);
@@ -55,23 +56,23 @@ public class b {
 
     @Nullable
     public Bitmap bj(String str) {
-        g gVar = this.Eu.get(str);
-        if (gVar == null) {
+        h hVar = this.Eu.get(str);
+        if (hVar == null) {
             return null;
         }
-        Bitmap bitmap = gVar.getBitmap();
+        Bitmap bitmap = hVar.getBitmap();
         if (bitmap != null) {
             return bitmap;
         }
-        if (this.pzK != null) {
-            Bitmap fetchBitmap = this.pzK.fetchBitmap(gVar);
+        if (this.pJe != null) {
+            Bitmap fetchBitmap = this.pJe.fetchBitmap(hVar);
             if (fetchBitmap != null) {
                 b(str, fetchBitmap);
                 return fetchBitmap;
             }
             return fetchBitmap;
         }
-        String fileName = gVar.getFileName();
+        String fileName = hVar.getFileName();
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inScaled = true;
         options.inDensity = 160;
@@ -97,8 +98,8 @@ public class b {
 
     public void recycleBitmaps() {
         synchronized (Er) {
-            for (Map.Entry<String, g> entry : this.Eu.entrySet()) {
-                g value = entry.getValue();
+            for (Map.Entry<String, h> entry : this.Eu.entrySet()) {
+                h value = entry.getValue();
                 Bitmap bitmap = value.getBitmap();
                 if (bitmap != null) {
                     bitmap.recycle();

@@ -19,7 +19,7 @@ public class d {
     private List<com.baidu.mapsdkplatform.comapi.commonutils.a.b> c = new LinkedList();
 
     /* renamed from: a  reason: collision with root package name */
-    private ExecutorService f2209a = Executors.newCachedThreadPool();
+    private ExecutorService f2211a = Executors.newCachedThreadPool();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes7.dex */
@@ -104,8 +104,8 @@ public class d {
             if (this.c != null) {
                 this.c.add(bVar);
             }
-            if (this.f2209a != null && !this.f2209a.isShutdown()) {
-                this.f2209a.submit(bVar);
+            if (this.f2211a != null && !this.f2211a.isShutdown()) {
+                this.f2211a.submit(bVar);
             }
         }
     }

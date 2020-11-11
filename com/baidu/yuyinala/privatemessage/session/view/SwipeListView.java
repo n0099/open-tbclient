@@ -7,36 +7,36 @@ import android.widget.ListView;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class SwipeListView extends ListView {
-    private ArrayList<SwipeListViewScroll> oyj;
-    protected int[] oyk;
-    protected a oyl;
+    private ArrayList<SwipeListViewScroll> oHB;
+    protected int[] oHC;
+    protected a oHD;
 
     public SwipeListView(Context context) {
         super(context);
-        this.oyj = new ArrayList<>();
+        this.oHB = new ArrayList<>();
         setMotionEventSplittingEnabled(false);
     }
 
     public SwipeListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.oyj = new ArrayList<>();
+        this.oHB = new ArrayList<>();
         setMotionEventSplittingEnabled(false);
     }
 
     public SwipeListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.oyj = new ArrayList<>();
+        this.oHB = new ArrayList<>();
         setMotionEventSplittingEnabled(false);
     }
 
-    public void eeM() {
+    public void eiB() {
         int i = 0;
         while (true) {
             try {
                 int i2 = i;
-                if (i2 < this.oyj.size()) {
-                    if (this.oyj.get(i2) != null) {
-                        this.oyj.get(i2).close();
+                if (i2 < this.oHB.size()) {
+                    if (this.oHB.get(i2) != null) {
+                        this.oHB.get(i2).close();
                     }
                     i = i2 + 1;
                 } else {
@@ -51,19 +51,19 @@ public class SwipeListView extends ListView {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(SwipeListViewScroll swipeListViewScroll) {
-        if (this.oyj.indexOf(swipeListViewScroll) == -1) {
-            this.oyj.add(swipeListViewScroll);
+        if (this.oHB.indexOf(swipeListViewScroll) == -1) {
+            this.oHB.add(swipeListViewScroll);
         }
     }
 
     @Override // android.widget.AbsListView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        eeM();
+        eiB();
         return super.onTouchEvent(motionEvent);
     }
 
     public void setListener(a aVar, int[] iArr) {
-        this.oyk = iArr;
-        this.oyl = aVar;
+        this.oHC = iArr;
+        this.oHD = aVar;
     }
 }

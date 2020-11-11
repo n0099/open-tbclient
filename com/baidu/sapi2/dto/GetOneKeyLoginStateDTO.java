@@ -3,7 +3,7 @@ package com.baidu.sapi2.dto;
 public class GetOneKeyLoginStateDTO {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f3446a = 15000;
+    private static final int f3449a = 15000;
     public static long beginTime;
     public int connectTimeout = 15000;
 

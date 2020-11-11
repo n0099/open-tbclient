@@ -7,13 +7,13 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes18.dex */
 public class f implements d {
-    private final b oNv;
+    private final b oWO;
 
     /* loaded from: classes18.dex */
     public interface b {
-        List<Integer> elW();
+        List<Integer> epN();
 
-        int elX();
+        int epO();
     }
 
     /* loaded from: classes18.dex */
@@ -22,12 +22,12 @@ public class f implements d {
         }
 
         @Override // com.facebook.imagepipeline.decoder.f.b
-        public List<Integer> elW() {
+        public List<Integer> epN() {
             return Collections.EMPTY_LIST;
         }
 
         @Override // com.facebook.imagepipeline.decoder.f.b
-        public int elX() {
+        public int epO() {
             return 0;
         }
     }
@@ -37,23 +37,23 @@ public class f implements d {
     }
 
     public f(b bVar) {
-        this.oNv = (b) g.checkNotNull(bVar);
+        this.oWO = (b) g.checkNotNull(bVar);
     }
 
     @Override // com.facebook.imagepipeline.decoder.d
-    public int OL(int i) {
-        List<Integer> elW = this.oNv.elW();
-        if (elW == null || elW.isEmpty()) {
+    public int Pg(int i) {
+        List<Integer> epN = this.oWO.epN();
+        if (epN == null || epN.isEmpty()) {
             return i + 1;
         }
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < elW.size()) {
-                if (elW.get(i3).intValue() <= i) {
+            if (i3 < epN.size()) {
+                if (epN.get(i3).intValue() <= i) {
                     i2 = i3 + 1;
                 } else {
-                    return elW.get(i3).intValue();
+                    return epN.get(i3).intValue();
                 }
             } else {
                 return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
@@ -62,7 +62,7 @@ public class f implements d {
     }
 
     @Override // com.facebook.imagepipeline.decoder.d
-    public h OM(int i) {
-        return com.facebook.imagepipeline.g.g.j(i, i >= this.oNv.elX(), false);
+    public h Ph(int i) {
+        return com.facebook.imagepipeline.g.g.k(i, i >= this.oWO.epO(), false);
     }
 }

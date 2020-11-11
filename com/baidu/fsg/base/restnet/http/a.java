@@ -23,7 +23,7 @@ import java.util.TimeZone;
 public class a implements b<String, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1471a = "Host";
+    public static final String f1473a = "Host";
     private static final String b = "Accept";
     private static final String c = "Accept-Charset";
     private static final String d = "Accept-Encoding";

@@ -24,12 +24,12 @@ public class b extends aa {
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.runtime.e eVar) {
         com.baidu.swan.apps.console.c.i("RemoteDebugAction", "handleSubAction subAction: " + str);
-        if (!e.ajt()) {
+        if (!e.alT()) {
             com.baidu.swan.apps.console.c.e("RemoteDebugAction", "Can't invoke this action outside Remote Debug mode");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        SwanAppActivity aEO = com.baidu.swan.apps.runtime.d.aEQ().aEO();
+        SwanAppActivity aHo = com.baidu.swan.apps.runtime.d.aHq().aHo();
         char c = 65535;
         switch (str.hashCode()) {
             case -279631955:
@@ -48,19 +48,19 @@ public class b extends aa {
         switch (c) {
             case 0:
                 com.baidu.swan.apps.console.c.i("RemoteDebugAction", "Remote Debug reload");
-                if (aEO != null) {
-                    Intent intent = aEO.getIntent();
-                    e.ajv();
-                    com.baidu.swan.apps.runtime.d.aEQ().y(new String[0]);
-                    com.baidu.swan.apps.runtime.d.aEQ().e(intent.getExtras(), "update_tag_by_remote_debug");
+                if (aHo != null) {
+                    Intent intent = aHo.getIntent();
+                    e.alV();
+                    com.baidu.swan.apps.runtime.d.aHq().y(new String[0]);
+                    com.baidu.swan.apps.runtime.d.aHq().e(intent.getExtras(), "update_tag_by_remote_debug");
                 }
                 return true;
             case 1:
-                if (aEO != null) {
+                if (aHo != null) {
                     if (Build.VERSION.SDK_INT >= 21) {
-                        aEO.finishAndRemoveTask();
+                        aHo.finishAndRemoveTask();
                     } else {
-                        aEO.finish();
+                        aHo.finish();
                     }
                     System.exit(0);
                 }

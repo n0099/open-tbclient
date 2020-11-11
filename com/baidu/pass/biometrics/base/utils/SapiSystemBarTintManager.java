@@ -19,7 +19,7 @@ import java.lang.reflect.Method;
 public class SapiSystemBarTintManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f2713a = -1728053248;
+    private static final int f2715a = -1728053248;
     private static String b;
     private final SystemBarConfig c;
     private boolean d;
@@ -31,7 +31,7 @@ public class SapiSystemBarTintManager {
     public static class SystemBarConfig {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f2714a = "status_bar_height";
+        private static final String f2716a = "status_bar_height";
         private static final String b = "navigation_bar_height";
         private static final String c = "navigation_bar_height_landscape";
         private static final String d = "navigation_bar_width";
@@ -102,7 +102,7 @@ public class SapiSystemBarTintManager {
             Resources resources = activity.getResources();
             this.j = resources.getConfiguration().orientation == 1;
             this.k = a(activity);
-            this.f = a(resources, f2714a);
+            this.f = a(resources, f2716a);
             this.h = a((Context) activity);
             this.i = b(activity);
             this.g = this.h > 0;

@@ -8,13 +8,13 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 /* loaded from: classes10.dex */
 final class a {
-    private static final a oii = new a();
+    private static final a oro = new a();
     private boolean ac;
-    private final Set<InterfaceC0914a> oij = new LinkedHashSet();
+    private final Set<InterfaceC0930a> orp = new LinkedHashSet();
 
     /* renamed from: com.baidu.ubs.analytics.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC0914a {
+    public interface InterfaceC0930a {
         void T();
 
         void U();
@@ -28,26 +28,26 @@ final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a dZV() {
-        return oii;
+    public static a edD() {
+        return oro;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final Set<InterfaceC0914a> dZW() {
-        return this.oij;
+    public final Set<InterfaceC0930a> edE() {
+        return this.orp;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void a(InterfaceC0914a interfaceC0914a) {
-        synchronized (this.oij) {
-            this.oij.add(interfaceC0914a);
+    public final void a(InterfaceC0930a interfaceC0930a) {
+        synchronized (this.orp) {
+            this.orp.add(interfaceC0930a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void S() {
-        synchronized (this.oij) {
-            this.oij.clear();
+        synchronized (this.orp) {
+            this.orp.clear();
         }
     }
 

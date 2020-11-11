@@ -7,22 +7,22 @@ public interface a extends c {
 
     /* renamed from: com.baidu.swan.apps.inlinewidget.rtcroom.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC0436a {
+    public interface InterfaceC0448a {
     }
 
-    void a(@NonNull InterfaceC0436a interfaceC0436a);
+    void a(@NonNull InterfaceC0448a interfaceC0448a);
 
     int getVideoHeight();
 
     int getVideoWidth();
 
-    void iA(int i);
+    void iK(int i);
+
+    void oF(String str);
 
     void onFocus(int i, int i2, int i3, int i4);
 
     void onSurfaceChanged(int i, int i2);
-
-    void or(String str);
 
     void setSurface(Surface surface);
 

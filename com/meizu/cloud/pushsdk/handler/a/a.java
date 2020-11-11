@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.meizu.cloud.pushsdk.handler.a f4409a;
+    private com.meizu.cloud.pushsdk.handler.a f4411a;
     private Context b;
     private Map<Integer, String> c;
 
@@ -27,7 +27,7 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
             throw new IllegalArgumentException("Context must not be null.");
         }
         this.b = context.getApplicationContext();
-        this.f4409a = aVar;
+        this.f4411a = aVar;
         this.c = new HashMap();
         this.c.put(2, "MESSAGE_TYPE_PUSH_SERVICE_V2");
         this.c.put(4, "MESSAGE_TYPE_PUSH_SERVICE_V3");
@@ -114,7 +114,7 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
     }
 
     public com.meizu.cloud.pushsdk.handler.a b() {
-        return this.f4409a;
+        return this.f4411a;
     }
 
     public String b(String str) {

@@ -66,7 +66,7 @@ public class WebViewActivityConfig extends IntentConfig {
     @Override // com.baidu.live.tbadk.core.frameworkdata.IntentConfig
     public boolean isValid() {
         if (UtilHelper.webViewIsProbablyCorrupt(getContext())) {
-            BdUtilHelper.showToast(getContext(), getContext().getString(a.i.sdk_web_view_corrupted));
+            BdUtilHelper.showToast(getContext(), getContext().getString(a.h.sdk_web_view_corrupted));
             return false;
         }
         return true;

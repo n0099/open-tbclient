@@ -4,23 +4,23 @@ import android.content.Context;
 import android.graphics.SurfaceTexture;
 /* loaded from: classes11.dex */
 public final class b {
-    private com.baidu.rtc.camera.engine.a.b chL;
-    private d chM;
-    private f chN;
-    private final Object chO;
+    private com.baidu.rtc.camera.engine.a.b cnH;
+    private d cnI;
+    private f cnJ;
+    private final Object cnK;
 
     private b() {
-        this.chO = new Object();
-        this.chL = com.baidu.rtc.camera.engine.a.b.abC();
+        this.cnK = new Object();
+        this.cnH = com.baidu.rtc.camera.engine.a.b.aec();
     }
 
     /* loaded from: classes11.dex */
     private static class a {
-        private static b chP = new b();
+        private static b cnL = new b();
     }
 
-    public static b abI() {
-        return a.chP;
+    public static b aei() {
+        return a.cnL;
     }
 
     public c a(com.baidu.rtc.camera.engine.b.a aVar) {
@@ -29,66 +29,66 @@ public final class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void aZ(Context context) {
-        synchronized (this.chO) {
-            this.chN = new f(context, "RenderThread");
-            this.chN.start();
-            this.chM = new d(this.chN);
-            this.chN.a(this.chM);
+        synchronized (this.cnK) {
+            this.cnJ = new f(context, "RenderThread");
+            this.cnJ.start();
+            this.cnI = new d(this.cnJ);
+            this.cnJ.a(this.cnI);
         }
     }
 
     public void c(SurfaceTexture surfaceTexture) {
-        if (this.chM != null) {
-            this.chM.sendMessage(this.chM.obtainMessage(1, surfaceTexture));
+        if (this.cnI != null) {
+            this.cnI.sendMessage(this.cnI.obtainMessage(1, surfaceTexture));
         }
     }
 
     public void V(int i, int i2) {
-        if (this.chM != null) {
-            this.chM.sendMessage(this.chM.obtainMessage(2, i, i2));
+        if (this.cnI != null) {
+            this.cnI.sendMessage(this.cnI.obtainMessage(2, i, i2));
         }
     }
 
-    public void abJ() {
-        if (this.chM != null) {
-            this.chM.sendMessage(this.chM.obtainMessage(3));
+    public void aej() {
+        if (this.cnI != null) {
+            this.cnI.sendMessage(this.cnI.obtainMessage(3));
         }
     }
 
     public void requestRender() {
-        if (this.chN != null) {
-            this.chN.requestRender();
+        if (this.cnJ != null) {
+            this.cnJ.requestRender();
         }
     }
 
     public void startRecording() {
-        if (this.chM != null) {
-            synchronized (this.chO) {
-                this.chM.sendMessage(this.chM.obtainMessage(6));
+        if (this.cnI != null) {
+            synchronized (this.cnK) {
+                this.cnI.sendMessage(this.cnI.obtainMessage(6));
             }
         }
     }
 
     public void stopRecording() {
-        if (this.chM != null) {
-            synchronized (this.chO) {
-                this.chM.sendEmptyMessage(8);
+        if (this.cnI != null) {
+            synchronized (this.cnK) {
+                this.cnI.sendEmptyMessage(8);
             }
         }
     }
 
     public void switchCamera() {
-        if (this.chM != null) {
-            synchronized (this.chO) {
-                this.chM.sendEmptyMessage(16);
+        if (this.cnI != null) {
+            synchronized (this.cnK) {
+                this.cnI.sendEmptyMessage(16);
             }
         }
     }
 
-    public void abF() {
-        if (this.chM != null) {
-            synchronized (this.chO) {
-                this.chM.sendEmptyMessage(9);
+    public void aef() {
+        if (this.cnI != null) {
+            synchronized (this.cnK) {
+                this.cnI.sendEmptyMessage(9);
             }
         }
     }

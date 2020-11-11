@@ -11,19 +11,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes12.dex */
 public class e implements d {
-    static c oJy;
-    static c oJz;
-    private final com.facebook.imagepipeline.animated.impl.b oID;
-    private final f oJx;
+    static c oSR;
+    static c oSS;
+    private final com.facebook.imagepipeline.animated.impl.b oRW;
+    private final f oSQ;
 
     static {
-        oJy = null;
-        oJz = null;
-        oJy = XG("com.facebook.animated.gif.GifImage");
-        oJz = XG("com.facebook.animated.webp.WebPImage");
+        oSR = null;
+        oSS = null;
+        oSR = Yk("com.facebook.animated.gif.GifImage");
+        oSS = Yk("com.facebook.animated.webp.WebPImage");
     }
 
-    private static c XG(String str) {
+    private static c Yk(String str) {
         try {
             return (c) Class.forName(str).newInstance();
         } catch (Throwable th) {
@@ -32,37 +32,37 @@ public class e implements d {
     }
 
     public e(com.facebook.imagepipeline.animated.impl.b bVar, f fVar) {
-        this.oID = bVar;
-        this.oJx = fVar;
+        this.oRW = bVar;
+        this.oSQ = fVar;
     }
 
     @Override // com.facebook.imagepipeline.animated.a.d
     public com.facebook.imagepipeline.g.c a(com.facebook.imagepipeline.g.e eVar, com.facebook.imagepipeline.common.b bVar, Bitmap.Config config) {
-        if (oJy == null) {
+        if (oSR == null) {
             throw new UnsupportedOperationException("To encode animated gif please add the dependency to the animated-gif module");
         }
-        com.facebook.common.references.a<PooledByteBuffer> emg = eVar.emg();
-        g.checkNotNull(emg);
+        com.facebook.common.references.a<PooledByteBuffer> epX = eVar.epX();
+        g.checkNotNull(epX);
         try {
-            PooledByteBuffer pooledByteBuffer = emg.get();
-            return a(bVar, oJy.H(pooledByteBuffer.egv(), pooledByteBuffer.size()), config);
+            PooledByteBuffer pooledByteBuffer = epX.get();
+            return a(bVar, oSR.K(pooledByteBuffer.ekk(), pooledByteBuffer.size()), config);
         } finally {
-            com.facebook.common.references.a.c(emg);
+            com.facebook.common.references.a.c(epX);
         }
     }
 
     @Override // com.facebook.imagepipeline.animated.a.d
     public com.facebook.imagepipeline.g.c b(com.facebook.imagepipeline.g.e eVar, com.facebook.imagepipeline.common.b bVar, Bitmap.Config config) {
-        if (oJz == null) {
+        if (oSS == null) {
             throw new UnsupportedOperationException("To encode animated webp please add the dependency to the animated-webp module");
         }
-        com.facebook.common.references.a<PooledByteBuffer> emg = eVar.emg();
-        g.checkNotNull(emg);
+        com.facebook.common.references.a<PooledByteBuffer> epX = eVar.epX();
+        g.checkNotNull(epX);
         try {
-            PooledByteBuffer pooledByteBuffer = emg.get();
-            return a(bVar, oJz.H(pooledByteBuffer.egv(), pooledByteBuffer.size()), config);
+            PooledByteBuffer pooledByteBuffer = epX.get();
+            return a(bVar, oSS.K(pooledByteBuffer.ekk(), pooledByteBuffer.size()), config);
         } finally {
-            com.facebook.common.references.a.c(emg);
+            com.facebook.common.references.a.c(epX);
         }
     }
 
@@ -72,13 +72,13 @@ public class e implements d {
         com.facebook.imagepipeline.g.c aVar;
         com.facebook.common.references.a<Bitmap> aVar2 = null;
         try {
-            int frameCount = bVar.oLg ? bVar2.getFrameCount() - 1 : 0;
-            if (bVar.oLi) {
-                aVar = new com.facebook.imagepipeline.g.d(a(bVar2, config, frameCount), com.facebook.imagepipeline.g.g.oNE, 0);
+            int frameCount = bVar.oUz ? bVar2.getFrameCount() - 1 : 0;
+            if (bVar.oUB) {
+                aVar = new com.facebook.imagepipeline.g.d(a(bVar2, config, frameCount), com.facebook.imagepipeline.g.g.oWX, 0);
                 com.facebook.common.references.a.c(null);
                 com.facebook.common.references.a.b((Iterable<? extends com.facebook.common.references.a<?>>) null);
             } else {
-                if (bVar.oLh) {
+                if (bVar.oUA) {
                     list = a(bVar2, config);
                     try {
                         aVar2 = com.facebook.common.references.a.b(list.get(frameCount));
@@ -91,10 +91,10 @@ public class e implements d {
                 } else {
                     list = null;
                 }
-                if (bVar.oLf && aVar2 == null) {
+                if (bVar.oUy && aVar2 == null) {
                     aVar2 = a(bVar2, config, frameCount);
                 }
-                aVar = new com.facebook.imagepipeline.g.a(com.facebook.imagepipeline.animated.base.d.b(bVar2).j(aVar2).OD(frameCount).gr(list).ejs());
+                aVar = new com.facebook.imagepipeline.g.a(com.facebook.imagepipeline.animated.base.d.b(bVar2).j(aVar2).OY(frameCount).gA(list).eni());
                 com.facebook.common.references.a.c(aVar2);
                 com.facebook.common.references.a.b(list);
             }
@@ -107,13 +107,13 @@ public class e implements d {
 
     private com.facebook.common.references.a<Bitmap> a(com.facebook.imagepipeline.animated.base.b bVar, Bitmap.Config config, int i) {
         com.facebook.common.references.a<Bitmap> b = b(bVar.getWidth(), bVar.getHeight(), config);
-        new AnimatedImageCompositor(this.oID.a(com.facebook.imagepipeline.animated.base.d.a(bVar), null), new AnimatedImageCompositor.a() { // from class: com.facebook.imagepipeline.animated.a.e.1
+        new AnimatedImageCompositor(this.oRW.a(com.facebook.imagepipeline.animated.base.d.a(bVar), null), new AnimatedImageCompositor.a() { // from class: com.facebook.imagepipeline.animated.a.e.1
             @Override // com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor.a
             public void c(int i2, Bitmap bitmap) {
             }
 
             @Override // com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor.a
-            public com.facebook.common.references.a<Bitmap> OB(int i2) {
+            public com.facebook.common.references.a<Bitmap> OW(int i2) {
                 return null;
             }
         }).d(i, b.get());
@@ -121,7 +121,7 @@ public class e implements d {
     }
 
     private List<com.facebook.common.references.a<Bitmap>> a(com.facebook.imagepipeline.animated.base.b bVar, Bitmap.Config config) {
-        com.facebook.imagepipeline.animated.base.a a2 = this.oID.a(com.facebook.imagepipeline.animated.base.d.a(bVar), null);
+        com.facebook.imagepipeline.animated.base.a a2 = this.oRW.a(com.facebook.imagepipeline.animated.base.d.a(bVar), null);
         final ArrayList arrayList = new ArrayList(a2.getFrameCount());
         AnimatedImageCompositor animatedImageCompositor = new AnimatedImageCompositor(a2, new AnimatedImageCompositor.a() { // from class: com.facebook.imagepipeline.animated.a.e.2
             @Override // com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor.a
@@ -129,7 +129,7 @@ public class e implements d {
             }
 
             @Override // com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor.a
-            public com.facebook.common.references.a<Bitmap> OB(int i) {
+            public com.facebook.common.references.a<Bitmap> OW(int i) {
                 return com.facebook.common.references.a.b((com.facebook.common.references.a) arrayList.get(i));
             }
         });
@@ -149,7 +149,7 @@ public class e implements d {
 
     @SuppressLint({"NewApi"})
     private com.facebook.common.references.a<Bitmap> b(int i, int i2, Bitmap.Config config) {
-        com.facebook.common.references.a<Bitmap> c = this.oJx.c(i, i2, config);
+        com.facebook.common.references.a<Bitmap> c = this.oSQ.c(i, i2, config);
         c.get().eraseColor(0);
         if (Build.VERSION.SDK_INT >= 12) {
             c.get().setHasAlpha(true);

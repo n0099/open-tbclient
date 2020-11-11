@@ -5,11 +5,11 @@ import android.os.Message;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class a {
-    private float btA;
-    private float btB;
-    private float btC;
-    private float btz;
-    private InterfaceC0705a iac;
+    private float bzL;
+    private float bzM;
+    private float bzN;
+    private float bzO;
+    private InterfaceC0719a igd;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.f.a.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
@@ -17,16 +17,16 @@ public class a {
             int i2 = message.arg2;
             switch (message.what) {
                 case 0:
-                    a.this.iac.H(i, i2);
+                    a.this.igd.H(i, i2);
                     return true;
                 case 1:
-                    a.this.iac.I(i, i2);
+                    a.this.igd.I(i, i2);
                     return true;
                 case 2:
-                    a.this.iac.ce(i, i2);
+                    a.this.igd.cg(i, i2);
                     return true;
                 case 3:
-                    a.this.iac.J(i, i2);
+                    a.this.igd.J(i, i2);
                     return true;
                 default:
                     return false;
@@ -37,62 +37,62 @@ public class a {
 
     /* renamed from: com.baidu.tieba.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0705a {
+    public interface InterfaceC0719a {
         void H(int i, int i2);
 
         void I(int i, int i2);
 
         void J(int i, int i2);
 
-        void ce(int i, int i2);
+        void cg(int i, int i2);
     }
 
-    public void a(InterfaceC0705a interfaceC0705a) {
-        this.iac = interfaceC0705a;
+    public void a(InterfaceC0719a interfaceC0719a) {
+        this.igd = interfaceC0719a;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.btB = motionEvent.getRawX();
-                this.btC = motionEvent.getRawY();
-                this.btz = this.btB;
-                this.btA = this.btC;
+                this.bzN = motionEvent.getRawX();
+                this.bzO = motionEvent.getRawY();
+                this.bzL = this.bzN;
+                this.bzM = this.bzO;
                 return true;
             case 1:
             case 3:
-                if (this.iac != null) {
-                    int i = (int) (this.btz - this.btB);
-                    int i2 = (int) (this.btA - this.btC);
+                if (this.igd != null) {
+                    int i = (int) (this.bzL - this.bzN);
+                    int i2 = (int) (this.bzM - this.bzO);
                     if (Math.abs(i) >= Math.abs(i2)) {
-                        G(i, (int) this.btB);
+                        G(i, (int) this.bzN);
                     } else {
-                        cd(i, i2);
+                        cf(i, i2);
                     }
                 }
-                this.btB = 0.0f;
-                this.btC = 0.0f;
+                this.bzN = 0.0f;
+                this.bzO = 0.0f;
                 return true;
             case 2:
                 float rawX = motionEvent.getRawX();
                 float rawY = motionEvent.getRawY();
-                if (this.btB == 0.0f || this.btC == 0.0f) {
-                    this.btB = motionEvent.getRawX();
-                    this.btC = motionEvent.getRawY();
-                    this.btz = this.btB;
-                    this.btA = this.btC;
+                if (this.bzN == 0.0f || this.bzO == 0.0f) {
+                    this.bzN = motionEvent.getRawX();
+                    this.bzO = motionEvent.getRawY();
+                    this.bzL = this.bzN;
+                    this.bzM = this.bzO;
                 }
-                int i3 = (int) (rawY - this.btA);
-                int i4 = (int) (rawY - this.btC);
-                if (this.iac != null) {
+                int i3 = (int) (rawY - this.bzM);
+                int i4 = (int) (rawY - this.bzO);
+                if (this.igd != null) {
                     if (i3 > 0) {
                         F(i4, i3);
                     } else {
                         E(i4, i3);
                     }
                 }
-                this.btz = rawX;
-                this.btA = rawY;
+                this.bzL = rawX;
+                this.bzM = rawY;
                 return true;
             default:
                 return true;
@@ -121,7 +121,7 @@ public class a {
         }
     }
 
-    private void cd(int i, int i2) {
+    private void cf(int i, int i2) {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(2)) {
             Message message = new Message();

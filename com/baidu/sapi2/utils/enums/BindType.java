@@ -9,13 +9,13 @@ public enum BindType {
     
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3542a;
+    private String f3545a;
     private String b;
     private String c;
 
     BindType(String str, String str2, String str3) {
-        this.f3542a = "";
-        this.f3542a = str;
+        this.f3545a = "";
+        this.f3545a = str;
         this.b = str2;
         this.c = str3;
     }
@@ -29,6 +29,6 @@ public enum BindType {
     }
 
     public String getName() {
-        return this.f3542a;
+        return this.f3545a;
     }
 }

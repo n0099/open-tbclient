@@ -35,15 +35,15 @@ public class c extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str);
             return false;
         }
-        com.baidu.swan.apps.component.components.textarea.b bVar = (com.baidu.swan.apps.component.components.textarea.b) aVar.air();
-        bVar.aU(optParamsAsJo);
+        com.baidu.swan.apps.component.components.textarea.b bVar = (com.baidu.swan.apps.component.components.textarea.b) aVar.akR();
+        bVar.ba(optParamsAsJo);
         com.baidu.swan.apps.component.b.c a2 = aVar.a((com.baidu.swan.apps.component.components.textarea.a) bVar);
         if (!a2.isSuccess()) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, a2.msg);
             return false;
         }
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-        aVar.lX(optString2);
+        aVar.mm(optString2);
         return true;
     }
 }

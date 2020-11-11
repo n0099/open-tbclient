@@ -30,7 +30,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class IMFetchMsgByIdMsg extends Message {
     private static final String TAG = "IMFetchMsgByIdMsg";
     public static final Map<Long, Boolean> reliableListFirst = new ConcurrentHashMap();
@@ -150,7 +150,7 @@ public class IMFetchMsgByIdMsg extends Message {
         TaskManager.getInstance(this.mContext).submitForNetWork(new FetchTask(context, jSONObject, i, str));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes18.dex */
     private class FetchTask extends TaskManager.Task {
         private Context mContext;
         private int mErrorCode;

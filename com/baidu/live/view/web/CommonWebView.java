@@ -10,36 +10,41 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 /* loaded from: classes4.dex */
 public class CommonWebView extends WebView {
-    private boolean bIg;
-    private boolean bIh;
+    private boolean bNL;
+    private boolean bNM;
+    private boolean bNN;
 
     public CommonWebView(Context context) {
         super(context);
         init();
     }
 
+    public void setRequestDisallowInterceptTouchEvent(boolean z) {
+        this.bNL = z;
+    }
+
     public void setVerticalScrollEnabled(boolean z) {
-        this.bIg = z;
+        this.bNM = z;
     }
 
     public void setHorizontalScrollEnabled(boolean z) {
-        this.bIh = z;
+        this.bNN = z;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        requestDisallowInterceptTouchEvent(true);
+        requestDisallowInterceptTouchEvent(this.bNL);
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @Override // android.webkit.WebView, android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (!this.bIg && !this.bIh) {
+        if (!this.bNM && !this.bNN) {
             scrollTo(0, 0);
-        } else if (!this.bIg) {
+        } else if (!this.bNM) {
             scrollTo(i, 0);
-        } else if (!this.bIh) {
+        } else if (!this.bNN) {
             scrollTo(0, i2);
         }
     }
@@ -52,8 +57,9 @@ public class CommonWebView extends WebView {
     }
 
     private void init() {
-        this.bIg = true;
-        this.bIh = true;
+        this.bNL = true;
+        this.bNM = true;
+        this.bNN = true;
         setBackgroundColor(0);
         if (getBackground() != null) {
             getBackground().setAlpha(0);

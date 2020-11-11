@@ -80,7 +80,7 @@ public class KuangFloatingViewController {
     public boolean init() {
         if (this.needShowFloatingView) {
             if (this.mFloatingView == null) {
-                this.mFloatingView = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(a.h.sdk_floating_view_from_kuang, (ViewGroup) null);
+                this.mFloatingView = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(a.g.sdk_floating_view_from_kuang, (ViewGroup) null);
                 this.mFloatingView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.tbadk.KuangFloatingViewController.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
@@ -92,7 +92,7 @@ public class KuangFloatingViewController {
                         }
                     }
                 });
-                this.mFloatingView.findViewById(a.g.floating_view_close).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.tbadk.KuangFloatingViewController.4
+                this.mFloatingView.findViewById(a.f.floating_view_close).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.tbadk.KuangFloatingViewController.4
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         KuangFloatingViewController.this.hideFloatingView();
@@ -114,7 +114,7 @@ public class KuangFloatingViewController {
         layoutParams.flags = 65800;
         layoutParams.format = -3;
         layoutParams.x = 0;
-        layoutParams.y = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.e.sdk_ds260) + UtilHelper.getStatusBarHeight();
+        layoutParams.y = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.d.sdk_ds260) + UtilHelper.getStatusBarHeight();
         layoutParams.width = -2;
         layoutParams.height = -2;
         layoutParams.gravity = 51;

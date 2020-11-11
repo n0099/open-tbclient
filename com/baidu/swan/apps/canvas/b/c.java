@@ -20,16 +20,16 @@ public class c extends a {
         super(str);
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.mX = ah.L((float) jSONObject.optDouble("x"));
-            this.mY = ah.L((float) jSONObject.optDouble("y"));
-            this.mWidth = ah.L((float) jSONObject.optDouble("width"));
-            this.mHeight = ah.L((float) jSONObject.optDouble("height"));
+            this.mX = ah.N((float) jSONObject.optDouble("x"));
+            this.mY = ah.N((float) jSONObject.optDouble("y"));
+            this.mWidth = ah.N((float) jSONObject.optDouble("width"));
+            this.mHeight = ah.N((float) jSONObject.optDouble("height"));
         } catch (Exception e) {
             com.baidu.swan.apps.console.c.e("canvasGetImageData", "CanvasGetImageData meets json exception", e);
         }
     }
 
-    public JSONObject ao(@NonNull View view) {
+    public JSONObject as(@NonNull View view) {
         int i;
         int i2 = 0;
         int measuredWidth = view.getMeasuredWidth();
@@ -66,7 +66,7 @@ public class c extends a {
 
     @NonNull
     private Bitmap i(@NonNull Bitmap bitmap) {
-        float density = 1.0f / ah.getDensity(com.baidu.swan.apps.t.a.aua());
+        float density = 1.0f / ah.getDensity(com.baidu.swan.apps.t.a.awA());
         Matrix matrix = new Matrix();
         matrix.postScale(density, density);
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);

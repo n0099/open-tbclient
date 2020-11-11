@@ -11,7 +11,7 @@ import com.baidu.pass.view.ConfirmDialog;
 public class PermissionsHelperActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f2796a = 8000;
+    private static final int f2798a = 8000;
     private static final int b = 8001;
     private PermissionsDTO c;
     private PermissionsCallback d;

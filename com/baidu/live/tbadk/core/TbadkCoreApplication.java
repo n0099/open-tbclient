@@ -85,7 +85,6 @@ import com.baidu.live.tbadk.rule.TbParamsHttpRule;
 import com.baidu.live.tbadk.task.TbSocketMessageTask;
 import com.baidu.live.tbadk.util.DaemonServiceManager;
 import com.baidu.live.tbadk.util.NetworkChangedManager;
-import com.baidu.searchbox.v8engine.util.TimeUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
@@ -298,17 +297,6 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void processUseDuration() {
-        if (this.mResumeNum == 0 && this.mStartTime > 0) {
-            long nanoTime = ((System.nanoTime() - this.mStartTime) / TimeUtils.NANOS_PER_MS) / 1000;
-            if (nanoTime >= getUseTimeInterval()) {
-                TiebaInitialize.eventStat(getInst().getApp(), "use", null, 1, "st_param", String.valueOf(nanoTime));
-            }
-            this.mStartTime = 0L;
-        }
-    }
-
     public void sendMessageForEnterBackground() {
         this.handler.sendMessageDelayed(this.handler.obtainMessage(5, Boolean.TRUE), 1000L);
     }
@@ -340,7 +328,6 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
                 switch (message.what) {
                     case 5:
                         if (Boolean.TRUE.equals(message.obj)) {
-                            TbadkCoreApplication.this.processUseDuration();
                             TbadkCoreApplication.this.notifyAppEnterBackground();
                             return false;
                         }
@@ -402,7 +389,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
     }
 
     public boolean isKeyboardHeightCanSet(int i) {
-        return i > getResources().getDimensionPixelSize(a.e.sdk_ds460);
+        return i > getResources().getDimensionPixelSize(a.d.sdk_ds460);
     }
 
     @Override // android.content.ContextWrapper

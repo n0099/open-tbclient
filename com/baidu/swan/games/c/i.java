@@ -7,41 +7,41 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class i {
-    private static volatile boolean czm = false;
-    private static volatile boolean dNy = false;
-    private static volatile List<com.baidu.swan.apps.event.a.b> dNz = new ArrayList();
+    private static volatile boolean cFf = false;
+    private static volatile boolean dTq = false;
+    private static volatile List<com.baidu.swan.apps.event.a.b> dTr = new ArrayList();
 
     private i() {
     }
 
-    public static void eq(boolean z) {
-        czm = z;
-        com.baidu.swan.apps.console.c.eq(z);
+    public static void ez(boolean z) {
+        cFf = z;
+        com.baidu.swan.apps.console.c.ez(z);
     }
 
-    public static void aSf() {
+    public static void aUF() {
         synchronized (i.class) {
-            dNz = new ArrayList();
+            dTr = new ArrayList();
         }
-        dNy = false;
+        dTq = false;
     }
 
-    public static void aSg() {
-        if (czm && !dNy) {
+    public static void aUG() {
+        if (cFf && !dTq) {
             synchronized (i.class) {
-                if (dNz != null) {
-                    for (int i = 0; i < dNz.size(); i++) {
-                        com.baidu.swan.apps.v.f.axo().a("console", dNz.get(i));
+                if (dTr != null) {
+                    for (int i = 0; i < dTr.size(); i++) {
+                        com.baidu.swan.apps.v.f.azO().a("console", dTr.get(i));
                     }
-                    dNz.clear();
-                    dNz = null;
+                    dTr.clear();
+                    dTr = null;
                 }
             }
-            dNy = true;
+            dTq = true;
         }
     }
 
-    private static String lT(int i) {
+    private static String md(int i) {
         switch (i) {
             case 1:
                 return TbConfig.TMP_LOG_DIR_NAME;
@@ -59,31 +59,31 @@ public class i {
         }
     }
 
-    public static void ar(int i, String str) {
-        cT(lT(i), str);
+    public static void av(int i, String str) {
+        cT(md(i), str);
     }
 
     public static void cT(String str, String str2) {
-        if (czm) {
+        if (cFf) {
             a(c.cR(str, str2));
         }
     }
 
     public static void cU(String str, String str2) {
-        if (czm) {
+        if (cFf) {
             a(c.cS(str, str2));
         }
     }
 
     private static void a(com.baidu.swan.apps.event.a.b bVar) {
-        if (!dNy) {
+        if (!dTq) {
             synchronized (i.class) {
-                if (dNz != null) {
-                    dNz.add(bVar);
+                if (dTr != null) {
+                    dTr.add(bVar);
                     return;
                 }
             }
         }
-        com.baidu.swan.apps.v.f.axo().a("console", bVar);
+        com.baidu.swan.apps.v.f.azO().a("console", bVar);
     }
 }

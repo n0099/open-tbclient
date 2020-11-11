@@ -15,12 +15,12 @@ public class WalkRouteNodeInfo extends a {
 
     @Override // com.baidu.mapapi.walknavi.params.a
     public RouteNodeType getType() {
-        return this.f2181a;
+        return this.f2183a;
     }
 
     @Override // com.baidu.mapapi.walknavi.params.a
     public void setType(RouteNodeType routeNodeType) {
-        this.f2181a = routeNodeType;
+        this.f2183a = routeNodeType;
     }
 
     @Override // com.baidu.mapapi.walknavi.params.a

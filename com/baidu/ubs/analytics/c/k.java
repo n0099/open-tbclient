@@ -20,31 +20,31 @@ public final class k extends com.baidu.ubs.analytics.d.d {
     protected final void a() {
         d dVar;
         String str;
-        dVar = d.a.oin;
-        if (dVar.dZX().size() == 0) {
+        dVar = d.a.ort;
+        if (dVar.edF().size() == 0) {
             com.baidu.ubs.analytics.d.b.I(" 线程轮询  app 应该是退出了");
         }
         if (az == null && Environment.getExternalStorageState().equals("mounted")) {
-            az = new StringBuffer().append(Environment.getExternalStorageDirectory().getPath()).append("/baidu/ab/").append(i.q(com.baidu.ubs.analytics.d.dZS().getContext())).append("/").toString();
+            az = new StringBuffer().append(Environment.getExternalStorageDirectory().getPath()).append("/baidu/ab/").append(i.q(com.baidu.ubs.analytics.d.edA().getContext())).append("/").toString();
         }
         com.baidu.ubs.analytics.a.j jVar = new com.baidu.ubs.analytics.a.j();
         p pVar = new p();
         com.baidu.ubs.analytics.a.m mVar = new com.baidu.ubs.analytics.a.m();
         com.baidu.ubs.analytics.a.b bVar = new com.baidu.ubs.analytics.a.b();
-        List<com.baidu.ubs.analytics.a.i> dZT = jVar.dZT();
-        List<n> dZT2 = pVar.dZT();
-        List<com.baidu.ubs.analytics.a.l> dZT3 = mVar.dZT();
-        List<com.baidu.ubs.analytics.a.a> dZT4 = bVar.dZT();
-        com.baidu.ubs.analytics.d.b.I("这次查询结果       session ：    " + dZT2.size() + "      点击事件   " + dZT4.size() + "    网络请求：  " + dZT.size() + "    页面记录     " + dZT3.size());
-        if (dZT.size() == 0 && dZT3.size() == 0 && dZT4.size() == 0) {
+        List<com.baidu.ubs.analytics.a.i> edB = jVar.edB();
+        List<n> edB2 = pVar.edB();
+        List<com.baidu.ubs.analytics.a.l> edB3 = mVar.edB();
+        List<com.baidu.ubs.analytics.a.a> edB4 = bVar.edB();
+        com.baidu.ubs.analytics.d.b.I("这次查询结果       session ：    " + edB2.size() + "      点击事件   " + edB4.size() + "    网络请求：  " + edB.size() + "    页面记录     " + edB3.size());
+        if (edB.size() == 0 && edB3.size() == 0 && edB4.size() == 0) {
             com.baidu.ubs.analytics.d.b.I("这次记录 json 为空的，就不传了  ………………");
-            if (dZT2.size() > 1) {
+            if (edB2.size() > 1) {
                 int i = 0;
                 while (true) {
                     int i2 = i;
-                    if (i2 < dZT2.size()) {
-                        if (dZT2.get(i2).O() == null) {
-                            pVar.D(dZT2.get(i2).I());
+                    if (i2 < edB2.size()) {
+                        if (edB2.get(i2).O() == null) {
+                            pVar.D(edB2.get(i2).I());
                         }
                         i = i2 + 1;
                     } else {
@@ -54,9 +54,9 @@ public final class k extends com.baidu.ubs.analytics.d.d {
             }
         } else {
             JSONArray jSONArray = new JSONArray();
-            String l = com.baidu.ubs.analytics.d.dZS().l();
-            if (com.baidu.ubs.analytics.d.dZS().dZR() != null) {
-                for (Map.Entry<String, com.baidu.ubs.analytics.a.g> entry : com.baidu.ubs.analytics.d.dZS().dZR().entrySet()) {
+            String l = com.baidu.ubs.analytics.d.edA().l();
+            if (com.baidu.ubs.analytics.d.edA().edz() != null) {
+                for (Map.Entry<String, com.baidu.ubs.analytics.a.g> entry : com.baidu.ubs.analytics.d.edA().edz().entrySet()) {
                     try {
                         JSONObject jSONObject = new JSONObject();
                         jSONObject.put("exp_id", entry.getKey());
@@ -69,23 +69,23 @@ public final class k extends com.baidu.ubs.analytics.d.d {
             }
             com.baidu.ubs.analytics.b bVar2 = new com.baidu.ubs.analytics.b();
             b.a aVar = new b.a();
-            aVar.r(i.q(com.baidu.ubs.analytics.d.dZS().getContext()));
+            aVar.r(i.q(com.baidu.ubs.analytics.d.edA().getContext()));
             aVar.b(l);
             aVar.q(jSONArray.toString());
             aVar.g(Build.VERSION.RELEASE);
-            aVar.d(i.k(com.baidu.ubs.analytics.d.dZS().getContext()));
+            aVar.d(i.k(com.baidu.ubs.analytics.d.edA().getContext()));
             aVar.f(Build.MODEL);
             aVar.e(Build.BRAND);
             aVar.f(Build.MODEL);
-            aVar.h(i.l(com.baidu.ubs.analytics.d.dZS().getContext()));
+            aVar.h(i.l(com.baidu.ubs.analytics.d.edA().getContext()));
             aVar.i(com.baidu.ubs.analytics.d.a.u());
             aVar.j(f.ab() ? "1" : "0");
-            aVar.k(i.m(com.baidu.ubs.analytics.d.dZS().getContext()));
-            aVar.m(i.n(com.baidu.ubs.analytics.d.dZS().getContext()));
+            aVar.k(i.m(com.baidu.ubs.analytics.d.edA().getContext()));
+            aVar.m(i.n(com.baidu.ubs.analytics.d.edA().getContext()));
             aVar.n(i.y());
             aVar.o(i.z());
             aVar.p(i.A());
-            int j = i.j(com.baidu.ubs.analytics.d.dZS().getContext());
+            int j = i.j(com.baidu.ubs.analytics.d.edA().getContext());
             if (j == 1) {
                 str = "WIFI";
             } else if (j == 2) {
@@ -100,13 +100,13 @@ public final class k extends com.baidu.ubs.analytics.d.d {
                 str = "noNet";
             }
             aVar.l(str);
-            com.baidu.ubs.analytics.d.dZS();
+            com.baidu.ubs.analytics.d.edA();
             aVar.setPhone("");
             bVar2.a(aVar);
-            bVar2.c(dZT4);
-            bVar2.e(dZT);
-            bVar2.b(dZT2);
-            bVar2.d(dZT3);
+            bVar2.c(edB4);
+            bVar2.e(edB);
+            bVar2.b(edB2);
+            bVar2.d(edB3);
             String a2 = com.baidu.ubs.analytics.d.h.a(bVar2);
             String X = com.baidu.ubs.analytics.d.g.X(az, "ABJson.log");
             if (!X.equals("")) {
@@ -115,21 +115,21 @@ public final class k extends com.baidu.ubs.analytics.d.d {
                 stringBuffer.append(X);
                 stringBuffer.append(a2);
                 stringBuffer.append("]");
-                if (com.baidu.ubs.analytics.b.a.a(com.baidu.ubs.analytics.d.dZS().getContext(), stringBuffer.toString())) {
+                if (com.baidu.ubs.analytics.b.a.a(com.baidu.ubs.analytics.d.edA().getContext(), stringBuffer.toString())) {
                     com.baidu.ubs.analytics.d.b.I("上传成功，删除本地文件的       ");
-                    com.baidu.ubs.analytics.d.g.Wz(az + "ABJson.log");
-                    a(jVar, pVar, mVar, bVar, dZT3, dZT, dZT4);
+                    com.baidu.ubs.analytics.d.g.Xc(az + "ABJson.log");
+                    a(jVar, pVar, mVar, bVar, edB3, edB, edB4);
                     return;
                 }
                 StringBuffer stringBuffer2 = new StringBuffer();
                 stringBuffer2.append("[");
                 stringBuffer2.append(a2);
                 stringBuffer2.append("]");
-                if (com.baidu.ubs.analytics.b.a.a(com.baidu.ubs.analytics.d.dZS().getContext(), stringBuffer2.toString())) {
-                    a(jVar, pVar, mVar, bVar, dZT3, dZT, dZT4);
+                if (com.baidu.ubs.analytics.b.a.a(com.baidu.ubs.analytics.d.edA().getContext(), stringBuffer2.toString())) {
+                    a(jVar, pVar, mVar, bVar, edB3, edB, edB4);
                     return;
                 } else if (com.baidu.ubs.analytics.d.g.b(a2, az, "ABJson.log")) {
-                    a(jVar, pVar, mVar, bVar, dZT3, dZT, dZT4);
+                    a(jVar, pVar, mVar, bVar, edB3, edB, edB4);
                     return;
                 } else {
                     return;
@@ -139,17 +139,17 @@ public final class k extends com.baidu.ubs.analytics.d.d {
             stringBuffer3.append("[");
             stringBuffer3.append(a2);
             stringBuffer3.append("]");
-            if (com.baidu.ubs.analytics.b.a.a(com.baidu.ubs.analytics.d.dZS().getContext(), stringBuffer3.toString())) {
-                a(jVar, pVar, mVar, bVar, dZT3, dZT, dZT4);
+            if (com.baidu.ubs.analytics.b.a.a(com.baidu.ubs.analytics.d.edA().getContext(), stringBuffer3.toString())) {
+                a(jVar, pVar, mVar, bVar, edB3, edB, edB4);
             } else if (com.baidu.ubs.analytics.d.g.b(a2, az, "ABJson.log")) {
-                a(jVar, pVar, mVar, bVar, dZT3, dZT, dZT4);
+                a(jVar, pVar, mVar, bVar, edB3, edB, edB4);
             }
         }
     }
 
     private static void a(com.baidu.ubs.analytics.a.j jVar, p pVar, com.baidu.ubs.analytics.a.m mVar, com.baidu.ubs.analytics.a.b bVar, List<com.baidu.ubs.analytics.a.l> list, List<com.baidu.ubs.analytics.a.i> list2, List<com.baidu.ubs.analytics.a.a> list3) {
         jVar.a(list2.size() != 0 ? list2.get(list2.size() - 1).getId() : 0);
-        pVar.Wt(m.eai().I());
+        pVar.WW(m.edQ().I());
         mVar.a(list.size() != 0 ? list.get(list.size() - 1).getId() : 0);
         bVar.a(list3.size() != 0 ? list3.get(list3.size() - 1).getId() : 0);
     }

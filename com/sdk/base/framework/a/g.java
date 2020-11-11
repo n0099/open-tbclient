@@ -5,7 +5,7 @@ package com.sdk.base.framework.a;
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f4472a = new g("WAITING", 0, 0);
+    public static final g f4474a = new g("WAITING", 0, 0);
     public static final g b = new g("STARTED", 1, 1);
     public static final g c = new g("LOADING", 2, 2);
     public static final g d = new g("FAILURE", 3, 3);
@@ -13,7 +13,7 @@ public final class g {
     public static final g f = new g("SUCCESS", 5, 5);
 
     static {
-        g[] gVarArr = {f4472a, b, c, d, e, f};
+        g[] gVarArr = {f4474a, b, c, d, e, f};
     }
 
     private g(String str, int i, int i2) {

@@ -48,14 +48,14 @@ public enum hw {
     
 
     /* renamed from: a  reason: collision with other field name */
-    public final String f474a;
+    public final String f476a;
 
     hw(String str) {
-        this.f474a = str;
+        this.f476a = str;
     }
 
     @Override // java.lang.Enum
     public String toString() {
-        return this.f474a;
+        return this.f476a;
     }
 }

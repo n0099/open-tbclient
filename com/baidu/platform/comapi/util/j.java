@@ -8,7 +8,7 @@ import java.util.concurrent.Executors;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final ExecutorService f2948a = Executors.newSingleThreadExecutor(new c("Single"));
+    private static final ExecutorService f2950a = Executors.newSingleThreadExecutor(new c("Single"));
     private static final ExecutorService b = Executors.newFixedThreadPool(4, new c("FixedPool"));
     private static final Handler c = new Handler(Looper.getMainLooper());
     private static final ExecutorService d = f.a("DefaultPool");

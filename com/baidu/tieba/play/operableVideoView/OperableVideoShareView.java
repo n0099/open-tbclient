@@ -29,32 +29,32 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class OperableVideoShareView extends LinearLayout {
     private bw agx;
-    private int eBz;
-    private View fKv;
+    private int eHo;
+    private View fQl;
     private View.OnClickListener mOnClickListener;
-    private d mgg;
-    private View mgh;
-    private ImageView mgi;
-    private View mgj;
-    private ImageView mgk;
-    private View mgl;
-    private ImageView mgm;
-    private View mgn;
-    private ImageView mgo;
+    private d mme;
+    private View mmf;
+    private ImageView mmg;
+    private View mmh;
+    private ImageView mmi;
+    private View mmj;
+    private ImageView mmk;
+    private View mml;
+    private ImageView mmm;
 
     public OperableVideoShareView(Context context) {
         super(context);
-        this.eBz = 3;
+        this.eHo = 3;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.play.operableVideoView.OperableVideoShareView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!l.isFastDoubleClick()) {
-                    if (view == OperableVideoShareView.this.mgh) {
-                        OperableVideoShareView.this.Hl(3);
-                    } else if (view == OperableVideoShareView.this.mgj) {
-                        OperableVideoShareView.this.Hl(2);
-                    } else if (view == OperableVideoShareView.this.mgl) {
-                        OperableVideoShareView.this.Hl(8);
+                    if (view == OperableVideoShareView.this.mmf) {
+                        OperableVideoShareView.this.Hy(3);
+                    } else if (view == OperableVideoShareView.this.mmh) {
+                        OperableVideoShareView.this.Hy(2);
+                    } else if (view == OperableVideoShareView.this.mmj) {
+                        OperableVideoShareView.this.Hy(8);
                     }
                 }
             }
@@ -64,17 +64,17 @@ public class OperableVideoShareView extends LinearLayout {
 
     public OperableVideoShareView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eBz = 3;
+        this.eHo = 3;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.play.operableVideoView.OperableVideoShareView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!l.isFastDoubleClick()) {
-                    if (view == OperableVideoShareView.this.mgh) {
-                        OperableVideoShareView.this.Hl(3);
-                    } else if (view == OperableVideoShareView.this.mgj) {
-                        OperableVideoShareView.this.Hl(2);
-                    } else if (view == OperableVideoShareView.this.mgl) {
-                        OperableVideoShareView.this.Hl(8);
+                    if (view == OperableVideoShareView.this.mmf) {
+                        OperableVideoShareView.this.Hy(3);
+                    } else if (view == OperableVideoShareView.this.mmh) {
+                        OperableVideoShareView.this.Hy(2);
+                    } else if (view == OperableVideoShareView.this.mmj) {
+                        OperableVideoShareView.this.Hy(8);
                     }
                 }
             }
@@ -84,17 +84,17 @@ public class OperableVideoShareView extends LinearLayout {
 
     public OperableVideoShareView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.eBz = 3;
+        this.eHo = 3;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.play.operableVideoView.OperableVideoShareView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!l.isFastDoubleClick()) {
-                    if (view == OperableVideoShareView.this.mgh) {
-                        OperableVideoShareView.this.Hl(3);
-                    } else if (view == OperableVideoShareView.this.mgj) {
-                        OperableVideoShareView.this.Hl(2);
-                    } else if (view == OperableVideoShareView.this.mgl) {
-                        OperableVideoShareView.this.Hl(8);
+                    if (view == OperableVideoShareView.this.mmf) {
+                        OperableVideoShareView.this.Hy(3);
+                    } else if (view == OperableVideoShareView.this.mmh) {
+                        OperableVideoShareView.this.Hy(2);
+                    } else if (view == OperableVideoShareView.this.mmj) {
+                        OperableVideoShareView.this.Hy(8);
                     }
                 }
             }
@@ -108,58 +108,58 @@ public class OperableVideoShareView extends LinearLayout {
 
     private void init() {
         inflate(getContext(), getLayoutR(), this);
-        this.mgh = findViewById(R.id.share_weixin);
-        this.mgi = (ImageView) findViewById(R.id.share_weixin_img);
-        this.mgj = findViewById(R.id.share_weixin_timeline);
-        this.mgk = (ImageView) findViewById(R.id.share_weixin_timeline_img);
-        this.mgl = findViewById(R.id.share_qq);
-        this.mgm = (ImageView) findViewById(R.id.share_qq_img);
-        this.fKv = findViewById(R.id.divider_line);
-        this.mgn = findViewById(R.id.video_replay);
-        this.mgo = (ImageView) findViewById(R.id.replay_img);
-        this.mgh.setOnClickListener(this.mOnClickListener);
-        this.mgj.setOnClickListener(this.mOnClickListener);
-        this.mgl.setOnClickListener(this.mOnClickListener);
+        this.mmf = findViewById(R.id.share_weixin);
+        this.mmg = (ImageView) findViewById(R.id.share_weixin_img);
+        this.mmh = findViewById(R.id.share_weixin_timeline);
+        this.mmi = (ImageView) findViewById(R.id.share_weixin_timeline_img);
+        this.mmj = findViewById(R.id.share_qq);
+        this.mmk = (ImageView) findViewById(R.id.share_qq_img);
+        this.fQl = findViewById(R.id.divider_line);
+        this.mml = findViewById(R.id.video_replay);
+        this.mmm = (ImageView) findViewById(R.id.replay_img);
+        this.mmf.setOnClickListener(this.mOnClickListener);
+        this.mmh.setOnClickListener(this.mOnClickListener);
+        this.mmj.setOnClickListener(this.mOnClickListener);
         setOnClickListener(this.mOnClickListener);
-        this.mgi.setImageDrawable(SvgManager.boN().j(R.drawable.icon_mask_share_wechat40_svg, 1, false));
-        this.mgk.setImageDrawable(SvgManager.boN().j(R.drawable.icon_mask_share_circle40_svg, 1, false));
-        this.mgm.setImageDrawable(SvgManager.boN().j(R.drawable.icon_mask_share_qq40_svg, 1, false));
-        this.mgo.setImageDrawable(SvgManager.boN().a(R.drawable.ic_icon_pure_video_replay44_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null, false));
-        this.mgo.setBackgroundDrawable(ap.aO(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds52), getResources().getColor(R.color.cp_mask_c_alpha100)));
+        this.mmg.setImageDrawable(SvgManager.brn().j(R.drawable.icon_mask_share_wechat40_svg, 1, false));
+        this.mmi.setImageDrawable(SvgManager.brn().j(R.drawable.icon_mask_share_circle40_svg, 1, false));
+        this.mmk.setImageDrawable(SvgManager.brn().j(R.drawable.icon_mask_share_qq40_svg, 1, false));
+        this.mmm.setImageDrawable(SvgManager.brn().a(R.drawable.ic_icon_pure_video_replay44_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null, false));
+        this.mmm.setBackgroundDrawable(ap.aO(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds52), getResources().getColor(R.color.cp_mask_c_alpha100)));
     }
 
     public void setVideoContainer(d dVar) {
-        this.mgg = dVar;
-        this.mgn.setOnClickListener(this.mgg);
+        this.mme = dVar;
+        this.mml.setOnClickListener(this.mme);
     }
 
     public void setShareData(bw bwVar) {
         this.agx = bwVar;
-        if (this.agx != null && !this.agx.biK()) {
-            this.mgl.setVisibility(0);
-            this.mgh.setVisibility(0);
-            this.mgj.setVisibility(0);
-            this.fKv.setVisibility(0);
+        if (this.agx != null && !this.agx.blk()) {
+            this.mmj.setVisibility(0);
+            this.mmf.setVisibility(0);
+            this.mmh.setVisibility(0);
+            this.fQl.setVisibility(0);
             return;
         }
-        this.mgl.setVisibility(8);
-        this.mgh.setVisibility(8);
-        this.mgj.setVisibility(8);
-        this.fKv.setVisibility(8);
+        this.mmj.setVisibility(8);
+        this.mmf.setVisibility(8);
+        this.mmh.setVisibility(8);
+        this.fQl.setVisibility(8);
     }
 
     public void setShareFrom(int i) {
-        this.eBz = i;
+        this.eHo = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Hl(int i) {
+    public void Hy(int i) {
         if (this.agx != null) {
             String valueOf = String.valueOf(this.agx.getFid());
-            String bke = this.agx.bke();
-            if (this.agx.eAJ != null) {
-                valueOf = this.agx.eAJ.id;
-                bke = this.agx.eAJ.ori_fname;
+            String bmE = this.agx.bmE();
+            if (this.agx.eGy != null) {
+                valueOf = this.agx.eGy.id;
+                bmE = this.agx.eGy.ori_fname;
             }
             String title = this.agx.getTitle();
             String tid = this.agx.getTid();
@@ -171,55 +171,55 @@ public class OperableVideoShareView extends LinearLayout {
             ShareItem shareItem = new ShareItem();
             shareItem.title = title;
             shareItem.content = format;
-            if (!this.agx.biK() && this.agx.bls() && this.agx.bks() != null) {
-                shareItem.readCount = this.agx.bks().play_count.intValue();
+            if (!this.agx.blk() && this.agx.bnS() && this.agx.bmS() != null) {
+                shareItem.readCount = this.agx.bmS().play_count.intValue();
             }
-            shareItem.fbd = str2;
+            shareItem.fgU = str2;
             shareItem.linkUrl = str;
-            shareItem.eBz = this.eBz;
+            shareItem.eHo = this.eHo;
             shareItem.extData = tid;
-            shareItem.fbg = 3;
-            shareItem.fbh = 1;
+            shareItem.fgX = 3;
+            shareItem.fgY = 1;
             if (i == 3) {
-                shareItem.fbi = 1;
+                shareItem.fgZ = 1;
             } else if (i == 2) {
-                shareItem.fbi = 2;
+                shareItem.fgZ = 2;
             } else if (i == 8) {
-                shareItem.fbi = 3;
+                shareItem.fgZ = 3;
             } else {
-                shareItem.fbi = 0;
+                shareItem.fgZ = 0;
             }
             shareItem.fid = valueOf;
-            shareItem.fName = bke;
+            shareItem.fName = bmE;
             shareItem.tid = tid;
             shareItem.nid = this.agx.getNid();
-            shareItem.faU = true;
-            shareItem.fbf = 3;
-            shareItem.fbk = getStateThreadType(this.agx);
+            shareItem.fgL = true;
+            shareItem.fgW = 3;
+            shareItem.fhb = getStateThreadType(this.agx);
             if (parse != null) {
                 shareItem.imageUri = parse;
             }
-            shareItem.fbn = OriginalThreadInfo.ShareInfo.generateShareInfo(this.agx);
-            shareItem.fbo = ShareItem.ForwardInfo.generateForwardInfo(this.agx);
-            shareItem.fbj = 1;
+            shareItem.fhe = OriginalThreadInfo.ShareInfo.generateShareInfo(this.agx);
+            shareItem.fhf = ShareItem.ForwardInfo.generateForwardInfo(this.agx);
+            shareItem.fha = 1;
             TbadkCoreApplication.getInst().setShareItem(shareItem);
-            shareItem.fbu = this.agx.getShareImageUrl();
+            shareItem.fhl = this.agx.getShareImageUrl();
             Bundle bundle = new Bundle();
             bundle.putString("tid", shareItem.tid);
             bundle.putString("fid", shareItem.fid);
-            bundle.putInt("obj_type", shareItem.fbk);
-            bundle.putInt("obj_param1", shareItem.fbg);
-            bundle.putInt(TiebaInitialize.Params.OBJ_PARAM2, shareItem.fbh);
-            bundle.putInt(TiebaInitialize.Params.OBJ_PARAM3, shareItem.fbi);
-            bundle.putInt("obj_source", shareItem.eBz);
-            bundle.putInt("obj_locate", shareItem.fbj);
+            bundle.putInt("obj_type", shareItem.fhb);
+            bundle.putInt("obj_param1", shareItem.fgX);
+            bundle.putInt(TiebaInitialize.Params.OBJ_PARAM2, shareItem.fgY);
+            bundle.putInt(TiebaInitialize.Params.OBJ_PARAM3, shareItem.fgZ);
+            bundle.putInt("obj_source", shareItem.eHo);
+            bundle.putInt("obj_locate", shareItem.fha);
             shareItem.ae(bundle);
             aq aqVar = new aq(TbadkCoreStatisticKey.KEY_SHARE_CLICK);
             aqVar.dR("tid", shareItem.tid);
             aqVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
             aqVar.dR("fid", shareItem.fid);
-            aqVar.aj("obj_locate", this.eBz);
-            aqVar.aj(TiebaInitialize.Params.OBJ_PARAM3, shareItem.fbi);
+            aqVar.al("obj_locate", this.eHo);
+            aqVar.al(TiebaInitialize.Params.OBJ_PARAM3, shareItem.fgZ);
             aqVar.dR("nid", shareItem.nid);
             if (!at.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                 aqVar.dR("obj_source", TbadkCoreApplication.getInst().getTaskId());
@@ -230,13 +230,13 @@ public class OperableVideoShareView extends LinearLayout {
     }
 
     private String getShareImageUrl(bw bwVar) {
-        if (bwVar == null || bwVar.bkj() == null) {
+        if (bwVar == null || bwVar.bmJ() == null) {
             return null;
         }
-        ArrayList<MediaData> bkj = bwVar.bkj();
-        int size = bkj.size();
+        ArrayList<MediaData> bmJ = bwVar.bmJ();
+        int size = bmJ.size();
         for (int i = 0; i < size; i++) {
-            MediaData mediaData = bkj.get(i);
+            MediaData mediaData = bmJ.get(i);
             if (mediaData != null && (mediaData.getType() == 3 || mediaData.getType() == 5)) {
                 if (!StringUtils.isNull(mediaData.getThumbnails_url())) {
                     return mediaData.getThumbnails_url();
@@ -251,13 +251,13 @@ public class OperableVideoShareView extends LinearLayout {
 
     private int getStateThreadType(bw bwVar) {
         if (bwVar != null) {
-            if (bwVar.bkc()) {
+            if (bwVar.bmC()) {
                 return 4;
             }
-            if (bwVar.bjX() == 1) {
+            if (bwVar.bmx() == 1) {
                 return 3;
             }
-            return bwVar.bls() ? 2 : 1;
+            return bwVar.bnS() ? 2 : 1;
         }
         return 0;
     }
@@ -265,11 +265,11 @@ public class OperableVideoShareView extends LinearLayout {
     public void av(boolean z, boolean z2) {
         int dimens;
         int dimens2;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mgj.getLayoutParams();
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.mgh.getLayoutParams();
-        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.mgl.getLayoutParams();
-        LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.fKv.getLayoutParams();
-        LinearLayout.LayoutParams layoutParams5 = (LinearLayout.LayoutParams) this.mgn.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mmh.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.mmf.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.mmj.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.fQl.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams5 = (LinearLayout.LayoutParams) this.mml.getLayoutParams();
         if (z2 && !z) {
             dimens = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds72);
             dimens2 = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds52);

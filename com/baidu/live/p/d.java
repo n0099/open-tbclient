@@ -12,10 +12,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d extends BdAsyncTask<String, Void, b> {
-    private c boH;
+    private c bqa;
 
     public d(c cVar) {
-        this.boH = cVar;
+        this.bqa = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,6 +30,7 @@ public class d extends BdAsyncTask<String, Void, b> {
         netWork.addPostData("live_id", strArr[2]);
         netWork.addPostData(HttpRequest.SDK_VERSION, TbConfig.SDK_VERSION);
         netWork.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
+        netWork.addPostData(HttpRequest.LIVE_SCENE, TbConfig.liveScene + "");
         String postNetData = netWork.postNetData();
         if (netWork.isRequestSuccess()) {
             ErrorData errorData = new ErrorData();
@@ -41,8 +42,8 @@ public class d extends BdAsyncTask<String, Void, b> {
                     bVar.errCode = errorData.error_code;
                     bVar.errMsg = errorData.error_msg;
                     if (optJSONObject != null) {
-                        bVar.boI = new PersonUserData();
-                        bVar.boI.parserJson(optJSONObject);
+                        bVar.bqb = new PersonUserData();
+                        bVar.bqb.parserJson(optJSONObject);
                     }
                 } catch (JSONException e) {
                     BdLog.detailException(e);
@@ -57,11 +58,11 @@ public class d extends BdAsyncTask<String, Void, b> {
     @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
     /* renamed from: a */
     public void onPostExecute(b bVar) {
-        if (this.boH != null && bVar != null) {
+        if (this.bqa != null && bVar != null) {
             if (bVar.errCode == 0) {
-                this.boH.a(bVar.boI);
+                this.bqa.a(bVar.bqb);
             } else {
-                this.boH.s(bVar.errCode, bVar.errMsg);
+                this.bqa.s(bVar.errCode, bVar.errMsg);
             }
         }
     }

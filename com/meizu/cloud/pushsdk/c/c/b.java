@@ -18,10 +18,10 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
     private int l;
 
     /* loaded from: classes7.dex */
-    public static abstract class a<T extends a<T>> extends a.AbstractC1009a<T> {
+    public static abstract class a<T extends a<T>> extends a.AbstractC1028a<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f4394a;
+        private String f4396a;
         private String b;
         private String c;
         private String d;
@@ -37,7 +37,7 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
         }
 
         public T a(String str) {
-            this.f4394a = str;
+            this.f4396a = str;
             return (T) a();
         }
 
@@ -83,15 +83,15 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
 
     /* renamed from: com.meizu.cloud.pushsdk.c.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    private static class C1010b extends a<C1010b> {
-        private C1010b() {
+    private static class C1029b extends a<C1029b> {
+        private C1029b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.meizu.cloud.pushsdk.c.c.a.AbstractC1009a
+        @Override // com.meizu.cloud.pushsdk.c.c.a.AbstractC1028a
         /* renamed from: c */
-        public C1010b a() {
+        public C1029b a() {
             return this;
         }
     }
@@ -100,7 +100,7 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
         super(aVar);
         this.e = ((a) aVar).b;
         this.f = ((a) aVar).c;
-        this.d = ((a) aVar).f4394a;
+        this.d = ((a) aVar).f4396a;
         this.g = ((a) aVar).d;
         this.h = ((a) aVar).e;
         this.i = ((a) aVar).f;
@@ -110,12 +110,12 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
     }
 
     public static a<?> d() {
-        return new C1010b();
+        return new C1029b();
     }
 
     public c e() {
         c cVar = new c();
-        cVar.a(h.f1493a, this.d);
+        cVar.a(h.f1495a, this.d);
         cVar.a(Config.FEED_LIST_PART, this.e);
         cVar.a(AppIconSetting.DEFAULT_LARGE_ICON, this.f);
         cVar.a("pv", this.g);

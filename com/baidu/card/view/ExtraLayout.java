@@ -70,7 +70,7 @@ public class ExtraLayout extends RelativeLayout {
         this.ajR = (TBSpecificationBtn) inflate.findViewById(R.id.extra_btn);
         this.ajR.setOnClickListener(this.mOnClickListener);
         b bVar = new b();
-        bVar.pY(R.color.cp_link_tip_a);
+        bVar.qi(R.color.cp_link_tip_a);
         this.ajR.setConfig(bVar);
         this.ajR.setText(getResources().getString(R.string.download_just_now));
     }
@@ -79,27 +79,27 @@ public class ExtraLayout extends RelativeLayout {
         boolean z;
         boolean z2 = true;
         this.afI = absThreadDataSupport;
-        bw bhz = absThreadDataSupport.bhz();
-        if (!TextUtils.isEmpty(bhz.eBv)) {
+        bw bjZ = absThreadDataSupport.bjZ();
+        if (!TextUtils.isEmpty(bjZ.eHk)) {
             this.ajS.setVisibility(0);
-            this.ajS.setText(bhz.eBv);
+            this.ajS.setText(bjZ.eHk);
             this.ajS.setOnClickListener(null);
             z = true;
         } else {
             this.ajS.setVisibility(8);
             z = false;
         }
-        if (!TextUtils.isEmpty(bhz.eBw)) {
+        if (!TextUtils.isEmpty(bjZ.eHl)) {
             this.ajT.setVisibility(0);
-            this.ajT.setText(bhz.eBw);
+            this.ajT.setText(bjZ.eHl);
             this.ajT.setOnClickListener(null);
             z = true;
         } else {
             this.ajT.setVisibility(8);
         }
-        if (!TextUtils.isEmpty(bhz.buttonText)) {
+        if (!TextUtils.isEmpty(bjZ.buttonText)) {
             this.ajR.setVisibility(0);
-            this.ajR.setText(bhz.buttonText);
+            this.ajR.setText(bjZ.buttonText);
         } else {
             this.ajR.setVisibility(4);
             z2 = z;

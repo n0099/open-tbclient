@@ -8,37 +8,37 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class ALAImMsgMoreChatView extends LinearLayout {
-    int bkW;
-    TextView bkX;
+    int bmq;
+    TextView bmr;
 
     public ALAImMsgMoreChatView(Context context) {
         super(context);
-        this.bkW = 0;
+        this.bmq = 0;
         init(context);
     }
 
     public ALAImMsgMoreChatView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bkW = 0;
+        this.bmq = 0;
         init(context);
     }
 
     public ALAImMsgMoreChatView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bkW = 0;
+        this.bmq = 0;
         init(context);
     }
 
     private void init(Context context) {
-        inflate(context, a.h.ala_im_msg_more_chat_view, this);
+        inflate(context, a.g.ala_im_msg_more_chat_view, this);
         setVisibility(4);
         setGravity(17);
-        setBackgroundResource(a.f.ala_live_im_msg_more_msg_view_bg_shape);
-        this.bkX = (TextView) findViewById(a.g.tvAlaImBottomNewMsg);
+        setBackgroundResource(a.e.ala_live_im_msg_more_msg_view_bg_shape);
+        this.bmr = (TextView) findViewById(a.f.tvAlaImBottomNewMsg);
     }
 
     public void setNewMessageSize(int i) {
-        this.bkW = i;
-        this.bkX.setText(i + "条新消息");
+        this.bmq = i;
+        this.bmr.setText(i + "条新消息");
     }
 }

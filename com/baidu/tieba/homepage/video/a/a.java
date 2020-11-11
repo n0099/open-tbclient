@@ -12,37 +12,37 @@ import java.util.List;
 /* loaded from: classes22.dex */
 public class a {
     private BdTypeRecyclerView Xe;
-    private f jGr;
-    private b jGs;
-    private d jGt;
-    private e jGu;
-    private c jGv;
-    private LinkedList<com.baidu.adp.widget.ListView.a> jtX = new LinkedList<>();
+    private f jMp;
+    private b jMq;
+    private d jMr;
+    private e jMs;
+    private c jMt;
+    private LinkedList<com.baidu.adp.widget.ListView.a> jzU = new LinkedList<>();
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         this.mPageContext = tbPageContext;
         this.Xe = bdTypeRecyclerView;
-        Ly();
+        LY();
     }
 
-    private void Ly() {
-        this.jGr = new f(this.mPageContext, l.hVC);
-        this.jGs = new b(this.mPageContext, m.eyg);
-        this.jGt = new d(this.mPageContext, l.hVJ);
-        this.jGu = new e(this.mPageContext, l.hVH);
-        this.jGv = new c(this.mPageContext, l.exN);
-        this.jGr.a(this.Xe);
-        this.jGs.a(this.Xe);
-        this.jGt.a(this.Xe);
-        this.jGu.a(this.Xe);
-        this.jGv.a(this.Xe);
-        this.jtX.add(this.jGr);
-        this.jtX.add(this.jGs);
-        this.jtX.add(this.jGt);
-        this.jtX.add(this.jGu);
-        this.jtX.add(this.jGv);
-        this.Xe.addAdapters(this.jtX);
+    private void LY() {
+        this.jMp = new f(this.mPageContext, l.ibz);
+        this.jMq = new b(this.mPageContext, m.eDW);
+        this.jMr = new d(this.mPageContext, l.ibG);
+        this.jMs = new e(this.mPageContext, l.ibE);
+        this.jMt = new c(this.mPageContext, l.eDE);
+        this.jMp.a(this.Xe);
+        this.jMq.a(this.Xe);
+        this.jMr.a(this.Xe);
+        this.jMs.a(this.Xe);
+        this.jMt.a(this.Xe);
+        this.jzU.add(this.jMp);
+        this.jzU.add(this.jMq);
+        this.jzU.add(this.jMr);
+        this.jzU.add(this.jMs);
+        this.jzU.add(this.jMt);
+        this.Xe.addAdapters(this.jzU);
     }
 
     public void notifyDataSetChanged() {
@@ -52,20 +52,20 @@ public class a {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.jGr != null) {
-            this.jGr.setPageUniqueId(bdUniqueId);
+        if (this.jMp != null) {
+            this.jMp.setPageUniqueId(bdUniqueId);
         }
-        if (this.jGs != null) {
-            this.jGs.setPageUniqueId(bdUniqueId);
+        if (this.jMq != null) {
+            this.jMq.setPageUniqueId(bdUniqueId);
         }
-        if (this.jGt != null) {
-            this.jGt.setPageUniqueId(bdUniqueId);
+        if (this.jMr != null) {
+            this.jMr.setPageUniqueId(bdUniqueId);
         }
-        if (this.jGu != null) {
-            this.jGu.setPageUniqueId(bdUniqueId);
+        if (this.jMs != null) {
+            this.jMs.setPageUniqueId(bdUniqueId);
         }
-        if (this.jGv != null) {
-            this.jGv.setPageUniqueId(bdUniqueId);
+        if (this.jMt != null) {
+            this.jMt.setPageUniqueId(bdUniqueId);
         }
     }
 
@@ -81,17 +81,17 @@ public class a {
     }
 
     public void b(NEGFeedBackView.a aVar) {
-        if (this.jGu != null) {
-            this.jGu.setEventCallback(aVar);
+        if (this.jMs != null) {
+            this.jMs.setEventCallback(aVar);
         }
-        if (this.jGr != null) {
-            this.jGr.setEventCallback(aVar);
+        if (this.jMp != null) {
+            this.jMp.setEventCallback(aVar);
         }
     }
 
     public void onPause() {
-        if (this.jGs != null) {
-            this.jGs.onPause();
+        if (this.jMq != null) {
+            this.jMq.onPause();
         }
     }
 
@@ -99,8 +99,8 @@ public class a {
     }
 
     public void b(com.baidu.tieba.homepage.personalize.model.e eVar) {
-        if (this.jGs != null) {
-            this.jGs.b(eVar);
+        if (this.jMq != null) {
+            this.jMq.b(eVar);
         }
     }
 }

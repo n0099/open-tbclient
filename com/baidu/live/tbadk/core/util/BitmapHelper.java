@@ -1130,41 +1130,41 @@ public class BitmapHelper {
     public static int getGradeResourceIdInEnterForum(int i) {
         switch (i) {
             case 1:
-                return a.f.sdk_icon_level_01;
+                return a.e.sdk_icon_level_01;
             case 2:
-                return a.f.sdk_icon_level_02;
+                return a.e.sdk_icon_level_02;
             case 3:
-                return a.f.sdk_icon_level_03;
+                return a.e.sdk_icon_level_03;
             case 4:
-                return a.f.sdk_icon_level_04;
+                return a.e.sdk_icon_level_04;
             case 5:
-                return a.f.sdk_icon_level_05;
+                return a.e.sdk_icon_level_05;
             case 6:
-                return a.f.sdk_icon_level_06;
+                return a.e.sdk_icon_level_06;
             case 7:
-                return a.f.sdk_icon_level_07;
+                return a.e.sdk_icon_level_07;
             case 8:
-                return a.f.sdk_icon_level_08;
+                return a.e.sdk_icon_level_08;
             case 9:
-                return a.f.sdk_icon_level_09;
+                return a.e.sdk_icon_level_09;
             case 10:
-                return a.f.sdk_icon_level_10;
+                return a.e.sdk_icon_level_10;
             case 11:
-                return a.f.sdk_icon_level_11;
+                return a.e.sdk_icon_level_11;
             case 12:
-                return a.f.sdk_icon_level_12;
+                return a.e.sdk_icon_level_12;
             case 13:
-                return a.f.sdk_icon_level_13;
+                return a.e.sdk_icon_level_13;
             case 14:
-                return a.f.sdk_icon_level_14;
+                return a.e.sdk_icon_level_14;
             case 15:
-                return a.f.sdk_icon_level_15;
+                return a.e.sdk_icon_level_15;
             case 16:
-                return a.f.sdk_icon_level_16;
+                return a.e.sdk_icon_level_16;
             case 17:
-                return a.f.sdk_icon_level_17;
+                return a.e.sdk_icon_level_17;
             case 18:
-                return a.f.sdk_icon_level_18;
+                return a.e.sdk_icon_level_18;
             default:
                 return 0;
         }
@@ -1361,5 +1361,41 @@ public class BitmapHelper {
         }
         copy.setPixels(iArr, 0, width, 0, 0, width, height);
         return copy;
+    }
+
+    public static Bitmap getBitmapCenterCrop(Bitmap bitmap, int i, int i2, boolean z) {
+        int i3;
+        int i4;
+        if (bitmap == null || bitmap.isRecycled()) {
+            return null;
+        }
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        if (width != 0 && height != 0 && i != 0 && i2 != 0) {
+            float f = (width * 1.0f) / height;
+            float f2 = (i * 1.0f) / i2;
+            if (Math.abs(f - f2) < 0.01d) {
+                i3 = height;
+                i4 = width;
+            } else if (f > f2) {
+                i4 = (height * i) / i2;
+                i3 = height;
+            } else {
+                i3 = (width * i2) / i;
+                i4 = width;
+            }
+            int i5 = width > i4 ? (width - i4) / 2 : 0;
+            int i6 = height > i3 ? (height - i3) / 2 : 0;
+            float f3 = (i * 1.0f) / width;
+            float f4 = (i2 * 1.0f) / height;
+            Matrix matrix = new Matrix();
+            matrix.postScale(Math.max(f3, f4), Math.max(f3, f4));
+            Bitmap createBitmap = Bitmap.createBitmap(bitmap, i5, i6, i4, i3, matrix, true);
+            if (z && bitmap != null && !bitmap.equals(createBitmap)) {
+                bitmap.recycle();
+            }
+            return createBitmap;
+        }
+        return bitmap;
     }
 }

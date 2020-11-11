@@ -11,29 +11,29 @@ import android.widget.TextView;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 /* loaded from: classes4.dex */
 public class LinearGradientTextView extends TextView {
-    private int bAA;
-    private Rect bAy;
-    private int bAz;
-    private LinearGradient bxD;
+    private LinearGradient bDO;
+    private Rect bGJ;
+    private int bGK;
+    private int bGL;
     private Paint mPaint;
     private int mViewWidth;
 
     public LinearGradientTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mViewWidth = 0;
-        this.bAy = new Rect();
+        this.bGJ = new Rect();
     }
 
     @Override // android.widget.TextView
     public void setTextColor(int i) {
-        this.bAz = i;
-        this.bAA = i;
+        this.bGK = i;
+        this.bGL = i;
         super.setTextColor(i);
     }
 
     public void setGradientColor(int i, int i2) {
-        this.bAz = i;
-        this.bAA = i2;
+        this.bGK = i;
+        this.bGL = i2;
         invalidate();
     }
 
@@ -42,9 +42,9 @@ public class LinearGradientTextView extends TextView {
         this.mViewWidth = getMeasuredWidth();
         this.mPaint = getPaint();
         String charSequence = getText().toString();
-        this.mPaint.getTextBounds(charSequence, 0, charSequence.length(), this.bAy);
-        this.bxD = new LinearGradient(0.0f, 0.0f, this.mViewWidth, 0.0f, new int[]{this.bAz, this.bAA}, (float[]) null, Shader.TileMode.REPEAT);
-        this.mPaint.setShader(this.bxD);
-        canvas.drawText(charSequence, (getMeasuredWidth() / 2) - (this.bAy.width() / 2), ((getMeasuredHeight() / 2) + (this.bAy.height() / 2)) - BdUtilHelper.dip2px(getContext(), 1.0f), this.mPaint);
+        this.mPaint.getTextBounds(charSequence, 0, charSequence.length(), this.bGJ);
+        this.bDO = new LinearGradient(0.0f, 0.0f, this.mViewWidth, 0.0f, new int[]{this.bGK, this.bGL}, (float[]) null, Shader.TileMode.REPEAT);
+        this.mPaint.setShader(this.bDO);
+        canvas.drawText(charSequence, (getMeasuredWidth() / 2) - (this.bGJ.width() / 2), ((getMeasuredHeight() / 2) + (this.bGJ.height() / 2)) - BdUtilHelper.dip2px(getContext(), 1.0f), this.mPaint);
     }
 }

@@ -11,30 +11,30 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes10.dex */
 public class i {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile i dPi;
-    private ArrayList<h> dPg = new ArrayList<>();
-    private g dPh = new g();
+    private static volatile i dVa;
+    private ArrayList<h> dUY = new ArrayList<>();
+    private g dUZ = new g();
 
     private i() {
     }
 
-    public static i aSK() {
-        if (dPi == null) {
+    public static i aVk() {
+        if (dVa == null) {
             synchronized (i.class) {
-                if (dPi == null) {
-                    dPi = new i();
+                if (dVa == null) {
+                    dVa = new i();
                 }
             }
         }
-        return dPi;
+        return dVa;
     }
 
     public synchronized void a(@NonNull Runnable runnable, String str, String... strArr) {
         h hVar = new h(this, runnable, str, strArr);
-        ArrayList<h> A = this.dPh.A(strArr);
-        this.dPh.a(hVar, strArr);
+        ArrayList<h> A = this.dUZ.A(strArr);
+        this.dUZ.a(hVar, strArr);
         if (A == null || A.size() == 0) {
-            hVar.aSF();
+            hVar.aVf();
         } else {
             a(hVar, A);
         }
@@ -42,17 +42,17 @@ public class i {
 
     public synchronized void c(h hVar) {
         if (hVar != null) {
-            this.dPh.b(hVar, hVar.aSG());
-            if (hVar.aSH()) {
+            this.dUZ.b(hVar, hVar.aVg());
+            if (hVar.aVh()) {
                 if (DEBUG) {
-                    Log.i("FileSystemTaskManager", "onTaskComplete: " + hVar + Constants.ACCEPT_TIME_SEPARATOR_SP + this.dPg.size());
+                    Log.i("FileSystemTaskManager", "onTaskComplete: " + hVar + Constants.ACCEPT_TIME_SEPARATOR_SP + this.dUY.size());
                 }
-                for (int size = this.dPg.size() - 1; size >= 0; size--) {
-                    h hVar2 = this.dPg.get(size);
+                for (int size = this.dUY.size() - 1; size >= 0; size--) {
+                    h hVar2 = this.dUY.get(size);
                     hVar2.b(hVar);
-                    if (hVar2.aSJ()) {
-                        this.dPg.remove(size);
-                        hVar2.aSF();
+                    if (hVar2.aVj()) {
+                        this.dUY.remove(size);
+                        hVar2.aVf();
                     }
                 }
             }
@@ -60,22 +60,22 @@ public class i {
     }
 
     private synchronized void onDestroy() {
-        this.dPh.atA();
-        Iterator<h> it = this.dPg.iterator();
+        this.dUZ.awa();
+        Iterator<h> it = this.dUY.iterator();
         while (it.hasNext()) {
             h next = it.next();
             if (d(next)) {
-                next.aSE();
+                next.aVe();
             }
         }
-        this.dPg.clear();
+        this.dUY.clear();
     }
 
     public static synchronized void release() {
         synchronized (i.class) {
-            if (dPi != null) {
-                dPi.onDestroy();
-                dPi = null;
+            if (dVa != null) {
+                dVa.onDestroy();
+                dVa = null;
             }
         }
     }
@@ -92,7 +92,7 @@ public class i {
 
     private synchronized boolean a(Semaphore semaphore, String... strArr) {
         boolean z;
-        ArrayList<h> A = this.dPh.A(strArr);
+        ArrayList<h> A = this.dUZ.A(strArr);
         if (A == null || A.size() == 0) {
             z = false;
         } else {
@@ -104,15 +104,15 @@ public class i {
 
     private void a(@NonNull h hVar, @NonNull ArrayList<h> arrayList) {
         if (DEBUG) {
-            Log.i("FileSystemTaskManager", "addToWaitList: " + hVar + Constants.ACCEPT_TIME_SEPARATOR_SP + arrayList.size() + Constants.ACCEPT_TIME_SEPARATOR_SP + this.dPg.size());
+            Log.i("FileSystemTaskManager", "addToWaitList: " + hVar + Constants.ACCEPT_TIME_SEPARATOR_SP + arrayList.size() + Constants.ACCEPT_TIME_SEPARATOR_SP + this.dUY.size());
         }
         Iterator<h> it = arrayList.iterator();
         while (it.hasNext()) {
             h next = it.next();
-            next.aSI();
+            next.aVi();
             hVar.a(next);
         }
-        this.dPg.add(hVar);
+        this.dUY.add(hVar);
     }
 
     private void a(Semaphore semaphore) {

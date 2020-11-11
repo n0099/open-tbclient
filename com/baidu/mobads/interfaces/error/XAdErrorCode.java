@@ -34,16 +34,16 @@ public enum XAdErrorCode {
     public static final String ERROR_CODE_MESSAGE = "msg";
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2359a;
+    private int f2361a;
     private String b;
 
     XAdErrorCode(int i, String str) {
-        this.f2359a = i;
+        this.f2361a = i;
         this.b = str;
     }
 
     public int getCode() {
-        return this.f2359a;
+        return this.f2361a;
     }
 
     public String getMessage() {

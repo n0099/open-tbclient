@@ -1,13 +1,19 @@
 package com.baidu.live.data;
 
-import org.json.JSONObject;
+import android.text.TextUtils;
 /* loaded from: classes4.dex */
 public class af {
-    public String aJq;
+    public String aKp;
+    public String endColor;
+    public String imageUrl;
+    public String startColor;
+    public String url;
 
-    public void parser(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.aJq = jSONObject.optString("dynamic_gift_id");
-        }
+    public String getLabelName() {
+        return (TextUtils.isEmpty(this.aKp) || this.aKp.length() <= 4) ? this.aKp : this.aKp.substring(0, 4);
+    }
+
+    public String toString() {
+        return "AlaSceneData{url='" + this.url + "', sceneName='" + this.aKp + "', imageUrl='" + this.imageUrl + "', startColor='" + this.startColor + "', endColor='" + this.endColor + "'}";
     }
 }

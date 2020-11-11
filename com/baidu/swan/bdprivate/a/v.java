@@ -1,7 +1,7 @@
 package com.baidu.swan.bdprivate.a;
 /* loaded from: classes20.dex */
 public class v {
-    public static com.baidu.swan.bdprivate.a.a.a aLB() {
+    public static com.baidu.swan.bdprivate.a.a.a aOb() {
         return new com.baidu.tieba.aiapps.apps.a.d();
     }
 }

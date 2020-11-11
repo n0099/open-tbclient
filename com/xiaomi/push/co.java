@@ -14,36 +14,36 @@ import org.json.JSONObject;
 public class co implements ct {
 
     /* renamed from: a  reason: collision with root package name */
-    private static co f4840a;
+    private static co f4842a;
 
     /* renamed from: a  reason: collision with other field name */
-    private int f168a;
+    private int f170a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f169a;
+    private Context f171a;
 
     /* renamed from: a  reason: collision with other field name */
-    private cn f170a;
+    private cn f172a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f171a;
+    private String f173a;
 
     /* renamed from: a  reason: collision with other field name */
-    private HashMap<String, cm> f172a;
+    private HashMap<String, cm> f174a;
     private int b;
 
     /* renamed from: b  reason: collision with other field name */
-    private String f173b;
+    private String f175b;
     private int c;
 
     /* renamed from: c  reason: collision with other field name */
-    private String f174c;
+    private String f176c;
     private int d;
 
     public static synchronized co a() {
         co coVar;
         synchronized (co.class) {
-            coVar = f4840a;
+            coVar = f4842a;
         }
         return coVar;
     }
@@ -51,8 +51,8 @@ public class co implements ct {
     private String a(ArrayList<cl> arrayList, String str) {
         JSONObject jSONObject;
         JSONObject jSONObject2 = new JSONObject();
-        if (!TextUtils.isEmpty(this.f171a)) {
-            jSONObject2.put("imei", cr.a(this.f171a));
+        if (!TextUtils.isEmpty(this.f173a)) {
+            jSONObject2.put("imei", cr.a(this.f173a));
         }
         jSONObject2.put("actionType", str);
         jSONObject2.put("actionTime", System.currentTimeMillis());
@@ -64,11 +64,11 @@ public class co implements ct {
                 jSONObject2.put("adList", new JSONArray((Collection) arrayList2));
                 return Base64.encodeToString(jSONObject2.toString().getBytes(), 2);
             }
-            if (TextUtils.isEmpty(arrayList.get(i2).f165a)) {
+            if (TextUtils.isEmpty(arrayList.get(i2).f167a)) {
                 jSONObject = new JSONObject();
             } else {
                 try {
-                    jSONObject = new JSONObject(arrayList.get(i2).f165a);
+                    jSONObject = new JSONObject(arrayList.get(i2).f167a);
                 } catch (Exception e) {
                     Log.e("com.xiaomi.miui.ads.pushsdk", "content 不是json串");
                     jSONObject = null;
@@ -78,20 +78,20 @@ public class co implements ct {
                 jSONObject = new JSONObject();
             }
             JSONObject jSONObject3 = jSONObject;
-            jSONObject3.put("adId", arrayList.get(i2).f164a);
+            jSONObject3.put("adId", arrayList.get(i2).f166a);
             arrayList2.add(jSONObject3);
             i = i2 + 1;
         }
     }
 
     private void a(cm cmVar) {
-        if (this.f172a.containsKey(cmVar.b)) {
+        if (this.f174a.containsKey(cmVar.b)) {
             return;
         }
         this.b++;
         cr.m203a("send: " + this.b);
-        cp cpVar = new cp(this, this.f173b, this.f174c, cmVar);
-        this.f172a.put(cmVar.b, cmVar);
+        cp cpVar = new cp(this, this.f175b, this.f176c, cmVar);
+        this.f174a.put(cmVar.b, cmVar);
         cpVar.execute(new String[0]);
     }
 
@@ -108,7 +108,7 @@ public class co implements ct {
 
     /* renamed from: a  reason: collision with other method in class */
     private boolean m202a(cm cmVar) {
-        if (cq.a(this.f169a)) {
+        if (cq.a(this.f171a)) {
             return true;
         }
         b(cmVar);
@@ -118,49 +118,49 @@ public class co implements ct {
     private void b(cm cmVar) {
         this.d++;
         cr.m203a("cacheCount: " + this.d);
-        this.f170a.a(cmVar);
-        this.f170a.a();
+        this.f172a.a(cmVar);
+        this.f172a.a();
     }
 
     public void a(cl clVar) {
-        if (clVar.f164a <= 0) {
+        if (clVar.f166a <= 0) {
             return;
         }
         ArrayList<cl> arrayList = new ArrayList<>();
         arrayList.add(clVar);
-        a(arrayList, "click", clVar.f4837a);
+        a(arrayList, "click", clVar.f4839a);
     }
 
     @Override // com.xiaomi.push.ct
     public void a(Integer num, cm cmVar) {
-        if (this.f172a.containsKey(cmVar.b)) {
+        if (this.f174a.containsKey(cmVar.b)) {
             if (num.intValue() != 0) {
                 this.c++;
-                cr.m203a("faild: " + this.c + " " + cmVar.b + "  " + this.f172a.size());
+                cr.m203a("faild: " + this.c + " " + cmVar.b + "  " + this.f174a.size());
                 b(cmVar);
             } else {
-                this.f168a++;
-                cr.m203a("success: " + this.f168a);
+                this.f170a++;
+                cr.m203a("success: " + this.f170a);
             }
-            this.f172a.remove(cmVar.b);
+            this.f174a.remove(cmVar.b);
         }
     }
 
     public void b(cl clVar) {
-        if (clVar.f164a <= 0) {
+        if (clVar.f166a <= 0) {
             return;
         }
         ArrayList<cl> arrayList = new ArrayList<>();
         arrayList.add(clVar);
-        a(arrayList, "remove", clVar.f4837a);
+        a(arrayList, "remove", clVar.f4839a);
     }
 
     public void c(cl clVar) {
-        if (clVar.f164a <= 0) {
+        if (clVar.f166a <= 0) {
             return;
         }
         ArrayList<cl> arrayList = new ArrayList<>();
         arrayList.add(clVar);
-        a(arrayList, "received", clVar.f4837a);
+        a(arrayList, "received", clVar.f4839a);
     }
 }

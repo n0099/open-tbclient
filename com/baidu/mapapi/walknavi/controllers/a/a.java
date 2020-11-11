@@ -40,7 +40,7 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static IWTTSPlayer f2169a;
+    private static IWTTSPlayer f2171a;
     private static com.baidu.platform.comapi.wnplatform.n.c h = new e();
     private FrameLayout c;
     private RelativeLayout d;
@@ -82,7 +82,7 @@ public class a {
     }
 
     public void a(IWTTSPlayer iWTTSPlayer) {
-        f2169a = iWTTSPlayer;
+        f2171a = iWTTSPlayer;
     }
 
     public void a(WLocData wLocData) {
@@ -195,8 +195,8 @@ public class a {
     }
 
     public void e() {
-        if (f2169a != null) {
-            f2169a = null;
+        if (f2171a != null) {
+            f2171a = null;
         }
         if (this.b != null) {
             this.b.getMap().clear();

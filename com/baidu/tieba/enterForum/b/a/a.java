@@ -4,39 +4,39 @@ import java.util.List;
 import tbclient.ForumPopupInfo;
 /* loaded from: classes22.dex */
 public class a {
-    private long idm;
-    private long idn;
-    private List<String> ido;
+    private long ijm;
+    private long ijn;
+    private List<String> ijo;
     private int mForumId;
     private String mForumName;
 
     public void a(ForumPopupInfo forumPopupInfo) {
         if (forumPopupInfo != null) {
             this.mForumId = forumPopupInfo.forum_id.intValue();
-            this.idm = forumPopupInfo.mem_count_static.intValue();
-            this.idn = forumPopupInfo.thread_count_static.intValue();
-            this.ido = forumPopupInfo.forum_names;
+            this.ijm = forumPopupInfo.mem_count_static.intValue();
+            this.ijn = forumPopupInfo.thread_count_static.intValue();
+            this.ijo = forumPopupInfo.forum_names;
             this.mForumName = forumPopupInfo.forum_name;
         }
     }
 
-    public List<String> coQ() {
-        return this.ido;
+    public List<String> crr() {
+        return this.ijo;
     }
 
-    public long coR() {
-        return this.idm;
+    public long crs() {
+        return this.ijm;
     }
 
-    public int coS() {
+    public int crt() {
         return this.mForumId;
     }
 
-    public long coT() {
-        return this.idn;
+    public long cru() {
+        return this.ijn;
     }
 
-    public String coU() {
+    public String crv() {
         return this.mForumName;
     }
 }

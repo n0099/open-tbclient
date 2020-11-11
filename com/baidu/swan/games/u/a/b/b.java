@@ -4,5 +4,5 @@ import android.support.annotation.NonNull;
 /* loaded from: classes10.dex */
 public interface b {
     @NonNull
-    a amY();
+    a apz();
 }

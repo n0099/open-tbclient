@@ -8,16 +8,16 @@ import java.util.concurrent.Future;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ExecutorService f4384a;
+    private static ExecutorService f4386a;
     private static int b = 2;
 
     public static ExecutorService a() {
         synchronized (b.class) {
-            if (f4384a == null) {
-                f4384a = Executors.newScheduledThreadPool(b);
+            if (f4386a == null) {
+                f4386a = Executors.newScheduledThreadPool(b);
             }
         }
-        return f4384a;
+        return f4386a;
     }
 
     public static Future a(Callable callable) {

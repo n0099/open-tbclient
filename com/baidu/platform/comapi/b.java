@@ -15,7 +15,7 @@ public class b {
     private static boolean j;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final AtomicBoolean f2818a = new AtomicBoolean(false);
+    private static final AtomicBoolean f2820a = new AtomicBoolean(false);
     private static final AtomicBoolean b = new AtomicBoolean(false);
     private static final AtomicBoolean c = new AtomicBoolean(false);
     private static final CountDownLatch f = new CountDownLatch(1);
@@ -40,11 +40,11 @@ public class b {
 
     public static void b() {
         while (true) {
-            boolean z = f2818a.get();
+            boolean z = f2820a.get();
             if (z) {
                 return;
             }
-            if (f2818a.compareAndSet(z, true)) {
+            if (f2820a.compareAndSet(z, true)) {
                 e = new a();
                 if (!e.a(d)) {
                     throw new RuntimeException("engine init failed");
@@ -61,7 +61,7 @@ public class b {
             }
             if (c.compareAndSet(z, true)) {
                 try {
-                    com.baidu.platform.comapi.d.b.f2857a.a();
+                    com.baidu.platform.comapi.d.b.f2859a.a();
                 } finally {
                     f.countDown();
                 }
@@ -71,7 +71,7 @@ public class b {
 
     public static void d() {
         e.b();
-        f2818a.set(false);
+        f2820a.set(false);
     }
 
     public static Context e() {

@@ -5,13 +5,13 @@ import android.content.Context;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1794a;
+    private Context f1796a;
 
     public g(Context context) {
-        this.f1794a = context;
+        this.f1796a = context;
     }
 
     public com.baidu.helios.bridge.a Ag() {
-        return com.baidu.helios.a.ai(this.f1794a);
+        return com.baidu.helios.a.ai(this.f1796a);
     }
 }

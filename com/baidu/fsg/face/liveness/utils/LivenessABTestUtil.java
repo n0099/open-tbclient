@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class LivenessABTestUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    private static LivenessABTestUtil f1725a;
+    private static LivenessABTestUtil f1727a;
     private ABTestUtils b;
 
     private LivenessABTestUtil() {
@@ -21,17 +21,17 @@ public class LivenessABTestUtil {
     public static synchronized LivenessABTestUtil getInstance(Context context) {
         LivenessABTestUtil livenessABTestUtil;
         synchronized (LivenessABTestUtil.class) {
-            if (f1725a == null) {
-                f1725a = new LivenessABTestUtil(context);
+            if (f1727a == null) {
+                f1727a = new LivenessABTestUtil(context);
             }
-            livenessABTestUtil = f1725a;
+            livenessABTestUtil = f1727a;
         }
         return livenessABTestUtil;
     }
 
     public static synchronized void cleanInstance() {
         synchronized (LivenessABTestUtil.class) {
-            f1725a = null;
+            f1727a = null;
         }
     }
 

@@ -8,7 +8,7 @@ public final class ArcOptions extends OverlayOptions {
     private static final String d = ArcOptions.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    int f1994a;
+    int f1996a;
     Bundle c;
     private LatLng g;
     private LatLng h;
@@ -22,9 +22,9 @@ public final class ArcOptions extends OverlayOptions {
     public Overlay a() {
         Arc arc = new Arc();
         arc.B = this.b;
-        arc.A = this.f1994a;
+        arc.A = this.f1996a;
         arc.C = this.c;
-        arc.f1993a = this.e;
+        arc.f1995a = this.e;
         arc.b = this.f;
         arc.c = this.g;
         arc.d = this.h;
@@ -67,7 +67,7 @@ public final class ArcOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f1994a;
+        return this.f1996a;
     }
 
     public boolean isVisible() {
@@ -100,7 +100,7 @@ public final class ArcOptions extends OverlayOptions {
     }
 
     public ArcOptions zIndex(int i) {
-        this.f1994a = i;
+        this.f1996a = i;
         return this;
     }
 }

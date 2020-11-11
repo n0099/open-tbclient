@@ -1,116 +1,88 @@
 package com.baidu.live.gift;
 
-import android.os.Build;
 import android.text.TextUtils;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.sdk.a;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.media.duplayer.LibsInfoDef;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class v {
-    public static List<u> Gx() {
-        String string = com.baidu.live.d.AZ().getString("gift_dynamic_res_last_accessed", "");
-        if (TextUtils.isEmpty(string)) {
-            return null;
+    public static boolean aWv = false;
+
+    public static void f(com.baidu.live.gift.a.c cVar) {
+        com.baidu.live.im.h hVar = new com.baidu.live.im.h();
+        hVar.count = cVar.bbi;
+        hVar.giftId = cVar.giftId;
+        if (cVar.bbc.Ga()) {
+            hVar.giftName = TbadkCoreApplication.getInst().getString(a.h.text_gift_graffiti);
+        } else {
+            hVar.giftName = cVar.bbc.FU();
         }
-        try {
-            JSONArray jSONArray = new JSONArray(string);
-            if (jSONArray.length() != 0) {
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        arrayList.add(new u().G(optJSONObject));
-                    }
+        hVar.bjV = cVar.bbc.Gd();
+        hVar.aVA = cVar.aVA;
+        hVar.bjW = cVar.bbi;
+        hVar.bjY.add(Long.valueOf(hVar.aVA));
+        if (aWv && !cVar.bbg) {
+            String GZ = GZ();
+            if (GZ != null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(GZ);
+                    hVar.bjZ = jSONObject.optString("pk_honer_buff_multiple");
+                    hVar.text = jSONObject.optString("pk_honer_buff_text");
+                    hVar.fontColor = jSONObject.optString("pk_honer_buff_text_font_color");
+                    hVar.startColor = jSONObject.optString("pk_honer_buff_text_color_start");
+                    hVar.endColor = jSONObject.optString("pk_honer_buff_text_color_end");
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-                return arrayList;
+            } else {
+                hVar.bjZ = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION;
+                hVar.text = "荣耀值";
+                hVar.fontColor = "#FFFFFF";
+                hVar.startColor = "#F53DC7";
+                hVar.endColor = "#AF40FF";
             }
-            return null;
-        } catch (JSONException e) {
-            e.printStackTrace();
-            com.baidu.live.d.AZ().putString("gift_dynamic_res_last_accessed", "");
-            return null;
+        }
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913185, hVar));
+    }
+
+    public static void g(com.baidu.live.gift.a.c cVar) {
+        com.baidu.live.im.i iVar = new com.baidu.live.im.i();
+        iVar.bbd = cVar.bbd;
+        iVar.bka = cVar.msgId;
+        iVar.bkb = cVar.bbi;
+        iVar.bkc = cVar.aVA;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913184, iVar));
+    }
+
+    public static void a(com.baidu.live.gift.a.c cVar, com.baidu.live.gift.a.c cVar2) {
+        if (cVar != null && cVar2 != null && TextUtils.equals(cVar.IC(), cVar2.IC())) {
+            com.baidu.live.im.i iVar = new com.baidu.live.im.i();
+            iVar.bbd = cVar.bbd;
+            iVar.bka = cVar.msgId;
+            iVar.bkb = cVar.bbi;
+            iVar.bkc = cVar.aVA;
+            iVar.bkd = cVar2.msgId;
+            iVar.bke = cVar2.bbi;
+            iVar.bkf = cVar2.aVA;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913183, iVar));
         }
     }
 
-    public static void gv(String str) {
-        f(str, System.currentTimeMillis());
+    public static void a(long j, String str, String str2, String str3, long j2, long j3) {
+        com.baidu.live.im.i iVar = new com.baidu.live.im.i();
+        iVar.bbd = str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str3;
+        iVar.bka = j;
+        iVar.bkg = j2;
+        iVar.bkh = j3;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913195, iVar));
     }
 
-    public static void f(String str, long j) {
-        JSONArray jSONArray;
-        boolean z = false;
-        if (!TextUtils.isEmpty(str)) {
-            String string = com.baidu.live.d.AZ().getString("gift_dynamic_res_last_accessed", "");
-            try {
-                if (!TextUtils.isEmpty(string)) {
-                    jSONArray = new JSONArray(string);
-                } else {
-                    jSONArray = new JSONArray();
-                }
-            } catch (JSONException e) {
-                jSONArray = new JSONArray();
-                e.printStackTrace();
-            }
-            int i = 0;
-            while (true) {
-                if (i >= jSONArray.length()) {
-                    break;
-                }
-                JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                if (optJSONObject == null || !str.equals(optJSONObject.optString("name"))) {
-                    i++;
-                } else {
-                    z = true;
-                    try {
-                        optJSONObject.put("last_accessed", j);
-                        break;
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
-                    }
-                }
-            }
-            if (!z) {
-                u uVar = new u();
-                uVar.name = str;
-                uVar.aRV = j;
-                JSONObject jsonObject = uVar.toJsonObject();
-                if (jsonObject != null) {
-                    jSONArray.put(jsonObject);
-                }
-            }
-            com.baidu.live.d.AZ().putString("gift_dynamic_res_last_accessed", jSONArray.toString());
-        }
-    }
-
-    public static void gK(String str) {
-        if (TextUtils.isEmpty(str)) {
-            com.baidu.live.d.AZ().putString("gift_dynamic_res_last_accessed", "");
-            return;
-        }
-        String string = com.baidu.live.d.AZ().getString("gift_dynamic_res_last_accessed", "");
-        if (!TextUtils.isEmpty(string)) {
-            try {
-                JSONArray jSONArray = new JSONArray(string);
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    if (optJSONObject != null && TextUtils.equals(str, optJSONObject.optString("name"))) {
-                        if (Build.VERSION.SDK_INT >= 19) {
-                            jSONArray.remove(i);
-                        } else {
-                            Field declaredField = JSONArray.class.getDeclaredField("values");
-                            declaredField.setAccessible(true);
-                            ((List) declaredField.get(jSONArray)).remove(i);
-                        }
-                        com.baidu.live.d.AZ().putString("gift_dynamic_res_last_accessed", jSONArray.toString());
-                        return;
-                    }
-                }
-            } catch (IllegalAccessException | NoSuchFieldException | JSONException e) {
-                e.printStackTrace();
-            }
-        }
+    private static String GZ() {
+        return com.baidu.live.aa.a.PQ().bod.aKS;
     }
 }

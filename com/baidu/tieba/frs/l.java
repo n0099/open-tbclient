@@ -3,22 +3,22 @@ package com.baidu.tieba.frs;
 import com.baidu.tbadk.core.data.bw;
 /* loaded from: classes.dex */
 public class l {
-    private static String iAY;
-    public static l iAX = null;
+    private static String iGV;
+    public static l iGU = null;
     private static bw akq = null;
 
     public static synchronized void al(bw bwVar) {
         synchronized (l.class) {
-            iAY = bwVar.tid;
+            iGV = bwVar.tid;
             akq = bwVar;
         }
     }
 
-    public static bw cvy() {
+    public static bw cxZ() {
         return akq;
     }
 
-    public static String cvz() {
-        return iAY;
+    public static String cya() {
+        return iGV;
     }
 }

@@ -23,8 +23,8 @@ import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class d implements com.baidu.adp.plugin.packageManager.pluginServerConfig.b {
     private static final String ADDRESS = TbConfig.SERVER_ADDRESS + TbConfig.PLUGIN_NET_CONFIGS_MIS;
-    private com.baidu.adp.plugin.packageManager.pluginServerConfig.a frm;
-    private boolean frn;
+    private com.baidu.adp.plugin.packageManager.pluginServerConfig.a fxf;
+    private boolean fxg;
 
     @Override // com.baidu.adp.plugin.packageManager.pluginServerConfig.b
     public void a(boolean z, com.baidu.adp.plugin.packageManager.pluginServerConfig.c cVar, com.baidu.adp.plugin.packageManager.pluginServerConfig.a aVar) {
@@ -35,9 +35,9 @@ public class d implements com.baidu.adp.plugin.packageManager.pluginServerConfig
             }
             return;
         }
-        this.frm = aVar;
-        if (!this.frn) {
-            this.frn = true;
+        this.fxf = aVar;
+        if (!this.fxg) {
+            this.fxg = true;
             new b(cVar, z).execute(new Void[0]);
         }
         try {
@@ -63,14 +63,14 @@ public class d implements com.baidu.adp.plugin.packageManager.pluginServerConfig
 
     /* loaded from: classes.dex */
     private class b extends BdAsyncTask<Void, PluginNetConfigInfos, Void> {
-        private aa bVi;
-        private com.baidu.adp.plugin.packageManager.pluginServerConfig.c frp;
-        private boolean frq;
+        private aa caS;
+        private com.baidu.adp.plugin.packageManager.pluginServerConfig.c fxi;
+        private boolean fxj;
 
         public b(com.baidu.adp.plugin.packageManager.pluginServerConfig.c cVar, boolean z) {
-            this.frq = false;
-            this.frp = cVar;
-            this.frq = z;
+            this.fxj = false;
+            this.fxi = cVar;
+            this.fxj = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -90,20 +90,20 @@ public class d implements com.baidu.adp.plugin.packageManager.pluginServerConfig
             boolean z2;
             String str2;
             PluginNetConfigInfos pluginNetConfigInfos;
-            if (this.frp == null) {
+            if (this.fxi == null) {
                 publishProgress(null);
                 return null;
             }
-            if (this.frp.qo() == null || this.frp.qo().size() <= 0) {
+            if (this.fxi.qo() == null || this.fxi.qo().size() <= 0) {
                 str = "";
             } else {
                 StringBuilder sb = new StringBuilder(50);
-                int size = this.frp.qo().size();
+                int size = this.fxi.qo().size();
                 for (int i = 0; i < size; i++) {
                     if (i != 0) {
                         sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                     }
-                    BasicNameValuePair basicNameValuePair = this.frp.qo().get(i);
+                    BasicNameValuePair basicNameValuePair = this.fxi.qo().get(i);
                     if (basicNameValuePair != null && !TextUtils.isEmpty(basicNameValuePair.getName()) && !TextUtils.isEmpty(basicNameValuePair.getValue())) {
                         sb.append(basicNameValuePair.getName());
                         sb.append(":");
@@ -115,7 +115,7 @@ public class d implements com.baidu.adp.plugin.packageManager.pluginServerConfig
             BdCacheService bA = BdCacheService.bA("baidu_plugin.db");
             l<String> a2 = bA.a("plugin.serverconfig", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
             String str3 = a2.get("time");
-            if (!this.frq && str3 != null) {
+            if (!this.fxj && str3 != null) {
                 long j = com.baidu.adp.lib.f.b.toLong(str3, -1L);
                 if (j != -1 && System.currentTimeMillis() - j < 86400000) {
                     z = false;
@@ -176,9 +176,9 @@ public class d implements com.baidu.adp.plugin.packageManager.pluginServerConfig
             if (TbadkCoreApplication.getInst().checkInterrupt() && checkNewUser) {
                 return null;
             }
-            this.bVi = new aa(d.ADDRESS);
-            this.bVi.addPostData("plugin_upload_config", str);
-            return this.bVi.postNetData();
+            this.caS = new aa(d.ADDRESS);
+            this.caS.addPostData("plugin_upload_config", str);
+            return this.caS.postNetData();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -187,25 +187,25 @@ public class d implements com.baidu.adp.plugin.packageManager.pluginServerConfig
         /* renamed from: a */
         public void onProgressUpdate(PluginNetConfigInfos... pluginNetConfigInfosArr) {
             super.onProgressUpdate(pluginNetConfigInfosArr);
-            d.this.frn = false;
+            d.this.fxg = false;
             boolean z = pluginNetConfigInfosArr[0] != null;
             String str = null;
-            if (this.bVi != null && !this.bVi.isNetSuccess()) {
-                str = this.bVi.boo();
-                if (this.bVi.getServerErrorCode() != 0) {
-                    str = str + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.bVi.getErrorString();
+            if (this.caS != null && !this.caS.isNetSuccess()) {
+                str = this.caS.bqO();
+                if (this.caS.getServerErrorCode() != 0) {
+                    str = str + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.caS.getErrorString();
                 }
             }
-            d.this.frm.a(z, this.frp, pluginNetConfigInfosArr[0], str);
+            d.this.fxf.a(z, this.fxi, pluginNetConfigInfosArr[0], str);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PLUGIN_NETCONFIG_GET));
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            d.this.frn = false;
-            this.bVi.cancelNetConnect();
-            this.bVi = null;
+            d.this.fxg = false;
+            this.caS.cancelNetConnect();
+            this.caS = null;
         }
     }
 

@@ -17,7 +17,7 @@ public class g {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static com.tb.airbnb.lottie.model.content.b m(JsonReader jsonReader, com.tb.airbnb.lottie.d dVar) throws IOException {
+    public static com.tb.airbnb.lottie.model.content.b m(JsonReader jsonReader, com.tb.airbnb.lottie.e eVar) throws IOException {
         String str;
         com.tb.airbnb.lottie.model.content.b v;
         boolean z;
@@ -157,44 +157,44 @@ public class g {
         }
         switch (c) {
             case 0:
-                v = af.x(jsonReader, dVar);
+                v = af.x(jsonReader, eVar);
                 break;
             case 1:
-                v = ah.z(jsonReader, dVar);
+                v = ah.z(jsonReader, eVar);
                 break;
             case 2:
-                v = n.p(jsonReader, dVar);
+                v = n.p(jsonReader, eVar);
                 break;
             case 3:
-                v = ae.w(jsonReader, dVar);
+                v = ae.w(jsonReader, eVar);
                 break;
             case 4:
-                v = m.o(jsonReader, dVar);
+                v = m.o(jsonReader, eVar);
                 break;
             case 5:
-                v = c.e(jsonReader, dVar);
+                v = c.e(jsonReader, eVar);
                 break;
             case 6:
-                v = ag.y(jsonReader, dVar);
+                v = ag.y(jsonReader, eVar);
                 break;
             case 7:
-                v = e.b(jsonReader, dVar, i);
+                v = e.b(jsonReader, eVar, i);
                 break;
             case '\b':
-                v = aa.u(jsonReader, dVar);
+                v = aa.u(jsonReader, eVar);
                 break;
             case '\t':
-                v = ai.A(jsonReader, dVar);
+                v = ai.A(jsonReader, eVar);
                 break;
             case '\n':
-                v = z.t(jsonReader, dVar);
+                v = z.t(jsonReader, eVar);
                 break;
             case 11:
                 v = v.h(jsonReader);
-                dVar.bc("Animation contains merge paths. Merge paths are only supported on KitKat+ and must be manually enabled by calling enableMergePathsForKitKatAndAbove().");
+                eVar.bc("Animation contains merge paths. Merge paths are only supported on KitKat+ and must be manually enabled by calling enableMergePathsForKitKatAndAbove().");
                 break;
             case '\f':
-                v = ab.v(jsonReader, dVar);
+                v = ab.v(jsonReader, eVar);
                 break;
             default:
                 Log.w("LOTTIE", "Unknown shape type " + str);

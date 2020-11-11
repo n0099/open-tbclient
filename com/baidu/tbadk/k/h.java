@@ -14,36 +14,36 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class h extends a {
-    protected TextView bdT;
-    protected TbImageView fmL;
-    protected TBSpecificationBtn fmM;
-    private LinearLayout fmN;
-    private int fmS;
+    protected TextView bfp;
+    protected TbImageView fsE;
+    protected TBSpecificationBtn fsF;
+    private LinearLayout fsG;
+    private int fsL;
     protected TextView subTextView;
 
     public TextView getTitleView() {
-        return this.bdT;
+        return this.bfp;
     }
 
-    public View byI() {
-        return this.fmM;
+    public View bBh() {
+        return this.fsF;
     }
 
     public h(Context context, View.OnClickListener onClickListener) {
         super(LayoutInflater.from(context).inflate(R.layout.net_refresh_view_layout, (ViewGroup) null));
-        this.fmL = (TbImageView) this.attachedView.findViewById(R.id.net_refresh_image);
+        this.fsE = (TbImageView) this.attachedView.findViewById(R.id.net_refresh_image);
         this.subTextView = (TextView) this.attachedView.findViewById(R.id.net_refresh_desc);
-        this.bdT = (TextView) this.attachedView.findViewById(R.id.net_refresh_title);
-        this.fmN = (LinearLayout) this.attachedView.findViewById(R.id.net_refresh_info_layout);
-        this.fmM = (TBSpecificationBtn) this.attachedView.findViewById(R.id.net_refresh_button);
+        this.bfp = (TextView) this.attachedView.findViewById(R.id.net_refresh_title);
+        this.fsG = (LinearLayout) this.attachedView.findViewById(R.id.net_refresh_info_layout);
+        this.fsF = (TBSpecificationBtn) this.attachedView.findViewById(R.id.net_refresh_button);
         com.baidu.tbadk.core.view.commonBtn.a aVar = new com.baidu.tbadk.core.view.commonBtn.a();
-        this.fmM.setText(context.getResources().getString(R.string.refresh_view_button_text));
-        this.fmM.setTextSize(R.dimen.tbds42);
-        this.fmM.setConfig(aVar);
-        this.fmS = R.drawable.new_pic_emotion_08;
-        this.fmM.setOnClickListener(onClickListener);
+        this.fsF.setText(context.getResources().getString(R.string.refresh_view_button_text));
+        this.fsF.setTextSize(R.dimen.tbds42);
+        this.fsF.setConfig(aVar);
+        this.fsL = R.drawable.new_pic_emotion_08;
+        this.fsF.setOnClickListener(onClickListener);
         this.attachedView.setOnClickListener(null);
-        rv(0);
+        rF(0);
     }
 
     public void setSubText(String str) {
@@ -57,29 +57,29 @@ public class h extends a {
 
     public void setTitle(String str) {
         if (str != null) {
-            this.bdT.setText(str);
+            this.bfp.setText(str);
         }
     }
 
-    public void DP(String str) {
+    public void Ed(String str) {
         if (str != null) {
-            this.bdT.setText(str);
-            this.bdT.setVisibility(0);
+            this.bfp.setText(str);
+            this.bfp.setVisibility(0);
         }
     }
 
-    public void rt(int i) {
-        this.fmS = i;
+    public void rD(int i) {
+        this.fsL = i;
     }
 
-    public void ru(int i) {
-        this.fmS = i;
-        ap.setImageResource(this.fmL, i);
+    public void rE(int i) {
+        this.fsL = i;
+        ap.setImageResource(this.fsE, i);
     }
 
     public void setButtonText(String str) {
         if (str != null) {
-            this.fmM.setText(str);
+            this.fsF.setText(str);
         }
     }
 
@@ -94,19 +94,19 @@ public class h extends a {
     @Override // com.baidu.tbadk.k.a
     public void onViewDettached() {
         super.onViewDettached();
-        this.fmL.setImageResource(0);
+        this.fsE.setImageResource(0);
     }
 
     public void setLayoutMargin(int i) {
-        ViewGroup.LayoutParams layoutParams = this.fmL.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.fsE.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.topMargin = i;
-            this.fmL.setLayoutParams(marginLayoutParams);
+            this.fsE.setLayoutParams(marginLayoutParams);
         }
     }
 
-    public void rv(int i) {
+    public void rF(int i) {
         int i2;
         if (i < 0) {
             i = 0;
@@ -117,34 +117,34 @@ public class h extends a {
         } else {
             i2 = (int) (equipmentHeight * 0.11d);
         }
-        ViewGroup.LayoutParams layoutParams = this.fmL.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.fsE.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.topMargin = i2 + i;
-            this.fmL.setLayoutParams(marginLayoutParams);
+            this.fsE.setLayoutParams(marginLayoutParams);
         }
     }
 
     public void showRefreshButton() {
-        this.fmM.setVisibility(0);
-        this.bdT.setVisibility(0);
+        this.fsF.setVisibility(0);
+        this.bfp.setVisibility(0);
         ap.setViewTextColor(this.subTextView, R.color.cp_cont_d, 1);
     }
 
     public void hideRefreshButton() {
-        this.fmM.setVisibility(8);
-        this.bdT.setVisibility(8);
+        this.fsF.setVisibility(8);
+        this.bfp.setVisibility(8);
         ap.setViewTextColor(this.subTextView, R.color.cp_cont_b, 1);
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        ap.setImageResource(this.fmL, this.fmS);
+        ap.setImageResource(this.fsE, this.fsL);
         ap.setViewTextColor(this.subTextView, R.color.cp_cont_d, 1, skinType);
-        ap.setViewTextColor(this.bdT, R.color.cp_cont_j, 1, skinType);
+        ap.setViewTextColor(this.bfp, R.color.cp_cont_j, 1, skinType);
         ap.setBackgroundColor(this.attachedView, R.color.cp_bg_line_d);
-        if (this.fmM != null) {
-            this.fmM.bqd();
+        if (this.fsF != null) {
+            this.fsF.bsD();
         }
     }
 

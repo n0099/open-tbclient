@@ -11,8 +11,8 @@ import com.baidu.tieba.barselect.view.VoteCandidateCard;
 import java.util.List;
 /* loaded from: classes21.dex */
 public class CardBasicLayout extends LinearLayout {
-    protected f hKp;
-    protected d hOe;
+    protected f hQm;
+    protected d hUb;
     public int status;
 
     public CardBasicLayout(Context context) {
@@ -25,29 +25,29 @@ public class CardBasicLayout extends LinearLayout {
     }
 
     public void setData(int i, f fVar) {
-        e ckL;
-        this.hKp = fVar;
-        if (this.hKp != null && this.hKp.ckL() != null && (ckL = this.hKp.ckL()) != null) {
-            int status = ckL.getStatus();
-            if (status == com.baidu.tieba.barselect.a.d.hOw) {
-                if (i == VoteCandidateCard.hOJ) {
-                    this.status = a.hOu;
-                    this.hOe = this.hKp.ckK();
+        e cnn;
+        this.hQm = fVar;
+        if (this.hQm != null && this.hQm.cnn() != null && (cnn = this.hQm.cnn()) != null) {
+            int status = cnn.getStatus();
+            if (status == com.baidu.tieba.barselect.a.d.hUt) {
+                if (i == VoteCandidateCard.hUG) {
+                    this.status = a.hUr;
+                    this.hUb = this.hQm.cnm();
                     return;
                 }
-                this.status = a.hOr;
-                List<d> ckJ = this.hKp.ckJ();
-                if (ckJ != null && ckJ.size() > i) {
-                    this.hOe = ckJ.get(i);
+                this.status = a.hUo;
+                List<d> cnl = this.hQm.cnl();
+                if (cnl != null && cnl.size() > i) {
+                    this.hUb = cnl.get(i);
                 }
-            } else if (status == com.baidu.tieba.barselect.a.d.hOx) {
-                if (i == VoteCandidateCard.hOJ) {
-                    this.status = a.hOt;
-                    List<d> ckJ2 = this.hKp.ckJ();
-                    if (ckJ2 != null && ckJ2.size() > 0) {
-                        for (d dVar : ckJ2) {
+            } else if (status == com.baidu.tieba.barselect.a.d.hUu) {
+                if (i == VoteCandidateCard.hUG) {
+                    this.status = a.hUq;
+                    List<d> cnl2 = this.hQm.cnl();
+                    if (cnl2 != null && cnl2.size() > 0) {
+                        for (d dVar : cnl2) {
                             if (dVar.getRank() == 1) {
-                                this.hOe = dVar;
+                                this.hUb = dVar;
                                 return;
                             }
                         }
@@ -55,12 +55,12 @@ public class CardBasicLayout extends LinearLayout {
                     }
                     return;
                 }
-                this.status = a.hOs;
-                List<d> ckJ3 = this.hKp.ckJ();
-                if (ckJ3 != null && ckJ3.size() > i) {
-                    this.hOe = ckJ3.get(i);
-                    if (this.hOe.getRank() == 1 && i == 0) {
-                        this.status = a.hOt;
+                this.status = a.hUp;
+                List<d> cnl3 = this.hQm.cnl();
+                if (cnl3 != null && cnl3.size() > i) {
+                    this.hUb = cnl3.get(i);
+                    if (this.hUb.getRank() == 1 && i == 0) {
+                        this.status = a.hUq;
                     }
                 }
             }

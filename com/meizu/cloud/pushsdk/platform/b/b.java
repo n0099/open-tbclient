@@ -15,14 +15,14 @@ import java.util.concurrent.TimeUnit;
 public class b extends c<RegisterStatus> {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Handler f4438a;
+    protected Handler f4440a;
     protected ScheduledExecutorService b;
     protected int c;
 
     public b(Context context, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
         this(context, null, null, aVar, scheduledExecutorService);
         this.b = (ScheduledExecutorService) com.meizu.cloud.pushsdk.c.b.a.b.a();
-        this.f4438a = new Handler(context.getMainLooper()) { // from class: com.meizu.cloud.pushsdk.platform.b.b.1
+        this.f4440a = new Handler(context.getMainLooper()) { // from class: com.meizu.cloud.pushsdk.platform.b.b.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 switch (message.what) {
@@ -51,7 +51,7 @@ public class b extends c<RegisterStatus> {
             @Override // java.lang.Runnable
             public void run() {
                 b.this.o();
-                b.this.f4438a.sendEmptyMessage(0);
+                b.this.f4440a.sendEmptyMessage(0);
             }
         }, j, TimeUnit.SECONDS);
     }

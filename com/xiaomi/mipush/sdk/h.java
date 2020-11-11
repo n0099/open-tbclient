@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private static HashMap<String, String> f4766a = new HashMap<>();
+    private static HashMap<String, String> f4768a = new HashMap<>();
 
     public static MiPushMessage a(String str) {
         MiPushMessage miPushMessage = new MiPushMessage();
@@ -113,7 +113,7 @@ public class h {
     public static synchronized String a(Context context, String str) {
         String str2;
         synchronized (h.class) {
-            str2 = f4766a.get(str);
+            str2 = f4768a.get(str);
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
@@ -122,7 +122,7 @@ public class h {
     }
 
     public static String a(d dVar) {
-        switch (j.f4768a[dVar.ordinal()]) {
+        switch (j.f4770a[dVar.ordinal()]) {
             case 1:
                 return "hms_push_token";
             case 2:
@@ -144,7 +144,7 @@ public class h {
         if (TextUtils.isEmpty(a(dVar))) {
             return hashMap;
         }
-        switch (j.f4768a[dVar.ordinal()]) {
+        switch (j.f4770a[dVar.ordinal()]) {
             case 1:
                 try {
                     applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
@@ -231,7 +231,7 @@ public class h {
             } else if (TextUtils.isEmpty(str)) {
                 com.xiaomi.channel.commonutils.logger.b.m54a("ASSEMBLE_PUSH : token is null");
             } else {
-                f4766a.put(a2, str);
+                f4768a.put(a2, str);
             }
         }
     }
@@ -257,7 +257,7 @@ public class h {
     }
 
     public static String b(d dVar) {
-        switch (j.f4768a[dVar.ordinal()]) {
+        switch (j.f4770a[dVar.ordinal()]) {
             case 1:
                 return "hms_push_error";
             case 2:

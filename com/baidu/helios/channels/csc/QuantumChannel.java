@@ -29,14 +29,14 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        String f1796a;
+        String f1798a;
         String b;
         String c;
 
         private a() {
             com.baidu.helios.common.a.b bVar = new com.baidu.helios.common.a.b();
             try {
-                this.f1796a = new String(bVar.B(com.baidu.helios.channels.csc.b.sG()));
+                this.f1798a = new String(bVar.B(com.baidu.helios.channels.csc.b.sG()));
                 this.b = new String(bVar.B(com.baidu.helios.channels.csc.b.sH()));
                 this.c = new String(bVar.B(com.baidu.helios.channels.csc.b.g()));
             } catch (Exception e) {
@@ -66,7 +66,7 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
     public class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f1797a;
+        public long f1799a;
         private int r;
         private long t;
         private String u;
@@ -98,8 +98,8 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
         }
 
         public void a(long j) {
-            if (this.f1797a != j) {
-                this.f1797a = j;
+            if (this.f1799a != j) {
+                this.f1799a = j;
                 this.w = true;
             }
         }
@@ -144,7 +144,7 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
             try {
                 JSONObject jSONObject = new JSONObject(q);
                 this.r = jSONObject.getInt("pub_ver");
-                this.f1797a = jSONObject.getLong("pub_lst_ts");
+                this.f1799a = jSONObject.getLong("pub_lst_ts");
                 this.t = jSONObject.getLong("pkg_lst_up_ts");
                 this.axj.R(jSONObject.getLong("flags"));
                 this.v = jSONObject.getInt("d_form_ver");
@@ -160,7 +160,7 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("pub_ver", this.r);
-                    jSONObject.put("pub_lst_ts", this.f1797a);
+                    jSONObject.put("pub_lst_ts", this.f1799a);
                     jSONObject.put("pkg_lst_up_ts", this.t);
                     jSONObject.put("flags", this.axj.AA());
                     jSONObject.put("d_form_ver", 1);
@@ -185,8 +185,8 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
         public static class a {
 
             /* renamed from: a  reason: collision with root package name */
-            private int f1798a = 160;
-            private byte[] b = new byte[this.f1798a];
+            private int f1800a = 160;
+            private byte[] b = new byte[this.f1800a];
             private int c;
 
             private void a(int i) {
@@ -270,7 +270,7 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        Method f1799a;
+        Method f1801a;
         Method b;
         Method c;
         Class<?> d;
@@ -289,7 +289,7 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
             Intent intent = new Intent();
             intent.setClassName(context.getPackageName(), "");
             this.d = com.baidu.helios.channels.csc.d.a(intent.getClass(), com.baidu.helios.channels.csc.d.a(com.baidu.helios.channels.csc.b.sF()), null).invoke(intent, new Object[0]).getClass();
-            this.f1799a = com.baidu.helios.channels.csc.d.a(invoke.getClass(), com.baidu.helios.channels.csc.d.a(com.baidu.helios.channels.csc.b.a()), new Class[]{this.d, Integer.TYPE, Integer.TYPE});
+            this.f1801a = com.baidu.helios.channels.csc.d.a(invoke.getClass(), com.baidu.helios.channels.csc.d.a(com.baidu.helios.channels.csc.b.a()), new Class[]{this.d, Integer.TYPE, Integer.TYPE});
             this.b = com.baidu.helios.channels.csc.d.a(invoke.getClass(), com.baidu.helios.channels.csc.d.a(com.baidu.helios.channels.csc.b.b()), new Class[]{this.d});
         }
 
@@ -303,7 +303,7 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
 
         void a(Object obj, Object obj2, int i) {
             try {
-                this.f1799a.invoke(obj, obj2, Integer.valueOf(i), 1);
+                this.f1801a.invoke(obj, obj2, Integer.valueOf(i), 1);
             } catch (Exception e) {
                 throw new d.a("");
             }
@@ -563,7 +563,7 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
 
     private Object w(String str, int i) {
         try {
-            return com.baidu.helios.channels.csc.d.a(this.axh.d, new Object[]{str, this.axi.f1796a + i});
+            return com.baidu.helios.channels.csc.d.a(this.axh.d, new Object[]{str, this.axi.f1798a + i});
         } catch (Exception e2) {
             e2.printStackTrace();
             throw new b("");

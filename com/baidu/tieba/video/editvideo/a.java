@@ -7,17 +7,17 @@ import java.util.List;
 public interface a {
     void M(Bitmap bitmap);
 
-    void PU(String str);
+    void Ql(String str);
 
-    void Tq(String str);
+    void TH(String str);
 
-    void bvm();
+    void bxL();
 
-    void dMr();
+    void dOT();
 
-    void dqf();
+    void dsH();
 
-    void fJ(List<PendantData> list);
+    void fR(List<PendantData> list);
 
     void finishPage();
 

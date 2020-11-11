@@ -6,19 +6,19 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.util.ScreenHelper;
 /* loaded from: classes4.dex */
 public class o {
-    public static int aH(Context context) {
-        return context.getResources().getDimensionPixelOffset(a.e.sdk_ds248);
-    }
-
-    public static int u(Activity activity) {
-        return ScreenHelper.getRealScreenWidth(activity);
+    public static int aI(Context context) {
+        return context.getResources().getDimensionPixelOffset(a.d.sdk_ds248);
     }
 
     public static int v(Activity activity) {
-        return (u(activity) * 9) / 16;
+        return ScreenHelper.getRealScreenWidth(activity);
     }
 
     public static int w(Activity activity) {
-        return aH(activity) + v(activity);
+        return (v(activity) * 9) / 16;
+    }
+
+    public static int x(Activity activity) {
+        return aI(activity) + w(activity);
     }
 }

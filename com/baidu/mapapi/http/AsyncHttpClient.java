@@ -9,7 +9,7 @@ import java.util.concurrent.Executors;
 public class AsyncHttpClient {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1989a = 10000;
+    private int f1991a = 10000;
     private int b = 10000;
     private ExecutorService c = Executors.newCachedThreadPool();
 

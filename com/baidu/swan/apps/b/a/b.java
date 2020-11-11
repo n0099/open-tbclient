@@ -3,7 +3,7 @@ package com.baidu.swan.apps.b.a;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public interface b {
-    void ax(JSONObject jSONObject);
+    void aD(JSONObject jSONObject);
 
-    void hg(int i);
+    void hq(int i);
 }

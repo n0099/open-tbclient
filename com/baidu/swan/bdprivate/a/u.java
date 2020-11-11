@@ -10,7 +10,7 @@ public class u implements com.baidu.swan.apps.adaptation.a.i {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @Override // com.baidu.swan.apps.adaptation.a.i
-    public com.baidu.swan.apps.adaptation.a.c afw() {
+    public com.baidu.swan.apps.adaptation.a.c ahW() {
         return new a();
     }
 
@@ -63,7 +63,7 @@ public class u implements com.baidu.swan.apps.adaptation.a.i {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.i
-    public com.baidu.swan.apps.adaptation.a.b afx() {
+    public com.baidu.swan.apps.adaptation.a.b ahX() {
         return new m();
     }
 }

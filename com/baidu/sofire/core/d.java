@@ -27,7 +27,7 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f3606a = "";
+    public static String f3609a = "";
     public static String b = "";
     private static boolean c = false;
 
@@ -74,7 +74,7 @@ public class d {
                                     String str3 = str;
                                     String str4 = str2;
                                     if (!TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4) && (!com.baidu.sofire.i.e.e.equals(str3) || !com.baidu.sofire.i.e.f.equals(str4))) {
-                                        com.baidu.sofire.e eVar = a3.f3602a;
+                                        com.baidu.sofire.e eVar = a3.f3605a;
                                         eVar.c.putString("svi", str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + str4);
                                         eVar.c.commit();
                                     }
@@ -303,7 +303,7 @@ public class d {
 
     public static String a(Context context, String str, int i, String str2) {
         try {
-            if (!TextUtils.isEmpty(f3606a)) {
+            if (!TextUtils.isEmpty(f3609a)) {
                 if (i != 0) {
                     if (TextUtils.isEmpty(str2)) {
                         a(1, "ice", (Callback) null, new Class[]{String.class, Integer.TYPE}, str, Integer.valueOf(i));
@@ -311,7 +311,7 @@ public class d {
                         a(1, "ice", (Callback) null, new Class[]{String.class, Integer.TYPE, String.class}, str, Integer.valueOf(i), str2);
                     }
                 }
-                return f3606a;
+                return f3609a;
             } else if (!com.baidu.sofire.i.e.a(context, false)) {
                 com.baidu.sofire.b.a();
                 return "";
@@ -364,30 +364,30 @@ public class d {
             com.baidu.sofire.i.e.a();
         }
         if (!TextUtils.isEmpty(a2)) {
-            f3606a = a2;
+            f3609a = a2;
             return a2;
         }
-        String string = gVar.f3623a.getString("xytk_m", "");
+        String string = gVar.f3626a.getString("xytk_m", "");
         if (!TextUtils.isEmpty(string)) {
-            f3606a = string;
+            f3609a = string;
             return string;
         }
         String b2 = com.baidu.sofire.i.h.b(context);
         if (!TextUtils.isEmpty(b2)) {
             String[] split = b2.split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
             if (split == null || split.length != 2 || TextUtils.isEmpty(split[0]) || TextUtils.isEmpty(split[1])) {
-                f3606a = "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
+                f3609a = "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
                 return "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
             }
             if (F.getInstance().re(split[1].getBytes(), split[0].getBytes()) != null) {
                 String str = split[0] + com.baidu.sofire.i.e.a(re);
                 gVar.b.putString("xytk_m", str);
                 gVar.b.commit();
-                f3606a = str;
+                f3609a = str;
                 return str;
             }
         }
-        f3606a = "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
+        f3609a = "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
         return "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
     }
 
@@ -438,8 +438,8 @@ public class d {
         } catch (Throwable th) {
             com.baidu.sofire.i.e.a();
         }
-        if (!TextUtils.isEmpty(f3606a)) {
-            return f3606a;
+        if (!TextUtils.isEmpty(f3609a)) {
+            return f3609a;
         } else if (!com.baidu.sofire.i.e.a(context, false)) {
             com.baidu.sofire.b.a();
             return "";
@@ -460,7 +460,7 @@ public class d {
                     }
                     return "";
                 }
-                f3606a = "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
+                f3609a = "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
                 return "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
             } else {
                 com.baidu.sofire.b.a();
@@ -583,7 +583,7 @@ public class d {
                     final CallArgs callArgs3 = new CallArgs();
                     bundle.setClassLoader(MyProvider.class.getClassLoader());
                     CallArgs callArgs4 = (CallArgs) bundle.getParcelable("args");
-                    int i = callArgs4.f3599a;
+                    int i = callArgs4.f3602a;
                     int i2 = callArgs4.b;
                     final String str6 = callArgs4.c;
                     Object[] objArr = callArgs4.d;
@@ -690,7 +690,7 @@ public class d {
             }
             String str2 = ("gzfi".equals(str) || "gz".equals(str)) ? str : "invokeMethod";
             CallArgs callArgs = new CallArgs();
-            callArgs.f3599a = i;
+            callArgs.f3602a = i;
             callArgs.c = str;
             callArgs.b = i2;
             if (clsArr != null) {

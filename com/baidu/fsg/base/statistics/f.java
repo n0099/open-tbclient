@@ -10,7 +10,7 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1490a = f.class.getSimpleName();
+    private static final String f1492a = f.class.getSimpleName();
     private JSONArray b;
     private byte[] c;
     private byte[] d;
@@ -21,7 +21,7 @@ public class f {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private static f f1492a = new f();
+        private static f f1494a = new f();
 
         private b() {
         }
@@ -35,7 +35,7 @@ public class f {
     }
 
     public static f a() {
-        return b.f1492a;
+        return b.f1494a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -71,7 +71,7 @@ public class f {
                         long currentTimeMillis = System.currentTimeMillis();
                         for (int i = 0; i < jSONArray.length(); i++) {
                             JSONObject jSONObject = (JSONObject) jSONArray.get(i);
-                            if (currentTimeMillis - jSONObject.getLong(c.f1486a) <= 604800000) {
+                            if (currentTimeMillis - jSONObject.getLong(c.f1488a) <= 604800000) {
                                 a().a(jSONObject);
                             }
                         }
@@ -87,7 +87,7 @@ public class f {
     static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f1491a;
+        public int f1493a;
         public String b;
         public h[] c;
 

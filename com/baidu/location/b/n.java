@@ -21,7 +21,7 @@ public class n {
     private static long j = 12000;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f1894a;
+    public e f1896a;
     private Context b;
     private WebView c;
     private LocationClient d;
@@ -147,14 +147,14 @@ public class n {
                     } else {
                         n.this.f.clear();
                     }
-                    n.this.d.registerLocationListener(n.this.f1894a);
+                    n.this.d.registerLocationListener(n.this.f1896a);
                     return;
                 case 4:
                     if (n.this.f != null) {
                         n.this.f.clear();
                         n.this.f = null;
                     }
-                    n.this.d.unRegisterLocationListener(n.this.f1894a);
+                    n.this.d.unRegisterLocationListener(n.this.f1896a);
                     n.this.h = 0L;
                     n.this.i = null;
                     if (n.this.k != null && n.this.l) {
@@ -240,7 +240,7 @@ public class n {
     public static final class c {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final n f1897a = new n();
+        private static final n f1899a = new n();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -318,7 +318,7 @@ public class n {
     private n() {
         this.b = null;
         this.d = null;
-        this.f1894a = new e();
+        this.f1896a = new e();
         this.e = null;
         this.f = null;
         this.g = false;
@@ -329,7 +329,7 @@ public class n {
     }
 
     public static n a() {
-        return c.f1897a;
+        return c.f1899a;
     }
 
     @SuppressLint({"JavascriptInterface", "AddJavascriptInterface"})

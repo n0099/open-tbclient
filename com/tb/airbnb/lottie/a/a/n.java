@@ -8,30 +8,30 @@ import com.tb.airbnb.lottie.a.b.a;
 import com.tb.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.List;
 /* loaded from: classes16.dex */
-public class n implements j, l, a.InterfaceC1019a {
+public class n implements j, l, a.InterfaceC1038a {
     private boolean De;
-    private final com.tb.airbnb.lottie.f lottieDrawable;
+    private final com.tb.airbnb.lottie.g lottieDrawable;
     private final String name;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> pID;
     @Nullable
-    private r pyS;
-    private final com.tb.airbnb.lottie.a.b.a<?, PointF> pyU;
-    private final com.tb.airbnb.lottie.a.b.a<?, PointF> pyV;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> pzj;
+    private r pIm;
+    private final com.tb.airbnb.lottie.a.b.a<?, PointF> pIo;
+    private final com.tb.airbnb.lottie.a.b.a<?, PointF> pIp;
     private final Path path = new Path();
     private final RectF rect = new RectF();
 
-    public n(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, com.tb.airbnb.lottie.model.content.f fVar2) {
-        this.name = fVar2.getName();
-        this.lottieDrawable = fVar;
-        this.pyV = fVar2.euZ().euW();
-        this.pyU = fVar2.evg().euW();
-        this.pzj = fVar2.evy().euW();
-        aVar.a(this.pyV);
-        aVar.a(this.pyU);
-        aVar.a(this.pzj);
-        this.pyV.b(this);
-        this.pyU.b(this);
-        this.pzj.b(this);
+    public n(com.tb.airbnb.lottie.g gVar, com.tb.airbnb.lottie.model.layer.a aVar, com.tb.airbnb.lottie.model.content.f fVar) {
+        this.name = fVar.getName();
+        this.lottieDrawable = gVar;
+        this.pIp = fVar.eyO().eyL();
+        this.pIo = fVar.eyV().eyL();
+        this.pID = fVar.ezn().eyL();
+        aVar.a(this.pIp);
+        aVar.a(this.pIo);
+        aVar.a(this.pID);
+        this.pIp.b(this);
+        this.pIo.b(this);
+        this.pID.b(this);
     }
 
     @Override // com.tb.airbnb.lottie.a.a.b
@@ -39,7 +39,7 @@ public class n implements j, l, a.InterfaceC1019a {
         return this.name;
     }
 
-    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC1019a
+    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC1038a
     public void iT() {
         invalidate();
     }
@@ -56,9 +56,9 @@ public class n implements j, l, a.InterfaceC1019a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof r) && ((r) bVar).euM() == ShapeTrimPath.Type.Simultaneously) {
-                    this.pyS = (r) bVar;
-                    this.pyS.a(this);
+                if ((bVar instanceof r) && ((r) bVar).eyB() == ShapeTrimPath.Type.Simultaneously) {
+                    this.pIm = (r) bVar;
+                    this.pIm.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -73,15 +73,15 @@ public class n implements j, l, a.InterfaceC1019a {
             return this.path;
         }
         this.path.reset();
-        PointF value = this.pyU.getValue();
+        PointF value = this.pIo.getValue();
         float f = value.x / 2.0f;
         float f2 = value.y / 2.0f;
-        float floatValue = this.pzj == null ? 0.0f : this.pzj.getValue().floatValue();
+        float floatValue = this.pID == null ? 0.0f : this.pID.getValue().floatValue();
         float min = Math.min(f, f2);
         if (floatValue <= min) {
             min = floatValue;
         }
-        PointF value2 = this.pyV.getValue();
+        PointF value2 = this.pIp.getValue();
         this.path.moveTo(value2.x + f, (value2.y - f2) + min);
         this.path.lineTo(value2.x + f, (value2.y + f2) - min);
         if (min > 0.0f) {
@@ -104,7 +104,7 @@ public class n implements j, l, a.InterfaceC1019a {
             this.path.arcTo(this.rect, 270.0f, 90.0f, false);
         }
         this.path.close();
-        com.tb.airbnb.lottie.d.f.a(this.path, this.pyS);
+        com.tb.airbnb.lottie.d.f.a(this.path, this.pIm);
         this.De = true;
         return this.path;
     }

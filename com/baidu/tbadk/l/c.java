@@ -18,12 +18,12 @@ import java.util.List;
 import java.util.Stack;
 /* loaded from: classes.dex */
 public class c {
-    private static boolean bzC() {
+    private static boolean bCb() {
         return TbadkCoreApplication.getInst().isDebugMode();
     }
 
     private static final void h(Object obj, String str) {
-        if (bzC()) {
+        if (bCb()) {
             if (obj != null) {
                 str = obj.getClass().getSimpleName() + " : " + str;
             }
@@ -32,13 +32,13 @@ public class c {
     }
 
     public static final void printLog(String str) {
-        if (bzC()) {
+        if (bCb()) {
             Log.d("TbPageKeyHelper", str);
         }
     }
 
     private static final void c(FragmentManager fragmentManager) {
-        if (bzC()) {
+        if (bCb()) {
             List<Fragment> fragments = fragmentManager.getFragments();
             if (!y.isEmpty(fragments)) {
                 printLog("FragmentManager---->" + fragmentManager);
@@ -54,16 +54,16 @@ public class c {
     }
 
     private static final void a(b bVar) {
-        if (bzC() && bVar != null) {
+        if (bCb() && bVar != null) {
             String currentPageKey = bVar.getCurrentPageKey();
-            String bzB = bVar.bzB();
-            ArrayList<String> bzz = bVar.bzz();
-            ArrayList<String> bzA = bVar.bzA();
+            String bCa = bVar.bCa();
+            ArrayList<String> bBY = bVar.bBY();
+            ArrayList<String> bBZ = bVar.bBZ();
             StringBuilder sb = new StringBuilder("Current TbPageExtra:");
             sb.append("currentPageKey=").append(currentPageKey).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            sb.append("prePageKey=").append(bzB).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            sb.append("preList=").append(bzz.toString()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            sb.append("nextList=").append(bzA.toString());
+            sb.append("prePageKey=").append(bCa).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            sb.append("preList=").append(bBY.toString()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            sb.append("nextList=").append(bBZ.toString());
             h(bVar, sb.toString());
         }
     }

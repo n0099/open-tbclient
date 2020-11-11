@@ -9,7 +9,7 @@ import org.json.JSONObject;
 public class HWPushHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f4733a = false;
+    private static boolean f4735a = false;
 
     public static void convertMessage(Intent intent) {
         h.a(intent);
@@ -34,7 +34,7 @@ public class HWPushHelper {
     }
 
     public static boolean needConnect() {
-        return f4733a;
+        return f4735a;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:13:0x002a, code lost:
@@ -117,7 +117,7 @@ public class HWPushHelper {
     }
 
     public static void setNeedConnect(boolean z) {
-        f4733a = z;
+        f4735a = z;
     }
 
     public static synchronized boolean shouldGetToken(Context context) {

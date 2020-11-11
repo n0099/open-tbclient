@@ -16,7 +16,7 @@ public class OneKeyLoginResult extends SapiResult {
     public static final int ONE_KEY_LOGIN_CODE_UNSUPPORT = -101;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3487a = "未知错误";
+    private static final String f3490a = "未知错误";
     private static final String b = "不支持一键登录";
     private static final String c = "获取token失败";
     private static final String d = "一键登录失败";
@@ -37,7 +37,7 @@ public class OneKeyLoginResult extends SapiResult {
     public String sign;
 
     public OneKeyLoginResult() {
-        this.msgMap.put(-100, f3487a);
+        this.msgMap.put(-100, f3490a);
         this.msgMap.put(-101, b);
         this.msgMap.put(ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL, c);
         this.msgMap.put(-103, d);

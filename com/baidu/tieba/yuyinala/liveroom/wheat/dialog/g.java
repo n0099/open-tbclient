@@ -15,11 +15,11 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes4.dex */
 public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implements DialogInterface.OnDismissListener, View.OnClickListener {
-    private TextView bKf;
-    private TextView bKg;
-    public CustomMessageListener bcQ;
+    private TextView bPL;
+    private TextView bPM;
+    public CustomMessageListener bek;
     private TextView mTitle;
-    private a nYk;
+    private a ofD;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -30,7 +30,7 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
 
     public g(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.bcQ = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.1
+        this.bek = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -44,7 +44,7 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
 
     public g(Activity activity) {
         super(activity);
-        this.bcQ = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.1
+        this.bek = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -56,14 +56,14 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
     }
 
     private void initView() {
-        this.mTitle = (TextView) findViewById(a.g.tv_title);
-        this.bKf = (TextView) findViewById(a.g.tv_cancel);
-        this.bKg = (TextView) findViewById(a.g.tv_confirm);
+        this.mTitle = (TextView) findViewById(a.f.tv_title);
+        this.bPL = (TextView) findViewById(a.f.tv_cancel);
+        this.bPM = (TextView) findViewById(a.f.tv_confirm);
     }
 
     private void initListener() {
-        this.bKf.setOnClickListener(this);
-        this.bKg.setOnClickListener(this);
+        this.bPL.setOnClickListener(this);
+        this.bPM.setOnClickListener(this);
     }
 
     public void setText(String str) {
@@ -72,16 +72,22 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
         }
     }
 
-    public void UW(String str) {
-        if (this.bKf != null && !TextUtils.isEmpty(str)) {
-            this.bKf.setText(str);
+    public void Vn(String str) {
+        if (this.bPL != null && !TextUtils.isEmpty(str)) {
+            this.bPL.setText(str);
         }
     }
 
-    public void bR(String str, int i) {
-        if (this.bKg != null) {
-            this.bKg.setText(str);
-            this.bKg.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(i));
+    public void bT(String str, int i) {
+        if (this.bPM != null) {
+            this.bPM.setText(str);
+            this.bPM.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(i));
+        }
+    }
+
+    public void dZV() {
+        if (this.bPM != null) {
+            this.bPM.getPaint().setFakeBoldText(true);
         }
     }
 
@@ -96,16 +102,16 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
     protected View getView() {
-        return LayoutInflater.from(this.bIs).inflate(a.h.yuyin_layout_dialog_connnection_wheat_remind, (ViewGroup) null);
+        return LayoutInflater.from(this.bNY).inflate(a.g.yuyin_layout_dialog_connnection_wheat_remind, (ViewGroup) null);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
-    protected boolean QG() {
+    protected boolean RJ() {
         return true;
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
-    protected boolean QH() {
+    protected boolean RK() {
         return true;
     }
 
@@ -121,7 +127,7 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        MessageManager.getInstance().registerListener(this.bcQ);
+        MessageManager.getInstance().registerListener(this.bek);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
@@ -132,25 +138,25 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bKf) {
+        if (view == this.bPL) {
             dismiss();
-            if (this.nYk != null) {
-                this.nYk.onCancel();
+            if (this.ofD != null) {
+                this.ofD.onCancel();
             }
-        } else if (view == this.bKg) {
+        } else if (view == this.bPM) {
             dismiss();
-            if (this.nYk != null) {
-                this.nYk.onConfirm();
+            if (this.ofD != null) {
+                this.ofD.onConfirm();
             }
         }
     }
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        MessageManager.getInstance().unRegisterListener(this.bcQ);
+        MessageManager.getInstance().unRegisterListener(this.bek);
     }
 
     public void a(a aVar) {
-        this.nYk = aVar;
+        this.ofD = aVar;
     }
 }

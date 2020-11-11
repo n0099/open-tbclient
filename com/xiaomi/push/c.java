@@ -7,13 +7,13 @@ import java.io.UnsupportedEncodingException;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f4826a;
+    private final int f4828a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final OutputStream f143a;
+    private final OutputStream f145a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final byte[] f144a;
+    private final byte[] f146a;
     private int b;
 
     /* loaded from: classes12.dex */
@@ -24,17 +24,17 @@ public final class c {
     }
 
     private c(OutputStream outputStream, byte[] bArr) {
-        this.f143a = outputStream;
-        this.f144a = bArr;
+        this.f145a = outputStream;
+        this.f146a = bArr;
         this.b = 0;
-        this.f4826a = bArr.length;
+        this.f4828a = bArr.length;
     }
 
     private c(byte[] bArr, int i, int i2) {
-        this.f143a = null;
-        this.f144a = bArr;
+        this.f145a = null;
+        this.f146a = bArr;
         this.b = i;
-        this.f4826a = i + i2;
+        this.f4828a = i + i2;
     }
 
     public static int a(int i) {
@@ -155,10 +155,10 @@ public final class c {
     }
 
     private void c() {
-        if (this.f143a == null) {
+        if (this.f145a == null) {
             throw new a();
         }
-        this.f143a.write(this.f144a, 0, this.b);
+        this.f145a.write(this.f146a, 0, this.b);
         this.b = 0;
     }
 
@@ -176,24 +176,24 @@ public final class c {
     }
 
     public int a() {
-        if (this.f143a == null) {
-            return this.f4826a - this.b;
+        if (this.f145a == null) {
+            return this.f4828a - this.b;
         }
         throw new UnsupportedOperationException("spaceLeft() can only be called on CodedOutputStreams that are writing to a flat array.");
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public void m176a() {
-        if (this.f143a != null) {
+        if (this.f145a != null) {
             c();
         }
     }
 
     public void a(byte b) {
-        if (this.b == this.f4826a) {
+        if (this.b == this.f4828a) {
             c();
         }
-        byte[] bArr = this.f144a;
+        byte[] bArr = this.f146a;
         int i = this.b;
         this.b = i + 1;
         bArr[i] = b;
@@ -280,22 +280,22 @@ public final class c {
 
     /* renamed from: a  reason: collision with other method in class */
     public void m189a(byte[] bArr, int i, int i2) {
-        if (this.f4826a - this.b >= i2) {
-            System.arraycopy(bArr, i, this.f144a, this.b, i2);
+        if (this.f4828a - this.b >= i2) {
+            System.arraycopy(bArr, i, this.f146a, this.b, i2);
             this.b += i2;
             return;
         }
-        int i3 = this.f4826a - this.b;
-        System.arraycopy(bArr, i, this.f144a, this.b, i3);
+        int i3 = this.f4828a - this.b;
+        System.arraycopy(bArr, i, this.f146a, this.b, i3);
         int i4 = i + i3;
         int i5 = i2 - i3;
-        this.b = this.f4826a;
+        this.b = this.f4828a;
         c();
-        if (i5 > this.f4826a) {
-            this.f143a.write(bArr, i4, i5);
+        if (i5 > this.f4828a) {
+            this.f145a.write(bArr, i4, i5);
             return;
         }
-        System.arraycopy(bArr, i4, this.f144a, 0, i5);
+        System.arraycopy(bArr, i4, this.f146a, 0, i5);
         this.b = i5;
     }
 

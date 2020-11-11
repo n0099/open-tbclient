@@ -12,7 +12,7 @@ public class f extends com.baidu.swan.apps.api.a.d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b kK(String str) {
+    public com.baidu.swan.apps.api.c.b kZ(String str) {
         if (DEBUG) {
             Log.d("Api-PullDownRefresh", "stop pull down refresh");
         }
@@ -33,21 +33,21 @@ public class f extends com.baidu.swan.apps.api.a.d {
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.f.1
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.apps.core.d.f adm = com.baidu.swan.apps.v.f.axo().adm();
-                if (adm == null) {
+                com.baidu.swan.apps.core.d.f afM = com.baidu.swan.apps.v.f.azO().afM();
+                if (afM == null) {
                     com.baidu.swan.apps.console.c.e("Api-PullDownRefresh", "manager is null");
                     f.this.a(optString, new com.baidu.swan.apps.api.c.b(1001));
-                } else if (!(adm.amB() instanceof com.baidu.swan.apps.core.d.e)) {
+                } else if (!(afM.apb() instanceof com.baidu.swan.apps.core.d.e)) {
                     com.baidu.swan.apps.console.c.e("Api-PullDownRefresh", "top fragment error");
                     f.this.a(optString, new com.baidu.swan.apps.api.c.b(1001));
                 } else {
-                    com.baidu.swan.apps.core.d.e eVar = (com.baidu.swan.apps.core.d.e) adm.amB();
-                    if (eVar.afZ() == null) {
+                    com.baidu.swan.apps.core.d.e eVar = (com.baidu.swan.apps.core.d.e) afM.apb();
+                    if (eVar.aiz() == null) {
                         com.baidu.swan.apps.console.c.e("Api-PullDownRefresh", "view is null");
                         f.this.a(optString, new com.baidu.swan.apps.api.c.b(1001));
                         return;
                     }
-                    eVar.afZ().fZ(false);
+                    eVar.aiz().gi(false);
                     com.baidu.swan.apps.console.c.i("Api-PullDownRefresh", "refresh complete");
                     f.this.a(optString, new com.baidu.swan.apps.api.c.b(0));
                 }

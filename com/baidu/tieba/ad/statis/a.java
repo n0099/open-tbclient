@@ -8,12 +8,12 @@ public class a implements com.baidu.tieba.r.a {
 
     /* renamed from: com.baidu.tieba.ad.statis.a$a  reason: collision with other inner class name */
     /* loaded from: classes21.dex */
-    private static class C0596a {
-        private static a fNf = new a();
+    private static class C0608a {
+        private static a fSV = new a();
     }
 
-    public static a bHj() {
-        return C0596a.fNf;
+    public static a bJI() {
+        return C0608a.fSV;
     }
 
     @Override // com.baidu.tieba.r.a

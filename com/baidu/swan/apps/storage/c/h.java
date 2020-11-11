@@ -5,20 +5,20 @@ import java.util.Map;
 /* loaded from: classes10.dex */
 public final class h {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    static final Map<String, b> dvg = new HashMap();
+    static final Map<String, b> dAY = new HashMap();
 
-    public static b aIs() {
-        return tz("searchbox_webapps_sp");
+    public static b aKS() {
+        return tN("searchbox_webapps_sp");
     }
 
-    public static b tz(String str) {
-        b bVar = dvg.get(str);
+    public static b tN(String str) {
+        b bVar = dAY.get(str);
         if (bVar == null) {
             synchronized (h.class) {
-                bVar = dvg.get(str);
+                bVar = dAY.get(str);
                 if (bVar == null) {
                     bVar = new b(str);
-                    dvg.put(str, bVar);
+                    dAY.put(str, bVar);
                 }
             }
         }

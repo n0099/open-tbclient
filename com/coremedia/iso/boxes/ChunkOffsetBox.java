@@ -7,7 +7,7 @@ import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
 /* loaded from: classes11.dex */
 public abstract class ChunkOffsetBox extends AbstractFullBox {
-    private static final /* synthetic */ a.InterfaceC1069a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_0 = null;
 
     static {
         ajc$preClinit();

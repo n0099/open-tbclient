@@ -9,28 +9,28 @@ public class i extends g {
     public int errCode;
     public HashMap<String, String> extra;
     public long firstByteReachTime;
-    public boolean fpA;
-    public long fpB;
-    public long fpC;
-    public boolean fpD;
-    public long fpE;
-    public long fpF;
-    public long fpG;
-    public long fpH;
-    public long fpl;
-    public long fpm;
-    public long fpn;
-    public long fpo;
-    public long fpp;
-    public long fpq;
-    public long fpr;
-    public long fpt;
-    public long fpu;
-    public long fpv;
-    public long fpw;
-    public long fpx;
-    public long fpy;
-    public long fpz;
+    public long fvA;
+    public long fvB;
+    public long fvg;
+    public long fvh;
+    public long fvi;
+    public long fvj;
+    public long fvk;
+    public long fvl;
+    public long fvm;
+    public long fvn;
+    public long fvo;
+    public long fvp;
+    public long fvq;
+    public long fvr;
+    public long fvs;
+    public long fvt;
+    public boolean fvu;
+    public long fvv;
+    public long fvw;
+    public boolean fvx;
+    public long fvy;
+    public long fvz;
     public boolean isSuccess;
     public long sequenceID;
     public long socketCostTime;
@@ -39,79 +39,79 @@ public class i extends g {
     public i() {
         this.firstByteReachTime = 0L;
         this.allDataReadTime = 0L;
-        this.fpv = 0L;
-        this.fpx = 0L;
-        this.fpy = 0L;
-        this.fpz = 0L;
-        this.fpB = 0L;
-        this.fpC = 0L;
-        this.fpD = false;
+        this.fvp = 0L;
+        this.fvr = 0L;
+        this.fvs = 0L;
+        this.fvt = 0L;
+        this.fvv = 0L;
+        this.fvw = 0L;
+        this.fvx = false;
         this.extra = new HashMap<>();
     }
 
     public i(int i, boolean z, ResponsedMessage<?> responsedMessage, long j, long j2, long j3, boolean z2, long j4, long j5, long j6) {
         this.firstByteReachTime = 0L;
         this.allDataReadTime = 0L;
-        this.fpv = 0L;
-        this.fpx = 0L;
-        this.fpy = 0L;
-        this.fpz = 0L;
-        this.fpB = 0L;
-        this.fpC = 0L;
-        this.fpD = false;
+        this.fvp = 0L;
+        this.fvr = 0L;
+        this.fvs = 0L;
+        this.fvt = 0L;
+        this.fvv = 0L;
+        this.fvw = 0L;
+        this.fvx = false;
         this.extra = new HashMap<>();
         if (responsedMessage != null) {
             this.mSubType = i;
-            this.fpA = z;
-            if (this.fpA) {
-                this.fpz = responsedMessage.getDownSize();
-                this.fpE = responsedMessage.getOrginalMessage().getClientLogID();
+            this.fvu = z;
+            if (this.fvu) {
+                this.fvt = responsedMessage.getDownSize();
+                this.fvy = responsedMessage.getOrginalMessage().getClientLogID();
                 this.sequenceID = responsedMessage.getOrginalMessage().getSquencedId();
-                this.fpB = responsedMessage.performanceData.mHttpRetryNum;
-                this.fpC = responsedMessage.performanceData.mHttpRetryCostTime;
+                this.fvv = responsedMessage.performanceData.mHttpRetryNum;
+                this.fvw = responsedMessage.performanceData.mHttpRetryCostTime;
                 this.socketErrNo = responsedMessage.performanceData.mSocketErrNo;
                 this.socketCostTime = responsedMessage.performanceData.mSocketCostTime;
             } else {
-                this.fpy = responsedMessage.getDownSize();
+                this.fvs = responsedMessage.getDownSize();
                 this.sequenceID = responsedMessage.getOrginalMessage().getSquencedId();
             }
-            this.fpl = j;
-            this.fpm = j4;
-            this.fpn = j2;
-            this.fpw = j3;
-            this.fpu = j5;
+            this.fvg = j;
+            this.fvh = j4;
+            this.fvi = j2;
+            this.fvq = j3;
+            this.fvo = j5;
             this.isSuccess = !responsedMessage.hasError();
-            this.fpo = responsedMessage.performanceData.mQueneTime;
-            this.fpp = responsedMessage.performanceData.mNetConTime;
-            this.fpq = responsedMessage.performanceData.mNetRWTime;
+            this.fvj = responsedMessage.performanceData.mQueneTime;
+            this.fvk = responsedMessage.performanceData.mNetConTime;
+            this.fvl = responsedMessage.performanceData.mNetRWTime;
             this.firstByteReachTime = responsedMessage.performanceData.mFirstByteReachTime;
             this.allDataReadTime = responsedMessage.performanceData.mAllDataReadTime;
-            this.fpr = responsedMessage.performanceData.mCompressTime;
-            this.fpt = responsedMessage.performanceData.mAnalysisTime;
-            this.fpv = responsedMessage.performanceData.mTaskWaitTime;
-            this.fpv += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
+            this.fvm = responsedMessage.performanceData.mCompressTime;
+            this.fvn = responsedMessage.performanceData.mAnalysisTime;
+            this.fvp = responsedMessage.performanceData.mTaskWaitTime;
+            this.fvp += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
             this.errCode = responsedMessage.getError();
-            this.fpD = z2;
-            this.fpx = j6;
+            this.fvx = z2;
+            this.fvr = j6;
         }
     }
 
-    public void bzS() {
-        o oVar = (o) m.bzV().rC(this.mSubType);
+    public void bCr() {
+        o oVar = (o) m.bCu().rM(this.mSubType);
         if (oVar != null) {
             oVar.a(this);
         }
     }
 
-    public void ko(boolean z) {
-        o oVar = (o) m.bzV().rC(this.mSubType);
+    public void kx(boolean z) {
+        o oVar = (o) m.bCu().rM(this.mSubType);
         if (oVar != null) {
             oVar.a(this, z);
         }
     }
 
-    public void rA(int i) {
-        o oVar = (o) m.bzV().rC(this.mSubType);
+    public void rK(int i) {
+        o oVar = (o) m.bCu().rM(this.mSubType);
         if (oVar != null) {
             oVar.a(this, i);
         }

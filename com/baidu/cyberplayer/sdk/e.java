@@ -18,7 +18,7 @@ import javax.microedition.khronos.opengles.GL10;
 public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView.Renderer {
 
     /* renamed from: a  reason: collision with root package name */
-    protected a f1378a;
+    protected a f1380a;
     private int h;
     private int i;
     private int j;
@@ -256,8 +256,8 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                         GLES20.glClear(16640);
                     }
                     GLES20.glViewport(0, 0, this.t.g(), this.t.h());
-                    if (this.f1378a != null) {
-                        this.f1378a.a();
+                    if (this.f1380a != null) {
+                        this.f1380a.a();
                     }
                     CyberLog.i("CyberRender", "drawScreenSnapshot called end x:" + i + " y:" + i2);
                 }
@@ -281,8 +281,8 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
             this.w = i;
             this.x = i2;
         }
-        if (this.f1378a != null) {
-            this.f1378a.a();
+        if (this.f1380a != null) {
+            this.f1380a.a();
         }
     }
 
@@ -299,7 +299,7 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
     }
 
     public void a(a aVar) {
-        this.f1378a = aVar;
+        this.f1380a = aVar;
     }
 
     public void a(i.a aVar) {
@@ -355,8 +355,8 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                 return;
             }
             this.p = true;
-            if (this.f1378a != null) {
-                this.f1378a.a();
+            if (this.f1380a != null) {
+                this.f1380a.a();
             }
         }
     }

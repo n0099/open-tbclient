@@ -9,61 +9,61 @@ import com.baidu.tieba.tbadkCore.videoupload.a.d;
 import com.baidu.tieba.tbadkCore.videoupload.a.e;
 /* loaded from: classes.dex */
 public class a {
-    private static int mUd = 524288;
-    private static int mUe = 6144000;
-    private static int mUf = 524288;
-    private h mSh;
-    private com.baidu.tieba.tbadkCore.videoupload.a.b mUg;
+    private static int nab = 524288;
+    private static int nac = 6144000;
+    private static int nad = 524288;
+    private h mYk;
+    private com.baidu.tieba.tbadkCore.videoupload.a.b nae;
 
     public a(h hVar) {
-        this.mSh = hVar;
+        this.mYk = hVar;
     }
 
     public VideoFinishResult a(String str, String str2, int i, e eVar) {
         try {
             if (SwitchManager.getInstance().findType(ChunkUploadSwitch.KEY) == 1) {
-                this.mUg = new d(str2, mUf, this.mSh);
+                this.nae = new d(str2, nad, this.mYk);
             } else {
-                this.mUg = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, mUd, mUe, this.mSh);
+                this.nae = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, nab, nac, this.mYk);
             }
-            this.mUg.a(eVar);
-            return this.mUg.bK(str2, i);
+            this.nae.a(eVar);
+            return this.nae.bM(str2, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
-            if (this.mSh != null) {
-                this.mSh.o(ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA, -4399, com.baidu.tieba.k.a.r(e));
+            if (this.mYk != null) {
+                this.mYk.o(ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA, -4399, com.baidu.tieba.k.a.r(e));
             }
             return null;
         }
     }
 
     public void cancelUpload() {
-        if (this.mUg != null) {
-            this.mUg.cancel();
+        if (this.nae != null) {
+            this.nae.cancel();
         }
     }
 
-    public static void JD(int i) {
+    public static void JQ(int i) {
         if (i <= 0) {
-            mUf = 524288;
+            nad = 524288;
         } else {
-            mUf = i;
+            nad = i;
         }
     }
 
-    public static void JE(int i) {
+    public static void JR(int i) {
         if (i <= 0) {
-            mUd = 524288;
+            nab = 524288;
         } else {
-            mUd = i;
+            nab = i;
         }
     }
 
-    public static void JF(int i) {
+    public static void JS(int i) {
         if (i <= 0) {
-            mUe = 6144000;
+            nac = 6144000;
         } else {
-            mUe = i;
+            nac = i;
         }
     }
 }

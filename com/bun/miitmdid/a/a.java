@@ -9,16 +9,16 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 /* loaded from: classes11.dex */
 public class a implements b {
-    public C0940a oyz = new C0940a();
+    public C0959a oHS = new C0959a();
 
     /* renamed from: com.bun.miitmdid.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public class C0940a {
-        public com.bun.miitmdid.a.a.a oyA;
-        public com.bun.miitmdid.a.a.b oyB;
-        public c oyC;
+    public class C0959a {
+        public com.bun.miitmdid.a.a.a oHT;
+        public com.bun.miitmdid.a.a.b oHU;
+        public c oHV;
 
-        public C0940a() {
+        public C0959a() {
         }
     }
 
@@ -30,9 +30,9 @@ public class a implements b {
             return false;
         }
         if (jSONObject.optJSONObject(RomUtils.MANUFACTURER_HUAWEI) != null) {
-            aVar.oyz.oyA = new com.bun.miitmdid.a.a.a();
+            aVar.oHS.oHT = new com.bun.miitmdid.a.a.a();
         }
-        return aVar.oyz.oyA != null;
+        return aVar.oHS.oHT != null;
     }
 
     private static boolean b(a aVar, JSONObject jSONObject) {
@@ -40,9 +40,9 @@ public class a implements b {
             return false;
         }
         if (jSONObject.optJSONObject(RomUtils.MANUFACTURER_XIAOMI) != null) {
-            aVar.oyz.oyC = new c();
+            aVar.oHS.oHV = new c();
         }
-        return aVar.oyz.oyC != null;
+        return aVar.oHS.oHV != null;
     }
 
     private static boolean c(a aVar, JSONObject jSONObject) {
@@ -52,10 +52,10 @@ public class a implements b {
         JSONObject optJSONObject = jSONObject.optJSONObject(RomUtils.MANUFACTURER_VIVO);
         com.bun.miitmdid.a.a.b bVar = new com.bun.miitmdid.a.a.b();
         if (optJSONObject != null) {
-            bVar.f3973a = optJSONObject.optString("appid");
-            aVar.oyz.oyB = bVar;
+            bVar.f3975a = optJSONObject.optString("appid");
+            aVar.oHS.oHU = bVar;
         }
-        return aVar.oyz.oyB != null;
+        return aVar.oHS.oHU != null;
     }
 
     public static a gP(Context context) {
@@ -82,6 +82,6 @@ public class a implements b {
 
     @Override // com.bun.miitmdid.a.b
     public String a() {
-        return (this.oyz == null || this.oyz.oyB == null || this.oyz.oyB.f3973a == null) ? "" : this.oyz.oyB.f3973a;
+        return (this.oHS == null || this.oHS.oHU == null || this.oHS.oHU.f3975a == null) ? "" : this.oHS.oHU.f3975a;
     }
 }

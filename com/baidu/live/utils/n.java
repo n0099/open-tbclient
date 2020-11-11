@@ -14,12 +14,12 @@ public class n {
     private static int everyDayUser = 0;
     private static int everyDayDevice = 0;
     private static int deviceNotClick = 0;
-    private static boolean bAw = false;
-    private static HashMap<Long, Integer> bAx = new HashMap<>();
+    private static boolean bGH = false;
+    private static HashMap<Long, Integer> bGI = new HashMap<>();
 
     private static void init() {
-        if (com.baidu.live.z.a.Pq().bmJ.aMk != null) {
-            AlaFeedDiversionData alaFeedDiversionData = com.baidu.live.z.a.Pq().bmJ.aMk;
+        if (com.baidu.live.aa.a.PQ().bod.aNk != null) {
+            AlaFeedDiversionData alaFeedDiversionData = com.baidu.live.aa.a.PQ().bod.aNk;
             if (alaFeedDiversionData.frequencyData != null) {
                 AlaFrequencyData alaFrequencyData = alaFeedDiversionData.frequencyData;
                 startEveryLive = alaFrequencyData.startEveryLive;
@@ -30,24 +30,24 @@ public class n {
         }
     }
 
-    private static boolean az(long j) {
+    private static boolean aV(long j) {
         if (startEveryLive <= 0) {
             init();
         }
         if (startEveryLive <= 0) {
             return false;
         }
-        if (bAx.containsKey(Long.valueOf(j)) && bAx.get(Long.valueOf(j)).intValue() >= startEveryLive) {
+        if (bGI.containsKey(Long.valueOf(j)) && bGI.get(Long.valueOf(j)).intValue() >= startEveryLive) {
             return false;
         }
         return true;
     }
 
-    private static boolean RZ() {
+    private static boolean UH() {
         if (everyDayUser <= 0 || everyDayDevice <= 0) {
             init();
         }
-        JSONObject optJSONObject = Sb().optJSONObject(k.b(new Date()));
+        JSONObject optJSONObject = UJ().optJSONObject(k.b(new Date()));
         if (optJSONObject == null) {
             optJSONObject = new JSONObject();
         }
@@ -55,22 +55,22 @@ public class n {
         return ((currentAccountId > 0L ? 1 : (currentAccountId == 0L ? 0 : -1)) > 0 ? optJSONObject.optInt(new StringBuilder().append("uid_").append(currentAccountId).toString()) : 0) < everyDayUser && optJSONObject.optInt("dev") < everyDayDevice;
     }
 
-    private static boolean Sa() {
+    private static boolean UI() {
         if (deviceNotClick <= 0) {
             init();
         }
         return com.baidu.live.d.AZ().getInt("feed_diversion_noclick_frequency", 0) < deviceNotClick;
     }
 
-    public static void aA(long j) {
+    public static void aW(long j) {
         Integer num = 0;
-        if (bAx.containsKey(Long.valueOf(j))) {
-            num = bAx.get(Long.valueOf(j));
+        if (bGI.containsKey(Long.valueOf(j))) {
+            num = bGI.get(Long.valueOf(j));
         }
-        bAx.put(Long.valueOf(j), Integer.valueOf(num.intValue() + 1));
-        JSONObject Sb = Sb();
+        bGI.put(Long.valueOf(j), Integer.valueOf(num.intValue() + 1));
+        JSONObject UJ = UJ();
         String b = k.b(new Date());
-        JSONObject optJSONObject = Sb.optJSONObject(b);
+        JSONObject optJSONObject = UJ.optJSONObject(b);
         if (optJSONObject == null) {
             optJSONObject = new JSONObject();
         }
@@ -102,7 +102,7 @@ public class n {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static JSONObject Sb() {
+    private static JSONObject UJ() {
         JSONObject jSONObject;
         String string = com.baidu.live.d.AZ().getString("feed_diversion_show_frequency", "");
         if (!TextUtils.isEmpty(string)) {
@@ -121,15 +121,15 @@ public class n {
         }
     }
 
-    public static void cP(boolean z) {
+    public static void cW(boolean z) {
         com.baidu.live.d.AZ().putInt("feed_diversion_noclick_frequency", z ? 0 : com.baidu.live.d.AZ().getInt("feed_diversion_noclick_frequency", 0) + 1);
     }
 
-    public static boolean aB(long j) {
-        boolean az;
-        if (!bAw && (az = az(j))) {
-            bAw = (RZ() && Sa()) ? false : true;
-            return az & (bAw ? false : true);
+    public static boolean aX(long j) {
+        boolean aV;
+        if (!bGH && (aV = aV(j))) {
+            bGH = (UH() && UI()) ? false : true;
+            return aV & (bGH ? false : true);
         }
         return false;
     }

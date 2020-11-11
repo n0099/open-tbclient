@@ -1,7 +1,7 @@
 package com.facebook.imagepipeline.animated.b;
 /* loaded from: classes12.dex */
 public class a {
-    public void n(int[] iArr) {
+    public void p(int[] iArr) {
         for (int i = 0; i < iArr.length; i++) {
             if (iArr[i] < 11) {
                 iArr[i] = 100;
@@ -9,7 +9,7 @@ public class a {
         }
     }
 
-    public int o(int[] iArr) {
+    public int q(int[] iArr) {
         int i = 0;
         for (int i2 : iArr) {
             i += i2;
@@ -17,7 +17,7 @@ public class a {
         return i;
     }
 
-    public int[] p(int[] iArr) {
+    public int[] r(int[] iArr) {
         int[] iArr2 = new int[iArr.length];
         int i = 0;
         for (int i2 = 0; i2 < iArr.length; i2++) {

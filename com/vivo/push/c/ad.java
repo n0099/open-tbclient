@@ -7,7 +7,7 @@ import java.util.List;
 final class ad implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f4655a;
+    final /* synthetic */ int f4657a;
     final /* synthetic */ List b;
     final /* synthetic */ List c;
     final /* synthetic */ String d;
@@ -16,7 +16,7 @@ final class ad implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(ac acVar, int i, List list, List list2, String str) {
         this.e = acVar;
-        this.f4655a = i;
+        this.f4657a = i;
         this.b = list;
         this.c = list2;
         this.d = str;
@@ -26,7 +26,7 @@ final class ad implements Runnable {
     public final void run() {
         Context context;
         PushMessageCallback pushMessageCallback = this.e.b;
-        context = this.e.f4712a;
-        pushMessageCallback.onSetTags(context, this.f4655a, this.b, this.c, this.d);
+        context = this.e.f4714a;
+        pushMessageCallback.onSetTags(context, this.f4657a, this.b, this.c, this.d);
     }
 }

@@ -25,11 +25,11 @@ public class c extends ItemizedOverlay {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final c f3114a = new c();
+        static final c f3116a = new c();
     }
 
     public static c b() {
-        return a.f3114a;
+        return a.f3116a;
     }
 
     private c() {

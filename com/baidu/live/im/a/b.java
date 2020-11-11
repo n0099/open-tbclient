@@ -16,11 +16,12 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.resourceloader.BdResourceLoader;
+import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.adp.widget.listview.AbsDelegateAdapter;
 import com.baidu.live.data.AlaLiveMarkData;
-import com.baidu.live.data.bg;
+import com.baidu.live.data.bi;
 import com.baidu.live.im.g;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
@@ -28,7 +29,7 @@ import com.baidu.live.tbadk.core.atomdata.AlaPersonCardActivityConfig;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.core.util.ViewHelper;
-import com.baidu.live.view.c;
+import com.baidu.live.view.b;
 import com.baidu.tbadk.TbConfig;
 import java.util.LinkedList;
 import java.util.List;
@@ -36,21 +37,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public abstract class b extends AbsDelegateAdapter<com.baidu.live.im.data.a, com.baidu.live.im.c> {
-    protected static int bjp = 1;
-    private String aEz;
-    protected com.baidu.live.im.e.a bjq;
-    protected boolean bjr;
-    protected boolean bjs;
-    private boolean bjt;
-    private long bju;
-    private int bjv;
-    private int bjw;
-    private boolean bjx;
+    protected static int bkJ = 1;
+    private String aFp;
+    protected com.baidu.live.im.e.a bkK;
+    protected boolean bkL;
+    protected boolean bkM;
+    private boolean bkN;
+    private long bkO;
+    private int bkP;
+    private int bkQ;
+    private boolean bkR;
     private String mGroupId;
     private Handler mHandler;
     private String mLiveId;
 
-    protected abstract void LB();
+    protected abstract void Mb();
 
     protected abstract SpannableStringBuilder a(com.baidu.live.im.data.a aVar, com.baidu.live.im.c cVar);
 
@@ -59,10 +60,10 @@ public abstract class b extends AbsDelegateAdapter<com.baidu.live.im.data.a, com
     /* JADX INFO: Access modifiers changed from: protected */
     public b(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
-        this.bjs = false;
-        this.bjt = false;
-        this.bju = 0L;
-        this.bjq = new com.baidu.live.im.e.a();
+        this.bkM = false;
+        this.bkN = false;
+        this.bkO = 0L;
+        this.bkK = new com.baidu.live.im.e.a();
         this.mHandler = new Handler();
     }
 
@@ -71,29 +72,34 @@ public abstract class b extends AbsDelegateAdapter<com.baidu.live.im.data.a, com
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
     /* renamed from: o */
     public com.baidu.live.im.c onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.live.im.c(this.mContext, 2 == bjp);
+        return new com.baidu.live.im.c(this.mContext, 2 == bkJ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Can't wrap try/catch for region: R(30:1|(2:3|(25:5|6|7|(1:9)(1:102)|10|11|12|(1:98)(1:17)|18|(1:97)(2:22|(1:24)(2:88|(1:90)(2:91|(1:93)(2:94|(1:96)))))|25|(9:27|(1:86)(2:31|(1:(2:35|(1:37)(1:64)))(2:65|(1:85)))|(1:63)(1:43)|44|(4:55|(1:59)|60|(1:62))(1:48)|49|(1:51)|52|53)|87|(1:39)|63|44|(1:46)|55|(1:59)|60|(0)|49|(0)|52|53))|105|6|7|(0)(0)|10|11|12|(1:14)|98|18|(1:20)|97|25|(0)|87|(0)|63|44|(0)|55|(0)|60|(0)|49|(0)|52|53|(1:(0))) */
-    /* JADX WARN: Code restructure failed: missing block: B:48:0x011d, code lost:
+    /* JADX WARN: Can't wrap try/catch for region: R(33:1|(2:3|(28:5|6|7|8|(2:10|11)(1:110)|12|13|14|15|(1:19)|(1:105)(1:24)|25|(1:104)(2:29|(1:31)(2:95|(1:97)(2:98|(1:100)(2:101|(1:103)))))|32|(9:34|(1:93)(2:38|(1:(2:42|(1:44)(1:71)))(2:72|(1:92)))|(1:70)(1:50)|51|(4:62|(1:66)|67|(1:69))(1:55)|56|(1:58)|59|60)|94|(1:46)|70|51|(1:53)|62|(1:66)|67|(0)|56|(0)|59|60))|113|6|7|8|(0)(0)|12|13|14|15|(2:17|19)|(1:21)|105|25|(1:27)|104|32|(0)|94|(0)|70|51|(0)|62|(0)|67|(0)|56|(0)|59|60|(1:(0))) */
+    /* JADX WARN: Code restructure failed: missing block: B:109:0x0233, code lost:
+        r0 = r5;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:55:0x013f, code lost:
         r0 = null;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:49:0x011e, code lost:
-        r3 = null;
-        r4 = r0;
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x0140, code lost:
+        r3 = r0;
+        r0 = "";
+        r2 = null;
      */
-    /* JADX WARN: Removed duplicated region for block: B:100:0x0209  */
-    /* JADX WARN: Removed duplicated region for block: B:13:0x003a  */
-    /* JADX WARN: Removed duplicated region for block: B:19:0x0071  */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0088  */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x0099  */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x00ce  */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x0108  */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x0111 A[Catch: JSONException -> 0x011c, TRY_ENTER, TRY_LEAVE, TryCatch #0 {JSONException -> 0x011c, blocks: (B:7:0x0022, B:9:0x002a, B:45:0x0111), top: B:105:0x0022 }] */
-    /* JADX WARN: Removed duplicated region for block: B:95:0x01fe A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:9:0x002a A[Catch: JSONException -> 0x011c, TRY_LEAVE, TryCatch #0 {JSONException -> 0x011c, blocks: (B:7:0x0022, B:9:0x002a, B:45:0x0111), top: B:105:0x0022 }] */
+    /* JADX WARN: Removed duplicated region for block: B:102:0x0221 A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:107:0x022c  */
+    /* JADX WARN: Removed duplicated region for block: B:10:0x002d A[Catch: JSONException -> 0x013e, TRY_LEAVE, TryCatch #1 {JSONException -> 0x013e, blocks: (B:8:0x0025, B:10:0x002d, B:52:0x0133), top: B:114:0x0025 }] */
+    /* JADX WARN: Removed duplicated region for block: B:16:0x004a  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x005c  */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0093  */
+    /* JADX WARN: Removed duplicated region for block: B:31:0x00aa  */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x00bb  */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x00f0  */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x012a  */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x0133 A[Catch: JSONException -> 0x013e, TRY_ENTER, TRY_LEAVE, TryCatch #1 {JSONException -> 0x013e, blocks: (B:8:0x0025, B:10:0x002d, B:52:0x0133), top: B:114:0x0025 }] */
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
     /* renamed from: a */
     /*
@@ -101,17 +107,18 @@ public abstract class b extends AbsDelegateAdapter<com.baidu.live.im.data.a, com
     */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.live.im.data.a aVar, com.baidu.live.im.c cVar) {
         int i2;
-        JSONObject jSONObject;
         String str;
+        String str2;
         boolean a2;
         boolean z;
         SpannableStringBuilder a3;
         SpannableStringBuilder d;
-        this.bjt = false;
-        LB();
+        JSONObject jSONObject;
+        this.bkN = false;
+        Mb();
         cVar.reset();
-        if (aVar.LO() != null) {
-            List<AlaLiveMarkData> list = aVar.LO().aGQ;
+        if (aVar.Mo() != null) {
+            List<AlaLiveMarkData> list = aVar.Mo().aHG;
             if (!ListUtils.isEmpty(list)) {
                 i2 = T(list);
                 if (!(aVar.getObjContent() instanceof JSONObject)) {
@@ -119,136 +126,146 @@ public abstract class b extends AbsDelegateAdapter<com.baidu.live.im.data.a, com
                 } else {
                     jSONObject = new JSONObject(aVar.getContent());
                 }
-                str = jSONObject.optString("content_type");
+                String optString = jSONObject.optString("content_type");
+                str = jSONObject.optString("level_id");
+                str2 = optString;
                 JSONObject jSONObject2 = jSONObject;
-                if (str == null && str.equals("activity_common_im") && jSONObject2 != null) {
+                if (!TextUtils.isEmpty(str) && JavaTypesHelper.toInt(str, 0) > 0) {
+                    aVar.Mo().level_id = JavaTypesHelper.toInt(str, 0);
+                }
+                if (str2 == null && str2.equals("activity_common_im") && jSONObject2 != null) {
                     a2 = a(jSONObject2.optJSONObject("content_data"), cVar);
                 } else {
                     a2 = a(aVar, cVar, i2);
                 }
                 boolean a4 = a(aVar, i2);
-                this.bjq.bkC = false;
-                this.bjq.bkD = false;
-                this.bjq.bkE = false;
-                this.bjq.bkF = false;
-                this.bjq.bkG = false;
-                if (!"send_redpacket".equals(str) || "start_grab_redpacket".equals(str)) {
-                    this.bjq.bkC = true;
-                } else if ("guard_seat".equals(str)) {
-                    this.bjq.bkD = true;
-                } else if ("guard_club_join".equals(str)) {
-                    this.bjq.bkE = true;
-                } else if ("haokan_buy_goods".equals(str)) {
-                    this.bjq.bkF = true;
-                } else if ("privilege_award_royal_success".equals(str)) {
-                    this.bjq.bkG = true;
+                this.bkK.blW = false;
+                this.bkK.blX = false;
+                this.bkK.blY = false;
+                this.bkK.blZ = false;
+                this.bkK.bma = false;
+                if (!"send_redpacket".equals(str2) || "start_grab_redpacket".equals(str2)) {
+                    this.bkK.blW = true;
+                } else if ("guard_seat".equals(str2)) {
+                    this.bkK.blX = true;
+                } else if ("guard_club_join".equals(str2)) {
+                    this.bkK.blY = true;
+                } else if ("haokan_buy_goods".equals(str2)) {
+                    this.bkK.blZ = true;
+                } else if ("privilege_award_royal_success".equals(str2)) {
+                    this.bkK.bma = true;
                 }
-                this.bjx = a4;
-                cVar.bgn = a2;
-                if (!aVar.LZ()) {
+                this.bkR = a4;
+                cVar.bhH = a2;
+                if (!aVar.Mz()) {
                     if (aVar.getMsgType() == 1 || aVar.getMsgType() == 126) {
                         z = true;
                     } else if (aVar.getMsgType() == 24) {
-                        if (str != null && jSONObject2 != null) {
+                        if (str2 != null && jSONObject2 != null) {
                             z = !jSONObject2.optString("content_type").equals("pk_send_props");
                         }
-                    } else if ((aVar.getMsgType() == 13 || aVar.getMsgType() == 27) && (TextUtils.equals(str, "enter_live") || TextUtils.equals(str, "follow_anchor") || TextUtils.equals(str, TbConfig.TMP_SHARE_DIR_NAME) || TextUtils.equals(str, "share_tieba") || TextUtils.equals(str, "share_rmb") || TextUtils.equals(str, "zan_rmb") || TextUtils.equals(str, "tying_gift") || TextUtils.equals(str, "add_tags_to_anchor"))) {
+                    } else if ((aVar.getMsgType() == 13 || aVar.getMsgType() == 27) && (TextUtils.equals(str2, "enter_live") || TextUtils.equals(str2, "follow_anchor") || TextUtils.equals(str2, TbConfig.TMP_SHARE_DIR_NAME) || TextUtils.equals(str2, "share_tieba") || TextUtils.equals(str2, "share_rmb") || TextUtils.equals(str2, "zan_rmb") || TextUtils.equals(str2, "tying_gift") || TextUtils.equals(str2, "add_tags_to_anchor"))) {
                         z = true;
                     }
-                    if (!z && aVar.LO() != null && !TextUtils.isEmpty(aVar.LO().portrait)) {
-                        cVar.a(true, aVar.LO().portrait, i2);
-                        cVar.bgk.setOnClickListener(new c(aVar.LO(), this.mGroupId, this.mLiveId, this.bjr, this.aEz));
+                    if (!z && aVar.Mo() != null && !TextUtils.isEmpty(aVar.Mo().portrait)) {
+                        cVar.a(true, aVar.Mo().portrait, i2);
+                        cVar.bhE.setOnClickListener(new c(aVar.Mo(), this.mGroupId, this.mLiveId, this.bkL, this.aFp));
                     } else {
                         cVar.a(false, "", 0);
-                        cVar.bgk.setOnClickListener(null);
+                        cVar.bhE.setOnClickListener(null);
                     }
-                    if (!(aVar instanceof com.baidu.live.im.a) && ((com.baidu.live.im.a) aVar).bfW != null) {
-                        a3 = ((com.baidu.live.im.a) aVar).bfW;
+                    if (!(aVar instanceof com.baidu.live.im.a) && ((com.baidu.live.im.a) aVar).bhq != null) {
+                        a3 = ((com.baidu.live.im.a) aVar).bhq;
                     } else {
                         a3 = a(aVar, cVar);
-                        d = d(aVar.LO());
-                        if (this.bjt && d != null && a3 != null) {
+                        d = d(aVar.Mo());
+                        if (this.bkN && d != null && a3 != null) {
                             a3.insert(0, (CharSequence) d);
                         }
                         if (aVar instanceof com.baidu.live.im.a) {
-                            ((com.baidu.live.im.a) aVar).bfW = a3;
+                            ((com.baidu.live.im.a) aVar).bhq = a3;
                         }
                     }
-                    cVar.a(this.mContext, this.bjq);
-                    cVar.i(this.mContext, this.bjq.bkB);
-                    cVar.bgh.setHighlightColor(this.mContext.getResources().getColor(17170445));
-                    cVar.bgh.setMovementMethod(com.baidu.live.im.g.Lg());
-                    if (this.bjs) {
-                        cVar.bS(true);
+                    cVar.a(this.mContext, this.bkK);
+                    cVar.i(this.mContext, this.bkK.blV);
+                    cVar.bhB.setHighlightColor(this.mContext.getResources().getColor(17170445));
+                    cVar.bhB.setMovementMethod(com.baidu.live.im.g.LG());
+                    if (this.bkM) {
+                        cVar.bT(true);
                     }
-                    cVar.bgh.setText(a3);
+                    cVar.bhB.setText(a3);
                     return view;
                 }
                 z = false;
                 if (!z) {
                 }
                 cVar.a(false, "", 0);
-                cVar.bgk.setOnClickListener(null);
+                cVar.bhE.setOnClickListener(null);
                 if (!(aVar instanceof com.baidu.live.im.a)) {
                 }
                 a3 = a(aVar, cVar);
-                d = d(aVar.LO());
-                if (this.bjt) {
+                d = d(aVar.Mo());
+                if (this.bkN) {
                     a3.insert(0, (CharSequence) d);
                 }
                 if (aVar instanceof com.baidu.live.im.a) {
                 }
-                cVar.a(this.mContext, this.bjq);
-                cVar.i(this.mContext, this.bjq.bkB);
-                cVar.bgh.setHighlightColor(this.mContext.getResources().getColor(17170445));
-                cVar.bgh.setMovementMethod(com.baidu.live.im.g.Lg());
-                if (this.bjs) {
+                cVar.a(this.mContext, this.bkK);
+                cVar.i(this.mContext, this.bkK.blV);
+                cVar.bhB.setHighlightColor(this.mContext.getResources().getColor(17170445));
+                cVar.bhB.setMovementMethod(com.baidu.live.im.g.LG());
+                if (this.bkM) {
                 }
-                cVar.bgh.setText(a3);
+                cVar.bhB.setText(a3);
                 return view;
             }
         }
         i2 = 0;
         if (!(aVar.getObjContent() instanceof JSONObject)) {
         }
-        str = jSONObject.optString("content_type");
+        String optString2 = jSONObject.optString("content_type");
+        str = jSONObject.optString("level_id");
+        str2 = optString2;
         JSONObject jSONObject22 = jSONObject;
-        if (str == null) {
+        if (!TextUtils.isEmpty(str)) {
+            aVar.Mo().level_id = JavaTypesHelper.toInt(str, 0);
+        }
+        if (str2 == null) {
         }
         a2 = a(aVar, cVar, i2);
         boolean a42 = a(aVar, i2);
-        this.bjq.bkC = false;
-        this.bjq.bkD = false;
-        this.bjq.bkE = false;
-        this.bjq.bkF = false;
-        this.bjq.bkG = false;
-        if (!"send_redpacket".equals(str)) {
+        this.bkK.blW = false;
+        this.bkK.blX = false;
+        this.bkK.blY = false;
+        this.bkK.blZ = false;
+        this.bkK.bma = false;
+        if (!"send_redpacket".equals(str2)) {
         }
-        this.bjq.bkC = true;
-        this.bjx = a42;
-        cVar.bgn = a2;
-        if (!aVar.LZ()) {
+        this.bkK.blW = true;
+        this.bkR = a42;
+        cVar.bhH = a2;
+        if (!aVar.Mz()) {
         }
         z = false;
         if (!z) {
         }
         cVar.a(false, "", 0);
-        cVar.bgk.setOnClickListener(null);
+        cVar.bhE.setOnClickListener(null);
         if (!(aVar instanceof com.baidu.live.im.a)) {
         }
         a3 = a(aVar, cVar);
-        d = d(aVar.LO());
-        if (this.bjt) {
+        d = d(aVar.Mo());
+        if (this.bkN) {
         }
         if (aVar instanceof com.baidu.live.im.a) {
         }
-        cVar.a(this.mContext, this.bjq);
-        cVar.i(this.mContext, this.bjq.bkB);
-        cVar.bgh.setHighlightColor(this.mContext.getResources().getColor(17170445));
-        cVar.bgh.setMovementMethod(com.baidu.live.im.g.Lg());
-        if (this.bjs) {
+        cVar.a(this.mContext, this.bkK);
+        cVar.i(this.mContext, this.bkK.blV);
+        cVar.bhB.setHighlightColor(this.mContext.getResources().getColor(17170445));
+        cVar.bhB.setMovementMethod(com.baidu.live.im.g.LG());
+        if (this.bkM) {
         }
-        cVar.bgh.setText(a3);
+        cVar.bhB.setText(a3);
         return view;
     }
 
@@ -258,21 +275,21 @@ public abstract class b extends AbsDelegateAdapter<com.baidu.live.im.data.a, com
         String optString2 = jSONObject.optString("end_bg_color");
         double optDouble = jSONObject.optDouble("alpha");
         if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-            cVar.aNf = Color.parseColor(optString.trim());
-            cVar.aNg = Color.parseColor(optString2.trim());
+            cVar.aOi = Color.parseColor(optString.trim());
+            cVar.aOj = Color.parseColor(optString2.trim());
         } else {
             String optString3 = jSONObject.optString("bg_color");
             if (TextUtils.isEmpty(optString3)) {
                 z = false;
             } else {
-                cVar.aNf = Color.parseColor(optString3);
-                cVar.aNg = cVar.aNf;
+                cVar.aOi = Color.parseColor(optString3);
+                cVar.aOj = cVar.aOi;
             }
         }
         if (optDouble >= 0.0d && optDouble <= 1.0d) {
-            cVar.aNj = (int) (255.0d * optDouble);
+            cVar.aOm = (int) (255.0d * optDouble);
         } else {
-            cVar.aNj = 255;
+            cVar.aOm = 255;
         }
         return z;
     }
@@ -285,10 +302,10 @@ public abstract class b extends AbsDelegateAdapter<com.baidu.live.im.data.a, com
     private boolean a(com.baidu.live.im.data.a aVar, com.baidu.live.im.c cVar, int i) {
         JSONObject jSONObject;
         boolean z;
-        bg bgVar;
+        bi biVar;
         JSONObject jSONObject2 = null;
-        String[] LV = aVar.LV();
-        if ((aVar.getMsgType() == 1 || aVar.getMsgType() == 126) && (LV == null || LV.length == 0 || !TextUtils.equals(LV[0], "guard_seat_effect")) && i >= 5) {
+        String[] Mv = aVar.Mv();
+        if ((aVar.getMsgType() == 1 || aVar.getMsgType() == 126) && (Mv == null || Mv.length == 0 || !TextUtils.equals(Mv[0], "guard_seat_effect")) && i >= 5) {
             try {
                 jSONObject = new JSONObject();
                 try {
@@ -314,31 +331,31 @@ public abstract class b extends AbsDelegateAdapter<com.baidu.live.im.data.a, com
                 e = e2;
                 jSONObject = null;
             }
-        } else if (com.baidu.live.z.a.Pq().bsy != null && (bgVar = com.baidu.live.z.a.Pq().bsy.aOC) != null && bgVar.aOe != null && LV != null && LV.length > 0 && !TextUtils.isEmpty(LV[0]) && (!TbadkCoreApplication.getInst().isMobileBaidu() || !TextUtils.equals(LV[0], "guard_seat_effect"))) {
-            jSONObject2 = bgVar.aOe.optJSONObject(LV[0]);
+        } else if (com.baidu.live.aa.a.PQ().btT != null && (biVar = com.baidu.live.aa.a.PQ().btT.aPz) != null && biVar.aPh != null && Mv != null && Mv.length > 0 && !TextUtils.isEmpty(Mv[0]) && (!TbadkCoreApplication.getInst().isMobileBaidu() || !TextUtils.equals(Mv[0], "guard_seat_effect"))) {
+            jSONObject2 = biVar.aPh.optJSONObject(Mv[0]);
         }
         if (jSONObject2 == null) {
             int optInt = jSONObject2.optInt("transparency");
             if (optInt >= 0 && optInt <= 100) {
-                cVar.aNj = (int) (((optInt * 1.0f) / 100.0f) * 255.0f);
+                cVar.aOm = (int) (((optInt * 1.0f) / 100.0f) * 255.0f);
             } else {
-                cVar.aNj = 255;
+                cVar.aOm = 255;
             }
-            cVar.bgo = !TextUtils.isEmpty(jSONObject2.optString("tail_icon"));
+            cVar.bhI = !TextUtils.isEmpty(jSONObject2.optString("tail_icon"));
             String optString = jSONObject2.optString("start_color");
             String optString2 = jSONObject2.optString("end_color");
             try {
                 if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                    cVar.aNf = Color.parseColor(optString);
-                    cVar.aNg = Color.parseColor(optString2);
+                    cVar.aOi = Color.parseColor(optString);
+                    cVar.aOj = Color.parseColor(optString2);
                     z = true;
                 } else {
                     String optString3 = jSONObject2.optString("bg_color");
                     if (TextUtils.isEmpty(optString3)) {
                         z = false;
                     } else {
-                        cVar.aNf = Color.parseColor(optString3);
-                        cVar.aNg = cVar.aNf;
+                        cVar.aOi = Color.parseColor(optString3);
+                        cVar.aOj = cVar.aOi;
                         z = true;
                     }
                 }
@@ -346,8 +363,8 @@ public abstract class b extends AbsDelegateAdapter<com.baidu.live.im.data.a, com
                     String optString4 = jSONObject2.optString("frame_start_color");
                     String optString5 = jSONObject2.optString("frame_end_color");
                     if (!TextUtils.isEmpty(optString4) && !TextUtils.isEmpty(optString5)) {
-                        cVar.aNh = Color.parseColor(optString4);
-                        cVar.aNi = Color.parseColor(optString5);
+                        cVar.aOk = Color.parseColor(optString4);
+                        cVar.aOl = Color.parseColor(optString5);
                     }
                 }
                 return z;
@@ -366,9 +383,9 @@ public abstract class b extends AbsDelegateAdapter<com.baidu.live.im.data.a, com
     private boolean a(com.baidu.live.im.data.a aVar, int i) {
         JSONObject jSONObject;
         String optString;
-        bg bgVar;
+        bi biVar;
         int i2 = 255;
-        String[] LV = aVar.LV();
+        String[] Mv = aVar.Mv();
         JSONObject jSONObject2 = null;
         if ((aVar.getMsgType() == 1 || aVar.getMsgType() == 126) && i >= 2) {
             try {
@@ -393,8 +410,8 @@ public abstract class b extends AbsDelegateAdapter<com.baidu.live.im.data.a, com
                 e = e2;
                 jSONObject = null;
             }
-        } else if (com.baidu.live.z.a.Pq().bsy != null && (bgVar = com.baidu.live.z.a.Pq().bsy.aOC) != null && bgVar.aOf != null && LV != null && LV.length > 1 && !TextUtils.isEmpty(LV[1])) {
-            jSONObject2 = bgVar.aOf.optJSONObject(LV[1]);
+        } else if (com.baidu.live.aa.a.PQ().btT != null && (biVar = com.baidu.live.aa.a.PQ().btT.aPz) != null && biVar.aPi != null && Mv != null && Mv.length > 1 && !TextUtils.isEmpty(Mv[1])) {
+            jSONObject2 = biVar.aPi.optJSONObject(Mv[1]);
         }
         if (jSONObject2 != null) {
             String optString2 = jSONObject2.optString("bg_color");
@@ -405,8 +422,8 @@ public abstract class b extends AbsDelegateAdapter<com.baidu.live.im.data.a, com
                 }
             }
             if (!TextUtils.isEmpty(optString2)) {
-                this.bjv = Color.parseColor(optString2);
-                this.bjw = i2;
+                this.bkP = Color.parseColor(optString2);
+                this.bkQ = i2;
                 return true;
             }
         }
@@ -415,12 +432,12 @@ public abstract class b extends AbsDelegateAdapter<com.baidu.live.im.data.a, com
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setMode(boolean z) {
-        bjp = z ? 2 : 1;
+        bkJ = z ? 2 : 1;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(SpannableStringBuilder spannableStringBuilder, com.baidu.live.data.a aVar, com.baidu.live.im.c cVar, boolean z, boolean z2) {
-        this.bjt = true;
+        this.bkN = true;
         a(spannableStringBuilder, aVar, cVar, z, z2, false);
     }
 
@@ -432,33 +449,34 @@ public abstract class b extends AbsDelegateAdapter<com.baidu.live.im.data.a, com
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(SpannableStringBuilder spannableStringBuilder, com.baidu.live.data.a aVar, com.baidu.live.im.c cVar, boolean z, boolean z2, boolean z3, String str) {
         if (spannableStringBuilder != null && aVar != null && !TextUtils.isEmpty(aVar.getNameShow())) {
-            this.bjt = true;
+            this.bkN = true;
             String nameShow = aVar.getNameShow();
             String format = String.format(!z3 ? "%s " : "%s：", !StringUtils.isNull(str) ? nameShow + str : nameShow);
             SpannableString spannableString = new SpannableString(format);
             int length = format.length();
             if (z) {
-                a aVar2 = new a(aVar, this.mGroupId, this.mLiveId, this.bjr, this.aEz);
-                aVar2.bjx = this.bjx;
-                aVar2.bjv = this.bjv;
-                aVar2.bjw = this.bjw;
+                a aVar2 = new a(aVar, this.mGroupId, this.mLiveId, this.bkL, this.aFp);
+                aVar2.bkR = this.bkR;
+                aVar2.bkP = this.bkP;
+                aVar2.bkQ = this.bkQ;
                 spannableString.setSpan(aVar2, 0, length, 17);
             } else {
-                C0185b c0185b = new C0185b(aVar, this.mGroupId, this.mLiveId, this.bjr, this.aEz);
-                c0185b.bjx = this.bjx;
-                c0185b.bjv = this.bjv;
-                c0185b.bjw = this.bjw;
-                spannableString.setSpan(c0185b, 0, length, 17);
+                C0187b c0187b = new C0187b(aVar, this.mGroupId, this.mLiveId, this.bkL, this.aFp);
+                c0187b.bkR = this.bkR;
+                c0187b.bkP = this.bkP;
+                c0187b.bkQ = this.bkQ;
+                spannableString.setSpan(c0187b, 0, length, 17);
             }
             spannableStringBuilder.append((CharSequence) spannableString);
         }
     }
 
     private SpannableStringBuilder d(com.baidu.live.data.a aVar) {
+        int i = 0;
         if (aVar == null) {
             return null;
         }
-        List<AlaLiveMarkData> list = aVar.aGQ;
+        List<AlaLiveMarkData> list = aVar.aHG;
         if (ListUtils.isEmpty(list)) {
             return null;
         }
@@ -468,57 +486,39 @@ public abstract class b extends AbsDelegateAdapter<com.baidu.live.im.data.a, com
         }
         int length = "[img] ".length();
         StringBuilder sb = new StringBuilder("");
-        for (int i = 0; i < v.size(); i++) {
+        for (int i2 = 0; i2 < v.size(); i2++) {
             sb = sb.append("[img] ");
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(sb);
-        int i2 = 0;
         while (true) {
-            int i3 = i2;
+            int i3 = i;
             if (i3 >= v.size()) {
                 return spannableStringBuilder;
             }
             AlaLiveMarkData alaLiveMarkData = v.get(i3);
             if (alaLiveMarkData != null) {
+                alaLiveMarkData.userLevel = aVar.level_id;
+                alaLiveMarkData.setupNewLevelMark();
                 int i4 = i3 * length;
                 int i5 = (i4 + length) - 1;
-                if (1 == alaLiveMarkData.type) {
-                    String str = BdResourceLoader.getInstance().genCacheKey(alaLiveMarkData.mark_pic, 10) + "*_*" + aVar.level_id;
-                    com.baidu.live.view.c cVar = com.baidu.live.view.c.bFL.get(str);
-                    if (cVar == null) {
-                        cVar = new com.baidu.live.view.b(this.mContext, alaLiveMarkData, aVar.level_id, this.bjs, new c.a() { // from class: com.baidu.live.im.a.b.1
-                            @Override // com.baidu.live.view.c.a
-                            public void d(Bitmap bitmap) {
-                                b.this.Lz();
-                            }
+                String genCacheKey = BdResourceLoader.getInstance().genCacheKey(alaLiveMarkData.mark_pic, 10);
+                com.baidu.live.view.b bVar = com.baidu.live.view.b.bLq.get(genCacheKey);
+                if (bVar == null) {
+                    bVar = new com.baidu.live.view.b(this.mContext, alaLiveMarkData, this.bkM, new b.a() { // from class: com.baidu.live.im.a.b.1
+                        @Override // com.baidu.live.view.b.a
+                        public void d(Bitmap bitmap) {
+                            b.this.LZ();
+                        }
 
-                            @Override // com.baidu.live.view.c.a
-                            public void a(com.baidu.live.view.c cVar2, Bitmap bitmap) {
-                            }
-                        });
-                        com.baidu.live.view.c.bFL.put(str, cVar);
-                    }
-                    spannableStringBuilder.setSpan(cVar, i4, i5, 17);
-                } else {
-                    String genCacheKey = BdResourceLoader.getInstance().genCacheKey(alaLiveMarkData.mark_pic, 10);
-                    com.baidu.live.view.c cVar2 = com.baidu.live.view.c.bFL.get(genCacheKey);
-                    if (cVar2 == null) {
-                        cVar2 = new com.baidu.live.view.c(this.mContext, alaLiveMarkData, this.bjs, new c.a() { // from class: com.baidu.live.im.a.b.2
-                            @Override // com.baidu.live.view.c.a
-                            public void d(Bitmap bitmap) {
-                                b.this.Lz();
-                            }
-
-                            @Override // com.baidu.live.view.c.a
-                            public void a(com.baidu.live.view.c cVar3, Bitmap bitmap) {
-                            }
-                        });
-                        com.baidu.live.view.c.bFL.put(genCacheKey, cVar2);
-                    }
-                    spannableStringBuilder.setSpan(cVar2, i4, i5, 17);
+                        @Override // com.baidu.live.view.b.a
+                        public void a(com.baidu.live.view.b bVar2, Bitmap bitmap) {
+                        }
+                    });
+                    com.baidu.live.view.b.bLq.put(genCacheKey, bVar);
                 }
+                spannableStringBuilder.setSpan(bVar, i4, i5, 17);
             }
-            i2 = i3 + 1;
+            i = i3 + 1;
         }
     }
 
@@ -529,7 +529,7 @@ public abstract class b extends AbsDelegateAdapter<com.baidu.live.im.data.a, com
                 if (alaLiveMarkData != null && !TextUtils.isEmpty(alaLiveMarkData.mark_pic) && 3 != alaLiveMarkData.type && 4 != alaLiveMarkData.type && 6 != alaLiveMarkData.type) {
                     if (StringUtils.isNull(alaLiveMarkData.anchor_user_id) || "0".equals(alaLiveMarkData.anchor_user_id)) {
                         linkedList.add(alaLiveMarkData);
-                    } else if (alaLiveMarkData.anchor_user_id.equals(this.aEz)) {
+                    } else if (alaLiveMarkData.anchor_user_id.equals(this.aFp)) {
                         linkedList.add(alaLiveMarkData);
                     }
                 }
@@ -552,19 +552,19 @@ public abstract class b extends AbsDelegateAdapter<com.baidu.live.im.data.a, com
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Lz() {
-        long currentTimeMillis = System.currentTimeMillis() - this.bju;
+    public void LZ() {
+        long currentTimeMillis = System.currentTimeMillis() - this.bkO;
         if (currentTimeMillis > 500) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913069));
-            this.bju = System.currentTimeMillis();
+            this.bkO = System.currentTimeMillis();
             return;
         }
-        this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.live.im.a.b.3
+        this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.live.im.a.b.2
             @Override // java.lang.Runnable
             public void run() {
                 b.this.mHandler.removeCallbacks(this);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913069));
-                b.this.bju = System.currentTimeMillis();
+                b.this.bkO = System.currentTimeMillis();
             }
         }, currentTimeMillis);
     }
@@ -572,47 +572,47 @@ public abstract class b extends AbsDelegateAdapter<com.baidu.live.im.data.a, com
     public void b(String str, String str2, boolean z, String str3) {
         this.mGroupId = str;
         this.mLiveId = str2;
-        this.bjr = z;
-        this.aEz = str3;
+        this.bkL = z;
+        this.aFp = str3;
     }
 
-    public boolean LA() {
-        return this.bjr;
+    public boolean Ma() {
+        return this.bkL;
     }
 
     /* renamed from: com.baidu.live.im.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0185b extends ClickableSpan implements g.a {
-        private boolean aJi;
-        private String aZS;
-        private int bjv;
-        private int bjw;
-        private boolean bjx;
-        private com.baidu.live.data.a bjz;
+    public static class C0187b extends ClickableSpan implements g.a {
+        private boolean aKf;
+        private String bbl;
+        private int bkP;
+        private int bkQ;
+        private boolean bkR;
+        private com.baidu.live.data.a bkT;
         private String groupId;
         private String liveId;
 
-        C0185b(com.baidu.live.data.a aVar, String str, String str2, boolean z, String str3) {
-            this.bjz = null;
-            this.bjz = aVar;
+        C0187b(com.baidu.live.data.a aVar, String str, String str2, boolean z, String str3) {
+            this.bkT = null;
+            this.bkT = aVar;
             this.groupId = str;
             this.liveId = str2;
-            this.aJi = z;
-            this.aZS = str3;
+            this.aKf = z;
+            this.bbl = str3;
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
         public void updateDrawState(TextPaint textPaint) {
-            if (1 == b.bjp) {
-                if (this.bjx) {
-                    textPaint.setColor(this.bjv);
-                    textPaint.setAlpha(this.bjw);
+            if (1 == b.bkJ) {
+                if (this.bkR) {
+                    textPaint.setColor(this.bkP);
+                    textPaint.setAlpha(this.bkQ);
                 } else {
                     textPaint.setColor(-5462);
                     textPaint.setAlpha(255);
                 }
-            } else if (2 == b.bjp) {
-                textPaint.setColor(TbadkCoreApplication.getInst().getResources().getColor(a.d.sdk_cp_cont_d));
+            } else if (2 == b.bkJ) {
+                textPaint.setColor(TbadkCoreApplication.getInst().getResources().getColor(a.c.sdk_cp_cont_d));
             }
             textPaint.setUnderlineText(false);
         }
@@ -620,21 +620,21 @@ public abstract class b extends AbsDelegateAdapter<com.baidu.live.im.data.a, com
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
             String str = null;
-            if (this.bjz instanceof com.baidu.live.data.a) {
-                str = this.bjz.appId;
+            if (this.bkT instanceof com.baidu.live.data.a) {
+                str = this.bkT.appId;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(view.getContext(), this.bjz.userId, this.bjz.userName, this.bjz.portrait, this.bjz.sex, this.bjz.level_id, null, null, 0L, this.bjz.aGK, this.bjz.aGL, this.bjz.aGM, this.groupId, this.liveId, this.aJi, this.aZS, str, this.bjz.getNameShow(), "")));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(view.getContext(), this.bkT.userId, this.bkT.userName, this.bkT.portrait, this.bkT.sex, this.bkT.level_id, null, null, 0L, this.bkT.aHA, this.bkT.aHB, this.bkT.aHC, this.groupId, this.liveId, this.aKf, this.bbl, str, this.bkT.getNameShow(), "")));
         }
 
         @Override // com.baidu.live.im.g.a
-        public void Lh() {
-            if (this.bjz != null) {
+        public void LH() {
+            if (this.bkT != null) {
                 if (!TbadkCoreApplication.isLogin()) {
                     ViewHelper.skipToLoginActivity(TbadkCoreApplication.getInst());
-                } else if (this.bjz.userId.equals(TbadkCoreApplication.getCurrentAccount())) {
-                    BdUtilHelper.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(a.i.ala_cannot_reply_self));
+                } else if (this.bkT.userId.equals(TbadkCoreApplication.getCurrentAccount())) {
+                    BdUtilHelper.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(a.h.ala_cannot_reply_self));
                 } else {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913012, this.bjz));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913012, this.bkT));
                 }
             }
         }
@@ -642,36 +642,36 @@ public abstract class b extends AbsDelegateAdapter<com.baidu.live.im.data.a, com
 
     /* loaded from: classes4.dex */
     public static class a extends ClickableSpan implements g.a {
-        private boolean aJi;
-        private String aZS;
-        private int bjv;
-        private int bjw;
-        private boolean bjx;
-        private com.baidu.live.data.a bjz;
+        private boolean aKf;
+        private String bbl;
+        private int bkP;
+        private int bkQ;
+        private boolean bkR;
+        private com.baidu.live.data.a bkT;
         private String groupId;
         private String liveId;
 
         a(com.baidu.live.data.a aVar, String str, String str2, boolean z, String str3) {
-            this.bjz = null;
-            this.bjz = aVar;
+            this.bkT = null;
+            this.bkT = aVar;
             this.groupId = str;
             this.liveId = str2;
-            this.aJi = z;
-            this.aZS = str3;
+            this.aKf = z;
+            this.bbl = str3;
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
         public void updateDrawState(TextPaint textPaint) {
-            if (1 == b.bjp) {
-                if (this.bjx) {
-                    textPaint.setColor(this.bjv);
-                    textPaint.setAlpha(this.bjw);
+            if (1 == b.bkJ) {
+                if (this.bkR) {
+                    textPaint.setColor(this.bkP);
+                    textPaint.setAlpha(this.bkQ);
                 } else {
                     textPaint.setColor(-5462);
                     textPaint.setAlpha(255);
                 }
-            } else if (2 == b.bjp) {
-                textPaint.setColor(TbadkCoreApplication.getInst().getResources().getColor(a.d.sdk_cp_cont_d));
+            } else if (2 == b.bkJ) {
+                textPaint.setColor(TbadkCoreApplication.getInst().getResources().getColor(a.c.sdk_cp_cont_d));
             }
             textPaint.setUnderlineText(false);
         }
@@ -679,19 +679,19 @@ public abstract class b extends AbsDelegateAdapter<com.baidu.live.im.data.a, com
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
             String str = null;
-            if (this.bjz instanceof com.baidu.live.data.a) {
-                str = this.bjz.appId;
+            if (this.bkT instanceof com.baidu.live.data.a) {
+                str = this.bkT.appId;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(view.getContext(), this.bjz.userId, this.bjz.userName, this.bjz.portrait, this.bjz.sex, this.bjz.level_id, null, null, 0L, this.bjz.aGK, this.bjz.aGL, this.bjz.aGM, this.groupId, this.liveId, this.aJi, this.aZS, str, this.bjz.getNameShow(), "")));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(view.getContext(), this.bkT.userId, this.bkT.userName, this.bkT.portrait, this.bkT.sex, this.bkT.level_id, null, null, 0L, this.bkT.aHA, this.bkT.aHB, this.bkT.aHC, this.groupId, this.liveId, this.aKf, this.bbl, str, this.bkT.getNameShow(), "")));
         }
 
         @Override // com.baidu.live.im.g.a
-        public void Lh() {
-            if (this.bjz != null) {
-                if (this.bjz.userId.equals(TbadkCoreApplication.getCurrentAccount())) {
-                    BdUtilHelper.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(a.i.ala_cannot_reply_self));
+        public void LH() {
+            if (this.bkT != null) {
+                if (this.bkT.userId.equals(TbadkCoreApplication.getCurrentAccount())) {
+                    BdUtilHelper.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(a.h.ala_cannot_reply_self));
                 } else {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913012, this.bjz));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913012, this.bkT));
                 }
             }
         }
@@ -700,51 +700,51 @@ public abstract class b extends AbsDelegateAdapter<com.baidu.live.im.data.a, com
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public static class c implements View.OnClickListener {
-        private boolean aJi;
-        private String aZS;
-        private com.baidu.live.data.a bjz;
+        private boolean aKf;
+        private String bbl;
+        private com.baidu.live.data.a bkT;
         private String groupId;
         private String liveId;
 
         public c(com.baidu.live.data.a aVar, String str, String str2, boolean z, String str3) {
-            this.bjz = null;
-            this.bjz = aVar;
+            this.bkT = null;
+            this.bkT = aVar;
             this.groupId = str;
             this.liveId = str2;
-            this.aJi = z;
-            this.aZS = str3;
+            this.aKf = z;
+            this.bbl = str3;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(view.getContext(), this.bjz.userId, this.bjz.userName, this.bjz.portrait, this.bjz.sex, this.bjz.level_id, null, null, 0L, this.bjz.aGK, this.bjz.aGL, this.bjz.aGM, this.groupId, this.liveId, this.aJi, this.aZS, this.bjz.appId, this.bjz.getNameShow(), "")));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(view.getContext(), this.bkT.userId, this.bkT.userName, this.bkT.portrait, this.bkT.sex, this.bkT.level_id, null, null, 0L, this.bkT.aHA, this.bkT.aHB, this.bkT.aHC, this.groupId, this.liveId, this.aKf, this.bbl, this.bkT.appId, this.bkT.getNameShow(), "")));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean LC() {
-        return 2 != bjp;
+    public boolean Mc() {
+        return 2 != bkJ;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void LD() {
-        this.bjq.bkA = true;
-        this.bjq.bkB = false;
-        this.bjq.isNormal = true;
+    public void Md() {
+        this.bkK.blU = true;
+        this.bkK.blV = false;
+        this.bkK.isNormal = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void LE() {
-        this.bjq.bkA = false;
-        this.bjq.bkB = false;
-        this.bjq.isNormal = false;
-    }
-
-    public void bW(boolean z) {
-        this.bjs = z;
+    public void Me() {
+        this.bkK.blU = false;
+        this.bkK.blV = false;
+        this.bkK.isNormal = false;
     }
 
     public void bX(boolean z) {
-        this.bjt = z;
+        this.bkM = z;
+    }
+
+    public void bY(boolean z) {
+        this.bkN = z;
     }
 }

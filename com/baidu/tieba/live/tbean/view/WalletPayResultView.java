@@ -53,20 +53,20 @@ public class WalletPayResultView extends LinearLayout {
 
     private void initUI(Context context) {
         this.mContext = context;
-        this.mRoot = LayoutInflater.from(context).inflate(a.h.sdk_tbn_buy_tbean_result_view, (ViewGroup) this, true);
+        this.mRoot = LayoutInflater.from(context).inflate(a.g.sdk_tbn_buy_tbean_result_view, (ViewGroup) this, true);
         setOrientation(1);
-        setBackgroundColor(getResources().getColor(a.d.sdk_cp_cont_g));
-        this.mPayFailRebuyBtn = (TextView) findViewById(a.g.pay_fail_rebuy_btn);
-        this.mPayResultSubInfo = (TextView) findViewById(a.g.pay_result_sub_info);
-        this.mPayResultSubInfoHelp = (TextView) findViewById(a.g.pay_result_sub_info_help);
-        this.mPayResultInfo = (TextView) findViewById(a.g.pay_result_info);
-        this.mPayResultIcon = (ImageView) findViewById(a.g.pay_result_icon);
-        this.mLookRecordToastTv = (TextView) findViewById(a.g.look_record_toast_tv);
+        setBackgroundColor(getResources().getColor(a.c.sdk_cp_cont_g));
+        this.mPayFailRebuyBtn = (TextView) findViewById(a.f.pay_fail_rebuy_btn);
+        this.mPayResultSubInfo = (TextView) findViewById(a.f.pay_result_sub_info);
+        this.mPayResultSubInfoHelp = (TextView) findViewById(a.f.pay_result_sub_info_help);
+        this.mPayResultInfo = (TextView) findViewById(a.f.pay_result_info);
+        this.mPayResultIcon = (ImageView) findViewById(a.f.pay_result_icon);
+        this.mLookRecordToastTv = (TextView) findViewById(a.f.look_record_toast_tv);
         if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-            this.mLookRecordToastTv.setText(a.i.sdk_tbn_look_consumption_records_shoubai);
+            this.mLookRecordToastTv.setText(a.h.sdk_tbn_look_consumption_records_shoubai);
         }
-        this.mIconIv = (TbImageView) findViewById(a.g.icon_iv);
-        this.mIconInfoTv = (TextView) findViewById(a.g.icon_info_tv);
+        this.mIconIv = (TbImageView) findViewById(a.f.icon_iv);
+        this.mIconInfoTv = (TextView) findViewById(a.f.icon_info_tv);
     }
 
     public void setClickListener(View.OnClickListener onClickListener) {
@@ -78,15 +78,15 @@ public class WalletPayResultView extends LinearLayout {
     public void updateResult(boolean z, int i, CustomData customData) {
         this.mPayFailRebuyBtn.setTag(Boolean.valueOf(z));
         if (z) {
-            this.mPayResultIcon.setImageResource(a.f.sdk_tbn_icon_send_ok);
-            this.mPayResultInfo.setText(a.i.sdk_tbn_buy_result_success);
+            this.mPayResultIcon.setImageResource(a.e.sdk_tbn_icon_send_ok);
+            this.mPayResultInfo.setText(a.h.sdk_tbn_buy_result_success);
             this.mPayResultSubInfo.setText(buildTBeanText(i));
             this.mPayResultSubInfoHelp.setVisibility(8);
-            this.mPayFailRebuyBtn.setText(a.i.sdk_tbn_pay_finish);
+            this.mPayFailRebuyBtn.setText(a.h.sdk_tbn_pay_finish);
             this.mLookRecordToastTv.setVisibility(0);
             if (customData != null && !StringUtils.isNull(customData.pic_url) && !StringUtils.isNull(customData.name)) {
                 this.mIconIv.startLoad(customData.pic_url, 10, false);
-                this.mIconInfoTv.setText(this.mContext.getString(a.i.sdk_tbn_icon_name_valid_day, customData.name, Integer.valueOf(customData.duration)));
+                this.mIconInfoTv.setText(this.mContext.getString(a.h.sdk_tbn_icon_name_valid_day, customData.name, Integer.valueOf(customData.duration)));
                 this.mIconIv.setVisibility(0);
                 this.mIconInfoTv.setVisibility(0);
                 return;
@@ -95,12 +95,12 @@ public class WalletPayResultView extends LinearLayout {
             this.mIconInfoTv.setVisibility(8);
             return;
         }
-        this.mPayResultIcon.setImageResource(a.f.sdk_tbn_icon_send_error);
-        this.mPayResultInfo.setText(a.i.sdk_tbn_buy_result_fail);
-        this.mPayResultSubInfoHelp.setText(a.i.sdk_tbn_buy_result_sub_info_help_hint);
+        this.mPayResultIcon.setImageResource(a.e.sdk_tbn_icon_send_error);
+        this.mPayResultInfo.setText(a.h.sdk_tbn_buy_result_fail);
+        this.mPayResultSubInfoHelp.setText(a.h.sdk_tbn_buy_result_sub_info_help_hint);
         this.mPayResultSubInfoHelp.setVisibility(0);
-        this.mPayResultSubInfo.setText(a.i.sdk_tbn_buy_result_sub_info_help_account);
-        this.mPayFailRebuyBtn.setText(a.i.sdk_tbn_pay_retry);
+        this.mPayResultSubInfo.setText(a.h.sdk_tbn_buy_result_sub_info_help_account);
+        this.mPayFailRebuyBtn.setText(a.h.sdk_tbn_pay_retry);
         this.mLookRecordToastTv.setVisibility(8);
         this.mIconIv.setVisibility(8);
         this.mIconInfoTv.setVisibility(8);
@@ -108,15 +108,15 @@ public class WalletPayResultView extends LinearLayout {
 
     private SpannableString buildTBeanText(int i) {
         String formatTBeanNum = BuyTBeanStringUlti.formatTBeanNum(i);
-        String str = this.mContext.getString(a.i.sdk_tbn_tbean_get) + "[image]" + formatTBeanNum;
-        Bitmap bitmap = SkinManager.getBitmap(a.f.sdk_icon_huobi_tdou);
+        String str = this.mContext.getString(a.h.sdk_tbn_tbean_get) + "[image]" + formatTBeanNum;
+        Bitmap bitmap = SkinManager.getBitmap(a.e.sdk_icon_huobi_tdou);
         BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
         bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
         VCenterTextSpan vCenterTextSpan = new VCenterTextSpan(bitmapDrawable);
-        vCenterTextSpan.setPaddingLeft(BdUtilHelper.getDimens(this.mContext, a.e.sdk_ds4));
-        vCenterTextSpan.setPaddingRight(BdUtilHelper.getDimens(this.mContext, a.e.sdk_ds4));
+        vCenterTextSpan.setPaddingLeft(BdUtilHelper.getDimens(this.mContext, a.d.sdk_ds4));
+        vCenterTextSpan.setPaddingRight(BdUtilHelper.getDimens(this.mContext, a.d.sdk_ds4));
         SpannableString spannableString = new SpannableString(str);
-        BuyTBeanStringUlti.setSpan(spannableString, str, formatTBeanNum, new ForegroundColorSpan(SkinManager.getColor(a.d.sdk_cp_link_tip_d)));
+        BuyTBeanStringUlti.setSpan(spannableString, str, formatTBeanNum, new ForegroundColorSpan(SkinManager.getColor(a.c.sdk_cp_link_tip_d)));
         BuyTBeanStringUlti.setSpan(spannableString, str, "[image]", vCenterTextSpan);
         return spannableString;
     }

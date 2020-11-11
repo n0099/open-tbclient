@@ -25,16 +25,16 @@ public class a implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4428a;
+    private int f4430a;
     private String b;
 
     public a() {
-        this.f4428a = 0;
+        this.f4430a = 0;
     }
 
     protected a(Parcel parcel) {
-        this.f4428a = 0;
-        this.f4428a = parcel.readInt();
+        this.f4430a = 0;
+        this.f4430a = parcel.readInt();
         this.b = parcel.readString();
     }
 
@@ -106,11 +106,11 @@ public class a implements Parcelable {
     }
 
     public int a() {
-        return this.f4428a;
+        return this.f4430a;
     }
 
     public void a(int i) {
-        this.f4428a = i;
+        this.f4430a = i;
     }
 
     public void a(String str) {
@@ -127,12 +127,12 @@ public class a implements Parcelable {
     }
 
     public String toString() {
-        return "NotifyOption{notifyId=" + this.f4428a + ", notifyKey='" + this.b + "'}";
+        return "NotifyOption{notifyId=" + this.f4430a + ", notifyKey='" + this.b + "'}";
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f4428a);
+        parcel.writeInt(this.f4430a);
         parcel.writeString(this.b);
     }
 }

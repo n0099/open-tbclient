@@ -37,7 +37,7 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
     private static final String h = ":pass";
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f3392a;
+    private boolean f3395a;
     private boolean b;
     protected View bottomBackView;
     private String c;
@@ -93,7 +93,7 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
     }
 
     private void b() {
-        this.f3392a = getIntent().getBooleanExtra(EXTRA_IS_DARK_MODE, false);
+        this.f3395a = getIntent().getBooleanExtra(EXTRA_IS_DARK_MODE, false);
         this.b = getIntent().getBooleanExtra(EXTRA_SHOW_BOTTOM_BACK, false);
         this.c = getIntent().getStringExtra(EXTRA_EXTERNAL_TITLE);
         this.d = getIntent().getStringExtra(EXTRA_EXTERNAL_URL);
@@ -101,7 +101,7 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
 
     private void c() {
         ViewStub viewStub;
-        if (this.f3392a) {
+        if (this.f3395a) {
             setTheme(a.h.SDKDarkTheme);
         }
         this.e = (WebView) findViewById(a.e.webview);
@@ -123,7 +123,7 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
             }
             this.mLeftBtnIv.setVisibility(8);
         }
-        if (this.f3392a) {
+        if (this.f3395a) {
             this.mTitleBgLayout.setBackgroundColor(getResources().getColor(a.b.sapi_sdk_dark_mode_title_color));
             this.mLeftBtnIv.setImageResource(a.d.sapi_sdk_btn_back_dark_mode);
             this.mTitle.setTextColor(getResources().getColor(a.b.sapi_sdk_dark_mode_edit_text_color));

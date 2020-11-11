@@ -13,14 +13,14 @@ import java.nio.channels.FileLock;
 public abstract class ed extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f4870a;
+    protected int f4872a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected Context f229a;
+    protected Context f231a;
 
     public ed(Context context, int i) {
-        this.f4870a = i;
-        this.f229a = context;
+        this.f4872a = i;
+        this.f231a = context;
     }
 
     public static void a(Context context, hu huVar) {
@@ -46,7 +46,7 @@ public abstract class ed extends ai.a {
         if (b == null || b.length == 0) {
             return;
         }
-        synchronized (dv.f4865a) {
+        synchronized (dv.f4867a) {
             try {
                 File file = new File(context.getExternalFilesDir(null), "push_cdata.lock");
                 y.m590a(file);
@@ -146,7 +146,7 @@ public abstract class ed extends ai.a {
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
     public boolean mo166a() {
-        return du.a(this.f229a, String.valueOf(mo166a()), this.f4870a);
+        return du.a(this.f231a, String.valueOf(mo166a()), this.f4872a);
     }
 
     protected boolean b() {
@@ -172,6 +172,6 @@ public abstract class ed extends ai.a {
         huVar.a(mo166a);
         huVar.a(System.currentTimeMillis());
         huVar.a(mo166a());
-        a(this.f229a, huVar, a2);
+        a(this.f231a, huVar, a2);
     }
 }

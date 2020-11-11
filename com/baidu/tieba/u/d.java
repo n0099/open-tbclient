@@ -5,15 +5,15 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes23.dex */
 public class d {
-    public final List<String> nft;
-    public final String nfu;
+    public final List<String> nlp;
+    public final String nlq;
 
     public d(List<String> list, String str) {
         if (list != null) {
-            this.nft = new ArrayList(list);
+            this.nlp = new ArrayList(list);
         } else {
-            this.nft = new ArrayList();
+            this.nlp = new ArrayList();
         }
-        this.nfu = str;
+        this.nlq = str;
     }
 }

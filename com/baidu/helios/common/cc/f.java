@@ -11,7 +11,7 @@ public final class f extends e {
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private Class<?> f1806a;
+        private Class<?> f1808a;
         private Method b;
         private Method c;
 
@@ -30,9 +30,9 @@ public final class f extends e {
 
         private void a() {
             try {
-                this.f1806a = Class.forName(n.a(i.a()), true, Object.class.getClassLoader());
-                this.b = n.a(this.f1806a, n.a(i.b()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
-                this.c = n.a(this.f1806a, n.a(i.c()), null);
+                this.f1808a = Class.forName(n.a(i.a()), true, Object.class.getClassLoader());
+                this.b = n.a(this.f1808a, n.a(i.b()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
+                this.c = n.a(this.f1808a, n.a(i.c()), null);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -49,7 +49,7 @@ public final class f extends e {
 
         /* JADX INFO: Access modifiers changed from: private */
         public Object b() {
-            return this.f1806a.newInstance();
+            return this.f1808a.newInstance();
         }
     }
 

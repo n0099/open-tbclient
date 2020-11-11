@@ -13,10 +13,10 @@ public class b extends JSEvent {
 
     public b(long j) {
         super("appAttach");
-        this.data = cj(j);
+        this.data = cF(j);
     }
 
-    private Object cj(long j) {
+    private Object cF(long j) {
         a aVar = new a();
         aVar.startupTime = j;
         return aVar;

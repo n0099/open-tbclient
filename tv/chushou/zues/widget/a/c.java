@@ -75,7 +75,7 @@ public class c extends com.facebook.drawee.span.b {
         return this;
     }
 
-    public c Q(Context context, @DrawableRes int i) {
+    public c R(Context context, @DrawableRes int i) {
         Drawable drawable = ContextCompat.getDrawable(context, i);
         if (drawable != null) {
             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());

@@ -6,24 +6,24 @@ import android.util.LruCache;
 /* loaded from: classes10.dex */
 public final class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static LruCache<String, Object> cKk;
+    private static LruCache<String, Object> cQd;
 
     /* loaded from: classes10.dex */
     private static class a {
-        static final c cKl = new c();
+        static final c cQe = new c();
     }
 
     private c() {
-        cKk = new LruCache<>(10);
+        cQd = new LruCache<>(10);
     }
 
-    public static c apd() {
-        return a.cKl;
+    public static c arE() {
+        return a.cQe;
     }
 
     public synchronized <CONFIG> CONFIG o(String str, CONFIG config) {
         Object obj;
-        if (!TextUtils.isEmpty(str) && (obj = cKk.get(str)) != null) {
+        if (!TextUtils.isEmpty(str) && (obj = cQd.get(str)) != null) {
             if (DEBUG) {
                 Log.d("SwanAppConfigCache", "getConfig hit key: " + str);
             }
@@ -37,7 +37,7 @@ public final class c {
             if (DEBUG) {
                 Log.d("SwanAppConfigCache", "putConfig key: " + str);
             }
-            cKk.put(str, config);
+            cQd.put(str, config);
         }
     }
 }

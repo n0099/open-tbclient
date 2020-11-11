@@ -10,79 +10,79 @@ public final class i<E> extends m<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        E[] eArr = this.pIK;
-        long j = this.pZG;
-        long exa = exa();
-        long hZ = hZ(exa);
-        if (b(eArr, hZ) != null) {
-            if (exa - exb() > j) {
+        E[] eArr = this.pSe;
+        long j = this.qjb;
+        long eAP = eAP();
+        long iv = iv(eAP);
+        if (b(eArr, iv) != null) {
+            if (eAP - eAQ() > j) {
                 return false;
             }
             do {
-            } while (b(eArr, hZ) != null);
-            a(eArr, hZ, e);
-            ib(1 + exa);
+            } while (b(eArr, iv) != null);
+            a(eArr, iv, e);
+            ix(1 + eAP);
             return true;
         }
-        a(eArr, hZ, e);
-        ib(1 + exa);
+        a(eArr, iv, e);
+        ix(1 + eAP);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
-        long exb;
-        long eCv = eCv();
+        long eAQ;
+        long eGk = eGk();
         do {
-            exb = exb();
-            if (exb >= eCv) {
-                long exa = exa();
-                if (exb >= exa) {
+            eAQ = eAQ();
+            if (eAQ >= eGk) {
+                long eAP = eAP();
+                if (eAQ >= eAP) {
                     return null;
                 }
-                ic(exa);
+                iy(eAP);
             }
-        } while (!W(exb, 1 + exb));
-        long hZ = hZ(exb);
-        E[] eArr = this.pIK;
-        E a2 = a(eArr, hZ);
-        b(eArr, hZ, null);
+        } while (!X(eAQ, 1 + eAQ));
+        long iv = iv(eAQ);
+        E[] eArr = this.pSe;
+        E a2 = a(eArr, iv);
+        b(eArr, iv, null);
         return a2;
     }
 
     @Override // java.util.Queue
     public E peek() {
-        E ia;
-        long eCv = eCv();
+        E iw;
+        long eGk = eGk();
         do {
-            long exb = exb();
-            if (exb >= eCv) {
-                long exa = exa();
-                if (exb >= exa) {
+            long eAQ = eAQ();
+            if (eAQ >= eGk) {
+                long eAP = eAP();
+                if (eAQ >= eAP) {
                     return null;
                 }
-                ic(exa);
+                iy(eAP);
             }
-            ia = ia(hZ(exb));
-        } while (ia == null);
-        return ia;
+            iw = iw(iv(eAQ));
+        } while (iw == null);
+        return iw;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long exb = exb();
+        long eAQ = eAQ();
         while (true) {
-            long exa = exa();
-            long exb2 = exb();
-            if (exb == exb2) {
-                return (int) (exa - exb2);
+            long eAP = eAP();
+            long eAQ2 = eAQ();
+            if (eAQ == eAQ2) {
+                return (int) (eAP - eAQ2);
             }
-            exb = exb2;
+            eAQ = eAQ2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return exb() == exa();
+        return eAQ() == eAP();
     }
 }

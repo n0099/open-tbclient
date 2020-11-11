@@ -22,9 +22,9 @@ public interface a {
 
     void a(Context context, Bundle bundle, com.baidu.swan.apps.a.a aVar);
 
-    void a(Context context, a.InterfaceC0490a interfaceC0490a);
+    void a(Context context, a.InterfaceC0502a interfaceC0502a);
 
-    void a(Context context, a.InterfaceC0492a interfaceC0492a);
+    void a(Context context, a.InterfaceC0504a interfaceC0504a);
 
     void a(Context context, SwanAppPhoneLoginDialog.a aVar, String str);
 

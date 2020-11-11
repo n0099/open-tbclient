@@ -11,23 +11,23 @@ public class g extends b {
     private Surface mInputSurface;
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ long WJ() {
-        return super.WJ();
+    public /* bridge */ /* synthetic */ void ZI() {
+        super.ZI();
     }
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ void Xj() {
-        super.Xj();
+    public /* bridge */ /* synthetic */ void ZJ() {
+        super.ZJ();
     }
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ void Xk() {
-        super.Xk();
+    public /* bridge */ /* synthetic */ void ZK() {
+        super.ZK();
     }
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ void Xl() {
-        super.Xl();
+    public /* bridge */ /* synthetic */ long Zi() {
+        return super.Zi();
     }
 
     @Override // com.baidu.mario.a.b.b
@@ -41,8 +41,8 @@ public class g extends b {
     }
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ void dr(boolean z) {
-        super.dr(z);
+    public /* bridge */ /* synthetic */ void dy(boolean z) {
+        super.dy(z);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:? A[RETURN, SYNTHETIC] */
@@ -53,7 +53,7 @@ public class g extends b {
     public void a(d dVar, e eVar) {
         boolean z = true;
         if (dVar != null && eVar != null) {
-            this.bSf = eVar;
+            this.bXP = eVar;
             MediaFormat createVideoFormat = MediaFormat.createVideoFormat(dVar.getVideoCodec(), dVar.getVideoWidth(), dVar.getVideoHeight());
             createVideoFormat.setInteger("color-format", 2130708361);
             createVideoFormat.setInteger("bitrate", dVar.getVideoBitrate());
@@ -63,18 +63,18 @@ public class g extends b {
                 this.mEncoder = MediaCodec.createEncoderByType(dVar.getVideoCodec());
                 this.mEncoder.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
                 this.mInputSurface = this.mEncoder.createInputSurface();
-                this.bSh = true;
+                this.bXR = true;
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (this.bSg == null) {
-                this.bSg.dl(z);
+            if (this.bXQ == null) {
+                this.bXQ.ds(z);
                 return;
             }
             return;
         }
         z = false;
-        if (this.bSg == null) {
+        if (this.bXQ == null) {
         }
     }
 
@@ -83,13 +83,13 @@ public class g extends b {
     }
 
     @Override // com.baidu.mario.a.b.b
-    protected void Xi() {
-        if (this.bSi == 0) {
-            this.bSi = this.mBufferInfo.presentationTimeUs;
-            bSj = 0L;
+    protected void ZH() {
+        if (this.bXS == 0) {
+            this.bXS = this.mBufferInfo.presentationTimeUs;
+            bXT = 0L;
         }
-        this.mBufferInfo.presentationTimeUs -= this.bSi;
-        bSj = this.mBufferInfo.presentationTimeUs;
-        com.baidu.mario.a.d.WI().aM(bSj / 1000);
+        this.mBufferInfo.presentationTimeUs -= this.bXS;
+        bXT = this.mBufferInfo.presentationTimeUs;
+        com.baidu.mario.a.d.Zh().bi(bXT / 1000);
     }
 }

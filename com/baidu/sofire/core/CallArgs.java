@@ -19,7 +19,7 @@ public class CallArgs implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public int f3599a;
+    public int f3602a;
     public int b;
     public String c;
     public Object[] d;
@@ -30,7 +30,7 @@ public class CallArgs implements Parcelable {
     }
 
     protected CallArgs(Parcel parcel) {
-        this.f3599a = parcel.readInt();
+        this.f3602a = parcel.readInt();
         this.b = parcel.readInt();
         this.c = parcel.readString();
         this.e = parcel.readArray(CallArgs.class.getClassLoader());
@@ -45,7 +45,7 @@ public class CallArgs implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f3599a);
+        parcel.writeInt(this.f3602a);
         parcel.writeInt(this.b);
         parcel.writeString(this.c);
         parcel.writeArray(this.e);

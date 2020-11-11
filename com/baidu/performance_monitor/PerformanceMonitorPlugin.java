@@ -81,7 +81,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, MethodChannel.Me
             BdStatisticsManager.getInstance().performance(str2, statsItem);
             result.success(null);
         } else if (methodCall.method.equals("reportPageLoadPerformance")) {
-            if (m.bzV().bzW() && methodCall.arguments != null && (hashMap = (HashMap) methodCall.arguments) != null && hashMap.get("viewCreateTime") != null && ((Double) hashMap.get("viewCreateTime")).doubleValue() > 0.0d) {
+            if (m.bCu().bCv() && methodCall.arguments != null && (hashMap = (HashMap) methodCall.arguments) != null && hashMap.get("viewCreateTime") != null && ((Double) hashMap.get("viewCreateTime")).doubleValue() > 0.0d) {
                 String str3 = (String) hashMap.get("pageName");
                 if (OpenFlutter.ACTIVITY_SIGN_TOGETHER.equals(str3)) {
                     str = "sign_all_flt";
@@ -92,7 +92,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, MethodChannel.Me
                 mT.append("action", "time");
                 mT.append("ishttp", hashMap.get("isHttp"));
                 mT.append("issuccess", hashMap.get("errCode") == BasicPushStatus.SUCCESS_CODE ? "1" : "0");
-                mT.append("nettype", m.bzV().getNetType());
+                mT.append("nettype", m.bCu().getNetType());
                 if (hashMap.containsKey("whiteTime") && (hashMap.get("whiteTime") instanceof Double)) {
                     mT.append("wt", Double.valueOf(((Double) hashMap.get("whiteTime")).doubleValue() * 1000.0d));
                 }

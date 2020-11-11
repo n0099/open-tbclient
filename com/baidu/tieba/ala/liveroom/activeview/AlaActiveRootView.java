@@ -30,8 +30,8 @@ public class AlaActiveRootView extends PendantChildView implements com.baidu.liv
             int i2 = i;
             if (i2 < getChildCount()) {
                 View childAt = getChildAt(i2);
-                if (childAt instanceof c) {
-                    ((c) childAt).onStart();
+                if (childAt instanceof d) {
+                    ((d) childAt).onStart();
                 }
                 i = i2 + 1;
             } else {
@@ -46,8 +46,8 @@ public class AlaActiveRootView extends PendantChildView implements com.baidu.liv
             int i2 = i;
             if (i2 < getChildCount()) {
                 View childAt = getChildAt(i2);
-                if (childAt instanceof c) {
-                    ((c) childAt).onStop();
+                if (childAt instanceof d) {
+                    ((d) childAt).onStop();
                 }
                 i = i2 + 1;
             } else {
@@ -62,8 +62,8 @@ public class AlaActiveRootView extends PendantChildView implements com.baidu.liv
             int i2 = i;
             if (i2 < getChildCount()) {
                 View childAt = getChildAt(i2);
-                if (childAt instanceof c) {
-                    ((c) childAt).release();
+                if (childAt instanceof d) {
+                    ((d) childAt).release();
                 }
                 i = i2 + 1;
             } else {
@@ -78,8 +78,8 @@ public class AlaActiveRootView extends PendantChildView implements com.baidu.liv
         if (getBackground() != null) {
             getBackground().setAlpha(0);
         }
-        setId(a.g.ala_liveroom_active_view);
-        setMinimumWidth(getResources().getDimensionPixelOffset(a.e.sdk_ds104));
+        setId(a.f.ala_liveroom_active_view);
+        setMinimumWidth(getResources().getDimensionPixelOffset(a.d.sdk_ds104));
     }
 
     @Override // com.baidu.live.g.b
@@ -118,7 +118,7 @@ public class AlaActiveRootView extends PendantChildView implements com.baidu.liv
             if (lastChild instanceof AlaActiveBannerView) {
                 return 30;
             }
-            if (lastChild instanceof AlaActiveWebView) {
+            if (lastChild instanceof ActiveWebBannerItemView) {
                 return 25;
             }
         }

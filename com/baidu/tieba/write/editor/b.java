@@ -14,76 +14,76 @@ public class b extends m {
 
     public b(Context context, String str) {
         super(context, (String) null, 15);
-        this.fis = false;
+        this.fok = false;
         this.context = context;
-        this.fir = 3;
-        this.fhv = new EditorInfoContainer(context, str);
-        this.fit = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54, 57};
+        this.foj = 3;
+        this.fnp = new EditorInfoContainer(context, str);
+        this.fol = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54, 57};
     }
 
-    public void dqY() {
+    public void dtA() {
         BaseActivity baseActivity = (BaseActivity) this.context;
-        e eVar = new e(baseActivity.getPageContext(), (View) this.fhv);
-        eVar.fh(R.drawable.bg_tip_blue_left_less_than_right_down);
-        eVar.fg(16);
-        eVar.ox(true);
+        e eVar = new e(baseActivity.getPageContext(), (View) this.fnp);
+        eVar.fu(R.drawable.bg_tip_blue_left_less_than_right_down);
+        eVar.ft(16);
+        eVar.oG(true);
         eVar.setAnchor(2);
         eVar.setUseDirectOffset(true);
-        eVar.xd(l.getDimens(baseActivity, R.dimen.ds32));
-        eVar.xa(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds27));
-        eVar.xb(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds41));
-        eVar.fi((int) IMConnection.RETRY_DELAY_TIMES);
-        eVar.ow(false);
-        if (eVar.y(baseActivity.getString(R.string.write_location_topic_hint_title), "write_hint_tip_key", true)) {
-            ((EditorInfoContainer) this.fhv).gI(IMConnection.RETRY_DELAY_TIMES);
+        eVar.xq(l.getDimens(baseActivity, R.dimen.ds32));
+        eVar.xn(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds27));
+        eVar.xo(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds41));
+        eVar.fv((int) IMConnection.RETRY_DELAY_TIMES);
+        eVar.oF(false);
+        if (eVar.z(baseActivity.getString(R.string.write_location_topic_hint_title), "write_hint_tip_key", true)) {
+            ((EditorInfoContainer) this.fnp).he(IMConnection.RETRY_DELAY_TIMES);
         }
     }
 
     public void setFrom(String str) {
-        if (this.fhv instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.fhv).setFrom(str);
+        if (this.fnp instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.fnp).setFrom(str);
         }
     }
 
-    public void bO(String str, int i) {
-        if (this.fhv instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.fhv).bO(str, i);
+    public void bQ(String str, int i) {
+        if (this.fnp instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.fnp).bQ(str, i);
         }
     }
 
-    public void Ld(int i) {
-        if (this.fhv instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.fhv).Ld(i);
+    public void Lq(int i) {
+        if (this.fnp instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.fnp).Lq(i);
         }
     }
 
-    public void yp(boolean z) {
-        if (this.fhv instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.fhv).yp(z);
+    public void yy(boolean z) {
+        if (this.fnp instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.fnp).yy(z);
         }
     }
 
-    public void cpK() {
-        if (this.fhv instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.fhv).cpK();
+    public void csl() {
+        if (this.fnp instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.fnp).csl();
         }
     }
 
-    public void dRh() {
-        if (this.fhv instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.fhv).dRh();
+    public void dTH() {
+        if (this.fnp instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.fnp).dTH();
         }
     }
 
-    public void dRj() {
-        if (this.fhv instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.fhv).hide();
+    public void dTJ() {
+        if (this.fnp instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.fnp).hide();
         }
     }
 
-    public void yq(boolean z) {
-        if (this.fhv instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.fhv).yq(z);
+    public void yz(boolean z) {
+        if (this.fnp instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.fnp).yz(z);
         }
     }
 }

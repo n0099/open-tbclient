@@ -6,19 +6,19 @@ import com.xiaomi.push.bg;
 public class h implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f4725a;
+    final /* synthetic */ a f4727a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ bg f18a;
+    final /* synthetic */ bg f20a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar, bg bgVar) {
-        this.f4725a = aVar;
-        this.f18a = bgVar;
+        this.f4727a = aVar;
+        this.f20a = bgVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f18a.run();
+        this.f20a.run();
     }
 }

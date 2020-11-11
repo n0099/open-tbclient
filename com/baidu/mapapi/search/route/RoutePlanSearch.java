@@ -6,7 +6,7 @@ public class RoutePlanSearch extends com.baidu.mapapi.search.core.l {
     private boolean b = false;
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.platform.core.d.e f2144a = new com.baidu.platform.core.d.j();
+    private com.baidu.platform.core.d.e f2146a = new com.baidu.platform.core.d.j();
 
     RoutePlanSearch() {
     }
@@ -17,7 +17,7 @@ public class RoutePlanSearch extends com.baidu.mapapi.search.core.l {
     }
 
     public boolean bikingSearch(BikingRoutePlanOption bikingRoutePlanOption) {
-        if (this.f2144a == null) {
+        if (this.f2146a == null) {
             throw new IllegalStateException("BDMapSDKException: RoutePlanSearch is null, please call newInstance() first.");
         }
         if (bikingRoutePlanOption == null || bikingRoutePlanOption.mTo == null || bikingRoutePlanOption.mFrom == null) {
@@ -29,7 +29,7 @@ public class RoutePlanSearch extends com.baidu.mapapi.search.core.l {
         if (bikingRoutePlanOption.mTo.getLocation() == null && (bikingRoutePlanOption.mTo.getName() == null || bikingRoutePlanOption.mTo.getName() == "")) {
             throw new IllegalArgumentException("BDMapSDKException: route plan option , destination is illegal");
         }
-        return this.f2144a.a(bikingRoutePlanOption);
+        return this.f2146a.a(bikingRoutePlanOption);
     }
 
     public void destroy() {
@@ -37,22 +37,22 @@ public class RoutePlanSearch extends com.baidu.mapapi.search.core.l {
             return;
         }
         this.b = true;
-        this.f2144a.a();
+        this.f2146a.a();
         BMapManager.destroy();
     }
 
     public boolean drivingSearch(DrivingRoutePlanOption drivingRoutePlanOption) {
-        if (this.f2144a == null) {
+        if (this.f2146a == null) {
             throw new IllegalStateException("BDMapSDKException: RoutePlanSearch is null, please call newInstance() first.");
         }
         if (drivingRoutePlanOption == null || drivingRoutePlanOption.mTo == null || drivingRoutePlanOption.mFrom == null) {
             throw new IllegalArgumentException("BDMapSDKException: route plan option , origin or destination can not be null");
         }
-        return this.f2144a.a(drivingRoutePlanOption);
+        return this.f2146a.a(drivingRoutePlanOption);
     }
 
     public boolean masstransitSearch(MassTransitRoutePlanOption massTransitRoutePlanOption) {
-        if (this.f2144a == null) {
+        if (this.f2146a == null) {
             throw new IllegalStateException("BDMapSDKException: RoutePlanSearch is null, please call newInstance() first.");
         }
         if (massTransitRoutePlanOption == null || massTransitRoutePlanOption.mTo == null || massTransitRoutePlanOption.mFrom == null) {
@@ -64,46 +64,46 @@ public class RoutePlanSearch extends com.baidu.mapapi.search.core.l {
         if (massTransitRoutePlanOption.mTo.getLocation() == null && (massTransitRoutePlanOption.mTo.getName() == null || massTransitRoutePlanOption.mTo.getCity() == null)) {
             throw new IllegalArgumentException("BDMapSDKException: route plan option,destination is illegal");
         }
-        return this.f2144a.a(massTransitRoutePlanOption);
+        return this.f2146a.a(massTransitRoutePlanOption);
     }
 
     public void setOnGetRoutePlanResultListener(OnGetRoutePlanResultListener onGetRoutePlanResultListener) {
-        if (this.f2144a == null) {
+        if (this.f2146a == null) {
             throw new IllegalStateException("BDMapSDKException: RoutePlanSearch is null, please call newInstance() first.");
         }
         if (onGetRoutePlanResultListener == null) {
             throw new IllegalArgumentException("BDMapSDKException: listener can not be null");
         }
-        this.f2144a.a(onGetRoutePlanResultListener);
+        this.f2146a.a(onGetRoutePlanResultListener);
     }
 
     public boolean transitSearch(TransitRoutePlanOption transitRoutePlanOption) {
-        if (this.f2144a == null) {
+        if (this.f2146a == null) {
             throw new IllegalStateException("BDMapSDKException: RoutePlanSearch is null, please call newInstance() first.");
         }
         if (transitRoutePlanOption == null || transitRoutePlanOption.mCityName == null || transitRoutePlanOption.mTo == null || transitRoutePlanOption.mFrom == null) {
             throw new IllegalArgumentException("BDMapSDKException: route plan option,origin or destination or city can not be null");
         }
-        return this.f2144a.a(transitRoutePlanOption);
+        return this.f2146a.a(transitRoutePlanOption);
     }
 
     public boolean walkingIndoorSearch(IndoorRoutePlanOption indoorRoutePlanOption) {
-        if (this.f2144a == null) {
+        if (this.f2146a == null) {
             throw new IllegalStateException("BDMapSDKException: RoutePlanSearch is null, please call newInstance() first.");
         }
         if (indoorRoutePlanOption == null || indoorRoutePlanOption.mTo == null || indoorRoutePlanOption.mFrom == null) {
             throw new IllegalArgumentException("BDMapSDKException: option , origin or destination can not be null");
         }
-        return this.f2144a.a(indoorRoutePlanOption);
+        return this.f2146a.a(indoorRoutePlanOption);
     }
 
     public boolean walkingSearch(WalkingRoutePlanOption walkingRoutePlanOption) {
-        if (this.f2144a == null) {
+        if (this.f2146a == null) {
             throw new IllegalStateException("BDMapSDKException: RoutePlanSearch is null, please call newInstance() first.");
         }
         if (walkingRoutePlanOption == null || walkingRoutePlanOption.mTo == null || walkingRoutePlanOption.mFrom == null) {
             throw new IllegalArgumentException("BDMapSDKException: option , origin or destination can not be null");
         }
-        return this.f2144a.a(walkingRoutePlanOption);
+        return this.f2146a.a(walkingRoutePlanOption);
     }
 }

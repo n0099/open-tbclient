@@ -21,10 +21,10 @@ public class PbExtraStatic {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2004015 && (customResponsedMessage.getData() instanceof d)) {
-                    ((d) customResponsedMessage.getData()).dHc().add(new a(null, PostData.mQO));
+                    ((d) customResponsedMessage.getData()).dJE().add(new a(null, PostData.mWS));
                 }
             }
         });
-        PostData.mQT = true;
+        PostData.mWX = true;
     }
 }

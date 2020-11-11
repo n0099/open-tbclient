@@ -79,7 +79,7 @@ public class ImageUploader {
         ErrorData errorData = new ErrorData();
         if (writeImagesInfo == null || writeImagesInfo.size() == 0) {
             errorData.setError_code(-53);
-            errorData.setError_msg(TbadkCoreApplication.getInst().getString(a.i.sdk_upload_error));
+            errorData.setError_msg(TbadkCoreApplication.getInst().getString(a.h.sdk_upload_error));
             return errorData;
         }
         LinkedList<ImageFileInfo> chosedFiles = writeImagesInfo.getChosedFiles();
@@ -103,7 +103,7 @@ public class ImageUploader {
                     imageFileInfo.setServerImageCode(uploadedPicInfo.toPostString());
                 } else {
                     errorData.setError_code(-53);
-                    errorData.setError_msg(TbadkCoreApplication.getInst().getString(a.i.sdk_upload_error));
+                    errorData.setError_msg(TbadkCoreApplication.getInst().getString(a.h.sdk_upload_error));
                     return errorData;
                 }
             }
@@ -194,7 +194,7 @@ public class ImageUploader {
                         ImageUploadResult imageUploadResult3 = new ImageUploadResult();
                         try {
                             imageUploadResult3.error_code = ImageUploadResult.INTER_ERROR_FILE_ERROR;
-                            imageUploadResult3.error_msg = TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_file_not_exist);
+                            imageUploadResult3.error_msg = TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_file_not_exist);
                             TiebaInitialize.imgError(-1007, "file error: " + imageUploadResult3.error_msg, sb.toString());
                             imageUploadResult = imageUploadResult3;
                             randomAccessFile2 = null;
@@ -368,7 +368,7 @@ public class ImageUploader {
                 ImageUploadResult imageUploadResult4 = new ImageUploadResult();
                 try {
                     imageUploadResult4.error_code = ImageUploadResult.INTER_ERROR_FILE_ERROR;
-                    imageUploadResult4.error_msg = TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_file_size_over);
+                    imageUploadResult4.error_msg = TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_file_size_over);
                     BdCloseHelper.close((Closeable) null);
                     this.mNetwork = null;
                     return imageUploadResult4;

@@ -12,7 +12,7 @@ public class a<T> extends com.sdk.base.framework.d.a<T> {
         super(context, aVar, eVar);
         if (!f.d) {
             this.b = g.b.a();
-            this.c = g.f4485a.a();
+            this.c = g.f4487a.a();
             return;
         }
         String testHost = SDKManager.getTestHost();
@@ -20,7 +20,7 @@ public class a<T> extends com.sdk.base.framework.d.a<T> {
         if (c.b(statisticalTestHost).booleanValue()) {
             this.c = statisticalTestHost;
         } else {
-            this.c = g.f4485a.a();
+            this.c = g.f4487a.a();
         }
         if (c.b(testHost).booleanValue()) {
             this.b = testHost;

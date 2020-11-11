@@ -9,12 +9,12 @@ import com.baidu.tieba.ala.alaar.view.b;
 /* loaded from: classes4.dex */
 public abstract class h<LIST, D, VH extends b> extends BaseAdapter implements View.OnClickListener {
     protected Context context;
-    protected a gaI;
-    private VH gaJ;
+    protected a ggy;
+    private VH ggz;
     protected LIST mData;
     protected LayoutInflater mInflater;
     protected int ZQ = -1;
-    protected int gaH = -1;
+    protected int ggx = -1;
 
     /* loaded from: classes4.dex */
     public interface a<VH extends b> {
@@ -25,22 +25,22 @@ public abstract class h<LIST, D, VH extends b> extends BaseAdapter implements Vi
 
     public abstract VH b(int i, ViewGroup viewGroup);
 
-    public abstract D tD(int i);
+    public abstract D tN(int i);
 
     public h(Context context, LIST list) {
         this.context = context;
         this.mInflater = LayoutInflater.from(context);
         this.mData = list;
-        bKe();
+        bMD();
     }
 
     public void setData(LIST list) {
         this.mData = list;
-        bKe();
+        bMD();
         notifyDataSetChanged();
     }
 
-    protected void bKe() {
+    protected void bMD() {
         this.ZQ = -1;
     }
 
@@ -60,8 +60,8 @@ public abstract class h<LIST, D, VH extends b> extends BaseAdapter implements Vi
     }
 
     public void a(int i, final VH vh) {
-        vh.i(i, tD(i));
-        if (this.gaH >= 0 && i == this.gaH) {
+        vh.h(i, tN(i));
+        if (this.ggx >= 0 && i == this.ggx) {
             vh.itemView.post(new Runnable() { // from class: com.baidu.tieba.ala.alaar.view.h.1
                 /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.tieba.ala.alaar.view.h */
                 /* JADX WARN: Multi-variable type inference failed */
@@ -76,18 +76,18 @@ public abstract class h<LIST, D, VH extends b> extends BaseAdapter implements Vi
     }
 
     private void b(int i, VH vh) {
-        if (vh != this.gaJ) {
-            if (this.gaJ != null) {
-                this.gaJ.tz(i);
+        if (vh != this.ggz) {
+            if (this.ggz != null) {
+                this.ggz.tJ(i);
             }
-            this.gaJ = vh;
+            this.ggz = vh;
         }
-        vh.tz(i);
+        vh.tJ(i);
     }
 
-    public void tE(int i) {
+    public void tO(int i) {
         if (i != this.ZQ) {
-            this.gaH = i;
+            this.ggx = i;
             notifyDataSetChanged();
         }
     }
@@ -110,16 +110,16 @@ public abstract class h<LIST, D, VH extends b> extends BaseAdapter implements Vi
             com.baidu.tieba.ala.alaar.makeup.h.d("MK_VIEW", "onClick with viewHolder null");
             return;
         }
-        boolean z2 = this.gaI != null && this.gaI.a(vh, vh.position, this.ZQ, z);
+        boolean z2 = this.ggy != null && this.ggy.a(vh, vh.position, this.ZQ, z);
         if (com.baidu.tieba.ala.alaar.makeup.h.isDebug()) {
             com.baidu.tieba.ala.alaar.makeup.h.d("MK_VIEW", "onClick pos= " + vh.position + ", processed= " + z2);
         }
         if (!z2) {
             b(vh.position, (int) vh);
             this.ZQ = vh.position;
-            this.gaH = -1;
-            if (this.gaI != null) {
-                this.gaI.a(vh, vh.position, z);
+            this.ggx = -1;
+            if (this.ggy != null) {
+                this.ggy.a(vh, vh.position, z);
             }
         }
     }
@@ -129,6 +129,6 @@ public abstract class h<LIST, D, VH extends b> extends BaseAdapter implements Vi
     }
 
     public void a(a aVar) {
-        this.gaI = aVar;
+        this.ggy = aVar;
     }
 }

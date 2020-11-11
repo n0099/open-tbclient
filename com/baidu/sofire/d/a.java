@@ -6,7 +6,7 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3617a;
+    public String f3620a;
     public String b;
     public String c;
     public String d;
@@ -15,7 +15,7 @@ public final class a {
     public static String a(a aVar) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("0", aVar.f3617a);
+            jSONObject.put("0", aVar.f3620a);
             jSONObject.put("1", aVar.c);
             jSONObject.put("2", aVar.d);
             jSONObject.put("3", aVar.e);
@@ -30,7 +30,7 @@ public final class a {
         a aVar = new a();
         try {
             JSONObject jSONObject = new JSONObject(str);
-            aVar.f3617a = jSONObject.optString("0");
+            aVar.f3620a = jSONObject.optString("0");
             aVar.c = jSONObject.optString("1");
             aVar.d = jSONObject.optString("2");
             aVar.e = jSONObject.optString("3");

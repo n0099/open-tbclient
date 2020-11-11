@@ -13,7 +13,7 @@ import tv.chushou.zues.utils.h;
 public class GiftPopupLayout extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4161a;
+    private int f4163a;
     private int b;
 
     public GiftPopupLayout(Context context) {
@@ -32,7 +32,7 @@ public class GiftPopupLayout extends LinearLayout {
     }
 
     private void a(Context context, @Nullable AttributeSet attributeSet) {
-        this.f4161a = tv.chushou.zues.utils.a.dip2px(context, 36.0f);
+        this.f4163a = tv.chushou.zues.utils.a.dip2px(context, 36.0f);
         this.b = tv.chushou.zues.utils.a.dip2px(context, 12.0f);
     }
 
@@ -52,7 +52,7 @@ public class GiftPopupLayout extends LinearLayout {
         for (ListItem listItem : arrayList) {
             b bVar = new b(getContext());
             bVar.a(i, list, listItem);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, this.f4161a);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, this.f4163a);
             if (i == 1) {
                 layoutParams.leftMargin = i2 == 0 ? 0 : this.b;
             } else if (i == 2) {

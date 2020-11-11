@@ -7,81 +7,81 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes17.dex */
 public final class UrlResponseInfo {
-    private final int oeo;
-    private final List<String> ofH;
-    private final String ofI;
-    private final boolean ofJ;
-    private final String ofK;
-    private final String ofL;
-    private final AtomicLong ofM = new AtomicLong();
-    private final HeaderBlock ofN;
+    private final int ont;
+    private final List<String> ooL;
+    private final String ooM;
+    private final boolean ooN;
+    private final String ooO;
+    private final String ooP;
+    private final AtomicLong ooQ = new AtomicLong();
+    private final HeaderBlock ooR;
 
     /* loaded from: classes17.dex */
     public static final class HeaderBlock {
-        private final List<Map.Entry<String, String>> ofO;
+        private final List<Map.Entry<String, String>> ooS;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public HeaderBlock(List<Map.Entry<String, String>> list) {
-            this.ofO = list;
+            this.ooS = list;
         }
 
-        public List<Map.Entry<String, String>> dYX() {
-            return this.ofO;
+        public List<Map.Entry<String, String>> ecF() {
+            return this.ooS;
         }
     }
 
     public UrlResponseInfo(List<String> list, int i, String str, List<Map.Entry<String, String>> list2, boolean z, String str2, String str3) {
-        this.ofH = Collections.unmodifiableList(list);
-        this.oeo = i;
-        this.ofI = str;
-        this.ofN = new HeaderBlock(Collections.unmodifiableList(list2));
-        this.ofJ = z;
-        this.ofK = str2;
-        this.ofL = str3;
+        this.ooL = Collections.unmodifiableList(list);
+        this.ont = i;
+        this.ooM = str;
+        this.ooR = new HeaderBlock(Collections.unmodifiableList(list2));
+        this.ooN = z;
+        this.ooO = str2;
+        this.ooP = str3;
     }
 
     public String getUrl() {
-        return this.ofH.get(this.ofH.size() - 1);
+        return this.ooL.get(this.ooL.size() - 1);
     }
 
-    public List<String> dYR() {
-        return this.ofH;
+    public List<String> ecz() {
+        return this.ooL;
     }
 
     public int getHttpStatusCode() {
-        return this.oeo;
+        return this.ont;
     }
 
-    public String dYS() {
-        return this.ofI;
+    public String ecA() {
+        return this.ooM;
     }
 
-    public List<Map.Entry<String, String>> dYT() {
-        return this.ofN.dYX();
+    public List<Map.Entry<String, String>> ecB() {
+        return this.ooR.ecF();
     }
 
-    public boolean dYU() {
-        return this.ofJ;
+    public boolean ecC() {
+        return this.ooN;
     }
 
-    public String dYV() {
-        return this.ofK;
+    public String ecD() {
+        return this.ooO;
     }
 
-    public String dYW() {
-        return this.ofL;
+    public String ecE() {
+        return this.ooP;
     }
 
     public long getReceivedBytesCount() {
-        return this.ofM.get();
+        return this.ooQ.get();
     }
 
     public String toString() {
-        return String.format(Locale.ROOT, "UrlResponseInfo@[%s][%s]: urlChain = %s, httpStatus = %d %s, headers = %s, wasCached = %b, negotiatedProtocol = %s, proxyServer= %s, receivedBytesCount = %d", Integer.toHexString(System.identityHashCode(this)), getUrl(), dYR().toString(), Integer.valueOf(getHttpStatusCode()), dYS(), dYT().toString(), Boolean.valueOf(dYU()), dYV(), dYW(), Long.valueOf(getReceivedBytesCount()));
+        return String.format(Locale.ROOT, "UrlResponseInfo@[%s][%s]: urlChain = %s, httpStatus = %d %s, headers = %s, wasCached = %b, negotiatedProtocol = %s, proxyServer= %s, receivedBytesCount = %d", Integer.toHexString(System.identityHashCode(this)), getUrl(), ecz().toString(), Integer.valueOf(getHttpStatusCode()), ecA(), ecB().toString(), Boolean.valueOf(ecC()), ecD(), ecE(), Long.valueOf(getReceivedBytesCount()));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void gS(long j) {
-        this.ofM.set(j);
+    public void ho(long j) {
+        this.ooQ.set(j);
     }
 }

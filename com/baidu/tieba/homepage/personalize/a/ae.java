@@ -18,25 +18,25 @@ public class ae extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.dat
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ae(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.card.data.p.hWt);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.card.data.p.icq);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aN */
+    /* renamed from: aP */
     public com.baidu.tieba.card.a.a c(ViewGroup viewGroup) {
         com.baidu.tieba.card.s sVar = new com.baidu.tieba.card.s(this.mPageContext);
-        sVar.aw("c10718", "c10719", "c10742");
+        sVar.ax("c10718", "c10719", "c10742");
         return new com.baidu.tieba.card.a.a(sVar);
     }
 
     /* renamed from: a  reason: avoid collision after fix types in other method */
     protected View a2(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.p pVar, com.baidu.tieba.card.a.a aVar) {
-        aVar.cmx().a(pVar);
-        aVar.cmx().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        com.baidu.tieba.card.t.clQ().e(new aq("c10718").dR("obj_id", String.valueOf(pVar.hWu)));
+        aVar.coY().a(pVar);
+        aVar.coY().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        com.baidu.tieba.card.t.cor().e(new aq("c10718").dR("obj_id", String.valueOf(pVar.icr)));
         return aVar.getView();
     }
 }

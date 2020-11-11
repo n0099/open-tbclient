@@ -13,25 +13,25 @@ import com.baidu.live.sdk.a;
 import com.baidu.yuyinala.privatemessage.implugin.ui.theme.ThemeManager;
 /* loaded from: classes4.dex */
 public class n extends d {
-    public ImageView jgs;
+    public ImageView jmr;
     public View mContentView;
     private Context mContext;
     public View mConvertView;
     public ProgressBar mProgressBar;
-    public ImageView ong;
+    public ImageView owB;
 
     public n(Context context, LayoutInflater layoutInflater) {
         this.mContext = context;
-        this.mConvertView = layoutInflater.inflate(a.h.bd_im_chating_receive_img_item, (ViewGroup) null);
-        this.mProgressBar = (ProgressBar) this.mConvertView.findViewById(a.g.bd_im_chating_progress);
-        this.jgs = (ImageView) this.mConvertView.findViewById(a.g.bd_im_chating_msg_content_img);
-        this.ong = (ImageView) this.mConvertView.findViewById(a.g.bd_im_chating_msg_content_cover);
-        this.mContentView = this.mConvertView.findViewById(a.g.bd_im_chating_msg_content_layout);
-        this.olU = (TextView) this.mConvertView.findViewById(a.g.bd_im_chating_time_txt);
-        this.olX = (ImageView) this.mConvertView.findViewById(a.g.bd_im_headview);
-        this.iJS = (TextView) this.mConvertView.findViewById(a.g.bd_im_user_name);
-        this.lTM = (TextView) this.mConvertView.findViewById(a.g.bd_im_user_agetime);
-        this.olY = (TextView) this.mConvertView.findViewById(a.g.bd_im_user_constellation);
+        this.mConvertView = layoutInflater.inflate(a.g.bd_im_chating_receive_img_item, (ViewGroup) null);
+        this.mProgressBar = (ProgressBar) this.mConvertView.findViewById(a.f.bd_im_chating_progress);
+        this.jmr = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_img);
+        this.owB = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_cover);
+        this.mContentView = this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_layout);
+        this.ovq = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
+        this.ovt = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
+        this.iPP = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_name);
+        this.lZI = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_agetime);
+        this.ovu = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_constellation);
         this.mConvertView.setTag(this);
     }
 
@@ -45,20 +45,20 @@ public class n extends d {
         return this.mContentView;
     }
 
-    public void ebz() {
+    public void efo() {
         this.mProgressBar.setVisibility(0);
     }
 
-    public void ebA() {
+    public void efp() {
         this.mProgressBar.setVisibility(4);
     }
 
-    public void ebB() {
-        this.ong.setVisibility(8);
+    public void efq() {
+        this.owB.setVisibility(8);
     }
 
-    public void ebC() {
-        this.ong.setVisibility(8);
+    public void efr() {
+        this.owB.setVisibility(8);
     }
 
     public static n i(Context context, LayoutInflater layoutInflater, ChatMsg chatMsg, View view) {
@@ -73,11 +73,11 @@ public class n extends d {
         } else {
             this.mProgressBar.setVisibility(8);
         }
-        this.ong.setVisibility(8);
-        this.jgs.setImageResource(a.f.bd_im_loading_default);
+        this.owB.setVisibility(8);
+        this.jmr.setImageResource(a.e.bd_im_loading_default);
         try {
             if (this.mContentView != null) {
-                if (ThemeManager.eel() == ThemeManager.ThemeMode.NIGHT) {
+                if (ThemeManager.eia() == ThemeManager.ThemeMode.NIGHT) {
                     this.mContentView.setBackground(null);
                 } else {
                     this.mContentView.setBackground(null);

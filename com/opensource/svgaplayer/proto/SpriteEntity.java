@@ -15,9 +15,9 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
     public static final ProtoAdapter<SpriteEntity> ADAPTER = new ProtoAdapter_SpriteEntity();
     public static final String DEFAULT_IMAGEKEY = "";
     private static final long serialVersionUID = 0;
-    @WireField(euD = "com.opensource.svgaplayer.proto.FrameEntity#ADAPTER", euE = WireField.Label.REPEATED, tag = 2)
+    @WireField(eys = "com.opensource.svgaplayer.proto.FrameEntity#ADAPTER", eyt = WireField.Label.REPEATED, tag = 2)
     public final List<FrameEntity> frames;
-    @WireField(euD = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
+    @WireField(eys = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
     public final String imageKey;
 
     public SpriteEntity(String str, List<FrameEntity> list) {
@@ -77,7 +77,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
 
     /* loaded from: classes15.dex */
     public static final class Builder extends Message.a<SpriteEntity, Builder> {
-        public List<FrameEntity> frames = a.euG();
+        public List<FrameEntity> frames = a.eyv();
         public String imageKey;
 
         public Builder imageKey(String str) {
@@ -86,7 +86,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
         }
 
         public Builder frames(List<FrameEntity> list) {
-            a.gA(list);
+            a.gJ(list);
             this.frames = list;
             return this;
         }
@@ -126,11 +126,11 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public SpriteEntity decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long euv = cVar.euv();
+            long eyk = cVar.eyk();
             while (true) {
-                int euw = cVar.euw();
-                if (euw != -1) {
-                    switch (euw) {
+                int eyl = cVar.eyl();
+                if (eyl != -1) {
+                    switch (eyl) {
                         case 1:
                             builder.imageKey(ProtoAdapter.STRING.decode(cVar));
                             break;
@@ -138,12 +138,12 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
                             builder.frames.add(FrameEntity.ADAPTER.decode(cVar));
                             break;
                         default:
-                            FieldEncoding eux = cVar.eux();
-                            builder.addUnknownField(euw, eux, eux.rawProtoAdapter().decode(cVar));
+                            FieldEncoding eym = cVar.eym();
+                            builder.addUnknownField(eyl, eym, eym.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.hF(euv);
+                    cVar.ib(eyk);
                     return builder.build();
                 }
             }

@@ -38,10 +38,10 @@ public class f {
                 String str2 = oneKeyLoginResult.encryptPhoneNum;
                 boolean z2 = oneKeyLoginResult.hasHistory;
                 a aVar = new a();
-                aVar.gW(z);
-                aVar.uK(str);
-                aVar.uJ(str2);
-                aVar.gX(z2);
+                aVar.hf(z);
+                aVar.uY(str);
+                aVar.uX(str2);
+                aVar.hg(z2);
                 char c = 65535;
                 switch (str.hashCode()) {
                     case 2154:
@@ -65,13 +65,13 @@ public class f {
                 }
                 switch (c) {
                     case 0:
-                        aVar.lu(12);
+                        aVar.lE(12);
                         break;
                     case 1:
-                        aVar.lu(13);
+                        aVar.lE(13);
                         break;
                     case 2:
-                        aVar.lu(14);
+                        aVar.lE(14);
                         break;
                 }
                 c.this.a(QuickLoginInfo.a(aVar));
@@ -86,16 +86,16 @@ public class f {
     }
 
     public static void c(final c cVar) {
-        com.baidu.swan.apps.runtime.e aEV = com.baidu.swan.apps.runtime.e.aEV();
-        if (aEV == null) {
+        com.baidu.swan.apps.runtime.e aHv = com.baidu.swan.apps.runtime.e.aHv();
+        if (aHv == null) {
             cVar.a(null);
             return;
         }
-        com.baidu.swan.apps.process.messaging.client.a aEL = aEV.aEL();
-        if (aEL == null) {
+        com.baidu.swan.apps.process.messaging.client.a aHl = aHv.aHl();
+        if (aHl == null) {
             cVar.a(null);
         } else {
-            aEL.b(null, b.class, new com.baidu.swan.apps.process.a.b.c.b() { // from class: com.baidu.swan.bdprivate.extensions.quicklogin.f.2
+            aHl.b(null, b.class, new com.baidu.swan.apps.process.a.b.c.b() { // from class: com.baidu.swan.bdprivate.extensions.quicklogin.f.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.process.a.b.c.a
                 public void onEvent(@NonNull com.baidu.swan.apps.process.a.b.a.b bVar) {
@@ -128,7 +128,7 @@ public class f {
         SapiAccountManager.getInstance().getOneKeyLoginIsAvailable(new OneKeyLoginCallback() { // from class: com.baidu.swan.bdprivate.extensions.quicklogin.f.3
             @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
             public void available(OneKeyLoginResult oneKeyLoginResult) {
-                v.aLB().a(activity, oneKeyLoginResult.sign, eVar);
+                v.aOb().a(activity, oneKeyLoginResult.sign, eVar);
             }
 
             @Override // com.baidu.sapi2.callback.OneKeyLoginCallback

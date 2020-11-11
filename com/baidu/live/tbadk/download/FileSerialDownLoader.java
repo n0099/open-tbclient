@@ -91,7 +91,7 @@ public class FileSerialDownLoader {
         }
         if (i2 >= i) {
             downloadData.setStatus(2);
-            downloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_download_fail_over_max));
+            downloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_download_fail_over_max));
             if (downloadData.getCallback() != null) {
                 downloadData.getCallback().onFileUpdateProgress(downloadData);
                 return;
@@ -104,7 +104,7 @@ public class FileSerialDownLoader {
     public void startDownloadWithTotalMax(DownloadData downloadData) {
         if (mTaskList.size() >= this.max) {
             downloadData.setStatus(2);
-            downloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_download_fail_over_max));
+            downloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_download_fail_over_max));
             if (downloadData.getCallback() != null) {
                 downloadData.getCallback().onFileUpdateProgress(downloadData);
                 return;
@@ -117,7 +117,7 @@ public class FileSerialDownLoader {
     public void startDownLoadWithoutMax(DownloadData downloadData) {
         if (downloadData != null) {
             if (!FileHelper.checkSD()) {
-                downloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_download_fail_no_sd));
+                downloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_download_fail_no_sd));
                 downloadData.setStatus(2);
             }
             if (downloadData.getStatus() == 2) {
@@ -153,7 +153,7 @@ public class FileSerialDownLoader {
     public void startDownLoadWithInsert(DownloadData downloadData) {
         if (downloadData != null) {
             if (!FileHelper.checkSD()) {
-                downloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_download_fail_no_sd));
+                downloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_download_fail_no_sd));
                 downloadData.setStatus(2);
             }
             if (downloadData.getStatus() == 2) {
@@ -341,26 +341,26 @@ public class FileSerialDownLoader {
             } else {
                 switch (i) {
                     case 1:
-                        string = TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_download_fail);
+                        string = TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_download_fail);
                         break;
                     case 2:
-                        string = TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_download_fail);
+                        string = TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_download_fail);
                         break;
                     case 3:
-                        string = TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_download_error);
+                        string = TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_download_error);
                         break;
                     case 4:
-                        string = TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_download_fail);
+                        string = TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_download_fail);
                         break;
                     case 5:
                     default:
                         string = null;
                         break;
                     case 6:
-                        string = TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_download_fail);
+                        string = TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_download_fail);
                         break;
                     case 7:
-                        string = TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_download_fail);
+                        string = TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_download_fail);
                         break;
                 }
                 mRun.setStatusMsg(string);

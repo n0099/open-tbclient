@@ -11,7 +11,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 /* loaded from: classes6.dex */
 public class a {
-    private com.baidu.poly.a.f.a bWr;
+    private com.baidu.poly.a.f.a ccb;
 
     public a(Context context) {
         File N = N(context, "bitmap");
@@ -19,23 +19,23 @@ public class a {
             N.mkdirs();
         }
         try {
-            this.bWr = com.baidu.poly.a.f.a.a(N, 1, 1, 10485760L);
+            this.ccb = com.baidu.poly.a.f.a.a(N, 1, 1, 10485760L);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public void d(String str) {
-        if (this.bWr != null) {
+        if (this.ccb != null) {
             try {
-                a.c jm = this.bWr.jm(com.baidu.poly.a.g.b.g(str));
-                if (jm != null) {
-                    if (d.a(str, jm.gC(0))) {
-                        jm.commit();
+                a.c jz = this.ccb.jz(com.baidu.poly.a.g.b.g(str));
+                if (jz != null) {
+                    if (d.a(str, jz.gM(0))) {
+                        jz.commit();
                     } else {
-                        jm.abort();
+                        jz.abort();
                     }
-                    this.bWr.flush();
+                    this.ccb.flush();
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -44,12 +44,12 @@ public class a {
     }
 
     public Bitmap l(String str, int i, int i2) {
-        if (this.bWr == null) {
+        if (this.ccb == null) {
             return null;
         }
-        a.e jl = this.bWr.jl(com.baidu.poly.a.g.b.g(str));
-        if (jl != null) {
-            FileInputStream fileInputStream = (FileInputStream) jl.gF(0);
+        a.e jy = this.ccb.jy(com.baidu.poly.a.g.b.g(str));
+        if (jy != null) {
+            FileInputStream fileInputStream = (FileInputStream) jy.gP(0);
             if (i > 0 && i2 > 0) {
                 return com.baidu.poly.a.g.a.a(fileInputStream.getFD(), i, i2);
             }

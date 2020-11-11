@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Class<?> f4522a = null;
+    private static Class<?> f4524a = null;
     private static Class<?> b = null;
     private static Method c = null;
     private static Method d = null;
@@ -23,9 +23,9 @@ public class a {
     public static void b(Context context, QQToken qQToken) {
         try {
             if (a(context, qQToken)) {
-                f.invoke(f4522a, true);
+                f.invoke(f4524a, true);
             } else {
-                f.invoke(f4522a, false);
+                f.invoke(f4524a, false);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -35,18 +35,18 @@ public class a {
     public static void c(Context context, QQToken qQToken) {
         String str = "Aqc" + qQToken.getAppId();
         try {
-            f4522a = Class.forName("com.tencent.stat.StatConfig");
+            f4524a = Class.forName("com.tencent.stat.StatConfig");
             b = Class.forName("com.tencent.stat.StatService");
             c = b.getMethod("reportQQ", Context.class, String.class);
             d = b.getMethod("trackCustomEvent", Context.class, String.class, String[].class);
             e = b.getMethod("commitEvents", Context.class, Integer.TYPE);
-            f = f4522a.getMethod("setEnableStatService", Boolean.TYPE);
+            f = f4524a.getMethod("setEnableStatService", Boolean.TYPE);
             b(context, qQToken);
-            f4522a.getMethod("setAutoExceptionCaught", Boolean.TYPE).invoke(f4522a, false);
-            f4522a.getMethod("setEnableSmartReporting", Boolean.TYPE).invoke(f4522a, true);
-            f4522a.getMethod("setSendPeriodMinutes", Integer.TYPE).invoke(f4522a, 1440);
+            f4524a.getMethod("setAutoExceptionCaught", Boolean.TYPE).invoke(f4524a, false);
+            f4524a.getMethod("setEnableSmartReporting", Boolean.TYPE).invoke(f4524a, true);
+            f4524a.getMethod("setSendPeriodMinutes", Integer.TYPE).invoke(f4524a, 1440);
             Class<?> cls = Class.forName("com.tencent.stat.StatReportStrategy");
-            f4522a.getMethod("setStatSendStrategy", cls).invoke(f4522a, cls.getField("PERIOD").get(null));
+            f4524a.getMethod("setStatSendStrategy", cls).invoke(f4524a, cls.getField("PERIOD").get(null));
             b.getMethod("startStatService", Context.class, String.class, String.class).invoke(b, context, str, Class.forName("com.tencent.stat.common.StatConstants").getField("VERSION").get(null));
             g = true;
         } catch (Exception e2) {

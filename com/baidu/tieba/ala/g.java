@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class g extends BaseAdapter {
-    private ArrayList<o> eCX = new ArrayList<>();
+    private ArrayList<o> eIM = new ArrayList<>();
     private TbPageContext mPageContext;
 
     public g(TbPageContext tbPageContext) {
@@ -27,20 +27,20 @@ public class g extends BaseAdapter {
 
     public void setData(List<o> list) {
         if (list != null) {
-            this.eCX.clear();
-            this.eCX.addAll(list);
+            this.eIM.clear();
+            this.eIM.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.eCX.size();
+        return this.eIM.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.eCX.get(i);
+        return this.eIM.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -55,7 +55,7 @@ public class g extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return ((o) getItem(i)).bPt();
+        return ((o) getItem(i)).bRT();
     }
 
     @Override // android.widget.Adapter
@@ -66,13 +66,13 @@ public class g extends BaseAdapter {
         if (view == null) {
             switch (itemViewType) {
                 case 0:
-                    view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_wish_list_empty_item_layout, (ViewGroup) null);
+                    view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.g.ala_wish_list_empty_item_layout, (ViewGroup) null);
                     a aVar2 = new a(view);
                     view.setTag(aVar2);
                     aVar = aVar2;
                     break;
                 case 1:
-                    view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_wish_list_item_layout, (ViewGroup) null);
+                    view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.g.ala_wish_list_item_layout, (ViewGroup) null);
                     b bVar2 = new b(view);
                     view.setTag(bVar2);
                     aVar = null;
@@ -98,7 +98,7 @@ public class g extends BaseAdapter {
         }
         final o oVar = (o) getItem(i);
         if (oVar != null) {
-            switch (oVar.bPt()) {
+            switch (oVar.bRT()) {
                 case 0:
                     if (aVar != null && aVar.rootView != null) {
                         aVar.rootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.g.1
@@ -112,22 +112,22 @@ public class g extends BaseAdapter {
                     break;
                 case 1:
                     if (bVar != null) {
-                        bVar.aWV.setText(oVar.getmName());
-                        bVar.fUN.setText(oVar.bPu() + "个");
-                        bVar.fUO.setText(oVar.bPw() + "小时");
-                        String string = this.mPageContext.getResources().getString(a.i.add_wish_thank_way_txt);
-                        if (!TextUtils.isEmpty(oVar.bPx())) {
-                            string = oVar.bPx();
+                        bVar.aYn.setText(oVar.getmName());
+                        bVar.gaE.setText(oVar.bRU() + "个");
+                        bVar.gaF.setText(oVar.bRW() + "小时");
+                        String string = this.mPageContext.getResources().getString(a.h.add_wish_thank_way_txt);
+                        if (!TextUtils.isEmpty(oVar.bRX())) {
+                            string = oVar.bRX();
                         }
-                        bVar.fUP.setText(string);
-                        bVar.fUQ.startLoad(oVar.bPv(), 10, false);
-                        if (oVar.bPt() == 1) {
+                        bVar.gaG.setText(string);
+                        bVar.gaH.startLoad(oVar.bRV(), 10, false);
+                        if (oVar.bRT() == 1) {
                             if (getItemId(i) == 0) {
-                                bVar.fUS.setImageResource(a.f.ala_wish_list_item_num_icon_no1);
+                                bVar.gaJ.setImageResource(a.e.ala_wish_list_item_num_icon_no1);
                             } else if (getItemId(i) == 1) {
-                                bVar.fUS.setImageResource(a.f.ala_wish_list_item_num_icon_no2);
+                                bVar.gaJ.setImageResource(a.e.ala_wish_list_item_num_icon_no2);
                             } else if (getItemId(i) == 2) {
-                                bVar.fUS.setImageResource(a.f.ala_wish_list_item_num_icon_no3);
+                                bVar.gaJ.setImageResource(a.e.ala_wish_list_item_num_icon_no3);
                             }
                         }
                         if (bVar != null && bVar.rootView != null) {
@@ -137,10 +137,10 @@ public class g extends BaseAdapter {
                                 }
                             });
                         }
-                        bVar.fUR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.g.3
+                        bVar.gaI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.g.3
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view2) {
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new com.baidu.live.b.f(g.this.mPageContext.getPageActivity(), oVar.bPy(), 1001, g.this.getItemId(i))));
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new com.baidu.live.b.f(g.this.mPageContext.getPageActivity(), oVar.bRY(), 1001, g.this.getItemId(i))));
                             }
                         });
                         break;
@@ -162,25 +162,25 @@ public class g extends BaseAdapter {
 
     /* loaded from: classes4.dex */
     public static class b {
-        public TextView aWV;
-        public TextView fUN;
-        public TextView fUO;
-        public TextView fUP;
-        public TbImageView fUQ;
-        public TbImageView fUR;
-        public TbImageView fUS;
+        public TextView aYn;
+        public TextView gaE;
+        public TextView gaF;
+        public TextView gaG;
+        public TbImageView gaH;
+        public TbImageView gaI;
+        public TbImageView gaJ;
         public View rootView;
 
         public b(View view) {
             this.rootView = view;
-            this.aWV = (TextView) view.findViewById(a.g.ala_wish_list_item_center_content_first_name);
-            this.fUN = (TextView) view.findViewById(a.g.ala_wish_list_item_center_content_first_num);
-            this.fUO = (TextView) view.findViewById(a.g.ala_wish_list_item_center_content_deadline_num);
-            this.fUP = (TextView) view.findViewById(a.g.ala_wish_list_item_center_content_thank_way);
-            this.fUQ = (TbImageView) view.findViewById(a.g.ala_wish_list_item_icon);
-            this.fUQ.setDefaultBgResource(a.f.sdk_shape_transparent);
-            this.fUR = (TbImageView) view.findViewById(a.g.ala_wish_list_item_top_delete);
-            this.fUS = (TbImageView) view.findViewById(a.g.ala_wish_list_item_num_icon);
+            this.aYn = (TextView) view.findViewById(a.f.ala_wish_list_item_center_content_first_name);
+            this.gaE = (TextView) view.findViewById(a.f.ala_wish_list_item_center_content_first_num);
+            this.gaF = (TextView) view.findViewById(a.f.ala_wish_list_item_center_content_deadline_num);
+            this.gaG = (TextView) view.findViewById(a.f.ala_wish_list_item_center_content_thank_way);
+            this.gaH = (TbImageView) view.findViewById(a.f.ala_wish_list_item_icon);
+            this.gaH.setDefaultBgResource(a.e.sdk_shape_transparent);
+            this.gaI = (TbImageView) view.findViewById(a.f.ala_wish_list_item_top_delete);
+            this.gaJ = (TbImageView) view.findViewById(a.f.ala_wish_list_item_num_icon);
         }
     }
 }

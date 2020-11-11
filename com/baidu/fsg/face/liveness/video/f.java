@@ -15,7 +15,7 @@ import java.nio.ByteBuffer;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static final boolean f1730a = true;
+    protected static final boolean f1732a = true;
     public static final String b = "video/avc";
     protected static final int c = 10000;
     protected int d;

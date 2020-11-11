@@ -8,7 +8,7 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public class c {
-    private TextView hmx;
+    private TextView hsv;
     private TbPageContext mContext;
     private View mView;
 
@@ -18,9 +18,9 @@ public class c {
     }
 
     private void a(TbPageContext tbPageContext, View.OnClickListener onClickListener) {
-        this.mView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(a.h.privilege_manager_view_layout, (ViewGroup) null);
-        this.hmx = (TextView) this.mView.findViewById(a.g.privilege_manager_txt);
-        this.hmx.setText(this.mContext.getResources().getString(a.i.privilege_manager_str));
+        this.mView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(a.g.privilege_manager_view_layout, (ViewGroup) null);
+        this.hsv = (TextView) this.mView.findViewById(a.f.privilege_manager_txt);
+        this.hsv.setText(this.mContext.getResources().getString(a.h.privilege_manager_str));
         this.mView.setOnClickListener(onClickListener);
     }
 

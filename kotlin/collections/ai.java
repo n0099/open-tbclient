@@ -5,7 +5,7 @@ import android.support.v7.widget.ActivityChooserView;
 @kotlin.h
 /* loaded from: classes10.dex */
 public class ai extends ah {
-    public static final int QX(int i) {
+    public static final int Rs(int i) {
         if (i < 3) {
             return i + 1;
         }

@@ -9,19 +9,19 @@ import java.util.ArrayList;
 import java.util.HashSet;
 /* loaded from: classes16.dex */
 public abstract class f implements IBinder, IBinder.DeathRecipient {
-    private volatile IBinder cdZ;
-    private HashSet<IBinder.DeathRecipient> cea = new HashSet<>();
+    private volatile IBinder cjK;
+    private HashSet<IBinder.DeathRecipient> cjL = new HashSet<>();
     private Object mLock = new Object();
 
-    protected abstract IBinder aaP() throws RemoteException;
+    protected abstract IBinder ado() throws RemoteException;
 
-    private IBinder aaQ() throws RemoteException {
+    private IBinder adp() throws RemoteException {
         IBinder iBinder;
         synchronized (this.mLock) {
-            iBinder = this.cdZ;
+            iBinder = this.cjK;
             if (iBinder == null) {
-                iBinder = aaP();
-                this.cdZ = iBinder;
+                iBinder = ado();
+                this.cjK = iBinder;
                 if (iBinder != null) {
                     iBinder.linkToDeath(this, 0);
                 } else {
@@ -34,13 +34,13 @@ public abstract class f implements IBinder, IBinder.DeathRecipient {
 
     @Override // android.os.IBinder
     public String getInterfaceDescriptor() throws RemoteException {
-        return aaQ().getInterfaceDescriptor();
+        return adp().getInterfaceDescriptor();
     }
 
     @Override // android.os.IBinder
     public boolean pingBinder() {
         try {
-            return aaQ().pingBinder();
+            return adp().pingBinder();
         } catch (RemoteException e) {
             c("MultiProcess", e);
             return false;
@@ -50,7 +50,7 @@ public abstract class f implements IBinder, IBinder.DeathRecipient {
     @Override // android.os.IBinder
     public boolean isBinderAlive() {
         try {
-            return aaQ().isBinderAlive();
+            return adp().isBinderAlive();
         } catch (RemoteException e) {
             c("MultiProcess", e);
             return false;
@@ -60,7 +60,7 @@ public abstract class f implements IBinder, IBinder.DeathRecipient {
     @Override // android.os.IBinder
     public IInterface queryLocalInterface(String str) {
         try {
-            return aaQ().queryLocalInterface(str);
+            return adp().queryLocalInterface(str);
         } catch (RemoteException e) {
             c("MultiProcess", e);
             return null;
@@ -69,45 +69,45 @@ public abstract class f implements IBinder, IBinder.DeathRecipient {
 
     @Override // android.os.IBinder
     public void dump(FileDescriptor fileDescriptor, String[] strArr) throws RemoteException {
-        aaQ().dump(fileDescriptor, strArr);
+        adp().dump(fileDescriptor, strArr);
     }
 
     @Override // android.os.IBinder
     public void dumpAsync(FileDescriptor fileDescriptor, String[] strArr) throws RemoteException {
-        aaQ().dumpAsync(fileDescriptor, strArr);
+        adp().dumpAsync(fileDescriptor, strArr);
     }
 
     @Override // android.os.IBinder
     public boolean transact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-        return aaQ().transact(i, parcel, parcel2, i2);
+        return adp().transact(i, parcel, parcel2, i2);
     }
 
     @Override // android.os.IBinder
     public void linkToDeath(IBinder.DeathRecipient deathRecipient, int i) throws RemoteException {
-        synchronized (this.cea) {
-            this.cea.add(deathRecipient);
+        synchronized (this.cjL) {
+            this.cjL.add(deathRecipient);
         }
     }
 
     @Override // android.os.IBinder
     public boolean unlinkToDeath(IBinder.DeathRecipient deathRecipient, int i) {
-        synchronized (this.cea) {
-            this.cea.remove(deathRecipient);
+        synchronized (this.cjL) {
+            this.cjL.remove(deathRecipient);
         }
-        return this.cdZ != null;
+        return this.cjK != null;
     }
 
     @Override // android.os.IBinder.DeathRecipient
     public void binderDied() {
         synchronized (this.mLock) {
-            IBinder iBinder = this.cdZ;
+            IBinder iBinder = this.cjK;
             if (iBinder != null) {
                 iBinder.unlinkToDeath(this, 0);
-                this.cdZ = null;
+                this.cjK = null;
             }
             ArrayList<IBinder.DeathRecipient> arrayList = new ArrayList();
-            synchronized (this.cea) {
-                arrayList.addAll(this.cea);
+            synchronized (this.cjL) {
+                arrayList.addAll(this.cjL);
             }
             for (IBinder.DeathRecipient deathRecipient : arrayList) {
                 deathRecipient.binderDied();

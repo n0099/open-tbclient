@@ -7,7 +7,7 @@ import com.baidu.sofire.o.b;
 public class a implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f3648a;
+    private static a f3651a;
     private b b = null;
     private boolean c = false;
 
@@ -15,14 +15,14 @@ public class a implements b {
     }
 
     public static a a() {
-        if (f3648a == null) {
+        if (f3651a == null) {
             synchronized (a.class) {
-                if (f3648a == null) {
-                    f3648a = new a();
+                if (f3651a == null) {
+                    f3651a = new a();
                 }
             }
         }
-        return f3648a;
+        return f3651a;
     }
 
     @Override // com.baidu.sofire.j.b

@@ -7,39 +7,39 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class j extends BaseData {
-    private String aUQ;
-    private long aUR;
-    private String aUT;
+    private String aWi;
+    private long aWj;
+    private String aWl;
     private long anchorId;
     private int countDown;
+    private long gAp;
+    private boolean gAq;
+    private k[] gAr;
     private int giftId;
-    private long guB;
-    private boolean guC;
-    private k[] guD;
     private long liveId;
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.giftId = jSONObject.optInt(LogConfig.LOG_GIFT_ID);
-            this.guB = jSONObject.optLong("tying_gift_id");
-            this.aUQ = jSONObject.optString("tying_gift_name");
+            this.gAp = jSONObject.optLong("tying_gift_id");
+            this.aWi = jSONObject.optString("tying_gift_name");
             this.liveId = jSONObject.optLong("live_id");
             this.anchorId = jSONObject.optLong("anchor_id");
-            this.aUR = jSONObject.optLong("pay_userid");
-            this.aUT = jSONObject.optString("pay_username");
+            this.aWj = jSONObject.optLong("pay_userid");
+            this.aWl = jSONObject.optString("pay_username");
             this.countDown = jSONObject.optInt("count_down");
             if (jSONObject.optInt("tying_status") == 1) {
-                this.guC = true;
+                this.gAq = true;
             } else {
-                this.guC = false;
+                this.gAq = false;
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("gift_member");
             if (optJSONArray != null) {
-                this.guD = new k[optJSONArray.length()];
+                this.gAr = new k[optJSONArray.length()];
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     try {
-                        this.guD[i] = new k(optJSONArray.getJSONObject(i));
+                        this.gAr[i] = new k(optJSONArray.getJSONObject(i));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -48,19 +48,19 @@ public class j extends BaseData {
         }
     }
 
-    public String Gs() {
-        return this.aUQ;
+    public String GT() {
+        return this.aWi;
     }
 
-    public int bPo() {
+    public int bRO() {
         return this.countDown;
     }
 
-    public boolean bPp() {
-        return this.guC;
+    public boolean bRP() {
+        return this.gAq;
     }
 
-    public k[] bPq() {
-        return this.guD;
+    public k[] bRQ() {
+        return this.gAr;
     }
 }

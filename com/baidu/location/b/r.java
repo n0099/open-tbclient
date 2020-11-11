@@ -10,7 +10,7 @@ public class r implements SensorEventListener {
     private static r d;
 
     /* renamed from: a  reason: collision with root package name */
-    private float[] f1908a;
+    private float[] f1910a;
     private float[] b;
     private SensorManager c;
     private float e;
@@ -88,11 +88,11 @@ public class r implements SensorEventListener {
                 }
                 return;
             case 11:
-                this.f1908a = (float[]) sensorEvent.values.clone();
-                if (this.f1908a != null) {
+                this.f1910a = (float[]) sensorEvent.values.clone();
+                if (this.f1910a != null) {
                     float[] fArr = new float[9];
                     try {
-                        SensorManager.getRotationMatrixFromVector(fArr, this.f1908a);
+                        SensorManager.getRotationMatrixFromVector(fArr, this.f1910a);
                         float[] fArr2 = new float[3];
                         SensorManager.getOrientation(fArr, fArr2);
                         this.e = (float) Math.toDegrees(fArr2[0]);

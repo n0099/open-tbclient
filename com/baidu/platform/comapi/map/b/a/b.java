@@ -8,9 +8,9 @@ import com.baidu.platform.comapi.map.b.f;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public a.C0269a f2900a;
-    public a.C0269a b;
-    public a.C0269a c;
+    public a.C0281a f2902a;
+    public a.C0281a b;
+    public a.C0281a c;
     public MotionEvent d;
     private a f;
     public f e = new f();
@@ -31,7 +31,7 @@ public class b {
 
     private void a() {
         this.e.a();
-        this.f2900a = null;
+        this.f2902a = null;
         this.b = null;
         this.c = null;
         this.g = true;
@@ -48,7 +48,7 @@ public class b {
         this.e.a(motionEvent);
         Pair<a.d, a.d> c = this.e.c();
         if (motionEvent.getPointerCount() == 2) {
-            if (Math.abs(((a.d) c.first).f2903a) > 0.0d || Math.abs(((a.d) c.first).b) > 0.0d || Math.abs(((a.d) c.second).f2903a) > 0.0d || Math.abs(((a.d) c.second).b) > 0.0d) {
+            if (Math.abs(((a.d) c.first).f2905a) > 0.0d || Math.abs(((a.d) c.first).b) > 0.0d || Math.abs(((a.d) c.second).f2905a) > 0.0d || Math.abs(((a.d) c.second).b) > 0.0d) {
                 c(motionEvent);
                 this.f.b(this);
             }
@@ -56,11 +56,11 @@ public class b {
     }
 
     private void c(MotionEvent motionEvent) {
-        a.C0269a a2 = a.C0269a.a(motionEvent);
+        a.C0281a a2 = a.C0281a.a(motionEvent);
         this.b = this.c != null ? this.c : a2;
         this.c = a2;
-        if (this.f2900a == null) {
-            this.f2900a = a2;
+        if (this.f2902a == null) {
+            this.f2902a = a2;
         }
     }
 

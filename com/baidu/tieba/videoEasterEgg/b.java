@@ -1,11 +1,11 @@
 package com.baidu.tieba.videoEasterEgg;
 /* loaded from: classes22.dex */
 public interface b {
-    void TT(String str);
+    void Uk(String str);
 
-    void TU(String str);
+    void Ul(String str);
 
-    void apc();
+    void arD();
 
     void finishActivity();
 

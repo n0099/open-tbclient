@@ -19,15 +19,15 @@ import java.util.LinkedHashSet;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class AlaBigGiftExtraInfoRevisionView extends FrameLayout {
-    private HeadImageView aEp;
-    private TextView aVA;
-    private AlphaAnimation aVB;
-    private AlphaAnimation aVC;
-    private HeadImageView aVv;
-    private FrameLayout aVw;
-    private List<HeadImageView> aVx;
-    private TextView aVy;
-    private Integer aVz;
+    private HeadImageView aFf;
+    private HeadImageView aWN;
+    private FrameLayout aWO;
+    private List<HeadImageView> aWP;
+    private TextView aWQ;
+    private Integer aWR;
+    private TextView aWS;
+    private AlphaAnimation aWT;
+    private AlphaAnimation aWU;
 
     public AlaBigGiftExtraInfoRevisionView(Context context) {
         this(context, null);
@@ -41,49 +41,49 @@ public class AlaBigGiftExtraInfoRevisionView extends FrameLayout {
     public void setData(com.baidu.live.gift.a.c cVar) {
         ArrayList arrayList = new ArrayList();
         arrayList.clear();
-        if (cVar.aZX != null && cVar.aZX.Gu() == 1) {
-            for (int i = 0; i < cVar.aZX.aUV.size(); i++) {
-                if (cVar.aZX.aUV.get(i).portrait != null) {
-                    arrayList.add(cVar.aZX.aUV.get(i).portrait);
+        if (cVar.bbq != null && cVar.bbq.GV() == 1) {
+            for (int i = 0; i < cVar.bbq.aWn.size(); i++) {
+                if (cVar.bbq.aWn.get(i).portrait != null) {
+                    arrayList.add(cVar.bbq.aWn.get(i).portrait);
                 }
             }
         } else {
             arrayList.clear();
         }
-        if (cVar.aZX != null && arrayList.size() != 0) {
+        if (cVar.bbq != null && arrayList.size() != 0) {
             H(arrayList);
-            this.aEp.startLoad(arrayList.get(0), 12, false);
+            this.aFf.startLoad(arrayList.get(0), 12, false);
             arrayList.remove(0);
-            if (arrayList.size() < this.aVx.size()) {
+            if (arrayList.size() < this.aWP.size()) {
                 if (arrayList.size() != 0) {
                     for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                        this.aVx.get(i2).startLoad(arrayList.get(i2), 12, false);
+                        this.aWP.get(i2).startLoad(arrayList.get(i2), 12, false);
                     }
                     int size = arrayList.size();
                     while (true) {
                         int i3 = size;
-                        if (i3 >= this.aVx.size()) {
+                        if (i3 >= this.aWP.size()) {
                             break;
                         }
-                        this.aVx.get(i3).setVisibility(8);
+                        this.aWP.get(i3).setVisibility(8);
                         size = i3 + 1;
                     }
                 } else {
                     int size2 = arrayList.size();
                     while (true) {
                         int i4 = size2;
-                        if (i4 >= this.aVx.size()) {
+                        if (i4 >= this.aWP.size()) {
                             break;
                         }
-                        this.aVx.get(i4).setVisibility(8);
+                        this.aWP.get(i4).setVisibility(8);
                         size2 = i4 + 1;
                     }
                 }
-                if (cVar.aZX.Gt() != null) {
-                    this.aVy.setText(cVar.aZX.Gt());
+                if (cVar.bbq.GU() != null) {
+                    this.aWQ.setText(cVar.bbq.GU());
                 }
-                if (cVar.aZX.Gs() != null) {
-                    this.aVA.setText(cVar.aZX.Gs());
+                if (cVar.bbq.GT() != null) {
+                    this.aWS.setText(cVar.bbq.GT());
                     return;
                 }
                 return;
@@ -91,10 +91,10 @@ public class AlaBigGiftExtraInfoRevisionView extends FrameLayout {
             return;
         }
         if (cVar.portrait != null) {
-            this.aEp.startLoad(cVar.portrait, 12, false);
-            if (this.aVx != null) {
-                for (int i5 = 0; i5 < this.aVx.size(); i5++) {
-                    this.aVx.get(i5).setVisibility(8);
+            this.aFf.startLoad(cVar.portrait, 12, false);
+            if (this.aWP != null) {
+                for (int i5 = 0; i5 < this.aWP.size(); i5++) {
+                    this.aWP.get(i5).setVisibility(8);
                 }
             }
         }
@@ -103,36 +103,36 @@ public class AlaBigGiftExtraInfoRevisionView extends FrameLayout {
             if (TextHelper.getTextLengthWithEmoji(str) > 20) {
                 str = TextHelper.subStringWithEmoji(str, 20) + StringHelper.STRING_MORE;
             }
-            this.aVy.setText(str);
+            this.aWQ.setText(str);
         }
-        if (cVar.aZJ != null) {
-            this.aVA.setText(getResources().getString(a.i.donate) + cVar.aZJ.Ft());
+        if (cVar.bbc != null) {
+            this.aWS.setText(getResources().getString(a.h.donate) + cVar.bbc.FU());
         }
     }
 
-    public void GX() {
+    public void Hy() {
         setVisibility(0);
-        if (this.aVB == null) {
-            this.aVB = new AlphaAnimation(0.0f, 1.0f);
-            this.aVB.setDuration(500L);
-            this.aVB.setFillAfter(true);
+        if (this.aWT == null) {
+            this.aWT = new AlphaAnimation(0.0f, 1.0f);
+            this.aWT.setDuration(500L);
+            this.aWT.setFillAfter(true);
         }
-        startAnimation(this.aVB);
+        startAnimation(this.aWT);
     }
 
-    public void GY() {
-        if (this.aVC == null) {
-            this.aVC = new AlphaAnimation(1.0f, 0.0f);
-            this.aVC.setDuration(500L);
-            this.aVC.setFillAfter(true);
+    public void Hz() {
+        if (this.aWU == null) {
+            this.aWU = new AlphaAnimation(1.0f, 0.0f);
+            this.aWU.setDuration(500L);
+            this.aWU.setFillAfter(true);
         }
-        startAnimation(this.aVC);
+        startAnimation(this.aWU);
     }
 
     public void onDestroy() {
         setVisibility(8);
         clearAnimation();
-        this.aVx.clear();
+        this.aWP.clear();
     }
 
     public void end() {
@@ -142,37 +142,37 @@ public class AlaBigGiftExtraInfoRevisionView extends FrameLayout {
 
     private void init() {
         setBackgroundColor(0);
-        this.aVx = new ArrayList(4);
-        this.aVz = 3;
-        GZ();
+        this.aWP = new ArrayList(4);
+        this.aWR = 3;
+        HA();
     }
 
-    private void GZ() {
+    private void HA() {
         setBackgroundColor(0);
-        LayoutInflater.from(getContext()).inflate(a.h.popup_extra_info_revision_layout, (ViewGroup) this, true);
-        this.aEp = (HeadImageView) findViewById(a.g.iv_avatar);
-        this.aVw = (FrameLayout) findViewById(a.g.content_frame);
-        this.aVx = new ArrayList(3);
-        this.aVz = 3;
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.aEp.getLayoutParams();
-        for (int i = 0; i < this.aVz.intValue(); i++) {
-            this.aVv = new HeadImageView(getContext());
-            this.aVv.setIsRound(true);
-            this.aVv.setAutoChangeStyle(false);
-            this.aVv.setDefaultBgResource(a.f.sdk_default_avatar);
-            this.aVv.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.aVx.add(this.aVv);
+        LayoutInflater.from(getContext()).inflate(a.g.popup_extra_info_revision_layout, (ViewGroup) this, true);
+        this.aFf = (HeadImageView) findViewById(a.f.iv_avatar);
+        this.aWO = (FrameLayout) findViewById(a.f.content_frame);
+        this.aWP = new ArrayList(3);
+        this.aWR = 3;
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.aFf.getLayoutParams();
+        for (int i = 0; i < this.aWR.intValue(); i++) {
+            this.aWN = new HeadImageView(getContext());
+            this.aWN.setIsRound(true);
+            this.aWN.setAutoChangeStyle(false);
+            this.aWN.setDefaultBgResource(a.e.sdk_default_avatar);
+            this.aWN.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.aWP.add(this.aWN);
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(layoutParams.width, layoutParams.height);
             layoutParams2.gravity = 5;
             layoutParams2.rightMargin = (layoutParams.width - 12) * (i + 1);
-            this.aVw.addView(this.aVx.get(i), layoutParams2);
+            this.aWO.addView(this.aWP.get(i), layoutParams2);
         }
-        this.aVy = (TextView) findViewById(a.g.tv_sender);
-        this.aVA = (TextView) findViewById(a.g.tv_tip);
-        this.aEp.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.aEp.setIsRound(true);
-        this.aEp.setAutoChangeStyle(false);
-        this.aEp.setDefaultBgResource(a.f.sdk_default_avatar);
+        this.aWQ = (TextView) findViewById(a.f.tv_sender);
+        this.aWS = (TextView) findViewById(a.f.tv_tip);
+        this.aFf.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.aFf.setIsRound(true);
+        this.aFf.setAutoChangeStyle(false);
+        this.aFf.setDefaultBgResource(a.e.sdk_default_avatar);
     }
 
     private void H(List<String> list) {

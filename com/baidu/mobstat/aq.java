@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class aq {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2543a;
+    private String f2545a;
     private String b;
     private JSONArray c;
     private String d;
@@ -23,7 +23,7 @@ public class aq {
     private String m;
 
     public aq(String str, String str2, JSONArray jSONArray, String str3, String str4, String str5, boolean z, int i, long j, long j2, long j3, String str6, String str7) {
-        this.f2543a = str;
+        this.f2545a = str;
         this.b = str2;
         this.c = jSONArray;
         this.d = str3;
@@ -39,7 +39,7 @@ public class aq {
     }
 
     public String a() {
-        return this.f2543a;
+        return this.f2545a;
     }
 
     public String b() {
@@ -107,13 +107,13 @@ public class aq {
     }
 
     public JSONObject a(String str, String str2, String str3) {
-        String a2 = a(this.f2543a, this.b, this.c, this.d, this.e, this.f, this.g);
+        String a2 = a(this.f2545a, this.b, this.c, this.d, this.e, this.f, this.g);
         if (TextUtils.isEmpty(a2)) {
             return null;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("id", this.f2543a);
+            jSONObject.put("id", this.f2545a);
             jSONObject.put("d", this.l);
             jSONObject.put("p", str);
             jSONObject.put("path", str3);

@@ -23,12 +23,12 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.util.ScreenHelper;
 import com.baidu.tieba.yuyinala.liveroom.introduce.i;
-import com.baidu.tieba.yuyinala.liveroom.wheat.b.n;
+import com.baidu.tieba.yuyinala.liveroom.wheat.c.o;
 /* loaded from: classes4.dex */
 public class d implements View.OnClickListener {
-    private w aEc;
-    private TextView bGd;
-    public CustomMessageListener bcQ = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.d.2
+    private w aES;
+    private TextView bLI;
+    public CustomMessageListener bek = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.d.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -36,68 +36,68 @@ public class d implements View.OnClickListener {
                 if (d.this.mDialog != null && d.this.mDialog.isShowing() && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
                     d.this.mDialog.dismiss();
                 }
-                MessageManager.getInstance().unRegisterListener(d.this.bcQ);
+                MessageManager.getInstance().unRegisterListener(d.this.bek);
             } catch (Exception e) {
             }
         }
     };
-    private ImageView eqR;
-    private TextView fmY;
+    private ImageView ewK;
+    private TextView fsR;
     private Context mContext;
     private Dialog mDialog;
     private LinearLayout mPanelLayout;
     private View mRootView;
     private TextView mTitleTextView;
     private View mView;
-    private TextView nPH;
-    private i nPI;
-    private h nPy;
+    private h nWH;
+    private TextView nWQ;
+    private i nWR;
 
     public d(Context context) {
         this.mContext = context;
         initDialog();
-        this.nPI = new i(this.mContext);
+        this.nWR = new i(this.mContext);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void E(String str, String str2, boolean z) {
+    public void F(String str, String str2, boolean z) {
         if (!TextUtils.isEmpty(str)) {
             this.mTitleTextView.setText(str);
-        } else if (this.aEc != null && this.aEc.aIS != null) {
-            this.mTitleTextView.setText(this.aEc.aIS.room_name);
+        } else if (this.aES != null && this.aES.aJK != null) {
+            this.mTitleTextView.setText(this.aES.aJK.room_name);
         }
         if (!TextUtils.isEmpty(str2)) {
-            this.fmY.setText(str2);
+            this.fsR.setText(str2);
         }
         if (z) {
-            this.bGd.setVisibility(8);
-            this.nPH.setVisibility(0);
-            this.eqR.setVisibility(0);
+            this.bLI.setVisibility(8);
+            this.nWQ.setVisibility(0);
+            this.ewK.setVisibility(0);
             this.mView.setVisibility(0);
             return;
         }
-        this.bGd.setVisibility(0);
-        this.nPH.setVisibility(8);
-        this.eqR.setVisibility(8);
+        this.bLI.setVisibility(0);
+        this.nWQ.setVisibility(8);
+        this.ewK.setVisibility(8);
         this.mView.setVisibility(8);
     }
 
-    public void P(w wVar) {
-        this.aEc = wVar;
+    public void X(w wVar) {
+        this.aES = wVar;
         if ((this.mContext instanceof Activity) && !((Activity) this.mContext).isFinishing() && this.mDialog != null) {
             this.mDialog.show();
             this.mRootView.setVisibility(8);
-            if (this.aEc != null && this.aEc.aIS != null) {
-                this.nPI.a(new i.a() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.d.1
+            if (this.aES != null && this.aES.aJK != null) {
+                this.nWR.a(new i.a() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.d.1
                     @Override // com.baidu.tieba.yuyinala.liveroom.introduce.i.a
                     public void a(AlaGetRoomPlayIntroduceHttpResponseMessage alaGetRoomPlayIntroduceHttpResponseMessage) {
                         boolean z = true;
-                        d.this.nPy = alaGetRoomPlayIntroduceHttpResponseMessage.dVp();
-                        boolean iK = n.dWB().iK(n.dWB().UN());
-                        if (d.this.aEc == null || d.this.aEc.aIA == null || (d.this.aEc.aIA.userType != 1 && (d.this.aEc.aIA.userType != 2 || !iK))) {
+                        d.this.nWH = alaGetRoomPlayIntroduceHttpResponseMessage.dYe();
+                        boolean iX = o.dZA().iX(o.dZA().Xm());
+                        if (d.this.aES == null || d.this.aES.aJr == null || (d.this.aES.aJr.userType != 1 && (d.this.aES.aJr.userType != 2 || !iX))) {
                             z = false;
                         }
-                        d.this.E(d.this.nPy.nPP, d.this.nPy.nPQ, z);
+                        d.this.F(d.this.nWH.nWY, d.this.nWH.nWZ, z);
                         d.this.mRootView.setVisibility(0);
                     }
 
@@ -107,7 +107,7 @@ public class d implements View.OnClickListener {
                         d.this.dismiss();
                     }
                 });
-                this.nPI.request(this.aEc.aIS.aRy);
+                this.nWR.request(this.aES.aJK.aSP);
             }
         }
     }
@@ -121,22 +121,22 @@ public class d implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.mRootView || view == this.eqR || view == this.bGd) {
+        if (view == this.mRootView || view == this.ewK || view == this.bLI) {
             dismiss();
         }
-        if (view == this.nPH && this.nPy != null) {
-            new c(this.mContext).b(this.aEc, this.mTitleTextView.getText().toString().trim(), this.nPy.nPQ);
+        if (view == this.nWQ && this.nWH != null) {
+            new c(this.mContext).b(this.aES, this.mTitleTextView.getText().toString().trim(), this.nWH.nWZ);
             dismiss();
         }
     }
 
     private void initDialog() {
         this.mDialog = new Dialog(this.mContext);
-        OE();
+        Pe();
         initView();
     }
 
-    private void OE() {
+    private void Pe() {
         this.mDialog.setCancelable(true);
         this.mDialog.setCanceledOnTouchOutside(true);
         Window window = this.mDialog.getWindow();
@@ -158,21 +158,21 @@ public class d implements View.OnClickListener {
     }
 
     private void initView() {
-        this.mRootView = LayoutInflater.from(this.mDialog.getContext()).inflate(a.h.yuyin_room_introduce_dialog_common_alert, (ViewGroup) null);
+        this.mRootView = LayoutInflater.from(this.mDialog.getContext()).inflate(a.g.yuyin_room_introduce_dialog_common_alert, (ViewGroup) null);
         this.mDialog.setContentView(this.mRootView);
-        this.mTitleTextView = (TextView) this.mRootView.findViewById(a.g.tv_title);
-        this.bGd = (TextView) this.mRootView.findViewById(a.g.tv_confirm);
-        this.nPH = (TextView) this.mRootView.findViewById(a.g.tv_modify);
-        this.eqR = (ImageView) this.mRootView.findViewById(a.g.iv_close);
-        this.fmY = (TextView) this.mRootView.findViewById(a.g.tv_content);
-        this.mView = this.mRootView.findViewById(a.g.view_line);
-        this.mPanelLayout = (LinearLayout) this.mRootView.findViewById(a.g.layout_panel);
+        this.mTitleTextView = (TextView) this.mRootView.findViewById(a.f.tv_title);
+        this.bLI = (TextView) this.mRootView.findViewById(a.f.tv_confirm);
+        this.nWQ = (TextView) this.mRootView.findViewById(a.f.tv_modify);
+        this.ewK = (ImageView) this.mRootView.findViewById(a.f.iv_close);
+        this.fsR = (TextView) this.mRootView.findViewById(a.f.tv_content);
+        this.mView = this.mRootView.findViewById(a.f.view_line);
+        this.mPanelLayout = (LinearLayout) this.mRootView.findViewById(a.f.layout_panel);
         ((RelativeLayout.LayoutParams) this.mPanelLayout.getLayoutParams()).setMargins(0, BdUtilHelper.getScreenSize((Activity) this.mContext).widthPixels / 3, 0, 0);
         this.mRootView.setOnClickListener(this);
-        this.bGd.setOnTouchListener(new com.baidu.tieba.yuyinala.liveroom.wheat.view.a());
-        this.bGd.setOnClickListener(this);
-        this.eqR.setOnClickListener(this);
-        this.nPH.setOnClickListener(this);
-        MessageManager.getInstance().registerListener(this.bcQ);
+        this.bLI.setOnTouchListener(new com.baidu.tieba.yuyinala.liveroom.wheat.view.a());
+        this.bLI.setOnClickListener(this);
+        this.ewK.setOnClickListener(this);
+        this.nWQ.setOnClickListener(this);
+        MessageManager.getInstance().registerListener(this.bek);
     }
 }

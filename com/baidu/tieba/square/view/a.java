@@ -24,39 +24,39 @@ import java.util.HashSet;
 import java.util.Iterator;
 /* loaded from: classes23.dex */
 public class a extends BaseAdapter {
-    private TbPageContext<?> eCn;
-    private CoverFlowView<i> mNB;
-    private HashSet<String> mNA = new HashSet<>();
+    private TbPageContext<?> eIc;
+    private CoverFlowView<i> mTE;
+    private HashSet<String> mTD = new HashSet<>();
     private ArrayList<i> datas = new ArrayList<>();
-    private d<i> eDC = new d<i>() { // from class: com.baidu.tieba.square.view.a.1
+    private d<i> eJr = new d<i>() { // from class: com.baidu.tieba.square.view.a.1
         @Override // com.baidu.tbadk.core.flow.a.d
         public void e(int i, String str) {
             String makeStatisticsParam = SingleSquareActivityConfig.makeStatisticsParam("carousel_recommend", String.valueOf(i));
             i iVar = (i) y.getItem(a.this.datas, i);
-            String dGm = iVar != null ? iVar.dGm() : null;
-            if (be.boR().b(a.this.eCn, new String[]{str, null, makeStatisticsParam}) && i == 2 && !TextUtils.isEmpty(dGm)) {
-                TiebaStatic.eventStat(a.this.eCn.getPageActivity(), "tbanner", null, 1, "line", "PT", "page", "OT", "locate", "c0116", LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK", "task", "tbanner", "obj_id", String.valueOf(dGm), "obj_name", String.valueOf(dGm), "obj_cpid", 0, TiebaInitialize.Params.OBJ_URL, str, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), "os", "android", "os_version", Build.VERSION.RELEASE, "log_ver", "1.1");
+            String dIO = iVar != null ? iVar.dIO() : null;
+            if (be.brr().b(a.this.eIc, new String[]{str, null, makeStatisticsParam}) && i == 2 && !TextUtils.isEmpty(dIO)) {
+                TiebaStatic.eventStat(a.this.eIc.getPageActivity(), "tbanner", null, 1, "line", "PT", "page", "OT", "locate", "c0116", LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK", "task", "tbanner", "obj_id", String.valueOf(dIO), "obj_name", String.valueOf(dIO), "obj_cpid", 0, TiebaInitialize.Params.OBJ_URL, str, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), "os", "android", "os_version", Build.VERSION.RELEASE, "log_ver", "1.1");
             }
-            TiebaStatic.eventStat(a.this.eCn.getPageActivity(), "square_banner_picture", "click", 1, "loc", (i - 1) + "");
+            TiebaStatic.eventStat(a.this.eIc.getPageActivity(), "square_banner_picture", "click", 1, "loc", (i - 1) + "");
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.core.flow.a.d
         public void a(int i, i iVar) {
             if (iVar != null) {
-                String dGm = iVar.dGm();
-                if (i == 2 && !TextUtils.isEmpty(dGm) && a.this.mNA.add(dGm)) {
-                    TiebaStatic.eventStat(TbadkCoreApplication.getInst().getBaseContext(), "ad_tpoint", null, 1, "line", "PT", "page", "OT", "locate", "c0116", LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE", "task", "tbanner", "obj_id", String.valueOf(dGm), "obj_name", String.valueOf(dGm), "obj_cpid", 0, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), "os", "android", "os_version", Build.VERSION.RELEASE);
+                String dIO = iVar.dIO();
+                if (i == 2 && !TextUtils.isEmpty(dIO) && a.this.mTD.add(dIO)) {
+                    TiebaStatic.eventStat(TbadkCoreApplication.getInst().getBaseContext(), "ad_tpoint", null, 1, "line", "PT", "page", "OT", "locate", "c0116", LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE", "task", "tbanner", "obj_id", String.valueOf(dIO), "obj_name", String.valueOf(dIO), "obj_cpid", 0, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), "os", "android", "os_version", Build.VERSION.RELEASE);
                 }
             }
         }
     };
 
     public a(final TbPageContext<?> tbPageContext) {
-        this.mNB = null;
-        this.eCn = tbPageContext;
-        this.mNB = new CoverFlowView<>(tbPageContext.getPageActivity());
-        this.mNB.setCoverFlowFactory(new com.baidu.tbadk.core.flow.a.b() { // from class: com.baidu.tieba.square.view.a.2
+        this.mTE = null;
+        this.eIc = tbPageContext;
+        this.mTE = new CoverFlowView<>(tbPageContext.getPageActivity());
+        this.mTE.setCoverFlowFactory(new com.baidu.tbadk.core.flow.a.b() { // from class: com.baidu.tieba.square.view.a.2
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
             public e uf() {
                 e eVar = new e();
@@ -69,13 +69,13 @@ public class a extends BaseAdapter {
                 com.baidu.tbadk.core.flow.a.c ug = super.ug();
                 if (ug != null) {
                     ug.setGravity(85);
-                    ug.oD(R.dimen.ds20);
-                    ug.oE(R.dimen.ds30);
+                    ug.oN(R.dimen.ds20);
+                    ug.oO(R.dimen.ds30);
                 }
                 return ug;
             }
         });
-        this.mNB.setCallback(this.eDC);
+        this.mTE.setCallback(this.eJr);
     }
 
     public void setData(ArrayList<bt> arrayList) {
@@ -88,7 +88,7 @@ public class a extends BaseAdapter {
             }
         }
         this.datas = arrayList2;
-        this.mNB.setData(arrayList2);
+        this.mTE.setData(arrayList2);
         notifyDataSetChanged();
     }
 
@@ -109,16 +109,16 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return this.mNB;
+        return this.mTE;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.mNB != null) {
-            this.mNB.onChangeSkinType();
+        if (this.mTE != null) {
+            this.mTE.onChangeSkinType();
         }
     }
 
-    public CoverFlowView<i> dGt() {
-        return this.mNB;
+    public CoverFlowView<i> dIV() {
+        return this.mTE;
     }
 }

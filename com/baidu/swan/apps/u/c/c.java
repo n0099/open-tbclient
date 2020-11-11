@@ -23,8 +23,8 @@ public abstract class c<SelfT extends c<SelfT>> extends e<SelfT> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.ap.e.d
-        /* renamed from: awa */
-        public a avZ() {
+        /* renamed from: ayA */
+        public a ayz() {
             return this;
         }
     }
@@ -59,10 +59,10 @@ public abstract class c<SelfT extends c<SelfT>> extends e<SelfT> {
 
     @Override // com.baidu.swan.apps.u.c.a.c
     public String toString() {
-        return "SwanAppLaunchParams{appId='" + getAppId() + "', from='" + awd() + "', page='" + getPage() + "', isDebug=" + isDebug() + ", extraData=" + awi() + ", clickId='" + awk() + "', launchScheme='" + awf() + "', notInHistory='" + awl() + "'}";
+        return "SwanAppLaunchParams{appId='" + getAppId() + "', from='" + ayD() + "', page='" + getPage() + "', isDebug=" + isDebug() + ", extraData=" + ayI() + ", clickId='" + ayK() + "', launchScheme='" + ayF() + "', notInHistory='" + ayL() + "'}";
     }
 
-    public static String e(String str, String str2, int i) {
+    public static String f(String str, String str2, int i) {
         String str3;
         if (i == 1) {
             str3 = "swangame";

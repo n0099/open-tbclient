@@ -17,18 +17,18 @@ import java.util.concurrent.Executors;
 /* loaded from: classes10.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile b cJd;
+    private static volatile b cOW;
     private Context mContext;
-    private volatile boolean cJe = false;
-    private boolean cJf = false;
-    private boolean cJg = false;
-    private final Object cJh = new Object();
-    private final Object cJi = new Object();
+    private volatile boolean cOX = false;
+    private boolean cOY = false;
+    private boolean cOZ = false;
+    private final Object cPa = new Object();
+    private final Object cPb = new Object();
     private ArrayList<a> mListeners = new ArrayList<>();
 
     /* loaded from: classes10.dex */
     public interface a {
-        void adM();
+        void agm();
     }
 
     private b(Context context) {
@@ -38,53 +38,53 @@ public final class b {
     public static synchronized b bY(Context context) {
         b bVar;
         synchronized (b.class) {
-            if (cJd == null) {
-                cJd = new b(context);
+            if (cOW == null) {
+                cOW = new b(context);
             }
-            bVar = cJd;
+            bVar = cOW;
         }
         return bVar;
     }
 
     public void onTerminate() {
-        if (aoM()) {
+        if (arn()) {
             BdSailor.getInstance().destroy();
         }
     }
 
-    public void eL(boolean z) {
+    public void eU(boolean z) {
         n(false, z);
     }
 
-    public void aoL() {
+    public void arm() {
         n(true, ProcessUtils.checkIsMainProcess(ProcessUtils.getCurProcessName()));
     }
 
     private void n(boolean z, final boolean z2) {
-        if (!this.cJe) {
-            synchronized (this.cJh) {
-                if (!this.cJf) {
+        if (!this.cOX) {
+            synchronized (this.cPa) {
+                if (!this.cOY) {
                     Executors.newSingleThreadExecutor().execute(new Runnable() { // from class: com.baidu.swan.apps.core.k.b.1
                         @Override // java.lang.Runnable
                         public void run() {
                             Process.setThreadPriority(10);
-                            b.this.eM(z2);
-                            b.this.cJe = true;
-                            synchronized (b.this.cJi) {
-                                b.this.cJg = true;
-                                b.this.cJi.notifyAll();
-                                b.this.aoN();
+                            b.this.eV(z2);
+                            b.this.cOX = true;
+                            synchronized (b.this.cPb) {
+                                b.this.cOZ = true;
+                                b.this.cPb.notifyAll();
+                                b.this.aro();
                             }
                         }
                     });
-                    this.cJf = true;
+                    this.cOY = true;
                 }
             }
             if (z) {
-                synchronized (this.cJi) {
-                    while (!this.cJg) {
+                synchronized (this.cPb) {
+                    while (!this.cOZ) {
                         try {
-                            this.cJi.wait(1000L);
+                            this.cPb.wait(1000L);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -95,7 +95,7 @@ public final class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eM(boolean z) {
+    public void eV(boolean z) {
         WebKitFactory.setNeedDownloadCloudResource(false);
         WebKitFactory.setProcessType("1");
         WebView.setDataDirectorySuffix(ProcessUtils.getCurProcessName());
@@ -123,26 +123,26 @@ public final class b {
         BdSailor.initCookieSyncManager(this.mContext);
     }
 
-    public boolean aoM() {
-        return this.cJe;
+    public boolean arn() {
+        return this.cOX;
     }
 
     public void a(a aVar) {
-        synchronized (this.cJi) {
+        synchronized (this.cPb) {
             if (DEBUG) {
                 android.util.Log.d("BlinkInitHelper", "addBlinkInitListener.");
             }
             if (!this.mListeners.contains(aVar)) {
                 this.mListeners.add(aVar);
             }
-            if (this.cJg) {
-                aoN();
+            if (this.cOZ) {
+                aro();
             }
         }
     }
 
     public void b(a aVar) {
-        synchronized (this.cJi) {
+        synchronized (this.cPb) {
             boolean remove = this.mListeners.remove(aVar);
             if (DEBUG) {
                 android.util.Log.d("BlinkInitHelper", "delBlinkInitListener. listener: " + aVar + " ,isRemoved: " + remove);
@@ -150,14 +150,14 @@ public final class b {
         }
     }
 
-    public void aoN() {
-        synchronized (this.cJi) {
+    public void aro() {
+        synchronized (this.cPb) {
             if (DEBUG) {
                 android.util.Log.d("BlinkInitHelper", "notifyBlinkLoaded.");
             }
             Iterator<a> it = this.mListeners.iterator();
             while (it.hasNext()) {
-                it.next().adM();
+                it.next().agm();
             }
             this.mListeners.clear();
         }

@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class DBResource {
     private static final String TAG = "DBManager";
     private static Context mContext;

@@ -6,15 +6,15 @@ import android.content.Context;
 public final class ab implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f4741a;
+    final /* synthetic */ Context f4743a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(Context context) {
-        this.f4741a = context;
+        this.f4743a = context;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        MessageHandleService.c(this.f4741a);
+        MessageHandleService.c(this.f4743a);
     }
 }

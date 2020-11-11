@@ -15,11 +15,11 @@ import tbclient.User;
 /* loaded from: classes24.dex */
 public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     private boolean isHost = false;
-    private com.baidu.tieba.personPolymeric.tab.view.a lZg;
-    private User lZi;
-    private b lZp;
-    private com.baidu.tieba.personPolymeric.c.a lZq;
     private long mUserId;
+    private com.baidu.tieba.personPolymeric.tab.view.a mfg;
+    private User mfi;
+    private b mfp;
+    private com.baidu.tieba.personPolymeric.c.a mfq;
 
     public static PersonCenterMainTabFragment o(long j, boolean z) {
         PersonCenterMainTabFragment personCenterMainTabFragment = new PersonCenterMainTabFragment();
@@ -40,10 +40,10 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.person_center_common_tab_layout, viewGroup, false);
-        this.lZg = new com.baidu.tieba.personPolymeric.tab.view.a(getPageContext(), inflate, this);
-        this.lZg.setSubType(1011);
-        this.lZp = new b(getPageContext(), this.isHost);
-        this.lZg.addHeaderView(this.lZp.getView());
+        this.mfg = new com.baidu.tieba.personPolymeric.tab.view.a(getPageContext(), inflate, this);
+        this.mfg.setSubType(1011);
+        this.mfp = new b(getPageContext(), this.isHost);
+        this.mfg.addHeaderView(this.mfp.getView());
         return inflate;
     }
 
@@ -61,10 +61,10 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     }
 
     public void d(com.baidu.tieba.personPolymeric.c.a aVar) {
-        if (aVar != null && this.lZg != null && isAdded()) {
+        if (aVar != null && this.mfg != null && isAdded()) {
             f(aVar);
         } else if (aVar != null) {
-            this.lZq = aVar;
+            this.mfq = aVar;
         }
     }
 
@@ -79,29 +79,29 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
-    public void vT(boolean z) {
-        cvr();
+    public void wc(boolean z) {
+        cxS();
     }
 
-    public void cvr() {
-        if (this.lZg != null && isAdded()) {
-            this.lZg.cvr();
+    public void cxS() {
+        if (this.mfg != null && isAdded()) {
+            this.mfg.cxS();
         }
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
     public void d(User user) {
-        this.lZi = user;
+        this.mfi = user;
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment, com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.lZg != null) {
-            this.lZg.onChangeSkinType(i);
+        if (this.mfg != null) {
+            this.mfg.onChangeSkinType(i);
         }
-        if (this.lZp != null) {
-            this.lZp.onChangeSkinType(i);
+        if (this.mfp != null) {
+            this.mfp.onChangeSkinType(i);
         }
     }
 
@@ -115,29 +115,29 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.lZg != null && this.lZp != null && this.lZq != null) {
-            f(this.lZq);
-            this.lZq = null;
+        if (this.mfg != null && this.mfp != null && this.mfq != null) {
+            f(this.mfq);
+            this.mfq = null;
         }
     }
 
     private void f(com.baidu.tieba.personPolymeric.c.a aVar) {
-        if (this.lZg != null && this.lZp != null && aVar != null) {
-            List<q> fk = com.baidu.tieba.personPolymeric.tab.b.a.fk(aVar.getNewestThreadList());
-            if (!y.isEmpty(fk)) {
-                this.lZg.GW(R.string.person_center_tab_main_footer_text);
+        if (this.mfg != null && this.mfp != null && aVar != null) {
+            List<q> fs = com.baidu.tieba.personPolymeric.tab.b.a.fs(aVar.getNewestThreadList());
+            if (!y.isEmpty(fs)) {
+                this.mfg.Hj(R.string.person_center_tab_main_footer_text);
             }
-            this.lZg.fl(fk);
-            this.lZp.b(aVar);
-            this.lZp.ax(y.isEmpty(fk), isHost());
+            this.mfg.ft(fs);
+            this.mfp.b(aVar);
+            this.mfp.ax(y.isEmpty(fs), isHost());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.lZg != null) {
-            this.lZg.onDestroy();
+        if (this.mfg != null) {
+            this.mfg.onDestroy();
         }
     }
 }

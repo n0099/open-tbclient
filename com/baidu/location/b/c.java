@@ -5,13 +5,13 @@ import android.os.Bundle;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Object f1874a = new Object();
+    private static Object f1876a = new Object();
     private static c b = null;
     private int c = -1;
 
     public static c a() {
         c cVar;
-        synchronized (f1874a) {
+        synchronized (f1876a) {
             if (b == null) {
                 b = new c();
             }

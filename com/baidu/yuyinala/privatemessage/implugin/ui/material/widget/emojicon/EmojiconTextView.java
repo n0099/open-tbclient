@@ -10,7 +10,7 @@ import com.baidu.live.sdk.a;
 import com.baidu.yuyinala.privatemessage.implugin.util.f;
 /* loaded from: classes4.dex */
 public class EmojiconTextView extends TextView {
-    private int osM;
+    private int oCf;
 
     public EmojiconTextView(Context context) {
         super(context);
@@ -29,10 +29,10 @@ public class EmojiconTextView extends TextView {
 
     private void a(AttributeSet attributeSet, Context context) {
         if (attributeSet == null) {
-            this.osM = (int) (getTextSize() + f.dip2px(context, 2.0f));
+            this.oCf = (int) (getTextSize() + f.dip2px(context, 2.0f));
         } else {
-            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, a.k.Emojicon);
-            this.osM = (int) obtainStyledAttributes.getDimension(a.k.Emojicon_emojiconSize, getTextSize() + f.dip2px(context, 2.0f));
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, a.j.Emojicon);
+            this.oCf = (int) obtainStyledAttributes.getDimension(a.j.Emojicon_emojiconSize, getTextSize() + f.dip2px(context, 2.0f));
             obtainStyledAttributes.recycle();
         }
         setText(getText());
@@ -46,11 +46,11 @@ public class EmojiconTextView extends TextView {
             return;
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(charSequence);
-        b.a(getContext(), spannableStringBuilder, this.osM);
+        b.a(getContext(), spannableStringBuilder, this.oCf);
         super.setText(spannableStringBuilder, bufferType);
     }
 
     public void setEmojiconSize(int i) {
-        this.osM = i;
+        this.oCf = i;
     }
 }

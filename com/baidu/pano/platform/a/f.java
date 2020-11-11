@@ -9,7 +9,7 @@ import java.util.concurrent.Executors;
 public class f implements r {
 
     /* renamed from: a  reason: collision with root package name */
-    ExecutorService f2650a = Executors.newSingleThreadExecutor();
+    ExecutorService f2652a = Executors.newSingleThreadExecutor();
     private final Executor b = new g(this);
 
     public f(Handler handler) {
@@ -53,7 +53,7 @@ public class f implements r {
                 return;
             }
             if (this.c.a()) {
-                this.b.a((n) this.c.f2660a);
+                this.b.a((n) this.c.f2662a);
             } else {
                 this.b.b(this.c.c);
             }

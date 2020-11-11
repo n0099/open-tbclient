@@ -7,30 +7,30 @@ import java.lang.ref.WeakReference;
 public class bu implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4822a;
+    private String f4824a;
 
     /* renamed from: a  reason: collision with other field name */
-    private WeakReference<Context> f141a;
+    private WeakReference<Context> f143a;
 
     public bu(String str, WeakReference<Context> weakReference) {
-        this.f4822a = str;
-        this.f141a = weakReference;
+        this.f4824a = str;
+        this.f143a = weakReference;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Context context;
-        if (this.f141a == null || (context = this.f141a.get()) == null) {
+        if (this.f143a == null || (context = this.f143a.get()) == null) {
             return;
         }
-        if (ch.a(this.f4822a) <= bt.f139a) {
+        if (ch.a(this.f4824a) <= bt.f141a) {
             com.xiaomi.channel.commonutils.logger.b.b("=====> do not need clean db");
             return;
         }
-        bx a2 = bx.a(this.f4822a);
-        bw a3 = bw.a(this.f4822a);
+        bx a2 = bx.a(this.f4824a);
+        bw a3 = bw.a(this.f4824a);
         a2.a(a3);
-        a3.a(bv.a(context, this.f4822a, 1000));
+        a3.a(bv.a(context, this.f4824a, 1000));
         cb.a(context).a((cb.a) a2);
     }
 }

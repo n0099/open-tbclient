@@ -17,11 +17,11 @@ import com.baidu.live.utils.l;
 import com.baidu.live.view.YuyinALALevelView;
 /* loaded from: classes4.dex */
 public class OnlineAudienceItemView extends LinearLayout {
-    public TextView aEK;
-    public HeadImageView grA;
-    public TbImageView grB;
-    public TextView grD;
-    public YuyinALALevelView nLZ;
+    public TextView aFA;
+    public HeadImageView gxo;
+    public TbImageView gxp;
+    public TextView gxr;
+    public YuyinALALevelView nRT;
 
     public OnlineAudienceItemView(Context context) {
         this(context, null);
@@ -34,55 +34,55 @@ public class OnlineAudienceItemView extends LinearLayout {
 
     public void setData(int i, String str, String str2, long j, int i2) {
         if (i >= 1 && i <= 3 && j > 0) {
-            this.grB.setVisibility(0);
+            this.gxp.setVisibility(0);
         } else {
-            this.grB.setVisibility(8);
+            this.gxp.setVisibility(8);
         }
-        l.a(this.grA, str2, true, false);
+        l.a(this.gxo, str2, true, false);
         if (i2 == 7) {
-            this.grB.setVisibility(0);
-            this.grB.setImageResource(a.f.sdk_pic_noble_avatar_box_king);
+            this.gxp.setVisibility(0);
+            this.gxp.setImageResource(a.e.sdk_pic_noble_avatar_box_king);
         } else if (i2 == 6) {
-            this.grB.setVisibility(0);
-            this.grB.setImageResource(a.f.sdk_pic_noble_avatar_box_duke);
+            this.gxp.setVisibility(0);
+            this.gxp.setImageResource(a.e.sdk_pic_noble_avatar_box_duke);
         } else if (i2 == 5) {
-            this.grB.setVisibility(0);
-            this.grB.setImageResource(a.f.sdk_pic_noble_avatar_box_marquis);
+            this.gxp.setVisibility(0);
+            this.gxp.setImageResource(a.e.sdk_pic_noble_avatar_box_marquis);
         } else if (i2 == 4) {
-            this.grB.setVisibility(0);
-            this.grB.setImageResource(a.f.sdk_pic_noble_avatar_box_earl);
+            this.gxp.setVisibility(0);
+            this.gxp.setImageResource(a.e.sdk_pic_noble_avatar_box_earl);
         } else {
-            this.grB.setVisibility(8);
+            this.gxp.setVisibility(8);
         }
-        this.aEK.setText(str);
+        this.aFA.setText(str);
         if (j > 0) {
-            this.grD.setText(String.format("%s", StringHelper.formatYuyinValue(j)));
+            this.gxr.setText(String.format("%s", StringHelper.formatYuyinValue(j)));
         } else {
-            this.grD.setText("");
+            this.gxr.setText("");
         }
-        this.aEK.setMaxWidth(ScreenHelper.getScreenWidth(getContext()) - BdUtilHelper.dip2px(getContext(), 230.0f));
+        this.aFA.setMaxWidth(ScreenHelper.getScreenWidth(getContext()) - BdUtilHelper.dip2px(getContext(), 230.0f));
     }
 
     private void init() {
-        LayoutInflater.from(getContext()).inflate(a.h.yuyin_online_audience_list_item, (ViewGroup) this, true);
+        LayoutInflater.from(getContext()).inflate(a.g.yuyin_online_audience_list_item, (ViewGroup) this, true);
         setOrientation(0);
-        Hy();
+        HZ();
         initView();
     }
 
-    private void Hy() {
-        this.grA = (HeadImageView) findViewById(a.g.iv_avatar);
-        this.grB = (TbImageView) findViewById(a.g.iv_pendant);
-        this.nLZ = (YuyinALALevelView) findViewById(a.g.level);
-        this.aEK = (TextView) findViewById(a.g.tv_name);
-        this.grD = (TextView) findViewById(a.g.tv_value);
+    private void HZ() {
+        this.gxo = (HeadImageView) findViewById(a.f.iv_avatar);
+        this.gxp = (TbImageView) findViewById(a.f.iv_pendant);
+        this.nRT = (YuyinALALevelView) findViewById(a.f.level);
+        this.aFA = (TextView) findViewById(a.f.tv_name);
+        this.gxr = (TextView) findViewById(a.f.tv_value);
     }
 
     private void initView() {
-        this.grA.setAutoChangeStyle(false);
-        this.grA.setDrawBorder(false);
-        this.grA.setIsRound(true);
-        this.grB.setDefaultBgResource(a.d.sdk_transparent);
-        this.grB.setDefaultErrorResource(a.f.sdk_shape_transparent);
+        this.gxo.setAutoChangeStyle(false);
+        this.gxo.setDrawBorder(false);
+        this.gxo.setIsRound(true);
+        this.gxp.setDefaultBgResource(a.c.sdk_transparent);
+        this.gxp.setDefaultErrorResource(a.e.sdk_shape_transparent);
     }
 }

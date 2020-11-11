@@ -10,7 +10,7 @@ public class a {
     private Context mContext;
     private static final String TAG = a.class.getSimpleName();
     private static final boolean DEBUG = b.DEBUG;
-    private static SharedPreferences dEe = null;
+    private static SharedPreferences dJW = null;
 
     private a(Context context) {
         this.mContext = null;
@@ -22,10 +22,10 @@ public class a {
     }
 
     private static SharedPreferences dx(Context context) {
-        if (dEe == null) {
-            dEe = context.getSharedPreferences("downgradefile", 0);
+        if (dJW == null) {
+            dJW = context.getSharedPreferences("downgradefile", 0);
         }
-        return dEe;
+        return dJW;
     }
 
     private int dy(Context context) {
@@ -56,14 +56,14 @@ public class a {
         edit.apply();
     }
 
-    public void aMv() {
+    public void aOV() {
         int dz = dz(this.mContext);
         int dy = dy(this.mContext);
         if (DEBUG) {
             Log.d(TAG, "处理升级逻辑：newVersionCode=" + dz + " /oldVersionCode=" + dy);
         }
         if (dy == 0) {
-            lw(dz);
+            lG(dz);
             n(this.mContext, dz);
             o(this.mContext, dy);
         } else if (dz > dy) {
@@ -75,23 +75,23 @@ public class a {
             n(this.mContext, dz);
             o(this.mContext, dy);
         } else {
-            aMw();
+            aOW();
         }
     }
 
     private void at(int i, int i2) {
         com.baidu.swan.apps.ao.a.at(i2, i);
-        com.baidu.swan.d.a.bcJ();
+        com.baidu.swan.d.a.bfj();
     }
 
     private void av(int i, int i2) {
     }
 
-    private void lw(int i) {
+    private void lG(int i) {
         com.baidu.swan.apps.ao.a.at(0, i);
     }
 
-    private void aMw() {
+    private void aOW() {
         if (DEBUG) {
             Log.d(TAG, "新旧版本一样:" + dy(this.mContext));
         }

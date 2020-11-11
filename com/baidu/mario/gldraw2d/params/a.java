@@ -3,11 +3,11 @@ package com.baidu.mario.gldraw2d.params;
 public class a implements Cloneable {
     private float mTranslateX = 0.0f;
     private float mTranslateY = 0.0f;
-    private MirrorType bQD = MirrorType.NO_MIRROR;
-    private int bQE = 0;
-    private ScaleType bQF = ScaleType.FIT_XY;
-    private float bQG = 1.0f;
-    private int bQH = -90;
+    private MirrorType bWn = MirrorType.NO_MIRROR;
+    private int bWo = 0;
+    private ScaleType bWp = ScaleType.FIT_XY;
+    private float bWq = 1.0f;
+    private int bWr = -90;
 
     public float getTranslateX() {
         return this.mTranslateX;
@@ -17,36 +17,36 @@ public class a implements Cloneable {
         return this.mTranslateY;
     }
 
-    public MirrorType Wg() {
-        return this.bQD;
+    public MirrorType YF() {
+        return this.bWn;
     }
 
     public void a(MirrorType mirrorType) {
-        this.bQD = mirrorType;
+        this.bWn = mirrorType;
     }
 
-    public ScaleType Wh() {
-        return this.bQF;
+    public ScaleType YG() {
+        return this.bWp;
     }
 
-    public float Wi() {
-        return this.bQG;
+    public float YH() {
+        return this.bWq;
     }
 
-    public int Wj() {
-        return this.bQE;
+    public int YI() {
+        return this.bWo;
     }
 
-    public void gs(int i) {
-        this.bQE = i;
+    public void gC(int i) {
+        this.bWo = i;
     }
 
-    public int Wk() {
-        return this.bQH;
+    public int YJ() {
+        return this.bWr;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: Wl */
+    /* renamed from: YK */
     public a clone() {
         try {
             return (a) super.clone();

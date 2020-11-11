@@ -29,7 +29,7 @@ import java.util.Random;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final IXAdLogger f2319a = XAdSDKFoundationFacade.getInstance().getAdLogger();
+    protected final IXAdLogger f2321a = XAdSDKFoundationFacade.getInstance().getAdLogger();
     private Context e;
     private static a d = new a();
     public static volatile String b = "";
@@ -187,12 +187,12 @@ public class a {
             }
             sb2.append("mobads,");
             String md5 = commonUtils.getMD5(sb2.toString());
-            this.f2319a.d("ExtraQuery.allValue:" + ((Object) sb2));
+            this.f2321a.d("ExtraQuery.allValue:" + ((Object) sb2));
             sb.append("vd=" + md5 + ETAG.ITEM_SEPARATOR);
-            this.f2319a.d("ExtraQuery.params:" + ((Object) sb));
+            this.f2321a.d("ExtraQuery.params:" + ((Object) sb));
             return "https://mobads-logs.baidu.com/dz.zb?" + sb.toString();
         } catch (Exception e) {
-            this.f2319a.d(e);
+            this.f2321a.d(e);
             return "";
         }
     }

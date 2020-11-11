@@ -10,7 +10,7 @@ import java.util.concurrent.ExecutionException;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile c f2669a = null;
+    private static volatile c f2671a = null;
     private static Context b;
     private p c = n.a(b);
 
@@ -18,15 +18,15 @@ public class c {
     }
 
     public static c a(Context context) {
-        if (f2669a == null) {
+        if (f2671a == null) {
             synchronized (c.class) {
-                if (f2669a == null) {
+                if (f2671a == null) {
                     b = context;
-                    f2669a = new c();
+                    f2671a = new c();
                 }
             }
         }
-        return f2669a;
+        return f2671a;
     }
 
     public byte[] a(String str) {

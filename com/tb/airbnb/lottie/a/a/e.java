@@ -7,30 +7,30 @@ import com.tb.airbnb.lottie.a.b.a;
 import com.tb.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.List;
 /* loaded from: classes16.dex */
-public class e implements j, l, a.InterfaceC1019a {
+public class e implements j, l, a.InterfaceC1038a {
     private boolean De;
-    private final com.tb.airbnb.lottie.f lottieDrawable;
+    private final com.tb.airbnb.lottie.g lottieDrawable;
     private final String name;
-    private final Path path = new Path();
     @Nullable
-    private r pyS;
-    private final com.tb.airbnb.lottie.a.b.a<?, PointF> pyU;
-    private final com.tb.airbnb.lottie.a.b.a<?, PointF> pyV;
-    private final com.tb.airbnb.lottie.model.content.a pyW;
+    private r pIm;
+    private final com.tb.airbnb.lottie.a.b.a<?, PointF> pIo;
+    private final com.tb.airbnb.lottie.a.b.a<?, PointF> pIp;
+    private final com.tb.airbnb.lottie.model.content.a pIq;
+    private final Path path = new Path();
 
-    public e(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, com.tb.airbnb.lottie.model.content.a aVar2) {
+    public e(com.tb.airbnb.lottie.g gVar, com.tb.airbnb.lottie.model.layer.a aVar, com.tb.airbnb.lottie.model.content.a aVar2) {
         this.name = aVar2.getName();
-        this.lottieDrawable = fVar;
-        this.pyU = aVar2.evg().euW();
-        this.pyV = aVar2.euZ().euW();
-        this.pyW = aVar2;
-        aVar.a(this.pyU);
-        aVar.a(this.pyV);
-        this.pyU.b(this);
-        this.pyV.b(this);
+        this.lottieDrawable = gVar;
+        this.pIo = aVar2.eyV().eyL();
+        this.pIp = aVar2.eyO().eyL();
+        this.pIq = aVar2;
+        aVar.a(this.pIo);
+        aVar.a(this.pIp);
+        this.pIo.b(this);
+        this.pIp.b(this);
     }
 
-    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC1019a
+    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC1038a
     public void iT() {
         invalidate();
     }
@@ -47,9 +47,9 @@ public class e implements j, l, a.InterfaceC1019a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof r) && ((r) bVar).euM() == ShapeTrimPath.Type.Simultaneously) {
-                    this.pyS = (r) bVar;
-                    this.pyS.a(this);
+                if ((bVar instanceof r) && ((r) bVar).eyB() == ShapeTrimPath.Type.Simultaneously) {
+                    this.pIm = (r) bVar;
+                    this.pIm.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -69,13 +69,13 @@ public class e implements j, l, a.InterfaceC1019a {
             return this.path;
         }
         this.path.reset();
-        PointF value = this.pyU.getValue();
+        PointF value = this.pIo.getValue();
         float f = value.x / 2.0f;
         float f2 = value.y / 2.0f;
         float f3 = f * 0.55228f;
         float f4 = f2 * 0.55228f;
         this.path.reset();
-        if (this.pyW.isReversed()) {
+        if (this.pIq.isReversed()) {
             this.path.moveTo(0.0f, -f2);
             this.path.cubicTo(0.0f - f3, -f2, -f, 0.0f - f4, -f, 0.0f);
             this.path.cubicTo(-f, 0.0f + f4, 0.0f - f3, f2, 0.0f, f2);
@@ -88,10 +88,10 @@ public class e implements j, l, a.InterfaceC1019a {
             this.path.cubicTo(0.0f - f3, f2, -f, 0.0f + f4, -f, 0.0f);
             this.path.cubicTo(-f, 0.0f - f4, 0.0f - f3, -f2, 0.0f, -f2);
         }
-        PointF value2 = this.pyV.getValue();
+        PointF value2 = this.pIp.getValue();
         this.path.offset(value2.x, value2.y);
         this.path.close();
-        com.tb.airbnb.lottie.d.f.a(this.path, this.pyS);
+        com.tb.airbnb.lottie.d.f.a(this.path, this.pIm);
         this.De = true;
         return this.path;
     }
@@ -103,10 +103,10 @@ public class e implements j, l, a.InterfaceC1019a {
 
     @Override // com.tb.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.tb.airbnb.lottie.e.c<T> cVar) {
-        if (t == com.tb.airbnb.lottie.j.Cb) {
-            this.pyU.a(cVar);
-        } else if (t == com.tb.airbnb.lottie.j.Cc) {
-            this.pyV.a(cVar);
+        if (t == com.tb.airbnb.lottie.k.Cb) {
+            this.pIo.a(cVar);
+        } else if (t == com.tb.airbnb.lottie.k.Cc) {
+            this.pIp.a(cVar);
         }
     }
 }

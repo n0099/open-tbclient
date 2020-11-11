@@ -10,11 +10,11 @@ import java.util.concurrent.Executors;
 public final class dl implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackListActivity f3830a;
+    final /* synthetic */ FeedbackListActivity f3832a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dl(FeedbackListActivity feedbackListActivity) {
-        this.f3830a = feedbackListActivity;
+        this.f3832a = feedbackListActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,20 +25,20 @@ public final class dl implements View.OnClickListener {
         if (com.baidu.ufosdk.f.h.a()) {
             return;
         }
-        if (!com.baidu.ufosdk.b.d.c(this.f3830a)) {
+        if (!com.baidu.ufosdk.b.d.c(this.f3832a)) {
             com.baidu.ufosdk.f.c.c("Network is not avaiable. Please try again later.");
             return;
         }
         try {
-            linearLayout = this.f3830a.b;
+            linearLayout = this.f3832a.b;
             linearLayout.setVisibility(8);
-            view2 = this.f3830a.v;
+            view2 = this.f3832a.v;
             view2.setVisibility(0);
             if (UfoSDK.clientid.length() == 0) {
                 new Thread(new dm(this)).start();
             } else {
-                this.f3830a.y = Executors.newSingleThreadExecutor();
-                executorService = this.f3830a.y;
+                this.f3832a.y = Executors.newSingleThreadExecutor();
+                executorService = this.f3832a.y;
                 executorService.execute(new dn(this));
             }
         } catch (Exception e) {

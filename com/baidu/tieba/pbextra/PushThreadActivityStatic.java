@@ -13,11 +13,11 @@ public class PushThreadActivityStatic {
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PushThreadActivityConfig.class, PushThreadActivity.class);
-        dpW();
+        dsy();
     }
 
-    private static void dpW() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001806, a.bJ(Config.PB_PUSH_THREAD_ADDRESS, CmdConfigSocket.CMD_PUSH_THREAD));
+    private static void dsy() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001806, a.bL(Config.PB_PUSH_THREAD_ADDRESS, CmdConfigSocket.CMD_PUSH_THREAD));
         tbHttpMessageTask.setResponsedClass(PbPushHttpResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

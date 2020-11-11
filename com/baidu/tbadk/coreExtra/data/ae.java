@@ -10,45 +10,45 @@ import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ae {
-    private static final Map<ShareDialogConfig.From, Integer> eXD = new HashMap();
-    private List<Integer> cnC;
-    private int eXE;
-    private int eXF;
-    private int eXG;
+    private static final Map<ShareDialogConfig.From, Integer> fdt = new HashMap();
+    private List<Integer> ctA;
+    private int fdu;
+    private int fdv;
+    private int fdw;
     private String mText;
 
     static {
-        eXD.put(ShareDialogConfig.From.Recommend, 1);
-        eXD.put(ShareDialogConfig.From.Concern, 2);
-        eXD.put(ShareDialogConfig.From.PB, 3);
-        eXD.put(ShareDialogConfig.From.FRS, 4);
-        eXD.put(ShareDialogConfig.From.PersonPolymeric, 5);
-        eXD.put(ShareDialogConfig.From.VideoMiddlePageHorizontal, 6);
-        eXD.put(ShareDialogConfig.From.VideoMiddlePageVertical, 7);
-        eXD.put(ShareDialogConfig.From.HomeVideoTab, 8);
-        eXD.put(ShareDialogConfig.From.HomeGameTab, 9);
+        fdt.put(ShareDialogConfig.From.Recommend, 1);
+        fdt.put(ShareDialogConfig.From.Concern, 2);
+        fdt.put(ShareDialogConfig.From.PB, 3);
+        fdt.put(ShareDialogConfig.From.FRS, 4);
+        fdt.put(ShareDialogConfig.From.PersonPolymeric, 5);
+        fdt.put(ShareDialogConfig.From.VideoMiddlePageHorizontal, 6);
+        fdt.put(ShareDialogConfig.From.VideoMiddlePageVertical, 7);
+        fdt.put(ShareDialogConfig.From.HomeVideoTab, 8);
+        fdt.put(ShareDialogConfig.From.HomeGameTab, 9);
     }
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.eXE = jSONObject.optInt("begin_time");
-            this.eXF = jSONObject.optInt("end_time");
+            this.fdu = jSONObject.optInt("begin_time");
+            this.fdv = jSONObject.optInt("end_time");
             this.mText = jSONObject.optString("text");
-            this.eXG = jSONObject.optInt("icon_exp");
-            CA(jSONObject.optString("page_list"));
+            this.fdw = jSONObject.optInt("icon_exp");
+            CO(jSONObject.optString("page_list"));
         }
     }
 
-    private void CA(String str) {
+    private void CO(String str) {
         String[] split;
         if (!at.isEmpty(str) && (split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) != null) {
             for (String str2 : split) {
                 int i = com.baidu.adp.lib.f.b.toInt(str2, -1);
                 if (i != -1) {
-                    if (this.cnC == null) {
-                        this.cnC = new ArrayList();
+                    if (this.ctA == null) {
+                        this.ctA = new ArrayList();
                     }
-                    this.cnC.add(Integer.valueOf(i));
+                    this.ctA.add(Integer.valueOf(i));
                 }
             }
         }
@@ -56,18 +56,18 @@ public class ae {
 
     public boolean a(ShareDialogConfig.From from) {
         Integer num;
-        return (this.cnC == null || (num = eXD.get(from)) == null || !this.cnC.contains(num)) ? false : true;
+        return (this.ctA == null || (num = fdt.get(from)) == null || !this.ctA.contains(num)) ? false : true;
     }
 
-    public boolean bsq() {
-        return System.currentTimeMillis() / 1000 >= ((long) this.eXE) && System.currentTimeMillis() / 1000 <= ((long) this.eXF);
+    public boolean buQ() {
+        return System.currentTimeMillis() / 1000 >= ((long) this.fdu) && System.currentTimeMillis() / 1000 <= ((long) this.fdv);
     }
 
     public String getText() {
         return this.mText;
     }
 
-    public int bsr() {
-        return this.eXG;
+    public int buR() {
+        return this.fdw;
     }
 }

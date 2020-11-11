@@ -20,7 +20,7 @@ public class a extends d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b lq(String str) {
+    public com.baidu.swan.apps.api.c.b lF(String str) {
         if (DEBUG) {
             Log.d("Api-Subscription", "subscribe with json string:  " + str);
         }
@@ -48,7 +48,7 @@ public class a extends d {
         if (b == null) {
             return new Pair<>(null, 202);
         }
-        return new Pair<>(new Request.Builder().url(com.baidu.swan.apps.t.a.auF().afd()).post(b).build(), 0);
+        return new Pair<>(new Request.Builder().url(com.baidu.swan.apps.t.a.axf().ahD()).post(b).build(), 0);
     }
 
     private void a(@NonNull Request request, final String str) {
@@ -69,10 +69,10 @@ public class a extends d {
             }
         });
         aVar.tag = request.tag();
-        aVar.ebt = true;
-        aVar.ebu = true;
-        aVar.ebv = true;
-        com.baidu.swan.a.c.a.aYk().b(aVar);
+        aVar.ehl = true;
+        aVar.ehm = true;
+        aVar.ehn = true;
+        com.baidu.swan.a.c.a.baK().b(aVar);
     }
 
     private RequestBody b(@NonNull e eVar, @NonNull JSONObject jSONObject) {

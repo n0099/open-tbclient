@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 import com.baidu.android.pushservice.h.a.b;
 import com.baidu.ar.constants.HttpConstants;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -11,7 +12,7 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1013a;
+    private String f1015a;
     private String b;
     private int c;
     private ArrayList<e> d;
@@ -25,7 +26,7 @@ public class c {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f1014a;
+        public int f1016a;
         public int b;
 
         public a() {
@@ -33,7 +34,7 @@ public class c {
     }
 
     public c(Context context, String str) {
-        this.f1013a = str;
+        this.f1015a = str;
         a(context, str);
     }
 
@@ -42,7 +43,7 @@ public class c {
         try {
             JSONObject jSONObject = new JSONObject(str);
             a(jSONObject.getString(HttpConstants.HTTP_MANUFACTURER));
-            String string = jSONObject.getString("mode");
+            String string = jSONObject.getString(UbcStatConstant.KEY_CONTENT_EXT_MODE);
             if ("I".equalsIgnoreCase(string)) {
                 a(1);
             } else if ("I_HW".equalsIgnoreCase(string)) {
@@ -135,7 +136,7 @@ public class c {
 
     public void a(int i, int i2) {
         this.h = new a();
-        this.h.f1014a = i;
+        this.h.f1016a = i;
         this.h.b = i2;
     }
 
@@ -192,6 +193,6 @@ public class c {
     }
 
     public String toString() {
-        return this.f1013a;
+        return this.f1015a;
     }
 }

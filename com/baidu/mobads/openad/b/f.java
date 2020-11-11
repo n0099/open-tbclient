@@ -16,7 +16,7 @@ import java.util.Observable;
 public class f extends Observable implements IOAdDownloader, Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f2377a;
+    protected Context f2379a;
     protected URL b;
     protected String c;
     protected String d;
@@ -28,7 +28,7 @@ public class f extends Observable implements IOAdDownloader, Runnable {
 
     public f(Context context, URL url, String str, String str2, boolean z) {
         this.i = false;
-        this.f2377a = context;
+        this.f2379a = context;
         this.b = url;
         this.c = str;
         this.i = z;

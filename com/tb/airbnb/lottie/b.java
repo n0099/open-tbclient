@@ -1,7 +1,13 @@
 package com.tb.airbnb.lottie;
 
-import android.graphics.Bitmap;
+import android.graphics.Typeface;
 /* loaded from: classes16.dex */
-public interface b {
-    Bitmap fetchBitmap(g gVar);
+public class b {
+    public Typeface aZ(String str) {
+        return null;
+    }
+
+    public String ba(String str) {
+        return null;
+    }
 }

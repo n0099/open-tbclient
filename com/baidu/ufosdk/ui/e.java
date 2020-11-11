@@ -9,14 +9,14 @@ import android.widget.TextView;
 public final class e extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f3845a;
+    public boolean f3847a;
     private ImageView b;
     private TextView c;
     private Context d;
 
     public e(Context context) {
         super(context);
-        this.f3845a = false;
+        this.f3847a = false;
         this.d = context;
         setOrientation(0);
         setGravity(16);

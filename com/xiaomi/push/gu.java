@@ -6,14 +6,14 @@ import java.util.Random;
 public class gu {
 
     /* renamed from: a  reason: collision with other field name */
-    private static final char[] f404a = "&quot;".toCharArray();
+    private static final char[] f406a = "&quot;".toCharArray();
     private static final char[] b = "&apos;".toCharArray();
     private static final char[] c = "&amp;".toCharArray();
     private static final char[] d = "&lt;".toCharArray();
     private static final char[] e = "&gt;".toCharArray();
 
     /* renamed from: a  reason: collision with root package name */
-    private static Random f4932a = new Random();
+    private static Random f4934a = new Random();
     private static char[] f = "0123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
 
     public static String a(int i) {
@@ -22,7 +22,7 @@ public class gu {
         }
         char[] cArr = new char[i];
         for (int i2 = 0; i2 < cArr.length; i2++) {
-            cArr[i2] = f[f4932a.nextInt(71)];
+            cArr[i2] = f[f4934a.nextInt(71)];
         }
         return new String(cArr);
     }
@@ -64,7 +64,7 @@ public class gu {
                         sb.append(charArray, i, i2 - i);
                     }
                     i = i2 + 1;
-                    sb.append(f404a);
+                    sb.append(f406a);
                 } else if (c2 == '\'') {
                     if (i2 > i) {
                         sb.append(charArray, i, i2 - i);

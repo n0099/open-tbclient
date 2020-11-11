@@ -4,7 +4,7 @@ import android.content.Intent;
 import com.baidu.m.a.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
-public final class a implements a.InterfaceC0238a {
+public final class a implements a.InterfaceC0250a {
     final /* synthetic */ BdUploadHandler afs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public final class a implements a.InterfaceC0238a {
         this.afs = bdUploadHandler;
     }
 
-    @Override // com.baidu.m.a.a.InterfaceC0238a
+    @Override // com.baidu.m.a.a.InterfaceC0250a
     public final void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Intent createCameraIntentAfterCheckPermission;
         if (i == 4099) {

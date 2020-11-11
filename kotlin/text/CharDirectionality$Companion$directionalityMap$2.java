@@ -18,7 +18,7 @@ final class CharDirectionality$Companion$directionalityMap$2 extends Lambda impl
     @Override // kotlin.jvm.a.a
     public final Map<Integer, ? extends CharDirectionality> invoke() {
         CharDirectionality[] values = CharDirectionality.values();
-        LinkedHashMap linkedHashMap = new LinkedHashMap(kotlin.b.l.eu(af.QX(values.length), 16));
+        LinkedHashMap linkedHashMap = new LinkedHashMap(kotlin.b.l.ex(af.Rs(values.length), 16));
         for (CharDirectionality charDirectionality : values) {
             linkedHashMap.put(Integer.valueOf(charDirectionality.getValue()), charDirectionality);
         }

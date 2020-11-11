@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 class c<T> implements com.baidu.helios.c<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile boolean f1781a = false;
+    private volatile boolean f1783a = false;
     private final CountDownLatch axD = new CountDownLatch(1);
     private b<T> axE = null;
     private a axF = null;
@@ -40,7 +40,7 @@ class c<T> implements com.baidu.helios.c<T> {
         this.axF.errorCode = i;
         this.axF.axH = th;
         this.axF.axI = bundle;
-        this.f1781a = false;
+        this.f1783a = false;
         this.axD.countDown();
     }
 
@@ -49,7 +49,7 @@ class c<T> implements com.baidu.helios.c<T> {
         this.axE = new b<>();
         this.axE.result = t;
         this.axE.axI = bundle;
-        this.f1781a = true;
+        this.f1783a = true;
         this.axD.countDown();
     }
 
@@ -63,6 +63,6 @@ class c<T> implements com.baidu.helios.c<T> {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return this.f1781a;
+        return this.f1783a;
     }
 }

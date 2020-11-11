@@ -9,8 +9,8 @@ public class b {
     private com.baidu.platform.comapi.map.b.a.b c;
 
     /* renamed from: a  reason: collision with root package name */
-    a.InterfaceC0270a f2904a = new c(this);
-    private com.baidu.platform.comapi.map.b.a.a d = new com.baidu.platform.comapi.map.b.a.a(this.f2904a);
+    a.InterfaceC0282a f2906a = new c(this);
+    private com.baidu.platform.comapi.map.b.a.a d = new com.baidu.platform.comapi.map.b.a.a(this.f2906a);
 
     public b(MapController mapController) {
         this.b = mapController;

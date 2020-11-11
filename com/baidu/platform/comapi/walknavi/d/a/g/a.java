@@ -5,10 +5,10 @@ import android.util.Log;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f2986a = 5;
+    private static int f2988a = 5;
 
     public static void a(String str) {
-        if (f2986a <= 3) {
+        if (f2988a <= 3) {
             Log.d("ARLOG", a() + " " + str);
         }
     }

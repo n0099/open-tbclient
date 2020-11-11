@@ -12,7 +12,7 @@ public interface f extends IInterface {
     public static abstract class a extends Binder implements f {
 
         /* renamed from: a  reason: collision with root package name */
-        static final int f1792a = 1;
+        static final int f1794a = 1;
         static final int b = 2;
         private static final String c = "com.baidu.helios.bridge.multiprocess.OnGetResultRemoteCallback";
 
@@ -21,10 +21,10 @@ public interface f extends IInterface {
         private static class C0147a implements f {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f1793a;
+            private IBinder f1795a;
 
             C0147a(IBinder iBinder) {
-                this.f1793a = iBinder;
+                this.f1795a = iBinder;
             }
 
             public String a() {
@@ -44,7 +44,7 @@ public interface f extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f1793a.transact(2, obtain, obtain2, 0);
+                    this.f1795a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -65,7 +65,7 @@ public interface f extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f1793a.transact(1, obtain, obtain2, 0);
+                    this.f1795a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -75,7 +75,7 @@ public interface f extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f1793a;
+                return this.f1795a;
             }
         }
 

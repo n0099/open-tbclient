@@ -33,8 +33,8 @@ public class AdDownloadService extends Service {
             AdDownloadService.this.mDownloadManager.h(downloadInfo);
         }
 
-        public DownloadInfo vd(String str) {
-            return AdDownloadService.this.mDownloadManager.vd(str);
+        public DownloadInfo vr(String str) {
+            return AdDownloadService.this.mDownloadManager.vr(str);
         }
     }
 

@@ -14,7 +14,7 @@ import com.baidu.fsg.face.base.d.h;
 public class UploadCircleView extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    private Paint f1776a;
+    private Paint f1778a;
     private Paint b;
     private Paint c;
     private RectF d;
@@ -40,15 +40,15 @@ public class UploadCircleView extends View {
         this.h = h.a(context, 24.0f);
         this.e = Color.parseColor("#E1DDDD");
         this.f = Color.parseColor("#3C76FF");
-        this.f1776a = new Paint();
+        this.f1778a = new Paint();
         this.b = new Paint();
         this.c = new Paint();
         this.d = new RectF();
-        this.f1776a.setColor(this.e);
-        this.f1776a.setStyle(Paint.Style.STROKE);
-        this.f1776a.setStrokeWidth(this.g);
-        this.f1776a.setAntiAlias(true);
-        this.f1776a.setStrokeCap(Paint.Cap.ROUND);
+        this.f1778a.setColor(this.e);
+        this.f1778a.setStyle(Paint.Style.STROKE);
+        this.f1778a.setStrokeWidth(this.g);
+        this.f1778a.setAntiAlias(true);
+        this.f1778a.setStrokeCap(Paint.Cap.ROUND);
         this.b.setColor(this.f);
         this.b.setStyle(Paint.Style.STROKE);
         this.b.setStrokeWidth(this.g);
@@ -64,7 +64,7 @@ public class UploadCircleView extends View {
     protected void onDraw(Canvas canvas) {
         float width = getWidth() / 2;
         float f = width - (this.g / 2);
-        canvas.drawCircle(width, width, f, this.f1776a);
+        canvas.drawCircle(width, width, f, this.f1778a);
         this.d.set(width - f, width - f, width + f, f + width);
         canvas.drawArc(this.d, -90.0f, this.i, false, this.b);
         canvas.drawText(this.j, width - (this.c.measureText(this.j) / 2.0f), width, this.c);

@@ -15,13 +15,13 @@ import com.baidu.tieba.ala.data.PkInfoData;
 /* loaded from: classes4.dex */
 public class PkRankMvpView extends RelativeLayout {
     Context context;
-    private PkRankView gtC;
-    private RelativeLayout hIn;
-    private HeadImageView hIo;
-    private TextView hIp;
-    private TextView hIq;
-    private RelativeLayout hIr;
-    private ImageView hIs;
+    private PkRankView gzq;
+    private RelativeLayout hOk;
+    private HeadImageView hOl;
+    private TextView hOm;
+    private TextView hOn;
+    private RelativeLayout hOo;
+    private ImageView hOp;
     private View mView;
 
     public PkRankMvpView(Context context, AttributeSet attributeSet) {
@@ -35,56 +35,56 @@ public class PkRankMvpView extends RelativeLayout {
     }
 
     private void initView() {
-        this.mView = LayoutInflater.from(getContext()).inflate(a.h.sdk_rank_mvp_layout, (ViewGroup) this, true);
-        cjN();
-        cjx();
+        this.mView = LayoutInflater.from(getContext()).inflate(a.g.sdk_rank_mvp_layout, (ViewGroup) this, true);
+        cmp();
+        clZ();
     }
 
-    private void cjN() {
-        this.hIn = (RelativeLayout) this.mView.findViewById(a.g.mvp_layout);
-        this.hIo = (HeadImageView) this.mView.findViewById(a.g.mvp_head);
-        this.hIp = (TextView) this.mView.findViewById(a.g.mvp_name);
-        this.hIq = (TextView) this.mView.findViewById(a.g.mvp_score);
-        this.hIr = (RelativeLayout) this.mView.findViewById(a.g.mvp_get_layout);
-        this.hIs = (ImageView) this.mView.findViewById(a.g.mvp_get_image);
-        this.hIo.setDefaultBgResource(a.f.sdk_default_avatar);
-        this.hIo.setIsRound(true);
-        this.hIo.setAutoChangeStyle(false);
-        this.hIo.setBorderWidth(BdUtilHelper.getDimens(getContext(), a.e.sdk_ds4));
-        this.hIo.setBorderColor(872415231);
+    private void cmp() {
+        this.hOk = (RelativeLayout) this.mView.findViewById(a.f.mvp_layout);
+        this.hOl = (HeadImageView) this.mView.findViewById(a.f.mvp_head);
+        this.hOm = (TextView) this.mView.findViewById(a.f.mvp_name);
+        this.hOn = (TextView) this.mView.findViewById(a.f.mvp_score);
+        this.hOo = (RelativeLayout) this.mView.findViewById(a.f.mvp_get_layout);
+        this.hOp = (ImageView) this.mView.findViewById(a.f.mvp_get_image);
+        this.hOl.setDefaultBgResource(a.e.sdk_default_avatar);
+        this.hOl.setIsRound(true);
+        this.hOl.setAutoChangeStyle(false);
+        this.hOl.setBorderWidth(BdUtilHelper.getDimens(getContext(), a.d.sdk_ds4));
+        this.hOl.setBorderColor(872415231);
     }
 
     public void e(final PkInfoData pkInfoData) {
-        this.hIn.setVisibility(0);
-        this.hIo.startLoad(pkInfoData.mvpInfoData.bdPortrait, 25, false, false);
-        this.hIp.setText(pkInfoData.mvpInfoData.userNickName);
-        this.hIq.setText(pkInfoData.mvpInfoData.contributionHonor);
-        this.hIq.setText(this.context.getString(a.i.sdk_pk_rank_contribute, String.valueOf(pkInfoData.mvpInfoData.contributionHonor)));
-        this.hIo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.PkRankMvpView.1
+        this.hOk.setVisibility(0);
+        this.hOl.startLoad(pkInfoData.mvpInfoData.bdPortrait, 25, false, false);
+        this.hOm.setText(pkInfoData.mvpInfoData.userNickName);
+        this.hOn.setText(pkInfoData.mvpInfoData.contributionHonor);
+        this.hOn.setText(this.context.getString(a.h.sdk_pk_rank_contribute, String.valueOf(pkInfoData.mvpInfoData.contributionHonor)));
+        this.hOl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.PkRankMvpView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (pkInfoData.mvpInfoData.userID != PkRankMvpView.this.gtC.aJv.aIe.userId) {
-                    PkRankMvpView.this.gtC.B(pkInfoData.H5URL, pkInfoData.mvpInfoData.userID);
+                if (pkInfoData.mvpInfoData.userID != PkRankMvpView.this.gzq.aKv.aIV.userId) {
+                    PkRankMvpView.this.gzq.B(pkInfoData.H5URL, pkInfoData.mvpInfoData.userID);
                 }
             }
         });
         if (pkInfoData.mvpInfoData.propsType != null && !pkInfoData.mvpInfoData.propsType.isEmpty()) {
-            this.hIr.setVisibility(0);
+            this.hOo.setVisibility(0);
             int parseInt = Integer.parseInt(pkInfoData.mvpInfoData.propsType);
             if (parseInt == 1) {
-                this.hIs.setImageResource(a.f.pk_rank_red_potion);
+                this.hOp.setImageResource(a.e.pk_rank_red_potion);
             } else if (parseInt == 2) {
-                this.hIs.setImageResource(a.f.pk_rank_boom);
+                this.hOp.setImageResource(a.e.pk_rank_boom);
             }
         }
     }
 
-    private void cjx() {
-        this.hIn.setVisibility(8);
-        this.hIr.setVisibility(8);
+    private void clZ() {
+        this.hOk.setVisibility(8);
+        this.hOo.setVisibility(8);
     }
 
     public void setPkRankView(PkRankView pkRankView) {
-        this.gtC = pkRankView;
+        this.gzq = pkRankView;
     }
 }

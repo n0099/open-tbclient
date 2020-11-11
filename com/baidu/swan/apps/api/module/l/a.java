@@ -14,7 +14,7 @@ public class a extends com.baidu.swan.apps.api.a.d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b lD(String str) {
+    public com.baidu.swan.apps.api.c.b lS(String str) {
         if (DEBUG) {
             Log.d("Api-CheckAppInstall", "start check app install");
         }

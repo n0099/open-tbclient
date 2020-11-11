@@ -33,7 +33,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c extends AbsDelegateAdapter<com.baidu.tieba.recommendlist.data.c, a> {
-    private w bpz;
+    private w bqS;
     private int cardWidth;
 
     public c(Context context, BdUniqueId bdUniqueId, int i) {
@@ -44,9 +44,9 @@ public class c extends AbsDelegateAdapter<com.baidu.tieba.recommendlist.data.c, 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
-    /* renamed from: cM */
+    /* renamed from: cO */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        return new a(LayoutInflater.from(this.mContext).inflate(a.h.ala_recommend_live_item_layout, viewGroup, false), this.mContext, this.cardWidth);
+        return new a(LayoutInflater.from(this.mContext).inflate(a.g.ala_recommend_live_item_layout, viewGroup, false), this.mContext, this.cardWidth);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,125 +54,125 @@ public class c extends AbsDelegateAdapter<com.baidu.tieba.recommendlist.data.c, 
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.recommendlist.data.c cVar, a aVar) {
-        aVar.a(cVar, i, this.bpz);
+        aVar.a(cVar, i, this.bqS);
         return view;
     }
 
     public void setAlaLiveShowData(w wVar) {
-        this.bpz = wVar;
+        this.bqS = wVar;
     }
 
     /* loaded from: classes4.dex */
     public static class a extends TypeAdapter.ViewHolder {
-        private w bpz;
-        private AlphaAnimation ggs;
+        private w bqS;
+        private AlphaAnimation gmg;
+        private String mBF;
+        private RelativeLayout[] mBK;
+        private TbImageView[] mBL;
+        private TextView[] mBM;
+        private TextView[] mBN;
+        private LinearLayout[] mBO;
+        private TextView[] mBP;
+        private com.baidu.tieba.recommendlist.data.c mBQ;
         private Context mContext;
         private int mPosition;
-        private String mvI;
-        private RelativeLayout[] mvN;
-        private TbImageView[] mvO;
-        private TextView[] mvP;
-        private TextView[] mvQ;
-        private LinearLayout[] mvR;
-        private TextView[] mvS;
-        private com.baidu.tieba.recommendlist.data.c mvT;
 
         private a(View view, Context context, int i) {
             super(view);
-            this.mvI = "";
+            this.mBF = "";
             this.mContext = context;
-            this.mvN = new RelativeLayout[2];
-            this.mvO = new TbImageView[2];
-            this.mvP = new TextView[2];
-            this.mvQ = new TextView[2];
-            this.mvR = new LinearLayout[2];
-            this.mvS = new TextView[2];
-            this.mvN[0] = (RelativeLayout) view.findViewById(a.g.left_content_layout);
-            this.mvN[1] = (RelativeLayout) view.findViewById(a.g.right_content_layout);
-            this.mvO[0] = (TbImageView) view.findViewById(a.g.left_cover_imageView);
-            this.mvO[1] = (TbImageView) view.findViewById(a.g.right_cover_imageView);
-            this.mvP[0] = (TextView) view.findViewById(a.g.left_count_textView);
-            this.mvP[1] = (TextView) view.findViewById(a.g.right_count_textView);
-            this.mvQ[0] = (TextView) view.findViewById(a.g.left_name_textView);
-            this.mvQ[1] = (TextView) view.findViewById(a.g.right_name_textView);
-            this.mvR[0] = (LinearLayout) view.findViewById(a.g.left_location_layout);
-            this.mvR[1] = (LinearLayout) view.findViewById(a.g.right_location_layout);
-            this.mvS[0] = (TextView) view.findViewById(a.g.left_location_textView);
-            this.mvS[1] = (TextView) view.findViewById(a.g.right_location_textView);
-            this.mvO[0].getLayoutParams().width = i;
-            this.mvO[0].getLayoutParams().height = i;
-            this.mvO[1].getLayoutParams().width = i;
-            this.mvO[1].getLayoutParams().height = i;
-            this.mvO[0].setDefaultBgResource(a.f.sdk_shape_transparent);
-            this.mvO[1].setDefaultBgResource(a.f.sdk_shape_transparent);
+            this.mBK = new RelativeLayout[2];
+            this.mBL = new TbImageView[2];
+            this.mBM = new TextView[2];
+            this.mBN = new TextView[2];
+            this.mBO = new LinearLayout[2];
+            this.mBP = new TextView[2];
+            this.mBK[0] = (RelativeLayout) view.findViewById(a.f.left_content_layout);
+            this.mBK[1] = (RelativeLayout) view.findViewById(a.f.right_content_layout);
+            this.mBL[0] = (TbImageView) view.findViewById(a.f.left_cover_imageView);
+            this.mBL[1] = (TbImageView) view.findViewById(a.f.right_cover_imageView);
+            this.mBM[0] = (TextView) view.findViewById(a.f.left_count_textView);
+            this.mBM[1] = (TextView) view.findViewById(a.f.right_count_textView);
+            this.mBN[0] = (TextView) view.findViewById(a.f.left_name_textView);
+            this.mBN[1] = (TextView) view.findViewById(a.f.right_name_textView);
+            this.mBO[0] = (LinearLayout) view.findViewById(a.f.left_location_layout);
+            this.mBO[1] = (LinearLayout) view.findViewById(a.f.right_location_layout);
+            this.mBP[0] = (TextView) view.findViewById(a.f.left_location_textView);
+            this.mBP[1] = (TextView) view.findViewById(a.f.right_location_textView);
+            this.mBL[0].getLayoutParams().width = i;
+            this.mBL[0].getLayoutParams().height = i;
+            this.mBL[1].getLayoutParams().width = i;
+            this.mBL[1].getLayoutParams().height = i;
+            this.mBL[0].setDefaultBgResource(a.e.sdk_shape_transparent);
+            this.mBL[1].setDefaultBgResource(a.e.sdk_shape_transparent);
             if (!TbadkCoreApplication.getInst().isMobileBaidu() && i > 0) {
-                this.mvI = "@resize{w:" + i + ",h:" + i + "}";
+                this.mBF = "@resize{w:" + i + ",h:" + i + "}";
             }
-            this.mvN[0].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recommendlist.adapter.c.a.1
+            this.mBK[0].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recommendlist.adapter.c.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.mvT != null) {
-                        if (a.this.mvT.mwd != null) {
-                            a.this.b(a.this.mvT.mwd, 0, a.this.mvT.type);
-                        } else if (a.this.mvT.mwe != null) {
-                            a.this.b(a.this.mvT.mwe, 0, a.this.mvT.type);
+                    if (a.this.mBQ != null) {
+                        if (a.this.mBQ.mCa != null) {
+                            a.this.b(a.this.mBQ.mCa, 0, a.this.mBQ.type);
+                        } else if (a.this.mBQ.mCb != null) {
+                            a.this.b(a.this.mBQ.mCb, 0, a.this.mBQ.type);
                         }
                     }
                 }
             });
-            this.mvN[1].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recommendlist.adapter.c.a.2
+            this.mBK[1].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recommendlist.adapter.c.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.mvT != null && a.this.mvT.mwe != null) {
-                        a.this.b(a.this.mvT.mwe, 1, a.this.mvT.type);
+                    if (a.this.mBQ != null && a.this.mBQ.mCb != null) {
+                        a.this.b(a.this.mBQ.mCb, 1, a.this.mBQ.type);
                     }
                 }
             });
-            this.ggs = new AlphaAnimation(0.0f, 1.0f);
-            this.ggs.setDuration(150L);
+            this.gmg = new AlphaAnimation(0.0f, 1.0f);
+            this.gmg.setDuration(150L);
         }
 
         public void a(com.baidu.tieba.recommendlist.data.c cVar, int i, w wVar) {
             boolean z;
             int i2;
             if (cVar != null) {
-                this.mvT = cVar;
+                this.mBQ = cVar;
                 this.mPosition = i;
-                this.bpz = wVar;
-                if (cVar.mwd != null) {
-                    a(cVar.mwd, 0, this.mvT.type);
+                this.bqS = wVar;
+                if (cVar.mCa != null) {
+                    a(cVar.mCa, 0, this.mBQ.type);
                 }
-                if (cVar.mwe != null) {
-                    if (cVar.mwd == null) {
+                if (cVar.mCb != null) {
+                    if (cVar.mCa == null) {
                         i2 = 0;
                         z = false;
                     } else {
                         i2 = 1;
                         z = true;
                     }
-                    a(cVar.mwe, i2, this.mvT.type);
+                    a(cVar.mCb, i2, this.mBQ.type);
                 } else {
                     z = false;
                 }
                 if (z) {
-                    this.mvN[1].setVisibility(0);
+                    this.mBK[1].setVisibility(0);
                 } else {
-                    this.mvN[1].setVisibility(8);
+                    this.mBK[1].setVisibility(8);
                 }
             }
         }
 
         private void a(AlaRecommendLiveData alaRecommendLiveData, int i, int i2) {
-            final TbImageView tbImageView = this.mvO[i];
+            final TbImageView tbImageView = this.mBL[i];
             tbImageView.setEvent(new TbImageView.ImageViewEvent() { // from class: com.baidu.tieba.recommendlist.adapter.c.a.3
                 @Override // com.baidu.live.tbadk.widget.TbImageView.ImageViewEvent
                 public void onComplete(String str, boolean z) {
                     Object tag = tbImageView.getTag(tbImageView.getId());
                     if ((tag == null || (tag instanceof String)) && !str.equals(tag)) {
                         tbImageView.setTag(tbImageView.getId(), str);
-                        a.this.ggs.cancel();
-                        a.this.ggs.reset();
-                        tbImageView.startAnimation(a.this.ggs);
+                        a.this.gmg.cancel();
+                        a.this.gmg.reset();
+                        tbImageView.startAnimation(a.this.gmg);
                     }
                 }
 
@@ -180,16 +180,16 @@ public class c extends AbsDelegateAdapter<com.baidu.tieba.recommendlist.data.c, 
                 public void onCancel() {
                 }
             });
-            this.ggs.cancel();
+            this.gmg.cancel();
             tbImageView.stopLoad();
-            tbImageView.startLoad(alaRecommendLiveData.cover + this.mvI, 10, false);
-            this.mvQ[i].setText(alaRecommendLiveData.getNameShow());
-            this.mvP[i].setText(String.format(this.mContext.getResources().getString(a.i.recommend_live_audience_count), StringHelper.formatValue(alaRecommendLiveData.audience_count)));
+            tbImageView.startLoad(alaRecommendLiveData.cover + this.mBF, 10, false);
+            this.mBN[i].setText(alaRecommendLiveData.getNameShow());
+            this.mBM[i].setText(String.format(this.mContext.getResources().getString(a.h.recommend_live_audience_count), StringHelper.formatValue(alaRecommendLiveData.audience_count)));
             if (!TextUtils.isEmpty(alaRecommendLiveData.distance) && !TextUtils.equals(alaRecommendLiveData.distance, "0")) {
-                this.mvS[i].setText(alaRecommendLiveData.distance);
-                this.mvR[i].setVisibility(0);
+                this.mBP[i].setText(alaRecommendLiveData.distance);
+                this.mBO[i].setVisibility(0);
             } else {
-                this.mvR[i].setVisibility(8);
+                this.mBO[i].setVisibility(8);
             }
             a(UbcStatisticLiveKey.KEY_ID_1392, "show", alaRecommendLiveData, i2, i);
         }
@@ -215,24 +215,24 @@ public class c extends AbsDelegateAdapter<com.baidu.tieba.recommendlist.data.c, 
                     e.printStackTrace();
                 }
                 alaLiveRoomActivityConfig.addExtraByParams(str);
-                if (this.bpz != null) {
+                if (this.bqS != null) {
                     AlaLastLiveroomInfo alaLastLiveroomInfo = new AlaLastLiveroomInfo();
-                    if (this.bpz.aIe != null) {
-                        alaLastLiveroomInfo.setLastAnchorPortrait(this.bpz.aIe.portrait);
-                        alaLastLiveroomInfo.setLastAnchorUid(String.valueOf(this.bpz.aIe.userId));
-                        alaLastLiveroomInfo.setLastAnchorUname(this.bpz.aIe.nickName);
+                    if (this.bqS.aIV != null) {
+                        alaLastLiveroomInfo.setLastAnchorPortrait(this.bqS.aIV.portrait);
+                        alaLastLiveroomInfo.setLastAnchorUid(String.valueOf(this.bqS.aIV.userId));
+                        alaLastLiveroomInfo.setLastAnchorUname(this.bqS.aIV.nickName);
                     }
-                    if (this.bpz.mLiveInfo != null) {
-                        alaLastLiveroomInfo.setLastLiveId(this.bpz.mLiveInfo.live_id);
-                        alaLastLiveroomInfo.setLastRoomId(this.bpz.mLiveInfo.room_id);
-                        alaLastLiveroomInfo.setLastCover(this.bpz.mLiveInfo.cover);
-                        if (this.bpz.mLiveInfo.session_info != null) {
-                            if (!TextUtils.isEmpty(this.bpz.mLiveInfo.session_info.flvUrl)) {
-                                alaLastLiveroomInfo.setLastVideoUrl(this.bpz.mLiveInfo.session_info.flvUrl);
-                            } else if (!TextUtils.isEmpty(this.bpz.mLiveInfo.session_info.hlsUrl)) {
-                                alaLastLiveroomInfo.setLastVideoUrl(this.bpz.mLiveInfo.session_info.hlsUrl);
-                            } else if (!TextUtils.isEmpty(this.bpz.mLiveInfo.session_info.rtmpUrl)) {
-                                alaLastLiveroomInfo.setLastVideoUrl(this.bpz.mLiveInfo.session_info.rtmpUrl);
+                    if (this.bqS.mLiveInfo != null) {
+                        alaLastLiveroomInfo.setLastLiveId(this.bqS.mLiveInfo.live_id);
+                        alaLastLiveroomInfo.setLastRoomId(this.bqS.mLiveInfo.room_id);
+                        alaLastLiveroomInfo.setLastCover(this.bqS.mLiveInfo.cover);
+                        if (this.bqS.mLiveInfo.session_info != null) {
+                            if (!TextUtils.isEmpty(this.bqS.mLiveInfo.session_info.flvUrl)) {
+                                alaLastLiveroomInfo.setLastVideoUrl(this.bqS.mLiveInfo.session_info.flvUrl);
+                            } else if (!TextUtils.isEmpty(this.bqS.mLiveInfo.session_info.hlsUrl)) {
+                                alaLastLiveroomInfo.setLastVideoUrl(this.bqS.mLiveInfo.session_info.hlsUrl);
+                            } else if (!TextUtils.isEmpty(this.bqS.mLiveInfo.session_info.rtmpUrl)) {
+                                alaLastLiveroomInfo.setLastVideoUrl(this.bqS.mLiveInfo.session_info.rtmpUrl);
                             }
                         }
                     }

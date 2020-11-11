@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 /* loaded from: classes17.dex */
 public @interface c {
-    String[] eoN() default {};
+    String[] esC() default {};
 
     String value();
 }

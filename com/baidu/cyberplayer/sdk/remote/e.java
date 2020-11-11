@@ -24,16 +24,16 @@ public class e implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private Uri f1406a;
+    private Uri f1408a;
     private Map<String, String> b;
 
     public e(Uri uri, Map<String, String> map) {
-        this.f1406a = uri;
+        this.f1408a = uri;
         this.b = map;
     }
 
     protected e(Parcel parcel) {
-        this.f1406a = (Uri) parcel.readParcelable(Uri.class.getClassLoader());
+        this.f1408a = (Uri) parcel.readParcelable(Uri.class.getClassLoader());
         this.b = new HashMap();
         int readInt = parcel.readInt();
         for (int i = 0; i < readInt; i++) {
@@ -42,7 +42,7 @@ public class e implements Parcelable {
     }
 
     public Uri a() {
-        return this.f1406a;
+        return this.f1408a;
     }
 
     public Map<String, String> b() {
@@ -56,7 +56,7 @@ public class e implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.f1406a, i);
+        parcel.writeParcelable(this.f1408a, i);
         if (this.b == null || this.b.size() <= 0) {
             parcel.writeInt(0);
             return;

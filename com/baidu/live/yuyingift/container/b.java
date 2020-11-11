@@ -11,7 +11,7 @@ import com.baidu.live.sdk.a;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b extends BaseAdapter {
-    private List<j> aXj;
+    private List<j> aYB;
     private Context mContext;
     private int mType;
 
@@ -21,25 +21,25 @@ public class b extends BaseAdapter {
     }
 
     public void I(List<j> list) {
-        this.aXj = list;
+        this.aYB = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aXj == null) {
+        if (this.aYB == null) {
             return 1;
         }
-        return this.aXj.size() + 1;
+        return this.aYB.size() + 1;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: eg */
     public j getItem(int i) {
-        if (this.aXj == null || i < 0 || i >= getCount() - 1) {
+        if (this.aYB == null || i < 0 || i >= getCount() - 1) {
             return null;
         }
-        return this.aXj.get(i);
+        return this.aYB.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -61,9 +61,9 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null || view.getTag() == null) {
-            view = LayoutInflater.from(this.mContext).inflate(a.h.ala_gift_num_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.mContext).inflate(a.g.ala_gift_num_item, (ViewGroup) null);
             a aVar2 = new a();
-            aVar2.text = (TextView) view.findViewById(a.g.text);
+            aVar2.text = (TextView) view.findViewById(a.f.text);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
@@ -71,7 +71,7 @@ public class b extends BaseAdapter {
         }
         j item = getItem(i);
         if (getItemViewType(i) == 1) {
-            aVar.text.setText(a.i.ala_custom_num);
+            aVar.text.setText(a.h.ala_custom_num);
         } else if (item != null) {
             switch (this.mType) {
                 case 0:

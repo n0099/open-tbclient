@@ -7,11 +7,11 @@ import android.os.Message;
 public class c extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f2960a;
+    final /* synthetic */ b f2962a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.f2960a = bVar;
+        this.f2962a = bVar;
     }
 
     @Override // android.os.Handler
@@ -24,24 +24,24 @@ public class c extends Handler {
         a aVar4;
         switch (message.what) {
             case 1:
-                aVar3 = this.f2960a.e;
+                aVar3 = this.f2962a.e;
                 if (aVar3 != null) {
-                    aVar4 = this.f2960a.e;
+                    aVar4 = this.f2962a.e;
                     aVar4.b();
-                    this.f2960a.e = null;
+                    this.f2962a.e = null;
                     return;
                 }
                 return;
             case 16:
             case 32:
-                b bVar = this.f2960a;
-                i = this.f2960a.f;
+                b bVar = this.f2962a;
+                i = this.f2962a.f;
                 bVar.f = i | message.what;
-                aVar = this.f2960a.e;
+                aVar = this.f2962a.e;
                 if (aVar != null) {
-                    i2 = this.f2960a.f;
+                    i2 = this.f2962a.f;
                     if (i2 == 48) {
-                        aVar2 = this.f2960a.e;
+                        aVar2 = this.f2962a.e;
                         aVar2.a();
                         return;
                     }

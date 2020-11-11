@@ -1116,9 +1116,9 @@ public class DragImageView extends ImageView {
         }
         try {
             if (this.isHeadImage) {
-                super.setImageBitmap(BitmapHelper.getCashBitmap(a.f.sdk_icon_default_avatar100));
+                super.setImageBitmap(BitmapHelper.getCashBitmap(a.e.sdk_icon_default_avatar100));
             } else {
-                super.setImageBitmap(BitmapHelper.getCashBitmap(a.f.sdk_ph_btn_see_default));
+                super.setImageBitmap(BitmapHelper.getCashBitmap(a.e.sdk_ph_btn_see_default));
             }
         } catch (OutOfMemoryError e) {
             TbadkCoreApplication.getInst().onAppMemoryLow();

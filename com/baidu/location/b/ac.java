@@ -11,7 +11,7 @@ import android.os.Message;
 public class ac {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Object f1869a = new Object();
+    private static Object f1871a = new Object();
     private static ac b = null;
     private HandlerThread c;
     private Handler d;
@@ -22,7 +22,7 @@ public class ac {
 
     public static ac a() {
         ac acVar;
-        synchronized (f1869a) {
+        synchronized (f1871a) {
             if (b == null) {
                 b = new ac();
             }

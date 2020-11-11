@@ -10,67 +10,67 @@ import java.util.Map;
 public class ic implements ix<ic, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public int f532a;
+    public int f534a;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f533a;
+    public long f535a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ib f534a;
+    public ib f536a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ip f535a;
+    public ip f537a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f536a;
+    public String f538a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map<String, String> f538a;
+    public Map<String, String> f540a;
 
     /* renamed from: a  reason: collision with other field name */
-    public short f539a;
+    public short f541a;
 
     /* renamed from: b  reason: collision with other field name */
-    public String f541b;
+    public String f543b;
 
     /* renamed from: b  reason: collision with other field name */
-    public short f542b;
+    public short f544b;
 
     /* renamed from: c  reason: collision with other field name */
-    public String f543c;
+    public String f545c;
 
     /* renamed from: d  reason: collision with other field name */
-    public String f544d;
+    public String f546d;
 
     /* renamed from: e  reason: collision with other field name */
-    public String f545e;
+    public String f547e;
 
     /* renamed from: f  reason: collision with other field name */
-    public String f546f;
+    public String f548f;
 
     /* renamed from: g  reason: collision with other field name */
-    public String f547g;
+    public String f549g;
 
     /* renamed from: h  reason: collision with other field name */
-    public String f548h;
+    public String f550h;
 
     /* renamed from: i  reason: collision with other field name */
-    public String f549i;
+    public String f551i;
 
     /* renamed from: j  reason: collision with other field name */
-    public String f550j;
+    public String f552j;
 
     /* renamed from: k  reason: collision with other field name */
-    public String f551k;
+    public String f553k;
 
     /* renamed from: l  reason: collision with other field name */
-    public String f552l;
+    public String f554l;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final jn f531a = new jn("XmPushActionAckMessage");
+    private static final jn f533a = new jn("XmPushActionAckMessage");
 
     /* renamed from: a  reason: collision with root package name */
-    private static final jf f4970a = new jf("", Constants.GZIP_CAST_TYPE, 1);
+    private static final jf f4972a = new jf("", Constants.GZIP_CAST_TYPE, 1);
     private static final jf b = new jf("", (byte) 12, 2);
     private static final jf c = new jf("", Constants.GZIP_CAST_TYPE, 3);
     private static final jf d = new jf("", Constants.GZIP_CAST_TYPE, 4);
@@ -92,10 +92,10 @@ public class ic implements ix<ic, Object>, Serializable, Cloneable {
     private static final jf t = new jf("", (byte) 13, 23);
 
     /* renamed from: a  reason: collision with other field name */
-    private BitSet f537a = new BitSet(5);
+    private BitSet f539a = new BitSet(5);
 
     /* renamed from: a  reason: collision with other field name */
-    public boolean f540a = false;
+    public boolean f542a = false;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
@@ -124,64 +124,64 @@ public class ic implements ix<ic, Object>, Serializable, Cloneable {
         if (getClass().equals(icVar.getClass())) {
             int compareTo = Boolean.valueOf(m399a()).compareTo(Boolean.valueOf(icVar.m399a()));
             if (compareTo == 0) {
-                if (!m399a() || (a21 = iy.a(this.f536a, icVar.f536a)) == 0) {
+                if (!m399a() || (a21 = iy.a(this.f538a, icVar.f538a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(icVar.b()));
                     if (compareTo2 == 0) {
-                        if (!b() || (a20 = iy.a(this.f534a, icVar.f534a)) == 0) {
+                        if (!b() || (a20 = iy.a(this.f536a, icVar.f536a)) == 0) {
                             int compareTo3 = Boolean.valueOf(c()).compareTo(Boolean.valueOf(icVar.c()));
                             if (compareTo3 == 0) {
-                                if (!c() || (a19 = iy.a(this.f541b, icVar.f541b)) == 0) {
+                                if (!c() || (a19 = iy.a(this.f543b, icVar.f543b)) == 0) {
                                     int compareTo4 = Boolean.valueOf(d()).compareTo(Boolean.valueOf(icVar.d()));
                                     if (compareTo4 == 0) {
-                                        if (!d() || (a18 = iy.a(this.f543c, icVar.f543c)) == 0) {
+                                        if (!d() || (a18 = iy.a(this.f545c, icVar.f545c)) == 0) {
                                             int compareTo5 = Boolean.valueOf(e()).compareTo(Boolean.valueOf(icVar.e()));
                                             if (compareTo5 == 0) {
-                                                if (!e() || (a17 = iy.a(this.f533a, icVar.f533a)) == 0) {
+                                                if (!e() || (a17 = iy.a(this.f535a, icVar.f535a)) == 0) {
                                                     int compareTo6 = Boolean.valueOf(f()).compareTo(Boolean.valueOf(icVar.f()));
                                                     if (compareTo6 == 0) {
-                                                        if (!f() || (a16 = iy.a(this.f544d, icVar.f544d)) == 0) {
+                                                        if (!f() || (a16 = iy.a(this.f546d, icVar.f546d)) == 0) {
                                                             int compareTo7 = Boolean.valueOf(g()).compareTo(Boolean.valueOf(icVar.g()));
                                                             if (compareTo7 == 0) {
-                                                                if (!g() || (a15 = iy.a(this.f545e, icVar.f545e)) == 0) {
+                                                                if (!g() || (a15 = iy.a(this.f547e, icVar.f547e)) == 0) {
                                                                     int compareTo8 = Boolean.valueOf(h()).compareTo(Boolean.valueOf(icVar.h()));
                                                                     if (compareTo8 == 0) {
-                                                                        if (!h() || (a14 = iy.a(this.f535a, icVar.f535a)) == 0) {
+                                                                        if (!h() || (a14 = iy.a(this.f537a, icVar.f537a)) == 0) {
                                                                             int compareTo9 = Boolean.valueOf(i()).compareTo(Boolean.valueOf(icVar.i()));
                                                                             if (compareTo9 == 0) {
-                                                                                if (!i() || (a13 = iy.a(this.f546f, icVar.f546f)) == 0) {
+                                                                                if (!i() || (a13 = iy.a(this.f548f, icVar.f548f)) == 0) {
                                                                                     int compareTo10 = Boolean.valueOf(j()).compareTo(Boolean.valueOf(icVar.j()));
                                                                                     if (compareTo10 == 0) {
-                                                                                        if (!j() || (a12 = iy.a(this.f547g, icVar.f547g)) == 0) {
+                                                                                        if (!j() || (a12 = iy.a(this.f549g, icVar.f549g)) == 0) {
                                                                                             int compareTo11 = Boolean.valueOf(k()).compareTo(Boolean.valueOf(icVar.k()));
                                                                                             if (compareTo11 == 0) {
-                                                                                                if (!k() || (a11 = iy.a(this.f540a, icVar.f540a)) == 0) {
+                                                                                                if (!k() || (a11 = iy.a(this.f542a, icVar.f542a)) == 0) {
                                                                                                     int compareTo12 = Boolean.valueOf(l()).compareTo(Boolean.valueOf(icVar.l()));
                                                                                                     if (compareTo12 == 0) {
-                                                                                                        if (!l() || (a10 = iy.a(this.f548h, icVar.f548h)) == 0) {
+                                                                                                        if (!l() || (a10 = iy.a(this.f550h, icVar.f550h)) == 0) {
                                                                                                             int compareTo13 = Boolean.valueOf(m()).compareTo(Boolean.valueOf(icVar.m()));
                                                                                                             if (compareTo13 == 0) {
-                                                                                                                if (!m() || (a9 = iy.a(this.f549i, icVar.f549i)) == 0) {
+                                                                                                                if (!m() || (a9 = iy.a(this.f551i, icVar.f551i)) == 0) {
                                                                                                                     int compareTo14 = Boolean.valueOf(n()).compareTo(Boolean.valueOf(icVar.n()));
                                                                                                                     if (compareTo14 == 0) {
-                                                                                                                        if (!n() || (a8 = iy.a(this.f550j, icVar.f550j)) == 0) {
+                                                                                                                        if (!n() || (a8 = iy.a(this.f552j, icVar.f552j)) == 0) {
                                                                                                                             int compareTo15 = Boolean.valueOf(o()).compareTo(Boolean.valueOf(icVar.o()));
                                                                                                                             if (compareTo15 == 0) {
-                                                                                                                                if (!o() || (a7 = iy.a(this.f539a, icVar.f539a)) == 0) {
+                                                                                                                                if (!o() || (a7 = iy.a(this.f541a, icVar.f541a)) == 0) {
                                                                                                                                     int compareTo16 = Boolean.valueOf(p()).compareTo(Boolean.valueOf(icVar.p()));
                                                                                                                                     if (compareTo16 == 0) {
-                                                                                                                                        if (!p() || (a6 = iy.a(this.f542b, icVar.f542b)) == 0) {
+                                                                                                                                        if (!p() || (a6 = iy.a(this.f544b, icVar.f544b)) == 0) {
                                                                                                                                             int compareTo17 = Boolean.valueOf(q()).compareTo(Boolean.valueOf(icVar.q()));
                                                                                                                                             if (compareTo17 == 0) {
-                                                                                                                                                if (!q() || (a5 = iy.a(this.f551k, icVar.f551k)) == 0) {
+                                                                                                                                                if (!q() || (a5 = iy.a(this.f553k, icVar.f553k)) == 0) {
                                                                                                                                                     int compareTo18 = Boolean.valueOf(r()).compareTo(Boolean.valueOf(icVar.r()));
                                                                                                                                                     if (compareTo18 == 0) {
-                                                                                                                                                        if (!r() || (a4 = iy.a(this.f552l, icVar.f552l)) == 0) {
+                                                                                                                                                        if (!r() || (a4 = iy.a(this.f554l, icVar.f554l)) == 0) {
                                                                                                                                                             int compareTo19 = Boolean.valueOf(s()).compareTo(Boolean.valueOf(icVar.s()));
                                                                                                                                                             if (compareTo19 == 0) {
-                                                                                                                                                                if (!s() || (a3 = iy.a(this.f532a, icVar.f532a)) == 0) {
+                                                                                                                                                                if (!s() || (a3 = iy.a(this.f534a, icVar.f534a)) == 0) {
                                                                                                                                                                     int compareTo20 = Boolean.valueOf(t()).compareTo(Boolean.valueOf(icVar.t()));
                                                                                                                                                                     if (compareTo20 == 0) {
-                                                                                                                                                                        if (!t() || (a2 = iy.a(this.f538a, icVar.f538a)) == 0) {
+                                                                                                                                                                        if (!t() || (a2 = iy.a(this.f540a, icVar.f540a)) == 0) {
                                                                                                                                                                             return 0;
                                                                                                                                                                         }
                                                                                                                                                                         return a2;
@@ -268,27 +268,27 @@ public class ic implements ix<ic, Object>, Serializable, Cloneable {
     }
 
     public ic a(long j2) {
-        this.f533a = j2;
+        this.f535a = j2;
         a(true);
         return this;
     }
 
     public ic a(String str) {
-        this.f541b = str;
+        this.f543b = str;
         return this;
     }
 
     public ic a(short s2) {
-        this.f539a = s2;
+        this.f541a = s2;
         c(true);
         return this;
     }
 
     public void a() {
-        if (this.f541b == null) {
+        if (this.f543b == null) {
             throw new jj("Required field 'id' was not present! Struct: " + toString());
         }
-        if (this.f543c == null) {
+        if (this.f545c == null) {
             throw new jj("Required field 'appId' was not present! Struct: " + toString());
         }
     }
@@ -298,7 +298,7 @@ public class ic implements ix<ic, Object>, Serializable, Cloneable {
         jiVar.m489a();
         while (true) {
             jf m485a = jiVar.m485a();
-            if (m485a.f4998a == 0) {
+            if (m485a.f5000a == 0) {
                 jiVar.f();
                 if (!e()) {
                     throw new jj("Required field 'messageTs' was not found in serialized data! Struct: " + toString());
@@ -306,183 +306,183 @@ public class ic implements ix<ic, Object>, Serializable, Cloneable {
                 a();
                 return;
             }
-            switch (m485a.f776a) {
+            switch (m485a.f778a) {
                 case 1:
-                    if (m485a.f4998a == 11) {
-                        this.f536a = jiVar.m490a();
+                    if (m485a.f5000a == 11) {
+                        this.f538a = jiVar.m490a();
                         break;
                     } else {
-                        jl.a(jiVar, m485a.f4998a);
+                        jl.a(jiVar, m485a.f5000a);
                         break;
                     }
                 case 2:
-                    if (m485a.f4998a == 12) {
-                        this.f534a = new ib();
-                        this.f534a.a(jiVar);
+                    if (m485a.f5000a == 12) {
+                        this.f536a = new ib();
+                        this.f536a.a(jiVar);
                         break;
                     } else {
-                        jl.a(jiVar, m485a.f4998a);
+                        jl.a(jiVar, m485a.f5000a);
                         break;
                     }
                 case 3:
-                    if (m485a.f4998a == 11) {
-                        this.f541b = jiVar.m490a();
+                    if (m485a.f5000a == 11) {
+                        this.f543b = jiVar.m490a();
                         break;
                     } else {
-                        jl.a(jiVar, m485a.f4998a);
+                        jl.a(jiVar, m485a.f5000a);
                         break;
                     }
                 case 4:
-                    if (m485a.f4998a == 11) {
-                        this.f543c = jiVar.m490a();
+                    if (m485a.f5000a == 11) {
+                        this.f545c = jiVar.m490a();
                         break;
                     } else {
-                        jl.a(jiVar, m485a.f4998a);
+                        jl.a(jiVar, m485a.f5000a);
                         break;
                     }
                 case 5:
-                    if (m485a.f4998a == 10) {
-                        this.f533a = jiVar.m484a();
+                    if (m485a.f5000a == 10) {
+                        this.f535a = jiVar.m484a();
                         a(true);
                         break;
                     } else {
-                        jl.a(jiVar, m485a.f4998a);
+                        jl.a(jiVar, m485a.f5000a);
                         break;
                     }
                 case 6:
-                    if (m485a.f4998a == 11) {
-                        this.f544d = jiVar.m490a();
+                    if (m485a.f5000a == 11) {
+                        this.f546d = jiVar.m490a();
                         break;
                     } else {
-                        jl.a(jiVar, m485a.f4998a);
+                        jl.a(jiVar, m485a.f5000a);
                         break;
                     }
                 case 7:
-                    if (m485a.f4998a == 11) {
-                        this.f545e = jiVar.m490a();
+                    if (m485a.f5000a == 11) {
+                        this.f547e = jiVar.m490a();
                         break;
                     } else {
-                        jl.a(jiVar, m485a.f4998a);
+                        jl.a(jiVar, m485a.f5000a);
                         break;
                     }
                 case 8:
-                    if (m485a.f4998a == 12) {
-                        this.f535a = new ip();
-                        this.f535a.a(jiVar);
+                    if (m485a.f5000a == 12) {
+                        this.f537a = new ip();
+                        this.f537a.a(jiVar);
                         break;
                     } else {
-                        jl.a(jiVar, m485a.f4998a);
+                        jl.a(jiVar, m485a.f5000a);
                         break;
                     }
                 case 9:
-                    if (m485a.f4998a == 11) {
-                        this.f546f = jiVar.m490a();
+                    if (m485a.f5000a == 11) {
+                        this.f548f = jiVar.m490a();
                         break;
                     } else {
-                        jl.a(jiVar, m485a.f4998a);
+                        jl.a(jiVar, m485a.f5000a);
                         break;
                     }
                 case 10:
-                    if (m485a.f4998a == 11) {
-                        this.f547g = jiVar.m490a();
+                    if (m485a.f5000a == 11) {
+                        this.f549g = jiVar.m490a();
                         break;
                     } else {
-                        jl.a(jiVar, m485a.f4998a);
+                        jl.a(jiVar, m485a.f5000a);
                         break;
                     }
                 case 11:
-                    if (m485a.f4998a == 2) {
-                        this.f540a = jiVar.m494a();
+                    if (m485a.f5000a == 2) {
+                        this.f542a = jiVar.m494a();
                         b(true);
                         break;
                     } else {
-                        jl.a(jiVar, m485a.f4998a);
+                        jl.a(jiVar, m485a.f5000a);
                         break;
                     }
                 case 12:
-                    if (m485a.f4998a == 11) {
-                        this.f548h = jiVar.m490a();
+                    if (m485a.f5000a == 11) {
+                        this.f550h = jiVar.m490a();
                         break;
                     } else {
-                        jl.a(jiVar, m485a.f4998a);
+                        jl.a(jiVar, m485a.f5000a);
                         break;
                     }
                 case 13:
-                    if (m485a.f4998a == 11) {
-                        this.f549i = jiVar.m490a();
+                    if (m485a.f5000a == 11) {
+                        this.f551i = jiVar.m490a();
                         break;
                     } else {
-                        jl.a(jiVar, m485a.f4998a);
+                        jl.a(jiVar, m485a.f5000a);
                         break;
                     }
                 case 14:
-                    if (m485a.f4998a == 11) {
-                        this.f550j = jiVar.m490a();
+                    if (m485a.f5000a == 11) {
+                        this.f552j = jiVar.m490a();
                         break;
                     } else {
-                        jl.a(jiVar, m485a.f4998a);
+                        jl.a(jiVar, m485a.f5000a);
                         break;
                     }
                 case 15:
-                    if (m485a.f4998a == 6) {
-                        this.f539a = jiVar.m492a();
+                    if (m485a.f5000a == 6) {
+                        this.f541a = jiVar.m492a();
                         c(true);
                         break;
                     } else {
-                        jl.a(jiVar, m485a.f4998a);
+                        jl.a(jiVar, m485a.f5000a);
                         break;
                     }
                 case 16:
-                    if (m485a.f4998a == 6) {
-                        this.f542b = jiVar.m492a();
+                    if (m485a.f5000a == 6) {
+                        this.f544b = jiVar.m492a();
                         d(true);
                         break;
                     } else {
-                        jl.a(jiVar, m485a.f4998a);
+                        jl.a(jiVar, m485a.f5000a);
                         break;
                     }
                 case 17:
                 case 18:
                 case 19:
                 default:
-                    jl.a(jiVar, m485a.f4998a);
+                    jl.a(jiVar, m485a.f5000a);
                     break;
                 case 20:
-                    if (m485a.f4998a == 11) {
-                        this.f551k = jiVar.m490a();
+                    if (m485a.f5000a == 11) {
+                        this.f553k = jiVar.m490a();
                         break;
                     } else {
-                        jl.a(jiVar, m485a.f4998a);
+                        jl.a(jiVar, m485a.f5000a);
                         break;
                     }
                 case 21:
-                    if (m485a.f4998a == 11) {
-                        this.f552l = jiVar.m490a();
+                    if (m485a.f5000a == 11) {
+                        this.f554l = jiVar.m490a();
                         break;
                     } else {
-                        jl.a(jiVar, m485a.f4998a);
+                        jl.a(jiVar, m485a.f5000a);
                         break;
                     }
                 case 22:
-                    if (m485a.f4998a == 8) {
-                        this.f532a = jiVar.m483a();
+                    if (m485a.f5000a == 8) {
+                        this.f534a = jiVar.m483a();
                         e(true);
                         break;
                     } else {
-                        jl.a(jiVar, m485a.f4998a);
+                        jl.a(jiVar, m485a.f5000a);
                         break;
                     }
                 case 23:
-                    if (m485a.f4998a == 13) {
+                    if (m485a.f5000a == 13) {
                         jh m487a = jiVar.m487a();
-                        this.f538a = new HashMap(m487a.f778a * 2);
-                        for (int i2 = 0; i2 < m487a.f778a; i2++) {
-                            this.f538a.put(jiVar.m490a(), jiVar.m490a());
+                        this.f540a = new HashMap(m487a.f780a * 2);
+                        for (int i2 = 0; i2 < m487a.f780a; i2++) {
+                            this.f540a.put(jiVar.m490a(), jiVar.m490a());
                         }
                         jiVar.h();
                         break;
                     } else {
-                        jl.a(jiVar, m485a.f4998a);
+                        jl.a(jiVar, m485a.f5000a);
                         break;
                     }
             }
@@ -491,12 +491,12 @@ public class ic implements ix<ic, Object>, Serializable, Cloneable {
     }
 
     public void a(boolean z) {
-        this.f537a.set(0, z);
+        this.f539a.set(0, z);
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public boolean m399a() {
-        return this.f536a != null;
+        return this.f538a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -506,205 +506,205 @@ public class ic implements ix<ic, Object>, Serializable, Cloneable {
         }
         boolean m399a = m399a();
         boolean m399a2 = icVar.m399a();
-        if ((m399a || m399a2) && !(m399a && m399a2 && this.f536a.equals(icVar.f536a))) {
+        if ((m399a || m399a2) && !(m399a && m399a2 && this.f538a.equals(icVar.f538a))) {
             return false;
         }
         boolean b2 = b();
         boolean b3 = icVar.b();
-        if ((b2 || b3) && !(b2 && b3 && this.f534a.m398a(icVar.f534a))) {
+        if ((b2 || b3) && !(b2 && b3 && this.f536a.m398a(icVar.f536a))) {
             return false;
         }
         boolean c2 = c();
         boolean c3 = icVar.c();
-        if ((c2 || c3) && !(c2 && c3 && this.f541b.equals(icVar.f541b))) {
+        if ((c2 || c3) && !(c2 && c3 && this.f543b.equals(icVar.f543b))) {
             return false;
         }
         boolean d2 = d();
         boolean d3 = icVar.d();
-        if (((d2 || d3) && !(d2 && d3 && this.f543c.equals(icVar.f543c))) || this.f533a != icVar.f533a) {
+        if (((d2 || d3) && !(d2 && d3 && this.f545c.equals(icVar.f545c))) || this.f535a != icVar.f535a) {
             return false;
         }
         boolean f2 = f();
         boolean f3 = icVar.f();
-        if ((f2 || f3) && !(f2 && f3 && this.f544d.equals(icVar.f544d))) {
+        if ((f2 || f3) && !(f2 && f3 && this.f546d.equals(icVar.f546d))) {
             return false;
         }
         boolean g2 = g();
         boolean g3 = icVar.g();
-        if ((g2 || g3) && !(g2 && g3 && this.f545e.equals(icVar.f545e))) {
+        if ((g2 || g3) && !(g2 && g3 && this.f547e.equals(icVar.f547e))) {
             return false;
         }
         boolean h2 = h();
         boolean h3 = icVar.h();
-        if ((h2 || h3) && !(h2 && h3 && this.f535a.m456a(icVar.f535a))) {
+        if ((h2 || h3) && !(h2 && h3 && this.f537a.m456a(icVar.f537a))) {
             return false;
         }
         boolean i2 = i();
         boolean i3 = icVar.i();
-        if ((i2 || i3) && !(i2 && i3 && this.f546f.equals(icVar.f546f))) {
+        if ((i2 || i3) && !(i2 && i3 && this.f548f.equals(icVar.f548f))) {
             return false;
         }
         boolean j2 = j();
         boolean j3 = icVar.j();
-        if ((j2 || j3) && !(j2 && j3 && this.f547g.equals(icVar.f547g))) {
+        if ((j2 || j3) && !(j2 && j3 && this.f549g.equals(icVar.f549g))) {
             return false;
         }
         boolean k2 = k();
         boolean k3 = icVar.k();
-        if ((k2 || k3) && !(k2 && k3 && this.f540a == icVar.f540a)) {
+        if ((k2 || k3) && !(k2 && k3 && this.f542a == icVar.f542a)) {
             return false;
         }
         boolean l2 = l();
         boolean l3 = icVar.l();
-        if ((l2 || l3) && !(l2 && l3 && this.f548h.equals(icVar.f548h))) {
+        if ((l2 || l3) && !(l2 && l3 && this.f550h.equals(icVar.f550h))) {
             return false;
         }
         boolean m2 = m();
         boolean m3 = icVar.m();
-        if ((m2 || m3) && !(m2 && m3 && this.f549i.equals(icVar.f549i))) {
+        if ((m2 || m3) && !(m2 && m3 && this.f551i.equals(icVar.f551i))) {
             return false;
         }
         boolean n2 = n();
         boolean n3 = icVar.n();
-        if ((n2 || n3) && !(n2 && n3 && this.f550j.equals(icVar.f550j))) {
+        if ((n2 || n3) && !(n2 && n3 && this.f552j.equals(icVar.f552j))) {
             return false;
         }
         boolean o2 = o();
         boolean o3 = icVar.o();
-        if ((o2 || o3) && !(o2 && o3 && this.f539a == icVar.f539a)) {
+        if ((o2 || o3) && !(o2 && o3 && this.f541a == icVar.f541a)) {
             return false;
         }
         boolean p2 = p();
         boolean p3 = icVar.p();
-        if ((p2 || p3) && !(p2 && p3 && this.f542b == icVar.f542b)) {
+        if ((p2 || p3) && !(p2 && p3 && this.f544b == icVar.f544b)) {
             return false;
         }
         boolean q2 = q();
         boolean q3 = icVar.q();
-        if ((q2 || q3) && !(q2 && q3 && this.f551k.equals(icVar.f551k))) {
+        if ((q2 || q3) && !(q2 && q3 && this.f553k.equals(icVar.f553k))) {
             return false;
         }
         boolean r2 = r();
         boolean r3 = icVar.r();
-        if ((r2 || r3) && !(r2 && r3 && this.f552l.equals(icVar.f552l))) {
+        if ((r2 || r3) && !(r2 && r3 && this.f554l.equals(icVar.f554l))) {
             return false;
         }
         boolean s2 = s();
         boolean s3 = icVar.s();
-        if ((s2 || s3) && !(s2 && s3 && this.f532a == icVar.f532a)) {
+        if ((s2 || s3) && !(s2 && s3 && this.f534a == icVar.f534a)) {
             return false;
         }
         boolean t2 = t();
         boolean t3 = icVar.t();
-        return !(t2 || t3) || (t2 && t3 && this.f538a.equals(icVar.f538a));
+        return !(t2 || t3) || (t2 && t3 && this.f540a.equals(icVar.f540a));
     }
 
     public ic b(String str) {
-        this.f543c = str;
+        this.f545c = str;
         return this;
     }
 
     @Override // com.xiaomi.push.ix
     public void b(ji jiVar) {
         a();
-        jiVar.a(f531a);
-        if (this.f536a != null && m399a()) {
-            jiVar.a(f4970a);
-            jiVar.a(this.f536a);
+        jiVar.a(f533a);
+        if (this.f538a != null && m399a()) {
+            jiVar.a(f4972a);
+            jiVar.a(this.f538a);
             jiVar.b();
         }
-        if (this.f534a != null && b()) {
+        if (this.f536a != null && b()) {
             jiVar.a(b);
-            this.f534a.b(jiVar);
+            this.f536a.b(jiVar);
             jiVar.b();
         }
-        if (this.f541b != null) {
+        if (this.f543b != null) {
             jiVar.a(c);
-            jiVar.a(this.f541b);
+            jiVar.a(this.f543b);
             jiVar.b();
         }
-        if (this.f543c != null) {
+        if (this.f545c != null) {
             jiVar.a(d);
-            jiVar.a(this.f543c);
+            jiVar.a(this.f545c);
             jiVar.b();
         }
         jiVar.a(e);
-        jiVar.a(this.f533a);
+        jiVar.a(this.f535a);
         jiVar.b();
-        if (this.f544d != null && f()) {
+        if (this.f546d != null && f()) {
             jiVar.a(f);
-            jiVar.a(this.f544d);
+            jiVar.a(this.f546d);
             jiVar.b();
         }
-        if (this.f545e != null && g()) {
+        if (this.f547e != null && g()) {
             jiVar.a(g);
-            jiVar.a(this.f545e);
+            jiVar.a(this.f547e);
             jiVar.b();
         }
-        if (this.f535a != null && h()) {
+        if (this.f537a != null && h()) {
             jiVar.a(h);
-            this.f535a.b(jiVar);
+            this.f537a.b(jiVar);
             jiVar.b();
         }
-        if (this.f546f != null && i()) {
+        if (this.f548f != null && i()) {
             jiVar.a(i);
-            jiVar.a(this.f546f);
+            jiVar.a(this.f548f);
             jiVar.b();
         }
-        if (this.f547g != null && j()) {
+        if (this.f549g != null && j()) {
             jiVar.a(j);
-            jiVar.a(this.f547g);
+            jiVar.a(this.f549g);
             jiVar.b();
         }
         if (k()) {
             jiVar.a(k);
-            jiVar.a(this.f540a);
+            jiVar.a(this.f542a);
             jiVar.b();
         }
-        if (this.f548h != null && l()) {
+        if (this.f550h != null && l()) {
             jiVar.a(l);
-            jiVar.a(this.f548h);
+            jiVar.a(this.f550h);
             jiVar.b();
         }
-        if (this.f549i != null && m()) {
+        if (this.f551i != null && m()) {
             jiVar.a(m);
-            jiVar.a(this.f549i);
+            jiVar.a(this.f551i);
             jiVar.b();
         }
-        if (this.f550j != null && n()) {
+        if (this.f552j != null && n()) {
             jiVar.a(n);
-            jiVar.a(this.f550j);
+            jiVar.a(this.f552j);
             jiVar.b();
         }
         if (o()) {
             jiVar.a(o);
-            jiVar.a(this.f539a);
+            jiVar.a(this.f541a);
             jiVar.b();
         }
         if (p()) {
             jiVar.a(p);
-            jiVar.a(this.f542b);
+            jiVar.a(this.f544b);
             jiVar.b();
         }
-        if (this.f551k != null && q()) {
+        if (this.f553k != null && q()) {
             jiVar.a(q);
-            jiVar.a(this.f551k);
+            jiVar.a(this.f553k);
             jiVar.b();
         }
-        if (this.f552l != null && r()) {
+        if (this.f554l != null && r()) {
             jiVar.a(r);
-            jiVar.a(this.f552l);
+            jiVar.a(this.f554l);
             jiVar.b();
         }
         if (s()) {
             jiVar.a(s);
-            jiVar.a(this.f532a);
+            jiVar.a(this.f534a);
             jiVar.b();
         }
-        if (this.f538a != null && t()) {
+        if (this.f540a != null && t()) {
             jiVar.a(t);
-            jiVar.a(new jh(Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, this.f538a.size()));
-            for (Map.Entry<String, String> entry : this.f538a.entrySet()) {
+            jiVar.a(new jh(Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, this.f540a.size()));
+            for (Map.Entry<String, String> entry : this.f540a.entrySet()) {
                 jiVar.a(entry.getKey());
                 jiVar.a(entry.getValue());
             }
@@ -716,45 +716,45 @@ public class ic implements ix<ic, Object>, Serializable, Cloneable {
     }
 
     public void b(boolean z) {
-        this.f537a.set(1, z);
+        this.f539a.set(1, z);
     }
 
     public boolean b() {
-        return this.f534a != null;
+        return this.f536a != null;
     }
 
     public ic c(String str) {
-        this.f544d = str;
+        this.f546d = str;
         return this;
     }
 
     public void c(boolean z) {
-        this.f537a.set(2, z);
+        this.f539a.set(2, z);
     }
 
     public boolean c() {
-        return this.f541b != null;
+        return this.f543b != null;
     }
 
     public ic d(String str) {
-        this.f545e = str;
+        this.f547e = str;
         return this;
     }
 
     public void d(boolean z) {
-        this.f537a.set(3, z);
+        this.f539a.set(3, z);
     }
 
     public boolean d() {
-        return this.f543c != null;
+        return this.f545c != null;
     }
 
     public void e(boolean z) {
-        this.f537a.set(4, z);
+        this.f539a.set(4, z);
     }
 
     public boolean e() {
-        return this.f537a.get(0);
+        return this.f539a.get(0);
     }
 
     public boolean equals(Object obj) {
@@ -765,15 +765,15 @@ public class ic implements ix<ic, Object>, Serializable, Cloneable {
     }
 
     public boolean f() {
-        return this.f544d != null;
+        return this.f546d != null;
     }
 
     public boolean g() {
-        return this.f545e != null;
+        return this.f547e != null;
     }
 
     public boolean h() {
-        return this.f535a != null;
+        return this.f537a != null;
     }
 
     public int hashCode() {
@@ -781,51 +781,51 @@ public class ic implements ix<ic, Object>, Serializable, Cloneable {
     }
 
     public boolean i() {
-        return this.f546f != null;
+        return this.f548f != null;
     }
 
     public boolean j() {
-        return this.f547g != null;
+        return this.f549g != null;
     }
 
     public boolean k() {
-        return this.f537a.get(1);
+        return this.f539a.get(1);
     }
 
     public boolean l() {
-        return this.f548h != null;
+        return this.f550h != null;
     }
 
     public boolean m() {
-        return this.f549i != null;
+        return this.f551i != null;
     }
 
     public boolean n() {
-        return this.f550j != null;
+        return this.f552j != null;
     }
 
     public boolean o() {
-        return this.f537a.get(2);
+        return this.f539a.get(2);
     }
 
     public boolean p() {
-        return this.f537a.get(3);
+        return this.f539a.get(3);
     }
 
     public boolean q() {
-        return this.f551k != null;
+        return this.f553k != null;
     }
 
     public boolean r() {
-        return this.f552l != null;
+        return this.f554l != null;
     }
 
     public boolean s() {
-        return this.f537a.get(4);
+        return this.f539a.get(4);
     }
 
     public boolean t() {
-        return this.f538a != null;
+        return this.f540a != null;
     }
 
     public String toString() {
@@ -834,10 +834,10 @@ public class ic implements ix<ic, Object>, Serializable, Cloneable {
         boolean z2 = true;
         if (m399a()) {
             sb.append("debug:");
-            if (this.f536a == null) {
+            if (this.f538a == null) {
                 sb.append("null");
             } else {
-                sb.append(this.f536a);
+                sb.append(this.f538a);
             }
             z2 = false;
         }
@@ -846,10 +846,10 @@ public class ic implements ix<ic, Object>, Serializable, Cloneable {
                 sb.append(", ");
             }
             sb.append("target:");
-            if (this.f534a == null) {
+            if (this.f536a == null) {
                 sb.append("null");
             } else {
-                sb.append(this.f534a);
+                sb.append(this.f536a);
             }
         } else {
             z = z2;
@@ -858,138 +858,138 @@ public class ic implements ix<ic, Object>, Serializable, Cloneable {
             sb.append(", ");
         }
         sb.append("id:");
-        if (this.f541b == null) {
+        if (this.f543b == null) {
             sb.append("null");
         } else {
-            sb.append(this.f541b);
+            sb.append(this.f543b);
         }
         sb.append(", ");
         sb.append("appId:");
-        if (this.f543c == null) {
+        if (this.f545c == null) {
             sb.append("null");
         } else {
-            sb.append(this.f543c);
+            sb.append(this.f545c);
         }
         sb.append(", ");
         sb.append("messageTs:");
-        sb.append(this.f533a);
+        sb.append(this.f535a);
         if (f()) {
             sb.append(", ");
             sb.append(UrlSchemaHelper.SCHEMA_TYPE_TOPIC);
-            if (this.f544d == null) {
+            if (this.f546d == null) {
                 sb.append("null");
             } else {
-                sb.append(this.f544d);
+                sb.append(this.f546d);
             }
         }
         if (g()) {
             sb.append(", ");
             sb.append("aliasName:");
-            if (this.f545e == null) {
+            if (this.f547e == null) {
                 sb.append("null");
             } else {
-                sb.append(this.f545e);
+                sb.append(this.f547e);
             }
         }
         if (h()) {
             sb.append(", ");
             sb.append("request:");
-            if (this.f535a == null) {
+            if (this.f537a == null) {
                 sb.append("null");
             } else {
-                sb.append(this.f535a);
+                sb.append(this.f537a);
             }
         }
         if (i()) {
             sb.append(", ");
             sb.append("packageName:");
-            if (this.f546f == null) {
+            if (this.f548f == null) {
                 sb.append("null");
             } else {
-                sb.append(this.f546f);
+                sb.append(this.f548f);
             }
         }
         if (j()) {
             sb.append(", ");
             sb.append("category:");
-            if (this.f547g == null) {
+            if (this.f549g == null) {
                 sb.append("null");
             } else {
-                sb.append(this.f547g);
+                sb.append(this.f549g);
             }
         }
         if (k()) {
             sb.append(", ");
             sb.append("isOnline:");
-            sb.append(this.f540a);
+            sb.append(this.f542a);
         }
         if (l()) {
             sb.append(", ");
             sb.append("regId:");
-            if (this.f548h == null) {
+            if (this.f550h == null) {
                 sb.append("null");
             } else {
-                sb.append(this.f548h);
+                sb.append(this.f550h);
             }
         }
         if (m()) {
             sb.append(", ");
             sb.append("callbackUrl:");
-            if (this.f549i == null) {
+            if (this.f551i == null) {
                 sb.append("null");
             } else {
-                sb.append(this.f549i);
+                sb.append(this.f551i);
             }
         }
         if (n()) {
             sb.append(", ");
             sb.append("userAccount:");
-            if (this.f550j == null) {
+            if (this.f552j == null) {
                 sb.append("null");
             } else {
-                sb.append(this.f550j);
+                sb.append(this.f552j);
             }
         }
         if (o()) {
             sb.append(", ");
             sb.append("deviceStatus:");
-            sb.append((int) this.f539a);
+            sb.append((int) this.f541a);
         }
         if (p()) {
             sb.append(", ");
             sb.append("geoMsgStatus:");
-            sb.append((int) this.f542b);
+            sb.append((int) this.f544b);
         }
         if (q()) {
             sb.append(", ");
             sb.append("imeiMd5:");
-            if (this.f551k == null) {
+            if (this.f553k == null) {
                 sb.append("null");
             } else {
-                sb.append(this.f551k);
+                sb.append(this.f553k);
             }
         }
         if (r()) {
             sb.append(", ");
             sb.append("deviceId:");
-            if (this.f552l == null) {
+            if (this.f554l == null) {
                 sb.append("null");
             } else {
-                sb.append(this.f552l);
+                sb.append(this.f554l);
             }
         }
         if (s()) {
             sb.append(", ");
             sb.append("passThrough:");
-            sb.append(this.f532a);
+            sb.append(this.f534a);
         }
         if (t()) {
             sb.append(", ");
             sb.append("extra:");
-            if (this.f538a == null) {
+            if (this.f540a == null) {
                 sb.append("null");
             } else {
-                sb.append(this.f538a);
+                sb.append(this.f540a);
             }
         }
         sb.append(")");

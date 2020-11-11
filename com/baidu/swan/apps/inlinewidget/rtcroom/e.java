@@ -7,26 +7,26 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes10.dex */
 public class e {
-    private static volatile e cQz;
-    private Map<String, com.baidu.swan.apps.inlinewidget.rtcroom.c.b> cQA = new HashMap();
+    private static volatile e cWs;
+    private Map<String, com.baidu.swan.apps.inlinewidget.rtcroom.c.b> cWt = new HashMap();
 
     private e() {
     }
 
-    public static e atl() {
-        if (cQz == null) {
+    public static e avL() {
+        if (cWs == null) {
             synchronized (e.class) {
-                if (cQz == null) {
-                    cQz = new e();
+                if (cWs == null) {
+                    cWs = new e();
                 }
             }
         }
-        return cQz;
+        return cWs;
     }
 
-    public synchronized void oq(String str) {
+    public synchronized void oE(String str) {
         com.baidu.swan.apps.console.c.i("RtcRoomWidgetManager", "onWebViewDetach slaveId=" + str);
-        Iterator it = new ArrayList(this.cQA.values()).iterator();
+        Iterator it = new ArrayList(this.cWt.values()).iterator();
         while (it.hasNext()) {
             com.baidu.swan.apps.inlinewidget.rtcroom.c.b bVar = (com.baidu.swan.apps.inlinewidget.rtcroom.c.b) it.next();
             if (TextUtils.equals(bVar.getSlaveId(), str)) {
@@ -36,18 +36,18 @@ public class e {
     }
 
     public static void release() {
-        if (cQz != null) {
-            cQz.onRelease();
+        if (cWs != null) {
+            cWs.onRelease();
         }
-        cQz = null;
+        cWs = null;
     }
 
     private synchronized void onRelease() {
         com.baidu.swan.apps.console.c.i("RtcRoomWidgetManager", "release");
-        Iterator it = new ArrayList(this.cQA.values()).iterator();
+        Iterator it = new ArrayList(this.cWt.values()).iterator();
         while (it.hasNext()) {
             ((com.baidu.swan.apps.inlinewidget.rtcroom.c.b) it.next()).onRelease();
         }
-        this.cQA.clear();
+        this.cWt.clear();
     }
 }

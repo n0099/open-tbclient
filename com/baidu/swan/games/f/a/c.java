@@ -15,11 +15,11 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class c implements V8Engine.JavaScriptExceptionDelegate {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.games.f.a cAO;
-    private String dNT = "";
+    private com.baidu.swan.games.f.a cGH;
+    private String dTL = "";
 
     public c(com.baidu.swan.games.f.a aVar) {
-        this.cAO = aVar;
+        this.cGH = aVar;
     }
 
     @Override // com.baidu.searchbox.v8engine.V8Engine.JavaScriptExceptionDelegate
@@ -28,58 +28,58 @@ public class c implements V8Engine.JavaScriptExceptionDelegate {
         if (v8ExceptionInfo != null) {
             String str = TextUtils.isEmpty(v8ExceptionInfo.exceptionMsg) ? "" : v8ExceptionInfo.exceptionMsg;
             String str2 = TextUtils.isEmpty(v8ExceptionInfo.exceptionTrace) ? "" : v8ExceptionInfo.exceptionTrace;
-            Log.e("V8Exception", this.cAO.getLogTag() + "msg: " + str + " ,stack: " + str2);
-            this.cAO.aSr().error(str);
-            if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && !this.dNT.equals(str)) {
-                this.dNT = str;
+            Log.e("V8Exception", this.cGH.getLogTag() + "msg: " + str + " ,stack: " + str2);
+            this.cGH.aUR().error(str);
+            if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && !this.dTL.equals(str)) {
+                this.dTL = str;
                 cW(str, str2);
-                com.baidu.swan.games.v.c.xl(str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + str2);
+                com.baidu.swan.games.v.c.xz(str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + str2);
                 i.a(v8ExceptionInfo);
-                DuMixGameSurfaceView aSS = com.baidu.swan.games.j.a.aSQ().aSS();
-                if (aSS != null) {
-                    aSS.d(v8ExceptionInfo);
+                DuMixGameSurfaceView aVs = com.baidu.swan.games.j.a.aVq().aVs();
+                if (aVs != null) {
+                    aVs.d(v8ExceptionInfo);
                 }
             }
         }
     }
 
     private void cW(String str, String str2) {
-        if (this.cAO.aSp() != null) {
-            this.cAO.aSp().dispatchEvent(new a().wv(str + "\n" + str2).ww("").aSy());
+        if (this.cGH.aUP() != null) {
+            this.cGH.aUP().dispatchEvent(new a().wJ(str + "\n" + str2).wK("").aUY());
         }
     }
 
     /* loaded from: classes10.dex */
     public static class a {
         private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-        private String dNT;
-        private JSEvent dNU = new JSEvent(BdStatsConstant.StatsType.ERROR);
-        private String dNV;
+        private String dTL;
+        private JSEvent dTM = new JSEvent(BdStatsConstant.StatsType.ERROR);
+        private String dTN;
 
-        public a wv(String str) {
-            this.dNT = str;
+        public a wJ(String str) {
+            this.dTL = str;
             return this;
         }
 
-        public a ww(String str) {
-            this.dNV = str;
+        public a wK(String str) {
+            this.dTN = str;
             return this;
         }
 
-        public JSEvent aSy() {
+        public JSEvent aUY() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("message", this.dNT);
-                jSONObject.put("stack", this.dNV);
+                jSONObject.put("message", this.dTL);
+                jSONObject.put("stack", this.dTN);
             } catch (JSONException e) {
                 if (DEBUG) {
                     Log.e("V8Exception", Log.getStackTraceString(e));
                 }
             }
             if (jSONObject.length() > 0) {
-                this.dNU.data = jSONObject;
+                this.dTM.data = jSONObject;
             }
-            return this.dNU;
+            return this.dTM;
         }
     }
 }

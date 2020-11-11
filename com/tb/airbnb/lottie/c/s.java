@@ -13,12 +13,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 /* loaded from: classes16.dex */
 public class s {
-    public static Layer d(com.tb.airbnb.lottie.d dVar) {
-        Rect iu = dVar.iu();
-        return new Layer(Collections.emptyList(), dVar, "__container", -1L, Layer.LayerType.PreComp, -1L, null, Collections.emptyList(), new com.tb.airbnb.lottie.model.a.l(), 0, 0, 0, 0.0f, 0.0f, iu.width(), iu.height(), null, null, Collections.emptyList(), Layer.MatteType.None, null);
+    public static Layer d(com.tb.airbnb.lottie.e eVar) {
+        Rect iu = eVar.iu();
+        return new Layer(Collections.emptyList(), eVar, "__container", -1L, Layer.LayerType.PreComp, -1L, null, Collections.emptyList(), new com.tb.airbnb.lottie.model.a.l(), 0, 0, 0, 0.0f, 0.0f, iu.width(), iu.height(), null, null, Collections.emptyList(), Layer.MatteType.None, null);
     }
 
-    public static Layer q(JsonReader jsonReader, com.tb.airbnb.lottie.d dVar) throws IOException {
+    public static Layer q(JsonReader jsonReader, com.tb.airbnb.lottie.e eVar) throws IOException {
         String nextString;
         long j;
         Layer.LayerType layerType;
@@ -247,7 +247,7 @@ public class s {
                     str = str2;
                     break;
                 case '\b':
-                    lVar = c.e(jsonReader, dVar);
+                    lVar = c.e(jsonReader, eVar);
                     nextString = str4;
                     j = j2;
                     layerType = layerType2;
@@ -263,7 +263,7 @@ public class s {
                 case '\n':
                     jsonReader.beginArray();
                     while (jsonReader.hasNext()) {
-                        arrayList.add(u.r(jsonReader, dVar));
+                        arrayList.add(u.r(jsonReader, eVar));
                     }
                     jsonReader.endArray();
                     nextString = str4;
@@ -274,7 +274,7 @@ public class s {
                 case 11:
                     jsonReader.beginArray();
                     while (jsonReader.hasNext()) {
-                        com.tb.airbnb.lottie.model.content.b m = g.m(jsonReader, dVar);
+                        com.tb.airbnb.lottie.model.content.b m = g.m(jsonReader, eVar);
                         if (m != null) {
                             arrayList2.add(m);
                         }
@@ -306,12 +306,12 @@ public class s {
                         }
                         switch (c2) {
                             case 0:
-                                jVar = d.k(jsonReader, dVar);
+                                jVar = d.k(jsonReader, eVar);
                                 break;
                             case 1:
                                 jsonReader.beginArray();
                                 if (jsonReader.hasNext()) {
-                                    kVar = b.c(jsonReader, dVar);
+                                    kVar = b.c(jsonReader, eVar);
                                 }
                                 while (jsonReader.hasNext()) {
                                     jsonReader.skipValue();
@@ -357,7 +357,7 @@ public class s {
                         jsonReader.endObject();
                     }
                     jsonReader.endArray();
-                    dVar.bc("Lottie doesn't support layer effects. If you are using them for  fills, strokes, trim paths etc. then try adding them directly as contents  in your shape. Found: " + arrayList3);
+                    eVar.bc("Lottie doesn't support layer effects. If you are using them for  fills, strokes, trim paths etc. then try adding them directly as contents  in your shape. Found: " + arrayList3);
                     nextString = str4;
                     j = j2;
                     layerType = layerType2;
@@ -406,7 +406,7 @@ public class s {
                     nextString = str4;
                     break;
                 case 20:
-                    bVar = d.a(jsonReader, dVar, false);
+                    bVar = d.a(jsonReader, eVar, false);
                     nextString = str4;
                     j = j2;
                     layerType = layerType2;
@@ -436,16 +436,16 @@ public class s {
         float f6 = f4 / f;
         ArrayList arrayList4 = new ArrayList();
         if (f5 > 0.0f) {
-            arrayList4.add(new com.tb.airbnb.lottie.e.a(dVar, Float.valueOf(0.0f), Float.valueOf(0.0f), null, 0.0f, Float.valueOf(f5)));
+            arrayList4.add(new com.tb.airbnb.lottie.e.a(eVar, Float.valueOf(0.0f), Float.valueOf(0.0f), null, 0.0f, Float.valueOf(f5)));
         }
         if (f6 <= 0.0f) {
-            f6 = dVar.ix();
+            f6 = eVar.ix();
         }
-        arrayList4.add(new com.tb.airbnb.lottie.e.a(dVar, Float.valueOf(1.0f), Float.valueOf(1.0f), null, f5, Float.valueOf(f6)));
-        arrayList4.add(new com.tb.airbnb.lottie.e.a(dVar, Float.valueOf(0.0f), Float.valueOf(0.0f), null, f6, Float.valueOf(Float.MAX_VALUE)));
+        arrayList4.add(new com.tb.airbnb.lottie.e.a(eVar, Float.valueOf(1.0f), Float.valueOf(1.0f), null, f5, Float.valueOf(f6)));
+        arrayList4.add(new com.tb.airbnb.lottie.e.a(eVar, Float.valueOf(0.0f), Float.valueOf(0.0f), null, f6, Float.valueOf(Float.MAX_VALUE)));
         if (str2.endsWith(".ai") || "ai".equals(str4)) {
-            dVar.bc("Convert your Illustrator layers to shape layers.");
+            eVar.bc("Convert your Illustrator layers to shape layers.");
         }
-        return new Layer(arrayList2, dVar, str2, j2, layerType2, j3, str3, arrayList, lVar, i, i2, i3, f, f2, i4, i5, jVar, kVar, arrayList4, matteType, bVar);
+        return new Layer(arrayList2, eVar, str2, j2, layerType2, j3, str3, arrayList, lVar, i, i2, i3, f, f2, i4, i5, jVar, kVar, arrayList4, matteType, bVar);
     }
 }

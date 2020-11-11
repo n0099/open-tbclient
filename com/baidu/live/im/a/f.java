@@ -9,39 +9,39 @@ import com.baidu.live.sdk.a;
 public class f extends b {
     /* JADX INFO: Access modifiers changed from: protected */
     public f(Context context) {
-        super(context, com.baidu.live.im.a.bfQ);
+        super(context, com.baidu.live.im.a.bhk);
     }
 
     @Override // com.baidu.live.im.a.b
-    protected void LB() {
-        if (LC()) {
-            LD();
+    protected void Mb() {
+        if (Mc()) {
+            Md();
         } else {
-            LE();
+            Me();
         }
     }
 
     @Override // com.baidu.live.im.a.b
     protected int getColor() {
-        if (LC()) {
+        if (Mc()) {
             return -1;
         }
-        return this.mContext.getResources().getColor(a.d.sdk_common_color_10034);
+        return this.mContext.getResources().getColor(a.c.sdk_common_color_10034);
     }
 
     @Override // com.baidu.live.im.a.b
     protected SpannableStringBuilder a(com.baidu.live.im.data.a aVar, com.baidu.live.im.c cVar) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        boolean equals = aVar instanceof com.baidu.live.im.a ? ((com.baidu.live.im.a) aVar).Ky().equals(aVar.LO().userId) : false;
+        boolean equals = aVar instanceof com.baidu.live.im.a ? ((com.baidu.live.im.a) aVar).KY().equals(aVar.Mo().userId) : false;
         if (equals) {
-            com.baidu.live.view.c cVar2 = new com.baidu.live.view.c(this.mContext, a.f.icon_im_anchor);
+            com.baidu.live.view.b bVar = new com.baidu.live.view.b(this.mContext, a.e.icon_im_anchor);
             SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder("  ");
-            spannableStringBuilder2.setSpan(cVar2, 0, 1, 33);
+            spannableStringBuilder2.setSpan(bVar, 0, 1, 33);
             spannableStringBuilder.append((CharSequence) spannableStringBuilder2);
         }
-        a(spannableStringBuilder, aVar.LO(), cVar, equals, true, true);
+        a(spannableStringBuilder, aVar.Mo(), cVar, equals, true, true);
         if (equals) {
-            bX(false);
+            bY(false);
         }
         String content = aVar.getContent();
         SpannableString valueOf = SpannableString.valueOf(content);

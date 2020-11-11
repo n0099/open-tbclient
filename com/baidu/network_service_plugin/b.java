@@ -24,7 +24,7 @@ import java.util.Map;
 import org.apache.http.HttpHost;
 /* loaded from: classes16.dex */
 public class b implements FlutterPlugin, MethodChannel.MethodCallHandler {
-    private HashMap<String, a> bVw = new HashMap<>();
+    private HashMap<String, a> cbg = new HashMap<>();
 
     /* loaded from: classes16.dex */
     public interface a {
@@ -65,25 +65,25 @@ public class b implements FlutterPlugin, MethodChannel.MethodCallHandler {
             hashMap2.put("tbs", TbadkCoreApplication.getInst().getTbs());
             if (booleanValue) {
                 BdUniqueId gen = BdUniqueId.gen();
-                int jf = c.jf(str2);
-                h a2 = c.a(jf, hashMap, hashMap2);
-                if (jf != 0 && a2 != null) {
-                    FlutterNetModelAuto G = c.G(str3, jf);
-                    G.setUniqueId(gen);
-                    G.je(str2);
-                    G.a(new FlutterNetModelAuto.a() { // from class: com.baidu.network_service_plugin.b.1
+                int js = c.js(str2);
+                h a2 = c.a(js, hashMap, hashMap2);
+                if (js != 0 && a2 != null) {
+                    FlutterNetModelAuto I = c.I(str3, js);
+                    I.setUniqueId(gen);
+                    I.jr(str2);
+                    I.a(new FlutterNetModelAuto.a() { // from class: com.baidu.network_service_plugin.b.1
                         @Override // com.baidu.network_service_plugin.FlutterNetModelAuto.a
                         public void a(String str4, HashMap hashMap5, MvcHttpResponsedMessage mvcHttpResponsedMessage, MvcHttpMessage mvcHttpMessage, MvcNetMessage mvcNetMessage) {
-                            b.this.bVw.remove(str4);
+                            b.this.cbg.remove(str4);
                             if (hashMap5 != null) {
                                 hashMap5.put("start_time", String.valueOf(currentTimeMillis));
                             }
                             result.success(b.this.a(hashMap5, null, mvcHttpResponsedMessage.getError(), mvcHttpResponsedMessage.getErrorString(), str4));
                         }
                     });
-                    this.bVw.put(str3, G);
+                    this.cbg.put(str3, I);
                     try {
-                        G.loadData();
+                        I.loadData();
                         return;
                     } catch (Exception e) {
                         BdLog.e("netModel loadData exception" + e.toString());
@@ -93,11 +93,11 @@ public class b implements FlutterPlugin, MethodChannel.MethodCallHandler {
                 return;
             }
             com.baidu.network_service_plugin.a aVar = new com.baidu.network_service_plugin.a(str3);
-            aVar.je(str2);
+            aVar.jr(str2);
             aVar.a(new a.b() { // from class: com.baidu.network_service_plugin.b.2
                 @Override // com.baidu.network_service_plugin.a.b
                 public void a(HashMap<String, String> hashMap5, HashMap<String, String> hashMap6, int i, String str4, Object obj2, String str5) {
-                    b.this.bVw.remove(str5);
+                    b.this.cbg.remove(str5);
                     if (hashMap5 != null) {
                         hashMap5.put("start_time", String.valueOf(currentTimeMillis));
                     }
@@ -119,10 +119,10 @@ public class b implements FlutterPlugin, MethodChannel.MethodCallHandler {
                 }
                 hashMap2.put("debugfile", bArr);
                 hashMap2.put("type", "android");
-                aVar.dy(true);
+                aVar.dF(true);
             }
             aVar.setParams(hashMap2);
-            this.bVw.put(str3, aVar);
+            this.cbg.put(str3, aVar);
             try {
                 aVar.loadData();
             } catch (Exception e2) {
@@ -134,7 +134,7 @@ public class b implements FlutterPlugin, MethodChannel.MethodCallHandler {
                 Map map = (Map) list.get(i);
                 String str4 = (String) map.get("api");
                 ((Integer) map.get("cmd")).intValue();
-                a aVar2 = this.bVw.get((String) map.get("identifier"));
+                a aVar2 = this.cbg.get((String) map.get("identifier"));
                 if (aVar2 != null) {
                     aVar2.cancelLoadData();
                 }
@@ -150,13 +150,13 @@ public class b implements FlutterPlugin, MethodChannel.MethodCallHandler {
             a3.a(new FlutterNetModelAuto.b() { // from class: com.baidu.network_service_plugin.b.3
                 @Override // com.baidu.network_service_plugin.FlutterNetModelAuto.b
                 public void a(String str6, HashMap hashMap5, SocketResponsedMessage socketResponsedMessage, SocketMessage socketMessage, NetMessage netMessage) {
-                    b.this.bVw.remove(str6);
+                    b.this.cbg.remove(str6);
                     a3.a((FlutterNetModelAuto.b) null);
                     result.success(b.this.a(hashMap5, c.d(socketResponsedMessage), socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), str6));
                 }
             });
             a3.setUniqueId(BdUniqueId.gen());
-            this.bVw.put(str5, a3);
+            this.cbg.put(str5, a3);
             if (a3 != null) {
                 try {
                     a3.loadData();

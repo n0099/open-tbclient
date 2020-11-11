@@ -10,16 +10,16 @@ public class f {
     private boolean isBlockedPic;
     private boolean isFirstPost;
     private boolean isLongPic;
-    private boolean krY;
+    private boolean kxU;
     private String userId;
     private String userName;
     private String userNameShow;
-    private String krW = null;
+    private String kxS = null;
     private String imageUrl = null;
-    private String fCU = null;
+    private String fIK = null;
     private int width = 0;
     private int height = 0;
-    private String krX = null;
+    private String kxT = null;
     private long originalSize = 0;
     private int picType = 0;
     private String tagName = "";
@@ -27,17 +27,17 @@ public class f {
     private long overAllIndex = 0;
     private String postId = null;
     private String commentNum = null;
-    private JSONArray krZ = null;
+    private JSONArray kxV = null;
 
     public String getImageUrl() {
         return this.imageUrl;
     }
 
-    public String cUO() {
-        return this.krW;
+    public String cXp() {
+        return this.kxS;
     }
 
-    public String cUP() {
+    public String cXq() {
         return this.postId;
     }
 
@@ -49,7 +49,7 @@ public class f {
         return this.userName;
     }
 
-    public String buS() {
+    public String bxr() {
         return this.userNameShow;
     }
 
@@ -65,12 +65,12 @@ public class f {
         return this.index;
     }
 
-    public String bDC() {
-        return this.fCU;
+    public String bGb() {
+        return this.fIK;
     }
 
-    public String bDI() {
-        return this.krX;
+    public String bGh() {
+        return this.kxT;
     }
 
     public long getOriginalSize() {
@@ -85,11 +85,11 @@ public class f {
         return this.tagName;
     }
 
-    public boolean cUQ() {
-        return this.krY;
+    public boolean cXr() {
+        return this.kxU;
     }
 
-    public boolean cUR() {
+    public boolean cXs() {
         return this.isBlockedPic;
     }
 
@@ -97,23 +97,23 @@ public class f {
         return this.isLongPic;
     }
 
-    public long cUS() {
+    public long cXt() {
         return this.overAllIndex;
     }
 
-    public String cUT() {
+    public String cXu() {
         return this.commentNum;
     }
 
-    public AgreeData blR() {
+    public AgreeData bor() {
         return this.agreeData;
     }
 
-    public JSONArray cUU() {
-        return this.krZ;
+    public JSONArray cXv() {
+        return this.kxV;
     }
 
-    public boolean cUV() {
+    public boolean cXw() {
         return this.isFirstPost;
     }
 
@@ -125,7 +125,7 @@ public class f {
             this.userId = jSONObject.optString("user_id");
             this.userName = jSONObject.optString("user_name");
             this.userNameShow = jSONObject.optString("nickname");
-            this.krY = jSONObject.optInt("show_original_btn") == 1;
+            this.kxU = jSONObject.optInt("show_original_btn") == 1;
             this.isBlockedPic = jSONObject.optInt("is_blocked_pic") == 1;
             this.isLongPic = jSONObject.optInt("is_long_pic") == 1;
             this.index = jSONObject.optInt("index", -1);
@@ -144,15 +144,15 @@ public class f {
                 this.agreeData.hasAgree = z;
                 this.agreeData.agreeNum = optInt;
             }
-            this.krZ = jSONObject.optJSONArray("post_content");
+            this.kxV = jSONObject.optJSONArray("post_content");
             JSONObject optJSONObject3 = jSONObject.optJSONObject("img");
             if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject("original")) != null) {
-                this.krW = optJSONObject.optString("id");
+                this.kxS = optJSONObject.optString("id");
                 this.imageUrl = optJSONObject.optString("url");
                 this.width = optJSONObject.optInt("width", 0);
                 this.height = optJSONObject.optInt("height", 0);
-                this.fCU = optJSONObject.optString("big_cdn_src", null);
-                this.krX = optJSONObject.optString("original_src");
+                this.fIK = optJSONObject.optString("big_cdn_src", null);
+                this.kxT = optJSONObject.optString("original_src");
                 this.originalSize = optJSONObject.optInt("size");
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject("pic_tagname");

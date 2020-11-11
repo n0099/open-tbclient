@@ -14,7 +14,7 @@ public class a {
     private Boolean f;
 
     /* renamed from: a  reason: collision with root package name */
-    public double f2330a = 0.1d;
+    public double f2332a = 0.1d;
     private IXAdLogger g = XAdSDKFoundationFacade.getInstance().getAdLogger();
 
     public a(Class<?> cls, Context context, double d, Boolean bool) {
@@ -29,7 +29,7 @@ public class a {
         if (e == null) {
             try {
                 e = (IXAdContainerFactory) this.c.getDeclaredConstructor(Context.class).newInstance(this.b);
-                this.f2330a = e.getRemoteVersion();
+                this.f2332a = e.getRemoteVersion();
                 e.setDebugMode(this.f);
                 e.handleShakeVersion(this.d, "8.8146");
             } catch (Throwable th) {

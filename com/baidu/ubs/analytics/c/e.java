@@ -1,18 +1,18 @@
 package com.baidu.ubs.analytics.c;
 /* loaded from: classes10.dex */
 public final class e {
-    private static final e oio = new e();
-    private l oip = new l();
+    private static final e oru = new e();
+    private l orv = new l();
 
-    public static e dZZ() {
-        return oio;
+    public static e edH() {
+        return oru;
     }
 
-    public final void Wp(String str) {
-        this.oip.Wp(str);
+    public final void WS(String str) {
+        this.orv.WS(str);
     }
 
-    public final void Wq(String str) {
-        this.oip.Wq(str);
+    public final void WT(String str) {
+        this.orv.WT(str);
     }
 }

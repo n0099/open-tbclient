@@ -60,7 +60,7 @@ public final class ObservableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> ex
         static final Integer LEFT_CLOSE = 3;
         static final Integer RIGHT_CLOSE = 4;
         final io.reactivex.disposables.a disposables = new io.reactivex.disposables.a();
-        final io.reactivex.internal.queue.a<Object> queue = new io.reactivex.internal.queue.a<>(q.ewG());
+        final io.reactivex.internal.queue.a<Object> queue = new io.reactivex.internal.queue.a<>(q.eAv());
         final Map<Integer, UnicastSubject<TRight>> lefts = new LinkedHashMap();
         final Map<Integer, TRight> rights = new LinkedHashMap();
         final AtomicReference<Throwable> error = new AtomicReference<>();
@@ -140,10 +140,10 @@ public final class ObservableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> ex
                     } else if (!z2) {
                         Object poll = aVar.poll();
                         if (num == LEFT_VALUE) {
-                            UnicastSubject<TRight> exy = UnicastSubject.exy();
+                            UnicastSubject<TRight> eBn = UnicastSubject.eBn();
                             int i2 = this.leftIndex;
                             this.leftIndex = i2 + 1;
-                            this.lefts.put(Integer.valueOf(i2), exy);
+                            this.lefts.put(Integer.valueOf(i2), eBn);
                             try {
                                 t tVar = (t) io.reactivex.internal.functions.a.l(this.leftEnd.apply(poll), "The leftEnd returned a null ObservableSource");
                                 LeftRightEndObserver leftRightEndObserver = new LeftRightEndObserver(this, true, i2);
@@ -156,9 +156,9 @@ public final class ObservableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> ex
                                     return;
                                 }
                                 try {
-                                    uVar.onNext((Object) io.reactivex.internal.functions.a.l(this.resultSelector.apply(poll, exy), "The resultSelector returned a null value"));
+                                    uVar.onNext((Object) io.reactivex.internal.functions.a.l(this.resultSelector.apply(poll, eBn), "The resultSelector returned a null value"));
                                     for (TRight tright : this.rights.values()) {
-                                        exy.onNext(tright);
+                                        eBn.onNext(tright);
                                     }
                                 } catch (Throwable th) {
                                     fail(th, uVar, aVar);

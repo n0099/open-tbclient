@@ -10,16 +10,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.live.core.a.a;
 import com.baidu.live.sdk.a;
+import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.live.tbadk.ubc.UbcStatisticItem;
 import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 /* loaded from: classes4.dex */
 public class HostPreLiveGoodsEnterView extends FrameLayout implements a {
-    private View bsi;
-    private ImageView bsj;
-    private TextView bsk;
-    private TextView bsl;
+    private View btD;
+    private ImageView btE;
+    private TextView btF;
+    private TextView btG;
     private View mTargetView;
     private View rootView;
 
@@ -39,17 +40,22 @@ public class HostPreLiveGoodsEnterView extends FrameLayout implements a {
     }
 
     private void init(Context context) {
-        this.rootView = View.inflate(context, a.h.ala_master_pre_live_goods_enter_view, this);
-        this.bsi = this.rootView.findViewById(a.g.goods_layout);
-        this.bsj = (ImageView) this.rootView.findViewById(a.g.goods_imageView);
-        this.bsk = (TextView) this.rootView.findViewById(a.g.goods_textView);
-        this.bsl = (TextView) this.rootView.findViewById(a.g.goods_num_textView);
+        this.rootView = View.inflate(context, a.g.ala_master_pre_live_goods_enter_view, this);
+        this.btD = this.rootView.findViewById(a.f.goods_layout);
+        this.btE = (ImageView) this.rootView.findViewById(a.f.goods_imageView);
+        this.btF = (TextView) this.rootView.findViewById(a.f.goods_textView);
+        this.btG = (TextView) this.rootView.findViewById(a.f.goods_num_textView);
+        if (ExtraParamsManager.getABTestSwitcher(ExtraParamsManager.KEY_SHOP_GIFT_ICON_AB, true)) {
+            this.btE.setImageResource(a.e.ala_live_icon_bottom_bar_shop_testa);
+        } else {
+            this.btE.setImageResource(a.e.ala_live_icon_bottom_bar_shop_testb);
+        }
     }
 
     public void setOutClickListener(View.OnClickListener onClickListener) {
-        this.bsj.setOnClickListener(onClickListener);
-        this.bsk.setOnClickListener(onClickListener);
-        this.bsl.setOnClickListener(onClickListener);
+        this.btE.setOnClickListener(onClickListener);
+        this.btF.setOnClickListener(onClickListener);
+        this.btG.setOnClickListener(onClickListener);
     }
 
     @Override // com.baidu.live.core.a.a
@@ -67,36 +73,36 @@ public class HostPreLiveGoodsEnterView extends FrameLayout implements a {
     }
 
     public View getGoodsLayout() {
-        return this.bsi;
+        return this.btD;
     }
 
     public ImageView getGoodsImageView() {
-        return this.bsj;
+        return this.btE;
     }
 
     public TextView getGoodsTextView() {
-        return this.bsk;
+        return this.btF;
     }
 
     public TextView getGoodsNumTextView() {
-        return this.bsl;
+        return this.btG;
     }
 
-    public void Po() {
-        this.bsi.setVisibility(0);
+    public void PO() {
+        this.btD.setVisibility(0);
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", UbcStatConstant.Page.LIVE_ACTION, "shopcart_show"));
     }
 
     public void fd(int i) {
         if (i > 0) {
-            this.bsl.setText(i + "");
-            this.bsl.setVisibility(0);
+            this.btG.setText(i + "");
+            this.btG.setVisibility(0);
             return;
         }
-        this.bsl.setVisibility(8);
+        this.btG.setVisibility(8);
     }
 
-    public void Pp() {
-        this.bsi.setVisibility(8);
+    public void PP() {
+        this.btD.setVisibility(8);
     }
 }

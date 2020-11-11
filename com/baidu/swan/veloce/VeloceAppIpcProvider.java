@@ -12,11 +12,11 @@ import android.text.TextUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 /* loaded from: classes14.dex */
 public class VeloceAppIpcProvider extends ContentProvider {
-    public static final String dEi = AppRuntime.getAppContext().getPackageName() + ".veloce.ipc";
-    public static final Uri ehp = Uri.parse("content://" + dEi);
-    public static final Uri ehq = Uri.parse("content://com.baidu.searchbox.veloce.ipc");
-    public static String ehr = "ipc_veloce_call_app";
-    public static String ehs = "ipc_app_call_veloce";
+    public static final String dKa = AppRuntime.getAppContext().getPackageName() + ".veloce.ipc";
+    public static final Uri enh = Uri.parse("content://" + dKa);
+    public static final Uri eni = Uri.parse("content://com.baidu.searchbox.veloce.ipc");
+    public static String enj = "ipc_veloce_call_app";
+    public static String enk = "ipc_app_call_veloce";
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
@@ -28,10 +28,10 @@ public class VeloceAppIpcProvider extends ContentProvider {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        if (ehr.equals(str)) {
+        if (enj.equals(str)) {
             return ad(bundle);
         }
-        if (ehs.equals(str)) {
+        if (enk.equals(str)) {
             return f(AppRuntime.getAppContext(), bundle);
         }
         return null;
@@ -51,10 +51,10 @@ public class VeloceAppIpcProvider extends ContentProvider {
     }
 
     private Bundle h(String str, Bundle bundle) {
-        if (TextUtils.isEmpty(str) || b.bbV() == null) {
+        if (TextUtils.isEmpty(str) || b.bev() == null) {
             return null;
         }
-        return b.bbV().g(str, bundle);
+        return b.bev().g(str, bundle);
     }
 
     @Override // android.content.ContentProvider
@@ -96,7 +96,7 @@ public class VeloceAppIpcProvider extends ContentProvider {
         bundle3.putString("action", string);
         bundle3.putBundle("data", bundle2);
         try {
-            return context.getContentResolver().call(ehq, ehs, (String) null, bundle3);
+            return context.getContentResolver().call(eni, enk, (String) null, bundle3);
         } catch (Exception e) {
             return null;
         }

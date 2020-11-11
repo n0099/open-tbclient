@@ -11,13 +11,13 @@ import com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabThreadItem;
 public class j extends com.baidu.tieba.homepage.hotTopic.tab.a.a<com.baidu.tieba.homepage.hotTopic.tab.b.e, a> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.hotTopic.tab.b.a.jvR);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.hotTopic.tab.b.a.jBO);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bE */
+    /* renamed from: bG */
     public a c(ViewGroup viewGroup) {
         HotTopicTabThreadItem hotTopicTabThreadItem = new HotTopicTabThreadItem(viewGroup.getContext());
         hotTopicTabThreadItem.setOnItemCoverListener(this.aiM);
@@ -42,21 +42,21 @@ public class j extends com.baidu.tieba.homepage.hotTopic.tab.a.a<com.baidu.tieba
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes22.dex */
     public static class a extends af.a {
-        private HotTopicTabThreadItem jvM;
+        private HotTopicTabThreadItem jBJ;
 
         a(HotTopicTabThreadItem hotTopicTabThreadItem) {
             super(hotTopicTabThreadItem);
-            this.jvM = hotTopicTabThreadItem;
+            this.jBJ = hotTopicTabThreadItem;
         }
 
         void a(com.baidu.tieba.homepage.hotTopic.tab.b.e eVar) {
             if (eVar != null) {
-                this.jvM.a(eVar);
+                this.jBJ.a(eVar);
             }
         }
 
         void onChangeSkinType(int i) {
-            this.jvM.onChangeSkinType(i);
+            this.jBJ.onChangeSkinType(i);
         }
     }
 }

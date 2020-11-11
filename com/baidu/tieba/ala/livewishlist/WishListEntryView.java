@@ -16,11 +16,11 @@ import com.baidu.tieba.ala.widget.ScrollTextView;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class WishListEntryView extends RelativeLayout {
-    private ScrollTextView hrM;
-    private LinearLayout hrN;
-    private TextView hrO;
-    private TextView hrP;
-    private TbImageView hrQ;
+    private ScrollTextView hxJ;
+    private LinearLayout hxK;
+    private TextView hxL;
+    private TextView hxM;
+    private TbImageView hxN;
     private Context mContext;
     private View mView;
 
@@ -39,68 +39,68 @@ public class WishListEntryView extends RelativeLayout {
     }
 
     private void initUI(Context context) {
-        this.mView = LayoutInflater.from(getContext()).inflate(a.h.live_scroll_wish_list_widget_entry, (ViewGroup) this, true);
-        this.hrM = (ScrollTextView) this.mView.findViewById(a.g.scroll_text_view);
-        this.hrN = (LinearLayout) this.mView.findViewById(a.g.one_wish_layout);
-        this.hrO = (TextView) this.mView.findViewById(a.g.wish_text);
-        this.hrP = (TextView) this.mView.findViewById(a.g.wish_count_tv);
-        this.hrQ = (TbImageView) this.mView.findViewById(a.g.wish_image_view);
+        this.mView = LayoutInflater.from(getContext()).inflate(a.g.live_scroll_wish_list_widget_entry, (ViewGroup) this, true);
+        this.hxJ = (ScrollTextView) this.mView.findViewById(a.f.scroll_text_view);
+        this.hxK = (LinearLayout) this.mView.findViewById(a.f.one_wish_layout);
+        this.hxL = (TextView) this.mView.findViewById(a.f.wish_text);
+        this.hxM = (TextView) this.mView.findViewById(a.f.wish_count_tv);
+        this.hxN = (TbImageView) this.mView.findViewById(a.f.wish_image_view);
     }
 
     public void ag(ArrayList<AlaLiveWishListData> arrayList) {
         if (ListUtils.isEmpty(arrayList)) {
-            this.hrM.cke();
-            this.hrM.am(null);
-            this.hrM.setVisibility(8);
-            this.hrN.setVisibility(8);
+            this.hxJ.cmG();
+            this.hxJ.am(null);
+            this.hxJ.setVisibility(8);
+            this.hxK.setVisibility(8);
         } else if (arrayList != null && arrayList.size() == 1) {
-            this.hrM.cke();
-            this.hrM.am(null);
-            this.hrM.setVisibility(8);
-            this.hrN.setVisibility(0);
+            this.hxJ.cmG();
+            this.hxJ.am(null);
+            this.hxJ.setVisibility(8);
+            this.hxK.setVisibility(0);
             setOneWishData(arrayList.get(0));
         } else {
-            this.hrN.setVisibility(8);
-            this.hrM.setVisibility(0);
-            this.hrM.ckf();
-            this.hrM.am(arrayList);
+            this.hxK.setVisibility(8);
+            this.hxJ.setVisibility(0);
+            this.hxJ.cmH();
+            this.hxJ.am(arrayList);
         }
     }
 
     public void ah(ArrayList<AlaLiveWishListData> arrayList) {
         if (ListUtils.isEmpty(arrayList)) {
-            this.hrM.cke();
-            this.hrM.am(null);
-            this.hrM.setVisibility(8);
-            this.hrN.setVisibility(8);
+            this.hxJ.cmG();
+            this.hxJ.am(null);
+            this.hxJ.setVisibility(8);
+            this.hxK.setVisibility(8);
         } else if (arrayList != null && arrayList.size() == 1) {
-            this.hrM.cke();
-            this.hrM.am(null);
-            this.hrM.setVisibility(8);
-            this.hrN.setVisibility(0);
+            this.hxJ.cmG();
+            this.hxJ.am(null);
+            this.hxJ.setVisibility(8);
+            this.hxK.setVisibility(0);
             setOneWishData(arrayList.get(0));
         } else {
-            this.hrN.setVisibility(8);
-            this.hrM.setVisibility(0);
-            this.hrM.ckf();
-            this.hrM.am(arrayList);
+            this.hxK.setVisibility(8);
+            this.hxJ.setVisibility(0);
+            this.hxJ.cmH();
+            this.hxJ.am(arrayList);
         }
     }
 
     private void setOneWishData(AlaLiveWishListData alaLiveWishListData) {
         if (alaLiveWishListData != null) {
-            this.hrO.setText(alaLiveWishListData.gift_name);
-            this.hrQ.setDefaultBgResource(a.f.icon_live_gift_default);
-            this.hrQ.setDefaultErrorResource(a.f.icon_live_gift_default);
-            this.hrQ.setAutoChangeStyle(false);
-            this.hrQ.startLoad(alaLiveWishListData.gift_url, 10, false);
-            this.hrP.setText(alaLiveWishListData.process_num + "/" + alaLiveWishListData.finish_num);
+            this.hxL.setText(alaLiveWishListData.gift_name);
+            this.hxN.setDefaultBgResource(a.e.icon_live_gift_default);
+            this.hxN.setDefaultErrorResource(a.e.icon_live_gift_default);
+            this.hxN.setAutoChangeStyle(false);
+            this.hxN.startLoad(alaLiveWishListData.gift_url, 10, false);
+            this.hxM.setText(alaLiveWishListData.process_num + "/" + alaLiveWishListData.finish_num);
         }
     }
 
     public void setOnScrollTextViewChangeListener(ScrollTextView.c cVar) {
-        if (this.hrM != null) {
-            this.hrM.setOnScrollTextViewChangeListener(cVar);
+        if (this.hxJ != null) {
+            this.hxJ.setOnScrollTextViewChangeListener(cVar);
         }
     }
 

@@ -8,13 +8,13 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
 /* loaded from: classes17.dex */
 public final class MaybeTakeUntilPublisher<T, U> extends a<T, T> {
-    final org.a.b<U> pDP;
+    final org.a.b<U> pNj;
 
     @Override // io.reactivex.k
     protected void b(m<? super T> mVar) {
         TakeUntilMainMaybeObserver takeUntilMainMaybeObserver = new TakeUntilMainMaybeObserver(mVar);
         mVar.onSubscribe(takeUntilMainMaybeObserver);
-        this.pDP.subscribe(takeUntilMainMaybeObserver.other);
+        this.pNj.subscribe(takeUntilMainMaybeObserver.other);
         this.source.a(takeUntilMainMaybeObserver);
     }
 

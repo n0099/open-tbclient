@@ -15,39 +15,39 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.adp.widget.ListView.a<TransmitForumData, a> {
-    private com.baidu.tieba.write.transmit.a nCL;
-    private ab nCM;
+    private com.baidu.tieba.write.transmit.a nIF;
+    private ab nIG;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
-        this.nCM = new ab() { // from class: com.baidu.tieba.write.transmit.c.1
+        this.nIG = new ab() { // from class: com.baidu.tieba.write.transmit.c.1
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, q qVar, BdUniqueId bdUniqueId2, ViewGroup viewGroup, int i, long j) {
                 if (qVar instanceof TransmitForumData) {
                     CheckBox checkBox = (CheckBox) view.findViewById(R.id.transmit_check_box);
                     boolean isChecked = checkBox.isChecked();
-                    boolean dRx = c.this.nCL != null ? c.this.nCL.dRx() : false;
-                    if (!isChecked && dRx) {
-                        c.this.nCL.dRy();
+                    boolean dTX = c.this.nIF != null ? c.this.nIF.dTX() : false;
+                    if (!isChecked && dTX) {
+                        c.this.nIF.dTY();
                     }
-                    if (isChecked || !dRx) {
+                    if (isChecked || !dTX) {
                         checkBox.setChecked(checkBox.isChecked() ? false : true);
                         ((TransmitForumData) qVar).checked = checkBox.isChecked();
-                        if (c.this.nCL != null) {
-                            c.this.nCL.dRz();
+                        if (c.this.nIF != null) {
+                            c.this.nIF.dTZ();
                         }
                     }
                 }
             }
         };
-        a(this.nCM);
+        a(this.nIG);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cO */
+    /* renamed from: cQ */
     public a c(ViewGroup viewGroup) {
         return new a(LayoutInflater.from(this.mContext).inflate(R.layout.transmit_forum_layout, (ViewGroup) null));
     }
@@ -56,26 +56,26 @@ public class c extends com.baidu.adp.widget.ListView.a<TransmitForumData, a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, TransmitForumData transmitForumData, a aVar) {
-        aVar.eRg.setText(transmitForumData.forumName);
-        aVar.kZW.setChecked(transmitForumData.checked);
-        ap.setViewTextColor(aVar.eRg, R.color.cp_cont_b);
+        aVar.eWV.setText(transmitForumData.forumName);
+        aVar.lfU.setChecked(transmitForumData.checked);
+        ap.setViewTextColor(aVar.eWV, R.color.cp_cont_b);
         return view;
     }
 
     /* loaded from: classes3.dex */
     public static class a extends af.a {
-        public TextView eRg;
-        public CheckBox kZW;
+        public TextView eWV;
+        public CheckBox lfU;
 
         public a(View view) {
             super(view);
-            this.eRg = (TextView) view.findViewById(R.id.transmit_forum_name);
-            this.kZW = (CheckBox) view.findViewById(R.id.transmit_check_box);
-            this.kZW.setButtonDrawable(ap.getDrawable(R.drawable.transmit_check_box));
+            this.eWV = (TextView) view.findViewById(R.id.transmit_forum_name);
+            this.lfU = (CheckBox) view.findViewById(R.id.transmit_check_box);
+            this.lfU.setButtonDrawable(ap.getDrawable(R.drawable.transmit_check_box));
         }
     }
 
     public void a(com.baidu.tieba.write.transmit.a aVar) {
-        this.nCL = aVar;
+        this.nIF = aVar;
     }
 }

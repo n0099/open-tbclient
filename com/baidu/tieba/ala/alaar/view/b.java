@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import android.view.View;
 /* loaded from: classes4.dex */
 public abstract class b<T> {
-    protected a gal;
+    protected a ggc;
     public T item;
     @NonNull
     public final View itemView;
@@ -14,27 +14,27 @@ public abstract class b<T> {
     public interface a<H extends b> {
     }
 
-    public abstract void k(int i, T t);
+    public abstract void j(int i, T t);
 
     public b(View view, a aVar) {
         this.itemView = view;
         view.setTag(this);
-        this.gal = aVar;
+        this.ggc = aVar;
     }
 
-    public void i(int i, T t) {
+    public void h(int i, T t) {
         if (this.item != t && this.item != null) {
-            j(this.position, this.item);
+            i(this.position, this.item);
         }
         this.position = i;
         this.item = t;
-        k(i, t);
+        j(i, t);
     }
 
-    public void j(int i, T t) {
+    public void i(int i, T t) {
     }
 
-    public boolean tz(int i) {
+    public boolean tJ(int i) {
         return false;
     }
 }

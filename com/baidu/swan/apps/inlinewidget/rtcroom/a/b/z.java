@@ -7,7 +7,7 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 public class z extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.rtcroom.c.b> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String ata() {
+    public String avA() {
         return "setSoundModel";
     }
 
@@ -18,9 +18,9 @@ public class z extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
         if (command.obj instanceof String) {
             String str = (String) command.obj;
             if (TextUtils.equals(str, "ear")) {
-                bVar.os(str);
+                bVar.oG(str);
             } else if (TextUtils.equals(str, "speaker")) {
-                bVar.os(str);
+                bVar.oG(str);
             }
         }
     }

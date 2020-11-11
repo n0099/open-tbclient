@@ -7,20 +7,20 @@ import com.baidu.platform.comjni.jninative.tts.WNaviTTSPlayer;
 public class a extends com.baidu.platform.comapi.wnplatform.n.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f3006a = false;
+    private boolean f3008a = false;
     private c b = null;
 
     @Override // com.baidu.platform.comapi.walknavi.a
     public void release() {
         c();
         WNaviTTSPlayer.setTTSPlayerListener(null);
-        this.f3006a = false;
+        this.f3008a = false;
         this.b = null;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.a
     public boolean ready() {
-        this.f3006a = false;
+        this.f3008a = false;
         if (com.baidu.platform.comapi.walknavi.b.a().M() != 4) {
             a();
             WNaviTTSPlayer.setTTSPlayerListener(new b(this));
@@ -31,7 +31,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     /* JADX INFO: Access modifiers changed from: private */
     public int a(String str, int i) {
         com.baidu.platform.comapi.wnplatform.d.a.a("yang12", "playTTSText--->" + str + "type:" + i);
-        if (com.baidu.platform.comapi.walknavi.b.f2953a == com.baidu.platform.comapi.walknavi.b.a().u()) {
+        if (com.baidu.platform.comapi.walknavi.b.f2955a == com.baidu.platform.comapi.walknavi.b.a().u()) {
             return a(str, false);
         }
         if (com.baidu.platform.comapi.walknavi.b.b == com.baidu.platform.comapi.walknavi.b.a().u()) {
@@ -53,7 +53,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     @Override // com.baidu.platform.comapi.wnplatform.n.a
     public void a(c cVar) {
         this.b = cVar;
-        this.f3006a = true;
+        this.f3008a = true;
     }
 
     public void a() {
@@ -70,7 +70,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     }
 
     public int a(String str, boolean z) {
-        if (this.b == null || this.f3006a) {
+        if (this.b == null || this.f3008a) {
             return 0;
         }
         return this.b.a(str, z);

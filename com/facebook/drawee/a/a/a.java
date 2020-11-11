@@ -7,11 +7,11 @@ import com.facebook.drawee.drawable.i;
 /* loaded from: classes18.dex */
 public class a implements com.facebook.imagepipeline.f.a {
     private final Resources mResources;
-    private final com.facebook.imagepipeline.f.a oDh;
+    private final com.facebook.imagepipeline.f.a oMA;
 
     public a(Resources resources, com.facebook.imagepipeline.f.a aVar) {
         this.mResources = resources;
-        this.oDh = aVar;
+        this.oMA = aVar;
     }
 
     @Override // com.facebook.imagepipeline.f.a
@@ -23,23 +23,23 @@ public class a implements com.facebook.imagepipeline.f.a {
     public Drawable b(com.facebook.imagepipeline.g.c cVar) {
         if (cVar instanceof com.facebook.imagepipeline.g.d) {
             com.facebook.imagepipeline.g.d dVar = (com.facebook.imagepipeline.g.d) cVar;
-            BitmapDrawable bitmapDrawable = new BitmapDrawable(this.mResources, dVar.elZ());
+            BitmapDrawable bitmapDrawable = new BitmapDrawable(this.mResources, dVar.epQ());
             if (a(dVar) || b(dVar)) {
-                return new i(bitmapDrawable, dVar.emd(), dVar.eme());
+                return new i(bitmapDrawable, dVar.epU(), dVar.epV());
             }
             return bitmapDrawable;
-        } else if (this.oDh != null && this.oDh.a(cVar)) {
-            return this.oDh.b(cVar);
+        } else if (this.oMA != null && this.oMA.a(cVar)) {
+            return this.oMA.b(cVar);
         } else {
             return null;
         }
     }
 
     private static boolean a(com.facebook.imagepipeline.g.d dVar) {
-        return (dVar.emd() == 0 || dVar.emd() == -1) ? false : true;
+        return (dVar.epU() == 0 || dVar.epU() == -1) ? false : true;
     }
 
     private static boolean b(com.facebook.imagepipeline.g.d dVar) {
-        return (dVar.eme() == 1 || dVar.eme() == 0) ? false : true;
+        return (dVar.epV() == 1 || dVar.epV() == 0) ? false : true;
     }
 }

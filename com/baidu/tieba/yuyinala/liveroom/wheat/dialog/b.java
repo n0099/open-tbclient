@@ -13,32 +13,32 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.util.ScreenHelper;
 /* loaded from: classes4.dex */
 public class b extends Dialog implements View.OnClickListener {
-    private Activity bIs;
+    private Activity bNY;
     private TextView mTipView;
     private View mView;
 
     public b(Activity activity) {
-        super(activity, a.j.DialogConnectionWheatStyle_3);
-        this.bIs = activity;
+        super(activity, a.i.DialogConnectionWheatStyle_3);
+        this.bNY = activity;
     }
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(a.h.yuyin_sdk_custom_loading_toast);
-        UZ();
+        setContentView(a.g.yuyin_sdk_custom_loading_toast);
+        Xy();
         initView();
         initListener();
     }
 
-    private void UZ() {
+    private void Xy() {
         Window window;
-        if (this.bIs != null && (window = this.bIs.getWindow()) != null) {
+        if (this.bNY != null && (window = this.bNY.getWindow()) != null) {
             window.getDecorView().setPadding(0, 0, 0, 0);
             if (((WindowManager) getContext().getSystemService("window")) != null) {
                 WindowManager.LayoutParams attributes = window.getAttributes();
-                if (UtilHelper.getRealScreenOrientation(this.bIs) == 2) {
-                    attributes.width = ScreenHelper.getRealScreenHeight(this.bIs);
+                if (UtilHelper.getRealScreenOrientation(this.bNY) == 2) {
+                    attributes.width = ScreenHelper.getRealScreenHeight(this.bNY);
                     attributes.height = -1;
                 } else {
                     attributes.width = -1;
@@ -50,8 +50,8 @@ public class b extends Dialog implements View.OnClickListener {
     }
 
     private void initView() {
-        this.mTipView = (TextView) findViewById(a.g.custom_loading_text);
-        this.mView = findViewById(a.g.view);
+        this.mTipView = (TextView) findViewById(a.f.custom_loading_text);
+        this.mView = findViewById(a.f.view);
     }
 
     private void initListener() {

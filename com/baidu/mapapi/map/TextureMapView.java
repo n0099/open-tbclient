@@ -57,7 +57,7 @@ public final class TextureMapView extends ViewGroup {
     private int z;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2047a = TextureMapView.class.getSimpleName();
+    private static final String f2049a = TextureMapView.class.getSimpleName();
     private static int j = 0;
     private static int k = 0;
     private static final SparseArray<Integer> q = new SparseArray<>();
@@ -197,13 +197,13 @@ public final class TextureMapView extends ViewGroup {
             return;
         }
         if (TextUtils.isEmpty(str)) {
-            Log.e(f2047a, "customStyleFilePath is empty or null, please check!");
+            Log.e(f2049a, "customStyleFilePath is empty or null, please check!");
         } else if (!str.endsWith(".sty")) {
-            Log.e(f2047a, "customStyleFile format is incorrect , please check!");
+            Log.e(f2049a, "customStyleFile format is incorrect , please check!");
         } else if (new File(str).exists()) {
             this.b.getBaseMap().a(str, i2);
         } else {
-            Log.e(f2047a, "customStyleFile does not exist , please check!");
+            Log.e(f2049a, "customStyleFile does not exist , please check!");
         }
     }
 
@@ -225,9 +225,9 @@ public final class TextureMapView extends ViewGroup {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         if (this.f.a()) {
-            float f = this.b.getBaseMap().B().f2240a;
+            float f = this.b.getBaseMap().B().f2242a;
             this.f.b(f > this.b.getBaseMap().b);
-            this.f.a(f < this.b.getBaseMap().f2222a);
+            this.f.a(f < this.b.getBaseMap().f2224a);
         }
     }
 
@@ -332,7 +332,7 @@ public final class TextureMapView extends ViewGroup {
     }
 
     public final int getMapLevel() {
-        return q.get((int) this.b.getBaseMap().B().f2240a).intValue();
+        return q.get((int) this.b.getBaseMap().B().f2242a).intValue();
     }
 
     public int getScaleControlViewHeight() {
@@ -470,7 +470,7 @@ public final class TextureMapView extends ViewGroup {
                     ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
                     if (layoutParams instanceof MapViewLayoutParams) {
                         MapViewLayoutParams mapViewLayoutParams = (MapViewLayoutParams) layoutParams;
-                        Point a2 = mapViewLayoutParams.c == MapViewLayoutParams.ELayoutMode.absoluteMode ? mapViewLayoutParams.b : this.b.getBaseMap().a(CoordUtil.ll2mc(mapViewLayoutParams.f2024a));
+                        Point a2 = mapViewLayoutParams.c == MapViewLayoutParams.ELayoutMode.absoluteMode ? mapViewLayoutParams.b : this.b.getBaseMap().a(CoordUtil.ll2mc(mapViewLayoutParams.f2026a));
                         a(childAt);
                         int measuredWidth2 = childAt.getMeasuredWidth();
                         int measuredHeight3 = childAt.getMeasuredHeight();

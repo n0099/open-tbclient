@@ -15,7 +15,7 @@ import java.util.HashMap;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f3083a;
+    public static int f3085a;
     private static a f;
     private static int g = -1;
     public static int b = -1;
@@ -80,7 +80,7 @@ public class c {
         Paint paint = new Paint();
         paint.setTextSize(com.baidu.platform.comapi.walknavi.segmentbrowse.widget.a.a(context, 17.0f));
         int measureText = (int) paint.measureText("任");
-        double d2 = (0.7d * f3083a) / measureText;
+        double d2 = (0.7d * f3085a) / measureText;
         com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "singleCharwidth:" + measureText);
         com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "num:" + d2);
         return (int) d2;
@@ -160,28 +160,28 @@ public class c {
         if (g() == -1.0d) {
             return -1;
         }
-        return (int) (g() * f3083a);
+        return (int) (g() * f3085a);
     }
 
     public static int l() {
         if (h() == -1.0d) {
             return -1;
         }
-        return (int) (h() * f3083a);
+        return (int) (h() * f3085a);
     }
 
     public static int m() {
         if (i() == -1.0d) {
             return -1;
         }
-        return (int) (i() * f3083a);
+        return (int) (i() * f3085a);
     }
 
     public static int n() {
         if (j() == -1.0d) {
             return -1;
         }
-        return (int) (j() * f3083a);
+        return (int) (j() * f3085a);
     }
 
     public static double e(int i) {

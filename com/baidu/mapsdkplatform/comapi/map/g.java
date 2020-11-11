@@ -8,7 +8,7 @@ import com.baidu.mapsdkplatform.comapi.map.f;
 public class g extends HttpClient.ProtoResultCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f2227a;
+    final /* synthetic */ Context f2229a;
     final /* synthetic */ String b;
     final /* synthetic */ f.a c;
     final /* synthetic */ f d;
@@ -16,7 +16,7 @@ public class g extends HttpClient.ProtoResultCallback {
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar, Context context, String str, f.a aVar) {
         this.d = fVar;
-        this.f2227a = context;
+        this.f2229a = context;
         this.b = str;
         this.c = aVar;
     }
@@ -25,7 +25,7 @@ public class g extends HttpClient.ProtoResultCallback {
     public void onFailed(HttpClient.HttpStateError httpStateError) {
         String a2;
         boolean a3;
-        a2 = this.d.a(this.f2227a, this.b);
+        a2 = this.d.a(this.f2229a, this.b);
         a3 = this.d.a(a2);
         if (!a3) {
             a2 = null;
@@ -37,6 +37,6 @@ public class g extends HttpClient.ProtoResultCallback {
 
     @Override // com.baidu.mapapi.http.HttpClient.ProtoResultCallback
     public void onSuccess(String str) {
-        this.d.b(this.f2227a, str, this.b, this.c);
+        this.d.b(this.f2229a, str, this.b, this.c);
     }
 }

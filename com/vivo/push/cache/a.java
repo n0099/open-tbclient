@@ -41,7 +41,7 @@ public final class a extends d<com.vivo.push.model.a> {
 
     @Override // com.vivo.push.cache.d
     final String b(String str) throws Exception {
-        return new String(g.a(g.a(f4671a), g.a(b), Base64.decode(str, 2)), "utf-8");
+        return new String(g.a(g.a(f4673a), g.a(b), Base64.decode(str, 2)), "utf-8");
     }
 
     public final com.vivo.push.model.a c(String str) {

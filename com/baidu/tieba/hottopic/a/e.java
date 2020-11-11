@@ -9,43 +9,43 @@ import com.baidu.tieba.R;
 /* loaded from: classes21.dex */
 public class e extends af.a {
     public int ajq;
-    public TextView epn;
-    public View jKI;
-    public TextView jKJ;
-    public RelativeLayout jKP;
-    public View jKQ;
-    public TbImageView jKR;
-    public TextView jKS;
-    public TextView jKT;
-    public TextView jKU;
-    public TextView jKV;
+    public TextView evg;
+    public View jQG;
+    public TextView jQH;
+    public RelativeLayout jQN;
+    public View jQO;
+    public TbImageView jQP;
+    public TextView jQQ;
+    public TextView jQR;
+    public TextView jQS;
+    public TextView jQT;
     public View rootView;
 
     public e(View view) {
         super(view);
         this.ajq = 3;
         this.rootView = null;
-        this.jKI = null;
-        this.jKJ = null;
-        this.jKP = null;
-        this.jKQ = null;
-        this.jKR = null;
+        this.jQG = null;
+        this.jQH = null;
+        this.jQN = null;
+        this.jQO = null;
+        this.jQP = null;
         this.rootView = view;
-        cK(this.rootView);
+        cP(this.rootView);
     }
 
-    private void cK(View view) {
+    private void cP(View view) {
         if (view != null) {
-            this.jKI = view.findViewById(R.id.top_divider_line);
-            this.jKJ = (TextView) view.findViewById(R.id.quality_item_theme_title);
-            this.jKQ = view.findViewById(R.id.divider_line);
-            this.jKP = (RelativeLayout) view.findViewById(R.id.quality_thread_view);
-            this.jKR = (TbImageView) view.findViewById(R.id.img);
-            this.epn = (TextView) view.findViewById(R.id.title);
-            this.jKS = (TextView) view.findViewById(R.id.desc);
-            this.jKT = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_tag);
-            this.jKU = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_praise);
-            this.jKV = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_comment);
+            this.jQG = view.findViewById(R.id.top_divider_line);
+            this.jQH = (TextView) view.findViewById(R.id.quality_item_theme_title);
+            this.jQO = view.findViewById(R.id.divider_line);
+            this.jQN = (RelativeLayout) view.findViewById(R.id.quality_thread_view);
+            this.jQP = (TbImageView) view.findViewById(R.id.img);
+            this.evg = (TextView) view.findViewById(R.id.title);
+            this.jQQ = (TextView) view.findViewById(R.id.desc);
+            this.jQR = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_tag);
+            this.jQS = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_praise);
+            this.jQT = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_comment);
         }
     }
 }

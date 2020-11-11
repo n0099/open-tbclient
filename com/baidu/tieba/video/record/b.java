@@ -6,20 +6,20 @@ import android.view.MotionEvent;
 class b {
     private Camera mCamera;
     private int mode = 0;
-    private float nme;
-    private int nmf;
-    private i nmg;
+    private float nsb;
+    private int nsc;
+    private i nsd;
 
     public b(Camera camera) {
         this.mCamera = camera;
     }
 
     public void setRecordController(i iVar) {
-        this.nmg = iVar;
+        this.nsd = iVar;
     }
 
     public boolean handleTouchEvent(MotionEvent motionEvent) {
-        if (this.nmg == null || !this.nmg.brz()) {
+        if (this.nsd == null || !this.nsd.btZ()) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                     this.mode = 0;
@@ -27,21 +27,21 @@ class b {
                 case 2:
                     if (this.mode == 1 && motionEvent.getPointerCount() >= 2) {
                         float spacing = spacing(motionEvent);
-                        int i = (int) ((spacing - this.nme) / 10.0f);
+                        int i = (int) ((spacing - this.nsb) / 10.0f);
                         if (i >= 1 || i <= -1) {
-                            int i2 = i + this.nmf;
+                            int i2 = i + this.nsc;
                             if (i2 > getMaxZoom()) {
                                 i2 = getMaxZoom();
                             }
                             setZoom(i2 >= 0 ? i2 : 0);
-                            this.nme = spacing;
+                            this.nsb = spacing;
                             break;
                         }
                     }
                     break;
                 case 5:
                     this.mode = 1;
-                    this.nme = spacing(motionEvent);
+                    this.nsb = spacing(motionEvent);
                     break;
             }
         }
@@ -77,7 +77,7 @@ class b {
             if (parameters.isZoomSupported()) {
                 parameters.setZoom(i);
                 this.mCamera.setParameters(parameters);
-                this.nmf = i;
+                this.nsc = i;
             }
         }
     }

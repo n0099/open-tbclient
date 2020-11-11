@@ -8,14 +8,14 @@ public interface b {
 
     /* loaded from: classes21.dex */
     public interface a {
-        boolean bL(View view);
+        boolean bP(View view);
     }
 
     void a(@NonNull DownloadStatus downloadStatus);
 
     void a(DownloadStatus downloadStatus, int i);
 
-    boolean bL(View view);
+    boolean bP(View view);
 
     void fa(int i);
 

@@ -5,25 +5,25 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class a implements Cloneable {
     public String Td;
-    public String dfe;
-    public String dff;
-    public int dfg;
-    public String dfh;
-    public String dfi;
+    public String dkZ;
+    public String dla;
+    public int dlb;
+    public String dlc;
+    public String dld;
 
     public a(JSONObject jSONObject, int i) {
-        this.dfg = 4;
+        this.dlb = 4;
         if (jSONObject != null) {
-            this.dff = jSONObject.optString("version");
+            this.dla = jSONObject.optString("version");
             this.Td = jSONObject.optString("provider");
-            this.dfh = jSONObject.optString("path");
-            this.dfi = jSONObject.optString("config");
-            this.dfg = i;
+            this.dlc = jSONObject.optString("path");
+            this.dld = jSONObject.optString("config");
+            this.dlb = i;
         }
     }
 
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.Td) || TextUtils.isEmpty(this.dff)) ? false : true;
+        return (TextUtils.isEmpty(this.Td) || TextUtils.isEmpty(this.dla)) ? false : true;
     }
 
     public Object clone() throws CloneNotSupportedException {
@@ -31,6 +31,6 @@ public class a implements Cloneable {
     }
 
     public String toString() {
-        return "SwanPluginModel{pluginAlias='" + this.dfe + "', pluginVersion='" + this.dff + "', pluginName='" + this.Td + "', pluginCategory=" + this.dfg + ", pluginPath='" + this.dfh + "', pluginPagesConfigFileName='" + this.dfi + "'}";
+        return "SwanPluginModel{pluginAlias='" + this.dkZ + "', pluginVersion='" + this.dla + "', pluginName='" + this.Td + "', pluginCategory=" + this.dlb + ", pluginPath='" + this.dlc + "', pluginPagesConfigFileName='" + this.dld + "'}";
     }
 }

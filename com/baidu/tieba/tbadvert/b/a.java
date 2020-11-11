@@ -10,44 +10,44 @@ import com.baidu.tbadk.core.util.aa;
 import com.baidu.tbadk.core.util.y;
 /* loaded from: classes26.dex */
 public class a {
-    private com.baidu.tieba.tbadvert.a.a mVo;
-    private InterfaceC0840a mVp;
-    private InterfaceC0840a mVq = new InterfaceC0840a() { // from class: com.baidu.tieba.tbadvert.b.a.1
-        @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0840a
+    private com.baidu.tieba.tbadvert.a.a nbk;
+    private InterfaceC0855a nbl;
+    private InterfaceC0855a nbm = new InterfaceC0855a() { // from class: com.baidu.tieba.tbadvert.b.a.1
+        @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0855a
         public void a(com.baidu.tieba.tbadvert.a.a aVar) {
-            a.this.mVo = aVar;
-            if (a.this.mVp != null) {
-                a.this.mVp.a(aVar);
+            a.this.nbk = aVar;
+            if (a.this.nbl != null) {
+                a.this.nbl.a(aVar);
             }
         }
 
-        @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0840a
+        @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0855a
         public void aQ(Object obj) {
-            if (a.this.mVp != null) {
-                a.this.mVp.aQ(obj);
+            if (a.this.nbl != null) {
+                a.this.nbl.aQ(obj);
             }
         }
 
-        @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0840a
-        public void dIU() {
-            a.this.mVo = null;
-            if (a.this.mVp != null) {
-                a.this.mVp.dIU();
+        @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0855a
+        public void dLw() {
+            a.this.nbk = null;
+            if (a.this.nbl != null) {
+                a.this.nbl.dLw();
             }
         }
     };
-    private com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a> mVr = new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.tbadvert.b.a.2
+    private com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a> nbn = new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.tbadvert.b.a.2
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.e.b
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             super.onLoaded((AnonymousClass2) aVar, str, i);
             if (aVar == null || aVar.getRawBitmap() == null) {
-                if (a.this.mVp != null) {
-                    a.this.mVp.dIU();
+                if (a.this.nbl != null) {
+                    a.this.nbl.dLw();
                 }
-            } else if (a.this.mVp != null) {
-                a.this.mVp.aQ(aVar);
+            } else if (a.this.nbl != null) {
+                a.this.nbl.aQ(aVar);
             }
         }
 
@@ -55,55 +55,55 @@ public class a {
         @Override // com.baidu.adp.lib.e.b
         public void onCancelled(String str) {
             super.onCancelled(str);
-            if (a.this.mVp != null) {
-                a.this.mVp.dIU();
+            if (a.this.nbl != null) {
+                a.this.nbl.dLw();
             }
         }
     };
 
     /* renamed from: com.baidu.tieba.tbadvert.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes26.dex */
-    public interface InterfaceC0840a {
+    public interface InterfaceC0855a {
         void a(com.baidu.tieba.tbadvert.a.a aVar);
 
         void aQ(Object obj);
 
-        void dIU();
+        void dLw();
     }
 
-    public void dIY() {
-        b bVar = new b(this.mVq);
+    public void dLA() {
+        b bVar = new b(this.nbm);
         bVar.setSelfExecute(true);
         bVar.execute(new String[0]);
     }
 
-    public com.baidu.tieba.tbadvert.a.b dIZ() {
-        if (this.mVo == null || y.isEmpty(this.mVo.mVl)) {
+    public com.baidu.tieba.tbadvert.a.b dLB() {
+        if (this.nbk == null || y.isEmpty(this.nbk.nbh)) {
             return null;
         }
-        for (com.baidu.tieba.tbadvert.a.b bVar : this.mVo.mVl) {
-            if (bVar != null && bVar.dIX() && bVar.ezs == 3) {
+        for (com.baidu.tieba.tbadvert.a.b bVar : this.nbk.nbh) {
+            if (bVar != null && bVar.dLz() && bVar.eFh == 3) {
                 return bVar;
             }
         }
         return null;
     }
 
-    public void dJa() {
-        com.baidu.tieba.tbadvert.a.b dIZ = dIZ();
-        if (dIZ != null && !TextUtils.isEmpty(dIZ.mVn)) {
-            o(dIZ.showType, dIZ.mVn, true);
-        } else if (this.mVp != null) {
-            this.mVp.dIU();
+    public void dLC() {
+        com.baidu.tieba.tbadvert.a.b dLB = dLB();
+        if (dLB != null && !TextUtils.isEmpty(dLB.nbj)) {
+            o(dLB.showType, dLB.nbj, true);
+        } else if (this.nbl != null) {
+            this.nbl.dLw();
         }
     }
 
-    public void dJb() {
-        if (this.mVo != null && !y.isEmpty(this.mVo.mVl)) {
-            com.baidu.tieba.tbadvert.a.b dIZ = dIZ();
-            for (com.baidu.tieba.tbadvert.a.b bVar : this.mVo.mVl) {
-                if (bVar != null && bVar != dIZ && bVar.dIX() && bVar.ezs != 4) {
-                    o(bVar.showType, bVar.mVn, false);
+    public void dLD() {
+        if (this.nbk != null && !y.isEmpty(this.nbk.nbh)) {
+            com.baidu.tieba.tbadvert.a.b dLB = dLB();
+            for (com.baidu.tieba.tbadvert.a.b bVar : this.nbk.nbh) {
+                if (bVar != null && bVar != dLB && bVar.dLz() && bVar.eFh != 4) {
+                    o(bVar.showType, bVar.nbj, false);
                 }
             }
         }
@@ -112,23 +112,23 @@ public class a {
     private void o(int i, String str, boolean z) {
         if (i == 1 || i == 2) {
             if (z) {
-                c.mS().a(str, 10, this.mVr, null);
+                c.mS().a(str, 10, this.nbn, null);
             } else {
                 c.mS().a(str, 10, null, null);
             }
         }
     }
 
-    public void a(InterfaceC0840a interfaceC0840a) {
-        this.mVp = interfaceC0840a;
+    public void a(InterfaceC0855a interfaceC0855a) {
+        this.nbl = interfaceC0855a;
     }
 
     /* loaded from: classes26.dex */
     private class b extends BdAsyncTask<String, Void, Object> {
-        private InterfaceC0840a mVp;
+        private InterfaceC0855a nbl;
 
-        public b(InterfaceC0840a interfaceC0840a) {
-            this.mVp = interfaceC0840a;
+        public b(InterfaceC0855a interfaceC0855a) {
+            this.nbl = interfaceC0855a;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -137,7 +137,7 @@ public class a {
         public Object doInBackground(String... strArr) {
             aa aaVar = new aa(TbConfig.SERVER_ADDRESS + "c/s/splashSchedule");
             String postNetData = aaVar.postNetData();
-            if (!aaVar.bon().boU().isRequestSuccess() || SS(postNetData)) {
+            if (!aaVar.bqN().bru().isRequestSuccess() || Tj(postNetData)) {
                 return null;
             }
             com.baidu.tieba.tbadvert.a.a aVar = new com.baidu.tieba.tbadvert.a.a();
@@ -148,16 +148,16 @@ public class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Object obj) {
-            if (this.mVp != null) {
+            if (this.nbl != null) {
                 if (obj instanceof com.baidu.tieba.tbadvert.a.a) {
-                    this.mVp.a((com.baidu.tieba.tbadvert.a.a) obj);
+                    this.nbl.a((com.baidu.tieba.tbadvert.a.a) obj);
                 } else {
-                    this.mVp.dIU();
+                    this.nbl.dLw();
                 }
             }
         }
 
-        private boolean SS(String str) {
+        private boolean Tj(String str) {
             if (str != null) {
                 try {
                     ErrorData errorData = new ErrorData();

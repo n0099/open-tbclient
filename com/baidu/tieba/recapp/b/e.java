@@ -9,17 +9,17 @@ import com.baidu.tieba.recapp.m;
 import com.baidu.tieba.recapp.n;
 /* loaded from: classes26.dex */
 public class e extends com.baidu.tieba.frs.k<bw, f> implements m {
-    private n fHO;
+    private n fNE;
 
     public e(n nVar, BdUniqueId bdUniqueId) {
         super(nVar.getTbPageContext(), bdUniqueId);
-        this.fHO = nVar;
+        this.fNE = nVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cG */
+    /* renamed from: cI */
     public f c(ViewGroup viewGroup) {
         View view = new View(this.mPageContext.getPageActivity());
         view.setVisibility(8);
@@ -32,7 +32,7 @@ public class e extends com.baidu.tieba.frs.k<bw, f> implements m {
     public View a(int i, View view, ViewGroup viewGroup, bw bwVar, f fVar) {
         if (bwVar instanceof AdvertAppInfo) {
             AdvertAppInfo advertAppInfo = (AdvertAppInfo) bwVar;
-            com.baidu.tbadk.core.data.b.a(advertAppInfo.advertAppContext, com.baidu.adp.lib.f.b.toInt(advertAppInfo.adPosition, -1), advertAppInfo.ete.etr == -1001);
+            com.baidu.tbadk.core.data.b.a(advertAppInfo.advertAppContext, com.baidu.adp.lib.f.b.toInt(advertAppInfo.adPosition, -1), advertAppInfo.eyX.ezk == -1001);
         }
         return fVar.getView();
     }

@@ -8,46 +8,46 @@ import java.util.HashMap;
 public final class eq {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile eq f4889a;
+    private static volatile eq f4891a;
 
     /* renamed from: a  reason: collision with other field name */
-    private int f299a;
+    private int f301a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f300a;
+    private Context f302a;
 
     /* renamed from: a  reason: collision with other field name */
-    private eu f301a;
+    private eu f303a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f302a;
+    private String f304a;
 
     /* renamed from: a  reason: collision with other field name */
-    private HashMap<es, et> f303a = new HashMap<>();
+    private HashMap<es, et> f305a = new HashMap<>();
     private String b;
 
     private eq(Context context) {
-        this.f300a = context;
-        this.f303a.put(es.SERVICE_ACTION, new ew());
-        this.f303a.put(es.SERVICE_COMPONENT, new ex());
-        this.f303a.put(es.ACTIVITY, new eo());
-        this.f303a.put(es.PROVIDER, new ev());
+        this.f302a = context;
+        this.f305a.put(es.SERVICE_ACTION, new ew());
+        this.f305a.put(es.SERVICE_COMPONENT, new ex());
+        this.f305a.put(es.ACTIVITY, new eo());
+        this.f305a.put(es.PROVIDER, new ev());
     }
 
     public static eq a(Context context) {
-        if (f4889a == null) {
+        if (f4891a == null) {
             synchronized (eq.class) {
-                if (f4889a == null) {
-                    f4889a = new eq(context);
+                if (f4891a == null) {
+                    f4891a = new eq(context);
                 }
             }
         }
-        return f4889a;
+        return f4891a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(es esVar, Context context, ep epVar) {
-        this.f303a.get(esVar).a(context, epVar);
+        this.f305a.get(esVar).a(context, epVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -56,21 +56,21 @@ public final class eq {
     }
 
     public int a() {
-        return this.f299a;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public eu m268a() {
         return this.f301a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
+    public eu m268a() {
+        return this.f303a;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
     public String m269a() {
-        return this.f302a;
+        return this.f304a;
     }
 
     public void a(int i) {
-        this.f299a = i;
+        this.f301a = i;
     }
 
     public void a(Context context, String str, int i, String str2, String str3) {
@@ -79,23 +79,23 @@ public final class eq {
             return;
         }
         a(i);
-        ai.a(this.f300a).a(new er(this, str, context, str2, str3));
+        ai.a(this.f302a).a(new er(this, str, context, str2, str3));
     }
 
     public void a(es esVar, Context context, Intent intent, String str) {
         if (esVar != null) {
-            this.f303a.get(esVar).a(context, intent, str);
+            this.f305a.get(esVar).a(context, intent, str);
         } else {
             em.a(context, "null", 1008, "A receive a incorrect message with empty type");
         }
     }
 
     public void a(eu euVar) {
-        this.f301a = euVar;
+        this.f303a = euVar;
     }
 
     public void a(String str) {
-        this.f302a = str;
+        this.f304a = str;
     }
 
     public void a(String str, String str2, int i, eu euVar) {

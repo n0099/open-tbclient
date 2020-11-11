@@ -6,11 +6,11 @@ import com.baidu.mapapi.map.BaiduMap;
 public class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f2961a;
+    final /* synthetic */ b f2963a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.f2961a = bVar;
+        this.f2963a = bVar;
     }
 
     @Override // java.lang.Runnable
@@ -18,14 +18,14 @@ public class d implements Runnable {
         com.baidu.platform.comapi.wnplatform.model.c cVar;
         com.baidu.platform.comapi.wnplatform.model.c cVar2;
         com.baidu.platform.comapi.wnplatform.model.c cVar3;
-        this.f2961a.I().runEntryState();
+        this.f2963a.I().runEntryState();
         if (com.baidu.platform.comapi.wnplatform.a.a().d()) {
-            cVar = this.f2961a.F;
+            cVar = this.f2963a.F;
             if (cVar != null) {
                 BaiduMap map = b.a().J().a().getMap();
-                cVar2 = this.f2961a.F;
+                cVar2 = this.f2963a.F;
                 String b = cVar2.b();
-                cVar3 = this.f2961a.F;
+                cVar3 = this.f2963a.F;
                 map.switchBaseIndoorMapFloor(b, cVar3.a());
             }
         }

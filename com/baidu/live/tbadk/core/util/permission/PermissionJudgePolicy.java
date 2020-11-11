@@ -56,7 +56,7 @@ public class PermissionJudgePolicy {
     }
 
     public boolean startRequestPermission(Activity activity, boolean z, boolean z2) {
-        if (!a.Yr()) {
+        if (!a.aaQ()) {
             onPermissionsGranted();
             return false;
         } else if (ListUtils.isEmpty(this.requestPermissionList)) {
@@ -119,9 +119,9 @@ public class PermissionJudgePolicy {
         }
         BdAlertDialog bdAlertDialog = new BdAlertDialog(activity);
         bdAlertDialog.setCanceledOnTouchOutside(false);
-        bdAlertDialog.setTitle(a.i.sdk_request_permission_default_title);
+        bdAlertDialog.setTitle(a.h.sdk_request_permission_default_title);
         bdAlertDialog.setMessageId(getPermissionDescriptionId(str), currentAppType, currentAppType);
-        bdAlertDialog.setPositiveButton(a.i.sdk_isopen, new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.tbadk.core.util.permission.PermissionJudgePolicy.2
+        bdAlertDialog.setPositiveButton(a.h.sdk_isopen, new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.tbadk.core.util.permission.PermissionJudgePolicy.2
             @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
             public void onClick(BdAlertDialog bdAlertDialog2) {
                 bdAlertDialog2.dismiss();
@@ -130,7 +130,7 @@ public class PermissionJudgePolicy {
                     PermissionJudgePolicy.this.mDialogClickListener.onDialogComfirmed(str);
                 }
             }
-        }).setNegativeButton(a.i.sdk_cancel, new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.tbadk.core.util.permission.PermissionJudgePolicy.1
+        }).setNegativeButton(a.h.sdk_cancel, new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.tbadk.core.util.permission.PermissionJudgePolicy.1
             @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
             public void onClick(BdAlertDialog bdAlertDialog2) {
                 bdAlertDialog2.dismiss();
@@ -166,50 +166,50 @@ public class PermissionJudgePolicy {
 
     private int getPermissionDescriptionId(String str) {
         if (TextUtils.isEmpty(str)) {
-            return a.i.sdk_request_permission_default_text;
+            return a.h.sdk_request_permission_default_text;
         }
         if ("android.permission.WRITE_EXTERNAL_STORAGE".equals(str)) {
-            return a.i.sdk_request_permission_default_text;
+            return a.h.sdk_request_permission_default_text;
         }
         if ("android.permission.ACCESS_FINE_LOCATION".equals(str) || "android.permission.ACCESS_COARSE_LOCATION".equals(str)) {
-            return a.i.sdk_request_permission_location;
+            return a.h.sdk_request_permission_location;
         }
         if (PermissionRequest.RESOURCE_VIDEO_CAPTURE.equals(str)) {
-            return a.i.sdk_request_permission_camera;
+            return a.h.sdk_request_permission_camera;
         }
         if (PermissionRequest.RESOURCE_AUDIO_CAPTURE.equals(str)) {
-            return a.i.sdk_request_permission_microphone;
+            return a.h.sdk_request_permission_microphone;
         }
         if ("android.permission.READ_PHONE_STATE".equals(str)) {
-            return a.i.sdk_request_permission_contacts;
+            return a.h.sdk_request_permission_contacts;
         }
         if ("android.permission.SEND_SMS".equals(str)) {
-            return a.i.sdk_request_permission_sms;
+            return a.h.sdk_request_permission_sms;
         }
         if ("android.permission.CALL_PHONE".equals(str)) {
-            return a.i.sdk_request_permission_cellphone;
+            return a.h.sdk_request_permission_cellphone;
         }
-        return a.i.sdk_request_permission_default_text;
+        return a.h.sdk_request_permission_default_text;
     }
 
     private String currentAppType(Activity activity) {
         if (activity != null) {
             if (TbadkCoreApplication.getInst().isHaokan()) {
-                return activity.getResources().getString(a.i.sdk_permission_app_type_hk_text);
+                return activity.getResources().getString(a.h.sdk_permission_app_type_hk_text);
             }
             if (TbadkCoreApplication.getInst().isQuanmin()) {
-                return activity.getResources().getString(a.i.sdk_permission_app_type_qm_text);
+                return activity.getResources().getString(a.h.sdk_permission_app_type_qm_text);
             }
             if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-                return activity.getResources().getString(a.i.sdk_permission_app_type_bd_text);
+                return activity.getResources().getString(a.h.sdk_permission_app_type_bd_text);
             }
             if (TbadkCoreApplication.getInst().isYinbo()) {
-                return activity.getResources().getString(a.i.sdk_permission_app_type_yb_text);
+                return activity.getResources().getString(a.h.sdk_permission_app_type_yb_text);
             }
             if (TbadkCoreApplication.getInst().isOther() && !TextUtils.isEmpty(TbConfig.getSubappName())) {
                 return TbConfig.getSubappName();
             }
-            return activity.getResources().getString(a.i.sdk_permission_app_type_tb_text);
+            return activity.getResources().getString(a.h.sdk_permission_app_type_tb_text);
         }
         return null;
     }

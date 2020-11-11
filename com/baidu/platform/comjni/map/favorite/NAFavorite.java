@@ -6,7 +6,7 @@ import com.baidu.platform.comjni.JNIBaseApi;
 public class NAFavorite extends JNIBaseApi {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f3183a = 0;
+    private long f3185a = 0;
 
     private native boolean nativeAdd(long j, String str, String str2);
 
@@ -44,62 +44,62 @@ public class NAFavorite extends JNIBaseApi {
 
     public int a(Bundle bundle) {
         try {
-            return nativeGetAll(this.f3183a, bundle);
+            return nativeGetAll(this.f3185a, bundle);
         } catch (Throwable th) {
             return 0;
         }
     }
 
     public long a() {
-        this.f3183a = nativeCreate();
-        return this.f3183a;
+        this.f3185a = nativeCreate();
+        return this.f3185a;
     }
 
     public boolean a(int i) {
-        return nativeSetType(this.f3183a, i);
+        return nativeSetType(this.f3185a, i);
     }
 
     public boolean a(String str) {
-        return nativeRemove(this.f3183a, str);
+        return nativeRemove(this.f3185a, str);
     }
 
     public boolean a(String str, String str2) {
-        return nativeAdd(this.f3183a, str, str2);
+        return nativeAdd(this.f3185a, str, str2);
     }
 
     public boolean a(String str, String str2, String str3, int i, int i2, int i3) {
-        return nativeLoad(this.f3183a, str, str2, str3, i, i2, i3);
+        return nativeLoad(this.f3185a, str, str2, str3, i, i2, i3);
     }
 
     public int b() {
-        return nativeRelease(this.f3183a);
+        return nativeRelease(this.f3185a);
     }
 
     public String b(String str) {
         try {
-            return nativeGetValue(this.f3183a, str);
+            return nativeGetValue(this.f3185a, str);
         } catch (Exception e) {
             return null;
         }
     }
 
     public boolean b(String str, String str2) {
-        return nativeUpdate(this.f3183a, str, str2);
+        return nativeUpdate(this.f3185a, str, str2);
     }
 
     public boolean c() {
-        return nativeClear(this.f3183a);
+        return nativeClear(this.f3185a);
     }
 
     public boolean c(String str) {
         try {
-            return nativeIsExist(this.f3183a, str);
+            return nativeIsExist(this.f3185a, str);
         } catch (Throwable th) {
             return false;
         }
     }
 
     public boolean d() {
-        return nativeSaveCache(this.f3183a);
+        return nativeSaveCache(this.f3185a);
     }
 }

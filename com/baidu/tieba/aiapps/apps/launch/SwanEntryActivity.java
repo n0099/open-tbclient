@@ -13,14 +13,14 @@ public class SwanEntryActivity extends Activity {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (!u.checkActivityRefuseServiceAndFinish(this)) {
-            bIw();
+            bKV();
         }
     }
 
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        bIw();
+        bKV();
     }
 
     @Override // android.app.Activity
@@ -34,7 +34,7 @@ public class SwanEntryActivity extends Activity {
         });
     }
 
-    private void bIw() {
+    private void bKV() {
         String uri;
         Intent intent = getIntent();
         if (intent != null) {
@@ -45,7 +45,7 @@ public class SwanEntryActivity extends Activity {
                 uri = data == null ? null : data.toString();
             }
             if (!TextUtils.isEmpty(uri)) {
-                b.uR(uri);
+                b.vf(uri);
             }
         }
     }

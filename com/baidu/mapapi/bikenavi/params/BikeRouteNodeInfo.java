@@ -5,13 +5,13 @@ import com.baidu.mapapi.model.LatLng;
 public class BikeRouteNodeInfo {
 
     /* renamed from: a  reason: collision with root package name */
-    private LatLng f1980a;
+    private LatLng f1982a;
 
     public LatLng getLocation() {
-        return this.f1980a;
+        return this.f1982a;
     }
 
     public void setLocation(LatLng latLng) {
-        this.f1980a = latLng;
+        this.f1982a = latLng;
     }
 }

@@ -17,12 +17,12 @@ public class ImBarrageItemGiftCountView extends TextView {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setShape(0);
         gradientDrawable.setColor(-1);
-        gradientDrawable.setCornerRadius(getResources().getDimensionPixelOffset(a.e.sdk_ds18));
+        gradientDrawable.setCornerRadius(getResources().getDimensionPixelOffset(a.d.sdk_ds18));
         setBackgroundDrawable(gradientDrawable);
         setGravity(17);
-        int dimensionPixelOffset = getResources().getDimensionPixelOffset(a.e.sdk_ds4);
+        int dimensionPixelOffset = getResources().getDimensionPixelOffset(a.d.sdk_ds4);
         setPadding(dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset);
-        setTextSize(0, getResources().getDimensionPixelOffset(a.e.sdk_fontsize18));
+        setTextSize(0, getResources().getDimensionPixelOffset(a.d.sdk_fontsize18));
         setIncludeFontPadding(false);
     }
 }

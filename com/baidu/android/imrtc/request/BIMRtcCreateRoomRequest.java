@@ -5,6 +5,7 @@ import com.baidu.android.imrtc.request.BIMRtcTokenListener;
 import com.baidu.android.imrtc.utils.IMJni;
 import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imrtc.utils.RtcConstants;
+import com.baidu.android.imrtc.utils.RtcUtility;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.Utility;
@@ -15,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
     private static final String TAG = "BIMRtcCreateRoomRequest";
     private static char[] hexDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
@@ -47,8 +48,8 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
     @Override // com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
     public byte[] getRequestParameter() {
         try {
-            long appId = com.baidu.android.imrtc.utils.Utility.getAppId(this.mContext);
-            String cuid = com.baidu.android.imrtc.utils.Utility.getCuid(this.mContext);
+            long appId = RtcUtility.getAppId(this.mContext);
+            String cuid = RtcUtility.getCuid(this.mContext);
             long j = RtcConstants.RTC_VERSION;
             long uk = Utility.getUK(this.mContext);
             long currentTimeMillis = System.currentTimeMillis();
@@ -117,26 +118,26 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
             str3 = jSONObject.optString("error_msg", "");
             j = jSONObject.optLong("rtc_userid", -1L);
             try {
-                com.baidu.android.imrtc.utils.Utility.setRtcUserId(this.mContext, j);
+                RtcUtility.setRtcUserId(this.mContext, j);
                 this.mRtcRoomId = jSONObject.optString(RtcConstants.EXTRA_RTC_ROOM_ID, "");
-                com.baidu.android.imrtc.utils.Utility.setRtcRoomId(this.mContext, this.mRtcRoomId);
+                RtcUtility.setRtcRoomId(this.mContext, this.mRtcRoomId);
                 str2 = jSONObject.optString("rtc_room_token", "");
                 try {
-                    com.baidu.android.imrtc.utils.Utility.setRtcRoomToken(this.mContext, str2);
+                    RtcUtility.setRtcRoomToken(this.mContext, str2);
                     str = jSONObject.optString("rtc_appid", "");
-                    try {
-                        com.baidu.android.imrtc.utils.Utility.setRtcAppId(this.mContext, str);
-                    } catch (JSONException e2) {
-                        e = e2;
-                        LogUtils.e(TAG, "JSONException", e);
-                        str3 = "ERROR_MSG_JSON_PARSE_EXCEPTION";
-                        i = -1;
-                        if (this.mListener == null) {
-                        }
-                    }
+                } catch (JSONException e2) {
+                    e = e2;
+                    str = "";
+                }
+                try {
+                    RtcUtility.setRtcAppId(this.mContext, str);
                 } catch (JSONException e3) {
                     e = e3;
-                    str = "";
+                    LogUtils.e(TAG, "JSONException", e);
+                    str3 = "ERROR_MSG_JSON_PARSE_EXCEPTION";
+                    i = -1;
+                    if (this.mListener == null) {
+                    }
                 }
             } catch (JSONException e4) {
                 e = e4;
@@ -156,6 +157,7 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
             bIMRTCGetTokeResult.token = str2;
             bIMRTCGetTokeResult.rtcAppId = str;
             this.mListener.onResult(i, str3, bIMRTCGetTokeResult);
+            trackRequest(i, "room/create");
         }
     }
 
@@ -163,6 +165,7 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
     public void onFailure(int i, String str) {
         if (this.mListener != null) {
             this.mListener.onResult(i, str, new BIMRtcTokenListener.BIMRTCGetTokeResult());
+            trackRequest(i, "room/create");
         }
     }
 }

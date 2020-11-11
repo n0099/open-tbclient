@@ -11,14 +11,14 @@ import org.json.JSONObject;
 final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private JSONObject f2858a;
+    private JSONObject f2860a;
 
     public c(Context context, String str) {
         InputStream inputStream = null;
         try {
             try {
                 inputStream = context.getAssets().open(str);
-                this.f2858a = new JSONObject(a(inputStream));
+                this.f2860a = new JSONObject(a(inputStream));
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -85,7 +85,7 @@ final class c {
     }
 
     public byte[] a() {
-        JSONArray optJSONArray = this.f2858a.optJSONArray("ver");
+        JSONArray optJSONArray = this.f2860a.optJSONArray("ver");
         if (optJSONArray != null) {
             byte[] bArr = new byte[optJSONArray.length()];
             int length = optJSONArray.length();
@@ -98,7 +98,7 @@ final class c {
     }
 
     public String[] b() {
-        JSONArray optJSONArray = this.f2858a.optJSONArray("res");
+        JSONArray optJSONArray = this.f2860a.optJSONArray("res");
         if (optJSONArray != null) {
             String[] strArr = new String[optJSONArray.length()];
             int length = optJSONArray.length();

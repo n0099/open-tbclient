@@ -18,44 +18,44 @@ import java.util.TreeMap;
 /* loaded from: classes10.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static LinkedList<a> cJz = new LinkedList<>();
-    private static Map<String, c> cJA = new TreeMap();
+    private static LinkedList<a> cPs = new LinkedList<>();
+    private static Map<String, c> cPt = new TreeMap();
 
     /* loaded from: classes10.dex */
     public static class a {
-        public c cJC;
-        public final ArrayList<InterfaceC0421b> cJD = new ArrayList<>();
-        public long cJE;
-        public long cJF;
+        public c cPv;
+        public final ArrayList<InterfaceC0433b> cPw = new ArrayList<>();
+        public long cPx;
+        public long cPy;
         public boolean isReady;
     }
 
     /* renamed from: com.baidu.swan.apps.core.slave.b$b  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC0421b {
+    public interface InterfaceC0433b {
         void onReady();
     }
 
     public static void bZ(Context context) {
-        if (cJz.size() < 2) {
+        if (cPs.size() < 2) {
             if (DEBUG) {
                 Log.d("SwanAppSlavePool", "preloadSlaveManager do preload.");
             }
-            cJz.add(cb(ca(context)));
+            cPs.add(cb(ca(context)));
         } else if (DEBUG) {
             Log.e("SwanAppSlavePool", "preloadSlaveManager max size exceeded");
         }
         if (DEBUG) {
-            Log.d("SwanAppSlavePool", "preloadSlaveManager size: " + cJz.size());
+            Log.d("SwanAppSlavePool", "preloadSlaveManager size: " + cPs.size());
         }
     }
 
     private static Context ca(Context context) {
         if (context == null) {
-            return com.baidu.swan.apps.t.a.aua();
+            return com.baidu.swan.apps.t.a.awA();
         }
         if ((context instanceof Activity) && ((Activity) context).isFinishing()) {
-            return com.baidu.swan.apps.t.a.aua();
+            return com.baidu.swan.apps.t.a.awA();
         }
         return context;
     }
@@ -64,14 +64,14 @@ public final class b {
         if (DEBUG) {
             Log.d("SwanAppSlavePool", "getPreloadSlaveManager");
         }
-        if (cJz.isEmpty()) {
+        if (cPs.isEmpty()) {
             return cb(ca(activity));
         }
         if (DEBUG) {
-            Log.d("SwanAppSlavePool", "getPreloadSlaveManager : " + cJz.getFirst());
+            Log.d("SwanAppSlavePool", "getPreloadSlaveManager : " + cPs.getFirst());
         }
-        a removeFirst = cJz.removeFirst();
-        c cVar = removeFirst.cJC;
+        a removeFirst = cPs.removeFirst();
+        c cVar = removeFirst.cPv;
         if (cVar != null && activity != null) {
             cVar.attachActivity(activity);
         }
@@ -85,7 +85,7 @@ public final class b {
                     if (b.DEBUG) {
                         Log.d("SwanAppSlavePool", "getPreloadSlaveManager prepare next start.");
                     }
-                    b.bZ(f.axo().awY());
+                    b.bZ(f.azO().azy());
                     if (b.DEBUG) {
                         Log.d("SwanAppSlavePool", "getPreloadSlaveManager prepare next end.");
                     }
@@ -100,37 +100,37 @@ public final class b {
         return f(activity, false);
     }
 
-    public static void a(a aVar, InterfaceC0421b interfaceC0421b) {
-        if (interfaceC0421b != null) {
+    public static void a(a aVar, InterfaceC0433b interfaceC0433b) {
+        if (interfaceC0433b != null) {
             if (aVar.isReady) {
-                interfaceC0421b.onReady();
+                interfaceC0433b.onReady();
             } else {
-                aVar.cJD.add(interfaceC0421b);
+                aVar.cPw.add(interfaceC0433b);
             }
         }
     }
 
     private static a cb(Context context) {
         final a aVar = new a();
-        aVar.cJE = System.currentTimeMillis();
+        aVar.cPx = System.currentTimeMillis();
         aVar.isReady = false;
-        aVar.cJC = d.aph().a(context, new g() { // from class: com.baidu.swan.apps.core.slave.b.2
+        aVar.cPv = d.arI().a(context, new g() { // from class: com.baidu.swan.apps.core.slave.b.2
             @Override // com.baidu.swan.apps.core.g
-            public void hO(String str) {
+            public void hV(String str) {
                 if (b.DEBUG) {
-                    Log.d("SwanAppSlavePool", "onPageFinished slaveId: " + a.this.cJC.agj() + " url: " + str);
+                    Log.d("SwanAppSlavePool", "onPageFinished slaveId: " + a.this.cPv.aiJ() + " url: " + str);
                 }
-                a.this.cJF = System.currentTimeMillis();
+                a.this.cPy = System.currentTimeMillis();
                 a.this.isReady = true;
-                if (!a.this.cJD.isEmpty()) {
-                    Iterator<InterfaceC0421b> it = a.this.cJD.iterator();
+                if (!a.this.cPw.isEmpty()) {
+                    Iterator<InterfaceC0433b> it = a.this.cPw.iterator();
                     while (it.hasNext()) {
-                        InterfaceC0421b next = it.next();
+                        InterfaceC0433b next = it.next();
                         if (next != null) {
                             next.onReady();
                         }
                     }
-                    a.this.cJD.clear();
+                    a.this.cPw.clear();
                 }
             }
         });
@@ -138,23 +138,23 @@ public final class b {
     }
 
     public static void a(@NonNull String str, c cVar) {
-        Map<String, c> map = cJA;
+        Map<String, c> map = cPt;
         if (str == null) {
             str = "";
         }
         map.put(str, cVar);
     }
 
-    public static c no(@NonNull String str) {
-        c cVar = cJA.get(str != null ? str : "");
+    public static c nD(@NonNull String str) {
+        c cVar = cPt.get(str != null ? str : "");
         if (cVar != null) {
-            cJA.remove(str);
+            cPt.remove(str);
         }
         return cVar;
     }
 
     public static void clearAll() {
-        cJz.clear();
-        cJA.clear();
+        cPs.clear();
+        cPt.clear();
     }
 }

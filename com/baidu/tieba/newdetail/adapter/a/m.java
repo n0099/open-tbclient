@@ -24,7 +24,7 @@ public class m extends a<bj, am<bj>> implements com.baidu.tieba.a.f {
     private v alD;
     private View.OnClickListener als;
     private PullLeftRefreshLayout.a alt;
-    public BdUniqueId fmX;
+    public BdUniqueId fsQ;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
@@ -38,7 +38,7 @@ public class m extends a<bj, am<bj>> implements com.baidu.tieba.a.f {
         };
         this.alt = new PullLeftRefreshLayout.a() { // from class: com.baidu.tieba.newdetail.adapter.a.m.2
             @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.a
-            public void bCG() {
+            public void bFf() {
                 m.this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumSquareActivityConfig(m.this.mPageContext.getPageActivity(), m.this.mTabName)));
             }
         };
@@ -72,10 +72,10 @@ public class m extends a<bj, am<bj>> implements com.baidu.tieba.a.f {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aT */
+    /* renamed from: aV */
     public am c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
-        ae aeVar = new ae(this.mPageContext, this.fmX);
+        ae aeVar = new ae(this.mPageContext, this.fsQ);
         aeVar.setShowSquareEntrance(false);
         aeVar.setEnableShowInto(false);
         aeVar.setShowMore(false);
@@ -88,7 +88,7 @@ public class m extends a<bj, am<bj>> implements com.baidu.tieba.a.f {
         aVar.tU().bA(0);
         aVar.tU().bv(0);
         am amVar = new am(aVar.a(true, viewGroup, this.alD));
-        amVar.setPageId(this.fmX);
+        amVar.setPageId(this.fsQ);
         return amVar;
     }
 
@@ -109,7 +109,7 @@ public class m extends a<bj, am<bj>> implements com.baidu.tieba.a.f {
     }
 
     @Override // com.baidu.tieba.a.f
-    public void EL(String str) {
+    public void EZ(String str) {
         this.ahu = str;
     }
 }

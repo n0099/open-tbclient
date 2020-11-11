@@ -18,17 +18,17 @@ public class a {
         view.postOnAnimation(runnable);
     }
 
-    public static int Nq(int i) {
-        return Build.VERSION.SDK_INT >= 11 ? Ns(i) : Nr(i);
+    public static int NL(int i) {
+        return Build.VERSION.SDK_INT >= 11 ? NN(i) : NM(i);
     }
 
     @TargetApi(5)
-    private static int Nr(int i) {
+    private static int NM(int i) {
         return (65280 & i) >> 8;
     }
 
     @TargetApi(11)
-    private static int Ns(int i) {
+    private static int NN(int i) {
         return (65280 & i) >> 8;
     }
 }

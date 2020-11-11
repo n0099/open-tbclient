@@ -7,15 +7,15 @@ public interface a extends com.baidu.tieba.InjectPlugin.a.a<c> {
 
     /* renamed from: com.baidu.tieba.InjectPlugin.FrsBannerAd.a$a  reason: collision with other inner class name */
     /* loaded from: classes21.dex */
-    public interface InterfaceC0594a {
+    public interface InterfaceC0606a {
         void a(c cVar, View view);
 
         void b(c cVar, View view);
     }
 
-    void a(InterfaceC0594a interfaceC0594a);
+    void a(InterfaceC0606a interfaceC0606a);
 
-    void bFc();
+    void bHB();
 
     void changeSkinType(int i);
 

@@ -26,23 +26,23 @@ import tv.chushou.zues.b;
 import tv.chushou.zues.utils.f;
 /* loaded from: classes6.dex */
 public class b {
-    public static final int qdN = b.C1095b.status_color_dark;
-    public static final int qdO = b.C1095b.status_color_lignt;
-    private static boolean qdP = false;
-    private static int qdQ = 50;
+    public static final int qni = b.C1115b.status_color_dark;
+    public static final int qnj = b.C1115b.status_color_lignt;
+    private static boolean qnk = false;
+    private static int qnl = 50;
 
-    public static int aF(Activity activity) {
-        int aL = aL(activity);
-        if (aL > 0) {
-            a(activity, ContextCompat.getColor(activity, qdO), 0);
+    public static int aH(Activity activity) {
+        int aN = aN(activity);
+        if (aN > 0) {
+            a(activity, ContextCompat.getColor(activity, qnj), 0);
         } else {
-            a(activity, ContextCompat.getColor(activity, qdN), 0);
+            a(activity, ContextCompat.getColor(activity, qni), 0);
         }
-        return aL;
+        return aN;
     }
 
-    public static int aG(Activity activity) {
-        if (aH(activity)) {
+    public static int aI(Activity activity) {
+        if (aJ(activity)) {
             return bB(activity, "navigation_bar_height");
         }
         return 0;
@@ -66,7 +66,7 @@ public class b {
         return hL(context) && !hM(context) && !hN(context) && bB(context, "navigation_bar_width") > 0;
     }
 
-    public static boolean aH(Activity activity) {
+    public static boolean aJ(Activity activity) {
         if (Build.VERSION.SDK_INT < 17) {
             return (ViewConfiguration.get(activity).hasPermanentMenuKey() || KeyCharacterMap.deviceHasKey(4)) ? false : true;
         }
@@ -78,7 +78,7 @@ public class b {
         return (point2.y == point.y && point2.x == point.x) ? false : true;
     }
 
-    public static boolean aI(Activity activity) {
+    public static boolean aK(Activity activity) {
         if (Build.VERSION.SDK_INT >= 17) {
             Display defaultDisplay = activity.getWindowManager().getDefaultDisplay();
             Point point = new Point();
@@ -91,13 +91,13 @@ public class b {
     }
 
     public static int getStatusBarHeight(Context context) {
-        if (!qdP) {
-            qdQ = bB(context, "status_bar_height");
-            if (qdQ > 0) {
-                qdP = true;
+        if (!qnk) {
+            qnl = bB(context, "status_bar_height");
+            if (qnl > 0) {
+                qnk = true;
             }
         }
-        return qdQ;
+        return qnl;
     }
 
     public static int hK(Context context) {
@@ -184,7 +184,7 @@ public class b {
             } else {
                 viewGroup.addView(b(activity, i, i2));
             }
-            aJ(activity);
+            aL(activity);
             return true;
         } else {
             return false;
@@ -198,7 +198,7 @@ public class b {
         return statusBarView;
     }
 
-    private static void aJ(Activity activity) {
+    private static void aL(Activity activity) {
         ViewGroup viewGroup = (ViewGroup) activity.findViewById(16908290);
         int childCount = viewGroup.getChildCount();
         for (int i = 0; i < childCount; i++) {
@@ -225,7 +225,7 @@ public class b {
     }
 
     @TargetApi(19)
-    public static void aK(Activity activity) {
+    public static void aM(Activity activity) {
         if (Build.VERSION.SDK_INT >= 21) {
             Window window = activity.getWindow();
             window.clearFlags(67108864);
@@ -244,7 +244,7 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static int aL(Activity activity) {
+    public static int aN(Activity activity) {
         int i = 1;
         if (Build.VERSION.SDK_INT >= 19) {
             if (!e(activity.getWindow(), true)) {
@@ -256,7 +256,7 @@ public class b {
                 }
             }
             if (i > 0) {
-                aJ(activity);
+                aL(activity);
             }
             return i;
         }

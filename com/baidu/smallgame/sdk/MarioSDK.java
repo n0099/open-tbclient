@@ -21,7 +21,7 @@ public class MarioSDK {
 
     /* loaded from: classes5.dex */
     public interface b {
-        void acL();
+        void afl();
     }
 
     public void setMarioInitListener(b bVar) {
@@ -74,7 +74,7 @@ public class MarioSDK {
         }
         MarioSDK marioSDK = new MarioSDK(v8Engine, aREngineDelegate);
         if (bVar != null) {
-            bVar.acL();
+            bVar.afl();
         }
         return marioSDK;
     }
@@ -125,11 +125,11 @@ public class MarioSDK {
         if (aVar.mContext != null) {
             aVar2.setContext(aVar.mContext);
         }
-        if (aVar.cmj != null) {
-            aVar2.setRenderer(aVar.cmj);
+        if (aVar.csg != null) {
+            aVar2.setRenderer(aVar.csg);
         }
-        if (aVar.acK() != null) {
-            for (DebugConsole debugConsole : aVar.acK()) {
+        if (aVar.afk() != null) {
+            for (DebugConsole debugConsole : aVar.afk()) {
                 aVar2.addDebugConsole(debugConsole);
             }
         }
@@ -138,8 +138,8 @@ public class MarioSDK {
 
     /* loaded from: classes5.dex */
     public static class a {
-        private List<DebugConsole> cmJ = new ArrayList();
-        private GLSurfaceView.Renderer cmj;
+        private List<DebugConsole> csG = new ArrayList();
+        private GLSurfaceView.Renderer csg;
         private Context mContext;
         private ArBridge.FirstFrameListener mFirstFrameListener;
         private int mRenderMode;
@@ -154,17 +154,17 @@ public class MarioSDK {
         }
 
         public void setRenderer(GLSurfaceView.Renderer renderer) {
-            this.cmj = renderer;
+            this.csg = renderer;
         }
 
         public void addDebugConsole(DebugConsole debugConsole) {
             if (debugConsole != null) {
-                this.cmJ.add(debugConsole);
+                this.csG.add(debugConsole);
             }
         }
 
-        public List<DebugConsole> acK() {
-            return this.cmJ;
+        public List<DebugConsole> afk() {
+            return this.csG;
         }
 
         public void setFirstFrameListener(ArBridge.FirstFrameListener firstFrameListener) {

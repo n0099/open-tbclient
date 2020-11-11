@@ -7,7 +7,7 @@ public class a {
 
     /* renamed from: com.baidu.live.tieba.horizonallist.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static abstract class AbstractC0203a {
+    public static abstract class AbstractC0215a {
         protected View view;
 
         public abstract boolean isHardwareAccelerated();
@@ -16,34 +16,34 @@ public class a {
 
         public abstract void setScrollX(int i);
 
-        protected AbstractC0203a(View view) {
+        protected AbstractC0215a(View view) {
             this.view = view;
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class b extends AbstractC0203a {
+    public static class b extends AbstractC0215a {
         public b(View view) {
             super(view);
         }
 
-        @Override // com.baidu.live.tieba.horizonallist.a.a.AbstractC0203a
+        @Override // com.baidu.live.tieba.horizonallist.a.a.AbstractC0215a
         public void postOnAnimation(Runnable runnable) {
             this.view.post(runnable);
         }
 
-        @Override // com.baidu.live.tieba.horizonallist.a.a.AbstractC0203a
+        @Override // com.baidu.live.tieba.horizonallist.a.a.AbstractC0215a
         public void setScrollX(int i) {
             this.view.scrollTo(i, this.view.getScrollY());
         }
 
-        @Override // com.baidu.live.tieba.horizonallist.a.a.AbstractC0203a
+        @Override // com.baidu.live.tieba.horizonallist.a.a.AbstractC0215a
         public boolean isHardwareAccelerated() {
             return false;
         }
     }
 
-    public static final AbstractC0203a Y(View view) {
+    public static final AbstractC0215a ac(View view) {
         return Build.VERSION.SDK_INT >= 14 ? new com.baidu.live.tieba.horizonallist.a.b.a(view) : new b(view);
     }
 }

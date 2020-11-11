@@ -17,7 +17,7 @@ public class SwanAppCores extends SwanAppIPCData {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: iq */
+        /* renamed from: iA */
         public SwanAppCores[] newArray(int i) {
             return new SwanAppCores[i];
         }
@@ -48,7 +48,7 @@ public class SwanAppCores extends SwanAppIPCData {
         return "SwanAppCores{mSwanCoreVersion=" + this.mSwanCoreVersion + ", mExtensionCore=" + this.mExtensionCore + '}';
     }
 
-    public SwanCoreVersion apD() {
+    public SwanCoreVersion asd() {
         return this.mSwanCoreVersion;
     }
 
@@ -56,7 +56,7 @@ public class SwanAppCores extends SwanAppIPCData {
         this.mSwanCoreVersion = swanCoreVersion;
     }
 
-    public ExtensionCore apE() {
+    public ExtensionCore ase() {
         return this.mExtensionCore;
     }
 

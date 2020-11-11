@@ -19,9 +19,9 @@ public class TBeanUtil {
         if (i >= 1000000) {
             int i2 = i / 10000;
             if (i / 10000.0f > i2) {
-                return String.format("%.1f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_unit_wan);
+                return String.format("%.1f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(a.h.sdk_unit_wan);
             }
-            return i2 + TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_unit_wan);
+            return i2 + TbadkCoreApplication.getInst().getResources().getString(a.h.sdk_unit_wan);
         }
         return valueOf;
     }
@@ -35,9 +35,9 @@ public class TBeanUtil {
         if (j >= TimeUtils.NANOS_PER_MS) {
             long j2 = j / 10000;
             if (((float) j) / 10000.0f > ((float) j2)) {
-                return String.format("%.1f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_unit_wan);
+                return String.format("%.1f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(a.h.sdk_unit_wan);
             }
-            return j2 + TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_unit_wan);
+            return j2 + TbadkCoreApplication.getInst().getResources().getString(a.h.sdk_unit_wan);
         }
         return valueOf;
     }

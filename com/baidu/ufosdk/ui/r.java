@@ -7,14 +7,14 @@ import java.util.List;
 public final class r implements l {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f3885a;
+    final /* synthetic */ int f3887a;
     final /* synthetic */ j b;
     final /* synthetic */ FeedbackEditActivity c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(FeedbackEditActivity feedbackEditActivity, int i, j jVar) {
         this.c = feedbackEditActivity;
-        this.f3885a = i;
+        this.f3887a = i;
         this.b = jVar;
     }
 
@@ -40,7 +40,7 @@ public final class r implements l {
         HashMap hashMap14;
         List list5;
         com.baidu.ufosdk.f.c.a("DeleteConfirmDialog --> confirm clicked!");
-        if (this.f3885a == 1) {
+        if (this.f3887a == 1) {
             list4 = this.c.q;
             switch (list4.size()) {
                 case 1:
@@ -67,7 +67,7 @@ public final class r implements l {
             }
             list5 = this.c.q;
             list5.remove(0);
-        } else if (this.f3885a == 2) {
+        } else if (this.f3887a == 2) {
             list2 = this.c.q;
             switch (list2.size()) {
                 case 2:

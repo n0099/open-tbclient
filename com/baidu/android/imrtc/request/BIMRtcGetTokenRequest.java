@@ -5,6 +5,7 @@ import com.baidu.android.imrtc.request.BIMRtcTokenListener;
 import com.baidu.android.imrtc.utils.IMJni;
 import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imrtc.utils.RtcConstants;
+import com.baidu.android.imrtc.utils.RtcUtility;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.Utility;
@@ -16,7 +17,7 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class BIMRtcGetTokenRequest extends BaseHttpRequest {
     private static final String TAG = "BIMRtcGetTokenRequest";
     private static char[] hexDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
@@ -54,8 +55,8 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
     @Override // com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
     public byte[] getRequestParameter() {
         try {
-            long appId = com.baidu.android.imrtc.utils.Utility.getAppId(this.mContext);
-            String cuid = com.baidu.android.imrtc.utils.Utility.getCuid(this.mContext);
+            long appId = RtcUtility.getAppId(this.mContext);
+            String cuid = RtcUtility.getCuid(this.mContext);
             long j = RtcConstants.RTC_VERSION;
             long uk = Utility.getUK(this.mContext);
             int sDKVersionValue = IMConfigInternal.getInstance().getSDKVersionValue(this.mContext);
@@ -63,9 +64,9 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("appid", appId);
             jSONObject.put("room_id", this.mRtcRoomId);
-            com.baidu.android.imrtc.utils.Utility.setRtcRoomId(this.mContext, this.mRtcRoomId);
+            RtcUtility.setRtcRoomId(this.mContext, this.mRtcRoomId);
             jSONObject.put("rtc_user_id", this.mRtcUserId);
-            com.baidu.android.imrtc.utils.Utility.setRtcUserId(this.mContext, this.mRtcUserId);
+            RtcUtility.setRtcUserId(this.mContext, this.mRtcUserId);
             jSONObject.put("shoubai_uk", IMJni.transBDUID("" + Utility.getBuid(this.mContext)));
             jSONObject.put("rtc_device_id", cuid);
             jSONObject.put(SapiContext.KEY_SDK_VERSION, sDKVersionValue);
@@ -127,14 +128,14 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
             i = jSONObject.optInt("error_code", -1);
             str2 = jSONObject.optString("error_msg", "");
             str4 = jSONObject.optString("rtc_room_token", "");
-            com.baidu.android.imrtc.utils.Utility.setRtcRoomToken(this.mContext, str4);
+            RtcUtility.setRtcRoomToken(this.mContext, str4);
             str = jSONObject.optString("rtc_appid", "");
         } catch (JSONException e2) {
             e = e2;
             str = "";
         }
         try {
-            com.baidu.android.imrtc.utils.Utility.setRtcAppId(this.mContext, str);
+            RtcUtility.setRtcAppId(this.mContext, str);
         } catch (JSONException e3) {
             e = e3;
             LogUtils.e(TAG, "JSONException", e);
@@ -150,6 +151,7 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
             bIMRTCGetTokeResult.token = str4;
             bIMRTCGetTokeResult.rtcAppId = str;
             this.mListener.onResult(i, str2, bIMRTCGetTokeResult);
+            trackRequest(i, "room/get_rtc_token");
         }
     }
 
@@ -157,6 +159,7 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
     public void onFailure(int i, String str) {
         if (this.mListener != null) {
             this.mListener.onResult(i, str, new BIMRtcTokenListener.BIMRTCGetTokeResult());
+            trackRequest(i, "room/get_rtc_token");
         }
     }
 }

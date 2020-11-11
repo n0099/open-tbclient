@@ -15,147 +15,147 @@ import com.baidu.swan.game.ad.entity.AdElementInfo;
 import org.json.JSONObject;
 /* loaded from: classes14.dex */
 public class InteractiveEndFrameView extends RelativeLayout {
-    private JSONObject cpW;
-    private com.baidu.swan.apps.adlanding.b cqb;
-    private g cqf;
-    private com.baidu.swan.apps.adlanding.download.a.a cqg;
-    private com.baidu.swan.apps.adlanding.download.model.a cqh;
-    private SwanAdDownloadState cqi;
-    private com.baidu.swan.game.ad.e.b dFH;
-    private RewardWebView dFN;
-    private AdElementInfo dFO;
-    private RelativeLayout dFP;
-    private RelativeLayout.LayoutParams dFQ;
+    private JSONObject cvU;
+    private com.baidu.swan.apps.adlanding.b cvZ;
+    private g cwd;
+    private com.baidu.swan.apps.adlanding.download.a.a cwe;
+    private com.baidu.swan.apps.adlanding.download.model.a cwf;
+    private SwanAdDownloadState cwg;
+    private RewardWebView dLF;
+    private AdElementInfo dLG;
+    private RelativeLayout dLH;
+    private RelativeLayout.LayoutParams dLI;
+    private com.baidu.swan.game.ad.e.b dLz;
     private String mDownloadUrl;
     private String mPackageName;
 
     public InteractiveEndFrameView(Context context) {
         super(context);
         this.mPackageName = "";
-        this.cqi = SwanAdDownloadState.NOT_START;
-        this.dFH = new com.baidu.swan.game.ad.e.b(context);
+        this.cwg = SwanAdDownloadState.NOT_START;
+        this.dLz = new com.baidu.swan.game.ad.e.b(context);
     }
 
     public void a(AdElementInfo adElementInfo, RelativeLayout relativeLayout) {
-        this.dFO = adElementInfo;
-        this.dFP = relativeLayout;
-        String aOc = adElementInfo.aOc();
-        this.dFN = new RewardWebView(getContext());
-        this.dFN.setBackgroundColor(-1);
-        this.dFN.loadUrl(aOc);
-        addView(this.dFN, new RelativeLayout.LayoutParams(-1, -1));
-        this.cpW = adElementInfo.aOk();
-        this.cqb = new com.baidu.swan.apps.adlanding.b(getContext(), this.cpW);
+        this.dLG = adElementInfo;
+        this.dLH = relativeLayout;
+        String aQC = adElementInfo.aQC();
+        this.dLF = new RewardWebView(getContext());
+        this.dLF.setBackgroundColor(-1);
+        this.dLF.loadUrl(aQC);
+        addView(this.dLF, new RelativeLayout.LayoutParams(-1, -1));
+        this.cvU = adElementInfo.aQK();
+        this.cvZ = new com.baidu.swan.apps.adlanding.b(getContext(), this.cvU);
         initDownload();
         setDownloadListener();
     }
 
-    private void aNw() {
-        float p = p(getContext(), c.C0507c.end_frame_download_btn_width);
-        float p2 = p(getContext(), c.C0507c.end_frame_download_btn_height);
-        int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(c.C0507c.end_frame_download_btn_bottom_margin);
+    private void aPW() {
+        float p = p(getContext(), c.C0519c.end_frame_download_btn_width);
+        float p2 = p(getContext(), c.C0519c.end_frame_download_btn_height);
+        int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(c.C0519c.end_frame_download_btn_bottom_margin);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams((int) (p * getContext().getResources().getDisplayMetrics().widthPixels), (int) (getContext().getResources().getDisplayMetrics().heightPixels * p2));
         layoutParams.addRule(12);
         layoutParams.bottomMargin = dimensionPixelSize;
         layoutParams.addRule(14);
-        this.dFQ = layoutParams;
+        this.dLI = layoutParams;
     }
 
     public void initDownload() {
-        if (com.baidu.swan.apps.t.a.auU() != null) {
-            aNw();
-            this.cqg = new com.baidu.swan.apps.adlanding.download.a.a() { // from class: com.baidu.swan.game.ad.InteractiveEndFrameView.1
+        if (com.baidu.swan.apps.t.a.axu() != null) {
+            aPW();
+            this.cwe = new com.baidu.swan.apps.adlanding.download.a.a() { // from class: com.baidu.swan.game.ad.InteractiveEndFrameView.1
                 @Override // com.baidu.swan.apps.adlanding.download.a.a
-                public void eh(boolean z) {
-                    if (InteractiveEndFrameView.this.dFP != null) {
+                public void eq(boolean z) {
+                    if (InteractiveEndFrameView.this.dLH != null) {
                         if (z) {
-                            InteractiveEndFrameView.this.dFP.removeView(InteractiveEndFrameView.this.cqf.getRealView());
-                            InteractiveEndFrameView.this.dFP.addView(InteractiveEndFrameView.this.cqf.getRealView(), InteractiveEndFrameView.this.dFQ);
+                            InteractiveEndFrameView.this.dLH.removeView(InteractiveEndFrameView.this.cwd.getRealView());
+                            InteractiveEndFrameView.this.dLH.addView(InteractiveEndFrameView.this.cwd.getRealView(), InteractiveEndFrameView.this.dLI);
                             return;
                         }
-                        InteractiveEndFrameView.this.dFP.removeView(InteractiveEndFrameView.this.cqf.getRealView());
+                        InteractiveEndFrameView.this.dLH.removeView(InteractiveEndFrameView.this.cwd.getRealView());
                     }
                 }
 
                 @Override // com.baidu.swan.apps.adlanding.download.a.a
-                public void km(String str) {
-                    InteractiveEndFrameView.this.kk(str);
+                public void kB(String str) {
+                    InteractiveEndFrameView.this.kz(str);
                 }
 
                 @Override // com.baidu.swan.apps.adlanding.download.a.a
                 public void a(SwanAdDownloadState swanAdDownloadState, int i) {
-                    InteractiveEndFrameView.this.cqf.a(swanAdDownloadState);
-                    if (InteractiveEndFrameView.this.cqi != swanAdDownloadState) {
-                        if (InteractiveEndFrameView.this.cqi == SwanAdDownloadState.NOT_START && swanAdDownloadState == SwanAdDownloadState.DOWNLOADING) {
-                            InteractiveEndFrameView.this.cqb.kj("appdownloadbegin");
+                    InteractiveEndFrameView.this.cwd.a(swanAdDownloadState);
+                    if (InteractiveEndFrameView.this.cwg != swanAdDownloadState) {
+                        if (InteractiveEndFrameView.this.cwg == SwanAdDownloadState.NOT_START && swanAdDownloadState == SwanAdDownloadState.DOWNLOADING) {
+                            InteractiveEndFrameView.this.cvZ.ky("appdownloadbegin");
                         } else if (swanAdDownloadState == SwanAdDownloadState.DOWNLOAD_PAUSED) {
-                            InteractiveEndFrameView.this.cqb.kj("appdownloadpause");
-                        } else if (InteractiveEndFrameView.this.cqi == SwanAdDownloadState.DOWNLOAD_PAUSED && swanAdDownloadState == SwanAdDownloadState.DOWNLOADING) {
-                            InteractiveEndFrameView.this.cqb.kj("appdownloadcontinue");
+                            InteractiveEndFrameView.this.cvZ.ky("appdownloadpause");
+                        } else if (InteractiveEndFrameView.this.cwg == SwanAdDownloadState.DOWNLOAD_PAUSED && swanAdDownloadState == SwanAdDownloadState.DOWNLOADING) {
+                            InteractiveEndFrameView.this.cvZ.ky("appdownloadcontinue");
                         } else if (swanAdDownloadState == SwanAdDownloadState.DOWNLOADED) {
-                            InteractiveEndFrameView.this.cqb.kj("appdownloadfinish");
-                            InteractiveEndFrameView.this.cqb.kj("appinstallbegin");
+                            InteractiveEndFrameView.this.cvZ.ky("appdownloadfinish");
+                            InteractiveEndFrameView.this.cvZ.ky("appinstallbegin");
                         } else if (swanAdDownloadState == SwanAdDownloadState.INSTALLED) {
-                            InteractiveEndFrameView.this.cqb.kj("appinstallfinish");
+                            InteractiveEndFrameView.this.cvZ.ky("appinstallfinish");
                         }
-                        InteractiveEndFrameView.this.cqi = swanAdDownloadState;
+                        InteractiveEndFrameView.this.cwg = swanAdDownloadState;
                     }
                 }
 
                 @Override // com.baidu.swan.apps.adlanding.download.a.a
                 public void b(SwanAdDownloadState swanAdDownloadState, int i) {
-                    InteractiveEndFrameView.this.cqf.updateProgress(i);
+                    InteractiveEndFrameView.this.cwd.updateProgress(i);
                 }
 
                 @Override // com.baidu.swan.apps.adlanding.download.a.a
-                public void agD() {
-                    InteractiveEndFrameView.this.cqb.kj("appinstallbegin");
+                public void ajd() {
+                    InteractiveEndFrameView.this.cvZ.ky("appinstallbegin");
                 }
 
                 @Override // com.baidu.swan.apps.adlanding.download.a.a
-                public String agE() {
-                    InteractiveEndFrameView.this.cqb.kj("appinstallopen");
-                    return InteractiveEndFrameView.this.kl(InteractiveEndFrameView.this.mDownloadUrl);
+                public String aje() {
+                    InteractiveEndFrameView.this.cvZ.ky("appinstallopen");
+                    return InteractiveEndFrameView.this.kA(InteractiveEndFrameView.this.mDownloadUrl);
                 }
             };
         }
     }
 
     public void setDownloadListener() {
-        this.dFN.setDownloadListener(new DownloadListener() { // from class: com.baidu.swan.game.ad.InteractiveEndFrameView.2
+        this.dLF.setDownloadListener(new DownloadListener() { // from class: com.baidu.swan.game.ad.InteractiveEndFrameView.2
             @Override // android.webkit.DownloadListener
             public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
-                g auU = com.baidu.swan.apps.t.a.auU();
-                if (auU != null) {
-                    com.baidu.swan.game.ad.c.c.c(InteractiveEndFrameView.this.dFO, InteractiveEndFrameView.this.dFH);
+                g axu = com.baidu.swan.apps.t.a.axu();
+                if (axu != null) {
+                    com.baidu.swan.game.ad.c.c.c(InteractiveEndFrameView.this.dLG, InteractiveEndFrameView.this.dLz);
                     InteractiveEndFrameView.this.mDownloadUrl = str;
-                    String kl = InteractiveEndFrameView.this.kl(str);
-                    if (!TextUtils.isEmpty(kl)) {
-                        InteractiveEndFrameView.this.mPackageName = kl;
+                    String kA = InteractiveEndFrameView.this.kA(str);
+                    if (!TextUtils.isEmpty(kA)) {
+                        InteractiveEndFrameView.this.mPackageName = kA;
                     }
-                    InteractiveEndFrameView.this.cqh = new com.baidu.swan.apps.adlanding.download.model.a(InteractiveEndFrameView.this.mDownloadUrl, InteractiveEndFrameView.this.mPackageName);
-                    InteractiveEndFrameView.this.cqf = auU.a(InteractiveEndFrameView.this.getContext(), InteractiveEndFrameView.this.cqh, InteractiveEndFrameView.this.cqg);
-                    InteractiveEndFrameView.this.cqf.P(InteractiveEndFrameView.this.cqh);
-                    InteractiveEndFrameView.this.cqf.afv();
-                    if (ak.isAppInstalled(InteractiveEndFrameView.this.getContext(), InteractiveEndFrameView.this.cqh.name) && InteractiveEndFrameView.this.dFP != null) {
-                        InteractiveEndFrameView.this.dFP.removeView(InteractiveEndFrameView.this.cqf.getRealView());
-                        InteractiveEndFrameView.this.dFP.addView(InteractiveEndFrameView.this.cqf.getRealView(), InteractiveEndFrameView.this.dFQ);
-                        InteractiveEndFrameView.this.cqf.a(SwanAdDownloadState.INSTALLED);
+                    InteractiveEndFrameView.this.cwf = new com.baidu.swan.apps.adlanding.download.model.a(InteractiveEndFrameView.this.mDownloadUrl, InteractiveEndFrameView.this.mPackageName);
+                    InteractiveEndFrameView.this.cwd = axu.a(InteractiveEndFrameView.this.getContext(), InteractiveEndFrameView.this.cwf, InteractiveEndFrameView.this.cwe);
+                    InteractiveEndFrameView.this.cwd.P(InteractiveEndFrameView.this.cwf);
+                    InteractiveEndFrameView.this.cwd.ahV();
+                    if (ak.isAppInstalled(InteractiveEndFrameView.this.getContext(), InteractiveEndFrameView.this.cwf.name) && InteractiveEndFrameView.this.dLH != null) {
+                        InteractiveEndFrameView.this.dLH.removeView(InteractiveEndFrameView.this.cwd.getRealView());
+                        InteractiveEndFrameView.this.dLH.addView(InteractiveEndFrameView.this.cwd.getRealView(), InteractiveEndFrameView.this.dLI);
+                        InteractiveEndFrameView.this.cwd.a(SwanAdDownloadState.INSTALLED);
                         return;
                     }
-                    com.baidu.swan.apps.t.a.auk().a(InteractiveEndFrameView.this.getContext(), InteractiveEndFrameView.this.cqh.agG(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, InteractiveEndFrameView.this.cqg);
+                    com.baidu.swan.apps.t.a.awK().a(InteractiveEndFrameView.this.getContext(), InteractiveEndFrameView.this.cwf.ajg(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, InteractiveEndFrameView.this.cwe);
                 }
             }
         });
     }
 
     public void destroy() {
-        if (this.dFN != null) {
-            this.dFN.destroy();
+        if (this.dLF != null) {
+            this.dLF.destroy();
         }
-        if (SwanAdDownloadState.DOWNLOADING == this.cqi) {
-            this.cqg = null;
-            com.baidu.swan.apps.t.a.auk().a(getContext(), this.cqh.agG(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, this.cqg);
+        if (SwanAdDownloadState.DOWNLOADING == this.cwg) {
+            this.cwe = null;
+            com.baidu.swan.apps.t.a.awK().a(getContext(), this.cwf.ajg(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, this.cwe);
         }
     }
 
@@ -166,7 +166,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void kk(String str) {
+    public void kz(String str) {
         if (!TextUtils.isEmpty(str)) {
             Context context = getContext();
             getContext();
@@ -177,7 +177,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String kl(String str) {
+    public String kA(String str) {
         Context context = getContext();
         getContext();
         return context.getSharedPreferences("swan_game_video_ad_storage", 0).getString(str, "");

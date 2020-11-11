@@ -6,20 +6,20 @@ import com.baidu.mapapi.map.InfoWindow;
 public class c implements InfoWindow.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BaiduMap f2066a;
+    final /* synthetic */ BaiduMap f2068a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(BaiduMap baiduMap) {
-        this.f2066a = baiduMap;
+        this.f2068a = baiduMap;
     }
 
     @Override // com.baidu.mapapi.map.InfoWindow.a
     public void a(InfoWindow infoWindow) {
-        this.f2066a.hideInfoWindow(infoWindow);
+        this.f2068a.hideInfoWindow(infoWindow);
     }
 
     @Override // com.baidu.mapapi.map.InfoWindow.a
     public void b(InfoWindow infoWindow) {
-        this.f2066a.a(infoWindow);
+        this.f2068a.a(infoWindow);
     }
 }

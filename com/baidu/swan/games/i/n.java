@@ -24,29 +24,29 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 /* loaded from: classes10.dex */
 public class n {
-    private static String dPn = "/aigames/sandbox/";
-    private static String dPo;
-    private static String dPp;
+    private static String dVf = "/aigames/sandbox/";
+    private static String dVg;
+    private static String dVh;
 
-    public static boolean wE(String str) {
+    public static boolean wS(String str) {
         boolean z = true;
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (!((str.startsWith(new StringBuilder().append("bdfile://tmp").append(File.separator).toString()) || "bdfile://tmp".equals(str)) || (str.startsWith(new StringBuilder().append(a.USER_DATA_PATH).append(File.separator).toString()) || a.USER_DATA_PATH.equals(str)) || (str.startsWith(new StringBuilder().append("bdfile://code").append(File.separator).toString()) || "bdfile://code".equals(str))) || wG(str)) {
+        if (!((str.startsWith(new StringBuilder().append("bdfile://tmp").append(File.separator).toString()) || "bdfile://tmp".equals(str)) || (str.startsWith(new StringBuilder().append(a.USER_DATA_PATH).append(File.separator).toString()) || a.USER_DATA_PATH.equals(str)) || (str.startsWith(new StringBuilder().append("bdfile://code").append(File.separator).toString()) || "bdfile://code".equals(str))) || wU(str)) {
             z = false;
         }
         return z;
     }
 
-    public static boolean wF(String str) {
+    public static boolean wT(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return (str.startsWith(new StringBuilder().append(a.USER_DATA_PATH).append(File.separator).toString()) || a.USER_DATA_PATH.equals(str)) && !wG(str);
+        return (str.startsWith(new StringBuilder().append(a.USER_DATA_PATH).append(File.separator).toString()) || a.USER_DATA_PATH.equals(str)) && !wU(str);
     }
 
-    public static boolean wG(String str) {
+    public static boolean wU(String str) {
         boolean z = true;
         if (TextUtils.isEmpty(str)) {
             return false;
@@ -62,7 +62,7 @@ public class n {
         return z;
     }
 
-    public static byte[] wH(String str) {
+    public static byte[] wV(String str) {
         if (str == null || str.length() < 1) {
             return null;
         }
@@ -75,7 +75,7 @@ public class n {
         return bArr;
     }
 
-    public static String wI(String str) {
+    public static String wW(String str) {
         FileInputStream fileInputStream;
         if (TextUtils.isEmpty(str)) {
             return "";
@@ -129,7 +129,7 @@ public class n {
         }
         a(jsFunction3);
         if (obj instanceof com.baidu.swan.games.i.a.b) {
-            com.baidu.swan.games.v.c.xm(((com.baidu.swan.games.i.a.b) obj).errMsg);
+            com.baidu.swan.games.v.c.xA(((com.baidu.swan.games.i.a.b) obj).errMsg);
         }
     }
 
@@ -196,7 +196,7 @@ public class n {
         return null;
     }
 
-    public static JSExceptionType lV(int i) {
+    public static JSExceptionType mf(int i) {
         switch (i) {
             case -5:
                 return JSExceptionType.RangeError;
@@ -213,7 +213,7 @@ public class n {
         }
     }
 
-    public static String wJ(String str) {
+    public static String wX(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -231,7 +231,7 @@ public class n {
         return null;
     }
 
-    public static String wK(String str) {
+    public static String wY(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -249,41 +249,41 @@ public class n {
         return null;
     }
 
-    public static String aSO() {
+    public static String aVo() {
         Context appContext = AppRuntime.getAppContext();
         if (appContext == null) {
             return "";
         }
         String dC = dC(appContext);
-        com.baidu.swan.apps.runtime.e aEU = com.baidu.swan.apps.runtime.e.aEU();
-        if (aEU != null) {
-            String aEW = com.baidu.swan.apps.runtime.e.aEW();
-            String version = aEU.getVersion();
+        com.baidu.swan.apps.runtime.e aHu = com.baidu.swan.apps.runtime.e.aHu();
+        if (aHu != null) {
+            String aHw = com.baidu.swan.apps.runtime.e.aHw();
+            String version = aHu.getVersion();
             String str = "";
-            if (aEU.aFh() != null) {
-                str = aEU.aFh().adC();
+            if (aHu.aHH() != null) {
+                str = aHu.aHH().agc();
             }
-            String bq = com.baidu.swan.apps.t.a.auf().bq(appContext);
+            String bq = com.baidu.swan.apps.t.a.awF().bq(appContext);
             StringBuilder append = new StringBuilder().append(dC(appContext)).append(File.separator);
             if (TextUtils.isEmpty(str)) {
                 str = bq;
             }
-            return append.append(str).append("/aigames/swancache/").append(aEW).append(File.separator).append(version).append(File.separator).append("code").toString();
+            return append.append(str).append("/aigames/swancache/").append(aHw).append(File.separator).append(version).append(File.separator).append("code").toString();
         }
         return dC;
     }
 
-    public static void aSP() {
+    public static void aVp() {
         Context appContext = AppRuntime.getAppContext();
         if (appContext != null) {
             String dB = dB(appContext);
             String str = dB + File.separator + "swangame/anonymous/sandbox";
             if (!TextUtils.isEmpty(str)) {
-                wL(str);
+                wZ(str);
             }
-            String str2 = dB + File.separator + dPp + dPn;
+            String str2 = dB + File.separator + dVh + dVf;
             if (!TextUtils.isEmpty(str2)) {
-                wL(str2);
+                wZ(str2);
             }
         }
     }
@@ -294,8 +294,8 @@ public class n {
             return "";
         }
         String dB = dB(appContext);
-        if (com.baidu.swan.apps.runtime.e.aEU() != null) {
-            return dB + File.separator + "swangame/anonymous/sandbox" + File.separator + com.baidu.swan.apps.runtime.e.aEW();
+        if (com.baidu.swan.apps.runtime.e.aHu() != null) {
+            return dB + File.separator + "swangame/anonymous/sandbox" + File.separator + com.baidu.swan.apps.runtime.e.aHw();
         }
         return dB;
     }
@@ -335,7 +335,7 @@ public class n {
         }
     }
 
-    public static boolean wL(String str) {
+    public static boolean wZ(String str) {
         File[] listFiles;
         if (!str.endsWith(File.separator)) {
             str = str + File.separator;
@@ -350,7 +350,7 @@ public class n {
                         break;
                     }
                 } else {
-                    z = wL(listFiles[i].getAbsolutePath());
+                    z = wZ(listFiles[i].getAbsolutePath());
                     if (!z) {
                         break;
                     }
@@ -377,10 +377,10 @@ public class n {
         if (context == null) {
             return "";
         }
-        if (TextUtils.isEmpty(dPo) && (externalFilesDir = context.getExternalFilesDir(null)) != null) {
-            dPo = externalFilesDir.getAbsolutePath();
+        if (TextUtils.isEmpty(dVg) && (externalFilesDir = context.getExternalFilesDir(null)) != null) {
+            dVg = externalFilesDir.getAbsolutePath();
         }
-        return dPo;
+        return dVg;
     }
 
     public static String dC(Context context) {
@@ -439,8 +439,8 @@ public class n {
             return strArr;
         }
         if (TextUtils.equals(str2, "hex")) {
-            byte[] wH = wH(str);
-            str3 = wH == null ? "" : new String(wH, "utf-8");
+            byte[] wV = wV(str);
+            str3 = wV == null ? "" : new String(wV, "utf-8");
             str2 = "";
         } else {
             str3 = str;
@@ -547,7 +547,7 @@ public class n {
         if (map != null) {
             for (Integer num : map.keySet()) {
                 if (num.intValue() != 7) {
-                    str = X(map.get(num), num.intValue());
+                    str = Z(map.get(num), num.intValue());
                     break;
                 }
             }
@@ -556,25 +556,25 @@ public class n {
         if (bVar2 == null || bVar == null) {
             return false;
         }
-        Map<String, Object> map2 = bVar.dOf;
-        if (bVar.dOf == null) {
+        Map<String, Object> map2 = bVar.dTX;
+        if (bVar.dTX == null) {
             return false;
         }
-        c cVar = bVar.dOd;
+        c cVar = bVar.dTV;
         JsFunction i = i("fail", map2);
         JsFunction i2 = i(com.baidu.mobads.openad.c.b.COMPLETE, map2);
         JsFunction i3 = i("success", map2);
         if (!TextUtils.isEmpty(str)) {
-            bVar2.errMsg = bVar.dOe + str;
+            bVar2.errMsg = bVar.dTW + str;
             a(aVar, bVar2.errMsg);
             a(i, i2, bVar2, i3);
             return false;
         } else if (cVar == null) {
-            bVar2.errMsg = bVar.dOe + "unknown error";
+            bVar2.errMsg = bVar.dTW + "unknown error";
             a(i, i2, bVar2, i3);
             return false;
         } else {
-            bVar2.errMsg = bVar.dOe + cVar.errMsg;
+            bVar2.errMsg = bVar.dTW + cVar.errMsg;
             if (cVar.errCode != 0) {
                 a(i, i2, bVar2, i3);
                 return false;
@@ -589,9 +589,9 @@ public class n {
 
     public static b a(c cVar, String str, Map<String, Object> map) {
         b bVar = new b();
-        bVar.dOd = cVar;
-        bVar.dOe = str;
-        bVar.dOf = map;
+        bVar.dTV = cVar;
+        bVar.dTW = str;
+        bVar.dTX = map;
         return bVar;
     }
 
@@ -643,12 +643,12 @@ public class n {
             if (cVar == null) {
                 aVar.throwJSException(jSExceptionType, str2 + str);
             } else if (cVar.errCode != 0) {
-                aVar.throwJSException(lV(cVar.errCode), str2 + cVar.errMsg);
+                aVar.throwJSException(mf(cVar.errCode), str2 + cVar.errMsg);
             }
         }
     }
 
-    public static void aM(List<String> list) {
+    public static void aT(List<String> list) {
         if (list != null && list.size() != 0) {
             for (String str : list) {
                 File file = new File(str);
@@ -698,7 +698,7 @@ public class n {
         return 12;
     }
 
-    private static String X(String str, int i) {
+    private static String Z(String str, int i) {
         String str2;
         if (TextUtils.isEmpty(str)) {
             str = "path";
@@ -737,7 +737,7 @@ public class n {
         return "fail parameter error: parameter." + str + " should be String instead of " + str2;
     }
 
-    public static String lW(int i) {
+    public static String mg(int i) {
         switch (i) {
             case 1:
             case 9:
@@ -785,7 +785,7 @@ public class n {
         return f(str, str2, str3, str4, false);
     }
 
-    public static String wM(String str) {
+    public static String xa(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
@@ -800,8 +800,8 @@ public class n {
     }
 
     public static void a(com.baidu.swan.games.f.a aVar, String str) {
-        if (aVar != null && aVar.aSr() != null && !TextUtils.isEmpty(str)) {
-            aVar.aSr().log(str);
+        if (aVar != null && aVar.aUR() != null && !TextUtils.isEmpty(str)) {
+            aVar.aUR().log(str);
         }
     }
 
@@ -811,7 +811,7 @@ public class n {
     /* JADX WARN: Type inference failed for: r1v1, types: [int] */
     /* JADX WARN: Type inference failed for: r1v2 */
     /* JADX WARN: Type inference failed for: r1v4, types: [java.io.Closeable] */
-    public static byte[] wN(String str) {
+    public static byte[] xb(String str) {
         BufferedInputStream bufferedInputStream;
         File file = new File(str);
         if (!file.exists()) {
@@ -954,27 +954,27 @@ public class n {
         }
     }
 
-    public static String wy(String str) {
+    public static String wM(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
         if (str.startsWith(a.USER_DATA_PATH)) {
-            return wJ(str);
+            return wX(str);
         }
         if (str.startsWith("bdfile://tmp")) {
-            return wK(str);
+            return wY(str);
         }
         return "";
     }
 
-    public static String tr(String str) {
+    public static String tF(String str) {
         String str2;
-        switch (com.baidu.swan.apps.storage.b.tj(str)) {
+        switch (com.baidu.swan.apps.storage.b.tx(str)) {
             case BD_FILE:
-                str2 = wy(str);
+                str2 = wM(str);
                 break;
             case RELATIVE:
-                str2 = com.baidu.swan.apps.v.f.axo().awV() + str;
+                str2 = com.baidu.swan.apps.v.f.azO().azv() + str;
                 break;
             default:
                 str2 = str;
@@ -983,31 +983,31 @@ public class n {
         return TextUtils.isEmpty(str2) ? str : str2;
     }
 
-    public static void wO(String str) {
+    public static void xc(String str) {
         Context appContext;
-        String bp = com.baidu.swan.apps.t.a.auf().bp(AppRuntime.getAppContext());
+        String bp = com.baidu.swan.apps.t.a.awF().bp(AppRuntime.getAppContext());
         if (!TextUtils.isEmpty(bp)) {
-            wL(dd(bp, str));
-            wL(dd(com.baidu.swan.c.e.toMd5(bp.getBytes(), false), str));
+            wZ(dd(bp, str));
+            wZ(dd(com.baidu.swan.c.e.toMd5(bp.getBytes(), false), str));
         }
-        String bq = com.baidu.swan.apps.t.a.auf().bq(AppRuntime.getAppContext());
+        String bq = com.baidu.swan.apps.t.a.awF().bq(AppRuntime.getAppContext());
         if (!TextUtils.isEmpty(bq)) {
-            wL(dd(bq, str));
-            wL(dd(com.baidu.swan.c.e.toMd5(bq.replace("|", "").getBytes(), false), str));
+            wZ(dd(bq, str));
+            wZ(dd(com.baidu.swan.c.e.toMd5(bq.replace("|", "").getBytes(), false), str));
         }
         if (AppRuntime.getAppContext() != null) {
             String str2 = dB(appContext) + File.separator + "swangame/anonymous/sandbox" + File.separator + str;
             if (!TextUtils.isEmpty(str2)) {
-                wL(str2);
+                wZ(str2);
             }
         }
     }
 
     public static String dd(String str, String str2) {
-        return dB(AppRuntime.getAppContext()) + File.separator + str + dPn + str2;
+        return dB(AppRuntime.getAppContext()) + File.separator + str + dVf + str2;
     }
 
-    public static String wP(String str) {
+    public static String xd(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

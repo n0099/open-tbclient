@@ -77,7 +77,7 @@ public class CoordinateUtil {
                 }
             }
             aVar.d.trimToSize();
-            aVar.f2823a = (int) bundle.getDouble("type");
+            aVar.f2825a = (int) bundle.getDouble("type");
             return aVar;
         }
         return null;
@@ -100,7 +100,7 @@ public class CoordinateUtil {
                         aVar.c = new Point((int) bundle4.getDouble(MapBundleKey.MapObjKey.OBJ_SL_PTX), (int) bundle4.getDouble(MapBundleKey.MapObjKey.OBJ_SL_PTY));
                     }
                 }
-                aVar.f2823a = (int) bundle.getDouble("type");
+                aVar.f2825a = (int) bundle.getDouble("type");
             }
         }
         return aVar;

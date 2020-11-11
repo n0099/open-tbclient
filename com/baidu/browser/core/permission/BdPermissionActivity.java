@@ -45,7 +45,7 @@ public class BdPermissionActivity extends Activity {
 
     @Override // android.app.Activity
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-        a.InterfaceC0238a bn = a.tv().bn(this.afd);
+        a.InterfaceC0250a bn = a.tv().bn(this.afd);
         if (bn != null) {
             bn.onRequestPermissionsResult(i, strArr, iArr);
         }

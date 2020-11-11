@@ -15,11 +15,11 @@ import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.tbadk.util.TextHelper;
 /* loaded from: classes4.dex */
 public class AlaBigGiftExtraInfoRevisionView extends FrameLayout {
-    private HeadImageView aEp;
-    private TextView aVA;
-    private AlphaAnimation aVB;
-    private AlphaAnimation aVC;
-    private TextView aVy;
+    private HeadImageView aFf;
+    private TextView aWQ;
+    private TextView aWS;
+    private AlphaAnimation aWT;
+    private AlphaAnimation aWU;
 
     public AlaBigGiftExtraInfoRevisionView(Context context) {
         this(context, null);
@@ -32,37 +32,37 @@ public class AlaBigGiftExtraInfoRevisionView extends FrameLayout {
 
     public void setData(com.baidu.live.yuyingift.a.c cVar) {
         if (cVar.portrait != null) {
-            this.aEp.startLoad(cVar.portrait, 12, false);
+            this.aFf.startLoad(cVar.portrait, 12, false);
         }
         if (!TextUtils.isEmpty(cVar.userName)) {
             String str = cVar.userName;
             if (TextHelper.getTextLengthWithEmoji(str) > 20) {
                 str = TextHelper.subStringWithEmoji(str, 20) + StringHelper.STRING_MORE;
             }
-            this.aVy.setText(str);
+            this.aWQ.setText(str);
         }
-        if (cVar.aZJ != null) {
-            this.aVA.setText(getResources().getString(a.i.donate) + cVar.aZJ.Ft());
+        if (cVar.bbc != null) {
+            this.aWS.setText(getResources().getString(a.h.donate) + cVar.bbc.FU());
         }
     }
 
-    public void GX() {
+    public void Hy() {
         setVisibility(0);
-        if (this.aVB == null) {
-            this.aVB = new AlphaAnimation(0.0f, 1.0f);
-            this.aVB.setDuration(500L);
-            this.aVB.setFillAfter(true);
+        if (this.aWT == null) {
+            this.aWT = new AlphaAnimation(0.0f, 1.0f);
+            this.aWT.setDuration(500L);
+            this.aWT.setFillAfter(true);
         }
-        startAnimation(this.aVB);
+        startAnimation(this.aWT);
     }
 
-    public void GY() {
-        if (this.aVC == null) {
-            this.aVC = new AlphaAnimation(1.0f, 0.0f);
-            this.aVC.setDuration(500L);
-            this.aVC.setFillAfter(true);
+    public void Hz() {
+        if (this.aWU == null) {
+            this.aWU = new AlphaAnimation(1.0f, 0.0f);
+            this.aWU.setDuration(500L);
+            this.aWU.setFillAfter(true);
         }
-        startAnimation(this.aVC);
+        startAnimation(this.aWU);
     }
 
     public void onDestroy() {
@@ -77,17 +77,17 @@ public class AlaBigGiftExtraInfoRevisionView extends FrameLayout {
 
     private void init() {
         setBackgroundColor(0);
-        GZ();
+        HA();
     }
 
-    private void GZ() {
+    private void HA() {
         setBackgroundColor(0);
-        LayoutInflater.from(getContext()).inflate(a.h.popup_extra_info_revision_layout, (ViewGroup) this, true);
-        this.aEp = (HeadImageView) findViewById(a.g.iv_avatar);
-        this.aVy = (TextView) findViewById(a.g.tv_sender);
-        this.aVA = (TextView) findViewById(a.g.tv_tip);
-        this.aEp.setIsRound(true);
-        this.aEp.setAutoChangeStyle(false);
-        this.aEp.setDefaultBgResource(a.f.sdk_default_avatar);
+        LayoutInflater.from(getContext()).inflate(a.g.popup_extra_info_revision_layout, (ViewGroup) this, true);
+        this.aFf = (HeadImageView) findViewById(a.f.iv_avatar);
+        this.aWQ = (TextView) findViewById(a.f.tv_sender);
+        this.aWS = (TextView) findViewById(a.f.tv_tip);
+        this.aFf.setIsRound(true);
+        this.aFf.setAutoChangeStyle(false);
+        this.aFf.setDefaultBgResource(a.e.sdk_default_avatar);
     }
 }

@@ -9,17 +9,17 @@ import java.lang.reflect.Method;
 import java.util.Properties;
 /* loaded from: classes6.dex */
 public class f {
-    private static SoftReference<Properties> qdB;
+    private static SoftReference<Properties> qmW;
 
     public static String get(@NonNull String str) {
-        Object obj = eEa().get(str);
+        Object obj = eHP().get(str);
         if (obj == null) {
-            obj = ZZ(str);
+            obj = aaD(str);
         }
         return obj == null ? "" : String.valueOf(obj);
     }
 
-    private static String ZZ(String str) {
+    private static String aaD(String str) {
         try {
             Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class);
             declaredMethod.setAccessible(true);
@@ -30,12 +30,12 @@ public class f {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [56=4] */
-    private static synchronized Properties eEa() {
+    private static synchronized Properties eHP() {
         Properties properties;
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2 = null;
         synchronized (f.class) {
-            properties = qdB != null ? qdB.get() : null;
+            properties = qmW != null ? qmW.get() : null;
             if (properties == null) {
                 properties = new Properties();
                 try {
@@ -50,7 +50,7 @@ public class f {
                     tv.chushou.a.a.d.a.b(fileInputStream);
                 } catch (Exception e2) {
                     tv.chushou.a.a.d.a.b(fileInputStream);
-                    qdB = new SoftReference<>(properties);
+                    qmW = new SoftReference<>(properties);
                     return properties;
                 } catch (Throwable th2) {
                     th = th2;
@@ -58,7 +58,7 @@ public class f {
                     tv.chushou.a.a.d.a.b(fileInputStream2);
                     throw th;
                 }
-                qdB = new SoftReference<>(properties);
+                qmW = new SoftReference<>(properties);
             }
         }
         return properties;

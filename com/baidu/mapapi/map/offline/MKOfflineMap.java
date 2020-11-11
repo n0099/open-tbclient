@@ -15,7 +15,7 @@ public class MKOfflineMap {
     public static final int TYPE_VER_UPDATE = 4;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2076a = MKOfflineMap.class.getSimpleName();
+    private static final String f2078a = MKOfflineMap.class.getSimpleName();
     private n b;
     private MKOfflineMapListener c;
 
@@ -137,8 +137,8 @@ public class MKOfflineMap {
             Iterator<q> it = this.b.e().iterator();
             while (it.hasNext()) {
                 q next = it.next();
-                if (next.f2235a.f2234a == i) {
-                    if (next.f2235a.j || next.f2235a.l == 2 || next.f2235a.l == 3 || next.f2235a.l == 6) {
+                if (next.f2237a.f2236a == i) {
+                    if (next.f2237a.j || next.f2237a.l == 2 || next.f2237a.l == 3 || next.f2237a.l == 6) {
                         return this.b.b(i);
                     }
                     return false;
@@ -156,8 +156,8 @@ public class MKOfflineMap {
             Iterator<q> it = this.b.e().iterator();
             while (it.hasNext()) {
                 q next = it.next();
-                if (next.f2235a.f2234a == i) {
-                    if (next.f2235a.j) {
+                if (next.f2237a.f2236a == i) {
+                    if (next.f2237a.j) {
                         return this.b.f(i);
                     }
                     return false;

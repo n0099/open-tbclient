@@ -19,7 +19,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class a {
     private static volatile a azD;
     private static Context mContext;

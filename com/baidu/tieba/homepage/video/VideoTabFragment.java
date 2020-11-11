@@ -18,35 +18,35 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class VideoTabFragment extends BaseFragment implements aq {
-    private a jGp;
-    private boolean jGq = false;
+    private a jMn;
+    private boolean jMo = false;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.jGp == null) {
-            this.jGp = new a(getPageContext(), getUniqueId());
+        if (this.jMn == null) {
+            this.jMn = new a(getPageContext(), getUniqueId());
         }
-        this.jGp.init();
+        this.jMn.init();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.jGp == null || this.jGp.getView() == null) {
+        if (this.jMn == null || this.jMn.getView() == null) {
             return super.onCreateView(layoutInflater, viewGroup, bundle);
         }
-        if (this.jGp.getView().getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.jGp.getView().getParent()).removeView(this.jGp.getView());
+        if (this.jMn.getView().getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.jMn.getView().getParent()).removeView(this.jMn.getView());
         }
-        return this.jGp.getView();
+        return this.jMn.getView();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         super.onLazyLoad();
-        if (this.jGp != null) {
-            this.jGp.loadData();
+        if (this.jMn != null) {
+            this.jMn.loadData();
         }
     }
 
@@ -54,30 +54,30 @@ public class VideoTabFragment extends BaseFragment implements aq {
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            if (!this.jGq) {
-                this.jGq = true;
+            if (!this.jMo) {
+                this.jMo = true;
                 TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c13579"));
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, false));
         }
-        if (this.jGp != null) {
-            this.jGp.setPrimary(isPrimary());
+        if (this.jMn != null) {
+            this.jMn.setPrimary(isPrimary());
         }
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void Rd() {
-        if (this.jGp != null) {
-            this.jGp.Rd();
+    public void TL() {
+        if (this.jMn != null) {
+            this.jMn.TL();
         }
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void bMC() {
+    public void bPc() {
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void bMD() {
+    public void bPd() {
     }
 
     @Override // com.baidu.tieba.frs.aq
@@ -89,15 +89,15 @@ public class VideoTabFragment extends BaseFragment implements aq {
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void bqd() {
+    public void bsD() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.jGp != null) {
-            this.jGp.bqd();
+        if (this.jMn != null) {
+            this.jMn.bsD();
         }
     }
 
@@ -118,16 +118,16 @@ public class VideoTabFragment extends BaseFragment implements aq {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.jGp != null) {
-            this.jGp.onPause();
+        if (this.jMn != null) {
+            this.jMn.onPause();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.jGp != null) {
-            this.jGp.onDestroy();
+        if (this.jMn != null) {
+            this.jMn.onDestroy();
         }
     }
 

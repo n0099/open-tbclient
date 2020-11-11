@@ -20,103 +20,103 @@ import tbclient.Page;
 import tbclient.ThreadInfo;
 /* loaded from: classes22.dex */
 public class a {
-    private ArrayList<bw> ijM;
-    private k jCD;
-    private ai jCE;
-    private bj jCF;
-    private bo jCG;
-    private b jCH;
-    private SpecialColumnListData jCI;
+    private ArrayList<bw> ipL;
+    private k jIA;
+    private ai jIB;
+    private bj jIC;
+    private bo jID;
+    private b jIE;
+    private SpecialColumnListData jIF;
     private boolean hasMore = true;
-    private int jCC = 1;
+    private int jIz = 1;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             Page page = dataRes.page_info;
             if (page != null) {
-                this.jCC = page.current_page.intValue();
+                this.jIz = page.current_page.intValue();
                 this.hasMore = page.has_more.intValue() == 1;
             }
-            this.ijM = new ArrayList<>(y.getCount(dataRes.thread_list));
+            this.ipL = new ArrayList<>(y.getCount(dataRes.thread_list));
             for (ThreadInfo threadInfo : dataRes.thread_list) {
                 bw bwVar = new bw();
                 bwVar.a(threadInfo);
-                bwVar.bjC();
-                this.ijM.add(bwVar);
+                bwVar.bmc();
+                this.ipL.add(bwVar);
             }
             List<BannerImage> list = dataRes.banner_image;
             if (!y.isEmpty(list)) {
-                this.jCD = new k();
-                this.jCD.parserProtobuf(list);
+                this.jIA = new k();
+                this.jIA.parserProtobuf(list);
             }
             List<BannerImage> list2 = dataRes.grid;
             if (y.getCount(list2) >= 4) {
-                this.jCE = new ai();
-                this.jCE.parserProtobuf(list2);
+                this.jIB = new ai();
+                this.jIB.parserProtobuf(list2);
             }
             RecommendForumList recommendForumList = dataRes.recommend_forum;
             if (recommendForumList != null && y.getCount(recommendForumList.forum_list) >= 5) {
-                this.jCF = new bj();
-                this.jCF.bc(recommendForumList.forum_list);
-                this.jCF.className = recommendForumList.class_name;
-                this.jCF.floorPosition = recommendForumList.floor_position.intValue();
-                this.jCF.title = TbadkCoreApplication.getInst().getString(R.string.recommend_forum_list_title);
-                this.jCF.ewK = R.color.cp_cont_c;
+                this.jIC = new bj();
+                this.jIC.bj(recommendForumList.forum_list);
+                this.jIC.className = recommendForumList.class_name;
+                this.jIC.floorPosition = recommendForumList.floor_position.intValue();
+                this.jIC.title = TbadkCoreApplication.getInst().getString(R.string.recommend_forum_list_title);
+                this.jIC.eCC = R.color.cp_cont_c;
             }
             RecommendUserList recommendUserList = dataRes.recommend_user;
             if (recommendUserList != null && y.getCount(recommendUserList.user_list) >= 4) {
-                this.jCG = new bo();
-                this.jCG.bd(recommendUserList.user_list);
-                this.jCG.floorPosition = recommendUserList.floor_position.intValue();
-                this.jCG.title = TbadkCoreApplication.getInst().getString(R.string.recommend_user_list_title);
-                this.jCG.ewK = R.color.cp_cont_c;
+                this.jID = new bo();
+                this.jID.bk(recommendUserList.user_list);
+                this.jID.floorPosition = recommendUserList.floor_position.intValue();
+                this.jID.title = TbadkCoreApplication.getInst().getString(R.string.recommend_user_list_title);
+                this.jID.eCC = R.color.cp_cont_c;
             }
             HotTopic hotTopic = dataRes.hot_topic;
             if (hotTopic != null && y.getCount(hotTopic.topic_list) >= 4) {
-                this.jCH = new b();
-                this.jCH.a(hotTopic);
+                this.jIE = new b();
+                this.jIE.a(hotTopic);
             }
             SpecialColumnList specialColumnList = dataRes.special_column;
             if (specialColumnList != null && y.getCount(specialColumnList.item_list) >= 3) {
-                this.jCI = new SpecialColumnListData();
-                this.jCI.a(specialColumnList);
+                this.jIF = new SpecialColumnListData();
+                this.jIF.a(specialColumnList);
             }
         }
     }
 
-    public int cJj() {
-        return this.jCC;
+    public int cLK() {
+        return this.jIz;
     }
 
     public boolean hasMore() {
         return this.hasMore;
     }
 
-    public ArrayList<bw> cqt() {
-        return this.ijM;
+    public ArrayList<bw> csU() {
+        return this.ipL;
     }
 
-    public bj cJk() {
-        return this.jCF;
+    public bj cLL() {
+        return this.jIC;
     }
 
-    public bo cJl() {
-        return this.jCG;
+    public bo cLM() {
+        return this.jID;
     }
 
-    public k cJm() {
-        return this.jCD;
+    public k cLN() {
+        return this.jIA;
     }
 
-    public ai cJn() {
-        return this.jCE;
+    public ai cLO() {
+        return this.jIB;
     }
 
-    public b cJo() {
-        return this.jCH;
+    public b cLP() {
+        return this.jIE;
     }
 
-    public SpecialColumnListData cJp() {
-        return this.jCI;
+    public SpecialColumnListData cLQ() {
+        return this.jIF;
     }
 }

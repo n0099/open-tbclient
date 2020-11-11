@@ -23,43 +23,43 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class e extends BaseAdapter {
-    private ArrayList<i.b> eCX = new ArrayList<>();
-    private int gpz;
+    private ArrayList<i.b> eIM = new ArrayList<>();
+    private int gvn;
     private String mLiveId;
     private TbPageContext mPageContext;
-    private String nLi;
+    private String nRc;
 
     public e(TbPageContext tbPageContext, int i, String str, String str2) {
         this.mPageContext = tbPageContext;
-        this.gpz = i;
-        this.nLi = str;
+        this.gvn = i;
+        this.nRc = str;
         this.mLiveId = str2;
     }
 
     public void setData(List<i.b> list) {
         if (list != null) {
-            this.eCX.clear();
-            this.eCX.addAll(list);
+            this.eIM.clear();
+            this.eIM.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eCX == null) {
+        if (this.eIM == null) {
             return 0;
         }
-        return this.eCX.size();
+        return this.eIM.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: LE */
+    /* renamed from: LR */
     public i.b getItem(int i) {
-        if (this.eCX == null) {
+        if (this.eIM == null) {
             return null;
         }
-        return this.eCX.get(i);
+        return this.eIM.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -72,51 +72,51 @@ public class e extends BaseAdapter {
         a aVar;
         final i.b item;
         if (view == null) {
-            view = LayoutInflater.from(viewGroup.getContext()).inflate(a.h.yuyin_sdk_charm_rank__list_item, viewGroup, false);
+            view = LayoutInflater.from(viewGroup.getContext()).inflate(a.g.yuyin_sdk_charm_rank__list_item, viewGroup, false);
             a aVar2 = new a();
-            aVar2.nNh = (CharmRankItemView) view.findViewById(a.g.item);
+            aVar2.nTb = (CharmRankItemView) view.findViewById(a.f.item);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
         if (aVar != null && getItem(i) != null && (item = getItem(i)) != null) {
-            aVar.nNh.setData(i + 1, item);
-            aVar.nNh.nLZ.setData(item);
-            aVar.nNh.setmCallBack(new CharmRankItemView.a() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.e.1
+            aVar.nTb.setData(i + 1, item);
+            aVar.nTb.nRT.setData(item);
+            aVar.nTb.setmCallBack(new CharmRankItemView.a() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.e.1
                 @Override // com.baidu.tieba.yuyinala.charm.charmrank.CharmRankItemView.a
-                public void dUN() {
+                public void dXn() {
                     if (!TbadkCoreApplication.isLogin()) {
                         ViewHelper.skipToLoginActivity(e.this.mPageContext.getContext());
                         return;
                     }
                     com.baidu.live.personmanager.a aVar3 = new com.baidu.live.personmanager.a(e.this.mPageContext.getContext());
-                    if (item.DO()) {
-                        aVar3.hK(item.user_uk);
-                        aVar3.b(new a.InterfaceC0193a() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.e.1.1
-                            @Override // com.baidu.live.personmanager.a.InterfaceC0193a
-                            public void Ok() {
+                    if (item.Eh()) {
+                        aVar3.hR(item.user_uk);
+                        aVar3.b(new a.InterfaceC0195a() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.e.1.1
+                            @Override // com.baidu.live.personmanager.a.InterfaceC0195a
+                            public void OK() {
                                 item.follow_status = 0;
                                 e.this.notifyDataSetChanged();
                                 BdUtilHelper.showToast(e.this.mPageContext.getContext(), "已取消关注", 3000);
                             }
 
-                            @Override // com.baidu.live.personmanager.a.InterfaceC0193a
+                            @Override // com.baidu.live.personmanager.a.InterfaceC0195a
                             public void t(int i2, String str) {
                             }
                         });
-                    } else if (!item.DO()) {
-                        aVar3.p(item.user_uk, e.this.nLi, e.this.mLiveId);
-                        aVar3.a(new a.InterfaceC0193a() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.e.1.2
-                            @Override // com.baidu.live.personmanager.a.InterfaceC0193a
-                            public void Ok() {
-                                e.this.LF(i + 1);
+                    } else if (!item.Eh()) {
+                        aVar3.p(item.user_uk, e.this.nRc, e.this.mLiveId);
+                        aVar3.a(new a.InterfaceC0195a() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.e.1.2
+                            @Override // com.baidu.live.personmanager.a.InterfaceC0195a
+                            public void OK() {
+                                e.this.LS(i + 1);
                                 item.follow_status = 1;
                                 e.this.notifyDataSetChanged();
                                 BdUtilHelper.showToast(e.this.mPageContext.getContext(), "关注成功", 3000);
                             }
 
-                            @Override // com.baidu.live.personmanager.a.InterfaceC0193a
+                            @Override // com.baidu.live.personmanager.a.InterfaceC0195a
                             public void t(int i2, String str) {
                             }
                         });
@@ -129,15 +129,15 @@ public class e extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void LF(int i) {
+    public void LS(int i) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.nLi);
-            if (this.gpz == 0) {
+            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.nRc);
+            if (this.gvn == 0) {
                 jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "contribtab");
                 jSONObject.put("contrib_num", i);
-            } else if (this.gpz == 1) {
+            } else if (this.gvn == 1) {
                 jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "charmtab");
                 jSONObject.put("charm_num", i);
             }
@@ -149,7 +149,7 @@ public class e extends BaseAdapter {
 
     /* loaded from: classes4.dex */
     private class a {
-        private CharmRankItemView nNh;
+        private CharmRankItemView nTb;
 
         private a() {
         }

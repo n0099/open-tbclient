@@ -15,7 +15,7 @@ import com.baidu.live.sdk.a;
 import com.baidu.yuyinala.privatemessage.model.message.SingleGraphicTextMsgExt;
 /* loaded from: classes4.dex */
 public class b {
-    private static volatile b olS;
+    private static volatile b ovo;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -25,10 +25,10 @@ public class b {
     public static synchronized b gw(Context context) {
         b bVar;
         synchronized (b.class) {
-            if (olS == null) {
-                olS = new b();
+            if (ovo == null) {
+                ovo = new b();
             }
-            bVar = olS;
+            bVar = ovo;
         }
         return bVar;
     }
@@ -63,7 +63,7 @@ public class b {
                 break;
             default:
                 TextMsg textMsg2 = new TextMsg();
-                textMsg2.setText(context.getString(a.i.bd_im_text_unknow));
+                textMsg2.setText(context.getString(a.h.bd_im_text_unknow));
                 textMsg2.setMsgTime(chatMsg.getMsgTime());
                 textMsg2.setMsgId(chatMsg.getMsgId());
                 textMsg2.setStatus(chatMsg.getStatus());
@@ -73,7 +73,7 @@ public class b {
         }
         if (r != null) {
             r.b(context, a(context, chatMsg));
-            r.olZ = (ImageView) r.getConvertView().findViewById(a.g.bd_im_headview_vip);
+            r.ovv = (ImageView) r.getConvertView().findViewById(a.f.bd_im_headview_vip);
         }
         return r;
     }
@@ -84,7 +84,7 @@ public class b {
         }
         TextMsg textMsg = new TextMsg();
         if (chatMsg.getMsgType() == 16) {
-            textMsg.setText(context.getString(a.i.bd_im_red_packet_default_text));
+            textMsg.setText(context.getString(a.h.bd_im_red_packet_default_text));
             textMsg.setMsgTime(chatMsg.getMsgTime());
             textMsg.setMsgId(chatMsg.getMsgId());
             textMsg.setStatus(chatMsg.getStatus());
@@ -126,7 +126,7 @@ public class b {
                 break;
             default:
                 TextMsg textMsg2 = new TextMsg();
-                textMsg2.setText(context.getString(a.i.bd_im_text_unknow));
+                textMsg2.setText(context.getString(a.h.bd_im_text_unknow));
                 textMsg2.setMsgTime(chatMsg.getMsgTime());
                 textMsg2.setMsgId(chatMsg.getMsgId());
                 textMsg2.setStatus(chatMsg.getStatus());
@@ -136,7 +136,7 @@ public class b {
         }
         if (l != null) {
             l.b(context, a(context, chatMsg));
-            l.olZ = (ImageView) l.getConvertView().findViewById(a.g.bd_im_headview_vip);
+            l.ovv = (ImageView) l.getConvertView().findViewById(a.f.bd_im_headview_vip);
         }
         return l;
     }
@@ -175,7 +175,7 @@ public class b {
 
     private d c(Context context, LayoutInflater layoutInflater, ChatMsg chatMsg, View view) {
         new SingleGraphicTextMsgExt((SignleGraphicTextMsg) chatMsg);
-        switch (r1.eex()) {
+        switch (r1.eim()) {
             case VIDEOSHARE:
                 return r.m(context, layoutInflater, chatMsg, view);
             case PRIVATEINVITE:
@@ -187,7 +187,7 @@ public class b {
 
     private e d(Context context, LayoutInflater layoutInflater, ChatMsg chatMsg, View view) {
         new SingleGraphicTextMsgExt((SignleGraphicTextMsg) chatMsg);
-        switch (r1.eex()) {
+        switch (r1.eim()) {
             case VIDEOSHARE:
                 return x.s(context, layoutInflater, chatMsg, view);
             case PRIVATEINVITE:

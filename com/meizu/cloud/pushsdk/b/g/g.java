@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Logger f4349a = Logger.getLogger(g.class.getName());
+    private static final Logger f4351a = Logger.getLogger(g.class.getName());
 
     private g() {
     }
@@ -47,14 +47,14 @@ public final class g {
                 o.a(bVar.b, 0L, j);
                 while (j > 0) {
                     n.this.a();
-                    j jVar = bVar.f4345a;
+                    j jVar = bVar.f4347a;
                     int min = (int) Math.min(j, jVar.c - jVar.b);
-                    outputStream.write(jVar.f4355a, jVar.b, min);
+                    outputStream.write(jVar.f4357a, jVar.b, min);
                     jVar.b += min;
                     j -= min;
                     bVar.b -= min;
                     if (jVar.b == jVar.c) {
-                        bVar.f4345a = jVar.a();
+                        bVar.f4347a = jVar.a();
                         k.a(jVar);
                     }
                 }
@@ -105,7 +105,7 @@ public final class g {
                 }
                 n.this.a();
                 j c = bVar.c(1);
-                int read = inputStream.read(c.f4355a, c.c, (int) Math.min(j, 2048 - c.c));
+                int read = inputStream.read(c.f4357a, c.c, (int) Math.min(j, 2048 - c.c));
                 if (read == -1) {
                     return -1L;
                 }

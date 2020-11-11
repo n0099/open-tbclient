@@ -9,43 +9,43 @@ import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.tbadk.switchs.AdUploadSwitch;
 /* loaded from: classes.dex */
 public class d {
-    private static d msJ;
-    private CustomMessageListener msL = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.recapp.report.d.1
+    private static d myF;
+    private CustomMessageListener myH = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.recapp.report.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.isNetWorkAvailable() && d.this.msK != null) {
-                d.this.msK.dyP();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.isNetWorkAvailable() && d.this.myG != null) {
+                d.this.myG.dBr();
             }
         }
     };
-    private e msK = new h();
+    private e myG = new h();
 
-    public static d dyN() {
-        if (msJ == null) {
+    public static d dBp() {
+        if (myF == null) {
             synchronized (d.class) {
-                if (msJ == null) {
-                    msJ = new d();
+                if (myF == null) {
+                    myF = new d();
                 }
             }
         }
-        return msJ;
+        return myF;
     }
 
-    private boolean dyO() {
+    private boolean dBq() {
         return SwitchManager.getInstance().findType(AdUploadSwitch.KEY) != 0;
     }
 
     private d() {
-        MessageManager.getInstance().registerListener(this.msL);
+        MessageManager.getInstance().registerListener(this.myH);
     }
 
     public void a(c cVar) {
-        if (dyO() && cVar != null && this.msK != null) {
+        if (dBq() && cVar != null && this.myG != null) {
             if (j.isNetWorkAvailable()) {
-                this.msK.b(cVar);
+                this.myG.b(cVar);
             } else {
-                this.msK.c(cVar);
+                this.myG.c(cVar);
             }
         }
     }

@@ -7,7 +7,7 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.data.bq;
+import com.baidu.live.data.br;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
@@ -37,8 +37,8 @@ public class c extends a {
         MessageManager.getInstance().registerTask(tbHttpMessageTask2);
     }
 
-    public c(TbPageContext tbPageContext, a.InterfaceC0644a interfaceC0644a) {
-        super(tbPageContext, PayChannelType.WALLET, interfaceC0644a);
+    public c(TbPageContext tbPageContext, a.InterfaceC0656a interfaceC0656a) {
+        super(tbPageContext, PayChannelType.WALLET, interfaceC0656a);
         this.mHttpMessageListener = new HttpMessageListener(0) { // from class: com.baidu.tieba.ala.live.b.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -85,10 +85,10 @@ public class c extends a {
     }
 
     @Override // com.baidu.tieba.ala.live.b.a
-    public void bSJ() {
+    public void bVi() {
         HttpMessage httpMessage = new HttpMessage(1001505);
         httpMessage.setTag(getUniqueId());
-        httpMessage.addParam("pay_id", bSK());
+        httpMessage.addParam("pay_id", bVj());
         if (TbadkCoreApplication.getInst().getIsYuyinRoom()) {
             httpMessage.addParam("is_jiaoyou", 1);
         }
@@ -96,25 +96,25 @@ public class c extends a {
     }
 
     @Override // com.baidu.tieba.ala.live.b.a
-    public void Hm(String str) {
+    public void Hz(String str) {
         ep("channel", str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(GetOrderHttpResponsedMessage getOrderHttpResponsedMessage) {
         String errorString;
-        bq bSI = getOrderHttpResponsedMessage.bSI();
+        br bVh = getOrderHttpResponsedMessage.bVh();
         if (getOrderHttpResponsedMessage.hasError() || getOrderHttpResponsedMessage.getError() != 0) {
             if (StringUtils.isNull(getOrderHttpResponsedMessage.getErrorString())) {
-                errorString = this.mPageContext.getResources().getString(a.i.sdk_neterror);
+                errorString = this.mPageContext.getResources().getString(a.h.sdk_neterror);
             } else {
                 errorString = getOrderHttpResponsedMessage.getErrorString();
             }
             a(getOrderHttpResponsedMessage.getError(), errorString, null, null, null, false);
-        } else if (bSI == null) {
+        } else if (bVh == null) {
             a(getOrderHttpResponsedMessage.getError(), getOrderHttpResponsedMessage.getErrorString(), null, null, null, false);
         } else {
-            a(getOrderHttpResponsedMessage.getError(), getOrderHttpResponsedMessage.getErrorString(), bSI.orderId, com.baidu.tieba.ala.live.walletconfig.a.a(bSI), bSI.pay_channel, "url".equalsIgnoreCase(bSI.call_type));
+            a(getOrderHttpResponsedMessage.getError(), getOrderHttpResponsedMessage.getErrorString(), bVh.orderId, com.baidu.tieba.ala.live.walletconfig.a.a(bVh), bVh.pay_channel, "url".equalsIgnoreCase(bVh.call_type));
         }
     }
 
@@ -122,7 +122,7 @@ public class c extends a {
     public void a(ResponseGetPayinfoMessage responseGetPayinfoMessage) {
         String errorString;
         if (StringUtils.isNull(responseGetPayinfoMessage.getErrorString())) {
-            errorString = this.mPageContext.getResources().getString(a.i.sdk_neterror);
+            errorString = this.mPageContext.getResources().getString(a.h.sdk_neterror);
         } else {
             errorString = responseGetPayinfoMessage.getErrorString();
         }

@@ -32,7 +32,7 @@ public class b {
                         e.printStackTrace();
                     }
                 }
-                com.baidu.swan.apps.view.b.b.a.a(str, str2, "RTC", "statechange", jSONObject4);
+                com.baidu.swan.apps.view.b.b.a.b(str, str2, "RTC", "statechange", jSONObject4);
             }
         } catch (JSONException e2) {
             if (DEBUG) {

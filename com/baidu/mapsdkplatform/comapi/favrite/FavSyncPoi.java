@@ -5,7 +5,7 @@ import com.baidu.platform.comapi.basestruct.Point;
 public class FavSyncPoi {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f2215a;
+    public String f2217a;
     public String b;
     public Point c;
     public String d;

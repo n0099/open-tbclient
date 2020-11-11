@@ -1,132 +1,162 @@
 package com.baidu.live.alablmsdk.d;
 
 import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.rtc.RTCVideoView;
-import java.util.ArrayList;
+import android.view.TextureView;
+import com.baidu.live.alablmsdk.module.rtc.b;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class a {
-    private c aAO;
+public class a implements b.a {
+    private c aBi;
     private Context mContext;
-    private Set<String> aBu = new HashSet();
-    private HashMap<String, RTCVideoView> aBv = new HashMap<>();
-    com.baidu.live.alablmsdk.c.a.a aBw = new com.baidu.live.alablmsdk.c.a.a() { // from class: com.baidu.live.alablmsdk.d.a.1
+    private HashMap<Long, com.baidu.live.alablmsdk.module.rtc.b> aBT = new HashMap<>();
+    com.baidu.live.alablmsdk.c.a.a aBU = new com.baidu.live.alablmsdk.c.a.a() { // from class: com.baidu.live.alablmsdk.d.a.1
         @Override // com.baidu.live.alablmsdk.c.a.a
         public void onPixelRead(byte[] bArr, int i, int i2) {
-            if (a.this.aBt != null) {
-                a.this.aBt.p(bArr, i, i2);
+            if (a.this.aBS != null) {
+                a.this.aBS.p(bArr, i, i2);
             }
         }
     };
-    private d aBt = new d();
+    private d aBS = new d();
 
     public a(Context context, c cVar) {
         this.mContext = context;
-        this.aAO = cVar;
-        this.aAO.a(this.aBt);
+        this.aBi = cVar;
+        this.aBi.a(this.aBS);
     }
 
-    public com.baidu.live.alablmsdk.c.a.a BF() {
-        return this.aBw;
+    public com.baidu.live.alablmsdk.c.a.a BX() {
+        return this.aBU;
     }
 
     public void b(boolean z, long j) {
-        com.baidu.live.alablmsdk.a.c.d(" enableRemoteDisplay imUk=" + j);
-        com.baidu.live.alablmsdk.a.c.fJ(" enableRemoteDisplay ");
+        String str;
+        com.baidu.live.alablmsdk.a.b.ah(" enableRemoteDisplay ", "imUk=" + j);
         if (j != 0) {
-            synchronized (this.aBu) {
+            synchronized (this.aBT) {
                 if (z) {
-                    this.aBu.add(j + "");
-                    com.baidu.live.alablmsdk.a.c.d(" remote user video view num = " + this.aBu.size());
-                    com.baidu.live.alablmsdk.a.c.fJ(" remote user video view num " + this.aBu.size());
+                    ag(j);
+                    if (com.baidu.live.alablmsdk.a.b.isDebug()) {
+                        StringBuilder sb = new StringBuilder();
+                        if (this.aBT.size() > 0) {
+                            for (Map.Entry<Long, com.baidu.live.alablmsdk.module.rtc.b> entry : this.aBT.entrySet()) {
+                                if (entry != null) {
+                                    com.baidu.live.alablmsdk.module.rtc.b value = entry.getValue();
+                                    if (value == null) {
+                                        str = "";
+                                    } else {
+                                        str = value.toString();
+                                    }
+                                    sb.append("    key=").append(entry.getKey()).append(str);
+                                }
+                            }
+                        }
+                        com.baidu.live.alablmsdk.a.b.ah("  map for 循环 texture info = " + sb.toString(), "");
+                    }
+                    com.baidu.live.alablmsdk.a.b.ah(" remote user view num " + this.aBT.size(), "");
                 }
             }
         }
     }
 
-    public void BG() {
-        if (this.aAO != null) {
-            this.aAO.t(BH());
-        }
-    }
-
-    protected List<RTCVideoView> BH() {
-        ArrayList arrayList;
-        RTCVideoView fN;
-        synchronized (this.aBu) {
-            arrayList = new ArrayList();
-            for (String str : this.aBu) {
-                if (!TextUtils.isEmpty(str) && (fN = fN(str)) != null) {
-                    com.baidu.live.alablmsdk.a.c.d(" 添加 videoview = " + fN);
-                    com.baidu.live.alablmsdk.a.c.fJ("add video view");
-                    arrayList.add(fN);
+    private TextureView ag(final long j) {
+        TextureView textureView;
+        com.baidu.live.alablmsdk.a.b.ah(" addRemoteUserRtcVideoView remoteUid" + j, "");
+        synchronized (this.aBT) {
+            final com.baidu.live.alablmsdk.module.rtc.b bVar = this.aBT.get(Long.valueOf(j));
+            if (bVar == null || bVar.mTextureView == null || bVar.mSurface == null) {
+                String str = "";
+                if (bVar != null) {
+                    str = bVar.toString();
                 }
-            }
-            com.baidu.live.alablmsdk.a.c.d(" getRemoteDisplayGroup size=" + arrayList.size());
-            com.baidu.live.alablmsdk.a.c.fJ(" getRemoteDisplayGroup size=" + arrayList.size());
-        }
-        return arrayList;
-    }
-
-    private RTCVideoView fN(String str) {
-        RTCVideoView rTCVideoView;
-        synchronized (this.aBv) {
-            if (!this.aBv.containsKey(str)) {
-                rTCVideoView = new RTCVideoView(this.mContext);
-                this.aBv.put(str, rTCVideoView);
+                com.baidu.live.alablmsdk.a.b.ah(" map-externalTextureInfo info has null , remoteUid=" + j, " externalTextureInfo=" + str);
+                bVar = new com.baidu.live.alablmsdk.module.rtc.b(this.mContext, this.aBi, j);
+                bVar.a(this);
+                this.aBT.put(Long.valueOf(j), bVar);
+                com.baidu.live.alablmsdk.a.b.ah(" tempExternalTextureInfo = " + bVar.toString(), "");
             } else {
-                rTCVideoView = this.aBv.get(str);
+                com.baidu.live.alablmsdk.a.b.ah(" map contains , remoteUid=" + j, "");
+                final int i = bVar.mWidth;
+                final int i2 = bVar.mHeight;
+                com.baidu.live.alablmsdk.a.b.ah(" map contains , remoteUid=" + j + " , info=" + bVar, "");
+                if (bVar.mSurface != null) {
+                    com.baidu.live.alablmsdk.a.d.Bh().post(new Runnable() { // from class: com.baidu.live.alablmsdk.d.a.2
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            com.baidu.live.alablmsdk.a.b.ah(" re destroy set ExternalSurface , width=" + i + " , height=" + i2, "");
+                            a.this.aBi.destroyExternalSurface(j, bVar.mSurface);
+                            a.this.aBi.setExternalSurface(j, bVar.mSurface);
+                            a.this.aBi.changeSurfaceSize(j, i, i2);
+                        }
+                    });
+                }
             }
+            textureView = bVar.mTextureView;
         }
-        return rTCVideoView;
+        return textureView;
     }
 
-    public RTCVideoView a(com.baidu.live.alablmsdk.module.c cVar) {
-        if (cVar == null || cVar.aBi == -1) {
+    @Override // com.baidu.live.alablmsdk.module.rtc.b.a
+    public void af(long j) {
+        synchronized (this.aBT) {
+            com.baidu.live.alablmsdk.a.b.ah(" map remove , id=" + j, "");
+            if (j != 0) {
+                this.aBT.remove(Long.valueOf(j));
+            }
+        }
+    }
+
+    public TextureView c(com.baidu.live.alablmsdk.module.c cVar) {
+        if (cVar == null || cVar.aBv == 0) {
             return null;
         }
-        com.baidu.live.alablmsdk.a.c.d(" imUk=" + cVar.aBi);
-        com.baidu.live.alablmsdk.a.c.fJ(" getRemoteDisplayViewForUser");
-        return V(cVar.aBi);
+        com.baidu.live.alablmsdk.a.b.ah(" getRemoteDisplayViewForUser", " imUk=" + cVar.aBv);
+        return ah(cVar.aBv);
     }
 
-    public RTCVideoView V(long j) {
-        RTCVideoView rTCVideoView = null;
-        if (j != 0) {
-            String str = j + "";
-            synchronized (this.aBv) {
-                if (this.aBv.containsKey(str)) {
-                    com.baidu.live.alablmsdk.a.c.d(" mRemoteViewMap size = " + this.aBv.size());
-                    com.baidu.live.alablmsdk.a.c.fJ(" mRemoteViewMap sizes " + this.aBv.size());
-                    rTCVideoView = this.aBv.get(str);
+    public TextureView ah(long j) {
+        TextureView textureView;
+        if (j == 0) {
+            return null;
+        }
+        synchronized (this.aBT) {
+            if (this.aBT.containsKey(Long.valueOf(j))) {
+                com.baidu.live.alablmsdk.a.b.ah(" mRemoteViewMap sizes " + this.aBT.size(), "");
+                com.baidu.live.alablmsdk.module.rtc.b bVar = this.aBT.get(Long.valueOf(j));
+                if (bVar != null) {
+                    com.baidu.live.alablmsdk.a.b.ah(" get texture view by user , imUk=" + j + ", texture info=" + bVar.toString(), "");
+                    textureView = bVar.mTextureView;
+                } else {
+                    textureView = null;
                 }
+            } else {
+                textureView = null;
             }
         }
-        return rTCVideoView;
+        return textureView;
     }
 
     public void release() {
-        BI();
+        BY();
     }
 
-    public void BI() {
-        BJ();
-        BK();
+    public void BY() {
+        BZ();
     }
 
-    private void BJ() {
-        synchronized (this.aBv) {
-            this.aBv.clear();
-        }
-    }
-
-    private void BK() {
-        synchronized (this.aBu) {
-            this.aBu.clear();
+    private void BZ() {
+        com.baidu.live.alablmsdk.module.rtc.b value;
+        com.baidu.live.alablmsdk.a.b.ah(" releaseVideoViewMap ", "");
+        if (this.aBT != null) {
+            synchronized (this.aBT) {
+                for (Map.Entry<Long, com.baidu.live.alablmsdk.module.rtc.b> entry : this.aBT.entrySet()) {
+                    if (entry != null && (value = entry.getValue()) != null) {
+                        value.release();
+                    }
+                }
+                this.aBT.clear();
+            }
         }
     }
 }

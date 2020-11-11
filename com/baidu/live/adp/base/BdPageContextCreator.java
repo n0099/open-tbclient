@@ -1,7 +1,7 @@
 package com.baidu.live.adp.base;
 
-import com.baidu.megapp.ma.MAActivity;
+import com.baidu.searchbox.live.base.LiveBaseActivity;
 /* loaded from: classes4.dex */
 public interface BdPageContextCreator<T> {
-    BdPageContext<T> createPageContext(MAActivity mAActivity);
+    BdPageContext<T> createPageContext(LiveBaseActivity liveBaseActivity);
 }

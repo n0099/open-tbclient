@@ -1,21 +1,14 @@
 package com.baidu.live.ag;
 
-import com.baidu.live.data.AlaLiveUserInfoData;
+import android.content.Context;
+import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
-public interface a {
-
-    /* renamed from: com.baidu.live.ag.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC0171a {
+public class a {
+    public static int a(Context context, boolean z, boolean z2, boolean z3) {
+        return b.c(z, z2, z3) + context.getResources().getDimensionPixelSize(a.d.sdk_tbds130) + context.getResources().getDimensionPixelOffset(a.d.sdk_ds80) + context.getResources().getDimensionPixelOffset(a.d.sdk_ds20) + context.getResources().getDimensionPixelOffset(a.d.sdk_ds6);
     }
 
-    a a(int i, String str, String str2, String str3, String str4, int i2, String str5);
-
-    void a(InterfaceC0171a interfaceC0171a);
-
-    void a(AlaLiveUserInfoData alaLiveUserInfoData, String str);
-
-    void fT(int i);
-
-    void onDestroy();
+    public static int h(boolean z, boolean z2) {
+        return b.c(z, z2, false) + b.cU(z);
+    }
 }

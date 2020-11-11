@@ -14,15 +14,15 @@ public interface Framedata {
         CLOSING
     }
 
-    boolean ajR();
+    boolean amr();
 
-    ByteBuffer eBh();
+    ByteBuffer eEW();
 
-    boolean eBi();
+    boolean eEX();
 
-    boolean eBj();
+    boolean eEY();
 
-    boolean eBk();
+    boolean eEZ();
 
-    Opcode eBl();
+    Opcode eFa();
 }

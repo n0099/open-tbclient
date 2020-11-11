@@ -29,7 +29,7 @@ public class FileProvider extends ContentProvider {
     private static final String i = "path";
 
     /* renamed from: a  reason: collision with root package name */
-    private a f3482a;
+    private a f3485a;
     private static final String[] b = {"_display_name", "_size"};
     private static final File j = new File("/");
     private static HashMap<String, a> k = new HashMap<>();
@@ -103,7 +103,7 @@ public class FileProvider extends ContentProvider {
         super.attachInfo(context, providerInfo);
         if (!providerInfo.exported) {
             if (providerInfo.grantUriPermissions) {
-                this.f3482a = a(context, providerInfo.authority);
+                this.f3485a = a(context, providerInfo.authority);
                 return;
             }
             throw new SecurityException("Provider must grant uri permissions");
@@ -113,12 +113,12 @@ public class FileProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public int delete(Uri uri, String str, String[] strArr) {
-        return this.f3482a.a(uri).delete() ? 1 : 0;
+        return this.f3485a.a(uri).delete() ? 1 : 0;
     }
 
     @Override // android.content.ContentProvider
     public String getType(Uri uri) {
-        File a2 = this.f3482a.a(uri);
+        File a2 = this.f3485a.a(uri);
         int lastIndexOf = a2.getName().lastIndexOf(46);
         if (lastIndexOf >= 0) {
             String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(a2.getName().substring(lastIndexOf + 1));
@@ -141,13 +141,13 @@ public class FileProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public ParcelFileDescriptor openFile(Uri uri, String str) throws FileNotFoundException {
-        return ParcelFileDescriptor.open(this.f3482a.a(uri), a(str));
+        return ParcelFileDescriptor.open(this.f3485a.a(uri), a(str));
     }
 
     @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         int i2;
-        File a2 = this.f3482a.a(uri);
+        File a2 = this.f3485a.a(uri);
         if (strArr == null) {
             strArr = b;
         }
@@ -189,11 +189,11 @@ public class FileProvider extends ContentProvider {
     public static class b implements a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f3483a;
+        private final String f3486a;
         private final HashMap<String, File> b = new HashMap<>();
 
         public b(String str) {
-            this.f3483a = str;
+            this.f3486a = str;
         }
 
         public void a(String str, File file) {
@@ -227,7 +227,7 @@ public class FileProvider extends ContentProvider {
                     } else {
                         substring = canonicalPath.substring(path2.length() + 1);
                     }
-                    return new Uri.Builder().scheme("content").authority(this.f3483a).encodedPath(Uri.encode(entry.getKey()) + '/' + Uri.encode(substring, "/")).build();
+                    return new Uri.Builder().scheme("content").authority(this.f3486a).encodedPath(Uri.encode(entry.getKey()) + '/' + Uri.encode(substring, "/")).build();
                 }
                 throw new IllegalArgumentException("Failed to find configured root that contains " + canonicalPath);
             } catch (IOException e) {

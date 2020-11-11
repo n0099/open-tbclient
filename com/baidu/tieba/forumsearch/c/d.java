@@ -14,35 +14,35 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.forumsearch.controller.e;
 /* loaded from: classes24.dex */
 public class d extends com.baidu.tieba.card.b<com.baidu.tieba.forumsearch.b.b> {
-    private BarImageView izQ;
-    private TextView izR;
-    private TextView izS;
-    private TextView izT;
-    private com.baidu.tieba.forumsearch.b.b izU;
-    private View.OnClickListener iza;
+    private View.OnClickListener iEX;
+    private BarImageView iFN;
+    private TextView iFO;
+    private TextView iFP;
+    private TextView iFQ;
+    private com.baidu.tieba.forumsearch.b.b iFR;
     private int mSkinType;
 
     public d(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.izQ = (BarImageView) getView().findViewById(R.id.forum_avatar);
-        this.izR = (TextView) getView().findViewById(R.id.forum_name);
-        this.izS = (TextView) getView().findViewById(R.id.forum_attention);
-        this.izT = (TextView) getView().findViewById(R.id.forum_thread_count);
+        this.iFN = (BarImageView) getView().findViewById(R.id.forum_avatar);
+        this.iFO = (TextView) getView().findViewById(R.id.forum_name);
+        this.iFP = (TextView) getView().findViewById(R.id.forum_attention);
+        this.iFQ = (TextView) getView().findViewById(R.id.forum_thread_count);
         getView().setOnClickListener(this);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void y(View.OnClickListener onClickListener) {
-        this.iza = onClickListener;
+    public void z(View.OnClickListener onClickListener) {
+        this.iEX = onClickListener;
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ap.setViewTextColor(this.izR, R.color.cp_cont_b);
-            ap.setViewTextColor(this.izS, R.color.cp_cont_d);
-            ap.setViewTextColor(this.izT, R.color.cp_cont_d);
+            ap.setViewTextColor(this.iFO, R.color.cp_cont_b);
+            ap.setViewTextColor(this.iFP, R.color.cp_cont_d);
+            ap.setViewTextColor(this.iFQ, R.color.cp_cont_d);
             ap.setBackgroundResource(getView(), R.drawable.square_search_item_bg);
             this.mSkinType = i;
         }
@@ -58,11 +58,11 @@ public class d extends com.baidu.tieba.card.b<com.baidu.tieba.forumsearch.b.b> {
     /* renamed from: c */
     public void a(com.baidu.tieba.forumsearch.b.b bVar) {
         if (bVar != null) {
-            this.izU = bVar;
-            this.izQ.startLoad(bVar.getAvatar(), 10, false);
-            this.izR.setText(eR(bVar.getForumName(), bVar.cuA()));
-            this.izS.setText(String.format(this.mTbPageContext.getString(R.string.concern), bVar.cuy()));
-            this.izT.setText(String.format(this.mTbPageContext.getString(R.string.search_bar_thread), bVar.cuz()));
+            this.iFR = bVar;
+            this.iFN.startLoad(bVar.getAvatar(), 10, false);
+            this.iFO.setText(eR(bVar.getForumName(), bVar.cxb()));
+            this.iFP.setText(String.format(this.mTbPageContext.getString(R.string.concern), bVar.cwZ()));
+            this.iFQ.setText(String.format(this.mTbPageContext.getString(R.string.search_bar_thread), bVar.cxa()));
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -84,12 +84,12 @@ public class d extends com.baidu.tieba.card.b<com.baidu.tieba.forumsearch.b.b> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.izU != null) {
+        if (this.iFR != null) {
             TiebaStatic.log("c12261");
-            e.JX(this.izU.cuA());
-            view.setTag(this.izU);
-            if (this.iza != null) {
-                this.iza.onClick(view);
+            e.Ko(this.iFR.cxb());
+            view.setTag(this.iFR);
+            if (this.iEX != null) {
+                this.iEX.onClick(view);
             }
         }
     }

@@ -11,15 +11,15 @@ import com.baidu.tieba.tbadkCore.a.a;
 /* loaded from: classes22.dex */
 public class GameVideoStatic {
     static {
-        cHu();
+        cJV();
     }
 
-    private static void cHu() {
+    private static void cJV() {
         b bVar = new b(309646);
         bVar.setResponsedClass(GameVideoSocketResMessage.class);
         bVar.setNeedAck(true);
         MessageManager.getInstance().registerTask(bVar);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GAME_VIDEO, a.bJ(TbConfig.URL_GAME_VIDEO, 309646));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GAME_VIDEO, a.bL(TbConfig.URL_GAME_VIDEO, 309646));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(GameVideoHttpResMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

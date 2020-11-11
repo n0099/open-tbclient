@@ -15,19 +15,19 @@ import java.util.List;
 import java.util.Locale;
 /* loaded from: classes10.dex */
 public class a extends c {
-    private int bQR;
-    private String dSG;
-    private boolean dSH;
-    private ArrayList<com.baidu.swan.games.screenrecord.a.b> dSI;
-    private List<String> dSJ;
-    private List<String> dSK;
+    private int bWB;
+    private ArrayList<com.baidu.swan.games.screenrecord.a.b> dYA;
+    private List<String> dYB;
+    private List<String> dYC;
+    private String dYy;
+    private boolean dYz;
 
     public a(com.baidu.swan.games.f.b bVar) {
         super(bVar);
-        this.dSH = false;
-        this.dSI = new ArrayList<>();
-        this.dSJ = new ArrayList(3);
-        this.dSK = new ArrayList(3);
+        this.dYz = false;
+        this.dYA = new ArrayList<>();
+        this.dYB = new ArrayList(3);
+        this.dYC = new ArrayList(3);
     }
 
     @JavascriptInterface
@@ -40,22 +40,22 @@ public class a extends c {
         if (DEBUG) {
             Log.d("GameRecorderApi", "start");
         }
-        if (!a(GameRecorderController.RecorderState.IDLE, GameRecorderController.RecorderState.STOP) && !d.aUn().aUp()) {
+        if (!a(GameRecorderController.RecorderState.IDLE, GameRecorderController.RecorderState.STOP) && !d.aWN().aWP()) {
             com.baidu.swan.games.binding.model.c k = k(jsObject);
-            this.bQR = k.optInt("duration", 10);
-            if (this.bQR <= 0) {
-                this.bQR = 10;
+            this.bWB = k.optInt("duration", 10);
+            if (this.bWB <= 0) {
+                this.bWB = 10;
             }
-            if (this.bQR > 120) {
-                this.bQR = 120;
+            if (this.bWB > 120) {
+                this.bWB = 120;
             }
-            if (this.dSJ.size() == 0) {
-                com.baidu.swan.c.d.deleteFile(n.wK("bdfile://tmp/SwanVideoRecorder/"));
+            if (this.dYB.size() == 0) {
+                com.baidu.swan.c.d.deleteFile(n.wY("bdfile://tmp/SwanVideoRecorder/"));
             }
-            String a2 = a("bdfile://tmp/SwanVideoRecorder/video_%d.mp4", this.dSJ, 3);
-            xh(a2);
-            this.dSG = n.wK(a2);
-            if (this.dSG == null) {
+            String a2 = a("bdfile://tmp/SwanVideoRecorder/video_%d.mp4", this.dYB, 3);
+            xv(a2);
+            this.dYy = n.wY(a2);
+            if (this.dYy == null) {
                 if (DEBUG) {
                     Log.e("GameRecorderApi", "recordPath == null.");
                     return;
@@ -63,20 +63,20 @@ public class a extends c {
                 return;
             }
             if (k.optBoolean("microphoneEnabled", false)) {
-                lZ(2);
+                mj(2);
             }
-            aUi();
-            com.baidu.swan.games.u.b.a.aUy();
+            aWI();
+            com.baidu.swan.games.u.b.a.aWY();
         }
     }
 
-    private void aUi() {
+    private void aWI() {
         if (DEBUG) {
-            Log.d("GameRecorderApi", "doStartRecorder:" + this.bQR + Constants.ACCEPT_TIME_SEPARATOR_SP + this.dSG);
+            Log.d("GameRecorderApi", "doStartRecorder:" + this.bWB + Constants.ACCEPT_TIME_SEPARATOR_SP + this.dYy);
         }
-        this.dSI.clear();
-        this.dSH = false;
-        d.aUn().aUo().au(this.bQR, this.dSG);
+        this.dYA.clear();
+        this.dYz = false;
+        d.aWN().aWO().ay(this.bWB, this.dYy);
     }
 
     @JavascriptInterface
@@ -85,7 +85,7 @@ public class a extends c {
             Log.d("GameRecorderApi", "pause");
         }
         if (!a(GameRecorderController.RecorderState.RECORDING)) {
-            d.aUn().aUo().pauseRecord();
+            d.aWN().aWO().pauseRecord();
         }
     }
 
@@ -94,8 +94,8 @@ public class a extends c {
         if (DEBUG) {
             Log.d("GameRecorderApi", "resume");
         }
-        if (!a(GameRecorderController.RecorderState.PAUSE) && !d.aUn().aUp()) {
-            d.aUn().aUo().resumeRecord();
+        if (!a(GameRecorderController.RecorderState.PAUSE) && !d.aWN().aWP()) {
+            d.aWN().aWO().resumeRecord();
         }
     }
 
@@ -105,7 +105,7 @@ public class a extends c {
             Log.d("GameRecorderApi", "stop");
         }
         if (!a(GameRecorderController.RecorderState.RECORDING, GameRecorderController.RecorderState.PAUSE)) {
-            d.aUn().aUo().stopRecord();
+            d.aWN().aWO().stopRecord();
         }
     }
 
@@ -113,14 +113,14 @@ public class a extends c {
     public void recordClip(JsObject jsObject) {
         com.baidu.swan.games.binding.model.c k = k(jsObject);
         if (!a(GameRecorderController.RecorderState.RECORDING, GameRecorderController.RecorderState.PAUSE)) {
-            double[] wp = k.wp("timeRange");
+            double[] wD = k.wD("timeRange");
             i(jsObject);
-            double[] dArr = !c(wp) ? new double[]{3.0d, 3.0d} : wp;
-            com.baidu.swan.games.screenrecord.a.b a2 = com.baidu.swan.games.screenrecord.a.b.a(d.aUn().aUo().getCurrentRecordProcess(), dArr[0], dArr[1]);
+            double[] dArr = !c(wD) ? new double[]{3.0d, 3.0d} : wD;
+            com.baidu.swan.games.screenrecord.a.b a2 = com.baidu.swan.games.screenrecord.a.b.a(d.aWN().aWO().getCurrentRecordProcess(), dArr[0], dArr[1]);
             if (DEBUG) {
                 Log.d("GameRecorderApi", "recordClip:" + a2.toString());
             }
-            this.dSI.add(a2);
+            this.dYA.add(a2);
             e eVar = new e();
             eVar.mType = "recordClip";
             h.d(eVar);
@@ -132,24 +132,24 @@ public class a extends c {
         final com.baidu.swan.games.binding.model.c k = k(jsObject);
         String optString = k.optString("path");
         if (DEBUG) {
-            Log.d("GameRecorderApi", "clipPath:" + optString + "，hasExecutedClip：" + this.dSH);
+            Log.d("GameRecorderApi", "clipPath:" + optString + "，hasExecutedClip：" + this.dYz);
         }
-        if (this.dSH) {
+        if (this.dYz) {
             return;
         }
         if (a(GameRecorderController.RecorderState.STOP)) {
             c(k, "clipVideo can only called after onStop");
-        } else if (this.dSI.isEmpty()) {
+        } else if (this.dYA.isEmpty()) {
             c(k, "range is illegal");
         } else {
-            new com.baidu.swan.games.screenrecord.a.e(this.dSI, n.wy(optString), n.wK(a("bdfile://tmp/SwanVideoRecorder/videoClip_%d.mp4", this.dSK, 3))).a(new com.baidu.swan.games.screenrecord.a.c() { // from class: com.baidu.swan.games.screenrecord.a.1
+            new com.baidu.swan.games.screenrecord.a.e(this.dYA, n.wM(optString), n.wY(a("bdfile://tmp/SwanVideoRecorder/videoClip_%d.mp4", this.dYC, 3))).a(new com.baidu.swan.games.screenrecord.a.c() { // from class: com.baidu.swan.games.screenrecord.a.1
                 @Override // com.baidu.swan.games.screenrecord.a.c
                 public void a(com.baidu.swan.games.screenrecord.a.d dVar, String str) {
                     a.this.c(k, str);
                 }
             });
-            this.dSI.clear();
-            this.dSH = true;
+            this.dYA.clear();
+            this.dYz = true;
             e eVar = new e();
             eVar.mType = "clipVideo";
             h.d(eVar);
@@ -166,15 +166,15 @@ public class a extends c {
     }
 
     private boolean a(GameRecorderController.RecorderState... recorderStateArr) {
-        GameRecorderController.RecorderState aUl = d.aUn().aUo().aUl();
+        GameRecorderController.RecorderState aWL = d.aWN().aWO().aWL();
         if (DEBUG) {
-            Log.d("GameRecorderApi", "RecorderState:" + aUl);
+            Log.d("GameRecorderApi", "RecorderState:" + aWL);
         }
         if (recorderStateArr == null) {
             return true;
         }
         for (GameRecorderController.RecorderState recorderState : recorderStateArr) {
-            if (aUl == recorderState) {
+            if (aWL == recorderState) {
                 return false;
             }
         }
@@ -185,7 +185,7 @@ public class a extends c {
     private String a(String str, @NonNull List<String> list, int i) {
         if (list.size() >= i) {
             String remove = list.remove(0);
-            com.baidu.swan.c.d.deleteFile(n.wK(remove));
+            com.baidu.swan.c.d.deleteFile(n.wY(remove));
             if (DEBUG) {
                 Log.d("GameRecorderApi", "deleteFile: " + remove);
             }

@@ -6,7 +6,7 @@ import java.util.HashMap;
 public class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1215a;
+    final /* synthetic */ String f1217a;
     final /* synthetic */ HashMap b;
     final /* synthetic */ int c;
     final /* synthetic */ int d;
@@ -15,7 +15,7 @@ public class d implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(ArBridge arBridge, String str, HashMap hashMap, int i, int i2) {
         this.e = arBridge;
-        this.f1215a = str;
+        this.f1217a = str;
         this.b = hashMap;
         this.c = i;
         this.d = i2;
@@ -25,6 +25,6 @@ public class d implements Runnable {
     public void run() {
         this.e.nativeDestroyCase();
         this.e.setGLJniEnv();
-        this.e.nativeCreateCase(this.f1215a, this.e.getCaseId(), this.b, this.c, this.d);
+        this.e.nativeCreateCase(this.f1217a, this.e.getCaseId(), this.b, this.c, this.d);
     }
 }

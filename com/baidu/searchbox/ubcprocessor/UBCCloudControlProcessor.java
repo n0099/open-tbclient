@@ -33,7 +33,7 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
             }
             boolean z = !"0".equals(str);
             v vVar = new v("", serviceData);
-            vVar.bbv();
+            vVar.bdV();
             ((aa) c.a(aa.SERVICE_REFERENCE)).b(vVar, z, new s() { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
                 @Override // com.baidu.ubc.s
                 public void setUBCConfigStatisticData(JSONObject jSONObject) {
@@ -42,9 +42,9 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
                     }
                 }
             });
-            String dZF = vVar.dZF();
-            if (!TextUtils.isEmpty(dZF)) {
-                sharedPrefsWrapper().putString(UBC_CLOUDCONFIG_VERSION, dZF);
+            String edn = vVar.edn();
+            if (!TextUtils.isEmpty(edn)) {
+                sharedPrefsWrapper().putString(UBC_CLOUDCONFIG_VERSION, edn);
             }
             List<UBCCloudConfigObserver> list = new UBCCloudConfigObservers().mObservers.getList();
             if (list != null && !list.isEmpty()) {

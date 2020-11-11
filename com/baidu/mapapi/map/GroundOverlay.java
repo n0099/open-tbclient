@@ -10,7 +10,7 @@ public final class GroundOverlay extends Overlay {
     private static final String j = GroundOverlay.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    int f2007a;
+    int f2009a;
     BitmapDescriptor b;
     LatLng c;
     double d;
@@ -30,7 +30,7 @@ public final class GroundOverlay extends Overlay {
     public Bundle a(Bundle bundle) {
         super.a(bundle);
         bundle.putBundle("image_info", this.b.b());
-        if (this.f2007a == 1) {
+        if (this.f2009a == 1) {
             GeoPoint ll2mc = CoordUtil.ll2mc(this.h.southwest);
             double longitudeE6 = ll2mc.getLongitudeE6();
             double latitudeE6 = ll2mc.getLatitudeE6();
@@ -48,7 +48,7 @@ public final class GroundOverlay extends Overlay {
         }
         bundle.putDouble("x_distance", this.d);
         if (this.e == 2.147483647E9d) {
-            this.e = (int) ((this.d * this.b.f1997a.getHeight()) / this.b.f1997a.getWidth());
+            this.e = (int) ((this.d * this.b.f1999a.getHeight()) / this.b.f1999a.getWidth());
         }
         bundle.putDouble("y_distance", this.e);
         GeoPoint ll2mc3 = CoordUtil.ll2mc(this.c);
@@ -125,7 +125,7 @@ public final class GroundOverlay extends Overlay {
         if (latLng == null) {
             throw new IllegalArgumentException("BDMapSDKException: position can not be null");
         }
-        this.f2007a = 2;
+        this.f2009a = 2;
         this.c = latLng;
         this.listener.b(this);
     }
@@ -134,7 +134,7 @@ public final class GroundOverlay extends Overlay {
         if (latLngBounds == null) {
             throw new IllegalArgumentException("BDMapSDKException: bounds can not be null");
         }
-        this.f2007a = 1;
+        this.f2009a = 1;
         this.h = latLngBounds;
         this.listener.b(this);
     }

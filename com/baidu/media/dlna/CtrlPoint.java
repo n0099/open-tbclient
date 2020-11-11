@@ -14,7 +14,7 @@ import java.lang.ref.WeakReference;
 import java.util.HashMap;
 /* loaded from: classes16.dex */
 public class CtrlPoint extends CtrlPointProvider {
-    CtrlPointProvider.CtrlPointListener bSL;
+    CtrlPointProvider.CtrlPointListener bYv;
     String c;
     private long d;
     String b = null;
@@ -23,35 +23,35 @@ public class CtrlPoint extends CtrlPointProvider {
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 1:
-                    if (CtrlPoint.this.bSL != null) {
-                        CtrlPoint.this.bSL.onPrepared();
+                    if (CtrlPoint.this.bYv != null) {
+                        CtrlPoint.this.bYv.onPrepared();
                         break;
                     }
                     break;
                 case 2:
-                    if (CtrlPoint.this.bSL != null) {
-                        CtrlPoint.this.bSL.onComplete();
+                    if (CtrlPoint.this.bYv != null) {
+                        CtrlPoint.this.bYv.onComplete();
                         break;
                     }
                     break;
                 case 3:
-                    if (CtrlPoint.this.bSL != null) {
-                        CtrlPoint.this.bSL.onError(message.arg1, message.arg2);
+                    if (CtrlPoint.this.bYv != null) {
+                        CtrlPoint.this.bYv.onError(message.arg1, message.arg2);
                         break;
                     }
                     break;
                 case 4:
-                    if (CtrlPoint.this.bSL != null) {
+                    if (CtrlPoint.this.bYv != null) {
                         HashMap hashMap = new HashMap();
                         hashMap.put("url", CtrlPoint.this.b);
                         hashMap.put("uuid", CtrlPoint.this.c);
-                        CtrlPoint.this.bSL.onInfo(message.arg1, message.arg2, hashMap);
+                        CtrlPoint.this.bYv.onInfo(message.arg1, message.arg2, hashMap);
                         break;
                     }
                     break;
                 case 5:
-                    if (CtrlPoint.this.bSL != null) {
-                        CtrlPoint.this.bSL.onSeekCompleted(message.arg1, message.arg2);
+                    if (CtrlPoint.this.bYv != null) {
+                        CtrlPoint.this.bYv.onSeekCompleted(message.arg1, message.arg2);
                         break;
                     }
                     break;
@@ -225,7 +225,7 @@ public class CtrlPoint extends CtrlPointProvider {
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public void setListener(CtrlPointProvider.CtrlPointListener ctrlPointListener) {
         if (this.d != 0) {
-            this.bSL = ctrlPointListener;
+            this.bYv = ctrlPointListener;
             nativeCtrlPointSetListener(this.d, new WeakReference(this));
         }
     }

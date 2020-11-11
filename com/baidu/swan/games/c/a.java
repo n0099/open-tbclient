@@ -8,7 +8,7 @@ public class a extends JSEvent {
 
     /* renamed from: com.baidu.swan.games.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0518a {
+    public static class C0530a {
         @V8JavascriptField
         public String cmd;
         @V8JavascriptField
@@ -19,13 +19,13 @@ public class a extends JSEvent {
         super("sconsoleCmdMessage", obj);
     }
 
-    public static a co(JSONObject jSONObject) {
-        C0518a c0518a = new C0518a();
+    public static a cu(JSONObject jSONObject) {
+        C0530a c0530a = new C0530a();
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        c0518a.type = jSONObject.optString("type");
-        c0518a.cmd = jSONObject.optString("cmd");
-        return new a(c0518a);
+        c0530a.type = jSONObject.optString("type");
+        c0530a.cmd = jSONObject.optString("cmd");
+        return new a(c0530a);
     }
 }

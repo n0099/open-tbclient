@@ -3,30 +3,30 @@ package com.baidu.poly.util;
 import android.util.Log;
 /* loaded from: classes6.dex */
 public class d {
-    private static String bXQ = null;
-    private static String bXR = null;
-    private static int bXS = 0;
-    public static boolean bXT = true;
+    private static String cdC = null;
+    private static String cdD = null;
+    private static int cdE = 0;
+    public static boolean cdF = true;
 
     private static void a(StackTraceElement[] stackTraceElementArr) {
-        bXQ = stackTraceElementArr[1].getFileName();
-        bXR = stackTraceElementArr[1].getMethodName();
-        bXS = stackTraceElementArr[1].getLineNumber();
+        cdC = stackTraceElementArr[1].getFileName();
+        cdD = stackTraceElementArr[1].getMethodName();
+        cdE = stackTraceElementArr[1].getLineNumber();
     }
 
     private static String dW(String str) {
-        return Thread.currentThread().getName() + "[" + bXQ + ":" + bXR + ":" + bXS + "]" + str;
+        return Thread.currentThread().getName() + "[" + cdC + ":" + cdD + ":" + cdE + "]" + str;
     }
 
     public static void info(String str) {
-        if (!bXT) {
+        if (!cdF) {
             return;
         }
         Log.i("CashierSdk", str);
     }
 
     public static void a(Object... objArr) {
-        if (bXT) {
+        if (cdF) {
             a(new Throwable().getStackTrace());
             Log.e("CashierSdk", l(objArr));
         }
@@ -46,7 +46,7 @@ public class d {
     }
 
     public static void a(String str, Throwable th) {
-        if (bXT) {
+        if (cdF) {
             a(new Throwable().getStackTrace());
             Log.e("CashierSdk", l(str), th);
         }

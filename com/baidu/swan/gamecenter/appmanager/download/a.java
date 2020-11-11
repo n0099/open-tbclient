@@ -11,29 +11,29 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String dJS;
-    private long dJT;
+    private String dPK;
+    private long dPL;
     private String mPackageName;
     private String mUrl;
 
     public a() {
         this.mUrl = "";
-        this.dJS = "";
-        this.dJT = System.currentTimeMillis();
+        this.dPK = "";
+        this.dPL = System.currentTimeMillis();
     }
 
     public a(@NonNull Download download) {
         this.mUrl = "";
-        this.dJS = "";
-        this.dJT = System.currentTimeMillis();
+        this.dPK = "";
+        this.dPL = System.currentTimeMillis();
         this.mUrl = download.getUrl();
         this.mPackageName = download.getKeyByUser();
         String fromParam = download.getFromParam();
         if (!TextUtils.isEmpty(fromParam)) {
             try {
                 JSONObject jSONObject = new JSONObject(fromParam);
-                this.dJS = jSONObject.optString("apk_id");
-                this.dJT = jSONObject.optLong("download_time", System.currentTimeMillis());
+                this.dPK = jSONObject.optString("apk_id");
+                this.dPL = jSONObject.optLong("download_time", System.currentTimeMillis());
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -42,14 +42,14 @@ public class a {
         }
     }
 
-    public Download aPx() {
+    public Download aRX() {
         Download download = new Download();
         download.setUrl(this.mUrl);
         download.setKeyByUser(this.mPackageName);
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("apk_id", this.dJS);
-            jSONObject.put("download_time", this.dJT);
+            jSONObject.put("apk_id", this.dPK);
+            jSONObject.put("download_time", this.dPL);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -66,27 +66,27 @@ public class a {
         return download;
     }
 
-    public a vH(String str) {
+    public a vV(String str) {
         this.mUrl = str;
         return this;
     }
 
-    public a vI(String str) {
+    public a vW(String str) {
         this.mPackageName = str;
         return this;
     }
 
-    public String aPy() {
-        return this.dJS;
+    public String aRY() {
+        return this.dPK;
     }
 
-    public a vJ(String str) {
-        this.dJS = str;
+    public a vX(String str) {
+        this.dPK = str;
         return this;
     }
 
     public long getDownloadTime() {
-        return this.dJT;
+        return this.dPL;
     }
 
     private static String getDownloadDir() {

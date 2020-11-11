@@ -13,7 +13,7 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
     public static final int ALIGN_TOP = 8;
 
     /* renamed from: a  reason: collision with root package name */
-    LatLng f2024a;
+    LatLng f2026a;
     Point b;
     ELayoutMode c;
     float d;
@@ -24,7 +24,7 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
     public static final class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        private int f2025a;
+        private int f2027a;
         private int b;
         private LatLng c;
         private Point d;
@@ -51,7 +51,7 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
             if (z) {
                 throw new IllegalStateException("BDMapSDKException: if it is map mode, you must supply position info; else if it is absolute mode, you must supply the point info");
             }
-            return new MapViewLayoutParams(this.f2025a, this.b, this.c, this.d, this.e, this.f, this.g, this.h);
+            return new MapViewLayoutParams(this.f2027a, this.b, this.c, this.d, this.e, this.f, this.g, this.h);
         }
 
         public Builder height(int i) {
@@ -75,7 +75,7 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
         }
 
         public Builder width(int i) {
-            this.f2025a = i;
+            this.f2027a = i;
             return this;
         }
 
@@ -93,7 +93,7 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
 
     MapViewLayoutParams(int i, int i2, LatLng latLng, Point point, ELayoutMode eLayoutMode, int i3, int i4, int i5) {
         super(i, i2);
-        this.f2024a = latLng;
+        this.f2026a = latLng;
         this.b = point;
         this.c = eLayoutMode;
         switch (i3) {

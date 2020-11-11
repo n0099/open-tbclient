@@ -21,7 +21,7 @@ import javax.microedition.khronos.egl.EGLSurface;
 public final class t {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static int[] aKd() {
+    public static int[] aMD() {
         int[] iArr = new int[1];
         GLES10.glGetIntegerv(3379, iArr, 0);
         if (iArr[0] != 0) {
@@ -57,8 +57,8 @@ public final class t {
         return Uri.parse(str);
     }
 
-    public static File tZ(String str) {
-        return cH(com.baidu.swan.apps.v.f.axo().awU().aIm(), str);
+    public static File un(String str) {
+        return cH(com.baidu.swan.apps.v.f.azO().azu().aKM(), str);
     }
 
     public static File cH(String str, String str2) {

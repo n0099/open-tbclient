@@ -13,10 +13,10 @@ import java.util.List;
 class aj {
 
     /* renamed from: a  reason: collision with other field name */
-    private static final String[] f843a = {"com.mi.globalbrowser", "com.android.browser"};
+    private static final String[] f845a = {"com.mi.globalbrowser", "com.android.browser"};
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f5051a = null;
+    private static String f5053a = null;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static int a(Context context, String str) {
@@ -74,7 +74,7 @@ class aj {
         String str;
         int i = -1;
         while (true) {
-            str = i < 0 ? f5051a : f843a[i];
+            str = i < 0 ? f5053a : f845a[i];
             if (!TextUtils.isEmpty(str)) {
                 intent.setPackage(str);
                 try {
@@ -87,13 +87,13 @@ class aj {
                 }
             }
             int i2 = i + 1;
-            if (i2 >= f843a.length) {
+            if (i2 >= f845a.length) {
                 str = null;
                 break;
             }
             i = i2;
         }
         intent.setPackage(str);
-        f5051a = str;
+        f5053a = str;
     }
 }

@@ -73,7 +73,7 @@ public class MapController {
     private boolean l = true;
 
     /* renamed from: a  reason: collision with root package name */
-    int f2872a = 0;
+    int f2874a = 0;
     private int m = 1;
     private int n = 1;
     private boolean o = false;
@@ -122,14 +122,14 @@ public class MapController {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final int f2873a;
+        private final int f2875a;
 
         HeatMapType(int i) {
-            this.f2873a = i;
+            this.f2875a = i;
         }
 
         public int getId() {
-            return this.f2873a;
+            return this.f2875a;
         }
     }
 
@@ -142,10 +142,10 @@ public class MapController {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final int f2874a;
+        private final int f2876a;
 
         MapControlMode(int i) {
-            this.f2874a = i;
+            this.f2876a = i;
         }
     }
 
@@ -163,10 +163,10 @@ public class MapController {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final int f2875a;
+        private final int f2877a;
 
         MapLayerType(int i) {
-            this.f2875a = i;
+            this.f2877a = i;
         }
     }
 
@@ -180,14 +180,14 @@ public class MapController {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final int f2876a;
+        private final int f2878a;
 
         MapSceneMode(int i) {
-            this.f2876a = i;
+            this.f2878a = i;
         }
 
         public int getMode() {
-            return this.f2876a;
+            return this.f2878a;
         }
     }
 
@@ -205,14 +205,14 @@ public class MapController {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final int f2877a;
+        private final int f2879a;
 
         MapStyleMode(int i) {
-            this.f2877a = i;
+            this.f2879a = i;
         }
 
         public int getMode() {
-            return this.f2877a;
+            return this.f2879a;
         }
     }
 
@@ -235,14 +235,14 @@ public class MapController {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final int f2879a;
+        private final int f2881a;
 
         RecycleMemoryLevel(int i) {
-            this.f2879a = i;
+            this.f2881a = i;
         }
 
         public int getLevel() {
-            return this.f2879a;
+            return this.f2881a;
         }
     }
 
@@ -1281,7 +1281,7 @@ public class MapController {
 
     public boolean cleanCache(MapLayerType mapLayerType) {
         AppBaseMap appBaseMap = this.r;
-        return appBaseMap != null && appBaseMap.CleanCache(mapLayerType.f2875a);
+        return appBaseMap != null && appBaseMap.CleanCache(mapLayerType.f2877a);
     }
 
     public void clearUniversalLayer() {
@@ -1339,7 +1339,7 @@ public class MapController {
         if (appBaseMap == null) {
             return 0;
         }
-        return appBaseMap.GetCacheSize(mapLayerType.f2875a);
+        return appBaseMap.GetCacheSize(mapLayerType.f2877a);
     }
 
     public CaptureMapListener getCaptureMapListener() {
@@ -2232,7 +2232,7 @@ public class MapController {
     public int setMapControlMode(MapControlMode mapControlMode) {
         if (a()) {
             this.W = mapControlMode;
-            return this.r.SetMapControlMode(mapControlMode.f2874a);
+            return this.r.SetMapControlMode(mapControlMode.f2876a);
         }
         return -1;
     }
@@ -2478,10 +2478,10 @@ public class MapController {
         }
         if (i == 1) {
             this.g.onLongLinkConnect();
-        } else if (i == 2 && this.f2872a != i) {
+        } else if (i == 2 && this.f2874a != i) {
             this.g.onLongLinkDisConnect();
         }
-        this.f2872a = i;
+        this.f2874a = i;
     }
 
     public void setOverlayMapCallBack(ac acVar) {

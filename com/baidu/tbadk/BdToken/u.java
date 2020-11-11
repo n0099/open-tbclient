@@ -7,8 +7,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class u {
-    private long emV;
-    private ArrayList<w> emW;
+    private long esQ;
+    private ArrayList<w> esR;
     private long mStartDate;
     private String mUrl;
 
@@ -17,16 +17,16 @@ public class u {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 this.mStartDate = jSONObject.optLong("start_date", 0L) * 1000;
-                this.emV = jSONObject.optLong("end_date", 0L) * 1000;
+                this.esQ = jSONObject.optLong("end_date", 0L) * 1000;
                 this.mUrl = jSONObject.optString("ahead_url", "");
-                this.emW = new ArrayList<>();
+                this.esR = new ArrayList<>();
                 JSONArray optJSONArray = jSONObject.optJSONArray("time");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONArray optJSONArray2 = optJSONArray.optJSONArray(i);
                         w wVar = new w();
                         wVar.parseJson(optJSONArray2);
-                        this.emW.add(wVar);
+                        this.esR.add(wVar);
                     }
                 }
             } catch (Exception e) {
@@ -39,15 +39,15 @@ public class u {
         return this.mStartDate;
     }
 
-    public long beJ() {
-        return this.emV;
+    public long bhj() {
+        return this.esQ;
     }
 
     public String getUrl() {
         return this.mUrl;
     }
 
-    public ArrayList<w> beK() {
-        return this.emW;
+    public ArrayList<w> bhk() {
+        return this.esR;
     }
 }

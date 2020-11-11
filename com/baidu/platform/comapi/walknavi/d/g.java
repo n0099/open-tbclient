@@ -8,7 +8,7 @@ import java.util.HashMap;
 public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f2996a = true;
+    public static boolean f2998a = true;
     private com.baidu.platform.comapi.walknavi.d.b d;
     private com.baidu.platform.comapi.walknavi.d.a.d e;
     private boolean g;
@@ -36,7 +36,7 @@ public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
     public void a(String str) {
         com.baidu.platform.comapi.walknavi.b.a().K().b("walknavi_current_npc_token", str);
         this.c = str;
-        this.b.f2997a = str;
+        this.b.f2999a = str;
         if (this.o != null) {
             this.o.a(this.b);
         }
@@ -66,7 +66,7 @@ public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
     }
 
     private void a(long j, String str) {
-        if (f2996a) {
+        if (f2998a) {
             com.baidu.platform.comapi.wnplatform.d.a.a("NpcSDKManagerImp", str + "time:" + (System.currentTimeMillis() - j));
         } else {
             com.baidu.platform.comapi.wnplatform.d.a.a("NpcSDKManagerImp", str);
@@ -256,7 +256,7 @@ public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f2997a;
+        public String f2999a;
         public String b;
         public int c;
 

@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.liveroom.r;
 /* loaded from: classes4.dex */
 public interface a {
-    void hM(String str);
+    void hT(String str);
 
     void pause();
 

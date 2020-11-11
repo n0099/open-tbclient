@@ -3,18 +3,18 @@ package com.baidu.live.im;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class s {
-    public String aZK;
-    public long biH;
-    public long biJ;
-    public long biK;
-    public long biM;
-    public List<a> bjd;
+    public String bbd;
+    public long bka;
+    public long bkc;
+    public long bkd;
+    public long bkf;
+    public List<a> bkx;
 
     /* loaded from: classes4.dex */
     public static class a {
-        public long biI;
-        public long biL;
-        public long biN;
-        public long biO;
+        public long bkb;
+        public long bke;
+        public long bkg;
+        public long bkh;
     }
 }

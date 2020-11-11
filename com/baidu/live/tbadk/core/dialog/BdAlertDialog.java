@@ -163,8 +163,8 @@ public class BdAlertDialog {
 
     public BdAlertDialog(Activity activity) {
         this.mActivity = activity;
-        this.mRootView = (ViewGroup) LayoutInflater.from(activity).inflate(a.h.sdk_dialog_bdalert, (ViewGroup) null);
-        this.mRealView = (ViewGroup) this.mRootView.findViewById(a.g.real_view);
+        this.mRootView = (ViewGroup) LayoutInflater.from(activity).inflate(a.g.sdk_dialog_bdalert, (ViewGroup) null);
+        this.mRealView = (ViewGroup) this.mRootView.findViewById(a.f.real_view);
     }
 
     public BdAlertDialog setGravity(int i) {
@@ -211,11 +211,11 @@ public class BdAlertDialog {
         boolean z2 = true;
         if (!this.mDialogCreated) {
             this.mDialogCreated = true;
-            LinearLayout linearLayout = (LinearLayout) this.mRootView.findViewById(a.g.dialog_content);
-            this.yesButton = (TextView) this.mRootView.findViewById(a.g.yes);
-            this.noButton = (TextView) this.mRootView.findViewById(a.g.no);
-            this.dividerWithButton = this.mRootView.findViewById(a.g.divider_yes_no_button);
-            this.bdDialog_divider_line = this.mRootView.findViewById(a.g.bdDialog_divider_line);
+            LinearLayout linearLayout = (LinearLayout) this.mRootView.findViewById(a.f.dialog_content);
+            this.yesButton = (TextView) this.mRootView.findViewById(a.f.yes);
+            this.noButton = (TextView) this.mRootView.findViewById(a.f.no);
+            this.dividerWithButton = this.mRootView.findViewById(a.f.divider_yes_no_button);
+            this.bdDialog_divider_line = this.mRootView.findViewById(a.f.bdDialog_divider_line);
             if (this.mContentView != null) {
                 linearLayout.removeAllViews();
                 if (this.mContentView.getParent() != null) {
@@ -292,9 +292,9 @@ public class BdAlertDialog {
         boolean z2 = StringUtils.isNull(this.mMessage) ? false : true;
         if (z || z2) {
             if (z && z2) {
-                LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.mActivity).inflate(a.h.sdk_bdalert_two_message_view, (ViewGroup) null);
-                TextView textView = (TextView) linearLayout.findViewById(a.g.title_view);
-                TextView textView2 = (TextView) linearLayout.findViewById(a.g.message_view);
+                LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.mActivity).inflate(a.g.sdk_bdalert_two_message_view, (ViewGroup) null);
+                TextView textView = (TextView) linearLayout.findViewById(a.f.title_view);
+                TextView textView2 = (TextView) linearLayout.findViewById(a.f.message_view);
                 if (this.isMessageShowCenter) {
                     textView.setGravity(17);
                     textView2.setGravity(17);
@@ -310,8 +310,8 @@ public class BdAlertDialog {
                 }
                 return linearLayout;
             }
-            LinearLayout linearLayout2 = (LinearLayout) LayoutInflater.from(this.mActivity).inflate(a.h.sdk_bdalert_one_message_view, (ViewGroup) null);
-            TextView textView3 = (TextView) linearLayout2.findViewById(a.g.message_view);
+            LinearLayout linearLayout2 = (LinearLayout) LayoutInflater.from(this.mActivity).inflate(a.g.sdk_bdalert_one_message_view, (ViewGroup) null);
+            TextView textView3 = (TextView) linearLayout2.findViewById(a.f.message_view);
             if (this.messageTextColor != -1) {
                 textView3.setTextColor(this.messageTextColor);
             }
@@ -343,7 +343,7 @@ public class BdAlertDialog {
             }
         }
         if (this.mRootView != null) {
-            this.mRootView.setBackgroundResource(a.f.sdk_transparent_bg);
+            this.mRootView.setBackgroundResource(a.e.sdk_transparent_bg);
         }
     }
 
@@ -370,14 +370,14 @@ public class BdAlertDialog {
                 this.bdDialog_divider_line.setVisibility(8);
             }
         } else if (z) {
-            SkinManager.setBackgroundResource(this.yesButton, a.f.sdk_dialog_single_button_bg_selector, skinType);
+            SkinManager.setBackgroundResource(this.yesButton, a.e.sdk_dialog_single_button_bg_selector, skinType);
             if (this.noButton != null && this.dividerWithButton != null && this.bdDialog_divider_line != null) {
                 this.bdDialog_divider_line.setVisibility(0);
                 this.yesButton.setVisibility(0);
                 this.noButton.setVisibility(8);
             }
         } else if (z2) {
-            SkinManager.setBackgroundResource(this.noButton, a.f.sdk_dialog_single_button_bg_selector, skinType);
+            SkinManager.setBackgroundResource(this.noButton, a.e.sdk_dialog_single_button_bg_selector, skinType);
             if (this.yesButton != null && this.dividerWithButton != null && this.bdDialog_divider_line != null) {
                 this.bdDialog_divider_line.setVisibility(0);
                 this.noButton.setVisibility(0);
@@ -427,8 +427,8 @@ public class BdAlertDialog {
                     this.mDialogGravity = 17;
                 }
                 window.setGravity(this.mDialogGravity);
-                window.setWindowAnimations(a.j.sdk_dialog_windowanim);
-                window.setBackgroundDrawableResource(a.f.sdk_transparent_bg);
+                window.setWindowAnimations(a.i.sdk_dialog_windowanim);
+                window.setBackgroundDrawableResource(a.e.sdk_transparent_bg);
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 attributes.dimAmount = 0.65f;
                 attributes.width = -1;
@@ -455,7 +455,7 @@ public class BdAlertDialog {
 
     public int getDialogMargin() {
         if (this.dialogSize == 1) {
-            return BdUtilHelper.getDimens(this.mActivity, a.e.sdk_ds40);
+            return BdUtilHelper.getDimens(this.mActivity, a.d.sdk_ds40);
         }
         return (int) (BdUtilHelper.getEquipmentWidth(this.mActivity) * 0.09f);
     }

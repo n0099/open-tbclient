@@ -9,7 +9,7 @@ import java.util.Map;
 class MemberUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f1528a = 7;
+    private static final int f1530a = 7;
     private static final Class<?>[] b = {Byte.TYPE, Short.TYPE, Character.TYPE, Integer.TYPE, Long.TYPE, Float.TYPE, Double.TYPE};
     private static final Map<Class<?>, Class<?>> c = new HashMap();
     private static final Map<Class<?>, Class<?>> d = new HashMap();

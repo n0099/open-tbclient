@@ -5,7 +5,7 @@ import android.location.Location;
 public class x {
 
     /* renamed from: a  reason: collision with root package name */
-    private static long f1914a;
+    private static long f1916a;
     private static com.baidu.location.c.a b;
     private static Location c;
     private static String d;
@@ -15,7 +15,7 @@ public class x {
     }
 
     public static void a(long j) {
-        f1914a = j;
+        f1916a = j;
     }
 
     public static void a(Location location) {
@@ -31,7 +31,7 @@ public class x {
     }
 
     public static long b() {
-        return f1914a;
+        return f1916a;
     }
 
     public static com.baidu.location.c.a c() {

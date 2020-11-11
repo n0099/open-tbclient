@@ -62,7 +62,7 @@ public class FlutterDelegateStatic extends b {
         Resources resources = g.li().getResources();
         cVar.textResId = resources.getIdentifier("mine", "string", BdBaseApplication.getInst().getPackageName());
         cVar.animationResId = resources.getIdentifier("lottie_tab_my", "raw", BdBaseApplication.getInst().getPackageName());
-        cVar.showIconType = c.fnb;
+        cVar.showIconType = c.fsU;
         return cVar;
     }
 
@@ -71,11 +71,11 @@ public class FlutterDelegateStatic extends b {
         this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(g.li().getResources().getIdentifier("maintab_bottom_indicator", "layout", BdBaseApplication.getInst().getPackageName()), (ViewGroup) null);
         this.tipView = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.fns = this.mIndicator;
+        aVar.ftl = this.mIndicator;
         aVar.offsetX = l.dip2px(context, 10.0f);
         aVar.view = this.tipView;
         this.mIndicator.b("emotion", aVar);
-        boolean z = com.baidu.tbadk.core.sharedPref.b.bnH().getBoolean(SharedPrefConfig.KEY_FEEDBACK_PERSON_TAB_SHOW, false);
+        boolean z = com.baidu.tbadk.core.sharedPref.b.bqh().getBoolean(SharedPrefConfig.KEY_FEEDBACK_PERSON_TAB_SHOW, false);
         if (this.isNew.booleanValue() || z) {
             this.tipView.refresh(0);
             this.tipView.setVisibility(0);
@@ -92,7 +92,7 @@ public class FlutterDelegateStatic extends b {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007014 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof a)) {
-                    FlutterDelegateStatic.this.isNew = Boolean.valueOf(((a) customResponsedMessage.getData()).fmT);
+                    FlutterDelegateStatic.this.isNew = Boolean.valueOf(((a) customResponsedMessage.getData()).fsM);
                     if (FlutterDelegateStatic.this.isNew.booleanValue()) {
                         FlutterDelegateStatic.this.tipView.refresh(0);
                         FlutterDelegateStatic.this.tipView.setVisibility(0);

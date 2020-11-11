@@ -4,23 +4,23 @@ import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class k {
-    private String aSV;
-    private long aUR;
-    private String aUT;
-    private String aUX;
-    private int aUY;
+    private String aUo;
+    private long aWj;
+    private String aWl;
+    private String aWp;
+    private int aWq;
     private int giftId;
     private String giftName;
     private String portrait;
 
     public k(JSONObject jSONObject) {
         this.giftId = jSONObject.optInt(LogConfig.LOG_GIFT_ID);
-        this.aSV = jSONObject.optString("gift_tag");
-        this.aUX = jSONObject.optString("thumbnail_url");
+        this.aUo = jSONObject.optString("gift_tag");
+        this.aWp = jSONObject.optString("thumbnail_url");
         this.giftName = jSONObject.optString("gift_name");
-        this.aUY = jSONObject.optInt(LogConfig.VALUE_IM_GIFT);
-        this.aUR = jSONObject.optLong("pay_userid");
-        this.aUT = jSONObject.optString("pay_username");
+        this.aWq = jSONObject.optInt(LogConfig.VALUE_IM_GIFT);
+        this.aWj = jSONObject.optLong("pay_userid");
+        this.aWl = jSONObject.optString("pay_username");
         this.portrait = jSONObject.optString("bd_portrait");
     }
 
@@ -28,16 +28,16 @@ public class k {
         return this.giftId;
     }
 
-    public String bPr() {
-        return this.aUX;
+    public String bRR() {
+        return this.aWp;
     }
 
     public int getStatus() {
-        return this.aUY;
+        return this.aWq;
     }
 
-    public long bPs() {
-        return this.aUR;
+    public long bRS() {
+        return this.aWj;
     }
 
     public String getPortrait() {

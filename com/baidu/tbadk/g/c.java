@@ -1,11 +1,11 @@
 package com.baidu.tbadk.g;
 /* loaded from: classes.dex */
 public interface c {
-    void bgl();
+    void biL();
 
-    void bgn();
+    void biN();
 
     void onAdClick();
 
-    void zB(String str);
+    void zP(String str);
 }

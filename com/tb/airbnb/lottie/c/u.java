@@ -2,6 +2,7 @@ package com.tb.airbnb.lottie.c;
 
 import android.util.JsonReader;
 import android.util.Log;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.mobstat.Config;
 import com.tb.airbnb.lottie.model.content.Mask;
 import java.io.IOException;
@@ -10,10 +11,10 @@ import java.io.IOException;
 public class u {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static Mask r(JsonReader jsonReader, com.tb.airbnb.lottie.d dVar) throws IOException {
+    public static Mask r(JsonReader jsonReader, com.tb.airbnb.lottie.e eVar) throws IOException {
         boolean z;
         boolean z2;
-        com.tb.airbnb.lottie.model.a.d dVar2 = null;
+        com.tb.airbnb.lottie.model.a.d dVar = null;
         jsonReader.beginObject();
         com.tb.airbnb.lottie.model.a.h hVar = null;
         Mask.MaskMode maskMode = null;
@@ -35,7 +36,7 @@ public class u {
                     z = true;
                     break;
                 case 3357091:
-                    if (nextName.equals("mode")) {
+                    if (nextName.equals(UbcStatConstant.KEY_CONTENT_EXT_MODE)) {
                         z = false;
                         break;
                     }
@@ -82,7 +83,7 @@ public class u {
                             maskMode = Mask.MaskMode.MaskModeSubtract;
                             continue;
                         case true:
-                            dVar.bc("Animation contains intersect masks. They are not supported but will be treated like add masks.");
+                            eVar.bc("Animation contains intersect masks. They are not supported but will be treated like add masks.");
                             maskMode = Mask.MaskMode.MaskModeIntersect;
                             continue;
                         default:
@@ -91,10 +92,10 @@ public class u {
                             continue;
                     }
                 case true:
-                    hVar = d.j(jsonReader, dVar);
+                    hVar = d.j(jsonReader, eVar);
                     break;
                 case true:
-                    dVar2 = d.g(jsonReader, dVar);
+                    dVar = d.g(jsonReader, eVar);
                     break;
                 default:
                     jsonReader.skipValue();
@@ -102,6 +103,6 @@ public class u {
             }
         }
         jsonReader.endObject();
-        return new Mask(maskMode, hVar, dVar2);
+        return new Mask(maskMode, hVar, dVar);
     }
 }

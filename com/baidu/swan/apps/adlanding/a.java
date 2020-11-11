@@ -28,14 +28,14 @@ public class a extends aa {
             com.baidu.swan.apps.console.c.e("AdLanding", "adLanding: url is empty");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
-        } else if (f.axo().adm() == null) {
+        } else if (f.azO().afM() == null) {
             com.baidu.swan.apps.console.c.i("AdLandingAction", "open page failed");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         } else {
             com.baidu.swan.apps.model.b cb = com.baidu.swan.apps.model.b.cb(a2, a2);
             cb.mParams = a3;
-            if (com.baidu.swan.apps.api.module.k.j.ahD().isFullScreen()) {
+            if (com.baidu.swan.apps.api.module.k.j.akd().isFullScreen()) {
                 a(unitedSchemeEntity, cb);
             } else {
                 b(unitedSchemeEntity, cb);
@@ -47,7 +47,7 @@ public class a extends aa {
     }
 
     private void a(final UnitedSchemeEntity unitedSchemeEntity, final com.baidu.swan.apps.model.b bVar) {
-        com.baidu.swan.apps.api.module.k.j.ahD().ahF();
+        com.baidu.swan.apps.api.module.k.j.akd().akf();
         ak.c(new Runnable() { // from class: com.baidu.swan.apps.adlanding.a.1
             @Override // java.lang.Runnable
             public void run() {

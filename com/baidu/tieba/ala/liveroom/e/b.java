@@ -39,11 +39,11 @@ public class b {
         this.imageId = i;
     }
 
-    public int bWG() {
+    public int bZi() {
         return this.titleId;
     }
 
-    public void vl(int i) {
+    public void vy(int i) {
         this.titleId = i;
     }
 

@@ -1,9 +1,13 @@
 package com.baidu.live.gift;
-
-import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public class aj {
-    public boolean aSH;
-    public String fromType;
-    public TbPageContext pageContext;
+    private static ag aWG;
+
+    public static ag Hw() {
+        return aWG;
+    }
+
+    public static void a(ag agVar) {
+        aWG = agVar;
+    }
 }

@@ -14,10 +14,10 @@ import com.baidu.tieba.R;
 public class c {
     private int extraHeight;
     private int extraWidth;
-    private int fvA;
-    private int fvB;
-    private int fvy;
-    private int fvz;
+    private int fBo;
+    private int fBp;
+    private int fBq;
+    private int fBr;
     private int radius;
     private int tagBGColor;
     private int tagDisX;
@@ -25,13 +25,13 @@ public class c {
     private int tagTextColor;
     private int tagTextSize;
     protected final View view;
-    protected final Paint fvs = new Paint();
-    protected final Paint fvt = new Paint();
-    protected final Paint fvu = new Paint();
-    protected final Paint fvv = new Paint();
+    protected final Paint fBi = new Paint();
+    protected final Paint fBj = new Paint();
+    protected final Paint fBk = new Paint();
+    protected final Paint fBl = new Paint();
     private int mSkinType = 3;
-    private int fvw = R.color.cp_cont_a;
-    private int fvx = R.color.cp_link_tip_d;
+    private int fBm = R.color.cp_cont_a;
+    private int fBn = R.color.cp_link_tip_d;
 
     private Context getContext() {
         return (this.view == null || this.view.getContext() == null) ? TbadkCoreApplication.getInst().getContext() : this.view.getContext();
@@ -46,51 +46,51 @@ public class c {
         this.extraHeight = 20;
         this.extraWidth = 36;
         this.radius = 0;
-        this.fvy = 20;
-        this.fvz = 20;
-        this.fvA = 36;
-        this.fvB = 0;
+        this.fBo = 20;
+        this.fBp = 20;
+        this.fBq = 36;
+        this.fBr = 0;
         this.view = view;
         this.tagBGColor = getContext().getResources().getColor(R.color.black_alpha40);
-        this.fvt.setColor(this.tagBGColor);
-        this.fvt.setAntiAlias(true);
+        this.fBj.setColor(this.tagBGColor);
+        this.fBj.setAntiAlias(true);
         this.tagTextSize = (int) getContext().getResources().getDimension(R.dimen.tbfontsize26);
         this.tagTextColor = getContext().getResources().getColor(R.color.cp_cont_a);
-        this.fvs.setColor(this.tagTextColor);
-        this.fvs.setTextSize(this.tagTextSize);
-        this.fvs.setAntiAlias(true);
+        this.fBi.setColor(this.tagTextColor);
+        this.fBi.setTextSize(this.tagTextSize);
+        this.fBi.setAntiAlias(true);
         this.tagDisY = l.getDimens(getContext(), R.dimen.tbds16);
         this.tagDisX = l.getDimens(getContext(), R.dimen.tbds16);
         this.extraHeight = l.getDimens(getContext(), R.dimen.tbds22);
         this.extraWidth = l.getDimens(getContext(), R.dimen.tbds40);
         this.radius = l.getDimens(getContext(), R.dimen.tbds10);
-        this.fvy = (int) getContext().getResources().getDimension(R.dimen.tbfontsize26);
-        this.fvu.setTextSize(this.fvy);
-        this.fvs.setAntiAlias(true);
-        this.fvv.setAntiAlias(true);
-        this.fvz = l.getDimens(getContext(), R.dimen.tbds16);
-        this.fvA = l.getDimens(getContext(), R.dimen.tbds22);
-        this.fvB = l.getDimens(getContext(), R.dimen.tbds5);
-        rO(TbadkCoreApplication.getInst().getSkinType());
+        this.fBo = (int) getContext().getResources().getDimension(R.dimen.tbfontsize26);
+        this.fBk.setTextSize(this.fBo);
+        this.fBi.setAntiAlias(true);
+        this.fBl.setAntiAlias(true);
+        this.fBp = l.getDimens(getContext(), R.dimen.tbds16);
+        this.fBq = l.getDimens(getContext(), R.dimen.tbds22);
+        this.fBr = l.getDimens(getContext(), R.dimen.tbds5);
+        rY(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void a(Canvas canvas, String str, int i) {
         if (canvas != null && this.view != null && !TextUtils.isEmpty(str)) {
             if (i != 0) {
-                this.fvx = i;
-                this.fvv.setColor(ap.getColor(this.fvx));
+                this.fBn = i;
+                this.fBl.setColor(ap.getColor(this.fBn));
             }
             int save = canvas.save();
             int paddingLeft = this.view.getPaddingLeft();
             this.view.getPaddingRight();
             int paddingTop = this.view.getPaddingTop();
             this.view.getPaddingBottom();
-            float measureText = this.fvu.measureText(str);
+            float measureText = this.fBk.measureText(str);
             canvas.translate(paddingLeft, paddingTop);
-            RectF rectF = new RectF(0.0f, 0.0f, this.fvA + measureText, this.fvy + this.fvz);
-            canvas.drawRoundRect(rectF, this.fvB, this.fvB, this.fvv);
-            Paint.FontMetrics fontMetrics = this.fvu.getFontMetrics();
-            canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.fvu);
+            RectF rectF = new RectF(0.0f, 0.0f, this.fBq + measureText, this.fBo + this.fBp);
+            canvas.drawRoundRect(rectF, this.fBr, this.fBr, this.fBl);
+            Paint.FontMetrics fontMetrics = this.fBk.getFontMetrics();
+            canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.fBk);
             if (save >= 1 && save <= canvas.getSaveCount()) {
                 canvas.restoreToCount(save);
             }
@@ -108,14 +108,14 @@ public class c {
             int right = this.view.getRight();
             int top = this.view.getTop();
             int bottom = this.view.getBottom();
-            float measureText = this.fvs.measureText(str);
+            float measureText = this.fBi.measureText(str);
             float f = this.extraWidth + measureText;
             float f2 = this.tagTextSize + this.extraHeight;
             canvas.translate((((right - left) - paddingRight) - f) - this.tagDisX, (((bottom - top) - paddingBottom) - f2) - this.tagDisY);
             RectF rectF = new RectF(0.0f, 0.0f, f, f2);
-            canvas.drawRoundRect(rectF, this.radius, this.radius, this.fvt);
-            Paint.FontMetrics fontMetrics = this.fvs.getFontMetrics();
-            canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.fvs);
+            canvas.drawRoundRect(rectF, this.radius, this.radius, this.fBj);
+            Paint.FontMetrics fontMetrics = this.fBi.getFontMetrics();
+            canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.fBi);
             if (save >= 1 && save <= canvas.getSaveCount()) {
                 canvas.restoreToCount(save);
             }
@@ -136,29 +136,29 @@ public class c {
 
     public void setTagTextColor(int i) {
         this.tagTextColor = i;
-        this.fvs.setColor(i);
+        this.fBi.setColor(i);
         invalidate();
     }
 
     public void setTagTextSize(int i) {
         this.tagTextSize = i;
-        this.fvs.setTextSize(i);
+        this.fBi.setTextSize(i);
         invalidate();
     }
 
     public float getTagHeight(String str) {
-        return l.measureText(this.fvs, str).height() + this.extraHeight;
+        return l.measureText(this.fBi, str).height() + this.extraHeight;
     }
 
     public float getTagWidth(String str) {
-        return l.measureTextWidth(this.fvs, str) + this.extraWidth;
+        return l.measureTextWidth(this.fBi, str) + this.extraWidth;
     }
 
-    public void rO(int i) {
+    public void rY(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            this.fvu.setColor(ap.getColor(i, this.fvw));
-            this.fvv.setColor(ap.getColor(i, this.fvx));
+            this.fBk.setColor(ap.getColor(i, this.fBm));
+            this.fBl.setColor(ap.getColor(i, this.fBn));
         }
     }
 }

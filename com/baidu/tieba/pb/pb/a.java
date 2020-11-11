@@ -3,13 +3,13 @@ package com.baidu.tieba.pb.pb;
 import com.baidu.tbadk.TbPageContextSupport;
 /* loaded from: classes22.dex */
 public interface a<T> extends TbPageContextSupport {
-    boolean Pd(String str);
+    boolean Pu(String str);
 
-    com.baidu.tieba.pb.pb.main.b.a dgN();
+    com.baidu.tieba.pb.pb.main.b.a djp();
 
-    boolean dgO();
+    boolean djq();
 
-    String dgP();
+    String djr();
 
-    int dgQ();
+    int djs();
 }

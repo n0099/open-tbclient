@@ -15,10 +15,10 @@ public class b {
         aqVar.w("obj_duration", System.currentTimeMillis());
         aqVar.dR("obj_type", Build.MODEL);
         aqVar.dR("resource_id", Build.VERSION.RELEASE);
-        aqVar.aj("aid", TbSingleton.getInstance().getCpuFlopsDuration());
-        aqVar.aj("obj_param1", TbSingleton.getInstance().getAnimComputedFps("anim_switch_slide"));
-        aqVar.aj(TiebaInitialize.Params.OBJ_PARAM2, TbSingleton.getInstance().getAnimComputedFps("anim_switch_trans_frs"));
-        aqVar.aj(TiebaInitialize.Params.OBJ_PARAM3, TbSingleton.getInstance().getAnimComputedFps("anim_switch_sendthread_maintab"));
+        aqVar.al("aid", TbSingleton.getInstance().getCpuFlopsDuration());
+        aqVar.al("obj_param1", TbSingleton.getInstance().getAnimComputedFps("anim_switch_slide"));
+        aqVar.al(TiebaInitialize.Params.OBJ_PARAM2, TbSingleton.getInstance().getAnimComputedFps("anim_switch_trans_frs"));
+        aqVar.al(TiebaInitialize.Params.OBJ_PARAM3, TbSingleton.getInstance().getAnimComputedFps("anim_switch_sendthread_maintab"));
         TiebaStatic.log(aqVar);
     }
 }

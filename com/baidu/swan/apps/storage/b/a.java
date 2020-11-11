@@ -7,49 +7,49 @@ import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 /* loaded from: classes10.dex */
 public abstract class a implements d {
-    private static final ReadWriteLock duO = new ReentrantReadWriteLock();
-    private File duP = aIk();
+    private static final ReadWriteLock dAG = new ReentrantReadWriteLock();
+    private File dAH = aKK();
     private final long MAX_SIZE = getMaxSize();
 
     @NonNull
-    public abstract String aIl();
+    public abstract String aKL();
 
     @Override // com.baidu.swan.apps.storage.b.d
-    public void bU(long j) {
-        duO.writeLock().lock();
+    public void cq(long j) {
+        dAG.writeLock().lock();
         try {
-            if (this.duP == null) {
-                this.duP = aIk();
+            if (this.dAH == null) {
+                this.dAH = aKK();
             }
-            File file = this.duP;
+            File file = this.dAH;
             if (!file.exists()) {
                 file.createNewFile();
             }
-            com.baidu.swan.c.d.saveFileCommon(String.valueOf(aIj() + j).getBytes(), file);
+            com.baidu.swan.c.d.saveFileCommon(String.valueOf(aKJ() + j).getBytes(), file);
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {
                 e.printStackTrace();
             }
         } finally {
-            duO.writeLock().unlock();
+            dAG.writeLock().unlock();
         }
     }
 
     @Override // com.baidu.swan.apps.storage.b.d
-    public boolean bV(long j) {
-        duO.readLock().lock();
+    public boolean cr(long j) {
+        dAG.readLock().lock();
         try {
-            return aIj() + j > this.MAX_SIZE;
+            return aKJ() + j > this.MAX_SIZE;
         } finally {
-            duO.readLock().unlock();
+            dAG.readLock().unlock();
         }
     }
 
-    private long aIj() {
-        if (this.duP == null) {
-            this.duP = aIk();
+    private long aKJ() {
+        if (this.dAH == null) {
+            this.dAH = aKK();
         }
-        File file = this.duP;
+        File file = this.dAH;
         if (file.exists() && file.isFile()) {
             String readFileData = com.baidu.swan.c.d.readFileData(file);
             try {
@@ -68,7 +68,7 @@ public abstract class a implements d {
         return 0L;
     }
 
-    private File aIk() {
-        return new File(aIl() + File.separator + "record.pro");
+    private File aKK() {
+        return new File(aKL() + File.separator + "record.pro");
     }
 }

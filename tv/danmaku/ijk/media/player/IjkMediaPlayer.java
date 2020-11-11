@@ -63,7 +63,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     private static volatile boolean t = false;
 
     /* renamed from: a  reason: collision with root package name */
-    private SurfaceHolder f5397a;
+    private SurfaceHolder f5399a;
     private b b;
     private PowerManager.WakeLock c = null;
     private boolean d;
@@ -98,7 +98,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     public static class a implements d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f5398a = new a();
+        public static final a f5400a = new a();
 
         @Override // tv.danmaku.ijk.media.player.IjkMediaPlayer.d
         @TargetApi(16)
@@ -112,11 +112,11 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     public static class b extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        private final WeakReference<IjkMediaPlayer> f5399a;
+        private final WeakReference<IjkMediaPlayer> f5401a;
 
         public b(IjkMediaPlayer ijkMediaPlayer, Looper looper) {
             super(looper);
-            this.f5399a = new WeakReference<>(ijkMediaPlayer);
+            this.f5401a = new WeakReference<>(ijkMediaPlayer);
         }
 
         private String a(String str) {
@@ -156,7 +156,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            IjkMediaPlayer ijkMediaPlayer = this.f5399a.get();
+            IjkMediaPlayer ijkMediaPlayer = this.f5401a.get();
             if (ijkMediaPlayer == null || ijkMediaPlayer.mNativeMediaPlayer == 0) {
                 CyberLog.w("IjkMediaPlayer", "IjkMediaPlayer went away with unhandled events");
                 return;
@@ -291,16 +291,16 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     public static class f extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        private final WeakReference<IjkMediaPlayer> f5400a;
+        private final WeakReference<IjkMediaPlayer> f5402a;
 
         public f(IjkMediaPlayer ijkMediaPlayer, Looper looper) {
             super(looper);
-            this.f5400a = new WeakReference<>(ijkMediaPlayer);
+            this.f5402a = new WeakReference<>(ijkMediaPlayer);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            IjkMediaPlayer ijkMediaPlayer = this.f5400a.get();
+            IjkMediaPlayer ijkMediaPlayer = this.f5402a.get();
             if (ijkMediaPlayer == null || (ijkMediaPlayer.mNativeMediaPlayer == 0 && message.what != 12)) {
                 CyberLog.w("IjkMediaPlayer", "IjkMediaPlayer went away with unhandled events msg.what:" + message.what);
                 return;
@@ -859,7 +859,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
         }
         d dVar = ijkMediaPlayer.w;
         if (dVar == null) {
-            dVar = a.f5398a;
+            dVar = a.f5400a;
         }
         return dVar.a(ijkMediaPlayer, str, i, i2);
     }
@@ -945,8 +945,8 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     }
 
     private void x() {
-        if (this.f5397a != null) {
-            this.f5397a.setKeepScreenOn(this.d && this.e);
+        if (this.f5399a != null) {
+            this.f5399a.setKeepScreenOn(this.d && this.e);
         }
     }
 
@@ -1075,7 +1075,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
         if (this.d && surface != null) {
             CyberLog.w("IjkMediaPlayer", "setScreenOnWhilePlaying(true) is ineffective for Surface");
         }
-        this.f5397a = null;
+        this.f5399a = null;
         if (!a(14, 0, 0, surface)) {
             _setVideoSurface(surface);
         }
@@ -1083,7 +1083,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     }
 
     public void a(SurfaceHolder surfaceHolder) {
-        this.f5397a = surfaceHolder;
+        this.f5399a = surfaceHolder;
         Surface surface = surfaceHolder != null ? surfaceHolder.getSurface() : null;
         if (!a(14, 0, 0, surface)) {
             _setVideoSurface(surface);
@@ -1164,7 +1164,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
 
     public void a(boolean z) {
         if (this.d != z) {
-            if (z && this.f5397a == null) {
+            if (z && this.f5399a == null) {
                 CyberLog.i("IjkMediaPlayer", "setScreenOnWhilePlaying(true) is ineffective without a SurfaceHolder");
             }
             this.d = z;

@@ -3,39 +3,39 @@ package com.baidu.swan.game.ad.d;
 import android.text.TextUtils;
 /* loaded from: classes14.dex */
 public class f {
-    public static boolean aOE() {
-        return (TextUtils.isEmpty(aOH()) || TextUtils.isEmpty(aOI()) || System.currentTimeMillis() - com.baidu.swan.games.utils.c.aUU().aVi().longValue() >= 604800000) ? false : true;
+    public static boolean aRe() {
+        return (TextUtils.isEmpty(aRh()) || TextUtils.isEmpty(aRi()) || System.currentTimeMillis() - com.baidu.swan.games.utils.c.aXu().aXI().longValue() >= 604800000) ? false : true;
     }
 
-    public static boolean aOF() {
-        return (TextUtils.isEmpty(aOJ()) || TextUtils.isEmpty(aOK()) || System.currentTimeMillis() - com.baidu.swan.games.utils.c.aUU().aVi().longValue() >= 604800000) ? false : true;
+    public static boolean aRf() {
+        return (TextUtils.isEmpty(aRj()) || TextUtils.isEmpty(aRk()) || System.currentTimeMillis() - com.baidu.swan.games.utils.c.aXu().aXI().longValue() >= 604800000) ? false : true;
     }
 
-    public static boolean aOG() {
-        return com.baidu.swan.games.utils.c.aUU().aVl() && aOF();
+    public static boolean aRg() {
+        return com.baidu.swan.games.utils.c.aXu().aXL() && aRf();
     }
 
-    public static String aOH() {
-        return com.baidu.swan.games.utils.c.aUU().aOH();
+    public static String aRh() {
+        return com.baidu.swan.games.utils.c.aXu().aRh();
     }
 
-    public static String aOI() {
-        return com.baidu.swan.games.utils.c.aUU().aVg();
+    public static String aRi() {
+        return com.baidu.swan.games.utils.c.aXu().aXG();
     }
 
-    public static String aOJ() {
-        return com.baidu.swan.games.utils.c.aUU().aOJ();
+    public static String aRj() {
+        return com.baidu.swan.games.utils.c.aXu().aRj();
     }
 
-    public static String aOK() {
-        return com.baidu.swan.games.utils.c.aUU().aVh();
+    public static String aRk() {
+        return com.baidu.swan.games.utils.c.aXu().aXH();
     }
 
-    public static boolean aOL() {
-        return com.baidu.swan.games.utils.c.aUU().aVj();
+    public static boolean aRl() {
+        return com.baidu.swan.games.utils.c.aXu().aXJ();
     }
 
-    public static boolean aOM() {
-        return aOF() && com.baidu.swan.games.utils.c.aUU().aVk();
+    public static boolean aRm() {
+        return aRf() && com.baidu.swan.games.utils.c.aXu().aXK();
     }
 }

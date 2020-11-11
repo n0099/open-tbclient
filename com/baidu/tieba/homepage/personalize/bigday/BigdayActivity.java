@@ -22,11 +22,11 @@ import com.baidu.tieba.R;
 import java.util.Calendar;
 /* loaded from: classes22.dex */
 public class BigdayActivity extends BaseActivity {
-    private String aHs;
-    private long erR;
+    private String aIk;
+    private long exK;
     private String imgUrl;
-    private TbImageView jzG;
-    private ImageView jzH;
+    private TbImageView jFD;
+    private ImageView jFE;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -34,41 +34,41 @@ public class BigdayActivity extends BaseActivity {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
         setContentView(R.layout.bigday_activity);
-        this.jzG = (TbImageView) findViewById(R.id.bigday_img);
-        this.jzG.setAutoChangeStyle(false);
-        this.jzH = (ImageView) findViewById(R.id.bigday_close);
+        this.jFD = (TbImageView) findViewById(R.id.bigday_img);
+        this.jFD.setAutoChangeStyle(false);
+        this.jFE = (ImageView) findViewById(R.id.bigday_close);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            ((FrameLayout.LayoutParams) this.jzH.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(R.dimen.ds25));
+            ((FrameLayout.LayoutParams) this.jFE.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(R.dimen.ds25));
         }
         Intent intent = getIntent();
         if (intent != null) {
             this.imgUrl = intent.getStringExtra(BigdayActivityConfig.IMG_URL);
-            this.aHs = intent.getStringExtra(BigdayActivityConfig.JUMP_URL);
-            this.erR = intent.getLongExtra(BigdayActivityConfig.BIGDAY_ID, 0L);
+            this.aIk = intent.getStringExtra(BigdayActivityConfig.JUMP_URL);
+            this.exK = intent.getLongExtra(BigdayActivityConfig.BIGDAY_ID, 0L);
         }
-        this.jzG.setTag(getPageContext().getUniqueId());
-        this.jzG.startLoad(this.imgUrl, 41, false);
-        this.jzG.setOnClickListener(this);
-        this.jzH.setOnClickListener(this);
-        TiebaStatic.log(new aq("c13111").w("obj_id", this.erR).dR(TiebaInitialize.Params.OBJ_TO, this.aHs));
+        this.jFD.setTag(getPageContext().getUniqueId());
+        this.jFD.startLoad(this.imgUrl, 41, false);
+        this.jFD.setOnClickListener(this);
+        this.jFE.setOnClickListener(this);
+        TiebaStatic.log(new aq("c13111").w("obj_id", this.exK).dR(TiebaInitialize.Params.OBJ_TO, this.aIk));
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == this.jzG.getId()) {
-            if (!StringUtils.isNULL(this.aHs)) {
-                be.boR().b(getPageContext(), new String[]{this.aHs});
-                TiebaStatic.log(new aq("c13112").w("obj_id", this.erR).dR(TiebaInitialize.Params.OBJ_TO, this.aHs));
+        if (view.getId() == this.jFD.getId()) {
+            if (!StringUtils.isNULL(this.aIk)) {
+                be.brr().b(getPageContext(), new String[]{this.aIk});
+                TiebaStatic.log(new aq("c13112").w("obj_id", this.exK).dR(TiebaInitialize.Params.OBJ_TO, this.aIk));
                 finish();
             }
-        } else if (view.getId() == this.jzH.getId()) {
+        } else if (view.getId() == this.jFE.getId()) {
             Calendar calendar = Calendar.getInstance();
             calendar.set(11, 23);
             calendar.set(12, 59);
             calendar.set(13, 59);
             calendar.set(14, 0);
-            com.baidu.tbadk.core.sharedPref.b.bnH().putLong("key_bigday_next_showtime_home", calendar.getTimeInMillis());
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, null));
+            com.baidu.tbadk.core.sharedPref.b.bqh().putLong("key_bigday_next_showtime_home", calendar.getTimeInMillis());
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GET_LIVE_IS_BC_CHAT, null));
             finish();
         }
     }

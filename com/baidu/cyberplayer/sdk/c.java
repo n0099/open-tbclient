@@ -6,7 +6,7 @@ import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static c f1369a;
+    private static c f1371a;
     private boolean b = true;
     private String c = null;
     private String d = null;
@@ -21,10 +21,10 @@ public class c {
     public static synchronized c a() {
         c cVar;
         synchronized (c.class) {
-            if (f1369a == null) {
-                f1369a = new c();
+            if (f1371a == null) {
+                f1371a = new c();
             }
-            cVar = f1369a;
+            cVar = f1371a;
         }
         return cVar;
     }

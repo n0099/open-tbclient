@@ -17,7 +17,7 @@ import java.io.RandomAccessFile;
 public class f extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    LLSInterface f1956a = null;
+    LLSInterface f1958a = null;
     LLSInterface b = null;
     LLSInterface c = null;
     public static String replaceFileName = "repll.jar";
@@ -93,16 +93,16 @@ public class f extends Service {
                 file.renameTo(file2);
             }
             if (file2.exists() && a(new File(l.j() + File.separator + "app.jar"))) {
-                this.f1956a = (LLSInterface) new DexClassLoader(l.j() + File.separator + "app.jar", l.j(), null, getClassLoader()).loadClass("com.baidu.serverLoc.LocationService").newInstance();
+                this.f1958a = (LLSInterface) new DexClassLoader(l.j() + File.separator + "app.jar", l.j(), null, getClassLoader()).loadClass("com.baidu.serverLoc.LocationService").newInstance();
             }
         } catch (Exception e) {
-            this.f1956a = null;
+            this.f1958a = null;
         }
-        if (this.f1956a == null || this.f1956a.getVersion() < this.b.getVersion()) {
+        if (this.f1958a == null || this.f1958a.getVersion() < this.b.getVersion()) {
             this.c = this.b;
-            this.f1956a = null;
+            this.f1958a = null;
         } else {
-            this.c = this.f1956a;
+            this.c = this.f1958a;
             this.b = null;
         }
         isServing = true;

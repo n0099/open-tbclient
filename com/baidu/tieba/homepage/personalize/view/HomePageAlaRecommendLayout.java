@@ -22,9 +22,9 @@ import java.util.List;
 import tbclient.AlaLiveInfo;
 /* loaded from: classes22.dex */
 public class HomePageAlaRecommendLayout extends LinearLayout {
-    private CustomMessageListener eHG;
-    private BdRecyclerView hKC;
-    private com.baidu.tieba.homepage.personalize.a.a jAT;
+    private CustomMessageListener eNv;
+    private BdRecyclerView hQz;
+    private com.baidu.tieba.homepage.personalize.a.a jGQ;
     private Context mContext;
     private List<AlaLiveInfo> mData;
     private int mSkinType;
@@ -36,7 +36,7 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
     public HomePageAlaRecommendLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
-        this.eHG = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.homepage.personalize.view.HomePageAlaRecommendLayout.1
+        this.eNv = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.homepage.personalize.view.HomePageAlaRecommendLayout.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -45,7 +45,7 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
                     for (AlaLiveInfo alaLiveInfo : HomePageAlaRecommendLayout.this.mData) {
                         if (alaLiveInfo != null && alaLiveInfo.user_info != null && alaLiveInfo.user_info.user_id != null && data.toUid.equals(alaLiveInfo.user_info.user_id.toString())) {
                             HomePageAlaRecommendLayout.this.mData.remove(alaLiveInfo);
-                            HomePageAlaRecommendLayout.this.cJe();
+                            HomePageAlaRecommendLayout.this.cLF();
                             return;
                         }
                     }
@@ -60,34 +60,34 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
         LayoutInflater.from(getContext()).inflate(R.layout.home_page_ala_recommend_layout, (ViewGroup) this, true);
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.hKC = (BdRecyclerView) findViewById(R.id.ala_recommend_list);
-        this.jAT = new com.baidu.tieba.homepage.personalize.a.a(this.mContext);
-        this.hKC.setAdapter(this.jAT);
-        this.hKC.setLayoutManager(new LinearLayoutManager(this.mContext, 0, false));
-        this.hKC.setItemAnimator(new DefaultItemAnimator());
+        this.hQz = (BdRecyclerView) findViewById(R.id.ala_recommend_list);
+        this.jGQ = new com.baidu.tieba.homepage.personalize.a.a(this.mContext);
+        this.hQz.setAdapter(this.jGQ);
+        this.hQz.setLayoutManager(new LinearLayoutManager(this.mContext, 0, false));
+        this.hQz.setItemAnimator(new DefaultItemAnimator());
         int dimens = l.getDimens(this.mContext, R.dimen.tbds20);
-        this.hKC.addItemDecoration(new a(dimens, 0, dimens));
-        this.hKC.setPadding(this.hKC.getLeft(), this.hKC.getTop(), this.hKC.getRight(), l.getDimens(this.hKC.getContext(), com.baidu.tbadk.a.b.a.aL(R.dimen.tbds0, R.dimen.tbds51)));
+        this.hQz.addItemDecoration(new a(dimens, 0, dimens));
+        this.hQz.setPadding(this.hQz.getLeft(), this.hQz.getTop(), this.hQz.getRight(), l.getDimens(this.hQz.getContext(), com.baidu.tbadk.a.b.a.aL(R.dimen.tbds0, R.dimen.tbds51)));
     }
 
     public void setData(com.baidu.tieba.homepage.personalize.data.f fVar) {
-        if (fVar == null || y.isEmpty(fVar.cIS())) {
+        if (fVar == null || y.isEmpty(fVar.cLt())) {
             setVisibility(8);
             return;
         }
-        this.mData = fVar.cIS();
+        this.mData = fVar.cLt();
         setVisibility(0);
-        cJe();
+        cLF();
     }
 
-    public void cJe() {
+    public void cLF() {
         if (y.isEmpty(this.mData)) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        this.jAT.setData(this.mData);
-        this.jAT.notifyDataSetChanged();
+        this.jGQ.setData(this.mData);
+        this.jGQ.notifyDataSetChanged();
     }
 
     public void onChangeSkinType(int i) {
@@ -98,13 +98,13 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
-        MessageManager.getInstance().registerListener(this.eHG);
+        MessageManager.getInstance().registerListener(this.eNv);
         super.onAttachedToWindow();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
-        MessageManager.getInstance().unRegisterListener(this.eHG);
+        MessageManager.getInstance().unRegisterListener(this.eNv);
         super.onDetachedFromWindow();
     }
 }

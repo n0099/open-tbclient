@@ -21,7 +21,7 @@ import org.json.JSONObject;
 public class ItemizedOverlay<Item extends OverlayItem> extends Overlay implements Comparator<Integer> {
 
     /* renamed from: a  reason: collision with root package name */
-    protected ArrayList<OverlayItem> f2871a;
+    protected ArrayList<OverlayItem> f2873a;
     protected ArrayList<Integer> b;
     protected Drawable c;
     protected MapSurfaceView d;
@@ -35,7 +35,7 @@ public class ItemizedOverlay<Item extends OverlayItem> extends Overlay implement
     public ItemizedOverlay(Drawable drawable, MapSurfaceView mapSurfaceView) {
         this.mType = 27;
         this.c = drawable;
-        this.f2871a = new ArrayList<>();
+        this.f2873a = new ArrayList<>();
         this.b = new ArrayList<>();
         this.d = mapSurfaceView;
         this.mLayerID = 0L;
@@ -44,7 +44,7 @@ public class ItemizedOverlay<Item extends OverlayItem> extends Overlay implement
     public ItemizedOverlay(Drawable drawable, MapTextureView mapTextureView) {
         this.mType = 27;
         this.c = drawable;
-        this.f2871a = new ArrayList<>();
+        this.f2873a = new ArrayList<>();
         this.b = new ArrayList<>();
         this.e = mapTextureView;
         this.mLayerID = 0L;
@@ -56,8 +56,8 @@ public class ItemizedOverlay<Item extends OverlayItem> extends Overlay implement
                 return;
             }
             synchronized (this) {
-                if (this.f2871a != null && list != null) {
-                    this.f2871a.addAll(list);
+                if (this.f2873a != null && list != null) {
+                    this.f2873a.addAll(list);
                 }
             }
             return;
@@ -131,7 +131,7 @@ public class ItemizedOverlay<Item extends OverlayItem> extends Overlay implement
                 parcelItem.setBundle(bundle2);
                 arrayList.add(parcelItem);
                 if (!z) {
-                    this.f2871a.add(overlayItem);
+                    this.f2873a.add(overlayItem);
                 }
             }
             i = i2 + 1;
@@ -159,11 +159,11 @@ public class ItemizedOverlay<Item extends OverlayItem> extends Overlay implement
         ArrayList arrayList;
         int i;
         int i2 = 0;
-        if (this.f2871a != null) {
+        if (this.f2873a != null) {
             synchronized (this) {
-                if (this.f2871a.size() != 0) {
+                if (this.f2873a.size() != 0) {
                     synchronized (this) {
-                        arrayList = new ArrayList(this.f2871a);
+                        arrayList = new ArrayList(this.f2873a);
                     }
                     int i3 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
                     Iterator it = arrayList.iterator();
@@ -200,7 +200,7 @@ public class ItemizedOverlay<Item extends OverlayItem> extends Overlay implement
 
     protected int a(int i) {
         synchronized (this) {
-            if (this.f2871a == null || this.f2871a.size() == 0) {
+            if (this.f2873a == null || this.f2873a.size() == 0) {
                 i = -1;
             }
         }
@@ -211,7 +211,7 @@ public class ItemizedOverlay<Item extends OverlayItem> extends Overlay implement
     public void a() {
         ArrayList arrayList;
         synchronized (this) {
-            arrayList = new ArrayList(this.f2871a);
+            arrayList = new ArrayList(this.f2873a);
         }
         removeAll();
         addItem(arrayList);
@@ -225,7 +225,7 @@ public class ItemizedOverlay<Item extends OverlayItem> extends Overlay implement
     protected boolean a(OverlayItem overlayItem) {
         ArrayList arrayList;
         synchronized (this) {
-            arrayList = new ArrayList(this.f2871a);
+            arrayList = new ArrayList(this.f2873a);
         }
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
@@ -283,8 +283,8 @@ public class ItemizedOverlay<Item extends OverlayItem> extends Overlay implement
         GeoPoint point;
         GeoPoint point2;
         synchronized (this) {
-            point = this.f2871a.get(num.intValue()).getPoint();
-            point2 = this.f2871a.get(num2.intValue()).getPoint();
+            point = this.f2873a.get(num.intValue()).getPoint();
+            point2 = this.f2873a.get(num2.intValue()).getPoint();
         }
         if (point.getLatitude() > point2.getLatitude()) {
             return -1;
@@ -299,7 +299,7 @@ public class ItemizedOverlay<Item extends OverlayItem> extends Overlay implement
     }
 
     public ArrayList<OverlayItem> getAllItem() {
-        return this.f2871a;
+        return this.f2873a;
     }
 
     public GeoPoint getCenter() {
@@ -312,11 +312,11 @@ public class ItemizedOverlay<Item extends OverlayItem> extends Overlay implement
 
     public final OverlayItem getItem(int i) {
         ArrayList arrayList;
-        if (this.f2871a == null) {
+        if (this.f2873a == null) {
             return null;
         }
         synchronized (this) {
-            arrayList = new ArrayList(this.f2871a);
+            arrayList = new ArrayList(this.f2873a);
         }
         if (arrayList.size() <= i || i < 0) {
             return null;
@@ -358,14 +358,14 @@ public class ItemizedOverlay<Item extends OverlayItem> extends Overlay implement
     public boolean removeAll() {
         boolean z = true;
         synchronized (this) {
-            if (this.f2871a.isEmpty()) {
+            if (this.f2873a.isEmpty()) {
                 z = false;
             } else {
                 if (this.d.getController() != null && this.d.getController().getBaseMap() != null) {
                     this.d.getController().getBaseMap().ClearLayer(this.mLayerID);
                 }
                 synchronized (this) {
-                    this.f2871a.clear();
+                    this.f2873a.clear();
                     this.f = true;
                 }
             }
@@ -385,7 +385,7 @@ public class ItemizedOverlay<Item extends OverlayItem> extends Overlay implement
         bundle.putString("id", overlayItem.getId());
         if (this.d.getController().getBaseMap().RemoveItemData(bundle)) {
             synchronized (this) {
-                this.f2871a.remove(overlayItem);
+                this.f2873a.remove(overlayItem);
                 this.f = true;
             }
             return true;
@@ -422,7 +422,7 @@ public class ItemizedOverlay<Item extends OverlayItem> extends Overlay implement
         if (z) {
             this.h.setGeoPoint(new GeoPoint(item.getPoint().getLatitude(), item.getPoint().getLongitude()));
             synchronized (this) {
-                arrayList = new ArrayList(this.f2871a);
+                arrayList = new ArrayList(this.f2873a);
             }
             if (arrayList.contains(this.h)) {
                 updateItem(this.h);
@@ -463,7 +463,7 @@ public class ItemizedOverlay<Item extends OverlayItem> extends Overlay implement
     }
 
     public synchronized int size() {
-        return this.f2871a == null ? 0 : this.f2871a.size();
+        return this.f2873a == null ? 0 : this.f2873a.size();
     }
 
     public boolean updateItem(OverlayItem overlayItem) {
@@ -471,7 +471,7 @@ public class ItemizedOverlay<Item extends OverlayItem> extends Overlay implement
         boolean z;
         if (overlayItem != null && !overlayItem.getId().equals("")) {
             synchronized (this) {
-                arrayList = new ArrayList(this.f2871a);
+                arrayList = new ArrayList(this.f2873a);
             }
             Iterator it = arrayList.iterator();
             while (true) {

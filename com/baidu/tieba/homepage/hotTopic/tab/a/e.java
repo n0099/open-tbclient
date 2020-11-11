@@ -20,7 +20,7 @@ public class e extends a<bv, am<bw>> {
     private ab<bw> afF;
 
     public e(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, bw.exP);
+        super(tbPageContext, bw.eDG);
         this.afF = new ab<bw>() { // from class: com.baidu.tieba.homepage.hotTopic.tab.a.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
@@ -34,7 +34,7 @@ public class e extends a<bv, am<bw>> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aT */
+    /* renamed from: aV */
     public am c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
         z zVar = new z(this.mPageContext.getPageActivity());
@@ -50,7 +50,7 @@ public class e extends a<bv, am<bw>> {
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
                 if ((qVar instanceof bv) && (view.getTag() instanceof am)) {
                     am amVar2 = (am) view.getTag();
-                    bw bwVar = ((bv) qVar).erH;
+                    bw bwVar = ((bv) qVar).exA;
                     bwVar.objType = 1;
                     if (e.this.afF != null) {
                         e.this.afF.a(amVar2.getView(), bwVar);
@@ -67,15 +67,15 @@ public class e extends a<bv, am<bw>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.homepage.hotTopic.tab.a.a, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bv bvVar, am<bw> amVar) {
-        if (bvVar == null || amVar == null || amVar.getView() == null || bvVar.erH == null) {
+        if (bvVar == null || amVar == null || amVar.getView() == null || bvVar.exA == null) {
             return null;
         }
-        bvVar.erH.evR = getPositionByType(i) + 1;
+        bvVar.exA.eBK = getPositionByType(i) + 1;
         amVar.tW().setPosition(i);
-        amVar.b((am<bw>) bvVar.erH);
+        amVar.b((am<bw>) bvVar.exA);
         amVar.tW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         amVar.tW().a(this.afF);
-        a(amVar.getView(), bvVar.erH, i, i);
+        a(amVar.getView(), bvVar.exA, i, i);
         return amVar.getView();
     }
 }

@@ -18,12 +18,12 @@ import com.baidu.live.view.ALALevelView;
 import com.baidu.tieba.ala.charm.data.ALaCharmData;
 /* loaded from: classes4.dex */
 public class CharmRankMedalItemView extends LinearLayout {
-    public TextView aEK;
-    private View aWU;
-    public HeadImageView grA;
-    public ALALevelView grC;
-    public ImageView grE;
-    public TextView grF;
+    public TextView aFA;
+    private View aYm;
+    public HeadImageView gxo;
+    public ALALevelView gxq;
+    public ImageView gxs;
+    public TextView gxt;
 
     public CharmRankMedalItemView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -32,10 +32,10 @@ public class CharmRankMedalItemView extends LinearLayout {
 
     public void setData(ALaCharmData aLaCharmData) {
         if (aLaCharmData != null) {
-            l.a(this.grA, aLaCharmData.portrait, true, false);
-            this.grC.setupLevelIcon(aLaCharmData.level_id);
-            this.aEK.setText(aLaCharmData.user_name);
-            this.grF.setText(String.format(getResources().getString(a.i.sdk_charm_rank_forward_diff), StringHelper.formatValue(aLaCharmData.forwardDiff)));
+            l.a(this.gxo, aLaCharmData.portrait, true, false);
+            this.gxq.setupLevelIcon(aLaCharmData.level_id);
+            this.aFA.setText(aLaCharmData.user_name);
+            this.gxt.setText(String.format(getResources().getString(a.h.sdk_charm_rank_forward_diff), StringHelper.formatValue(aLaCharmData.forwardDiff)));
         }
     }
 
@@ -47,32 +47,32 @@ public class CharmRankMedalItemView extends LinearLayout {
     private void initView() {
         setBackgroundColor(0);
         setOrientation(1);
-        LayoutInflater.from(getContext()).inflate(a.h.sdk_charm_rank_medal_item, (ViewGroup) this, true);
-        this.grA = (HeadImageView) findViewById(a.g.iv_avatar);
-        this.grE = (ImageView) findViewById(a.g.iv_pendant);
-        this.aWU = findViewById(a.g.layout_name);
-        this.grC = (ALALevelView) findViewById(a.g.level);
-        this.aEK = (TextView) findViewById(a.g.tv_name);
-        this.grF = (TextView) findViewById(a.g.tv_content);
-        this.grA.setIsRound(true);
-        this.grA.setAutoChangeStyle(false);
-        this.grA.setDrawBorder(false);
-        this.grA.setDefaultBgResource(a.f.sdk_charm_rank_medal_avatar_default);
-        this.grA.setDefaultErrorResource(a.f.sdk_charm_rank_medal_avatar_default);
-        int dimensionPixelSize = getResources().getDimensionPixelSize(a.e.sdk_tbds7);
-        int dimensionPixelSize2 = getResources().getDimensionPixelSize(a.e.sdk_tbds12);
-        this.grC.setTextLayoutParams(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize);
+        LayoutInflater.from(getContext()).inflate(a.g.sdk_charm_rank_medal_item, (ViewGroup) this, true);
+        this.gxo = (HeadImageView) findViewById(a.f.iv_avatar);
+        this.gxs = (ImageView) findViewById(a.f.iv_pendant);
+        this.aYm = findViewById(a.f.layout_name);
+        this.gxq = (ALALevelView) findViewById(a.f.level);
+        this.aFA = (TextView) findViewById(a.f.tv_name);
+        this.gxt = (TextView) findViewById(a.f.tv_content);
+        this.gxo.setIsRound(true);
+        this.gxo.setAutoChangeStyle(false);
+        this.gxo.setDrawBorder(false);
+        this.gxo.setDefaultBgResource(a.e.sdk_charm_rank_medal_avatar_default);
+        this.gxo.setDefaultErrorResource(a.e.sdk_charm_rank_medal_avatar_default);
+        int dimensionPixelSize = getResources().getDimensionPixelSize(a.d.sdk_tbds7);
+        int dimensionPixelSize2 = getResources().getDimensionPixelSize(a.d.sdk_tbds12);
+        this.gxq.setTextLayoutParams(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize);
     }
 
     private void initAttrs(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, a.k.sdk_CharmRankMedalItemView);
-        int resourceId = obtainStyledAttributes.getResourceId(a.k.sdk_CharmRankMedalItemView_sdk_charm_rmi_pendant_src, -1);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, a.j.sdk_CharmRankMedalItemView);
+        int resourceId = obtainStyledAttributes.getResourceId(a.j.sdk_CharmRankMedalItemView_sdk_charm_rmi_pendant_src, -1);
         if (resourceId > 0) {
-            this.grE.setImageResource(resourceId);
+            this.gxs.setImageResource(resourceId);
         }
-        int resourceId2 = obtainStyledAttributes.getResourceId(a.k.sdk_CharmRankMedalItemView_sdk_charm_rmi_name_bg, -1);
+        int resourceId2 = obtainStyledAttributes.getResourceId(a.j.sdk_CharmRankMedalItemView_sdk_charm_rmi_name_bg, -1);
         if (resourceId2 > 0) {
-            this.aWU.setBackgroundResource(resourceId2);
+            this.aYm.setBackgroundResource(resourceId2);
         }
         obtainStyledAttributes.recycle();
     }

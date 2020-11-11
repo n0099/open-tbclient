@@ -5,6 +5,7 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.data.BaseData;
+import com.baidu.live.tbadk.coreextra.data.AlaVideoBCChatData;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
     public int contribution;
     public int createTime;
     public String description;
+    public int disableClick;
     public JSONObject extraUserInfo;
     public int fansCount;
     public int followCount;
@@ -43,6 +45,7 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
     public int isLogin;
     public boolean isNewUser;
     public int isOfficial;
+    public int isPrivacy;
     public int isUegBlock;
     public double lat;
     public int levelExp;
@@ -78,6 +81,7 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
     public int verifyVideoStatus;
     public boolean isNewGiftPriceStrategy = false;
     public int logined = 0;
+    public AlaVideoBCChatData videoBCEnterData = new AlaVideoBCChatData();
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
@@ -150,12 +154,17 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
             }
             this.userType = jSONObject.optInt("user_type");
             this.needRename = jSONObject.optInt("need_rename");
+            this.isPrivacy = jSONObject.optInt("is_privacy");
+            this.disableClick = jSONObject.optInt("disable_click");
             praseMarkList(jSONObject);
             if (jSONObject.has("verify_video_status")) {
                 this.verifyVideoStatus = jSONObject.optInt("verify_video_status");
             }
             if (jSONObject.has("is_bluediamond_member")) {
                 this.isBluediamondMember = jSONObject.optInt("is_bluediamond_member");
+            }
+            if (jSONObject.has("pub_show_two_switch")) {
+                this.videoBCEnterData.parserJson(jSONObject);
             }
             this.throneUid = jSONObject.optString("is_guard_seat");
             this.rank = jSONObject.optInt("rank");

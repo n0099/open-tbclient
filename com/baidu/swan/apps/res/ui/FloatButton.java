@@ -37,7 +37,7 @@ public class FloatButton extends FullScreenFloatView {
     }
 
     public void setFloatButtonDefaultPosition() {
-        findViewById(a.f.float_imgview).setBottom(ah.N(191.0f));
+        findViewById(a.f.float_imgview).setBottom(ah.P(191.0f));
     }
 
     public void setFloatButtonStyle(JSONObject jSONObject) {
@@ -57,63 +57,63 @@ public class FloatButton extends FullScreenFloatView {
         Rect rect = new Rect();
         switch (motionEvent.getAction()) {
             case 0:
-                this.dhV.getHitRect(rect);
+                this.dnR.getHitRect(rect);
                 if (rect.contains((int) x, (int) y)) {
-                    this.dic = x;
-                    this.byX = y;
-                    this.dia = true;
-                    this.dhZ = true;
-                    postDelayed(this.die, ViewConfiguration.getTapTimeout());
+                    this.dnY = x;
+                    this.bFi = y;
+                    this.dnW = true;
+                    this.dnV = true;
+                    postDelayed(this.dnZ, ViewConfiguration.getTapTimeout());
                     break;
                 }
                 break;
             case 1:
-                if (this.dhZ) {
-                    if (this.dif != null) {
-                        this.dif.onClick();
+                if (this.dnV) {
+                    if (this.doa != null) {
+                        this.doa.onClick();
                     }
-                    removeCallbacks(this.die);
-                } else if (this.dia && this.dif != null) {
-                    this.dif.axd();
+                    removeCallbacks(this.dnZ);
+                } else if (this.dnW && this.doa != null) {
+                    this.doa.azD();
                 }
                 if (DEBUG) {
-                    Log.e("FloatButton", "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.dhZ);
+                    Log.e("FloatButton", "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.dnV);
                 }
-                if (this.dib && !this.dhZ && x >= 0.0f && x <= this.dhY && y >= 0.0f && y <= this.mParentHeight + this.dhX) {
-                    this.dhV.animate().x(this.dhY - this.dhW).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
+                if (this.dnX && !this.dnV && x >= 0.0f && x <= this.dnU && y >= 0.0f && y <= this.mParentHeight + this.dnT) {
+                    this.dnR.animate().x(this.dnU - this.dnS).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
                 }
-                this.dhZ = false;
-                this.dia = false;
+                this.dnV = false;
+                this.dnW = false;
                 break;
             case 2:
-                float abs = Math.abs(x - this.dic);
-                float abs2 = Math.abs(y - this.byX);
+                float abs = Math.abs(x - this.dnY);
+                float abs2 = Math.abs(y - this.bFi);
                 if (Math.sqrt((abs * abs) + (abs2 * abs2)) > 10.0d) {
-                    this.dhZ = false;
+                    this.dnV = false;
                 }
                 n(x, y);
                 break;
             case 3:
-                this.dhZ = false;
-                this.dia = false;
+                this.dnV = false;
+                this.dnW = false;
                 break;
             case 4:
-                this.dhZ = false;
-                this.dia = false;
+                this.dnV = false;
+                this.dnW = false;
                 break;
         }
-        return this.dhZ | this.dia;
+        return this.dnV | this.dnW;
     }
 
     private void n(float f, float f2) {
-        if (this.dhV != null) {
+        if (this.dnR != null) {
             if (DEBUG) {
                 Log.e("FloatButton", "move--> x = " + f + ", y = " + f2);
             }
-            int i = (int) (f - (this.dhW / 2));
-            int i2 = (int) (f2 - (this.dhX / 2));
-            int i3 = this.dhY - this.dhW;
-            int i4 = (this.mParentHeight - this.dhX) - 168;
+            int i = (int) (f - (this.dnS / 2));
+            int i2 = (int) (f2 - (this.dnT / 2));
+            int i3 = this.dnU - this.dnS;
+            int i4 = (this.mParentHeight - this.dnT) - 168;
             if (i <= 0) {
                 i = 0;
             }
@@ -129,8 +129,8 @@ public class FloatButton extends FullScreenFloatView {
             if (DEBUG) {
                 Log.e("FloatButton", "move--> left = 0, top = 288, mStatusBarHeight = " + this.mStatusBarHeight);
             }
-            this.dhV.setX(i3);
-            this.dhV.setY(i4);
+            this.dnR.setX(i3);
+            this.dnR.setY(i4);
             requestLayout();
         }
     }

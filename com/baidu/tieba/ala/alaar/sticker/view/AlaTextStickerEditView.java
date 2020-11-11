@@ -23,19 +23,19 @@ import com.baidu.live.utils.j;
 import com.baidu.tieba.ala.alaar.messages.AntiContentHttpResponseMessage;
 /* loaded from: classes4.dex */
 public class AlaTextStickerEditView extends RelativeLayout {
-    private w aEc;
-    private TextView fYQ;
-    private TextView fYR;
-    private EditText fYS;
-    private a fYT;
-    private HttpMessageListener fYU;
+    private w aES;
+    private TextView geI;
+    private TextView geJ;
+    private EditText geK;
+    private a geL;
+    private HttpMessageListener geM;
     private TextWatcher mTextWatcher;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void FX(String str);
+        void Gl(String str);
 
-        void bLt();
+        void bNS();
     }
 
     public AlaTextStickerEditView(Context context) {
@@ -51,44 +51,44 @@ public class AlaTextStickerEditView extends RelativeLayout {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                int textLength = TextHelper.getTextLength(AlaTextStickerEditView.this.fYS.getText());
+                int textLength = TextHelper.getTextLength(AlaTextStickerEditView.this.geK.getText());
                 if (textLength > 16) {
-                    AlaTextStickerEditView.this.fYS.setText(TextHelper.subString(AlaTextStickerEditView.this.fYS.getText().toString(), 16));
-                    AlaTextStickerEditView.this.fYS.setSelection(AlaTextStickerEditView.this.fYS.getText().length());
-                    AlaTextStickerEditView.this.fYQ.setAlpha(1.0f);
-                    AlaTextStickerEditView.this.fYR.setTextColor(AlaTextStickerEditView.this.getContext().getResources().getColor(a.d.sdk_color_ff1e66));
-                    BdUtilHelper.showToast(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.getContext().getResources().getString(a.i.ala_live_sticker_text_length_limit));
+                    AlaTextStickerEditView.this.geK.setText(TextHelper.subString(AlaTextStickerEditView.this.geK.getText().toString(), 16));
+                    AlaTextStickerEditView.this.geK.setSelection(AlaTextStickerEditView.this.geK.getText().length());
+                    AlaTextStickerEditView.this.geI.setAlpha(1.0f);
+                    AlaTextStickerEditView.this.geJ.setTextColor(AlaTextStickerEditView.this.getContext().getResources().getColor(a.c.sdk_color_ff1e66));
+                    BdUtilHelper.showToast(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.getContext().getResources().getString(a.h.ala_live_sticker_text_length_limit));
                     return;
                 }
-                if (AlaTextStickerEditView.this.fYS.getText().length() == 0) {
-                    AlaTextStickerEditView.this.fYS.setHint(AlaTextStickerEditView.this.getContext().getString(a.i.ala_live_striker_text));
-                    AlaTextStickerEditView.this.fYQ.setAlpha(0.7f);
+                if (AlaTextStickerEditView.this.geK.getText().length() == 0) {
+                    AlaTextStickerEditView.this.geK.setHint(AlaTextStickerEditView.this.getContext().getString(a.h.ala_live_striker_text));
+                    AlaTextStickerEditView.this.geI.setAlpha(0.7f);
                 } else {
-                    AlaTextStickerEditView.this.fYQ.setAlpha(1.0f);
+                    AlaTextStickerEditView.this.geI.setAlpha(1.0f);
                 }
-                AlaTextStickerEditView.this.fYQ.setEnabled(true);
+                AlaTextStickerEditView.this.geI.setEnabled(true);
                 if (textLength == 16) {
-                    AlaTextStickerEditView.this.fYR.setTextColor(AlaTextStickerEditView.this.getContext().getResources().getColor(a.d.sdk_color_ff1e66));
+                    AlaTextStickerEditView.this.geJ.setTextColor(AlaTextStickerEditView.this.getContext().getResources().getColor(a.c.sdk_color_ff1e66));
                 } else {
-                    AlaTextStickerEditView.this.fYR.setTextColor(AlaTextStickerEditView.this.getContext().getResources().getColor(a.d.sdk_white_alpha100));
+                    AlaTextStickerEditView.this.geJ.setTextColor(AlaTextStickerEditView.this.getContext().getResources().getColor(a.c.sdk_white_alpha100));
                 }
-                AlaTextStickerEditView.this.fYR.setText(AlaTextStickerEditView.this.getContext().getString(a.i.ala_live_sticker_edit_num, Integer.valueOf((TextHelper.getTextLength(AlaTextStickerEditView.this.fYS.getText()) + 1) / 2)));
+                AlaTextStickerEditView.this.geJ.setText(AlaTextStickerEditView.this.getContext().getString(a.h.ala_live_sticker_edit_num, Integer.valueOf((TextHelper.getTextLength(AlaTextStickerEditView.this.geK.getText()) + 1) / 2)));
             }
         };
-        this.fYU = new HttpMessageListener(1021158) { // from class: com.baidu.tieba.ala.alaar.sticker.view.AlaTextStickerEditView.5
+        this.geM = new HttpMessageListener(1021158) { // from class: com.baidu.tieba.ala.alaar.sticker.view.AlaTextStickerEditView.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (!(httpResponsedMessage instanceof AntiContentHttpResponseMessage) || httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
-                    BdUtilHelper.showToast(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.getContext().getResources().getString(a.i.sdk_net_fail_tip));
-                } else if (((AntiContentHttpResponseMessage) httpResponsedMessage).bKK()) {
-                    if (AlaTextStickerEditView.this.fYT != null) {
-                        AlaTextStickerEditView.this.fYT.FX(AlaTextStickerEditView.this.fYS.getText().toString());
-                        BdUtilHelper.hideSoftKeyPad(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.fYS);
-                        AlaTextStickerEditView.this.fYT.bLt();
+                    BdUtilHelper.showToast(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.getContext().getResources().getString(a.h.sdk_net_fail_tip));
+                } else if (((AntiContentHttpResponseMessage) httpResponsedMessage).bNj()) {
+                    if (AlaTextStickerEditView.this.geL != null) {
+                        AlaTextStickerEditView.this.geL.Gl(AlaTextStickerEditView.this.geK.getText().toString());
+                        BdUtilHelper.hideSoftKeyPad(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.geK);
+                        AlaTextStickerEditView.this.geL.bNS();
                     }
                 } else {
-                    BdUtilHelper.showToast(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.getContext().getResources().getString(a.i.ala_live_sticker_edit_anti));
+                    BdUtilHelper.showToast(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.getContext().getResources().getString(a.h.ala_live_sticker_edit_anti));
                 }
             }
         };
@@ -108,44 +108,44 @@ public class AlaTextStickerEditView extends RelativeLayout {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                int textLength = TextHelper.getTextLength(AlaTextStickerEditView.this.fYS.getText());
+                int textLength = TextHelper.getTextLength(AlaTextStickerEditView.this.geK.getText());
                 if (textLength > 16) {
-                    AlaTextStickerEditView.this.fYS.setText(TextHelper.subString(AlaTextStickerEditView.this.fYS.getText().toString(), 16));
-                    AlaTextStickerEditView.this.fYS.setSelection(AlaTextStickerEditView.this.fYS.getText().length());
-                    AlaTextStickerEditView.this.fYQ.setAlpha(1.0f);
-                    AlaTextStickerEditView.this.fYR.setTextColor(AlaTextStickerEditView.this.getContext().getResources().getColor(a.d.sdk_color_ff1e66));
-                    BdUtilHelper.showToast(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.getContext().getResources().getString(a.i.ala_live_sticker_text_length_limit));
+                    AlaTextStickerEditView.this.geK.setText(TextHelper.subString(AlaTextStickerEditView.this.geK.getText().toString(), 16));
+                    AlaTextStickerEditView.this.geK.setSelection(AlaTextStickerEditView.this.geK.getText().length());
+                    AlaTextStickerEditView.this.geI.setAlpha(1.0f);
+                    AlaTextStickerEditView.this.geJ.setTextColor(AlaTextStickerEditView.this.getContext().getResources().getColor(a.c.sdk_color_ff1e66));
+                    BdUtilHelper.showToast(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.getContext().getResources().getString(a.h.ala_live_sticker_text_length_limit));
                     return;
                 }
-                if (AlaTextStickerEditView.this.fYS.getText().length() == 0) {
-                    AlaTextStickerEditView.this.fYS.setHint(AlaTextStickerEditView.this.getContext().getString(a.i.ala_live_striker_text));
-                    AlaTextStickerEditView.this.fYQ.setAlpha(0.7f);
+                if (AlaTextStickerEditView.this.geK.getText().length() == 0) {
+                    AlaTextStickerEditView.this.geK.setHint(AlaTextStickerEditView.this.getContext().getString(a.h.ala_live_striker_text));
+                    AlaTextStickerEditView.this.geI.setAlpha(0.7f);
                 } else {
-                    AlaTextStickerEditView.this.fYQ.setAlpha(1.0f);
+                    AlaTextStickerEditView.this.geI.setAlpha(1.0f);
                 }
-                AlaTextStickerEditView.this.fYQ.setEnabled(true);
+                AlaTextStickerEditView.this.geI.setEnabled(true);
                 if (textLength == 16) {
-                    AlaTextStickerEditView.this.fYR.setTextColor(AlaTextStickerEditView.this.getContext().getResources().getColor(a.d.sdk_color_ff1e66));
+                    AlaTextStickerEditView.this.geJ.setTextColor(AlaTextStickerEditView.this.getContext().getResources().getColor(a.c.sdk_color_ff1e66));
                 } else {
-                    AlaTextStickerEditView.this.fYR.setTextColor(AlaTextStickerEditView.this.getContext().getResources().getColor(a.d.sdk_white_alpha100));
+                    AlaTextStickerEditView.this.geJ.setTextColor(AlaTextStickerEditView.this.getContext().getResources().getColor(a.c.sdk_white_alpha100));
                 }
-                AlaTextStickerEditView.this.fYR.setText(AlaTextStickerEditView.this.getContext().getString(a.i.ala_live_sticker_edit_num, Integer.valueOf((TextHelper.getTextLength(AlaTextStickerEditView.this.fYS.getText()) + 1) / 2)));
+                AlaTextStickerEditView.this.geJ.setText(AlaTextStickerEditView.this.getContext().getString(a.h.ala_live_sticker_edit_num, Integer.valueOf((TextHelper.getTextLength(AlaTextStickerEditView.this.geK.getText()) + 1) / 2)));
             }
         };
-        this.fYU = new HttpMessageListener(1021158) { // from class: com.baidu.tieba.ala.alaar.sticker.view.AlaTextStickerEditView.5
+        this.geM = new HttpMessageListener(1021158) { // from class: com.baidu.tieba.ala.alaar.sticker.view.AlaTextStickerEditView.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (!(httpResponsedMessage instanceof AntiContentHttpResponseMessage) || httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
-                    BdUtilHelper.showToast(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.getContext().getResources().getString(a.i.sdk_net_fail_tip));
-                } else if (((AntiContentHttpResponseMessage) httpResponsedMessage).bKK()) {
-                    if (AlaTextStickerEditView.this.fYT != null) {
-                        AlaTextStickerEditView.this.fYT.FX(AlaTextStickerEditView.this.fYS.getText().toString());
-                        BdUtilHelper.hideSoftKeyPad(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.fYS);
-                        AlaTextStickerEditView.this.fYT.bLt();
+                    BdUtilHelper.showToast(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.getContext().getResources().getString(a.h.sdk_net_fail_tip));
+                } else if (((AntiContentHttpResponseMessage) httpResponsedMessage).bNj()) {
+                    if (AlaTextStickerEditView.this.geL != null) {
+                        AlaTextStickerEditView.this.geL.Gl(AlaTextStickerEditView.this.geK.getText().toString());
+                        BdUtilHelper.hideSoftKeyPad(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.geK);
+                        AlaTextStickerEditView.this.geL.bNS();
                     }
                 } else {
-                    BdUtilHelper.showToast(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.getContext().getResources().getString(a.i.ala_live_sticker_edit_anti));
+                    BdUtilHelper.showToast(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.getContext().getResources().getString(a.h.ala_live_sticker_edit_anti));
                 }
             }
         };
@@ -165,44 +165,44 @@ public class AlaTextStickerEditView extends RelativeLayout {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                int textLength = TextHelper.getTextLength(AlaTextStickerEditView.this.fYS.getText());
+                int textLength = TextHelper.getTextLength(AlaTextStickerEditView.this.geK.getText());
                 if (textLength > 16) {
-                    AlaTextStickerEditView.this.fYS.setText(TextHelper.subString(AlaTextStickerEditView.this.fYS.getText().toString(), 16));
-                    AlaTextStickerEditView.this.fYS.setSelection(AlaTextStickerEditView.this.fYS.getText().length());
-                    AlaTextStickerEditView.this.fYQ.setAlpha(1.0f);
-                    AlaTextStickerEditView.this.fYR.setTextColor(AlaTextStickerEditView.this.getContext().getResources().getColor(a.d.sdk_color_ff1e66));
-                    BdUtilHelper.showToast(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.getContext().getResources().getString(a.i.ala_live_sticker_text_length_limit));
+                    AlaTextStickerEditView.this.geK.setText(TextHelper.subString(AlaTextStickerEditView.this.geK.getText().toString(), 16));
+                    AlaTextStickerEditView.this.geK.setSelection(AlaTextStickerEditView.this.geK.getText().length());
+                    AlaTextStickerEditView.this.geI.setAlpha(1.0f);
+                    AlaTextStickerEditView.this.geJ.setTextColor(AlaTextStickerEditView.this.getContext().getResources().getColor(a.c.sdk_color_ff1e66));
+                    BdUtilHelper.showToast(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.getContext().getResources().getString(a.h.ala_live_sticker_text_length_limit));
                     return;
                 }
-                if (AlaTextStickerEditView.this.fYS.getText().length() == 0) {
-                    AlaTextStickerEditView.this.fYS.setHint(AlaTextStickerEditView.this.getContext().getString(a.i.ala_live_striker_text));
-                    AlaTextStickerEditView.this.fYQ.setAlpha(0.7f);
+                if (AlaTextStickerEditView.this.geK.getText().length() == 0) {
+                    AlaTextStickerEditView.this.geK.setHint(AlaTextStickerEditView.this.getContext().getString(a.h.ala_live_striker_text));
+                    AlaTextStickerEditView.this.geI.setAlpha(0.7f);
                 } else {
-                    AlaTextStickerEditView.this.fYQ.setAlpha(1.0f);
+                    AlaTextStickerEditView.this.geI.setAlpha(1.0f);
                 }
-                AlaTextStickerEditView.this.fYQ.setEnabled(true);
+                AlaTextStickerEditView.this.geI.setEnabled(true);
                 if (textLength == 16) {
-                    AlaTextStickerEditView.this.fYR.setTextColor(AlaTextStickerEditView.this.getContext().getResources().getColor(a.d.sdk_color_ff1e66));
+                    AlaTextStickerEditView.this.geJ.setTextColor(AlaTextStickerEditView.this.getContext().getResources().getColor(a.c.sdk_color_ff1e66));
                 } else {
-                    AlaTextStickerEditView.this.fYR.setTextColor(AlaTextStickerEditView.this.getContext().getResources().getColor(a.d.sdk_white_alpha100));
+                    AlaTextStickerEditView.this.geJ.setTextColor(AlaTextStickerEditView.this.getContext().getResources().getColor(a.c.sdk_white_alpha100));
                 }
-                AlaTextStickerEditView.this.fYR.setText(AlaTextStickerEditView.this.getContext().getString(a.i.ala_live_sticker_edit_num, Integer.valueOf((TextHelper.getTextLength(AlaTextStickerEditView.this.fYS.getText()) + 1) / 2)));
+                AlaTextStickerEditView.this.geJ.setText(AlaTextStickerEditView.this.getContext().getString(a.h.ala_live_sticker_edit_num, Integer.valueOf((TextHelper.getTextLength(AlaTextStickerEditView.this.geK.getText()) + 1) / 2)));
             }
         };
-        this.fYU = new HttpMessageListener(1021158) { // from class: com.baidu.tieba.ala.alaar.sticker.view.AlaTextStickerEditView.5
+        this.geM = new HttpMessageListener(1021158) { // from class: com.baidu.tieba.ala.alaar.sticker.view.AlaTextStickerEditView.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (!(httpResponsedMessage instanceof AntiContentHttpResponseMessage) || httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
-                    BdUtilHelper.showToast(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.getContext().getResources().getString(a.i.sdk_net_fail_tip));
-                } else if (((AntiContentHttpResponseMessage) httpResponsedMessage).bKK()) {
-                    if (AlaTextStickerEditView.this.fYT != null) {
-                        AlaTextStickerEditView.this.fYT.FX(AlaTextStickerEditView.this.fYS.getText().toString());
-                        BdUtilHelper.hideSoftKeyPad(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.fYS);
-                        AlaTextStickerEditView.this.fYT.bLt();
+                    BdUtilHelper.showToast(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.getContext().getResources().getString(a.h.sdk_net_fail_tip));
+                } else if (((AntiContentHttpResponseMessage) httpResponsedMessage).bNj()) {
+                    if (AlaTextStickerEditView.this.geL != null) {
+                        AlaTextStickerEditView.this.geL.Gl(AlaTextStickerEditView.this.geK.getText().toString());
+                        BdUtilHelper.hideSoftKeyPad(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.geK);
+                        AlaTextStickerEditView.this.geL.bNS();
                     }
                 } else {
-                    BdUtilHelper.showToast(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.getContext().getResources().getString(a.i.ala_live_sticker_edit_anti));
+                    BdUtilHelper.showToast(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.getContext().getResources().getString(a.h.ala_live_sticker_edit_anti));
                 }
             }
         };
@@ -210,25 +210,25 @@ public class AlaTextStickerEditView extends RelativeLayout {
     }
 
     private void initView() {
-        LayoutInflater.from(getContext()).inflate(a.h.ala_sticker_edit_view, this);
-        setBackgroundDrawable(getContext().getResources().getDrawable(a.f.ala_sticker_text_panel_bg));
-        this.fYQ = (TextView) findViewById(a.g.ala_sticker_edit_complete);
-        this.fYQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alaar.sticker.view.AlaTextStickerEditView.1
+        LayoutInflater.from(getContext()).inflate(a.g.ala_sticker_edit_view, this);
+        setBackgroundDrawable(getContext().getResources().getDrawable(a.e.ala_sticker_text_panel_bg));
+        this.geI = (TextView) findViewById(a.f.ala_sticker_edit_complete);
+        this.geI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alaar.sticker.view.AlaTextStickerEditView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaTextStickerEditView.this.bLC();
+                AlaTextStickerEditView.this.bOb();
             }
         });
-        this.fYR = (TextView) findViewById(a.g.ala_sticker_edit_num);
-        this.fYR.setText(getContext().getString(a.i.ala_live_sticker_edit_num, 0));
-        this.fYS = (EditText) findViewById(a.g.ala_sticker_edit_view);
-        this.fYS.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.ala.alaar.sticker.view.AlaTextStickerEditView.2
+        this.geJ = (TextView) findViewById(a.f.ala_sticker_edit_num);
+        this.geJ.setText(getContext().getString(a.h.ala_live_sticker_edit_num, 0));
+        this.geK = (EditText) findViewById(a.f.ala_sticker_edit_view);
+        this.geK.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.ala.alaar.sticker.view.AlaTextStickerEditView.2
             @Override // android.widget.TextView.OnEditorActionListener
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 switch (i) {
                     case 4:
                     case 6:
-                        AlaTextStickerEditView.this.bLC();
+                        AlaTextStickerEditView.this.bOb();
                         return true;
                     case 5:
                     default:
@@ -236,58 +236,58 @@ public class AlaTextStickerEditView extends RelativeLayout {
                 }
             }
         });
-        this.fYS.addTextChangedListener(this.mTextWatcher);
-        MessageManager.getInstance().registerListener(this.fYU);
+        this.geK.addTextChangedListener(this.mTextWatcher);
+        MessageManager.getInstance().registerListener(this.geM);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bLC() {
-        if (this.aEc != null && this.aEc.mLiveInfo != null) {
-            String obj = this.fYS.getText().toString();
-            if (j.ik(obj)) {
-                BdUtilHelper.showToast(getContext(), getContext().getResources().getString(a.i.ala_live_sticker_text_emoji_limit));
+    public void bOb() {
+        if (this.aES != null && this.aES.mLiveInfo != null) {
+            String obj = this.geK.getText().toString();
+            if (j.iD(obj)) {
+                BdUtilHelper.showToast(getContext(), getContext().getResources().getString(a.h.ala_live_sticker_text_emoji_limit));
             } else if (!TextUtils.isEmpty(obj)) {
-                com.baidu.tieba.ala.alaar.sticker.a.g.eh(this.fYS.getText().toString(), this.aEc.mLiveInfo.getLiveTitle());
-            } else if (this.fYT != null) {
-                this.fYT.FX(getContext().getResources().getString(a.i.ala_live_striker_text));
-                BdUtilHelper.hideSoftKeyPad(getContext(), this.fYS);
-                this.fYT.bLt();
+                com.baidu.tieba.ala.alaar.sticker.a.g.eh(this.geK.getText().toString(), this.aES.mLiveInfo.getLiveTitle());
+            } else if (this.geL != null) {
+                this.geL.Gl(getContext().getResources().getString(a.h.ala_live_striker_text));
+                BdUtilHelper.hideSoftKeyPad(getContext(), this.geK);
+                this.geL.bNS();
             }
         }
     }
 
     public void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.fYU);
+        MessageManager.getInstance().unRegisterListener(this.geM);
     }
 
     public void setLiveShowInfo(w wVar) {
-        this.aEc = wVar;
+        this.aES = wVar;
     }
 
     public void setTextEditCompleteListener(a aVar) {
-        this.fYT = aVar;
+        this.geL = aVar;
     }
 
-    public void FZ(String str) {
+    public void Gn(String str) {
         ViewGroup viewGroup = (ViewGroup) getParent();
         if (viewGroup != null && viewGroup.indexOfChild(this) != viewGroup.getChildCount() - 1) {
             bringToFront();
         }
         if (str != null) {
-            this.fYS.setText(str);
-            this.fYS.setSelection(this.fYS.getText().length());
-            this.fYQ.setAlpha(1.0f);
+            this.geK.setText(str);
+            this.geK.setSelection(this.geK.getText().length());
+            this.geI.setAlpha(1.0f);
         } else {
-            this.fYS.setText("");
-            this.fYS.setSelection(0);
-            this.fYQ.setAlpha(0.7f);
+            this.geK.setText("");
+            this.geK.setSelection(0);
+            this.geI.setAlpha(0.7f);
         }
-        this.fYS.requestFocus();
-        if (this.fYS != null) {
-            this.fYS.post(new Runnable() { // from class: com.baidu.tieba.ala.alaar.sticker.view.AlaTextStickerEditView.3
+        this.geK.requestFocus();
+        if (this.geK != null) {
+            this.geK.post(new Runnable() { // from class: com.baidu.tieba.ala.alaar.sticker.view.AlaTextStickerEditView.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    BdUtilHelper.showSoftKeyPad(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.fYS);
+                    BdUtilHelper.showSoftKeyPad(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.geK);
                 }
             });
         }

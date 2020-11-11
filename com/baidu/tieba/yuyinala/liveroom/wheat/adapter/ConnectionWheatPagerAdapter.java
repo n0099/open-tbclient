@@ -8,19 +8,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ConnectionWheatPagerAdapter extends PagerAdapter {
-    private List<View> aXw;
+    private List<View> aYO;
 
     public ConnectionWheatPagerAdapter(List<View> list) {
-        this.aXw = new ArrayList();
-        this.aXw = list;
+        this.aYO = new ArrayList();
+        this.aYO = list;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        if (this.aXw == null) {
+        if (this.aYO == null) {
             return 0;
         }
-        return this.aXw.size();
+        return this.aYO.size();
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -31,7 +31,7 @@ public class ConnectionWheatPagerAdapter extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         if (i >= 0 && i < getCount()) {
-            View view = this.aXw.get(i);
+            View view = this.aYO.get(i);
             P(view);
             viewGroup.removeView(view);
         }
@@ -42,7 +42,7 @@ public class ConnectionWheatPagerAdapter extends PagerAdapter {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        View view = this.aXw.get(i);
+        View view = this.aYO.get(i);
         viewGroup.addView(view);
         return view;
     }

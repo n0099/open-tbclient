@@ -3,11 +3,11 @@ package com.baidu.mobads;
 class d implements BaiduHybridAdViewListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BaiduHybridAdManager f2324a;
+    final /* synthetic */ BaiduHybridAdManager f2326a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(BaiduHybridAdManager baiduHybridAdManager) {
-        this.f2324a = baiduHybridAdManager;
+        this.f2326a = baiduHybridAdManager;
     }
 
     @Override // com.baidu.mobads.BaiduHybridAdViewListener

@@ -8,11 +8,11 @@ import java.util.TimerTask;
 final class aw extends TimerTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ av f3761a;
+    final /* synthetic */ av f3763a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aw(av avVar) {
-        this.f3761a = avVar;
+        this.f3763a = avVar;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
@@ -23,13 +23,13 @@ final class aw extends TimerTask {
         Timer timer3;
         Message message = new Message();
         message.what = 3;
-        handler = this.f3761a.f3760a.v;
+        handler = this.f3763a.f3762a.v;
         handler.sendMessage(message);
-        timer = this.f3761a.f3760a.p;
+        timer = this.f3763a.f3762a.p;
         if (timer != null) {
-            timer2 = this.f3761a.f3760a.p;
+            timer2 = this.f3763a.f3762a.p;
             timer2.cancel();
-            timer3 = this.f3761a.f3760a.p;
+            timer3 = this.f3763a.f3762a.p;
             timer3.purge();
         }
     }

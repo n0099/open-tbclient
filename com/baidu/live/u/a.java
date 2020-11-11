@@ -1,31 +1,35 @@
 package com.baidu.live.u;
 
-import android.view.ViewGroup;
-import com.baidu.live.data.w;
-import com.baidu.live.liveroom.g.d;
+import android.content.Context;
 /* loaded from: classes4.dex */
-public interface a {
-    void CT();
+public class a {
+    public String aVy;
+    public long bri;
+    public Context context;
+    public boolean isHost;
+    public int liveType;
+    public String otherParams;
+    public String portrait;
+    public long userId;
+    public String userName;
 
-    void D(int i, int i2);
+    public a(Context context, int i, long j, boolean z, String str) {
+        this.context = context;
+        this.liveType = i;
+        this.userId = j;
+        this.isHost = z;
+        this.portrait = str;
+        this.otherParams = "";
+    }
 
-    d OK();
-
-    com.baidu.live.liveroom.g.b OL();
-
-    void a(ViewGroup viewGroup, ViewGroup viewGroup2);
-
-    void a(b bVar);
-
-    void a(c cVar);
-
-    void close();
-
-    boolean isOpen();
-
-    void o(w wVar);
-
-    void onClose();
-
-    void onDestroy();
+    public a(Context context, int i, long j, boolean z, String str, String str2, String str3, long j2) {
+        this.context = context;
+        this.liveType = i;
+        this.userId = j;
+        this.isHost = z;
+        this.portrait = str;
+        this.otherParams = str2;
+        this.aVy = str3;
+        this.bri = j2;
+    }
 }

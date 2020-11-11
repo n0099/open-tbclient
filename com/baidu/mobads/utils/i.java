@@ -13,7 +13,7 @@ import java.util.Observer;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private static long f2439a = 30000000;
+    private static long f2441a = 30000000;
     private Context b;
 
     public i(Context context) {
@@ -21,7 +21,7 @@ public class i {
     }
 
     public static void a(int i) {
-        f2439a = i * 1000 * 1000;
+        f2441a = i * 1000 * 1000;
     }
 
     public void a(String str) {

@@ -15,7 +15,7 @@ import java.lang.reflect.Method;
 public final class SafeKeyBoardUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1543a;
+    private String f1545a;
     private Context b;
     private SafeKeyBoardEditText c;
     private ViewGroup d;

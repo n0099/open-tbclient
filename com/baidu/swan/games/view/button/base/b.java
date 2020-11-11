@@ -11,8 +11,8 @@ import com.baidu.swan.apps.ap.ah;
 import com.baidu.swan.apps.ap.ak;
 import com.baidu.swan.games.view.button.base.a;
 /* loaded from: classes10.dex */
-public class b extends EventTargetImpl implements a.InterfaceC0534a {
-    protected ApiButton dUF;
+public class b extends EventTargetImpl implements a.InterfaceC0546a {
+    protected ApiButton eax;
     @V8JavascriptField
     public String image;
     @V8JavascriptField
@@ -25,7 +25,7 @@ public class b extends EventTargetImpl implements a.InterfaceC0534a {
     public b(JsObject jsObject, com.baidu.swan.games.f.b bVar) {
         super(bVar);
         this.type = "text";
-        this.text = com.baidu.swan.apps.t.a.aua().getString(a.h.aiapps_aigames_userinfo_button_text_des);
+        this.text = com.baidu.swan.apps.t.a.awA().getString(a.h.aiapps_aigames_userinfo_button_text_des);
         p(jsObject);
     }
 
@@ -34,9 +34,9 @@ public class b extends EventTargetImpl implements a.InterfaceC0534a {
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.button.base.b.1
             @Override // java.lang.Runnable
             public void run() {
-                if (b.this.dUF != null) {
-                    com.baidu.swan.games.view.c.removeView(b.this.dUF);
-                    b.this.dUF = null;
+                if (b.this.eax != null) {
+                    com.baidu.swan.games.view.c.removeView(b.this.eax);
+                    b.this.eax = null;
                 }
             }
         });
@@ -47,8 +47,8 @@ public class b extends EventTargetImpl implements a.InterfaceC0534a {
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.button.base.b.2
             @Override // java.lang.Runnable
             public void run() {
-                if (b.this.dUF != null) {
-                    b.this.dUF.hide();
+                if (b.this.eax != null) {
+                    b.this.eax.hide();
                 }
             }
         });
@@ -59,8 +59,8 @@ public class b extends EventTargetImpl implements a.InterfaceC0534a {
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.button.base.b.3
             @Override // java.lang.Runnable
             public void run() {
-                if (b.this.dUF != null) {
-                    b.this.dUF.show();
+                if (b.this.eax != null) {
+                    b.this.eax.show();
                 }
             }
         });
@@ -74,7 +74,7 @@ public class b extends EventTargetImpl implements a.InterfaceC0534a {
                 if (com.baidu.swan.apps.b.DEBUG) {
                     Log.d("BaseButtonProxy", "onFieldChangedCallback fieldName=" + str);
                 }
-                if (b.this.dUF != null) {
+                if (b.this.eax != null) {
                     String str2 = str;
                     char c = 65535;
                     switch (str2.hashCode()) {
@@ -93,10 +93,10 @@ public class b extends EventTargetImpl implements a.InterfaceC0534a {
                     }
                     switch (c) {
                         case 0:
-                            b.this.dUF.setButtonText(b.this.text);
+                            b.this.eax.setButtonText(b.this.text);
                             return;
                         case 1:
-                            b.this.dUF.setImageUrl(b.this.image);
+                            b.this.eax.setImageUrl(b.this.image);
                             return;
                         default:
                             return;
@@ -106,50 +106,50 @@ public class b extends EventTargetImpl implements a.InterfaceC0534a {
         });
     }
 
-    @Override // com.baidu.swan.games.view.button.base.a.InterfaceC0534a
-    public void aVU() {
+    @Override // com.baidu.swan.games.view.button.base.a.InterfaceC0546a
+    public void aYu() {
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.button.base.b.5
             @Override // java.lang.Runnable
             public void run() {
-                if (b.this.dUF != null && !b.this.aVW()) {
-                    b.this.dUF.aVM();
+                if (b.this.eax != null && !b.this.aYw()) {
+                    b.this.eax.aYm();
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean aVV() {
-        if (this.dUF == null || this.style == null) {
+    public boolean aYv() {
+        if (this.eax == null || this.style == null) {
             return false;
         }
         this.style.a(this);
-        com.baidu.swan.apps.model.a.a.a aVX = aVX();
-        return aVX != null && com.baidu.swan.games.view.c.c(this.dUF, aVX);
+        com.baidu.swan.apps.model.a.a.a aYx = aYx();
+        return aYx != null && com.baidu.swan.games.view.c.c(this.eax, aYx);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aVW() {
-        com.baidu.swan.apps.model.a.a.a aVX;
-        return (this.dUF == null || this.style == null || (aVX = aVX()) == null || !com.baidu.swan.games.view.c.b(this.dUF, aVX)) ? false : true;
+    public boolean aYw() {
+        com.baidu.swan.apps.model.a.a.a aYx;
+        return (this.eax == null || this.style == null || (aYx = aYx()) == null || !com.baidu.swan.games.view.c.b(this.eax, aYx)) ? false : true;
     }
 
-    private com.baidu.swan.apps.model.a.a.a aVX() {
-        if (this.style == null || this.dUF == null) {
+    private com.baidu.swan.apps.model.a.a.a aYx() {
+        if (this.style == null || this.eax == null) {
             return null;
         }
-        int L = ah.L(this.style.width);
-        int L2 = ah.L(this.style.height);
-        int L3 = ah.L(this.style.left);
-        int L4 = ah.L(this.style.top);
-        int L5 = ah.L(this.style.borderWidth);
-        int i = L < L5 * 2 ? L5 * 2 : L;
-        int i2 = L2 < L5 * 2 ? L5 * 2 : L2;
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.dUF.getLayoutParams();
-        if (layoutParams != null && layoutParams.width == i && layoutParams.height == i2 && layoutParams.leftMargin == L3 && layoutParams.topMargin == L4) {
+        int N = ah.N(this.style.width);
+        int N2 = ah.N(this.style.height);
+        int N3 = ah.N(this.style.left);
+        int N4 = ah.N(this.style.top);
+        int N5 = ah.N(this.style.borderWidth);
+        int i = N < N5 * 2 ? N5 * 2 : N;
+        int i2 = N2 < N5 * 2 ? N5 * 2 : N2;
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.eax.getLayoutParams();
+        if (layoutParams != null && layoutParams.width == i && layoutParams.height == i2 && layoutParams.leftMargin == N3 && layoutParams.topMargin == N4) {
             return null;
         }
-        return new com.baidu.swan.apps.model.a.a.a(L3, L4, i, i2);
+        return new com.baidu.swan.apps.model.a.a.a(N3, N4, i, i2);
     }
 
     private void p(JsObject jsObject) {

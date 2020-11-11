@@ -17,9 +17,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public class c {
-    private String ebQ;
-    private final String nFG = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
-    private ArrayList<String> nyb;
+    private String ehI;
+    private ArrayList<String> nDV;
+    private final String nLA = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
 
     public void a(EditText editText, boolean z) {
         Editable text;
@@ -39,10 +39,10 @@ public class c {
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !y.isEmpty(this.nyb)) {
+        if (spannable != null && !y.isEmpty(this.nDV)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.nyb.iterator();
+                Iterator<String> it = this.nDV.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -91,7 +91,7 @@ public class c {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (y.isEmpty(dQr())) {
+        if (y.isEmpty(dST())) {
             return false;
         }
         return i(editText) || i(editText2);
@@ -114,19 +114,19 @@ public class c {
     }
 
     public void bk(ArrayList<String> arrayList) {
-        this.nyb = arrayList;
+        this.nDV = arrayList;
     }
 
-    public ArrayList<String> dQr() {
-        return this.nyb;
+    public ArrayList<String> dST() {
+        return this.nDV;
     }
 
-    public void Uj(String str) {
-        this.ebQ = str;
+    public void UA(String str) {
+        this.ehI = str;
     }
 
-    public String dQv() {
-        return this.ebQ;
+    public String dSX() {
+        return this.ehI;
     }
 
     private void c(Spannable spannable) {

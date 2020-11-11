@@ -42,9 +42,9 @@ public class SplashHttpResponse extends JsonHttpResponsedMessage {
 
     private void dealVideoAd() {
         if (n.checkSD()) {
-            b Fw = b.Fw(com.baidu.tieba.advert.sdk.c.a.bHZ());
+            b FK = b.FK(com.baidu.tieba.advert.sdk.c.a.bKy());
             if (!this.adInfo.shouldDownloadVideo()) {
-                this.adInfo.videoLocalPath = Fw.videoLocalPath;
+                this.adInfo.videoLocalPath = FK.videoLocalPath;
                 com.baidu.tieba.advert.sdk.c.a.c(this.adInfo);
             } else if (j.isNetWorkAvailable() && j.isWifiNet()) {
                 com.baidu.tieba.advert.sdk.b.a searchTask = searchTask(this.adInfo.adVideoUrl);

@@ -1,31 +1,31 @@
 package com.baidu.tieba.ala.liveroom.challenge.panel;
 /* loaded from: classes4.dex */
 public interface n {
-    void Dr();
+    void DK();
 
-    void X(long j);
+    void aj(long j);
 
-    void bO(int i, int i2);
+    void bQ(int i, int i2);
 
-    void bXL();
+    void can();
 
-    void bXM();
+    void cao();
 
-    void bXN();
+    void cap();
 
-    void bXO();
+    void caq();
 
-    void bXP();
+    void car();
 
-    void bXQ();
+    void cas();
 
     void dN(int i);
 
-    void ey(long j);
+    void eU(long j);
 
-    void ez(long j);
+    void eV(long j);
 
-    void ge(String str);
+    void gj(String str);
 
     void k(int i, int i2, String str);
 

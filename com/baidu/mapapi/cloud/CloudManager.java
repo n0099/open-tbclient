@@ -8,7 +8,7 @@ import com.baidu.platform.comjni.map.cloud.a;
 public class CloudManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1983a = CloudManager.class.getSimpleName();
+    private static final String f1985a = CloudManager.class.getSimpleName();
     private static CloudManager b;
     private ICloudCenter c;
 

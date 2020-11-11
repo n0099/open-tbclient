@@ -7,7 +7,7 @@ import android.text.TextUtils;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    static b f2574a = new b();
+    static b f2576a = new b();
 
     b() {
     }

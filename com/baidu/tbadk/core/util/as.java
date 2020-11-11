@@ -6,20 +6,20 @@ import com.baidu.tbadk.TbConfig;
 import java.io.File;
 /* loaded from: classes.dex */
 public class as {
-    private static as eHO;
+    private static as eND;
 
-    public static synchronized as boL() {
+    public static synchronized as brl() {
         as asVar;
         synchronized (as.class) {
-            if (eHO == null) {
-                eHO = new as();
+            if (eND == null) {
+                eND = new as();
             }
-            asVar = eHO;
+            asVar = eND;
         }
         return asVar;
     }
 
-    public String BG(String str) {
+    public String BU(String str) {
         if (str == null) {
             return null;
         }
@@ -34,21 +34,21 @@ public class as {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return n.getImage(BG(str), str);
+        return n.getImage(BU(str), str);
     }
 
     public boolean isGif(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return n.isGif(BG(str), str);
+        return n.isGif(BU(str), str);
     }
 
-    public int BH(String str) {
+    public int BV(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
-        return (int) n.checkImageFileSize(BG(str), str);
+        return (int) n.checkImageFileSize(BU(str), str);
     }
 
     public boolean copyFile(String str, String str2) {
@@ -56,7 +56,7 @@ public class as {
         if (!n.CheckTempDir(str3)) {
             n.makeRootDirectory(str3);
         }
-        String str4 = str3 + BG(str2);
+        String str4 = str3 + BU(str2);
         if (!n.CheckTempDir(str4)) {
             n.makeRootDirectory(str4);
         }
@@ -64,12 +64,12 @@ public class as {
         if (str.equals(str5)) {
             return false;
         }
-        return n.u(str, str5, true);
+        return n.v(str, str5, true);
     }
 
     public void j(String str, byte[] bArr) {
         if (!TextUtils.isEmpty(str)) {
-            n.c(BG(str), str, bArr);
+            n.c(BU(str), str, bArr);
         }
     }
 
@@ -86,7 +86,7 @@ public class as {
         }
     }
 
-    public void boM() {
+    public void brm() {
         S(new File(n.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + n.getPrefixByType(3)));
     }
 

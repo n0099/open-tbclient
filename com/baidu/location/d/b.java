@@ -6,19 +6,19 @@ import java.lang.ref.WeakReference;
 class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WeakReference f1941a;
+    final /* synthetic */ WeakReference f1943a;
     final /* synthetic */ a b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, WeakReference weakReference) {
         this.b = aVar;
-        this.f1941a = weakReference;
+        this.f1943a = weakReference;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         int i;
-        a aVar = (a) this.f1941a.get();
+        a aVar = (a) this.f1943a.get();
         if (aVar != null) {
             i = aVar.h;
             if (i == 3) {

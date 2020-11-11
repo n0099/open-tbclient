@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<c> f1429a = new ArrayList<>();
+    private ArrayList<c> f1431a = new ArrayList<>();
     private c b;
 
     public b(Context context) {
@@ -29,10 +29,10 @@ public class b {
     private JSONObject a(JSONObject jSONObject) throws JSONException {
         this.b.a(jSONObject);
         JSONArray jSONArray = new JSONArray();
-        int size = this.f1429a.size();
+        int size = this.f1431a.size();
         for (int i = 0; i < size; i++) {
             JSONObject jSONObject2 = new JSONObject();
-            this.f1429a.get(i).a(jSONObject2);
+            this.f1431a.get(i).a(jSONObject2);
             jSONArray.put(jSONObject2);
         }
         jSONObject.put("data", jSONArray);
@@ -58,9 +58,9 @@ public class b {
             return;
         }
         e eVar = new e(i, str, str2);
-        int size = this.f1429a.size();
+        int size = this.f1431a.size();
         for (int i2 = 0; i2 < size; i2++) {
-            c cVar = this.f1429a.get(i2);
+            c cVar = this.f1431a.get(i2);
             if (cVar != null && cVar.a() == i) {
                 cVar.a(eVar);
                 return;
@@ -68,7 +68,7 @@ public class b {
         }
         c cVar2 = new c(i);
         cVar2.a(eVar);
-        this.f1429a.add(cVar2);
+        this.f1431a.add(cVar2);
     }
 
     public void a(int i, HashMap<String, String> hashMap) {

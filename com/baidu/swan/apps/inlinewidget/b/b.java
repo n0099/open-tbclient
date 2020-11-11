@@ -7,22 +7,22 @@ import com.baidu.swan.apps.inlinewidget.b.a;
 public class b extends com.baidu.swan.apps.inlinewidget.b<a> {
     public b(@NonNull a aVar) {
         super(aVar);
-        ((a) this.cPV).a(new a.InterfaceC0433a() { // from class: com.baidu.swan.apps.inlinewidget.b.b.1
-            @Override // com.baidu.swan.apps.inlinewidget.b.a.InterfaceC0433a
+        ((a) this.cVO).a(new a.InterfaceC0445a() { // from class: com.baidu.swan.apps.inlinewidget.b.b.1
+            @Override // com.baidu.swan.apps.inlinewidget.b.a.InterfaceC0445a
             public void z(Bundle bundle) {
-                if (b.this.cPU != null) {
-                    b.this.cPU.onCallback(b.this, "onMediaMetadataExtracted", bundle);
+                if (b.this.cVN != null) {
+                    b.this.cVN.onCallback(b.this, "onMediaMetadataExtracted", bundle);
                 }
             }
 
-            @Override // com.baidu.swan.apps.inlinewidget.b.a.InterfaceC0433a
+            @Override // com.baidu.swan.apps.inlinewidget.b.a.InterfaceC0445a
             public void onRelease() {
-                if (b.this.cPU != null) {
-                    b.this.cPU = null;
+                if (b.this.cVN != null) {
+                    b.this.cVN = null;
                 }
             }
         });
-        this.cPT.a(new com.baidu.swan.apps.inlinewidget.b.a.a());
-        this.cPT.a(new com.baidu.swan.apps.inlinewidget.b.a.b());
+        this.cVM.a(new com.baidu.swan.apps.inlinewidget.b.a.a());
+        this.cVM.a(new com.baidu.swan.apps.inlinewidget.b.a.b());
     }
 }

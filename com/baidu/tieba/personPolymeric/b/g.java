@@ -31,136 +31,136 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes24.dex */
 public class g extends e implements com.baidu.tieba.personPolymeric.mode.b {
-    private TbPageContext eCn;
-    private com.baidu.tieba.c.h iWO;
-    private final BaseFragmentActivity ifx;
-    private BaseFragment lWa;
-    private f lWb;
-    private final PersonPolymericModel lWc;
-    private final d lWd;
-    private final BlackListModel lWe;
-    private k lWf;
-    private com.baidu.tieba.personPolymeric.event.c lWg;
-    private h lWh;
-    private boolean lWi;
-    private boolean lWj;
-    private final f.b lWk;
-    private CustomMessageListener lWl;
+    private TbPageContext eIc;
+    private final BaseFragmentActivity ilu;
+    private com.baidu.tieba.c.h jcL;
     private final BdUniqueId mPageId;
     private String mPortrait;
     public final View mRootView;
     private int mSkinType;
     private long mUserId;
+    private BaseFragment mbZ;
+    private f mca;
+    private final PersonPolymericModel mcb;
+    private final d mcc;
+    private final BlackListModel mcd;
+    private k mce;
+    private com.baidu.tieba.personPolymeric.event.c mcf;
+    private h mcg;
+    private boolean mch;
+    private boolean mci;
+    private final f.b mcj;
+    private CustomMessageListener mck;
 
     public g(BaseFragment baseFragment, View view, BdUniqueId bdUniqueId, long j, boolean z, boolean z2, String str) {
         super(z);
         this.mSkinType = 3;
-        this.lWi = false;
-        this.lWk = new f.b() { // from class: com.baidu.tieba.personPolymeric.b.g.1
+        this.mch = false;
+        this.mcj = new f.b() { // from class: com.baidu.tieba.personPolymeric.b.g.1
             @Override // com.baidu.tieba.personPolymeric.b.f.b
-            public void dt(View view2) {
+            public void dy(View view2) {
                 g.this.loadData();
             }
         };
-        this.lWl = new CustomMessageListener(2921424) { // from class: com.baidu.tieba.personPolymeric.b.g.2
+        this.mck = new CustomMessageListener(2921424) { // from class: com.baidu.tieba.personPolymeric.b.g.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 g.this.refreshData();
             }
         };
-        this.lWa = baseFragment;
-        this.ifx = this.lWa.getBaseFragmentActivity();
+        this.mbZ = baseFragment;
+        this.ilu = this.mbZ.getBaseFragmentActivity();
         this.mRootView = view;
         this.mPageId = bdUniqueId;
         this.mUserId = j;
         this.mPortrait = str;
-        this.lWj = z2;
-        this.eCn = this.ifx.getPageContext();
-        MessageManager.getInstance().registerListener(this.lWl);
-        this.lWd = new d(this.lWa.getPageContext(), bdUniqueId);
-        this.lWb = new f(this.lWa.getPageContext(), view, z);
-        this.lWb.a(this.lWk);
-        this.lWg = new com.baidu.tieba.personPolymeric.event.c(this.eCn, this);
-        this.lWc = new PersonPolymericModel(this.ifx, bdUniqueId, z);
-        this.lWc.e(new p(z));
-        this.lWc.a(this);
-        this.lWc.a(this.lWd);
-        this.lWe = new BlackListModel(this.ifx.getPageContext(), bdUniqueId);
+        this.mci = z2;
+        this.eIc = this.ilu.getPageContext();
+        MessageManager.getInstance().registerListener(this.mck);
+        this.mcc = new d(this.mbZ.getPageContext(), bdUniqueId);
+        this.mca = new f(this.mbZ.getPageContext(), view, z);
+        this.mca.a(this.mcj);
+        this.mcf = new com.baidu.tieba.personPolymeric.event.c(this.eIc, this);
+        this.mcb = new PersonPolymericModel(this.ilu, bdUniqueId, z);
+        this.mcb.e(new p(z));
+        this.mcb.a(this);
+        this.mcb.a(this.mcc);
+        this.mcd = new BlackListModel(this.ilu.getPageContext(), bdUniqueId);
         if (StringUtils.isNull(this.mPortrait)) {
-            this.lWf = new k(this.lWa, this, this.mPageId, this.mUserId, z);
-            this.lWf.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            this.lWf.a(this.lWg);
+            this.mce = new k(this.mbZ, this, this.mPageId, this.mUserId, z);
+            this.mce.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            this.mce.a(this.mcf);
         }
-        this.lWh = new h(this.eCn, this.lWd, this.lWe, bdUniqueId);
+        this.mcg = new h(this.eIc, this.mcc, this.mcd, bdUniqueId);
         loadData();
     }
 
-    public b dsK() {
-        return this.lWf;
+    public b dvm() {
+        return this.mce;
     }
 
-    public h dsL() {
-        return this.lWh;
+    public h dvn() {
+        return this.mcg;
     }
 
-    public i dsM() {
+    public i dvo() {
         return null;
     }
 
-    public PersonPolymericModel dsN() {
-        return this.lWc;
+    public PersonPolymericModel dvp() {
+        return this.mcb;
     }
 
-    public f dsO() {
-        return this.lWb;
+    public f dvq() {
+        return this.mca;
     }
 
     public void loadData() {
         if (!TbadkCoreApplication.isLogin() && this.mIsHost) {
-            this.lWb.cGb();
+            this.mca.cIC();
         } else if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
-            com.baidu.tieba.personPolymeric.b.dsB().gs(System.currentTimeMillis());
-            this.lWb.D(false, -1);
-            this.lWb.vK(true);
-            this.lWc.gu(this.mUserId);
-            this.lWc.x(this.mUserId, this.mPortrait);
+            com.baidu.tieba.personPolymeric.b.dvd().gO(System.currentTimeMillis());
+            this.mca.D(false, -1);
+            this.mca.vT(true);
+            this.mcb.gQ(this.mUserId);
+            this.mcb.y(this.mUserId, this.mPortrait);
         } else {
-            this.lWb.hideLoadingView();
-            this.lWb.GR(8);
-            this.lWb.aQ(this.lWa.getString(R.string.neterror), true);
+            this.mca.hideLoadingView();
+            this.mca.He(8);
+            this.mca.aQ(this.mbZ.getString(R.string.neterror), true);
         }
     }
 
     public void refreshData() {
         if (!TbadkCoreApplication.isLogin() && this.mIsHost) {
-            this.lWb.cGb();
+            this.mca.cIC();
         } else if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
-            this.lWc.x(this.mUserId, this.mPortrait);
+            this.mcb.y(this.mUserId, this.mPortrait);
         } else {
-            this.lWb.hideLoadingView();
-            l.showToast(this.eCn.getContext(), this.eCn.getString(R.string.data_load_error));
+            this.mca.hideLoadingView();
+            l.showToast(this.eIc.getContext(), this.eIc.getString(R.string.data_load_error));
             ArrayList arrayList = new ArrayList();
             com.baidu.tieba.personPolymeric.c.i iVar = new com.baidu.tieba.personPolymeric.c.i();
             iVar.isHost = this.mIsHost;
             arrayList.add(iVar);
-            this.lWb.bNw();
-            this.lWb.ff(arrayList);
-            this.lWb.dsJ();
+            this.mca.bPW();
+            this.mca.fn(arrayList);
+            this.mca.dvl();
         }
     }
 
-    public com.baidu.tieba.personPolymeric.c.a vL(boolean z) {
+    public com.baidu.tieba.personPolymeric.c.a vU(boolean z) {
         if (z) {
-            this.lWi = z;
+            this.mch = z;
             if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
-                this.lWc.x(this.mUserId, this.mPortrait);
+                this.mcb.y(this.mUserId, this.mPortrait);
             }
         }
-        return this.lWc.dtG();
+        return this.mcb.dwi();
     }
 
-    public void dsP() {
+    public void dvr() {
         new com.baidu.tieba.person.a().a(TbConfig.PERSON_USER_PIC_TEMP_FILE, new a.b() { // from class: com.baidu.tieba.personPolymeric.b.g.3
             @Override // com.baidu.tieba.person.a.b
             public void a(int i, String str, ImageUploadResult imageUploadResult) {
@@ -169,17 +169,17 @@ public class g extends e implements com.baidu.tieba.personPolymeric.mode.b {
                     if (imageUploadResult.picInfo != null && imageUploadResult.picInfo.bigPic != null) {
                         str2 = imageUploadResult.picInfo.bigPic.picUrl;
                     }
-                    j.p(str2, g.this.dsQ());
+                    j.p(str2, g.this.dvs());
                 }
             }
         });
     }
 
-    public List<q> dsQ() {
-        if (this.lWc.dtG() == null) {
+    public List<q> dvs() {
+        if (this.mcb.dwi() == null) {
             return null;
         }
-        return this.lWc.dtG().dsQ();
+        return this.mcb.dwi().dvs();
     }
 
     @Override // com.baidu.tieba.personPolymeric.mode.b
@@ -189,25 +189,25 @@ public class g extends e implements com.baidu.tieba.personPolymeric.mode.b {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921443, Long.valueOf(this.mUserId)));
             this.mIsHost = this.mUserId == com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L);
         }
-        this.lWb.hideLoadingView();
-        if (this.lWh != null) {
-            this.lWh.d(aVar);
+        this.mca.hideLoadingView();
+        if (this.mcg != null) {
+            this.mcg.d(aVar);
         }
         if (aVar != null) {
-            this.lWb.b(aVar);
+            this.mca.b(aVar);
         }
-        if (this.lWf != null) {
-            this.lWf.d(aVar);
+        if (this.mce != null) {
+            this.mce.d(aVar);
         } else {
-            this.lWf = new k(this.lWa, this, this.mPageId, this.mUserId, this.mIsHost);
-            this.lWf.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            this.lWf.a(this.lWg);
-            this.lWf.d(aVar);
+            this.mce = new k(this.mbZ, this, this.mPageId, this.mUserId, this.mIsHost);
+            this.mce.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            this.mce.a(this.mcf);
+            this.mce.d(aVar);
         }
-        if (this.lWi && aVar != null && aVar.lXj != null && aVar.lXj.left_days != null && aVar.getUserData() != null) {
+        if (this.mch && aVar != null && aVar.mdi != null && aVar.mdi.left_days != null && aVar.getUserData() != null) {
             PersonChangeData personChangeData = new PersonChangeData();
             personChangeData.setMem(aVar.getUserData().getIsMem());
-            personChangeData.setNickNameLeftDays(aVar.lXj.left_days.intValue());
+            personChangeData.setNickNameLeftDays(aVar.mdi.left_days.intValue());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_NOTIFY_PERSON_CHANGE_MEMBER, personChangeData));
         }
     }
@@ -216,48 +216,48 @@ public class g extends e implements com.baidu.tieba.personPolymeric.mode.b {
         if (postWriteCallBackData == null || postWriteCallBackData.getVideoEasterEggData() == null || at.isEmpty(postWriteCallBackData.getVideoEasterEggData().getVideoUrl())) {
             return false;
         }
-        if (com.baidu.tbadk.core.sharedPref.b.bnH().getBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(postWriteCallBackData.getVideoEasterEggData().getActivityID()), true)) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VideoEasterEggActivityConfig(this.ifx).createNormalConfig("from_person", postWriteCallBackData.getVideoEasterEggData())));
+        if (com.baidu.tbadk.core.sharedPref.b.bqh().getBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(postWriteCallBackData.getVideoEasterEggData().getActivityID()), true)) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VideoEasterEggActivityConfig(this.ilu).createNormalConfig("from_person", postWriteCallBackData.getVideoEasterEggData())));
             return true;
         }
         return false;
     }
 
     public void b(PostWriteCallBackData postWriteCallBackData) {
-        if (this.iWO == null) {
-            this.iWO = new com.baidu.tieba.c.h(this.ifx.getPageContext(), (NavigationBarCoverTip) this.ifx.findViewById(R.id.navigation_cover_tip));
+        if (this.jcL == null) {
+            this.jcL = new com.baidu.tieba.c.h(this.ilu.getPageContext(), (NavigationBarCoverTip) this.ilu.findViewById(R.id.navigation_cover_tip));
         }
-        this.iWO.b(postWriteCallBackData);
+        this.jcL.b(postWriteCallBackData);
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            if (this.lWf != null) {
-                this.lWf.onChangeSkinType(i);
+            if (this.mce != null) {
+                this.mce.onChangeSkinType(i);
             }
             this.mSkinType = i;
         }
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.lWl);
-        if (this.lWf != null) {
-            this.lWf.onDestroy();
+        MessageManager.getInstance().unRegisterListener(this.mck);
+        if (this.mce != null) {
+            this.mce.onDestroy();
         }
-        if (this.lWc != null) {
-            this.lWc.destroy();
+        if (this.mcb != null) {
+            this.mcb.destroy();
         }
     }
 
-    public void bP(boolean z) {
-        if (this.lWf != null) {
-            this.lWf.bP(z);
+    public void bQ(boolean z) {
+        if (this.mce != null) {
+            this.mce.bQ(z);
         }
     }
 
     public void onResume() {
-        if (this.lWf != null) {
-            this.lWf.onResume();
+        if (this.mce != null) {
+            this.mce.onResume();
         }
     }
 }

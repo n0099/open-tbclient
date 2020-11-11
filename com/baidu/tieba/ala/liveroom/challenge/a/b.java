@@ -7,11 +7,11 @@ import org.json.JSONObject;
 public class b {
     public String bgurl;
     public String file;
-    public int gUc;
-    public int gUd;
-    public int gUe;
-    public int gUf;
-    public String gUg;
+    public int hag;
+    public int hah;
+    public int hai;
+    public int haj;
+    public String hak;
     public String id;
     public String name;
     public String sk;
@@ -26,11 +26,11 @@ public class b {
             this.bgurl = jSONObject.optString("bgurl");
             this.subType = jSONObject.optInt(FuFaceItem.JK_SUB_TYPE);
             this.tip = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_TIP);
-            this.gUc = jSONObject.optInt(FuFaceItem.JK_ABILITY);
-            this.gUd = jSONObject.optInt("control_mode");
-            this.gUe = jSONObject.optInt(FuFaceItem.JK_MIN_SDK_VERSION);
-            this.gUf = jSONObject.optInt(FuFaceItem.JK_MAX_SDK_VERSION);
-            this.gUg = jSONObject.optString("file_md5");
+            this.hag = jSONObject.optInt(FuFaceItem.JK_ABILITY);
+            this.hah = jSONObject.optInt("control_mode");
+            this.hai = jSONObject.optInt(FuFaceItem.JK_MIN_SDK_VERSION);
+            this.haj = jSONObject.optInt(FuFaceItem.JK_MAX_SDK_VERSION);
+            this.hak = jSONObject.optString("file_md5");
             this.sk = jSONObject.optString("sk");
         }
     }
